@@ -19,16 +19,16 @@ This diagram shows you how alerts work:
 
 :::image type="content" source="media/alerts-overview/alerts-flow.png" alt-text="Graphic explaining Azure Monitor alerts.":::
 
-- An **alert rule** monitors your telemetry and captures a signal that indicates that something is happening on a specified target. After capturing the signal, the alert rule checks to see if the signal meets the criteria of the condition. If the conditions are met, an alert is triggered, which initiates the associated action group and updates the state of the alert. An alert rule is made up of:
+An **alert rule** monitors your telemetry and captures a signal that indicates that something is happening on a specified target. After capturing the signal, the alert rule checks to see if the signal meets the criteria of the condition. If the conditions are met, an alert is triggered, which initiates the associated action group and updates the state of the alert. 
+ 
+You create an alert rule by combining :
      - The resource(s) to be monitored.
      - The signal or telemetry from the resource
      - Conditions
 If you are monitoring more than one resource, the condition is evaluated separately for each of the resources and alerts are fired for each resource separately.
 
-    Use these links to learn how to [create a new alert rule](alerts-log.md#create-a-new-log-alert-rule-in-the-azure-portal), or [enable recommended out-of-the-box alert rules in the Azure portal (preview)](alerts-log.md#enable-recommended-out-of-the-box-alert-rules-in-the-azure-portal-preview). 
-
 Once an alert is triggered, the alert is made up of:
- - An **alert processing rule** that allows you to apply processing on fired alerts. Alert processing rules modify the fired alerts as they are being fired. You can use alert processing rules to add or suppress action groups, apply filters or have the rule processed on a pre-defined schedule.
+ - An **Alert processing rule** allows you to apply processing on fired alerts. Alert processing rules modify the fired alerts as they are being fired. You can use alert processing rules to add or suppress action groups, apply filters or have the rule processed on a pre-defined schedule.
  - An **action group** can trigger notifications or an automated workflow to let users know that an alert has been triggered. Action groups can include:
      - Notification methods such as email, SMS, and push notifications.
      - Automation Runbooks
@@ -42,11 +42,9 @@ Once an alert is triggered, the alert is made up of:
 - The **user response** is set by the user and doesn’t change until the user changes it. 
 
 You can see all all alert instances in all your Azure resources generated in the last 30 days on the **[Alerts page](alerts-page.md)** in the Azure portal. 
-
-Learn how to create an alert rule [here](alerts-log.md).
 ## Types of alerts
 
-There are four types of alerts:
+There are four types of alerts. See [Types of Azure Monitor alerts](alerts-types.md) for detailed information about each alert type and how to choose which alert type best suits your needs.
 
 |Alert type|Description|
 |:---------|:---------|
@@ -54,18 +52,6 @@ There are four types of alerts:
 |[Log alerts](alerts-types.md#log-alerts)|Log alerts allow users to use a Log Analytics query to evaluate resource logs at a predefined frequency.|
 |[Activity log alerts](alerts-types.md#activity-log-alerts)|Activity log alerts are triggered when a new activity log event occurs that matches the defined conditions.|
 |[Smart detection alerts](alerts-types.md#smart-detection-alerts)|Smart detection on an Application Insights resource automatically warns you of potential performance problems and failure anomalies in your web application. You can migrate smart detection on your Application Insights resource to create alert rules for the different smart detection modules.|
-
-## Choosing the right alert type
-
-This table can help you decide when to use each alert type:
-
-
-|Alert Type  |When to Use |
-|---------|---------|---------|
-|Metric alert    | Metric data is stored in the system already pre-computed. Metric alerts are useful when you want to be alerted about data that requires little or no manipulation. Metric alerts are less expensive than log alerts, so if the data you want to monitor is available in metric data, you would want to use this.        |
-|Log alert     |  Log alerts allow you to perform advanced logic operations on your data. If the data you want to monitor is available in logs, or requires advanced logic, you can use the robust features of KQL for data manipulation using log alerts. Log alerts are more expensive than metric alerts.       |  
-|Activity Log alert     |    Activity logs provide auditing of all actions that occurred on resources. Use activity log alerts if you want to be alerted when a specific event happens to a resource, for example, a restart, a shutdown, or the creation or deletion of a resource.     |
-
 ## Out-of-the-box alert rules
 
 If you don't have alert rules defined for the selected resource, either individually or as part of a resource group or subscription, you can [enable recommended out-of-the-box alert rules in the Azure portal (preview)](alerts-log.md#enable-recommended-out-of-the-box-alert-rules-in-the-azure-portal-preview).
@@ -76,6 +62,18 @@ The system compiles a list of recommended alert rules based on:
 
 > [!NOTE]
 > The alert rule recommendations feature is currently in preview and is only enabled for VMs.
+
+## Azure role-based access control (Azure RBAC) for alerts
+
+You can only access, create, or manage alerts for resources for which you have permissions.
+To create an alert rule, you need to have the following permissions:
+ - Read permission on the target resource of the alert rule
+ - Write permission on the resource group in which the alert rule is created (if you’re creating the alert rule from the Azure portal, the alert rule is created by default in the same resource group in which the target resource resides)
+ - Read permission on any action group associated to the alert rule (if applicable)
+These built-in Azure roles, supported at all Azure Resource Manager scopes, have permissions to and access alerts information and create alert rules:
+ - monitoring contributor
+ - monitoring reader 
+
 ## Alerts and State
 
 You can configure whether log or metric alerts are stateful or stateless. Activity log alerts are stateless. 
@@ -93,15 +91,20 @@ When the alert is considered resolved, the alert rule sends out a resolved notif
 ## Manage your alerts programmatically
 
 You can programmatically query for alerts using:
- - PowerShell (link)
- - CLI (link)
- - The Alert Management REST API (link) 
-You can also use Resource Graphs (link). Resource graphs are good for managing alerts across multiple subscriptions. 
+ - [Azure PowerShell](/powershell/module/az.monitor/?view=azps-7.5.0)
+ - [The Azure CLI](/cli/azure/azure-cli-reference-for-monitor)
+ - The [Alert Management REST API](/rest/api/monitor/alertsmanagement/alerts) 
+You can also use [Resource Graphs](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade). Resource graphs are good for managing alerts across multiple subscriptions. 
 
 ## Pricing
-<!-- add your content here -->
+See the [Azure Monitor pricing page](https://azure.microsoft.com/en-us/pricing/details/monitor/) for information about pricing.
+> [!NOTE]
+> Unsupported resource characters such as <, >, %, &, \, ?, / are replaced with _ in the hidden resource names and in the billing information.
+
 ## Next steps
 
+- [Create a new alert rule](alerts-log.md).
+- [Enable recommended out-of-the-box alert rules in the Azure portal (preview)](alerts-log.md#enable-recommended-out-of-the-box-alert-rules-in-the-azure-portal-preview).
 - [Learn more about Smart Groups](./alerts-smartgroups-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 - [Learn about action groups](../alerts/action-groups.md)
 - [Viewing your alert instances](./alerts-page.md)

@@ -150,6 +150,17 @@ As data comes into Application Insights from your web app, Smart Detection compa
 While metric alerts tell you there might be a problem, Smart Detection starts the diagnostic work for you, performing much of the analysis you would otherwise have to do yourself. You get the results neatly packaged, helping you to get quickly to the root of the problem.
 
 Smart detection works for any web app, hosted in the cloud or on your own servers, that generate application request or dependency data.
+
+## Choosing the right alert type
+
+This table can help you decide when to use each alert type:
+
+|Alert Type  |When to Use |
+|---------|---------|---------|
+|Metric alert    | Metric data is stored in the system already pre-computed. Metric alerts are useful when you want to be alerted about data that requires little or no manipulation. Metric alerts are less expensive than log alerts, so if the data you want to monitor is available in metric data, you would want to use this.        |
+|Log alert     |  Log alerts allow you to perform advanced logic operations on your data. If the data you want to monitor is available in logs, or requires advanced logic, you can use the robust features of KQL for data manipulation using log alerts. Log alerts are more expensive than metric alerts.       |  
+|Activity Log alert     |    Activity logs provide auditing of all actions that occurred on resources. Use activity log alerts if you want to be alerted when a specific event happens to a resource, for example, a restart, a shutdown, or the creation or deletion of a resource.     |
+
 ## Next steps
 - Get an [overview of alerts](alerts-overview.md).
 - [Create an alert rule](alerts-log.md).
