@@ -10,7 +10,7 @@ author: bmansheim
 
 Microsoft Defender for Servers is one of the enhanced security features of Microsoft Defender for Cloud. Use it to add threat detection and advanced defenses to your Windows and Linux machines whether they're running in Azure, AWS, GCP, and on-premises environment.
 
-To protect machines in hybrid and multi-cloud environments, Defender for Cloud uses [Azure Arc](../azure-arc/index.yml). Connect your hybrid and multi-cloud machines as explained in the relevant quickstart:
+To protect machines in hybrid and multicloud environments, Defender for Cloud uses [Azure Arc](../azure-arc/index.yml). Connect your hybrid and multicloud machines as explained in the relevant quickstart:
 - [Connect your non-Azure machines to Microsoft Defender for Cloud](quickstart-onboard-machines.md)
 - [Connect your AWS accounts to Microsoft Defender for Cloud](quickstart-onboard-aws.md)
 
@@ -117,7 +117,7 @@ For Windows, Microsoft Defender for Cloud integrates with Azure services to moni
 
 For Linux, Defender for Cloud collects audit records from Linux machines by using auditd, one of the most common Linux auditing frameworks.
 
-For hybrid and multi-cloud scenarios, Defender for Cloud integrates with [Azure Arc](../azure-arc/index.yml) to ensure these non-Azure machines are seen as Azure resources. 
+For hybrid and multicloud scenarios, Defender for Cloud integrates with [Azure Arc](../azure-arc/index.yml) to ensure these non-Azure machines are seen as Azure resources. 
 
 
 ## Simulating alerts

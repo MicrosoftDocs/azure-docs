@@ -3,7 +3,8 @@ title: Azure SQL bindings for Functions
 description: Understand how to use Azure SQL bindings in Azure Functions.
 author: dzsquared
 ms.topic: reference
-ms.date: 5/3/2022
+ms.custom: event-tier1-build-2022
+ms.date: 5/24/2022
 ms.author: drskwier
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -54,17 +55,99 @@ You can install this version of the extension in your function app by registerin
 ::: zone-end 
 
 
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-java,programming-language-powershell"  
+::: zone pivot="programming-language-javascript"
 
-> [!NOTE]
-> In the current preview, Azure SQL bindings are only supported by [C# class library functions](functions-dotnet-class-library.md). 
 
-<!-- awaiting bundle support 
 ## Install bundle    
 
-The Kafka extension is part of an [extension bundle], which is specified in your host.json project file. When you create a project that targets version 2.x or later, you should already have this bundle installed. To learn more, see [extension bundle].
+The SQL bindings extension is part of a preview [extension bundle], which is specified in your host.json project file.  
 
--->
+# [Preview Bundle v3.x](#tab/extensionv3)
+
+You can add the preview extension bundle by adding or replacing the following code in your `host.json` file:
+
+```json
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "version": "[3.*, 4.0.0)"
+  }
+}
+```
+
+# [Preview Bundle v4.x](#tab/extensionv4)
+
+You can add the preview extension bundle by adding or replacing the following code in your `host.json` file:
+
+```json
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "version": "[4.*, 5.0.0)"
+  }
+}
+```
+
+---
+
+::: zone-end
+
+
+::: zone pivot="programming-language-python"  
+
+> [!NOTE]
+> Python language support for the SQL bindings extension is only available for v4 of the [functions runtime](./set-runtime-version.md#view-and-update-the-current-runtime-version) and requires runtime v4.5.0 for deployment in Azure.  Learn more about determining the runtime in the [functions runtime](./set-runtime-version.md#view-and-update-the-current-runtime-version) documentation.  Please see the tracking [GitHub issue](https://github.com/Azure/azure-functions-sql-extension/issues/250) for the latest update on availability.
+
+## Install bundle    
+
+The SQL bindings extension is part of a preview [extension bundle], which is specified in your host.json project file.  
+
+# [Preview Bundle v4.x](#tab/extensionv4)
+
+You can add the preview extension bundle by adding or replacing the following code in your `host.json` file:
+
+```json
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "version": "[4.*, 5.0.0)"
+  }
+}
+```
+
+# [Preview Bundle v3.x](#tab/extensionv3)
+
+Python support is not available with the SQL bindings extension in the v3 version of the functions runtime.
+
+---
+
+## Update packages
+
+Support for the SQL bindings extension is available in the 1.11.3b1 version of the [Azure Functions Python library](https://pypi.org/project/azure-functions/).  Add this version of the library to your functions project with an update to the line for `azure-functions==` in the `requirements.txt` file in your Python Azure Functions project as seen in the following snippet:
+
+```
+azure-functions==1.11.3b1
+```
+
+Following setting the library version, update your application settings to [isolate the dependencies](./functions-app-settings.md#python_isolate_worker_dependencies-preview) by adding `PYTHON_ISOLATE_WORKER_DEPENDENCIES` with the value `1` to your application settings.  Locally, this is set in the `local.settings.json` file as seen below:
+
+```json
+"PYTHON_ISOLATE_WORKER_DEPENDENCIES": "1"
+```
+
+Support for Python durable functions with SQL bindings isn't yet available.
+
+
+::: zone-end
+
+
+::: zone pivot="programming-language-java,programming-language-powershell"  
+
+> [!NOTE]
+> In the current preview, Azure SQL bindings are only supported by [C# class library functions](functions-dotnet-class-library.md), [JavaScript functions](functions-reference-node.md), and [Python functions](functions-reference-python.md). 
 
 ::: zone-end
 
@@ -89,4 +172,3 @@ The Kafka extension is part of an [extension bundle], which is specified in your
 [core tools]: ./functions-run-local.md
 [extension bundle]: ./functions-bindings-register.md#extension-bundles
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
-
