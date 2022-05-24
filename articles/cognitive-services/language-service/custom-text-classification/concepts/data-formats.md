@@ -65,7 +65,7 @@ Your Labels file should be in the `json` format below. This will enable you to [
 
 |Key  |Placeholder  |Value  | Example |
 |---------|---------|----------|--|
-| multilingual | `true`| A boolean value that enables you to have documents in multiple languages in your dataset and when your model is deployed you can query the model in any supported language (not necessarily included in your training documents. See [language support](../language-support.md#multi-lingual-option) to learn more about multilingual support. | `true`|
+| multilingual | `true`| A boolean value that enables you to have documents in multiple languages in your dataset and when your model is deployed you can query the model in any supported language (not necessarily included in your training documents). See [language support](../language-support.md#multi-lingual-option) to learn more about multilingual support. | `true`|
 |projectName|`{PROJECT-NAME}`|Project name|myproject|
 | storageInputContainerName|`{CONTAINER-NAME}`|Container name|`mycontainer`|
 | classes | [] | Array containing all the classes you have in the project. These are the classes you want to classify your documents into.| [] |
@@ -124,7 +124,7 @@ Your Labels file should be in the `json` format below. This will enable you to [
 |---------|---------|----------|--|
 |projectName|`{PROJECT-NAME}`|Project name|myproject|
 | storageInputContainerName|`{CONTAINER-NAME}`|Container name|`mycontainer`|
-| multilingual | `true`| A boolean value that enables you to have documents in multiple languages in your dataset and when your model is deployed you can query the model in any supported language (not necessarily included in your training documents. See [language support](../language-support.md#multi-lingual-option) to learn more about multilingual support. | `true`|
+| multilingual | `true`| A boolean value that enables you to have documents in multiple languages in your dataset and when your model is deployed you can query the model in any supported language (not necessarily included in your training documents). See [language support](../language-support.md#multi-lingual-option) to learn more about multilingual support. | `true`|
 | classes | [] | Array containing all the classes you have in the project. These are the classes you want to classify your documents into.| [] |
 | documents | [] | Array containing all the documents in your project and which class this document belongs to. | [] |
 | location | `{DOCUMENT-NAME}` |  The location of the documents in the storage container. Since all the documents are in the root of the container this should be the document name.|`doc1.txt`|
