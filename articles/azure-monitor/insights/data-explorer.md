@@ -146,7 +146,7 @@ The **Ingestion** tab gives you detailed information about the following:
 * Ingestion error details by table.
 * The amount of ingested data.
 * The latency of the batching ingestion and where it occurs.
-* The batching process itself, including monitoring information about the Ingestion Batching policy
+* The batching process itself, including monitoring information about the [ingestion batching policy](kusto/management/batchingpolicy.md) and how the batches were [sealed](kusto/management/batchingpolicy.md#sealing-a-batch).
  (https://docs.microsoft.com/azure/data-explorer/kusto/management/batchingpolicy) and how the batches were (sealed)[https://docs.microsoft.com/azure/data-explorer/kusto/management/batchingpolicy#sealing-a-batch]
 * For Event Hub, Event Grid and IoT Hub ingestion: The number of events received at ADX and the number of events sent for actual ingestion.
 
