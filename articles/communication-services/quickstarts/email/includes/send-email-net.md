@@ -25,7 +25,7 @@ Completing this quick start incurs a small cost of a few USD cents or less in yo
 ### Prerequisite check
 
 - In a terminal or command window, run the `dotnet` command to check that the .NET client library is installed.
-- To view the subdomains associated with your Email Communication Services resource, sign in to the [Azure portal](https://portal.azure.com/), locate your Email Communication Services resource and open the **Provision domains** tab from the left navigation pane.
+- To view the subdomains associated with your Email Communication Services resource, sign in to the [Azure portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_EmailCommunicationServicesHidden), locate your Email Communication Services resource and open the **Provision domains** tab from the left navigation pane.
 
 ## Setting up
 
@@ -100,7 +100,7 @@ The following classes and interfaces handle some of the major features of the Az
 // This code demonstrates how to fetch your connection string
 // from an environment variable.
 string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_CONNECTION_STRING");
-
+EmailClient emailClient = new EmailClient(connectionString);
 ```
 ## Send an email message
 
@@ -109,20 +109,19 @@ To send an Email message, you need to
 - Add Recipients 
 - Construct your email message with your Sender information you get your MailFrom address from your verified domain.
 - Include your Email Content and Recipients and include attachments if any 
-- Calling the SendEmail method. Add this code to the end of `Main` method in **Program.cs**:
+- Calling the Send method. Add this code to the end of `Main` method in **Program.cs**:
 
 Replace with your domain details and modify the content, recipient details as required
 ```csharp
 
 //Replace with your domain and modify the content, recipient details as required
 
-EmailContent emailContent = new EmailContent();
-emailContent.Subject = "Welcome to Azure Communication Service Email.";
+EmailContent emailContent = new EmailContent("Welcome to Azure Communication Service Email APIs.");
 emailContent.PlainText = "This email meessage is sent from Azure Communication Service Email using .NET SDK.";
-List<EmailAddress> emailAddresses = new List<EmailAddress> { new EmailAddress("emailalias@emaildomain.com") { DisplayName = "Friendly Display Name" }};
+List<EmailAddress> emailAddresses = new List<EmailAddress> { new EmailAddress("emailalias@contoso.com") { DisplayName = "Friendly Display Name" }};
 EmailRecipients emailRecipients = new EmailRecipients(emailAddresses);
 EmailMessage emailMessage = new EmailMessage("donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net", emailContent, emailRecipients);
-var response = emailClient.Send(emailMessage, Guid.NewGuid(), DateTime.Now);
+SendEmailResult emailResult = emailClient.Send(emailMessage,CancellationToken.None);
 
 ```
 ## Getting MessageId to track email delivery
@@ -130,37 +129,25 @@ var response = emailClient.Send(emailMessage, Guid.NewGuid(), DateTime.Now);
 To track the status of email delivery, you need to get the MessageId back from response and track the status. If there's no MessageId retry the request.
 
 ```csharp
-string messageId = string.Empty;
-if (!response.IsError)
-{
-    if (!response.Headers.TryGetValue("x-ms-request-id", out messageId))
-    {
-        Console.WriteLine("MessageId not found");
-        return;
-    }
-    else
-    {
-        Console.WriteLine($"MessageId = {messageId}");
-    }
-}
+ Console.WriteLine($"MessageId = {emailResult.MessageId}");
 ```
 ## Getting status on email delivery
 To get the delivery status of email call GetMessageStatus API with MessageId
 ```csharp
 Response<SendStatusResult> messageStatus = null;
-messageStatus = emailClient.GetSendStatus(messageId);
+messageStatus = emailClient.GetSendStatus(emailResult.MessageId);
 Console.WriteLine($"MessageStatus = {messageStatus.Value.Status}");
 TimeSpan duration = TimeSpan.FromMinutes(3);
 long start = DateTime.Now.Ticks;
 do
 {
-    messageStatus = emailClient.GetSendStatus(messageId);
-    if (messageStatus.Value.Status != SendStatus.Queued )
+    messageStatus = emailClient.GetSendStatus(emailResult.MessageId);
+    if (messageStatus.Value.Status != SendStatus.Queued)
     {
         Console.WriteLine($"MessageStatus = {messageStatus.Value.Status}");
         break;
     }
-    Thread.Sleep(60000);
+    Thread.Sleep(10000);
     Console.WriteLine($"...");
 
 } while (DateTime.Now.Ticks - start < duration.Ticks);
