@@ -109,6 +109,10 @@
     items:
     - name: IoT Hub
       href: ../../iot-hub/quickstart-bicep-route-messages.md?toc=/azure/azure-resource-manager/bicep/toc.json
+  - name: Management and Governance
+    items:
+    - name: Resource Graph
+      href: ../../governance/resource-graph/shared-query-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Media Services
     items:
     - name: Media Services account
