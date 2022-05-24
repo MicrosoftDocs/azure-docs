@@ -18,9 +18,9 @@ This article is part three of a seven part series that provides guidance on how 
 
 ## Security considerations
 
-This article discusses the methods of connection for existing legacy Teradata environments and how they can be migrated to Azure Synapse with minimal risk and user impact.
+This article discusses connection methods for existing legacy Teradata environments and how they can be migrated to Azure Synapse with minimal risk and user impact.
 
-It's assumed that there's a requirement to migrate the existing methods of connection and user/role/permission structure as-is. If this isn't the case, then use Azure utilities such as Azure portal to create and manage a new security regime.
+We assume there's a requirement to migrate the existing methods of connection and user, role, and permission structure as is. If this isn't the case, then you can use Azure utilities such as Azure portal to create and manage a new security regime.
 
 For more information on the [Azure Synapse security](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security#authorization) options see [Security whitepaper](/azure/synapse-analytics/guidance/security-white-paper-introduction).
 
@@ -232,7 +232,7 @@ The following sections compare Teradata and Azure Synapse options for various op
 > [!TIP]
 > Housekeeping tasks keep a production warehouse operating efficiently and optimize use of resources such as storage.
 
-In most legacy data warehouse environments, there's a requirement to perform regular 'housekeeping' tasks such as reclaiming disk storage space that can be freed up by removing old versions of updated or deleted rows, or re-organizing data log files or index blocks for efficiency. Collecting statistics is also a potentially time-consuming task. Collecting statistics is required after a bulk data ingest to provide the query optimizer with up-to-date data to base generation of query execution plans.
+In most legacy data warehouse environments, there's a requirement to perform regular 'housekeeping' tasks such as reclaiming disk storage space that can be freed up by removing old versions of updated or deleted rows, or reorganizing data log files or index blocks for efficiency. Collecting statistics is also a potentially time-consuming task. Collecting statistics is required after a bulk data ingest to provide the query optimizer with up-to-date data to base generation of query execution plans.
 
 Teradata recommends collecting statistics as follows:
 
@@ -251,7 +251,7 @@ Statistics collection can be managed manually using Automated Statistics Managem
 > [!TIP]
 > Automate and monitor housekeeping tasks in Azure.
 
-Teradata Database contains many log tables in the Data Dictionary that accumulate data, either automatically or after certain features are enabled. Because log data grows over time, purge older information to avoid using up permanent space. There are options to automate the maintenance of these logs available. The Teradata dictionary tables which require maintenance are discussed next.
+Teradata Database contains many log tables in the Data Dictionary that accumulate data, either automatically or after certain features are enabled. Because log data grows over time, purge older information to avoid using up permanent space. There are options to automate the maintenance of these logs available. The Teradata dictionary tables that require maintenance are discussed next.
 
 #### Dictionary tables to maintain
 
@@ -302,7 +302,7 @@ Azure Synapse has an option to automatically create statistics so that they can 
 > [!TIP]
 > Over time, several different tools have been implemented to allow monitoring and logging of Teradata systems.
 
-Teradata provides several tools to monitor the operation including Teradata Viewpoint and Ecosystem Manager. For logging query history, the Database Query Log (DBQL) is a Teradata Database feature that provides a series of predefined tables which can store historical records of queries and their duration, performance, and target activity based on user-defined rules.
+Teradata provides several tools to monitor the operation including Teradata Viewpoint and Ecosystem Manager. For logging query history, the Database Query Log (DBQL) is a Teradata Database feature that provides a series of predefined tables that can store historical records of queries and their duration, performance, and target activity based on user-defined rules.
 
 Database administrators can use Teradata Viewpoint to determine system status, trends, and individual query status. By observing trends in system usage, system administrators are better able to plan project implementations, batch jobs, and maintenance to avoid peak periods of use. Business users can use Teradata Viewpoint to quickly access the status of reports and queries and drill down into details.
 
@@ -329,9 +329,9 @@ Teradata implements features such as Fallback, Archive Restore Copy utility (ARC
 > [!TIP]
 > Azure Synapse creates snapshots automatically to ensure fast recovery times.
 
-Azure Synapse uses database snapshots to provide high availability of the warehouse. A data warehouse snapshot creates a restore point which can be used to recover or copy a data warehouse to a previous state. Since Azure Synapse is a distributed system, a data warehouse snapshot consists of many files that are in Azure storage. Snapshots capture incremental changes from the data stored in your data warehouse.
+Azure Synapse uses database snapshots to provide high availability of the warehouse. A data warehouse snapshot creates a restore point that can be used to recover or copy a data warehouse to a previous state. Since Azure Synapse is a distributed system, a data warehouse snapshot consists of many files that are in Azure storage. Snapshots capture incremental changes from the data stored in your data warehouse.
 
-Azure Synapse automatically takes snapshots throughout the day creating restore points that are available for seven days. This retention period cannot be changed. Azure Synapse supports an eight-hour recovery point objective (RPO). A data warehouse can be restored in the primary region from any one of the snapshots taken in the past seven days.
+Azure Synapse automatically takes snapshots throughout the day creating restore points that are available for seven days. This retention period can't be changed. Azure Synapse supports an eight-hour recovery point objective (RPO). A data warehouse can be restored in the primary region from any one of the snapshots taken in the past seven days.
 
 > [!TIP]
 > Use user-defined snapshots to define a recovery point before key updates.

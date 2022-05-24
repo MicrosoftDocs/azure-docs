@@ -24,7 +24,7 @@ When migrating a Teradata data warehouse, you need to ask some basic data-relate
 
 - Should unused table structures be migrated?
 
-- What's the best migration approach to minimize risk and impact on users?
+- What's the best migration approach to minimize risk and user impact?
 
 - When migrating data marts&mdash;stay physical or go virtual?
 
