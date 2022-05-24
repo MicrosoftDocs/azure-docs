@@ -65,8 +65,12 @@
       href: event-hubs-tutorial-visualize-anomalies.md
     - name: Analyze fraudulent call data with Stream Analytics
       href: ../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/event-hubs/TOC.json
-    - name: Store captured data in Azure Synapse Analytics
-      href: store-captured-data-data-warehouse.md
+    - name: Capture Event Hubs data in Parquet format
+      href: ../stream-analytics/event-hubs-parquet-capture-tutorial.md
+      maintainContext: true
+    - name: Build real time dashboards with Power BI
+      href: ../stream-analytics/no-code-power-bi-tutorial.md
+      maintainContext: true
     - name: Process Apache Kafka for Event Hubs events using Stream analytics
       href: event-hubs-kafka-stream-analytics.md
     - name: Stream data into Azure Databricks using Event Hubs
