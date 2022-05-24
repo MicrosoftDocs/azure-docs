@@ -143,7 +143,7 @@ In the [batching ingestion](https://docs.microsoft.com/azure/data-explorer/inges
 The **Ingestion** tab gives you detailed information about the following:
 
 * The result of the batching ingestion, by database or table granularity.
-* Ingestion error details by table
+* Ingestion error details by table.
 * The amount of ingested data.
 * The latency of the batching ingestion and where it occurs.
 * The batching process itself, including monitoring information about the Ingestion Batching policy
