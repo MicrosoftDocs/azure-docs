@@ -397,6 +397,8 @@
       href: manage/delete-azure-payment-method.md
   - name: Troubleshoot
     items:
+    - name: Error codes
+      href: costs/cost-management-error-codes.md
     - name: Can't view or find invoices
       href: manage/troubleshoot-cant-find-invoice.md
     - name: EA billing issues with usage files

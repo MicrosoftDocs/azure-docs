@@ -13,6 +13,9 @@
       href: ../iot-develop/quickstart-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: Control a device
       href: quickstart-control-device.md
+    - name: Auto-route messages using Bicep
+      displayName: ARM, Resource Manager, Template
+      href: quickstart-bicep-route-messages.md
     - name: Auto-route messages using an ARM template
       displayName: Resource Manager
       href: horizontal-arm-route-messages.md
