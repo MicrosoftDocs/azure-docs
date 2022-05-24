@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 05/04/2022
+ms.date: 05/24/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, ignite-fall-2021, event-tier1-build-2022
 ---
@@ -25,34 +25,49 @@ Your Labels file should be in the `json` format below. This will enable you to [
 
 ```json
 {
-    "classes": [
+    "projectFileVersion": "2022-05-01",
+    "stringIndexType": "Utf16CodeUnit",
+    "metadata": {
+      "projectKind": "CustomMultiLabelClassification",
+      "storageInputContainerName": "{CONTAINER-NAME}",
+      "projectName": "{PROJECT-NAME}",
+      "multilingual": false,
+      "description": "Project-description",
+      "language": "en-us"
+    },
+    "assets": {
+      "projectKind": "CustomMultiLabelClassification",
+      "classes": [
         {
-            "category": "Class1"
+          "category": "Class1"
         },
         {
-            "category": "Class2"
+          "category": "Class2"
         }
-    ],
-    "documents": [
-        {
-            "location": "{DOCUMENT-NAME}",
-            "language": "{LANGUAGE-CODE}",
-            "dataset": "{DATASET}",
-            "classes": [
-                {
-                    "category": "Class1"
-                },
-                {
-                    "category": "Class2"
-                }
-            ]
-        }
-    ]
-}
+      ],
+      "documents": [
+          {
+              "location": "{DOCUMENT-NAME}",
+              "language": "{LANGUAGE-CODE}",
+              "dataset": "{DATASET}",
+              "classes": [
+                  {
+                      "category": "Class1"
+                  },
+                  {
+                      "category": "Class2"
+                  }
+              ]
+          }
+      ]
+  }
 ```
 
 |Key  |Placeholder  |Value  | Example |
 |---------|---------|----------|--|
+| multilingual | `true`| A boolean value that enables you to have documents in multiple languages in your dataset and when your model is deployed you can query the model in any supported language (not necessarily included in your training documents. See [language support](../language-support.md#multi-lingual-option) to learn more about multilingual support. | `true`|
+|projectName|`{PROJECT-NAME}`|Project name|myproject|
+| storageInputContainerName|`{CONTAINER-NAME}`|Container name|`mycontainer`|
 | classes | [] | Array containing all the classes you have in the project. These are the classes you want to classify your documents into.| [] |
 | documents | [] | Array containing all the documents in your project and the classes labeled for this document. | [] |
 | location | `{DOCUMENT-NAME}` |  The location of the documents in the storage container. Since all the documents are in the root of the container, this value should be the document name.|`doc1.txt`|
@@ -63,36 +78,53 @@ Your Labels file should be in the `json` format below. This will enable you to [
 
 ```json
 {
-    "classes": [
-        {
-            "category": "Class1"
-        },
-        {
-            "category": "Class2"
-        }
-    ],
-    "documents": [
-        {
-            "location": "{DOCUMENT-NAME}",
-            "language": "{LANGUAGE-CODE}",
-            "dataset": "{DATASET}",
-            "class": {
-                "category": "Class2"
-            }
-        },
-        {
-            "location": "{DOCUMENT-NAME}",
-            "language": "{LANGUAGE-CODE}",
-            "dataset": "{DATASET}",
-            "class": {
-                "category": "Class1"
-            }
-        }
-    ]
-}
+    
+    "projectFileVersion": "2022-05-01",
+    "stringIndexType": "Utf16CodeUnit",
+    "metadata": {
+      "projectKind": "CustomSingleLabelClassification",
+      "storageInputContainerName": "{CONTAINER-NAME}",
+      "settings": {},
+      "projectName": "{PROJECT-NAME}",
+      "multilingual": false,
+      "description": "Project-description",
+      "language": "en-us"
+    },
+    "assets": {
+      "projectKind": "CustomSingleLabelClassification",
+      "classes": [
+          {
+              "category": "Class1"
+          },
+          {
+              "category": "Class2"
+          }
+      ],
+      "documents": [
+          {
+              "location": "{DOCUMENT-NAME}",
+              "language": "{LANGUAGE-CODE}",
+              "dataset": "{DATASET}",
+              "class": {
+                  "category": "Class2"
+              }
+          },
+          {
+              "location": "{DOCUMENT-NAME}",
+              "language": "{LANGUAGE-CODE}",
+              "dataset": "{DATASET}",
+              "class": {
+                  "category": "Class1"
+              }
+          }
+      ]
+  }
 ```
 |Key  |Placeholder  |Value  | Example |
 |---------|---------|----------|--|
+|projectName|`{PROJECT-NAME}`|Project name|myproject|
+| storageInputContainerName|`{CONTAINER-NAME}`|Container name|`mycontainer`|
+| multilingual | `true`| A boolean value that enables you to have documents in multiple languages in your dataset and when your model is deployed you can query the model in any supported language (not necessarily included in your training documents. See [language support](../language-support.md#multi-lingual-option) to learn more about multilingual support. | `true`|
 | classes | [] | Array containing all the classes you have in the project. These are the classes you want to classify your documents into.| [] |
 | documents | [] | Array containing all the documents in your project and which class this document belongs to. | [] |
 | location | `{DOCUMENT-NAME}` |  The location of the documents in the storage container. Since all the documents are in the root of the container this should be the document name.|`doc1.txt`|
