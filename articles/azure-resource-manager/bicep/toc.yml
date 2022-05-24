@@ -69,6 +69,8 @@
       href: ../../hdinsight/kafka/apache-kafka-quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: HDInsight - Spark
       href: ../../hdinsight/spark/apache-spark-jupyter-spark-use-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Azure Synapse Analytics - Dedicated SQL pool
+      href: ../../synapse-analytics/sql-data-warehouse/quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Compute
     items:
     - name: Batch
@@ -95,6 +97,8 @@
       href: ../../dms/create-dms-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: SQL Database
       href: /azure/azure-sql/database/single-database-create-bicep-quickstart
+    - name: SQL Managed Instance
+      href: /azure/azure-sql/managed-instance/create-bicep-quickstart
   - name: DevOps
     items:
     - name: App Configuration

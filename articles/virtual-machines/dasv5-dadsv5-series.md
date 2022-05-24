@@ -5,7 +5,7 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mimckitt
 ms.service: virtual-machines
-ms.subservice: vm-sizes-general
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 10/8/2021
 
