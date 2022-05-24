@@ -70,10 +70,6 @@ An easy way to generate the required client ID and password is using the **Try I
                              --scopes /subscriptions/mySubscriptionID/resourceGroups/myResourceGroupName
     ```
 
-   Your response should look similar to the following screenshot:
-
-   :::image type="content" source="media/search-manage/azure-cloud-shell-create-sec-principal.png" alt-text="Screenshot of AzureCloudShell inputs and outputs.":::
-
    You'll use "appId", "password", and "tenantId" for the variables "clientId", "clientSecret", and "tenantId" in the next section.
 
 ## Set up Postman
