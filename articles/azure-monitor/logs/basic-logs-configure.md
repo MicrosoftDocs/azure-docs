@@ -2,8 +2,8 @@
 title: Configure Basic Logs in Azure Monitor (Preview)
 description: Configure a table for Basic Logs in Azure Monitor.
 ms.topic: conceptual
+ms.custom: event-tier1-build-2022
 ms.date: 05/15/2022
-
 ---
 
 # Configure Basic Logs in Azure Monitor (Preview)
@@ -19,7 +19,7 @@ All tables in your Log Analytics are Analytics tables, by default. You can confi
 You can currently configure the following tables for Basic Logs:
 
 - All tables created with the [Data Collection Rule (DCR)-based custom logs API.](custom-logs-overview.md) 
--	[ContainerLog](/azure/azure-monitor/reference/tables/containerlog) and [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2), which [Container Insights](../containers/container-insights-overview.md) uses and which include verbose text-based log records.
+- [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2), which [Container Insights](../containers/container-insights-overview.md) uses and which include verbose text-based log records.
 - [AppTraces](/azure/azure-monitor/reference/tables/apptraces), which contains freeform log records for application traces in Application Insights.
 
 > [!NOTE]
