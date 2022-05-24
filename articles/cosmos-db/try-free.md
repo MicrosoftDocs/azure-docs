@@ -1,5 +1,5 @@
 ---
-title: Overview
+title: Try Azure Cosmos DB free
 description: Try Azure Cosmos DB free of charge. No sign-up or credit card required. It's easy to test your apps, deploy, and run small workloads free for 30 days. Upgrade your account at any time during your trial.
 author: seesharprun
 ms.author: sidandrews
@@ -9,7 +9,7 @@ ms.topic: overview
 ms.date: 08/26/2021
 ---
 
-# Try Azure Cosmos DB for Free
+# Try Azure Cosmos DB free
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 [Try Azure Cosmos DB](https://aka.ms/trycosmosdb) makes it easy to try out Azure Cosmos DB for free before you commit. There's no credit card required to get started. Your account is free for 30 days. After expiration, a new sandbox account can be created. You can extend beyond 30 days for 24 hours. You can upgrade your active Try Azure Cosmos DB account at any time during the 30 day trial period. If you're using the SQL API, migrate your Try Azure Cosmos DB data to your upgraded account.
