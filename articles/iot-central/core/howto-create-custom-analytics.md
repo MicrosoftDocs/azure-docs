@@ -26,75 +26,105 @@ In this how-to guide, you learn how to:
 
 ## Prerequisites
 
-To complete the steps in this how-to guide, you need an active Azure subscription.
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+In your shell environment, add the following variables.
+
+```
+eventhubnamespace="your-event-hubs-name-data-bricks"
+iotcentralapplicationname="your-app-name-data-bricks"
+databricksworkspace="your-databricks-name-data-bricks"
+resourcegroup=eventhubsrg
+eventhub=centralexport
+location=eastus
+authrule=ListenSend
+```
+
+## Create a resource group
+
+Create a resource group for the IoT Central application. For example:
+
+```azurecli-interactive
+RESOURCE_GROUP=$(az group create --name $resourcegroup --location $location)
+```
+
+This command creates a resource group in the east US region for the application. 
 
 ### IoT Central application
 
-Create an IoT Central application on the [Azure IoT Central application manager](https://aka.ms/iotcentral) website with the following settings:
+Use the [az iot central app create](/cli/azure/iot/central/app#az-iot-central-app-create) command to create an IoT Central application in your Azure subscription. For example:
 
-| Setting | Value |
-| ------- | ----- |
-| Pricing plan | Standard |
-| Application template | In-store analytics – condition monitoring |
-| Application name | Accept the default or choose your own name |
-| URL | Accept the default or choose your own unique URL prefix |
-| Directory | Your Azure Active Directory tenant |
-| Azure subscription | Your Azure subscription |
-| Region | Your nearest region |
+```azurecli-interactive
+# Create an IoT Central application
+IOT_CENTRAL=$(az iot central app create -n $iotcentralapplicationname -g $resourcegroup -s $iotcentralapplicationname -l $location --mi-system-assigned)
+```
 
-The examples and screenshots in this article use the **United States** region. Choose a location close to you and make sure you create all your resources in the same region.
+The following table describes the parameters used with the **az iot central app create** command:
 
-This application template includes two simulated thermostat devices that send telemetry.
+| Parameter         | Description |
+| ----------------- | ----------- |
+| resource-group    | The resource group that contains the application. This resource group must already exist in your subscription. |
+| location          | By default, this command uses the location from the resource group. Currently, you can create an IoT Central application in the **Australia East**, **Canada Central**, **Central US**, **East US**, **East US 2**, **Japan East**, **North Europe**, **South Central US**, **Southeast Asia**, **UK South**, **West Europe**, and **West US**. |
+| name              | The name of the application in the Azure portal. Avoid special characters - instead, use lower case letters (a-z), numbers (0-9), and dashes (-).|
+| subdomain         | The subdomain in the URL of the application. In the example, the application URL is `https://mysubdomain.azureiotcentral.com`. |
+| sku               | Currently, you can use either **ST1** or **ST2**. See [Azure IoT Central pricing](https://azure.microsoft.com/pricing/details/iot-central/). |
+| template          | The application template to use. For more information, see the following table. |
+| display-name      | The name of the application as displayed in the UI. |
 
-### Resource group
+## Event Hubs namespace
 
-Use the [Azure portal to create a resource group](https://portal.azure.com/#create/Microsoft.ResourceGroup) called **IoTCentralAnalysis** to contain the other resources you create. Create your Azure resources in the same location as your IoT Central application.
+An Event Hubs namespace provides a unique scoping container, referenced by its fully qualified domain name, in which you create one or more event hubs. To create a namespace in your resource group, run the following command:
 
-### Event Hubs namespace
+```azurecli-interactive
+az eventhubs namespace create --name $eventhubnamespace --resource-group $resourcegroup -l $location
+```
 
-Use the [Azure portal to create an Event Hubs namespace](https://portal.azure.com/#create/Microsoft.EventHub) with the following settings:
+## Azure Databricks workspace
 
-| Setting | Value |
-| ------- | ----- |
-| Name    | Choose your namespace name |
-| Pricing tier | Basic |
-| Subscription | Your subscription |
-| Resource group | IoTCentralAnalysis |
-| Location | East US |
-| Throughput Units | 1 |
+Create an Azure Databricks workspace for accessing all of your Azure Databricks assets. The workspace organizes objects (notebooks, libraries, and experiments) into folders, and provides access to data and computational resources such as clusters and jobs.
 
-### Azure Databricks workspace
-
-Use the [Azure portal to create an Azure Databricks Service](https://portal.azure.com/#create/Microsoft.Databricks) with the following settings:
-
-| Setting | Value |
-| ------- | ----- |
-| Workspace name    | Choose your workspace name |
-| Subscription | Your subscription |
-| Resource group | IoTCentralAnalysis |
-| Location | East US |
-| Pricing Tier | Standard |
-
-When you've created the required resources, your **IoTCentralAnalysis** resource group looks like the following screenshot:
-
-:::image type="content" source="media/howto-create-custom-analytics/resource-group.png" alt-text="image of IoT Central analysis resource group.":::
+```azurecli-interactive
+DATABRICKS_JSON=$(az databricks workspace create --resource-group $resourcegroupname --name $databricksworkspace --location $location --sku standard)
+```
 
 ## Create an event hub
 
-You can configure an IoT Central application to continuously export telemetry to an event hub. In this section, you create an event hub to receive telemetry from your IoT Central application. The event hub delivers the telemetry to your Stream Analytics job for processing.
+Azure Event Hubs is a big data streaming platform and event ingestion service.
 
-1. In the Azure portal, navigate to your Event Hubs namespace and select **+ Event Hub**.
-1. Name your event hub **centralexport**.
-1. In the list of event hubs in your namespace, select **centralexport**. Then choose **Shared access policies**.
-1. Select **+ Add**. Create a policy named **SendListen** with the **Send** and **Listen** claims.
-1. When the policy is ready, select it in the list, and then copy the **Connection string-primary key** value.
-1. Make a note of this connection string, you use it later when you configure your Databricks notebook to read from the event hub.
+Run the following command to create an event hub:
 
-Your Event Hubs namespace looks like the following screenshot:
+```azurecli-interactive
+az eventhubs eventhub create --name $eventhub --resource-group $resourcegroupname --namespace-name $eventhubnamespace
+```
 
-:::image type="content" source="media/howto-create-custom-analytics/event-hubs-namespace.png" alt-text="image of Event Hubs namespace.":::
+## Configure managed identity 
+
+```azurecli-interactive
+MANAGED_IDENTITY=$(az iot central app identity show --name $iotcentralapplicationname \
+    --resource-group $resourcegroup)
+```
+
+Create a role with permissions to send data to an event hub in the resource group.
+
+```azurecli-interactive
+az role assignment create --assignee $(jq -r .principalId <<< $MANAGED_IDENTITY) --role 'Azure Event Hubs Data Sender' --scope $(jq -r .id <<< $RESOURCE_GROUP)
+
+```
+
+## Create a connection string to use in Databricks notebook
+
+```azurecli-interactive
+az eventhubs eventhub authorization-rule create --eventhub-name $eh  --namespace-name $ehns --resource-group $rg --name $authrule --rights Listen Send
+EHAUTH_JSON=$(az eventhubs eventhub authorization-rule keys list --resource-group $rg --namespace-name $ehns --eventhub-name $eh --name $authrule)
+```
+
+Run the following commands to get details of your IoT Central application, databricks workspace, and event hub connection string
+
+```azurecli-interactive
+echo "Your IoT Central app: https://$iotcentralapplicationname.azureiotcentral.com/"
+echo "Your Databricks workspace: https://$(jq -r .workspaceUrl <<< $DATABRICKS_JSON)"
+echo "Your event hub connection string is: $(jq -r .primaryConnectionString <<< EHAUTH_JSON)"
+```
 
 ## Configure export in IoT Central
 
@@ -143,7 +173,7 @@ In the Azure portal, navigate to your Azure Databricks service and select **Laun
 
 ### Create a cluster
 
-On the **Azure Databricks** page, under the list of common tasks, select **New Cluster**.
+Navigate to **Create** page in your Databricks environment. Select the **+ Cluster**.
 
 Use the information in the following table to create your cluster:
 
@@ -151,8 +181,7 @@ Use the information in the following table to create your cluster:
 | ------- | ----- |
 | Cluster Name | centralanalysis |
 | Cluster Mode | Standard |
-| Databricks Runtime Version | 5.5 LTS (Scala 2.11, Spark 2.4.5) |
-| Python Version | 3 |
+| Databricks Runtime Version | Runtime: 10.4 LTS (Scala 2.12, Spark 3.2.1) |
 | Enable Autoscaling | No |
 | Terminate after minutes of inactivity | 30 |
 | Worker Type | Standard_DS3_v2 |
@@ -221,7 +250,7 @@ You may see an error in the last cell. If so, check the previous cells are runni
 
 ### View smoothed data
 
-In the notebook, scroll down to cell 14 to see a plot of the rolling average humidity by device type. This plot continuously updates as streaming telemetry arrives:
+In the notebook, scroll down to see a plot of the rolling average humidity by device type. This plot continuously updates as streaming telemetry arrives:
 
 :::image type="content" source="media/howto-create-custom-analytics/telemetry-plot.png" alt-text="Screenshot of Smoothed telemetry plot.":::
 
@@ -229,7 +258,7 @@ You can resize the chart in the notebook.
 
 ### View box plots
 
-In the notebook, scroll down to cell 20 to see the [box plots](https://en.wikipedia.org/wiki/Box_plot). The box plots are based on static data so to update them you must rerun the cell:
+In the notebook, scroll down to see the [box plots](https://en.wikipedia.org/wiki/Box_plot). The box plots are based on static data so to update them you must rerun the cell:
 
 :::image type="content" source="media/howto-create-custom-analytics/box-plots.png" alt-text="Screenshot of box plots.":::
 
