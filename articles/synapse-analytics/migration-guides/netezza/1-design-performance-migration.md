@@ -77,7 +77,7 @@ Legacy Netezza environments have typically evolved over time to encompass multip
 
 - Prove the viability of migrating to Azure Synapse by quickly delivering the benefits of the new environment.
 
-- Allow the in-house technical staff to gain relevant experience of the processes and tools involved which can be used in migrations to other areas.
+- Allow the in-house technical staff to gain relevant experience of the processes and tools involved, which can be used in migrations to other areas.
 
 - Create a template for further migrations specific to the source Netezza environment and the current tools and processes that are already in place.
 
@@ -85,7 +85,7 @@ A good candidate for an initial migration from the Netezza environment that woul
 
 The migration data volume for the initial exercise should be large enough to demonstrate the capabilities and benefits of the Azure Synapse environment while quickly demonstrating the value&mdash;typically in the 1-10TB range.
 
-To minimize the risk and reduce implementation time for the initial migration project, confine the scope of the migration to just the data marts. However, this won't address the broader topics such as ETL migration and historical data migration as part of the initial migration project. Address these topics in later phases of the project, once the migrated data mart layer is back filled with the data and processes required to build them.
+To minimize the risk and reduce implementation time for the initial migration project, confine the scope of the migration to just the data marts. However, this won't address the broader topics such as ETL migration and historical data migration as part of the initial migration project. Address these topics in later phases of the project, once the migrated data mart layer is backfilled with the data and processes required to build them.
 
 #### Lift and shift as-is versus a phased approach incorporating changes
 
@@ -102,7 +102,7 @@ This is a good fit for existing Netezza environments where a single data mart is
 
 ##### Phased approach incorporating modifications
 
-In cases where a legacy warehouse has evolved over a long time, you may need to reengineer to maintain the required performance levels or to support new data, such as Internet of Things (IoT) streams. Migrate to Azure Synapse to get the benefits of a scalable cloud environment as part of the re-engineering process. Migration could include a change in the underlying data model, such as a move from an Inmon model to a data vault.
+In cases where a legacy warehouse has evolved over a long time, you might need to re-engineer to maintain the required performance levels or to support new data, such as Internet of Things (IoT) streams. Migrate to Azure Synapse to get the benefits of a scalable cloud environment as part of the re-engineering process. Migration could include a change in the underlying data model, such as a move from an Inmon model to a data vault.
 
 Microsoft recommends moving the existing data model as-is to Azure and using the performance and flexibility of the Azure environment to apply the re-engineering changes, leveraging Azure's capabilities to make the changes without impacting the existing source system.
 
