@@ -4,7 +4,7 @@ description: Learn what services are supported by availability zones and underst
 author: awysza
 ms.service: azure
 ms.topic: conceptual
-ms.date: 03/25/2022
+ms.date: 05/30/2022
 ms.author: rarco
 ms.reviewer: cynthn
 ms.custom: references_regions
@@ -19,7 +19,7 @@ Azure strives to enable high resiliency across every service and offering. Runni
 
 ## Azure regions with availability zones
 
-[!INCLUDE [az-regions-include](./includes/az-regions-include.md)]
+[!INCLUDE [availability-zone-regions-include](./includes/availability-zone-regions-include.md)]
 
 For a list of Azure services that support availability zones by Azure region, see the [availability zones documentation](az-overview.md).
 
