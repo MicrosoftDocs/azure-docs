@@ -22,6 +22,7 @@ Updates in May include:
 
 - [Multi-cloud settings of Servers plan are now available in connector level](#multi-cloud-settings-of-servers-plan-are-now-available-in-connector-level)
 - [JIT (Just-in-time) access for VMs is now available for AWS EC2 instances (Preview)](#jit-just-in-time-access-for-vms-is-now-available-for-aws-ec2-instances-preview)
+- [Add and remove the Defender profile for AKS containers from the CLI](#add-and-remove-the-defender-profile-for-aks-containers-from-the-cli)
 
 ### Multi-cloud settings of Servers plan are now available in connector level
 
@@ -30,7 +31,7 @@ There are now connector-level settings for Defender for Servers in multi-cloud.
 The new connector-level settings provide granularity for pricing and auto-provisioning configuration per connector, independently of the subscription.
 
 All auto-provisioning components available in the connector level (Azure Arc, MDE, and vulnerability assessments) are enabled by default, and the new configuration supports both [Plan 1 and Plan 2 pricing tiers](defender-for-servers-introduction.md#what-are-the-microsoft-defender-for-server-plans).
- 
+
 Updates in the UI include a reflection of the selected pricing tier and the required components configured.
 
 :::image type="content" source="media/release-notes/main-page.png" alt-text="Screenshot of the main plan page with the Server plan multi-cloud settings." lightbox="media/release-notes/main-page.png":::
@@ -42,6 +43,10 @@ Updates in the UI include a reflection of the selected pricing tier and the requ
 When you [connect AWS accounts](quickstart-onboard-aws.md), JIT will automatically evaluate the network configuration of your instances, security groups and recommend which instances need protection for their exposed management ports. This is similar to how JIT works with Azure. When you onboard unprotected EC2 instances, JIT will block public access to the management ports and only open them with authorized requests for a limited time frame.
 
 Learn how [JIT protects your AWS EC2 instances](just-in-time-access-overview.md#how-jit-operates-with-network-resources-in-azure-and-aws)
+
+### Add and remove the Defender profile for AKS containers from the CLI
+
+You can now use the Azure CLI to [add and remove the Defender profile](/includes/defender-for-containers-enable-plan-aks.md#deploy-the-defender-profile) for a subscription and containers.
 
 ## April 2022
 
