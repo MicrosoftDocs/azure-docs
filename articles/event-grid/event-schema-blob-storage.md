@@ -45,7 +45,16 @@ These events are triggered if you enable a hierarchical namespace on the storage
 > [!NOTE]
 > For **Azure Data Lake Storage Gen2**, if you want to ensure that the **Microsoft.Storage.BlobCreated** event is triggered only when a Block Blob is completely committed, filter the event for the `FlushWithClose` REST API call. This API call triggers the **Microsoft.Storage.BlobCreated** event only after data is fully committed to a Block Blob. To learn how to create a filter, see [Filter events for Event Grid](./how-to-filter-events.md).
 
-## Example event
+### List of other events
+
+These events are triggered when the conditions of a policy are met and the the actions defined by that policy are performed.
+
+ |Event name |Description|
+ |----------|-----------|
+ |**Microsoft.Storage.BlobInventoryPolicyCompleted** |Triggered when the inventory run completes for a rule. This event also occurs if the inventory run fails with a user error before it starts to run. For example, an invalid policy, or an error that occurs when a destination container is not present will trigger the event.   |
+ |**Microsoft.Storage.LifecyclePolicyCompleted** |Triggered when the actions defined by a Lifecycle management policy are performed. |
+
+## Example events
 When an event is triggered, the Event Grid service sends data about that event to subscribing endpoint. This section contains an example of what that data would look like for each blob storage event.
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
@@ -550,6 +559,35 @@ If the blob storage account has a hierarchical namespace, the data looks similar
   },
   "specversion": "1.0"
 }]
+```
+
+### Microsoft.Storage.BlobInventoryPolicyCompleted event
+
+```json
+{
+  "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/BlobInventory/providers/Microsoft.EventGrid/topics/BlobInventoryTopic",
+  "subject": "BlobDataManagement/BlobInventory",
+  "eventType": "Microsoft.Storage.BlobInventoryPolicyCompleted",
+  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "data": {
+    "scheduleDateTime": "2021-05-28T03:50:27Z",
+    "accountName": "testaccount",
+    "ruleName": "Rule_1",
+    "policyRunStatus": "Succeeded",
+    "policyRunStatusMessage": "Inventory run succeeded, refer manifest file for inventory details.",
+    "policyRunId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "manifestBlobUrl": "https://testaccount.blob.core.windows.net/inventory-destination-container/2021/05/26/13-25-36/Rule_1/Rule_1.csv"
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "eventTime": "2021-05-28T15:03:18Z"
+}
+```
+
+### Microsoft.Storage.LifecyclePolicyCompleted event
+
+```json
+Put json here.
 ```
 
 ---
