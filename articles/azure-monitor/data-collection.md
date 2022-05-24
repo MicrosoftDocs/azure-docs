@@ -8,12 +8,11 @@ ms.date: 04/05/2022
 # Data collection in Azure Monitor
 [Azure Monitor](overview.md) collects and aggregates data from a variety of sources into a common data platform where it can be used for analysis, visualization, and alerting. It provides a consistent experience on top of data from multiple sources, which gives you deep insights across all your monitored resources and even with data from other services that store their data in Azure Monitor.
 
-![Azure Monitor overview](media/overview/overview.png)
-
+:::image type="content" source="media/overview/azure-monitor-overview-optm.svg" alt-text="Diagram that shows an overview of Azure Monitor." border="false" lightbox="media/overview/azure-monitor-overview-optm.svg":::
 
 
 ## Data collection pipeline
-Azure Monitor is in the process of implementing a new data collection pipeline, which provides an [ETL](/azure/architecture/data-guide/relational-data/etl)-like pipeline for collecting data. This pipeline provides a consistent method for defining the configuration of the data collection and its destination and the ability to transform and filter the data before its stored.
+Azure Monitor is in the process of implementing a new [ETL](/azure/architecture/data-guide/relational-data/etl)-like data collection pipeline. This pipeline provides a consistent method for defining the configuration of the data collection and its destination and the ability to transform and filter the data before its stored.
 
 The following table identifies different components of the Azure Monitor data collection pipeline.
 
