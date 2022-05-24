@@ -87,7 +87,7 @@ landingContent:
             url: just-in-time-access-usage.md
           - text: Set up adaptive application controls
             url: adaptive-application-controls.md
-          - text: Implement Adaptive Network Hardening
+          - text: Implement adaptive network hardening
             url: adaptive-network-hardening.md
           - text: Use the Workload protections
             url: workload-protections-dashboard.md
