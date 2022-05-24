@@ -134,7 +134,7 @@ The scoring of data assets that determine the order search results are returned.
 ## Self-hosted integration runtime
 An integration runtime installed on an on-premises machine or virtual machine inside a private network that is used to connect to data on-premises or in a private network.
 ## Sensitivity label
-Annotations that classify and protect an organization’s data. Microsoft Purview integrates with Microsoft Information Protection for creation of sensitivity labels.
+Annotations that classify and protect an organization’s data. Microsoft Purview integrates with Microsoft Purview Information Protection for creation of sensitivity labels.
 ## Sensitivity label report
 A summary of which sensitivity labels are applied across the data estate.
 ## Service

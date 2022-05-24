@@ -442,7 +442,7 @@ In addition to the recommended actions listed above, we recommend that you consi
 
 ## Next steps
 
-- **Get help from inside Microsoft products**, including the Microsoft 365 Defender portal, Microsoft 365 compliance center, and Office 365 Security & Compliance Center by selecting the **Help** (**?**) button in the top navigation bar.
+- **Get help from inside Microsoft products**, including the Microsoft 365 Defender portal, Microsoft Purview compliance portal, and Office 365 Security & Compliance Center by selecting the **Help** (**?**) button in the top navigation bar.
 
 - **For deployment assistance**, contact us at [FastTrack](https://fasttrack.microsoft.com)
 
