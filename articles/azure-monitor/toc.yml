@@ -157,8 +157,6 @@ items:
     - name: Log data ingestion time
       displayName: latency
       href: logs/data-ingestion-time.md
-  - name: Data collection rules
-    href: essentials/data-collection-rule-overview.md
   - name: Usage and cost
     items:
     - name: View and estimate charges
@@ -448,6 +446,9 @@ items:
     items:
     - name: Data collection rules
       items:
+      - name: Overview
+        displayName: Data collection rules
+        href: essentials/data-collection-rule-overview.md
       - name: Structure
         displayName: Data collection rules
         href: essentials/data-collection-rule-structure.md
