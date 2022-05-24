@@ -30,6 +30,10 @@ landingContent:
         links:
           - text: Virtual network FAQ
             url: virtual-networks-faq.md
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Virtual Networks
+            url: /learn/modules/introduction-to-azure-virtual-networks
  
   # Card (optional)
   - title: Get started

@@ -12,9 +12,9 @@ ms.date: 3/11/2022
 
 In this tutorial, you'll learn how to upload an image to Azure Blob Storage and process it using Azure Functions and Computer Vision. You'll also learn how to implement Azure Function triggers and bindings as part of this process.  Together, these services will analyze an uploaded image that contains text, extract the text out of it, and then store the text in a database row for later analysis or other purposes.
 
-Azure Blob Storage is Microsoft's massively scalable object storage solution for the cloud. Blob Storage is designed for storing images and documents, streaming media files, managing backup and archive data, and much more.  You can read more about Blob Storage on the [overview page](/azure/storage/blobs/storage-blobs-introduction).
+Azure Blob Storage is Microsoft's massively scalable object storage solution for the cloud. Blob Storage is designed for storing images and documents, streaming media files, managing backup and archive data, and much more.  You can read more about Blob Storage on the [overview page](./storage-blobs-introduction.md).
 
-Azure Functions is a serverless computer solution that allows you to write and run small blocks of code as highly scalable, serverless, event driven functions. You can read more about Azure Functions on the [overview page](/azure/azure-functions/functions-overview).
+Azure Functions is a serverless computer solution that allows you to write and run small blocks of code as highly scalable, serverless, event driven functions. You can read more about Azure Functions on the [overview page](../../azure-functions/functions-overview.md).
 
 
 In this tutorial, you will learn how to:
@@ -88,7 +88,7 @@ To create the storage account and container, we can run the CLI commands seen be
 ```azurecli-interactive
 az group create --location eastus --name msdocs-storage-function \
 
-az storage account create --name msdocsstorageaccount -resource-group msdocs-storage-function -l eastus --sku Standard_LRS \
+az storage account create --name msdocsstorageaccount --resource-group msdocs-storage-function -l eastus --sku Standard_LRS \
 
 az storage container create --name imageanalysis --account-name msdocsstorageaccount --resource-group msdocs-storage-function
 ```
@@ -98,7 +98,7 @@ You may need to wait a few moments for Azure to provision these resources.
 After the commands complete, we also need to retrieve the connection string for the storage account.  The connection string will be used later to connect our Azure Function to the storage account.
 
 ```azurecli-interactive
-az storage account show-connection-string -g msdocs-storage-function -n msdocsstoragefunction
+az storage account show-connection-string -g msdocs-storage-function -n msdocsstorageaccount
 ```
 
 Copy the value of the `connectionString` property and paste it somewhere to use for later. You'll also want to make a note of the storage account name `msdocsstoragefunction` for later as well. 
@@ -106,7 +106,7 @@ Copy the value of the `connectionString` property and paste it somewhere to use 
 ---
 
 ## Create the Computer Vision service
-Next, create the Computer Vision service account that will process our uploaded files.  Computer Vision is part of Azure Cognitive Services and offers a variety of features for extracting data out of images.  You can learn more about Computer Vision on the [overview page](/services/cognitive-services/computer-vision/#overview).
+Next, create the Computer Vision service account that will process our uploaded files.  Computer Vision is part of Azure Cognitive Services and offers a variety of features for extracting data out of images.  You can learn more about Computer Vision on the [overview page](/azure/cognitive-services/computer-vision/overview).
 
 ### [Azure portal](#tab/azure-portal)
 

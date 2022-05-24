@@ -7,7 +7,7 @@ ms.topic: article
 ms.author: trkeya
 author: trkeya
 ms.date: 12/06/2021
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, subject-rbac-steps
 ---
 
 # Azure Resource Manager test drive
@@ -195,7 +195,7 @@ restrictions in [this article](/azure/cloud-adoption-framework/ready/azure-best-
 
 ### Deployment Location
 
-You can make you test drive available in different Azure regions.
+You can make your test drive available in different Azure regions.
 
 When test drive creates an instance of the Lab, it always creates a resource group in one of the selected regions, and then executes your deployment template in this group context. So, your template should pick the deployment location from resource group:
 
@@ -321,20 +321,24 @@ The final section to complete is to be able to deploy the test drives automatica
 
    1. From the Azure portal:
 
-       1. Select the **Subscription** being used for the test drive.
-       1. Select **Access control (IAM)**.<br>
+       1. Select the subscription being used for the test drive.
 
-          ![Add a new Access Control (I A M) contributor](media/test-drive/access-control-principal.png)
+       1. Select **Access control (IAM)**.
 
-       1. Select the **Role assignments** tab, then **+ Add role assignment**.
+       1. Select **Add > Add role assignment**.
 
-          ![On the Select Access Control (I A M) window, shows how to select the Role assignments tab, then + Add role assignment.](media/test-drive/access-control-principal-add-assignments.jpg)
+       :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot showing Access control (IAM) page with Add role assignment menu open.":::
 
-       1. Enter this Azure AD application name: `Microsoft TestDrive`. Select the application to which you want to assign the **Contributor** role.
+      1. On the **Role** tab, select **Contributor**.
 
-          ![Hows how to assign the contributor role](media/test-drive/access-control-permissions.jpg)
+      1. On the **Members** tab, select **User, group, or service principal**, and then choose **Select members**.
 
-       1. Select **Save**.
+      1. Select the **Microsoft TestDrive** service principal that you created previously.
+
+      1. On the **Review + assign** tab, select **Review + assign** to assign the role.
+
+         For more information about role assignments, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md)
+
    1. If using PowerShell:
       1. Run this to get the ServicePrincipal object-id: `(Get-AzADServicePrincipal -DisplayName 'Microsoft TestDrive').id`.
       1. Run this with the ObjectId and subscription ID: `New-AzRoleAssignment -ObjectId <objectId> -RoleDefinitionName Contributor -Scope /subscriptions/<subscriptionId>`.

@@ -15,7 +15,7 @@ A DevOps team may build dashboards to monitor and diagnose an application or inf
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
-- An Azure Managed Grafana workspace. If you don't have one yet, [create a workspace](/how-to-permissions.md).
+- An Azure Managed Grafana workspace. If you don't have one yet, [create a workspace](/azure/managed-grafana/how-to-permissions).
 
 ## Supported Grafana roles
 
@@ -27,7 +27,10 @@ Azure Managed Grafana supports the Admin, Viewer and Editor roles:
 
 The Admin role is automatically assigned to the creator of a Grafana workspace. More details on Admin, Editor, and Viewer roles can be found at [Grafana organization roles](https://grafana.com/docs/grafana/latest/permissions/organization_roles/#compare-roles).
 
-Grafana user roles and assignments are fully integrated with the Azure Active Directory. You can manage these permissions from the Azure portal or the command line. This section explains how to assign users to the Viewer or Editor role in the Azure portal.
+Grafana user roles and assignments are fully integrated with the Azure Active Directory (Azure AD). You can add any Azure AD user or security group to a Grafana role and grant them access permissions associated with that role. You can manage these permissions from the Azure portal or the command line. This section explains how to assign users to the Viewer or Editor role in the Azure portal.
+
+> [!NOTE]
+> Azure Managed Grafana doesn't support personal [Microsoft accounts](https://account.microsoft.com) (a.k.a., MSA) currently.
 
 ## Sign in to Azure
 
@@ -55,6 +58,6 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure permissions for Managed Grafana](./how-to-data-source-plugins-managed-identity.md)
-> [Configure data source plugins for Azure Managed Grafana with Managed Identity](./how-to-data-source-plugins-managed-identity.md)
-> [How to call Grafana APIs in your automation with Azure Managed Grafana Preview](./how-to-api-calls.md)
+> [How to configure data sources for Azure Managed Grafana](./how-to-data-source-plugins-managed-identity.md)
+> [How to modify access permissions to Azure Monitor](./how-to-permissions.md)
+> [How to call Grafana APIs in your automation with Azure Managed Grafana](./how-to-api-calls.md)

@@ -2,7 +2,7 @@
 title: Back up an SAP HANA database to Azure with Azure Backup 
 description: In this article, learn how to back up an SAP HANA database to Azure virtual machines with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 04/01/2022
+ms.date: 04/28/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -93,7 +93,7 @@ You can also use the following FQDNs to allow access to the required services fr
 ##### Using an HTTP proxy server for AAD traffic
 
 1. Go to the "opt/msawb/bin" folder
-2. Create a new JSON file named "ExtensionSettingOverrides.JSON"
+2. Create a new JSON file named "ExtensionSettingsOverrides.json"
 3. Add a key-value pairs to the JSON file as follows:
 
     ```json

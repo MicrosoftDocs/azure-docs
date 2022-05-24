@@ -120,7 +120,7 @@ Use [az keyvault update](/cli/azure/keyvault#az-keyvault-update) to enable disk 
 
 ## Azure Disk Encryption and auto-rotation
 
-Although Azure Key Vault now has [key auto-rotation in public preview](../articles/key-vault/keys/how-to-configure-key-rotation.md), it is not currently compatible with Azure Disk Encryption. Specifically, Azure Disk Encryption will continue to use the original encryption key, even after it has been auto-rotated.
+Although Azure Key Vault now has [key auto-rotation](../articles/key-vault/keys/how-to-configure-key-rotation.md), it is not currently compatible with Azure Disk Encryption. Specifically, Azure Disk Encryption will continue to use the original encryption key, even after it has been auto-rotated.
 
 Rotating an encryption key will not break Azure Disk Encryption, but disabling the "old" encryption key (in other words, the key Azure Disk Encryption is still using) will.
 

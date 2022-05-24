@@ -3,52 +3,161 @@ title: Azure SQL bindings for Functions
 description: Understand how to use Azure SQL bindings in Azure Functions.
 author: dzsquared
 ms.topic: reference
-ms.date: 4/1/2022
+ms.custom: event-tier1-build-2022
+ms.date: 5/24/2022
 ms.author: drskwier
-ms.reviewer: cachai
-ms.devlang: csharp
+ms.reviewer: glenga
+zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Azure SQL bindings for Azure Functions overview (preview)
 
-This set of articles explains how to work with [Azure SQL](../azure-sql/index.yml) bindings in Azure Functions. Azure Functions supports input and output bindings for the Azure SQL and SQL Server products.
+This set of articles explains how to work with [Azure SQL](/azure/azure-sql/index) bindings in Azure Functions. Azure Functions supports input and output bindings for the Azure SQL and SQL Server products.
 
 | Action | Type |
 |---------|---------|
 | Read data from a database | [Input binding](./functions-bindings-azure-sql-input.md) |
 | Save data to a database |[Output binding](./functions-bindings-azure-sql-output.md) |
 
+::: zone pivot="programming-language-csharp"
+
+## Install extension
+
+The extension NuGet package you install depends on the C# mode you're using in your function app: 
+
+# [In-process](#tab/in-process)
+
+Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
+
+Add the extension to your project by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Sql).
+
+# [Isolated process](#tab/isolated-process)
+
+Functions execute in an isolated C# worker process. To learn more, see [Guide for running C# Azure Functions in an isolated process](dotnet-isolated-process-guide.md).
+
 > [!NOTE]
-> This reference is for [Azure Functions version 2.x and higher](functions-versions.md). 
->
-> This binding requires connectivity to an Azure SQL or SQL Server database.
+> In the current preview, Azure SQL bindings aren't supported when your function app runs in an isolated process.
 
-## Add to your Functions app
+<!--
+Add the extension to your project by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.SignalRService/).
+-->
 
-### Functions
+<!-- awaiting bundle support
+# [C# script](#tab/csharp-script)
 
-Working with the trigger and bindings requires you reference the appropriate package. The NuGet package is used for .NET class libraries while the extension bundle is used for all other application types.
+Functions run as C# script, which is supported primarily for C# portal editing. To update existing binding extensions for C# script apps running in the portal without having to republish your function app, see [Update your extensions].
 
-| Language                                        | Add by...                                   | Remarks 
-|-------------------------------------------------|---------------------------------------------|-------------|
-| C#                                              | Installing the [preview NuGet package] | |
-<!--| C# Script, Java, JavaScript, Python, PowerShell | Registering the [extension bundle]          | The [Azure Tools extension] is recommended to use with Visual Studio Code. | -->
+You can install this version of the extension in your function app by registering the [extension bundle], version 3.x, or a later version.
+-->
 
+---
 
-[preview NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Sql
-[core tools]: ./functions-run-local.md
-[extension bundle]: ./functions-bindings-register.md#extension-bundles
-[Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
+::: zone-end 
 
 
-## Known issues
+::: zone pivot="programming-language-javascript"
 
+
+## Install bundle    
+
+The SQL bindings extension is part of a preview [extension bundle], which is specified in your host.json project file.  
+
+# [Preview Bundle v3.x](#tab/extensionv3)
+
+You can add the preview extension bundle by adding or replacing the following code in your `host.json` file:
+
+```json
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "version": "[3.*, 4.0.0)"
+  }
+}
+```
+
+# [Preview Bundle v4.x](#tab/extensionv4)
+
+You can add the preview extension bundle by adding or replacing the following code in your `host.json` file:
+
+```json
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "version": "[4.*, 5.0.0)"
+  }
+}
+```
+
+---
+
+::: zone-end
+
+
+::: zone pivot="programming-language-python"  
+
+> [!NOTE]
+> Python language support for the SQL bindings extension is only available for v4 of the [functions runtime](./set-runtime-version.md#view-and-update-the-current-runtime-version) and requires runtime v4.5.0 for deployment in Azure.  Learn more about determining the runtime in the [functions runtime](./set-runtime-version.md#view-and-update-the-current-runtime-version) documentation.  Please see the tracking [GitHub issue](https://github.com/Azure/azure-functions-sql-extension/issues/250) for the latest update on availability.
+
+## Install bundle    
+
+The SQL bindings extension is part of a preview [extension bundle], which is specified in your host.json project file.  
+
+# [Preview Bundle v4.x](#tab/extensionv4)
+
+You can add the preview extension bundle by adding or replacing the following code in your `host.json` file:
+
+```json
+{
+  "version": "2.0",
+  "extensionBundle": {
+    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "version": "[4.*, 5.0.0)"
+  }
+}
+```
+
+# [Preview Bundle v3.x](#tab/extensionv3)
+
+Python support is not available with the SQL bindings extension in the v3 version of the functions runtime.
+
+---
+
+## Update packages
+
+Support for the SQL bindings extension is available in the 1.11.3b1 version of the [Azure Functions Python library](https://pypi.org/project/azure-functions/).  Add this version of the library to your functions project with an update to the line for `azure-functions==` in the `requirements.txt` file in your Python Azure Functions project as seen in the following snippet:
+
+```
+azure-functions==1.11.3b1
+```
+
+Following setting the library version, update your application settings to [isolate the dependencies](./functions-app-settings.md#python_isolate_worker_dependencies-preview) by adding `PYTHON_ISOLATE_WORKER_DEPENDENCIES` with the value `1` to your application settings.  Locally, this is set in the `local.settings.json` file as seen below:
+
+```json
+"PYTHON_ISOLATE_WORKER_DEPENDENCIES": "1"
+```
+
+Support for Python durable functions with SQL bindings isn't yet available.
+
+
+::: zone-end
+
+
+::: zone pivot="programming-language-java,programming-language-powershell"  
+
+> [!NOTE]
+> In the current preview, Azure SQL bindings are only supported by [C# class library functions](functions-dotnet-class-library.md), [JavaScript functions](functions-reference-node.md), and [Python functions](functions-reference-python.md). 
+
+::: zone-end
+
+## Considerations
+
+- Because the Azure SQL bindings doesn't have a trigger, you need to use another supported trigger to start a function that reads from or writes to an Azure SQL database. 
+- Azure SQL binding supports version 2.x and later of the Functions runtime.
+- Source code for the Azure SQL bindings can be found in [this GitHub repository](https://github.com/Azure/azure-functions-sql-extension).
+- This binding requires connectivity to an Azure SQL or SQL Server database.
 - Output bindings against tables with columns of data types `NTEXT`, `TEXT`, or `IMAGE` aren't supported and data upserts will fail. These types [will be removed](/sql/t-sql/data-types/ntext-text-and-image-transact-sql) in a future version of SQL Server and aren't compatible with the `OPENJSON` function used by this Azure Functions binding.
-
-
-## Open source
-
-The Azure SQL bindings for Azure Functions are open-source and available on the repository at [https://github.com/Azure/azure-functions-sql-extension](https://github.com/Azure/azure-functions-sql-extension).
 
 
 ## Next steps
@@ -57,4 +166,9 @@ The Azure SQL bindings for Azure Functions are open-source and available on the 
 - [Save data to a database (Output binding)](./functions-bindings-azure-sql-output.md)
 - [Review ToDo API sample with Azure SQL bindings](/samples/azure-samples/azure-sql-binding-func-dotnet-todo/todo-backend-dotnet-azure-sql-bindings-azure-functions/)
 - [Learn how to connect Azure Function to Azure SQL with managed identity](./functions-identity-access-azure-sql-with-managed-identity.md)
-- [Use SQL bindings in Azure Stream Analytics](/azure/stream-analytics/sql-database-upsert#option-1-update-by-key-with-the-azure-function-sql-binding)
+- [Use SQL bindings in Azure Stream Analytics](../stream-analytics/sql-database-upsert.md#option-1-update-by-key-with-the-azure-function-sql-binding)
+
+[preview NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Sql
+[core tools]: ./functions-run-local.md
+[extension bundle]: ./functions-bindings-register.md#extension-bundles
+[Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack

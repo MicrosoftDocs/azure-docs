@@ -44,7 +44,7 @@ For more information on what metric dimensions are, see [Multi-dimensional metri
 
 This section lists the types of resource logs you can collect for DPS.
 
-Resource Provider and Type: [Microsoft.Devices/provisioningServices](/azure/azure-monitor/essentials/resource-logs-categories#microsoftdevicesprovisioningservices).
+Resource Provider and Type: [Microsoft.Devices/provisioningServices](../azure-monitor/essentials/resource-logs-categories.md#microsoftdevicesprovisioningservices).
 
 | Category |  Description  |
 |:---------|------------------|
@@ -152,10 +152,10 @@ For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure
 
 ## Activity log
 
-For more information on the schema of Activity Log entries, see [Activity  Log schema](/azure/azure-monitor/essentials/activity-log-schema).
+For more information on the schema of Activity Log entries, see [Activity  Log schema](../azure-monitor/essentials/activity-log-schema.md).
 
 ## See Also
 
 - See [Monitoring Azure IoT Hub Device Provisioning Service](monitor-iot-dps.md) for a description of monitoring Azure IoT Hub Device Provisioning Service.
 
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.

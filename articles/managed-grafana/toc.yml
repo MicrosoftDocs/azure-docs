@@ -10,15 +10,17 @@ items:
   items:
   - name: Create a Managed Grafana workspace from the portal
     href: quickstart-managed-grafana-portal.md
+  - name: Create a Managed Grafana workspace from the CLI
+    href: quickstart-managed-grafana-cli.md  
 - name: How-to guides
   items:
-  - name: Configure Permissions for Managed Grafana
-    href: how-to-permissions.md
-  - name: Configure data source plugins with Managed Identity
+  - name: Configure data source plugins
     href: how-to-data-source-plugins-managed-identity.md
+  - name: Modify access permissions to Azure Monitor
+    href: how-to-permissions.md
   - name: Share your Managed Grafana workspace
     href: how-to-share-grafana-workspace.md
-  - name: Call APIs in your automation
+  - name: Call Grafana APIs programmatically
     href: how-to-api-calls.md
   - name: Monitor your Managed Grafana workspace
     href: how-to-monitor-managed-grafana-workspace.md

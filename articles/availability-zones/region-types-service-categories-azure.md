@@ -107,7 +107,7 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | Azure Machine Learning                               |
 > | Azure Managed Instance for Apache Cassandra          |
 > | Azure NetApp Files                                   |
-> | Azure Purview                                        |
+> | Microsoft Purview                                        |
 > | Azure Red Hat OpenShift                              |
 > | Azure Remote Rendering                               |
 > | Azure SignalR Service                                |

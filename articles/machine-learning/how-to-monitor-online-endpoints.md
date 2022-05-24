@@ -1,5 +1,5 @@
 ---
-title: Monitor managed online endpoints (preview)
+title: Monitor managed online endpoints
 titleSuffix: Azure Machine Learning
 description: Monitor managed online endpoints and create alerts with Application Insights.
 services: machine-learning
@@ -9,14 +9,12 @@ author: blackmist
 ms.subservice: mlops
 ms.date: 10/21/2021
 ms.topic: conceptual
-ms.custom: how-to, devplatv2
+ms.custom: how-to, devplatv2, event-tier1-build-2022
 ---
 
-# Monitor managed online endpoints (preview)
+# Monitor managed online endpoints
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
-In this article, you learn how to monitor [Azure Machine Learning managed online endpoints (preview)](concept-endpoints.md). Use Application Insights to view metrics and create alerts to stay up to date with your managed online endpoints.
+In this article, you learn how to monitor [Azure Machine Learning managed online endpoints](concept-endpoints.md). Use Application Insights to view metrics and create alerts to stay up to date with your managed online endpoints.
 
 In this article you learn how to:
 
@@ -27,7 +25,7 @@ In this article you learn how to:
 
 ## Prerequisites
 
-- Deploy an Azure Machine Learning managed online endpoint (preview).
+- Deploy an Azure Machine Learning managed online endpoint.
 - You must have at least [Reader access](../role-based-access-control/role-assignments-portal.md) on the endpoint.
 
 ## View metrics
@@ -42,7 +40,7 @@ Use the following steps to view metrics for a managed endpoint or deployment:
 
 ## Available metrics
 
-Depending on the resource that you select, the metrics that you see will be different. Metrics are scoped differently for managed online endpoints and managed online deployments (preview).
+Depending on the resource that you select, the metrics that you see will be different. Metrics are scoped differently for managed online endpoints and managed online deployments.
 
 ### Metrics at endpoint scope
 
@@ -55,16 +53,17 @@ Depending on the resource that you select, the metrics that you see will be diff
 - Active connection count
 - Network bytes
 
-> [!NOTE]
-> Bandwidth will be throttled if the limits are exceeded (see managed online endpoints section in [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)). To determine if requests are throttled:
-> - Monitor the "Network bytes" metric
-> - The response headers will have the fields: `ms-azureml-bandwidth-request-delay-ms` and `ms-azureml-bandwidth-response-delay-ms`. The values of the fields are the delays, in milliseconds, of the bandwidth throttling.
-
 Split on the following dimensions:
 
 - Deployment
 - Status Code
 - Status Code Class
+
+#### Bandwidth throttling
+
+Bandwidth will be throttled if the limits are exceeded (see managed online endpoints section in [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints)). To determine if requests are throttled:
+- Monitor the "Network bytes" metric
+- The response trailers will have the fields: `ms-azureml-bandwidth-request-delay-ms` and `ms-azureml-bandwidth-response-delay-ms`. The values of the fields are the delays, in milliseconds, of the bandwidth throttling.
 
 ### Metrics at deployment scope
 

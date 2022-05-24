@@ -85,7 +85,7 @@ Service name requirements:
 
 Azure Cognitive Search is available in most regions, as listed in the [**Products available by region**](https://azure.microsoft.com/global-infrastructure/services/?products=search) page.
 
-As a rule, if you're using multiple Azure services, putting all of them in the same region minimizes or voids bandwidth charges. There are no charges for outbound data when services are in the same region.
+As a rule, if you're using multiple Azure services, putting all of them in the same region minimizes or voids bandwidth charges. There are no charges for data exchanges among services when all of them are in the same region.
 
 Two notable exceptions might lead to provisioning one or more search services in a separate region:
 

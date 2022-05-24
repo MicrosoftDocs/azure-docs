@@ -49,7 +49,7 @@ The Form Recognizer Studio provides and orchestrates all the API calls required 
     1. On the next step in the workflow, choose or create a Form Recognizer resource before you select continue.
 
     > [!IMPORTANT]
-    > Custom neural models models are only available in a few regions. If you plan on training a neural model, please select or create a resource in one of [these supported regions](/azure/applied-ai-services/form-recognizer/concept-custom-neural#l).
+    > Custom neural models models are only available in a few regions. If you plan on training a neural model, please select or create a resource in one of [these supported regions](../concept-custom-neural.md).
 
     :::image type="content" source="../media/how-to/studio-select-resource.png" alt-text="Screenshot: Select the Form Recognizer resource.":::
 

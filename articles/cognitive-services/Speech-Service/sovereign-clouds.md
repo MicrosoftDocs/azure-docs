@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 11/09/2021
+ms.date: 05/10/2022
 ms.author: alexeyo
 ---
 
@@ -121,6 +121,7 @@ Available to organizations with a business presence in China. See more informati
   - Speech-to-text
     - Custom speech (Acoustic Model (AM) and Language Model (LM) adaptation)
       - [Speech Studio](https://speech.azure.cn/)
+    - [Pronunciation assessment](how-to-pronunciation-assessment.md)
   - Text-to-speech
     - Standard voice
     - Neural voice

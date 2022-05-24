@@ -53,7 +53,7 @@ items:
 
 - name: How-to guides
   items:
-  - name: Configure automated key rotation (preview)
+  - name: Configure automated key rotation
     href: how-to-configure-key-rotation.md
 
 - name: Reference

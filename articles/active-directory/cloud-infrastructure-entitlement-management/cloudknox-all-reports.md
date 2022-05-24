@@ -2,14 +2,14 @@
 title: View a list and description of all system reports available in CloudKnox Permissions Management reports
 description: View a list and description of all system reports available in CloudKnox Permissions Management.
 services: active-directory
-author: Yvonne-deQ
-manager: karenh444
+author: kenwith
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: kenwith
 ---
 
 # View a list and description of system reports

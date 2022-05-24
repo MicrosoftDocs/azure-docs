@@ -15,7 +15,7 @@ In this article, you'll learn how to monitor an Azure Managed Grafana Preview wo
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
-- An Azure Managed Grafana workspace with access to at least one data source. If you don't have a workspace yet, [create an Azure Managed Grafana workspace](/how-to-permissions.md) and [add a data source](how-to-data-source-plugins-managed-identity.md).
+- An Azure Managed Grafana workspace with access to at least one data source. If you don't have a workspace yet, [create an Azure Managed Grafana workspace](/azure/managed-grafana/how-to-permissions) and [add a data source](how-to-data-source-plugins-managed-identity.md).
 
 ## Sign in to Azure
 
@@ -46,7 +46,7 @@ You can create up to five different diagnostic settings to send different logs t
    | Log Analytics workspace | Send data to a Log Analytics workspace | Select the **subscription** containing an existing Log Analytics workspace, then select the **Log Analytics workspace**                                                          |
    | Storage account         | Archive data to a storage account      | Select the **subscription** containing an existing storage account, then select the **storage account**. Only storage accounts in the same region as the Grafana workspace are displayed in the dropdown menu.                                                                          |
    | Event hub               | Stream to an event hub                 | Select a **subscription** and an existing Azure Event Hub **namespace**. Optionally also choose an existing **event hub**. Lastly, choose an **event hub policy** from the list. Only event hubs in the same region as the Grafana workspace are displayed in the dropdown menu. |
-   | Partner solution        | Send to a partner solution             | Select a **subscription** and a **destination**. For more information about available destinations, go to [partner destinations](/azure/azure-monitor/partners).                 |
+   | Partner solution        | Send to a partner solution             | Select a **subscription** and a **destination**. For more information about available destinations, go to [partner destinations](../azure-monitor/partners.md).                 |
 
    :::image type="content" source="media/managed-grafana-monitoring-settings.png" alt-text="Screenshot of the Azure platform. Diagnostic settings configuration.":::
 

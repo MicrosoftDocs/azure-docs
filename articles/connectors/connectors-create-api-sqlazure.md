@@ -18,8 +18,8 @@ For example, you can use actions that get, insert, and delete data along with ru
  The SQL Server connector supports the following SQL editions:
 
 * [SQL Server](/sql/sql-server/sql-server-technical-documentation)
-* [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md)
-* [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)
+* [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
+* [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)
 
 If you're new to Azure Logic Apps, review the following documentation:
 
@@ -30,7 +30,7 @@ If you're new to Azure Logic Apps, review the following documentation:
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* [SQL Server database](/sql/relational-databases/databases/create-a-database), [Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md), or [SQL Managed Instance](../azure-sql/managed-instance/instance-create-quickstart.md).
+* [SQL Server database](/sql/relational-databases/databases/create-a-database), [Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart), or [SQL Managed Instance](/azure/azure-sql/managed-instance/instance-create-quickstart).
 
   The SQL connector requires that your tables contain data so that SQL connector operations can return results when called. For example, if you use Azure SQL Database, you can use the included sample databases to try the SQL connector operations.
 
@@ -270,7 +270,7 @@ After you provide this information, continue with these steps:
 
 ### Connect to Azure SQL Database or SQL Managed Instance
 
-To access a SQL Managed Instance without using the on-premises data gateway or integration service environment, you have to [set up the public endpoint on the SQL Managed Instance](../azure-sql/managed-instance/public-endpoint-configure.md). The public endpoint uses port 3342, so make sure that you specify this port number when you create the connection from your logic app.
+To access a SQL Managed Instance without using the on-premises data gateway or integration service environment, you have to [set up the public endpoint on the SQL Managed Instance](/azure/azure-sql/managed-instance/public-endpoint-configure). The public endpoint uses port 3342, so make sure that you specify this port number when you create the connection from your logic app.
 
 The first time that you add either a [SQL Server trigger](#add-sql-trigger) or [SQL Server action](#add-sql-action), and you haven't previously created a connection to your database, you're prompted to complete these steps:
 
@@ -282,8 +282,8 @@ The first time that you add either a [SQL Server trigger](#add-sql-trigger) or [
    |----------------|-------------|
    | **Service principal (Azure AD application)** | - Available only for the managed SQL Server connector. <br><br>- Requires an Azure AD application and service principal. For more information, see [Create an Azure AD application and service principal that can access resources using the Azure portal](../active-directory/develop/howto-create-service-principal-portal.md). |
    | **Logic Apps Managed Identity** | - Available only for the managed SQL Server connector and ISE SQL Server connector. <br><br>- Requires the following items: <br><br>--- A valid managed identity that's [enabled on your logic app resource](../logic-apps/create-managed-service-identity.md) and has access to your database. <br><br>--- **SQL DB Contributor** role access to the SQL Server resource <br><br>--- **Contributor** access to the resource group that includes the SQL Server resource. <br><br>For more information, see [SQL - Server-Level Roles](/sql/relational-databases/security/authentication-access/server-level-roles). |
-   | [**Azure AD Integrated**](../azure-sql/database/authentication-aad-overview.md) | - Available only for the managed SQL Server connector and ISE SQL Server connector. <br><br>- Requires a valid managed identity in Azure Active Directory (Azure AD) that's [enabled on your logic app resource](../logic-apps/create-managed-service-identity.md) and has access to your database. For more information, see these topics: <br><br>- [Azure SQL Security Overview - Authentication](../azure-sql/database/security-overview.md#authentication) <br>- [Authorize database access to Azure SQL - Authentication and authorization](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) <br>- [Azure SQL - Azure AD Integrated authentication](../azure-sql/database/authentication-aad-overview.md) |
-   | [**SQL Server Authentication**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Available only for the managed SQL Server connector and ISE SQL Server connector. <br><br>- Requires the following items: <br><br>--- A data gateway resource that's previously created in Azure for your connection, regardless whether your logic app is in multi-tenant Azure Logic Apps or an ISE. <br><br>--- A valid user name and strong password that are created and stored in your SQL Server database. For more information, see the following topics: <br><br>- [Azure SQL Security Overview - Authentication](../azure-sql/database/security-overview.md#authentication) <br>- [Authorize database access to Azure SQL - Authentication and authorization](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
+   | [**Azure AD Integrated**](/azure/azure-sql/database/authentication-aad-overview) | - Available only for the managed SQL Server connector and ISE SQL Server connector. <br><br>- Requires a valid managed identity in Azure Active Directory (Azure AD) that's [enabled on your logic app resource](../logic-apps/create-managed-service-identity.md) and has access to your database. For more information, see these topics: <br><br>- [Azure SQL Security Overview - Authentication](/azure/azure-sql/database/security-overview#authentication) <br>- [Authorize database access to Azure SQL - Authentication and authorization](/azure/azure-sql/database/logins-create-manage#authentication-and-authorization) <br>- [Azure SQL - Azure AD Integrated authentication](/azure/azure-sql/database/authentication-aad-overview) |
+   | [**SQL Server Authentication**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Available only for the managed SQL Server connector and ISE SQL Server connector. <br><br>- Requires the following items: <br><br>--- A data gateway resource that's previously created in Azure for your connection, regardless whether your logic app is in multi-tenant Azure Logic Apps or an ISE. <br><br>--- A valid user name and strong password that are created and stored in your SQL Server database. For more information, see the following topics: <br><br>- [Azure SQL Security Overview - Authentication](/azure/azure-sql/database/security-overview#authentication) <br>- [Authorize database access to Azure SQL - Authentication and authorization](/azure/azure-sql/database/logins-create-manage#authentication-and-authorization) |
 
    This connection and authentication information box looks similar to the following example, which selects **Azure AD Integrated**:
 
@@ -399,10 +399,10 @@ Sometimes, you have to work with result sets so large that the connector doesn't
   > Some stored procedures might take longer than this limit to complete, causing a `504 Timeout` error. You can work around this problem 
   > by using a SQL completion trigger, native SQL pass-through query, a state table, and server-side jobs.
   > 
-  > For this task, you can use the [Azure Elastic Job Agent](../azure-sql/database/elastic-jobs-overview.md) 
-  > for [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md). For 
+  > For this task, you can use the [Azure Elastic Job Agent](/azure/azure-sql/database/elastic-jobs-overview) 
+  > for [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview). For 
   > [SQL Server on premises](/sql/sql-server/sql-server-technical-documentation) 
-  > and [SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md), 
+  > and [SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview), 
   > you can use the [SQL Server Agent](/sql/ssms/agent/sql-server-agent). To learn more, see 
   > [Handle long-running stored procedure timeouts in the SQL connector for Azure Logic Apps](../logic-apps/handle-long-running-stored-procedures-sql-connector.md).
 

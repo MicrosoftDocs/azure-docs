@@ -82,10 +82,9 @@ Azure Storage encrypts lab data with a Microsoft-managed key. Optionally, you ca
 
 For more information and instructions on configuring customer-managed keys for Azure Storage encryption, see:
 
-- [Use customer-managed keys with Azure Key Vault to manage Azure Storage encryption](/azure/storage/common/customer-managed-keys-overview)
-- [Configure encryption with customer-managed keys stored in Azure Key Vault](/azure/storage/common/customer-managed-keys-configure-key-vault)
+- [Use customer-managed keys with Azure Key Vault to manage Azure Storage encryption](../storage/common/customer-managed-keys-overview.md)
+- [Configure encryption with customer-managed keys stored in Azure Key Vault](../storage/common/customer-managed-keys-configure-key-vault.md)
 
 ## Next steps
 
 For more information about managing Azure Storage, see [Optimize costs by automatically managing the data lifecycle](../storage/blobs/lifecycle-management-overview.md).
-

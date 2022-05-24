@@ -1,54 +1,46 @@
 ---
 title: Authoring and publishing data owner access policies
-description: Step-by-step guide on how a data owner can author and publish access policies in Azure Purview
+description: Step-by-step guide on how a data owner can author and publish access policies in Microsoft Purview
 author: inward-eye
 ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
+ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 3/02/2022
+ms.date: 4/18/2022
 ---
 
 # Authoring and publishing data owner access policies (Preview)
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-Access policies allow data owners to manage access to datasets from Azure Purview. Data owners can author policies directly from Azure Purview Studio, and then have those policies enforced by the data source.
-
-This tutorial describes how a data owner can create, update, and publish access policies in Azure Purview Studio.
+Access policies allow a data owner to delegate in Microsoft Purview access management to a data source. These policies can be authored directly in the Microsoft Purview governance portal, and after publishing, they get enforced by the data source. This tutorial describes how to create, update, and publish access policies in the Microsoft Purview governance portal.
 
 ## Prerequisites
+[!INCLUDE [Access policies generic pre-requisites](./includes/access-policies-prerequisites-generic.md)]
 
-### Required permissions
-
->[!IMPORTANT]
-> - Currently, policy operations are only supported at **root collection level** and not child collection level.
-
-These permissions are required in Azure Purview at root collection level:
-- *Policy authors* role can create or edit policies.
-- *Data source administrator* role can publish a policy.
-
-For more information, see the guide on [managing Azure Purview role assignments](catalog-permissions.md#assign-permissions-to-your-users).
+## Configuration
+[!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
 
 ### Data source configuration
 
-Before authoring data policies in Azure Purview Studio, you'll need to configure the data sources so that they can enforce those policies.
+Before authoring data policies in the Microsoft Purview governance portal, you'll need to configure the data sources so that they can enforce those policies.
 
-1. Follow any policy-specific prerequisites for your source. Check the [Azure Purview supported data sources table](azure-purview-connector-overview.md#azure-purview-data-sources) and select the link in the **Access Policy** column for sources where access policies are available. Follow any steps listed in the Access policy or Prerequisites sections.
-1. Register the data source in Azure Purview. Follow the **Prerequisites** and **Register** sections of the [source pages](azure-purview-connector-overview.md) for your resources.
-1. [Enable the data use governance toggle on the data source](how-to-enable-data-use-governance.md#enable-data-use-governance). Additional permissions for this step are described in the linked document.
+1. Follow any policy-specific prerequisites for your source. Check the [Microsoft Purview supported data sources table](azure-purview-connector-overview.md#microsoft-purview-data-sources) and select the link in the **Access Policy** column for sources where access policies are available. Follow any steps listed in the Access policy or Prerequisites sections.
+1. Register the data source in Microsoft Purview. Follow the **Prerequisites** and **Register** sections of the [source pages](azure-purview-connector-overview.md) for your resources.
+1. [Enable the Data Use Management toggle on the data source](how-to-enable-data-use-management.md#enable-data-use-management). Additional permissions for this step are described in the linked document.
 
 ## Create a new policy
 
-This section describes the steps to create a new policy in Azure Purview.
+This section describes the steps to create a new policy in Microsoft Purview.
 
-1. Sign in to the [Azure Purview Studio](https://web.purview.azure.com/resource/).
+1. Sign in to the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 
 1. Navigate to the **Data policy** feature using the left side panel. Then select **Data policies**.
 
 1. Select the **New Policy** button in the policy page.
 
-    :::image type="content" source="./media/access-policies-common/policy-onboard-guide-1.png" alt-text="Data owner can access the Policy functionality in Azure Purview when it wants to create policies.":::
+    :::image type="content" source="./media/access-policies-common/policy-onboard-guide-1.png" alt-text="Data owner can access the Policy functionality in Microsoft Purview when it wants to create policies.":::
 
 1. The new policy page will appear. Enter the policy **Name** and **Description**.
 
@@ -62,7 +54,7 @@ This section describes the steps to create a new policy in Azure Purview.
 
 1. Select the **Data Resources** button to bring up the window to enter Data resource information, which will open to the right.
 
-1. Under the **Data Resources** Panel do one of two things depending on the granularity of the policy:
+1. Under the **Data Resources** Panel do **one of two things** depending on the granularity of the policy:
     - To create a broad policy statement that covers an entire data source, resource group, or subscription that was previously registered, use the **Data sources** box and select its **Type**.
     - To create a fine-grained policy, use the **Assets** box instead. Enter the **Data Source Type** and the **Name** of a previously registered and scanned data source. See example in the image.
 
@@ -88,13 +80,13 @@ A newly created policy is in the **draft** state. The process of publishing asso
 
 The steps to publish a policy are as follows:
 
-1. Sign in to the [Azure Purview Studio](https://web.purview.azure.com/resource/).
+1. Sign in to the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 
 1. Navigate to the **Data policy** feature using the left side panel. Then select **Data policies**.
 
-    :::image type="content" source="./media/access-policies-common/policy-onboard-guide-2.png" alt-text="Data owner can access the Policy functionality in Azure Purview when it wants to update a policy by selecting 'Data policies'.":::
+    :::image type="content" source="./media/access-policies-common/policy-onboard-guide-2.png" alt-text="Data owner can access the Policy functionality in Microsoft Purview when it wants to update a policy by selecting 'Data policies'.":::
 
-1. The Policy portal will present the list of existing policies in Azure Purview. Locate the policy that needs to be published. Select the **Publish** button on the right top corner of the page.
+1. The Policy portal will present the list of existing policies in Microsoft Purview. Locate the policy that needs to be published. Select the **Publish** button on the right top corner of the page.
 
     :::image type="content" source="./media/access-policies-common/publish-policy.png" alt-text="Data owner can publish a policy.":::
 
@@ -107,15 +99,15 @@ The steps to publish a policy are as follows:
 
 ## Update or delete a policy
 
-Steps to update or delete a policy in Azure Purview are as follows.
+Steps to update or delete a policy in Microsoft Purview are as follows.
 
-1. Sign in to the [Azure Purview Studio](https://web.purview.azure.com/resource/).
+1. Sign in to the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 
 1. Navigate to the **Data policy** feature using the left side panel. Then select **Data policies**.
 
-    :::image type="content" source="./media/access-policies-common/policy-onboard-guide-2.png" alt-text="Data owner can access the Policy functionality in Azure Purview when it wants to update a policy.":::
+    :::image type="content" source="./media/access-policies-common/policy-onboard-guide-2.png" alt-text="Data owner can access the Policy functionality in Microsoft Purview when it wants to update a policy.":::
 
-1. The Policy portal will present the list of existing policies in Azure Purview. Select the policy that needs to be updated.
+1. The Policy portal will present the list of existing policies in Microsoft Purview. Select the policy that needs to be updated.
 
 1. The policy details page will appear, including Edit and Delete options. Select the **Edit** button, which brings up the policy statement builder. Now, any parts of the statements in this policy can be updated. To delete the policy, use the **Delete** button.
 
@@ -125,5 +117,5 @@ Steps to update or delete a policy in Azure Purview are as follows.
 
 For specific guides on creating policies, you can follow these tutorials:
 
-- [Enable Azure Purview data owner policies on all data sources in a subscription or a resource group](./how-to-data-owner-policies-resource-group.md)
-- [Enable Azure Purview data owner policies on an Azure Storage account](./how-to-data-owner-policies-storage.md)
+- [Enable Microsoft Purview data owner policies on all data sources in a subscription or a resource group](./how-to-data-owner-policies-resource-group.md)
+- [Enable Microsoft Purview data owner policies on an Azure Storage account](./how-to-data-owner-policies-storage.md)

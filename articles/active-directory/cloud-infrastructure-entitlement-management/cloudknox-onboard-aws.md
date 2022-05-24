@@ -2,14 +2,14 @@
 title:  Onboard an Amazon Web Services (AWS) account on CloudKnox Permissions Management
 description: How to onboard an Amazon Web Services (AWS) account on CloudKnox Permissions Management.
 services: active-directory
-author: Yvonne-deQ
-manager: karenh444
+author: kenwith
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/10/2022
-ms.author: v-ydequadros
+ms.date: 04/20/2022
+ms.author: kenwith
 ---
 
 # Onboard an Amazon Web Services (AWS) account
@@ -17,6 +17,9 @@ ms.author: v-ydequadros
 > [!IMPORTANT]
 > CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+
+> [!NOTE] 
+> The CloudKnox Permissions Management (CloudKnox) PREVIEW is currently not available for tenants hosted in the European Union (EU).
 
 
 This article describes how to onboard an Amazon Web Services (AWS) account on CloudKnox Permissions Management (CloudKnox).

@@ -4,7 +4,7 @@ description: This article describes the instructions to install the agent on Win
 ms.topic: conceptual
 author: shseth
 ms.author: shseth
-ms.date: 4/13/2022
+ms.date: 5/20/2022
 ms.custom: references_region
 
 ---
@@ -14,6 +14,22 @@ This article provides instructions and guidance for using the client installer f
 
 With the new client installer available in this preview, you can now collect telemetry data from your Windows client devices in addition to servers and virtual machines.
 Both the [generally available extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) and this installer use Data Collection rules to configure the **same underlying agent**.
+
+### Comparison with virtual machine extension
+Here is a comparison between client installer and VM extension for Azure Monitor agent. It also highlights which parts are in preview:  
+
+| Functional component | For VMs/servers via extension | For clients via installer|  
+|:---|:---|:---|
+| Agent installation method | Via VM extension | Via client installer <sup>preview</sup> |
+| Agent installed | Azure Monitor Agent | Same |
+| Authentication | Using Managed Identity | Using AAD device token <sup>preview</sup> |
+| Central configuration | Via Data collection rules | Same |
+| Associating config rules to agents | DCRs associates directly to individual VM resources | DCRs associate to Monitored Object (MO), which maps to all devices within the AAD tenant <sup>preview</sup> |
+| Data upload to Log Analytics	| Via Log Analytics endpoints | Same |
+| Feature support | All features documented [here](./azure-monitor-agent-overview.md) | Features dependent on AMA agent extension that don't require additional extensions. This includes support for Sentinel Windows Event filtering |
+| [Networking options](./azure-monitor-agent-overview.md#networking) | Proxy support, Private link support | Proxy support only |  
+
+
 
 ## Supported device types
 
@@ -83,7 +99,7 @@ Then, proceed with the instructions below to create and associate them to a Moni
 #### 1. Assign ‘Monitored Object Contributor’ role to the operator
 
 This step grants the ability to create and link a monitored object to a user.  
-**Permissions required:** Since MO is a tenant level resource, the scope of the permission would be higher than a subscription scope. Therefore, an Azure tenant admin may be needed to perform this step. [Follow these steps to elevate Azure AD Tenant Admin as Azure Tenant Admin](/azure/role-based-access-control/elevate-access-global-admin). It will give the Azure AD admin 'owner' permissions at the root scope.
+**Permissions required:** Since MO is a tenant level resource, the scope of the permission would be higher than a subscription scope. Therefore, an Azure tenant admin may be needed to perform this step. [Follow these steps to elevate Azure AD Tenant Admin as Azure Tenant Admin](../../role-based-access-control/elevate-access-global-admin.md). It will give the Azure AD admin 'owner' permissions at the root scope.
 
 **Request URI**
 ```HTTP
