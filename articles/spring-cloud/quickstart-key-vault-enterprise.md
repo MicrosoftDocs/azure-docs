@@ -28,7 +28,7 @@ Every application has properties that connect it to its environment and supporti
 - [Git](https://git-scm.com/).
 - [jq](https://stedolan.github.io/jq/download/)
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
-- Complete the previous quickstarts in this series:
+- Complete the steps in the following quickstarts:
   - [Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
   - [Integrate with Azure Database for PostgreSQL and Azure Cache for Redis](quickstart-integrate-azure-database-and-redis-enterprise.md)
 
@@ -332,5 +332,10 @@ echo "Press [ENTER] to continue ..."
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Quickstart: Monitor applications end-to-end](quickstart-monitor-end-to-end-enterprise.md)
+Continue on to any of the following optional quickstarts:
+
+- [Configure single sign-on](quickstart-configure-single-sign-on-enterprise.md)
+- [Integrate Azure Database for PostgreSQL and Azure Cache for Redis](quickstart-integrate-azure-database-and-redis-enterprise.md)
+- [Monitor applications end-to-end](quickstart-monitor-end-to-end-enterprise.md)
+- [Set request rate limits](quickstart-set-request-rate-limits-enterprise.md)
+- [Automate deployments](quickstart-automate-deployments-github-actions-enterprise.md)

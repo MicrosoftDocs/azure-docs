@@ -36,7 +36,7 @@ items:
       href: quickstart-sample-app-acme-fitness-store-introduction.md
     - name: Build and deploy apps
       href: quickstart-deploy-apps-enterprise.md
-    - name: Configure Single Sign-On
+    - name: Configure single sign-on
       href: quickstart-configure-single-sign-on-enterprise.md
     - name: Integrate Azure Database for PostgreSQL and Azure Cache for Redis
       href: quickstart-integrate-azure-database-and-redis-enterprise.md

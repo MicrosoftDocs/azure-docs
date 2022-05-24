@@ -26,8 +26,7 @@ This quickstart shows you how to configure single sign-on for applications runni
 - [Git](https://git-scm.com/).
 - [jq](https://stedolan.github.io/jq/download/)
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
-- Complete the previous quickstart in this series:
-  - [Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
+- Complete the steps in [Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
 
 ## Prepare single sign-on credentials
 
@@ -283,5 +282,10 @@ echo "Press [ENTER] to continue ..."
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Quickstart: Integrate Azure Database for PostgreSQL and Azure Cache for Redis](quickstart-integrate-azure-database-and-redis-enterprise.md)
+Continue on to any of the following optional quickstarts:
+
+- [Integrate Azure Database for PostgreSQL and Azure Cache for Redis](quickstart-integrate-azure-database-and-redis-enterprise.md)
+- [Load application secrets using Key Vault](quickstart-key-vault-enterprise.md)
+- [Monitor applications end-to-end](quickstart-monitor-end-to-end-enterprise.md)
+- [Set request rate limits](quickstart-set-request-rate-limits-enterprise.md)
+- [Automate deployments](quickstart-automate-deployments-github-actions-enterprise.md)

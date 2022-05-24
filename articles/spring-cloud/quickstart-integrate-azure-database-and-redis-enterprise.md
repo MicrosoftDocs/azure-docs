@@ -16,7 +16,9 @@ ms.custom: devx-track-java
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This quickstart shows you how to provision and prepare an Azure Database for PostgreSQL and an Azure Cache for Redis to be used with apps running Azure Spring Apps Enterprise tier.
+This quickstart shows you how to provision and prepare an Azure Database for PostgreSQL and an Azure Cache for Redis to be used with apps running in Azure Spring Apps Enterprise tier.
+
+This article uses these services for demonstration purposes, but you can connect your application to any backing service of your choice by using similar instructions. For more information, see [Create Service Connectors](#create-service-connectors) later in this article.
 
 ## Prerequisites
 
@@ -26,8 +28,7 @@ This quickstart shows you how to provision and prepare an Azure Database for Pos
 - [Git](https://git-scm.com/).
 - [jq](https://stedolan.github.io/jq/download/)
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
-- Complete the previous quickstart in this series:
-  - [Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
+- Complete the steps in [Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
 
 ## Provision services
 
@@ -129,7 +130,7 @@ To deploy this template, follow these steps:
 
 ---
 
-## Create service connectors
+## Create Service Connectors
 
 The following steps show how to bind applications running in Azure Spring Apps Enterprise tier to other Azure services using Service Connectors.
 
@@ -248,5 +249,10 @@ echo "Press [ENTER] to continue ..."
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Quickstart: Securely load application secrets using Key Vault](quickstart-key-vault-enterprise.md)
+Continue on to any of the following optional quickstarts:
+
+- [Configure single sign-on](quickstart-configure-single-sign-on-enterprise.md)
+- [Load application secrets using Key Vault](quickstart-key-vault-enterprise.md)
+- [Monitor applications end-to-end](quickstart-monitor-end-to-end-enterprise.md)
+- [Set request rate limits](quickstart-set-request-rate-limits-enterprise.md)
+- [Automate deployments](quickstart-automate-deployments-github-actions-enterprise.md)

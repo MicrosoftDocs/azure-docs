@@ -423,5 +423,11 @@ echo "Press [ENTER] to continue ..."
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Quickstart: Configure Single Sign On](quickstart-configure-single-sign-on-enterprise.md)
+Now that you've successfully built and deployed your app, continue on to any of the following optional quickstarts:
+
+- [Configure single sign-on](quickstart-configure-single-sign-on-enterprise.md)
+- [Integrate Azure Database for PostgreSQL and Azure Cache for Redis](quickstart-integrate-azure-database-and-redis-enterprise.md)
+- [Load application secrets using Key Vault](quickstart-key-vault-enterprise.md)
+- [Monitor applications end-to-end](quickstart-monitor-end-to-end-enterprise.md)
+- [Set request rate limits](quickstart-set-request-rate-limits-enterprise.md)
+- [Automate deployments](quickstart-automate-deployments-github-actions-enterprise.md)
