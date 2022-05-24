@@ -57,7 +57,7 @@ landingContent:
             url: get-started.md
           - text: Enable enhanced security features
             url: enable-enhanced-security.md
-          - text: Connect hybrid and multi-cloud machines
+          - text: Connect hybrid and multicloud machines
             url: quickstart-onboard-machines.md
           - text: Configure auto provisioning
             url: enable-data-collection.md
