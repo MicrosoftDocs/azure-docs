@@ -75,7 +75,7 @@ In this section, we'll walk through creating a simple LDAP server on a Virtual M
 1. Verify that dns name is correct:
 
     ```shell
-        openssl x509 -in certs/ldap.crt -text
+    openssl x509 -in certs/ldap.crt -text
     ```
    :::image type="content" source="./media/ldap/dns-verify.jpg" alt-text="Verofy dns name in ldap cert" lightbox="./media/ldap/dns-verify.jpg" border="true":::
 
