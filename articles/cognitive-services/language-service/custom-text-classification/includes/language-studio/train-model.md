@@ -5,14 +5,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 04/22/2022
+ms.date: 05/24/2022
 ms.author: aahi
 ms.custom: language-service-custom-classification, event-tier1-build-2022
 ---
 
 To start training your model from within the [Language Studio](https://aka.ms/LanguageStudio):
 
-1. Select **Train model** from the left side menu.
+1. Select **Training jobs** from the left side menu.
 
 2. Select **Start a training job** from the top menu.
 
