@@ -237,7 +237,7 @@ For Azure Function Apps (v2), securing the channel with an API key can be accomp
 
 Create an API key from within your Application Insights resource and go to **Settings > Configuration** for your Function App. Select **New application setting** and enter a name of `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` and a value that corresponds to your API key.
 
-However, if you recognize and trust all the connected servers, you can try the custom filters without the authenticated channel. This option is available for six months. This override is required once every new session, or when a new server comes online.
+Securing the control channel is not necessary if you recognize and trust all the connected servers. This option is made available so that you can try custom filters without having to set up an authenticated channel. If you choose this option you will have to authorize the connected servers once every new session or when a new server comes online. We strongly discourage the use of unsecured channels and will disable this option 6 months after you start using it. To use custom filters without a secure channel simply click on any of the filter icons and authorize the connected servers. The “Authorize connected servers” dialog displays the date (highlighted below) after which this option will be disabled.
 
 ![Live Metrics Auth options](./media/live-stream/live-stream-auth.png)
 
