@@ -41,7 +41,7 @@ Your offer's publish status will change as it moves through the publication proc
 | Attention needed | We discovered a critical issue during certification or during another publishing phase. |
 | Preview | We certified the offer, which now awaits a final verification by the publisher. Select **Go live** to publish the offer live. |
 | Live | Offer is live in the marketplace and can be seen and acquired by customers. |
-| Pending stop sell | Publisher selected "stop sell" on an offer or plan, but the action has not yet been completed. |
+| Pending stop distribution | Publisher selected "stop distribution" on an offer or plan, but the action has not yet been completed. |
 | Not available in the marketplace | A previously published offer in the marketplace has been removed. |
 
 ## Preview and subscribe to the offer
