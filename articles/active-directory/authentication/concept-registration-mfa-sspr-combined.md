@@ -74,7 +74,7 @@ Users can set one of the following options as the default Multi-Factor Authentic
 - Text message
 
 >[!NOTE]
->Virtual phone numbers are not supported.
+>Virtual phone numbers are not supported for Voice calls or SMS messages.
 
 Third party authenticator apps do not provide push notification. As we continue to add more authentication methods to Azure AD, those methods become available in combined registration.
 
