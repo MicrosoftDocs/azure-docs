@@ -25,9 +25,10 @@ This release is published May 24, 2022.
 `v1.7.0_2022-05-24`
 
 For complete release version information, see [Version log](version-log.md).
-### Data controller
 
-Reminders and warnings are implemented in Azure Portal and in custom resource status when billing data has not been uploaded or exported recently.
+### Data controller reminders and warnings
+
+Reminders and warnings are implemented in Azure portal, custom resource status, and through CLI when the billing data related to all resources managed by the data controller has not been uploaded or exported for an extended period.
 
 ### SQL Managed Instance
 
