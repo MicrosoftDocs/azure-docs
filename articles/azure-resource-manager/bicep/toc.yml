@@ -95,6 +95,8 @@
       href: ../../dms/create-dms-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: SQL Database
       href: /azure/azure-sql/database/single-database-create-bicep-quickstart
+    - name: SQL Managed Instance
+      href: /azure/azure-sql/managed-instance/create-bicep-quickstart
   - name: DevOps
     items:
     - name: App Configuration
