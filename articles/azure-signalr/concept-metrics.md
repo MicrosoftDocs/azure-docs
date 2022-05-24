@@ -9,7 +9,7 @@ ms.author: chenyl
 ---
 # Metrics in Azure SignalR Service
 
-Metrics in SignalR Service is an implementation of [Azure Monitor Metrics](../azure-monitor/essentials/data-platform-metrics). Understanding how Azure Monitor collects and displays metrics is helpful for using metrics in SignalR Service. Azure SignalR Service defines a collection of  metrics that can be used to set up [alerts](../azure-monitor/alerts/alerts-overview.md) and [autoscale conditions](./signalr-howto-scale-autoscale.md).
+Metrics in SignalR Service is an implementation of [Azure Monitor Metrics](../azure-monitor/essentials/data-platform-metrics.md). Understanding how Azure Monitor collects and displays metrics is helpful for using metrics in SignalR Service. Azure SignalR Service defines a collection of  metrics that can be used to set up [alerts](../azure-monitor/alerts/alerts-overview.md) and [autoscale conditions](./signalr-howto-scale-autoscale.md).
 
 ## SignalR Service metrics
 
@@ -82,6 +82,6 @@ To learn more about autoscaling, see [Automatically scale units of an Azure Sign
 ## Related resources
 
 - [Automatically scale units of an Azure SignalR Service](signalr-howto-scale-autoscale.md)
-- [Azure Monitor Metrics](../azure-monitor/essentials/data-platform-metrics)
-- [Understanding metrics aggregation](../azure-monitor/essentials/metrics-aggregation-explained)
+- [Azure Monitor Metrics](../azure-monitor/essentials/data-platform-metrics.md)
+- [Understanding metrics aggregation](../azure-monitor/essentials/metrics-aggregation-explained.md)
 - [Use diagnostic logs to monitor SignalR Service](signalr-howto-diagnostic-logs.md)

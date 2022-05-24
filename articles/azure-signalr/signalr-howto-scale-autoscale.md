@@ -15,7 +15,7 @@ ms.author: chenyl
 
 Azure SignalR Service Premium tier supports an *autoscale* feature, which is an implementation of [Azure Monitor autoscale](../azure-monitor/autoscale/autoscale-overview.md). Autoscale allows you to automatically scale the unit count for your SignalR Service to match the actual load on the service. Autoscale can help you optimize performance and cost for your application.
 
-Azure SignalR adds its own [service metrics](concept-metrics.md), however, most of the user interface is shared and common to other [Azure services that support autoscaling](../azure-monitor/autoscale/autoscale-overview.md#supported-services-for-autoscale). If you're new to the subject of Azure Monitor Metrics, review [Azure Monitor Metrics aggregation and display explained](../azure-monitor/essentials/metrics-aggregation-explained) before digging into SignalR Service Metrics.
+Azure SignalR adds its own [service metrics](concept-metrics.md), however, most of the user interface is shared and common to other [Azure services that support autoscaling](../azure-monitor/autoscale/autoscale-overview.md#supported-services-for-autoscale). If you're new to the subject of Azure Monitor Metrics, review [Azure Monitor Metrics aggregation and display explained](../azure-monitor/essentials/metrics-aggregation-explained.md) before digging into SignalR Service Metrics.
 
 ## Understanding autoscale in SignalR Service
 
@@ -110,7 +110,7 @@ The previous section showed you how to add a default condition for the autoscale
 
     :::image type="content" source="./media/signalr-howto-scale-autoscale/additional-add-condition.png" alt-text="Custom - add a scale condition link":::
 1. Confirm that the **Scale based on a metric** option is selected.
-1. Select **+ Add a rule** to add a rule to increase units when the **Connection Quota Utilization** goes above 70%. Follow steps from the [default condition](#custom-autoscale---default-condition) section.
+1. Select **+ Add a rule** to add a rule to increase units when the **Connection Quota Utilization** goes above 70%. Follow steps from the [default condition](#default-scale-condition) section.
 1. Set the **minimum** and **maximum** and **default** number of units.
 1. You can also set a **schedule** on a custom condition (but not on the default condition). You can either specify start and end dates for the condition (or) select specific days (Monday, Tuesday, and so on.) of a week.
     1. If you select **Specify start/end dates**, select the **Timezone**, **Start date and time** and **End date and time** (as shown in the following image) for the condition to be in effect.
@@ -118,4 +118,4 @@ The previous section showed you how to add a default condition for the autoscale
 
 ## Next steps
 
-For more information about managing autoscale from the Azure CLI, see [**az monitor autoscale**](../monitor/autoscale?view=azure-cli-latest).
+For more information about managing autoscale from the Azure CLI, see [**az monitor autoscale**](../monitor/autoscale.md?view=azure-cli-latest).
