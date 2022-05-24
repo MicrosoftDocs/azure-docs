@@ -138,7 +138,7 @@ If a third-party ETL tool is already in use, and especially if there's a large i
 
 If you decide to retain an existing third-party ETL tool, there may be benefits to running that tool within the Azure environment (rather than on an existing on-premises ETL server) and having Azure Data Factory handle the overall orchestration of the existing workflows. One particular benefit is that less data needs to be downloaded from Azure, processed, and then uploaded back into Azure. So, decision 4 is whether to leave the existing tool running as-is or move it into the Azure environment to achieve cost, performance, and scalability benefits.
 
-### Reengineering existing Teradata-specific scripts
+### Re-engineering existing Teradata-specific scripts
 
 If some or all the existing Teradata warehouse ETL/ELT processing is handled by custom scripts that utilize Teradata-specific utilities, such as BTEQ, MLOAD, or TPT, these scripts need to be recoded for the new Azure Synapse environment. Similarly, if ETL processes were implemented using stored procedures in Teradata, then these will also have to be recoded.
 

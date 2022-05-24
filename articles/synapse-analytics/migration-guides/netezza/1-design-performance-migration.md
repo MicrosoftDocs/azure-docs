@@ -238,7 +238,7 @@ Azure Synapse Analytics from Azure SQL Data Warehouse also supports stored proce
 
 In Netezza, a sequence is a named database object created via `CREATE SEQUENCE` that can provide the unique value via the `NEXT VALUE FOR` method. Use these to generate unique numbers for use as surrogate key values for primary key values.
 
-Within Azure Synapse, there's no `CREATE SEQUENCE`. Sequences are handled via use of `IDENTITY` columns or using SQL code to create the next sequence number in a series.
+Within Azure Synapse, there's no `CREATE SEQUENCE`. Sequences are handled via use of [IDENTITY](/sql/t-sql/statements/create-table-transact-sql-identity-property?msclkid=8ab663accfd311ec87a587f5923eaa7b) columns or using SQL code to create the next sequence number in a series.
 
 ### Extracting metadata and data from a Netezza environment
 
