@@ -92,6 +92,6 @@ Remove-AzResourceGroup -Name exampleRG
 
 ## Next steps
 
-To learn more about about Bicep, continue to the following article:
+To learn more about Bicep, continue to the following article:
 
 * [Bicep overview](../azure-resource-manager/bicep/overview.md)
