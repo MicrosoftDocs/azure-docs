@@ -39,9 +39,6 @@ Sign in to the Azure portal at https://portal.azure.com.
 1. You must now add an Azure AD-based or certificate-based user to your confidential ledger with a role of "Administrator." In this quickstart, we'll add an Azure AD-based user. Select **+ Add AAD-Based User**.
 
 1. You must add an Azure AD-based or Certificate-based user. Search the right-hand pane for your email address. Select your row, and then choose **Select** at the bottom of the pane. Your user profile may already be in the AAD-based user section, in which case you cannot add yourself again.
-<img src="https://user-images.githubusercontent.com/51801155/159808180-eeddbc84-3d70-490d-ae2b-3c2298268ecb.png" width=500 />
-<img src="https://user-images.githubusercontent.com/51801155/159808222-1ba84044-b3cf-4302-8b10-2230a3e260a2.png" width=300 />
-
 
 1. In the **Ledger Role** drop-down field, select **Administrator**.
 
