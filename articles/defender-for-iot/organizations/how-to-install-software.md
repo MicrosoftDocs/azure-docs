@@ -34,7 +34,13 @@ Mount the ISO file using one of the following options:
 
 - **Virtual mount** – use iLO for HPE appliances, or iDRAC for Dell appliances to boot the ISO file.
 
-## Install OT sensor software
+## Install OT monitoring software
+
+This section provides generic procedures for installing OT monitoring software on sensors or an on-premises management console.
+
+Select one of the following tabs, depending on which type of software you're installing.
+
+# [OT sensor](#tab/sensor)
 
 This procedure describes how to install OT sensor software on a physical or virtual appliance.
 
@@ -89,7 +95,8 @@ This procedure describes how to install OT sensor software on a physical or virt
 
     :::image type="content" source="media/tutorial-install-components/login-information.png" alt-text="Screenshot of the final screen of the installation with usernames, and passwords.":::
 
-## Install on-premises management console software
+# [On-premises management console](#tab/on-prem)
+
 
 This procedure describes how to install on-premises management console software on a physical or virtual appliance.
 
@@ -186,6 +193,7 @@ sudo ethtool -p <port value> <time-in-seconds>
 
 This command will cause the light on the port to flash for the specified time period. For example, entering `sudo ethtool -p eno1 120`, will have port eno1 flash for 2 minutes, allowing you to find the port on the back of your appliance.
 
+---
 
 ## Post-installation validation
 

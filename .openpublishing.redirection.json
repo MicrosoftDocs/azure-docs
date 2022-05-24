@@ -639,6 +639,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/conversational-language-understanding/how-to/deploy-query-model.md",
+      "redirect_url": "/azure/cognitive-services/language-service/conversational-language-understanding/how-to/deploy-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/conversational-language-understanding/fail-over.md",
+      "redirect_url": "/azure/cognitive-services/language-service/conversational-language-understanding/how-to/fail-over",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/orchestration-workflow/deploy-query-model.md",
+      "redirect_url": "/azure/cognitive-services/language-service/orchestration-workflow/how-to/call-api",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/whats-new-docs.md",
       "redirect_url": "/azure/cognitive-services/what-are-cognitive-services",
       "redirect_document_id": false
@@ -13136,6 +13151,16 @@
     {
       "source_path_from_root": "/articles/azure-vmware/create-ipsec-tunnel.md",
       "redirect_url": "/azure/azure-vmware/configure-site-to-site-vpn-gateway",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-howto-openvpn-clients.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-cert-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-cert-windows",
       "redirect_document_id": false
     },
     {
