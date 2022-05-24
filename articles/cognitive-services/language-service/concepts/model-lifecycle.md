@@ -44,6 +44,8 @@ For asynchronous endpoints, use the `model-version` property in the request body
  
 The model-version used in your API request will be included in the response object.
 
+> [!NOTE]
+> If you are using an model version that is not listed in the table, then it was subjected to the expiration policy.
 
 Use the table below to find which model versions are supported by each feature:
 
