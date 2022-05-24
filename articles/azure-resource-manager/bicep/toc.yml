@@ -69,7 +69,7 @@
       href: ../../hdinsight/kafka/apache-kafka-quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: HDInsight - Spark
       href: ../../hdinsight/spark/apache-spark-jupyter-spark-use-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
-    - name: Dedicated SQL pool (formerly SQL DW)
+    - name: Azure Synapse Analytics - dedicated SQL pool
       href: ../../synapse-analytics/sql-data-warehouse/quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Compute
     items:

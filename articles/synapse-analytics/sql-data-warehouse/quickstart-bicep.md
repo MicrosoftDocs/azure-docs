@@ -1,5 +1,5 @@
 ---
-title: Create a dedicated SQL pool (formerly SQL DW) using Bicep
+title: Create an Azure Synapse Analytics dedicated SQL pool (formerly SQL DW) using Bicep
 description: Learn how to create an Azure Synapse Analytics SQL pool using Bicep.
 services: azure-resource-manager
 author: schaffererin
@@ -32,7 +32,7 @@ The Bicep file defines one resource:
 
 ## Deploy the Bicep file
 
-1. Save the Bicep file as **main.bicep** to your local computer.
+1. Save the Bicep file as `main.bicep` to your local computer.
 1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
 
     # [CLI](#tab/CLI)
