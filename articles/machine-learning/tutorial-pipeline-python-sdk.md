@@ -395,9 +395,6 @@ data_prep_component = command(
 
 Optionally, register the component in the workspace for future re-use.
 
-
-[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=update-data_prep_component)]
-
 ```python
 data_prep_component = ml_client.create_or_update(data_prep_component)
 
@@ -672,7 +669,7 @@ Here you'll also pass an experiment name. An experiment is a container for all t
 
 Once completed, the pipeline will register a model in your workspace as a result of training.
 
-[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=returned_job)]
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name="returned_job")]
 
 ```python
 import webbrowser
@@ -783,7 +780,7 @@ Deploy the latest version of the model.
 > [!NOTE]
 > Expect this deployment to take approximately 6 to 8 minutes.
 
-[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=model)]
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name="model")]
 
 ```python
 # picking the model to deploy. Here we use the latest version of our registered model
