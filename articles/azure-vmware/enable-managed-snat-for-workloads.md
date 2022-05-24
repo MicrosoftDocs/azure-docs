@@ -1,10 +1,10 @@
 ---
-title: Enable Managed SNAT for Azure VMware Solution Workloads
+title: Enable Managed SNAT for Azure VMware Solution Workloads (Preview)
 description: This article explains how to enable Managed SNAT for Azure VMware Solution Workloads.
 ms.topic: how-to
 ms.date: 05/12/2022
 ---
-# Enable Managed SNAT for Azure VMware Solution workloads
+# Enable Managed SNAT for Azure VMware Solution workloads (Preview)
 
 In this article, you'll learn how to enable Azure VMware Solution’s Managed Source NAT (SNAT) to connect to the Internet outbound. A SNAT service translates from RFC1918 space to the public Internet for simple outbound Internet access.  The SNAT service won't work when you have a default route from Azure.  
 
@@ -15,24 +15,19 @@ With this capability, you:
 - Are unable to view connection logs. 
 - Have a limit of 128 000 concurrent connections.  
 
-## Reference architecture    
+## Reference architecture
+The architecture shows Internet access to and from your Azure VMware Solution private cloud using a Public IP directly to the NSX Edge.     
 :::image type="content" source="media/public-ip-usage/architecture-internet-access-avs-public-ip.png" alt-text="The architecture diagram shows Internet access to and from your Azure VMware Solution Private Cloud." border="false" lightbox="media/public-ip-usage/architecture-internet-access-avs-public-ip.png":::
 
 ## Configure Outbound Internet access using Managed SNAT in the Azure portal 
 
-1. Sign into the Azure portal and then search for and select Azure VMware Solution. 
-2.	Select the Azure VMware Solution private cloud.
-    :::image type="content" source="media/public-ip-usage/private-cloud-internet-connectivity.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution private cloud.":::
-
-1. In the left navigation, under **Workload Networking**, select **Internet Connectivity**.
-   :::image type="content" source="media/public-ip-usage/private-cloud-workload-internet-connectivity.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
-
-4.	Select **Connect using SNAT** and select **Save**.  
-    :::image type="content" source="media/public-ip-usage/private-cloud-save-snat-internet-connectivity.png" alt-text="Screenshot Internet connect using SNAT Internet connectivity in Azure VMware Solution.":::
-
-You have successfully enabled outbound Internet access for your Azure VMware Solution private cloud using our Managed SNAT service.  
+1. Log in to the Azure portal and then search for and select **Azure VMware Solution**. 
+2.	Select the Azure VMware Solution private cloud.    
+1. In the left navigation, under **Workload Networking**, select **Internet Connectivity**.   
+4.	Select **Connect using SNAT** button and select **Save**. 
+    You have successfully enabled outbound Internet access for your Azure VMware Solution private cloud using our Managed SNAT service.  
 
 ## Next Steps 
-[Internet connectivity design considerations](concepts-design-avs-public-internet-access.md)<br>
-[Enable Public IP to the NSX Edge for Azure VMware Solution](concepts-design-avs-public-internet-access.md)<br>
-[Disable Internet access or enable a default route](disable-internet-access.md)<br>
+[Internet connectivity design considerations (Preview)](concepts-design-avs-public-internet-access.md)<br>
+[Enable Public IP to the NSX Edge for Azure VMware Solution (Preview)](concepts-design-avs-public-internet-access.md)<br>
+[Disable Internet access or enable a default route (Preview)](disable-internet-access.md)<br>

@@ -1,16 +1,16 @@
 ---
-title: Concept - Internet connectivity design considerations
+title: Concept - Internet connectivity design considerations (Preview)
 description: Options for Azure VMware Solution Internet Connectivity. 
 ms.topic: conceptual
 ms.date: 5/12/2022
 ---
-# Internet connectivity design considerations 
+# Internet connectivity design considerations (Preview) 
 
 There are three primary patterns for creating outbound access to the Internet from Azure VMware Solution and to enable the Internet to access resources on your Azure VMware Solution private cloud (inbound). 
 
-1. An Internet capability hosted in Azure Native. 
-1. Azure VMware Solution managed SNAT. 
-1. Azure Public IP down to the NSX edge. 
+- [Internet Service hosted in Azure](#internet-service-hosted-in-azure) 
+- [Azure VMware Solution Managed SNAT](#azure-vmware-solution-managed-snat) 
+- [Public IP to NSX edge](#public-ip-to-nsx-edge) 
 
 Your requirements for security controls, visibility, capacity, and operations drive the selection of the appropriate method for delivery of Internet access to the Azure VMware Solution private cloud.  
 
@@ -60,6 +60,6 @@ The option that you select depends on the following factors:
 
 ### Next Steps
  
-[Enable Managed SNAT for Azure VMware Solution Workloads](enable-managed-snat-for-avs-workloads.md)<br>
-[Enable Public IP to the NSX Edge for Azure VMware Solution](enable-public-ip-to-the-nsx-edge.md)<br>
-[Disable Internet access or enable a default route](disable-internet-access.md)
+[Enable Managed SNAT for Azure VMware Solution Workloads (Preview)](enable-managed-snat-for-workloads.md)<br>
+[Enable Public IP to the NSX Edge for Azure VMware Solution (Preview)](enable-public-ip-to-the-nsx-edge.md)<br>
+[Disable Internet access or enable a default route (Preview)](disable-internet-access.md)
