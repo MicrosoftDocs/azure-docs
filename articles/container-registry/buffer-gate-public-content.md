@@ -80,7 +80,7 @@ az acr import \
   --password <Docker Hub token>
 ```
 
-# [PowerShell](#tab/azure-powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 As a recommended one-time step, [import](container-registry-import-images.md) base images and other public content to your Azure container registry. The [Import-AzContainerRegistryImage](/powershell/module/az.containerregistry/import-azcontainerregistryimage) command in the Azure PowerShell supports image import from public registries such as Docker Hub and Microsoft Container Registry and from other private container registries. 
 
@@ -89,14 +89,17 @@ As a recommended one-time step, [import](container-registry-import-images.md) ba
 Depending on your organization's needs, you can import to a dedicated registry or a repository in a shared registry.
 
 ```azurepowershell-interactive
-Import-AzContainerRegistryImage 
-      -SourceImage library/busybox:latest 
-      -ResourceGroupName $resourceGroupName 
-      -RegistryName $RegistryName 
-      -SourceRegistryUri docker.io 
-      -TargetTag busybox:latest
+$Params = @{
+   SourceImage       = 'library/busybox:latest' 
+   ResourceGroupName = $resourceGroupName 
+   RegistryName      = $RegistryName 
+   SourceRegistryUri = 'docker.io'
+   TargetTag         = 'busybox:latest'
+}
+Import-AzContainerRegistryImage @Params
 ```
- Credentials are required if the source registry is not available publicly or the admin user is disabled.
+
+Credentials are required if the source registry is not available publicly or the admin user is disabled.
 
 ---
 
