@@ -82,7 +82,7 @@ In this tutorial, you learn how to:
    spring.cloud.azure.appconfiguration.stores[0].monitoring.push-notification.primary-token.name= myToken
    spring.cloud.azure.appconfiguration.stores[0].monitoring.push-notification.primary-token.secret= myTokenSecret
    
-   management.endpoints.web.exposure.include= "appconfiguration-refresh"
+   management.endpoints.web.exposure.include= appconfiguration-refresh
    ```
 
 A random delay is added before the cached value is marked as dirty to reduce potential throttling. The default maximum delay before the cached value is marked as dirty is 30 seconds.
