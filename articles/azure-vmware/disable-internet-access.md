@@ -27,7 +27,7 @@ With a default route setup, you can achieve the following tasks:
    :::image type="content" source="media/public-ip-usage/private-cloud-workload-internet-connectivity.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
 1. Select **Don't connect or connect using default route from Azure** and select **Save**.
    :::image type="content" source="media/public-ip-usage/private-cloud-default-route-internet-connectivity_2.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
-If you don't have a default route from on-prem or from Azure, you have successfully disabled Internet connectivity to your Azure VMware Solution private cloud. 
+If you don't have a default route from on-premises or from Azure, you have successfully disabled Internet connectivity to your Azure VMware Solution private cloud. 
 
 ## Next Steps 
 

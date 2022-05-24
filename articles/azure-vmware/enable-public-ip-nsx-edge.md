@@ -8,7 +8,7 @@ ms.date: 05/12/2022
 
 In this article, you'll learn how to enable Public IP to the NSX Edge for your Azure VMware Solution. Before you enable Internet access to your Azure VMware Solution, review the [Internet connectivity design considerations](concepts-design-avs-public-internet-access.md). 
 
-Public IP to the NSX Edge is a feature in Azure VMware Solution that enables inbound and outbound internet access for your Azure VMware Solution environment. The Public IP is configured in Azure VMware Solution via the Azure portal and the NSX-T Data center interface all within your Azure VMware Solution private cloud.
+Public IP to the NSX Edge is a feature in Azure VMware Solution that enables inbound and outbound internet access for your Azure VMware Solution environment. The Public IP is configured in Azure VMware Solution by way of the Azure portal and the NSX-T Data center interface all within your Azure VMware Solution private cloud.
 With this capability, you have the following features:
 - A cohesive and simplified experience for reserving and consuming a Public IP down to the NSX Edge.
 - The ability to receive up to 1000 or more Public IPs, enabling Internet access at scale.
@@ -57,11 +57,11 @@ A Sourced Network Translation Service (SNAT) with Port Address Translation (PAT)
      <li> Enter a name </li>
      <li>Select <b>SNAT</b>.</li> 
      <li>Optionally enter a source such as a subnet to SNAT or destination.</li>
-     <li>Enter the translated IP.   This is from the range of Public IPs your reserved from the Azure VMware Solution Portal.</li>
-    <li>Optionally give the rule a higher priority number (this will move the rule further down the rule list to ensure more specific rules are matched first).</li>
+     <li>Enter the translated IP.   This IP is from the range of Public IPs you reserved from the Azure VMware Solution Portal.</li>
+    <li>Optionally give the rule a higher priority number. This prioritization will move the rule further down the rule list to ensure more specific rules are matched first.</li>
     <li>Click <b>SAVE</b>.</li>
     </ol>
-Logging can be enabled by way of the logging slider. For more information on NSX-T NAT configuration and options, please see the 
+Logging can be enabled by way of the logging slider. For more information on NSX-T NAT configuration and options, see the 
 [NSX-T NAT Administration Guide](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-7AD2C384-4303-4D6C-A44A-DEF45AA18A92.html)
 ### Inbound Internet Access for VMs
 A Destination Network Translation Service (DNAT) is used to expose a VM on a specific Public IP address and/or a specific port. This provides inbound internet access to your workload VMs.
@@ -94,7 +94,7 @@ Using a Gateway Firewall, you can provide security protection for your network t
     :::image type="content" source="media/public-ip-usage/nsx-t-4nat-policies-internet-connectivity.png" alt-text="Screenshot Internet connectivity in Azure VMware Solution.":::
 5.	Select **Gateway Specific Rules**, choose the T1 Gateway and select **ADD POLICY**. 
 6.	Select **New Policy** and enter a policy name. 
-7.	Select the Policy and click **ADD RULE**. 
+7.	Select the Policy and select **ADD RULE**. 
 8.	Configure the rule.
     <ol type="A"> 
      <li>Select <b>New Rule</b>.</li>

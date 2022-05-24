@@ -16,7 +16,7 @@ With this capability, you:
 - Have a limit of 128 000 concurrent connections.  
 
 ## Reference architecture    
-:::image type="content" source="media/public-ip-usage/architecture-internet-access-avs-public-ip.png" alt-text="The architecture diagram shows internet access to and from your Azure VMware Solution Private Cloud using a Public IP directly to the NSX Edge." border="false" lightbox="media/public-ip-usage/architecture-internet-access-avs-public-ip.png":::
+:::image type="content" source="media/public-ip-usage/architecture-internet-access-avs-public-ip.png" alt-text="The architecture diagram shows Internet access to and from your Azure VMware Solution Private Cloud." border="false" lightbox="media/public-ip-usage/architecture-internet-access-avs-public-ip.png":::
 
 ## Configure Outbound Internet access using Managed SNAT in the Azure portal 
 
