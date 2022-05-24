@@ -35,7 +35,7 @@ To protect your GCP-based resources, you can connect an account in two different
 |----|:----|
 | Release state: | Preview <br> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to the Azure features that are in beta, preview, or otherwise not yet released into general availability. |
 |Pricing:|The **CSPM plan** is free.<br> The **Defender for Servers** plan is billed at the same price as the [Microsoft Defender for Servers](defender-for-servers-introduction.md) plan for Azure machines. If a GCP VM instance doesn't have the Azure Arc agent deployed, you won't be charged for that machine. <br>The **[Defender for Containers](defender-for-containers-introduction.md)** plan is free during the preview. After which, it will be billed for GCP at the same price as for Azure resources.|
-|Required roles and permissions:| **Contributor** on the relevant Azure Subscription <br> **Owner** on the GCP organization or project 
+|Required roles and permissions:| **Contributor** on the relevant Azure Subscription <br> **Owner** on the GCP organization or project| 
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet, Other Gov)|
 
 ## Remove 'classic' connectors
@@ -92,8 +92,8 @@ Follow the steps below to create your GCP cloud connector.
 
     :::image type="content" source="media/quickstart-onboard-gcp/copy-button.png" alt-text="Screenshot showing the location of the copy button.":::
 
-> [!NOTE]
-   > To discover GCP resources, and for the authentication process, the following APIs must be enabled: iam.googleapis.com, sts.googleapis.com, cloudresourcemanager.googleapis.com, iamcredentials.googleapis.com, compute.googleapis.com. If these APIs are not enabled, we'll enable them during the onboarding process by running the GCloud script.
+> [!NOTE] 
+> To discover GCP resources, and for the authentication process, the following APIs must be enabled: iam.googleapis.com, sts.googleapis.com, cloudresourcemanager.googleapis.com, iamcredentials.googleapis.com, compute.googleapis.com. If these APIs are not enabled, we'll enable them during the onboarding process by running the GCloud script.
 
 1. Select the **GCP Cloud Shell >**.
 
@@ -153,8 +153,6 @@ To have full visibility to Microsoft Defender for Servers security content, ensu
     > The Arc auto-provisioning process leverages the VM manager on your Google Cloud Platform, to enforce policies on the your VMs through the OS config agent. A VM with an [Active OS agent](https://cloud.google.com/compute/docs/manage-os#agent-state), will incur a cost according to GCP. Refer to [GCP's technical documentation](https://cloud.google.com/compute/docs/vm-manager#pricing) to see how this may affect your account.
     > <br><br> Microsoft Defender for Servers does not install the OS config agent to a VM that does not have it installed. However, Microsoft Defender for Servers will enable communication between the OS config agent and the OS config service if the agent is already installed but not communicating with the service. 
     > <br><br> This can change the OS config agent from `inactive` to `active`, and will lead to additional costs.   
-
-
 
     - **Manual installation** - You can manually connect your VM instances to Azure Arc for servers. Instances in projects with Defender for Servers plan enabled that are not connected to Arc will be surfaced by the recommendation “GCP VM instances should be connected to Azure Arc”. Use the “Fix” option offered in this recommendation to install Azure Arc on the selected machines.
 
