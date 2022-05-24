@@ -57,7 +57,7 @@ landingContent:
             url: get-started.md
           - text: Enable enhanced security features
             url: enable-enhanced-security.md
-          - text: Connect hybrid and multi-cloud machines
+          - text: Connect hybrid and multicloud machines
             url: quickstart-onboard-machines.md
           - text: Configure auto provisioning
             url: enable-data-collection.md
@@ -87,7 +87,7 @@ landingContent:
             url: just-in-time-access-usage.md
           - text: Set up adaptive application controls
             url: adaptive-application-controls.md
-          - text: Implement Adaptive Network Hardening
+          - text: Implement adaptive network hardening
             url: adaptive-network-hardening.md
           - text: Use the Workload protections
             url: workload-protections-dashboard.md
