@@ -28,7 +28,7 @@ ms.date: 05/12/2022
     > [!NOTE]
     > If you choose to **disable the plan** at any time after enabling it through the portal as shown above, you'll need to manually remove Defender for Containers components deployed on your clusters.
 
-    You can [assign a custom workspace](defender-for-containers-enable.md?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-arc#assign-a-custom-workspace) through Azure Policy.
+    You can [assign a custom workspace](../defender-for-containers-enable.md?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-arc#assign-a-custom-workspace) through Azure Policy.
 
 1. If you disable the auto provisioning of any component, you can easily deploy the component to one or more clusters using the appropriate recommendation:
 
