@@ -8,7 +8,7 @@ author: mgottein
 ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/17/2021
+ms.date: 05/23/2022
 ---
 
 # Indexer troubleshooting guidance for Azure Cognitive Search
@@ -23,7 +23,7 @@ For data sources that are secured by Azure network security mechanisms, indexers
 
 ### Firewall rules
 
-Azure Storage, Cosmos DB and Azure SQL provide a configurable firewall. There's no specific error message when the firewall is enabled. Typically, firewall errors are generic and look like `The remote server returned an error: (403) Forbidden` or `Credentials provided in the connection string are invalid or have expired`.
+Azure Storage, Cosmos DB and Azure SQL provide a configurable firewall. There's no specific error message when the firewall is enabled. Typically, firewall errors are generic and look like `The remote server returned an error: (403) Forbidden`, `This request is not authorized to perform this operation` or `Credentials provided in the connection string are invalid or have expired`.
 
 There are two options for allowing indexers to access these resources in such an instance:
 
