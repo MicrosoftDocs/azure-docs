@@ -307,13 +307,13 @@ For example, suppose you have code that references the **SelectedOption** result
 
 To add these parameters, open the **Add new parameter** list, and select the parameters you want:
 
-   ![Add parameters](./media/logic-apps-add-run-inline-code/inline-code-action-add-parameters.png)
+![Screenshot that shows the Inline Code action and parameters added.](./media/logic-apps-add-run-inline-code/add-parameters-consumption.png)
 
-   | Parameter | Description |
-   |-----------|-------------|
-   | **Actions** | Include results from previous actions. See [Include action results](#action-results). |
-   | **Trigger** | Include results from the trigger. See [Include trigger results](#trigger-results). |
-   |||
+| Parameter | Description |
+|-----------|-------------|
+| **Actions** | Include results from previous actions. See [Include action results](#action-results). |
+| **Trigger** | Include results from the trigger. See [Include trigger results](#trigger-results). |
+|||
 
 <a name="trigger-results"></a>
 
@@ -345,7 +345,7 @@ If you select **Actions**, you're prompted for the actions that you want to add.
 
 1. To add the first action, in the **Actions Item - 1** box, enter the action's JSON name.
 
-   ![Screenshot showing the JSON name for the first action.](./media/logic-apps-add-run-inline-code/add-action-parameter.png)
+   ![Screenshot showing the JSON name for the first action.](./media/logic-apps-add-run-inline-code/add-action-parameter-consumption.png)
 
 1. To add another action, select **Add new item**.
 
