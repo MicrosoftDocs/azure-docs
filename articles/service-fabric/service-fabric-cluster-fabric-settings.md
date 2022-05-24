@@ -60,8 +60,9 @@ The following is a list of Fabric settings that you can customize, organized by 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
 |DeployedState |wstring, default is L"Disabled" |Static |2-stage removal of CSS. |
-|EnableSecretMonitoring|bool, default is FALSE |Static |Must be enabled to use Managed KeyVaultReferences. Default may become true in the future. Read more at [https://docs.microsoft.com/azure/service-fabric/service-fabric-keyvault-references](https://docs.microsoft.com/azure/service-fabric/service-fabric-keyvault-references)|
-|SecretMonitoringInterval|TimeSpan, default is Common::TimeSpan::FromMinutes(15) |Static |The rate at which Service Fabric will poll Key Vault for changes when using Managed KeyVaultReferences. This rate is a best effort, and changes in Key Vault may be reflected in the cluster earlier or later than the interval. Read more at [https://docs.microsoft.com/azure/service-fabric/service-fabric-keyvault-references](https://docs.microsoft.com/azure/service-fabric/service-fabric-keyvault-references) |
+|EnableSecretMonitoring|bool, default is FALSE |Static |Must be enabled to use Managed KeyVaultReferences. Default may become true in the future. For more information, see [KeyVaultReference support for Azure-deployed Service Fabric Applications](https://docs.microsoft.com/azure/service-fabric/service-fabric-keyvault-references)|
+|SecretMonitoringInterval|TimeSpan, default is Common::TimeSpan::FromMinutes(15) |Static |The rate at which Service Fabric will poll Key Vault for changes when using Managed KeyVaultReferences. This rate is a best effort, and changes in Key Vault may be reflected in the cluster earlier or later than the interval. For more information, see [KeyVaultReference support for Azure-deployed Service Fabric Applications](https://docs.microsoft.com/azure/service-fabric/service-fabric-keyvault-references) |
+
 |UpdateEncryptionCertificateTimeout |TimeSpan, default is Common::TimeSpan::MaxValue |Static |Specify timespan in seconds. The default has changed to TimeSpan::MaxValue; but overrides are still respected. May be deprecated in the future. |
 
 ## CentralSecretService/Replication
