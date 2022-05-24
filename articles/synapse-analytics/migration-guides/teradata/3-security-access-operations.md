@@ -2,7 +2,7 @@
 title: "Security, access, and operations for Teradata migrations"
 description: Learn about authentication, users, roles, permissions, monitoring, and auditing, and workload management in Azure Synapse and Teradata.
 ms.service: synapse-analytics
-ms.subservice:
+ms.subservice: sql-dw
 ms.custom:
 ms.devlang:
 ms.topic: conceptual
