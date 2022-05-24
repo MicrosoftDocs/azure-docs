@@ -35,11 +35,9 @@ In this article, you learn how to deploy an Azure MySQL Flexible Server Database
 
 ## Prerequisites
 
-[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](~/azure-dev-docs-pr/articles/includes/open-source-devops-prereqs-azure-subscription.md)]
+- [!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
 
-[!INCLUDE [configure-terraform.md](~/azure-dev-docs-pr/articles/terraform/includes/configure-terraform.md)]
-
-[!INCLUDE [flexible-server-free-trial-note](../includes/flexible-server-free-trial-note.md)]
+- [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
 
 ## 2. Implement the Terraform code
 
