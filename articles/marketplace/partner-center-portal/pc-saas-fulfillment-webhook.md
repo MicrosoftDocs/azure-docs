@@ -281,4 +281,4 @@ Review and use the [clients for different programming languages and samples](htt
 
 - [SaaS Webhook Overview](https://go.microsoft.com/fwlink/?linkid=2196258)
 - [Implementing a Simple SaaS Webhook in .NET](https://go.microsoft.com/fwlink/?linkid=2196159)
-- [Azure AD Application Registrations](https://go.microsoft.com/fwlink/?linkid=2196421)
+- [Azure AD Application Registrations](https://go.microsoft.com/fwlink/?linkid=2196262)
