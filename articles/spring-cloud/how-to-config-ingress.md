@@ -20,7 +20,7 @@ Azure Spring Apps service leverages ingress controller underlyingly to handle ap
 You must have the following resource installed:
 - [Azure Spring extension](/cli/azure/azure-cli-extensions-overview) for the Azure CLI
 
-## Limitations
+## What are configurable
 Currently, only a few core ingress settings are supported to be customized.
 
 | Name                 | Ingress setting    | Default value | Valid range | Description                                                       |
