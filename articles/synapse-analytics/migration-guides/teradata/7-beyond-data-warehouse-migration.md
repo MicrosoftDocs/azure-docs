@@ -184,7 +184,7 @@ This differs from Excel and Power BI, as Data Factory wrangling data flows uses 
 
 In addition to cleaning and transforming data, Data Factory can combine data integration and analytics in the same pipeline. Use Data Factory to create both data integration and analytical pipelines&mdash;the latter being an extension of the former. Drop an analytical model into a pipeline so that clean, integrated data can be stored to provide predictions or recommendations. Act on this information immediately or store it in your data warehouse to provide you with new insights and recommendations that can be viewed in BI tools.
 
-Models developed code-free with Azure ML Studio, Azure Machine Learning Service SDK using Synapse Spark Pool Notebooks, or using R in RStudio, can be invoked as a service from within a Data Factory pipeline to batch score your data. Analysis happens at scale by executing Spark machine learning pipelines on Synapse Spark Pool Notebooks.
+Models developed code-free with Azure ML Studio, Azure Machine Learning Service SDK using Azure Synapse Spark Pool Notebooks, or using R in RStudio, can be invoked as a service from within a Data Factory pipeline to batch score your data. Analysis happens at scale by executing Spark machine learning pipelines on Azure Synapse Spark Pool Notebooks.
 
 Store integrated data and any results from analytics included in a Data Factory pipeline in one or more data stores, such as Azure Data Lake storage, Azure Synapse, or Azure HDInsight (Hive Tables). Invoke other activities to act on insights produced by a Data Factory analytical pipeline.
 
@@ -291,7 +291,7 @@ Combine machine learning models built using the tools with Azure Synapse by.
 > [!TIP]
 > Produce new insights using machine learning on Azure in batch or in real-time and add to what you know in your data warehouse.
 
-In terms of machine learning model development, data scientists can use RStudio, Jupyter notebooks, and Synapse Spark Pool notebooks together with Microsoft Azure Machine Learning Service to develop machine learning models that run at scale on Azure Synapse Spark Pool Notebooks using data in Azure Synapse. For example, they could create an unsupervised model to segment customers for use in driving different marketing campaigns. Use supervised machine learning to train a model to predict a specific outcome, such as predicting a customer's propensity to churn, or recommending the next best offer for a customer to try to increase their value. The next diagram shows how Azure Synapse Analytics can be leveraged for Machine Learning.
+In terms of machine learning model development, data scientists can use RStudio, Jupyter notebooks, and Azure Synapse Spark Pool notebooks together with Microsoft Azure Machine Learning Service to develop machine learning models that run at scale on Azure Synapse Spark Pool Notebooks using data in Azure Synapse. For example, they could create an unsupervised model to segment customers for use in driving different marketing campaigns. Use supervised machine learning to train a model to predict a specific outcome, such as predicting a customer's propensity to churn, or recommending the next best offer for a customer to try to increase their value. The next diagram shows how Azure Synapse Analytics can be leveraged for Machine Learning.
 
 :::image type="content" source="../media/7-beyond-data-warehouse-migration/azure-synapse-train-predict.png" border="true" alt-text="Screenshot of an Azure Synapse Analytics train and predict model.":::
 
