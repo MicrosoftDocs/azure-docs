@@ -170,7 +170,7 @@ The installation process takes about 20 minutes. After the installation, the sys
 
 1. Verify that the version media is mounted to the appliance in one of the following ways:
 
-    - Connect an external CD or disk-on-key that contains the sensor software you downloaded from the Azure portal.
+   - Connect an external CD or disk-on-key that contains the sensor software you downloaded from the Azure portal.
 
    - Mount the ISO image by using iDRAC. After signing in to iDRAC, select the virtual console, and then select **Virtual Media**.
 

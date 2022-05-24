@@ -4,6 +4,7 @@ description: Plan for the size of a deployment of Azure Arc-enabled data service
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
+ms.custom: event-tier1-build-2022
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
