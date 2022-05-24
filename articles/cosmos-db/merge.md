@@ -29,6 +29,9 @@ In PowerShell, when the flag `-WhatIf` is passed in, Azure Cosmos DB will run a 
 #### [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
+// Add the preview extension
+Install-Module -Name Az.CosmosDB -AllowPrerelease -Force
+
 // SQL API
 Invoke-AzCosmosDBSqlContainerMerge `
     -ResourceGroupName "<resource-group-name>" `
