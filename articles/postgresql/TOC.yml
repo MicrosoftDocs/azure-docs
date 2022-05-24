@@ -787,7 +787,7 @@
       items:
       - name: Azure integration
         items:
-        - name: Real-time data ingestion using Azure Stream Analytics (ASA)
+        - name: Azure Stream Analytics (ASA)
           href: hyperscale/howto-ingestion-azure-integrations-azure-stream-analytics.md
   - name: Reference
     items:
