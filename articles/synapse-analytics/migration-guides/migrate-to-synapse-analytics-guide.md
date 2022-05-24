@@ -8,8 +8,8 @@ ms.devlang:
 ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sngun
-ms.date: 03/10/2021
+ms.reviewer: 
+ms.date: 05/24/2022
 ---
 # Migrate a data warehouse to a dedicated SQL pool in Azure Synapse Analytics
 
@@ -69,8 +69,12 @@ For more assistance with completing this migration scenario, see the following r
 | [Handling data encoding issues while loading data to Azure Synapse Analytics](https://azure.microsoft.com/blog/handling-data-encoding-issues-while-loading-data-to-sql-data-warehouse/) | This blog post provides insight on some of the data encoding issues you might encounter while using PolyBase to load data to SQL Data Warehouse. This article also provides some options that you can use to overcome such issues and load the data successfully. |
 | [Getting table sizes in Azure Synapse Analytics dedicated SQL pool](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Getting%20table%20sizes%20in%20SQL%20DW.pdf) | One of the key tasks that an architect must perform is to get metrics about a new environment post-migration. Examples include collecting load times from on-premises to the cloud and collecting PolyBase load times. One of the most important tasks is to determine the storage size in SQL Data Warehouse compared to the customer's current platform. |
 
+
 The Data SQL Engineering team developed these resources. This team's core charter is to unblock and accelerate complex modernization for data platform migration projects to Microsoft's Azure data platform.
 
 ## Videos
 
 Watch how [Walgreens migrated its retail inventory system](https://www.youtube.com/watch?v=86dhd8N1lH4) with about 100 TB of data from Netezza to Azure Synapse Analytics in record time.
+
+> [!TIP]
+> For more information on Synapse migrations, see [Azure Synapse Analytics migration guides](index.yml).
