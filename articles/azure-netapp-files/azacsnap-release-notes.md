@@ -46,11 +46,6 @@ AzAcSnap v5.1 Preview (Build: 20220302.81795) has been released with the followi
 - Azure Key Vault support for securely storing the Service Principal.
 - A new option for `-c backup --volume` which has the `all` parameter value.
 
-Details of these new features are in the AzAcSnap Preview documentation.
-
-Read about the new features and how to use the [AzAcSnap Preview](azacsnap-preview.md).
-Download the [latest release of the Preview installer](https://aka.ms/azacsnap-preview-installer).
-
 ## Feb-2022
 
 ### AzAcSnap v5.1 Preview (Build: 20220220.55340)
