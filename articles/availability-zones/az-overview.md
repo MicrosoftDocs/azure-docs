@@ -42,7 +42,7 @@ Some organizations require high availability of availability zones and protectio
 
 ## Azure regions with availability zones
 
-[!INCLUDE [az-regions-include](./includes/az-regions-include.md)]
+[!INCLUDE [availability-zone-regions-include](./includes/availability-zone-regions-include.md)]
 
 ## Next steps
 
