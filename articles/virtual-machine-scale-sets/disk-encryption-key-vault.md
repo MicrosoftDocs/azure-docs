@@ -6,7 +6,7 @@ ms.author: jushiman
 ms.topic: tutorial
 ms.service: virtual-machine-scale-sets
 ms.subservice: disks
-ms.date: 10/10/2019
+ms.date: 05/23/2022
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli 
 ms.devlang: azurecli
@@ -24,8 +24,6 @@ Creating and configuring a key vault for use with Azure Disk Encryption involves
 1. Creating a resource group, if needed.
 2. Creating a key vault. 
 3. Setting key vault advanced access policies.
-
-These steps are illustrated in the following quickstarts:
 
 You may also, if you wish, generate or import a key encryption key (KEK).
 
