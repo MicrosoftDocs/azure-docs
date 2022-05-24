@@ -1,16 +1,16 @@
 ---
-title: Receive activity log alerts on Azure service notifications using Resource Manager template
+title: Receive activity log alerts on Azure service notifications using Bicep
 description: Get notified via SMS, email, or webhook when Azure service occurs.
 ms.date: 05/13/2022
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
 ---
 
-# Quickstart: Create activity log alerts on service notifications using an ARM template
+# Quickstart: Create activity log alerts on service notifications using a Bicep file
 
-This article shows you how to set up activity log alerts for service health notifications by using an Azure Resource Manager template (ARM template).
+This article shows you how to set up activity log alerts for service health notifications by using a Bicep file.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
 Service health notifications are stored in the [Azure activity log](../azure-monitor/essentials/platform-logs-overview.md). Given the possibly large volume of information stored in the activity log, there is a separate user interface to make it easier to view and set up alerts on service health notifications.
 
@@ -36,102 +36,81 @@ To learn more about action groups, see [Create and manage action groups](../azur
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - To run the commands from your local computer, install Azure CLI or the Azure PowerShell modules. For more information, see [Install the Azure CLI](/cli/azure/install-azure-cli) and [Install Azure PowerShell](/powershell/azure/install-az-ps).
 
-## Review the template
+## Review the Bicep file
 
-The following template creates an action group with an email target and enables all service health notifications for the target subscription. Save this template as *CreateServiceHealthAlert.json*.
+The following Bicep file creates an action group with an email target and enables all service health notifications for the target subscription. Save this Bicep as *CreateServiceHealthAlert.bicep*.
 
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "actionGroups_name": {
-      "type": "string",
-      "defaultValue": "SubHealth"
-    },
-    "activityLogAlerts_name": {
-      "type": "string",
-      "defaultValue": "ServiceHealthActivityLogAlert"
-    },
-    "emailAddress": {
-      "type": "string"
-    }
-  },
-  "variables": {
-    "alertScope": "[format('/subscriptions/{0}', subscription().subscriptionId)]"
-  },
-  "resources": [
-    {
-      "type": "microsoft.insights/actionGroups",
-      "apiVersion": "2019-06-01",
-      "name": "[parameters('actionGroups_name')]",
-      "location": "Global",
-      "properties": {
-        "groupShortName": "[parameters('actionGroups_name')]",
-        "enabled": true,
-        "emailReceivers": [
-          {
-            "name": "[parameters('actionGroups_name')]",
-            "emailAddress": "[parameters('emailAddress')]"
-          }
-        ],
-        "smsReceivers": [],
-        "webhookReceivers": []
+```bicep
+param actionGroups_name string = 'SubHealth'
+param activityLogAlerts_name string = 'ServiceHealthActivityLogAlert'
+param emailAddress string
+
+var alertScope = '/subscriptions/${subscription().subscriptionId}'
+
+resource actionGroups_name_resource 'microsoft.insights/actionGroups@2019-06-01' = {
+  name: actionGroups_name
+  location: 'Global'
+  properties: {
+    groupShortName: actionGroups_name
+    enabled: true
+    emailReceivers: [
+      {
+        name: actionGroups_name
+        emailAddress: emailAddress
       }
-    },
-    {
-      "type": "microsoft.insights/activityLogAlerts",
-      "apiVersion": "2017-04-01",
-      "name": "[parameters('activityLogAlerts_name')]",
-      "location": "Global",
-      "properties": {
-        "scopes": [
-          "[variables('alertScope')]"
-        ],
-        "condition": {
-          "allOf": [
-            {
-              "field": "category",
-              "equals": "ServiceHealth"
-            },
-            {
-              "field": "properties.incidentType",
-              "equals": "Incident"
-            }
-          ]
-        },
-        "actions": {
-          "actionGroups": [
-            {
-              "actionGroupId": "[resourceId('microsoft.insights/actionGroups', parameters('actionGroups_name'))]",
-              "webhookProperties": {}
-            }
-          ]
-        },
-        "enabled": true
-      },
-      "dependsOn": [
-        "[resourceId('microsoft.insights/actionGroups', parameters('actionGroups_name'))]"
+    ]
+    smsReceivers: []
+    webhookReceivers: []
+  }
+}
+
+resource activityLogAlerts_name_resource 'microsoft.insights/activityLogAlerts@2017-04-01' = {
+  name: activityLogAlerts_name
+  location: 'Global'
+  properties: {
+    scopes: [
+      alertScope
+    ]
+    condition: {
+      allOf: [
+        {
+          field: 'category'
+          equals: 'ServiceHealth'
+        }
+        {
+          field: 'properties.incidentType'
+          equals: 'Incident'
+        }
       ]
     }
-  ]
+    actions: {
+      actionGroups: [
+        {
+          actionGroupId: actionGroups_name_resource.id
+          webhookProperties: {}
+        }
+      ]
+    }
+    enabled: true
+  }
 }
+
 ```
 
-The template defines two resources:
+The Bicep file defines two resources:
 
 - [Microsoft.Insights/actionGroups](/azure/templates/microsoft.insights/actiongroups)
 - [Microsoft.Insights/activityLogAlerts](/azure/templates/microsoft.insights/activityLogAlerts)
 
-## Deploy the template
+## Deploy the Bicep file
 
-Deploy the template using any standard method for [deploying an ARM template](../azure-resource-manager/templates/deploy-portal.md) such as the following examples using CLI and PowerShell. Replace the sample values for **Resource Group** and **emailAddress** with appropriate values for your environment.
+Deploy the Bicep file using Azure CLI and Azure PowerShell. Replace the sample values for **Resource Group** and **emailAddress** with appropriate values for your environment.
 
 # [CLI](#tab/CLI)
 
 ```azurecli
 az login
-az deployment group create --name CreateServiceHealthAlert --resource-group my-resource-group --template-file CreateServiceHealthAlert.json --parameters emailAddress='user@contoso.com'
+az deployment group create --name CreateServiceHealthAlert --resource-group my-resource-group --template-file CreateServiceHealthAlert.bicep --parameters emailAddress='user@contoso.com'
 ```
 
 # [PowerShell](#tab/PowerShell)
@@ -139,7 +118,7 @@ az deployment group create --name CreateServiceHealthAlert --resource-group my-r
 ```powershell
 Connect-AzAccount
 Select-AzSubscription -SubscriptionName my-subscription
-New-AzResourceGroupDeployment -Name CreateServiceHealthAlert -ResourceGroupName my-resource-group -TemplateFile CreateServiceHealthAlert.json -emailAddress user@contoso.com
+New-AzResourceGroupDeployment -Name CreateServiceHealthAlert -ResourceGroupName my-resource-group -TemplateFile CreateServiceHealthAlert.bicep -emailAddress user@contoso.com
 ```
 
 ---
