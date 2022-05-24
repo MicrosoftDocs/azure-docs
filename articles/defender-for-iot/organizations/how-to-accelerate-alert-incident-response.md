@@ -8,7 +8,7 @@ ms.topic: how-to
 
 # Accelerate alert workflows
 
-This article describes how to accelerate alert workflows by using alert comments, alert groups, and custom alert rules for standard protocols and proprietary protocols in Microsoft Defender for IoT.  These tools help you:
+This article describes how to accelerate alert workflows by using alert comments, alert groups, and custom alert rules for standard protocols and proprietary protocols in Microsoft Defender for IoT. These tools help you:
 
 - Analyze and manage the large volume of alert events detected in your network.
 
