@@ -162,13 +162,13 @@ You can add or delete virtual networks associated with your virtual switches. To
     1. Provide a **Name** for your virtual network.
     1. Enter a **VLAN ID** as a unique number in 1-4094 range. The VLAN ID that you provide should be in your trunk configuration. For more information on trunk configuration for your switch, refer to the instructions from your physical switch manufacturer. 
     1. Specify the **Subnet mask** and **Gateway** for your virtual LAN network as per the physical network configuration.
-    1. Select **Apply**.
+    1. Select **Apply**. A virtual network is created on the specified virtual switch.
 
     ![Screenshot of how to add virtual network in "Advanced networking" page in local UI for one node.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/add-virtual-network-one-node-1.png)
 
 1. To delete a virtual network, under the **Virtual network** section, select **Delete virtual network** and select the virtual network you want to delete.
 
-Select **Next: Kubernetes >** to next configure your compute IPs for Kubernetes.
+1. Select **Next: Kubernetes >** to next configure your compute IPs for Kubernetes.
 
 
 ## Configure compute IPs
