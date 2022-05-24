@@ -43303,6 +43303,11 @@
       "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-create-nat-gateway-cli.md",
       "redirect_url": "/azure/virtual-network/nat-gateway/quickstart-create-nat-gateway-cli",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/aks/web-app-routing.md",
+      "redirect_url": "/azure/aks/intro-kubernetes",
+      "redirect_document_id":false
     }
   ]
 }
