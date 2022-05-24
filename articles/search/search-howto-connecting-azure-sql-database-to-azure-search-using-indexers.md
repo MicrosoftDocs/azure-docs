@@ -384,3 +384,7 @@ It's not recommended. Only **rowversion** allows for reliable data synchronizati
 + You can ensure that when the indexer runs, there are no outstanding transactions on the table that’s being indexed (for example, all table updates happen as a batch on a schedule, and the Azure Cognitive Search indexer schedule is set to avoid overlapping with the table update schedule).  
 
 + You periodically do a full reindex to pick up any missed rows.
+
+**Q: Can I use Always Encrypted feature when indexing from Azure SQL database?
+
+[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) columns are not currently supported by Cognitive Search indexers.
