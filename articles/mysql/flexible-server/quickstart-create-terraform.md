@@ -87,7 +87,10 @@ In this article, you learn how to deploy an Azure MySQL Flexible Server Database
 Run [az mysql flexible-server db show](/cli/azure/mysql/flexible-server/db#az-mysql-flexible-server-db-show) to display the Azure MySQL database.
 
 ```azurecli
-az mysql flexible-server db show --resource-group <resource_group_name> --server-name <azurerm_mysql_flexible_server> --database-name <mysql_flexible_server_database_name>
+az mysql flexible-server db show \
+    --resource-group <resource_group_name> \
+    --server-name <azurerm_mysql_flexible_server> \
+    --database-name <mysql_flexible_server_database_name>
 ```
 
 **Key points:**
@@ -99,7 +102,10 @@ az mysql flexible-server db show --resource-group <resource_group_name> --server
 Run [Get-AzMySqlFlexibleServerDatabase](/powershell/module/az.mysql/get-azmysqlflexibleserverdatabase) to display the Azure MySQL database.
 
 ```azurepowershell
-Get-AzMySqlFlexibleServerDatabase -ResourceGroupName <resource_group_name> -ServerName <azurerm_mysql_flexible_server> -Name <mysql_flexible_server_database_name>
+Get-AzMySqlFlexibleServerDatabase `
+    -ResourceGroupName <resource_group_name> `
+    -ServerName <azurerm_mysql_flexible_server> `
+    -Name <mysql_flexible_server_database_name>
 ```
 
 **Key points:**
