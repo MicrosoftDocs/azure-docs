@@ -138,7 +138,7 @@ On this tab, you can select a metric tile and deep dive to understand its trend 
 
 ### Ingestion tab (preview tab)
 
-The **Ingestion tab** tab allowes you to  monitor the status of batching ingestion operations to the cluster.
+The **Ingestion** tab allows you to monitor the status of batching ingestion operations to the cluster.
 In the [batching ingestion](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview#batching-vs-streaming-ingestion) process, Azure Data Explorer optimizes data ingestion for high throughput by batching incoming small chunks of data into batches based on a configurable [ingestion batching policy](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/management/batchingpolicy). 
 The **Ingestion tab** gives you detailed information about:
 
