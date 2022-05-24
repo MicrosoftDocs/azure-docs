@@ -36,7 +36,7 @@ A number of specific Android devices fail to start, accept calls, and meetings. 
 
 * Sometimes when incoming PSTN is received the tab with the call or meeting will hang. Related webkit bugs [here](https://bugs.webkit.org/show_bug.cgi?id=233707) and [here](https://bugs.webkit.org/show_bug.cgi?id=233708#c0).
 
-### Device mutes and incoming video stops rendering when certain interruptions occur on iOS Safari.
+### Local microphone/camera mutes when certain interruptions occur on iOS Safari and Android Chrome.
 
 This problem can occur if another application or the operating system takes over the control of the microphone or camera. Here are a few examples that might happen while a user is in the call:
 
@@ -44,7 +44,9 @@ This problem can occur if another application or the operating system takes over
 - A user plays a YouTube video, for example, or starts a FaceTime call. Switching to another native application can capture access to the microphone or camera.
 - A user enables Siri, which will capture access to the microphone.
 
-To recover from all these cases, the user must go back to the application to unmute. In the case of video, the user must start the video in order to have the audio and video start flowing after the interruption.
+On iOS for example, while on an ACS call, if a PSTN call comes in, then a microphoneMutedUnexepectedly bad UFD will be raised and audio will stop flowing in the ACS call and the call will be marked as muted. Once the PSTN call is over, the user will have to go and unmute the ACS call for audio to start flowing again in the ACS call. In the case of Android Chrome when a PSTN call comes in, audio will stop flowing in the ACS call and the ACS call will not be marked as muted. Once the PSTN call is finished, android chrome will regain audio automatically and audio will start flowing normally again in the ACS call.
+
+In case camera is on and an interruption occurs, ACS call may or may not loose the camera. If lost then camera will be marked as off and user will have to go turn it back on after the interruption has released the camera.
 
 Occasionally, microphone or camera devices won't be released on time, and that can cause issues with the original call. For example, if the user tries to unmute while watching a YouTube video, or if a PSTN call is active simultaneously.
 

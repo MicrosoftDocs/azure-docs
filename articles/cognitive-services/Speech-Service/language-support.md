@@ -21,7 +21,7 @@ Language support varies by Speech service functionality. The following tables su
 
 The Speech service supports the languages (locales) in the following tables.
 
-To improve accuracy, customization is available for some languages and baseline model versions by uploading audio + human-labeled transcripts, plain text, structured text, and pronunciation. By default, plain text customization is supported for all available baseline models. To learn more about customization, see [Get started with Custom Speech](./custom-speech-overview.md).
+To improve accuracy, customization is available for some languages and base model versions by uploading audio + human-labeled transcripts, plain text, structured text, and pronunciation. By default, plain text customization is supported for all available base models. To learn more about customization, see [Custom Speech](./custom-speech-overview.md).
 
 ### [Speech-to-text](#tab/speechtotext)
 

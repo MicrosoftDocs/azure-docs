@@ -217,9 +217,9 @@ export PASSWORD=${PASSWORD}
 export DB_SERVER_NAME=<Server name>.database.windows.net
 export DB_PORT_NUMBER=1433
 export DB_NAME=<Database name>
-export DB_USER=<Server admin login>@<Database name>
+export DB_USER=<Server admin login>@<Server name>
 export DB_PASSWORD=<Server admin password>
-export NAMESPACE=${OPERATOR_NAMESPACE}
+export NAMESPACE=default
 
 mvn clean install
 ```
