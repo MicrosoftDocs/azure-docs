@@ -140,11 +140,6 @@ Your key vault KEK URLs must be versioned. Azure enforces this restriction of ve
 * Example of a valid secret URL: *https://contosovault.vault.azure.net/secrets/EncryptionSecretWithKek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 * Example of a valid KEK URL: *https://contosovault.vault.azure.net/keys/diskencryptionkek/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
 
-Azure Disk Encryption doesn't support specifying port numbers as part of key vault secrets and KEK URLs. For examples of non-supported and supported key vault URLs, see the following examples:
-
-  * Acceptable key vault URL: *https://contosovault.vault.azure.net/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
-  * Unacceptable key vault URL: *https://contosovault.vault.azure.net:443/secrets/contososecret/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx*
-
 ### Azure CLI
 
 Use the Azure CLI [az keyvault key create](/cli/azure/keyvault/key#az-keyvault-key-create) command to generate a new KEK and store it in your key vault.
