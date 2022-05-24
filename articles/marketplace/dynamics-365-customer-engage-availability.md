@@ -28,7 +28,7 @@ Your selections here apply only to new acquisitions; if someone already has your
 
 Before you publish your offer live to the broader marketplace offer, you'll first need to make it available to a limited **Preview audience**. Enter a **Hide key** (any string using only lowercase letters and/or numbers) here. Members of your preview audience can use this hide key as a token to view a preview of your offer in the marketplace.
 
-Then, when you're ready to make your offer available and remove the preview restriction, you'll need to remove the **Hide key** and publish again.
+Then, when you're ready to make your offer available and remove the preview restriction, you'll need to remove the **Hide key** and publish the offer again.
 
 Select **Save draft** before continuing to the next tab in the left-nav menu.
 

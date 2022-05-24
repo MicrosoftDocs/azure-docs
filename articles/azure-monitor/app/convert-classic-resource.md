@@ -34,11 +34,6 @@ When you migrate to a workspace-based resource, no data is transferred from your
 Your classic resource data will persist and be subject to the retention settings on your classic Application Insights resource. All new data ingested post migration will be subject to the [retention settings](../logs/data-retention-archive.md) of the associated Log Analytics workspace, which also supports [different retention settings by data type](../logs/data-retention-archive.md#set-retention-and-archive-policy-by-table).
 The migration process is **permanent, and cannot be reversed**. Once you migrate a resource to workspace-based Application Insights, it will always be a workspace-based resource. However, once you migrate you're able to change the target workspace as often as needed. 
 
-<!-- This note duplicates information in pricing.md. Understanding workspace-based usage and costs has been added as a migration prerequisite.
-> [!NOTE]
-> Data ingestion and retention for workspace-based Application Insights resources are [billed through the Log Analytics workspace](../logs/manage-cost-storage.md) where the data is located. Pay-as-you-go data ingestion and data retention are billed similarly in Log Anaytics as they are in Application Insights. If you’ve selected data retention greater than 90 days on data ingested into the Classic Application Insights resource prior to migration, data retention will continue to be billed to through that Application Insights resource until that data exceeds the retention period. [Learn more]( ./pricing.md#workspace-based-application-insights) about billing for workspace-based Application Insights resources.
--->
-
 If you don't need to migrate an existing resource, and instead want to create a new workspace-based Application Insights resource use the [workspace-based resource creation guide](create-workspace-resource.md).
 
 ## Pre-requisites
@@ -53,7 +48,8 @@ If you don't need to migrate an existing resource, and instead want to create a 
 Once the migration is complete, you can use [diagnostic settings](../essentials/diagnostic-settings.md) to configure data archiving to a storage account or streaming to Azure Event Hubs.  
 
     > [!CAUTION]
-    > Diagnostics settings uses a different export format/schema than continuous export, migrating will break any existing integrations with Stream Analytics.
+    > * Diagnostics settings uses a different export format/schema than continuous export, migrating will break any existing integrations with Stream Analytics.
+    > * Diagnostic settings export may increase costs. ([more information](export-telemetry.md#diagnostic-settings-based-export))
 
 - Check your current retention settings under **General** > **Usage and estimated costs** > **Data Retention** for your Log Analytics workspace. This setting will affect how long any new ingested data is stored once you migrate your Application Insights resource.
 
@@ -63,7 +59,6 @@ Once the migration is complete, you can use [diagnostic settings](../essentials/
     > - If the retention setting for your Application Insights instance under **Configure** > **Usage and estimated costs** > **Data Retention** is enabled, then use that setting to control the retention days for the telemetry data still saved in your classic resource's storage.
 
 - Understand [Workspace-based Application Insights](../logs/cost-logs.md#application-insights-billing) usage and costs.
-- Understand [Workspace-based resource changes](#workspace-based-resource-changes).
 
 ## Migrate your resource
 

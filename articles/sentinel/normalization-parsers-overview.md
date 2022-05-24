@@ -52,6 +52,7 @@ Learn more about ASIM parsers:
 - [Use ASIM parsers](normalization-about-parsers.md)
 - [Develop custom ASIM parsers](normalization-develop-parsers.md)
 - [Manage ASIM parsers](normalization-manage-parsers.md)
+- [The ASIM parsers list](normalization-parsers-list.md)
 
 
 For more about ASIM, in general, see: 

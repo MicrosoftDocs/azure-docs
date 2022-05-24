@@ -6,15 +6,15 @@ services: azure-monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 04/23/2022
+ms.date: 05/11/2022
 ---
 
 # Overview of Azure Monitor agents
 
-Virtual machines and other compute resources require an agent to collect monitoring data required to measure the performance and availability of their guest operating system and workloads. This article describes the agents used by Azure Monitor and helps you determine which you need to meet the requirements for your particular environment.
+Virtual machines and other compute resources require an agent to collect monitoring data required to measure the performance and availability of their guest operating system and workloads. There are many legacy agents that exist today for this purpose, that will all be eventually replaced by the new consolidated [Azure Monitor agent](./azure-monitor-agent-overview.md). This article describes both the legacy agents as well as the new Azure Monitor agent.   
 
-> [!NOTE]
-> Azure Monitor recently launched a new agent, the [Azure Monitor agent](./azure-monitor-agent-overview.md), that provides all capabilities necessary to collect guest operating system monitoring data. **Use this new agent if you are not bound by [these limitations](./azure-monitor-agent-overview.md#current-limitations)**, as it consolidates the features of all the legacy agents listed below and provides additional benefits. If you do require the limitations today, you may continue using the other legacy agents listed below until **August 2024**. [Learn more](./azure-monitor-agent-overview.md)
+The general recommendation is to use the Azure Monitor agent if you are not bound by [these limitations](./azure-monitor-agent-overview.md#current-limitations), as it consolidates the features of all the legacy agents listed below and provides these [additional benefits](#azure-monitor-agent).   
+If you do require the limitations today, you may continue using the other legacy agents listed below until **August 2024**. [Learn more](./azure-monitor-agent-overview.md)
 
 ## Summary of agents
 
@@ -46,9 +46,16 @@ The following tables provide a quick comparison of the telemetry agents for Wind
 
 The [Azure Monitor agent](azure-monitor-agent-overview.md) is meant to replace the Log Analytics agent, Azure Diagnostic extension and Telegraf agent for both Windows and Linux machines. It can send data to both Azure Monitor Logs and Azure Monitor Metrics and uses [Data Collection Rules (DCR)](../essentials/data-collection-rule-overview.md) which provide a more scalable method of configuring data collection and destinations for each agent.
 
-Use the Azure Monitor agent if you need to:
+Use the Azure Monitor agent to gain these benefits:
 
 - Collect guest logs and metrics from any machine in Azure, in other clouds, or on-premises. ([Azure Arc-enabled servers](../../azure-arc/servers/overview.md) required for machines outside of Azure.) 
+- **Cost savings:** 
+  -	Granular targeting via [Data Collection Rules](../essentials/data-collection-rule-overview.md) to collect specific data types from specific machines, as compared to the "all or nothing" mode that Log Analytics agent supports
+  -	Use XPath queries to filter Windows events that get collected. This helps further reduce ingestion and storage costs.
+- **Centrally configure** collection for different sets of data from different sets of VMs.
+- **Simplified management of data collection:** Send data from Windows and Linux VMs to multiple Log Analytics workspaces (i.e. "multi-homing") and/or other [supported destinations](./azure-monitor-agent-overview.md#data-sources-and-destinations). Additionally, every action across the data collection lifecycle, from onboarding to deployment to updates, is significantly easier, scalable, and centralized (in Azure) using data collection rules
+- **Management of dependent solutions or services:** The Azure Monitor agent uses a new method of handling extensibility that's more transparent and controllable than management packs and Linux plug-ins in the legacy Log Analytics agents. Moreover this management experience is identical for machines in Azure or on-premises/other clouds via Azure Arc, at no added cost.
+- **Security and performance** - For authentication and security, it uses Managed Identity (for virtual machines) and AAD device tokens (for clients) which are both much more secure and ‘hack proof’ than certificates or workspace keys that legacy agents use. This agent performs better at higher EPS (events per second upload rate)  compared to legacy agents.
 - Manage data collection configuration centrally, using [data collection rules](../essentials/data-collection-rule-overview.md) and use Azure Resource Manager (ARM) templates or policies for management overall.
 - Send data to Azure Monitor Logs and Azure Monitor Metrics (preview) for analysis with Azure Monitor. 
 - Use Windows event filtering or multi-homing for logs on Windows and Linux.
@@ -141,6 +148,7 @@ The following tables list the operating systems that are supported by the Azure 
 | Operating system | Azure Monitor agent | Log Analytics agent | Dependency agent | Diagnostics extension | 
 |:---|:---:|:---:|:---:|:---:|
 | Windows Server 2022                                      | X |   |   |   |
+| Windows Server 2022 Core                                 | X |   |   |   |
 | Windows Server 2019                                      | X | X | X | X |
 | Windows Server 2019 Core                                 | X |   |   |   |
 | Windows Server 2016                                      | X | X | X | X |

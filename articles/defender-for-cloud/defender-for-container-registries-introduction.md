@@ -90,7 +90,7 @@ If you connect unsupported registries to your Azure subscription, Defender for C
 ### Can I customize the findings from the vulnerability scanner?
 Yes. If you have an organizational need to ignore a finding, rather than remediate it, you can optionally disable it. Disabled findings don't impact your secure score or generate unwanted noise.
 
-[Learn about creating rules to disable findings from the integrated vulnerability assessment tool](defender-for-container-registries-usage.md#disable-specific-findings).
+[Learn about creating rules to disable findings from the integrated vulnerability assessment tool](defender-for-containers-usage.md#disable-specific-findings).
 
 ### Why is Defender for Cloud alerting me to vulnerabilities about an image that isn’t in my registry?
 Defender for Cloud provides vulnerability assessments for every image pushed or pulled in a registry. Some images may reuse tags from an image that was already scanned. For example, you may reassign the tag “Latest” every time you add an image to a digest. In such cases, the ‘old’ image does still exist in the registry and may still be pulled by its digest. If the image has security findings and is pulled, it'll expose security vulnerabilities.
@@ -98,4 +98,4 @@ Defender for Cloud provides vulnerability assessments for every image pushed or 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Scan your images for vulnerabilities](defender-for-container-registries-usage.md)
+> [Scan your images for vulnerabilities](defender-for-containers-usage.md)

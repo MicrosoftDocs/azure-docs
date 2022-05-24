@@ -343,3 +343,17 @@ This issue can occur if the services running on the appliance are not running on
 
     :::image type="content" source="./media/troubleshoot-network-connectivity/view-appliance-services.png" alt-text="Snapshot of View appliance services.":::
 
+### Failed to save configuration: 504 gateway timeout
+
+#### Possible causes:
+This issue can occur if the Azure Migrate appliance cannot reach the service endpoint provided in the error message.
+
+#### Remediation:
+
+To validate the private link connection, perform a DNS resolution of the Azure Migrate service endpoints (private link resource FQDNs) from the on-premises server hosting the Migrate appliance and ensure that they resolve to private IP addresses.
+
+**To obtain the private endpoint details to verify DNS resolution:**
+
+The private endpoint details and private link resource FQDN information are available in the Discovery and Assessment and Server Migration properties pages. Select **Download DNS settings** on both the properties pages to view the full list. 
+
+Next, refer to [this guidance](#verify-dns-resolution) to verify the DNS resolution.

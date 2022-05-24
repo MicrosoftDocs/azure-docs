@@ -41,7 +41,7 @@ Track your SAP solution deployment journey through this series of articles:
 
 > [!NOTE]
 > 
-> It is *strongly recommended* that the deployment of SAP CRs is carried out by an experienced SAP system administrator.
+> It is *strongly recommended* that the deployment of SAP CRs be carried out by an experienced SAP system administrator.
 >
 > The steps below may differ according to the version of the SAP system and should be considered for demonstration purposes only.
 > 

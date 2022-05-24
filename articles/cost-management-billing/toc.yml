@@ -154,6 +154,8 @@
         href: manage/account-admin-tasks.md
       - name: Edit billing contact information
         href: manage/change-azure-account-profile.md
+      - name: Update tax details
+        href: manage/manage-tax-information.md
       - name: Grant access to billing
         displayName: azure billing administrator, billing administrator azure, billing admin, add billing admin, azure billing administrator role
         href: manage/manage-billing-access.md
@@ -167,6 +169,9 @@
       - name: View billing accounts
         displayName: azure billing account, azure billing, check azure billing, azure billing account id
         href: manage/view-all-accounts.md
+      - name: Elevate access
+        displayName: azure billing account, azure billing, global admin billing access
+        href: manage/elevate-access-global-admin.md
       - name: Organize costs with invoice sections
         href: manage/mca-section-invoice.md
       - name: Set up Microsoft Customer Agreement billing account
@@ -397,6 +402,8 @@
       href: manage/delete-azure-payment-method.md
   - name: Troubleshoot
     items:
+    - name: Error codes
+      href: costs/cost-management-error-codes.md
     - name: Can't view or find invoices
       href: manage/troubleshoot-cant-find-invoice.md
     - name: EA billing issues with usage files
