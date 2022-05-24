@@ -37,7 +37,7 @@ The following prerequisites are for a Windows development environment. For Linux
 
 ::: zone pivot="programming-language-csharp"
 
-* Install [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
+* Install [.NET SDK 6.0](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
 
     ```bash
     dotnet --info

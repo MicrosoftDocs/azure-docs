@@ -1,15 +1,13 @@
 ### YamlMime:FAQ
 metadata:
   title: Form Recognizer frequently asked questions (FAQ)
-  titleSuffix: Azure Cognitive Services
   description: Frequently asked questions about Form Recognizer service.
-  services: cognitive-services
   author: laujan
   manager: nitinme
   ms.service: applied-ai-services
   ms.subservice: forms-recognizer
   ms.topic: faq
-  ms.date: 02/15/2022
+  ms.date: 05/23/2022
   ms.author: lajanuar
 
 title: Form Recognizer frequently asked questions
@@ -192,23 +190,29 @@ sections:
             | Language / API | Migration guide|
             | ----------- | ----------------  |
             | REST API    | [v3](v3-migration-guide.md)|
-            | C#/.NET| [4.0.0-beta.2](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/MigrationGuide.md)|
-            | Java | [4.0.0-beta.3](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/migration-guide.md)|
-            | JavaScript| [4.0.0-beta.2](https://github.com/azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/MIGRATION-v3_v4.md)|
-            | Python | [3.2.0b2](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/MIGRATION_GUIDE.md)|
+            | C#/.NET| [4.0.0-beta.3](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/formrecognizer/Azure.AI.FormRecognizer/MigrationGuide.md)|
+            | Java | [4.0.0-beta.4](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/migration-guide.md)|
+            | JavaScript| [4.0.0-beta.3](https://github.com/azure/azure-sdk-for-js/blob/main/sdk/formrecognizer/ai-form-recognizer/MIGRATION-v3_v4.md)|
+            | Python | [3.2.0b3](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/formrecognizer/azure-ai-formrecognizer/MIGRATION_GUIDE.md)|
 
       - question: |
             Which file formats does Form Recognizer support? Are there size limitations for input documents?
         answer:  |
 
-            - Form Recognizer extracts data from document images JPEG, PNG, BMP, TIFF, and PDF (text-embedded or scanned) formats and returns a structured output.
+            - Form Recognizer extracts data from document images JPEG/JPG, PNG, BMP, TIFF, and PDF (text-embedded or scanned) formats and returns a structured output.
             - For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
-            - Your file size must be less than 50 MB.
+            - Your file size must be less than 500 MB for paid (S0) tier and 4 MB for free (F0) tier.
             - Image dimensions must be between 50 x 50 pixels and 10000 x 10,000 pixels.
             - PDF dimensions can be a maximum of 17 x 17 inches (corresponding to Legal or A3 paper size) or smaller.
             - The total allowable size of training data is 500 pages or less.
 
             To ensure the best results, see [input requirements](concept-model-overview.md#input-requirements).
+
+      - question: |
+            How can I specify a specific range of pages to be analyzed in a document? 
+        answer:  |
+
+            There's a parameter `pages` supported in both v2.1 and v3.0 REST API that you can specify for multi-page PDF and TIFF documents. Accepted input includes single pages (for example,'1, 2' -> pages 1 and 2 will be processed), finite (for example '2-5' -> pages 2 to 5 will be processed) and open-ended ranges (for example '5-' -> all the pages from page 5 will be processed & for example, '-10' -> pages 1 to 10 will be processed). These parameters can be mixed together and ranges are allowed to overlap (for example, '-5, 1, 3, 5-10' - pages 1 to 10 will be processed). The service will accept the request if it can process at least one page of the document (for example, using '5-100' on a five page document is a valid input where page 5 will be processed). If no page range is provided, the entire document will be processed.
 
       - question: |
             Both Form Recognizer Studio and the FOTT sample labeling tool are available. Which one should I use?
@@ -250,18 +254,17 @@ sections:
           - If you find that you’re being throttled on the number of POST requests, consider adding a delay between the requests.
 
           - Increase the workload gradually. Avoid sharp changes.
+          
+          - [Create a support request](service-limits.md#create-and-submit-support-request) to increase transactions per second(TPS) limit.
 
           Learn more about Form Recognizer [service quotas and limits](service-limits.md)
 
       - question: |
-         How can I reduce request latency for my API calls?
+         How long will it take to analyze a document?
         answer: |
-          Latency is the amount of time it takes for an API server to handle and process an incoming request and deliver the outgoing response to the client. Occasional variability in latency and performance is inherent in any micro-service-based, stateless, asynchronous service that processes images and large documents at scale. While we're continuously scaling up the hardware and capacity and scaling capabilities, you may still see latency issues at run time.
+          Form Recognizer is a multi-tenanted service where latency for similar documents is comparable but not always identical. The time to analyze a document depends on the size (for example, number of pages) and associated content on each page.
           
-      - question: |
-         How long will it to take analyze a document?
-        answer: |
-          Form Recognizer is a multi-tenanted service where latency for similar documents is comparable but not always identical. The time to analyze a document depends on the size (e.g. number of pages) and associated content on each page.
+          Latency is the amount of time it takes for an API server to handle and process an incoming request and deliver the outgoing response to the client. Occasional variability in latency and performance is inherent in any micro-service-based, stateless, asynchronous service that processes images and large documents at scale. While we're continuously scaling up the hardware and capacity and scaling capabilities, you may still see latency issues at run time.
 
   - name: Custom models
     questions:
@@ -272,7 +275,7 @@ sections:
 
             - Use text-based instead of image-based PDFs when possible. One way to identify an image-based PDF is to try selecting specific text in the document. If you can only select the entire image of the text, the document is image-based, not text-based.
 
-            - Organize your training documents by using a subfolder for each format (JPG, PNG, BMP, PDF, or TIFF).
+            - Organize your training documents by using a subfolder for each format (JPEG/JPG, PNG, BMP, PDF, or TIFF).
 
             - Use forms that have all of the available fields completed.
 
@@ -317,6 +320,15 @@ sections:
            Learn more about [composed models](concept-custom.md).
 
       - question: |
+          If the number of models I want to compose exceeds the upper limit of composed model, what are the alternatives?
+        answer: |
+           You can classify the documents before calling the custom model or consider [Custom neural model](concept-custom-neural.md):
+           
+           - Use [Read model](concept-read.md) and build a classification based on the extracted text from the documents and certain phrases using code, regular expressions, search etc.
+
+           - If you want to extract the same fields from various structured, semi-structured, and unstructured documents. Consider using the deep learning [custom neural model](concept-custom-neural.md). Learn more about the [differences between custom template model and custom neural model](concept-custom.md#compare-model-features).
+
+      - question: |
           How do I refine a model beyond the initial training?
         answer: |
          Each train operation generates a new model.
@@ -350,6 +362,11 @@ sections:
              - Do your tables span across multiple pages? If so, to avoid having to label all of the pages, split the PDF into pages prior to sending it to Form Recognizer. Following the analysis, post-process the pages to a single table.
 
              - If you’re creating custom models, refer to [Labeling as tables](quickstarts/try-v3-form-recognizer-studio.md#labeling-as-tables). Dynamic tables have a variable number of rows for each given column. Fixed tables have a constant number of rows for each given column.
+        
+      - question: |
+            How can I move my trained models from one environment (like beta) to another (like production)?
+        answer: |
+            The Copy API enables this scenario by allowing you to copy custom models from one Form Recognizer account or into others, which can exist in any supported geographical region. Follow [this document](disaster-recovery.md) for detailed instructions. The copy operation is limited to copying models within the specific cloud environment the model was trained in. For instance, copying models from the public cloud to the Azure Government clod isn't supported.
 
   - name: Storage account
     questions:
@@ -369,6 +386,22 @@ sections:
             If you intend to analyze your private storage account data with FOTT, the tool must be deployed behind the VNet or firewall.
 
             Learn how to [create and use a managed identity for your Form Recognizer resource](managed-identities.md)
+
+  - name: Form Recognizer Studio
+    questions:
+      - question: |
+          I have multiple pages in a document. Why are there only two pages analyzed in Form Recognizer Studio?
+        answer: |
+
+          For free (F0) tier resources, only the first two pages are analyzed no matter you're using Form Recognizer Studio, REST API or SDKs. In Form Recognizer Studio, select the top right gear button (Settings), choose the Resources tab and check the Price Tier you're using to analyze the documents. Change to an S0 paid resource if you want to analyze all pages in a document.
+
+      - question: |
+          How can I change directories or subscriptions to use in Form Recognizer Studio?
+        answer: |
+
+          - In Form Recognizer Studio, you can select the top right gear button (Settings), under Directory, search and select the directory from the list and select on Switch Directory. You'll be prompted to sign in again after switching directory.
+          
+          - Switching subscriptions or resources can be done under Settings -> Resource tab.
 
   - name: Containers
     questions:
@@ -394,6 +427,12 @@ sections:
           Form Recognizer connected containers send billing information to Azure by using a Form Recognizer resource on your Azure account. Connected containers don't send customer data, such as the image or text that's being analyzed, to Microsoft. See the [Cognitive Services container FAQ](../../cognitive-services/containers/disconnected-container-faq.yml#how-does-billing-work) for an example of the information sent to Microsoft for billing.
 
       - question: |
+           I received an "OutOfQuota" error message: "Container isn't in a valid state. Subscription validation failed with status 'OutOfQuota'. Api Key is out of quota".
+        answer: |
+
+          Form Recognizer connected containers send billing information to Azure by using a Form Recognizer resource on your Azure account. You could get this message if the containers can't communicate with the billing endpoint.
+
+      - question: |
           Can I use local storage for the Form Recognizer Sample Labeling Tool (FOTT) container?
         answer: |
 
@@ -406,9 +445,9 @@ sections:
         answer: |
           Each request to an Azure service must include an authentication header. You can authenticate a request with several methods:
 
-          - [Authenticate](create-a-form-recognizer-resource.md?#get-endpoint-url-and-api-keys) with a [single-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) subscription key.
+          - [Authenticate](create-a-form-recognizer-resource.md?#get-endpoint-url-and-keys) with a [single-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) key.
 
-          - [Authenticate](../../cognitive-services/authentication.md?context=%2fazure%2fapplied-ai-services%2fform-recognizer%2fcontext%2fcontext&tabs=powershell#authenticate-with-azure-active-directory) with Azure Active Directory (Azure AD).
+          - [Authenticate](../../cognitive-services/authentication.md?context=%2fazure%2fapplied-ai-services%2fform-recognizer%2fcontext%2fcontext&tabs=PowerShell#authenticate-with-azure-active-directory) with Azure Active Directory (Azure AD).
 
           - [Enable](./encrypt-data-at-rest.md#enable-customer-managed-keys-for-your-resource) customer-managed keys.
 
@@ -420,6 +459,11 @@ sections:
           For all features, Form Recognizer temporarily stores data and results in Azure storage in the same region as the request. Your data is then deleted within 24 hours from the time an analyze request was submitted.
 
           Learn more about [Data, privacy, and security for Form Recognizer](/legal/cognitive-services/form-recognizer/fr-data-privacy-security?context=/azure/applied-ai-services/form-recognizer/context/context).
+
+      - question: |
+          How are my trained custom models stored and utilized in Form Recognizer?
+        answer: |
+          The Custom model feature allows customers to build custom models from training data stored in customer’s Azure blob storage locations. The interim outputs after analysis and labeling are stored in the same location. The trained custom models are stored in Azure storage in the same region and logically isolated with their Azure subscription and API credentials.
 
   - name: More help and support
     questions:

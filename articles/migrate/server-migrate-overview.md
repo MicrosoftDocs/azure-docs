@@ -31,7 +31,7 @@ Use these selected comparisons to help you decide which method to use. You can a
 **Disk limits** | OS disk: 2 TB<br/><br/> Data disk: 32 TB<br/><br/> Maximum disks: 60 | OS disk: 2 TB<br/><br/> Data disk: 32 TB<br/><br/> Maximum disks: 63
 **Passthrough disks** | Not supported | Supported
 **UEFI boot** | Supported. | Supported. 
-**Connectivity** | Public internet <br/> ExpressRoute with Microsoft peering <br/> <br/> [Learn how](./replicate-using-expressroute.md) to use private endpoints for replication over an ExpressRoute private peering or a S2S VPN connection. |Public internet <br/> ExpressRoute with Private peering <br/> ExpressRoute with Microsoft peering <br/> Site-to-site VPN
+**Connectivity** | Public internet <br/> ExpressRoute with Private peering <br/> ExpressRoute with Microsoft peering <br/> Site-to-site VPN |Public internet <br/> ExpressRoute with Private peering <br/> ExpressRoute with Microsoft peering <br/> Site-to-site VPN
 
 ## Compare deployment steps
 
@@ -40,7 +40,7 @@ After reviewing the limitations, understanding the steps involved in deploying e
 **Task** | **Details** |**Agentless** | **Agent-based**
 --- | --- | --- | ---
 **Deploy the Azure Migrate appliance** | A lightweight appliance that runs on a VMware VM.<br/><br/> The appliance is used to discover and assess machines, and to migrate machines using agentless migration. | Required.<br/><br/> If you've already set up the appliance for assessment,  you can use the same appliance for agentless migration. | Not required.<br/><br/> If you've set up an appliance for assessment, you can leave it in place, or remove it if you're done with assessment.
-**Use the Server Assessment tool** | Assess machines with the Azure Migrate:Server Assessment tool. | Assessment is optional. | Assessment is optional.
+**Use the Server Assessment tool** | Assess machines with the Azure Migrate: Server Assessment tool. | Assessment is optional. | Assessment is optional.
 **Use the Server Migration tool** | Add the Azure Migrate Server Migration tool in the Azure Migrate project. | Required | Required
 **Prepare VMware for migration** | Configure settings on VMware servers and VMs. | Required | Required
 **Install the Mobility service on VMs** | Mobility service runs on each VM you want to replicate | Not required | Required

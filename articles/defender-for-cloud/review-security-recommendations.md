@@ -2,13 +2,11 @@
 title: Security recommendations in Microsoft Defender for Cloud
 description: This document walks you through how recommendations in Microsoft Defender for Cloud help you protect your Azure resources and stay in compliance with security policies.
 ms.topic: conceptual
-ms.date: 03/31/2022
+ms.date: 04/03/2022
 ---
 # Review your security recommendations
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-This article explains how to view and understand the recommendations in Microsoft Defender for Cloud to help you protect your multi-cloud resources.
+This article explains how to view and understand the recommendations in Microsoft Defender for Cloud to help you protect your multicloud resources.
 
 ## View your recommendations <a name="monitor-recommendations"></a>
 
@@ -43,7 +41,7 @@ Defender for Cloud analyzes the security state of your resources to identify pot
 
 1. Select a specific recommendation to view the recommendation details page.
 
-    :::image type="content" source="./media/review-security-recommendations/recommendation-details-page.png" alt-text="Recommendation details page." lightbox="./media/review-security-recommendations/recommendation-details-page-expanded.png":::
+    :::image type="content" source="./media/review-security-recommendations/recommendation-details-page.png" alt-text="Screenshot of the recommendation details page." lightbox="./media/review-security-recommendations/recommendation-details-page-expanded.png":::
 
     1. For supported recommendations, the top toolbar shows any or all of the following buttons:
         - **Enforce** and **Deny** (see [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md)).
@@ -151,7 +149,7 @@ Recommendations can be downloaded to a CSV report from the Recommendations page.
 
 1. Select **Download CSV report**.
 
-    :::image type="content" source="media/review-security-recommendations/download-csv.png" alt-text="Screenshot showing you where to select the Download CSV report from.":::
+    :::image type="content" source="media/review-security-recommendations/download-csv.png" alt-text="Screenshot showing you where to select the Download C S V report from.":::
 
 You'll know the report is being prepared by the pop-up.
 

@@ -72,7 +72,7 @@ Event Hubs contains the following [key components](event-hubs-features.md):
 
 The following figure shows the Event Hubs stream processing architecture:
 
-![Event Hubs](./media/event-hubs-about/event_hubs_architecture.svg)
+![Event Hubs](./media/event-hubs-about/event_hubs_architecture.png)
 
 
 ## Next steps

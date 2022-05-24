@@ -5,8 +5,8 @@ services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 03/01/2022
-ms.author: zxue
+ms.date: 05/03/2022
+ms.author: mikaelw
 ---
 
 # Access using Postman

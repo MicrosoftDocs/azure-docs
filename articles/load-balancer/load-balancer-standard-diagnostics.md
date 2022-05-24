@@ -2,12 +2,12 @@
 title: Diagnostics with metrics, alerts, and resource health
 titleSuffix: Azure Load Balancer
 description: Use the available metrics, alerts, and resource health information to diagnose your load balancer.
-author: asudbring
+author: greg-lindsay
 ms.custom: seodec18
 ms.service: load-balancer
 ms.topic: article
 ms.date: 01/26/2022
-ms.author: allensu
+ms.author: greglin
 ---
 
 # Standard load balancer diagnostics with metrics, alerts, and resource health
@@ -41,6 +41,7 @@ The various load balancer configurations provide the following metrics:
   >When using distributing traffic from an internal load balancer through an NVA or firewall syn packet, byte count, and packet count metrics are not be available and will show as zero. 
   >
   >Max and min aggregations are not available for the SYN count, packet count, SNAT connection count, and byte count metrics.
+  >Count aggregation is not recommended for Data path availability and health probe status. Use average instead for best represented health data.
  
 ### View your load balancer metrics in the Azure portal
 
@@ -288,6 +289,9 @@ To configure alerts:
     3.  Assign alert severity, name, and description that enables intuitive reaction
 
 ### Inbound availability alerting
+
+  >[!NOTE]
+  > If your load balancer's backend pools are empty, the load balancer will not have any valid data paths to test. As a result, the data path availability metric will not be available, and any configured Azure Alerts on the data path availability metric will not trigger.
 
 To alert for inbound availability,  you can create two separate alerts using the data path availability and health probe status metrics. Customers may have different scenarios that require specific alerting logic, but the below examples will be helpful for most configurations.
 

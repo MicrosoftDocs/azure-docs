@@ -65,8 +65,12 @@
       href: event-hubs-tutorial-visualize-anomalies.md
     - name: Analyze fraudulent call data with Stream Analytics
       href: ../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/event-hubs/TOC.json
-    - name: Store captured data in a Azure Synapse Analytics
-      href: store-captured-data-data-warehouse.md
+    - name: Capture Event Hubs data in Parquet format
+      href: ../stream-analytics/event-hubs-parquet-capture-tutorial.md
+      maintainContext: true
+    - name: Build real time dashboards with Power BI
+      href: ../stream-analytics/no-code-power-bi-tutorial.md
+      maintainContext: true
     - name: Process Apache Kafka for Event Hubs events using Stream analytics
       href: event-hubs-kafka-stream-analytics.md
     - name: Stream data into Azure Databricks using Event Hubs
@@ -78,6 +82,8 @@
       href: event-hubs-samples.md
 - name: Concepts
   items:
+    - name: Application groups
+      href: resource-governance-overview.md     
     - name: Tiers 
       items: 
       - name: Premium tier
@@ -98,6 +104,9 @@
         href: event-hubs-event-processor-host.md
       - name: Event processor (latest SDK)
         href: event-processor-balance-partition-load.md
+      - name: Event processing with no code editor
+        href: ../stream-analytics/no-code-stream-processing.md?toc=%2fazure%2fevent-hubs%2ftoc.json
+
     - name: Federation 
       items:
         - name: Multi-site and multi-region federation
@@ -145,6 +154,8 @@
           href: ./security-controls-policy.md
         - name: Security baseline
           href: /security/benchmark/azure/baselines/event-hubs-security-baseline?toc=/azure/event-hubs/TOC.json
+        - name: Enforce minimum required TLS version
+          href: transport-layer-security-enforce-minimum-version.md
     - name: Availability and consistency
       href: event-hubs-availability-and-consistency.md
     - name: Scalability
@@ -158,6 +169,8 @@
         href: event-hubs-amqp-troubleshoot.md
 - name: How-to guides
   items:
+    - name: Create and manage application groups
+      href: resource-governance-with-app-groups.md
     - name: Develop
       items:
         - name: Get Event Hubs connection string
@@ -188,6 +201,14 @@
               href: event-hubs-programming-guide.md
     - name: Process data
       items:
+        - name: Capture Event Hubs data in Parquet format
+          href: ../stream-analytics/capture-event-hub-data-parquet.md?toc=%2fazure%2fevent-hubs%2ftoc.json
+        - name: Materialize data to Cosmos DB
+          href: ../stream-analytics/no-code-materialize-cosmos-db.md?toc=%2fazure%2fevent-hubs%2ftoc.json
+        - name: Filter and ingest Synapse SQL data
+          href: ../stream-analytics/filter-ingest-synapse-sql.md?toc=%2fazure%2fevent-hubs%2ftoc.json
+        - name: Filter and ingest to Data Lake Storage Gen2
+          href: ../stream-analytics/filter-ingest-data-lake-storage-gen2.md?toc=%2fazure%2fevent-hubs%2ftoc.json
         - name: Process data using Azure Stream Analytics
           href: process-data-azure-stream-analytics.md
     - name: Integrate with Spring framework
@@ -240,6 +261,12 @@
           href: private-link-service.md
         - name: Encrypt data using customer-managed keys
           href: configure-customer-managed-key.md
+        - name: Configure minimum required TLS version
+          href: transport-layer-security-configure-minimum-version.md
+        - name: Audit minimum required TLS version
+          href: transport-layer-security-audit-minimum-version.md
+        - name: Configure TLS version for client
+          href: transport-layer-security-configure-client-version.md
     - name: Troubleshoot
       items:
         - name: Troubleshoot connectivity issues
@@ -289,7 +316,7 @@
             - name: azure-messaging-eventhubs (latest)
               href: /java/api/overview/azure/messaging-eventhubs-readme
             - name: azure-eventhubs (legacy)
-              href: /java/api/overview/azure/eventhubs/client?view=azure-java-legacy
+              href: /java/api/overview/azure/eventhubs/client?view=azure-java-legacy&preserve-view=true
         - name: Management library
           href: /java/api/com.microsoft.azure.management.eventhub
     - name: Python

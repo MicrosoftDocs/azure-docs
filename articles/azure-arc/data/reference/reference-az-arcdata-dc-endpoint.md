@@ -12,6 +12,9 @@ ms.subservice: azure-arc-data
 ---
 
 # az arcdata dc endpoint
+
+Endpoint commands.
+
 ## Commands
 | Command | Description|
 | --- | --- |

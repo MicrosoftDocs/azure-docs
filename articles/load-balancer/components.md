@@ -3,13 +3,13 @@ title: Azure Load Balancer components
 description: Overview of Azure Load Balancer components
 services: load-balancer
 documentationcenter: na
-author: asudbring
+author: greg-lindsay
 ms.service: load-balancer
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/27/2021
-ms.author: allensu
+ms.author: greglin
 
 ---
 # Azure Load Balancer components

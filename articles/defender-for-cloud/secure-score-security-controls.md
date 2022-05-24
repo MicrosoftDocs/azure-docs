@@ -4,12 +4,10 @@ description: Description of Microsoft Defender for Cloud's secure score and its 
 author: Elazark
 ms.author: elkrieger
 ms.topic: article
-ms.date: 03/31/2022
+ms.date: 04/03/2022
 ---
 
 # Security posture for Microsoft Defender for Cloud
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 ## Introduction to secure score
 
@@ -61,7 +59,7 @@ To get all the possible points for a security control, all of your resources mus
 
 ### Example scores for a control
 
-:::image type="content" source="./media/secure-score-security-controls/remediate-vulnerabilities-control.png" alt-text="Apply system updates security control." lightbox="./media/secure-score-security-controls/remediate-vulnerabilities-control-expanded.png":::
+:::image type="content" source="./media/secure-score-security-controls/remediate-vulnerabilities-control.png" alt-text="Screenshot showing how to apply system updates security control." lightbox="./media/secure-score-security-controls/remediate-vulnerabilities-control-expanded.png":::
 
 In this example:
 

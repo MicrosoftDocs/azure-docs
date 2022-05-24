@@ -74,11 +74,13 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Container Registry | Microsoft.ContainerRegistry/registries | registry |
 | Azure Kubernetes Service - Kubernetes API | Microsoft.ContainerService/managedClusters | management |
 | Azure Data Factory | Microsoft.DataFactory/factories | dataFactory |
+| Azure Data Explorer | Microsoft.Kusto/clusters | cluster |
 | Azure Database for MariaDB | Microsoft.DBforMariaDB/servers | mariadbServer |
 | Azure Database for MySQL | Microsoft.DBforMySQL/servers | mysqlServer |
 | Azure Database for PostgreSQL - Single server | Microsoft.DBforPostgreSQL/servers | postgresqlServer |
 | Azure Device Provisioning Service | Microsoft.Devices/provisioningServices | iotDps |
 | Azure IoT Hub | Microsoft.Devices/IotHubs | iotHub |
+| Azure IoT Central | Microsoft.IoTCentral/IoTApps | IoTApps |
 | Azure Digital Twins | Microsoft.DigitalTwins/digitalTwinsInstances | digitaltwinsinstance |
 | Azure Event Grid | Microsoft.EventGrid/domains | domain |
 | Azure Event Grid | Microsoft.EventGrid/topics  | topic |
@@ -92,8 +94,8 @@ A private-link resource is the destination target of a specified private endpoin
 | Application Gateway | Microsoft.Network/applicationgateways | application gateway |
 | Private Link service (your own service) |  Microsoft.Network/privateLinkServices | empty |
 | Power BI | Microsoft.PowerBI/privateLinkServicesForPowerBI | Power BI |
-| Azure Purview | Microsoft.Purview/accounts | account |
-| Azure Purview | Microsoft.Purview/accounts | portal |
+| Microsoft Purview | Microsoft.Purview/accounts | account |
+| Microsoft Purview | Microsoft.Purview/accounts | portal |
 | Azure Backup | Microsoft.RecoveryServices/vaults | vault |
 | Azure Relay | Microsoft.Relay/namespaces | namespace |
 | Azure Cognitive Search | Microsoft.Search/searchServices | search service |
@@ -107,7 +109,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Synapse Analytics | Microsoft.Synapse/workspaces | SQL, SqlOnDemand, Dev | 
 | Azure App Service | Microsoft.Web/hostingEnvironments | hosting environment |
 | Azure App Service | Microsoft.Web/sites | sites |
-| Azure Static Web Apps | Microsoft.Web/staticSites | staticSite |
+| Azure Static Web Apps | Microsoft.Web/staticSites | staticSites |
 
 > [!NOTE]
 > You can create private endpoints only on a General Purpose v2 (GPv2) storage account.

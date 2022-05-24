@@ -93,7 +93,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[CGI Federal, Inc.](https://www.cgi.com/en/us-federal)|
 |[CGI Technologies and Solutions Inc.](https://www.cgi.com)|
 |[Ciellos Inc.](https://www.ciellos.com/)|
-|[Ciracom Inc.](https://ciracom.com)|
+|[Ciracom Inc.](https://www.ciracomcloud.com)|
 |[Clients First Business Solutions LLC](https://www.clientsfirst-us.com)|
 |[ClearShark](https://clearshark.com/)|
 |[CloudFit Software, LLC](https://www.cloudfitsoftware.com/)|
@@ -171,7 +171,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[FourPoints Technology](https://www.4points.com)|
 |[For The Record LTD](https://www.fortherecord.com/)|
 |[Fujitsu America Inc.](https://www.fujitsu.com/us/)|
-|[Futurez Consulting, LLC](https://futurezconsulting.com/)|
 |[General Dynamics Information Technology](https://gdit.com/)|
 |[Giga-Green Technologies](https://giga-green.com)|
 |[Gimmal](https://www.gimmal.com/)|
@@ -199,7 +198,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[HTS Voice & Data Systems, Inc.](https://www.hts-tx.com/)|
 |[HumanTouch LLC](https://www.humantouchllc.com/)|
 |[Hyertek Inc.](https://www.hyertek.com)|
-|[I10 Inc](http://i10agile.com/)|
+|I10 Inc|
 |[I2, Inc. (IBM)](https://www.ibm.com/security/intelligence-analysis/i2)|
 |[i3 Business Solutions, LLC](https://www.i3businesssolutions.com/)|
 |[i3 LLC](http://i3llc.net/)|

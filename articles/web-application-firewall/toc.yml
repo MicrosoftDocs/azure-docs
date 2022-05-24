@@ -65,6 +65,8 @@
       href: ./ag/policy-overview.md
     - name: Bot protection overview
       href: ./ag/bot-protection-overview.md
+    - name: WAF engine
+      href: ./ag/waf-engine.md
     - name: FAQ
       href: ./ag/application-gateway-waf-faq.yml
   - name: Front Door
@@ -164,7 +166,7 @@
   - name: Azure CLI
     items:
     - name: Front Door
-      href: /cli/azure/network
+      href: /cli/azure/network/front-door/waf-policy
     - name: Application Gateway
       href: /cli/azure/network/application-gateway
     - name: CDN

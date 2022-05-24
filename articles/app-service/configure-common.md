@@ -44,7 +44,7 @@ App settings are always encrypted when stored (encrypted-at-rest).
 
     ![Application Settings](./media/configure-common/open-ui.png)
 
-    By default, values for app settings are hidden in the portal for security. To see a hidden value of an app setting, click its **Value** field. To see the hidden values of all app settings, click the **Show value** button.
+    By default, values for app settings are hidden in the portal for security. To see a hidden value of an app setting, click its **Value** field. To see the hidden values of all app settings, click the **Show values** button.
 
 1. To add a new app setting, click **New application setting**. To edit a setting, click the **Edit** button on the right side.
 
@@ -213,7 +213,7 @@ At runtime, connection strings are available as environment variables, prefixed 
 * Custom: `CUSTOMCONNSTR_`
 * PostgreSQL: `POSTGRESQLCONNSTR_`  
 
-For example, a MySql connection string named *connectionstring1* can be accessed as the environment variable `MYSQLCONNSTR_connectionString1`. For language-stack specific steps, see:
+For example, a MySQL connection string named *connectionstring1* can be accessed as the environment variable `MYSQLCONNSTR_connectionString1`. For language-stack specific steps, see:
 
 - [ASP.NET Core](configure-language-dotnetcore.md#access-environment-variables)
 - [Node.js](configure-language-nodejs.md#access-environment-variables)
@@ -421,13 +421,13 @@ Here, you can configure some common settings for the app. Some settings require 
 
 - **Stack settings**: The software stack to run the app, including the language and SDK versions.
 
-    For Linux apps and custom containers, you can select the language runtime version and set an optional **Startup command** or a startup command file.
+    For Linux apps, you can select the language runtime version and set an optional **Startup command** or a startup command file.
 
     ![General settings for Linux containers](./media/configure-common/open-general-linux.png)
 
 - **Platform settings**: Lets you configure settings for the hosting platform, including:
     - **FTP state**: Allow only FTPS or disable FTP altogether.
-    - **Bitness**: 32-bit or 64-bit. (Defaults to 32-bit for App Service created in the portal.)
+    - **Bitness**: 32-bit or 64-bit. For Windows apps only. 
     - **WebSocket protocol**: For [ASP.NET SignalR] or [socket.io](https://socket.io/), for example.
     - **Always On**: Keeps the app loaded even when there's no traffic. When **Always On** is not turned on (default), the app is unloaded after 20 minutes without any incoming requests. The unloaded app can cause high latency for new requests because of its warm-up time. When **Always On** is turned on, the front-end load balancer sends a GET request to the application root every five minutes. The continuous ping prevents the app from being unloaded.
     

@@ -85,6 +85,8 @@ items:
       href: how-tos/setup-unity-project.md
     - name: C++/WinRT
       href: how-tos/setup-cpp-winrt-project.md
+  - name: Move a Spatial Anchors account between regions
+    href: how-tos/move-azure-spatial-anchors-account.md
 - name: Samples
   items:
   - name: Azure Spatial Anchors samples (GitHub)

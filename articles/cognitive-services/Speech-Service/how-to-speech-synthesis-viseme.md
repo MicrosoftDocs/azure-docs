@@ -18,7 +18,7 @@ zone_pivot_groups: programming-languages-speech-services-nomore-variant
 # Get facial pose events for lip-sync
 
 > [!NOTE]
-> At this time, viseme events are available only for English (US) [neural voices](language-support.md#text-to-speech).
+> At this time, viseme events are available only for [neural voices](language-support.md#text-to-speech).
 
 A _viseme_ is the visual description of a phoneme in spoken language. It defines the position of the face and mouth when a person speaks a word. Each viseme depicts the key facial poses for a specific set of phonemes. 
 
@@ -47,7 +47,7 @@ The overall workflow of viseme is depicted in the following flowchart:
 |-----------|-------------|
 | Viseme ID | An integer number that specifies a viseme.<br>For English (US), we offer 22 different visemes, each depicting the mouth shape for a specific set of phonemes. There is no one-to-one correspondence between visemes and phonemes. Often, several phonemes correspond to a single viseme, because they look the same on the speaker's face when they're produced, such as `s` and `z`. For more specific information, see the table for [mapping phonemes to viseme IDs](#map-phonemes-to-visemes).  |
 | Audio offset | The start time of each viseme, in ticks (100 nanoseconds). |
-| | |
+
 
 ## Get viseme events with the Speech SDK
 
@@ -178,59 +178,7 @@ For 3D characters, think of the characters as string puppets. The puppet master 
 
 ## Map phonemes to visemes
 
-Visemes vary by language. Each language has a set of visemes that correspond to its specific phonemes. The following table shows the correspondence between International Phonetic Alphabet (IPA) phonemes and viseme IDs for English (US).
-
-| IPA | Example | Viseme ID |
-|-----|---------|-----------|
-| i	  |	**ea**t   | 6 |
-| ɪ	  | **i**f | 6 |
-| eɪ  | **a**te | 4 |
-| ɛ | **e**very | 4 |
-|æ	|	**a**ctive	      |1|
-|ɑ	|	**o**bstinate	  |2|
-|ɔ	|	c**au**se	      |3|
-|ʊ	|	b**oo**k	      |4|
-|oʊ	|	**o**ld	          |8|
-|u	|	**U**ber	      |7|
-|ʌ	|	**u**ncle	      |1|
-|aɪ	|	**i**ce	          |11|
-|aʊ	|	**ou**t	          |9|
-|ɔɪ	|	**oi**l	          |10|
-|ju	|	**Yu**ma	      |[6, 7]|
-|ə	|	**a**go	          |1|
-|ɪɹ	|	**ear**s	      |[6, 13]|
-|ɛɹ	|	**air**plane	  |[4, 13]|
-|ʊɹ	|	c**ur**e	      |[4, 13]|
-|aɪ(ə)ɹ	|	**Ire**land	  |[11, 13]|
-|aʊ(ə)ɹ	|	**hour**s	  |[9, 13]|
-|ɔɹ	|	**or**ange	      |[3, 13]|
-|ɑɹ	|	**ar**tist	      |[2, 13]|
-|ɝ	|	**ear**th	      |[5, 13]|
-|ɚ	|	all**er**gy	      |[1, 13]|
-|w	|	**w**ith, s**ue**de	  |7|
-|j	|	**y**ard, f**e**w	  |6|
-|p	|	**p**ut	          |21|
-|b	|	**b**ig	          |21|
-|t	|	**t**alk	      |19|
-|d	|	**d**ig	          |19|
-|k	|	**c**ut	          |20|
-|g	|	**g**o	          |20|
-|m	|	**m**at, s**m**ash	  |21|
-|n	|	**n**o, s**n**ow	  |19|
-|ŋ	|	li**n**k	      |20|
-|f	|	**f**ork	      |18|
-|v	|	**v**alue	      |18|
-|θ	|	**th**in	      |17|
-|ð	|	**th**en	      |17|
-|s	|	**s**it	          |15|
-|z	|	**z**ap	          |15|
-|ʃ	|	**sh**e	          |16|
-|ʒ	|	**J**acques	      |16|
-|h	|	**h**elp	      |12|
-|tʃ	|	**ch**in	      |16|
-|dʒ	|	**j**oy	          |16|
-|l	|	**l**id, g**l**ad	  |14|
-|ɹ	|	**r**ed, b**r**ing	  |13|
+Visemes vary by language and locale. Each locale has a set of visemes that correspond to its specific phonemes. The [SSML phonetic alphabets](speech-ssml-phonetic-sets.md) documentation maps viseme IDs to the corresponding International Phonetic Alphabet (IPA) phonemes.
 
 
 ## Next steps

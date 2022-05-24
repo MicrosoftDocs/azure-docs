@@ -3,11 +3,11 @@ title: Upgrade a basic to standard public load balancer
 titleSuffix: Azure Load Balancer
 description: This article shows you how to upgrade a public load balancer from basic to standard SKU.
 services: load-balancer
-author: asudbring
+author: greg-lindsay
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 03/17/2022
-ms.author: allensu
+ms.author: greglin
 ---
 # Upgrade from a basic public to standard public load balancer
 
@@ -38,6 +38,8 @@ An Azure PowerShell script is available that does the following procedures:
 * The allocation method of the public IP Address must be changed to **static** before running the script
 
 * If the load balancer doesn't have a frontend IP configuration or backend pool, you'll encounter an error running the script. Ensure the load balancer has a frontend IP and backend pool
+
+* The script cannot migrate Virtual Machine Scale Set from Basic Load Balancer's backend to Standard Load Balancer's backend. We recommend manually creating a Standard Load Balancer and follow [Update or delete a load balancer used by virtual machine scale sets](update-load-balancer-with-vm-scale-set.md) to complete the migration.
 
 ### Change allocation method of the public IP address to static
 

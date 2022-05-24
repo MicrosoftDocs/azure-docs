@@ -1,9 +1,9 @@
 ---
-title: 'How to update the spacecraft TLE on Azure Orbital Earth Observation service' 
+title: 'Update the spacecraft TLE on Azure Orbital Earth Observation service' 
 description: 'Update the spacecraft TLE'
 author: wamota
 ms.service: orbital
-ms.topic: how-to
+ms.topic: tutorial
 ms.custom: public-preview
 ms.date: 11/16/2021
 ms.author: wamota
@@ -42,5 +42,5 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 
 ## Next steps
 
-- [How-to: Schedule a contact](schedule-contact.md)
-- [How-to: Cancel a scheduled contact](delete-contact.md)
+- [Tutorial: Schedule a contact](schedule-contact.md)
+- [Tutorial: Cancel a scheduled contact](delete-contact.md)

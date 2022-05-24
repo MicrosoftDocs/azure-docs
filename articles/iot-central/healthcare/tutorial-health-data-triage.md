@@ -199,5 +199,4 @@ If you're not going to continue to use this application, delete your resources w
 
 1. From the Azure portal, you can delete the Event Hub and Logic Apps resources that you created.
 
-1. For your IoT Central application, go to the Administration tab and select **Delete**.
-
+1. For your IoT Central application, go to the **Application > Management** tab and select **Delete**.

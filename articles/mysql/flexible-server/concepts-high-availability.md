@@ -4,6 +4,7 @@ description: Get a conceptual overview of zone-redundant high availability in Az
 author: SudheeshGH
 ms.author: sunaray
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 08/26/2021
 ---
@@ -81,6 +82,19 @@ The overall failover time depends on the current workload and the last checkpoin
 Unplanned service downtime can be caused by software bugs or infrastructure faults like compute, network, or storage failures, or power outages that affect the availability of the database. If the database becomes unavailable, replication to the standby replica is severed and the standby replica is activated as the primary database. DNS is updated, and clients reconnect to the database server and resume their operations. 
 
 The overall failover time is expected to be between 60 and 120 seconds. But, depending on the activity in the primary database server at the time of the failover (like large transactions and recovery time), the failover might take longer.
+
+#### How automatic failover detection works in HA enabled servers
+
+The primary server and the secondary server has two network endpoints,
+- Customer Endpoint: Customer connects and runs query on the instance using this endpoint.
+- Management Endpoint: Used internally for service communications to management components and to connect to backend storage.
+
+The health monitor component continuously does the following checks
+* The monitor pings to the nodes Management network Endpoint. If this check fails two times continuously, it triggers automatic failover operation.  The scenario like node is unavailable/not responding because of OS issue, networking issue between management components and nodes etc. will be addressed by this health check.
+* The monitor also runs a simple query on the Instance. If the queries fail to run, automatic failover will be triggered. The scenarios like MySQL demon crashed/ stopped/hung, Backend storage issue etc., will be addressed by this health check.
+
+>[!Note]
+>If there are any networking issue between the application and the customer networking endpoint (Private/Public access), either in networking path , on the endpoint or DNS issues in client side, the health check does not monitor this scenario. If you are using private access, make sure that the NSG rules for the VNet does not block the communication to the instance customer networking endpoint on port 3306. For public access make sure that the firewall rules are set and network traffic is allowed on port 3306 (if network path has any other firewalls). The DNS resolution from the client application side also needs to be taken care of.
 
 ## Monitoring for high availability
 The health of your HA is continuously monitored and reported on the overview page. Here are the replication statuses:

@@ -70,10 +70,12 @@ In order to ensure a client/IoT Hub connection stays alive, both the service and
 |Language  |Default keep-alive interval  |Configurable  |
 |---------|---------|---------|
 |Node.js     |   180 seconds      |     No    |
-|Java     |    230 seconds     |     No    |
+|Java     |    230 seconds     |     [Yes](https://github.com/Azure/azure-iot-sdk-java/blob/main/device/iot-device-client/src/main/java/com/microsoft/azure/sdk/iot/device/ClientOptions.java#L64)    |
 |C     | 240 seconds |  [Yes](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md#mqtt-transport)   |
-|C#     | 300 seconds |  [Yes](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/iothub/device/src/Transport/Mqtt/MqttTransportSettings.cs#L89)   |
-|Python   | 60 seconds |  No   |
+|C#     | 300 seconds* |  [Yes](/dotnet/api/microsoft.azure.devices.client.transport.mqtt.mqtttransportsettings.keepaliveinseconds)   |
+|Python   | 60 seconds |  [Yes](https://github.com/Azure/azure-iot-sdk-python/blob/main/azure-iot-device/azure/iot/device/iothub/abstract_clients.py#L339)   |
+
+> *The C# SDK defines the default value of the MQTT KeepAliveInSeconds property as 300 seconds but in reality the SDK sends a ping request 4 times per keep-alive duration set. This means the SDK sends a keep-alive ping every 75 seconds.
 
 Following the [MQTT spec](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718081), IoT Hub's keep-alive ping interval is 1.5 times the client keep-alive value. However, IoT Hub limits the maximum server-side timeout to 29.45 minutes (1767 seconds) because all Azure services are bound to the Azure load balancer TCP idle timeout, which is 29.45 minutes. 
 
@@ -140,7 +142,7 @@ If a device cannot use the device SDKs, it can still connect to the public devic
     `contoso.azure-devices.net/MyDevice01/?api-version=2021-04-12`
 
     It's strongly recommended to include api-version in the field. Otherwise it could cause unexpected behaviors. 
-    
+
 * For the **Password** field, use a SAS token. The format of the SAS token is the same as for both the HTTPS and AMQP protocols:
 
   `SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`
@@ -170,8 +172,6 @@ If a device cannot use the device SDKs, it can still connect to the public devic
 
    `SharedAccessSignature sr={your hub name}.azure-devices.net%2Fdevices%2FMyDevice01%2Fapi-version%3D2016-11-14&sig=vSgHBMUG.....Ntg%3d&se=1456481802`
 
-For MQTT connect and disconnect packets, IoT Hub issues an event on the **Operations Monitoring** channel. This event has additional information that can help you to troubleshoot connectivity issues.
-
 The device app can specify a **Will** message in the **CONNECT** packet. The device app should use `devices/{device_id}/messages/events/` or `devices/{device_id}/messages/events/{property_bag}` as the **Will** topic name to define **Will** messages to be forwarded as a telemetry message. In this case, if the network connection is closed, but a **DISCONNECT** packet was not previously received from the device, then IoT Hub sends the **Will** message supplied in the **CONNECT** packet to the telemetry channel. The telemetry channel can be either the default **Events** endpoint or a custom endpoint defined by IoT Hub routing. The message has the **iothub-MessageType** property with a value of **Will** assigned to it.
 
 ## Using the MQTT protocol directly (as a module)
@@ -182,13 +182,17 @@ Connecting to IoT Hub over MQTT using a module identity is similar to the device
 
 * If authenticating with username and password, set the username to `<hubname>.azure-devices.net/{device_id}/{module_id}/?api-version=2021-04-12` and use the SAS token associated with the module identity as your password.
 
-* Use `devices/{device_id}/modules/{module_id}/messages/events/` as topic for publishing telemetry.
+* Use `devices/{device_id}/modules/{module_id}/messages/events/` as a topic for publishing telemetry.
 
 * Use `devices/{device_id}/modules/{module_id}/messages/events/` as WILL topic.
+
+* Use `devices/{deviceName}/modules/{moduleName}/#` as a topic for receiving messages.
 
 * The twin GET and PATCH topics are identical for modules and devices.
 
 * The twin status topic is identical for modules and devices.
+
+For more information about using MQTT with modules, see [Publish and subscribe with IoT Edge](../iot-edge/how-to-publish-subscribe.md) and learn more about the [Edge Hub MQTT endpoint](https://github.com/Azure/iotedge/blob/main/doc/edgehub-api.md#edge-hub-mqtt-endpoint).
 
 ## TLS/SSL configuration
 

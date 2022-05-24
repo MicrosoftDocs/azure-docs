@@ -5,17 +5,16 @@ description: Run machine learning workflows with machine learning pipelines and 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: nibaccam
-author: nibaccam
+ms.author: larryfr
+author: blackmist
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: contperf-fy21q1
-
+ms.custom: contperf-fy21q1, sdkv1, event-tier1-build-2022
 ---
 
 # Publish and track machine learning pipelines
 
-
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 This article will show you how to share a machine learning pipeline with your colleagues or customers.
 

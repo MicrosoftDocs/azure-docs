@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/03/2020
+ms.date: 04/27/2022
 ms.author: mimckitt
 ms.reviewer: davberg
 ---
@@ -31,12 +31,8 @@ The concept of the Azure Compute Unit (ACU) provides a way of comparing compute 
 
 | SKU Family | ACU \ vCPU | vCPU: Core |
 | --- | --- |---|
-| [A0](sizes-previous-gen.md) |50 | 1:1 |
-| [A1 - A4](sizes-previous-gen.md) |100 | 1:1 |
-| [A5 - A7](sizes-previous-gen.md) |100 | 1:1 |
 | [A1_v2 - A8_v2](sizes-general.md) |100 | 1:1 |
 | [A2m_v2 - A8m_v2](sizes-general.md) |100 | 1:1 |
-| [A8 - A11](sizes-previous-gen.md) |225* | 1:1 |
 | [B](sizes-b-series-burstable.md) |Varies | 1:1 |
 | [D1 - D14](sizes-previous-gen.md) |160 - 250 | 1:1 |
 | [D1_v2 - D15_v2](dv2-dsv2-series.md) |210 - 250* | 1:1 |
@@ -70,7 +66,46 @@ The concept of the Azure Compute Unit (ACU) provides a way of comparing compute 
 | [L4s - L32s](sizes-previous-gen.md) |180 - 240* | 1:1 |
 | [L8s_v2 - L80s_v2](lsv2-series.md) |150 - 175** | 2:1\*\*\*\* |
 | [M](m-series.md) | 160 - 180 | 2:1\*\*\* |
+| [Mv2](msv2-mdsv2-series.md) | 240 - 280 | 2:1\*\*\* |
 | [NVv4](nvv4-series.md) |230 - 260** | 2:1\*\*\*\* |
+
+Processor model information for each SKU is available in the SKU documentation (see links above).  Optimal performance may require the latest VM images (OS and [VM generation](generation-2.md)) to ensure the latest updates and fastest drivers.
+
+### VM Series Retiring
+
+The following VM series are retiring on or before August 31, 2024:
+
+| SKU Family | ACU \ vCPU | vCPU: Core |  Retirement Date |
+| --- | --- |---| --- |
+| [H](h-series.md)                  |290 - 300*  | 1:1 | [August 31, 2022](h-series-retirement.md) |
+| [HB](hb-series.md)                |199 - 216** | 1:1 | [August 31, 2024](hb-series-retirement.md) |
+| [A0](sizes-previous-gen.md)       |50          | 1:1 | [August 31, 2024](av1-series-retirement.md) |
+| [A1 - A4](sizes-previous-gen.md)  |100         | 1:1 | [August 31, 2024](av1-series-retirement.md) |
+| [A5 - A7](sizes-previous-gen.md)  |100         | 1:1 | [August 31, 2024](av1-series-retirement.md) |
+| [A8 - A11](sizes-previous-gen.md) |225*        | 1:1 | [August 31, 2024](av1-series-retirement.md) |
+
+The following GPU series are also retiring:
+
+| SKU Family | Retirement Date |
+| ---------- | --------------- |
+| NC         | [August 31, 2023](nc-series-retirement.md)   |
+| NCv2       | [August 31, 2023](ncv2-series-retirement.md) |
+| ND         | [August 31, 2023](nd-series-retirement.md)   |
+| NV         | [August 31, 2023](nv-series-retirement.md)   |
+
+## Performance Consistency
+
+We understand that Azure customers want the best possible consistent performance, they want to be able to count on getting the same performance from the same type of VM every time.  
+
+Azure VM sizes typically run with maximum performance on the hardware platform they are first released on.  Azure may place controls on older Azure VMs when run on newer hardware to help maintain consistent performance for our customers even when the VMs run on different hardware.  For example:
+1) **D**, **E**, and **F** series VMs may have the processor frequency set to a lower level when running on newer hardware to help achieve better performance consistency across hardware updates.  (The specific frequency setting varies based on the processor the VM series was first released on and the comparable performance of the current hardware.)
+2) **A** series VMs use an older model based on time slicing newer hardware to deliver performance consistency across hardware versions.
+3) **B** series VMs are burstable and use a credit system (described in their [documentation](sizes-b-series-burstable.md) to achieve expected performance.
+
+These different processor settings for VMs are a key part of Azure's effort to provide consistent performance and minimize the impact of changes in underlying hardware platform outside of our customer’s control.
+
+
+## More Info
 
 Here are links to more information about the different sizes:
 

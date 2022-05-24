@@ -10,7 +10,7 @@ ms.custom: devx-track-azurepowershell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-This article shows you how to automate the creation and update of [Application Insights](./app-insights-overview.md) resources automatically by using Azure Resource Management. You might, for example, do so as part of a build process. Along with the basic Application Insights resource, you can create [availability web tests](./monitor-web-app-availability.md), set up [alerts](../alerts/alerts-log.md), set the [pricing scheme](pricing.md), and create other Azure resources.
+This article shows you how to automate the creation and update of [Application Insights](./app-insights-overview.md) resources automatically by using Azure Resource Management. You might, for example, do so as part of a build process. Along with the basic Application Insights resource, you can create [availability web tests](./monitor-web-app-availability.md), set up [alerts](../alerts/alerts-log.md), set the [pricing scheme](../logs/cost-logs.md#application-insights-billing), and create other Azure resources.
 
 The key to creating these resources is JSON templates for [Azure Resource Manager](../../azure-resource-manager/management/manage-resources-powershell.md). The basic procedure is: download the JSON definitions of existing resources; parameterize certain values such as names; and then run the template whenever you want to create a new resource. You can package several resources together, to create them all in one go - for example, an app monitor with availability tests, alerts, and storage for continuous export. There are some subtleties to some of the parameterizations, which we'll explain here.
 

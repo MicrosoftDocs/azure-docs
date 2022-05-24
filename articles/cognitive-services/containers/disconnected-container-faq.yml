@@ -161,7 +161,7 @@ sections:
           *	[Form Recognizer - Custom/Invoice](../../applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md#host-computer-requirements)
       - question: Are these containers currently supported on Windows?
         answer: |
-          Cognitive Services containers are Linux containers, but there's some support for Linux containers on Windows. For more information about Linux containers on Windows, see the [Docker documentation](https://blog.docker.com/2017/09/preview-linux-containers-on-windows/).
+          Cognitive Services containers are Linux containers, but there's some support for Linux containers on Windows. For more information about Linux containers on Windows, see the [Docker documentation](https://www.docker.com/blog/preview-linux-containers-on-windows/).
       - question: What compliance certifications do containers have?
         answer: |
           Cognitive Services containers don't have any compliance certifications.

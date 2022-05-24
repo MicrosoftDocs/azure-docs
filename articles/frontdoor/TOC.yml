@@ -23,6 +23,10 @@
   items:
   - name: Resource Manager Templates
     href: front-door-quickstart-template-samples.md
+  - name: Azure CLI
+    items:
+    - name: Deploy custom domain
+      href: scripts/custom-domain.md
 - name: Concepts
   items :
   - name: Front Door manager
@@ -107,6 +111,9 @@
           href: quickstart-create-front-door-powershell.md
         - name: CLI
           href: quickstart-create-front-door-cli.md
+        - name: Bicep
+          displayName: ARM, Resource Manager, Template
+          href: quickstart-create-front-door-bicep.md
         - name: ARM Template
           displayName: Resource Manager
           href: quickstart-create-front-door-template.md
@@ -168,6 +175,8 @@
       href: edge-locations-by-region.md
     - name: Edge locations by abbreviation
       href: edge-locations-by-abbreviation.md
+  - name: Azure CLI
+    href: /cli/azure/afd
   - name: REST API
     href: /rest/api/frontdoor
   - name: Python SDK
@@ -186,6 +195,8 @@
       href: /rest/api/frontdoor/#front-door-classic
     - name: JavaScript SDK
       href: /javascript/api/overview/azure/frontdoor
+    - name: Java SDK
+      href: /java/api/overview/azure/resourcemanager-cdn-readme
 - name: Resources
   items:
   - name: Azure Roadmap

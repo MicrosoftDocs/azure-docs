@@ -2,12 +2,12 @@
 title: Create private registry for Bicep module
 description: Learn how to set up an Azure container registry for private Bicep modules
 ms.topic: conceptual
-ms.date: 02/21/2022
+ms.date: 04/01/2022
 ---
 
 # Create private registry for Bicep modules
 
-To share [modules](modules.md) within your organization, you can create a private module registry. You publish modules to that registry and give read access to users who need to deploy the modules. After the modules are shared in the registries, you can reference them from your Bicep files.
+To share [modules](modules.md) within your organization, you can create a private module registry. You publish modules to that registry and give read access to users who need to deploy the modules. After the modules are shared in the registries, you can reference them from your Bicep files. To contribute to the public module registry, see the [contribution guide](https://github.com/Azure/bicep-registry-modules/blob/main/CONTRIBUTING.md).
 
 To work with module registries, you must have [Bicep CLI](./install.md) version **0.4.1008 or later**. To use with Azure CLI, you must also have version **2.31.0 or later**; to use with Azure PowerShell, you must also have version **7.0.0** or later.
 

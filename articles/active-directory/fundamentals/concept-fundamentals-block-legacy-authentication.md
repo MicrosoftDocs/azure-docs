@@ -29,7 +29,7 @@ Today, the majority of all compromising sign-in attempts come from legacy authen
 
 Before you can block legacy authentication in your directory, you need to first understand if your users have apps that use legacy authentication and how it affects your overall directory. Azure AD sign-in logs can be used to understand if you're using legacy authentication.
 
-1. Navigate to the **Azure portal** > **Azure Active Directory** > **Sign-ins**.
+1. Navigate to the **Azure portal** > **Azure Active Directory** > **Sign-in logs**.
 1. Add the **Client App** column if it is not shown by clicking on **Columns** > **Client App**.
 1. Filter by **Client App** > check all the **Legacy Authentication Clients** options presented.
 1. Filter by **Status** > **Success**. 
@@ -93,10 +93,10 @@ Before you can begin enabling modern authentication on-premises, please be sure 
 Steps for enabling modern authentication can be found in the following articles:
 
 * [How to configure Exchange Server on-premises to use Hybrid Modern Authentication](/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
-* [How to use Modern Authentication (ADAL) with Skype for Business](/skypeforbusiness/manage/authentication/use-adal)
+* [How to use Modern Authentication with Skype for Business](/skypeforbusiness/manage/authentication/use-adal)
 
 ## Next steps
 
 - [How to configure Exchange Server on-premises to use Hybrid Modern Authentication](/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
-- [How to use Modern Authentication (ADAL) with Skype for Business](/skypeforbusiness/manage/authentication/use-adal)
+- [How to use Modern Authentication with Skype for Business](/skypeforbusiness/manage/authentication/use-adal)
 - [Block legacy authentication](../conditional-access/block-legacy-authentication.md)

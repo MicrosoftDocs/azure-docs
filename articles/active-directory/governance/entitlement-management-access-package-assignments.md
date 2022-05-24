@@ -188,6 +188,8 @@ $req = New-MgEntitlementManagementAccessPackageAssignmentRequest -AccessPackageI
 
 ## Remove an assignment
 
+You can remove an assignment that a user or an administrator had previously requested.
+
 **Prerequisite role:** Global administrator, User administrator, Catalog owner, Access package manager or Access package assignment manager
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.

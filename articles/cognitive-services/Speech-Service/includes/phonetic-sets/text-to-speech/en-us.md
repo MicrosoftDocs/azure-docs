@@ -94,5 +94,5 @@
 | l      | `l`   | 14       | **l**id, g**l**ad  | pa**l**ace | chi**ll** |
 | r      | `ɹ`   | 13       | **r**ed, b**r**ing | bo**rr**ow | ta**r**   |
 
-> [!TIP]
-> `de-CH`, `de-AT` locales don't support SAPI phones now.
+> [!NOTE]
+> `en-CA` locale doesn't support SAPI phones now.

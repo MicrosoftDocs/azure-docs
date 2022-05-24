@@ -29,6 +29,8 @@
     href: azure-portal-add-remove-sort-favorites.md
   - name: View and filter resource information
     href: manage-filter-resource-views.md
+  - name: Find subscription and tenant IDs
+    href: get-subscription-tenant-id.md
   - name: Create Azure dashboards
     items:
     - name: Create an Azure dashboard
@@ -50,9 +52,11 @@
       href: supportability/how-to-manage-azure-support-request.md
   - name: View and increase quotas
     items:
+    - name: Quotas overview
+      href: supportability/quotas-overview.md
     - name: View quotas
       href: supportability/view-quotas.md
-    - name: Increase vCPU quotas
+    - name: Increase compute quotas
       items:
       - name: Increase VM-family vCPU quotas
         href: supportability/per-vm-quota-requests.md
@@ -80,6 +84,8 @@
     href: azure-portal-dashboards-structure.md
   - name: Azure CLI
     href: /cli/azure/portal
+  - name: Azure PowerShell
+    href: /powershell/module/az.portal
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md

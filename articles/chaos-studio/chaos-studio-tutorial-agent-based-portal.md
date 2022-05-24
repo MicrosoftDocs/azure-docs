@@ -59,6 +59,7 @@ sudo dnf -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.
 ![Reviewing agent-based target enablement](images/tutorial-agent-based-targets-enable-review.png)
 7. After a few minutes, a notification will appear indicating that the resource(s) selected were successfully enabled. The Azure portal will add the user-assigned identity to the virtual machine, enable the agent target and capabilities, and install the chaos agent as a virtual machine extension.
 ![Notification showing target successfully enabled](images/tutorial-agent-based-targets-enable-confirm.png)
+8. If enabling a virtual machine scale set, upgrade instances to the latest model by going to the virtual machine scale set resource blade, clicking **Instances**, then selecting all instances and clicking **Upgrade** if not on the latest model.
 
 You have now successfully onboarded your Linux virtual machine to Chaos Studio. In the **Targets** view you can also manage the capabilities enabled on this resource. Clicking the **Manage actions** link next to a resource will display the capabilities enabled for that resource.
 

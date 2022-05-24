@@ -6,7 +6,7 @@ services: active-directory
 author: mmacy
 manager: CelesteDG
 
-ms.date: 03/10/2022
+ms.date: 04/04/2022
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
@@ -18,6 +18,21 @@ ms.custom: has-adal-ref
 # Microsoft identity platform docs: What's new
 
 Welcome to what's new in the Microsoft identity platform documentation. This article lists new docs that have been added and those that have had significant updates in the last three months.
+
+## March 2022
+
+### New articles
+
+- [Secure access control using groups in Azure AD](secure-group-access-control.md)
+
+### Updated articles
+
+- [Authentication flow support in MSAL](msal-authentication-flows.md)
+- [Claims mapping policy type](reference-claims-mapping-policy-type.md)
+- [Configure an app to trust an external identity provider (preview)](workload-identity-federation-create-trust.md)
+- [OAuth 2.0 and OpenID Connect in the Microsoft identity platform](active-directory-v2-protocols.md)
+- [Signing key rollover in the Microsoft identity platform](active-directory-signing-key-rollover.md)
+- [Troubleshoot publisher verification](troubleshoot-publisher-verification.md)
 
 ## February 2022
 
@@ -45,19 +60,3 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 - [Quickstart: Add sign-in with Microsoft to a web app](web-app-quickstart.md)
 - [Quickstart: Protect a web API with the Microsoft identity platform](web-api-quickstart.md)
 - [Quickstart: Sign in users and call the Microsoft Graph API from a mobile application](mobile-app-quickstart.md)
-
-## December 2021
-
-### New articles
-
-- [Build Zero Trust-ready apps using Microsoft identity platform features and tools](zero-trust-for-developers.md)
-- [Quickstart: Sign in users in single-page apps (SPA) using the auth code flow](single-page-app-quickstart.md)
-- [Run automated integration tests](test-automate-integration-testing.md)
-- [Secure identity in line-of-business application using Zero Trust principles](secure-line-of-business-apps.md)
-- [What are workload identities?](workload-identities-overview.md)
-
-### Updated articles
-
-- [Claims mapping policy type](reference-claims-mapping-policy-type.md)
-- [Microsoft identity platform developer glossary](developer-glossary.md)
-- [Token cache serialization in MSAL.NET](msal-net-token-cache-serialization.md)

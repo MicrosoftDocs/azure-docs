@@ -19,10 +19,7 @@ ms.author: eur
 
 ## Set up the environment
 
-Before you can do anything, you need to install the Speech SDK. Depending on your platform, use the following instructions:
-
-* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-java&tabs=jre" target="_blank">Java Runtime </a>
-* <a href="/azure/cognitive-services/speech-service/quickstarts/setup-platform?pivots=programming-language-java&tabs=android" target="_blank">Android </a>
+Before you can do anything, you need to install the Speech SDK. The sample in this quickstart works with the [Java Runtime](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-java&tabs=jre).
 
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
@@ -40,27 +37,25 @@ Follow these steps to create a new console application for speech recognition.
 
     import java.util.concurrent.ExecutionException;
     import java.util.concurrent.Future;
-    
+
     public class SpeechRecognition {
         private static String YourSubscriptionKey = "YourSubscriptionKey";
         private static String YourServiceRegion = "YourServiceRegion";
-    
+
         public static void main(String[] args) throws InterruptedException, ExecutionException {
             SpeechConfig speechConfig = SpeechConfig.fromSubscription(YourSubscriptionKey, YourServiceRegion);
             speechConfig.setSpeechRecognitionLanguage("en-US");
             recognizeFromMicrophone(speechConfig);
         }
-    
+
         public static void recognizeFromMicrophone(SpeechConfig speechConfig) throws InterruptedException, ExecutionException {
-            //To recognize speech from an audio file, use `fromWavFileInput` instead of `fromDefaultMicrophoneInput`:
-            //AudioConfig audioConfig = AudioConfig.fromWavFileInput("YourAudioFile.wav");
             AudioConfig audioConfig = AudioConfig.fromDefaultMicrophoneInput();
             SpeechRecognizer speechRecognizer = new SpeechRecognizer(speechConfig, audioConfig);
-    
+
             System.out.println("Speak into your microphone.");
             Future<SpeechRecognitionResult> task = speechRecognizer.recognizeOnceAsync();
             SpeechRecognitionResult speechRecognitionResult = task.get();
-            
+
             if (speechRecognitionResult.getReason() == ResultReason.RecognizedSpeech) {
                 System.out.println("RECOGNIZED: Text=" + speechRecognitionResult.getText());
             }
@@ -74,7 +69,7 @@ Follow these steps to create a new console application for speech recognition.
                 if (cancellation.getReason() == CancellationReason.Error) {
                     System.out.println("CANCELED: ErrorCode=" + cancellation.getErrorCode());
                     System.out.println("CANCELED: ErrorDetails=" + cancellation.getErrorDetails());
-                    System.out.println("CANCELED: Did you update the subscription info?");
+                    System.out.println("CANCELED: Did you set the speech resource key and region values?");
                 }
             }
 
@@ -99,10 +94,17 @@ Speak into your microphone.
 RECOGNIZED: Text=I'm excited to try speech to text.
 ```
 
-This example uses the `RecognizeOnceAsync` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
-
 > [!div class="nextstepaction"]
 > <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=JAVA&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Recognize-speech-from-a-microphone" target="_target">I ran into an issue</a>
+
+Here are some additional considerations:
+
+- This example uses the `RecognizeOnceAsync` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
+- To recognize speech from an audio file, use `fromWavFileInput` instead of `fromDefaultMicrophoneInput`:
+    ```java
+    AudioConfig audioConfig = AudioConfig.fromWavFileInput("YourAudioFile.wav");
+    ```
+- For compressed audio files such as MP4, install GStreamer and use `PullAudioInputStream` or `PushAudioInputStream`. For more information, see [How to use compressed input audio](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md).
 
 ## Clean up resources
 

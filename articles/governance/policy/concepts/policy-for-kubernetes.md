@@ -248,7 +248,7 @@ For an overview of the extensions platform, see [Azure Arc cluster extensions](.
 
      ```azurepowershell-interactive
      # Log in first with Connect-AzAccount if you're not using Cloud Shell
-    
+
      # Provider register: Register the Azure Policy provider
      Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
      ```
@@ -258,7 +258,7 @@ For an overview of the extensions platform, see [Azure Arc cluster extensions](.
 > Note the following for Azure Policy extension creation:
 > - Auto-upgrade is enabled by default which will update Azure Policy extension minor version if any new changes are deployed.
 > - Any proxy variables passed as parameters to `connectedk8s` will be propagated to the Azure Policy extension to support outbound proxy.
-> 
+>
 To create an extension instance, for your Arc enabled cluster, run the following command substituting `<>` with your values:
 
 ```azurecli-interactive
@@ -318,13 +318,13 @@ az k8s-extension create --cluster-type connectedClusters --cluster-name my-test-
 
 To check the extension instance creation was successful, and inspect extension metadata, run the following command substituting `<>` with your values:
 
-```console
+```azurecli
 az k8s-extension show --cluster-type connectedClusters --cluster-name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --name <EXTENSION_INSTANCE_NAME>
 ```
 
 #### Example:
 
-```console
+```azurecli
 az k8s-extension show --cluster-type connectedClusters --cluster-name my-test-cluster --resource-group my-test-rg --name azurepolicy
 ```
 
@@ -701,7 +701,7 @@ field of the failed constraint. For details on _Non-compliant_ resources, see
 
 Some other considerations:
 
-- If the cluster subscription is registered with Azure Security Center, then Azure Security Center
+- If the cluster subscription is registered with Microsoft Defender for Cloud, then Microsoft Defender for Cloud
   Kubernetes policies are applied on the cluster automatically.
 
 - When a deny policy is applied on cluster with existing Kubernetes resources, any pre-existing
@@ -719,8 +719,8 @@ Some other considerations:
 > review the CRD for the following or a similar declaration:
 >
 > ```rego
-> input_containers[c] { 
->    c := input.review.object.spec.initContainers[_] 
+> input_containers[c] {
+>    c := input.review.object.spec.initContainers[_]
 > }
 > ```
 

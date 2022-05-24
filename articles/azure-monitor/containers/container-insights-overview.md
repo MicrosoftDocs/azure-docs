@@ -43,7 +43,7 @@ Container insights delivers a comprehensive monitoring experience using differen
     >Support for Azure Red Hat OpenShift is a feature in public preview at this time.
     >
 
-* Monitor container workloads [deployed to Azure Arc-enabled Kubernetes (preview)](../../azure-arc/kubernetes/overview.md).
+* Monitor container workloads [deployed to Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/overview.md).
 
 The main differences in monitoring a Windows Server cluster compared to a Linux cluster are the following:
 
@@ -61,8 +61,6 @@ Check out the following video providing an intermediate level deep dive to help 
 You can access Container insights two ways, from Azure Monitor or directly from the selected AKS cluster. From Azure Monitor, you have a global perspective of all the containers deployed, which are monitored and which are not, allowing you to search and filter across your subscriptions and resource groups, and then drill into Container insights from the selected container.  Otherwise, you can access the feature directly from a selected AKS container from the AKS page.
 
 ![Overview of methods to access Container insights](./media/container-insights-overview/azmon-containers-experience.png)
-
-If you are interested in monitoring and managing your Docker and Windows container hosts running outside of AKS to view configuration, audit, and resource utilization, see the [Container Monitoring solution](./containers.md).
 
 ## Next steps
 

@@ -86,7 +86,7 @@ You can create a copy of any application, minus any device instances, device dat
 
 Select **Copy**. In the dialog box, enter the details for the new application. Then select **Copy** to confirm that you want to continue. To learn more about the fields in the form, see [Create an application](howto-create-iot-central-application.md).
 
-:::image type="content" source="media/howto-create-iot-central-application/app-copy-1.png" alt-text="Screenshot of that shows application settings page.":::
+:::image type="content" source="media/howto-create-iot-central-application/app-copy-1.png" alt-text="Screenshot of that shows application management page.":::
 
 :::image type="content" source="media/howto-create-iot-central-application/app-copy-2.png" alt-text="Screenshot that shows the Copy Application settings page.":::
 

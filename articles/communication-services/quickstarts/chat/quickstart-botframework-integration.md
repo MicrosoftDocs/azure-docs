@@ -107,7 +107,7 @@ Configure the Azure Bot we created with its Web App endpoint where the bot logic
 
 The final step would be to deploy the bot logic to the Web App we created. As we mentioned for this tutorial, we'll be using the Echo Bot. This bot only demonstrates a limited set of capabilities, such as echoing the user input. Here's how we deploy it to Azure Web App.
 
-   1. To use the samples, clone this Github repository using Git.
+   1. To use the samples, clone this GitHub repository using Git.
      ``` 
      git clone https://github.com/Microsoft/BotBuilder-Samples.gitcd BotBuilder-Samples
      ```
@@ -137,7 +137,7 @@ The final step would be to deploy the bot logic to the Web App we created. As we
 
 ## Step 2 - Get an Azure Communication Services Resource
 Now that you got the bot part sorted out, we'll need to get an Azure Communication Services resource, which we would use for configuring the Azure Communication Services channel.
-1. Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md). You'll need to **record your resource endpoint and key** for this quickstart.
+1. Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md). 
 2. Create a Azure Communication Services User and issue a user access token [User Access Token](../../quickstarts/access-tokens.md). Be sure to set the scope to **chat**, and **note the token string as well as the userId string**.
 
 ## Step 3 - Enable Azure Communication Services Chat Channel
@@ -147,7 +147,7 @@ With the Azure Communication Services resource, we can configure the Azure Commu
    :::image type="content" source="./media/smaller-demoapp-launch-acs-chat.png" alt-text="DemoApp Launch Acs Chat" lightbox="./media/demoapp-launch-acs-chat.png":::
 
    
-2. Provide the resource endpoint and the key belonging to the Azure Communication Services resource that you want to connect with.
+2. Choose from the dropdown list the Azure Communication Services resource that you want to connect with.
 
    :::image type="content" source="./media/smaller-demoapp-connect-acsresource.png" alt-text="DemoApp Connect Acs Resource" lightbox="./media/demoapp-connect-acsresource.png":::
 

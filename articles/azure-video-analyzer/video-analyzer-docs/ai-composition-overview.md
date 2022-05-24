@@ -8,6 +8,8 @@ ms.date: 11/04/2021
 
 # AI composition
 
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
+
 This article gives a high-level overview of Azure Video Analyzer support for three kinds of AI composition. 
 
 * [Sequential](#sequential-ai-composition)

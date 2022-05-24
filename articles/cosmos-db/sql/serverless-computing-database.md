@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.reviewer: wiassaf
-ms.date: 03/25/2022
+ms.date: 05/02/2020
 ms.custom: cosmos-db-video
 ---
 
@@ -95,7 +95,7 @@ In retail implementations, when a user adds an item to their basket you now have
 
 **Implementation:** Multiple Azure Functions triggers for Cosmos DB listening to one container
 
-1. You can create multiple Azure Functions by adding Azure Functions triggers for Cosmos DB to each - all of which listen to the same change feed of shopping cart data. Note that when multiple functions listen to the same change feed, a new lease collection is required for each function. For more information about lease collections, see [Understanding the Change Feed Processor library](change-feed-processor.md).
+1. You can create multiple Azure Functions by adding Azure Functions triggers for Cosmos DB to each - all of which listen to the same change feed of shopping cart data. When multiple functions listen to the same change feed, a new lease collection is required for each function. For more information about lease collections, see [Understanding the Change Feed Processor library](change-feed-processor.md).
 2. Whenever a new item is added to a users shopping cart, each function is independently invoked by the change feed from the shopping cart container.
    * One function may use the contents of the current basket to change the display of other items the user might be interested in.
    * Another function may update inventory totals.
@@ -107,11 +107,11 @@ In all of these use cases, because the function has decoupled the app itself, yo
 
 ## Tooling
 
-Native integration between Azure Cosmos DB and Azure Functions is available in the Azure portal and in Visual Studio 2019.
+Native integration between Azure Cosmos DB and Azure Functions is available in the Azure portal and in Visual Studio.
 
 * In the Azure Functions portal, you can create a trigger. For quickstart instructions, see [Create an Azure Functions trigger for Cosmos DB in the Azure portal](../../azure-functions/functions-create-cosmos-db-triggered-function.md).
 * In the Azure Cosmos DB portal, you can add an Azure Functions trigger for Cosmos DB to an existing Azure Function app in the same resource group.
-* In Visual Studio 2019, you can create the trigger using the [Azure Functions Tools](../../azure-functions/functions-develop-vs.md):
+* In Visual Studio, you can create the trigger using the [Azure Functions Tools](../../azure-functions/functions-develop-vs.md):
 
   >
   >[!VIDEO https://aka.ms/docs.change-feed-azure-functions]
@@ -122,9 +122,9 @@ Azure Functions provides the ability to create scalable units of work, or concis
 
 Azure Cosmos DB is the recommended database for your serverless computing architecture for the following reasons:
 
-* **Instant access to all your data**: You have granular access to every value stored because Azure Cosmos DB [automatically indexes](../index-policy.md) all data by default, and makes those indexes immediately available. This means you are able to constantly query, update, and add new items to your database and have instant access via Azure Functions.
+* **Instant access to all your data**: You have granular access to every value stored because Azure Cosmos DB [automatically indexes](../index-policy.md) all data by default, and makes those indexes immediately available. This means you're able to constantly query, update, and add new items to your database and have instant access via Azure Functions.
 
-* **Schemaless**. Azure Cosmos DB is schemaless - so it's uniquely able to handle any data output from an Azure Function. This "handle anything" approach makes it straightforward to create a variety of Functions that all output to Azure Cosmos DB.
+* **Schemaless**. Azure Cosmos DB is schemaless - so it's uniquely able to handle any data output from an Azure Function. This "handle anything" approach makes it straightforward to create various Functions that all output to Azure Cosmos DB.
 
 * **Scalable throughput**. Throughput can be scaled up and down instantly in Azure Cosmos DB. If you have hundreds or thousands of Functions querying and writing to the same container, you can scale up your [RU/s](../request-units.md) to handle the load. All functions can work in parallel using your allocated RU/s and your data is guaranteed to be [consistent](../consistency-levels.md).
 
@@ -134,7 +134,7 @@ If you're looking to integrate with Azure Functions to store data and don't need
 
 Benefits of Azure Functions: 
 
-* **Event-driven**. Azure Functions are event-driven and can listen to a change feed from Azure Cosmos DB. This means you don't need to create listening logic, you just keep an eye out for the changes you're listening for. 
+* **Event-driven**. Azure Functions is event-driven and can listen to a change feed from Azure Cosmos DB. This means you don't need to create listening logic, you just keep an eye out for the changes you're listening for. 
 
 * **No limits**. Functions execute in parallel and the service spins up as many as you need. You set the parameters.
 

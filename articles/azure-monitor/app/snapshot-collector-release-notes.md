@@ -17,6 +17,13 @@ For bug reports and feedback, open an issue on GitHub at https://github.com/micr
 
 ## Release notes
 
+## [1.4.3](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.4.3)
+A point release to address user-reported bugs.
+### Bug fixes
+- Fix [Hide the IDMS dependency from dependency tracker.](https://github.com/microsoft/ApplicationInsights-SnapshotCollector/issues/17)
+- Fix [ArgumentException: telemetryProcessorTypedoes not implement ITelemetryProcessor.](https://github.com/microsoft/ApplicationInsights-SnapshotCollector/issues/19)
+<br>Snapshot Collector used via SDK is not supported when Interop feature is enabled. [See more not supported scenarios.](./snapshot-debugger-troubleshoot.md#not-supported-scenarios)
+
 ## [1.4.2](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.4.2)
 A point release to address a user-reported bug.
 ### Bug fixes

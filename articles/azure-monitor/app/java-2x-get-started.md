@@ -25,8 +25,6 @@ Application Insights is an extensible analytics service for web developers that 
 
 ## Get an Application Insights instrumentation key
 
-> [!IMPORTANT]
-> [Connection Strings](./sdk-connection-string.md?tabs=java) are recommended over instrumentation keys. New Azure regions **require** the use of connection strings instead of instrumentation keys. Connection string identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. In the Azure portal, create an Application Insights resource. Set the application type to Java web application.
 
