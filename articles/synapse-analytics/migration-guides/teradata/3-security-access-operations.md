@@ -29,7 +29,7 @@ For more information on the [Azure Synapse security](/azure/synapse-analytics/sq
 #### Teradata Authorization Options
 
 > [!TIP]
-> Authentication in both Netezza and Azure Synapse can be "in database" or through external methods.
+> Authentication in both Teradata and Azure Synapse can be "in database" or through external methods.
 
 Teradata supports several mechanisms for connection and authorization. Valid mechanism values are:
 

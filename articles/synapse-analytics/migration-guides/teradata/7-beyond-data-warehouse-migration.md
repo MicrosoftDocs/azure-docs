@@ -184,7 +184,7 @@ This differs from Excel and Power BI, as Data Factory wrangling data flows uses 
 
 In addition to cleaning and transforming data, Data Factory can combine data integration and analytics in the same pipeline. Use Data Factory to create both data integration and analytical pipelines&mdash;the latter being an extension of the former. Drop an analytical model into a pipeline so that clean, integrated data can be stored to provide predictions or recommendations. Act on this information immediately or store it in your data warehouse to provide you with new insights and recommendations that can be viewed in BI tools.
 
-Models developed code-free with Azure ML Studio or with the Azure Machine Learning Service SDK using Synapse Spark Pool Notebooks or using R in RStudio can be invoked as a service from within a Data Factory pipeline to batch score your data. Analysis happens at scale by executing Spark machine learning pipelines on Synapse Spark Pool Notebooks.
+Models developed code-free with Azure ML Studio, Azure Machine Learning Service SDK using Synapse Spark Pool Notebooks, or using R in RStudio, can be invoked as a service from within a Data Factory pipeline to batch score your data. Analysis happens at scale by executing Spark machine learning pipelines on Synapse Spark Pool Notebooks.
 
 Store integrated data and any results from analytics included in a Data Factory pipeline in one or more data stores, such as Azure Data Lake storage, Azure Synapse, or Azure HDInsight (Hive Tables). Invoke other activities to act on insights produced by a Data Factory analytical pipeline.
 

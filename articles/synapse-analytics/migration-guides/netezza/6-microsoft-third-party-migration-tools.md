@@ -78,7 +78,7 @@ Development of simple or comprehensive ETL and ELT processes without coding or m
 
 Use Data Factory to implement and manage a hybrid environment that includes on-premises, cloud, streaming and SaaS data&mdash;for example, from applications like Salesforce&mdash;in a secure and consistent way.
 
-A new capability in Data Factory is wrangling data flows. This opens up Data Factory to business users to make use of platform and allows them to visually discover, explore and prepare data at scale without writing code. This easy-to-use Data Factory capability is like Microsoft Excel Power Query or Microsoft Power BI Dataflows, where self-service data preparation business users use a spreadsheet style user interface, with drop-down transforms, to prepare and integrate data.
+A new capability in Data Factory is wrangling data flows. This opens up Data Factory to business users to make use of platform and allows them to visually discover, explore, and prepare data at scale without writing code. This easy-to-use Data Factory capability is like Microsoft Excel Power Query or Microsoft Power BI Dataflows, where self-service data preparation business users use a spreadsheet style user interface, with drop-down transforms, to prepare and integrate data.
 
 Azure Data Factory is the recommended approach for implementing data integration and ETL/ELT processes for an Azure Synapse environment, especially if existing legacy processes need to be refactored.
 
@@ -89,7 +89,7 @@ Azure Data Factory is the recommended approach for implementing data integration
 
 #### Azure ExpressRoute
 
-Azure ExpressRoute creates private connections between Azure data centers and infrastructure on your premises or in a colocation environment. ExpressRoute connections don't go over the public Internet, and they offer more reliability, faster speeds, and lower latencies than typical Internet connections. In some cases, using ExpressRoute connections to transfer data between on-premises systems and Azure can give you significant cost benefits.
+Azure ExpressRoute creates private connections between Azure data centers and infrastructure on your premises or in a collocation environment. ExpressRoute connections don't go over the public Internet, and they offer more reliability, faster speeds, and lower latencies than typical Internet connections. In some cases, using ExpressRoute connections to transfer data between on-premises systems and Azure can give you significant cost benefits.
 
 #### AzCopy
 

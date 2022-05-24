@@ -147,7 +147,7 @@ If some or all the existing Teradata warehouse ETL/ELT processing is handled by 
 
 Some elements of the ETL process are easy to migrate&mdash;for example, by simple bulk data load into a staging table from an external file. It may even be possible to automate those parts of the process, for example, by using PolyBase instead of fast load or MLOAD. If the exported files are Parquet, you can use a native Parquet reader, which is a faster option than PolyBase. Other parts of the process that contain arbitrary complex SQL and/or stored procedures will take more time to reengineer.
 
-One way of testing Teradata SQL for compatibility with Azure Synapse is to capture some representative SQL statements from Teradata logs, then prefix those queries with 'EXPLAIN', and then&mdash;assuming a like-for-like migrated data model in Azure Synapse&mdash;run those `EXPLAIN` statements in Azure Synapse. Any incompatible SQL will generate an error, and the error information can determine the scale of the recoding task.
+One way of testing Teradata SQL for compatibility with Azure Synapse is to capture some representative SQL statements from Teradata logs, then prefix those queries with `EXPLAIN`, and then&mdash;assuming a like-for-like migrated data model in Azure Synapse&mdash;run those `EXPLAIN` statements in Azure Synapse. Any incompatible SQL will generate an error, and the error information can determine the scale of the recoding task.
 
 [Microsoft partners](/azure/sql-data-warehouse/sql-data-warehouse-partner-data-integration) offer tools and services to migrate Teradata SQL and stored procedures to Azure Synapse.
 

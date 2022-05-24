@@ -178,7 +178,7 @@ See the following sections for more information on each of these elements.
 
 #### Functions
 
-As with most database products, Teradata supports system functions and user-defined functions within the SQL implementation. When migrating to another database platform such as Azure Synapse, common system functions are available and can be migrated without change. Some system functions may have slightly different syntax, but the required changes can be automated. System functions where there's no equivalent, such arbitrary user-defined functions, may need to be recoded using the languages available in the target environment. Azure Synapse uses the popular Transact-SQL language to implement user-defined functions. Netezza user-defined functions are coded in nzlua or C++ languages.
+As with most database products, Netezza supports system functions and user-defined functions within the SQL implementation. When migrating to another database platform such as Azure Synapse, common system functions are available and can be migrated without change. Some system functions may have slightly different syntax, but the required changes can be automated. System functions where there's no equivalent, such arbitrary user-defined functions, may need to be recoded using the languages available in the target environment. Azure Synapse uses the popular Transact-SQL language to implement user-defined functions. Netezza user-defined functions are coded in nzlua or C++ languages.
 
 #### Stored procedures
 

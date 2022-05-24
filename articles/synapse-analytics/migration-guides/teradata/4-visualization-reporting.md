@@ -76,7 +76,7 @@ In addition, all the required data needs to be migrated to ensure the same resul
 
 If BI tools are querying views in the underlying data warehouse or data mart database, then will these views still work? You might think yes, but if there are proprietary SQL extensions, specific to your legacy data warehouse DBMS in these views that have no equivalent in Azure Synapse, you'll need to know about them and find a way to resolve them.
 
-Other issues like the behavior of nulls or data type variations across DBMS platforms need to be tested, in case they cause slightly different calculation results. Obviously, you want to minimize these issues and take all necessary steps to shield business users from any kind of impact. Depending on your legacy data warehouse system (such as Netezza), there are [tools](/azure/synapse-analytics/partner/data-integration) that can help hide these differences so that BI tools and applications are kept unaware of them and can run unchanged.
+Other issues like the behavior of nulls or data type variations across DBMS platforms need to be tested, in case they cause slightly different calculation results. Obviously, you want to minimize these issues and take all necessary steps to shield business users from any kind of impact. Depending on your legacy data warehouse system (such as Teradata), there are [tools](/azure/synapse-analytics/partner/data-integration) that can help hide these differences so that BI tools and applications are kept unaware of them and can run unchanged.
 
 > [!TIP]
 > Use repeatable tests to ensure reports, dashboards, and other visualizations migrate successfully,.
@@ -179,7 +179,7 @@ In many cases, where there are incompatibilities, there may be ways around them.
 > [!TIP]
 > Querying the system catalog of your legacy warehouse DBMS is a quick and straightforward way to identify schema incompatibilities with Azure Synapse.
 
-To identify reports and visualizations impacted by schema incompatibilities, run queries against the system catalog of your legacy data warehouse to identify tables with unsupported data types. Then use metadata from your BI tool or tools to identify reports that access these structures, to see what could be impacted. Obviously, this will depend on the legacy data warehouse DBMS you're migrating from. Find details of how to identify these incompatibilities in [Design and performance for Netezza migrations](1-design-performance-migration.md).
+To identify reports and visualizations impacted by schema incompatibilities, run queries against the system catalog of your legacy data warehouse to identify tables with unsupported data types. Then use metadata from your BI tool or tools to identify reports that access these structures, to see what could be impacted. Obviously, this will depend on the legacy data warehouse DBMS you're migrating from. Find details of how to identify these incompatibilities in [Design and performance for Teradata migrations](1-design-performance-migration.md).
 
 The impact may be less than you think, because many BI tools don't support such data types. As a result, views may already exist in your legacy data warehouse that `CAST` unsupported data types to more generic types.
 
@@ -229,7 +229,7 @@ A key element in data warehouse migration is the testing of reports and dashboar
 
 - Test analytical functionality.
 
-For information about how to migrate users, user groups, roles, and privileges, see the [Security, access, and operations for Netezza migrations](3-security-access-operations.md) which is part of this series of articles.
+For information about how to migrate users, user groups, roles, and privileges, see the [Security, access, and operations for Teradata migrations](3-security-access-operations.md) which is part of this series of articles.
 
 > [!TIP]
 > Build an automated test suite to make tests repeatable.

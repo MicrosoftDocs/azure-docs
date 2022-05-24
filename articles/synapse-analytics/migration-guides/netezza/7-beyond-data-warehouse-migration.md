@@ -57,7 +57,7 @@ Let's look at these in more detail to understand how you can take advantage of t
 
 Enterprises today have a key problem resulting from digital transformation. So much new data is being generated and captured for analysis, and much of this data is finding its way into data warehouses. A good example is transaction data created by opening online transaction processing (OLTP) systems to self-service access from mobile devices. These OLTP systems are the main sources of data to a data warehouse, and with customers now driving the transaction rate rather than employees, data in data warehouse staging tables has been growing rapidly in volume.
 
-This, along with other new data&mdash;like Internet of Things (IoT) data, coming into the enterprise, means that companies need to find a way to deal with unprecedented data growth and scale data integration ETL processing beyond current levels. One way to do this is to offload ingestion, data cleansing, transformation and integration to a data lake and process it at scale there, as part of a data warehouse modernization program.
+The rapid influx of data into the enterprise, along with new sources of data like Internet of Things (IoT), means that companies need to find a way to deal with unprecedented data growth and scale data integration ETL processing beyond current levels. One way to do this is to offload ingestion, data cleansing, transformation and integration to a data lake and process it at scale there, as part of a data warehouse modernization program.
 
 > [!TIP]
 > Offload ELT processing to Azure Data Lake and still run at scale as your data volumes grow.
@@ -69,7 +69,7 @@ Once you've migrated your data warehouse to Azure Synapse, Microsoft provides th
 > [!TIP]
 > Data Factory allows you to build scalable data integration pipelines code free.
 
-[Microsoft Azure Data Factory](https://azure.microsoft.com/services/data-factory/)] is a pay-as-you-use, hybrid data integration service for highly scalable ETL and ELT processing. Data Factory provides a simple web-based user interface to build data integration pipelines, in a code-free manner that can:
+[Microsoft Azure Data Factory](https://azure.microsoft.com/services/data-factory/) is a pay-as-you-use, hybrid data integration service for highly scalable ETL and ELT processing. Data Factory provides a simple web-based user interface to build data integration pipelines, in a code-free manner that can:
 
 - Data Factory allows you to build scalable data integration pipelines code free. Easily acquire data at scale. Pay only for what you use and connect to on premises, cloud, and SaaS based data sources.
 
@@ -77,7 +77,7 @@ Once you've migrated your data warehouse to Azure Synapse, Microsoft provides th
 
 - Seamlessly author, monitor and manage pipelines that span data stores both on-premises and in the cloud.
 
-- Enable pay as you go scale out in alignment with customer growth.
+- Enable pay-as-you-go scale out in alignment with customer growth.
 
 > [!TIP]
 > Data Factory can connect to on-premises, cloud, and SaaS data.
@@ -110,9 +110,6 @@ Once you develop Data Factory pipelines to integrate and analyze data, deploy th
 > [!TIP]
 > Build data warehouses on Microsoft Azure.
 
-> [!TIP]
-> Build training data sets in data science to develop machine learning models.
-
 Data Factory can support multiple use cases, including:
 
 - Preparing, integrating, and enriching data from cloud and on-premises data sources to populate your migrated data warehouse and data marts on Microsoft Azure Synapse.
@@ -123,9 +120,12 @@ Data Factory can support multiple use cases, including:
 
 - Preparing, integrating, and enriching data for data-driven business applications running on the Azure cloud on top of operational data stores like Azure Cosmos DB.
 
+> [!TIP]
+> Build training data sets in data science to develop machine learning models.
+
 #### Data sources
 
-Data Factory lets you connect with [connectors](/azure/data-factory/connector-overview) from both cloud and on-premises data sources. Agent software, known as a Self-Hosted Integration Runtime, securely accesses on-premises data sources and supports secure, scalable data transfer.
+Data Factory lets you use [connectors](/azure/data-factory/connector-overview) from both cloud and on-premises data sources. Agent software, known as a *self-hosted integration runtime*, securely accesses on-premises data sources and supports secure, scalable data transfer.
 
 #### Transforming data using Data Factory
 
