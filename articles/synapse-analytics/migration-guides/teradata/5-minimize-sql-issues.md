@@ -102,7 +102,7 @@ The Azure environment also includes specific features for complex analytics on t
 > [!TIP]
 > Assess the impact of unsupported data types as part of the preparation phase.
 
-Most Teradata data types have a direct equivalent in Azure Synapse. This table shows these data types together with the recommended approach for handling them. In the table, Teradata column type is the type that's stored within the system catalog&mdash;for example, in DBC.ColumnsV.
+Most Teradata data types have a direct equivalent in Azure Synapse. This table shows these data types together with the recommended approach for handling them. In the table, Teradata column type is the type that's stored within the system catalog&mdash;for example, in `DBC.ColumnsV`.
 
 | Teradata column type | Teradata data type | Azure Synapse data type |
 |----------------------|--------------------|----------------|
@@ -151,7 +151,7 @@ Most Teradata data types have a direct equivalent in Azure Synapse. This table s
 
 Use the metadata from the Teradata catalog tables to determine whether any of these data types are to be migrated and allow for this in the migration plan. For example, use a SQL query like this one to find any occurrences of unsupported data types that need attention.
 
-```
+```sql
 SELECT
 ColumnType, CASE
 WHEN ColumnType = '++' THEN 'TD_ANYTYPE' 
@@ -203,7 +203,7 @@ Edit existing Teradata `CREATE TABLE` and `CREATE VIEW` scripts to create the eq
 
 However, all the information that specifies the current definitions of tables and views within the existing Teradata environment is maintained within system catalog tables. This is the best source of this information as it's guaranteed to be up to date and complete. Be aware that user-maintained documentation may not be in sync with the current table definitions.
 
-Access this information via views onto the catalog such as DBC.ColumnsV and generate the equivalent `CREATE TABLE DDL` statements for the equivalent tables in Azure Synapse.
+Access this information via views onto the catalog such as `DBC.ColumnsV` and generate the equivalent `CREATE TABLE DDL` statements for the equivalent tables in Azure Synapse.
 
 > [!TIP]
 > Third-party tools and services can automate data mapping tasks.
@@ -227,20 +227,20 @@ Be aware of these differences in SQL Data Manipulation Language (DML) syntax bet
 
 - `QUALIFY`&mdash;Teradata supports the `QUALIFY` operator. For example:
 
-  ```
+  ```sql
   SELECT col1
   FROM tab1
-  WHERE col1=\'XYZ\'
+  WHERE col1='XYZ'
   QUALIFY ROW_NUMBER () OVER (PARTITION by
   col1 ORDER BY col1) = 1;
   ```
 
   The equivalent Azure Synapse syntax is:
 
-  ```
-  SELECT \* FROM (
+  ```sql
+  SELECT * FROM (
   SELECT col1, ROW_NUMBER () OVER (PARTITION by col1 ORDER BY col1) rn
-  FROM tab1 WHERE col1=\'XYZ\'
+  FROM tab1 WHERE col1='XYZ'
   ) WHERE rn = 1;
   ```
 
@@ -250,16 +250,16 @@ Be aware of these differences in SQL Data Manipulation Language (DML) syntax bet
 
 - `LIKE ANY`&mdash;Teradata supports `LIKE ANY` syntax such as:
 
-  ```
-  SELECT \* FROM CUSTOMER
+  ```sql
+  SELECT * FROM CUSTOMER
   WHERE POSTCODE LIKE ANY
-  ('CV1%', 'CV2%', CV3%');
+  ('CV1%', 'CV2%', 'CV3%');
   ```
 
   The equivalent in Azure Synapse syntax is:
 
-  ```
-  SELECT \* FROM CUSTOMER
+  ```sql
+  SELECT * FROM CUSTOMER
   WHERE
   (POSTCODE LIKE 'CV1%') OR (POSTCODE LIKE 'CV2%') OR (POSTCODE LIKE 'CV3%');
   ```

@@ -130,7 +130,7 @@ Edit existing Netezza `CREATE TABLE` and `CREATE VIEW` scripts to create the equ
 
 However, all the information that specifies the current definitions of tables and views within the existing Netezza environment is maintained within system catalog tables. This is the best source of this information as it's guaranteed to be up to date and complete. Be aware that user-maintained documentation may not be in sync with the current table definitions.
 
-Access this information by using utilities such as nz_ddl_table and generate the `CREATE TABLE DDL` statements. Edit these statements for the equivalent tables in Azure Synapse.
+Access this information by using utilities such as `nz_ddl_table` and generate the `CREATE TABLE DDL` statements. Edit these statements for the equivalent tables in Azure Synapse.
 
 > [!TIP]
 > Third-party tools and services can automate data mapping tasks.

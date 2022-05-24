@@ -186,39 +186,39 @@ There are a few differences in SQL Data Manipulation Language (DML) syntax betwe
 
 - `QUALIFY`&mdash;Teradata supports the `QUALIFY` operator. For example:
 
-  ```
+  ```sql
   SELECT col1
   FROM tab1
-  WHERE col1=\'XYZ\'
+  WHERE col1='XYZ'
   QUALIFY ROW_NUMBER () OVER (PARTITION by
   col1 ORDER BY col1) = 1;
   ```
 
   The equivalent Azure Synapse syntax is:
 
-  ```
-  SELECT \* FROM (
+  ```sql
+  SELECT * FROM (
   SELECT col1, ROW_NUMBER () OVER (PARTITION by col1 ORDER BY col1) rn
-  FROM tab1 WHERE col1=\'XYZ\'
+  FROM tab1 WHERE col1='XYZ'
   ) WHERE rn = 1;
   ```
 
-- Date Arithmetic&mdash;Azure Synapse has operators such as `DATEADD` and `DATEDIFF` which can be used on `DATE` or `DATETIME` fields. Teradata supports direct subtraction on dates such as 'SELECT DATE1&mdash;DATE2 FROM...'
+- Date Arithmetic&mdash;Azure Synapse has operators such as `DATEADD` and `DATEDIFF` which can be used on `DATE` or `DATETIME` fields. Teradata supports direct subtraction on dates such as 'SELECT DATE1-DATE2 FROM...'
 
 - In Group by ordinal, explicitly provide the T-SQL column name.
 
-- LIKE ANY&mdash;Teradata supports LIKE ANY syntax such as:
+- Teradata supports LIKE ANY syntax such as:
 
-  ```
-  SELECT \* FROM CUSTOMER
+  ```sql
+  SELECT * FROM CUSTOMER
   WHERE POSTCODE LIKE ANY
-  ('CV1%', 'CV2%', CV3%');
+  ('CV1%', 'CV2%', 'CV3%');
   ```
 
   The equivalent in Azure Synapse syntax is:
 
-  ```
-  SELECT \* FROM CUSTOMER
+  ```sql
+  SELECT * FROM CUSTOMER
   WHERE
   (POSTCODE LIKE 'CV1%') OR (POSTCODE LIKE 'CV2%') OR (POSTCODE LIKE 'CV3%');
   ```
@@ -271,7 +271,7 @@ You can edit existing Teradata CREATE TABLE and CREATE VIEW scripts to create th
 
 However, all the information that specifies the current definitions of tables and views within the existing Teradata environment is maintained within system catalog tables. These tables are the best source of this information, as it's guaranteed to be up to date and complete. User-maintained documentation may not be in sync with the current table definitions.
 
-Access the information in these tables via views into the catalog such as DBC.ColumnsV, and generate the equivalent CREATE TABLE DDL statements for the equivalent tables in Azure Synapse.
+Access the information in these tables via views into the catalog such as `DBC.ColumnsV`, and generate the equivalent CREATE TABLE DDL statements for the equivalent tables in Azure Synapse.
 
 Third-party migration and ETL tools also use the catalog information to achieve the same result.
 

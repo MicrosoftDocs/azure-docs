@@ -41,10 +41,11 @@ If enabled, Teradata system catalog tables and logs contain information that can
 
 Here's an example query on dbc.tables that provides the date of last access and last modification:
 
-```
-Select TableName, CreatorName, CreateTimeStamp, LastAlterName,
-LastAlterTimeStamp, AccessCount, LastAccessTimeStamp from DBC.Tables t
-Where DataBaseName = 'databasename'
+```sql
+SELECT TableName, CreatorName, CreateTimeStamp, LastAlterName,
+LastAlterTimeStamp, AccessCount, LastAccessTimeStamp 
+FROM DBC.Tables t
+WHERE DataBaseName = 'databasename'
 ```
 
 If logging is enabled and the log history is accessible, other information, such as SQL query text, is available in table DBQLogTbl and associated logging tables. For more information, see [Teradata log history](https://docs.teradata.com/reader/wada1XMYPkZVTqPKz2CNaw/PuQUxpyeCx4jvP8XCiEeGA).

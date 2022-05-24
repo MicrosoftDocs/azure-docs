@@ -31,7 +31,7 @@ For more information on the [Azure Synapse security](/azure/synapse-analytics/sq
 
 #### Netezza authorization options
 
-The IBM® Netezza® system offers several authentication methods for Netezza database users:
+The IBM&reg; Netezza&reg; system offers several authentication methods for Netezza database users:
 
 - **Local authentication**: Netezza administrators define database users and their passwords by using the `CREATE USER` command or through Netezza administrative interfaces. In local authentication, use the Netezza system to manage database accounts and passwords, and to add and remove database users from the system. This method is the default authentication method.
 
@@ -74,13 +74,13 @@ See the following sections for more details.
 > [!TIP]
 > Migration of a data warehouse requires more than just tables, views, and SQL statements.
 
-The information about current users and groups in a Netezza system is held in system catalog views `_v_users` and `_v_groupusers`. Use the nzsql utility or tools such as the Netezza® Performance, NzAdmin, or the Netezza Utility scripts to list user privileges. For example, use the dpu and dpgu commands in nzsql to display users or groups with their permissions.
+The information about current users and groups in a Netezza system is held in system catalog views `_v_users` and `_v_groupusers`. Use the nzsql utility or tools such as the Netezza&reg; Performance, NzAdmin, or the Netezza Utility scripts to list user privileges. For example, use the `dpu` and `dpgu` commands in nzsql to display users or groups with their permissions.
 
 Use or edit the utility scripts `nz_get_users` and `nz_get_user_groups` to retrieve the same information in the required format.
 
-Query system catalog views directly (if the user has `SELECT` access to those views) to obtain current lists of users and roles defined within the system. See examples:
+Query system catalog views directly (if the user has `SELECT` access to those views) to obtain current lists of users and roles defined within the system. See examples to list users, groups, or users and their associated groups:
 
-```
+```sql
 -- List of users
 SELECT USERNAME FROM _V_USER;
 
@@ -106,7 +106,7 @@ In Netezza, the individual permissions are represented as individual bits within
 
 The simplest way to obtain a DDL script that contains the `GRANT` commands to replicate the current privileges for users and groups is to use the appropriate Netezza utility scripts:
 
-```
+```sql
 --List of group privileges
 nz_ddl_grant_group -usrobj dbname > output_file_dbname;
 
@@ -120,7 +120,7 @@ Netezza supports two classes of access rights,&mdash;Admin and Object. See the f
 
 | Admin Privilege            | Description | Azure Synapse Equivalent |
 |----------------------------|-------------|-----------------|
-| Backup                     | Allows user to create backups. The user can run backups. The user can run the command nzbackup. | \* |
+| Backup                     | Allows user to create backups. The user can run backups. The user can run the command `nzbackup`. | \* |
 | [Create] Aggregate         | Allows the user to create user-defined aggregates (UDAs). Permission to operate on existing UDAs is controlled by object privileges. | CREATE FUNCTION \*\*\* |
 | [Create] Database          | Allows the user to create databases. Permission to operate on existing databases is controlled by object privileges. | CREATE DATABASE |
 | [Create] External Table    | Allows the user to create external tables. Permission to operate on existing tables is controlled by object privileges. | CREATE TABLE |
@@ -185,7 +185,7 @@ Netezza administration tasks typically fall into two categories:
 
 - Database administration, which is managing user databases and their content, loading data, backing up data, restoring data, and controlling access to data and permissions.
 
-IBM® Netezza® offers several ways or interfaces that you can use to perform the various system and database management tasks:
+IBM&reg; Netezza&reg; offers several ways or interfaces that you can use to perform the various system and database management tasks:
 
 - Netezza commands (nz* commands) are installed in the /nz/kit/bin directory on the Netezza host. For many of the nz* commands, you must be able to sign into the Netezza system to access and run those commands. In most cases, users sign in as the default nz user account, but you can create other Linux user accounts on your system. Some commands require you to specify a database user account, password, and database to ensure that you've permission to do the task.
 
@@ -251,7 +251,7 @@ For more information, see [Azure Synapse operations and management options](/azu
 
 Netezza appliances are redundant, fault-tolerant systems and there are diverse options in a Netezza system to enable high availability and disaster recovery.
 
-Adding IBM® Netezza Replication Services for disaster recovery improves fault tolerance by extending redundancy across local and wide area networks.
+Adding IBM&reg; Netezza Replication Services for disaster recovery improves fault tolerance by extending redundancy across local and wide area networks.
 
 IBM Netezza Replication Services protects against data loss by synchronizing data on a primary system (the primary node) with data on one or more target nodes (subordinates). These nodes make up a replication set.
 
