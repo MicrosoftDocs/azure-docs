@@ -54,7 +54,7 @@ The following table describes what's included in each plan at a high level.
 | Adaptive application controls | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | File integrity monitoring | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | Just-in time VM access | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
-| Adaptive Network Hardening | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
+| Adaptive network hardening | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 <!-- | Future – TVM P2 | | :::image type="icon" source="./media/icons/yes-icon.png"::: |
 | Future – disk scanning insights | | :::image type="icon" source="./media/icons/yes-icon.png"::: | -->
 
