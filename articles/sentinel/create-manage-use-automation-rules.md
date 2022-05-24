@@ -15,17 +15,23 @@ This article explains how to create and use automation rules in Microsoft Sentin
 
 In this article you'll learn how to define the triggers and conditions that will determine when your automation rule will run, the various actions that you can have the rule perform, and the remaining features and functionalities.
 
-## Determine the scope
+## Design your automation rule
+
+### Determine the scope
 
 The first step in designing and defining your automation rule is figuring out which incidents you want it to apply to. This determination will directly impact how you create the rule.
 
 You also want to determine your use case. What are you trying to accomplish with this automation? Consider the following options:
 
-- Triage new incidents
+- Triage new incidents  
     Change the incident's status from New to Active, assign the incident to the proper personnel, apply tags to classify it, and analyze it to see if any automation playbooks can be applied.
 - Tag incidents to classify them.
 - Change the status of incidents and close them.
 - Do almost anything else by calling a playbook.
+
+### Determine the trigger
+
+
 
 ## Begin creating an automation rule
 
@@ -57,7 +63,7 @@ Depending on your choice of scope and use case, choose a location from which to 
         - **Actions:** Change status to **Closed**, with the reason **Benign Positive - suspicious but expected**.
         - **Rule expiration:** 24 hours from when the rule creation wizard was opened.
 
-    Any of these values can be changed, and conditions and actions added or removed, as you wish.
+    You can change any of these values, and add or remove conditions and actions, as you wish.
 
 # [Analytics](#tab/analytics)
 
@@ -75,19 +81,23 @@ Depending on your choice of scope and use case, choose a location from which to 
     - **Trigger:** When incident is created
     - **Order:** a number higher than any automation rule already defined in this analytics rule. This ensures that the current automation rule will be the last to run.
 
-    All the other fields in the panel are open and unpopulated, and conditions and actions can be added as you wish.
+    All the other fields in the panel are open and unpopulated, and you can add conditions and actions as you wish.
 
 # [Automation](#tab/automation)
 
 1. From the **Automation** blade in the Microsoft Sentinel navigation menu, select **Create** from the top menu and choose **Automation rule**.
 
-   :::image type="content" source="./media/tutorial-respond-threats-playbook/add-new-rule.png" alt-text="Add a new rule":::
+   :::image type="content" source="./media/create-manage-use-automation-rules/add-rule-automation.png" alt-text="Screenshot of creating a new automation rule in the Automation blade." lightbox="./media/create-manage-use-automation-rules/add-rule-automation.png":::
 
 1. The **Create new automation rule** panel opens. Enter a name for your rule.
 
-   :::image type="content" source="./media/tutorial-respond-threats-playbook/create-automation-rule.png" alt-text="Create an automation rule":::
+   :::image type="content" source="./media/create-manage-use-automation-rules/create-automation-rule.png" alt-text="Screenshot of Create new automation rule wizard.":::
 
 1. If you want the automation rule to take effect only on certain analytics rules, specify which ones by modifying the **If Analytics rule name** condition.
+
+---
+
+### Continue here
 
 1. Add any other conditions you want this automation rule's activation to depend on. Click **Add condition** and choose conditions from the drop-down list. The list of conditions is populated by alert detail and entity identifier fields.
 
@@ -134,14 +144,6 @@ Depending on your choice of scope and use case, choose a location from which to 
 1. Enter a number under **Order** to determine where in the sequence of automation rules this rule will run.
 
 1. Click **Apply**. You're done!
-
-    Automation rules can be centrally managed in the new **Automation** blade (which replaces the **Playbooks** blade), under the **Automation rules** tab. (You can also now manage playbooks in this blade, under the **Playbooks** tab.) From there, you can create new automation rules and edit the existing ones. You can also drag automation rules to change the order of execution, and enable or disable them.
-
-    In the **Automation** blade, you see all the rules that are defined on the workspace, along with their status (Enabled/Disabled) and which analytics rules they are applied to.
-
-    When you need an automation rule that will apply to many analytics rules, create it directly in the **Automation** blade. From the top menu, click **Create** and **Add new rule**, which opens the **Create new automation rule** panel. From here you have complete flexibility in configuring the rule: you can apply it to any analytics rules (including future ones) and define the widest range of conditions and actions.
-
----
 
 ## Components
 

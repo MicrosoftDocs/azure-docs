@@ -16,17 +16,34 @@ This article explains what Microsoft Sentinel automation rules are, and how to u
 
 ## What are automation rules?
 
-Automation rules are a way to centrally manage the automation of incident handling, allowing you to perform simple automation tasks without using playbooks. For example, automation rules allow you to automatically assign incidents to the proper personnel, tag incidents to classify them, and change the status of incidents and close them. Automation rules can also automate responses for multiple analytics rules at once, control the order of actions that are executed, and run playbooks for those cases where more complex automation tasks are necessary. In short, automation rules streamline the use of automation in Microsoft Sentinel, enabling you to simplify complex workflows for your incident orchestration processes.
+Automation rules are a way to centrally manage the automation of incident handling, allowing you to perform simple automation tasks without using playbooks.
+
+For example, automation rules allow you to automatically:
+- assign incidents to the proper personnel
+- tag incidents to classify them
+- change the status of incidents and close them. 
+
+Automation rules can also:
+- automate responses for multiple analytics rules at once
+- control the order of actions that are executed
+- run playbooks for those cases where more complex automation tasks are necessary. 
+
+In short, automation rules streamline the use of automation in Microsoft Sentinel, enabling you to simplify complex workflows for your incident orchestration processes.
 
 ## Components
 
 Automation rules are made up of several components:
 
-### Trigger
+### Triggers
 
-Automation rules are triggered by the creation of an incident. They can also be triggered when an incident is updated (now in **Preview**).
+Automation rules are triggered **when an incident is created or updated** (the update trigger is now in **Preview**). To review – incidents are created from alerts by analytics rules, of which there are several types, as explained in [Detect threats with built-in analytics rules in Microsoft Sentinel](detect-threats-built-in.md).
 
-To review – incidents are created from alerts by analytics rules, of which there are several types, as explained in the tutorial [Detect threats with built-in analytics rules in Microsoft Sentinel](detect-threats-built-in.md).
+The following table shows the different possible ways that incidents can be created or updated that will cause an automation rule to run.
+
+| Trigger type | Events that cause the rule to run |
+| --------- | ------------ |
+| **An incident was created** | - A new incident is created by an analytics rule.<br>- An incident is ingested from Microsoft 365 Defender.<br>- A new incident is created manually. |
+| **An incident was updated** | - An incident's status is changed (closed/reopened/triaged).<br>- An incident's owner is assigned or changed.<br>- An incident's severity is raised or lowered.<br>- Alerts are added to an incident.<br>- Comments, tags, or tactics are added to an incident. |
 
 ### Conditions
 

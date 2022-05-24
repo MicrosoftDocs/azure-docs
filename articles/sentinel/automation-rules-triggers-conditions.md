@@ -32,25 +32,25 @@ When an incident is created or updated, any automation rules that apply will run
 
 #### Current state evaluation
 
-The following conditions evaluate to `true` if the parameter being evaluated has the specified value.
+The following conditions evaluate to `true` if the property being evaluated has the specified value.
 
-This is the case regardless of whether the incident *was created* with the parameter having the value, or if the parameter *was assigned* the value by another automation rule that ran when the incident was created. 
+This is the case regardless of whether the incident *was created* with the property having the value, or if the property *was assigned* the value by another automation rule that ran when the incident was created. 
 
-- Condition: `{parameter}` "Equals"/"Does not equal" `{value}`
-- Condition: `{parameter}` "Contains"/"Does not contain" `{value}`
-- Condition: `{parameter}` "Starts with"/"Does not start with" `{value}`
-- Condition: `{parameter}` "Ends with"/"Does not end with" `{value}`
+- Condition: `{property}` "Equals"/"Does not equal" `{value}`
+- Condition: `{property}` "Contains"/"Does not contain" `{value}`
+- Condition: `{property}` "Starts with"/"Does not start with" `{value}`
+- Condition: `{property}` "Ends with"/"Does not end with" `{value}`
 
 ### Trigger: When an incident is updated
 
 #### Current state evaluation
 
-The following conditions evaluate to `true` if an incident parameter `{parameter}` has the value `{value}` while the incident is being updated, even if these conditions were not changed by the update:
+The following conditions evaluate to `true` if an incident property `{property}` has the value `{value}` while the incident is being updated, even if these conditions were not changed by the update:
 
-- Condition: `{parameter}` "Equals"/"Does not equal" {value}
-- Condition: `{parameter}` "Contains"/"Does not contain" {value}
-- Condition: `{parameter}` "Starts with"/"Does not start with" {value}
-- Condition: `{parameter}` "Ends with"/"Does not end with" {value}
+- Condition: `{property}` "Equals"/"Does not equal" {value}
+- Condition: `{property}` "Contains"/"Does not contain" {value}
+- Condition: `{property}` "Starts with"/"Does not start with" {value}
+- Condition: `{property}` "Ends with"/"Does not end with" {value}
 
 #### State change evaluation
 
@@ -58,9 +58,9 @@ The following conditions evaluate to `true` according to the criteria shown belo
 
 | Condition | Evaluates to `true` if... |
 | - | - |
-| `{parameter}` "Changed" | The parameter value changed during the update event. |
-| `{parameter}` "Changed from" `{value}` | The parameter had the value `{value}` **before** the update, and is different after. |
-| `{parameter}` "Changed to" `{value}` | The parameter has the value `{value}` **after** the update, and was different before. |
+| `{property}` "Changed" | The property value changed during the update event. |
+| `{property}` "Changed from" `{value}` | The property had the value `{value}` **before** the update, and is different after. |
+| `{property}` "Changed to" `{value}` | The property has the value `{value}` **after** the update, and was different before. |
 | `{list item}` (Alert/Comment/Tag/Tactic) "Added" | New items of type `{list item}` were added to the list. |
 
 
