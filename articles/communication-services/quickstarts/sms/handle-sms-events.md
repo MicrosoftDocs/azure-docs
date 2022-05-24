@@ -16,7 +16,7 @@ ms.custom:
 ---
 # Quickstart: Handle SMS and delivery report events
 
-Get started with Azure Communication Services by using Azure Event Grid to handle Communication Services SMS events. After subscribing to SMS events such as inbound messages and delivery reports, you generate and receive these events. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account."
+Get started with Azure Communication Services by using Azure Event Grid to handle Communication Services SMS events. After subscribing to SMS events such as inbound messages and delivery reports, you generate and receive these events. Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
@@ -30,7 +30,7 @@ Get started with Azure Communication Services by using Azure Event Grid to handl
 
 [Event Grid](../../../event-grid/overview.md) is a cloud-based eventing service. In this article, you'll learn how to subscribe to [communication service events](../../../event-grid/event-schema-communication-services.md), and trigger an event to view the result. Typically, you send events to an endpoint that processes the event data and takes actions. In this article, we'll send the events to a web app that collects and displays the messages.
 
-## Set up
+## Set up the environment
 
 To set up the environment that we'll use to generate and receive events, take the steps in the following sections.
 
@@ -45,7 +45,7 @@ If you haven't previously used Event Grid in your Azure subscription, you might 
 1. Find **Microsoft.EventGrid**.
 1. If your resource provider isn't registered, select **Register**.
 
-It might take a moment for the registration to finish. Select **Refresh** to update the status. When **Status** is **Registered**, you're ready to continue.
+It might take a moment for the registration to finish. Select **Refresh** to update the status. When **Registered** appears under **Status**, you're ready to continue.
 
 ### Deploy the Event Grid viewer
 
@@ -55,19 +55,19 @@ To set up the viewer, follow the steps in [Azure Event Grid Viewer](/samples/azu
 
 ## Subscribe to SMS events by using web hooks
 
-You can subscribe to specific events to tell Event Grid which of the SMS events you want to track, and where to send the events.
+You can subscribe to specific events to provide Event Grid with information about where to send the events that you want to track.
 
-1. In the portal, navigate to the Communication Services resource that you created.
+1. In the portal, go to the Communication Services resource that you created.
 
 1. Inside the Communication Services resource, on the left menu of the **Communication Services** page, select **Events**.
 
-   :::image type="content" source="./media/handle-sms-events/select-events.png" alt-text="Screenshot that shows the Events page of an Azure Communication Services resource. The Event Subscription button is called out.":::
-
 1. Select **Add Event Subscription**.
+
+   :::image type="content" source="./media/handle-sms-events/select-events.png" alt-text="Screenshot that shows the Events page of an Azure Communication Services resource. The Event Subscription button is called out.":::
 
 1. On the **Create Event Subscription** page, enter a **name** for the event subscription.
 
-1.  Under **Event Types**, select the events that you'd like to subscribe to. For SMS, you have the option to choose `SMS Received` and `SMS Delivery Report Received`.
+1.  Under **Event Types**, select the events that you'd like to subscribe to. For SMS, you can choose `SMS Received` and `SMS Delivery Report Received`.
 
 1. If you're prompted to provide a **System Topic Name**, feel free to provide a unique string. This field has no impact on your experience and is used for internal telemetry purposes.
 
@@ -100,11 +100,11 @@ Check out the full list of [events that Communication Services supports](../../.
 
 ### Receive SMS events
 
-After you generate an event, you'll notice that `SMS Received` and `SMS Delivery Report Received` events are sent to your endpoint. These events show up in the [Event Grid viewer](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) that we set up at the beginning of this tutorial. You can select the eye icon next to the event to see the entire payload. Events should look similar to the following data:
+After you generate an event, you'll notice that `SMS Received` and `SMS Delivery Report Received` events are sent to your endpoint. These events show up in the [Event Grid viewer](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) that we set up at the beginning of this tutorial. Select the eye icon next to the event to see the entire payload. Events should look similar to the following data:
 
-:::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="Screenshot showing the Event Grid Schema for an SMS Received Event.":::
+:::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="Screenshot of the Azure Event Grid viewer that shows the Event Grid schema for an SMS received event.":::
 
-:::image type="content" source="./media/handle-sms-events/sms-delivery-report-received.png" alt-text="Screenshot showing the Event Grid Schema for an SMS Delivery Report Event.":::
+:::image type="content" source="./media/handle-sms-events/sms-delivery-report-received.png" alt-text="Screenshot of the Azure Event Grid viewer that shows the Event Grid schema for an SMS delivery report event.":::
 
 Learn more about the [event schemas and other eventing concepts](../../../event-grid/event-schema-communication-services.md).
 
