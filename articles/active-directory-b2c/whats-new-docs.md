@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory business-to-customer (B2C)"
 description: "New and updated documentation for the Azure Active Directory business-to-customer (B2C)."
-ms.date: 04/04/2022
+ms.date: 05/23/2022
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -14,6 +14,30 @@ manager: CelesteDG
 # Azure Active Directory B2C: What's new
 
 Welcome to what's new in Azure Active Directory B2C documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Azure Active Directory](../active-directory/fundamentals/whats-new.md).
+
+## April 2022
+
+### New articles
+
+- [Tutorial: Configure Azure Web Application Firewall with Azure Active Directory B2C](partner-azure-web-application-firewall.md)
+- [Configure Asignio with Azure Active Directory B2C for multi-factor authentication](partner-asignio.md)
+- [Set up sign-up and sign-in with Mobile ID using Azure Active Directory B2C](identity-provider-mobile-id.md)
+- [Find help and open a support ticket for Azure Active Directory B2C](find-help-open-support-ticket.md)
+
+### Updated articles
+
+- [Configure authentication in a sample single-page application by using Azure AD B2C](configure-authentication-sample-spa-app.md)
+- [Configure xID with Azure Active Directory B2C for passwordless authentication](partner-xid.md)
+- [Azure Active Directory B2C service limits and restrictions](service-limits.md)
+- [Localization string IDs](localization-string-ids.md)
+- [Manage your Azure Active Directory B2C tenant](tenant-management.md)
+- [Page layout versions](page-layout.md)
+- [Secure your API used an API connector in Azure AD B2C](secure-rest-api.md)
+- [Azure Active Directory B2C: What's new](whats-new-docs.md)
+- [Application types that can be used in Active Directory B2C](application-types.md)
+- [Publish your Azure Active Directory B2C app to the Azure Active Directory app gallery](publish-app-to-azure-ad-app-gallery.md)
+- [Quickstart: Set up sign in for a desktop app using Azure Active Directory B2C](quickstart-native-app-desktop.md)
+- [Register a single-page application (SPA) in Azure Active Directory B2C](tutorial-register-spa.md)
 
 ## March 2022
 

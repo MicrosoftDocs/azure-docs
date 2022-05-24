@@ -4,12 +4,13 @@ description: Using managed identities in Container Apps
 services: container-apps
 author: cebundy
 ms.service: container-apps
+ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.date: 04/11/2022
 ms.author: v-bcatherine
 ---
 
-# Managed identities in Azure Container Apps Preview
+# Managed identities in Azure Container Apps
 
 A managed identity from Azure Active Directory (Azure AD) allows your container app to access other Azure AD-protected resources.  For more about managed identities in Azure AD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
