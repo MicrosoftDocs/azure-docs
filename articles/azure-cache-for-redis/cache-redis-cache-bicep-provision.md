@@ -6,12 +6,12 @@ ms.author: v-eschaffer
 ms.service: cache
 ms.topic: conceptual
 ms.custom: subject-armqs, devx-track-azurepowershell
-ms.date: 05/13/2022
+ms.date: 05/24/2022
 ---
 
 # Quickstart: Create an Azure Cache for Redis using Bicep
 
-Learn how to use Bicep to deploy an Azure Cache for Redis. The cache can be used with an existing storage account to keep diagnostic data. You also learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this Bicep file for your own deployments, or customize it to meet your requirements. Currently, diagnostic settings are shared for all caches in the same region for a subscription. Updating one cache in the region affects all other caches in the region.
+Learn how to use Bicep to deploy a cache using Azure Cache for Redis. After you deploy the cache, use it with an existing storage account to keep diagnostic data. Learn how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this Bicep file for your own deployments, or customize it to meet your requirements.
 
 [!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
@@ -53,7 +53,7 @@ The following resources are defined in the Bicep file:
    > [!NOTE]
    > Replace **\<storage-name\>** with the name of the storage account you created at the beginning of this quickstart. Replace **\<resource-group\>** with the name of the resource group name in which your storage account is located.
 
-    When the deployment finishes, you should see a message indicating the deployment succeeded.
+    When the deployment finishes, you see a message indicating the deployment succeeded.
 
 ## Review deployed resources
 
@@ -93,7 +93,7 @@ Remove-AzResourceGroup -Name exampleRG
 
 ## Next steps
 
-In this tutorial, you learned how to use Bicep to deploy an Azure Cache for Redis. To learn more about Azure Cache for Redis and Bicep, continue on to the articles below:
+In this tutorial, you learned how to use Bicep to deploy a cache using Azure Cache for Redis. To learn more about Azure Cache for Redis and Bicep, see the articles below:
 
-- Learn more about [Azure Cache for Redis](../azure-cache-for-redis/cache-overview.md).
-- Learn more about [Bicep](../../articles/azure-resource-manager/bicep/overview.md).
+* Learn more about [Azure Cache for Redis](../azure-cache-for-redis/cache-overview.md).
+* Learn more about [Bicep](../../articles/azure-resource-manager/bicep/overview.md).
