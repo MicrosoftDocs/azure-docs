@@ -91,7 +91,7 @@ Before we begin, it's assumed that you already have Azure IOT Hub provisioned an
 
 7. **Define Transformation Query**
     * Navigate to the Stream Analytics job that you created earlier.
-    * For this tutorial, we would be ingesting only the alternate events from IOT Hub into Hyperscale (Citus to reduce the overall dataset.
+    * For this tutorial, we would be ingesting only the alternate events from IOT Hub into Hyperscale (Citus) to reduce the overall dataset.
 ```sql
 select
    counter,
@@ -113,6 +113,6 @@ where counter%2 = 0;
 
 8. **Start the Stream Analytics Job and Verify Output**
     * Return to the job overview page and select Start.
-    * Under Start job, select Now, for the Job output start time field. Then, select Start to start your job.
+    * Under **Start job**, select **Now**, for the Job output start time field. Then, select **Start** to start your job.
     * After few minutes, you can query the Hyperscale (Citus) database to verify the data loaded. The job will take some time to start at the first time, but once triggered it will continue to run as the data arrives.
 ![Diagram of querying data ingested into Citus](../media/howto-hyperscale-ingestion/06-ASA-postgres-query.png)
