@@ -353,7 +353,7 @@ RStudio is one of the most popular IDEs among R developers for ML and data scien
 
 1.	Follow the steps listed above to **Add application** when creating your compute instance.
 1.	Select **RStudio Workbench (bring your own license)** in the **Application** dropdown and enter your RStudio Workbench license key in the **License key** field. You can get your RStudio Workbench license or trial license [from RStudio](https://www.rstudio.com/). 
-1. Select **Add application** to add RStudio Workbench application to your compute instance.
+1. Select **Create** to add RStudio Workbench application to your compute instance.
  
 :::image type="content" source="media/how-to-create-manage-compute-instance/rstudio-workbench.png" alt-text="Screenshot shows RStudio settings." lightbox="media/how-to-create-manage-compute-instance/rstudio-workbench.png":::
 
