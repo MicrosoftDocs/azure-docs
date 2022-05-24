@@ -12,6 +12,14 @@ Transformations in a [data collection rule (DCR)](data-collection-rule-overview.
 ## Basic concepts
 Data transformations are defined using a Kusto Query Language (KQL) statement that is applied individually to each entry in the data source. It must understand the format of the incoming data and create output in the structure of the target table. 
 
+## When to use transformations
+Use ingestion-time transformation for the following scenarios:
+
+**Reduce data ingestion cost.** You can create a transformation to filter data that you don't require from a particular workflow. You may also remove data that you don't require from specific columns, resulting in a lower amount of the data that you need to ingest and store. For example, you might have a diagnostic setting to collect resource logs from a particular resource but not require all of the log entries that it generates. Create a transformation that filters out records that match a certain criteria. 
+
+**Simplify query requirements.** You may have a table with valuable data buried in a particular column or data that needs some type of conversion each time it's queried. Create a transformation that parses this data into a custom column so that queries don't need to parse it. Remove extra data from the column that isn't required to decrease ingestion and retention costs.
+
+
 ## Transformation structure
 The input stream is represented by a virtual table named `source` with columns matching the input data stream definition. Following is a typical example of a transformation. This example includes the following functionality:
 

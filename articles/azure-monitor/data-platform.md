@@ -20,7 +20,7 @@ Enabling observability across today's complex computing environments running dis
 [Azure Monitor](overview.md) collects and aggregates data from a variety of sources into a common data platform where it can be used for analysis, visualization, and alerting. It provides a consistent experience on top of data from multiple sources, which gives you deep insights across all your monitored resources and even with data from other services that store their data in Azure Monitor.
 
 
-![Azure Monitor overview](media/overview/overview.png)
+![Azure Monitor overview](media/overview/azure-monitor-overview-optm.svg)
 
 ## Observability data in Azure Monitor
 Metrics, logs, and distributed traces are commonly referred to as the three pillars of observability. These are the different kinds of data that a monitoring tool must collect and analyze to provide sufficient observability of a monitored system. Observability can be achieved by correlating data from multiple pillars and aggregating data across the entire set of resources being monitored. Because Azure Monitor stores data from multiple sources together, the data can be correlated and analyzed using a common set of tools. It also correlates data across multiple Azure subscriptions and tenants, in addition to hosting data for other services.
@@ -79,6 +79,10 @@ See [Metrics in Azure Monitor](essentials/data-platform-metrics.md) and [Logs in
 
 ## Stream data to external systems
 In addition to using the tools in Azure to analyze monitoring data, you may have a requirement to forward it to an external tool such as a security information and event management (SIEM) product. This forwarding is typically done directly from monitored resources through [Azure Event Hubs](../event-hubs/index.yml). Some sources can be configured to send data directly to an event hub while you can use another process such as a Logic App to retrieve the required data. See [Stream Azure monitoring data to an event hub for consumption by an external tool](essentials/stream-monitoring-data-event-hubs.md) for details.
+
+
+
+
 
 
 

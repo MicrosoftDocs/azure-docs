@@ -452,9 +452,6 @@ items:
       - name: Structure
         displayName: Data collection rules
         href: essentials/data-collection-rule-structure.md
-      - name: Transformations
-        displayName: Data collection rules
-        href: essentials/data-collection-rule-transformations.md
     - name: Data collection endpoints
       href: essentials/data-collection-endpoint-overview.md
     - name: Custom logs
@@ -475,9 +472,11 @@ items:
           href: logs/data-collector-api.md
         - name: Log Analytics Data Collector API Pipeline example
           href: logs/create-pipeline-datacollector-api.md
-    - name: Ingestion time transformations
+    - name: Transformations
       items:
-      - name: Overview
+      - name: Transformations
+        href: essentials/data-collection-rule-transformations.md
+      - name: Ingestion time transformations
         href: logs/ingestion-time-transformations.md
       - name: Tutorial (portal)
         href: logs/tutorial-ingestion-time-transformations.md
