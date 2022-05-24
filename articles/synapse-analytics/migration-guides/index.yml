@@ -26,13 +26,11 @@ landingContent:
           - text: Azure Synapse Resources
             url: ../index.yml
           - text: Azure Synapse SQL architecture
-            url: ./sql/overview-architecture.md
+            url: ../sql/overview-architecture.md
       - linkListType: reference
         links: 
           - text: "Customer story: Co-op"
-            url: https://customers.microsoft.com/en-GB/story/845578-co-op-retailers-azure
-          - text: "Customer story: Maersk"
-            url: 
+            url: https://customers.microsoft.com/story/845578-co-op-retailers-azure
       - linkListType: deploy
         links:
           - text: "Preferred migration accelerator: Next Pathway"
@@ -62,7 +60,7 @@ landingContent:
           - text: 5. Minimize SQL issues
             url: netezza/5-minimize-sql-issues.md
           - text: 6. Microsoft and 3rd party migration tools
-            url: netezza/6-microsoft-3rd-party-migration-tools.md
+            url: netezza/6-microsoft-third-party-migration-tools.md
           - text: 7. Beyond migration implementation 
             url: netezza/7-beyond-data-warehouse-migration.md
   - title: from Teradata
@@ -80,6 +78,6 @@ landingContent:
           - text: 5. Minimize SQL issues
             url: teradata/5-minimize-sql-issues.md
           - text: 6. Microsoft and 3rd party migration tools
-            url: teradata/6-microsoft-3rd-party-migration-tools.md
+            url: teradata/6-microsoft-third-party-migration-tools.md
           - text: 7. Beyond migration implementation 
             url: teradata/7-beyond-data-warehouse-migration.md
