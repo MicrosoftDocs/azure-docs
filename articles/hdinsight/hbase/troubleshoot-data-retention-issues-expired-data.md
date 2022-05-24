@@ -34,7 +34,7 @@ Follow the steps below to understand where is the issue. Start by checking if th
    describe 'table_name'
    ```
 
-   ![Describe table name.](media/troubleshoot-data-retention-issues-expired-data/image-1.png)
+   ![Screenshot showing describe table name command.](media/troubleshoot-data-retention-issues-expired-data/image-1.png)
 
 1. If not configured, default TTL is set to 'FOREVER'. There are two possibilities why data is not expired as expected and removed from query result.
 
@@ -55,7 +55,7 @@ Follow the steps below to understand where is the issue. Start by checking if th
    hdfs dfs -ls -R /hbase/data/default/table_name/ | grep "column_family_name"
    ```
 
-   ![Check size of store file.](media/troubleshoot-data-retention-issues-expired-data/image-2.png)
+   ![Screenshot showing check size of store file command.](media/troubleshoot-data-retention-issues-expired-data/image-2.png)
 
 1. Likely, there will be more results shown in the output, one result for each region ID that is part of the table and between 0 and more results for StoreFiles present under each region name, for the selected ColumnFamily. To count the overall number of rows in the result output above, run the following command.
 
@@ -79,7 +79,7 @@ Follow the steps below to understand where is the issue. Start by checking if th
 
 1. An additional store file is created compared to previous result output for each region where data is modified, the StoreFile will include current content of MemStore for that region.
 
-   ![Memory store for the region.](media/troubleshoot-data-retention-issues-expired-data/image-3.png)
+   ![Screenshot showing memory store for the region.](media/troubleshoot-data-retention-issues-expired-data/image-3.png)
 
 ### Check the number and size of StoreFiles per table per region after major compaction
 
@@ -107,11 +107,11 @@ Follow the steps below to understand where is the issue. Start by checking if th
 
 1. You will notice that an extra StoreFile has been created in addition to previous ones per region per ColumnFamily and after several moments only the last created StoreFile is kept per region per column family.
 
-   ![Store file as column family.](media/troubleshoot-data-retention-issues-expired-data/image-4.png)
+   ![Screenshot showing store file as column family.](media/troubleshoot-data-retention-issues-expired-data/image-4.png)
 
 For the example region above, once the extra moments elapse, we can notice that one single StoreFile remained and the size occupied by this file on the storage is reduced as major compaction occurred and at this point any expired data that has not been deleted before(by another major compaction), will be deleted after running current major compaction operation.
 
-![Expired data not deleted.](media/troubleshoot-data-retention-issues-expired-data/image-5.png)
+![Screenshot showing expired data not deleted.](media/troubleshoot-data-retention-issues-expired-data/image-5.png)
 
 > [!NOTE]
 > For this troubleshooting exercise we triggered the major compaction manually. But in practice, doing that manually for many tables might be time consuming. By default, major compaction is disabled on HDInsight cluster. The main reason for keeping major compaction disabled by default is because the performance of the table operations is impacted when a major compaction is in progress. However, you can enable major compaction by configuring the value for the property hbase.hregion.majorcompaction in ms or can use a cron tab job or another external system to schedule compaction at a time convenient for you, with lower workload.
