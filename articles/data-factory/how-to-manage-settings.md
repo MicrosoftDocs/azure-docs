@@ -5,8 +5,8 @@ author: n0elleli
 ms.author: noelleli
 ms.reviewer: 
 ms.service: data-factory
-ms.subservice: how-to guides
-ms.topic: conceptual
+ms.subservice: tutorials
+ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 05/24/2022
 ---
@@ -38,7 +38,7 @@ Use the drop-down list to select from the list of available languages. This sett
 
 To apply changes, select a language and make sure to hit the **Apply** button. Your page will refresh and reflect the changes made. 
 
-:::image type="content" source="media/how-to-manage-settings/adf-settings-4.png" alt-text="Screenshot of Apply button in the bottom left corner.":::
+:::image type="content" source="media/how-to-manage-settings/adf-settings-4.png" alt-text="Screenshot of Apply button in the bottom left corner to make language changes.":::
 
 > [!NOTE]
 > Applying language changes will discard any unsaved changes in your data factory. 
@@ -55,7 +55,7 @@ For example, if you select **English** as your language and select **English (Un
 
 To apply changes, select a **Regional format** and make sure to hit the **Apply** button. Your page will refresh and reflect the changes made. 
 
-:::image type="content" source="media/how-to-manage-settings/adf-settings-6.png" alt-text="Screenshot of Apply button in the bottom left corner.":::
+:::image type="content" source="media/how-to-manage-settings/adf-settings-6.png" alt-text="Screenshot of Apply button in the bottom left corner to make regional format changes.":::
 
 > [!NOTE]
 > Applying regional format changes will discard any unsaved changes in your data factory. 
