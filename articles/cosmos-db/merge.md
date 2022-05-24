@@ -17,13 +17,13 @@ Merging partitions in Azure Cosmos DB (preview) allows you to reduce the number 
 
 ## Getting started
 
-To get started using merge, enroll in the preview by submitting a request for the **Azure Cosmos DB Partition Merge** feature via the [**Preview Features** blade](../azure-resource-manager/management/preview-features.md) in your Azure Subscription overview page.
+To get started using merge, enroll in the preview by submitting a request for the **Azure Cosmos DB Partition Merge** feature via the [**Preview Features** page](../azure-resource-manager/management/preview-features.md) in your Azure Subscription overview page.
 - Before submitting your request, verify that your Azure Cosmos DB account(s) meet all the [preview eligibility criteria](#preview-eligibility-criteria).
 - The Azure Cosmos DB team will review your request and contact you via email to confirm which account(s) in the subscription you want to enroll in the preview.
 
 ### Merging physical partitions
 
-In PowerShell, when the flag `-WhatIf` is passed in, Azure Cosmos DB will run a simulation and return the expected result of the merge, but won't run the merge itself. When the flag is not passed in, the merge will execute against the resource. When finished, the command will output the current amount of storage in KB per physical partition post-merge.
+In PowerShell, when the flag `-WhatIf` is passed in, Azure Cosmos DB will run a simulation and return the expected result of the merge, but won't run the merge itself. When the flag isn't passed in, the merge will execute against the resource. When finished, the command will output the current amount of storage in KB per physical partition post-merge.
 > [!TIP]
 > Before running a merge, it's recommended to set your provisioned RU/s (either manual RU/s or autoscale max RU/s) as close as possible to your desired steady state RU/s post-merge, to help ensure the system calculates an efficient partition layout.
 
@@ -74,9 +74,9 @@ az cosmosdb mongodb collection merge \
 ---
 
 ### Monitor merge operations
-Partition merge is a long-running operation and there is no SLA on how long it takes to complete. The time depends on the amount of data in the container as well as the number of physical partitions. It's recommended to allow at least 5-6 hours for merge to complete.
+Partition merge is a long-running operation and there's no SLA on how long it takes to complete. The time depends on the amount of data in the container and the number of physical partitions. It's recommended to allow at least 5-6 hours for merge to complete.
 
-While partition merge is running on your container, it is not possible to change the throughput or any container settings (TTL, indexing policy, unique keys, etc). Wait until the merge operation completes before changing your container settings.
+While partition merge is running on your container, it isn't possible to change the throughput or any container settings (TTL, indexing policy, unique keys, etc.). Wait until the merge operation completes before changing your container settings.
 
 You can track whether merge is still in progress by checking the **Activity Log** and filtering for the events **Merge the physical partitions of a MongoDB collection** or **Merge the physical partitions of a SQL container**.
 
@@ -85,18 +85,18 @@ You can track whether merge is still in progress by checking the **Activity Log*
 ### Preview eligibility criteria
 To enroll in the preview, your Cosmos account must meet all the following criteria:
 * Your Cosmos account uses SQL API or API for MongoDB with version >=3.6.
-* Your Cosmos account is using provisioned throughput (manual or autoscale). Merge does not apply to serverless accounts.
-    * Currently, merge is not supported for shared throughput databases. You may enroll an account that has both shared throughput databases and containers with dedicated throughput (manual or autoscale).
+* Your Cosmos account is using provisioned throughput (manual or autoscale). Merge doesn't apply to serverless accounts.
+    * Currently, merge isn't supported for shared throughput databases. You may enroll an account that has both shared throughput databases and containers with dedicated throughput (manual or autoscale).
     * However, only the containers with dedicated throughput will be able to be merged.
-* Your Cosmos account is a single-write region account (merge is not currently supported for multi-region write accounts).
-* Your Cosmos account does not use any of the following features:
+* Your Cosmos account is a single-write region account (merge isn't currently supported for multi-region write accounts).
+* Your Cosmos account doesn't use any of the following features:
   * [Point-in-time restore](continuous-backup-restore-introduction.md)
   * [Customer-managed keys](how-to-setup-cmk.md)
   * [Analytical store](analytical-store-introduction.md)
-* Your Cosmos account uses bounded staleness, session, consistent prefix, or eventual consistency (merge is not currently supported for strong consistency).
+* Your Cosmos account uses bounded staleness, session, consistent prefix, or eventual consistency (merge isn't currently supported for strong consistency).
 * If you're using SQL API, your application must use the Azure Cosmos DB .NET V3 SDK, version 3.27.0 or higher. When merge preview enabled on your account, all requests sent from non .NET SDKs or older .NET SDK versions won't be accepted.
     * There are no SDK or driver requirements to use the feature with API for MongoDB.
-* Your Cosmos account does not use any currently unsupported connectors:
+* Your Cosmos account doesn't use any currently unsupported connectors:
     * Azure Data Factory
     * Azure Stream Analytics
     * Logic Apps
@@ -111,8 +111,8 @@ To enroll in the preview, your Cosmos account must meet all the following criter
   * [Customer-managed keys](how-to-setup-cmk.md)
   * [Analytical store](analytical-store-introduction.md)
 * Containers using merge functionality must have their throughput provisioned at the container level. Database-shared throughput support isn't available.
-* Merge is only available for accounts using bounded staleness, session, consistent prefix, or eventual consistency. It is not currently supported for strong consistency.
-* After a container has been merged, it is not possible to read the change feed with start time. Support for this feature is planned for the future.
+* Merge is only available for accounts using bounded staleness, session, consistent prefix, or eventual consistency. It isn't currently supported for strong consistency.
+* After a container has been merged, it isn't possible to read the change feed with start time. Support for this feature is planned for the future.
 
 ### SDK requirements (SQL API only)
 

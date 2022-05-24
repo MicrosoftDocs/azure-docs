@@ -28,7 +28,7 @@ After the 10 seconds is over, the burst capacity has been used up. If the worklo
 
 ## Getting started
 
-To get started using burst capacity, enroll in the preview by submitting a request for the **Azure Cosmos DB Burst Capacity** feature via the [**Preview Features** blade](../azure-resource-manager/management/preview-features.md) in your Azure Subscription overview page.
+To get started using burst capacity, enroll in the preview by submitting a request for the **Azure Cosmos DB Burst Capacity** feature via the [**Preview Features** page](../azure-resource-manager/management/preview-features.md) in your Azure Subscription overview page.
 - Before submitting your request, verify that your Azure Cosmos DB account(s) meet all the [preview eligibility criteria](#preview-eligibility-criteria).
 - The Azure Cosmos DB team will review your request and contact you via email to confirm which account(s) in the subscription you want to enroll in the preview.
 
@@ -36,10 +36,10 @@ To get started using burst capacity, enroll in the preview by submitting a reque
 
 ### Preview eligibility criteria
 To enroll in the preview, your Cosmos account must meet all the following criteria:
-  - Your Cosmos account is using provisioned throughput (manual or autoscale). Burst capacity does not apply to serverless accounts.
+  - Your Cosmos account is using provisioned throughput (manual or autoscale). Burst capacity doesn't apply to serverless accounts.
   - If you're using SQL API, your application must use the Azure Cosmos DB .NET V3 SDK, version 3.27.0 or higher. When burst capacity is enabled on your account, all requests sent from non .NET SDKs, or older .NET SDK versions won't be accepted.
     - There are no SDK or driver requirements to use the feature with Cassandra API, Gremlin API, Table API, or API for MongoDB.
-  - Your Cosmos account is not using any unsupported connectors
+  - Your Cosmos account isn't using any unsupported connectors
     - Azure Data Factory
     - Azure Stream Analytics
     - Logic Apps
@@ -62,7 +62,7 @@ Support for other SQL API SDKs is planned for the future.
 > You should ensure that your application has been updated to use a compatible SDK version prior to enrolling in the preview. If you're using the legacy .NET V2 SDK, follow the [.NET SDK v3 migration guide](sql/migrate-dotnet-v3.md). 
 
 #### Table  API
-For Table API accounts, burst capacity is supported only when using the latest version of the Tables SDK. When the feature is enabled on your account, you must only use the supported SDK. Requests sent from other SDKs or earlier versions won't be accepted. The legacy SDK with namespace `Microsoft.Azure.CosmosDB.Table` is not supported. Follow the [migration guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/tables/Azure.Data.Tables/MigrationGuide.md) to upgrade to the latest SDK.
+For Table API accounts, burst capacity is supported only when using the latest version of the Tables SDK. When the feature is enabled on your account, you must only use the supported SDK. Requests sent from other SDKs or earlier versions won't be accepted. The legacy SDK with namespace `Microsoft.Azure.CosmosDB.Table` isn't supported. Follow the [migration guide](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/tables/Azure.Data.Tables/MigrationGuide.md) to upgrade to the latest SDK.
 
 | SDK | Supported versions | Package manager link |
 | --- | --- | --- |

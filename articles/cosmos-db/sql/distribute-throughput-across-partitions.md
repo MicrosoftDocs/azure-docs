@@ -28,7 +28,7 @@ If you aren't seeing 429 responses and your end to end latency is acceptable, th
 
 ## Getting started
 
-To get started using distributed throughput across partitions, enroll in the preview by submitting a request for the **Azure Cosmos DB Throughput Redistribution Across Partitions** feature via the [**Preview Features** blade](../azure-resource-manager/management/preview-features.md) in your Azure Subscription overview page.
+To get started using distributed throughput across partitions, enroll in the preview by submitting a request for the **Azure Cosmos DB Throughput Redistribution Across Partitions** feature via the [**Preview Features** page](../azure-resource-manager/management/preview-features.md) in your Azure Subscription overview page.
 - Before submitting your request, verify that your Azure Cosmos DB account(s) meet all the [preview eligibility criteria](#preview-eligibility-criteria).
 - The Azure Cosmos DB team will review your request and contact you via email to confirm which account(s) in the subscription you want to enroll in the preview.
 
@@ -122,7 +122,7 @@ $allPartitions = Get-AzCosmosDBMongoDBCollectionPerPartitionThroughput `
 ```
 ### Determine RU/s for target partition
 
-Next, let's decide how many RU/s we want to give to our hottest physical partition(s). Let's call this set our target partition(s). The most RU/s any physical partition can have is 10,000 RU/s.
+Next, let's decide how many RU/s we want to give to our hottest physical partition(s). Let's call this set our target partition(s). The most RU/s any physical partition can contain is 10,000 RU/s.
 
 The right approach depends on your workload requirements. General approaches include:
 - Increasing the RU/s by a percentage, measure the rate of 429 responses, and repeat until desired throughput is achieved. 
@@ -135,7 +135,7 @@ The right approach depends on your workload requirements. General approaches inc
 
 Finally, let's decide how many RU/s we want to keep on our other physical partitions. This selection will determine the partitions that the target physical partition takes throughput from.
 
-In the PowerShell APIs, we must specify at least one source partition to redistribute RU/s from. We can also specify a custom minimum throughput each physical partition should have after the redistribution. If not specified, by default, Azure Cosmos DB will ensure that each physical partition has at least 100 RU/s after the redistribution. It is recommended to explicitly specify the minimum throughput.
+In the PowerShell APIs, we must specify at least one source partition to redistribute RU/s from. We can also specify a custom minimum throughput each physical partition should have after the redistribution. If not specified, by default, Azure Cosmos DB will ensure that each physical partition has at least 100 RU/s after the redistribution. It's recommended to explicitly specify the minimum throughput.
 
 The right approach depends on your workload requirements. General approaches include:
 - Taking RU/s equally from all source partitions (works best when there are <=  10 partitions)
@@ -221,9 +221,9 @@ After the changes, assuming your overall workload hasn't changed, you'll likely 
 To enroll in the preview, your Cosmos account must meet all the following criteria:
   - Your Cosmos account is using SQL API or API for MongoDB.
       - If you're using API for MongoDB, the version must be >= 3.6.
-  - Your Cosmos account is using provisioned throughput (manual or autoscale). Distribution of throughput across partitions does not apply to serverless accounts.
+  - Your Cosmos account is using provisioned throughput (manual or autoscale). Distribution of throughput across partitions doesn't apply to serverless accounts.
   - If you're using SQL API, your application must use the Azure Cosmos DB .NET V3 SDK, version 3.27.0 or higher. When the ability to redistribute throughput across partitions is enabled on your account, all requests sent from non .NET SDKs or older .NET SDK versions won't be accepted.
-  - Your Cosmos account is not using any unsupported connectors:
+  - Your Cosmos account isn't using any unsupported connectors:
     - Azure Data Factory
     - Azure Stream Analytics
     - Logic Apps

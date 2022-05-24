@@ -21,7 +21,7 @@ sections:
       - question: |
           What resources can I use this feature on?
         answer: |
-          The feature is only supported for SQL and API for MongoDB accounts and on collections with dedicated throughput (either manual or autoscale). Shared throughput databases aren't supported in the preview. The feature does not apply to serverless accounts.
+          The feature is only supported for SQL and API for MongoDB accounts and on collections with dedicated throughput (either manual or autoscale). Shared throughput databases aren't supported in the preview. The feature doesn't apply to serverless accounts.
       - question: |
           Which version of the Azure Cosmos DB functionality in Azure PowerShell supports this feature?
         answer: |
@@ -59,11 +59,11 @@ sections:
       - question: |
           Why am I seeing a discrepancy between the overall RU/s on my container and the sum of the RU/s across all physical partitions?
         answer: |
-          - This can happen when you scale up your overall RU/s such that for any single partition, `(current RU/s per partition * new container RU/s)/(old container RU/s)` is greater than 10,000 RU/s. This can happen when you trigger a partition split by increasing RU/s beyond `currentNumberOfPartitions * 10,000 RU/s` or increase RU/s without triggering a partition split.
-          - It is recommended to redistribute your throughput equally after the scale-up. Otherwise, it is possible that you will not be able to use all the RU/s you've provisioned (and are being billed for).
+          - This discrepancy can happen when you scale up your overall RU/s for any single partition, `(current RU/s per partition * new container RU/s)/(old container RU/s)` is greater than 10,000 RU/s. This discrepancy occurs when you trigger a partition split by increasing RU/s beyond `currentNumberOfPartitions * 10,000 RU/s` or increase RU/s without triggering a partition split.
+          - It's recommended to redistribute your throughput equally after the scale-up. Otherwise, it's possible that you won't be able to use all the RU/s you've provisioned (and are being billed for).
           - To check if this scenario applies to your resource use Azure Monitor metrics. Compare the value of the **ProvisionedThroughput** (when using manual throughput) or **AutoscaleMaxThroughput** (when using autoscale) metric to the value of the **PhysicalPartitionThroughput** metric. If the value of **PhysicalPartitionThroughput** is less than the respective **ProvisionedThroughput** or **AutoscaleMaxThroughput**, then reset your RU/s to an even distribution before redistributing, or lower your resource's throughput to the value of **PhysicalPartitionThroughput**. 
 
-              For example, suppose you have a collection with 6000 RU/s and 3 physical partitions. You scale it up to 24,000 RU/s. After the scale-up, the total throughput across all partitions is only 18,000 RU/s. This means that while we are being billed for 24,000 RU/s, we are only able to get 18,000 RU/s of effective throughput. By redistributing our RU/s equally, each partition will get 8000 RU/s, and we can redistribute RU/s again as needed. We could also choose to lower our overall RU/s to 18,000 RU/s.
+              For example, suppose you have a collection with 6000 RU/s and 3 physical partitions. You scale it up to 24,000 RU/s. After the scale-up, the total throughput across all partitions is only 18,000 RU/s. This distribution means that while we're being billed for 24,000 RU/s, we're only able to get 18,000 RU/s of effective throughput. Each partition will get 8000 RU/s, as RU/s are redistributed equally,  and we can redistribute RU/s again as needed. We could also choose to lower our overall RU/s to 18,000 RU/s.
 
               |Before scale-up (6000 RU/s)  |After scale up to 24,000 RU/s (effective RU/s = 18,000 RU/s)  |Fraction of total RU/s  |
               |---------|---------|---------|
