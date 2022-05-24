@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/23/2022
+ms.date: 05/24/2022
 ms.author: alkohli
 ---
 # Troubleshoot GPU extension issues for GPU VMs on Azure Stack Edge Pro GPU
@@ -28,7 +28,7 @@ For installation steps, see [Install GPU extension](./azure-stack-edge-gpu-deplo
    ```
 **Suggested solutions:** You have two options to mitigate this issue: 
  
-1.	Use updated GPU extensions included in the Azure Stack Edge 2205 release. Files are located in the Github /GpuExtension/ folder at [Azure-Samples/azure-stack-edge-deploy-vms/](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/tree/master/Templates/ExtensionTemplates). 
+1.	Use updated GPU extensions included in the Azure Stack Edge 2205 release. Files are located in the *GpuExtension* folder at [Azure-Samples/azure-stack-edge-deploy-vms/](https://github.com/Azure-Samples/azure-stack-edge-deploy-vms/tree/master/Templates/ExtensionTemplates). 
  
 2.	Manually install the new signing keys. After creating a GPU virtual machine of size in NCasT4_v3-series, set required signing keys using steps in [Updating the CUDA Linux GPG Repository Key | NVIDIA Technical Blog](https://developer.nvidia.com/blog/updating-the-cuda-linux-gpg-repository-key/).
 

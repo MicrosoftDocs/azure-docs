@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/23/2022
+ms.date: 05/24/2022
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how install GPU extension on GPU virtual machines (VMs) on my Azure Stack Edge Pro GPU device.
 ---
@@ -40,10 +40,11 @@ Before you install GPU extension on the GPU VMs running on your device, make sur
 
 Depending on the operating system for your VM, you could install GPU extension for Windows or for Linux.
 
-
 ### [Windows](#tab/windows)
 
 To deploy Nvidia GPU drivers for an existing VM, edit the `addGPUExtWindowsVM.parameters.json` parameters file and then deploy the template `addGPUextensiontoVM.json`.
+
+#### Version 2205 and higher
 
 The file `addGPUExtWindowsVM.parameters.json` takes the following parameters:
 
@@ -74,9 +75,42 @@ The file `addGPUExtWindowsVM.parameters.json` takes the following parameters:
 	}
 ```
 
+#### Versions lower than 2205
+ 
+The file `addGPUExtWindowsVM.parameters.json` takes the following parameters:
+
+```json
+"parameters": {	
+	"vmName": {
+	"value": "<name of the VM>" 
+	},
+	"extensionName": {
+	"value": "<name for the extension. Example: windowsGpu>" 
+	},
+	"publisher": {
+	"value": "Microsoft.HpcCompute" 
+	},
+	"type": {
+	"value": "NvidiaGpuDriverWindows" 
+	},
+	"typeHandlerVersion": {
+	"value": "1.3" 
+	},
+	"settings": {
+	"value": {
+	"DriverURL" : "http://us.download.nvidia.com/tesla/442.50/442.50-tesla-desktop-winserver-2019-2016-international.exe",
+	"DriverCertificateUrl" : "https://go.microsoft.com/fwlink/?linkid=871664",
+	"DriverType":"CUDA"
+	}
+	}
+	}
+```
+
 ### [Linux](#tab/linux)
 
-To deploy Nvidia GPU drivers for an existing Linux VM, edit the parameters file and then deploy the template `addGPUextensiontoVM.json`. 
+To deploy Nvidia GPU drivers for an existing Linux VM, edit the parameters file and then deploy the template `addGPUextensiontoVM.json`.
+
+#### Version 2205 and higher
 
 If using Ubuntu or Red Hat Enterprise Linux (RHEL), the `addGPUExtLinuxVM.parameters.json` file takes the following parameters:
 
@@ -96,6 +130,33 @@ If using Ubuntu or Red Hat Enterprise Linux (RHEL), the `addGPUExtLinuxVM.parame
 	},
 	"typeHandlerVersion": {
 	"value": "1.8" 
+	},
+	"settings": {
+	}
+	}
+	}
+```
+
+#### Versions lower than 2205
+
+If using Ubuntu or Red Hat Enterprise Linux (RHEL), the `addGPUExtLinuxVM.parameters.json` file takes the following parameters:
+
+```powershell
+"parameters": {	
+	"vmName": {
+	"value": "<name of the VM>" 
+	},
+	"extensionName": {
+	"value": "<name for the extension. Example: linuxGpu>" 
+	},
+	"publisher": {
+	"value": "Microsoft.HpcCompute" 
+	},
+	"type": {
+	"value": "NvidiaGpuDriverLinux" 
+	},
+	"typeHandlerVersion": {
+	"value": "1.3" 
 	},
 	"settings": {
 	}
@@ -123,7 +184,7 @@ Here is a sample Ubuntu parameter file that was used in this article:
             "value": "NvidiaGpuDriverLinux" 
         },
         "typeHandlerVersion": {
-            "value": "1.8" 
+            "value": "1.3" 
         },
         "settings": {
         }
@@ -144,6 +205,8 @@ If you created your VM using a Red Hat Enterprise Linux Bring Your Own Subscript
 ## Deploy template 
 
 ### [Windows](#tab/windows)
+
+#### Version 2205 and higher
 
 Use the following steps to deploy the template `addGPUextensiontoVM.json`. This template deploys the extension to an existing VM.
 
@@ -166,7 +229,22 @@ Use the following steps to deploy the template `addGPUextensiontoVM.json`. This 
    > [!NOTE]
    > The extension deployment is a long running job and takes about 10 minutes to complete.
 
-   Here is a sample output:
+#### Versions lower than 2205
+
+Deploy the template `addGPUextensiontoVM.json` to install the extension on an existing VM.
+
+Run the following command:
+
+```powershell
+$templateFile = "<Path to addGPUextensiontoVM.json>" 
+$templateParameterFile = "<Path to addGPUExtWindowsVM.parameters.json>" 
+RGName = "<Name of your resource group>"
+New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "<Name for your deployment>"
+```
+> [!NOTE]
+> The extension deployment is a long running job and takes about 10 minutes to complete.
+
+Here is a sample output:
 
    ```powershell
    PS C:\WINDOWS\system32> "C:\12-09-2020\ExtensionTemplates\addGPUextensiontoVM.json"
@@ -202,6 +280,22 @@ Use the following steps to deploy the template `addGPUextensiontoVM.json`. This 
    ```
 
 ### [Linux](#tab/linux)
+
+#### Version 2205 and higher
+
+Deploy the template `addGPUextensiontoVM.json`. This template deploys the extension to an existing VM. Run the following command:
+
+```powershell
+$templateFile = "Path to addGPUextensiontoVM.json" 
+$templateParameterFile = "Path to addGPUExtLinuxVM.parameters.json" 
+$RGName = "<Name of your resource group>" 
+New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "<Name for your deployment>"
+```	
+
+> [!NOTE]
+> The extension deployment is a long running job and takes about 10 minutes to complete.
+
+#### Versions lower than 2205
 
 Deploy the template `addGPUextensiontoVM.json`. This template deploys the extension to an existing VM. Run the following command:
 
@@ -283,11 +377,22 @@ settings": {
 
 ### [Windows](#tab/windows)
 
+#### Version 2205 and higher
+
 To check the deployment state of extensions for a given VM, run the following command: 
 
 ```powershell
 Get-AzureRmVMExtension -ResourceGroupName <Name of resource group> -VMName <Name of VM> -Name <Name of the extension>
 ```
+
+#### Versions lower than 2205
+
+To check the deployment state of extensions for a given VM, run the following command: 
+
+```powershell
+Get-AzureRmVMExtension -ResourceGroupName <Name of resource group> -VMName <Name of VM> -Name <Name of the extension>
+```
+
 Here is a sample output:
 
 ```powershell
@@ -334,11 +439,22 @@ A successful install is indicated by a `message` as `Enable Extension` and `stat
 
 ### [Linux](#tab/linux)
 
+#### Version 2205 and higher
+
 Template deployment is a long running job. To check the deployment state of extensions for a given VM, open another PowerShell session (run as administrator). Run the following command: 
 
 ```powershell
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName <VM Name> -Name <Extension Name>
 ```
+
+#### Versions lower than 2205
+
+Template deployment is a long running job. To check the deployment state of extensions for a given VM, open another PowerShell session (run as administrator). Run the following command: 
+
+```powershell
+Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName <VM Name> -Name <Extension Name>
+```
+
 Here is a sample output: 
 
 ```powershell
@@ -383,9 +499,17 @@ The extension execution output is logged to the following file: `/var/log/azure/
 
 ### [Windows](#tab/windows)
 
-Sign in to the VM and run the nvidia-smi command-line utility installed with the driver. The `nvidia-smi.exe` is located at  `C:\Program Files\NVIDIA Corporation\NVSMI\nvidia-smi.exe`. If you do not see the file, it's possible that the driver installation is still running in the background. Wait for 10 minutes and check again.
+Sign in to the VM and run the nvidia-smi command-line utility installed with the driver. 
 
-If the driver is installed, you see an output similar to the following sample: 
+#### Version 2205 and higher
+
+The `nvidia-smi.exe` is located at  `C:\Windows\System32\nvidia-smi.exe`. If you do not see the file, it's possible that the driver installation is still running in the background. Wait for 10 minutes and check again.
+
+#### Versions lower than 2205
+
+The `nvidia-smi.exe` is located at  `C:\Program Files\NVIDIA Corporation\NVSMI\nvidia-smi.exe`. If you do not see the file, it's possible that the driver installation is still running in the background. Wait for 10 minutes and check again.
+
+If the driver is installed, you see an output similar to the following sample:
 
 ```powershell
 PS C:\Users\Administrator> cd "C:\Program Files\NVIDIA Corporation\NVSMI"
@@ -428,6 +552,14 @@ For more information, see [Nvidia GPU driver extension for Windows](../virtual-m
 > After you finish installing the GPU driver and GPU extension, you no longer need to use a port with Internet access for compute.
 
 ### [Linux](#tab/linux)
+
+#### Version 2205 and higher
+
+Follow these steps to verify the driver installation:
+
+1. Connect to the GPU VM. Follow the instructions in [Connect to a Linux VM](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-linux-vm). 
+
+#### Versions lower than 2205
 
 Follow these steps to verify the driver installation:
 
@@ -507,11 +639,17 @@ For more information, see [Nvidia GPU driver extension for Linux](../virtual-mac
 > [!NOTE]
 > After you finish installing the GPU driver and GPU extension, you no longer need to use a port with Internet access for compute.
 
-
 ---
 
-
 ## Remove GPU extension
+
+### Version 2205 and higher
+
+To remove the GPU extension, use the following command:
+
+`Remove-AzureRmVMExtension -ResourceGroupName <Resource group name> -VMName <VM name> -Name <Extension name>`
+
+### Versions lower than 2205
 
 To remove the GPU extension, use the following command:
 
@@ -527,7 +665,6 @@ Requestld IsSuccessStatusCode StatusCode ReasonPhrase
 --------- ------------------- ---------- ------------    
           True                OK         OK
 ```
-
 
 ## Next steps
 
