@@ -85,7 +85,7 @@ Indexer was not able to run a skill in the skillset.
 | Reason | Details/Example | Resolution |
 | --- | --- | --- |
 | Transient connectivity issues | A transient error occurred. Please try again later. | Occasionally there are unexpected connectivity issues. Try running the document through your indexer again later. |
-| Potential product bug | An unexpected error occurred. | This indicates an unknown class of failure and may mean there is a product bug. Please file a [support ticket](https://portal.azure.com/#create/Microsoft.Support) to get help. |
+| Potential product bug | An unexpected error occurred. | This indicates an unknown class of failure and may mean there is a product bug. File a [support ticket](https://portal.azure.com/#create/Microsoft.Support) to get help. |
 | A skill has encountered an error during execution | (From Merge Skill) One or more offset values were invalid and could not be parsed. Items were inserted at the end of the text | Use the information in the error message to fix the issue. This kind of failure will require action to resolve. |
 
 <a name="could-not-execute-skill-because-the-web-api-request-failed"></a>
@@ -98,7 +98,7 @@ While debugging this issue, be sure to pay attention to any [skill input warning
 <a name="could-not-execute-skill-because-web-api-skill-response-is-invalid"></a>
 
 ## Error: Could not execute skill because Web API skill response is invalid
-Skill execution failed because the call to the Web API returned an invalid response. Typically, this class of failure occurs when custom skills are used, in which case you will need to debug your custom code to resolve the issue. If instead the failure is from a built-in skill, please file a [support ticket](https://portal.azure.com/#create/Microsoft.Support) to get assistance.
+Skill execution failed because the call to the Web API returned an invalid response. Typically, this class of failure occurs when custom skills are used, in which case you will need to debug your custom code to resolve the issue. If instead the failure is from a built-in skill, file a [support ticket](https://portal.azure.com/#create/Microsoft.Support) to get assistance.
 
 <a name="skill-did-not-execute-within-the-time-limit"></a>
 
@@ -107,12 +107,12 @@ If your data source has a field with a different data type than the field you ar
 
 
 ## Error: Skill did not execute within the time limit
-There are two cases under which you may encounter this error message, each of which should be treated differently. Please follow the instructions below depending on what skill returned this error for you.
+There are two cases under which you may encounter this error message, each of which should be treated differently. Follow the instructions below depending on what skill returned this error for you.
 
 ### Built-in Cognitive Service skills
 Many of the built-in cognitive skills, such as language detection, entity recognition, or OCR, are backed by a Cognitive Service API endpoint. Sometimes there are transient issues with these endpoints and a request will time out. For transient issues, there is no remedy except to wait and try again. As a mitigation, consider setting your indexer to [run on a schedule](search-howto-schedule-indexers.md). Scheduled indexing picks up where it left off. Assuming transient issues are resolved, indexing and cognitive skill processing should be able to continue on the next scheduled run.
 
-If you continue to see this error on the same document for a built-in cognitive skill, please file a [support ticket](https://portal.azure.com/#create/Microsoft.Support) to get assistance, as this is not expected.
+If you continue to see this error on the same document for a built-in cognitive skill, file a [support ticket](https://portal.azure.com/#create/Microsoft.Support) to get assistance, as this is not expected.
 
 ### Custom skills
 If you encounter a timeout error with a custom skill you have created, there are a couple of things you can try. First, review your custom skill and ensure that it is not getting stuck in an infinite loop and that it is returning a result consistently. Once you have confirmed that is the case, determine what the execution time of your skill is. If you didn't explicitly set a `timeout` value on your custom skill definition, then the default `timeout` is 30 seconds. If 30 seconds is not long enough for your skill to execute, you may specify a higher `timeout` value on your custom skill definition. Here is an example of a custom skill definition where the timeout is set to 90 seconds:
@@ -151,7 +151,7 @@ The document was read and processed, but the indexer could not add it to the sea
 | --- | --- | --- |
 | A field contains a term that is too large | A term in your document is larger than the [32 KB limit](search-limits-quotas-capacity.md#api-request-limits) | You can avoid this restriction by ensuring the field is not configured as filterable, facetable, or sortable.
 | Document is too large to be indexed | A document is larger than the [maximum api request size](search-limits-quotas-capacity.md#api-request-limits) | [How to index large data sets](search-howto-large-index.md)
-| Document contains too many objects in collection | A collection in your document exceeds the [maximum elements across all complex collections limit](search-limits-quotas-capacity.md#index-limits) "The document with key `'1000052'` has `'4303'` objects in collections (JSON arrays). At most `'3000'` objects are allowed to be in collections across the entire document. Please remove objects from collections and try indexing the document again." | We recommend reducing the size of the complex collection in the document to below the limit and avoid high storage utilization.
+| Document contains too many objects in collection | A collection in your document exceeds the [maximum elements across all complex collections limit](search-limits-quotas-capacity.md#index-limits) "The document with key `'1000052'` has `'4303'` objects in collections (JSON arrays). At most `'3000'` objects are allowed to be in collections across the entire document. Remove objects from collections and try indexing the document again." | We recommend reducing the size of the complex collection in the document to below the limit and avoid high storage utilization.
 | Trouble connecting to the target index (that persists after retries) because the service is under other load, such as querying or indexing. | Failed to establish connection to update index. Search service is under heavy load. | [Scale up your search service](search-capacity-planning.md)
 | Search service is being patched for service update, or is in the middle of a topology reconfiguration. | Failed to establish connection to update index. Search service is currently down/Search service is undergoing a transition. | Configure service with at least 3 replicas for 99.9% availability per [SLA documentation](https://azure.microsoft.com/support/legal/sla/search/v1_0/)
 | Failure in the underlying compute/networking resource (rare) | Failed to establish connection to update index. An unknown failure occurred. | Configure indexers to [run on a schedule](search-howto-schedule-indexers.md) to pick up from a failed state.
@@ -169,7 +169,7 @@ The document was read and processed by the indexer, but due to a mismatch in the
 | Failed to extract any JSON entity from a string value. | Could not parse value 'of type 'Edm.String'' of field '_data_' as a JSON object. Error:'After parsing a value an unexpected character was encountered: ''. Path '_path_', line 1, position 3162.' |
 | Failed to extract a collection of JSON entities from a string value.  | Could not parse value 'of type 'Edm.String'' of field '_data_' as a JSON array. Error:'After parsing a value an unexpected character was encountered: ''. Path '[0]', line 1, position 27.' |
 | An unknown type was discovered in the source document. | Unknown type '_unknown_' cannot be indexed |
-| An incompatible notation for geography points was used in the source document. | WKT POINT string literals are not supported. Please use GeoJson point literals instead |
+| An incompatible notation for geography points was used in the source document. | WKT POINT string literals are not supported. Use GeoJson point literals instead |
 
 In all these cases, refer to [Supported Data types](/rest/api/searchservice/supported-data-types) and [Data type map for indexers](/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) to make sure that you build the index schema correctly and have set up appropriate [indexer field mappings](search-indexer-field-mappings.md). The error message will include details that can help track down the source of the mismatch.
 
@@ -192,8 +192,8 @@ This error occurs when the indexer is attempting to [project data into a knowled
 | Reason | Details/Example | Resolution |
 | --- | --- | --- |
 | Could not update projection blob `'blobUri'` in container `'containerName'` |The specified container does not exist. | The indexer will check if the specified container has been previously created and will create it if necessary, but it only performs this check once per indexer run. This error means that something deleted the container after this step.  To resolve this error, try this: leave your storage account information alone, wait for the indexer to finish, and then rerun the indexer. |
-| Could not update projection blob `'blobUri'` in container `'containerName'` |Unable to write data to the transport connection: An existing connection was forcibly closed by the remote host. | This is expected to be a transient failure with Azure Storage and thus should be resolved by rerunning the indexer. If you encounter this error consistently, please file a [support ticket](https://portal.azure.com/#create/Microsoft.Support) so it can be investigated further.  |
-| Could not update row `'projectionRow'` in table `'tableName'` | The server is busy. | This is expected to be a transient failure with Azure Storage and thus should be resolved by rerunning the indexer. If you encounter this error consistently, please file a [support ticket](https://portal.azure.com/#create/Microsoft.Support) so it can be investigated further.  |
+| Could not update projection blob `'blobUri'` in container `'containerName'` |Unable to write data to the transport connection: An existing connection was forcibly closed by the remote host. | This is expected to be a transient failure with Azure Storage and thus should be resolved by rerunning the indexer. If you encounter this error consistently, file a [support ticket](https://portal.azure.com/#create/Microsoft.Support) so it can be investigated further.  |
+| Could not update row `'projectionRow'` in table `'tableName'` | The server is busy. | This is expected to be a transient failure with Azure Storage and thus should be resolved by rerunning the indexer. If you encounter this error consistently, file a [support ticket](https://portal.azure.com/#create/Microsoft.Support) so it can be investigated further.  |
 
 <a name="could-not-execute-skill-because-a-skill-input-was-invalid"></a>
 
@@ -237,7 +237,7 @@ If you want to provide a default value in case of missing input, you can use the
 ## Warning:  Skill input 'languageCode' has the following language codes 'X,Y,Z', at least one of which is invalid.
 One or more of the values passed into the optional `languageCode` input of a downstream skill is not supported. This can occur if you are passing the output of the [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) to subsequent skills, and the output consists of more languages than are supported in those downstream skills.
 
-Note you may also get a warning similar to this one if an invalid `countryHint` input gets passed to the LanguageDetectionSkill. If that happens, please validate that the field you are using from your data source for that input contains valid ISO 3166-1 alpha-2 two letter country codes. If some are valid and some are invalid, continue with the following guidance but replace `languageCode` with `countryHint` and `defaultLanguageCode` with `defaultCountryHint` to match your use case.
+Note you may also get a warning similar to this one if an invalid `countryHint` input gets passed to the LanguageDetectionSkill. If that happens, validate that the field you are using from your data source for that input contains valid ISO 3166-1 alpha-2 two letter country codes. If some are valid and some are invalid, continue with the following guidance but replace `languageCode` with `countryHint` and `defaultLanguageCode` with `defaultCountryHint` to match your use case.
 
 If you know that your data set is all in one language, you should remove the [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) and the `languageCode` skill input and use the `defaultLanguageCode` skill parameter for that skill instead, assuming the language is supported for that skill.
 
@@ -329,7 +329,7 @@ Output field mappings that reference non-existent/null data will produce warning
 | Reason | Details/Example | Resolution |
 | --- | --- | --- |
 | Cannot iterate over non-array | "Cannot iterate over non-array `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`." | This error occurs when the output is not an array. If you think the output should be an array, check the indicated output source field path for errors. For example, you might have a missing or extra `*` in the source field name. It's also possible that the input to this skill is null, resulting in an empty array. Find similar details in [Skill Input was Invalid](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) section.    |
-| Unable to select `0` in non-array | "Unable to select `0` in non-array `/document/pages`." | This could happen if the skills output does not produce an array and the output source field name has array index or `*` in its path. Please double check the paths provided in the output source field names and the field value for the indicated field name. Find similar details in [Skill Input was Invalid](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) section.  |
+| Unable to select `0` in non-array | "Unable to select `0` in non-array `/document/pages`." | This could happen if the skills output does not produce an array and the output source field name has array index or `*` in its path. Double check the paths provided in the output source field names and the field value for the indicated field name. Find similar details in [Skill Input was Invalid](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) section.  |
 
 <a name="the-data-change-detection-policy-is-configured-to-use-key-column-x"></a>
 
