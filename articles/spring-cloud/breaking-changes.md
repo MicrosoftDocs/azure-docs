@@ -1,7 +1,6 @@
 ---
 title: Azure Spring Apps API breaking changes
-titleSuffix: Azure Spring Apps Enterprise tier
-description: How to migrate an Azure Spring Apps Basic or Standard tier instance to Enterprise tier
+description: Describes the breaking changes introduced by the latest Azure Spring Apps stable API version.
 author: karlerickson
 ms.author: yuwzho
 ms.service: spring-cloud
