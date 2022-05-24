@@ -224,6 +224,14 @@ The following view shows the writable properties. When you enter the value and s
 
 ![Screenshot that shows Accepted property.](./media/howto-use-properties/accepted.png)
 
+
+## View and Update Properties for unassigned devices
+You can view and update writable properties on a device that isn't assigned to a device template. 
+To view properties on an unassigned device, navigate to the device in the **Devices** section, select **Manage device** and then **Device Properties**, to view existing properties for the devices. You can update the writable properties by updating the values.
+
+The following screenshot shows the user interface you use to view and update properties
+![Screenshot that shows properties.](./media/howto-use-properties/Properties-Unassigned.png)
+
 ## Next steps
 
 Now that you've learned how to use properties in your Azure IoT Central application, see:
