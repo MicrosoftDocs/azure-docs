@@ -47,7 +47,7 @@ dotnet build
 While still in the application directory, install the Azure Communication Services Email client library for .NET package by using the `dotnet add package` command.
 
 ```console
-dotnet add package Azure.Communication.Email --version 1.0.0
+dotnet add package Azure.Communication.Email --prerelease
 ```
 
 Open **Program.cs** and replace the existing code with the following
