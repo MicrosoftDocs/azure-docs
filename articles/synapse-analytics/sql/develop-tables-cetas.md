@@ -101,7 +101,7 @@ WITH (
 AS
 SELECT decennialTime, stateName, SUM(population) AS population
 FROM
-    OPENROWSET(BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=*/*.parquet',
+    OPENROWSET(BULK 'https://azureopendatastorage.dfs.core.windows.net/censusdatacontainer/release/us_population_county/year=*/*.parquet',
     FORMAT='PARQUET') AS [r]
 GROUP BY decennialTime, stateName
 GO
