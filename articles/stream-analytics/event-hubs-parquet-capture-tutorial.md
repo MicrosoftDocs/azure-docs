@@ -1,6 +1,6 @@
 ---
-title: Capture Event Hub data to ADLSG2 in parquet format
-description: Use no code editor to capture Event Hub data in parquet format 
+title: Capture Event Hubs data to ADLSG2 in parquet format
+description: Use no code editor to capture Event Hubs data in parquet format 
 author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
@@ -34,7 +34,7 @@ Before you start, make sure you've completed the following steps:
 1. Locate the Resource Group in which the TollApp event generator was deployed. 
 2. Select the Azure Event Hubs namespace. And then under the Event Hubs section, select **entrystream** instance.
 3. Go to **Process data** under Features section and then click **start** on the Capture in parquet format template.
-[ ![Screenshot of start capture experience.](./media/stream-analytics-no-code/parquet-capture-start.png) ](./media/stream-analytics-no-code/parquet-capture-start.png#lightbox)
+[ ![Screenshot of start capture experience from process data blade.](./media/stream-analytics-no-code/parquet-capture-start.png) ](./media/stream-analytics-no-code/parquet-capture-start.png#lightbox)
 4. Name your job **parquetcapture** and select **Create**.
 5. Configure your event hub input by specifying 
     * Consumer Group: Default
@@ -42,7 +42,7 @@ Before you start, make sure you've completed the following steps:
     * Authentication mode that the job will use to connect to your event hub: Connection String defaults
     * Click **Connect**
 6. Within few seconds, you'll see sample input data and the schema. You can choose to drop fields, rename fields or change data type.
-[![Screenshot of event hub data and schema.](./media/stream-analytics-no-code/event-hub-data-preview.png)](./media/stream-analytics-no-code/event-hub-data-preview.png#lightbox)
+[![Screenshot of event hub data and schema in no code editor.](./media/stream-analytics-no-code/event-hub-data-preview.png)](./media/stream-analytics-no-code/event-hub-data-preview.png#lightbox)
 7. Click the Azure Data Lake Storage Gen2 tile on your canvas and configure it by specifying
     * Subscription where your Azure Data Lake Gen2 account is located in
     * Storage account name which should be the same ADLS Gen2 account used with your Azure Synapse Analytics workspace done in the Prerequisites section.
@@ -51,14 +51,14 @@ Before you start, make sure you've completed the following steps:
     * Date and time pattern as the default *yyyy-mm-dd* and *HH*.
     * Click **Connect**
 8. Select **Save** in the top ribbon to save your job and then select **Start**. Set Streaming Unit count to 3 and then Select **Start** to run your job.
-[![Screenshot of start job.](./media/stream-analytics-no-code/no-code-start-job.png)](./media/stream-analytics-no-code/no-code-start-job.png#lightbox)
+[![Screenshot of start job in no code editor.](./media/stream-analytics-no-code/no-code-start-job.png)](./media/stream-analytics-no-code/no-code-start-job.png#lightbox)
 9. You'll then see a list of all Stream Analytics jobs created using the no code editor. And within two minutes, your job will go to a **Running** state.
-[![Screenshot of job in running state.](./media/stream-analytics-no-code/no-code-job-running-state.png)](./media/stream-analytics-no-code/no-code-job-running-state.png#lightbox)
+[![Screenshot of job in running state after job creation.](./media/stream-analytics-no-code/no-code-job-running-state.png)](./media/stream-analytics-no-code/no-code-job-running-state.png#lightbox)
 
 ## View output in your Azure Data Lake Storage Gen 2 account
 1. Locate the Azure Data Lake Storage Gen2 account you had used in the previous step.
 2. Select the container you had used in the previous step. You'll see parquet files created based on the *{date}/{time}* path pattern used in the previous step.
-[![Screenshot of parquet files in ADLS Gen2.](./media/stream-analytics-no-code/capture-parquet-files.png)](./media/stream-analytics-no-code/capture-parquet-files.png#lightbox)
+[![Screenshot of parquet files in Azure Data Lake Storage Gen 2.](./media/stream-analytics-no-code/capture-parquet-files.png)](./media/stream-analytics-no-code/capture-parquet-files.png#lightbox)
 
 ## Query event hub Capture files in Parquet format with Azure Synapse Analytics
 ### Query using Azure Synapse Spark
@@ -74,7 +74,7 @@ Before you start, make sure you've completed the following steps:
     df.printSchema()
     ```
 5. Select **Run All** to see the results
-[![Screenshot of spark run results.](./media/stream-analytics-no-code/spark-run-all.png)](./media/stream-analytics-no-code/spark-run-all.png#lightbox)
+[![Screenshot of spark run results in Azure Synapse Analytics.](./media/stream-analytics-no-code/spark-run-all.png)](./media/stream-analytics-no-code/spark-run-all.png#lightbox)
 
 ### Query using Azure Synapse Serverless SQL
 1. In the **Develop** hub,  create a new **SQL script**.
@@ -88,7 +88,7 @@ Before you start, make sure you've completed the following steps:
             FORMAT='PARQUET'
         ) AS [result]
      ```
-[![Screenshot of SQL query results.](./media/stream-analytics-no-code/sql-results.png)](./media/stream-analytics-no-code/sql-results.png#lightbox)
+[![Screenshot of SQL query results using Azure Synapse Analytics.](./media/stream-analytics-no-code/sql-results.png)](./media/stream-analytics-no-code/sql-results.png#lightbox)
 
 ## Clean up resources
 1. Locate your Event Hubs instance and see the list of Stream Analytics jobs under **Process Data** section. Stop any jobs that are running.
@@ -96,7 +96,7 @@ Before you start, make sure you've completed the following steps:
 3. Select **Delete resource group**. Type the name of the resource group to confirm deletion.
 
 ## Next steps
-In this tutorial, you learnt how to create a Stream Analytics job using the no code editor to capture Event Hubs data streams in Parquet format. You then used Azure Synapse Analytics to query the parquet files using both Synapse Spark and Synapse SQL.
+In this tutorial, you learned how to create a Stream Analytics job using the no code editor to capture Event Hubs data streams in Parquet format. You then used Azure Synapse Analytics to query the parquet files using both Synapse Spark and Synapse SQL.
 
 > [!div class="nextstepaction"]
 > [No code stream processing with Azure Stream Analytics](https://aka.ms/asanocodeux)
