@@ -113,7 +113,7 @@ In this section, we'll walk through creating a simple LDAP server on a Virtual M
     > [!NOTE]
     > The above command is based on the LDAP setup in the earlier section. If you skipped that section because you already have an existing LDAP server, provide the corresponding values for that server instead.
 
-1. Once this command has completed, you should be able to connect to your managed instance data center using the user added in the above step
+1. Once this command has completed, you should be able to connect to your managed instance data center with the user added in the above step:
 
     ```shell
     export SSL_VALIDATE=false
