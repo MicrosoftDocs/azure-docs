@@ -225,4 +225,4 @@ To summarize, our recommendations for migrating data and associated ETL processe
 
 ## Next steps
 
-To learn more about security access operations, see the next article in this series: [Security, access, and operations for Teradata migrations](3-security-access-operations.md)].
+To learn more about security access operations, see the next article in this series: [Security, access, and operations for Teradata migrations](3-security-access-operations.md).

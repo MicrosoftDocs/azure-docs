@@ -313,4 +313,4 @@ Finally, consider data virtualization to shield BI tools and applications from s
 
 ## Next steps
 
-To learn more about minimizing SQL issues, see the next article in this series: [Minimizing SQL issues for Teradata migrations](5-minimize-sql-issues.md)].
+To learn more about minimizing SQL issues, see the next article in this series: [Minimizing SQL issues for Teradata migrations](5-minimize-sql-issues.md).

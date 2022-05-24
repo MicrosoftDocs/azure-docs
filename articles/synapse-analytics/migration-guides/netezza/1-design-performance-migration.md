@@ -21,7 +21,7 @@ This article is part one of a seven part series that provides guidance on how to
 > [!TIP]
 > More than just a database&mdash;the Azure environment includes a comprehensive set of capabilities and tools.
 
-Due to end of support from IBM, existing users of Netezza data warehouse systems want to take advantage of the innovations provided by newer environments such as cloud, IaaS, and PaaS, and to delegate things like infrastructure maintenance and platform development to the cloud provider.
+Due to end of support from IBM, many existing users of Netezza data warehouse systems want to take advantage of the innovations provided by newer environments such as cloud, IaaS, and PaaS, and to delegate tasks like infrastructure maintenance and platform development to the cloud provider.
 
 Although Netezza and Azure Synapse are both SQL databases designed to use massively parallel processing (MPP) techniques to achieve high query performance on exceptionally large data volumes, there are some basic differences in approach:
 
@@ -31,7 +31,7 @@ Although Netezza and Azure Synapse are both SQL databases designed to use massiv
 
 - Azure Synapse can be paused or resized as required to reduce resource utilization and cost.
 
-Microsoft Azure is a globally available, highly secure, scalable cloud environment that includes Azure Synapse in an ecosystem of supporting tools and capabilities. The next diagram summarizes the Synapse ecosystem.
+Microsoft Azure is a globally available, highly secure, scalable cloud environment, that includes Azure Synapse and an ecosystem of supporting tools and capabilities. The next diagram summarizes the Azure Synapse ecosystem.
 
 :::image type="content" source="../media/1-design-performance-migration/azure-synapse-ecosystem.png" border="true" alt-text="Chart showing the Azure Synapse ecosystem of supporting tools and capabilities.":::
 
@@ -102,7 +102,7 @@ This is a good fit for existing Netezza environments where a single data mart is
 
 ##### Phased approach incorporating modifications
 
-In cases where a legacy warehouse has evolved over a long time, you may need to reengineer to maintain the required performance levels or to support new data like IoT steams. Migrate to Azure Synapse to get the benefits of a scalable cloud environment as part of the re-engineering process. Migration could include a change in the underlying data model, such as a move from an Inmon model to a data vault.
+In cases where a legacy warehouse has evolved over a long time, you may need to reengineer to maintain the required performance levels or to support new data, such as Internet of Things (IoT) streams. Migrate to Azure Synapse to get the benefits of a scalable cloud environment as part of the re-engineering process. Migration could include a change in the underlying data model, such as a move from an Inmon model to a data vault.
 
 Microsoft recommends moving the existing data model as-is to Azure and using the performance and flexibility of the Azure environment to apply the re-engineering changes, leveraging Azure's capabilities to make the changes without impacting the existing source system.
 
@@ -331,4 +331,4 @@ Use [Workload management](/azure/synapse-analytics/sql-data-warehouse/sql-data-w
 
 ## Next steps
 
-To learn more about ETL and load for Netezza migration, see the next article in this series: [Data migration, ETL, and load for Netezza migration](2-etl-load-migration-considerations.md)].
+To learn more about ETL and load for Netezza migration, see the next article in this series: [Data migration, ETL, and load for Netezza migration](2-etl-load-migration-considerations.md).

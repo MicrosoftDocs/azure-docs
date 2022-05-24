@@ -373,4 +373,4 @@ Leverage PolyBase and `COPY INTO` to go beyond your data warehouse. Simplify acc
 
 ## Next steps
 
-To learn more about migrating to a dedicated SQL pool, see [Migrate a data warehouse to a dedicated SQL pool in Azure Synapse Analytics](../migrate-to-synapse-analytics-guide.md)].
+To learn more about migrating to a dedicated SQL pool, see [Migrate a data warehouse to a dedicated SQL pool in Azure Synapse Analytics](../migrate-to-synapse-analytics-guide.md).

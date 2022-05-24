@@ -333,4 +333,4 @@ Use [Workload management](/azure/synapse-analytics/sql-data-warehouse/sql-data-w
 
 ## Next steps
 
-To learn more about ETL and load for Teradata migration, see the next article in this series: [Data migration, ETL, and load for Teradata migration](2-etl-load-migration-considerations.md)].
+To learn more about ETL and load for Teradata migration, see the next article in this series: [Data migration, ETL, and load for Teradata migration](2-etl-load-migration-considerations.md).

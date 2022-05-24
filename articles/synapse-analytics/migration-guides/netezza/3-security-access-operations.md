@@ -313,4 +313,4 @@ Adding more compute nodes adds more compute power and ability to leverage more p
 
 ## Next steps
 
-To learn more about visualization and reporting, see the next article in this series: [Visualization and reporting for Netezza migrations](4-visualization-reporting.md)].
+To learn more about visualization and reporting, see the next article in this series: [Visualization and reporting for Netezza migrations](4-visualization-reporting.md).

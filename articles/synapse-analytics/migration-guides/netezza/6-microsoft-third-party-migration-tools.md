@@ -131,4 +131,4 @@ In addition to tools that can help you with various aspects of data warehouse mi
 
 ## Next steps
 
-To learn more about implementing modern data warehouses, see the next article in this series: [Beyond Netezza migration, implementing a modern data warehouse in Microsoft Azure](7-beyond-data-warehouse-migration.md)].
+To learn more about implementing modern data warehouses, see the next article in this series: [Beyond Netezza migration, implementing a modern data warehouse in Microsoft Azure](7-beyond-data-warehouse-migration.md).
