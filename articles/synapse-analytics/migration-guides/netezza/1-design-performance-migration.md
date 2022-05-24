@@ -108,9 +108,9 @@ Microsoft recommends moving the existing data model as-is to Azure and using the
 
 #### Use Azure Data Factory to implement a metadata-driven migration
 
-Automate and orchestrate the migration process by making use of the capabilities in the Azure environment. This approach minimizes the impact on the existing Netezza environment, which may already be running close to full capacity.
+Automate and orchestrate the migration process by using the capabilities of the Azure environment. This approach minimizes the impact on the existing Netezza environment, which may already be running close to full capacity.
 
-Data Factory is a cloud-based data integration service that allows creation of data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Using Data Factory, you can create and schedule data-driven workflows&mdash;called pipelines&mdash;to ingest data from disparate data stores. It can process and transform data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning.
+Azure Data Factory is a cloud-based data integration service that allows creation of data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Using Data Factory, you can create and schedule data-driven workflows&mdash;called pipelines&mdash;to ingest data from disparate data stores. Data Factory can process and transform data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning.
 
 By creating metadata to list the data tables to be migrated and their location, you can use the Data Factory facilities to manage the migration process.
 
@@ -232,7 +232,7 @@ Most modern database products allow for procedures to be stored within the datab
 
 A stored procedure typically contains SQL statements and some procedural logic, and may return data or a status.
 
-Azure Synapse Analytics from Azure SQL Data Warehouse also supports stored procedures using T-SQL. If you must migrate stored procedures, recode these procedures for their new environment.
+Azure Synapse Analytics also supports stored procedures using T-SQL. If you must migrate stored procedures, recode these procedures for their new environment.
 
 ##### Sequences
 
@@ -271,7 +271,7 @@ If sufficient network bandwidth is available, extract data directly from an on-p
 
 Recommended data formats for the extracted data include delimited text files (also called Comma Separated Values or CSV), Optimized Row Columnar (ORC), or Parquet files.
 
-For more detailed information on the process of migrating data and ETL from a Netezza environment, see Section 2.1. Data Migration ETL and Load from Netezza.
+For more information about the process of migrating data and ETL from a Netezza environment, see [Data migration, ETL, and load for Netezza migration](1-design-performance-migration.md).
 
 ## Performance recommendations for Netezza migrations
 
