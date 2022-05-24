@@ -231,6 +231,7 @@ To view properties on an unassigned device, navigate to the device in the **Devi
 
 The following screenshot shows the user interface you use to view and update properties
 ![Screenshot that shows properties.](./media/howto-use-properties/Properties-Unassigned.png)
+![Screenshot that shows how to update properties.](./media/howto-use-properties/Properties-Unassigned-view-update.png)
 
 ## Next steps
 
