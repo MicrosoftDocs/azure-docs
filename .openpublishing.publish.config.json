@@ -33,6 +33,18 @@
   "contribution_branch_mappings": {},
   "dependent_repositories": [
     {
+      "path_to_root": "azure-dev-docs",
+      "url": "https://github.com/MicrosoftDocs/azure-dev-docs",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "terraform_samples",
+      "url": "https://github.com/Azure/terraform",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "quickstart-templates",
       "url": "https://github.com/Azure/azure-quickstart-templates",
       "branch": "master",
