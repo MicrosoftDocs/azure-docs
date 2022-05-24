@@ -37,7 +37,5 @@ To disable access to the App Configuration store from public network, follow the
 
 ## Next steps
 
-Now that you have disabled public access, it's time to set up a private access endpoint.
-
 > [!div class="nextstepaction"]
 >[Using private endpoints for Azure App Configuration](./concept-private-endpoint.md)
