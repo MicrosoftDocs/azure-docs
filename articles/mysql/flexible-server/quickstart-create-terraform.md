@@ -27,10 +27,13 @@ In this article, you learn how to deploy an Azure MySQL Flexible Server Database
 
 > [!div class="checklist"]
 
-> * Define a virtual network
-> * Define a subnet
-> * Define a private DNS zone
-> * Define a MySQL Flexible Server Database
+> * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
+> * Create an Azure virtual network (VNet) using [azurerm_virtual_network](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network)
+> * Create an Azure subnet using [azurerm_subnet](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet)
+> * Define a private DNS zone within an Azure DNS using [azurerm_private_dns_zone](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_zone)
+> * Define a private DNS zone VNet link using using [azurerm_private_dns_zone_virtual_network_link](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_zone_virtual_network_link)
+> * Deploy an Azure PostgreSQL Flexible Server on which the database runs using [azurerm_mysql_flexible_server](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_flexible_server)
+> * Instantiate an Azure PostgreSQL database using using [azurerm_mysql_flexible_database](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mysql_flexible_database)
 
 > [!NOTE]
 > The example code in this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/201-mysql-fs-db).
@@ -78,6 +81,32 @@ In this article, you learn how to deploy an Azure MySQL Flexible Server Database
 [!INCLUDE [terraform-apply-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-apply-plan.md)]
 
 ## Verify the results
+
+#### [Azure CLI](#tab/azure-cli)
+
+Run [az mysql flexible-server db show](/cli/azure/mysql/flexible-server/db#az-mysql-flexible-server-db-show) to display the Azure MySQL database.
+
+```azurecli
+az mysql flexible-server db show --resource-group <resource_group_name> --server-name <azurerm_mysql_flexible_server> --database-name <mysql_flexible_server_database_name>
+```
+
+**Key points:**
+
+- The values for the `<resource_group_name>`, `<azurerm_mysql_flexible_server>`, and `<mysql_flexible_server_database_name>` are displayed in the `terraform apply` output. You can also run the [terraform output](https://www.terraform.io/cli/commands/output) command to view these output values.
+
+#### [Azure PowerShell](#tab/azure-powershell)
+
+Run [Get-AzMySqlFlexibleServerDatabase](/powershell/module/az.mysql/get-azmysqlflexibleserverdatabase) to display the Azure MySQL database.
+
+```azurepowershell
+Get-AzMySqlFlexibleServerDatabase -ResourceGroupName <resource_group_name> -ServerName <azurerm_mysql_flexible_server> -Name <mysql_flexible_server_database_name>
+```
+
+**Key points:**
+
+- The values for the `<resource_group_name>`, `<azurerm_mysql_flexible_server>`, and `<mysql_flexible_server_database_name>` are displayed in the `terraform apply` output. You can also run the [terraform output](https://www.terraform.io/cli/commands/output) command to view these output values.
+
+---
 
 ## Clean up resources
 
