@@ -25,7 +25,7 @@ This article explains how to create and use a service principal to deploy your A
 
 ## Create and use a service principal
 
-The following sections explain how to create and use a service principal to deploy an Azure Red Hat OpenShift cluster. 
+The following sections explain how to create and use a service principal to deploy an Azure Red Hat OpenShift cluster.   
 
 ## Prerequisites - Azure CLI
 
