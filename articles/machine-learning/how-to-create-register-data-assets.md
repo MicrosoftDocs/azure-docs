@@ -10,7 +10,7 @@ ms.custom: contperf-fy21q1, data4ml, sdkv1
 ms.author: xunwan
 author: xunwan
 ms.reviewer: nibaccam
-ms.date: 05/11/2022
+ms.date: 05/24/2022
 
 # Customer intent: As an experienced data scientist, I need to package my data into a consumable and reusable object to train my machine learning models.
 
@@ -343,7 +343,7 @@ transformations:
       header: all_files_same_headers
 ```
 
-The important part here is that the MLTable-artifact does have not have any absolute paths, hence it is self-contained and all that is needed is stored in that one folder; regardless of whether that folder is stored on your local drive or in your cloud drive or on a public http server.
+The important part here's that the MLTable-artifact doesn't have any absolute paths, hence it's self-contained and all that is needed is stored in that one folder; regardless of whether that folder is stored on your local drive or in your cloud drive or on a public http server.
 
 This artifact file can be consumed in a command job as follows:
 
@@ -390,7 +390,7 @@ command: |
       "
 ```
 
-You can also has an MLTable file stored on their *local machine*, but no data files. The underlying data is stored on the cloud. In this case, the MLTable should reference the underlying data by means of an **absolute expression (i.e. a URI)**:
+You can also have an MLTable file stored on the *local machine*, but no data files. The underlying data is stored on the cloud. In this case, the MLTable should reference the underlying data with an **absolute expression (i.e. a URI)**:
 
 ```
 .
@@ -414,7 +414,7 @@ transformations:
 
 
 ### Supporting multiple files in a table
-While above scenarios are creating rectangular data, it is also possible to create an mltable-artifact that just contains files:
+While above scenarios are creating rectangular data, it's also possible to create an mltable-artifact that just contains files:
 
 ```
 .
@@ -437,7 +437,7 @@ paths:
   - file: http://foo.com/5.csv
 ```
 
-As outlined above, mltable can be created from a URI or a local folder path:
+As outlined above, MLTable can be created from a URI or a local folder path:
 
 ```yaml
 #source ../configs/types/22_input_mldataset_artifacts-PipelineJob.yaml
@@ -485,7 +485,7 @@ jobs:
       "
 ```
 
-MLTable-artifacts can yield files that are not necessarily located in the `mltable`'s storage. Or it can **subset or shuffle** the data that resides in the storage using the `take_random_sample` transform for example. That view is only visible if the MLTable file is actually evaluated by the engine. The user can do that as described above by using the MLTable SDK by running `mltable.load` -- but that requires python and the installation of the SDK.
+MLTable-artifacts can yield files that aren't necessarily located in the `mltable`'s storage. Or it can **subset or shuffle** the data that resides in the storage using the `take_random_sample` transform for example. That view is only visible if the MLTable file is evaluated by the engine. The user can do that as described above by using the MLTable SDK by running `mltable.load`, but that requires python and the installation of the SDK.
 
 ### Support globbing of files
 Along with users being able to provide a `file` or `folder`, the MLTable artifact file will also allow customers to specify a *pattern* to do globbing of files:
@@ -506,7 +506,7 @@ transformations:
 ### Delimited text: Transformations
 There are the following transformations that are *specific to delimited text*.
 
-- `infer_column_types`: Boolean to infer column data types. Defaults to True. Type inference requires that the data source is accessible from current compute. Currently type inference will only pull first 200 rows. If the data contains multiple types of value, it is better to provide desired type as an override via `set_column_types` argument
+- `infer_column_types`: Boolean to infer column data types. Defaults to True. Type inference requires that the data source is accessible from current compute. Currently type inference will only pull first 200 rows. If the data contains multiple types of value, it's better to provide desired type as an override via `set_column_types` argument
 - `encoding`: Specify the file encoding. Supported encodings are 'utf8', 'iso88591', 'latin1', 'ascii', 'utf16', 'utf32', 'utf8bom' and 'windows1252'. Defaults to utf8.
 - header: user can choose one of the following options:
   - `no_header`
@@ -514,7 +514,7 @@ There are the following transformations that are *specific to delimited text*.
   - `all_files_different_headers`
   - `all_files_same_headers` (default)
 - `delimiter`: The separator used to split columns.
-- `empty_as_string`: Specify if empty field values should be loaded as empty strings. The default (False) will read empty field values as nulls. Passing this as True will read empty field values as empty strings. If the values are converted to numeric or datetime then this has no effect, as empty values will be converted to nulls.
+- `empty_as_string`: Specify if empty field values should be loaded as empty strings. The default (False) will read empty field values as nulls. Passing this as True will read empty field values as empty strings. If the values are converted to numeric or datetime, then this has no effect as empty values will be converted to nulls.
 - `include_path_column`: Boolean to keep path information as column in the table. Defaults to False. This is useful when reading multiple files, and want to know which file a particular record originated from, or to keep useful information in file path.
 - `support_multi_line`: By default (support_multi_line=False), all line breaks, including those in quoted field values, will be interpreted as a record break. Reading data this way is faster and more optimized for parallel execution on multiple CPU cores. However, it may result in silently producing more records with misaligned field values. This should be set to True when the delimited files are known to contain quoted line breaks.
 
@@ -531,7 +531,8 @@ Below are the supported transformations that are specific for json lines:
 - `encoding` Specify the file encoding. Supported encodings are `utf8`, `iso88591`, `latin1`, `ascii`, `utf16`, `utf32`, `utf8bom` and `windows1252`. Default is `utf8`.
 
 ## Global Transforms
-As well as having transforms specific to the delimited text, parquet, Delta. There are other transforms that mltable-artifact files support:
+
+MLTable-artifacts provide transformations specific to the delimited text, parquet, Delta. There are other transforms that mltable-artifact files support:
 
 - `take`: Takes the first *n* records of the table
 - `take_random_sample`: Takes a random sample of the table where each record has a *probability* of being selected. The user can also include a *seed*.
@@ -540,11 +541,11 @@ As well as having transforms specific to the delimited text, parquet, Delta. The
 - `keep_columns`: Keeps only the specified columns in the table. This transform supports regex so that users can keep columns matching a particular pattern.
 - `filter`: Filter the data, leaving only the records that match the specified expression. **NOTE: This will come post-GA as we need to define the filter query language**.
 - `extract_partition_format_into_columns`: Specify the partition format of path. Defaults to None. The partition information of each path will be extracted into columns based on the specified format. Format part '{column_name}' creates string column, and '{column_name:yyyy/MM/dd/HH/mm/ss}' creates datetime column, where 'yyyy', 'MM', 'dd', 'HH', 'mm' and 'ss' are used to extract year, month, day, hour, minute and second for the datetime type. The format should start from the position of first partition key until the end of file path. For example, given the path '../Accounts/2019/01/01/data.csv' where the partition is by department name and time, partition_format='/{Department}/{PartitionDate:yyyy/MM/dd}/data.csv' creates a string column 'Department' with the value 'Accounts' and a datetime column 'PartitionDate' with the value '2019-01-01'.
-Our principle here is to support transforms *specific to data delivery* and not to get into wider feature engineering transforms.
+Our principle here's to support transforms *specific to data delivery* and not to get into wider feature engineering transforms.
 
 
 ## Traits
-The keen eyed among you may have spotted that `mltable` type supports a `traits` section. Traits define fixed characteristics of the table (i.e. they are **not** freeform metadata that users can add) and they do not perform any transformations but can be used by the engine.
+The keen eyed among you may have spotted that `mltable` type supports a `traits` section. Traits define fixed characteristics of the table (that is, they are **not** freeform metadata that users can add) and they don't perform any transformations but can be used by the engine.
 
 - `index_columns`: Set the table index using existing columns. This trait can be used by partition_by in the data plane to split data by the index.
 - `timestamp_column`: Defines the timestamp column of the table. This trait can be used in filter transforms, or in other data plane operations (SDK) such as drift detection.
@@ -553,7 +554,7 @@ Moreover, *in the future* we can use traits to define RAI aspects of the data, f
 
 - `sensitive_columns`: Here the user can define certain columns that contain sensitive information.
 
-Again, this is not a transform but is informing the system of some additional properties in the data.
+Again, this isn't a transform but is informing the system of some extra properties in the data.
 
 
 

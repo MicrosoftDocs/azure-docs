@@ -1,7 +1,7 @@
 ---
 title: How to administrate data authentication
 titleSuffix: Azure Machine Learning
-description: Learn how to manage data access and how to anthenticate in Azure Machine Learning
+description: Learn how to manage data access and how to authenticate in Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.author: xunwan
 author: xunwan
 ms.reviewer: larryfr
-ms.date: 05/19/2022
+ms.date: 05/24/2022
 
 # Customer intent: As an administrator, I need to administrate data access and set up authentication method for data scientists.
 ---
 
 # How to authenticate data access
-Learn how to manage data access and how to anthenticate in Azure Machine Learning
+Learn how to manage data access and how to authenticate in Azure Machine Learning
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
