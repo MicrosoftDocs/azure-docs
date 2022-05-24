@@ -69,7 +69,7 @@ Requirements:
 * Three [availability zones in the region](/availability-zones/az-overview.md#azure-regions-with-availability-zones).
 
 >[!NOTE]
->Migration to a zone resilient configuration can cause a brief loss of external connectivity through the load balancer, but will not effect cluster health. This occurs when a new Public IP needs to be created in order to make the networking resilient to Zone failures. Please plan the migration accordingly.
+>Migration to a zone resilient configuration can cause a brief loss of external connectivity through the load balancer, but will not affect cluster health. This occurs when a new Public IP needs to be created in order to make the networking resilient to Zone failures. Please plan the migration accordingly.
 
 1) Start with determining if there will be a new IP required and what resources need to be migrated to become zone resilient. To get the current Availability Zone resiliency state for the resources of the managed cluster use the following  API call:
 
@@ -133,7 +133,7 @@ Requirements:
 }
 ```
 
-4) Add secondary node type which spans across availability zones
+4) Add secondary node type which spans across availability zones.
    This step will add a secondary node type which spans across availability zones similar to the primary node type. Once created, customers need to migrate existing services from the old node types to the new ones by [using placement properties](./service-fabric-cluster-resource-manager-cluster-description.md).
 
 * Use apiVersion 2022-02-01-preview or higher.
