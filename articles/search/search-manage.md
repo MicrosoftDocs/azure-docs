@@ -68,7 +68,7 @@ Service administration includes the following tasks:
 * [Configure a private endpoint](service-create-private-endpoint.md) using Azure Private Link and a private virtual network
 * [Monitor service health and operations](monitor-azure-cognitive-search.md): storage, query volumes, and latency
 
-There is feature parity across all modalities and languages, with the exception of preview management features. Most preview management features are released through the Management REST API first. Programmatic support for service administration can be found in the following APIs and modules:
+There is feature parity across all modalities and languages except for preview management features. In general, preview management features are released through the Management REST API first. Programmatic support for service administration can be found in the following APIs and modules:
 
 * [Management REST API reference](/rest/api/searchmanagement/)
 * [Az.Search PowerShell module](search-manage-powershell.md)
@@ -78,15 +78,21 @@ You can also use the management client libraries in the Azure SDKs for .NET, Pyt
 
 ## Data collection and retention
 
-Cognitive Search leverages other Azure services for deeper monitoring and management. By itself, the only persistent data stored within the search service are the structures that support indexing, enrichment, and queries. These structures include indexes, indexers, data sources, skillsets, and synonym maps. All other data structures, including those for saving debug session state or caching, use Azure Storage.
+Cognitive Search uses other Azure services for deeper monitoring and management. By itself, the only persistent data stored within the search service are the structures that support indexing, enrichment, and queries. These structures include indexes, indexers, data sources, skillsets, and synonym maps. All other saved data, including debug session state and caching, is placed in Azure Storage.
 
-Metrics reported out to portal pages are pulled from internal logs on a rolling 30-day cycle. For user-controlled log retention and additional events, you will need [Azure Monitor](../azure-monitor/index.yml) and a supported approach for retaining log data.  For more information about setting up diagnostic logging for a search service, see [Collect and analyze log data](monitor-azure-cognitive-search.md).
+Metrics reported out to portal pages are pulled from internal logs on a rolling 30-day cycle. For user-controlled log retention and more events, you will need [Azure Monitor](../azure-monitor/index.yml) and a supported approach for retaining log data.  For more information about setting up diagnostic logging for a search service, see [Collect and analyze log data](monitor-azure-cognitive-search.md).
 
 ## Administrator permissions
 
-When you open the search service overview page, the Azure role assigned to your account determines what content is available to you. The overview page at the beginning of the article shows the portal pages an Owner or Contributor will see.
+When you open the search service overview page, the Azure role assigned to your account determines what portal content is available to you. The overview page at the beginning of the article shows the portal content available to an Owner or Contributor.
 
-In the context of Azure Cognitive Search, [role assignments](search-security-rbac.md) will determine who can allocate replicas and partitions or manage API keys, regardless of whether they are using the portal, [PowerShell](search-manage-powershell.md), [Azure CLI](search-manage-azure-cli.md),or the [Management REST APIs](/rest/api/searchmanagement):
+Control plane roles include the following:
+
+* Owner
+* Contributor (same as Owner, minus the ability to assign roles)
+* Reader (access to service information and the Monitoring tab)
+
+If you want a combination of control plane and data plane permissions, consider Search Service Contributor. For more information, see [Built-in roles](search-security-rbac.md#built-in-roles-used-in-search).
 
 > [!TIP]
 > By default, any Owner or Co-owner can create or delete services. To prevent accidental deletions, you can  [lock resources](../azure-resource-manager/management/lock-resources.md).

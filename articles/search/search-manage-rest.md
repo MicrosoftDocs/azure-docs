@@ -74,7 +74,7 @@ An easy way to generate the required client ID and password is using the **Try I
 
    :::image type="content" source="/media/search-manage/azure-cloud-shell-create-sec-principal.png" alt-text="Screenshot of AzureCloudShell inputs and outputs.":::
 
-   You'll use "appId", "password", and "tenantId" for the variables "clientId", "clientSecret", and "tenantId" in the next section..
+   You'll use "appId", "password", and "tenantId" for the variables "clientId", "clientSecret", and "tenantId" in the next section.
 
 ## Set up Postman
 
@@ -88,7 +88,7 @@ The following steps are from [this blog post](https://blog.jongallant.com/2021/0
     | clientSecret | Provide the "password" that was created for your client. |
     | tenantId | Provide the "tenant" that was returned in the previous step. |
     | subscriptionId | Provide the subscription ID for your subscription. |
-    | resource | Enter `https://management.azure.com/`. This is the Azure resource used for all control plane (service provisioning and management) operations. | 
+    | resource | Enter `https://management.azure.com/`. This Azure resource is used for all control plane operations. | 
     | bearerToken | (leave blank; the token is generated programmatically) |
 
 1. In the Authorization tab, select **Bearer Token** as the type.
@@ -135,7 +135,7 @@ The following steps are from [this blog post](https://blog.jongallant.com/2021/0
 
 1. Save the collection.
 
-Now that Postman is set up, you can send REST calls similar to those described in this article. You'll update the endpoint, and request body where applicable.
+Now that Postman is set up, you can send REST calls similar to the ones described in this article. You'll update the endpoint, and request body where applicable.
 
 ## List search services
 
@@ -199,7 +199,7 @@ PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups
 
 If you're using [customer-managed encryption](search-security-manage-encryption-keys.md), you can enable "encryptionWithCMK" with "enforcement" set to "Enabled" if you want the search service to report its compliance status.
 
-When this policy is enabled, calls that create objects with sensitive data, such as the connection string within a data source, will fail if an encryption key isn't provided: `"Error creating Data Source: "CannotCreateNonEncryptedResource: The creation of non-encrypted DataSources is not allowed when encryption policy is enforced."`
+When you enable this policy, calls that create objects with sensitive data, such as the connection string within a data source, will fail if an encryption key isn't provided: `"Error creating Data Source: "CannotCreateNonEncryptedResource: The creation of non-encrypted DataSources is not allowed when encryption policy is enforced."`
 
 ```rest
 PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-preview
@@ -243,7 +243,7 @@ PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups
 
 ## (preview) Disable workloads that push data to external resources
 
-Azure Cognitive Search makes outbound calls that [write to external data sources](search-indexer-securing-resources.md) when creating or updating a knowledge store, saving debug session state, or caching enrichments. The following example disables these workloads at the service level.
+Azure Cognitive Search [writes to external data sources](search-indexer-securing-resources.md) when updating a knowledge store, saving debug session state, or caching enrichments. The following example disables these workloads at the service level.
 
 ```rest
 PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups/{{resource-group}}/providers/Microsoft.Search/searchServices/{{search-service-name}}?api-version=2021-04-01-preview
