@@ -139,6 +139,8 @@
     items:
     - name: Attestation
       href: ../../attestation/quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Defender for Cloud
+      href: ../../defender-for-cloud/quickstart-automation-alert.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Key Vault - secret
       href: ../../key-vault/secrets/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Storage
