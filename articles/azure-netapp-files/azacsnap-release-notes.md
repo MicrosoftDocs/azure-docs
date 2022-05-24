@@ -12,13 +12,30 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/08/2022
+ms.date: 05/24/2022
 ms.author: phjensen
 ---
 
 # Release Notes for Azure Application Consistent Snapshot tool
 
 This page lists major changes made to AzAcSnap to provide new functionality or resolve defects.
+
+## May-2022
+
+### AzAcSnap v5.0.3 (Build: 20220524.14204) - Patch update to v5.0.2
+
+AzAcSnap v5.0.3 (Build: 20220524.14204) is provided as a patch update to the v5.0 branch with the following fix:
+
+- Fix for handling delimited identifiers when querying SAP HANA.  This issue only impacted SAP HANA in HSR-HA node when there is a Secondary node configured with 'logreplay_readaccss' and has been resolved.
+
+Download the [latest release](https://aka.ms/azacsnapinstaller) of the installer and review how to [get started](azacsnap-get-started.md).
+
+### AzAcSnap v5.1 Preview (Build: 20220524.15550)
+
+AzAcSnap v5.1 Preview (Build: 20220524.15550) is an updated build to extend the preview expiry date for 90 days.  This update contains the fix for handling delimited identifiers when querying SAP HANA as provided in v5.0.3.
+
+Read about the [AzAcSnap Preview](azacsnap-preview.md).
+Download the [latest release of the Preview installer](https://aka.ms/azacsnap-preview-installer).
 
 ## Mar-2022
 
