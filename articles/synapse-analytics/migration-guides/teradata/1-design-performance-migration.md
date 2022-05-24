@@ -21,7 +21,7 @@ This article is part one of a seven part series that provides guidance on how to
 > [!TIP]
 > More than just a database&mdash;the Azure environment includes a comprehensive set of capabilities and tools.
 
-Existing users of Teradata data warehouse systems want to take advantage of the innovations provided by newer environments such as cloud, IaaS, or PaaS, and to delegate tasks like infrastructure maintenance and platform development to the cloud provider.
+Many existing users of Teradata data warehouse systems want to take advantage of the innovations provided by newer environments such as cloud, IaaS, or PaaS, and to delegate tasks like infrastructure maintenance and platform development to the cloud provider.
 
 Although Teradata and Azure Synapse are both SQL databases designed to use massively parallel processing (MPP) techniques to achieve high query performance on exceptionally large data volumes, there are some basic differences in approach:
 
@@ -33,7 +33,7 @@ Although Teradata and Azure Synapse are both SQL databases designed to use massi
 
 - Upgrading a Teradata configuration is a major task involving additional physical hardware and potentially lengthy database reconfiguration or reload.
 
-Microsoft Azure is a globally available, highly secure, scalable cloud environment that includes Azure Synapse in an ecosystem of supporting tools and capabilities. The next diagram summarizes the Synapse ecosystem.
+Microsoft Azure is a globally available, highly secure, scalable cloud environment, that includes Azure Synapse and an ecosystem of supporting tools and capabilities. The next diagram summarizes the Azure Synapse ecosystem.
 
 :::image type="content" source="../media/1-design-performance-migration/azure-synapse-ecosystem.png" border="true" alt-text="Chart showing the Azure Synapse ecosystem of supporting tools and capabilities.":::
 
