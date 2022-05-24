@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 10/21/2021
 ms.author: larryfr
 author: blackmist
-ms.custom: deploy, sdkv1
+ms.custom: deploy, sdkv1, event-tier1-build-2022
 ---
 
 # Advanced entry script authoring

@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: enterprise-readiness
 ms.date: 02/02/2022
 ms.topic: how-to
-ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps, cliv1, sdkv1
+ms.custom: has-adal-ref, devx-track-js, contperf-fy21q2, subject-rbac-steps, cliv1, sdkv1, event-tier1-build-2022
 ---
 
 # Set up authentication for Azure Machine Learning resources and workflows

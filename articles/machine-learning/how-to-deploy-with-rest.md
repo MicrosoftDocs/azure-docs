@@ -11,7 +11,7 @@ author: rsethur
 ms.author: seramasu
 ms.date: 12/22/2021
 ms.reviewer: laobri
-ms.custom: devplatv2
+ms.custom: devplatv2, event-tier1-build-2022
 ---
 
 # Deploy models with REST

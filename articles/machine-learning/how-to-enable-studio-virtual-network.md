@@ -10,8 +10,7 @@ ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
 ms.date: 11/19/2021
-ms.custom: contperf-fy20q4, tracking-python, security
-
+ms.custom: contperf-fy20q4, tracking-python, security, event-tier1-build-2022
 ---
 
 # Use Azure Machine Learning studio in an Azure virtual network

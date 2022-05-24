@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: larryfr
 author: blackmist
 ms.date: 04/05/2022
-ms.custom: sdkv1
+ms.custom: sdkv1, event-tier1-build-2022
 ---
 # Git integration for Azure Machine Learning
 

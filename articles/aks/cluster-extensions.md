@@ -1,14 +1,15 @@
 ---
-title: Cluster extensions for Azure Kubernetes Service (AKS) (preview)
+title: Cluster extensions for Azure Kubernetes Service (AKS)
 description: Learn how to deploy and manage the lifecycle of extensions on Azure Kubernetes Service (AKS)
 ms.service: container-service
-ms.date: 10/13/2021
+ms.custom: event-tier1-build-2022
+ms.date: 05/13/2022
 ms.topic: article
 author: nickomang
 ms.author: nickoman
 ---
 
-# Deploy and manage cluster extensions for Azure Kubernetes Service (AKS) (preview)
+# Deploy and manage cluster extensions for Azure Kubernetes Service (AKS)
 
 Cluster extensions provides an Azure Resource Manager driven experience for installation and lifecycle management of services like Azure Machine Learning (ML) on an AKS cluster. This feature enables:
 
@@ -23,8 +24,6 @@ In this article, you will learn about:
 > * How to view, list, update, and delete extension instances.
 
 A conceptual overview of this feature is available in [Cluster extensions - Azure Arc-enabled Kubernetes][arc-k8s-extensions] article.
-
-[!INCLUDE [preview features note](./includes/preview/preview-callout.md)]
 
 ## Prerequisites
 
@@ -43,69 +42,6 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 >  podLabels:
 >    clusterconfig.azure.com/managedby: k8s-extension
 > ```
-
-### Register provider for cluster extensions
-
-#### [Azure CLI](#tab/azure-cli)
-
-1. Enter the following commands:
-
-    ```azurecli-interactive
-    az provider register --namespace Microsoft.KubernetesConfiguration
-    az provider register --namespace Microsoft.ContainerService
-    ```
-
-2. Monitor the registration process. Registration may take up to 10 minutes.
-
-    ```azurecli-interactive
-    az provider show -n Microsoft.KubernetesConfiguration -o table
-    az provider show -n Microsoft.ContainerService -o table
-    ```
-
-    Once registered, you should see the `RegistrationState` state for these namespaces change to `Registered`.
-
-#### [PowerShell](#tab/azure-powershell)
-
-1. Enter the following commands:
-
-    ```azurepowershell
-    Register-AzResourceProvider -ProviderNamespace Microsoft.KubernetesConfiguration
-    Register-AzResourceProvider -ProviderNamespace Microsoft.ContainerService
-    ```
-
-1. Monitor the registration process. Registration may take up to 10 minutes.
-
-    ```azurepowershell
-    Get-AzResourceProvider -ProviderNamespace Microsoft.KubernetesConfiguration
-    Get-AzResourceProvider -ProviderNamespace Microsoft.ContainerService
-    ```
-
-    Once registered, you should see the `RegistrationState` state for these namespaces change to `Registered`.
-
----
-
-### Register the `AKS-ExtensionManager` preview features
-
-To create an AKS cluster that can use cluster extensions, you must enable the `AKS-ExtensionManager` feature flag on your subscription.
-
-Register the `AKS-ExtensionManager` feature flag by using the [az feature register][az-feature-register] command, as shown in the following example:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "AKS-ExtensionManager"
-```
-
-It takes a few minutes for the status to show *Registered*. Verify the registration status by using the [az feature list][az-feature-list] command:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-ExtensionManager')].{Name:name,State:properties.state}"
-```
-
-When ready, refresh the registration of the *Microsoft.KubernetesConfiguration* and *Microsoft.ContainerService* resource providers by using the [az provider register][az-provider-register] command:
-
-```azurecli-interactive
-az provider register --namespace Microsoft.KubernetesConfiguration
-az provider register --namespace Microsoft.ContainerService
-```
 
 ### Setup the Azure CLI extension for cluster extensions
 

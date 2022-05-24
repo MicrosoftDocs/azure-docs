@@ -11,7 +11,7 @@ ms.reviewer: larryfr
 ms.author: andzha
 author: Anurzeuii
 ms.date: 05/09/2022
-ms.custom: references_regions
+ms.custom: references_regions, event-tier1-build-2022
 ---
 
 # Azure Machine Learning feature availability across clouds regions
@@ -22,6 +22,8 @@ In the list of global Azure regions, there are several regions that serve specif
 
 * Azure Government regions **US-Arizona** and **US-Virginia**.
 * Azure China 21Vianet region **China-East-2**.
+
+Azure Machine Learning is still in devlopment in Airgap Regions. 
 
 The information in the rest of this document provides information on what features of Azure Machine Learning are available in these regions, along with region-specific information on using these features.
 ## Azure Government	

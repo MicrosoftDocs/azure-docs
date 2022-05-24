@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 01/28/2022
-ms.custom: devx-track-python, sdkv1
+ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
 ---
 
 # Tutorial: Build an Azure Machine Learning pipeline for image classification

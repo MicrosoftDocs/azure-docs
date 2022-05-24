@@ -9,8 +9,7 @@ ms.author: larryfr
 author: blackmist
 ms.date: 03/21/2022
 ms.topic: how-to
-ms.custom: devx-track-python, sdkv1
-
+ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
 #Customer intent: As a Python scikit-learn developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my machine learning models at scale.
 ---
 

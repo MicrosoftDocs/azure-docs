@@ -8,7 +8,7 @@ ms.topic: overview
 ms.author: sgilley
 author: sdgilley
 ms.date: 08/03/2021
-ms.custom: devx-track-python
+ms.custom: devx-track-python, event-tier1-build-2022
 adobe-target: true
 ---
 

@@ -7,10 +7,9 @@ ms.author: larryfr
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.custom: data4ml, sdkv1
+ms.custom: data4ml, sdkv1, event-tier1-build-2022
 ms.date: 03/11/2022
-
-# Customer intent: As an experienced Python developer, I need to export my data labels and use them for machine learning tasks.
+#Customer intent: As an experienced Python developer, I need to export my data labels and use them for machine learning tasks.
 ---
 
 # Create and explore Azure Machine Learning dataset with labels

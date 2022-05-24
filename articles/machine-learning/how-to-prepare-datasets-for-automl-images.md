@@ -7,7 +7,7 @@ ms.author: rvadthyavath
 ms.service: machine-learning
 ms.subservice: automl 
 ms.topic: how-to
-ms.custom: template-how-to, sdkv2
+ms.custom: template-how-to, sdkv2, event-tier1-build-2022
 ms.date: 04/15/2022
 ---
 

@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: deploy
+ms.custom: deploy, event-tier1-build-2022
 ms.author: ssalgado
 author: ssalgadodev
 ms.date: 04/22/2021

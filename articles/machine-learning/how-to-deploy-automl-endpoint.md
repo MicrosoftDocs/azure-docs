@@ -10,7 +10,7 @@ ms.reviewer: larryfr
 author: shivanissambare
 ms.date: 05/11/2022
 ms.topic: how-to
-ms.custom: how-to, devplatv2, devx-track-azurecli, cliv2
+ms.custom: how-to, devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022
 ms.devlang: azurecli
 ---
 

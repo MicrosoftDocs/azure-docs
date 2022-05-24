@@ -8,9 +8,9 @@ author: BlackMist
 ms.reviewer: aashishb
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
+ms.custom: event-tier1-build-2022
 ms.date: 10/21/2021
 ms.topic: how-to
-
 ---
 
 # Use Azure AD identity with your machine learning web service in Azure Kubernetes Service

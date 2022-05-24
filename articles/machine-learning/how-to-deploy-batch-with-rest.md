@@ -1,5 +1,5 @@
 ---
-title: "Deploy models using batch endpoints with REST APIs (preview)"
+title: "Deploy models using batch endpoints with REST APIs"
 titleSuffix: Azure Machine Learning
 description: Learn how to deploy models using batch endpoints with REST APIs.
 services: machine-learning
@@ -8,16 +8,16 @@ ms.subservice: core
 ms.topic: how-to
 author: dem108
 ms.author: sehan
-ms.date: 04/29/2022
-ms.reviewer: nibaccam
-ms.custom: devplatv2
+ms.date: 05/24/2022
+ms.reviewer: larryfr
+ms.custom: devplatv2, event-tier1-build-2022
 ---
 
-# Deploy models with REST (preview) for batch scoring 
+# Deploy models with REST for batch scoring 
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-Learn how to use the Azure Machine Learning REST API to deploy models for batch scoring (preview).
+Learn how to use the Azure Machine Learning REST API to deploy models for batch scoring.
 
 
 
@@ -55,7 +55,7 @@ In this article, you learn how to use the new REST APIs to:
 
 [Batch endpoints](concept-endpoints.md#what-are-batch-endpoints) simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. In this article, you'll create a batch endpoint and deployment, and invoking it to start a batch scoring job. But first you'll have to register the assets needed for deployment, including model, code, and environment.
 
-There are many ways to create an Azure Machine Learning batch endpoint, [including the Azure CLI](how-to-use-batch-endpoint.md), and visually with [the studio](how-to-use-batch-endpoints-studio.md). The following example creates a batch endpoint and deployment with the REST API.
+There are many ways to create an Azure Machine Learning batch endpoint, including [the Azure CLI](how-to-use-batch-endpoint.md), and visually with [the studio](how-to-use-batch-endpoints-studio.md). The following example creates a batch endpoint and a batch deployment with the REST API.
 
 ## Create machine learning assets
 
@@ -104,7 +104,7 @@ Once you upload your code, you can specify your code with a PUT request:
 
 ### Upload and register model
 
-Similar to the code, Upload the model files:
+Similar to the code, upload the model files:
 
 :::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="upload_model":::
 
@@ -125,7 +125,7 @@ Now, run the following snippet to create an environment:
 
 ## Deploy with batch endpoints
 
-Next, create the batch endpoint, a deployment, and set the default deployment.
+Next, create a batch endpoint, a batch deployment, and set the default deployment for the endpoint.
 
 ### Create batch endpoint
 
@@ -151,6 +151,8 @@ Invoking a batch endpoint triggers a batch scoring job. A job `id` is returned i
 
 ### Invoke the batch endpoint to start a batch scoring job
 
+#### Getting the Scoring URI and access token
+
 Get the scoring uri and access token to invoke the batch endpoint. First get the scoring uri:
 
 :::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="get_endpoint":::
@@ -159,26 +161,192 @@ Get the batch endpoint access token:
 
 :::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="get_access_token":::
 
-Now, invoke the batch endpoint to start a batch scoring job. The following example scores data publicly available in the cloud:
+#### Invoke the batch endpoint with different input options
 
-:::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="score_endpoint_with_data_in_cloud":::
+It's time to invoke the batch endpoint to start a batch scoring job. If your data is a folder (potentially with multiple files) publicly available from the web, you can use the following snippet:
 
-If your data is stored in an Azure Machine Learning registered datastore, you can invoke the batch endpoint with a dataset. The following code creates a new dataset:
+```rest-api
+response=$(curl --location --request POST $SCORING_URI \
+--header "Authorization: Bearer $SCORING_TOKEN" \
+--header "Content-Type: application/json" \
+--data-raw "{
+    \"properties\": {
+    	\"InputData\": {
+    		\"mnistinput\": {
+    			\"JobInputType\" : \"UriFolder\",
+    			\"Uri\":  \"https://pipelinedata.blob.core.windows.net/sampledata/mnist\"
+    		}
+        }
+    }
+}")
 
-:::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="create_dataset":::
+JOB_ID=$(echo $response | jq -r '.id')
+JOB_ID_SUFFIX=$(echo ${JOB_ID##/*/})
+```
 
-Next, reference the dataset when invoking the batch endpoint:
+Now, let's look at other options for invoking the batch endpoint. When it comes to input data, there are multiple scenarios you can choose from, depending on the input type (whether you are specifying a folder or a single file), and the URI type (whether you are using a path on Azure Machine Learning registered datastore, a reference to Azure Machine Learning registered V2 data asset, or a public URI).
 
-:::code language="rest-api" source="~/azureml-examples-main/cli/batch-score-rest.sh" id="score_endpoint_with_dataset":::
+- An `InputData` property has `JobInputType` and `Uri` keys. When you are specifying a single file, use `"JobInputType": "UriFile"`, and when you are specifying a folder, use `'JobInputType": "UriFolder"`.
 
-In the previous code snippet, a custom output location is provided by using `datastoreId`, `path`, and `outputFileName`. These settings allow you to configure where to store the batch scoring results.
+- When the file or folder is on Azure ML registered datastore, the syntax for the `Uri` is  `azureml://datastores/<datastore-name>/paths/<path-on-datastore>` for folder, and `azureml://datastores/<datastore-name>/paths/<path-on-datastore>/<file-name>` for a specific file. You can also use the longer form to represent the same path, such as `azureml://subscriptions/<subscription_id>/resourceGroups/<resource-group-name>/workspaces/<workspace-name>/datastores/<datastore-name>/paths/<path-on-datastore>/`.
+
+- When the file or folder is registered as V2 data asset as `uri_folder` or `uri_file`, the syntax for the `Uri` is `\"azureml://data/<data-name>/versions/<data-version>/\"` (short form) or `\"azureml://subscriptions/<subscription_id>/resourceGroups/<resource-group-name>/workspaces/<workspace-name>/data/<data-name>/versions/<data-version>/\"` (long form).
+
+- When the file or folder is a publicly accessible path, the syntax for the URI is `https://<public-path>` for folder, `https://<public-path>/<file-name>` for a specific file.
+
+> [!NOTE]
+> For more information about data URI, see [Azure Machine Learning data reference URI](reference-yaml-core-syntax.md#azure-ml-data-reference-uri).
+
+Below are some examples using different types of input data.
+
+- If your data is a folder on the Azure ML registered datastore, you can either:
+
+    - Use the short form to represent the URI:
+
+    ```rest-api
+    response=$(curl --location --request POST $SCORING_URI \
+    --header "Authorization: Bearer $SCORING_TOKEN" \
+    --header "Content-Type: application/json" \
+    --data-raw "{
+        \"properties\": {
+            \"InputData\": {
+                \"mnistInput\": {
+                    \"JobInputType\" : \"UriFolder\",
+                    \"Uri": \"azureml://datastores/workspaceblobstore/paths/$ENDPOINT_NAME/mnist\"
+                }
+            }
+        }
+    }")
+    
+    JOB_ID=$(echo $response | jq -r '.id')
+    JOB_ID_SUFFIX=$(echo ${JOB_ID##/*/})
+    ```
+
+    - Or use the long form for the same URI:
+
+    ```rest-api
+    response=$(curl --location --request POST $SCORING_URI \
+    --header "Authorization: Bearer $SCORING_TOKEN" \
+    --header "Content-Type: application/json" \
+    --data-raw "{
+        \"properties\": {
+        	\"InputData\": {
+        		\"mnistinput\": {
+        			\"JobInputType\" : \"UriFolder\",
+        			\"Uri\": \"azureml://subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/workspaces/$WORKSPACE/datastores/workspaceblobstore/paths/$ENDPOINT_NAME/mnist\"
+        		}
+            }
+        }
+    }")
+    
+    JOB_ID=$(echo $response | jq -r '.id')
+    JOB_ID_SUFFIX=$(echo ${JOB_ID##/*/})
+    ```
+
+- If you want to manage your data as Azure ML registered V2 data asset as `uri_folder`, you can follow the two steps below:
+
+    1. Create the V2 data asset:
+
+    ```rest-api
+    DATA_NAME="mnist"
+    DATA_VERSION=$RANDOM
+    
+    response=$(curl --location --request PUT https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.MachineLearningServices/workspaces/$WORKSPACE/data/$DATA_NAME/versions/$DATA_VERSION?api-version=$API_VERSION \
+    --header "Content-Type: application/json" \
+    --header "Authorization: Bearer $TOKEN" \
+    --data-raw "{
+        \"properties\": {
+            \"dataType\": \"uri_folder\",
+      \"dataUri\": \"https://pipelinedata.blob.core.windows.net/sampledata/mnist\",
+      \"description\": \"Mnist data asset\"
+        }
+    }")
+    ```
+
+    2. Reference the data asset in the batch scoring job:
+
+    ```rest-api
+    response=$(curl --location --request POST $SCORING_URI \
+    --header "Authorization: Bearer $SCORING_TOKEN" \
+    --header "Content-Type: application/json" \
+    --data-raw "{
+        \"properties\": {
+            \"InputData\": {
+                \"mnistInput\": {
+                    \"JobInputType\" : \"UriFolder\",
+                    \"Uri": \"azureml://data/$DATA_NAME/versions/$DATA_VERSION/\"
+                }
+            }
+        }
+    }")
+    
+    JOB_ID=$(echo $response | jq -r '.id')
+    JOB_ID_SUFFIX=$(echo ${JOB_ID##/*/})
+    ```
+
+- If your data is a single file publicly available from the web, you can use the following snippet:
+
+    ```rest-api
+    response=$(curl --location --request POST $SCORING_URI \
+    --header "Authorization: Bearer $SCORING_TOKEN" \
+    --header "Content-Type: application/json" \
+    --data-raw "{
+        \"properties\": {
+            \"InputData\": {
+                \"mnistInput\": {
+                    \"JobInputType\" : \"UriFile\",
+                    \"Uri": \"https://pipelinedata.blob.core.windows.net/sampledata/mnist/0.png\"
+                }
+            }
+        }
+    }")
+    
+    JOB_ID=$(echo $response | jq -r '.id')
+    JOB_ID_SUFFIX=$(echo ${JOB_ID##/*/})
+    ```
+
+> [!NOTE]
+> We strongly recommend using the latest REST API version for batch scoring.
+> - If you want to use local data, you can upload it to Azure Machine Learning registered datastore and use REST API for Cloud data.
+> - If you are using existing V1 FileDataset for batch endpoint, we recommend migrating them to V2 data assets and refer to them directly when invoking batch endpoints. Currently only data assets of type `uri_folder` or `uri_file` are supported. Batch endpoints created with GA CLIv2 (2.4.0 and newer) or GA REST API (2022-05-01 and newer) will not support V1 Dataset.
+> - You can also extract the URI or path on datastore extracted from V1 FileDataset by using `az ml dataset show` command with `--query` parameter and use that information for invoke.
+> - While Batch endpoints created with earlier APIs will continue to support V1 FileDataset, we will be adding further V2 data assets support with the latest API versions for even more usability and flexibility. For more information on V2 data assets, see [Work with data using SDK v2 (preview)](how-to-use-data.md). For more information on the new V2 experience, see [What is v2](concept-v2.md).
+
+#### Configure the output location and overwrite settings
+
+The batch scoring results are by default stored in the workspace's default blob store within a folder named by job name (a system-generated GUID). You can configure where to store the scoring outputs when you invoke the batch endpoint. Use `OutputData` to configure the output file path on an Azure Machine Learning registered datastore. `OutputData` has `JobOutputType` and `Uri` keys. `UriFile` is the only supported value for `JobOutputType`. The syntax for `Uri` is the same as that of `InputData`, i.e., `azureml://datastores/<datastore-name>/paths/<path-on-datastore>/<file-name>`.
+
+Following is the example snippet for configuring the output location for the batch scoring results.
+
+```rest-api
+response=$(curl --location --request POST $SCORING_URI \
+--header "Authorization: Bearer $SCORING_TOKEN" \
+--header "Content-Type: application/json" \
+--data-raw "{
+    \"properties\": {
+        \"InputData\":
+        {
+            \"mnistInput\": {
+                \"JobInputType\" : \"UriFolder\",
+                \"Uri": \"azureml://datastores/workspaceblobstore/paths/$ENDPOINT_NAME/mnist\"
+            }
+        },
+        \"OutputData\":
+        {
+            \"mnistOutput\": {
+                \"JobOutputType\": \"UriFile\",
+                \"Uri\": \"azureml://datastores/workspaceblobstore/paths/$ENDPOINT_NAME/mnistOutput/$OUTPUT_FILE_NAME\"
+            }
+        }
+    }
+}")
+
+JOB_ID=$(echo $response | jq -r '.id')
+JOB_ID_SUFFIX=$(echo ${JOB_ID##/*/})
+```
 
 > [!IMPORTANT]
-> You must provide a unique output location. If the output file already exists, the batch scoring job will fail.
-
-For this example, the output is stored in the default blob storage for the workspace. The folder name is the same as the endpoint name, and the file name is randomly generated by the following code:
-
-:::code language="azurecli" source="~/azureml-examples-main/cli/batch-score-rest.sh" ID="unique_output" :::
+> You must use a unique output location. If the output file exists, the batch scoring job will fail. 
 
 ### Check the batch scoring job
 

@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.topic: conceptual
 author: ssalgadodev
 ms.author: ssalgado
-ms.custom: mktng-kw-nov2021
+ms.custom: mktng-kw-nov2021, event-tier1-build-2022
 ms.date: 11/04/2021
 ---
 

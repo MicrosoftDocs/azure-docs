@@ -10,8 +10,7 @@ author: likebupt
 ms.reviewer: lagayhar
 ms.date:  05/10/2022
 ms.topic: conceptual
-ms.custom: 
-
+ms.custom: event-tier1-build-2022
 ---
 # What is an Azure Machine Learning component?
 

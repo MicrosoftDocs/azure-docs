@@ -5,6 +5,7 @@ description: Learn about the Azure Machine Learning compute instance, a fully ma
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley

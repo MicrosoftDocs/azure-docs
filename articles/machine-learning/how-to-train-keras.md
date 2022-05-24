@@ -10,8 +10,8 @@ author: blackmist
 ms.reviewer: peterlu
 ms.date: 09/28/2020
 ms.topic: how-to
-ms.custom: sdkv1
-#Customer intent: As a Python Keras developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale. 
+ms.custom: sdkv1, event-tier1-build-2022
+#Customer intent: As a Python Keras developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale.
 ---
 
 # Train Keras models at scale with Azure Machine Learning

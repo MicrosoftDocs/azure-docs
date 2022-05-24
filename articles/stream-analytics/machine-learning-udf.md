@@ -7,7 +7,7 @@ ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/31/2022
-ms.custom: devx-track-js
+ms.custom: devx-track-js, event-tier1-build-2022
 ---
 # Integrate Azure Stream Analytics with Azure Machine Learning
 

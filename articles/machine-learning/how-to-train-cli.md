@@ -10,7 +10,7 @@ author: amibp
 ms.author: amipatel
 ms.date: 03/31/2022
 ms.reviewer: nibaccam
-ms.custom: devx-track-azurecli, devplatv2
+ms.custom: devx-track-azurecli, devplatv2, event-tier1-build-2022
 ---
 
 # Train models with the CLI (v2)

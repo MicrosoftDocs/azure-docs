@@ -10,7 +10,7 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 03/04/2022
-ms.custom: devx-track-python, ignite-fall-2021, devx-track-azurecli 
+ms.custom: devx-track-python, ignite-fall-2021, devx-track-azurecli, event-tier1-build-2022
 ms.devlang: azurecli
 ---
 
