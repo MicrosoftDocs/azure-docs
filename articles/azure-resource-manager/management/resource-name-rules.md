@@ -4,7 +4,7 @@ description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 05/16/2022
+ms.date: 05/17/2022
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -475,6 +475,13 @@ In the following tables, the term alphanumeric refers to:
 > | --- | --- | --- | --- |
 > | labplans | resource group | 1-100 | Alphanumerics, hyphens, periods, and underscores.<br><br>Start with letter and end with alphanumeric. |
 > | labs | resource group | 1-100 | Alphanumerics, hyphens, periods, and underscores.<br><br>Start with letter and end with alphanumeric. |
+
+## Microsoft.LoadTestService
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | loadtests | global | 1-64 | Can't use:<br>`<>*&@:?+/\,;=.|[]"` or space.<br><br>Can't start with underscore, hyphen, or number. Can't end with underscore or hyphen.  |
 
 ## Microsoft.Logic
 
