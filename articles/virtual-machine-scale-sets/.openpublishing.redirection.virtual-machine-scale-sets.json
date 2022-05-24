@@ -184,6 +184,36 @@
             "source_path_from_root": "/articles/virtual-machine-scale-sets/orchestration-modes.md",
             "redirect_url": "/previous-versions/azure/virtual-machine-scale-sets/orchestration-modes",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/flexible-virtual-machine-scale-sets-cli.md",
+            "redirect_url": "/articles/virtual-machines/flexible-virtual-machine-scale-sets-cli.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/flexible-virtual-machine-scale-sets-migration-resources.md",
+            "redirect_url": "/articles/virtual-machines/flexible-virtual-machine-scale-sets-migration-resources.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/flexible-virtual-machine-scale-sets-portal.md",
+            "redirect_url": "/articles/virtual-machines/flexible-virtual-machine-scale-sets-portal.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/flexible-virtual-machine-scale-sets-powershell.md",
+            "redirect_url": "/articles/virtual-machines/flexible-virtual-machine-scale-sets-powershell.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/flexible-virtual-machine-scale-sets-rest-api.md",
+            "redirect_url": "/articles/virtual-machines/flexible-virtual-machine-scale-sets-rest-api.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/virtual-machines/flexible-virtual-machine-scale-sets.md",
+            "redirect_url": "/articles/virtual-machines/flexible-virtual-machine-scale-sets.md",
+            "redirect_document_id": false
         }                                                                                                                                                             
     ]
 }

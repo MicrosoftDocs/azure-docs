@@ -1027,19 +1027,19 @@
     items:
     - name: Overview
       displayName: Flexible orchestration mode for virtual machine scale sets
-      href: flexible-virtual-machine-scale-sets.md
+      href: ../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets.md
     - name: Portal
       displayName: Flexible orchestration mode for virtual machine scale sets
-      href: flexible-virtual-machine-scale-sets-portal.md
+      href: ../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-portal.md
     - name: CLI
       displayName: Flexible orchestration mode for virtual machine scale sets
-      href: flexible-virtual-machine-scale-sets-cli.md
+      href: ../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-cli.md
     - name: PowerShell
       displayName: Flexible orchestration mode for virtual machine scale sets
-      href: flexible-virtual-machine-scale-sets-powershell.md
+      href: ../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-powershell.md
     - name: ARM template
       displayName: Flexible orchestration mode for virtual machine scale sets
-      href: flexible-virtual-machine-scale-sets-rest-api.md
+      href: ../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-rest-api.md
     - name: Autoscale
       href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context
     - name: Orchestration modes
@@ -1047,7 +1047,7 @@
       href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
     - name: Migration and considerations
       displayName: VMSS, flex, scale set, scale, virtual machine scale set
-      href: flexible-virtual-machine-scale-sets-migration-resources.md
+      href: ../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-migration-resources.md
   - name: Understand VM reboots
     href: understand-vm-reboots.md
   - name: Azure Regions

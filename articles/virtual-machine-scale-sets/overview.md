@@ -15,7 +15,7 @@ ms.reviewer: mimckitt
 Azure virtual machine scale sets let you create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Scale sets provide high availability to your applications, and allow you to centrally manage, configure, and update a large number of VMs. With virtual machine scale sets, you can build large-scale services for areas such as compute, big data, and container workloads.
 
 > [!IMPORTANT]
-> This article is about virtual machine scale sets in Uniform orchestration mode. To learn more about Flexible scale sets, go to [Flexible orchestration mode for virtual machine scale sets](../virtual-machines/flexible-virtual-machine-scale-sets.md).
+> We recommend using Flexible virtual machine scale sets for new workloads. Learn more about this new orchestration mode in our [Flexible virtual machine scale sets overview](flexible-virtual-machine-scale-sets.md).
 
 ## Why use virtual machine scale sets?
 To provide redundancy and improved performance, applications are typically distributed across multiple instances. Customers may access your application through a load balancer that distributes requests to one of the application instances. If you need to perform maintenance or update an application instance, your customers must be distributed to another available application instance. To keep up with extra customer demand, you may need to increase the number of application instances that run your application.
