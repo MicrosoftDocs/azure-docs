@@ -118,7 +118,7 @@ Follow the next steps to build and run the application locally.
 
     ```bash
     export MSSQLSERVER_USER=azureuser
-    export MSSQLSERVER_PASSWORD="Passw0rd!"
+    export MSSQLSERVER_PASSWORD='Passw0rd!'
     export MSSQLSERVER_JNDI=java:/comp/env/jdbc/mssqlds
     export MSSQLSERVER_DATABASE=todos_db
     export MSSQLSERVER_HOST=<server name saved aside earlier>
@@ -136,19 +136,19 @@ Follow the next steps to build and run the application locally.
 
    Your steps to ensure the network traffic is permitted above were ineffective. Ensure the IP address from the error message is included in the firewall rules.
 
-   If you receive an error with text similar to the following:
+   If you receive an message with text similar to the following:
 
    ```bash
    Caused by: com.microsoft.sqlserver.jdbc.SQLServerException: There is already an object named 'TODOS' in the database.
    ```
 
-   This error indicates the sample data is already in the database. This error can be ignored.
+   This message indicates the sample data is already in the database. This message can be ignored.
 
 1. (Optional) If you want to verify the clustering capabilities, you can also launch more instances of the same application by passing to the Bootable JAR the `jboss.node.name` argument and, to avoid conflicts with the port numbers, shifting the port numbers by using `jboss.socket.binding.port-offset`. For example, to launch a second instance that will represent a new pod on OpenShift, you can execute the following command in a new terminal window:
 
     ```bash  
     export MSSQLSERVER_USER=azureuser
-    export MSSQLSERVER_PASSWORD="Passw0rd!"
+    export MSSQLSERVER_PASSWORD='Passw0rd!'
     export MSSQLSERVER_JNDI=java:/comp/env/jdbc/mssqlds
     export MSSQLSERVER_DATABASE=todos_db
     export MSSQLSERVER_HOST=<server name saved aside earlier>
@@ -199,7 +199,7 @@ Follow the next steps to build and run the application locally.
 
 ## Deploy to OpenShift
 
-To deploy the application, we are going to use the JBoss EAP Helm Charts already available in ARO. We also need to supply the desired configuration, for example, the database user, the database password, the driver version we want to use, and the connection information used by the data source. The following steps assume you have a Microsoft SQL database server running and exposed to the OpenShift service, and you have stored the database user name, password and database name in an [OpenShift Secret object](https://docs.openshift.com/container-platform/4.8/nodes/pods/nodes-pods-secrets.html#nodes-pods-secrets-about_nodes-pods-secrets) named `mssqlserver-secret`.
+To deploy the application, we are going to use the JBoss EAP Helm Charts already available in ARO. We also need to supply the desired configuration, for example, the database user, the database password, the driver version we want to use, and the connection information used by the data source. The following steps assume you have a Microsoft SQL database server running and accessible from your OpenShift cluster, and you have stored the database user name, password, hostname, port and database name in an OpenShift [OpenShift Secret object](https://docs.openshift.com/container-platform/4.8/nodes/pods/nodes-pods-secrets.html#nodes-pods-secrets-about_nodes-pods-secrets) named `mssqlserver-secret`.
 
 Navigate to your demo application local repository and change the current branch to `bootable-jar-openshift`:
 
