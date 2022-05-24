@@ -58,7 +58,7 @@ Use the following steps to label your data:
 
 4. In the right side pane, **Add class** to your project so you can start labeling your data with them.
 
-    :::image type="content" source="../media/tag-1.png" alt-text="A screenshot showing the data tagging screen" lightbox="../media/tag-1.png":::
+    :::image type="content" source="../media/tag-1.png" alt-text="A screenshot showing the data labeling screen" lightbox="../media/tag-1.png":::
 
 5. Start labeling your files.
 
@@ -83,7 +83,9 @@ Use the following steps to label your data:
     > [!TIP]
     > If you are planning on using **Automatic** data spliting use the default option of assigning all the documents into your training set.
 
-8. Under the **Distribution** pivot you can view the distribution of your labeled documents across training and testing sets. You can learn more about the training testing sets and how they are used [here](train-model.md#data-splitting).
+8. Under the **Distribution** pivot you can view the distribution across training and testing sets. You have two options for viewing:
+   * *Total instances* where you can view count of all labeled instances of a specific class.
+   * *documents with at least one label* where each document is counted if it contains at least one labeled instance of this class.
 
 9. While you're labeling, your changes will be synced periodically, if they have not been saved yet you will find a warning at the top of your page. If you want to save manually, click on **Save labels** button at the bottom of the page.
 
