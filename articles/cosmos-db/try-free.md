@@ -64,7 +64,7 @@ Your account is free for 30 days. After expiration, a new sandbox account can be
 
 1. Select **Sign up for Azure Account** & create an Azure Cosmos DB account.
 
-After you've signed up for an Azure account, you can migrate your database from Try Azure Cosmos DB to your new account. Here are the steps to migrate.
+You can migrate your database from Try Azure Cosmos DB to your new Azure account if you're utilizing the SQL API after you've signed up for an Azure account. Here are the steps to migrate.
 
 ### Create an Azure Cosmos DB account
 
