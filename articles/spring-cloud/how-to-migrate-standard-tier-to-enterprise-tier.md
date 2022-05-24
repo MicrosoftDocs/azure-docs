@@ -301,9 +301,9 @@ To build locally, use the following steps:
 
 Azure Enterprise tier uses the build service feature [Buildpack Bindings](./how-to-enterprise-build-service.md#buildpack-bindings) to integrate [Application Insights](../azure-monitor/app/app-insights-overview.md) with the type `ApplicationInsights` instead of In-Process Agent.
 
-| Standard Tier                                                       | Enterprise Tier                                                                     |
-|---------------------------------------------------------------------|-------------------------------------------------------------------------------------|
-| Application insight <br> New Relica <br> Dynatrace <br> AppDynamics | Application insight <br> New Relica <br> Dynatrace <br> AppDynamics <br> ElasticAPM |
+| Standard Tier                                                      | Enterprise Tier                                                                    |
+|--------------------------------------------------------------------|------------------------------------------------------------------------------------|
+| Application insight <br> New Relic <br> Dynatrace <br> AppDynamics | Application insight <br> New Relic <br> Dynatrace <br> AppDynamics <br> ElasticAPM |
 
 To check or update the current settings in Application Insights, use the following steps:
 
