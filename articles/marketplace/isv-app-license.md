@@ -24,7 +24,7 @@ _ISV app license management_ enables independent software vendors (ISVs) who bui
 
 ISV app license management currently supports:
 - A named user license model. Each license must be assigned to an Azure AD user or Azure AD security group.
-- Enforcement for model-driven apps.
+- [Enforcement for model-driven apps](/power-apps/maker/model-driven-apps/model-driven-app-overview).
 
 ## Prerequisites
 
