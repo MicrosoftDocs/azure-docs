@@ -1,6 +1,6 @@
 ---
 title: Apache Kafka MirrorMaker 2.0 guide - Azure HDInsight
-description: How to to use Kafka MirrorMaker 2.0 in data migration/replication and the use-cases.
+description: How to use Kafka MirrorMaker 2.0 in data migration/replication and the use-cases.
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
@@ -115,7 +115,7 @@ destination.sasl.mechanism=GSSAPI
 |Property |Default value |Description |
 |---------|---------|---------|
 |name|required|name of the connector, For Example, "us-west->us-east"|
-|topics|empty string|regex of topics to replicate, e.g. "topic1,topic2,topic3". Comma-separated lists are also supported.|
+|topics|empty string|regex of topics to replicate, for example "topic1, topic2, topic3". Comma-separated lists are also supported.|
 |topics.blacklist|".*\.internal, .*\.replica, __consumer_offsets" or similar|topics to exclude from replication|
 |groups|empty string|regex of groups to replicate, For Example, ".*"|  
 |groups.blacklist|empty string|groups to exclude from replication|
