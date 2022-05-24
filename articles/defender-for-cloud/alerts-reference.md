@@ -8,8 +8,6 @@ ms.date: 03/30/2022
 ---
 # Security alerts - a reference guide
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This article lists the security alerts you might get from Microsoft Defender for Cloud and any Microsoft Defender plans you've enabled. The alerts shown in your environment depend on the resources and services you're protecting, as well as your customized configuration.
 
 At the bottom of this page, there's a table describing the Microsoft Defender for Cloud kill chain aligned with version 9 of the [MITRE ATT&CK matrix](https://attack.mitre.org/versions/v9/).
@@ -23,6 +21,8 @@ At the bottom of this page, there's a table describing the Microsoft Defender fo
 
 
 ## <a name="alerts-windows"></a>Alerts for Windows machines
+
+Microsoft Defender for Servers Plan 2 provides unique detections and alerts, in addition to the ones provided by Microsoft Defender for Endpoint. The alerts provided for Windows machines are:
 
 [Further details and notes](defender-for-servers-introduction.md)
 
@@ -135,6 +135,8 @@ At the bottom of this page, there's a table describing the Microsoft Defender fo
 
 
 ## <a name="alerts-linux"></a>Alerts for Linux machines
+
+Microsoft Defender for Servers Plan 2 provides unique detections and alerts, in addition to the ones provided by Microsoft Defender for Endpoint. The alerts provided for Linux machines are:
 
 [Further details and notes](defender-for-servers-introduction.md)
 
@@ -307,6 +309,7 @@ Microsoft Defender for Containers provides security alerts on the cluster level 
 
 | Alert (alert type) | Description | MITRE tactics<br>([Learn more](#intentions)) | Severity |
 |--|--|:-:|--|
+| **Attempt to create a new Linux namespace from a container detected (Preview)**<br>(K8S.NODE_NamespaceCreation) | Analysis of processes running within a container in Kubernetes cluster detected an attempt to create a new Linux namespace. While this behavior might be legitimate, it might indicate that an attacker tries to escape from the container to the node. Some CVE-2022-0185 exploitations use this technique. | PrivilegeEscalation | Medium |
 | **A file was downloaded and executed (Preview)**<br>(K8S.NODE_LinuxSuspiciousActivity) | Analysis of processes running within a container indicates that a file has been downloaded to the container, given execution privileges and then executed. | Execution | Medium |
 | **A history file has been cleared (Preview)**<br>(K8S.NODE_HistoryFileCleared) | Analysis of processes running within a container indicates that the command history log file has been cleared. Attackers may do this to cover their tracks. The operation was performed by the specified user account. | DefenseEvasion | Medium |
 | **Abnormal activity of managed identity associated with Kubernetes (Preview)**<br>(K8S_AbnormalMiAcitivty) | Analysis of Azure Resource Manager operations detected an abnormal behavior of a managed identity used by an AKS addon. The detected activity isn\'t consistent with the behavior of the associated addon. While this activity can be legitimate, such behavior might indicate that the identity was gained by an attacker, possibly from a compromised container in the Kubernetes cluster. | Lateral Movement | Medium |

@@ -1,7 +1,7 @@
 ---
 title: Manage sensors from the on-premises management console 
 description: Learn how to manage sensors from the management console, including updating sensor versions, pushing system settings to sensors, managing certificates, and enabling and disabling engines on sensors.
-ms.date: 03/20/2022
+ms.date: 04/28/2022
 ms.topic: how-to
 ---
 
@@ -261,33 +261,50 @@ To restore by using the CLI:
 
 1. In Defender for IoT, make a directory for the backups: 
 
-   `sudo mkdir /<backup_folder_name_on_server>` 
-
-   `sudo chmod 777 /<backup_folder_name_on_server>/` 
+    ```bash
+    sudo mkdir /<backup_folder_name_on_server> 
+    
+    sudo chmod 777 /<backup_folder_name_on_server>/
+    ``` 
 
 1. Edit fstab:  
 
-   `sudo nano /etc/fstab` 
+    ```bash
+    sudo nano /etc/fstab
 
-   `add - //<server_IP>/<folder_path> /<backup_folder_name_on_cyberx_server> cifs rw,credentials=/etc/samba/user,vers=3.0,uid=cyberx,gid=cyberx,file_mode=0777,dir_mode=0777 0 0` 
+    add - //<server_IP>/<folder_path> /<backup_folder_name_on_cyberx_server> cifs rw,credentials=/etc/samba/user,vers=3.0,uid=cyberx,gid=cyberx,file_mode=0777,dir_mode=0777 0 0
+    ```
+   
 
 1. Edit or create credentials to share. These are the credentials for the SMB server: 
 
-   `sudo nano /etc/samba/user` 
+    ```bash
+    sudo nano /etc/samba/user
+    ```
+    
 
 1. Add:  
 
-   `username=<user name>` 
+    ```bash
+    username=<user name>
 
-   `password=<password>` 
+    password=<password>
+    ```
+    
 
 1. Mount the directory: 
 
-   `sudo mount -a` 
+    ```bash
+    sudo mount -a
+    ```
+    
 
 1. Configure a backup directory to the shared folder on the Defender for IoT sensor:  
 
-   `sudo nano /var/cyberx/properties/backup.properties` 
+    ```bash
+    sudo nano /var/cyberx/properties/backup.properties 
+    ```
+   
 
 1. Set `Backup.shared_location` to `<backup_folder_name_on_cyberx_server>`.
 

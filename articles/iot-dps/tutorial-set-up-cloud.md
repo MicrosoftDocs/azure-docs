@@ -8,6 +8,7 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
+ROBOTS: NOINDEX
 ---
 
 # Tutorial: Configure cloud resources for device provisioning with the IoT Hub Device Provisioning Service

@@ -4,6 +4,7 @@ description: Describes disaster recovery for Azure Arc-enabled SQL Managed Insta
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
+ms.custom: event-tier1-build-2022
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
@@ -11,11 +12,9 @@ ms.date: 04/06/2022
 ms.topic: conceptual
 ---
 
-# Azure Arc-enabled SQL Managed Instance - disaster recovery (preview)
+# Azure Arc-enabled SQL Managed Instance - disaster recovery 
 
 To configure disaster recovery in Azure Arc-enabled SQL Managed Instance, set up failover groups.
-
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Background
 
@@ -47,7 +46,7 @@ The following image shows a properly configured distributed availability group:
 2. Provision the managed instance in the secondary site and configure as a disaster recovery instance. At this point, the system databases are not part of the contained availability group.
 
    ```azurecli
-   az sql mi-arc create --name <secondaryinstance> --tier bc --replicas 3 --disaster-recovery-site true --k8s-namespace <namespace> --use-k8s
+   az sql mi-arc create --name <secondaryinstance> --tier bc --replicas 3 –license-type DisasterRecovery --k8s-namespace <namespace> --use-k8s
    ```
 
 3. Copy the mirroring certificates from each site to a location that's accessible to both the geo-primary and geo-secondary instances. 
@@ -87,7 +86,7 @@ The following image shows a properly configured distributed availability group:
     ```azurecli
     az sql instance-failover-group-arc create --shared-name myfog --name primarycr --mi sqlinstance1 --role primary --partner-mi sqlinstance2  --partner-mirroring-url tcp://10.20.5.20:970 --partner-mirroring-cert-file $HOME/sqlcerts/sqlinstance2.pem --k8s-namespace my-namespace --use-k8s
 
-    az sql instance-failover-group-arc create --shared-name myfog --name secondarycr --mi sqlinstance2 --role primary --partner-mi sqlinstance1  --partner-mirroring-url tcp://10.10.5.20:970 --partner-mirroring-cert-file $HOME/sqlcerts/sqlinstance1.pem --k8s-namespace my-namespace --use-k8s
+    az sql instance-failover-group-arc create --shared-name myfog --name secondarycr --mi sqlinstance2 --role secondary --partner-mi sqlinstance1  --partner-mirroring-url tcp://10.10.5.20:970 --partner-mirroring-cert-file $HOME/sqlcerts/sqlinstance1.pem --k8s-namespace my-namespace --use-k8s
     ```
 
 ## Manual failover from primary to secondary instance

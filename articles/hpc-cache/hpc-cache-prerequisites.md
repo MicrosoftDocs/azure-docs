@@ -1,11 +1,11 @@
 ---
 title: Azure HPC Cache prerequisites
 description: Prerequisites for using Azure HPC Cache
-author: ronhogue
+author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 02/24/2022
-ms.author: rohogue
+ms.date: 05/16/2022
+ms.author: v-erinkelly
 ---
 
 # Prerequisites for Azure HPC Cache
@@ -238,7 +238,7 @@ More information is included in [Troubleshoot NAS configuration and NFS storage 
 
   * If your storage has any exports that are subdirectories of another export, make sure the cache has root access to the lowest segment of the path. Read [Root access on directory paths](troubleshoot-nas.md#allow-root-access-on-directory-paths) in the NFS storage target troubleshooting article for details.
 
-* NFS back-end storage must be a compatible hardware/software platform. Contact the Azure HPC Cache team for details.
+* NFS back-end storage must be a compatible hardware/software platform. The storage must support NFS Version 3 (NFSv3). Contact the Azure HPC Cache team for more details.
 
 ### NFS-mounted blob (ADLS-NFS) storage requirements
 

@@ -1,0 +1,223 @@
+---
+title: Dapr integration with Azure Container Apps
+description: Learn more about using Dapr on your Azure Container App service to develop applications.
+ms.author: hannahhunter
+author: hhunter-ms
+ms.service: container-apps
+ms.custom: event-tier1-build-2022
+ms.topic: conceptual
+ms.date: 05/10/2022
+---
+
+# Dapr integration with Azure Container Apps
+
+The Distributed Application Runtime ([Dapr][dapr-concepts]) is a set of incrementally adoptable APIs that simplify the authoring of distributed, microservice-based applications. For example, Dapr provides capabilities for enabling application intercommunication, whether through messaging via pub/sub or reliable and secure service-to-service calls. Once enabled in Container Apps, Dapr exposes its HTTP and gRPC APIs via a sidecar: a process that runs in tandem with each of your Container Apps. 
+
+Dapr APIs, also referred to as building blocks, are built on best practice industry standards, that:
+
+- Seamlessly fit with your preferred language or framework
+- Are incrementally adoptable; you can use one, several, or all of the building blocks depending on your needs
+
+## Dapr building blocks
+
+:::image type="content" source="media/dapr-overview/building_blocks.png" alt-text="Diagram that shows Dapr building blocks.":::
+
+| Building block | Description |
+| -------------- | ----------- |
+| [**Service-to-service invocation**][dapr-serviceinvo] | Discover services and perform reliable, direct service-to-service calls with automatic mTLS authentication and encryption. |
+| [**State management**][dapr-statemgmt] | Provides state management capabilities for transactions and CRUD operations. |
+| [**Pub/sub**][dapr-pubsub] | Allows publisher and subscriber container apps to intercommunicate via an intermediary message broker. |
+| [**Bindings**][dapr-bindings] | Trigger your application with incoming or outgoing events, without SDK or library dependencies. |
+| [**Actors**][dapr-actors] | Dapr actors apply the scalability and reliability that the underlying platform provides. |
+| [**Observability**](./observability.md) | Send tracing information to an Application Insights backend. |
+
+## Dapr settings
+
+The following Pub/sub example demonstrates how Dapr works alongside your container app:
+
+:::image type="content" source="media/dapr-overview/dapr-in-aca.png" alt-text="Diagram demonstrating Dapr pub/sub and how it works with Container Apps.":::
+
+| Label | Dapr settings | Description |  
+| ----- | ------------- | ----------- |
+| 1 | Container Apps with Dapr enabled | Dapr is enabled at the container app level by configuring Dapr settings. Dapr settings exist at the app-level, meaning they apply across revisions. |
+| 2 | Dapr sidecar | Fully managed Dapr APIs are exposed to your container app via the Dapr sidecar. These APIs are available through HTTP and gRPC protocols. By default, the sidecar runs on port 3500 in Container Apps. |
+| 3 | Dapr component | Dapr components can be shared by multiple container apps. Using scopes, the Dapr sidecar will determine which components to load for a given container app at runtime. |
+
+### Enable Dapr
+
+You can define the Dapr configuration for a container app through the Azure CLI or using Infrastructure as Code templates like bicep or ARM. With the following settings, you enable Dapr on your app:
+
+| Field | Description |
+| ----- | ----------- |
+| `--enable-dapr` / `enabled` | Enables Dapr on the container app. |
+| `--dapr-app-port` / `appPort` | Identifies which port your application is listening. |
+| `--dapr-app-protocol` / `appProtocol` | Tells Dapr which protocol your application is using. Valid options are `http` or `grpc`. Default is `http`. |
+| `--dapr-app-id` / `appId` | The unique ID of the application. Used for service discovery, state encapsulation, and the pub/sub consumer ID. |
+
+Since Dapr settings are considered application-scope changes, new revisions aren't created when you change Dapr settings. However, when changing a Dapr setting, the container app instance and revisions are automatically restarted.
+
+### Configure Dapr components
+
+Once Dapr is enabled on your container app, you're able to plug in and use the [Dapr APIs](#dapr-building-blocks) as needed. You can also create **Dapr components**, which are specific implementations of a given building block. Dapr components are environment-level resources, meaning they can be shared across Dapr-enabled container apps. Components are pluggable modules that:
+
+- Allow you to use the individual Dapr building block APIs.
+- Can be scoped to specific container apps.
+- Can be easily modified to point to any one of the component implementations.
+- Can reference secure configuration values using Container Apps secrets.
+
+Based on your needs, you can "plug in" certain Dapr component types like state stores, pub/sub brokers, and more. In the examples below, you will find the various schemas available for defining a Dapr component in Azure Container Apps. The Container Apps manifests differ sightly from the Dapr OSS manifests in order to simplify the component creation experience.
+
+> [!NOTE]
+> By default, all Dapr-enabled container apps within the same environment will load the full set of deployed components. By adding scopes to a component, you tell the Dapr sidecars for each respective container app which components to load at runtime. Using scopes is recommended for production workloads.
+
+# [YAML](#tab/yaml)
+
+When defining a Dapr component via YAML, you will pass your component manifest into the Azure CLI.  When configuring multiple components, you will need to create a separate YAML file and run the Azure CLI command for each component.
+
+For example, deploy a `pubsub.yaml` component using the following command:
+
+```azurecli
+az containerapp env dapr-component set --name ENVIRONMENT_NAME --resource-group RESOURCE_GROUP_NAME --dapr-component-name pubsub --yaml "./pubsub.yaml"
+```
+
+The `pubsub.yaml` spec will be scoped to the dapr-enabled container apps with app ids `publisher-app` and `subscriber-app`.
+
+```yaml
+# pubsub.yaml for Azure Service Bus component
+- name: dapr-pubsub
+  type: pubsub.azure.servicebus
+  version: v1
+  metadata:
+  - name: connectionString
+    secretRef: sb-root-connectionstring
+  secrets:
+  - name: sb-root-connectionstring
+    value: "value"
+  # Application scopes  
+  scopes:
+  - publisher-app
+  - subscriber-app
+```
+
+# [Bicep](#tab/bicep)
+
+This resource defines a Dapr component called `dapr-pubsub` via Bicep. The Dapr component is defined as a child resource of your Container Apps environment. To define multiple components, you can add a `daprComponent` resource for each Dapr component.
+
+The `dapr-pubsub` component is scoped to the Dapr-enabled container apps with app ids `publisher-app` and `subscriber-app`:
+
+```bicep
+resource daprComponent 'daprComponents@2022-03-01' = {
+  name: 'dapr-pubsub'
+  properties: {
+    componentType: 'pubsub.azure.servicebus'
+    version: 'v1'
+    secrets: [
+      {
+        name: 'sb-root-connectionstring'
+        value: 'value'
+      }
+    ]
+    metadata: [
+      {
+        name: 'connectionString'
+        secretRef: 'sb-root-connectionstring'
+      }
+    ]
+    // Application scopes
+    scopes: [
+      'publisher-app'
+      'subscriber-app'
+    ]
+  }
+}
+```
+
+# [ARM](#tab/arm)
+
+A Dapr component is defined as a child resource of your Container Apps environment. To define multiple components, you can add a `daprComponent` resource for each Dapr component.
+
+This resource defines a Dapr component called `dapr-pubsub` via ARM. The `dapr-pubsub` component will be scoped to the Dapr-enabled container apps with app ids `publisher-app` and `subscriber-app`:
+
+```json
+{
+  "resources": [
+    {
+      "type": "daprComponents",
+      "name": "dapr-pubsub",
+      "properties": {
+        "componentType": "pubsub.azure.servicebus",
+        "version": "v1",
+        "secrets": [
+          {
+            "name": "sb-root-connectionstring",
+            "value": "value"
+          }
+        ],
+        "metadata": [
+          {
+            "name": "connectionString",
+            "secretRef": "sb-root-connectionstring"
+          }
+        ],
+        // Application scopes
+        "scopes": ["publisher-app", "subscriber-app"]
+
+      }
+    }
+  ]
+}
+```
+
+---
+
+For comparison, a Dapr OSS `pubsub.yaml` file would include: 
+
+```yml
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: dapr-pubsub
+spec:
+  type: pubsub.azure.servicebus
+  version: v1
+  metadata:
+  - name: connectionString
+    secretKeyRef:
+      name: sb-root-connectionstring
+      key: "value"
+# Application scopes
+scopes:
+- publisher-app
+- subscriber-app
+```
+
+## Limitations
+
+### Unsupported Dapr capabilities
+
+- **Dapr Secrets Management API**: Use [Container Apps secret mechanism][aca-secrets] as an alternative.
+- **Custom configuration for Dapr Observability**: Instrument your environment with Application Insights to visualize distributed tracing.
+- **Dapr Configuration spec**: Any capabilities that require use of the Dapr configuration spec.
+- **Advanced Dapr sidecar configurations**: Container Apps allows you to specify sidecar settings including `app-protocol`, `app-port`, and `app-id`. For a list of unsupported configuration options, see [the Dapr documentation](https://docs.dapr.io/reference/arguments-annotations-overview/).
+
+### Known limitations
+
+- **Declarative pub/sub subscriptions**
+- **Actor reminders**: Require a minReplicas of 1+ to ensure reminders will always be active and fire correctly.
+
+## Next Steps
+
+Now that you've learned about Dapr and some of the challenges it solves, try [Deploying a Dapr application to Azure Container Apps using the Azure CLI][dapr-quickstart] or [Azure Resource Manager][dapr-arm-quickstart].
+
+<!-- Links Internal -->
+[dapr-quickstart]: ./microservices-dapr.md
+[dapr-arm-quickstart]: ./microservices-dapr-azure-resource-manager.md
+[aca-secrets]: ./manage-secrets.md
+
+<!-- Links External -->
+[dapr-concepts]: https://docs.dapr.io/concepts/overview/
+[dapr-pubsub]: https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-overview
+[dapr-statemgmt]: https://docs.dapr.io/developing-applications/building-blocks/state-management/state-management-overview/
+[dapr-serviceinvo]: https://docs.dapr.io/developing-applications/building-blocks/service-invocation/service-invocation-overview/
+[dapr-bindings]: https://docs.dapr.io/developing-applications/building-blocks/bindings/bindings-overview/
+[dapr-actors]: https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/

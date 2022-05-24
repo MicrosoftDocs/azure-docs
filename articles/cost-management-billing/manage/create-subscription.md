@@ -41,7 +41,7 @@ You need the following permissions to create subscriptions:
 
 1. If you have access to multiple billing accounts, select the billing account for which you want to create the subscription.
 
-1. Fill the form and click **Create**. The tables below list the fields on the form for each type of billing account.
+1. Fill the form and select **Create**. The tables below list the fields on the form for each type of billing account.
 
 **Enterprise Agreement**
 

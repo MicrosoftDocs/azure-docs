@@ -4,10 +4,11 @@ description: This article describes how to configure the service parameters in A
 author: savjani
 ms.author: pariks
 ms.service: mysql
+ms.subservice: flexible-server
 ms.devlang: azurecli
 ms.topic: how-to
+ms.custom: devx-track-azurecli, event-tier1-build-2022
 ms.date: 11/10/2020
-ms.custom: devx-track-azurecli
 ---
 # Configure server parameters in Azure Database for MySQL Flexible Server using the Azure CLI
 

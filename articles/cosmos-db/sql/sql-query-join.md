@@ -169,6 +169,16 @@ The FROM source of the JOIN clause is an iterator. So, the flow in the preceding
 
 The first item, `AndersenFamily`, contains only one `children` element, so the result set contains only a single object. The second item, `WakefieldFamily`, contains two `children`, so the cross product produces two objects, one for each `children` element. The root fields in both these items are the same, just as you would expect in a cross product.
 
+The preceeding example returns just the id property for the result of the query. If we want to return the entire document (all the fields) for each child, we can alter the SELECT portion of the query:
+
+```sql
+    SELECT VALUE f 
+    FROM Families f
+    JOIN c IN f.children
+    WHERE f.id = 'WakefieldFamily'
+    ORDER BY f.address.city ASC
+```
+
 The real utility of the JOIN clause is to form tuples from the cross product in a shape that's otherwise difficult to project. The example below filters on the combination of a tuple that lets the user choose a condition satisfied by the tuples overall.
 
 ```sql
@@ -203,6 +213,9 @@ The results are:
       }
     ]
 ```
+
+> [!IMPORTANT]
+> This example uses mulitple JOIN expressions in a single query. There is a maximum amount of JOINs that can be used in a single query. For more information, see [SQL query limits](/azure/cosmos-db/concepts-limits#sql-query-limits).
 
 The following extension of the preceding example performs a double join. You could view the cross product as the following pseudo-code:
 

@@ -7,8 +7,6 @@ ms.date: 11/09/2021
 
 # The workload protections dashboard
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This dashboard provides:
 
 - Visibility into your Microsoft Defender for Cloud coverage across your different resource types

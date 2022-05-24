@@ -82,7 +82,6 @@ This table describes the differences between the settings for DEV offers and PRO
 | Connection webhook | Enter your dev/test endpoint. | Enter your production endpoint. |
 | Azure Active Directory tenant ID | Enter your test app registration tenant ID (Azure AD directory ID). | Enter your production app registration tenant ID. |
 | Azure Active Directory application ID | Enter your test app registration application ID (client ID). | Enter your production app registration application ID. |
-||||
 
 ### Plan visibility
 
@@ -130,7 +129,6 @@ To reduce your cost for testing the pricing models, including Marketplace custom
 | $0.00 - $0.01 | Set a total transaction cost of zero to have no financial impact or one cent to have a low cost. Use this price when making calls to the metering APIs, or to test purchasing plans in your offer while developing your solution. |
 | $0.01 | Use this price range to test analytics, reporting, and the purchase process. |
 | $50.00 - $100.00 | Use this price range to test payout. For information about our payment schedule, see [Payout schedules and processes](/partner-center/payout-policy-details). |
-|||
 
 > [!IMPORTANT]
 >  To avoid being charged a store service fee on your test, open a [support ticket](support.md) within 7 days of the test purchase.

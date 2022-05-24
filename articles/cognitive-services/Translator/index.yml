@@ -21,7 +21,7 @@ metadata:
 
 landingContent:
   # Card 1
-  - title: About Azure Cognitive Services Translator
+  - title: About Translator Service
     linkLists:
       - linkListType: overview
         links:
@@ -82,19 +82,7 @@ landingContent:
           - text: Use the Translator Service container
             url: containers/translator-how-to-install-container.md
 
-  # Card 4
-  - title: Resources
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Translator Service in sovereign clouds
-            url: sovereign-clouds.md
-          - text: Text translation code samples on GitHub
-            url: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples
-          - text: Stack Overflow
-            url: https://stackoverflow.com/questions/tagged/microsoft-translator
-
-  # Card 5
+   # Card 4
   - title: Document Translation
     linkLists:
       - linkListType: reference
@@ -112,8 +100,7 @@ landingContent:
           - text: Create and use managed identities
             url: document-translation/managed-identity.md
 
-
-  # Card 6
+  # Card 5
   - title: Custom Translator (preview)
     linkLists:
       - linkListType: reference
@@ -142,6 +129,17 @@ landingContent:
             url: custom-translator/v2-preview/how-to/translate-with-custom-model.md
 
 
+  # Card 6
+  - title: Resources
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Translator Service in sovereign clouds
+            url: sovereign-clouds.md
+          - text: Text translation code samples on GitHub
+            url: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples
+          - text: Stack Overflow
+            url: https://stackoverflow.com/questions/tagged/microsoft-translator
 
   # Card 7
   - title: Help and support
