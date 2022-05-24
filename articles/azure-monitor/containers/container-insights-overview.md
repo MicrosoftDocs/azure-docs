@@ -43,7 +43,7 @@ Container insights delivers a comprehensive monitoring experience using differen
     >Support for Azure Red Hat OpenShift is a feature in public preview at this time.
     >
 
-* Monitor container workloads [deployed to Azure Arc-enabled Kubernetes (preview)](../../azure-arc/kubernetes/overview.md).
+* Monitor container workloads [deployed to Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/overview.md).
 
 The main differences in monitoring a Windows Server cluster compared to a Linux cluster are the following:
 
