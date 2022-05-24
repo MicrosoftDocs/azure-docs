@@ -3,7 +3,7 @@ title: Enable Container Storage Interface (CSI) drivers on Azure Kubernetes Serv
 description: Learn how to enable the Container Storage Interface (CSI) drivers for Azure disks and Azure Files in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 05/10/2022
+ms.date: 05/23/2022
 author: palma21
 
 ---
@@ -27,7 +27,11 @@ The CSI storage driver support on AKS allows you to natively use:
 
 If you created in-tree driver storage classes, those storage classes continue to work since CSI migration is turned on after upgrading your cluster to 1.21.x. If you want to use CSI features you'll need to perform the migration.
 
-Migrating these storage classes involves deleting the existing ones, and re-creating them with the provisioner set to **disk.csi.azure.com** if using Azure disk storage, and **files.csi.azure.com** if using Azure Files.  
+Migrating these storage classes involves deleting the existing ones, and re-creating them with the provisioner set to one of the following depending on the storage type:
+
+* Azure disk storage - **disk.csi.azure.com**
+* Azure Files - **files.csi.azure.com**
+* Azure Blob storage - **blob.csi.azure.com**
 
 ### Migrate storage class provisioner
 
