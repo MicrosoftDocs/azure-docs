@@ -92,8 +92,8 @@ Follow the steps below to create your GCP cloud connector.
 
     :::image type="content" source="media/quickstart-onboard-gcp/copy-button.png" alt-text="Screenshot showing the location of the copy button.":::
 
-> [!NOTE] 
-> To discover GCP resources, and for the authentication process, the following APIs must be enabled: iam.googleapis.com, sts.googleapis.com, cloudresourcemanager.googleapis.com, iamcredentials.googleapis.com, compute.googleapis.com. If these APIs are not enabled, we'll enable them during the onboarding process by running the GCloud script.
+   > [!NOTE] 
+   > To discover GCP resources, and for the authentication process, the following APIs must be enabled: iam.googleapis.com, sts.googleapis.com, cloudresourcemanager.googleapis.com, iamcredentials.googleapis.com, compute.googleapis.com. If these APIs are not enabled, we'll enable them during the onboarding process by running the GCloud script.
 
 1. Select the **GCP Cloud Shell >**.
 
