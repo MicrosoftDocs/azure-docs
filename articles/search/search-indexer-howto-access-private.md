@@ -8,7 +8,7 @@ author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 02/17/2022
+ms.date: 05/24/2022
 ---
 
 # Make outbound connections through a private endpoint
@@ -26,6 +26,9 @@ To create a shared private link, use the Azure portal or the [Create Or Update S
 + The search service must be Basic tier or higher. If you're using [AI enrichment](cognitive-search-concept-intro.md) and skillsets, the tier must be Standard 2 (S2) or higher. For more information, see [Service limits](search-limits-quotas-capacity.md#shared-private-link-resource-limits).
 
 + If you're connecting to a preview data source, such as Azure Database for MySQL or Azure Functions, use a preview version of the Management REST API to create the shared private link. Preview versions that support a shared private link include `2020-08-01-preview` or `2021-04-01-preview`.
+
++ If you're using the [Azure portal](https://portal.azure.com/), make sure that access to all public networks is enabled in the data source resource firewall while going through the instructions below. Otherwise, you need to enable access to all public networks during this setup and then disable it again, or instead, you must use REST API from a device with an authorized IP in the firewall rules, to perform these operations. If the supported data source resource has public networks access disabled, there will be errors when connecting from the portal to it.
+
 
 <a name="group-ids"></a>
 
@@ -52,6 +55,16 @@ When setting up a shared private link resource, make sure the group ID value is 
 
 > [!TIP]
 > You can query for the list of supported resources and group IDs by using the [list of supported APIs](/rest/api/searchmanagement/2021-04-01-preview/private-link-resources/list-supported).
+
+## Expected behaviors by design
+
+These are some behaviors that you may expect when managed private endpoints are implemented from within Cognitive Search:
+
++ [Import data](search-import-data-portal.md) wizard is not supported.
+
++ If you have created a shared private link mapped to your storage account, any indexer in your search service that doesn't have a [skillset](cognitive-search-working-with-skillsets.md) will be able to access the storage account.
+
++ If your indexers do not have [skillsets](cognitive-search-working-with-skillsets.md) and connect to your data source using a shared private link, you don't have to configure the indexer `executionEnvironment` configuration property to `private`. This is only necessary when running skillsets.
 
 ## 1 - Create a shared private link
 
