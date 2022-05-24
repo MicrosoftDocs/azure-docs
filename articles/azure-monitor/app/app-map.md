@@ -325,7 +325,7 @@ Adjust sensitivity to achieve the desired confidence level in highlighted edges.
 
 ### Limitations of Intelligent View
 
-The Intelligent View works well for large distributed applications but sometimes it can take around one minute to load. File a support ticket if your map doesn't load or a timeout occurs.
+The Intelligent View works well for large distributed applications but sometimes it can take around one minute to load.
 
 ## Troubleshooting
 
