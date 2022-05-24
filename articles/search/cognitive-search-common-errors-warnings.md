@@ -56,8 +56,8 @@ Indexer with a Blob data source was unable to extract the content or metadata fr
 | Reason | Details/Example | Resolution |
 | --- | --- | --- |
 | Blob is over the size limit | Document is `'150441598'` bytes, which exceeds the maximum size `'134217728'` bytes for document extraction for your current service tier. | [blob indexing errors](search-howto-indexing-azure-blob-storage.md#DealingWithErrors) |
-| Blob has unsupported content type | Document has unsupported content type `'image/png'` | [blob indexing errors](search-howto-indexing-azure-blob-storage.md#DealingWithErrors) |
-| Blob is encrypted | Document could not be processed - it may be encrypted or password protected. | You can skip the blob with [blob settings](search-howto-indexing-azure-blob-storage.md#PartsOfBlobToIndex). |
+| Blob has unsupported content type | `Document has unsupported content type 'image/png'` | [Blob indexing errors](search-howto-indexing-azure-blob-storage.md#DealingWithErrors) |
+| Blob is encrypted | `Document could not be processed - it may be encrypted or password protected.` | You can skip the blob with [blob settings](search-howto-indexing-azure-blob-storage.md#PartsOfBlobToIndex). |
 | Transient issues | `Error processing blob: The request was aborted: The request was canceled.` `Document timed out during processing.` | Occasionally there are unexpected connectivity issues. Try running the document through your indexer again later. |
 
 <a name="could-not-parse-document"></a>
@@ -143,7 +143,7 @@ The maximum value that you can set for the `timeout` parameter is 230 seconds.  
 
 <a name="could-not-mergeorupload--delete-document-to-the-search-index"></a>
 
-## Error: Could not '`MergeOrUpload`' | '`Delete`' document to the search index
+## Error: Could not `'MergeOrUpload' | 'Delete'` document to the search index
 
 The document was read and processed, but the indexer could not add it to the search index. This can happen due to:
 
@@ -229,7 +229,7 @@ If you want to provide a default value in case of missing input, you can use the
 | Reason | Details/Example | Resolution |
 | --- | --- | --- |
 | Skill input is the wrong type | "Required skill input was not of the expected type `String`. Name: `text`, Source: `/document/merged_content`."  "Required skill input was not of the expected format. Name: `text`, Source: `/document/merged_content`."  "Cannot iterate over non-array `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`."  "Unable to select `0` in non-array `/document/normalized_images/0/imageCelebrities/0/detail/celebrities`" | Certain skills expect inputs of particular types, for example [Sentiment skill](cognitive-search-skill-sentiment-v3.md) expects `text` to be a string. If the input specifies a non-string value, then the skill doesn't execute and generates no outputs. Ensure your data set has input values uniform in type, or use a [Custom Web API skill](cognitive-search-custom-skill-web-api.md) to preprocess the input. If you're iterating the skill over an array, check the skill context and input have `*` in the correct positions. Usually both the context and input source should end with `*` for arrays. |
-| Skill input is missing | "Required skill input is missing. Name: `text`, Source: `/document/merged_content`"  "Missing value `/document/normalized_images/0/imageTags`."  "Unable to select `0` in array `/document/pages` of length `0`." | If all your documents get this warning, most likely there is a typo in the input paths and you should double check property name casing, extra or missing `*` in the path, and make sure that the documents from the data source provide the required inputs. |
+| Skill input is missing | `Required skill input is missing. Name: text, Source: /document/merged_content`  `Missing value /document/normalized_images/0/imageTags.`  `Unable to select 0 in array /document/pages of length 0.` | If all your documents get this warning, most likely there is a typo in the input paths and you should double check property name casing, extra or missing `*` in the path, and make sure that the documents from the data source provide the required inputs. |
 | Skill language code input is invalid | Skill input `languageCode` has the following language codes `X,Y,Z`, at least one of which is invalid. | See more details [below](cognitive-search-common-errors-warnings.md#skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid) |
 
 <a name="skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"></a>
