@@ -45,7 +45,7 @@ NIC type | VMXNET3 (if the appliance is a VMware VM)
  | **Hardware settings**
 CPU cores | 8
 RAM | 16 GB
-Number of disks | Three: The OS disk, process server cache disk, and retention drive.
+Number of disks | Two: The OS disk and the process server cache disk.
 Free disk space (cache) | 600 GB
 Free disk space (retention disk) | 600 GB
 **Software settings** |
