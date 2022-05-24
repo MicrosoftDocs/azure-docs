@@ -22,6 +22,8 @@ At the bottom of this page, there's a table describing the Microsoft Defender fo
 
 ## <a name="alerts-windows"></a>Alerts for Windows machines
 
+Microsoft Defender for Servers Plan 2 provides unique detections and alerts, in addition to the ones provided by Microsoft Defender for Endpoint. The alerts provided for Windows machines are:
+
 [Further details and notes](defender-for-servers-introduction.md)
 
 | Alert (alert type)                                                                                                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | MITRE tactics<br>([Learn more](#intentions)) | Severity      |
@@ -133,6 +135,8 @@ At the bottom of this page, there's a table describing the Microsoft Defender fo
 
 
 ## <a name="alerts-linux"></a>Alerts for Linux machines
+
+Microsoft Defender for Servers Plan 2 provides unique detections and alerts, in addition to the ones provided by Microsoft Defender for Endpoint. The alerts provided for Linux machines are:
 
 [Further details and notes](defender-for-servers-introduction.md)
 

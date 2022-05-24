@@ -80,7 +80,7 @@ items:
         href: concept-best-practices-scanning.md
       - name: Security best practices
         href: concept-best-practices-security.md  
-  - name: Microsoft Purview permissions
+  - name: Permissions and access
     href: catalog-permissions.md
   - name: Data map
     items:
@@ -109,7 +109,11 @@ items:
     - name: Self-service data access policy
       href: concept-self-service-data-access-policy.md
   - name: Data Estate Insights
-    href: concept-insights.md
+    items:
+    - name: Data Estate Insights
+      href: concept-insights.md
+    - name: Insights permissions
+      href: insights-permissions.md
 - name: How-to guides
   items:
   - name: Manage collections
@@ -275,6 +279,8 @@ items:
       href: sensitivity-labels-frequently-asked-questions.yml
   - name: Data Estate Insights
     items:
+    - name: View data stewardship
+      href: data-stewardship.md
     - name: View asset insights
       href: asset-insights.md
     - name: View glossary insights
@@ -311,9 +317,13 @@ items:
       href: how-to-enable-data-use-management.md
     - name: Author and publish data owner access policies
       href: how-to-data-owner-policy-authoring-generic.md
-    - name: Data owner policies for Azure Storage
+    - name: Data owner policies - Azure Storage
       href: how-to-data-owner-policies-storage.md
-    - name: Data owner policies on resource groups or subscriptions
+    - name: Data owner policies - Azure SQL DB
+      href: how-to-data-owner-policies-azure-sql-db.md
+    - name: Data owner policies - Azure Arc enabled SQL Servers
+      href: how-to-data-owner-policies-arc-sql-server.md
+    - name: Data owner policies - resource groups or subscriptions
       href: how-to-data-owner-policies-resource-group.md
     - name: View self-service data access policy
       href: how-to-view-self-service-data-access-policy.md

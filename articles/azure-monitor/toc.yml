@@ -47,6 +47,10 @@ items:
       href: app/tutorial-app-dashboards.md
     - name: Monitor mobile application
       href: app/mobile-center-quickstart.md
+  - name: Change Analysis
+    items:
+    - name: Track web outages
+      href: change/tutorial-outages.md
   - name: Custom logs
     items:
     - name: Azure portal
@@ -153,8 +157,6 @@ items:
     - name: Log data ingestion time
       displayName: latency
       href: logs/data-ingestion-time.md
-  - name: Data collection rules
-    href: essentials/data-collection-rule-overview.md
   - name: Usage and cost
     items:
     - name: View and estimate charges
@@ -433,12 +435,20 @@ items:
     - name: Resource logs
       href: essentials/resource-logs.md
     - name: Diagnostic settings
-      displayName: Platform logs, Resource logs, Activity log
-      href: essentials/diagnostic-settings.md
+      items:
+      - name: Overview
+        displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
+        href: essentials/diagnostic-settings.md
+      - name: Create with Azure Policy
+        displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
+        href: essentials/diagnostic-settings-policy.md
   - name: Data collection
     items:
     - name: Data collection rules
       items:
+      - name: Overview
+        displayName: Data collection rules
+        href: essentials/data-collection-rule-overview.md
       - name: Structure
         displayName: Data collection rules
         href: essentials/data-collection-rule-structure.md
@@ -1180,6 +1190,10 @@ items:
       href: change/change-analysis-visualizations.md
     - name: Azure PowerShell
       href: change/change-analysis-powershell.md
+    - name: Custom filters
+      href: change/change-analysis-custom-filters.md
+    - name: Pin and share changes via Azure dashboard
+      href: change/change-analysis-query.md
     - name: Troubleshoot
       href: change/change-analysis-troubleshoot.md
   - name: VM insights
@@ -1272,6 +1286,8 @@ items:
         href: containers/container-insights-agent-config.md
       - name: Update to enable metrics
         href: containers/container-insights-update-metrics.md
+      - name: Enable ContainerLogv2 (preview)
+        href: containers/container-insights-logging-v2.md
       - name: Migration from Azure Red Hat OpenShift v4.x to Azure Arc enabled cluster
         href: containers/container-insights-transition-hybrid.md
     - name: Monitor

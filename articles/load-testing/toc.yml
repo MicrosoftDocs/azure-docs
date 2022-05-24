@@ -30,7 +30,9 @@
       href: concept-load-testing-concepts.md
 - name: How-to guides
   expanded: true
-  items: 
+  items:
+    - name: Create a load test with a JMeter script
+      href: how-to-create-and-run-load-test-with-JMeter-script.md 
     - name: Compare test runs
       href: how-to-compare-multiple-test-runs.md
     - name: Configure server-side monitoring
@@ -43,6 +45,8 @@
       href: how-to-define-test-criteria.md
     - name: Parameterize load tests
       href: how-to-parameterize-load-tests.md
+    - name: Use JMeter user properties
+      href: how-to-configure-user-properties.md
     - name: Read a CSV file in load tests
       href: how-to-read-csv-data.md
     - name: Get insights from App Service Diagnostics
@@ -53,6 +57,8 @@
       href: how-to-assign-roles.md
     - name: Use a managed identity
       href: how-to-use-a-managed-identity.md
+    - name: Configure customer-managed keys
+      href: how-to-configure-customer-managed-keys.md
     - name: Move between regions
       href: how-to-move-between-regions.md
     - name: Monitor Azure Load Testing

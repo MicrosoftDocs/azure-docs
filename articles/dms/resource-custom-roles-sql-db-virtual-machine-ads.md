@@ -66,7 +66,7 @@ The AssignableScopes section of the role definition json string allows you to co
     }
 }
 ```
-You can use either the Azure portal, AZ PowerShell, Azure CLI or Azure Rest API to create the roles.
+You can use either the Azure portal, AZ PowerShell, Azure CLI or Azure REST API to create the roles.
 
 For more information, see the articles [Create custom roles using the Azure portal](../role-based-access-control/custom-roles-portal.md) and [Azure custom roles](../role-based-access-control/custom-roles.md).
 

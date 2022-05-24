@@ -87,10 +87,14 @@
       href: ../../cosmos-db/sql/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Database for MariaDB
       href: ../../mariadb/quickstart-create-mariadb-server-database-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Database for MySQL
+      href: ../../mysql/quickstart-create-mysql-server-database-using-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Database for PostgreSQL
       href: ../../postgresql/quickstart-create-postgresql-server-database-using-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Database Migration Service
       href: ../../dms/create-dms-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: SQL Database
+      href: /azure/azure-sql/database/single-database-create-bicep-quickstart
   - name: DevOps
     items:
     - name: App Configuration
@@ -101,6 +105,18 @@
     items:
     - name: Logic Apps
       href: ../../logic-apps/quickstart-create-deploy-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+  - name: Internet of Things
+    items:
+    - name: IoT Hub
+      href: ../../iot-hub/quickstart-bicep-route-messages.md?toc=/azure/azure-resource-manager/bicep/toc.json
+  - name: Management and Governance
+    items:
+    - name: Resource Graph
+      href: ../../governance/resource-graph/shared-query-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+  - name: Media Services
+    items:
+    - name: Media Services account
+      href: /azure/media-services/latest/media-services-bicep-quickstart
   - name: Networking
     items:
     - name: Application Gateway
@@ -127,6 +143,8 @@
     items:
     - name: Attestation
       href: ../../attestation/quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Defender for Cloud
+      href: ../../defender-for-cloud/quickstart-automation-alert.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Key Vault - secret
       href: ../../key-vault/secrets/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Storage
@@ -137,6 +155,10 @@
     items:
     - name: API Management
       href: ../../api-management/quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Notification Hubs
+      href: ../../notification-hubs/create-notification-hub-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: SignalR Service
+      href: ../../azure-signalr/signalr-quickstart-azure-signalr-service-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
 - name: Concepts
   expanded: true
   items:
@@ -255,6 +277,8 @@
       items:
       - name: Access control
         href: scenarios-rbac.md
+      - name: Monitoring
+        href: scenarios-monitoring.md
       - name: Secrets
         href: scenarios-secrets.md
       - name: Virtual networks

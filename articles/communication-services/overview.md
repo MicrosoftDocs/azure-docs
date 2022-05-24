@@ -15,6 +15,8 @@ ms.service: azure-communication-services
 
 Azure Communication Services are cloud-based services with REST APIs and client library SDKs available to help you integrate communication into your applications. You can add communication to your applications without being an expert in underlying technologies such as media encoding or telephony. Azure Communication Service is available in multiple [Azure geographies](concepts/privacy.md) and Azure for government.
 
+> [!VIDEO https://www.youtube.com/embed/chMHVHLFcao]
+
 Azure Communication Services supports various communication formats:
 
 - [Voice and Video Calling](concepts/voice-video-calling/calling-sdk-features.md)
