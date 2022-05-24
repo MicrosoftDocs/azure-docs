@@ -48,4 +48,4 @@ Azure Machine Learning Datastores support both credential-based and identity-bas
 
 ## Next steps 
 
-+ [How to create a datastore](how-to-datasore.md)
++ [How to create a datastore](how-to-datastore.md)

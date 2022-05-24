@@ -396,7 +396,7 @@ store = AzureDataLakeGen1Datastore(
 ml_client.create_or_update(store)
 ```
 
-# [Python SDK: Service Principal](#tab/sdk-adls-sp)
+# [Python SDK: Service Principal](#tab/sdk-adlsgen1-sp)
 
 ```python
 from azure.ai.ml.entities import AzureDataLakeGen1Datastore
@@ -422,6 +422,7 @@ store = AzureDataLakeGen1Datastore(
 
 ml_client.create_or_update(store)
 ```
+
 ---
 
 ## Next steps

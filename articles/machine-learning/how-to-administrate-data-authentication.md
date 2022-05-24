@@ -5,7 +5,7 @@ description: Learn how to manage data access and how to anthenticate in Azure Ma
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
-ms.topic: how-do
+ms.topic: how-to
 ms.author: xunwan
 author: xunwan
 ms.reviewer: larryfr

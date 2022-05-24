@@ -29,7 +29,7 @@ To create datastores that use **credential-based** authentication, like access k
 There are two scenarios in which you can apply identity-based data access in Azure Machine Learning. These scenarios are a good fit for identity-based access when you're working with confidential data and need more granular data access management:
 
 > [!WARNING]
-> Identity-based data access is not supported for [automated ML experiments](how-to-configure-auto-train.md).
+> Identity-based data access is not supported for [automated ML experiments](../how-to-configure-auto-train.md).
 
 - Accessing storage services
 - Training machine learning models with private data
@@ -246,5 +246,5 @@ identity:
 ## Next steps
 
 * [Create an Azure Machine Learning dataset](how-to-create-register-datasets.md)
-* [Train with datasets](..how-to-train-with-datasets.md)
+* [Train with datasets](../how-to-train-with-datasets.md)
 * [Create a datastore with key-based data access](how-to-access-data.md)

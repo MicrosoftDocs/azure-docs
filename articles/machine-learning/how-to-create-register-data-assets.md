@@ -166,10 +166,10 @@ description: Data asset created from folder in cloud using wasbs URL.
 type: uri_folder
 path: wasbs://mainstorage9c05dabf5c924.blob.core.windows.net/azureml-blobstore-54887b46-3cb0-485b-bb15-62e7b5578ee6/example-data/
 ```
-
+---
 
 ### Consume registered URI Folder data assets in job
-# [Python-SDK](#tab/Python-SDK)
+
 ```python
 from azure.ai.ml.entities import Data, UriReference, JobInput, CommandJob
 from azure.ai.ml._constants import AssetTypes
@@ -198,7 +198,7 @@ returned_job.services["Studio"].endpoint
 ```
    
 ### Register data as URI File type Data
-
+# [Python-SDK](#tab/Python-SDK)
 ```python
 from azure.ai.ml.entities import Data
 from azure.ai.ml._constants import AssetTypes
@@ -218,9 +218,9 @@ my_data = Data(
 
 ml_client.data.create_or_update(my_data)
 ```
-
-You can also use CLI to register a URI File type Data as below example.
 # [CLI](#tab/CLI)
+You can also use CLI to register a URI File type Data as below example.
+
 ```cli
 > az ml data create -f <file-name>.yml
 ```
@@ -249,7 +249,7 @@ description: Data asset created from folder in cloud using wasbs URL.
 type: uri_file
 path: wasbs://mainstorage9c05dabf5c924.blob.core.windows.net/azureml-blobstore-54887b46-3cb0-485b-bb15-62e7b5578ee6/paths/example-data.csv
 ```
-
+---
    
 ## MLTable
 
@@ -302,7 +302,7 @@ transformations:
       empty_as_string: false
       header: from_first_file
 ```
-
+---
 The contents of the MLTable file specify the underlying data location (here a local path) and also the transforms to perform on the underlying data before materializing into a pandas/spark/dask data frame. The important part here's that the MLTable-artifact doesn't have any absolute paths, making it *self-contained*. All the information stored in one folder; regardless of whether that folder is stored on your local drive or in your cloud drive or on a public http server.
 
 To consume the data in a job or interactive session, use `mltable`:
