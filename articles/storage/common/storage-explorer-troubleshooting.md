@@ -471,7 +471,7 @@ Many libraries needed by Storage Explorer come preinstalled with Canonical's sta
 - iproute2
 - libasound2
 - libatm1
-- libgconf2-4
+- libgconf-2-4
 - libnspr4
 - libnss3
 - libpulse0

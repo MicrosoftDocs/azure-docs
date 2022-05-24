@@ -4,7 +4,7 @@ metadata:
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
   ms.topic: faq
   ms.service: backup
-  ms.date: 03/02/2022
+  ms.date: 05/06/2022
   author: v-amallick
   ms.author: v-amallick
 
@@ -212,6 +212,10 @@ sections:
       -  question: Is there a limit to trigger restore in a day?
          answer: |
            Yes, the default maximum limit to trigger restore is 10 attempts per VM in 24 hours.
+
+      - question: Can I delete JSON template and VHD files after the restore process is complete?
+        answer: |
+          Yes, you can delete these files once the restoration process is complete. By default, Azure Backup retains these files for future use.
 
   - name: Manage VM backups
     questions:
