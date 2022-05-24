@@ -86,7 +86,7 @@ Before you start, make sure you've completed the following steps:
     * X-axis as times
     * Y-axis as CarCount
     * Legend as Make
-    You'll then see a chart that can be published. You can configure [automatic page refresh](https://docs.microsoft.com/power-bi/create-reports/desktop-automatic-page-refresh#authoring-reports-with-automatic-page-refresh-in-power-bi-desktop) and set it to 3 minutes to get a near-real time view.
+    You'll then see a chart that can be published. You can configure [automatic page refresh](/power-bi/create-reports/desktop-automatic-page-refresh#authoring-reports-with-automatic-page-refresh-in-power-bi-desktop) and set it to 3 minutes to get a near-real time view.
 [![Screenshot of Power BI dashboard.](./media/stream-analytics-no-code/no-code-power-bi-real-time-dashboard.png)](./media/stream-analytics-no-code/no-code-power-bi-real-time-dashboard.png#lightbox)
 
 ## Clean up resources
