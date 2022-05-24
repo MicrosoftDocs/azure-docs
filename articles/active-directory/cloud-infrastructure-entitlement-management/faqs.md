@@ -79,15 +79,7 @@ Entra is currently not GDPR compliant.--->
 
 ## What is the regional availability for Entra?
 
-|Region code   |Region |
-|----------|-----------|
-|AS     |Asian region scope       |
-|OC|Oceania region scope   |
-|AF|Africa region scope   |
-|AN|Antarctica region scope|
-|WW|Worldwide region scope|
-|NA|North American region scope|
-|SA|South American region scope|
+For information on regional availability for Entra, see [Products available by region](https://azure.microsoft.com/en-us/global-infrastructure/services/). 
 
 ## Is Entra available in Government Cloud?
 
