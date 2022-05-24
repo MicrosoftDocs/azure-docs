@@ -29,7 +29,7 @@ To disable access to the App Configuration store from public network, follow the
 1. Under **Public Access**, select **Disabled** to disable public access to the App Configuration store and only allow access through private endpoints. If you already had public access disabled and instead wanted to enable public access to your configuration store, you would select **Enabled**. 
 
    > [!NOTE]
-   > Once you've switched to **Public Access: Disabled** or **Public access: Enabled**, you won't be able to select **Public Access: Automatic** anymore, as this option can only be selected when creating the store.
+   > Once you've switched **Public Access** to **Disabled** or **Enabled**, you won't be able to select **Public Access: Automatic** anymore, as this option can only be selected when creating the store.
 
 1. Select **Apply**.
 
