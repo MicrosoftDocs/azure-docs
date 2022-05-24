@@ -76,7 +76,7 @@ The following diagram shows the highlights from example workflow:
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
-1. On the designer, in your workflow, add the Inline Code action, either as a new step at the end of your workflow or between steps. This example adds the action under the Office 365 Outlook trigger.
+1. On the designer, add the Inline Code action to your workflow. You can add an action either as a new step at the end of your workflow or between steps. This example adds the action under the Office 365 Outlook trigger.
 
    * To add the action at the end of your workflow, select **New step**.
 
@@ -109,7 +109,7 @@ The following diagram shows the highlights from example workflow:
 
    ![Screenshot showing the Consumption workflow, Inline Code action, dynamic content list, and email message's "Body" property selected.](./media/logic-apps-add-run-inline-code/select-output-consumption.png)
 
-   The dynamic content list shows the outputs from the trigger and any preceding actions where those outputs match the input format for the edit box that's currently in focus. This list makes these outputs easier to use and reference from your workflow. For this example, the list shows the outputs from the Outlook trigger, including the email message's **Body** property.
+   The dynamic content list shows the outputs from the trigger and any preceding actions when those outputs match the input format for the edit box that's currently in focus. This list makes these outputs easier to use and reference from your workflow. For this example, the list shows the outputs from the Outlook trigger, including the email message's **Body** property.
 
    After you select the **Body** property, the Inline Code action resolves the token to a read-only `workflowContext` object, which your snippet can use as input. The `workflowContext` object includes properties that give your code access to the outputs from the trigger and preceding actions in your workflow, such as the trigger's `body` property, which differs from the email message's **Body** property. For more information, see [Reference trigger and action outputs in your code](#workflowcontext) later in this article.
 
@@ -129,7 +129,7 @@ The following diagram shows the highlights from example workflow:
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
-1. On the designer, in your workflow, add the Inline Code action, either as a new step at the end of your workflow or between steps. This example adds the action under the Office 365 Outlook trigger.
+1. On the designer, add the Inline Code action to your workflow. You can add an action either as a new step at the end of your workflow or between steps. This example adds the action under the Office 365 Outlook trigger.
 
    * To add the action at the end of your workflow, select the plus sign (**+**), and then select **Add an action**.
 
