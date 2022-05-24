@@ -4,6 +4,8 @@
   items:
     - name: Welcome to Azure Cosmos DB
       href: introduction.md
+    - name: Try Azure Cosmos DB for free
+      href: try.md
     - name: Choose an API
       href: choose-api.md
     - name: NoSQL vs. relational databases
