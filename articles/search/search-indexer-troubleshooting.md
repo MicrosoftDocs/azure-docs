@@ -203,6 +203,7 @@ Indexers leverage a conservative buffering strategy to ensure that every new and
 Indexers are not intended to be invoked multiple times in quick succession. If you need updates quickly, the supported approach is to push updates to the index while simultaneously updating the data source. For on-demand processing, we recommend that you pace your requests in five-minute intervals or more, and run the indexer on a schedule.
 
 ### Example of duplicate document processing with 30 second buffer
+
 Conditions under which a document is processed twice is explained below in a timeline that notes each action and counter action. The following timeline illustrates the issue:
 
 | Timeline (hh:mm:ss) | Event | Indexer High Water Mark | Comment |
@@ -229,6 +230,12 @@ Conditions under which a document is processed twice is explained below in a tim
 | 00:01:43 | Indexer ends | 00:01:40 | Notice this indexer execution started more than 30 seconds after the last write to the data source and also processed `doc2`. This is the expected behavior because if all indexer executions before 00:01:35 are eliminated, this will become the first and only execution to process `doc1` and `doc2`. |
 
 In practice, this scenario only happens when on-demand indexers are manually invoked within minutes of each other, for certain data sources. It may result in mismatched numbers (like the indexer processed 345 documents total according to the indexer execution stats, but there are 340 documents in the data source and index) or potentially increased billing if you are running the same skills for the same document multiple times. Running an indexer using a schedule is the preferred recommendation.
+
+
+## Indexing documents with sensitivity labels
+
+If you have [sensitivity labels set on documents](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels) you might not be able to index them. If you are getting errors trying to index documents with sensitivity labels, remove them prior to indexing.
+
 
 ## See also
 
