@@ -1,9 +1,10 @@
 ---
 title: 'Quickstart: Deploy an existing container image with the Azure CLI'
-description: Deploy an existing container image to Azure Container Apps Preview with the Azure CLI.
+description: Deploy an existing container image to Azure Container Apps with the Azure CLI.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: event-tier1-build-2022
 ms.topic: quickstart
 ms.date: 03/21/2022
 ms.author: cshoe
@@ -12,7 +13,7 @@ zone_pivot_groups: container-apps-registry-types
 
 # Quickstart: Deploy an existing container image with the Azure CLI
 
-The Azure Container Apps Preview service enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while you leave behind the concerns of manual cloud infrastructure configuration and complex container orchestrators.
+The Azure Container Apps service enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while you leave behind the concerns of manual cloud infrastructure configuration and complex container orchestrators.
 
 This article demonstrates how to deploy an existing container to Azure Container Apps.
 

@@ -1,15 +1,16 @@
 ---
-title: Observability in Azure Container Apps Preview
-description: Monitor your running app in Azure Container Apps Preview
+title: Observability in Azure Container Apps
+description: Monitor your running app in Azure Container Apps
 services: container-apps
 author: cebundy
 ms.service: container-apps
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.date: 05/02/2022
 ms.author: v-bcatherine
 ---
 
-# Observability in Azure Container Apps Preview
+# Observability in Azure Container Apps
 
 Azure Container Apps provides several built-in observability features that give you a holistic view of your container app’s health throughout its application lifecycle.  These features help you monitor and diagnosis the state of your app to improve performance and respond to critical problems.
 
@@ -393,5 +394,5 @@ Container Apps manages updates to your container app by creating [revisions](rev
 
 ## Next steps
 
-- [Monitor an app in Azure Container Apps Preview](monitor.md)
+- [Monitor an app in Azure Container Apps](monitor.md)
 - [Health probes in Azure Container Apps](health-probes.md)
