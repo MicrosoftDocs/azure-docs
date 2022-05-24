@@ -56,7 +56,7 @@ Create a virtual network with **[az network vnet create](/cli/azure/network/vnet
 
 ```azurecli-interactive
 az network vnet create \
-    --resource-group myResourceGroup \
+    --resource-group CreatePrivateEndpointQS-rg \
     --location eastus \
     --name myVNet \
     --address-prefixes 10.0.0.0/16 \
@@ -68,7 +68,7 @@ Create a bastion subnet with **[az network vnet subnet create](/cli/azure/networ
 
 ```azurecli-interactive
 az network vnet subnet create \
-    --resource-group myResourceGroup \
+    --resource-group CreatePrivateEndpointQS-rg \
     --name AzureBastionSubnet \
     --vnet-name myVNet \
     --address-prefixes 10.0.1.0/27
@@ -78,7 +78,7 @@ Create a public IP address for the bastion host with **[az network public-ip cre
 
 ```azurecli-interactive
 az network public-ip create \
-    --resource-group myResourceGroup \
+    --resource-group CreatePrivateEndpointQS-rg \
     --name myBastionIP \
     --sku Standard \
     --zone 1 2 3
@@ -88,7 +88,7 @@ Create the bastion host with **[az network bastion create](/cli/azure/network/ba
 
 ```azurecli-interactive
 az network bastion create \
-    --resource-group myResourceGroup \
+    --resource-group CreatePrivateEndpointQS-rg \
     --name myBastionHost \
     --public-ip-address myBastionIP \
     --vnet-name myVNet \
@@ -101,14 +101,34 @@ It can take a few minutes for the Azure Bastion host to deploy.
 
 An Azure service that supports private endpoints is required to set up the private endpoint and connection to the virtual network. For the examples in this article, you'll use the Azure WebApp from the prerequisites. For more information on the Azure services that support a private endpoint, see [Azure Private Link availability](availability.md).
 
+A private endpoint can have a static or dynamically assigned IP address.
 > [!IMPORTANT]
 > You must have a previously deployed Azure WebApp to proceed with the steps in this article. For more information, see [Prerequisites](#prerequisites) .
 
 Place the resource ID of the web app that you created earlier into a shell variable with **[az webapp list](/cli/azure/webapp#az-webapp-list)**. Create the private endpoint with **[az network private-endpoint create](/cli/azure/network/private-endpoint#az-network-private-endpoint-create)**.
 
+# [**Dynamic IP**](#tab/dynamic-ip)
+
+```azurecli-interactive
+id=$(az webapp list \
+    --resource-group CreatePrivateEndpointQS-rg \
+    --query '[].[id]' \
+    --output tsv)
+
+az network private-endpoint create \
+    --name myPrivateEndpoint \
+    --resource-group CreatePrivateEndpointQS-rg \
+    --vnet-name myVNet --subnet myBackendSubnet \
+    --private-connection-resource-id $id \
+    --group-id sites \
+    --connection-name myConnection  
+```
+
+# [**Static IP**](#tab/static-ip)
+
  ```azurecli-interactive
 id=$(az webapp list \
-    --resource-group myResourceGroup \
+    --resource-group CreatePrivateEndpointQS-rg \
     --query '[].[id]' \
     --output tsv)
 
@@ -116,7 +136,7 @@ az network private-endpoint create \
     --connection-name myConnection \
     --name myPrivateEndpoint \
     --private-connection-resource-id $id \
-    --resource-group myResourceGroup \
+    --resource-group CreatePrivateEndpointQS-rg \
     --subnet myBackendSubnet \
     --group-id sites \
     --ip-config name=myIPconfig group-id=sites member-name=sites private-ip-address=10.0.0.10 \
@@ -131,7 +151,7 @@ Create a new private Azure DNS zone with **[az network private-dns zone create](
 
 ```azurecli-interactive
 az network private-dns zone create \
-    --resource-group myResourceGroup \
+    --resource-group CreatePrivateEndpointQS-rg \
     --name "privatelink.azurewebsites.net"
 ```
 
@@ -139,7 +159,7 @@ Link the DNS zone to the virtual network you created previously with **[az netwo
 
 ```azurecli-interactive
 az network private-dns link vnet create \
-    --resource-group myResourceGroup \
+    --resource-group CreatePrivateEndpointQS-rg \
     --zone-name "privatelink.azurewebsites.net" \
     --name MyDNSLink \
     --virtual-network myVNet \
@@ -150,7 +170,7 @@ Create a DNS zone group with **[az network private-endpoint dns-zone-group creat
 
 ```azurecli-interactive
 az network private-endpoint dns-zone-group create \
-    --resource-group myResourceGroup \
+    --resource-group CreatePrivateEndpointQS-rg \
     --endpoint-name myPrivateEndpoint \
     --name MyZoneGroup \
     --private-dns-zone "privatelink.azurewebsites.net" \
@@ -165,7 +185,7 @@ Create the virtual machine with **[az vm create](/cli/azure/vm#az-vm-create)**.
 
 ```azurecli-interactive
 az vm create \
-    --resource-group myResourceGroup \
+    --resource-group CreatePrivateEndpointQS-rg \
     --name myVM \
     --image Win2019Datacenter \
     --public-ip-address "" \
@@ -204,15 +224,13 @@ Use the VM you created in the previous step to connect to the webapp across the 
     Aliases:  mywebapp1979.azurewebsites.net
     ```
 
-    A static private IP address of *10.0.0.10* is returned for the web app name.
-
 8. In the bastion connection to **myVM**, open the web browser.
 
 9. Enter the URL of your web app, **https://mywebapp1979.azurewebsites.net**.
 
    If your web app hasn't been deployed, you'll get the following default web app page:
 
-   :::image type="content" source="./media/private-endpoint-static-ip-powershell/web-app-default-page.png" alt-text="Screenshot of the default web app page on a browser." border="true":::
+   :::image type="content" source="./media/create-private-endpoint-portal/web-app-default-page.png" alt-text="Screenshot of the default web app page on a browser." border="true":::
 
 10. Close the connection to **myVM**.
 
