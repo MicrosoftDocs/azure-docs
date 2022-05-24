@@ -39,7 +39,7 @@
       items:
         - name: Develop with Helm
           href: quickstart-helm.md
-        - name: Develop with Dapr (preview)
+        - name: Develop with Dapr
           href: quickstart-dapr.md
     - name: Subscribe to AKS events with Event Grid (Preview)
       href: quickstart-event-grid.md
@@ -181,6 +181,8 @@
           href: upgrade-cluster.md
         - name: Use Uptime SLA
           href: uptime-sla.md
+        - name: Use Draft
+          href: draft.md
         - name: Use proximity placement groups
           href: reduce-latency-ppg.md
         - name: Upgrade the node image
@@ -278,6 +280,8 @@
               href: manage-azure-rbac.md
             - name: Use Kubernetes RBAC with Azure AD integration
               href: azure-ad-rbac.md
+            - name: Use custom certificate authorities (preview)
+              href: custom-certificate-authority.md
             - name: Rotate certificates
               href: certificate-rotation.md
             - name: Use Azure Policy
@@ -423,8 +427,6 @@
           href: kubernetes-helm.md
         - name: Use OpenFaaS
           href: openfaas.md
-        - name: Run Spark jobs
-          href: spark-job.md
         - name: Use GPUs
           href: gpu-cluster.md
         - name: Build Django app with PostgreSQL
@@ -442,7 +444,7 @@
           items:
             - name: Dapr overview
               href: dapr-overview.md
-            - name: How to use Dapr (preview)
+            - name: How to use Dapr
               href: dapr.md
         - name: Use GitOps
           href: ../azure-arc/kubernetes/tutorial-use-gitops-flux2.md
@@ -463,7 +465,11 @@
           href: open-service-mesh-troubleshoot.md
         - name: Uninstall the Open Service Mesh AKS add-on
           href: open-service-mesh-uninstall-add-on.md
-    - name: Use cluster extensions (preview)
+    - name: Kubernetes Event-driven Autoscaler add-on (preview)
+      href: keda.md
+    - name: Web Application Routing (preview)
+      href: web-app-routing.md
+    - name: Use cluster extensions
       href: cluster-extensions.md
     - name: DevOps
       items:

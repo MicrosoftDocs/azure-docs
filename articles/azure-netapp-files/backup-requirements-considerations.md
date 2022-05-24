@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/18/2022
+ms.date: 05/23/2022
 ms.author: anfdocs
 ---
 # Requirements and considerations for Azure NetApp Files backup 
@@ -45,6 +45,7 @@ Azure NetApp Files backup in a region can only protect an Azure NetApp Files vol
 
 * [Reverting a volume using snapshot revert](snapshots-revert-volume.md) is not supported on Azure NetApp Files volumes that have backups. 
 
+* See [Restore a backup to a new volume](backup-restore-new-volume.md) for additional considerations related to restoring backups.
 
 ## Next steps
 
