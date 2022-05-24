@@ -93,7 +93,7 @@ Follow these steps to create a VM on your Azure Stack Edge Pro GPU device.
     |OS type     |Choose from Windows or Linux as the operating system of the VHD you'll use to create the VM image.         |
    
 
-    ![Screenshot showing the Add image page for a virtual machine, with the Add button highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-6.png)
+    ![Screenshot showing the Add image page for a virtual machine with the Add button highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-6.png)
 
 1. The VHD is downloaded, and the VM image is created. Image creation takes several minutes to complete. You'll see a notification for the successful completion of the VM image.<!--There's a fleeting notification that image creation is in progress, but I didn't see any notification that image creation completed successfully.-->
 
@@ -102,7 +102,7 @@ Follow these steps to create a VM on your Azure Stack Edge Pro GPU device.
 
 1. After the VM image is successfully created, it's added to the list of images on the **Images** pane.
 
-    ![Screenshot that shows the Images pane in Virtual Machines view of an Azure Stack Edge device. The entry for a VM image is highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-9.png)
+    ![Screenshot that shows the Images pane in Virtual Machines view of an Azure Stack Edge device.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-9.png)
 
     The **Deployments** pane updates to indicate the status of the deployment.
 
