@@ -55,7 +55,7 @@ Indexer with a Blob data source was unable to extract the content or metadata fr
 
 | Reason | Details/Example | Resolution |
 | --- | --- | --- |
-| Blob is over the size limit | `Document is '150441598' bytes, which exceeds the maximum size '134217728' bytes for document extraction for your current service tier.` | [blob indexing errors](search-howto-indexing-azure-blob-storage.md#DealingWithErrors) |
+| Blob is over the size limit | `Document is '150441598' bytes, which exceeds the maximum size '134217728' bytes for document extraction for your current service tier.` | [Blob indexing errors](search-howto-indexing-azure-blob-storage.md#DealingWithErrors) |
 | Blob has unsupported content type | `Document has unsupported content type 'image/png'` | [Blob indexing errors](search-howto-indexing-azure-blob-storage.md#DealingWithErrors) |
 | Blob is encrypted | `Document could not be processed - it may be encrypted or password protected.` | You can skip the blob with [blob settings](search-howto-indexing-azure-blob-storage.md#PartsOfBlobToIndex). |
 | Transient issues | `Error processing blob: The request was aborted: The request was canceled.` `Document timed out during processing.` | Occasionally there are unexpected connectivity issues. Try running the document through your indexer again later. |
