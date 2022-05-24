@@ -373,7 +373,7 @@
         - name: Reading/Writing Data
           displayName: read and write data
           href: how-to-read-write-data-v2.md
-        - name: Administrate data: authentication
+        - name: Administrate data authentication
           displayName: data authentication
           href: how-to-administrate-data-authentication.md
     - name: Train models
