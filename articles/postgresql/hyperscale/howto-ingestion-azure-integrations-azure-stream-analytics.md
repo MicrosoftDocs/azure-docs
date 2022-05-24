@@ -80,8 +80,8 @@ Before we begin, it's assumed that you already have Azure IOT Hub provisioned an
     * Navigate to the Stream Analytics job that you created earlier.
     * Select **Outputs** > **Add** > **Azure PostgreSQL**.
     * Fill out the **Azure PostgreSQL** page with the following values:
-        *    **Output alias** - Name to identify the job's output.
-        *    Select **"Provide PostgreSQL database settings manually"** and enter the DB server connection details like server FQDN, database, table name, username, and password.
+        * **Output alias** - Name to identify the job's output.
+        * Select **"Provide PostgreSQL database settings manually"** and enter the DB server connection details like server FQDN, database, table name, username, and password.
     * Click on **Save** to save the settings.
 
 ![Diagram of configuring job output in ASA](../media/howto-hyperscale-ingestion/04-ASA-output.png)
@@ -92,20 +92,20 @@ Before we begin, it's assumed that you already have Azure IOT Hub provisioned an
 7. **Define Transformation Query**
     * Navigate to the Stream Analytics job that you created earlier.
     * For this tutorial, we would be ingesting only the alternate events from IOT Hub into Hyperscale (Citus) to reduce the overall dataset.
-```sql
-select
-   counter,
-   iothub.connectiondeviceid,
-   iothub.correlationid,
-   iothub.connectiondevicegenerationid,
-   iothub.enqueuedtime
-from
-    [src-iot-hub]
-where counter%2 = 0;
-```
-![Diagram of transformation query in ASA](../media/howto-hyperscale-ingestion/05-ASA-transformation-query.png)
+    ```sql
+    select
+       counter,
+       iothub.connectiondeviceid,
+       iothub.correlationid,
+       iothub.connectiondevicegenerationid,
+       iothub.enqueuedtime
+    from
+        [src-iot-hub]
+    where counter%2 = 0;
+    ```
+    ![Diagram of transformation query in ASA](../media/howto-hyperscale-ingestion/05-ASA-transformation-query.png)
     
-* Select Save Query
+   * Select **Save Query**
 
 > [!NOTE]
 > If you will notice carefully, we are using Query here to not only sample the data but also extract only the desired attributes from the data stream.
