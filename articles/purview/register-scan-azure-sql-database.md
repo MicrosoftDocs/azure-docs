@@ -382,7 +382,7 @@ Microsoft Purview supports lineage from Azure SQL Database. At the time of setti
 
 1. Follow steps under [authentication for a scan using Managed Identity](#authentication-for-a-scan) section to authorize Microsoft Purview scan your Azure SQL Database
 
-2. Sign in to Azure SQL Database with Azure AD account and assign proper permission (for example: db_owner) to  Purview Managed identity. Use below example SQL syntax to create user and grant permission by replacing 'purview-account' with your Account name:
+2. Sign in to Azure SQL Database with Azure AD account and assign db_owner permissions to the Microsoft Purview Managed identity. Use below example SQL syntax to create user and grant permission by replacing 'purview-account' with your Account name:
 
     ```sql
     Create user <purview-account> FROM EXTERNAL PROVIDER
