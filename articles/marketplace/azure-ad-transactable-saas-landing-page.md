@@ -130,4 +130,4 @@ Most apps that are registered with Azure AD grant delegated permissions to read 
 
 **Video tutorials**
 
-[Building a Simple SaaS Landing Page in .NET](https://go.microsoft.com/fwlink/?linkid=2196323)
+- [Building a Simple SaaS Landing Page in .NET](https://go.microsoft.com/fwlink/?linkid=2196323)
