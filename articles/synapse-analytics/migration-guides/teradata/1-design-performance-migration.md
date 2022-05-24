@@ -104,11 +104,11 @@ This is a good fit for existing Teradata environments where a single data mart i
 
 ##### Phased approach incorporating modifications
 
-In cases where a legacy warehouse has evolved over a long time, you may need to reengineer to maintain the required performance levels or to support new data like IoT steams. Migrate to Azure Synapse to get the benefits of a scalable cloud environment as part of the re-engineering process. Migration could include a change in the underlying data model, such as a move from an Inmon model to a data vault.
+In cases where a legacy warehouse has evolved over a long time, you may need to re-engineer to maintain the required performance levels or to support new data like IoT steams. Migrate to Azure Synapse to get the benefits of a scalable cloud environment as part of the re-engineering process. Migration could include a change in the underlying data model, such as a move from an Inmon model to a data vault.
 
 Microsoft recommends moving the existing data model as-is to Azure (optionally using a VM Teradata instance in Azure) and using the performance and flexibility of the Azure environment to apply the re-engineering changes, leveraging Azure's capabilities to make the changes without impacting the existing source system.
 
-#### Use a VM Teradata instance as part of a migration
+#### Use an Azure VM Teradata instance as part of a migration
 
 > [!TIP]
 > Use Azure VMs to create a temporary Teradata instance to speed up migration and minimize impact on the source system.

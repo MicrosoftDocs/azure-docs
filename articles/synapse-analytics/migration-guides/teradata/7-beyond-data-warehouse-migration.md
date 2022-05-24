@@ -59,10 +59,9 @@ Enterprises today have a key problem resulting from digital transformation. So m
 
 This, along with other new data&mdash;like Internet of Things (IoT) data, coming into the enterprise, means that companies need to find a way to deal with unprecedented data growth and scale data integration ETL processing beyond current levels. One way to do this is to offload ingestion, data cleansing, transformation and integration to a data lake and process it at scale there, as part of a data warehouse modernization program.
 
-> [!TIP]
-> Offload ELT processing to Azure Data Lake and still run at scale as your data volumes grow.
-
 Once you've migrated your data warehouse to Azure Synapse, Microsoft provides the ability to modernize your ETL processing by ingesting data into, and staging data in, Azure Data Lake Storage. You can then clean, transform and integrate your data at scale using Data Factory before loading it into Azure Synapse in parallel using PolyBase.
+
+For ELT strategies, consider offloading ELT processing to Azure Data Lake to easily scale as your data volume or frequency grows.
 
 ### Microsoft Azure Data Factory
 
