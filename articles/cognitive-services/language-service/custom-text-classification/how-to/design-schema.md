@@ -62,7 +62,7 @@ You can only use `.txt`. documents for custom text. If your data is in other for
 
 ## Test set
 
-When defining the testing set, make sure to include exmaple documents that are not present in the training set. Defining the testing set is an important step to calculate the [model performance](view-model-evaluation#model-details). Also, make sure that the testing set include documents that represent all classes used in your project.
+When defining the testing set, make sure to include example documents that are not present in the training set. Defining the testing set is an important step to calculate the [model performance](view-model-evaluation.md#model-details). Also, make sure that the testing set include documents that represent all classes used in your project.
 
 ## Next steps
 
