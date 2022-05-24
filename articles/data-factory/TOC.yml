@@ -820,6 +820,10 @@ items:
       href: data-factory-private-link.md
     - name: Azure security baseline
       href: /security/benchmark/azure/baselines/data-factory-security-baseline?toc=/azure/data-factory/TOC.json
+  - name: Settings
+    items: 
+    - name: Manage Azure Data Factory settings and preferences
+      href: how-to-manage-settings.md
   - name: Monitor and manage
     items:
     - name: Monitor visually
