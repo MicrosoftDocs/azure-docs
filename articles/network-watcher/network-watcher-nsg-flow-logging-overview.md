@@ -382,6 +382,9 @@ Also, when a NSG is deleted, by default the associated flow log resource is dele
 - [Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances/)
 - [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
 
+> [!NOTE]
+> App services deployed under App Service Plan do not support NSG Flow Logs. Please refer [this documentaion](/articles/app-service/overview-vnet-integration.md#how-regional-virtual-network-integration-works.md) for additional details.
+
 ## Best practices
 
 **Enable on critical subnets**: Flow Logs should be enabled on all critical subnets in your subscription as an auditability and security best practice. 
