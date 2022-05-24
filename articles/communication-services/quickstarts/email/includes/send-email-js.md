@@ -82,7 +82,7 @@ npm install dotenv
 Add the following code to **send-email.js**:
 
 ```javascript
-const { EmailRestApiClient } = require("@azure/communication-email");
+const { EmailClient } = require("@azure/communication-email");
 require("dotenv").config();
 
 // This code demonstrates how to fetch your connection string
@@ -110,12 +110,12 @@ async function main() {
       sender: "<donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net>",
       content: {
         subject: "Welcome to Azure Communication Service Email.",
-        plainText: "<This email meessage is sent from Azure Communication Service Email using JS SDK.>"
+        plainText: "<This email message is sent from Azure Communication Service Email using JS SDK.>"
       },
       recipients: {
         to: [
           {
-            email: "emailalias@emaildomain.com>",
+            email: "<emailalias@emaildomain.com>",
           },
         ],
       },
