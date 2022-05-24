@@ -7,25 +7,12 @@ author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
 ms.topic: reference
-<<<<<<< HEAD
-ms.date: 05/16/2022
-=======
 ms.date: 05/19/2022
->>>>>>> af214c4ea5f205d8292b25020430601683899bf3
 
 ---
 
 # Custom Entity Lookup cognitive skill
 
-<<<<<<< HEAD
-The **Custom Entity Lookup** skill looks for text from a custom, user-defined list of words and phrases. Using the list you provide, the skill labels all documents with any matching entities. The skill also supports a degree of fuzzy matching that can be applied to find matches that are similar but not quite exact.  
-
-> [!NOTE]
-> This skill isn't bound to a Cognitive Services API but requires a Cognitive Services key to allow more than 20 transactions. This skill is [metered by Cognitive Search](https://azure.microsoft.com/pricing/details/search/#pricing).
-
-## @odata.type
-
-=======
 The **Custom Entity Lookup** skill is used to detect or recognize entities that you define. During skillset execution, the skill looks for text from a custom, user-defined list of words and phrases. The skill uses this list to label any matching entities found within source documents. The skill also supports a degree of fuzzy matching that can be applied to find matches that are similar but not exact.  
 
 > [!NOTE]
@@ -33,7 +20,6 @@ The **Custom Entity Lookup** skill is used to detect or recognize entities that 
 
 ## @odata.type  
 
->>>>>>> af214c4ea5f205d8292b25020430601683899bf3
 Microsoft.Skills.Text.CustomEntityLookupSkill 
 
 ## Data limits
@@ -48,7 +34,7 @@ Parameters are case-sensitive.
 
 | Parameter name     | Description |
 |--------------------|-------------|
-| `entitiesDefinitionUri`    | Path to a JSON or CSV file containing all the target text to match against. This entity definition is read at the beginning of an indexer run; any updates to this file mid-run won't be realized until subsequent runs. This config must be accessible over HTTPS. See [Custom Entity Definition Format](#custom-entity-definition-format) below for expected CSV or JSON schema.|
+| `entitiesDefinitionUri`    | Path to a JSON or CSV file containing all the target text to match against. This entity definition is read at the beginning of an indexer run; any updates to this file mid-run won't be realized until subsequent runs. This file must be accessible over HTTPS. See [Custom Entity Definition Format](#custom-entity-definition-format) below for expected CSV or JSON schema.|
 |`inlineEntitiesDefinition` | Inline JSON entity definitions. This parameter supersedes the entitiesDefinitionUri parameter if present. No more than 10 KB of configuration may be provided inline. See [Custom Entity Definition](#custom-entity-definition-format) below for expected JSON schema. |
 |`defaultLanguageCode` |    (Optional) Language code of the input text used to tokenize and delineate input text. The following languages are supported: `da, de, en, es, fi, fr, it, ko, pt`. The default is English (`en`). If you pass a `languagecode-countrycode` format, only the `languagecode` part of the format is used.  |
 |`globalDefaultCaseSensitive` | (Optional) Default case sensitive value for the skill. If `defaultCaseSensitive` value of an entity isn't specified, this value will become the `defaultCaseSensitive` value for that entity. |
@@ -64,15 +50,9 @@ Parameters are case-sensitive.
 
 ## Skill outputs
 
-<<<<<<< HEAD
-| Output name      | Description                   |
-|---------------|-------------------------------|
-| `entities` | An array of objects that contain information about the matches that were found, and related metadata. Each of the entities identified may contain the following fields:  <ul> <li> *name*: The top-level entity identified. The entity represents the "normalized" form. </li> <li> *id*:  A unique identifier for the entity as defined by the user in the "Custom Entity Definition Format".</li> <li> *description*: Entity description as defined by the user in the "Custom Entity Definition Format". </li> <li> *type:* Entity type as defined by the user in the "Custom Entity Definition Format".</li> <li> *subtype:* Entity subtype as defined by the user in the "Custom Entity Definition Format".</li>  <li> *matches*: Collection that describes each of the matches for that entity on the source text. Each match will have the following members: </li> <ul> <li> *text*: The raw text match from the source document. </li> <li> *offset*: The location where the match was found in the text. </li> <li> *length*:  The length of the matched text. </li> <li> *matchDistance*: The number of characters different this match was from original entity name or alias.  </li> </ul> </ul> |
-=======
 | Output name   | Description                   |
 |---------------|-------------------------------|
 | `entities` | An array of complex types that contains the following fields: <ul><li>`"name"`: The top-level entity; it represents the "normalized" form. </li><li>`"id"`:  A unique identifier for the entity as defined in the "Custom Entity Definition". </li> <li>`"description"`: Entity description as defined by the user in the "Custom Entity Definition Format". </li> <li>`"type"`: Entity type as defined by the user in the "Custom Entity Definition Format".</li> <li> `"subtype"`: Entity subtype as defined by the user in the "Custom Entity Definition Format".</li> <li>`"matches"`: An array of complex types that contain: <ul><li>`"text"` from the source document </li><li>`"offset"` location where the match was found, </li><li>`"length"` of the text measured in characters <li>`"matchDistance"` or the number of characters that differ between the match and the entity `"name"`. </li></li></ul></ul> |
->>>>>>> af214c4ea5f205d8292b25020430601683899bf3
 
 ## Custom entity definition format
 
@@ -101,11 +81,7 @@ Microsoft, MSFT
 Satya Nadella 
 ```
 
-<<<<<<< HEAD
-In this case, there are three entities that can be returned as entities found (Bill Gates, Satya Nadella, Microsoft), but they'll be identified if any of the terms on the line (aliases) are matched on the text. For instance, if the string "William H. Gates" is found in a document, a match for the "Bill Gates" entity will be returned.
-=======
 In this case, there are three entities that can be returned (Bill Gates, Satya Nadella, Microsoft). Aliases follow after the main entity. A match on an alias is bundled under the primary entity. For example, if the string "William H. Gates" is found in a document, a match for the "Bill Gates" entity will be returned.
->>>>>>> af214c4ea5f205d8292b25020430601683899bf3
 
 ### JSON format
 
@@ -193,12 +169,7 @@ The tables below describe the configuration parameters you can set when defining
 
 ### Inline format
 
-<<<<<<< HEAD
-In some cases, it might be more convenient to provide the list of custom entities to match inline directly into the skill definition. The JSON format is similar to the one described above, except that its expressed inline within the skill definition.
-Only configurations that are less than 10 KB in size (serialized size) can be defined inline. 
-=======
 In some cases, it may be more convenient to embed the custom entity definition so that its inline with the skill definition. You can use the same JSON format as the one described above, except that it's included within the skill definition. Only configurations that are less than 10 KB in size (serialized size) can be defined inline. 
->>>>>>> af214c4ea5f205d8292b25020430601683899bf3
 
 ## Sample skill definition
 
@@ -265,116 +236,6 @@ Alternatively, you can point to an external entities definition file. A sample s
 
 ## Sample index definition
 
-<<<<<<< HEAD
-```json
-{
-    "fields": [
-        {
-            "name": "metadata_storage_name",
-            "type": "Edm.String",
-            "key": true,
-            "searchable": true,
-            "filterable": false,
-            "facetable": false,
-            "sortable": true
-        },
-        {
-            "name": "metadata_storage_path",
-            "type": "Edm.String",
-            "searchable": true,
-            "filterable": false,
-            "facetable": false,
-            "sortable": true
-        },
-        {
-            "name": "content",
-            "type": "Edm.String",
-            "sortable": false,
-            "searchable": true,
-            "filterable": false,
-            "facetable": false
-        },
-        {
-            "name": "entities",
-            "type": "Edm.ComplexType",
-            "fields": [
-                {
-                    "name": "name",
-                    "type": "Edm.String",
-                    "searchable": true,
-                    "filterable": false,
-                    "facetable": false
-                },
-                {
-                    "name": "id",
-                    "type": "Edm.String",
-                    "searchable": false,
-                    "filterable": false,
-                    "facetable": false
-                },
-                {
-                    "name": "description",
-                    "type": "Edm.String",
-                    "searchable": true,
-                    "filterable": false,
-                    "facetable": false
-                },
-                {
-                    "name": "type",
-                    "type": "Edm.String",
-                    "searchable": false,
-                    "filterable": true,
-                    "facetable": true
-                },
-                {
-                    "name": "subtype",
-                    "type": "Edm.String",
-                    "searchable": false,
-                    "filterable": true,
-                    "facetable": true
-                },
-                {
-                    "name": "matches",
-                    "type": "Collection(Edm.ComplexType)",
-                    "fields": [
-                        {
-                            "name": "text",
-                            "type": "Edm.String",
-                            "searchable": true,
-                            "filterable": false,
-                            "facetable": false
-                        },
-                        {
-                            "name": "offset",
-                            "type": "Edm.Int32",
-                            "searchable": false,
-                            "filterable": true,
-                            "facetable": true
-                        },
-                        {
-                            "name": "length",
-                            "type": "Edm.Int32",
-                            "searchable": false,
-                            "filterable": true,
-                            "facetable": true
-                        },
-                        {
-                            "name": "matchDistance",
-                            "type": "Edm.Int32",
-                            "searchable": false,
-                            "filterable": true,
-                            "facetable": true
-                        }
-                      ]
-                  }
-              ]
-        }
-    ]
-}
-```
-
-## Sample input
-=======
 This section provides a sample index definition. Both "entities" and "matches" are arrays of complex types. You can have multiple entities per document, and multiple matches for each entity.
 
 ```json
@@ -471,7 +332,6 @@ This section provides a sample index definition. Both "entities" and "matches" a
 ```
 
 ## Sample input data
->>>>>>> af214c4ea5f205d8292b25020430601683899bf3
 
 ```json
 {

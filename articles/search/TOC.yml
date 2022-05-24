@@ -200,8 +200,6 @@
       href: search-create-service-portal.md
     - name: Manage in the portal
       href: search-manage.md
-    - name: Manage with REST
-      href: search-manage-rest.md
     - name: Manage with PowerShell
       href: search-manage-powershell.md
     - name: Manage with Azure CLI
