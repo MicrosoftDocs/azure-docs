@@ -9,6 +9,7 @@ ms.service: api-management
 ms.topic: article
 ms.date: 04/28/2022
 ms.author: danlep
+ms.custom: event-tier1-build-2022
 ---
 
 # Reuse policy configurations in your API Management policy definitions
@@ -99,8 +100,8 @@ After creating a policy fragment, you can view and update policy properties, or 
 1. Select **Policy editor**. 
 1. Update the statements in the fragment and then select **Apply**.
 
-
-* Update affects all policy definitions where the fragment is included
+> [!NOTE]
+> Update affects all policy definitions where the fragment is included.
 
 **To delete a policy fragment:**
 
