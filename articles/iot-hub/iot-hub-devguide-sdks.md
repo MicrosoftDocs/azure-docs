@@ -40,15 +40,7 @@ The Azure IoT service SDKs contain code to facilitate building applications that
 
 ## Microsoft Azure Provisioning SDKs
 
-The **Microsoft Azure Provisioning SDKs** enable you to provision devices to your IoT Hub using the [Device Provisioning Service](../iot-dps/about-iot-dps.md).
-
-| Platform | Package | Source code | Reference |
-| -----|-----|-----|-----|
-| .NET|[Device SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Client/), [Service SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Provisioning.Service/) |[GitHub](https://github.com/Azure/azure-iot-sdk-csharp/)|[Reference](/dotnet/api/microsoft.azure.devices.provisioning.client) |
-| C|[Device SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md#packages-and-libraries)|[GitHub](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning\_client)|[Reference](/azure/iot-hub/iot-c-sdk-ref/) |
-| Java|[Maven](https://github.com/Azure/azure-iot-sdk-java/blob/main/doc/java-devbox-setup.md#for-the-service-sdk)|[GitHub](https://github.com/Azure/azure-iot-sdk-java/blob/main/provisioning)|[Reference](/java/api/com.microsoft.azure.sdk.iot.provisioning.device) |
-| Node.js|[Device SDK](https://badge.fury.io/js/azure-iot-provisioning-device), [Service SDK](https://badge.fury.io/js/azure-iot-provisioning-service) |[GitHub](https://github.com/Azure/azure-iot-sdk-node/tree/main/provisioning)|[Reference](/javascript/api/overview/azure/iothubdeviceprovisioning) |
-| Python|[Device SDK](https://pypi.org/project/azure-iot-device/), [Service SDK](https://pypi.org/project/azure-iothub-provisioningserviceclient/)|[GitHub](https://github.com/Azure/azure-iot-sdk-python)|[Device Reference](/python/api/azure-iot-device/azure.iot.device.provisioningdeviceclient), [Service Reference](/python/api/azure-mgmt-iothubprovisioningservices) |
+The **Microsoft Azure Provisioning SDKs** enable you to provision devices to your IoT Hub using the [Device Provisioning Service](../iot-dps/about-iot-dps.md). To learn more, see [Microsoft SDKs for IoT Hub Device Provisioning Service](../iot-dps/libraries-sdks.md).
 
 ## Azure IoT Hub Device SDKs
 
