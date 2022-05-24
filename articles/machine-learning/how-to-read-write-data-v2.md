@@ -97,6 +97,8 @@ environment: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest
 compute: azureml:cpu-cluster
 ```
 
+---
+
 ## Read data stored in storage service on Azure in a job
 
 You can read your data in from existing storage on Azure.

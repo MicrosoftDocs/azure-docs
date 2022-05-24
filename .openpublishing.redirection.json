@@ -21175,6 +21175,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/machine-learning/how-to-create-register-datasets.md",
+      "redirect_url": "/azure/machine-learning/how-to-create-register-data-assets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/how-to-access-data.md",
+      "redirect_url": "/azure/machine-learning/how-to-datastore",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/machine-learning/how-to-deploy-azure-container-instance.md",
       "redirect_url": "/azure/machine-learning/v1/how-to-deploy-azure-container-instance",
       "redirect_document_id": false

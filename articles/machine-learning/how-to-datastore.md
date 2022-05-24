@@ -1,7 +1,7 @@
 ---
-title: Azure Machine Learning Datastores
+title: Use datastores
 titleSuffix: Azure Machine Learning
-description: Learn how to use datastores to securely connect to Azure storage services during training with Azure Machine Learning
+description: Learn how to use datastores to connect to Azure storage services during training with Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
@@ -34,7 +34,7 @@ In this article, learn how to connect to data storage services on Azure with Azu
 
 ## Create an Azure Blob Datastore
 
-#### [CLI: Identity-based access](#tab/cli-identity-based-access)
+# [CLI: Identity-based access](#tab/cli-identity-based-access)
 Create the following YAML file (updating the values):
 
 ```yml
@@ -53,7 +53,7 @@ Create the Azure Machine Learning datastore in the CLI:
 az ml datastore create --file my_blob_datastore.yml
 ```
 
-#### [CLI: Account Key](#tab/cli-account-key)
+# [CLI: Account Key](#tab/cli-account-key)
 Create the following YAML file (updating the values):
 
 ```yml
@@ -74,7 +74,7 @@ Create the Azure Machine Learning datastore in the CLI:
 az ml datastore create --file my_blob_datastore.yml
 ```
 
-#### [CLI: SAS](#tab/cli-sas)
+# [CLI: SAS](#tab/cli-sas)
 Create the following YAML file (updating the values):
 
 ```yml
@@ -95,7 +95,7 @@ Create the Azure Machine Learning datastore in the CLI:
 az ml datastore create --file my_blob_datastore.yml
 ```
 
-#### [Python SDK: Identity-based Access](#tab/sdk-identity-based-access)
+# [Python SDK: Identity-based Access](#tab/sdk-identity-based-access)
 
 ```python
 from azure.ai.ml.entities import AzureBlobDatastore
@@ -113,7 +113,7 @@ store = AzureBlobDatastore(
 ml_client.create_or_update(store)
 ```
 
-#### [Python SDK: Account Key](#tab/sdk-account-key)
+# [Python SDK: Account Key](#tab/sdk-account-key)
 
 ```python
 from azure.ai.ml.entities import AzureBlobDatastore
@@ -135,7 +135,7 @@ store = AzureBlobDatastore(
 ml_client.create_or_update(store)
 ```
 
-#### [Python SDK: SAS](#tab/sdk-SAS)
+# [Python SDK: SAS](#tab/sdk-SAS)
 
 ```python
 from azure.ai.ml.entities import AzureBlobDatastore
@@ -156,10 +156,11 @@ store = AzureBlobDatastore(
 
 ml_client.create_or_update(store)
 ```
+---
 
 ## Create an Azure Data Lake Gen2 Datastore
 
-#### [CLI: Identity-based access](#tab/cli-adls-identity-based-access)
+# [CLI: Identity-based access](#tab/cli-adls-identity-based-access)
 Create the following YAML file (updating the values):
 
 ```yml
@@ -178,7 +179,7 @@ Create the Azure Machine Learning datastore in the CLI:
 az ml datastore create --file my_adls_datastore.yml
 ```
 
-#### [CLI: Service Principal](#tab/cli-adls-sp)
+# [CLI: Service Principal](#tab/cli-adls-sp)
 Create the following YAML file (updating the values):
 
 ```yml
@@ -201,7 +202,7 @@ Create the Azure Machine Learning datastore in the CLI:
 az ml datastore create --file my_adls_datastore.yml
 ```
 
-#### [Python SDK: Identity-based access](#tab/sdk-adls-identity-access)
+# [Python SDK: Identity-based access](#tab/sdk-adls-identity-access)
 
 ```python
 from azure.ai.ml.entities import AzureDataLakeGen2Datastore
@@ -219,7 +220,7 @@ store = AzureDataLakeGen2Datastore(
 ml_client.create_or_update(store)
 ```
 
-#### [Python SDK: Service Principal](#tab/sdk-adls-sp)
+# [Python SDK: Service Principal](#tab/sdk-adls-sp)
 
 ```python
 from azure.ai.ml.entities import AzureDataLakeGen2Datastore
@@ -245,10 +246,11 @@ store = AzureDataLakeGen2Datastore(
 
 ml_client.create_or_update(store)
 ```
+---
 
 ## Create an Azure Files Datastore
 
-#### [CLI: Account Key](#tab/cli-azfiles-account-key)
+# [CLI: Account Key](#tab/cli-azfiles-account-key)
 Create the following YAML file (updating the values):
 
 ```yml
@@ -269,7 +271,7 @@ Create the Azure Machine Learning datastore in the CLI:
 az ml datastore create --file my_files_datastore.yml
 ```
 
-#### [CLI: SAS](#tab/cli-azfiles-sas)
+# [CLI: SAS](#tab/cli-azfiles-sas)
 Create the following YAML file (updating the values):
 
 ```yml
@@ -290,7 +292,7 @@ Create the Azure Machine Learning datastore in the CLI:
 az ml datastore create --file my_files_datastore.yml
 ```
 
-#### [Python SDK: Account Key](#tab/sdk-azfiles-accountkey)
+# [Python SDK: Account Key](#tab/sdk-azfiles-accountkey)
 
 ```python
 from azure.ai.ml.entities import AzureFileDatastore
@@ -312,7 +314,7 @@ store = AzureFileDatastore(
 ml_client.create_or_update(store)
 ```
 
-#### [Python SDK: SAS](#tab/sdk-azfiles-sas)
+# [Python SDK: SAS](#tab/sdk-azfiles-sas)
 
 ```python
 from azure.ai.ml.entities import AzureFileDatastore
@@ -333,10 +335,11 @@ store = AzureFileDatastore(
 
 ml_client.create_or_update(store)
 ```
+---
 
 ## Create an Azure Data Lake Gen1 Datastore
 
-#### [CLI: Identity-based access](#tab/cli-adlsgen1-identity-based-access)
+# [CLI: Identity-based access](#tab/cli-adlsgen1-identity-based-access)
 Create the following YAML file (updating the values):
 
 ```yml
@@ -354,7 +357,7 @@ Create the Azure Machine Learning datastore in the CLI:
 az ml datastore create --file my_adls_datastore.yml
 ```
 
-#### [CLI: Service Principal](#tab/cli-adlsgen1-sp)
+# [CLI: Service Principal](#tab/cli-adlsgen1-sp)
 Create the following YAML file (updating the values):
 
 ```yml
@@ -376,7 +379,7 @@ Create the Azure Machine Learning datastore in the CLI:
 az ml datastore create --file my_adls_datastore.yml
 ```
 
-#### [Python SDK: Identity-based access](#tab/sdk-adlsgen1-identity-access)
+# [Python SDK: Identity-based access](#tab/sdk-adlsgen1-identity-access)
 
 ```python
 from azure.ai.ml.entities import AzureDataLakeGen1Datastore
@@ -393,7 +396,7 @@ store = AzureDataLakeGen1Datastore(
 ml_client.create_or_update(store)
 ```
 
-#### [Python SDK: Service Principal](#tab/sdk-adls-sp)
+# [Python SDK: Service Principal](#tab/sdk-adls-sp)
 
 ```python
 from azure.ai.ml.entities import AzureDataLakeGen1Datastore
@@ -419,6 +422,7 @@ store = AzureDataLakeGen1Datastore(
 
 ml_client.create_or_update(store)
 ```
+---
 
 ## Next steps
 
