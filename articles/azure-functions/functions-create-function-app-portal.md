@@ -2,13 +2,13 @@
 title: Create your first function in the Azure portal
 description: Learn how to create your first Azure Function for serverless execution using the Azure portal.
 ms.topic: how-to
-ms.date: 05/20/2022
+ms.date: 05/24/2022
 ms.custom: "devx-track-csharp, mvc, devcenter, cc996988-fb4f-47, devdivchpfy22"
 ---
 
 # Create your first function in the Azure portal
 
-Azure Functions lets you run your code in a serverless environment without having to first create a virtual machine (VM) or publish a web application. In this article, you'll learn how to use Azure Functions to create a "hello world" HTTP trigger function in the Azure portal.
+Azure Functions lets you run your code in a serverless environment without having to first create a virtual machine (VM) or publish a web application. In this article, you learn how to use Azure Functions to create a "hello world" HTTP trigger function in the Azure portal.
 
 [!INCLUDE [functions-in-portal-editing-note](../../includes/functions-in-portal-editing-note.md)]
 
@@ -41,7 +41,7 @@ Next, create a function in the new function app.
 
 1. From the left menu of the **Function App** window, select **Functions**, and then select **Create** from the top menu.
 
-1. From the **Create Function** window, leave the Development environment property has **Develop in portal** and select the **HTTP trigger** template.
+1. From the **Create Function** window, leave the **Development environment** property as **Develop in portal**, and then select the **HTTP trigger** template.
 
     :::image type="content" source="./media/functions-create-first-azure-function/function-app-http-trigger.png" alt-text="Screenshot of HTTP trigger function.":::
 
@@ -51,17 +51,17 @@ Next, create a function in the new function app.
 
 ## Test the function
 
-1. In your new HTTP trigger function, select **Code + Test** from the left menu, then select **Get function URL** from the top menu.
+1. In your new HTTP trigger function, select **Code + Test** from the left menu, and then select **Get function URL** from the top menu.
 
     :::image type="content" source="./media/functions-create-first-azure-function/function-app-http-example-get-function-url.png" alt-text="Screenshot of Get function URL window.":::
 
-1. In the **Get function URL** dialog box, select **default** from the drop-down list, and then select the **Copy to clipboard** icon.
+1. In the **Get function URL** dialog, select **default** from the drop-down list, and then select the **Copy to clipboard** icon.
 
     :::image type="content" source="./media/functions-create-first-azure-function/function-app-develop-tab-testing.png" alt-text="Screenshot of Copy the function URL window from the Azure portal.":::
 
-1. Paste the function URL into your browser's address bar. Add the query string value `?name=<your_name>` to the end of this URL and press <kbd>Enter</kbd> to run the request. The browser should display a response message that echoes back your query string value.
+1. Paste the function URL into your browser's address bar. Add the query string value `?name=<your_name>` to the end of this URL and press <kbd>Enter</kbd> to run the request. The browser must display a response message that echoes back your query string value.
 
-    If the request URL included an [access key](functions-bindings-http-webhook-trigger.md#authorization-keys) (`?code=...`), it means you choose **Function** instead of **Anonymous** access level when creating the function. In this case, you should instead append `&name=<your_name>`.
+    If the request URL included an [access key](functions-bindings-http-webhook-trigger.md#authorization-keys) (`?code=...`), it means you selected **Function** instead of **Anonymous** access level when creating the function. In this case, you must instead append `&name=<your_name>`.
 
 1. When your function runs, trace information is written to the logs. To see the trace output, return to the **Code + Test** page in the portal and expand the **Logs** arrow at the bottom of the page. Call your function again to see the trace output written to the logs.
 

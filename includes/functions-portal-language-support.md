@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 05/20/2022
+ms.date: 05/24/2022
 ms.author: glenga
 ms.custom: devdivchpfy22
 ---
@@ -22,9 +22,9 @@ The following table shows which languages supported by Functions can run on Linu
 | [TypeScript](../articles/azure-functions/functions-reference-node.md) | Node.js |✓ |✓ |  |
 | [Go/Rust/other](../articles/azure-functions/functions-custom-handlers.md) | Custom Handlers |✓ |✓ | |
 
-<sup>1</sup> When running on Linux, in-portal editing is only supported in a [Dedicated (App Service) plan](../articles/azure-functions/dedicated-plan.md).
-<sup>2</sup> In the portal, you can't currently create function apps that run on .NET 5.0. For more information, see [Develop and publish .NET 5 functions using Azure Functions](../articles/azure-functions/dotnet-isolated-process-guide.md).
+<sup>1</sup> When running on Linux, in-portal editing is only supported in a [Dedicated (App Service) plan](../articles/azure-functions/dedicated-plan.md).  
+<sup>2</sup> In the portal, you can't currently create function apps that run on .NET 5.0. For more information on .NET 5 functions, see [Develop and publish .NET 5 functions using Azure Functions](../articles/azure-functions/dotnet-isolated-process-guide.md).
 
-For more information, see [Operating system/runtime support](../articles/azure-functions/functions-scale.md#operating-systemruntime).
+For more information on operating system and language support, see [Operating system/runtime support](../articles/azure-functions/functions-scale.md#operating-systemruntime).
 
 When in-portal editing isn't available, you must instead [develop your functions locally](../articles/azure-functions/functions-develop-local.md#local-development-environments).
