@@ -17834,6 +17834,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-dps/tutorial-net-provision-device-to-hub.md",
+      "redirect_url": "/azure/iot-dps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/tutorial-provision-device-to-hub.md",
+      "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/tutorial-set-up-cloud.md",
+      "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/tutorial-set-up-device.md",
+      "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/security/fundamentals/iot-overview.md",
       "redirect_url": "/azure/iot-fundamentals/iot-security-architecture",
       "redirect_document_id": false
