@@ -29,9 +29,6 @@ The following diagram summarizes availability zone volume placement for Azure Ne
 
 [ ![Diagram that summarizes availability zone volume placement for Azure NetApp Files.](../media/azure-netapp-files/availability-zone-volume-placement.png) ](../media/azure-netapp-files/availability-zone-volume-placement.png#lightbox)
 
-
-See [Storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md) and [Performance considerations for Azure NetApp Files](azure-netapp-files-performance-considerations.md) to understand the considerations about QoS types.  
-
 ## Requirements and considerations 
 
 * The availability zone volume placement feature is supported only on newly created volumes. It is not currently supported on existing volumes. 
