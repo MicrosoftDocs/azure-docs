@@ -43241,7 +43241,7 @@
     },
     {
       "source_path_from_root": "/articles/aks/web-app-routing.md",
-      "redirect_url": "/azure/aks/aks/intro-kubernetes",
+      "redirect_url": "/azure/aks/intro-kubernetes",
       "redirect_document_id": false
     }
   ]
