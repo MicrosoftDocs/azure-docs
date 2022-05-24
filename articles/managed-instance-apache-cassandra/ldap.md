@@ -92,6 +92,12 @@ In this section, we'll walk through creating a simple LDAP server on a Virtual M
 > [!IMPORTANT]
 > If you skipped the above section because you already have an existing LDAP server, please ensure that it has server SSL certificates enabled. The `subject alternative name (dns name)` specified for the certificate must also match the domain of the server that LDAP is hosted on, or authentication will fail.  
 
+1. Currently, LDAP authentication is a public preview feature. Run the below command to add the required Azure CLI extension:
+
+    ```azurecli-interactive
+    az extension add --upgrade --name cosmosdb-preview
+    ```
+
 1. Set authentication method to "Ldap" on the cluster, replacing `<resource group>` and `<cluster name>` with the appropriate values:
 
     ```azurecli-interactive
