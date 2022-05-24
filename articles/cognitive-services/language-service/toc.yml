@@ -66,11 +66,11 @@ items:
     - name: Data selection and schema design
       href: custom-text-classification/how-to/design-schema.md
       displayName: Best practices
-    - name: Tag data
+    - name: Label data
       href: custom-text-classification/how-to/tag-data.md
     - name: Train a model
       href: custom-text-classification/how-to/train-model.md
-    - name: View model evaluation
+    - name: View model performance
       href: custom-text-classification/how-to/view-model-evaluation.md
     - name: Improve a model
       href: custom-text-classification/how-to/improve-model.md
@@ -84,7 +84,7 @@ items:
     items:
     - name: Evaluation metrics
       href: custom-text-classification/concepts/evaluation-metrics.md
-    - name: Accepted data tag formats
+    - name: Accepted data formats
       href: custom-text-classification/concepts/data-formats.md
       displayName: Data representation
     - name: Enterprise readiness
@@ -109,19 +109,9 @@ items:
     - name: REST API
       items:
       - name: Authoring API
-        href: https://westus.dev.cognitive.microsoft.com/docs/services/language-custom-text-authoring-apis-2022-03-01-preview/operations/Projects_TriggerExportProjectJob
+        href: https://aka.ms/ct-authoring-apis
       - name: Runtime prediction API
-        href: https://aka.ms/ct-runtime-swagger
-    - name: SDKs (v3.2-preview.2)
-      items:
-        - name: .NET
-          href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
-        - name: Python
-          href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
-        - name: Java
-          href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
-        - name: Node.js
-          href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
+        href: https://aka.ms/ct-runtime-api
 - name: Custom named entity recognition (NER)
   items:
   - name: Overview
@@ -152,13 +142,13 @@ items:
       href: custom-named-entity-recognition/how-to/create-project.md
     - name: Data selection and schema design
       href: custom-named-entity-recognition/how-to/design-schema.md
-    - name: Tag data
+    - name: Label data
       href: custom-named-entity-recognition/how-to/tag-data.md
-    - name: Use autotagging (preview) to automatically tag your data
+    - name: Auto label your data (preview)
       href: custom-named-entity-recognition/how-to/use-autotagging.md
     - name: Train a model
       href: custom-named-entity-recognition/how-to/train-model.md
-    - name: View model evaluation
+    - name: View model performance
       href: custom-named-entity-recognition/how-to/view-model-evaluation.md 
     - name: Improve a model
       href: custom-named-entity-recognition/how-to/improve-model.md
@@ -176,7 +166,7 @@ items:
     items:
       - name: Evaluation metrics
         href: custom-named-entity-recognition/concepts/evaluation-metrics.md
-      - name: Accepted data tag formats
+      - name: Accepted data formats
         href: custom-named-entity-recognition/concepts/data-formats.md
       - name: Enterprise readiness
         items: 
@@ -195,20 +185,10 @@ items:
     - name: REST API
       items:
       - name: Authoring API
-        href: https://westus.dev.cognitive.microsoft.com/docs/services/language-custom-text-authoring-apis-2022-03-01-preview/operations/Projects_TriggerExportProjectJob
+        href: https://aka.ms/ct-authoring-apis
       - name: Runtime prediction API
-        href: https://aka.ms/ct-runtime-swagger
-    - name: SDKs (v3.2-preview.2)
-      items:
-        - name: .NET
-          href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
-        - name: Python
-          href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
-        - name: Java
-          href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
-        - name: Node.js
-          href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
-- name: Conversational language understanding (preview)
+        href: https://aka.ms/ct-runtime-api
+- name: Conversational language understanding
   items:
   - name: Overview
     href: conversational-language-understanding/overview.md
@@ -224,11 +204,11 @@ items:
         href: conversational-language-understanding/how-to/create-project.md
       - name: Build a schema
         href: conversational-language-understanding/how-to/build-schema.md
-      - name: Tag utterances
+      - name: Label utterances
         href: conversational-language-understanding/how-to/tag-utterances.md
       - name: Train a model
         href: conversational-language-understanding/how-to/train-model.md
-      - name: View model evaluation
+      - name: View model performance
         href: conversational-language-understanding/how-to/view-model-evaluation.md
       - name: Deploy a model
         href: conversational-language-understanding/how-to/deploy-model.md
@@ -248,8 +228,6 @@ items:
         href: conversational-language-understanding/concepts/data-formats.md
       - name: None intent
         href: conversational-language-understanding/concepts/none-intent.md
-      - name: Using multiple languages
-        href: conversational-language-understanding/concepts/multiple-languages.md
       - name: Enterprise readiness
         items: 
         - name: Virtual networks
@@ -272,16 +250,10 @@ items:
       href: conversational-language-understanding/glossary.md
     - name: REST API
       items:
-      - name: Authoring
-        href: https://westus.dev.cognitive.microsoft.com/docs/services/language-authoring-clu-apis-2022-03-01-preview/operations/Projects_TriggerImportProjectJob
-      - name: Runtime API
-        href: https://aka.ms/clu-apis
-    - name: SDKs
-      items:
-      - name: .NET
-        href: /dotnet/api/azure.ai.language.conversations?view=azure-dotnet-preview&preserve-view=true
-      - name: Python
-        href: /python/api/azure-ai-language-conversations/azure.ai.language.conversations?view=azure-python-preview&preserve-view=true
+      - name: Authoring API
+        href: https://aka.ms/clu-authoring-apis
+      - name: Runtime prediction API
+        href: https://aka.ms/clu-runtime-api
 - name: Entity linking
   items:
   - name: Overview
@@ -529,7 +501,7 @@ items:
             href: /java/api/overview/azure/ai-textanalytics-readme?preserve-view=true
           - name: Node.js
             href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true
-- name: Orchestration workflow (preview)
+- name: Orchestration workflow
   items:
   - name: Overview
     href: orchestration-workflow/overview.md
@@ -545,11 +517,11 @@ items:
         href: orchestration-workflow/how-to/build-schema.md
       - name: Create project
         href: orchestration-workflow/how-to/create-project.md
-      - name: Tag utterances
+      - name: Label utterances
         href: orchestration-workflow/how-to/tag-utterances.md
       - name: Train a model
         href: orchestration-workflow/how-to/train-model.md
-      - name: View model evaluation
+      - name: View model performance
         href: orchestration-workflow/how-to/view-model-evaluation.md
       - name: Deploy a model
         href: orchestration-workflow/how-to/deploy-model.md
@@ -579,16 +551,10 @@ items:
       href: orchestration-workflow/glossary.md
     - name: REST API
       items:
-      - name: Authoring
-        href: https://westus.dev.cognitive.microsoft.com/docs/services/language-authoring-clu-apis-2022-03-01-preview/operations/Projects_TriggerImportProjectJob
-      - name: Runtime API
-        href: https://aka.ms/clu-apis
-    - name: SDKs
-      items:
-      - name: .NET
-        href: /dotnet/api/azure.ai.language.conversations?view=azure-dotnet-preview&preserve-view=true
-      - name: Python
-        href: /python/api/azure-ai-language-conversations/azure.ai.language.conversations?view=azure-python-preview&preserve-view=true
+      - name: Authoring API
+        href: https://aka.ms/clu-authoring-apis
+      - name: Runtime prediction API
+        href: https://aka.ms/clu-runtime-api
 - name: Personally Identifying Information (PII) detection
   items:
   - name: Overview
@@ -612,14 +578,10 @@ items:
     items:
     - name: Call PII
       href: personally-identifiable-information/how-to-call.md
-    - name: Call PII for Conversation (preview)
-      href: personally-identifiable-information/how-to-call-for-conversations.md
   - name: Concepts
     items:
     - name: Recognized entity categories
-      href: personally-identifiable-information/concepts/entity-categories.md
-    - name: Recognized entity categories for conversation
-      href: personally-identifiable-information/concepts/conversations-entity-categories.md 
+      href: personally-identifiable-information/concepts/entity-categories.md 
   - name: Reference
     items:
     - name: REST API
@@ -903,14 +865,12 @@ items:
     href: summarization/language-support.md
   - name: Responsible use of AI
     items: 
-    - name: Transparency note for summarization
+    - name: Transparency note for text summarization
       href: /legal/cognitive-services/language-service/transparency-note-extractive-summarization?context=/azure/cognitive-services/language-service/context/context
-      displayName: Transparency note for summarization, summarization transparency, Responsible AI, Responsible use of AI
+      displayName: Transparency note for text summarization, text summarization transparency, Responsible AI, Responsible use of AI
     - name: Integration and responsible use
-      href: /legal/cognitive-services/language-service/guidance-integration-responsible-use-summarization?context=/azure/cognitive-services/language-service/context/context
+      href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
       displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
-    - name: Characteristics and limitations
-      href: /legal/cognitive-services/language-service/characteristics-and-limitations-summarization?context=/azure/cognitive-services/language-service/context/context
     - name: Data, privacy, and security  
       href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context
       displayName: Data privacy, logging, data retention
