@@ -164,20 +164,7 @@ Request body parameters:
     {"logAnalyticsWorkspaceResourceID": "<workspace-id>"}
     ```
 
-### Disable the Defender profile on your subscription
-
-1. Log in to Azure:
-
-    ```azurecli
-    az login
-    az account set --subscription <your-subscription-id>
-    ```
-
-1. Run the following command to deploy the profile on your Azure Kubernetes cluster:
-
-    ```azurecli
-    az aks update --disable-defender
-    ```
+Learn more about AKS CLI commands in [az aks](/cli/azure/aks).
 
 ### [**Resource Manager**](#tab/aks-deploy-arm)
 
