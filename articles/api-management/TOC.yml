@@ -184,6 +184,8 @@
                   href: websocket-api.md
                 - name: Import a GraphQL API
                   href: graphql-api.md
+                - name: Import and resolve GraphQL schema
+                  href: graphql-schema-resolve-api.md
                 - name: Import an App Service web API
                   href: import-app-service-as-api.md
                 - name: Import a Container App web API
@@ -365,8 +367,8 @@
               href: api-management-cross-domain-policies.md
             - name: Distributed Application Runtime (Dapr) integration policies
               href: api-management-dapr-policies.md
-            - name: GraphQL validation policies
-              href: graphql-validation-policies.md
+            - name: GraphQL API policies
+              href: graphql-policies.md
             - name: Transformation policies
               href: api-management-transformation-policies.md
             - name: Validation policies

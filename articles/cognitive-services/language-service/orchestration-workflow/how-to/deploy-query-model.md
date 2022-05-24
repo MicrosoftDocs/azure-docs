@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 03/03/2022
 ms.author: aahi
 ms.devlang: csharp, python
-ms.custom: language-service-orchestration
+ms.custom: language-service-orchestration, event-tier1-build-2022
 ---
 
 # Deploy and test model
@@ -80,7 +80,7 @@ You can also use the client libraries provided by the Azure SDK to send requests
 
 2. From the menu on the left side, select **Keys and Endpoint**. Use endpoint for the API requests and you will need the key for `Ocp-Apim-Subscription-Key` header.
 
-    :::image type="content" source="../../custom-classification/media/get-endpoint-azure.png" alt-text="Get the Azure endpoint" lightbox="../../custom-classification/media/get-endpoint-azure.png":::
+    :::image type="content" source="../../custom-text-classification/media/get-endpoint-azure.png" alt-text="Get the Azure endpoint" lightbox="../../custom-text-classification/media/get-endpoint-azure.png":::
 
 3. Download and install the client library package for your language of choice:
     
