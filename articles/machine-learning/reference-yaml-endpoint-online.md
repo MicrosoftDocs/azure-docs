@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: how-to
-ms.custom: cliv2
+ms.custom: cliv2, event-tier1-build-2022
 
 author: rsethur
 ms.author: seramasu

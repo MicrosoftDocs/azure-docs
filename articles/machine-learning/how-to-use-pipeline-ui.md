@@ -10,7 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 05/10/2022
-ms.custom: designer
+ms.custom: designer, event-tier1-build-2022
 ---
 
 # How to use studio UI to build and debug Azure Machine Learning pipelines

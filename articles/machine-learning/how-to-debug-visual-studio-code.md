@@ -9,7 +9,7 @@ ms.topic: how-to
 author: ssalgadodev
 ms.author: ssalgado
 ms.date: 10/21/2021
-ms.custom: sdkv1
+ms.custom: sdkv1, event-tier1-build-2022
 ---
 
 # Interactive debugging with Visual Studio Code
@@ -550,4 +550,3 @@ Learn more about troubleshooting:
 * [Remote model deployment](how-to-troubleshoot-deployment.md)
 * [Machine learning pipelines](how-to-debug-pipelines.md)
 * [ParallelRunStep](how-to-debug-parallel-run-step.md)
-

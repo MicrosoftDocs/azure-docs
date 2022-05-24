@@ -7979,6 +7979,96 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/overview.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/quickstart.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/quickstart",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/service-limits.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/service-limits",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/language-support.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/language-support",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/glossary.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/glossary",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/faq.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/faq",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/fail-over.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/fail-over",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/tutorials/cognitive-search.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/tutorials/cognitive-search",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/how-to/call-api.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/how-to/call-api",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/how-to/create-project.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/how-to/create-project",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/how-to/deploy-model.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/how-to/deploy-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/how-to/design-schema.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/how-to/design-schema",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/how-to/improve-model.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/how-to/improve-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/how-to/tag-data.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/how-to/tag-data",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/how-to/train-model.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/how-to/train-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/how-to/view-model-evaluation.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/how-to/view-model-evaluation",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/concepts/data-formats.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/concepts/data-formats",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/concepts/evaluation.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/concepts/evaluation-metrics",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/language-service/concepts/migrate-from-text-analytics-v2.md",
       "redirect_url": "/azure/cognitive-services/language-service/concepts/migrate-language-service-latest",
       "redirect_document_id": true
@@ -8025,8 +8115,8 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/text-analytics/How-tos/extractive-summarization.md",
-      "redirect_url": "/azure/cognitive-services/language-service/text-summarization/overview",
-      "redirect_document_id": true
+      "redirect_url": "/azure/cognitive-services/language-service/document-summarization/overview",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/text-analytics/How-tos/text-analytics-how-to-install-containers.md",
@@ -43108,6 +43198,26 @@
       "source_path_from_root": "/articles/cognitive-services/translator/custom-translator/terminology.md",
       "redirect_url": "/azure/cognitive-services/translator/custom-translator/key-terms",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/text-summarization/how-to/call-api.md",
+      "redirect_url": "/azure/cognitive-services/language-service/summarization/how-to/document-summarization",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/text-summarization/language-support.md",
+      "redirect_url": "/azure/cognitive-services/language-service/summarization/language-support",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/text-summarization/overview.md",
+      "redirect_url": "/azure/cognitive-services/language-service/summarization/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/text-summarization/quickstart.md",
+      "redirect_url": "/azure/cognitive-services/language-service/summarization/quickstart",
+      "redirect_document_id": true
     }
   ]
 }

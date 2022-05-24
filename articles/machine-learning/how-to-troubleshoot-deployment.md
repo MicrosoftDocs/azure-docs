@@ -9,7 +9,7 @@ ms.date: 10/21/2021
 author: blackmist
 ms.author: larryfr
 ms.topic: troubleshooting
-ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2, cliv1, sdkv1
+ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2, cliv1, sdkv1, event-tier1-build-2022
 #Customer intent: As a data scientist, I want to figure out why my model deployment fails so that I can fix it.
 ---
 

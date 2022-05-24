@@ -10,9 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
 ms.date: 10/21/2021
-ms.custom: sdkv1
-## As a developer, I need to use private Python packages securely when training machine learning models.
-
+ms.custom: sdkv1, event-tier1-build-2022
 ---
 
 # Use private Python packages with Azure Machine Learning

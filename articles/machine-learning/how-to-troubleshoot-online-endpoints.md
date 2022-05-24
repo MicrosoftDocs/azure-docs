@@ -10,7 +10,7 @@ ms.author:  petrodeg
 ms.reviewer: larryfr
 ms.date: 04/12/2022
 ms.topic: troubleshooting
-ms.custom: devplatv2, devx-track-azurecli, cliv2
+ms.custom: devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022
 #Customer intent: As a data scientist, I want to figure out why my online endpoint deployment failed so that I can fix it.
 ---
 
@@ -308,4 +308,3 @@ When you access online endpoints with REST requests, the returned status codes a
 - [Deploy and score a machine learning model with a managed online endpoint](how-to-deploy-managed-online-endpoints.md)
 - [Safe rollout for online endpoints](how-to-safely-rollout-managed-endpoints.md)
 - [Online endpoint YAML reference](reference-yaml-endpoint-online.md)
-

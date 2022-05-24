@@ -9,8 +9,8 @@ ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
 ms.date: 01/05/2022
-ms.custom: sdkv1
-#Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter Notebook. 
+ms.custom: sdkv1, event-tier1-build-2022
+#Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter Notebook.
 ---
 
 # Tutorial: Train and deploy an image classification model with an example Jupyter Notebook

@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
 ms.date: 05/06/2022
-ms.custom: responsible-ai
+ms.custom: responsible-ai, event-tier1-build-2022
 #Customer intent: As a data scientist, I want to know learn what responsible AI is and how I can use it in Azure Machine Learning.
 ---
 

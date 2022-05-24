@@ -9,8 +9,7 @@ ms.topic: conceptual
 author: blackmist
 ms.author: larryfr
 ms.date: 03/15/2022
-ms.custom: automl
-
+ms.custom: automl, event-tier1-build-2022
 ---
 
 # What is automated machine learning (AutoML)?

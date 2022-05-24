@@ -10,8 +10,7 @@ ms.reviewer: Blackmist
 ms.author: johwu
 author: johnwu0604
 ms.date: 03/23/2022
-ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2
-
+ms.custom: how-to, seodec18, devx-track-azurecli, contperf-fy21q2, event-tier1-build-2022
 ---
 
 

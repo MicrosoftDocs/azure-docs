@@ -10,7 +10,7 @@ ms.subservice: mlops
 ms.reviewer: nibaccam
 ms.date: 04/08/2022
 ms.topic: how-to
-ms.custom: devx-track-python, mlflow, devx-track-azurecli, cliv2, devplatv2
+ms.custom: devx-track-python, mlflow, devx-track-azurecli, cliv2, devplatv2, event-tier1-build-2022
 ms.devlang: azurecli
 ---
 

@@ -10,8 +10,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 04/28/2022
 ms.topic: how-to
-ms.custom: sdkv1
-
+ms.custom: sdkv1, event-tier1-build-2022
 ---
 
 # Log & view metrics and log files

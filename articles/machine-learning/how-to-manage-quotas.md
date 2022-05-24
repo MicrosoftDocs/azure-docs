@@ -9,7 +9,7 @@ author: SimranArora904
 ms.author: siarora
 ms.date: 04/08/2022
 ms.topic: how-to
-ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
+ms.custom: troubleshooting, contperf-fy20q4, contperf-fy21q2, event-tier1-build-2022
 ---
 
 # Manage and increase quotas for resources with Azure Machine Learning

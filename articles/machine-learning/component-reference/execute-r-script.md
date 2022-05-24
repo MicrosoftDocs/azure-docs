@@ -5,6 +5,7 @@ description: Learn how to use the Execute R Script component in Azure Machine Le
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.custom: event-tier1-build-2022
 ms.topic: reference
 
 author: likebupt

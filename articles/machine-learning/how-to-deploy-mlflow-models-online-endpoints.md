@@ -10,7 +10,7 @@ author: shivanissambare
 ms.date: 03/31/2022
 ms.topic: how-to
 ms.reviewer: larryfr
-ms.custom: deploy, mlflow, devplatv2, no-code-deployment, devx-track-azurecli, cliv2
+ms.custom: deploy, mlflow, devplatv2, no-code-deployment, devx-track-azurecli, cliv2, event-tier1-build-2022
 ms.devlang: azurecli
 ---
 

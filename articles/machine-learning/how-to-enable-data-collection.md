@@ -10,8 +10,7 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: data4ml, sdkv1
-
+ms.custom: data4ml, sdkv1, event-tier1-build-2022
 ---
 # Collect data from models in production
 

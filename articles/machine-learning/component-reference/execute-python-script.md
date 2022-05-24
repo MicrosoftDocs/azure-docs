@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: devx-track-python, has-adal-ref
+ms.custom: devx-track-python, has-adal-ref, event-tier1-build-2022
 
 author: likebupt
 ms.author: keli19

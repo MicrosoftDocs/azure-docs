@@ -9,7 +9,7 @@ ms.author: sgilley
 ms.subservice: core
 ms.date: 05/03/2021
 ms.topic: conceptual
-ms.custom: how-to, deploy, devplatv2
+ms.custom: how-to, deploy, devplatv2, event-tier1-build-2022
 ---
 
 # View costs for an Azure Machine Learning managed online endpoint (preview)
