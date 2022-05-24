@@ -25,7 +25,7 @@ Completing this quick start incurs a small cost of a few USD cents or less in yo
 ### Prerequisite check
 
 - In a terminal or command window, run the `dotnet` command to check that the .NET client library is installed.
-- To view the subdomains associated with your Email Communication Services resource, sign in to the [Azure portal](https://portal.azure.com/), locate your Email Communication Services resource and open the **Provision domains** tab from the left navigation pane.
+- To view the subdomains associated with your Email Communication Services resource, sign in to the [Azure portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_EmailCommunicationServicesHidden), locate your Email Communication Services resource and open the **Provision domains** tab from the left navigation pane.
 
 ## Setting up
 
@@ -100,7 +100,8 @@ The following classes and interfaces handle some of the major features of the Az
 // This code demonstrates how to fetch your connection string
 // from an environment variable.
 string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_CONNECTION_STRING");
-
+EmailClient emailClient = new EmailClient(connectionString);
+ 
 ```
 ## Send an email message
 
