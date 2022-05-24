@@ -860,7 +860,7 @@ Create a sample request file following the design expected in the run method in 
 ]}
 ```
 
-[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name="ml_client.online_endpoints.invoke")]
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=ml_client.online_endpoints.invoke)]
 
 ```python
 # test the blue deployment with some sample data
