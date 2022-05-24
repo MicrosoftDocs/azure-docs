@@ -134,7 +134,7 @@ If you have an ARM template that deploys a resource, such as an Azure Synapse wo
 
 ### Set up a stage task for Azure Synapse artifacts deployment 
 
-Use the [Synapse workspace deployment](https://marketplace.visualstudio.com/items?itemName=AzureSynapseWorkspace.synapsecicd-deploy) extension to deploy other items in your Azure Synapse workspace. Items that you can deploy include datasets, SQL scripts and notebooks, spark job definitions, integration runtime, data flow, credentials, and other artifacts in workspace . The extension supports 3 types of operation, publish branch based deployment , deployment from non-publish branches. 
+Use the [Synapse workspace deployment](https://marketplace.visualstudio.com/items?itemName=AzureSynapseWorkspace.synapsecicd-deploy) extension to deploy other items in your Azure Synapse workspace. Items that you can deploy include datasets, SQL scripts and notebooks, spark job definitions, integration runtime, data flow, credentials, and other artifacts in workspace. 
 
 #### Install and add deployment extension 
 
