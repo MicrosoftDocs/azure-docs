@@ -10,10 +10,12 @@ author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 12/21/2021
-ms.custom: devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4
+ms.custom: devx-track-python, FY21Q4-aml-seo-hack, contperf-fy21q4, sdkv1, event-tier1-build-2022
 ---
 
 # Tutorial: Get started with a Python script in Azure Machine Learning (part 1 of 3)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this tutorial, you run your first Python script in the cloud with Azure Machine Learning. This tutorial is *part 1 of a three-part tutorial series*.
 
