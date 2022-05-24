@@ -6,7 +6,7 @@ ms.author: xshi
 ms.service: service-connector
 ms.custom: event-tier1-build-2022
 ms.topic: overview
-ms.date: 05/03/2022
+ms.date: 05/24/2022
 ---
 
 # What is Service Connector?
@@ -26,9 +26,9 @@ Any application that runs on Azure compute services and requires a backing servi
 
 See [what services are supported in Service Connector](#what-services-are-supported-in-service-connector) to see more supported services and application patterns.
 
-## What are the benefits using Service Connector?
+## What are the benefits to using Service Connector?
 
-**Connect to target backing service with just a single command or a few clicks:**
+**Connect to a target backing service with just a single command or a few clicks:**
 
 Service Connector is designed for your ease of use. To create a connection, you'll need three required parameters: a target service instance, an authentication type between the compute service and the target service, and your application client type. Developers can use the Azure CLI or the guided Azure portal experience to create connections.
 
@@ -42,6 +42,7 @@ Once a service connection is created, developers can validate and check the heal
 
 * Azure App Service
 * Azure Spring Cloud
+* Azure Container Apps
 
 **Target Services:**
 
@@ -62,7 +63,7 @@ Once a service connection is created, developers can validate and check the heal
 There are two major ways to use Service Connector for your Azure application:
 
 * **Azure CLI:** Create, list, validate and delete service-to-service connections with connection commands in the Azure CLI.
-* **Azure Portal:** Use the guided portal experience to create service-to-service connections and manage connections with a hierarchy list.
+* **Azure portal:** Use the guided portal experience to create service-to-service connections and manage connections with a hierarchy list.
 
 ## Next steps
 
