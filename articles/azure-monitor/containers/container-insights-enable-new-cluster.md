@@ -11,10 +11,6 @@ ms.devlang: azurecli
 
 This article describes how to set up Container insights to monitor managed Kubernetes cluster hosted on [Azure Kubernetes Service](../../aks/index.yml) that you are preparing to deploy in your subscription.
 
-You can enable monitoring of an AKS cluster using one of the supported methods:
-
-* Azure CLI
-* Terraform
 
 ## Enable using Azure CLI
 

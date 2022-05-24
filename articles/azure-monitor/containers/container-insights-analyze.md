@@ -17,9 +17,6 @@ Azure Monitor provides a multi-cluster view that shows the health status of all 
 
 The main differences in monitoring a Windows Server cluster with Container insights compared to a Linux cluster are described [here](container-insights-overview.md#what-does-container-insights-provide) in the overview article.
 
-## Sign in to the Azure portal
-
-Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Multi-cluster view from Azure Monitor
 
