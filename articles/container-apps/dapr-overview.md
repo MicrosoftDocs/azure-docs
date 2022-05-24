@@ -191,6 +191,12 @@ scopes:
 - subscriber-app
 ```
 
+## Current supported Dapr version
+
+Azure Container Apps supports Dapr version 1.7.3. 
+
+Version upgrades are handled transparently by Azure Container Apps. You can find the current version via the Azure portal and the CLI. 
+
 ## Limitations
 
 ### Unsupported Dapr capabilities
