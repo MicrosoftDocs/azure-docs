@@ -21,7 +21,7 @@ There are two scale properties that apply to all rules in your container app:
 | Scale property | Description | Default value | Min value | Max value |
 |---|---|---|---|---|
 | `minReplicas` | Minimum number of replicas running for your container app. | 0 | 0 | 30 |
-| `maxReplicas` | Maximum number of replicas running for your container app. | n/a | 1 | 30 |
+| `maxReplicas` | Maximum number of replicas running for your container app. | 10 | 1 | 30 |
 
 - If your container app scales to zero, then you aren't billed.
 - Individual scale rules are defined in the `rules` array.
