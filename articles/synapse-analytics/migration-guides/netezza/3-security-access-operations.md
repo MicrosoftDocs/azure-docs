@@ -300,7 +300,7 @@ See [Resource classes for workload management](/azure/sql-data-warehouse/resourc
 
 This information can also be used for capacity planning, determining the resources required for additional users or application workload. This also applies to planning scale up/scale downs of compute resources for cost-effective support of 'peaky' workloads.
 
-### Scaling compute resources
+### Scale compute resources
 
 > [!TIP]
 > A major benefit of Azure is the ability to independently scale up and down compute resources on demand to handle peaky workloads cost-effectively.
