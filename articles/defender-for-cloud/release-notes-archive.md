@@ -2997,7 +2997,7 @@ Azure Security Center (ASC) has launched new networking recommendations and impr
 
 ## June 2019
 
-### Adaptive Network Hardening - generally available
+### Adaptive network hardening - generally available
 
 One of the biggest attack surfaces for workloads running in the public cloud are connections to and from the public Internet. Our customers find it hard to know which Network Security Group (NSG) rules should be in place to make sure that Azure workloads are only available to required source ranges. With this feature, Security Center learns the network traffic and connectivity patterns of Azure workloads and provides NSG rule recommendations, for Internet facing virtual machines. This helps our customer better configure their network access policies and limit their exposure to attacks. 
 

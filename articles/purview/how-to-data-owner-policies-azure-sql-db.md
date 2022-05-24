@@ -47,6 +47,17 @@ Set-AzContext $context
 
 Set-AzSqlServer -ResourceGroupName "RESOURCEGROUPNAME" -ServerName "SERVERNAME" -AssignIdentity
 ```
+You will also need to enable external policy based authorization on the server.
+
+```powershell
+$server = Get-AzSqlServer -ResourceGroupName "RESOURCEGROUPNAME" -ServerName "SERVERNAME"
+
+#Initiate the call to the REST API to set externalPolicyBasedAuthorization to true
+Invoke-AzRestMethod -Method PUT -Path "$($server.ResourceId)/externalPolicyBasedAuthorizations/MicrosoftPurview?api-version=2021-11-01-preview" -Payload '{"properties":{"externalPolicyBasedAuthorization":true}}'
+
+#Verify that the propery has been set
+Invoke-AzRestMethod -Method GET -Path "$($server.ResourceId)/externalPolicyBasedAuthorizations/MicrosoftPurview?api-version=2021-11-01-preview"
+```
 
 ### Register the data sources in Microsoft Purview
 The Azure SQL DB resources need to be registered first with Microsoft Purview to later define access policies. You can follow these guides:
