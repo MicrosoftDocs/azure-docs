@@ -96,15 +96,12 @@ You can also use [Resource Graphs](https://portal.azure.com/?feature.customporta
 
 ## Pricing
 See the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/) for information about pricing.
-> [!NOTE]
-> Unsupported resource characters such as <, >, %, &, \, ?, / are replaced with _ in the hidden resource names and in the billing information.
 
 ## Next steps
 
-- [Create a new alert rule](alerts-log.md).
-- [Enable recommended out-of-the-box alert rules in the Azure portal (preview)](alerts-log.md#enable-recommended-out-of-the-box-alert-rules-in-the-azure-portal-preview).
-- [Learn more about Smart Groups](./alerts-smartgroups-overview.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
-- [Learn about action groups](../alerts/action-groups.md)
 - [Viewing your alert instances](./alerts-page.md)
-- [Managing Smart Groups](./alerts-managing-smart-groups.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
-- [Learn more about Azure alerts pricing](https://azure.microsoft.com/pricing/details/monitor/)
+- [Create a new alert rule](alerts-log.md)
+- [Learn about the different types of Azure Monitor alerts](alerts-types.md)
+- [Enable recommended out-of-the-box alert rules in the Azure portal (preview)](alerts-log.md#enable-recommended-out-of-the-box-alert-rules-in-the-azure-portal-preview)
+- [Learn about action groups](../alerts/action-groups.md)
+- [Learn about alert processing rules](alerts-action-rules.md)

@@ -1,36 +1,22 @@
 ---
-title: Create, view, and manage log alert rules Using Azure Monitor | Microsoft Docs
-description: Use Azure Monitor to create, view, and manage log alert rules
+title: Create Azure Monitor log alert rules and manage alert instances | Microsoft Docs
+description: Create Azure Monitor log alert rules and manage your alert instances.
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
 ms.date: 05/23/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
-# Create, view, and manage log alerts using Azure Monitor
+# Create Azure Monitor log alert rules and manage alert instances 
 
-This article shows you how to create and manage log alerts. Azure Monitor log alerts allow users to use a [Log Analytics](../logs/log-analytics-tutorial.md) query to evaluate resource logs at a set frequency and fire an alert based on the results. Rules can trigger one or more actions using [Action Groups](./action-groups.md). [Learn more about functionality and terminology of log alerts](./alerts-unified-log.md).
+This article shows you how to create log alert rules and manage your alert instances. Azure Monitor log alerts allow users to use a [Log Analytics](../logs/log-analytics-tutorial.md) query to evaluate resource logs at a set frequency and fire an alert based on the results. Rules can trigger one or more actions using [alert processing rules](alerts-action-rules.md) and [action groups](./action-groups.md). Learn the concepts behind log alerts [here](alerts-types.md#log-alerts).
 
- Alert rules are defined by three components:
+When an alert is triggered by an alert rule, 
 - Target: A specific Azure resource to monitor.
 - Criteria: Logic to evaluate. If met, the alert fires.  
 - Action: Notifications or automation - email, SMS, webhook, and so on.
 You can also [create log alert rules using Azure Resource Manager templates](../alerts/alerts-log-create-templates.md).
 ## Create a new log alert rule in the Azure portal
-> [!NOTE]
-> This article describes creating alert rules using the new alert rule wizard. 
-> The new alert rule experience is a little different than the old experience. Please note these changes:
-> - Previously, search results were included in the payloads of the triggered alert and its associated notifications. This was a limited and error prone solution. To get detailed context information about the alert so that you can decide on the appropriate action :
->   - The recommended best practice it to use [Dimensions](alerts-unified-log.md#split-by-alert-dimensions). Dimensions provide the column value that fired the alert, giving you context for why the alert fired and how to fix the issue.
->    - When you need to investigate in the logs, use the link in the alert to the search results in Logs.
->    - If you need the raw search results or for any other advanced customizations, use Logic Apps.
-> - The new alert rule wizard does not support customization of the JSON payload.
->   - Use custom properties in the [new API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules/create-or-update#actions) to add static parameters and associated values to the webhook actions triggered by the alert.
->    - For more advanced customizations, use Logic Apps.
-> - The new alert rule wizard does not support customization of the email subject.
->     - Customers often use the custom email subject to indicate the resource on which the alert fired, instead of using the Log Analytics workspace. Use the [new API](alerts-unified-log.md#split-by-alert-dimensions) to trigger an alert of the desired resource using the resource id column.
->     - For more advanced customizations, use Logic Apps.
-
 
 1. In the [portal](https://portal.azure.com/), select the relevant resource. We recommend monitoring at scale by using a subscription or resource group.
 1. In the Resource menu, select **Logs**.
@@ -87,15 +73,15 @@ You can also [create log alert rules using Azure Resource Manager templates](../
 
 1. (Optional) In the **Advanced options** section, you can specify the number of failures and the alert evaluation period required to trigger an alert. For example, if you set the **Aggregation granularity** to 5 minutes, you can specify that you only want to trigger an alert if there were three failures (15 minutes) in the last hour. This setting is defined by your application business policy.
    
-  Select values for these fields under **Number of violations to trigger the alert**:
+    Select values for these fields under **Number of violations to trigger the alert**:
+    
+       |Field  |Description  |
+       |---------|---------|
+       |Number of violations|The number of violations that have to occur to trigger the alert.|
+       |Evaluation period|The amount of time within which those violations have to occur. |
+       |Override query time range| Enter a value for this field if the alert evaluation period is different than the query time range.| 
 
-   |Field  |Description  |
-   |---------|---------|
-   |Number of violations|The number of violations that have to occur to trigger the alert.|
-   |Evaluation period|The amount of time within which those violations have to occur. |
-   |Override query time range| Enter a value for this field if the alert evaluation period is different than the query time range.| 
-
-   :::image type="content" source="media/alerts-log/alerts-rule-preview-advanced-options.png" alt-text="Screenshot of the advanced options section of a new log alert rule.":::
+    :::image type="content" source="media/alerts-log/alerts-rule-preview-advanced-options.png" alt-text="Screenshot of the advanced options section of a new log alert rule.":::
 
 1. The **Preview** chart shows query evaluations results over time. You can change the chart period or select different time series that resulted from unique alert splitting by dimensions.
 
@@ -122,6 +108,20 @@ You can also [create log alert rules using Azure Resource Manager templates](../
 1. When validation passes and you have reviewed the settings, select the **Create** button.    
     
     :::image type="content" source="media/alerts-log/alerts-rule-review-create.png" alt-text="Review and create tab.":::
+
+> [!NOTE]
+> This section above describes creating alert rules using the new alert rule wizard. 
+> The new alert rule experience is a little different than the old experience. Please note these changes:
+> - Previously, search results were included in the payloads of the triggered alert and its associated notifications. This was a limited and error prone solution. To get detailed context information about the alert so that you can decide on the appropriate action :
+>   - The recommended best practice it to use [Dimensions](alerts-unified-log.md#split-by-alert-dimensions). Dimensions provide the column value that fired the alert, giving you context for why the alert fired and how to fix the issue.
+>    - When you need to investigate in the logs, use the link in the alert to the search results in Logs.
+>    - If you need the raw search results or for any other advanced customizations, use Logic Apps.
+> - The new alert rule wizard does not support customization of the JSON payload.
+>   - Use custom properties in the [new API](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules/create-or-update#actions) to add static parameters and associated values to the webhook actions triggered by the alert.
+>    - For more advanced customizations, use Logic Apps.
+> - The new alert rule wizard does not support customization of the email subject.
+>     - Customers often use the custom email subject to indicate the resource on which the alert fired, instead of using the Log Analytics workspace. Use the [new API](alerts-unified-log.md#split-by-alert-dimensions) to trigger an alert of the desired resource using the resource id column.
+>     - For more advanced customizations, use Logic Apps.
 
 ## Enable recommended out-of-the-box alert rules in the Azure portal (preview)
 > [!NOTE]
