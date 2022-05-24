@@ -15,7 +15,7 @@ ms.custom: devx-track-java
 # Perform bulk operations on Azure Cosmos DB data
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-This tutorial provides instructions on performing bulk operations in the [Azure Cosmos DB Java V4 SDK](sql-api-sdk-java-v4.md). This version of the SDK comes with the bulk executor library built-in. If you are using an older version of Java SDK, it's recommended to [migrate to the latest version](migrate-java-v4-sdk.md). Azure Cosmos DB Java V4 SDK is the current recommended solution for Java bulk support. 
+This tutorial provides instructions on performing bulk operations in the [Azure Cosmos DB Java V4 SDK](sql-api-sdk-java-v4.md). This version of the SDK comes with the bulk executor library built-in. If you're using an older version of Java SDK, it's recommended to [migrate to the latest version](migrate-java-v4-sdk.md). Azure Cosmos DB Java V4 SDK is the current recommended solution for Java bulk support. 
 
 Currently, the bulk executor library is supported only by Azure Cosmos DB SQL API and Gremlin API accounts. To learn about using bulk executor .NET library with Gremlin API, see [perform bulk operations in Azure Cosmos DB Gremlin API](../graph/bulk-executor-graph-dotnet.md).
 
@@ -63,94 +63,28 @@ com.azure.cosmos.examples.bulk.async.SampleBulkQuickStartAsync
 
 2. The `CosmosAsyncClient` object is initialized by using the following statements:  
 
-   ```java
-        client = new CosmosClientBuilder().endpoint(AccountSettings.HOST).key(AccountSettings.MASTER_KEY)
-                .preferredRegions(preferredRegions).contentResponseOnWriteEnabled(true)
-                .consistencyLevel(ConsistencyLevel.SESSION).buildAsyncClient();
-   ```
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java?name=CreateAsyncClient)]
 
 
 3. The sample creates an async database and container. It then creates multiple documents on which bulk operations will be executed. It adds these documents to a `Flux<Family>` reactive stream object:
 
-    ```java
-        createDatabaseIfNotExists();
-        createContainerIfNotExists();
-
-        Family andersenFamilyItem = Families.getAndersenFamilyItem();
-        Family wakefieldFamilyItem = Families.getWakefieldFamilyItem();
-        Family johnsonFamilyItem = Families.getJohnsonFamilyItem();
-        Family smithFamilyItem = Families.getSmithFamilyItem();
-
-        //  Setup family items to create
-        Flux<Family> families = Flux.just(andersenFamilyItem, wakefieldFamilyItem, johnsonFamilyItem, smithFamilyItem);
-    ```
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java?name=AddDocsToStream)]
 
 
-4. The sample contains methods for bulk create, upsert, replace, and delete. In each method we map the families documents in the BulkWriter `Flux<Family>` stream to multiple method calls in `CosmosBulkOperations`. These operations are added to another reactive stream object `Flux<CosmosItemOperation>`. The stream is then passed to the `executeBulkOperations` method of the async `container` we created at the beginning, and operations are executed in bulk. See the `bulkCreateItems` method below as an example:
+4. The sample contains methods for bulk create, upsert, replace, and delete. In each method we map the families documents in the BulkWriter `Flux<Family>` stream to multiple method calls in `CosmosBulkOperations`. These operations are added to another reactive stream object `Flux<CosmosItemOperation>`. The stream is then passed to the `executeBulkOperations` method of the async `container` we created at the beginning, and operations are executed in bulk. See bulk create method below as an example:
 
-   ```java
-    private void bulkCreateItems(Flux<Family> families) {
-        Flux<CosmosItemOperation> cosmosItemOperations =
-                families.map(family -> CosmosBulkOperations.getCreateItemOperation(family,
-                        new PartitionKey(family.getLastName())));
-        container.executeBulkOperations(cosmosItemOperations).blockLast();
-    }
-   ```
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java?name=BulkCreateItems)]
 
-5. There is also a class `BulkWriter.java` in the same directory as the sample application. This class demonstrates how to handle rate limiting (429) and timeout (408) errors that may occur during bulk execution, and retrying those operations effectively. It is implemented in the `bulkCreateItemsSimple()` method in the application. 
 
-    ```java
-        private void bulkCreateItemsSimple() {
-            Family andersenFamilyItem = Families.getAndersenFamilyItem();
-            Family wakefieldFamilyItem = Families.getWakefieldFamilyItem();
-            CosmosItemOperation andersonItemOperation = CosmosBulkOperations.getCreateItemOperation(andersenFamilyItem, new PartitionKey(andersenFamilyItem.getLastName()));
-            CosmosItemOperation wakeFieldItemOperation = CosmosBulkOperations.getCreateItemOperation(wakefieldFamilyItem, new PartitionKey(wakefieldFamilyItem.getLastName()));
-            BulkWriter bulkWriter = new BulkWriter(container);
-            bulkWriter.scheduleWrites(andersonItemOperation);
-            bulkWriter.scheduleWrites(wakeFieldItemOperation);
-            bulkWriter.execute().blockLast();
-        }
-    ```
+5. There's also a class `BulkWriter.java` in the same directory as the sample application. This class demonstrates how to handle rate limiting (429) and timeout (408) errors that may occur during bulk execution, and retrying those operations effectively. It is implemented in the below methods, also showing how to implement local and global throughput control.
 
-6. Additionally, there are bulk create methods in the sample which illustrate how to add response processing, and set execution options:
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java?name=BulkWriterAbstraction)]
 
-    ```java
-    private void bulkCreateItemsWithResponseProcessing(Flux<Family> families) {
-        Flux<CosmosItemOperation> cosmosItemOperations =
-                families.map(family -> CosmosBulkOperations.getCreateItemOperation(family,
-                        new PartitionKey(family.getLastName())));
-        container.executeBulkOperations(cosmosItemOperations).flatMap(cosmosBulkOperationResponse -> {
-            CosmosBulkItemResponse cosmosBulkItemResponse = cosmosBulkOperationResponse.getResponse();
-            CosmosItemOperation cosmosItemOperation = cosmosBulkOperationResponse.getOperation();
 
-            if (cosmosBulkOperationResponse.getException() != null) {
-                logger.error("Bulk operation failed", cosmosBulkOperationResponse.getException());
-            } else if (cosmosBulkOperationResponse.getResponse() == null || !cosmosBulkOperationResponse.getResponse().isSuccessStatusCode()) {
-                logger.error("The operation for Item ID: [{}]  Item PartitionKey Value: [{}] did not complete successfully with " +
-                                "a" + " {} response code.", cosmosItemOperation.<Family>getItem().getId(),
-                        cosmosItemOperation.<Family>getItem().getLastName(), cosmosBulkItemResponse.getStatusCode());
-            } else {
-                logger.info("Item ID: [{}]  Item PartitionKey Value: [{}]", cosmosItemOperation.<Family>getItem().getId(),
-                        cosmosItemOperation.<Family>getItem().getLastName());
-                logger.info("Status Code: {}", String.valueOf(cosmosBulkItemResponse.getStatusCode()));
-                logger.info("Request Charge: {}", String.valueOf(cosmosBulkItemResponse.getRequestCharge()));
-            }
-            return Mono.just(cosmosBulkItemResponse);
-        }).blockLast();
-    }
+6. Additionally, there are bulk create methods in the sample, which illustrate how to add response processing, and set execution options:
 
-    private void bulkCreateItemsWithExecutionOptions(Flux<Family> families) {
-        CosmosBulkExecutionOptions bulkExecutionOptions = new CosmosBulkExecutionOptions();
-        ImplementationBridgeHelpers
-                .CosmosBulkExecutionOptionsHelper
-                .getCosmosBulkExecutionOptionsAccessor()
-                .setMaxMicroBatchSize(bulkExecutionOptions, 10);
-        Flux<CosmosItemOperation> cosmosItemOperations =
-                families.map(family -> CosmosBulkOperations.getCreateItemOperation(family,
-                        new PartitionKey(family.getLastName())));
-        container.executeBulkOperations(cosmosItemOperations, bulkExecutionOptions).blockLast();
-    }
-    ```
+    [!code-java[](~/azure-cosmos-java-sql-api-samples/src/main/java/com/azure/cosmos/examples/bulk/async/SampleBulkQuickStartAsync.java?name=BulkCreateItemsWithResponseProcessingAndExecutionOptions)]
+
 
    <!-- The importAll method accepts the following parameters:
  
@@ -256,7 +190,7 @@ Consider the following points for better performance when using bulk executor li
 * For achieving higher throughput:  
 
    * Set the JVM's heap size to a large enough number to avoid any memory issue in handling large number of documents. Suggested heap size: max(3 GB, 3 * sizeof(all documents passed to bulk import API in one batch)).  
-   * There is a preprocessing time, due to which you will get higher throughput when performing bulk operations with a large number of documents. So, if you want to import 10,000,000 documents, running bulk import 10 times on 10 bulk of documents each of size 1,000,000 is preferable than running bulk import 100 times on 100 bulk of documents each of size 100,000 documents.  
+   * There's a preprocessing time, due to which you'll get higher throughput when performing bulk operations with a large number of documents. So, if you want to import 10,000,000 documents, running bulk import 10 times on 10 bulk of documents each of size 1,000,000 is preferable than running bulk import 100 times on 100 bulk of documents each of size 100,000 documents.  
 
 * It is recommended to instantiate a single CosmosAsyncClient object for the entire application within a single virtual machine that corresponds to a specific Azure Cosmos container.  
 
@@ -264,4 +198,4 @@ Consider the following points for better performance when using bulk executor li
 
     
 ## Next steps
-* To learn about maven package details and release notes of bulk executor Java library, see[bulk executor SDK details](sql-api-sdk-bulk-executor-java.md).
+* For an overview of bulk executor functionality, see [bulk executor overview](../bulk-executor-overview.md).
