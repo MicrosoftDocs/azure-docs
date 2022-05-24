@@ -40,7 +40,7 @@ The Azure IoT service SDKs contain code to facilitate building applications that
 
 ## Microsoft Azure Provisioning SDKs
 
-The **Microsoft Azure Provisioning SDKs** enable you to provision devices to your IoT Hub using the [Device Provisioning Service](../iot-dps/about-iot-dps.md). To learn more, see [Microsoft SDKs for IoT Hub Device Provisioning Service](../iot-dps/libraries-sdks.md).
+The **Microsoft Azure Provisioning SDKs** enable you to provision devices to your IoT Hub using the [Device Provisioning Service](../iot-dps/about-iot-dps.md). To learn more about the provisioning SDKs, see [Microsoft SDKs for Device Provisioning Service](../iot-dps/libraries-sdks.md).
 
 ## Azure IoT Hub Device SDKs
 
