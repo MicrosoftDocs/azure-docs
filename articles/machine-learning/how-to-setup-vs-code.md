@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devplatv2
+ms.custom: devplatv2, event-tier1-build-2022
 ---
 
 # Set up the Visual Studio Code Azure Machine Learning extension (preview)
@@ -29,7 +29,7 @@ The Azure Machine Learning extension for VS Code provides a user interface to:
 - Azure subscription. If you don't have one, sign up to try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 - Visual Studio Code. If you don't have it, [install it](https://code.visualstudio.com/docs/setup/setup-overview).
 - [Python](https://www.python.org/downloads/)
-- (Optional) To create resources using the extension, you need to install the CLI (v2). For setup instructions, see [Install, set up, and use the CLI (v2) (preview)](how-to-configure-cli.md).
+- (Optional) To create resources using the extension, you need to install the CLI (v2). For setup instructions, see [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
 - Clone the community driven repository
     ```bash
         git clone https://github.com/Azure/azureml-examples.git --depth 1

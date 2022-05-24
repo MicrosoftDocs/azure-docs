@@ -7,6 +7,7 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
+ms.custom: event-tier1-build-2022
 ms.date: 03/01/2022
 ms.topic: how-to
 ---
