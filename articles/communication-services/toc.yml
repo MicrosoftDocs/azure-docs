@@ -292,6 +292,10 @@ items:
     items: 
     - name: Setup Localization
       href: how-tos/ui-library-sdk/localization.md
+    - name: Setup Theming
+      href: how-tos/ui-library-sdk/theming.md
+    - name: Custom Data Model Injection 
+      href: how-tos/ui-library-sdk/data-model.md
 - name: Samples
   items:
   - name: Overview
