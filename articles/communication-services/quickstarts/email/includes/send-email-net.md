@@ -109,7 +109,7 @@ To send an Email message, you need to
 - Add Recipients 
 - Construct your email message with your Sender information you get your MailFrom address from your verified domain.
 - Include your Email Content and Recipients and include attachments if any 
-- Calling the SendEmail method. Add this code to the end of `Main` method in **Program.cs**:
+- Calling the Send method. Add this code to the end of `Main` method in **Program.cs**:
 
 Replace with your domain details and modify the content, recipient details as required
 ```csharp
