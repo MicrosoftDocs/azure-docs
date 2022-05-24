@@ -13139,6 +13139,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-howto-openvpn-clients.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-cert-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-cert-windows",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-vmware/public-ip-usage.md",
       "redirect_url": "/azure/azure-vmware/enable-public-internet-access",
       "redirect_document_id": false
