@@ -37,10 +37,10 @@ This section shows how key SOAR concepts in Splunk translate to Microsoft Sentin
 |Splunk  |Microsoft Sentinel |
 |---------|---------|
 |Ingest events into main indexer.     |Ingest events into the Log Analytics workspace.     |
-|Create containers.     |Tag alerts using the [custom details feature](surface-custom-details-in-alerts.md).   |
-|Create cases. |Microsoft Sentinel can automatically group alerts according to user-defined criteria, such as shared entities or severity. These alerts then generate incidents.  |
-|Create playbooks. |Azure Logic Apps uses several connectors to orchestrate activities across Microsoft Sentinel, Azure, third party and hybrid cloud environments. |
-|Create workbooks. |Microsoft Sentinel executes playbooks either in isolation or as part of an ordered automation rule. You can also execute playbooks manually against alerts or incidents, according to a predefined Security Operations Center (SOC) procedure. |
+|Ingest containers.     |Tag incidents using the [custom details feature](surface-custom-details-in-alerts.md).   |
+|Ingest cases. |Microsoft Sentinel can automatically group incidents according to user-defined criteria, such as shared entities or severity. These alerts then generate incidents.  |
+|Ingest playbooks. |Azure Logic Apps uses several connectors to orchestrate activities across Microsoft Sentinel, Azure, third party and hybrid cloud environments. |
+|Ingest workbooks. |Microsoft Sentinel executes playbooks either in isolation or as part of an ordered automation rule. You can also execute playbooks manually against alerts or incidents, according to a predefined Security Operations Center (SOC) procedure. |
 
 ## Map SOAR components 
 

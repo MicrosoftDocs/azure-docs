@@ -46,7 +46,7 @@ Use the Microsoft Sentinel **Incidents** page to assign incidents. The **Inciden
 
 To assign an incident:
 - **Manually**. Set the **Owner** field to the relevant user name. 
-- **Automatically**. [Use a custom solution based on Microsoft Teams and Logic Apps](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/automate-incident-assignment-with-shifts-for-teams/ba-p/2297549), or an automation rule. You can also use the **Incident-Assignment-Shifts** playbook template in the **Automation** blade templates gallery. 
+- **Automatically**. [Use a custom solution based on Microsoft Teams and Logic Apps](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/automate-incident-assignment-with-shifts-for-teams/ba-p/2297549), [or an automation rule](automate-incident-handling-with-automation-rules.md).
 
 :::image type="content" source="media/migration-analyst-workflow/analyst-workflow-assign-incidents.png" alt-text="Screenshot of assigning an owner in the Incidents page." lightbox="media/migration-analyst-workflow/analyst-workflow-assign-incidents.png":::
 
@@ -67,8 +67,8 @@ Here are additional actions to continue your incident review:
 Use these features and capabilities to expedite triage:
 
 - For quick filtering, in the **Incidents** page, [search for incidents](investigate-cases#search-for-incidents.md) associated to a specific entity. This is a much faster method than filtering by the entity column in legacy SIEM incident queues. 
-- For faster triage, use the **[Alert details](customize-alert-details.md)** screen to include key incident information in the incident name and description, such as the related user name, IP address, or account. For example, an incident could be dynamically renamed to `Ransomware activity detected in DC01`, where `DC01` is a critical asset, dynamically identified via the customizable alert properties.  
-- For accurate and accessible data, in the **Incidents page**, select an incident and select **Events** under **Evidence** to view specific events that triggered the incident. The event data is visible as the output of the query associated with the analytics rule, rather than the raw event. This allows the rule migration engineer to ensure that the analyst gets the correct data. If your analyst might need more information than the query can return, refer to .  
+- For faster triage, use the **[Alert details](customize-alert-details.md)** screen to include key incident information in the incident name and description, such as the related user name, IP address, or host. For example, an incident could be dynamically renamed to `Ransomware activity detected in DC01`, where `DC01` is a critical asset, dynamically identified via the customizable alert properties.  
+- For accurate and accessible data, in the **Incidents page**, select an incident and select **Events** under **Evidence** to view specific events that triggered the incident. The event data is visible as the output of the query associated with the analytics rule, rather than the raw event. This allows the rule migration engineer to ensure that the analyst gets the correct data.
 - For detailed entity information, in the **Incidents page**, select an incident and select an entity name under **Entities** to view the entity's directory information, timeline, and insights. Learn how to [map entities](map-data-fields-to-entities.md).
 - To link to relevant workbooks, select **Incident preview**. You can customize the workbook to display additional information about the incident, or associated entities and custom fields.
 
@@ -94,9 +94,9 @@ From the investigation graph, you can also pivot to workbooks and use to further
 Use Microsoft Sentinel automated response capabilities to respond to complex threats and reduce alert fatigue. Microsoft Sentinel provides automated response using [Logic Apps playbooks and automation rules](automate-responses-with-playbooks.md). 
 
 Use one of the following options to access playbooks:
-- Use the **Playbook templates** tab under the **Automation** blade
-- The content hub 
-- The Microsoft Sentinel GitHub repo  
+- The [Automation > Playbook templates tab](use-playbook-templates.md)
+- The Microsoft Sentinel [Content hub](sentinel-solutions-deploy) 
+- The Microsoft Sentinel [GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks)  
 
 These sources include a wide range of security-oriented playbooks to cover a substantial portion of use cases of varying complexity. To streamline your work with playbooks, use the templates under **Automation > Playbook templates** in Microsoft Sentinel. Using this source, you can easily deploy playbooks into the Microsoft Sentinel instance, and then modify the playbooks to suit your organization's needs.
 
