@@ -27,7 +27,7 @@ You need the following permissions to create subscriptions for a Microsoft Custo
 
 - Owner or contributor role on the invoice section, billing profile or billing account. Or Azure subscription creator role on the invoice section.  
 
-For more information, see [Subscription billing roles and task](understand-mca-roles.md#subscription-billing-roles-and-tasks).    |
+For more information, see [Subscription billing roles and task](understand-mca-roles.md#subscription-billing-roles-and-tasks).
 
 ## Create a subscription
 
