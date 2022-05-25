@@ -2501,13 +2501,15 @@ Define conditions under which alerts won't be sent. For example, define and upda
 
 The APIs that you define here appear in the on-premises management console's Alert Exclusions window as a read-only exclusion rule.
 
+This API is supported for maintenance purposes only and is not meant to be used instead of [alert exclusion rules](/azure/defender-for-iot/organizations/how-to-work-with-alerts-on-premises-management-console#create-alert-exclusion-rules). Use this API for one-time maintenance operations only.
+
 #### Method - POST
 
 #### Query parameters
 
 - **ticketId**: Defines the maintenance ticket ID in the user's systems.
 
-- **ttl**: Defines the TTL (time to live), which is the duration of the maintenance window in minutes. After the period of time that this parameter defines, the system automatically starts sending alerts.
+- **ttl**: Required. Defines the TTL (time to live), which is the duration of the maintenance window in minutes. After the period of time that this parameter defines, the system automatically starts sending alerts.
 
 - **engines**: Defines from which security engine to suppress alerts during the maintenance process:
 
