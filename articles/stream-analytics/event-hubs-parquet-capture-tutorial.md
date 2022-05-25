@@ -52,7 +52,7 @@ Before you start, make sure you've completed the following steps:
         :::image type="content" source="./media/event-hubs-parquet-capture-tutorial/event-hub-configuration.png" alt-text="Screenshot of the configuration page for your event hub." lightbox="./media/event-hubs-parquet-capture-tutorial/event-hub-configuration.png":::
 1. Within few seconds, you'll see sample input data and the schema. You can choose to drop fields, rename fields or change data type.
 
-    :::image type="content" source="./media/event-hubs-parquet-capture-tutorial/data-preview.png" alt-text="Screenshot showing the fields and preview of data." lightbox="./media/event-hubs/event-hubs-parquet-capture-tutorial/data-preview.png":::
+    :::image type="content" source="./media/event-hubs-parquet-capture-tutorial/data-preview.png" alt-text="Screenshot showing the fields and preview of data." lightbox="./media/event-hubs-parquet-capture-tutorial/data-preview.png":::
 1. Select the **Azure Data Lake Storage Gen2** tile on your canvas and configure it by specifying
     * Subscription where your Azure Data Lake Gen2 account is located in
     * Storage account name, which should be the same ADLS Gen2 account used with your Azure Synapse Analytics workspace done in the Prerequisites section.
@@ -61,7 +61,7 @@ Before you start, make sure you've completed the following steps:
     * Date and time pattern as the default *yyyy-mm-dd* and *HH*.
     * Select **Connect**
 
-    :::image type="content" source="./media/event-hubs-parquet-capture-tutorial/data-lake-storage-settings.png" alt-text="Screenshot showing the configuration settings for the Data Lake Storage." lightbox="./media/event-hubs/event-hubs-parquet-capture-tutorial/data-lake-storage-settings.png":::    
+    :::image type="content" source="./media/event-hubs-parquet-capture-tutorial/data-lake-storage-settings.png" alt-text="Screenshot showing the configuration settings for the Data Lake Storage." lightbox="./media/event-hubs-parquet-capture-tutorial/data-lake-storage-settings.png":::    
 1. Select **Save** in the top ribbon to save your job and then select **Start**. Set Streaming Unit count to 3 and then Select **Start** to run your job.
 
     :::image type="content" source="./media/event-hubs-parquet-capture-tutorial/start-job.png" alt-text="Screenshot showing the Start Stream Analytics Job page." lightbox="./media/event-hubs-parquet-capture-tutorial/start-job.png":::
