@@ -218,7 +218,7 @@ items:
         href: conversational-language-understanding/how-to/fail-over.md
   - name: Concepts
     items:
-      - name: Backwards compatibility
+      - name: Backwards compatibility with LUIS
         href: conversational-language-understanding/concepts/backwards-compatibility.md
       - name: Entity components
         href: conversational-language-understanding/concepts/entity-components.md
