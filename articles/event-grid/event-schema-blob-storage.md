@@ -45,9 +45,9 @@ These events are triggered if you enable a hierarchical namespace on the storage
 > [!NOTE]
 > For **Azure Data Lake Storage Gen2**, if you want to ensure that the **Microsoft.Storage.BlobCreated** event is triggered only when a Block Blob is completely committed, filter the event for the `FlushWithClose` REST API call. This API call triggers the **Microsoft.Storage.BlobCreated** event only after data is fully committed to a Block Blob. To learn how to create a filter, see [Filter events for Event Grid](./how-to-filter-events.md).
 
-### List of other events
+### List of policy-related events
 
-These events are triggered when the conditions of a policy are met and the the actions defined by that policy are performed.
+These events are triggered when the actions defined by a policy are performed.
 
  |Event name |Description|
  |----------|-----------|
