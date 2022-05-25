@@ -4,7 +4,7 @@ description: Quickly create a dedicated SQL pool (formerly SQL DW) with a server
 author: joannapea
 ms.author: joanpo
 manager: craigg
-ms.reviewer: igorstan
+ms.reviewer: wiassaf
 ms.date: 4/11/2019
 ms.topic: quickstart
 ms.service: synapse-analytics

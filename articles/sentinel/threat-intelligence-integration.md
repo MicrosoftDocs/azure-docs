@@ -59,6 +59,10 @@ To connect to TAXII threat intelligence feeds, follow the instructions to [conne
 - [Learn more about STIX and TAXII @ThreatConnect](https://threatconnect.com/stix-taxii/)
 - [TAXII Services documentation @ThreatConnect](https://docs.threatconnect.com/en/latest/rest_api/taxii/taxii_2.1.html)
 
+### ReversingLabs
+
+- [Learn about ReversingLabs TAXII integration with Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/import-reversinglab-s-ransomware-feed-into-microsoft-sentinel/ba-p/3423937)
+
 ### Sectrio
 
 - [Learn more about Sectrio integration](https://sectrio.com/threat-intelligence/)

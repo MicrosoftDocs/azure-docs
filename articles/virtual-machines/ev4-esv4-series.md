@@ -4,7 +4,7 @@ description: Specifications for the Ev4, and Esv4-series VMs.
 author: andysports8
 ms.author: shuji
 ms.service: virtual-machines
-ms.subservice: vm-sizes-memory
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 6/8/2020
 
