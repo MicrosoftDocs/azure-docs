@@ -9,9 +9,12 @@ ms.topic: how-to
 author: ssalgadodev
 ms.author: ssalgado
 ms.date: 10/21/2021
+ms.custom: sdkv1, event-tier1-build-2022
 ---
 
 # Interactive debugging with Visual Studio Code
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 Learn how to interactively debug Azure Machine Learning experiments, pipelines, and deployments using Visual Studio Code (VS Code) and [debugpy](https://github.com/microsoft/debugpy/).
 
@@ -547,4 +550,3 @@ Learn more about troubleshooting:
 * [Remote model deployment](how-to-troubleshoot-deployment.md)
 * [Machine learning pipelines](how-to-debug-pipelines.md)
 * [ParallelRunStep](how-to-debug-parallel-run-step.md)
-

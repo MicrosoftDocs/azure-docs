@@ -65,14 +65,6 @@
       href: /security/benchmark/azure/baselines/private-link-security-baseline?toc=/azure/private-link/toc.json
 - name: How-to
   items:
-  - name: Private endpoint with static IP address
-    items:
-    - name: Portal
-      href: private-endpoint-static-ip-portal.md
-    - name: PowerShell
-      href: private-endpoint-static-ip-powershell.md
-    - name: CLI
-      href: private-endpoint-static-ip-cli.md
   - name: Export private endpoint DNS records
     href: private-endpoint-export-dns.md
   - name: Manage network policies for private endpoints

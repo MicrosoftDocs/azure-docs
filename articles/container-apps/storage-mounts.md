@@ -20,6 +20,9 @@ A container app has access to different types of storage. A single app can take 
 | [Temporary storage](#temporary-storage) | Temporary storage scoped to an individual replica | Sharing files between containers in a replica. For instance, the main app container can write log files that are processed by a sidecar container. |
 | [Azure Files](#azure-files) | Permanent storage | Writing files to a file share to make data accessible by other systems. |
 
+> [!NOTE]
+> The volume mounting features in Azure Container Apps are in preview.
+
 ## Container file system
 
 A container can write to its own file system.
