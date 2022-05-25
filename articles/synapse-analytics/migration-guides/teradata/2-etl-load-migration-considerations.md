@@ -61,7 +61,7 @@ Even if a data model change is an intended part of the overall migration, it's g
 
 When migrating from Teradata, consider creating a Teradata environment in a VM within Azure as a stepping stone in the migration process.
 
-#### Using a VM Teradata instance as part of a migration
+#### Use a VM Teradata instance as part of a migration
 
 One optional approach for migrating from an on-premises Teradata environment is to leverage the Azure environment to create a Teradata instance in a VM within Azure, co-located with the target Azure Synapse environment. This is possible because Azure provides cheap cloud storage and elastic scalability.
 
@@ -77,7 +77,7 @@ With this approach, standard Teradata utilities, such as Teradata Parallel Data 
 
 - The migration process is orchestrated and controlled entirely within the Azure environment.
 
-#### Migrating data marts - stay physical or go virtual?
+#### Migrate data marts - stay physical or go virtual?
 
 > [!TIP]
 > Virtualizing data marts can save on storage and processing resources.
@@ -139,20 +139,20 @@ If a third-party ETL tool is already in use, and especially if there's a large i
 
 If you decide to retain an existing third-party ETL tool, there may be benefits to running that tool within the Azure environment (rather than on an existing on-premises ETL server) and having Azure Data Factory handle the overall orchestration of the existing workflows. One particular benefit is that less data needs to be downloaded from Azure, processed, and then uploaded back into Azure. So, decision 4 is whether to leave the existing tool running as-is or move it into the Azure environment to achieve cost, performance, and scalability benefits.
 
-### Re-engineering existing Teradata-specific scripts
+### Re-engineer existing Teradata-specific scripts
 
 If some or all the existing Teradata warehouse ETL/ELT processing is handled by custom scripts that utilize Teradata-specific utilities, such as BTEQ, MLOAD, or TPT, these scripts need to be recoded for the new Azure Synapse environment. Similarly, if ETL processes were implemented using stored procedures in Teradata, then these will also have to be recoded.
 
 > [!TIP]
 > The inventory of ETL tasks to be migrated should include scripts and stored procedures.
 
-Some elements of the ETL process are easy to migrate&mdash;for example, by simple bulk data load into a staging table from an external file. It may even be possible to automate those parts of the process, for example, by using PolyBase instead of fast load or MLOAD. If the exported files are Parquet, you can use a native Parquet reader, which is a faster option than PolyBase. Other parts of the process that contain arbitrary complex SQL and/or stored procedures will take more time to reengineer.
+Some elements of the ETL process are easy to migrate&mdash;for example, by simple bulk data load into a staging table from an external file. It may even be possible to automate those parts of the process, for example, by using PolyBase instead of fast load or MLOAD. If the exported files are Parquet, you can use a native Parquet reader, which is a faster option than PolyBase. Other parts of the process that contain arbitrary complex SQL and/or stored procedures will take more time to re-engineer.
 
 One way of testing Teradata SQL for compatibility with Azure Synapse is to capture some representative SQL statements from Teradata logs, then prefix those queries with `EXPLAIN`, and then&mdash;assuming a like-for-like migrated data model in Azure Synapse&mdash;run those `EXPLAIN` statements in Azure Synapse. Any incompatible SQL will generate an error, and the error information can determine the scale of the recoding task.
 
 [Microsoft partners](/azure/sql-data-warehouse/sql-data-warehouse-partner-data-integration) offer tools and services to migrate Teradata SQL and stored procedures to Azure Synapse.
 
-### Using existing third party ETL tools
+### Use third party ETL tools
 
 As described in the previous section, in many cases the existing legacy data warehouse system will already be populated and maintained by third-party ETL products. For a list of Microsoft data integration partners for Azure Synapse, see [Data Integration partners](/azure/sql-data-warehouse/sql-data-warehouse-partner-data-integration).
 

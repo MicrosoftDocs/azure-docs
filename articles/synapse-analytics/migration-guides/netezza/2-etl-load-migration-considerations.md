@@ -83,7 +83,7 @@ Even if a data model change is an intended part of the overall migration, it's g
 
 When migrating from Netezza, often the existing data model is already suitable for as-is migration to Azure Synapse.
 
-#### Migrating data marts&mdash;stay physical or go virtual?
+#### Migrate data marts - stay physical or go virtual?
 
 > [!TIP]
 > Virtualizing data marts can save on storage and processing resources.
@@ -218,7 +218,7 @@ If a third-party ETL tool is already in use, and especially if there's a large i
 
 If you decide to retain an existing third-party ETL tool, there may be benefits to running that tool within the Azure environment (rather than on an existing on-premises ETL server) and having Azure Data Factory handle the overall orchestration of the existing workflows. One particular benefit is that less data needs to be downloaded from Azure, processed, and then uploaded back into Azure. So, decision 4 is whether to leave the existing tool running as-is or to move it into the Azure environment to achieve cost, performance, and scalability benefits.
 
-### Re-engineering existing Netezza-specific scripts
+### Re-engineer existing Netezza-specific scripts
 
 If some or all the existing Netezza warehouse ETL/ELT processing is handled by custom scripts that utilize Netezza-specific utilities, such as nzsql or nzload, then these scripts need to be recoded for the new Azure Synapse environment. Similarly, if ETL processes were implemented using stored procedures in Netezza, then these will also have to be recoded.
 
@@ -231,7 +231,7 @@ One way of testing Netezza SQL for compatibility with Azure Synapse is to captur
 
 [Microsoft partners](/azure/sql-data-warehouse/sql-data-warehouse-partner-data-integration) offer tools and services to migrate Netezza SQL and stored procedures to Azure Synapse.
 
-### Using existing third-party ETL tools
+### Use third-party ETL tools
 
 As described in the previous section, in many cases the existing legacy data warehouse system will already be populated and maintained by third-party ETL products. For a list of Microsoft data integration partners for Azure Synapse, see [Data integration partners](/azure/sql-data-warehouse/sql-data-warehouse-partner-data-integration).
 
