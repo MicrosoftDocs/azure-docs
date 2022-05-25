@@ -28,7 +28,7 @@ In this tutorial, you learn to:
 To complete this tutorial, you need the following: 
 
 - Log Analytics workspace where you have at least [contributor rights](manage-access.md#manage-access-using-azure-permissions).
-- - A [supported Azure table](../logs/tables-feature-support) in the workspace.
+- - A [supported Azure table](../logs/tables-feature-support.md) in the workspace.
     
     To configure this table for ingestion-time transformations, the table must already have some data.
     
