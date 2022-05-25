@@ -7,17 +7,17 @@ ms.date: 2/23/2022
 ---
 # The alerts page
 
-The alerts page summarizes all alert instances in all your Azure resources generated in the last 30 days. This article shows how you can view alerts and how to find a specific alert instance for troubleshooting. You can see all your different types of alerts from multiple subscriptions in a single pane.
+The alerts page summarizes all alert instances in all your Azure resources generated in the last 30 days. You can see all your different types of alerts from multiple subscriptions in a single pane, and you can find specific alert instances for troubleshooting puproses. 
 
 You can get to the alerts page in any of the following ways:
 
 - From the home page in the [Azure portal](https://portal.azure.com/), select **Monitor** > **Alerts**.  
 
-:::image type="content" source="media/alerts-managing-alert-instances/alerts-monitor-menu.png" alt-text="Screenshot of alerts link on monitor menu. ":::
+  :::image type="content" source="media/alerts-managing-alert-instances/alerts-monitor-menu.png" alt-text="Screenshot of alerts link on monitor menu. ":::
   
 - From a specific resource, go to the **Monitoring** section, and choose **Alerts**. The landing page is pre-filtered for alerts on that specific resource.
 
-:::image type="content" source="media/alerts-managing-alert-instances/alerts-resource-menu.png" alt-text="Screenshot of alerts link on a resource's menu.":::
+  :::image type="content" source="media/alerts-managing-alert-instances/alerts-resource-menu.png" alt-text="Screenshot of alerts link on a resource's menu.":::
 ## Alert rule recommendations (preview)
 
 > [!NOTE]
@@ -42,3 +42,8 @@ To see more details about a specific alert instance, select the alerts instance 
  The **Alerts details** page provides details about the selected alert. Select **Change user response** to change the user response to the alert. You can see all closed alerts in the **History** tab.  
 
 :::image type="content" source="media/alerts-managing-alert-instances/alerts-details-page.png" alt-text="Screenshot of alerts details page.":::
+
+# Next steps
+
+- [Learn about Azure Monitor alerts](./alerts-overview.md)
+- [Create a new alert rule](alerts-log.md)

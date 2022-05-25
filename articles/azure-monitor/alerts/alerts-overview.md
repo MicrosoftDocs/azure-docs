@@ -23,6 +23,7 @@ You create an alert rule by combining :
  - The resource(s) to be monitored.
  - The signal or telemetry from the resource
  - Conditions
+
 If you are monitoring more than one resource, the condition is evaluated separately for each of the resources and alerts are fired for each resource separately.
 
 Once an alert is triggered, the alert is made up of:
@@ -42,7 +43,8 @@ Once an alert is triggered, the alert is made up of:
 You can see all all alert instances in all your Azure resources generated in the last 30 days on the **[Alerts page](alerts-page.md)** in the Azure portal. 
 ## Types of alerts
 
-There are four types of alerts. See [Types of Azure Monitor alerts](alerts-types.md) for detailed information about each alert type and how to choose which alert type best suits your needs.
+There are four types of alerts. This table provides a brief description of each alert type. 
+See [this article](alerts-types.md) for detailed information about each alert type and how to choose which alert type best suits your needs.
 
 |Alert type|Description|
 |:---------|:---------|
@@ -50,9 +52,9 @@ There are four types of alerts. See [Types of Azure Monitor alerts](alerts-types
 |[Log alerts](alerts-types.md#log-alerts)|Log alerts allow users to use a Log Analytics query to evaluate resource logs at a predefined frequency.|
 |[Activity log alerts](alerts-types.md#activity-log-alerts)|Activity log alerts are triggered when a new activity log event occurs that matches the defined conditions.|
 |[Smart detection alerts](alerts-types.md#smart-detection-alerts)|Smart detection on an Application Insights resource automatically warns you of potential performance problems and failure anomalies in your web application. You can migrate smart detection on your Application Insights resource to create alert rules for the different smart detection modules.|
-## Out-of-the-box alert rules
+## Out-of-the-box alert rules (preview)
 
-If you don't have alert rules defined for the selected resource, either individually or as part of a resource group or subscription, you can [enable recommended out-of-the-box alert rules in the Azure portal (preview)](alerts-log.md#enable-recommended-out-of-the-box-alert-rules-in-the-azure-portal-preview).
+If you don't have alert rules defined for the selected resource, either individually or as part of a resource group or subscription, you can [enable recommended out-of-the-box alert rules in the Azure portal](alerts-log.md#enable-recommended-out-of-the-box-alert-rules-in-the-azure-portal-preview).
 
 The system compiles a list of recommended alert rules based on:
 - The resource provider’s knowledge of important signals and thresholds for monitoring the resource.
@@ -89,8 +91,8 @@ When the alert is considered resolved, the alert rule sends out a resolved notif
 ## Manage your alerts programmatically
 
 You can programmatically query for alerts using:
- - [Azure PowerShell](/powershell/module/az.monitor/)
- - [The Azure CLI](/cli/azure/azure-cli-reference-for-monitor)
+ - [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.monitor/)
+ - [The Azure CLI](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest)
  - The [Alert Management REST API](/rest/api/monitor/alertsmanagement/alerts) 
 You can also use [Resource Graphs](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade). Resource graphs are good for managing alerts across multiple subscriptions. 
 
@@ -99,9 +101,7 @@ See the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details
 
 ## Next steps
 
-- [Viewing your alert instances](./alerts-page.md)
+- [See your alert instances](./alerts-page.md)
 - [Create a new alert rule](alerts-log.md)
-- [Learn about the different types of Azure Monitor alerts](alerts-types.md)
-- [Enable recommended out-of-the-box alert rules in the Azure portal (preview)](alerts-log.md#enable-recommended-out-of-the-box-alert-rules-in-the-azure-portal-preview)
 - [Learn about action groups](../alerts/action-groups.md)
 - [Learn about alert processing rules](alerts-action-rules.md)
