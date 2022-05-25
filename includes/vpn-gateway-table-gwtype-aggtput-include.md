@@ -42,6 +42,8 @@ To help our customers understand the relative performance of SKUs using differen
 
 A VPN tunnel connects to a VPN gateway instance. Each instance throughput is mentioned in the above throughput table and is available aggregated across all tunnels connecting to that instance.
 
+The table below shows the observed bandwidth and packets per second throughput per tunnel for the different gateway SKUs. All testing was performed between gateways (endpoints) within Azure across different regions with 100 connections and under standard load conditions.
+
 |**Generation**|**SKU**   | **Algorithms<br>used** | **Throughput<br>observed per tunnel** | **Packets per second per tunnel<br>observed** |
 |---           |---       | ---                 | ---            | ---                    |
 |**Generation1**|**VpnGw1**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 650 Mbps<br>500 Mbps<br>130 Mbps   | 62,000<br>47,000<br>12,000|
