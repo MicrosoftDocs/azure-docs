@@ -4,14 +4,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 05/04/2022
+ms.date: 05/24/2022
 ms.author: aahi
 ---
 
 > [!NOTE]
 > Project names are case sensitive.
 
-Use this **POST** request to start an entity extraction task. Replace `{projectName}` with the project name where you have the model you want to use.
+Use this **POST** request to text classification task. Replace `{projectName}` with the project name where you have the model you want to use.
 
 `{YOUR-ENDPOINT}/text/analytics/v3.2-preview.2/analyze`
 
