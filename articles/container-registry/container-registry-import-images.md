@@ -88,6 +88,15 @@ az acr repository show-manifests \
   --repository hello-world
 ```
 
+To import an artifact by digest without adding a tag:
+
+```azurecli
+az acr import \
+   --name myregistry \
+   --source docker.io/library/hello-world@sha256:abc123
+   --repository hello-world
+```
+
 If you have a [Docker Hub account](https://www.docker.com/pricing), we recommend that you use the credentials when importing an image from Docker Hub. Pass the Docker Hub user name and the password or a [personal access token](https://docs.docker.com/docker-hub/access-tokens/) as parameters to `az acr import`. The following example imports a public image from the `tensorflow` repository in Docker Hub, using Docker Hub credentials:
 
 ```azurecli
