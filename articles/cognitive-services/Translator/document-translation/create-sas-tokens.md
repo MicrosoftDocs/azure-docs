@@ -5,15 +5,14 @@ ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 05/03/2022
+ms.date: 05/25/2022
 ---
 
 # Create SAS tokens for your storage containers
 
-In this article, you'll learn how to create shared access signature (SAS) tokens using the Azure Storage Explorer or the Azure portal. A SAS secured with Azure AD credentials is called a user delegation SAS.A SAS token provides secure, delegated access to resources in your Azure storage account.
+In this article, you'll learn how to create user delegation, shared access signature (SAS) tokens, using Azure Storage Explorer or the Azure portal. User delegation SAS tokens are secured with Azure AD credentials. SAS tokens provide secure, delegated access to resources in your Azure storage account.
 
-
-Azure Blob Storage offers three types of resources:
+Azure Blob Storage offers three resource types:
 
 * **Storage** accounts provide a unique namespace in Azure for your data.
 * **Containers** are located in storage accounts and organize sets of blobs (files, text, or images).
@@ -61,7 +60,7 @@ Continue as follows:
     * Your **source** container or file must have designated  **read** and **list** access.
     * Your **target** container or file must have designated  **write** and **list** access.
 
-1. Specify the signed key **Start** and **Expiry** times. When you create a shared access signature (SAS), the default duration is 48 hours. After 48 hours, you'll need to create a new token. Consider setting a longer duration period for the time you'll be using your storage account Translator Service.The value for the expiry time is a maximum of seven days from the start of the shared access signature.
+1. Specify the signed key **Start** and **Expiry** times. When you create a shared access signature (SAS), the default duration is 48 hours. After 48 hours, you'll need to create a new token. Consider setting a longer duration period for the time you'll be using your storage account Translator Service. The value for the expiry time is a maximum of seven days from the start of the shared access signature.
 
 1. The **Allowed IP addresses** field is optional and specifies an IP address or a range of IP addresses from which to accept requests. If the request IP address doesn't match the IP address or address range specified on the SAS token, it won't be authorized.
 
@@ -153,7 +152,7 @@ To get started, you'll need:
 
 * An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
 * A [**Translator**](https://portal.azure.com/#create/Microsoft) service resource (**not** a Cognitive Services multi-service resource.  *See* [Create a new Azure  resource](../../cognitive-services-apis-create-account.md#create-a-new-azure-cognitive-services-resource).  
-* An [**Azure Blob Storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You will create containers to store and organize your blob data within your storage account.
+* An [**Azure Blob Storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll create containers to store and organize your blob data within your storage account.
 
 ### Create your tokens
 

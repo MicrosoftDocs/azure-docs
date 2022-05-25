@@ -13,7 +13,7 @@ recommendations: false
 
 # Create SAS tokens for storage containers
 
-In this article, you'll learn how to create shared access signature (SAS) tokens using the the Azure portal, or Azure Storage Explorer. A SAS secured with Azure AD credentials is called a user delegation SAS. A SAS token provides secure, delegated access to resources in your Azure storage account.
+ In this article, you'll learn how to create user delegation, shared access signature (SAS) tokens, using the Azure portal or Azure Storage Explorer. User delegation SAS tokens are secured with Azure AD credentials. SAS tokens provide secure, delegated access to resources in your Azure storage account.
 
 At a high level, here's how SAS tokens work: your application submits the SAS token to Azure Storage as part of an REST API request. If the storage service verifies that the shared access signature is valid, the request is authorized. If the shared access signature is considered invalid, the request is declined with error code 403 (Forbidden).
 
@@ -95,7 +95,7 @@ Continue as follows:
      > * [Azure role-based access control](../../role-based-access-control/overview.md) (Azure RBAC) is the authorization system used to manage access to Azure resources. Azure RBAC helps you manage access and permissions for your Azure resources.
     > * [Assign an Azure role for access to blob data](../../role-based-access-control/role-assignments-portal.md?tabs=current) shows you how to assign a role that allows for read, write, and delete permissions for your Azure storage container. For example, see [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor).
 
-1. Specify the signed key **Start** and **Expiry** times. When you create a shared access signature (SAS), the default duration is 48 hours. After 48 hours, you'll need to create a new token. Consider setting a longer duration period for the time you'll be using your storage account Translator Service.The value for the expiry time is a maximum of seven days from the start of the shared access signature.
+1. Specify the signed key **Start** and **Expiry** times. When you create a shared access signature (SAS), the default duration is 48 hours. After 48 hours, you'll need to create a new token. Consider setting a longer duration period for the time you'll be using your storage account Translator Service. The value for the expiry time is a maximum of seven days from the start of the shared access signature.
 
 1. The **Allowed IP addresses** field is optional and specifies an IP address or a range of IP addresses from which to accept requests. If the request IP address doesn't match the IP address or address range specified on the SAS token, it won't be authorized.
 
@@ -131,7 +131,7 @@ Azure Storage Explorer is a free standalone app that enables you to easily manag
 
 1. **Copy and paste the SAS URL and query string values in a secure location. They'll only be displayed once and can't be retrieved once the window is closed.**
 
-1. To use the SAS URL, append the qSAS token (URL) to the endpoint URL for your storage service or .
+1. To use the SAS URL, append the qSAS token (URL) to the endpoint URL for your storage service.
 
 ## Use your SAS URL to grant access
 
