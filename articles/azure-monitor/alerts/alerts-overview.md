@@ -92,7 +92,7 @@ When the alert is considered resolved, the alert rule sends out a resolved notif
 
 You can programmatically query for alerts using:
  - [Azure PowerShell](/powershell/module/az.monitor/)
- - [The Azure CLI](/cli/azure/monitor?view=azure-cli-latest)
+ - [The Azure CLI](/cli/azure/monitor?view=azure-cli-latest&preserve-view=true)
  - The [Alert Management REST API](/rest/api/monitor/alertsmanagement/alerts) 
 You can also use [Resource Graphs](https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade). Resource graphs are good for managing alerts across multiple subscriptions. 
 
