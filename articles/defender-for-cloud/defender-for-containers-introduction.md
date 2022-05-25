@@ -195,7 +195,7 @@ The following describes the components necessary in order to receive the full pr
 ## FAQ - Defender for Containers
 
 - [What are the options to enable the new plan at scale?](#what-are-the-options-to-enable-the-new-plan-at-scale)
-- [Does Microsoft Defender for Containers support AKS clusters with virtual machines scale set?](#does-microsoft-defender-for-containers-support-aks-clusters-with-virtual-machines-scale-set-vmss)
+- [Does Microsoft Defender for Containers support AKS clusters with virtual machines scale set?](#does-microsoft-defender-for-containers-support-aks-clusters-with-virtual-machines-scale-set)
 - [Does Microsoft Defender for Containers support AKS without scale set (default)?](#does-microsoft-defender-for-containers-support-aks-without-scale-set-default)
 - [Do I need to install the Log Analytics VM extension on my AKS nodes for security protection?](#do-i-need-to-install-the-log-analytics-vm-extension-on-my-aks-nodes-for-security-protection)
 
