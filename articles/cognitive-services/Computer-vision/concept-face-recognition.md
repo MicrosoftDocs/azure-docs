@@ -69,4 +69,4 @@ Use the following tips to ensure that your input images give the most accurate r
 
 Now that you're familiar with face recognition concepts, Write a script that identifies faces against a trained PersonGroup.
 
-* [Face client library quickstart](./quickstarts-sdk/identity-client-libraries.md)
+* [Face client library quickstart](./quickstarts-sdk/identity-client-library.md)

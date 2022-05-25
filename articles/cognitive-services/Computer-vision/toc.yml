@@ -155,7 +155,7 @@ items:
   - name: Identity overview
     href: overview-identity.md
   - name: Quickstart
-    href: quickstarts-sdk/identity-client-libraries.md
+    href: quickstarts-sdk/identity-client-library.md
   - name: Samples
     href: /samples/browse/?products=azure&term=face
   - name: How-to guides

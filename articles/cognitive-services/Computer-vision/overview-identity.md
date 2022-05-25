@@ -23,7 +23,7 @@ keywords: facial recognition, facial recognition software, facial analysis, face
 The Azure Face service provides AI algorithms that detect, recognize, and analyze human faces in images. Facial recognition software is important in many different scenarios, such as identity verification, touchless access control, and face blurring for privacy.
 
 This documentation contains the following types of articles:
-* The [quickstarts](./quickstarts-sdk/identity-client-libraries.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
+* The [quickstarts](./quickstarts-sdk/identity-client-library.md) are step-by-step instructions that let you make calls to the service and get results in a short period of time. 
 * The [how-to guides](./how-to/identity-detect-faces.md) contain instructions for using the service in more specific or customized ways.
 * The [conceptual articles](./concept-face-detection.md) provide in-depth explanations of the service's functionality and features.
 * The [tutorials](./enrollment-overview.md) are longer guides that show you how to use this service as a component in broader business solutions.
@@ -102,4 +102,4 @@ As with all of the Cognitive Services resources, developers who use the Face ser
 
 Follow a quickstart to code the basic components of a face recognition app in the language of your choice.
 
-- [Client library quickstart](quickstarts/client-libraries.md).
+- [Client library quickstart](quickstarts-sdk/identity-client-library.md).

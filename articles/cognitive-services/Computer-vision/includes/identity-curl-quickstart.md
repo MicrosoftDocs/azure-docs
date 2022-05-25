@@ -82,6 +82,6 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 In this quickstart, you learned how to use the Face REST API to do basic facial recognition tasks. Next, learn about the different face detection models and how to specify the right model for your use case.
 
 > [!div class="nextstepaction"]
-> [Specify a face detection model version](../../how-to/specify-detection-model.md)
+> [Specify a face detection model version](../how-to/specify-detection-model.md)
 
 * [What is the Face service?](../overview-identity.md)

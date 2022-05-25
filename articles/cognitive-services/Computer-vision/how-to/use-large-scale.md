@@ -273,4 +273,4 @@ In this guide, you learned how to migrate the existing PersonGroup or FaceList c
 Follow a how-to guide to learn how to add faces to a PersonGroup or write a script to do the Identify operation on a PersonGroup.
 
 - [Add faces](add-faces.md)
-- [Face client library quickstart](../quickstarts-sdk/identity-client-libraries.md)
+- [Face client library quickstart](../quickstarts-sdk/identity-client-library.md)
