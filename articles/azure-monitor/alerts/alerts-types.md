@@ -10,7 +10,9 @@ ms.custom: template-concept
 
 # Types of Azure Monitor alerts
 
-There are four kinds of Azure Monitor alerts:
+This article describes the kinds of Azure Monitor alerts you can create, and helps you understand when to use each type of alert.
+
+There are four types of alerts:
 - [Metric alerts](#metric-alerts)
 - [Log alerts](#log-alerts)
 - [Activity log alerts](#activity-log-alerts)
@@ -18,7 +20,7 @@ There are four kinds of Azure Monitor alerts:
 
 ## Choosing the right alert type
 
-This table can help you decide when to use each alert type. See the [pricing page](https://azure.microsoft.com/pricing/details/monitor/) for more detailed information about pricing.
+This table can help you decide when to use what type of alert. See the [pricing page](https://azure.microsoft.com/pricing/details/monitor/) for more detailed information about pricing.
 
 |Alert Type  |When to Use |Pricing Information|
 |---------|---------|---------|
@@ -133,7 +135,7 @@ To monitor for the same condition on multiple Azure resources, you can use split
 You may also decide not to split when you want a condition applied to multiple resources in the scope. For example, if you want to fire an alert if at least five machines in the resource group scope have CPU usage over 80%.
 
 ### Using the API
-Manage new rules in your workspaces using the [ScheduledQueryRules](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules) API. 
+Manage new rules in your workspaces using the [ScheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules) API. 
 
 > [!NOTE]
 > Log alerts for Log Analytics used to be managed using the legacy [Log Analytics Alert API](api-alerts.md). Learn more about [switching to the current ScheduledQueryRules API](alerts-log-api-switch.md).

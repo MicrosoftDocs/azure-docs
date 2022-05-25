@@ -71,17 +71,17 @@ You can also [create log alert rules using Azure Resource Manager templates](../
 
     :::image type="content" source="media/alerts-log/alerts-create-log-rule-logic.png" alt-text="Screenshot of alert logic section of a new log alert rule.":::
 
-1. (Optional) In the **Advanced options** section, you can specify the number of failures and the alert evaluation period required to trigger an alert. For example, if you set the **Aggregation granularity** to 5 minutes, you can specify that you only want to trigger an alert if there were three failures (15 minutes) in the last hour. This setting is defined by your application business policy.
+1. (Optional) In the **Advanced options** section, you can specify the number of failures and the alert evaluation period required to trigger an alert. For example, if you set the **Aggregation granularity** to 5 minutes, you can specify that you only want to trigger an alert if there were three failures (15 minutes) in the last hour. This setting is defined by your application business policy. 
    
-    Select values for these fields under **Number of violations to trigger the alert**:
+   Select values for these fields under **Number of violations to trigger the alert**:
     
-    |Field  |Description  |
-    |---------|---------|
-    |Number of violations|The number of violations that have to occur to trigger the alert.|
-    |Evaluation period|The amount of time within which those violations have to occur. |
-    |Override query time range| Enter a value for this field if the alert evaluation period is different than the query time range.| 
+   |Field  |Description  |
+   |---------|---------|
+   |Number of violations|The number of violations that have to occur to trigger the alert.|
+   |Evaluation period|The amount of time within which those violations have to occur. |
+   |Override query time range| Enter a value for this field if the alert evaluation period is different than the query time range.| 
 
-    :::image type="content" source="media/alerts-log/alerts-rule-preview-advanced-options.png" alt-text="Screenshot of the advanced options section of a new log alert rule.":::
+   :::image type="content" source="media/alerts-log/alerts-rule-preview-advanced-options.png" alt-text="Screenshot of the advanced options section of a new log alert rule.":::
 
 1. The **Preview** chart shows query evaluations results over time. You can change the chart period or select different time series that resulted from unique alert splitting by dimensions.
 
