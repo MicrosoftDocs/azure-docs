@@ -9,8 +9,8 @@ ms.topic: how-to
 author: shivanissambare
 ms.author: ssambare
 ms.reviewer: larryfr
-ms.date: 05/24/2022
-ms.custom: how-to, devplatv2, event-tier1-build-2022, sdkv2
+ms.date: 05/25/2022
+ms.custom: how-to, devplatv2, sdkv2
 #Customer intent: As an ML engineer or data scientist, I want to create an endpoint to host my models for batch scoring, so that I can use the same endpoint continuously for different large datasets on-demand or on-schedule.
 ---
 
@@ -25,61 +25,65 @@ ms.custom: how-to, devplatv2, event-tier1-build-2022, sdkv2
 
 Learn how to use batch endpoints to do batch scoring using Python SDK v2. Batch endpoints simplify the process of hosting your models for batch scoring, so you can focus on machine learning, not infrastructure. For more information, see [What are Azure Machine Learning endpoints?](concept-endpoints.md).
 
-## Prerequisites
-
-* A basic understanding of Machine Learning.
-* An Azure account with an active subscription. [Create an account for free(https://azure.microsoft.com/free/?WT.mc_id=A261C142F)].
-* An Azure ML workspace with computer cluster to run your batch scoring job.
-* Installed Azure Machine Learning Python SDK v2.
-
-### By the end of this tutorial, you should be able to:
+In this article, you'll learn to:
 
 * Connect to your Azure machine learning workspace from the Python SDK v2.
 * Create a batch endpoint from Python SDK v2.
 * Create deployments on that endpoint from Python SDK v2.
 * Test a deployment with a sample request.
 
+## Prerequisites
+
+* A basic understanding of Machine Learning.
+* An Azure account with an active subscription. [Create an account for free(https://azure.microsoft.com/free/?WT.mc_id=A261C142F)].
+* An Azure ML workspace with computer cluster to run your batch scoring job.
+* The [Azure Machine Learning SDK v2 for Python](/python/api/overview/azure/ml/installv2).
+
+
 ## 1. Connect to Azure Machine Learning Workspace
-The [workspace](https://docs.microsoft.com/azure/machine-learning/concept-workspace) is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section we will connect to the workspace in which the job will be run.
 
-### 1.1 Import the required libraries
+The [workspace](machine-learning/concept-workspace.md) is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which the job will be run.
 
-```python
-# import required libraries
-from azure.ai.ml import MLClient, Input
-from azure.ai.ml.entities import (
-    BatchEndpoint,
-    BatchDeployment,
-    Model,
-    Environment,
-    BatchRetrySettings,
-)
-from azure.ai.ml.entities._assets import Dataset
-from azure.identity import DefaultAzureCredential
-from azure.ai.ml.constants import BatchDeploymentOutputAction
-```
+1. Import the required libraries:
 
-### 1.2. Configure workspace details and get a handle to the workspace
-To connect to a workspace, we need identifier parameters - a subscription, resource group and workspace name. We will use these details in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. We use the [default azure authentication](https://docs.microsoft.com/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python) for this tutorial.
+    ```python
+    # import required libraries
+    from azure.ai.ml import MLClient, Input
+    from azure.ai.ml.entities import (
+        BatchEndpoint,
+        BatchDeployment,
+        Model,
+        Environment,
+        BatchRetrySettings,
+    )
+    from azure.ai.ml.entities._assets import Dataset
+    from azure.identity import DefaultAzureCredential
+    from azure.ai.ml.constants import BatchDeploymentOutputAction
+    ```
 
-```python
-# enter details of your AML workspace
-subscription_id = "<SUBSCRIPTION_ID>"
-resource_group = "<RESOURCE_GROUP>"
-workspace = "<AML_WORKSPACE_NAME>"
-```
+1. Configure workspace details and get a handle to the workspace:
 
-```python
-# get a handle to the workspace
-ml_client = MLClient(
-    DefaultAzureCredential(), subscription_id, resource_group, workspace
-)
-```
+    To connect to a workspace, we need identifier parameters - a subscription, resource group and workspace name. We'll use these details in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. We use the [default Azure authentication](https://docs.microsoft.com/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python) for this tutorial.
 
-## 2. Create Batch Endpoint
+    ```python
+    # enter details of your AML workspace
+    subscription_id = "<SUBSCRIPTION_ID>"
+    resource_group = "<RESOURCE_GROUP>"
+    workspace = "<AML_WORKSPACE_NAME>"
+    ```
+
+    ```python
+    # get a handle to the workspace
+    ml_client = MLClient(
+        DefaultAzureCredential(), subscription_id, resource_group, workspace
+    )
+    ```
+
+## Create Batch Endpoint
+
 Batch endpoints are endpoints that are used batch inferencing on large volumes of data over a period of time. Batch endpoints receive pointers to data and run jobs asynchronously to process the data in parallel on compute clusters. Batch endpoints store outputs to a data store for further analysis.
 
-To create an online endpoint we will use `BatchEndpoint`. This class allows user to configure the following key aspects:
+To create an online endpoint, we'll use `BatchEndpoint`. This class allows user to configure the following key aspects:
 
 * `name` - Name of the endpoint. Needs to be unique at the Azure region level
 * `auth_mode` - The authentication method for the endpoint. Currently only Azure Active Directory (Azure AD) token-based (`aad_token`) authentication is supported.
@@ -88,33 +92,35 @@ To create an online endpoint we will use `BatchEndpoint`. This class allows user
     * `deployment_name` - Name of the deployment that will serve as the default deployment for the endpoint.
 * `description`- Description of the endpoint.
 
-### 2.1 Configure the endpoint
+1. Configure the endpoint:
 
-```python
-# Creating a unique endpoint name with current datetime to avoid conflicts
-import datetime
+    ```python
+    # Creating a unique endpoint name with current datetime to avoid conflicts
+    import datetime
 
-batch_endpoint_name = "my-batch-endpoint-" + datetime.datetime.now().strftime(
-    "%Y%m%d%H%M"
-)
+    batch_endpoint_name = "my-batch-endpoint-" + datetime.datetime.now().strftime(
+        "%Y%m%d%H%M"
+    )
 
-# create a batch endpoint
-endpoint = BatchEndpoint(
-    name=batch_endpoint_name,
-    description="this is a sample batch endpoint",
-    tags={"foo": "bar"},
-)
-```
+    # create a batch endpoint
+    endpoint = BatchEndpoint(
+        name=batch_endpoint_name,
+        description="this is a sample batch endpoint",
+        tags={"foo": "bar"},
+    )
+    ```
 
-## 2.2 Create the endpoint
-Using the `MLClient` created earlier, we will now create the Endpoint in the workspace. This command will start the endpoint creation and return a confirmation response while the endpoint creation continues.
+1. Create the endpoint:
 
-```python
-ml_client.begin_create_or_update(endpoint)
-```
+    Using the `MLClient` created earlier, we'll now create the Endpoint in the workspace. This command will start the endpoint creation and return a confirmation response while the endpoint creation continues.
 
-## 3. Create a deployment
-A deployment is a set of resources required for hosting the model that does the actual inferencing. We will create a deployment for our endpoint using the `BatchDeployment` class. This class allows user to configure the following key aspects.
+    ```python
+    ml_client.begin_create_or_update(endpoint)
+    ```
+
+## Create a deployment
+
+A deployment is a set of resources required for hosting the model that does the actual inferencing. We'll create a deployment for our endpoint using the `BatchDeployment` class. This class allows user to configure the following key aspects.
 
 * `name` - Name of the deployment.
 * `endpoint_name` - Name of the endpoint to create the deployment under.
@@ -134,76 +140,80 @@ A deployment is a set of resources required for hosting the model that does the 
 * `environment_variables`- Dictionary of environment variable name-value pairs to set for each batch scoring job.
 * `logging_level`- The log verbosity level. Allowed values are `warning`, `info`, `debug`. Default is `info`.
 
-## 3.1 Configure the deployment
+1. Configure the deployment:
 
-```python
-# create a batch deployment
-model = Model(path="./mnist/model/")
-env = Environment(
-    conda_file="./mnist/environment/conda.yml",
-    image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
-)
-deployment = BatchDeployment(
-    name="non-mlflow-deployment",
-    description="this is a sample non-mlflow deployment",
-    endpoint_name=batch_endpoint_name,
-    model=model,
-    code_path="./mnist/code/",
-    scoring_script="digit_identification.py",
-    environment=env,
-    compute="cpu-cluster",
-    instance_count=2,
-    max_concurrency_per_instance=2,
-    mini_batch_size=10,
-    output_action=BatchDeploymentOutputAction.APPEND_ROW,
-    output_file_name="predictions.csv",
-    retry_settings=BatchRetrySettings(max_retries=3, timeout=30),
-    logging_level="info",
-)
-```
+    ```python
+    # create a batch deployment
+    model = Model(path="./mnist/model/")
+    env = Environment(
+        conda_file="./mnist/environment/conda.yml",
+        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:latest",
+    )
+    deployment = BatchDeployment(
+        name="non-mlflow-deployment",
+        description="this is a sample non-mlflow deployment",
+        endpoint_name=batch_endpoint_name,
+        model=model,
+        code_path="./mnist/code/",
+        scoring_script="digit_identification.py",
+        environment=env,
+        compute="cpu-cluster",
+        instance_count=2,
+        max_concurrency_per_instance=2,
+        mini_batch_size=10,
+        output_action=BatchDeploymentOutputAction.APPEND_ROW,
+        output_file_name="predictions.csv",
+        retry_settings=BatchRetrySettings(max_retries=3, timeout=30),
+        logging_level="info",
+    )
+    ```
 
-## 3.2 Create the deployment
-Using the `MLClient` created earlier, we will now create the deployment in the workspace. This command will start the deployment creation and return a confirmation response while the deployment creation continues.
+1. Create the deployment:
 
-```python
-ml_client.begin_create_or_update(deployment)
-```
+    Using the `MLClient` created earlier, we'll now create the deployment in the workspace. This command will start the deployment creation and return a confirmation response while the deployment creation continues.
 
-## 3.3 Test the endpoint with sample data
-Using the `MLClient` created earlier, we will get a handle to the endpoint. The endpoint can be invoked using the `invoke` command with the following parameters:
+    ```python
+    ml_client.begin_create_or_update(deployment)
+    ```
+
+## Test the endpoint with sample data
+
+Using the `MLClient` created earlier, we'll get a handle to the endpoint. The endpoint can be invoked using the `invoke` command with the following parameters:
 
 * `name` - Name of the endpoint
 * `input_path` - Path where input data is present
 * `deployment_name` - Name of the specific deployment to test in an endpoint
 
-### 3.3.1 Invoke the endpoint
+1. Invoke the endpoint:
 
-```python
-# create a dataset form the folderpath
-input = Input(path="https://pipelinedata.blob.core.windows.net/sampledata/mnist")
+    ```python
+    # create a dataset form the folderpath
+    input = Input(path="https://pipelinedata.blob.core.windows.net/sampledata/mnist")
 
-# invoke the endpoint for batch scoring job
-job = ml_client.batch_endpoints.invoke(
-    endpoint_name=batch_endpoint_name,
-    input_data=input,
-    deployment_name="non-mlflow-deployment",  # name is required as default deployment is not set
-    params_override=[{"mini_batch_size": "20"}, {"compute.instance_count": "4"}],
-)
-```
+    # invoke the endpoint for batch scoring job
+    job = ml_client.batch_endpoints.invoke(
+        endpoint_name=batch_endpoint_name,
+        input_data=input,
+        deployment_name="non-mlflow-deployment",  # name is required as default deployment is not set
+        params_override=[{"mini_batch_size": "20"}, {"compute.instance_count": "4"}],
+    )
+    ```
 
-### 3.3.2 Get the details of the invoked job
-Let us get details and logs of the invoked job
+1. Get the details of the invoked job:
 
-```python
-# get the details of the job
-job_name = job.name
-batch_job = ml_client.jobs.get(name=job_name)
-print(batch_job.status)
-# stream the job logs
-ml_client.jobs.stream(name=job_name)
-```
+    Let us get details and logs of the invoked job
 
-## 4. Clean up Resources
+    ```python
+    # get the details of the job
+    job_name = job.name
+    batch_job = ml_client.jobs.get(name=job_name)
+    print(batch_job.status)
+    # stream the job logs
+    ml_client.jobs.stream(name=job_name)
+    ```
+
+## Clean up resources
+
 Delete endpoint
 
 ```python
@@ -212,3 +222,4 @@ ml_client.batch_endpoints.begin_delete(name=batch_endpoint_name)
 
 ## Next steps
 
+If you encounter problems using batch endpoints, see [Troubleshooting batch endpoints](how-to-troubleshoot-batch-endpoints.md).

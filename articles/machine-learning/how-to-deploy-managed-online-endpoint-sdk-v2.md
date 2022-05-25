@@ -8,9 +8,9 @@ ms.subservice: mlops
 ms.author: ssambare
 ms.reviewer: larryfr
 author: shivanissambare
-ms.date: 05/24/2022
+ms.date: 05/25/2022
 ms.topic: how-to
-ms.custom: how-to, devplatv2, sdkv2, event-tier1-build-2022, deployment
+ms.custom: how-to, devplatv2, sdkv2, deployment
 ---
 
 # Deploy and score a machine learning model with managed online endpoint using Python SDK v2 (preview) 
@@ -26,11 +26,11 @@ In this article, you learn how to deploy your machine learning model to managed 
 
 ## Prerequisites
 
-* If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today
-* The Azure Machine Learning SDK v2 for Python
+* If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
+* The [Azure Machine Learning SDK v2 for Python](/python/api/overview/azure/ml/installv2).
 * You must have an Azure resource group, and you (or the service principal you use) must have Contributor access to it.
 * You must have an Azure Machine Learning workspace.
-* To deploy locally, you must install Docker Engine on your local computer. We highly recommend this option, so it's easier to debug issues.
+* To deploy locally, you must install [Docker Engine](https://docs.docker.com/engine/) on your local computer. We highly recommend this option, so it's easier to debug issues.
 
 ### Clone examples repository
 
@@ -44,130 +44,136 @@ cd azureml-examples/sdk
 > [!TIP]
 > Use `--depth 1` to clone only the latest commit to the repository, which reduces time to complete the operation.
 
-## 1. Connect to Azure machine learning workspace
+## Connect to Azure machine learning workspace
 
-The [workspace](https://docs.microsoft.com/azure/machine-learning/concept-workspace) is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section we will connect to the workspace in which you'll perform deployment tasks.
+The [workspace](https://docs.microsoft.com/azure/machine-learning/concept-workspace) is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which you'll perform deployment tasks.
 
-### 1.1. Import the required libraries
+1. Import the required libraries:
 
-```python
-# import required libraries
-from azure.ai.ml import MLClient
-from azure.ai.ml.entities import (
-    ManagedOnlineEndpoint,
-    ManagedOnlineDeployment,
-    Model,
-    Environment,
-    CodeConfiguration,
-)
-from azure.identity import DefaultAzureCredential
-```
+    ```python
+    # import required libraries
+    from azure.ai.ml import MLClient
+    from azure.ai.ml.entities import (
+        ManagedOnlineEndpoint,
+        ManagedOnlineDeployment,
+        Model,
+        Environment,
+        CodeConfiguration,
+    )
+    from azure.identity import DefaultAzureCredential
+    ```
 
-### 1.2. Configure workspace details and get a handle to the workspace
-To connect to a workspace, we need identifier parameters - a subscription, resource group and workspace name. We will use these details in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. We use the [default azure authentication](https://docs.microsoft.com/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python) for this tutorial.
+1. Configure workspace details and get a handle to the workspace:
 
-```python
-# enter details of your AML workspace
-subscription_id = "<SUBSCRIPTION_ID>"
-resource_group = "<RESOURCE_GROUP>"
-workspace = "<AML_WORKSPACE_NAME>"
-```
+    To connect to a workspace, we need identifier parameters - a subscription, resource group and workspace name. We'll use these details in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. We use the [default Azure authentication](https://docs.microsoft.com/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python) for this tutorial.
 
-```python
-# get a handle to the workspace
-ml_client = MLClient(
-    DefaultAzureCredential(), subscription_id, resource_group, workspace
-)
-```
+    ```python
+    # enter details of your AML workspace
+    subscription_id = "<SUBSCRIPTION_ID>"
+    resource_group = "<RESOURCE_GROUP>"
+    workspace = "<AML_WORKSPACE_NAME>"
+    ```
 
-## 2. Create local endpoint and deployment
+    ```python
+    # get a handle to the workspace
+    ml_client = MLClient(
+        DefaultAzureCredential(), subscription_id, resource_group, workspace
+    )
+    ```
+
+## Create local endpoint and deployment
 
 > [!NOTE]
 > To deploy locally, [Docker Engine](https://docs.docker.com/engine/install/) must be installed.
 > Docker Engine must be running. Docker Engine typically starts when the computer starts. If it doesn't, you can [troubleshoot Docker Engine](https://docs.docker.com/config/daemon/#start-the-daemon-manually).
 
-### 2.1 Create local endpoint
-The goal of a local endpoint deployment is to validate and debug your code and configuration before you deploy to Azure. Local deployment has the following limitations:
+1 Create local endpoint:
 
-* Local endpoints do not support traffic rules, authentication, or probe settings.
-* Local endpoints support only one deployment per endpoint.
+    The goal of a local endpoint deployment is to validate and debug your code and configuration before you deploy to Azure. Local deployment has the following limitations:
 
-```python
-# Creating a local endpoint
-import datetime
+    * Local endpoints don't support traffic rules, authentication, or probe settings.
+    * Local endpoints support only one deployment per endpoint.
 
-local_endpoint_name = "local-" + datetime.datetime.now().strftime("%m%d%H%M%f")
+    ```python
+    # Creating a local endpoint
+    import datetime
 
-# create an online endpoint
-endpoint = ManagedOnlineEndpoint(
-    name=local_endpoint_name, description="this is a sample local endpoint"
-)
-```
+    local_endpoint_name = "local-" + datetime.datetime.now().strftime("%m%d%H%M%f")
 
-```python
-ml_client.online_endpoints.begin_create_or_update(endpoint, local=True)
-```
-### 2.2 Create local deployment
-The example contains all the files needed to deploy a model on an online endpoint. To deploy a model, you must have:
+    # create an online endpoint
+    endpoint = ManagedOnlineEndpoint(
+        name=local_endpoint_name, description="this is a sample local endpoint"
+    )
+    ```
 
-* Model files (or the name and version of a model that's already registered in your workspace). In the example, we have a scikit-learn model that does regression.
-* The code that's required to score the model. In this case, we have a score.py file.
-* An environment in which your model runs. As you'll see, the environment might be a Docker image with Conda dependencies, or it might be a Dockerfile.
-* Settings to specify the instance type and scaling capacity.
+    ```python
+    ml_client.online_endpoints.begin_create_or_update(endpoint, local=True)
+    ```
 
-**Key aspects of deployment**
-* `name` - Name of the deployment.
-* `endpoint_name` - Name of the endpoint to create the deployment under.
-* `model` - The model to use for the deployment. This value can be either a reference to an existing versioned model in the workspace or an inline model specification.
-* `environment` - The environment to use for the deployment. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification.
-* `code_configuration` - the configuration for the source code and scoring script
-    * `path`- Path to the source code directory for scoring the model
-    * `scoring_script` - Relative path to the scoring file in the source code directory
-* `instance_type` - The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](https://docs.microsoft.com/azure/machine-learning/reference-managed-online-endpoints-vm-sku-list).
-* `instance_count` - The number of instances to use for the deployment
+1. Create local deployment:
 
-```python
-model = Model(path="../model-1/model/sklearn_regression_model.pkl")
-env = Environment(
-    conda_file="../model-1/environment/conda.yml",
-    image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210727.v1",
-)
+    The example contains all the files needed to deploy a model on an online endpoint. To deploy a model, you must have:
 
-blue_deployment = ManagedOnlineDeployment(
-    name="blue",
-    endpoint_name=local_endpoint_name,
-    model=model,
-    environment=env,
-    code_configuration=CodeConfiguration(
-        code="../model-1/onlinescoring", scoring_script="score.py"
-    ),
-    instance_type="Standard_F2s_v2",
-    instance_count=1,
-)
-```
+    * Model files (or the name and version of a model that's already registered in your workspace). In the example, we have a scikit-learn model that does regression.
+    * The code that's required to score the model. In this case, we have a score.py file.
+    * An environment in which your model runs. As you'll see, the environment might be a Docker image with Conda dependencies, or it might be a Dockerfile.
+    * Settings to specify the instance type and scaling capacity.
 
-```python
-ml_client.online_deployments.begin_create_or_update(
-    deployment=blue_deployment, local=True
-)
-```
+    **Key aspects of deployment**
+    * `name` - Name of the deployment.
+    * `endpoint_name` - Name of the endpoint to create the deployment under.
+    * `model` - The model to use for the deployment. This value can be either a reference to an existing versioned model in the workspace or an inline model specification.
+    * `environment` - The environment to use for the deployment. This value can be either a reference to an existing versioned environment in the workspace or an inline environment specification.
+    * `code_configuration` - the configuration for the source code and scoring script
+        * `path`- Path to the source code directory for scoring the model
+        * `scoring_script` - Relative path to the scoring file in the source code directory
+    * `instance_type` - The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](https://docs.microsoft.com/azure/machine-learning/reference-managed-online-endpoints-vm-sku-list).
+    * `instance_count` - The number of instances to use for the deployment
 
-## 3. Verify the local deployment succeeded
-### 3.1 Check the status to see whether the model was deployed without error
+    ```python
+    model = Model(path="../model-1/model/sklearn_regression_model.pkl")
+    env = Environment(
+        conda_file="../model-1/environment/conda.yml",
+        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210727.v1",
+    )
 
-```python
-ml_client.online_endpoints.get(name=local_endpoint_name, local=True)
-```
+    blue_deployment = ManagedOnlineDeployment(
+        name="blue",
+        endpoint_name=local_endpoint_name,
+        model=model,
+        environment=env,
+        code_configuration=CodeConfiguration(
+            code="../model-1/onlinescoring", scoring_script="score.py"
+        ),
+        instance_type="Standard_F2s_v2",
+        instance_count=1,
+    )
+    ```
 
-### 3.2 Get logs
+    ```python
+    ml_client.online_deployments.begin_create_or_update(
+        deployment=blue_deployment, local=True
+    )
+    ```
 
-```python
-ml_client.online_deployments.get_logs(
-    name="blue", endpoint_name=local_endpoint_name, local=True, lines=50
-)
-```
+## Verify the local deployment succeeded
 
-### 3.3 Invoke the local endpoint
+1. Check the status to see whether the model was deployed without error:
+
+    ```python
+    ml_client.online_endpoints.get(name=local_endpoint_name, local=True)
+    ```
+
+1. Get logs:
+
+    ```python
+    ml_client.online_deployments.get_logs(
+        name="blue", endpoint_name=local_endpoint_name, local=True, lines=50
+    )
+    ```
+
+## Invoke the local endpoint
+
 Invoke the endpoint to score the model by using the convenience command invoke and passing query parameters that are stored in a JSON file
 
 ```python
@@ -178,82 +184,87 @@ ml_client.online_endpoints.invoke(
 )
 ```
 
-## 4. Deploy your online endpoint to Azure
+## Deploy your online endpoint to Azure
+
 Next, deploy your online endpoint to Azure.
 
-### 4.1 Configure online endpoint
-`endpoint_name`: The name of the endpoint. It must be unique in the Azure region. Naming rules are defined under managed online endpoint limits.
+1. Configure online endpoint:
 
-`auth_mode` : Use `key` for key-based authentication. Use `aml_token` for Azure Machine Learning token-based authentication. A `key` does not expire, but `aml_token` does expire.
+    > [!TIP]
+    > * `endpoint_name`: The name of the endpoint. It must be unique in the Azure region. For more information on the naming rules, see [managed online endpoint limits](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints).
+    > * `auth_mode` : Use `key` for key-based authentication. Use `aml_token` for Azure Machine Learning token-based authentication. A `key` doesn't expire, but `aml_token` does expire. For more information on authenticating, see [Authenticate to an online endpoint](how-to-authenticate-online-endpoint.md).
+    > * Optionally, you can add description, tags to your endpoint.
 
-Optionally, you can add description, tags to your endpoint.
+    ```python
+    # Creating a unique endpoint name with current datetime to avoid conflicts
+    import datetime
 
-```python
-# Creating a unique endpoint name with current datetime to avoid conflicts
-import datetime
+    online_endpoint_name = "endpoint-" + datetime.datetime.now().strftime("%m%d%H%M%f")
 
-online_endpoint_name = "endpoint-" + datetime.datetime.now().strftime("%m%d%H%M%f")
+    # create an online endpoint
+    endpoint = ManagedOnlineEndpoint(
+        name=online_endpoint_name,
+        description="this is a sample online endpoint",
+        auth_mode="key",
+        tags={"foo": "bar"},
+    )
+    ```
 
-# create an online endpoint
-endpoint = ManagedOnlineEndpoint(
-    name=online_endpoint_name,
-    description="this is a sample online endpoint",
-    auth_mode="key",
-    tags={"foo": "bar"},
-)
-```
+1. Create the endpoint:
 
-### 4.2 Create the endpoint
-Using the `MLClient` created earlier, we will now create the Endpoint in the workspace. This command will start the endpoint creation and return a confirmation response while the endpoint creation continues.
+    Using the `MLClient` created earlier, we'll now create the Endpoint in the workspace. This command will start the endpoint creation and return a confirmation response while the endpoint creation continues.
 
-```python
-ml_client.begin_create_or_update(endpoint)
-```
+    ```python
+    ml_client.begin_create_or_update(endpoint)
+    ```
 
-### 4.3 Configure online deployment
-A deployment is a set of resources required for hosting the model that does the actual inferencing. We will create a deployment for our endpoint using the `ManagedOnlineDeployment` class.
+1. Configure online deployment:
 
-```python
-model = Model(path="../model-1/model/sklearn_regression_model.pkl")
-env = Environment(
-    conda_file="../model-1/environment/conda.yml",
-    image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210727.v1",
-)
+    A deployment is a set of resources required for hosting the model that does the actual inferencing. We'll create a deployment for our endpoint using the `ManagedOnlineDeployment` class.
 
-blue_deployment = ManagedOnlineDeployment(
-    name="blue",
-    endpoint_name=online_endpoint_name,
-    model=model,
-    environment=env,
-    code_configuration=CodeConfiguration(
-        code="../model-1/onlinescoring", scoring_script="score.py"
-    ),
-    instance_type="Standard_F2s_v2",
-    instance_count=1,
-)
-```
+    ```python
+    model = Model(path="../model-1/model/sklearn_regression_model.pkl")
+    env = Environment(
+        conda_file="../model-1/environment/conda.yml",
+        image="mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210727.v1",
+    )
 
-### 4.4 Create the deployment
-Using the `MLClient` created earlier, we will now create the deployment in the workspace. This command will start the deployment creation and return a confirmation response while the deployment creation continues.
+    blue_deployment = ManagedOnlineDeployment(
+        name="blue",
+        endpoint_name=online_endpoint_name,
+        model=model,
+        environment=env,
+        code_configuration=CodeConfiguration(
+            code="../model-1/onlinescoring", scoring_script="score.py"
+        ),
+        instance_type="Standard_F2s_v2",
+        instance_count=1,
+    )
+    ```
 
-```python
-ml_client.begin_create_or_update(blue_deployment)
-```
+1. Create the deployment:
 
-```python
-# blue deployment takes 100 traffic
-endpoint.traffic = {"blue": 100}
-ml_client.begin_create_or_update(endpoint)
-```
+    Using the `MLClient` created earlier, we'll now create the deployment in the workspace. This command will start the deployment creation and return a confirmation response while the deployment creation continues.
 
-## 5. Test the endpoint with sample data
-Using the `MLClient` created earlier, we will get a handle to the endpoint. The endpoint can be invoked using the `invoke` command with the following parameters:
+    ```python
+    ml_client.begin_create_or_update(blue_deployment)
+    ```
+
+    ```python
+    # blue deployment takes 100 traffic
+    endpoint.traffic = {"blue": 100}
+    ml_client.begin_create_or_update(endpoint)
+    ```
+
+##Test the endpoint with sample data
+
+Using the `MLClient` created earlier, we'll get a handle to the endpoint. The endpoint can be invoked using the `invoke` command with the following parameters:
 
 * `endpoint_name` - Name of the endpoint
 * `request_file` - File with request data
 * `deployment_name` - Name of the specific deployment to test in an endpoint
 
-We will send a sample request using a [json](https://github.com/Azure/azureml-examples/blob/main/sdk/endpoints/online/model-1/sample-request.json) file.
+We'll send a sample request using a [json](https://github.com/Azure/azureml-examples/blob/main/sdk/endpoints/online/model-1/sample-request.json) file.
 
 ```python
 # test the blue deployment with some sample data
@@ -264,30 +275,32 @@ ml_client.online_endpoints.invoke(
 )
 ```
 
-## 6. Managing endpoints and deployments
-### 6.1 Get details of the endpoint
+## Managing endpoints and deployments
 
-```python
-# Get the details for online endpoint
-endpoint = ml_client.online_endpoints.get(name=online_endpoint_name)
+1. Get details of the endpoint:
 
-# existing traffic details
-print(endpoint.traffic)
+    ```python
+    # Get the details for online endpoint
+    endpoint = ml_client.online_endpoints.get(name=online_endpoint_name)
 
-# Get the scoring URI
-print(endpoint.scoring_uri)
-```
+    # existing traffic details
+    print(endpoint.traffic)
 
-### 6.2 Get the logs for the new deployment
-Get the logs for the green deployment and verify as needed
+    # Get the scoring URI
+    print(endpoint.scoring_uri)
+    ```
 
-```python
-ml_client.online_deployments.get_logs(
-    name="blue", endpoint_name=online_endpoint_name, lines=50
-)
-```
+1. Get the logs for the new deployment:
 
-## 7. Delete the endpoint
+    Get the logs for the green deployment and verify as needed
+
+    ```python
+    ml_client.online_deployments.get_logs(
+        name="blue", endpoint_name=online_endpoint_name, lines=50
+    )
+    ```
+
+## Delete the endpoint
 
 ```python
 ml_client.online_endpoints.begin_delete(name=online_endpoint_name)
