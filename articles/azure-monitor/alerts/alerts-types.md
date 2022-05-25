@@ -6,6 +6,7 @@ ms.author: abbyweisberg
 ms.topic: conceptual
 ms.date: 04/26/2022
 ms.custom: template-concept 
+ms.reviewer: harelb
 ---
 
 # Types of Azure Monitor alerts

@@ -3,6 +3,7 @@ title: Azure Monitor alerts page
 description: The alerts page summarizes all alert instances in all your Azure resources generated in the last 30 days.
 ms.topic: conceptual
 ms.date: 2/23/2022
+ms.reviewer: harelb
 
 ---
 # The alerts page

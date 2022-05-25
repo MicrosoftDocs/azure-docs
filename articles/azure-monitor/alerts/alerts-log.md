@@ -6,6 +6,7 @@ ms.author: abbyweisberg
 ms.topic: conceptual
 ms.date: 05/23/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.reviewer: yanivlavi
 ---
 # Create Azure Monitor log alert rules and manage alert instances 
 
