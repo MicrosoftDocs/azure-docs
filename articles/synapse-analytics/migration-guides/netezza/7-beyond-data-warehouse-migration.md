@@ -339,7 +339,7 @@ These additional analytical platforms have emerged because of the explosion of n
 
 - Other external data, such as open government data and weather data.
 
-This data is over and above the structured transaction data and master data sources that typically feed data warehouses. These new data sources include semi-structured data (like JSON, XLM, or Avro) or unstructured data (like text, voice, image, or video) which is more complex to process and analyze. This data could be very high volume, high velocity, or both.
+This data is over and above the structured transaction data and master data sources that typically feed data warehouses. These new data sources include semi-structured data (like JSON, XML, or Avro) or unstructured data (like text, voice, image, or video) which is more complex to process and analyze. This data could be very high volume, high velocity, or both.
 
 As a result, the need for new kinds of more complex analysis has emerged, such as natural language processing, graph analysis, deep learning, streaming analytics, or complex analysis of large volumes of structured data. All of this is typically not happening in a data warehouse, so it's not surprising to see different analytical platforms for different types of analytical workloads, as shown in this diagram.
 
