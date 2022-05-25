@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/24/2022
+ms.date: 05/25/2022
 ms.author: alkohli
 #Customer intent: As an IT admin, I want the flexibility to deploy a single GPU virtual machine (VM) quickly in the portal or use templates to deploy and manage multiple GPU VMs efficiently on my Azure Stack Edge Pro GPU device.
 ---
@@ -25,12 +25,12 @@ Use the Azure portal to quickly deploy a single GPU VM. You can install the GPU 
 
 You can deploy a GPU VM via the portal or using Azure Resource Manager templates.
 
-For a list of supported operating systems, drivers, and VM sizes for GPU VMs, see [What are GPU virtual machines?](azure-stack-edge-gpu-overview-gpu-virtual-machines.md). For deployment considerations, see [GPU VMs and Kubernetes](azure-stack-edge-gpu-overview-gpu-virtual-machines.md#gpu-vms-and-kubernetes).
+For a list of supported operating systems, drivers, and VM sizes for GPU VMs, see [What are GPU virtual machines?](azure-stack-edge-gpu-overview-gpu-virtual-machines.md) For deployment considerations, see [GPU VMs and Kubernetes](azure-stack-edge-gpu-overview-gpu-virtual-machines.md#gpu-vms-and-kubernetes).
 
 
 > [!IMPORTANT]
 > - If your device will be running Kubernetes, do not configure Kubernetes before you deploy your GPU VMs. If you configure Kubernetes first, it claims all the available GPU resources, and GPU VM creation will fail. For Kubernetes deployment considerations on 1-GPU and 2-GPU devices, see [GPU VMs and Kubernetes](azure-stack-edge-gpu-overview-gpu-virtual-machines.md#gpu-vms-and-kubernetes).
-> - If you're running a Windows 2016 VHD, you must enable TLS1.2 inside the VHD before you install the GPU extension to an existing VM. For detailed steps, see [Troubleshoot GPU extension issues for GPU VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md#enable-tls12-on-windows-2016-vhd-before-installing-nvidia-gpu-extension).
+> - If you're running a Windows 2016 VHD, you must enable TLS1.2 inside the VHD before you install the GPU extension to an existing VM. For detailed steps, see [Troubleshoot GPU extension issues for GPU VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md#failure-to-install-gpu-extension-on-a-windows-2016-vhd).
 
 ### [Portal](#tab/portal)
 

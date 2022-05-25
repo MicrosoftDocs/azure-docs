@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/24/2022
+ms.date: 05/25/2022
 ms.author: alkohli
 ---
 # Troubleshoot GPU extension issues for GPU VMs on Azure Stack Edge Pro GPU
@@ -20,7 +20,7 @@ For installation steps, see [Install GPU extension](./azure-stack-edge-gpu-deplo
 
 ## Linux GPU extension installs old signing keys: signature and/or required key missing
 
-**Error description:** The Linux GPU extension installs old signing keys, preventing download of the required GPU driver. In this case, you will see the following error in the syslog of the Linux VM:
+**Error description:** The Linux GPU extension installs old signing keys, preventing download of the required GPU driver. In this case, you'll see the following error in the syslog of the Linux VM:
  
    ```powershell
    /var/log/syslog and /var/log/waagent.log 
@@ -32,31 +32,29 @@ For installation steps, see [Install GPU extension](./azure-stack-edge-gpu-deplo
  
 2.	Manually install the new signing keys. After creating a GPU virtual machine of size in NCasT4_v3-series, set required signing keys using steps in [Updating the CUDA Linux GPG Repository Key | NVIDIA Technical Blog](https://developer.nvidia.com/blog/updating-the-cuda-linux-gpg-repository-key/).
 
-    Examples:
- 
-    Ubuntu 
+    Here's an example that installs signing keys on an Ubuntu virtual machine: 
 
     ```powershell
     $ sudo apt-key adv --fetch-
     keys https://developer.download.nvidia.com/compute/cuda/repos/$distro/$arch/3bf863cc.pub 
     ```
 
-    Example on Ubuntu 1804 Virtual Machine 
+    Here's an example that installs signing keys on an Ubuntu 1804 virtual machine: 
 
     ```powershell
     $ sudo apt-key adv --fetch-
     keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub 
     ```
 
-## Enable TLS1.2 on Windows 2016 VHD before installing Nvidia GPU extension
+## Failure to install GPU extension on a Windows 2016 VHD
 
 **Error description:** When installing the GPU extension on a Windows 2016 VM, you may see the following error message:
 
    ```azurecli
-   Need to enable TLS1.2 for some VHDs.
+   VM has reported a failure when processing extension 'GpuExtWindows442Win2016Vm837'.
    ```
 
-**Suggested solution:** Use the following steps to enable TLS1.2 on a Windows 2016 VM, and then deploy the template `addGPUextensiontoVM.json`. This template deploys the extension to an existing VM.
+**Suggested solution:** Use the following steps to enable TLS1.2 on a Windows 2016 VM, and then deploy the GPU extension.
 
 1. Run the following command inside the VHD to enable TLS1.2:
 
@@ -64,30 +62,23 @@ For installation steps, see [Install GPU extension](./azure-stack-edge-gpu-deplo
    sp hklm:\SOFTWARE\Microsoft\.NETFramework\v4.0.30319 SchUseStrongCrypto 1
    ```
 
-1. Deploy the template `addGPUextensiontoVM.json` to install the extension on an existing VM. For detailed steps, see [Install GPU extension on VMs for your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md# ).
+1. Deploy the template `addGPUextensiontoVM.json` to install the extension on an existing VM. You can install the extension manually, or using the Azure portal.
 
-   Run the following command:
+    - To install the extension manually, see [Install GPU extension on VMs for your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md)
+    - To install the template using the Azure portal, see [Deploy GPU VMs on your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md).
 
-   ```powershell
-   $templateFile = "<Path to addGPUextensiontoVM.json>" 
-   $templateParameterFile = "<Path to addGPUExtWindowsVM.parameters.json>" 
-   RGName = "<Name of your resource group>"
-   New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "<Name for your deployment>"
-   ```
    > [!NOTE]
-   > The extension deployment is a long running job and takes about 10 minutes to complete.``
+   > The extension deployment is a long running job and takes about 10 minutes to complete.
 
 ## Manually install the Nvidia driver on RHEL 7
 
-**Error description:** When installing the GPU extension on a RHEL 7 VM, you may see the following error message:
+**Error description:** When installing the GPU extension on an RHEL 7 VM, you may see the following error message:
 
    ```azurecli
-   Need to enable TLS1.2 for some VHDs.
+   Get error message string from Li Ting.
    ```
 
- In this case, you must manually install the Nvidia driver.
-
-**Suggested solution:** To manually install the driver:
+**Suggested solution:** Manually install the driver:
 
 1. Resolve the certificate rotation issue. Run the following command:
 

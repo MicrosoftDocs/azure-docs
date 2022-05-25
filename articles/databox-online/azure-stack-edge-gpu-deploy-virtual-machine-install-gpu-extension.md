@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/24/2022
+ms.date: 05/25/2022
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how install GPU extension on GPU virtual machines (VMs) on my Azure Stack Edge Pro GPU device.
 ---
@@ -20,7 +20,7 @@ This article describes how to install GPU driver extension to install appropriat
 
 > [!NOTE]
 > - In the Azure portal, you can install a GPU extension during VM creation or after the VM is deployed. For steps and requirements, see [Deploy GPU virtual machines](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md).
-> - If you're running a Windows 2016 VHD, you must enable TLS1.2 inside the VHD before you install the GPU extension to an existing VM. For detailed steps, see [Troubleshoot GPU extension issues for GPU VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md#enable-tls12-on-windows-2016-vhd-before-installing-nvidia-gpu-extension).
+> - If you're running a Windows 2016 VHD, you must enable TLS1.2 inside the VHD before you install the GPU extension to an existing VM. For detailed steps, see [Troubleshoot GPU extension issues for GPU VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md#failure-to-install-gpu-extension-on-a-windows-2016-vhd).
 
 ## Prerequisites
 
@@ -30,11 +30,11 @@ Before you install GPU extension on the GPU VMs running on your device, make sur
 
     - Make sure that the port enabled for compute network on your device is connected to Internet and has access. The GPU drivers are downloaded through the internet access.
 
-        Here is an example where Port 2 was connected to the internet and was used to enable the compute network. If Kubernetes is not deployed on your environment, you can skip the Kubernetes node IP and external service IP assignment.
+        Here's an example where Port 2 was connected to the internet and was used to enable the compute network. If Kubernetes isn't deployed on your environment, you can skip the Kubernetes node IP and external service IP assignment.
 
         ![Screenshot of the Compute pane for an Azure Stack Edge device. Compute settings for Port 2 are highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension/enable-compute-network-1.png)
 1. [Download the GPU extension templates and parameters files](https://aka.ms/ase-vm-templates) to your client machine. Unzip it into a directory you’ll use as a working directory.
-1. Verify that the client you'll use to access your device is still connected to the Azure Resource Manager over Azure PowerShell. The connection to Azure Resource Manager expires every 1.5 hours or if your Azure Stack Edge device restarts. If this happens, any cmdlets that you execute, will return error messages to the effect that you are not connected to Azure anymore. You will need to sign in again. For detailed instructions, see [Connect to Azure Resource Manager on your Azure Stack Edge device](azure-stack-edge-gpu-connect-resource-manager.md).
+1. Verify that the client you'll use to access your device is still connected to the Azure Resource Manager over Azure PowerShell. The connection to Azure Resource Manager expires every 1.5 hours or if your Azure Stack Edge device restarts. If this happens, any cmdlets that you execute will return error messages to the effect that you aren't connected to Azure anymore. You'll need to sign in again. For detailed instructions, see [Connect to Azure Resource Manager on your Azure Stack Edge device](azure-stack-edge-gpu-connect-resource-manager.md).
 
 ## Edit parameters file
 
@@ -164,7 +164,7 @@ If using Ubuntu or Red Hat Enterprise Linux (RHEL), the `addGPUExtLinuxVM.parame
 	}
 ```
 
-Here is a sample Ubuntu parameter file that was used in this article:
+Here's a sample Ubuntu parameter file that was used in this article:
 
 ```powershell
 {
@@ -197,7 +197,7 @@ Here is a sample Ubuntu parameter file that was used in this article:
 If you created your VM using a Red Hat Enterprise Linux Bring Your Own Subscription image (RHEL BYOS), make sure that:
 
 - You've followed the steps in [using RHEL BYOS image](azure-stack-edge-gpu-create-virtual-machine-image.md). 
-- After you created the GPU VM, register and subscribe the VM with the Red Hat Customer portal. If your VM is not properly registered, installation does not proceed as the VM is not entitled. See [Register and automatically subscribe in one step using the Red Hat Subscription Manager](https://access.redhat.com/solutions/253273). This step allows the installation script to download relevant packages for the GPU driver.
+- After you created the GPU VM, register and subscribe the VM with the Red Hat Customer portal. If your VM isn't properly registered, installation doesn't proceed as the VM isn't entitled. See [Register and automatically subscribe in one step using the Red Hat Subscription Manager](https://access.redhat.com/solutions/253273). This step allows the installation script to download relevant packages for the GPU driver.
 - You either manually install the `vulkan-filesystem` package or add CentOS7 repo to your yum repo list. When you install the GPU extension, the installation script looks for a `vulkan-filesystem` package that is on CentOS7 repo (for RHEL7). 
 
 ---
@@ -219,7 +219,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $tem
 > [!NOTE]
 > The extension deployment is a long running job and takes about 10 minutes to complete.
 
-Here is a sample output:
+Here's a sample output:
 
    ```powershell
    PS C:\WINDOWS\system32> "C:\12-09-2020\ExtensionTemplates\addGPUextensiontoVM.json"
@@ -270,7 +270,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $tem
 > [!NOTE]
 > The extension deployment is a long running job and takes about 10 minutes to complete.
 
-Here is a sample output:
+Here's a sample output:
 
 ```powershell
 Copyright (C) Microsoft Corporation. All rights reserved.
@@ -320,7 +320,7 @@ To check the deployment state of extensions for a given VM, open another PowerSh
 Get-AzureRmVMExtension -ResourceGroupName <Name of resource group> -VMName <Name of VM> -Name <Name of the extension>
 ```
 
-Here is a sample output:
+Here's a sample output:
 
 ```powershell
 PS C:\WINDOWS\system32> Get-AzureRmVMExtension -ResourceGroupName myasegpuvm1 -VMName VM2 -Name windowsgpuext
@@ -372,7 +372,7 @@ To check the deployment state of extensions for a given VM, open another PowerSh
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName <VM Name> -Name <Extension Name>
 ```
 
-Here is a sample output: 
+Here's a sample output: 
 
 ```powershell
 Copyright (C) Microsoft Corporation. All rights reserved.
@@ -420,11 +420,11 @@ Sign in to the VM and run the nvidia-smi command-line utility installed with the
 
 #### Version 2205 and higher
 
-The `nvidia-smi.exe` is located at  `C:\Windows\System32\nvidia-smi.exe`. If you do not see the file, it's possible that the driver installation is still running in the background. Wait for 10 minutes and check again.
+The `nvidia-smi.exe` is located at  `C:\Windows\System32\nvidia-smi.exe`. If you don't see the file, it's possible that the driver installation is still running in the background. Wait for 10 minutes and check again.
 
 #### Versions lower than 2205
 
-The `nvidia-smi.exe` is located at  `C:\Program Files\NVIDIA Corporation\NVSMI\nvidia-smi.exe`. If you do not see the file, it's possible that the driver installation is still running in the background. Wait for 10 minutes and check again.
+The `nvidia-smi.exe` is located at  `C:\Program Files\NVIDIA Corporation\NVSMI\nvidia-smi.exe`. If you don't see the file, it's possible that the driver installation is still running in the background. Wait for 10 minutes and check again.
 
 If the driver is installed, you see an output similar to the following sample:
 
@@ -474,7 +474,7 @@ Follow these steps to verify the driver installation:
 
 1. Connect to the GPU VM. Follow the instructions in [Connect to a Linux VM](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-linux-vm). 
 
-    Here is a sample output:
+    Here's a sample output:
 
     ```powershell
     PS C:\WINDOWS\system32> ssh -l Administrator 10.57.50.60
@@ -516,7 +516,7 @@ Follow these steps to verify the driver installation:
     
     Administrator@VM1:~$
 	```
-2. Run the nvidia-smi command-line utility installed with the driver. If the driver is successfully installed, you will be able to run the utility and see the following output:
+2. Run the nvidia-smi command-line utility installed with the driver. If the driver is successfully installed, you'll be able to run the utility and see the following output:
 
     ```powershell
     Administrator@VM1:~$ nvidia-smi
@@ -556,7 +556,7 @@ To remove the GPU extension, use the following command:
 
 `Remove-AzureRmVMExtension -ResourceGroupName <Resource group name> -VMName <VM name> -Name <Extension name>`
 
-Here is a sample output:
+Here's a sample output:
 
 ```powershell
 PS C:\azure-stack-edge-deploy-vms> Remove-AzureRmVMExtension -ResourceGroupName rgl -VMName WindowsVM -Name windowsgpuext
