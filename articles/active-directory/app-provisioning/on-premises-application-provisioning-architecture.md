@@ -148,7 +148,7 @@ May 20th, 2022 - released for download
 
 #### Fixed issues
 
-- We added support for exporting changes to integer attributes. 
+- We added support for exporting changes to integer attributes, which benefits customers using the generic LDAP connector.
 
 ### 1.1.846.0
 
