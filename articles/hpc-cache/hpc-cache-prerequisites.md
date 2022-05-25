@@ -230,7 +230,7 @@ More information is included in [Troubleshoot NAS configuration and NFS storage 
 
   * Check firewall settings to be sure that they allow traffic on all of these required ports. Be sure to check firewalls used in Azure as well as on-premises firewalls in your data center.
 
-* NFS back-end storage must be a compatible hardware/software platform. Contact the Azure HPC Cache team for details.
+* NFS back-end storage must be a compatible hardware/software platform. The storage must support NFS Version 3 (NFSv3). Contact the Azure HPC Cache team for details.
 
 ### NFS-mounted blob (ADLS-NFS) storage requirements
 
