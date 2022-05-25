@@ -24,17 +24,15 @@ The Azure Spring Apps service releases the new stable API version 2022-04-01. Th
 
 The previous API version 2020-07-01 will not be supported starting April, 2025.
 
-
 ## API breaking changes from 2020-07-01 to 2022-04-01
 
 ### Deprecate number value CPU and MemoryInGB in Deployments
 
-Deprecate field `properties.deploymentSettings.cpu` and `properties.deploymentSettings.memoryInGB` in `Spring/Apps/Deployments` resource. Use `properties.deploymentSettings.resourceRequests.cpu` and `properties.deploymentSettings.resourceRequests.memory` instead.
-
+Deprecate field `properties.deploymentSettings.cpu` and `properties.deploymentSettings.memoryInGB` in the `Spring/Apps/Deployments` resource. Use `properties.deploymentSettings.resourceRequests.cpu` and `properties.deploymentSettings.resourceRequests.memory` instead.
 
 ### RBAC role change for blue-green deployment
 
-Deprecate field `properties.activeDeploymentName` in `Spring/Apps` resource. Use `POST/SUBSCRIPTIONS/RESOURCEGROUPS/PROVIDERS/MICROSOFT.APPPLATFORM/SPRING/APPS/SETACTIVEDEPLOYMENTS` for blue-green deployment. This action needs a separate RBAC role `spring/apps/setActiveDeployments/action` to perform.
+Deprecate field `properties.activeDeploymentName` in the `Spring/Apps` resource. Use `POST/SUBSCRIPTIONS/RESOURCEGROUPS/PROVIDERS/MICROSOFT.APPPLATFORM/SPRING/APPS/SETACTIVEDEPLOYMENTS` for blue-green deployment. This action needs a separate RBAC role `spring/apps/setActiveDeployments/action` to perform.
 
 ### Move options from different property bags for the Spring/Apps/Deployments resource
 
