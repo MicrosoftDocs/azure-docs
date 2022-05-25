@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 05/16/2022
+ms.date: 05/25/2022
 ms.author: alkohli
 ---
 
@@ -15,7 +15,7 @@ ms.author: alkohli
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
-The following release notes identify the critical open issues and the resolved issues for the 2205 release for your Azure Stack Edge devices. These release notes are applicable for Azure Stack Edge Pro 2, Azure Stack Edge Pro GPU, Azure Stack Edge Pro R, and Azure Stack Edge Mini R devices. Features and issues that correspond to a specific model are called out wherever applicable.
+The following release notes identify the critical open issues and the resolved issues for the 2205 release for your Azure Stack Edge devices. Features and issues that correspond to a specific model of Azure Stack Edge are called out wherever applicable.
 
 The release notes are continuously updated, and as critical issues requiring a workaround are discovered, they are added. Before you deploy your device, carefully review the information contained in the release notes.
 
@@ -28,10 +28,18 @@ The 2205  release has the following features and enhancements:
 - **Kubernetes changes** - This release contains the following Kubernetes-related changes:
     - Beginning this release, AKS is supported on the Azure Stack Edge Kubernetes cluster. This feature is in preview.
     - Compute enablement is moved to a dedicated Kubernetes page in the local UI.
-- **Generation 2 virtual machines** - Starting this release, Generation 2 virtual machines can be dpeloyed on Azure Stack Edge. For more information, see [Supported VM sizes and types](azure-stack-edge-gpu-virtual-machine-overview.md#operating-system-disks-and-images).
-- **GPU extension update** - In this release, the GPU extension packages are supported. For more information, see how to [Update GPU extension of your Azure Stack Edge](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md).
+- **Generation 2 virtual machines** - Starting this release, Generation 2 virtual machines can be deployed on Azure Stack Edge. For more information, see [Supported VM sizes and types](azure-stack-edge-gpu-virtual-machine-overview.md#operating-system-disks-and-images).
+- **GPU extension update** - In this release, the GPU extension packages are updated. These updates will fix some issues that were encountered in a previous release during the installation of the extension. For more information, see how to [Update GPU extension of your Azure Stack Edge](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md).
 - **No IP option** -  Going forward, there is an option to not set an IP for a network interface on your Azure Stack Edge device. For more information, see [Configure network](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#configure-network).
 
+
+## Issues fixed in 2202 release
+
+The following table lists the issues that were release noted in previous releases and fixed in the current release.
+
+| No. | Feature | Issue | 
+| --- | --- | --- |
+|**1.**|GPU Extension installation | In the previous releases, there were issues that caused the GPU extension installation to fail. These issues are described in [Troubleshooting GPU extension issues](azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md). These are fixed in the 2205 release and both the Windows and Linux installation packages are updated. More information on 2205 specific installation changes are covered in [Install GPU extension on your Azure Stack Edge device](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md).  |
 
 ## Known issues in 2205 release
 
