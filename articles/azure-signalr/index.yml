@@ -31,7 +31,7 @@ landingContent:
           - text: Service internals
             url: signalr-concept-internals.md
           - text: Azure SignalR service FAQ
-            url: signalr-resource-faq.md
+            url: signalr-resource-faq.yml
 
   # Card
   - title: Get started
@@ -135,7 +135,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Choice between Azure SignalR service and Azure Web PubSub service
-            url: https://docs.microsoft.com/azure/azure-signalr/signalr-resource-faq#how-do-i-choose-between-azure-signalr-service-and-azure-web-pubsub-service
+            url: signalr-resource-faq.yml#how-do-i-choose-between-azure-signalr-service-and-azure-web-pubsub-service
       - linkListType: how-to-guide
         links:
           - text: Troubleshoting guide
