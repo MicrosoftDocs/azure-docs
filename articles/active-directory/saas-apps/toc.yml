@@ -2599,6 +2599,8 @@
         href: bldng-app-provisioning-tutorial.md        
       - name: Blink
         href: blink-provisioning-tutorial.md
+      - name: Blinq
+        href: blinq-provisioning-tutorial.md
       - name: BlogIn
         href: blogin-provisioning-tutorial.md
       - name: BlueJeans
