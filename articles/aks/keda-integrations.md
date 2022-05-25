@@ -29,7 +29,6 @@ Before you can enable metrics on your mesh to integrate with Azure Monitor:
 
 * Enable Container insights on your cluster
 * Enable the KEDA add-on for your AKS cluster
-* Onboard your application namespaces to the mesh
 
 Create a Configmap in the `kube-system` namespace that enables Azure Monitor to monitor KEDA. For example, create a `keda-metrics.yaml` with the following to monitor the `myappnamespace`:
 
