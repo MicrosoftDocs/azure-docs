@@ -1,6 +1,6 @@
 ---
-title: Use NodeJS to connect and query data in Hyperscale (Citus) 
-description: Learn building a simple app on Hyperscale (Citus) using nodejs
+title: Node.js app to connect and query Hyperscale (Citus) 
+description: Learn building a simple app on Hyperscale (Citus) using Node.js
 ms.author: sasriram
 author: saimicrosoft
 ms.service: postgresql
@@ -8,16 +8,21 @@ ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 05/19/2022
 ---
-# Overview
 
-In this document, you connect to a Hyperscale (citus) database using a Node.js application. It shows how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you are familiar with developing using Node.js, and are new to working with Hyperscale (Citus). The overall experience is very same as working with PostgreSQL database.
+# Node.js app to connect and query Hyperscale (Citus)
 
-#     Prerequisites
-*    An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free)
-*    Create a Hyperscale (Citus) database using this link [Create Hyperscale (Citus) server group](https://docs.microsoft.com/en-us/azure/postgresql/hyperscale/quickstart-create-portal)
-*    [Node.js](https://nodejs.org/)
+## Overview
 
-# Install pg client
+In this document, you connect to a Hyperscale (citus) database using a Node.js application. It shows how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you are familiar with developing using Node.js, and are new to working with Hyperscale(Citus). The overall experience is same as working with PostgreSQL database.
+
+
+## Setup
+
+### Prerequisites
+
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free)
+* Create a Hyperscale (Citus) database using this link [Create Hyperscale (Citus) server group](quickstart-create-portal.md)
+* [Node.js](https://nodejs.org/)
 
 Install [pg](https://www.npmjs.com/package/pg), which is a PostgreSQL client for Node.js.
 To do so, run the node package manager (npm) for JavaScript from your command line to install the pg client.
@@ -29,16 +34,17 @@ Verify the installation by listing the packages installed.
 npm list
 ```
 
-# Get Database Connection Information
-Connecting to a Hyperscale (Citus) database requires the fully qualified server name and login credentials. You can get this information from the Connection strings tab of the cluster.
+### Get Database Connection Information
+
+To get the database credentials, you can use the **Connection strings** tab in the Azure portal. See below screenshot.
 
 ![Diagram showing python connection string](../media/howto-app-stacks-python/01-python-connection-string.png)
 
-# Running the JavaScript code in Node.js
+### Running the JavaScript code in Node.js
 
 You may launch Node.js from the Bash shell, Terminal, or Windows Command Prompt by typing node, then run the example JavaScript code interactively by copy and pasting it onto the prompt. Alternatively, you may save the JavaScript code into a text file and launch node filename.js with the file name as a parameter to run it.
 
-# Connect, create table, insert data
+## Connect, create table, insert data
 
 Use the following code to connect and load the data using CREATE TABLE and INSERT INTO SQL statements. The [pg.Client](https://github.com/brianc/node-postgres/wiki/Client) object is used to interface with the PostgreSQL server. The [pg.Client.connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) function is used to establish the connection to the server. The [pg.Client.query()](https://github.com/brianc/node-postgres/wiki/Query) function is used to execute the SQL query against PostgreSQL database.
 
@@ -96,12 +102,13 @@ function queryDatabase() {
 }
 ```
 
-# Step 2: Super power of Distributed Tables
-Citus gives you [the super power  of distributing your table](https://docs.microsoft.com/azure/postgresql/hyperscale/overview#the-superpower-of-distributed-tables) across multiple nodes for scalability. Below command enables you to do this. More on create_distributed_table and distribution column here.
+## Super power of Distributed Tables
+
+Citus gives you [the super power  of distributing your table](https://docs.microsoft.com/azure/postgresql/hyperscale/overview#the-superpower-of-distributed-tables) across multiple nodes for scalability. Below command enables you to do distribute a table. More on create_distributed_table and distribution column [here](howto-build-scalable-apps-concepts#distribution-column-also-known-as-shard-key).
 
 > [!TIP]
 >
-> Distributing table is optional if you are using single node citus (basic tier).
+> Distributing your tables is optional if you are using single node citus (basic tier).
 >
 
 
@@ -134,7 +141,6 @@ client.connect(err => {
 function queryDatabase() {
     const query = `
         select create_distributed_table('pharmacy','pharmacy_id');
-
     `;
 
     client
@@ -150,10 +156,9 @@ function queryDatabase() {
     });
 
 }
-
 ```
 
-# Read data
+## Read data
 Use the following code to connect and read the data using a SELECT SQL statement.
 ```javascript
 const pg = require('pg');
@@ -197,7 +202,8 @@ function queryDatabase() {
         });
 }
 ```
-# Update data
+## Update data
+
 Use the following code to connect and read the data using a UPDATE SQL statement. 
 
 ```javascript
@@ -241,7 +247,8 @@ function queryDatabase() {
 }
 ```
 
-# Delete data
+## Delete data
+
 Use the following code to connect and read the data using a DELETE SQL statement. 
 
 ```javascript
@@ -285,10 +292,11 @@ function queryDatabase() {
 }
 ```
 
-# COPY command for super fast ingestion
-COPY command can yield [tremendous throughput](https://www.citusdata.com/blog/2016/06/15/copy-postgresql-distributed-tables) while ingesting data into Hyperscale (Citus). COPY command can ingest data in files. You can also micro-batch data in memory and leverage COPY for real-time ingestion.
+## COPY command for super fast ingestion
 
-## COPY command to load data from a file
+COPY command can yield [tremendous throughput](https://www.citusdata.com/blog/2016/06/15/copy-postgresql-distributed-tables) while ingesting data into Hyperscale (Citus). COPY command can ingest data in files. You can also micro-batch data in memory and use COPY for real-time ingestion.
+
+### COPY command to load data from a file
 
 The following code is an example for copying data from csv file to table.
 ```javascript
@@ -311,8 +319,7 @@ const config = {
 };
 var inputFile = path.join(__dirname, '/pharmacies.csv')
 const client = new pg.Client(config);
-  client.connect()
-
+client.connect()
   
   // Execute Copy Function
 var stream = client.query(copyFrom(`COPY pharmacy FROM  STDIN WITH (
@@ -335,7 +342,7 @@ stream.on('end', () => {
 fileStream.pipe(stream);
 ```
 
-## COPY command to load data in-memory
+### COPY command to load data in-memory
 
 The following code is an example for copying in-memory data to a table.
 
@@ -347,41 +354,38 @@ const { Pool, Client} = require('pg')
 var Readable = require('stream').Readable;
 
 const config = {
-  host: 'c.cituststpoc05162022.postgres.database.azure.com',
-  // Do not hard code your username and password.
-  // Consider using Node environment variables.
   user: 'citus',     
-  password: 'Password123$',
+  password: '<your-password>',
   database: 'citus',
   port: 5432,
   ssl: true
 };
 
 const client = new pg.Client(config);
-  client.connect()
+client.connect()
 var sqlcopysyntax = 'COPY pharmacy FROM STDIN ';
 var sqlcopysyntax = 'COPY pharmacy FROM STDIN ';
-  var stream = client.query(copyFrom(sqlcopysyntax));
+var stream = client.query(copyFrom(sqlcopysyntax));
    
-  var interndataset = [
+var interndataset = [
     ['0','Target','Sunnyvale','California','94001'],
     ['1','CVS','San Francisco','California','94002'],
   ]; 
  
-  var started = false;
-      var internmap = through2.obj(function(arr, enc, cb) {
+var started = false;
+var internmap = through2.obj(function(arr, enc, cb) {
          var rowText = (started ? '\n' : '') + arr.join('\t');
           started = true;
           console.log(rowText);
           cb(null, rowText);
-      })
+})
 
-      interndataset.forEach(function(r) {
+interndataset.forEach(function(r) {
           internmap.write(r);
-      })
+})
       
-  internmap.end();
+internmap.end();
 
-  internmap.pipe(stream);
-console.log("inserted successfully")
+internmap.pipe(stream);
+console.log("inserted successfully");
 ```

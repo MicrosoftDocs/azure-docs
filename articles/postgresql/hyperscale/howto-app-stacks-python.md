@@ -1,5 +1,5 @@
 ---
-title: Use Python to connect and query data in Hyperscale (Citus) 
+title: Python app to connect and query Hyperscale (Citus) 
 description: Learn building a simple app on Hyperscale (Citus) using python
 ms.author: sasriram
 author: saimicrosoft
@@ -8,20 +8,27 @@ ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 05/19/2022
 ---
-# Overview
 
-In this document, you will learn how to connect to the database on Hyperscale (Citus) and run SQL statements to query using Python on macOS, Ubuntu Linux, or Windows. The overall experience is very same as working with PostgreSQL database.
-# Prerequisites
+# Python app to connect and query Hyperscale (Citus)
+
+## Overview
+
+In this document, you'll learn how to connect to the database on Hyperscale (Citus) and run SQL statements to query using Python on macOS, Ubuntu Linux, or Windows. The overall experience is same as working with PostgreSQL database.
+
+## Setup
+
+### Prerequisites
 
 For this QuickStart you need:
-*    An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free)
-*    Create a Hyperscale (Citus) database using this link [Create Hyperscale (Citus) server group](https://docs.microsoft.com/en-us/azure/postgresql/hyperscale/quickstart-create-portal)
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free)
+* Create a Hyperscale (Citus) database using this link [Create Hyperscale (Citus) server group](quickstart-create-portal.md)
 *    [Python](https://www.python.org/downloads/) 2.7 or 3.6+.
 *    Latest [pip](https://pip.pypa.io/en/stable/installing/) package installer.
 *    Install [psycopg2](https://pypi.python.org/pypi/psycopg2-binary/) using pip install psycopg2-binary in a terminal or command prompt window. For more information, see [how to install psycopg2](https://www.psycopg.org/docs/install.html).
 
-# Get Database Connection Information
-Connecting to a Hyperscale (Citus) database requires the fully qualified server name and login credentials. You can get this information from the Connection strings tab of the cluster.
+### Get Database Connection Information
+
+To get the database credentials, you can use the **Connection strings** tab in the Azure portal. See below screenshot.
 
 ![Diagram showing python connection string](../media/howto-app-stacks-python/01-python-connection-string.png)
 
@@ -31,7 +38,7 @@ Replace the following values:
 * Default admin user is *citus*
 * Default database is *citus*
 
-# Step 1: Connect, Create Table, Insert Data
+## Step 1: Connect, Create Table, Insert Data
 
 The following code example connects to your Hyperscale (Citus) database using:
 * [psycopg2.connect](https://www.psycopg.org/docs/connection.html) function and loads data with a SQL INSERT statement, distributing the data.
@@ -46,7 +53,6 @@ dbname = "citus"
 user = "citus"
 password = "<password>"
 sslmode = "require"
-
 
 # Construct connection string
 conn_string = "host={0} user={1} dbname={2} password={3} sslmode={4}".format(host, user, dbname, password, sslmode)
@@ -86,12 +92,13 @@ Finished creating index
 Inserted 2 rows of data
 ```
 
-# Step 2: Super power of Distributed Tables
-Citus gives you [the super power  of distributing your table](https://docs.microsoft.com/azure/postgresql/hyperscale/overview#the-superpower-of-distributed-tables) across multiple nodes for scalability. Below command enables you to do this. More on create_distributed_table and distribution column here.
+## Step 2: Super power of Distributed Tables
+
+Citus gives you [the super power  of distributing your table](https://docs.microsoft.com/azure/postgresql/hyperscale/overview#the-superpower-of-distributed-tables) across multiple nodes for scalability. Below command enables you to do distribute a table. More on create_distributed_table and distribution column [here](howto-build-scalable-apps-concepts#distribution-column-also-known-as-shard-key).
 
 > [!TIP]
 >
-> This is optional if you are using single node citus (basic tier).
+> Distributing your tables is optional if you are using single node citus (basic tier).
 
 ```python
 # Create distribute table
@@ -99,8 +106,9 @@ cursor.execute("select create_distributed_table('pharmacy','pharmacy_id');")
 print("Finished distributing the table")
 ```
 
-# Step 3: Read Data
-The following code example uses the following:
+## Step 3: Read Data
+
+The following code example uses the below APIs:
 * [cursor.execute](https://www.psycopg.org/docs/cursor.html#execute) with the SQL SELECT statement to read data.
 * [cursor.fetchall()](https://www.psycopg.org/docs/cursor.html#cursor.fetchall) accepts a query and returns a result set to iterate over by using
 
@@ -114,7 +122,8 @@ for row in rows:
     print("Data row = (%s, %s)" %(str(row[0]), str(row[1])))
 ```
 
-# Step 4: Update Data
+## Step 4: Update Data
+
 The following code example uses [cursor.execute](https://www.psycopg.org/docs/cursor.html#execute) with the SQL UPDATE statement to update data.
 ```python
 # Update a data row in the table
@@ -122,7 +131,8 @@ cursor.execute("UPDATE pharmacy SET city = %s WHERE pharmacy_id = %s;", ("guntur
 print("Updated 1 row of data")
 ```
 
-# Step 5: Delete Data
+## Step 5: Delete Data
+
 The following code example runs [cursor.execute](https://www.psycopg.org/docs/cursor.html#execute) with the SQL DELETE statement to delete the data.
 ```python
 # Delete data row from table
@@ -130,10 +140,11 @@ cursor.execute("DELETE FROM pharmacy WHERE pharmacy_name = %s;", ("Target",))
 print("Deleted 1 row of data")
 ```
 
-# Step 6: Copying the Data
-COPY command can yield [tremendous throughput](https://www.citusdata.com/blog/2016/06/15/copy-postgresql-distributed-tables) while ingesting data into Hyperscale (Citus). COPY command can ingest data in files. You can also micro-batch data in memory and leverage COPY for real-time ingestion.
+## COPY command for super fast ingestion
 
-## COPY command to load data from a file
+COPY command can yield [tremendous throughput](https://www.citusdata.com/blog/2016/06/15/copy-postgresql-distributed-tables) while ingesting data into Hyperscale (Citus). COPY command can ingest data in files. You can also micro-batch data in memory and use COPY for real-time ingestion.
+
+### COPY command to load data from a file
 
 The following code is an example for copying data from csv file to table using COPY command.
 
@@ -145,7 +156,7 @@ with open('pharmacies.csv', 'r') as f:
 print("copying data completed")
 
 ```
-## COPY command for super fast ingestion
+### COPY command to load data in-memory
 
 The following code is an example for copying the data from in-memory to table.
 ```python
