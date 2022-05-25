@@ -5,7 +5,7 @@ author: mikebudzynski
 
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 05/12/2022
+ms.date: 05/24/2022
 ms.author: mibudz
 ---
 
@@ -15,7 +15,6 @@ The Open Web Application Security Project ([OWASP](https://owasp.org/about/)) is
 
 The OWASP [API Security Project](https://owasp.org/www-project-api-security/) focuses on strategies and solutions to understand and mitigate the unique vulnerabilities and security risks of APIs. In this article, we'll discuss recommendations to use Azure API Management to mitigate the top 10 risks identified by OWASP.
 
-
 ## Broken object level authorization 
 
 Ensure that API objects are protected with the appropriate level of authorization to prevent data leaks and unauthorized data manipulation through weak object access identifiers – for example, an integer object identifier (which can be iterated). 
@@ -24,68 +23,141 @@ More information about this threat: [API1:2019 Broken Object Level Authorization
 
 ### Recommendations 
 
-* The best place to implement object level authorization is within the backend API itself. This ensures that the correct authorization decisions are made at the request (or object) level, where applicable, using logic applicable to the domain and API. It's important to consider scenarios where a given request may yield differing levels of detail in the response, depending on the requestor's permissions and authorization. 
+* The best place to implement object level authorization is within the backend API itself. This ensures that the correct authorization decisions are made at the request (or object) level, where applicable, using logic applicable to the domain and API. Consider scenarios where a given request may yield differing levels of detail in the response, depending on the requestor's permissions and authorization. 
 
-* If this issue has been identified as a current vulnerability to an existing API that can't be changed at the backend, then API Management could be used as a fallback. For example:
+* If a current vulnerable API can't be changed at the backend, then API Management could be used as a fallback. For example:
     
-    * Customers can use a custom policy to implement object-level authorization, if it's not implemented in the backend.
+    * Use a custom policy to implement object-level authorization, if it's not implemented in the backend.
 
-    * Customers can implement a custom policy to map identifiers from request to backend and from backend to client, so that internal identifiers aren't exposed. 
+    * Implement a custom policy to map identifiers from request to backend and from backend to client, so that internal identifiers aren't exposed. 
 
         In both cases, the custom policy could be a [policy expression](api-management-policy-expressions.md) with a look-up (for example, a dictionary) or integration with another service through the [`send-request`](api-management-advanced-policies.md#SendRequest) policy.
 
-* API Management can validate GraphQL requests through the [validate GraphQL request](graphql-validation-policies.md#validate-graphql-request) policy, which can also be used to enforce object-level authorization, using the `authorize` element.  
+* API Management can validate GraphQL requests through the [validate GraphQL request](graphql-policies.md#validate-graphql-request) policy. Also use this policy to enforce object-level authorization, using the `authorize` element.  
 
-### More information
- * [Using external services from the Azure API Management service](api-management-sample-send-request.md)
 ## Broken user authentication
+
+Authentication mechanisms are often implemented incorrectly or missing, allowing attackers to exploit implementation flaws to access data. 
 
 More information about this threat: [API2:2019 Broken User Authentication](https://github.com/OWASP/API-Security/blob/master/2019/en/src/0xa2-broken-user-authentication.md)
 
 ### Recommendations 
- 
+
+Use API Management for user authentication and authorization: 
+
+* **Authorization** - API Management supports a [validate-jwt](api-management-access-restriction-policies.md#ValidateJWT) policy to check the validity of an incoming OAuth 2.0 JWT access token based on information obtained from the OAuth identity provider's metadata endpoint. It's also recommended to check relevant token claims, audience, and expiration time through the policy configuration. Learn more about protecting an API using [OAuth 2.0 authorization and Azure Active Directory](api-management-howto-protect-backend-with-aad.md). 
+
+* **Authentication** -  API Management supports the following [authentication policies](api-management-authentication-policies.md): 
+
+    * [Basic authentication](api-management-authentication-policies.md#Basic) - Username and password credentials.
+
+    * [Subscription key](api-management-subscriptions.md) - A subscription key provides similar a level of security as basic authentication and may not be sufficient alone. If the subscription key is compromised, an attacker may get unlimited access to the system. 
+
+    * [Client certificate](api-management-authentication-policies.md#ClientCertificate) - Using client certificates is more secure than basic credentials or subscription key, but it doesn't allow the flexibility provided by token-based authorization protocols such as OAuth 2.0. 
+
+More recommendations:
+
+* Use [access restriction policies](api-management-access-restriction-policies.md) in API Management to increase security. For example, [call rate limiting](api-management-access-restriction-policies.md#LimitCallRate) slows down bad actors using brute force attacks to compromise credentials. 
+
+* APIs should use TLS/SSL (transport security) to protect the credentials or tokens. Credentials and tokens should be sent in request headers and not as query parameters. 
+
+* In the API Management [developer portal](api-management-howto-developer-portal.md)), configure [Azure Active Directory](api-management-howto-aad.md) or [Azure Active Directory B2C](api-management-howto-aad-b2c.md) as the identity provider to increase the account security. The developer portal uses Captcha to mitigate brute force attacks. 
+
 ### Related information 
+
+* [Authentication vs. authorization](../active-directory/develop/authentication-vs-authorization.md) 
 
 
 ## Excessive data exposure 
+
+Good API interface design is deceptively challenging. Very often, particularly with legacy APIs that have evolved over time, the request and response interfaces contain more data fields than the consuming applications require.  
+
+A bad actor could attempt to access the API directly (perhaps by replaying a valid request), or they may be able to sniff the traffic between server and API. Analysis of the API actions and the data available could yield sensitive data to the attacker, which isn't surfaced to, or used by, the frontend application. 
 
 More information about this threat: [API3:2019 Excessive Data Exposure](https://github.com/OWASP/API-Security/blob/master/2019/en/src/0xa3-excessive-data-exposure.md) 
 
 ### Recommendations 
 
+* The best approach to mitigating this vulnerability is to ensure that the external interfaces defined at the backend API are designed carefully and, ideally, independently of the data persistence. They should contain only the fields required by consumers of the API. APIs should be reviewed frequently, and legacy fields deprecated, then removed. 
 
+    In API Management, use:
+    * [Revisions](api-management-revisions.md) to gracefully control nonbreaking changes, for example, the addition of a field to an interface. You may use revisions along with a versioning implementation at the backend.
 
-### Related information 
+    * [Versions](api-management-versions) for breaking changes, for example, the removal of a field from an interface. 
+
+* If it's not possible to alter the backend interface design and excessive data is a concern, use API Management [transformation policies](transform-api.md) to rewrite response payloads and mask or filter data. For example, [remove unneeded JSON properties](./policies/filter-response-content.md) from a response body. 
+
+* [Response content validation](validation-policies.md#validate-content) in the outbound policy section can be used with an XML or JSON schema to block responses with undocumented properties or improper values. The policy also supports blocking responses exceeding the specified size. 
+
+* Use the [validate-status-code] policy to block responses with errors undefined in the API schema. 
+
+Use the [validate-headers](validation-policies.md#validate-headers) policy to block responses with headers that aren't defined in the schema or don't comply to their definition in the schema. Remove unwanted headers with the [set-header](api-management-transformation-policies.md#SetHTTPheader) policy. 
+
+Use the [validate-graphql-request](graphql-policies.md#validate-graphql-request) policy to validate GraphQL requests, authorize access to specific query paths, and limit response size.
 
 
 ## Lack of resources and rate limiting 
 
+Lack of rate limiting may lead to data exfiltration or successful DDoS attacks on backend services, causing an outage for all consumers. 
 
 More information about this threat: [API4:2019 Lack of resources and rate limiting](https://github.com/OWASP/API-Security/blob/master/2019/en/src/0xa4-lack-of-resources-and-rate-limiting.md)
 
 ### Recommendations 
 
-### Related information 
+* Use [rate-limit](api-management-access-restriction-policies.md#LimitCallRate) (short-term) and [quota-limit](api-management-access-restriction-policies#SetUsageQuota) (long-term) policies to control the allowed number of API calls or bandwidth per consumer. 
+
+* Define strict request object definitions and their properties in the OpenAPI definition. For example, define the max value for paging integers, maxLength and regex for strings. Enforce those schemas with the [validate-content](validation-policies.md#validate-content) and [validate-parameters](validation-policies.md#validate-parameters) policies. 
+
+* Enforce maximum size of the request with the [validate-content](validation-policies.md#validate-content) policy. 
+
+* Optimize performance with [built-in caching](api-management-howto-cache.md), thus reducing the consumption of CPU, memory, and networking resources for certain operations. 
+
+* Enforce authentication for API calls (see [Broken user authentication](#broken-user-authentication)). Revoke access for abusive users. For example, deactivate subscription key, block the IP address with the [ip-filter](hapi-management-access-restriction-policies.md#RestrictCallerIPs) policy, or reject requests for a certain user claim from a [JWT token](pi-management-access-restriction-policies.md#ValidateJWT). 
+
+* Apply a [CORS policy](api-management-cross-domain-policie.mds#CORS) to control the websites that are allowed to load the resources served through the API. To avoid overly permissive configurations, don’t use wildcard values (`*`) in the CORS policy. 
+
+* Minimize the time it takes a backend service to respond. The longer the backend service takes to respond, the longer the connection is occupied in API Management, therefore reducing the number of requests that can be served in a given timeframe. 
+
+    * Define `timeout` in the [forward-request](api-management-advanced-policies.md#ForwardRequest) policy. 
+
+    * Use the [validate-graphql-request](graphql-policies.md#validate-graphql-request) policy for GraphQL APIs and configure `max-depth` and `max-size` parameters. 
+
+    * Limit the number of parallel backend connections with the [limit-concurrency](api-management-advanced-policies.md#LimitConcurrency) policy. 
+
+* While API Management can protect backend services from DDoS attacks, it may be vulnerable to those attacks itself. Deploy a bot protection service in front of API Management (for example, [Azure Application Gateway](api-management-howto-integrate-internal-vnet-appgateway/,d), [Azure Front Door](../frontdoor/front-door-overview.md), or [Azure DDoS Protection Service](../ddos-protection/ddos-protection-overview.md)) to better protect against DDoS attacks. When using a WAF with Azure Application Gateway or Azure Front Door, consider using [Microsoft_BotManagerRuleSet_1.0](../web-application-firewall/afds/afds-overview#bot-protection-rule-set.md). 
 
 ## Broken function level authorization
+
+Complex access control policies with different hierarchies, groups, and roles, and an unclear separation between administrative and regular functions lead to authorization flaws. By exploiting these issues, attackers gain access to other users’ resources or administrative functions. 
 
 More information about this threat: [API5:2019 Broken function level authorization](https://github.com/OWASP/API-Security/blob/master/2019/en/src/0xa5-broken-function-level-authorization.md) 
 
 ### Recommendations 
  
+* By default, protect all API endpoints in API Management with [subscription keys](api-management-subscriptions.md). 
 
-### Related information 
+* Define a [validate-jwt](api-management-access-restriction-policies.md#ValidateJWT)) policy and enforce required token claims. If certain operations require stricter claims enforcement, define extra `validate-jwt` policies for those operations only. 
 
+* Use virtual network or Private Link to hide API endpoints from the internet. Learn more about [virtual network options](virtual-network-concepts.md) with API Management.
+
+* Don't define [wildcard API operations](add-api-manually.md#add-and-test-a-wildcard-operation) (that is, "catch-all" APIs with `*` as the path). Ensure that API Management only serves requests for defined endpoints – requests to endpoints not defined in API Management are rejected. 
+
+* Don't publish APIs with [open products](api-management-howto-add-productsmd#access-to-product-apis) that don't require a subscription or another mechanism to secure client access. 
 
 
 ## Mass assignment
 
+If an API offers more fields than the client requires for a given action, an attacker may inject excessive properties to perform unauthorized operations on data. Attackers may discover undocumented properties by inspecting the format of requests and responses or other APIs, or guessing them. This vulnerability is especially applicable if you don’t use strongly typed programming languages. 
 
 More information about this threat: [API6:2019 Mass assignment](https://github.com/OWASP/API-Security/blob/master/2019/en/src/0xa6-mass-assignment.md)
 
 ### Recommendations 
 
+* External API interfaces should be decoupled from the internal data implementation. Avoid binding API contracts directly to data contracts in backend services. Review the API design frequently, and deprecate and remove legacy properties using [versioning](/api-management-versions.md) in API Management. 
 
+* Precisely define XML and JSON contracts in the API schema and use [validate-content](validation-policies.md#validate-content) and [validate-parameters](validation-policies.md#validate-parameters) policies to block requests and responses with undocumented properties. Blocking requests with undocumented properties mitigates attacks, while blocking responses with undocumented properties makes it harder to reverse-engineer potential attack vectors. 
+
+* If the backend interface can't be changed, use [transformation policies](transform-api.md) to rewrite request and response payloads and decouple the API contracts from backend contracts. For example, mask or filter data or [remove unneeded JSON properties](./policies/filter-response-content.md). 
 
 ## Security misconfiguration 
 
@@ -101,7 +173,7 @@ More information about this threat: [API7:2019 Security misconfiguration](https:
 
 ### Recommendations 
 
-* Correctly configure [gateway TLS](api-management-howto-manage-protocols-ciphers.MD).  Don't use vulnerable protocols (for example, TLS 1.0, 1.1) or ciphers. 
+* Correctly configure [gateway TLS](api-management-howto-manage-protocols-ciphers.MD). Don't use vulnerable protocols (for example, TLS 1.0, 1.1) or ciphers. 
 
 * Configure APIs to accept encrypted traffic only, for example through HTTPS or WSS protocols. 
 
@@ -109,43 +181,43 @@ More information about this threat: [API7:2019 Security misconfiguration](https:
 
 * Use Azure API Management policies: 
 
-    * Always inherit the base policy through the `<base>` tag.	 
+    * Always inherit parent policies through the `<base>` tag.	 
 
-    * When using OAuth, configure and test the [validate-jwt](api-management-access-restriction-policies.md#ValidateJWT) policy to check the existence and validity of the JWT token before it reaches the backend.  
+    * When using OAuth 2.0, configure and test the [validate-jwt](api-management-access-restriction-policies.md#ValidateJWT) policy to check the existence and validity of the JWT token before it reaches the backend.  
 
-        * Policy configuration allows for automatic checking of the token expiration, token signature, and issuer.  
+        * Policy configuration allows for automatic checking of the token expiration time, token signature, and issuer.  
 
         * Enforce claims, audiences, token expiration, and token signature through more policy configuration. 
 
-    * Configure the [CORS](api-management-cross-domain-policies.md#CORS) policy and don't use wildcard `*` for any element. Instead, explicitly list allowed values. 
+    * Configure the [CORS](api-management-cross-domain-policies.md#CORS) policy and don't use wildcard `*` for any origin. Instead, explicitly list allowed values. 
 
     * Set [validation policies](validation-policies.md) to `prevent` in production environments to validate JSON and XML schemas, headers, query parameters, and status codes, and to enforce the maximum size for request or response. 
 
-    * If API Management is outside a network boundary, client IP validation is still possible using the [ip-filter](api-management-access-restriction-policies.md#RestrictCallerIPs)policy. Ensure this is an allowlist, not a blocklist. 
+    * If API Management is outside a network boundary, client IP validation is still possible using the [ip-filter](api-management-access-restriction-policies.md#RestrictCallerIPs) policy. Ensure that is uses an allowlist, not a blocklist. 
 
-    * If client certificates are utilized between caller and API Management use the [validate-client-certificate](api-management-access-restriction-policies.md#validate-client-certificate) policy. Ensure that the `validate-revocation`, `validate-trust`, `validate-not-before`, and `validate-not-after` attributes are all set to `true`. 
+    * If client certificates are used between caller and API Management, use the [validate-client-certificate](api-management-access-restriction-policies.md#validate-client-certificate) policy. Ensure that the `validate-revocation`, `validate-trust`, `validate-not-before`, and `validate-not-after` attributes are all set to `true`. 
 
-        Client certificate (mutual TLS) can also be applied between API Management and the backend. The backend should:
+        Client certificates (mutual TLS) can also be applied between API Management and the backend. The backend should:
 
-        * Have authorization credentials configured.		 
+        * Have authorization credentials configured		 
 
-        * Validate the certificate chain where applicable. 
+        * Validate the certificate chain where applicable 
 
-        * Validate the certificate name where applicable. 
+        * Validate the certificate name where applicable 
 
-* For Graph QL scenarios use the [validate-graphql-request](graphql-validation-policies.md#validate-graphql-request) policy. Ensure that the `authorization` element and `max-size` and `max-depth` attributes are set. 
+* For GraphQL scenarios use the [validate-graphql-request](graphql-policies.md#validate-graphql-request) policy. Ensure that the `authorization` element and `max-size` and `max-depth` attributes are set. 
 
-* Don't store secrets in policy files, or source control. Always use API Management [named values](api-management-howto-properties.md) or fetch the secrets at runtime using custom policy expressions.	 
+* Don't store secrets in policy files or in source control. Always use API Management [named values](api-management-howto-properties.md) or fetch the secrets at runtime using custom policy expressions.	 
 
     * Named values can be [integrated with Key Vault](api-management-howto-properties.md#key-vault-secrets) 
 
     * Named values can also be encrypted within API Management by marking them "secret". Don't store secrets in named values unless the values are marked as "secret". 
 
-* Publish APIs through [products](api-management-howto-add-products.md), which require subscriptions. Don't use open products without subscription. 
+* Publish APIs through [products](api-management-howto-add-products.md), which require subscriptions. Don't use open products without subscriptions. 
 
 * Use Key Vault integration to manage all certificates – this centralizes certificate management and can help to ease operations management tasks such as certificate renewal or revocation. 
 
-* When using the [self-hosted-gateway](self-hosted-gateway-overview.md), ensure there's a process in place to update the image to the latest version periodically. 
+* When using the [self-hosted-gateway](self-hosted-gateway-overview.md), ensure that there's a process in place to update the image to the latest version periodically. 
 
 * Represent backend services as [backend entities](backends.md). Configure authorization credentials, certificate chain validation, and certificate name validation where applicable. 
 
@@ -157,9 +229,9 @@ More information about this threat: [API7:2019 Security misconfiguration](https:
 
     * Assign [user groups](api-management-howto-create-groups.md#-associate-a-group-with-a-product) to products, to control the visibility of APIs in the portal.  
 
-* Use [Azure Policy](security-controls-policy.md) to enforce API Management resource level configuration and role-based access control (RBAC) permissions to control resource access. Grant minimum required privileges to every user. 
+* Use [Azure Policy](security-controls-policy.md) to enforce API Management resource-level configuration and role-based access control (RBAC) permissions to control resource access. Grant minimum required privileges to every user. 
 
-* Use a [DevOps process](devops-api-development-templates.md) and infrastructure-as-code approach outside of a development environment to ensure API Management content and configuration changes are consistent and human errors are minimized.  
+* Use a [DevOps process](devops-api-development-templates.md) and infrastructure-as-code approach outside of a development environment to ensure consistency of API Management content and configuration changes and to minimize human errors.  
 
 * Don't use any deprecated features.
 
@@ -188,7 +260,7 @@ More information about this threat: [API8:2019 Injection](https://github.com/OWA
 
 * [Deployment stamps pattern with Azure Front Door and API Management](/azure/architecture/patterns/deployment-stamp) 
 
-* [Learn how to deploy Azure API Management with Azure Application Gateway](api-management-howto-integrate-internal-vnet-appgateway.md)
+* [Deploy Azure API Management with Azure Application Gateway](api-management-howto-integrate-internal-vnet-appgateway.md)
 
 ## Improper assets management
 
@@ -202,15 +274,15 @@ More information about this threat: [API9:2019 Improper assets management](https
 
 ### Recommendations
 
-* Use a well-defined [OpenAPI specification](https://swagger.io/specification/) as the source for importing REST APIs. The specification allows encapsulation of the API definition including self-documenting metadata. 
+* Use a well-defined [OpenAPI specification](https://swagger.io/specification/) as the source for importing REST APIs. The specification allows encapsulation of the API definition, including self-documenting metadata. 
 
-* Use well-defined API interfaces with precise paths, data schemas, headers, query parameters, and status codes. Avoid [wildcard operations](add-api-manually.md#add-and-test-a-wildcard-operation). Provide descriptions for each API and operation and include contact and license information.  
+    * Use well-defined API interfaces with precise paths, data schemas, headers, query parameters, and status codes. Avoid [wildcard operations](add-api-manually.md#add-and-test-a-wildcard-operation). Provide descriptions for each API and operation and include contact and license information.  
 
-* Avoid endpoints that don’t directly contribute to the business objective. They unnecessarily increase the attack surface area and make it harder to evolve the API. 
+    * Avoid endpoints that don’t directly contribute to the business objective. They unnecessarily increase the attack surface area and make it harder to evolve the API. 
 
-Use the [revisions](api-management-revisions.md) and [versions](api-management-versions.md) in API Management to govern and control your API endpoints. Have a strong backend versioning strategy and commit to the maximum number of supported API versions (for example, 2 or 3 prior versions). Plan to quickly deprecate and ultimately remove older, often less secure, API versions. 
+Use the [revisions](api-management-revisions.md) and [versions](api-management-versions.md) in API Management to govern and control the API endpoints. Have a strong backend versioning strategy and commit to a maximum number of supported API versions (for example, 2 or 3 prior versions). Plan to quickly deprecate and ultimately remove older, often less secure, API versions. 
 
-* Use an API Management instance per environment (such as development, test, and production). Ensure that each API Management instance connects to the dependencies for the same environment. For example, in staging the “stage” API Management resource should connect to a staging Azure Key Vault resource and the “stage” versions of backend services. Using [DevOps automation and infrastructure-as-code practices](devops-api-development-templates.md) helps maintain consistency and accuracy between environments and reduce human errors. 
+* Use an API Management instance per environment (such as development, test, and production). Ensure that each API Management instance connects to the dependencies for the same environment. For example, in test the test API Management resource should connect to a test Azure Key Vault resource and the test versions of backend services. Using [DevOps automation and infrastructure-as-code practices](devops-api-development-templates.md) helps maintain consistency and accuracy between environments and reduce human errors. 
 
 * Use tags to organize APIs and products and group them for publishing. 
 
@@ -222,10 +294,29 @@ Use the [revisions](api-management-revisions.md) and [versions](api-management-v
 
 ## Insufficient logging and monitoring 
 
+Insufficient logging and monitoring, coupled with missing or ineffective integration with incident response, allows attackers to further attack systems, maintain persistence, pivot to more systems to tamper with, and extract or destroy data. Most breach studies demonstrate the time to detect a breach is over 200 days, typically detected by external parties rather than internal processes or monitoring. 
+
 More information about this threat: [API10:2019  Insufficient logging and monitoring](https://github.com/OWASP/API-Security/blob/master/2019/en/src/0xaa-insufficient-logging-monitoring.md) 
 
 ### Recommendations
 
+* Understand [observability options](observability.md) in Azure API Management and [best practices](/azure/architecture/best-practices/monitoring) for monitoring in Azure. 
+
+* Monitor API traffic with [Azure Monitor](api-management-howto-use-azure-monitor/,dd). 
+
+* Log to [Application Insights](api-management-howto-app-insights.md) for debugging purposes. Correlate [transactions in Application Insights](../azure-monitor/app/transaction-diagnostics.md) between API Management and the backend API to [trace them end-to-end](../azure-monitor/app/correlation.md.) 
+
+* If needed, forward custom events to [Event Hubs](api-management-howto-log-event-hubs.md). 
+
+* Set alerts in Azure Monitor and Application Insights - for example, for the [capacity metric](api-management-howto-autoscale.md) or excessive number of requests or bandwidth transfer. 
+
+* Use the [emit-metrics](api-management-advanced-policies.md#emit-metrics) policy for custom metrics. 
+
+* Use Activity Logs for tracking activity in the service. 
+
+* Use custom event in [Azure Application Insights](../azure-monitor/app/api-custom-events-metrics.md) and [Azure Monitor](../azure-monitor/app/custom-data-correlation.md) as needed. 
+
+* Configure [OpenTelemetry](how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md#introduction-to-opentelemetry) for self-hosted gateways on Kubernetes. 
 
 
 ### Related information 
