@@ -23,7 +23,15 @@ With a service provider and consumer deployment of a Private Link Service, an ap
 
 ## Determine GroupID and MemberName
 
-During the creation of a private endpoint with Azure PowerShell and Azure CLI, the **GroupId** and **MemberName** of the private endpoint resource might be needed. To determine the values of **GroupID** and **MemberName** for your private endpoint resource, use the following commands.
+During the creation of a private endpoint with Azure PowerShell and Azure CLI, the **GroupId** and **MemberName** of the private endpoint resource might be needed. 
+
+* **GroupId** is the sub-resource of the private endpoint.
+
+* **MemberName** is the unique stamp for the private IP address of the endpoint.
+
+For more information about Private Endpoint sub-resources and their values, see [Private-link resource](private-endpoint-overview#private-link-resource).
+
+To determine the values of **GroupID** and **MemberName** for your private endpoint resource, use the following commands.  **MemberName** is contained within the **RequiredMembers** property.
 
 # [**PowerShell**](#tab/manage-private-link-powershell)
 
