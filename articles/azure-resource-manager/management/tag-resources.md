@@ -8,9 +8,9 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 # Use tags to organize your Azure resources and management hierarchy
 
-Tags are metadata elements attached to resources. They consist of key-value pairs that represent two related identifier data elements. They're displayed in a character string. The key, or name, describes the data set, for example, _Environment_. The value, or variable, for example, _Production_, describes the association to the key. Fully formed, the key-value pair becomes, _Environment_ = _Production_.
+Tags are metadata elements that you apply to your Azure resources. They're key-value pairs that help you identify resources based on settings that are relevant to your organization. If you want to track the deployment environment for your resources, add a key named Environment. To identify the resources deployed to production, give them a value of Production. Fully formed, the key-value pair becomes, Environment = Production.
 
-  You can apply tags to your Azure resources, resource groups, and subscriptions to logically organize them by data sets that make sense for your organization. 
+You can apply tags to your Azure resources, resource groups, and subscriptions.
 
 For recommendations on how to implement a tagging strategy, see [Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
 
@@ -40,7 +40,7 @@ There are two ways to get the required access to tag resources.
 
 Azure PowerShell offers two commands to apply tags: [New-AzTag](/powershell/module/az.resources/new-aztag) and [Update-AzTag](/powershell/module/az.resources/update-aztag). You need to have the `Az.Resources` module 1.12.0 version or later. You can check your version with `Get-InstalledModule -Name Az.Resources`. You can install that module or [install Azure PowerShell](/powershell/azure/install-az-ps) version 3.6.1 or later.
 
-The `New-AzTag` replaces all tags on the resource, resource group, or subscription. When you call the command, pass it in the resource ID of the entity you wish to tag.
+The `New-AzTag` replaces all tags on the resource, resource group, or subscription. When you call the command, pass the resource ID of the entity you want to tag.
 
 The following example applies a set of tags to a storage account:
 
@@ -129,7 +129,7 @@ Properties :
         Project     ECommerce
 ```
 
-The same commands also work with resource groups or subscriptions. You pass them in the identifier for the resource group or subscription that you want to tag.
+The same commands also work with resource groups or subscriptions. Pass them in the identifier of the resource group or subscription you want to tag.
 
 To add a new set of tags to a resource group, use:
 
@@ -172,7 +172,7 @@ $resource | ForEach-Object { Update-AzTag -Tag @{ "Dept"="IT"; "Environment"="Te
 
 ### List tags
 
-To get the tags for a resource, resource group, or subscription, use the [Get-AzTag](/powershell/module/az.resources/get-aztag) command and pass it in the resource ID for the entity.
+To get the tags for a resource, resource group, or subscription, use the [Get-AzTag](/powershell/module/az.resources/get-aztag) command and pass the resource ID of the entity.
 
 To see the tags for a resource, use:
 
@@ -217,7 +217,7 @@ To get resource groups that have a specific tag name and value, use:
 
 ### Remove tags
 
-To remove specific tags, use `Update-AzTag` and set `-Operation` to `Delete`. Pass it for the tags you want to delete.
+To remove specific tags, use `Update-AzTag` and set `-Operation` to `Delete`. Pass the resource IDs of the tags you want to delete.
 
 ```azurepowershell-interactive
 $removeTags = @{"Project"="ECommerce"; "Team"="Web"}
@@ -246,7 +246,7 @@ Remove-AzTag -ResourceId "/subscriptions/$subscription"
 
 Azure CLI offers two commands to apply tags: [az tag create](/cli/azure/tag#az-tag-create) and [az tag update](/cli/azure/tag#az-tag-update). You need to have the Azure CLI 2.10.0 version or later. You can check your version with `az version`. To update or install it, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-The `az tag create` replaces all tags on the resource, resource group, or subscription. When you call the command, pass it in the resource ID of the entity you want to tag.
+The `az tag create` replaces all tags on the resource, resource group, or subscription. When you call the command, pass the resource ID of the entity you want to tag.
 
 The following example applies a set of tags to a storage account:
 
@@ -335,7 +335,7 @@ Only the new tags remain on the resource.
 },
 ```
 
-The same commands also work with resource groups or subscriptions. You pass them in the identifier for the resource group or subscription you want to tag.
+The same commands also work with resource groups or subscriptions. Pass them in the identifier of the resource group or subscription you want to tag.
 
 To add a new set of tags to a resource group, use:
 
@@ -365,7 +365,7 @@ az tag update --resource-id /subscriptions/$sub --operation Merge --tags Team="W
 
 ### List tags
 
-To get the tags for a resource, resource group, or subscription, use the [az tag list](/cli/azure/tag#az-tag-list) command and pass it in the resource ID for the entity.
+To get the tags for a resource, resource group, or subscription, use the [az tag list](/cli/azure/tag#az-tag-list) command and pass the resource ID of the entity.
 
 To see the tags for a resource, use:
 
@@ -410,7 +410,7 @@ az group list --tag Dept=Finance
 
 ### Remove tags
 
-To remove specific tags, use `az tag update` and set `--operation` to `Delete`. Pass it in the tags you want to delete.
+To remove specific tags, use `az tag update` and set `--operation` to `Delete`. Pass the resource ID of the tags you want to delete.
 
 ```azurecli-interactive
 az tag update --resource-id $resource --operation Delete --tags Project=ECommerce Team=Web
@@ -842,7 +842,7 @@ Resources don't inherit the tags you apply to a resource group or a subscription
 
 You can use tags to group your billing data. If you're running multiple VMs for different organizations, for example, use the tags to group usage by cost center. You can also use tags to categorize costs by runtime environment, such as the billing usage for VMs running in the production environment.
 
-You can retrieve information about tags by downloading the usage comma-separated values (CSV) file available from the Azure portal. For more information, see [Download or view your Azure billing invoice and daily usage data](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). For services that support tags with billing, the tags appear in the **Tags** column.
+You can retrieve information about tags by downloading the usage file available from the Azure portal. For more information, see [Download or view your Azure billing invoice and daily usage data](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). For services that support tags with billing, the tags appear in the **Tags** column.
 
 For REST API operations, see [Azure Billing REST API Reference](/rest/api/billing/).
 
@@ -853,7 +853,7 @@ The following limitations apply to tags:
 * Not all resource types support tags. To determine if you can apply a tag to a resource type, see [Tag support for Azure resources](tag-support.md).
 * Each resource, resource group, and subscription can have a maximum of 50 tag name-value pairs. If you need to apply more tags than the maximum allowed number, use a JSON string for the tag value. The JSON string can contain many of the values that you apply to a single tag name. A resource group or subscription can contain many resources that each have 50 tag name-value pairs.
 * The tag name has a limit of 512 characters and the tag value has a limit of 256 characters. For storage accounts, the tag name has a limit of 128 characters and the tag value has a limit of 256 characters.
-* Classic resources such as Cloud Services are exempt from tags.
+* Classic resources such as Cloud Services don't support tags.
 * Azure IP Groups and Azure Firewall Policies don't support PATCH operations. PATCH API method operations, therefore, can't update tags through the portal. Instead, you can use the update commands for those resources. You can update tags for an IP group, for example, with the [az network ip-group update](/cli/azure/network/ip-group#az-network-ip-group-update) command.
 * Tag names can't contain these characters: `<`, `>`, `%`, `&`, `\`, `?`, `/`
 
