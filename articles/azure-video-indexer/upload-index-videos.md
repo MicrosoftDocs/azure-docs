@@ -17,6 +17,8 @@ When you're creating an Azure Video Indexer account, you choose between:
 
 For more information about account types, see [Media Services pricing](https://azure.microsoft.com/pricing/details/azure/media-services/).
 
+After you upload and index a video, you can use [Azure Video Indexer website](video-indexer-view-edit.md) or [Azure Video Indexer Developer Portal](video-indexer-use-apis.md) to see the insights of the video (see [Examine the Azure Video Indexer output](video-indexer-output-json-v2.md)).
+
 When you're uploading videos by using the API, you have the following options:
 
 * Upload your video from a URL (preferred).
