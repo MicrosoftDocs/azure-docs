@@ -27,7 +27,7 @@ This quickstart shows you how to create a service connection in Container Apps w
 > Service Connector in Container Apps is currently in preview.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## View supported target service types
+## View supported target services
 
 Use the following Azure CLI command to create and manage service connections from Container Apps.
 
@@ -75,10 +75,6 @@ az containerapp connection list-support-types --output table
    - **The container where the connection information will be saved:** the name of the container, in your container app, that connects to the target service
    - **The resource group which contains the storage account:** the name of the resource group name with the storage account. In this guide, we are using a Blob Storage.
    - **Name of the storage account:** the name of the storage account that contains your blob.
-
-```azurecli-interactive
-az containerapp connection create storage-blob --system-identity
-```
 
 > [!NOTE]
 > If you don't have a Blob Storage, you can run `az containerapp connection create storage-blob --new --system-identity` to provision a new Blob Storage and directly get connected to your app service.
