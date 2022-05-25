@@ -384,7 +384,7 @@ In a case where an edge is highlighted the explanation from the model should poi
 
 Follow these steps if Intelligent View doesn't load.
 
-1. Set the configured time frame to 6 days or less.
+1. Set the configured time frame to six days or less.
 1. The `Try preview` button must be selected to opt in.
 
 :::image type="content" source="media/app-map/intelligent-view-try-preview.png" alt-text="Screenshot of the Application Map user interface preview opt-in button." lightbox="media/app-map/intelligent-view-try-preview.png":::
