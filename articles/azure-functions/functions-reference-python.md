@@ -2,7 +2,7 @@
 title: Python developer reference for Azure Functions
 description: Understand how to develop functions with Python
 ms.topic: article
-ms.date: 05/13/2022
+ms.date: 05/25/2022
 ms.devlang: python
 ms.custom: devx-track-python, devdivchpfy22
 ---
@@ -404,7 +404,7 @@ The host.json file must also be updated to include an HTTP `routePrefix`, as sho
 }
 ```
 
-Update the Python code file `init.py`, depending on the interface used by your framework. The following example shows either an ASGI handelr approach or a WSGI wrapper approach for Flask:
+Update the Python code file `init.py`, depending on the interface used by your framework. The following example shows either an ASGI handler approach or a WSGI wrapper approach for Flask:
 
 # [ASGI](#tab/asgi)
 

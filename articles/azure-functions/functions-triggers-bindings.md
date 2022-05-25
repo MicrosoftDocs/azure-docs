@@ -13,7 +13,7 @@ ms.custom: devdivchpfy22
 
 In this article, you learn the high-level concepts surrounding functions triggers and bindings.
 
-Triggers are what causes a function to run. A trigger defines how a function is invoked and a function must have exactly one trigger. Triggers have associated data, which is often provided as the payload of the function.
+Triggers cause a function to run. A trigger defines how a function is invoked and a function must have exactly one trigger. Triggers have associated data, which is often provided as the payload of the function.
 
 Binding to a function is a way of declaratively connecting another resource to the function; bindings may be connected as *input bindings*, *output bindings*, or both. Data from bindings is provided to the function as parameters.
 
