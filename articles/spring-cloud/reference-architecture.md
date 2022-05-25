@@ -5,6 +5,7 @@ author: karlerickson
 title: Azure Spring Apps reference architecture
 ms.author: akaleshian
 ms.service: spring-cloud
+ms.custom: event-tier1-build-2022
 description: This reference architecture is a foundation using a typical enterprise hub and spoke design for the use of Azure Spring Apps.
 ---
 
@@ -279,8 +280,8 @@ Explore this reference architecture through the ARM, Terraform, and Azure CLI de
 [9]: https://steeltoe.io/
 [10]: https://github.com/Azure/azure-spring-cloud-reference-architecture
 [11]: ./how-to-deploy-in-azure-virtual-network.md#virtual-network-requirements
-[12]: ./vnet-customer-responsibilities.md#azure-spring-cloud-network-requirements
-[13]: ./vnet-customer-responsibilities.md#azure-spring-cloud-fqdn-requirements--application-rules
+[12]: ./vnet-customer-responsibilities.md#azure-spring-apps-network-requirements
+[13]: ./vnet-customer-responsibilities.md#azure-spring-apps-fqdn-requirements--application-rules
 [14]: ./how-to-staging-environment.md
 [15]: https://devblogs.microsoft.com/java/monitor-applications-and-dependencies-in-azure-spring-cloud/
 [16]: /azure/architecture/framework/
