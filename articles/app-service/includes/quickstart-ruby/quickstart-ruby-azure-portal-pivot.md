@@ -148,6 +148,6 @@ The web app menu provides different options for configuring your app.
 
 When you're finished with the sample app, you can remove all of the resources for the app from Azure. It will not incur extra charges and keep your Azure subscription uncluttered. Removing the resource group also removes all resources in the resource group and is the fastest way to remove all Azure resources for your app.
 
-1. From your App Service **Overview** page, select the resource group you created in the [Create Azure resources](#create-azure-resources) step.
+1. From your App Service **Overview** page, select the resource group you created.
 
 2. From the resource group page, select **Delete resource group**. Confirm the name of the resource group to finish deleting the resources.
