@@ -1,12 +1,12 @@
 ---
 title: Quickstart - Handle SMS and delivery report events
 titleSuffix: Azure Communication Services
-description: In this quickstart, you learn how to handle Azure Communication Services events. See how to create, receive, and subscribe to SMS and delivery report events.
+description: "In this quickstart, you'll learn how to handle Azure Communication Services events. See how to create, receive, and subscribe to SMS and delivery report events."
 author: probableprime
 manager: chpalm
 services: azure-communication-services
 ms.author: rifox
-ms.date: 05/24/2022
+ms.date: 05/25/2022
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: sms
@@ -100,7 +100,7 @@ Check out the full list of [events that Communication Services supports](../../.
 
 ### Receive SMS events
 
-After you generate an event, you'll notice that `SMS Received` and `SMS Delivery Report Received` events are sent to your endpoint. These events show up in the [Event Grid viewer](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) that we set up at the beginning of this tutorial. Select the eye icon next to the event to see the entire payload. Events should look similar to the following data:
+After you generate an event, you'll notice that `SMS Received` and `SMS Delivery Report Received` events are sent to your endpoint. These events show up in the [Event Grid viewer](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) that we set up at the beginning of this quickstart. Select the eye icon next to the event to see the entire payload. Events should look similar to the following data:
 
 :::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="Screenshot of the Azure Event Grid viewer that shows the Event Grid schema for an SMS received event.":::
 
