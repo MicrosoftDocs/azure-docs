@@ -28,25 +28,103 @@ WAF with Front Door provides detailed reporting on each request, and each threat
 
 ![WAFDiag](../media/waf-frontdoor-monitor/waf-frontdoor-diagnostics.png)
 
+Front Door provides two types of logs: access logs and WAF logs.
+
 ::: zone pivot="front-door-standard-premium"
 
-Front Door Standard/Premium provides two types of logs:
 
-- **[FrontDoorAccessLog](../../frontdoor/standard-premium/how-to-logs.md#access-log)**, which includes all requests.
+- 
 - **FrontDoorWebApplicationFirewallLog**, which includes any request that matches a WAF rule.
 
 ::: zone-end
 
 ::: zone pivot="front-door-classic"
 
-- **[FrontdoorAccessLog`](../../frontdoor/front-door-diagnostics.md)**, which includes all requests.
+- 
 - **FrontdoorWebApplicationFirewallLog**, which includes any request that matches a WAF rule.
 
 ::: zone-end
 
-### FrontDoorWebApplicationFirewallLog schema
+### Access log
 
-The following table shows the values logged for each request
+::: zone pivot="front-door-standard-premium"
+
+The **FrontDoorAccessLog** includes all requests that go through Front Door. For more information on the Front Door access log, including the log schema, see [Azure Front Door logs](../../frontdoor/standard-premium/how-to-logs.md#access-log).
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+The **FrontdoorAccessLog** includes all requests that go through Front Door. For more information on the Front Door access log, including the log schema, see [Monitoring metrics and logs in Azure Front Door (classic)](../../frontdoor/front-door-diagnostics.md).
+
+::: zone-end
+
+The following example query returns the access log entries:
+
+::: zone pivot="front-door-standard-premium"
+
+```kusto
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.CDN" and Category == "FrontDoorAccessLog"
+```
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+```kusto
+AzureDiagnostics
+| where ResourceType == "FRONTDOORS" and Category == "FrontdoorAccessLog"
+```
+
+::: zone-end
+
+The following shows an example log entry:
+
+```json
+{
+  "time": "2020-06-09T22:32:17.8383427Z",
+  "category": "FrontdoorAccessLog",
+  "operationName": "Microsoft.Network/FrontDoor/AccessLog/Write",
+  "properties": {
+    "trackingReference": "08Q3gXgAAAAAe0s71BET/QYwmqtpHO7uAU0pDRURHRTA1MDgANjMxNTAwZDAtOTRiNS00YzIwLTljY2YtNjFhNzMyOWQyYTgy",
+    "httpMethod": "GET",
+    "httpVersion": "2.0",
+    "requestUri": "https://wafdemofrontdoorwebapp.azurefd.net:443/?q=%27%20or%201=1",
+    "requestBytes": "715",
+    "responseBytes": "380",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4157.0 Safari/537.36 Edg/85.0.531.1",
+    "clientIp": "xxx.xxx.xxx.xxx",
+    "socketIp": "xxx.xxx.xxx.xxx",
+    "clientPort": "52097",
+    "timeTaken": "0.003",
+    "securityProtocol": "TLS 1.2",
+    "routingRuleName": "WAFdemoWebAppRouting",
+    "rulesEngineMatchNames": [],
+    "backendHostname": "wafdemowebappuscentral.azurewebsites.net:443",
+    "sentToOriginShield": false,
+    "httpStatusCode": "403",
+    "httpStatusDetails": "403",
+    "pop": "SJC",
+    "cacheStatus": "CONFIG_NOCACHE"
+  }
+}
+```
+
+### WAF log
+
+::: zone pivot="front-door-standard-premium"
+
+The **FrontDoorWebApplicationFirewallLog** includes requests that match a WAF rule.
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+The **FrontdoorWebApplicationFirewallLog** includes any request that matches a WAF rule.
+
+::: zone-end
+
+The following table shows the values logged for each request:
 
 | Property  | Description |
 | ------------- | ------------- |
@@ -110,57 +188,6 @@ The following shows an example log entry, including the reason that the request 
         }
       ]
     }
-  }
-}
-```
-
-The following example query returns the access log entries:
-
-::: zone pivot="front-door-classic"
-
-```kusto
-AzureDiagnostics
-| where ResourceType == "FRONTDOORS" and Category == "FrontdoorAccessLog"
-```
-
-::: zone-end
-
-::: zone pivot="front-door-standard-premium"
-
-```kusto
-AzureDiagnostics
-| where ResourceProvider == "MICROSOFT.CDN" and Category == "FrontDoorAccessLog"
-```
-::: zone-end
-
-The following shows an example log entry:
-
-```json
-{
-  "time": "2020-06-09T22:32:17.8383427Z",
-  "category": "FrontdoorAccessLog",
-  "operationName": "Microsoft.Network/FrontDoor/AccessLog/Write",
-  "properties": {
-    "trackingReference": "08Q3gXgAAAAAe0s71BET/QYwmqtpHO7uAU0pDRURHRTA1MDgANjMxNTAwZDAtOTRiNS00YzIwLTljY2YtNjFhNzMyOWQyYTgy",
-    "httpMethod": "GET",
-    "httpVersion": "2.0",
-    "requestUri": "https://wafdemofrontdoorwebapp.azurefd.net:443/?q=%27%20or%201=1",
-    "requestBytes": "715",
-    "responseBytes": "380",
-    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4157.0 Safari/537.36 Edg/85.0.531.1",
-    "clientIp": "xxx.xxx.xxx.xxx",
-    "socketIp": "xxx.xxx.xxx.xxx",
-    "clientPort": "52097",
-    "timeTaken": "0.003",
-    "securityProtocol": "TLS 1.2",
-    "routingRuleName": "WAFdemoWebAppRouting",
-    "rulesEngineMatchNames": [],
-    "backendHostname": "wafdemowebappuscentral.azurewebsites.net:443",
-    "sentToOriginShield": false,
-    "httpStatusCode": "403",
-    "httpStatusDetails": "403",
-    "pop": "SJC",
-    "cacheStatus": "CONFIG_NOCACHE"
   }
 }
 ```
