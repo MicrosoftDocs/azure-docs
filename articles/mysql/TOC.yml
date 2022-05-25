@@ -463,8 +463,8 @@
         displayName:  recommendation
       - name: Azure Advisor recommendations
         href: single-server/concepts-azure-advisor-recommendations.md
-    - name: Tutorials
-      items:
+  - name: Tutorials
+    items:
     - name: Application Development
       items:
       - name: Design a database

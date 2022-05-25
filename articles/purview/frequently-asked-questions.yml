@@ -1,13 +1,13 @@
 ### YamlMime:FAQ
 metadata:
   title: Frequently asked questions (FAQ)
-  description: This article answers frequently asked questions about Microsoft Purview. 
+  description: This article answers frequently asked questions about Microsoft Purview (formerly Azure Purview). 
   author: SunetraVirdi
   ms.author: suvirdi
   ms.service: purview
   ms.topic: faq
   ms.date: 05/08/2021
-title: Frequently asked questions (FAQ) about Microsoft Purview
+title: Frequently asked questions (FAQ) about Microsoft Purview (formerly Azure Purview)
 summary: |
 
 sections:
