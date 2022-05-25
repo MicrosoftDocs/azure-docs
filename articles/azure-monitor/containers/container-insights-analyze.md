@@ -15,7 +15,7 @@ For information about how to enable Container insights, see [Onboard Container i
 
 Azure Monitor provides a multi-cluster view that shows the health status of all monitored Kubernetes clusters running Linux and Windows Server 2019 deployed across resource groups in your subscriptions. It shows clusters discovered across all environments that aren't monitored by the solution. You can immediately understand cluster health, and from here, you can drill down to the node and controller performance page or navigate to see performance charts for the cluster. For AKS clusters that were discovered and identified as unmonitored, you can enable monitoring for them at any time.
 
-The main differences in monitoring a Windows Server cluster with Container insights compared to a Linux cluster are described [here](container-insights-overview.md#what-does-container-insights-provide) in the overview article.
+The main differences in monitoring a Windows Server cluster with Container insights compared to a Linux cluster are described in [Feature of Container insights](container-insights-overview.md#features-of-container-insights) in the overview article.
 
 
 ## Multi-cluster view from Azure Monitor

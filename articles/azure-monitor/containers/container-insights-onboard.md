@@ -28,7 +28,7 @@ The versions of Kubernetes and support policy are the same as those [supported i
 Before you start, make sure that you've met the following requirements:
 
 ### Log Analytics workspace
-Container insights supports a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) in the regions that are listed in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). For a list of the supported mapping pairs to use for the default workspace, see [Supported regions](container-insights-onboard.md#supported-regions).
+Container insights supports a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) in the regions that are listed in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). For a list of the supported mapping pairs to use for the default workspace, see [Region mappings supported by Container insights](container-insights-region-mapping.md).
 
 You can let the onboarding experience create a default workspace in the default resource group of the AKS cluster subscription. If you already have a workspace though, then you will most likely want to use that one. See [Designing your Azure Monitor Logs deployment](../logs/design-logs-deployment.md) for details.
 
