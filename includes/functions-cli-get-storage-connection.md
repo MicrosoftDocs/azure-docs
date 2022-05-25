@@ -10,7 +10,7 @@ ms.custom: devdivchpfy22
 
 Earlier, you created an Azure Storage account for function app's use. The connection string for this account is stored securely in app settings in Azure. By downloading the setting into the *local.settings.json* file, you can use the connection to write to a Storage queue in the same account when running the function locally.
 
-1. From the root of the project, run the following command, replace `<APP_NAME>` with the name of your function app from the previous quickstart. This command will overwrite any existing values in the file.
+1. From the root of the project, run the following command, replace `<APP_NAME>` with the name of your function app from the previous step. This command will overwrite any existing values in the file.
 
     ```
     func azure functionapp fetch-app-settings <APP_NAME>

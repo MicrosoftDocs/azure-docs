@@ -17,7 +17,7 @@ Azure Functions supports any language or runtime using [custom handlers](functio
 
 Deploying your function code in a custom Linux container requires [Premium plan](functions-premium-plan.md) or a [Dedicated (App Service) plan](dedicated-plan.md) hosting. Completing this tutorial incurs costs of a few US dollars in your Azure account, which you can minimize by [cleaning-up resources](#clean-up-resources) when you're done.
 
-You can also use a default Azure App Service container as described on [Create your first function hosted on Linux](./create-first-function-cli-csharp.md?pivots=programming-language-python). Supported base images for Azure Functions are found in the [Azure Functions base images repo](https://hub.docker.com/_/microsoft-azure-functions-base).
+You can also use a default Azure App Service container as described in [Create your first function hosted on Linux](./create-first-function-cli-csharp.md?pivots=programming-language-python). Supported base images for Azure Functions are found in the [Azure Functions base images repo](https://hub.docker.com/_/microsoft-azure-functions-base).
 
 In this tutorial, you learn how to:
 
@@ -160,7 +160,7 @@ COPY --from=mcr.microsoft.com/dotnet/core/sdk:3.1 /usr/share/dotnet /usr/share/d
 ---
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"
-Add a function to your project by using the following command, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. `func new` creates a C# code file in your project.
+Use the following command to add a function to your project, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. `func new` creates a C# code file in your project.
 
 ```console
 func new --name HttpExample --template "HTTP trigger" --authlevel anonymous
@@ -168,7 +168,7 @@ func new --name HttpExample --template "HTTP trigger" --authlevel anonymous
 ::: zone-end
 
 ::: zone pivot="programming-language-other,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"
-Add a function to your project by using the following command, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. `func new` creates a subfolder matching the function name that contains a configuration file named *function.json*.
+Use the following command to add a function to your project, where the `--name` argument is the unique name of your function and the `--template` argument specifies the function's trigger. `func new` creates a subfolder matching the function name that contains a configuration file named *function.json*.
 
 ```console
 func new --name HttpExample --template "HTTP trigger" --authlevel anonymous
@@ -257,7 +257,7 @@ In *host.json*, modify the `customHandler` section to configure the custom handl
 ```
 ::: zone-end
 
-To test the function locally, start the local Azure Functions runtime host in the root of the project folder:
+To test the function locally, start the local Azure Functions runtime host in the root of the project folder.
 ::: zone pivot="programming-language-csharp"  
 ```console
 func start  
@@ -289,7 +289,7 @@ func start
 
 Once you see the `HttpExample` endpoint appears in the output, navigate to `http://localhost:7071/api/HttpExample?name=Functions`. The browser must display a "hello" message that echoes back `Functions`, the value supplied to the `name` query parameter.
 
-Use <kbd>Ctrl + C</kbd> to stop the host.
+Press <kbd>Ctrl + C</kbd> to stop the host.
 
 ## Build the container image and test locally
 
@@ -315,7 +315,7 @@ COPY . /home/site/wwwroot
 ```
 ::: zone-end
 
-In the root project folder, run the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command, provide a name `azurefunctionsimage`, and tag `v1.0.0`. Replace `<DOCKER_ID>` with your Docker Hub account ID. This command builds the Docker image for the container.
+In the root project folder, run the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command, provide a name as `azurefunctionsimage`, and tag as `v1.0.0`. Replace `<DOCKER_ID>` with your Docker Hub account ID. This command builds the Docker image for the container.
 
 ```console
 docker build --tag <DOCKER_ID>/azurefunctionsimage:v1.0.0 .
@@ -323,7 +323,7 @@ docker build --tag <DOCKER_ID>/azurefunctionsimage:v1.0.0 .
 
 When the command completes, you can run the new container locally.
 
-To test the build, run the image in a local container using the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command, replace `<docker_id>` again with your Docker Hub account ID, and add the ports argument `-p 8080:80`:
+To test the build, run the image in a local container using the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command, replace `<docker_id>` again with your Docker Hub account ID, and add the ports argument as `-p 8080:80`:
 
 ```console
 docker run -p 8080:80 -it <docker_id>/azurefunctionsimage:v1.0.0
@@ -341,7 +341,7 @@ After the image starts in the local container, browse to `http://localhost:8080/
 After the image starts in the local container, browse to `http://localhost:8080/api/HttpExample?name=Functions`, which must display the same "hello" message as before. Because the HTTP triggered function you created uses anonymous authorization, you can call the function running in the container without having to obtain an access key. For more information, see [authorization keys].
 ::: zone-end  
 
-After you've verified the function app in the container, press <kbd>Ctrl + C</kbd> to stop the docker.
+After verifying the function app in the container, press <kbd>Ctrl + C</kbd> to stop the docker.
 
 ## Push the image to Docker Hub
 
@@ -450,7 +450,7 @@ Use the following commands to create these items. Both Azure CLI and PowerShell 
 
 A function app on Azure manages the execution of your functions in your hosting plan. In this section, you use the Azure resources from the previous section to create a function app from an image on Docker Hub and configure it with a connection string to Azure Storage.
 
-1. Create a functions app using the following command:
+1. Create a function app using the following command:
 
     # [Azure CLI](#tab/azure-cli)
     ```azurecli
@@ -468,7 +468,7 @@ A function app on Azure manages the execution of your functions in your hosting 
     ```
     ---
     
-    In this example, replace `<STORAGE_NAME>` with the name you used in the previous section for the storage account. Also, replace `<APP_NAME>` with a globally unique name appropriate to you, and `<DOCKER_ID>` with your Docker Hub ID. When you're deploying from a custom container registry, use the `deployment-container-image-name` parameter to indicate the URL of the registry.
+    In this example, replace `<STORAGE_NAME>` with the name you used in the previous section for the storage account. Also, replace `<APP_NAME>` with a globally unique name appropriate to you, and `<DOCKER_ID>` with your Docker Hub account ID. When you're deploying from a custom container registry, use the `deployment-container-image-name` parameter to indicate the URL of the registry.
     
     > [!TIP]  
     > You can use the [`DisableColor` setting](functions-host-json.md#console) in the *host.json* file to prevent ANSI control characters from being written to the container logs.
@@ -495,7 +495,7 @@ A function app on Azure manages the execution of your functions in your hosting 
 
     Replace `<STORAGE_NAME>` with the name of the storage account you created earlier.
 
-1. Add this setting to the function app by using the following command:
+1. Use the following command to add setting to the function app:
  
     # [Azure CLI](#tab/azure-cli)
     ```azurecli
@@ -516,7 +516,7 @@ A function app on Azure manages the execution of your functions in your hosting 
 1. The function can now use this connection string to access the storage account.
 
 > [!NOTE]
-> If you publish your custom image to a private container registry, you must use environment variables in the Dockerfile for the connection string instead. For more information, see the [ENV instruction](https://docs.docker.com/engine/reference/builder/#env). You must also set the variables `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD`. To use the values, then, you must rebuild the image, push the image to the registry, and then restart the function app on Azure.
+> If you publish your custom image to a private container registry, you must use environment variables in the *Dockerfile* for the connection string instead. For more information, see the [ENV instruction](https://docs.docker.com/engine/reference/builder/#env). You must also set the `DOCKER_REGISTRY_SERVER_USERNAME` and `DOCKER_REGISTRY_SERVER_PASSWORD` variables. To use the values, then, you must rebuild the image, push the image to the registry, and then restart the function app on Azure.
 
 ## Verify your functions on Azure
 
@@ -541,7 +541,7 @@ Replace `<APP_NAME>` with the name of your function app. When you navigate to th
 
 You can enable Azure Functions to automatically update your deployment of an image whenever you update the image in the registry.
 
-1. Enable continuous deployment and get the webhook URL by using the following commands:
+1. Use the following command to enable continuous deployment and to get the webhook URL:
 
     # [Azure CLI](#tab/azure-cli)
     ```azurecli
@@ -564,7 +564,7 @@ You can enable Azure Functions to automatically update your deployment of an ima
 
 1. Copy the deployment webhook URL to the clipboard.
 
-1. Open [Docker Hub](https://hub.docker.com/), sign in, and select **Repositories** on the navigation bar. Locate and select image, select the **Webhooks** tab, specify a **Webhook name**, paste your URL in **Webhook URL**, and then select **Create**:
+1. Open [Docker Hub](https://hub.docker.com/), sign in, and select **Repositories** on the navigation bar. Locate and select image, select the **Webhooks** tab, specify a **Webhook name**, paste your URL in **Webhook URL**, and then select **Create**.
 
     :::image type="content" source="./media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png" alt-text="Screenshot that shows Add the webhook in your Docker Hub window.":::  
 
