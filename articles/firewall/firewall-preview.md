@@ -88,6 +88,47 @@ In Azure Firewall Premium IDPS, private IP address ranges are used to identify i
 
 :::image type="content" source="media/firewall-preview/idps-private-ip.png" alt-text="Screenshot showing I D P S private IP address ranges.":::
 
+### Structured Firewall Logs (preview)
+
+Today, the following diagnostic log categories are available for Azure Firewall:
+- Application rule log
+- Network rule log
+- DNS proxy log
+
+These log categories use [Azure diagnostics mode](../azure-monitor/essentials/resource-logs.md#azure-diagnostics-mode). In this mode, all data from any diagnostic setting will be collected in the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table.
+
+With this new feature, you will be able to choose to use [Resource Specific Tables](../azure-monitor/essentials/resource-logs.md#resource-specific) instead of the existing [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table. In case both sets of logs are required, at least two diagnostic settings need to be created per firewall.
+
+In **Resource specific** mode, individual tables in the selected workspace are created for each category selected in the diagnostic setting. This method is recommended since it:
+- makes it much easier to work with the data in log queries
+- makes it easier to discover schemas and their structure
+- improves performance across both ingestion latency and query times
+- allows you to grant Azure RBAC rights on a specific table
+
+New resource specific tables are now available in Diagnostic setting, that allows you to utilize the following newly added categories:
+
+- [Network rule log](/azure/azure-monitor/reference/tables/azfwnetworkrule) - Contains all Network Rule log data. Each match between data plane and network rule creates a log entry with the data plane packet and the matched rule's attributes.
+- [NAT rule log](/azure/azure-monitor/reference/tables/azfwnatrule) - Contains all DNAT (Destination Network Address Translation) events log data. Each match between data plane and DNAT rule creates a log entry with the data plane packet and the matched rule's attributes.
+- [Application rule log](/azure/azure-monitor/reference/tables/azfwapplicationrule) - Contains all Application rule log data. Each match between data plane and Application rule creates a log entry with the data plane packet and the matched rule's attributes.
+- [Threat Intelligence log](/azure/azure-monitor/reference/tables/azfwthreatintel) - Contains all Threat Intelligence events.
+- [IDPS log](/azure/azure-monitor/reference/tables/azfwidpssignature) - Contains all data plane packets that were matched with one or more IDPS signatures.
+- [DNS proxy log](/azure/azure-monitor/reference/tables/azfwdnsquery) - Contains all DNS Proxy events log data.
+- [Internal FQDN resolve failure log](/azure/azure-monitor/reference/tables/azfwinternalfqdnresolutionfailure) - Contains all internal Firewall FQDN resolution requests that resulted in failure.
+- [Application rule aggregation log](/azure/azure-monitor/reference/tables/azfwapplicationruleaggregation) - Contains aggregated Application rule log data for Policy Analytics.
+- [Network rule aggregation log](/azure/azure-monitor/reference/tables/azfwnetworkruleaggregation) - Contains aggregated Network rule log data for Policy Analytics.
+- [NAT rule aggregation log](/azure/azure-monitor/reference/tables/azfwnatruleaggregation) - Contains aggregated NAT rule log data for Policy Analytics.
+
+By default, the new resource specific tables are disabled. Open a support ticket to enable the functionality in your environment.
+
+In addition, when setting up your log analytics workspace, you must select whether you want to work with the AzureDiagnostics table (default) or with Resource Specific Tables.
+
+Additional KQL log queries were added (as seen in the following screenshot) to query structured firewall logs.
+
+:::image type="content" source="media/firewall-preview/resource-specific-tables.png" alt-text="Screenshot showing Firewall logs Resource Specific Tables." lightbox="media/firewall-preview/resource-specific-tables-zoom.png":::
+
+> [!NOTE]
+> Existing Workbooks and any Sentinel integration will be adjusted to support the new structured logs when **Resource Specific** mode is selected.
+
 ## Next steps
 
 To learn more about Azure Firewall, see [What is Azure Firewall?](overview.md).
