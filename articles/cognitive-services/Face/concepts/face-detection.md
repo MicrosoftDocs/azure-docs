@@ -31,7 +31,7 @@ The face ID is a unique identifier string for each detected face in an image. Yo
 
 Face landmarks are a set of easy-to-find points on a face, such as the pupils or the tip of the nose. By default, there are 27 predefined landmark points. The following figure shows all 27 points:
 
-![A face diagram with all 27 landmarks labeled](../Images/landmarks.1.jpg)
+![A face diagram with all 27 landmarks labeled](../media/landmarks.1.jpg)
 
 The coordinates of the points are returned in units of pixels.
 
@@ -52,7 +52,7 @@ Attributes are a set of features that can optionally be detected by the [Face - 
 * **Hair**. The hair type of the face. This attribute shows whether the hair is visible, whether baldness is detected, and what hair colors are detected.
 * **Head pose**. The face's orientation in 3D space. This attribute is described by the roll, yaw, and pitch angles in degrees, which are defined according to the [right-hand rule](https://en.wikipedia.org/wiki/Right-hand_rule). The order of three angles is roll-yaw-pitch, and each angle's value range is from -180 degrees to 180 degrees. 3D orientation of the face is estimated by the roll, yaw, and pitch angles in order. See the following diagram for angle mappings:
 
-    ![A head with the pitch, roll, and yaw axes labeled](../Images/headpose.1.jpg)
+    ![A head with the pitch, roll, and yaw axes labeled](../media/headpose.1.jpg)
 
     For more details on how to use these values, see the [Head pose how-to guide](../Face-API-How-to-Topics/how-to-use-headpose.md).
 * **Makeup**. Whether the face has makeup. This attribute returns a Boolean value for eyeMakeup and lipMakeup.
@@ -89,7 +89,7 @@ Some input images with JPEG format might contain orientation information in Exch
 
 To properly display the face rectangle and landmarks, you need to make sure the image is rotated correctly. Most of image visualization tools will auto-rotate the image according to its Exif orientation by default. For other tools, you might need to apply the rotation using your own code. The following examples show a face rectangle on a rotated image (left) and a non-rotated image (right).
 
-![Two face images with and without rotation](../Images/image-rotation.png)
+![Two face images with and without rotation](../media/image-rotation.png)
 
 ### Video input
 

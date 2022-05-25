@@ -25,7 +25,7 @@ This guide demonstrates how to use the Find Similar feature in the different lan
 This guide uses remote images that are accessed by URL. Save a reference to the following URL string. All of the images accessed in this guide are located at this URL path.
 
 ```
-"https://csdx.blob.core.windows.net/resources/Face/Images/"
+"https://csdx.blob.core.windows.net/resources/Face/media/"
 ```
 
 ## Detect faces for comparison

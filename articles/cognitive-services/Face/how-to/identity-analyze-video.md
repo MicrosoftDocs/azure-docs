@@ -148,7 +148,7 @@ The second sample app is a bit more interesting, and allows you to choose which 
 
 In most modes, there will be a visible delay between the live video on the left, and the visualized analysis on the right. This delay is the time taken to make the API call. One exception is the "EmotionsWithClientFaceDetect" mode, which performs face detection locally on the client computer using OpenCV, before submitting any images to Cognitive Services. This way, we can visualize the detected face immediately and then update the emotions once the API call returns. This is an example of a "hybrid" approach, where the client can perform some simple processing, and Cognitive Services APIs can augment this with more advanced analysis when necessary.
 
-![HowToAnalyzeVideo](../../Video/Images/FramebyFrame.jpg)
+![HowToAnalyzeVideo](../../Video/media/FramebyFrame.jpg)
 
 ### Integrating into your codebase
 

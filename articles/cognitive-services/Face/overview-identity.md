@@ -59,7 +59,7 @@ Face identification can address "one-to-many" matching of one face in an image t
 
 The following image shows an example of a database named `"myfriends"`. Each group can contain up to 1 million different person objects. Each person object can have up to 248 faces registered.
 
-![A grid with three columns for different people, each with three rows of face images](./Images/person.group.clare.jpg)
+![A grid with three columns for different people, each with three rows of face images](./media/person.group.clare.jpg)
 
 After you create and train a group, you can do identification against the group with a new detected face. If the face is identified as a person in the group, the person object is returned.
 
@@ -80,11 +80,11 @@ The service supports two working modes, **matchPerson** and **matchFace**. The *
 
 The following example shows the target face:
 
-![A woman smiling](./Images/FaceFindSimilar.QueryFace.jpg)
+![A woman smiling](./media/FaceFindSimilar.QueryFace.jpg)
 
 And these images are the candidate faces:
 
-![Five images of people smiling. Images A and B show the same person.](./Images/FaceFindSimilar.Candidates.jpg)
+![Five images of people smiling. Images A and B show the same person.](./media/FaceFindSimilar.Candidates.jpg)
 
 To find four similar faces, the **matchPerson** mode returns A and B, which show the same person as the target face. The **matchFace** mode returns A, B, C, and D, which is exactly four candidates, even if some aren't the same person as the target or have low similarity. For more information, see the [Facial recognition](concepts/face-recognition.md) concepts guide or the [Find Similar API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) reference documentation.
 
