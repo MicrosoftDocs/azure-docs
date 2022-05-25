@@ -44,22 +44,16 @@ landingContent:
             url: howto-develop-create-instance.md
           - text: Create from Azure CLI
             url: quickstart-cli-create.md
-          - text: Connect to the instance from Azure CLI
-            url: quickstart-cli-try.md
-          - text: Connect to the instance from browser
-            url: quickstart-live-demo.md
       - linkListType: tutorial
         links:
           - text: Build a chat app 
             url: tutorial-build-chat.md
-          - text: Start with a simple chatroom serverless application 
+          - text: Build a serverless notification app with Azure Functions
+            url: tutorial-serverless-notification.md
+          - text: Build a simple chatroom serverless application 
             url: quickstart-serverless.md
-          - text: Serverless Development with Azure Functions
-            url: tutorial-serverless-notification.md 
           - text: Client streaming using service-supported subprotocol
             url: tutorial-subprotocol.md
-          - text: Authentication and permissions
-            url: tutorial-permission.md
 
   # Card
   - title: Live Demos
@@ -77,7 +71,11 @@ landingContent:
 
   # Card
   - title: Common tasks
-    linkLists:       
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Authentication and permissions
+            url: tutorial-permission.md
       - linkListType: how-to-guide
         links:
           - text: Use private endpoints
