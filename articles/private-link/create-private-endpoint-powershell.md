@@ -105,8 +105,6 @@ In this section, you'll:
 
 - Create a private link service connection with [New-AzPrivateLinkServiceConnection](/powershell/module/az.network/new-azprivatelinkserviceconnection).
 
-- Create the private endpoint static IP configuration with [New-AzPrivateEndpointIpConfiguration](/powershell/module/az.network/new-azprivateendpointipconfiguration).
-
 - Create the private endpoint with [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint).
 
 # [**Dynamic IP**](#tab/dynamic-ip)
@@ -139,6 +137,8 @@ New-AzPrivateEndpoint @pe
 ```
 
 # [**Static IP**](#tab/static-ip)
+
+- Create the private endpoint static IP configuration with [New-AzPrivateEndpointIpConfiguration](/powershell/module/az.network/new-azprivateendpointipconfiguration).
 
 ```azurepowershell-interactive
 ## Place the previously created webapp into a variable. ##
