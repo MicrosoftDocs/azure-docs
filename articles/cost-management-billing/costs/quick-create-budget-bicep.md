@@ -6,7 +6,7 @@ ms.author: v-eschaffer
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: quickstart
-ms.date: 05/20/2022
+ms.date: 05/25/2022
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
 ---
 

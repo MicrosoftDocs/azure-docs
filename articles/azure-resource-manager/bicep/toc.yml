@@ -69,6 +69,8 @@
       href: ../../hdinsight/kafka/apache-kafka-quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: HDInsight - Spark
       href: ../../hdinsight/spark/apache-spark-jupyter-spark-use-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Azure Synapse Analytics - Dedicated SQL pool
+      href: ../../synapse-analytics/sql-data-warehouse/quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Compute
     items:
     - name: Batch
@@ -83,6 +85,8 @@
       href: ../../container-instances/container-instances-quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Databases
     items:
+    - name: Cache for Redis
+      href: ../../azure-cache-for-redis/cache-redis-cache-bicep-provision.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Cosmos DB
       href: ../../cosmos-db/sql/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Database for MariaDB
@@ -95,6 +99,8 @@
       href: ../../dms/create-dms-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: SQL Database
       href: /azure/azure-sql/database/single-database-create-bicep-quickstart
+    - name: SQL Managed Instance
+      href: /azure/azure-sql/managed-instance/create-bicep-quickstart
   - name: DevOps
     items:
     - name: App Configuration
@@ -113,6 +119,8 @@
     items:
     - name: Cost Management + Billing
       href: ../../cost-management-billing/costs/quick-create-budget-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Resource Graph
+      href: ../../governance/resource-graph/shared-query-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Media Services
     items:
     - name: Media Services account
@@ -143,6 +151,8 @@
     items:
     - name: Attestation
       href: ../../attestation/quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Defender for Cloud
+      href: ../../defender-for-cloud/quickstart-automation-alert.md?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Key Vault - secret
       href: ../../key-vault/secrets/quick-create-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Storage
@@ -153,6 +163,12 @@
     items:
     - name: API Management
       href: ../../api-management/quickstart-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Notification Hubs
+      href: ../../notification-hubs/create-notification-hub-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: Redis Web App
+      href: ../../azure-cache-for-redis/cache-web-app-bicep-with-redis-cache-provision.md?toc=/azure/azure-resource-manager/bicep/toc.json
+    - name: SignalR Service
+      href: ../../azure-signalr/signalr-quickstart-azure-signalr-service-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
 - name: Concepts
   expanded: true
   items:
@@ -271,6 +287,8 @@
       items:
       - name: Access control
         href: scenarios-rbac.md
+      - name: Monitoring
+        href: scenarios-monitoring.md
       - name: Secrets
         href: scenarios-secrets.md
       - name: Virtual networks
