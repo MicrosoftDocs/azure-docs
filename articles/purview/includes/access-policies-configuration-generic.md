@@ -58,7 +58,7 @@ Check the section on managing Microsoft Purview role assignments in this [guide]
 > - IAM Owner role for a data source can be inherited from parent resource group, subscription or subscription Management Group. 
 > - Once a resource has been enabled for *Data Use Management*, **any** Microsoft Purview root-collection *policy author* will be able to create access policies against it, and **any** Microsoft Purview root-collection *Data source admin* will be able to publish those policies at **any point afterwards**.
 > - **Any** Microsoft Purview root *Collection admin* can assign **new** root-collection *Data Source Admin* and *Policy author* roles.
-> - If the Microsoft Purview account is deleted then any published policies will stop being enforced. This can have implications both on security and data access availability.
+> - If the Microsoft Purview account is deleted then any published policies will stop being enforced within an amount of time that is dependent on the specific data source. This can have implications both on security and data access availability.
 
 With these warnings in mind, here are some **suggested best practices for permissions:**
 - Minimize the number of people that hold Microsoft Purview root *Collection admin*, root *Data Source Admin* or root *Policy author* roles.

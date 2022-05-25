@@ -71,7 +71,7 @@ This paper looks at schema migration with a goal of equivalent or better perform
 
 When migrating from a Netezza environment, there are some specific topics to consider in addition to the more general subjects described in this article.
 
-#### Choosing the workload for the initial migration
+#### Choose the workload for the initial migration
 
 Legacy Netezza environments have typically evolved over time to encompass multiple subject areas and mixed workloads. When deciding where to start on an initial migration project, choose an area that can:
 
@@ -240,7 +240,7 @@ In Netezza, a sequence is a named database object created via `CREATE SEQUENCE` 
 
 Within Azure Synapse, there's no `CREATE SEQUENCE`. Sequences are handled via use of [IDENTITY](/sql/t-sql/statements/create-table-transact-sql-identity-property?msclkid=8ab663accfd311ec87a587f5923eaa7b) columns or using SQL code to create the next sequence number in a series.
 
-### Extracting metadata and data from a Netezza environment
+### Extract metadata and data from a Netezza environment
 
 #### Data Definition Language (DDL) generation
 
