@@ -1,0 +1,47 @@
+### YamlMime:FAQ
+metadata:
+  title: Azure Key Vault certificate renewal FAQ
+  description: Frequently asked questions about Azure Key Vault certificate renewal
+  services: key-vault
+  author: msmbaldwin
+  tags: azure-resource-manager
+  
+  ms.service: key-vault
+  ms.subservice: certificates
+  ms.topic: overview
+  ms.date: 07/20/2020
+  ms.author: sebansal
+    
+title: Renew your Azure Key Vault certificates
+summary: | 
+  Here are some answers to common questions about [Azure Key Vault certificate renewal](/azure/key-vault/certificates/overview-renew-certificate).
+
+sections:
+  - name: Ignored
+    questions:
+      - question: What if the issued certificate is in *disabled* status in the Azure portal?
+        answer: |
+        Go to **Certificate Operation** and view the certificate's error message.
+      - question: XXX?
+        answer: |
+          XXX
+      - question: How do I resolve error type "The CSR used to get your certificate has already been used. Please try to generate a new certificate with a new CSR."
+        answer: |
+          Go to 'Advanced Policy' section of the certificate and check if **'reuse key on renewal'** option is turned off.
+      - question: How can I test the autorotation feature of the certificate?
+        answer: |
+          Create a self-signed certificate with a validity of **1 month**, and then set the lifetime action for rotation at **1%**. You should be able to view certificate version history being created over next few days.
+      - question: Will the tags be replicated after autorenewal of the certificate?
+        answer: |
+          Yes, the tags are replicated after autorenewal.
+      - question: XXX?
+        answer: |
+          XXX
+      - question: Will the tags be replicated after autorenewal of the certificate?
+        answer: |
+          Yes, the tags are replicated after autorenewal.
+      - question: XXX?
+        answer: |
+          XXX
+
+
