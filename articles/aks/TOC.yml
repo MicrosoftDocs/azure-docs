@@ -364,7 +364,7 @@
               href: limit-egress-traffic.md
             - name: Use a user defined route for egress
               href: egress-outboundtype.md
-            - name: Managed NAT Gateway (preview)
+            - name: Managed NAT Gateway
               href: nat-gateway.md              
         - name: Customize CoreDNS
           href: coredns-custom.md
