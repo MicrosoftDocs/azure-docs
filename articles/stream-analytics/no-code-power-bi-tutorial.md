@@ -77,7 +77,7 @@ Before you start, make sure you've completed the following steps:
     :::image type="content" source="./media/stream-analytics-no-code/add-make-field.png" alt-text="Screenshot showing the addition of the Make field." lightbox="./media/stream-analytics-no-code/add-make-field.png":::    
 1. Select **Manage fields** on the command bar. Connect the **Manage Fields** tile to the **Group by tile** on canvas. Select **Add all fields** on the **Manage fields** configuration page. 
 
-    :::image type="content" source="./media/stream-analytics-no-code/manage-fields.png" alt-text="Screenshot of the Group by configuration page." lightbox="./media/stream-analytics-no-code/manage-fields.png":::    
+    :::image type="content" source="./media/stream-analytics-no-code/manage-fields.png" alt-text="Screenshot of the Manage fields page." lightbox="./media/stream-analytics-no-code/manage-fields.png":::    
 1. Select **...** next to the fields, and select **Edit** to rename them.
     - **COUNT_make** to **CarCount**
     - **Window_End_Time** to **times**
