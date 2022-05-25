@@ -217,14 +217,14 @@ sections:
          Can I replicate over a site-to-site VPN to Azure?
         answer: |
              Azure Site Recovery replicates data to an Azure storage account or managed disks, over a public endpoint. However, replication can be performed over Site-to-Site VPN as well. Site-to-Site VPN connectivity allows organizations to connect existing networks to Azure, or Azure networks to each other. Site-to-Site VPN occurs over IPSec tunneling over the internet, leveraging existing on-premises edge network equipment and network appliances in Azure, either native features like Azure Virtual Private Network (VPN) Gateway or 3rd party options such as Check Point CloudGaurd, Palo Alto NextGen Firewall.
-            * Pros:
-                * Private connectivity over the public Internet to Microsoft Edge
-                * Recovery Service Vaults configured for security with Private Endpoints
-                  * Replication over customer private Virtual Network connection
-                * Easy transition to "Future State"
-            * Cons: 
-              * No SLA and potentially higer latency
-              * requires an on-premises VPN device availability
+                
+             - Private connectivity over the public Internet to Microsoft Edge
+             - Recovery Service Vaults configured for security with Private Endpoints
+             - Replication over customer private Virtual Network connection
+             - Easy transition to "Future State"
+             - No SLA and potentially higher latency
+             - Requires an on-premises VPN device availability
+
       - question: |
          Can I use Riverbed SteelHeads for replication?
         answer: |
