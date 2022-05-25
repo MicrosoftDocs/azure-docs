@@ -4,6 +4,7 @@ description: Rebuild Studio (classic) datasets in Azure Machine Learning designe
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
+ms.custom: event-tier1-build-2022
 ms.topic: how-to
 
 author: xiaoharper
@@ -26,7 +27,7 @@ You have three options to migrate a dataset to Azure Machine Learning. Read each
 |Cloud storage     | Option 2: [Register a dataset from a cloud source](#import-data-from-cloud-sources). <br><br>  Option 3: [Use the Import Data module to get data from a cloud source](#import-data-from-cloud-sources).        |
 
 > [!NOTE]
-> Azure Machine Learning also supports [code-first workflows](how-to-create-register-datasets.md) for creating and managing datasets. 
+> Azure Machine Learning also supports [code-first workflows](./v1/how-to-create-register-datasets.md) for creating and managing datasets. 
 
 ## Prerequisites
 
