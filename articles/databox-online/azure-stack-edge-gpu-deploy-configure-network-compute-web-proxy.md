@@ -503,9 +503,6 @@ After the virtual switches are created, you can enable these switches for Kubern
 
 1. The configuration takes a couple minutes to apply and you may need to refresh the browser. 
 
-<!-->> [!IMPORTANT]
-> Only one virtual switch can be assigned for compute.-->
-
 
 ::: zone-end
   
@@ -523,7 +520,7 @@ This is an optional configuration. Although web proxy configuration is optional,
 
    2. To validate and apply the configured web proxy settings, select **Apply**.
 
-   ![Local web UI "Web proxy settings" page 2](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-web-proxy-1.png)<!--UI text update for instruction text is needed.-->
+   ![Local web UI "Web proxy settings" page 2](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-web-proxy-1.png).
 
 1. After the settings are applied, select **Next: Device**.
 
