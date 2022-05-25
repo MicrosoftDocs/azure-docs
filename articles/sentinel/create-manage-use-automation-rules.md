@@ -31,7 +31,16 @@ You also want to determine your use case. What are you trying to accomplish with
 
 ### Determine the trigger
 
+Do you want this automation to be activated when new incidents are created? Or any time an incident gets updated?
 
+Automation rules are triggered **when an incident is created or updated** (the update trigger is now in **Preview**). To review – incidents are created from alerts by analytics rules, of which there are several types, as explained in [Detect threats with built-in analytics rules in Microsoft Sentinel](detect-threats-built-in.md).
+
+The following table shows the different possible ways that incidents can be created or updated that will cause an automation rule to run.
+
+| Trigger type | Events that cause the rule to run |
+| --------- | ------------ |
+| **An incident was created** | - A new incident is created by an analytics rule.<br>- An incident is ingested from Microsoft 365 Defender.<br>- A new incident is created manually. |
+| **An incident was updated** | - An incident's status is changed (closed/reopened/triaged).<br>- An incident's owner is assigned or changed.<br>- An incident's severity is raised or lowered.<br>- Alerts are added to an incident.<br>- Comments, tags, or tactics are added to an incident. |
 
 ## Begin creating an automation rule
 
@@ -48,6 +57,8 @@ Depending on your choice of scope and use case, choose a location from which to 
 # [Incidents](#tab/incidents)
 
 1. From the **Incidents** blade in the Microsoft Sentinel navigation menu, select an example of the incident you want to suppress.
+
+    :::image type="content" source="media/create-manage-use-automation-rules/create-automation-rule-on-incident.png" alt-text="Screenshot of creating an automation rule from the incidents blade." lightbox="media/create-manage-use-automation-rules/create-automation-rule-on-incident.png":::
 
 1. Select **Actions** at the bottom of the incident details pane, and then **Create automation rule**.
 
