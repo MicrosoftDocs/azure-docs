@@ -100,7 +100,7 @@ Steps 3 and 5 in the procedure above prevent the accumulation of files in the im
 
 You can automate step 3 above using PowerShell or XML. This will cause the application package to be automatically deleted after the successful registration of the application type.
 
-[PowerShell](https://docs.microsoft.com/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps):
+[PowerShell](/powershell/module/servicefabric/register-servicefabricapplicationtype?view=azureservicefabricps&preserve-view=true):
 
 ```powershell
 Register-ServiceFabricApplicationTye -ApplicationPackageCleanupPolicy Automatic
