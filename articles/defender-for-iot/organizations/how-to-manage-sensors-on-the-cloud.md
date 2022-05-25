@@ -170,9 +170,8 @@ Defender for IoT will indicate a sensor health issue for any of the following sc
 
 - Sensor traffic to Azure isn't stable
 - Sensor fails regular sanity tests
-- Sensor is overloaded and is dropping packets
 - No traffic detected by the sensor
-- Sensor software version is out of date and cannot connect
+- Sensor software version is no longer supported
 - A [remote sensor upgrade from the Azure portal](update-ot-software.md#update-your-sensors) fails
 
 For more information, see our [Sensor health message reference](sensor-health-messages.md).
