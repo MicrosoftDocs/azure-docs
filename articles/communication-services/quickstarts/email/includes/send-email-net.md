@@ -25,7 +25,7 @@ Completing this quick start incurs a small cost of a few USD cents or less in yo
 ### Prerequisite check
 
 - In a terminal or command window, run the `dotnet` command to check that the .NET client library is installed.
-- To view the subdomains associated with your Email Communication Services resource, sign in to the [Azure portal](https://portal.azure.com/), locate your Email Communication Services resource and open the **Provision domains** tab from the left navigation pane.
+- To view the subdomains associated with your Email Communication Services resource, sign in to the [Azure portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_EmailCommunicationServicesHidden), locate your Email Communication Services resource and open the **Provision domains** tab from the left navigation pane.
 
 ## Setting up
 
@@ -90,17 +90,17 @@ The following classes and interfaces handle some of the major features of the Az
 | EmailCustomHeader   | This class allows for the addition of a name and value pair for a custom header.                                                                     |
 | EmailMessage        | This class combines the sender, content, and recipients. Custom headers, attachments, and reply-to email addresses can optionally be added, as well. |
 | EmailRecipients     | This class holds lists of EmailAddress objects for recipients of the email message, including optional lists for CC & BCC recipients.                |
-| SendStatusResult | This class holds lists of status of the email message delivery .                                             |
+| SendStatusResult | This class holds lists of status of the email message delivery.                                             |
 
 ## Authenticate the client
 
- Open **Program.cs** in a text editor and replace the body of the `Main` method with code to initialize an `EmailClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage you resource's connection string](../../create-communication-resource.md#store-your-connection-string).
+ Open **Program.cs** in a text editor and replace the body of the `Main` method with code to initialize an `EmailClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
 
 ```csharp
 // This code demonstrates how to fetch your connection string
 // from an environment variable.
 string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_CONNECTION_STRING");
-
+EmailClient emailClient = new EmailClient(connectionString);
 ```
 ## Send an email message
 

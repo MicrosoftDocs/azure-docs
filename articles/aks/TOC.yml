@@ -337,7 +337,7 @@
           href: load-balancer-standard.md
         - name: Use a static IP address and DNS label
           href: static-ip.md
-        - name: Use an HTTP proxy (preview)
+        - name: Use an HTTP proxy
           href: http-proxy.md
         - name: Ingress
           items:

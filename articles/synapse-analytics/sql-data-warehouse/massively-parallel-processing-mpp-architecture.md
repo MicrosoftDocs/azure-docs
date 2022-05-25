@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 11/04/2019
 ms.author: martinle
-ms.reviewer: igorstan
+ms.reviewer: wiassaf
 ---
 
 # Dedicated SQL pool (formerly SQL DW) architecture in Azure Synapse Analytics

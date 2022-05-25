@@ -1,5 +1,5 @@
 ---
-title: "Minimizing SQL issues for Teradata migrations"
+title: "Minimize SQL issues for Teradata migrations"
 description: Learn how to minimize the risk of SQL issues when migrating from Teradata to Azure Synapse. 
 ms.service: synapse-analytics
 ms.subservice: sql-dw
@@ -12,7 +12,7 @@ ms.reviewer: wiassaf
 ms.date: 05/24/2022
 ---
 
-# Minimizing SQL issues for Teradata migrations
+# Minimize SQL issues for Teradata migrations
 
 This article is part five of a seven part series that provides guidance on how to migrate from Teradata to Azure Synapse Analytics. This article provides best practices for minimizing SQL issues.
 
@@ -36,10 +36,10 @@ This combination of SQL and dimensional data models simplifies migration to Azur
 
 While the SQL language has been standardized, individual vendors have in some cases implemented proprietary extensions. This document highlights potential SQL differences you may encounter while migrating from a legacy Teradata environment, and to provide workarounds.
 
-### Using a VM Teradata instance as part of a migration
+### Use an Azure VM Teradata instance as part of a migration
 
 > [!TIP]
-> Use the VM capability in Azure to create a temporary Teradata instance to speed up migration and minimize impact on the source system.
+> Use an Azure VM to create a temporary Teradata instance to speed up migration and minimize impact on the source system.
 
 Leverage the Azure environment when running a migration from an on-premises Teradata environment. Azure provides affordable cloud storage and elastic scalability to create a Teradata instance within a VM in Azure, collocated with the target Azure Synapse environment.
 
