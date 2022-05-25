@@ -228,7 +228,7 @@ And a `local.settings.json` file that might structure the custom setting as foll
 ```
 
 > [!NOTE]
-> ':' are not allowed for Application setting names in the Azure Portal. Use two underscores '__' instead. For example, _MyOptions:MyCustomSetting_ becomes _MyOptions__MyCustomSetting_.
+> ':' are not allowed for Application setting names in the Azure Portal. Use two underscores '__' instead. For example, _MyOptions:MyCustomSetting_ becomes _MyOptions__MyCustomSetting_ in the portal.
 
 From inside the `Startup.Configure` method, you can extract values from the `IConfiguration` instance into your custom type using the following code:
 
