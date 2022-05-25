@@ -75,8 +75,8 @@ landingContent:
             url: https://azure.github.io/azure-webpubsub/demos/scoreboard
 
   # Card
-   - title: Common tasks
-     linkLists:       
+  - title: Common tasks
+    linkLists:       
       - linkListType: how-to-guide
         links:
           - text: Use private endpoints
@@ -87,8 +87,8 @@ landingContent:
             url: howto-monitor-azure-policy.md
   
   # Card
-   - title: Advanced usage
-     linkLists:       
+  - title: Advanced usage
+    linkLists:       
       - linkListType: concept
         links:
           - text: High availability
@@ -104,9 +104,9 @@ landingContent:
           - text: Debug event handler locally
             url: howto-local-debug-event-handler.md
 
-   # Card
-   - title: More resources
-     linkLists:       
+  # Card
+  - title: More resources
+    linkLists:       
       - linkListType: reference
         links:
           - text: REST API
