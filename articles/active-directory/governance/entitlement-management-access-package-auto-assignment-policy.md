@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 ---
 # Configure an automatic assignment policy for an access package in Azure AD entitlement management
 
-As an access package manager, you can establish a policy for assignments in an access package, that creates and removes assignments automatically, based on the attributes of a subject user.
+As an access package manager, you can establish a policy for assignments in an access package that creates and removes assignments automatically, based on the attributes of a subject user.
 
 This article describes how to create an access package automatic assignment policy for an existing access package.
 
