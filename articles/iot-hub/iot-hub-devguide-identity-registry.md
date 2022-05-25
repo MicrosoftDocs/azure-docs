@@ -47,6 +47,9 @@ An IoT Hub identity registry:
 > [!IMPORTANT]
 > Only use the identity registry for device management and provisioning operations. High throughput operations at run time should not depend on performing operations in the identity registry. For example, checking the connection state of a device before sending a command is not a supported pattern. Make sure to check the [throttling rates](iot-hub-devguide-quotas-throttling.md) for the identity registry, and the [device heartbeat](iot-hub-devguide-identity-registry.md#device-heartbeat) pattern.
 
+> [!NOTE]
+> It can take a few seconds for a device or module identity to be available for retrieval after creation. Please retry `get` operation of device or module identities in case of failures.
+
 ## Disable devices
 
 You can disable devices by updating the **status** property of an identity in the identity registry. Typically, you use this property in two scenarios:

@@ -1,19 +1,22 @@
 ---
 title: "Quickstart - Integrate with Azure Database for MySQL"
-description: Explains how to provision and prepare an Azure Database for MySQL instance, and then configure Pet Clinic on Azure Spring Cloud to use it as a persistent database with only one command.
+description: Explains how to provision and prepare an Azure Database for MySQL instance, and then configure Pet Clinic on Azure Spring Apps to use it as a persistent database with only one command.
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/15/2021
-ms.custom: devx-track-java, devx-track-azurecli, mode-other
+ms.custom: devx-track-java, devx-track-azurecli, mode-other, event-tier1-build-2022
 ---
 
-# Quickstart: Integrate Azure Spring Cloud with Azure Database for MySQL
+# Quickstart: Integrate Azure Spring Apps with Azure Database for MySQL
+
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ✔️ Basic/Standard tier ❌ Enterprise tier
 
-Pet Clinic, as deployed in the default configuration [Quickstart: Build and deploy apps to Azure Spring Cloud](quickstart-deploy-apps.md), uses an in-memory database (HSQLDB) that is populated with data at startup. This quickstart explains how to provision and prepare an Azure Database for MySQL instance and then configure Pet Clinic on Azure Spring Cloud to use it as a persistent database with only one command.
+Pet Clinic, as deployed in the default configuration [Quickstart: Build and deploy apps to Azure Spring Apps](quickstart-deploy-apps.md), uses an in-memory database (HSQLDB) that is populated with data at startup. This quickstart explains how to provision and prepare an Azure Database for MySQL instance and then configure Pet Clinic on Azure Spring Apps to use it as a persistent database with only one command.
 
 ## Prerequisites
 
@@ -134,7 +137,7 @@ export MYSQL_DATABASE_NAME=petclinic
 To enable MySQL as database for the sample app, simply update the *customer-service* app with active profile MySQL and database credentials as environment variables.
 
 ```azcli
-az spring-cloud app update \
+az spring app update \
     --name customers-service \
     --jvm-options="-Xms2048m -Xmx2048m -Dspring.profiles.active=mysql" \
     --env \
@@ -147,25 +150,25 @@ az spring-cloud app update \
 ## Update extra apps
 
 ```azcli
-az spring-cloud app update --name api-gateway \
+az spring app update --name api-gateway \
     --jvm-options="-Xms2048m -Xmx2048m -Dspring.profiles.active=mysql"
-az spring-cloud app update --name admin-server \
+az spring app update --name admin-server \
     --jvm-options="-Xms2048m -Xmx2048m -Dspring.profiles.active=mysql"
-az spring-cloud app update --name customers-service \
+az spring app update --name customers-service \
     --jvm-options="-Xms2048m -Xmx2048m -Dspring.profiles.active=mysql" \
     --env \
         MYSQL_SERVER_FULL_NAME=${MYSQL_SERVER_FULL_NAME} \
         MYSQL_DATABASE_NAME=${MYSQL_DATABASE_NAME} \
         MYSQL_SERVER_ADMIN_LOGIN_NAME=${MYSQL_SERVER_ADMIN_LOGIN_NAME} \
         MYSQL_SERVER_ADMIN_PASSWORD=${MYSQL_SERVER_ADMIN_PASSWORD}
-az spring-cloud app update --name vets-service \
+az spring app update --name vets-service \
     --jvm-options="-Xms2048m -Xmx2048m -Dspring.profiles.active=mysql" \
     --env \
         MYSQL_SERVER_FULL_NAME=${MYSQL_SERVER_FULL_NAME} \
         MYSQL_DATABASE_NAME=${MYSQL_DATABASE_NAME} \
         MYSQL_SERVER_ADMIN_LOGIN_NAME=${MYSQL_SERVER_ADMIN_LOGIN_NAME} \
         MYSQL_SERVER_ADMIN_PASSWORD=${MYSQL_SERVER_ADMIN_PASSWORD}
-az spring-cloud app update --name visits-service \
+az spring app update --name visits-service \
     --jvm-options="-Xms2048m -Xmx2048m -Dspring.profiles.active=mysql" \
     --env \
         MYSQL_SERVER_FULL_NAME=${MYSQL_SERVER_FULL_NAME} \
@@ -187,5 +190,5 @@ echo "Press [ENTER] to continue ..."
 
 ## Next steps
 
-* [Bind an Azure Database for MySQL instance to your application in Azure Spring Cloud](how-to-bind-mysql.md)
-* [Use a managed identity to connect Azure SQL Database to an app in Azure Spring Cloud](./connect-managed-identity-to-azure-sql.md)
+* [Bind an Azure Database for MySQL instance to your application in Azure Spring Apps](how-to-bind-mysql.md)
+* [Use a managed identity to connect Azure SQL Database to an app in Azure Spring Apps](./connect-managed-identity-to-azure-sql.md)

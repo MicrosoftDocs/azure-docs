@@ -1,49 +1,38 @@
 - name: Azure Machine Learning Documentation
   href: index.yml
+- name: Switch to SDK & CLI v1 documentation
+  href: v1/introduction.md
 - name: Overview
-  items:
+  items: 
     - name: What is Azure Machine Learning?
       displayName: AML, services, overview, introduction
       href: overview-what-is-azure-machine-learning.md
     - name: What is Azure Machine Learning studio?
       displayName: AML, studio, designer
       href: overview-what-is-machine-learning-studio.md
-    - name: Architecture & terms
-      displayName: architecture, concepts, definitions, glossary
-      href: concept-azure-machine-learning-architecture.md
-    - name: "Migrate from ML Studio (classic)"
-      items:
-        - name: Migration overview
-          href: migrate-overview.md
-        - name: Migrate datasets
-          href: migrate-register-dataset.md
-        - name: Rebuild experiments
-          href: migrate-rebuild-experiment.md
-        - name: Rebuild web services
-          href: migrate-rebuild-web-service.md
-        - name: Migrate client applications
-          href: migrate-rebuild-integrate-with-client-app.md
-        - name: Rebuild Execute R Script components
-          href: migrate-execute-r-script.md
+    - name: How it works
+      displayName: concepts, definitions, glossary
+      href: concept-azure-machine-learning-v2.md
+    
 - name: Quickstart
   expanded: true
-  items:
+  items: 
     - name: Create ML resources to get started
       href: quickstart-create-resources.md
 - name: Tutorials
   expanded: true
-  items:
-    - name: "Python get started (Day 1)"
+  items: 
+    - name: Python get started (Day 1)
       expanded: true
-      items:
-        - name: '1. Run a Python script'
+      items: 
+        - name: 1. Run a Python script
           href: tutorial-1st-experiment-hello-world.md
         - name: 2. Train your model
           href: tutorial-1st-experiment-sdk-train.md
         - name: 3. Use your own data
           href: tutorial-1st-experiment-bring-data.md
     - name: Jupyter Notebooks
-      items:
+      items: 
         - name: Train & deploy image classification
           displayName: MNIST
           href: tutorial-train-deploy-notebook.md
@@ -52,16 +41,16 @@
             - name: Regression (NYC Taxi data)
               displayName: automl, automated, auto ml,
               href: tutorial-auto-train-models.md
-            - name: Object detection with AutoML 
+            - name: Object detection with AutoML
               displayName: automl, automated, auto ml, computer vision, images, image model
               href: tutorial-auto-train-image-models.md
         - name: Prep your code for production
           displayName: mlops, mlopspython, production
           href: tutorial-convert-ml-experiment-to-production.md
     - name: Studio
-      items:
+      items: 
         - name: Automated ML (UI)
-          items:
+          items: 
             - name: Create automated ML experiments
               displayName: automl, automated, auto ml, portal, ui
               href: tutorial-first-experiment-automated-ml.md
@@ -69,7 +58,7 @@
               displayName: automl, automated, auto ml, portal, ui
               href: tutorial-automated-ml-forecast.md
         - name: Designer (drag-n-drop)
-          items:
+          items: 
             - name: 1. Train a regression model
               displayName: studio
               href: tutorial-designer-automobile-price-train-score.md
@@ -77,29 +66,29 @@
               displayName: studio
               href: tutorial-designer-automobile-price-deploy.md
     - name: Visual Studio Code
-      items:
+      items: 
         - name: Train a TensorFlow image classification model
           href: tutorial-train-deploy-image-classification-model-vscode.md
-    - name: "Microsoft Power BI integration"
-      items:
+    - name: Microsoft Power BI integration
+      items: 
         - name: "Part 1: Train and deploy models"
-          items:
-            - name: "Use Notebooks (code)"
+          items: 
+            - name: Use Notebooks (code)
               href: tutorial-power-bi-custom-model.md
-            - name: "Use designer"
+            - name: Use designer
               href: tutorial-power-bi-designer-model.md
-            - name: "Use automated ML"
+            - name: Use automated ML
               href: tutorial-power-bi-automated-model.md
         - name: "Part 2: Consume in Power BI"
           href: /power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context
-    - name: "Create a secure workspace"
-      href: "tutorial-create-secure-workspace.md"
-    - name: "Create a secure workspace with templates"
-      href: "tutorial-create-secure-workspace-template.md"
-    - name: "Build a training pipeline (Python)"
-      href: "tutorial-pipeline-python-sdk.md"
+    - name: Create a secure workspace
+      href: tutorial-create-secure-workspace.md
+    - name: Create a secure workspace with templates
+      href: tutorial-create-secure-workspace-template.md
+    - name: Build a training pipeline (Python SDK V2)(preview)
+      href: tutorial-pipeline-python-sdk.md
 - name: Samples
-  items:
+  items: 
     - name: Jupyter Notebooks
       displayName: example, examples, server, jupyter, azure notebooks, python, notebook, github
       href: samples-notebooks.md
@@ -112,9 +101,11 @@
     - name: End-to-end MLOps examples
       href: https://github.com/microsoft/MLOps
 - name: Concepts
-  items:
+  items: 
+    - name: What is v2?
+      href: concept-v2.md
     - name: Train models
-      items:
+      items: 
         - name: Model training
           displayName: run config, machine learning pipeline, ml pipeline, train model
           href: concept-train-machine-learning-model.md
@@ -125,7 +116,7 @@
           displayName: deep learning vs machine learning, deep learning, vs, versus
           href: concept-deep-learning-vs-machine-learning.md
         - name: AutoML
-          items:
+          items: 
             - name: Automated ML overview
               displayName: automl, auto ml
               href: concept-automated-ml.md
@@ -133,54 +124,66 @@
               displayName: automl, auto ml, risks
               href: concept-manage-ml-pitfalls.md
         - name: Designer (drag-n-drop ML)
-          items:
-          - name: Designer overview
-            displayName: studio
-            href: concept-designer.md
-          - name: Algorithm cheat sheet
-            href: algorithm-cheat-sheet.md
-          - name: How to select algorithms
-            href: how-to-select-algorithms.md
-
+          items: 
+            - name: Designer overview
+              displayName: studio
+              href: concept-designer.md
+            - name: Algorithm cheat sheet
+              href: algorithm-cheat-sheet.md
+            - name: How to select algorithms
+              href: how-to-select-algorithms.md
     - name: Deploy models
-      items:
+      items: 
         - name: Endpoints
           href: concept-endpoints.md
         - name: Model portability (ONNX)
           href: concept-onnx.md
         - name: Prebuilt docker images for inference
           href: concept-prebuilt-docker-images-inference.md
-
     - name: Manage the ML lifecycle (MLOps)
+      items: 
+        - name: MLOps capabilities
+          displayName: deploy, deployment, publish, production, operationalize, operationalization
+          href: concept-model-management-and-deployment.md
+        - name: Open-source integrations
+          href: concept-open-source.md
+        - name: ML pipelines
+          href: concept-ml-pipelines.md
+        - name: ML components
+          href: concept-component.md
+        - name: MLflow
+          href: concept-mlflow.md
+    - name: Responsible AI
       items:
-          - name: MLOps capabilities
-            displayName: deploy, deployment, publish, production, operationalize, operationalization
-            href: concept-model-management-and-deployment.md
-          - name: Open-source integrations
-            href: concept-open-source.md
-          - name: ML pipelines
-            href: concept-ml-pipelines.md
-          - name: ML components
-            href: concept-component.md
-          - name: MLflow
-            href: concept-mlflow.md
-          - name: Responsible AI
-            items:
-              - name: Responsible AI overview
-                displayName: responsible,ml
-                href: concept-responsible-ml.md
-              - name: Model interpretability
-                displayName: explainability
-                href: how-to-machine-learning-interpretability.md
-              - name: Fairness in Machine Learning
-                displayName: fairness
-                href: concept-fairness-ml.md
-              - name: Differential Privacy
-                displayName: differential,privacy
-                href: concept-differential-privacy.md
-
+        - name: Responsible AI overview
+          displayName: responsible, ml
+          href: concept-responsible-ml.md
+        - name: Implement Responsible AI in Practice
+          items:
+           - name: Responsible AI dashboard
+             href: concept-responsible-ai-dashboard.md
+           - name: Model interpretability
+             displayName: explainability, explanations, interpretability
+             href: how-to-machine-learning-interpretability.md
+           - name: Fairness in Machine Learning
+             displayName: fairness, bias, model performance, disparity metrics, unfairness
+             href: concept-fairness-ml.md
+           - name: Causal analysis
+             displayName: causal analysis, causal inference
+             href: concept-causal-inference.md
+           - name: Assess errors in ML models
+             displayName: error analysis, model error
+             href: concept-error-analysis.md
+           - name: Understand your datasets
+             displayName: exploratory data analysis, EDA, dataset explorer
+             href: concept-data-analysis.md
+           - name: Counterfactual analysis and what-if
+             href: concept-counterfactual-analysis.md
+           - name: Differential Privacy
+             displayName: differential,privacy
+             href: concept-differential-privacy.md
     - name: Workspace & compute resources
-      items:
+      items: 
         - name: Workspace
           href: concept-workspace.md
         - name: Environments
@@ -194,9 +197,8 @@
         - name: Plan and manage costs
           displayName: low priority VM
           href: concept-plan-manage-cost.md
-
     - name: Work with data
-      items:
+      items: 
         - name: Data access
           href: concept-data.md
         - name: Data ingestion
@@ -210,7 +212,7 @@
         - name: Sourcing human data responsibly
           href: concept-sourcing-human-data.md
     - name: Security
-      items:
+      items: 
         - name: Enterprise security overview
           displayName: authorization authentication encryption aad azure active directory
           href: concept-enterprise-security.md
@@ -227,11 +229,11 @@
         - name: Vulnerability management
           href: concept-vulnerability-management.md
 - name: How-to guides
-  items:
+  items: 
     - name: Security
-      items:
+      items: 
         - name: Identity & access management
-          items:
+          items: 
             - name: Set up authentication
               displayName: authentication, auth, oauth
               href: how-to-setup-authentication.md
@@ -242,7 +244,7 @@
             - name: Use Azure AD identity in AKS deployments
               href: how-to-use-azure-ad-identity.md
         - name: Network security
-          items:
+          items: 
             - name: Virtual network overview
               displayName: vnet, blob
               href: how-to-network-security-overview.md
@@ -252,9 +254,6 @@
             - name: Secure training environment
               displayName: vnet, No public IP
               href: how-to-secure-training-vnet.md
-            - name: Secure inferencing environment
-              displayName: vnet
-              href: how-to-secure-inferencing-vnet.md
             - name: Use studio in a virtual network
               displayName: vnet
               href: how-to-enable-studio-virtual-network.md
@@ -263,14 +262,13 @@
               href: how-to-configure-private-link.md
             - name: Use custom DNS
               href: how-to-custom-dns.md
-            - name: Configure secure web services
-              displayName: ssl, tls
-              href: how-to-secure-web-service.md
             - name: Configure required network traffic
-              href: how-to-access-azureml-behind-firewall.md
               displayName: firewall, user-defined route, udr
+              href: how-to-access-azureml-behind-firewall.md
+            - name: Configure network isolation with v2
+              href: how-to-configure-network-isolation-with-v2.md
         - name: Data protection
-          items:
+          items: 
             - name: Failover & disaster recovery
               displayName: high availability
               href: how-to-high-availability-machine-learning.md
@@ -279,11 +277,11 @@
         - name: Monitor Azure Machine Learning
           href: monitor-azure-machine-learning.md
         - name: Secure coding
-          href: concept-secure-code-best-practice.md
           displayName: security threat
+          href: concept-secure-code-best-practice.md
         - name: Audit and manage
-          href: how-to-integrate-azure-policy.md
           displayName: policy
+          href: how-to-integrate-azure-policy.md
     - name: Workspaces & compute resources
       items:
           - name: Create & manage workspaces
@@ -315,18 +313,12 @@
               - name: Compute cluster
                 displayName: compute target, low priority, managed identity
                 href: how-to-create-attach-compute-cluster.md
-              - name: Azure Arc-enabled machine learning
+              - name: Kubernetes cluster
                 displayName: Azure Arc, Kubernetes, on-premise, multi-cloud
-                href: how-to-attach-arc-kubernetes.md
-              - name: Kubernetes instance types
-                displayName: Azure Arc, Kubernetes, on-premise, multi-cloud
-                href: how-to-kubernetes-instance-type.md
+                href: how-to-attach-kubernetes-anywhere.md
               - name: Azure Kubernetes Service
                 displayName: AKS, inference
                 href: how-to-create-attach-kubernetes.md
-              - name: Attach your own
-                displayName: compute target, dsvm, Data Science Virtual Machine, local, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
-                href: how-to-attach-compute-targets.md
               - name: Use studio
                 displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
                 href: how-to-create-attach-compute-studio.md
@@ -341,18 +333,18 @@
           displayName: azurecli, mlops
           href: how-to-configure-cli.md
         - name: Set up studio environment
-          items:
+          items: 
             - name: Manage environments in studio
-              href: how-to-manage-environments-in-studio.md
               displayName: environments, studio, create, edit
+              href: how-to-manage-environments-in-studio.md
             - name: Create and manage files
-              href: how-to-manage-files.md
               displayName: Jupyter, notebooks, clone, samples
+              href: how-to-manage-files.md
             - name: Run Jupyter Notebooks
               href: how-to-run-jupyter-notebooks.md
             - name: Use a terminal
-              href: how-to-access-terminal.md
               displayName: git, github, clone, kernel, package
+              href: how-to-access-terminal.md
         - name: Set up software environments
           displayName: pip, Conda, anaconda
           href: how-to-use-environments.md
@@ -373,9 +365,11 @@
           href: concept-train-model-git-integration.md
         - name: How to troubleshoot environments
           displayName: troubleshoot, environment, debug, image
-          href: how-to-troubleshoot-environments.md          
+          href: how-to-troubleshoot-environments.md
     - name: Work with data
-      items:
+      items: 
+        - name: Work with data SDK v2 (preview)
+          href: how-to-use-data.md
         - name: Label data
           items: 
             - name: Set up image labeling
@@ -396,7 +390,7 @@
               displayName: data, labels, torchvision
               href: how-to-use-labeled-dataset.md
         - name: Get & prepare data
-          items:
+          items: 
             - name: Data ingestion with Azure Data Factory
               displayName: data, ingestion, adf
               href: how-to-data-ingest-adf.md
@@ -410,7 +404,7 @@
               displayName: designer, data, import, dataset, datastore
               href: how-to-designer-import-data.md
         - name: Access data
-          items:
+          items: 
             - name: Connect to Azure storage with datastores (Python)
               displayName: blob, get, fileshare, access, mount, download, data lake, datastore
               href: how-to-access-data.md
@@ -425,17 +419,12 @@
               href: how-to-connect-data-ui.md
         - name: Manage & consume data
           items:
-            - name: Train with datasets
-              displayName: data, dataset, mount
-              href: how-to-train-with-datasets.md
-            - name: Detect drift on datasets
-              displayName: data, dataset
-              href: how-to-monitor-datasets.md
-            - name: Version & track datasets
-              displayName: data, data set
-              href: how-to-version-track-datasets.md
+            - name: Read & write data (v2)
+              displayName: train
+              href: how-to-read-write-data-v2.md
+            
         - name: Compliance
-          items:
+          items: 
             - name: Preserve data privacy
               displayName: data,privacy,differential privacy
               href: how-to-differential-privacy.md
@@ -448,6 +437,8 @@
           href: how-to-train-with-ui.md
         - name: Train with the Python SDK
           items:
+          - name: Train with SDK v2 (preview)
+            href: how-to-train-sdk.md
           - name: Configure & submit training run
             displayName: run config, script run config, scriptrunconfig, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
             href: how-to-set-up-training-targets.md
@@ -485,123 +476,116 @@
               - name: Track Azure Databricks runs with MLflow
                 displayName: log, monitor, deploy, metrics, databricks
                 href: how-to-use-mlflow-azure-databricks.md
-              - name: Track experiments with MLflow 
-                displayName: log, monitor, metrics, model registry, register
-                href: how-to-use-mlflow.md  
               - name: Log & view metrics and log files
                 displayName: troubleshoot, log, files, tracing, metrics
                 href: how-to-log-view-metrics.md
               - name: Visualize runs with TensorBoard
                 displayName: log, monitor, metrics
                 href: how-to-monitor-tensorboard.md
+              - name: Migrate from SDK v1 logging to SDK v2
+                href: reference-migrate-sdk-v1-mlflow-tracking.md
           - name: Use Key Vault when training
             displayName: secrets keyvault
             href: how-to-use-secrets-in-runs.md
-        - name: Train with the CLI (v2)
+        - name: Train with the CLI v2
           href: how-to-train-cli.md
         - name: Train with the REST API
           href: how-to-train-with-rest.md
         - name: Manage environments with the CLI (v2)
           displayName: environment
           href: how-to-manage-environments-v2.md
-        - name: Interpret & explain models
-          displayName: interpretability
-          items:
-            - name: Interpret ML models
-              displayName: SDK, interpret, explain, explainability, interpretability
-              href: how-to-machine-learning-interpretability-aml.md
+        - name: Automated machine learning
+          displayName: automl, auto ml
+          items: 
+            - name: Use automated ML (Python)
+              displayName: SDK, automl
+              href: how-to-configure-auto-train.md
+            - name: Use automated ML (interface)
+              href: how-to-use-automated-ml-for-ml-models.md
+            - name: Use automated ML with Databricks
+              displayName: automl
+              href: how-to-configure-databricks-automl-environment.md
+            - name: Auto-train a forecast model
+              displayName: time series
+              href: how-to-auto-train-forecast.md
+            - name: Prep image data for computer vision models (Python)
+              displayName: SDK, automl, image, datasets, conversion scripts, schema, image model
+              href: how-to-prepare-datasets-for-automl-images.md
+            - name: Auto-train computer vision models (Python)
+              displayName: SDK, automl, image, image model
+              href: how-to-auto-train-image-models.md
+            - name: Auto-train a small object detection model
+              displayName: computer vision, image, image model
+              href: how-to-use-automl-small-object-detect.md
+            - name: Auto-train a natural language processing model
+              displayName: nlp, auto ML, automl, SDK
+              href: how-to-auto-train-nlp-models.md
+            - name: Data splits & cross-validation (Python)
+              displayName: automl, feature engineering, feature importance
+              href: how-to-configure-cross-validation-data-splits.md
+            - name: Featurization in automated ML (Python)
+              displayName: automl, feature engineering, feature importance, BERT
+              href: how-to-configure-auto-features.md
+            - name: Understand charts and metrics
+              href: how-to-understand-automated-ml.md
+            - name: Generate AutoML training code
+              href: how-to-generate-automl-training-code.md
+            - name: Use ONNX model in .NET application
+              href: how-to-use-automl-onnx-model-dotnet.md
+            - name: Inference image models with ONNX model
+              displayName: automl, image, image model, computer vision
+              href: how-to-inference-onnx-automl-image-models.md
             - name: Explain automated ML models
               displayName: SDK, interpret, interpret, explain, explainability, interpretability, automated ML, automl, auto ml
               href: how-to-machine-learning-interpretability-automl.md
-        - name: Assess and mitigate model fairness
-          href: how-to-machine-learning-fairness-aml.md
-        - name: Automated machine learning
-          displayName: automl, auto ml
-          items:
-          - name: Use automated ML (Python)
-            displayName: SDK, automl
-            href: how-to-configure-auto-train.md
-          - name: Use automated ML (interface)
-            href: how-to-use-automated-ml-for-ml-models.md
-          - name: Use automated ML with Databricks
-            displayName: automl
-            href: how-to-configure-databricks-automl-environment.md
-          - name: Auto-train a forecast model
-            displayName: time series
-            href: how-to-auto-train-forecast.md
-          - name: Prep image data for computer vision models (Python)
-            displayName: SDK, automl, image, datasets, conversion scripts, schema, image model
-            href: how-to-prepare-datasets-for-automl-images.md
-          - name: Auto-train computer vision models (Python)
-            displayName: SDK, automl, image, image model
-            href: how-to-auto-train-image-models.md
-          - name: Auto-train a small object detection model
-            displayName: computer vision, image, image model
-            href: how-to-use-automl-small-object-detect.md
-          - name: Auto-train a natural language processing model
-            displayName: nlp, auto ML, automl, SDK
-            href: how-to-auto-train-nlp-models.md
-          - name: Data splits & cross-validation (Python)
-            displayName: automl, feature engineering, feature importance
-            href: how-to-configure-cross-validation-data-splits.md
-          - name: Featurization in automated ML (Python)
-            displayName: automl, feature engineering, feature importance, BERT
-            href: how-to-configure-auto-features.md
-          - name: Understand charts and metrics
-            href: how-to-understand-automated-ml.md
-          - name: Generate AutoML training code
-            href: how-to-generate-automl-training-code.md
-          - name: Use ONNX model in .NET application
-            href: how-to-use-automl-onnx-model-dotnet.md
-          - name: Inference image models with ONNX model 
-            href: how-to-inference-onnx-automl-image-models.md
-            displayName: automl, image, image model, computer vision
-          - name: Troubleshoot automated ML
-            href: how-to-troubleshoot-auto-ml.md
+            - name: Troubleshoot automated ML
+              href: how-to-troubleshoot-auto-ml.md
     - name: Deploy models
-      items:
-      - name: Where and how to deploy
-        displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
-        href: how-to-deploy-and-where.md
-      - name: Deploy MLflow models
-        displayName: log, monitor, deploy, metrics, databricks, aci, aks
-        href: how-to-deploy-mlflow-models.md
-      - name: Deploy with endpoints
-        items:
-          - name: Real-time
-            items:
+      items: 
+        - name: Online endpoints (real-time)
+          items: 
             - name: Deploy an ML model with an online endpoint
               href: how-to-deploy-managed-online-endpoints.md
-            - name: Deploy a MLflow model with an online endpoint
-              href: how-to-deploy-mlflow-models-online-endpoints.md
-            - name: Deploy a custom container with an online endpoint
-              href: how-to-deploy-custom-container.md
+            - name: Security
+              items:
+                - name: Authenticate to endpoints
+                  href: how-to-authenticate-online-endpoint.md
+                - name: Network isolation with managed online endpoints
+                  displayName: network, vnet, secure
+                  href: how-to-secure-online-endpoint.md
+                - name: Managed online endpoints VM SKU list
+                  href: reference-managed-online-endpoints-vm-sku-list.md
             - name: Safe rollout for online endpoints
               href: how-to-safely-rollout-managed-endpoints.md
-            - name: Use online endpoints in studio
-              href: how-to-use-managed-online-endpoint-studio.md
-            - name: High-performance serving with Triton
-              href: how-to-deploy-with-triton.md
-            - name: Access Azure resources from online endpoints
-              href: how-to-access-resources-from-endpoints-managed-identities.md
-            - name: Use REST to deploy a model as an online endpoint
-              href: how-to-deploy-with-rest.md
-            - name: Deploy an AutoML model with an online endpoint
-              href: how-to-deploy-automl-endpoint.md
             - name: Autoscale managed online endpoints
               href: how-to-autoscale-endpoints.md
+            - name: Access Azure resources from online endpoints
+              href: how-to-access-resources-from-endpoints-managed-identities.md
+            - name: Deployment scenarios
+              items: 
+                - name: Deploy a MLflow model with an online endpoint
+                  displayName: ncd, no code deploy, no-code deployment
+                  href: how-to-deploy-mlflow-models-online-endpoints.md
+                - name: Deploy a custom container with an online endpoint
+                  href: how-to-deploy-custom-container.md
+                - name: Use online endpoints in studio
+                  href: how-to-use-managed-online-endpoint-studio.md
+                - name: High-performance serving with Triton
+                  href: how-to-deploy-with-triton.md
+                - name: Use REST to deploy a model as an online endpoint
+                  href: how-to-deploy-with-rest.md
+                - name: Deploy an AutoML model with an online endpoint
+                  href: how-to-deploy-automl-endpoint.md
             - name: Viewing managed online endpoint costs
               href: how-to-view-online-endpoints-costs.md
-            - name: Managed online endpoints VM SKU list
-              href: reference-managed-online-endpoints-vm-sku-list.md
             - name: Monitoring managed online endpoints
               href: how-to-monitor-online-endpoints.md
             - name: Debug online endpoints locally VS Code
               href: how-to-debug-managed-online-endpoints-visual-studio-code.md
             - name: Troubleshoot online endpoints
               href: how-to-troubleshoot-online-endpoints.md
-          - name: Batch
-            items:
+        - name: Batch endpoints
+          items: 
             - name: Batch scoring with batch endpoints
               href: how-to-use-batch-endpoint.md
             - name: Batch endpoints in studio
@@ -610,66 +594,18 @@
               href: how-to-deploy-batch-with-rest.md
             - name: Troubleshoot batch endpoints
               href: how-to-troubleshoot-batch-endpoints.md
-      - name: Deployment targets
-        items:
-        - name: Local
-          href: how-to-deploy-local-container-notebook-vm.md
-        - name: Azure Kubernetes Service
-          displayName: aks, aad, authentication, azure active directory
-          href: how-to-deploy-azure-kubernetes-service.md
-        - name: Azure Container Instances
-          displayName: aci
-          href: how-to-deploy-azure-container-instance.md
-        - name: GPU inference
-          href: how-to-deploy-inferencing-gpus.md
-        - name: Azure Cognitive Search
-          href: how-to-deploy-model-cognitive-search.md
-        - name: FPGA inference
-          href: how-to-deploy-fpga-web-service.md
-      - name: Prebuilt Docker images
-        items:
-        - name: Python extensibility
-          href: how-to-prebuilt-docker-images-inference-python-extensibility.md
-        - name: Dockerfile extensibility
-          href: how-to-extend-prebuilt-docker-image-inference.md
-        - name: Troubleshoot prebuilt docker images
-          href: how-to-troubleshoot-prebuilt-docker-image-inference.md
-      - name: Troubleshoot deployment
-        href: how-to-troubleshoot-deployment.md
-      - name: Troubleshoot deployment (local)
-        href: how-to-troubleshoot-deployment-local.md
-      - name: Consume web service
-        displayName: create client consume request response synchronous
-        href: how-to-consume-web-service.md
-      - name: Update web service
-        displayName: update hot reload model mounting
-        href: how-to-deploy-update-web-service.md
-      - name: Advanced entry script authoring
-        displayName: swagger inference schema binary cors
-        href: how-to-deploy-advanced-entry-script.md
-      - name: Inference HTTP server
-        href: how-to-inference-server-http.md
-        displayName: local debug
-      - name: Monitor web services
-        items:
-        - name: Collect & evaluate model data
-          displayName: track production
-          href: how-to-enable-data-collection.md
-        - name: Monitor with Application Insights
-          href: how-to-enable-app-insights.md
-      - name: Profile models
-        displayName: profile resource requirement
-        href: how-to-deploy-profile-model.md
-      - name: Deploy designer models
-        displayName: designer, studio
-        href: how-to-deploy-model-designer.md
-      - name: Package models
-        displayName: docker file download
-        href: how-to-deploy-package-models.md
+        - name: Inference HTTP server
+          displayName: local debug
+          href: how-to-inference-server-http.md
+        - name: Convert custom model to MLflow model
+          displayName: ncd, no code deploy, no-code deployment
+          href: how-to-convert-custom-model-to-mlflow.md
     - name: Manage the ML lifecycle
-      items:
+      items: 
+        - name: Manage models
+          href: how-to-manage-models.md
         - name: Automation
-          items:
+          items: 
             - name: Azure Pipelines for CI/CD
               displayName: continuous, integration, delivery
               href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
@@ -681,41 +617,36 @@
         - name: Build & use ML pipelines
           displayName: pipelines
           items:
-          - name: Create ML pipelines (Python)
-            href: how-to-create-machine-learning-pipelines.md
-          - name: Create ML pipelines using components (CLI v2)
-            href: how-to-create-component-pipelines-cli.md
-          - name: Moving data into and between ML pipeline steps (Python)
-            href: how-to-move-data-in-out-of-pipelines.md
-          - name: Use automated ML in ML pipelines (Python)
-            displayName: machine learning automl
-            href: how-to-use-automlstep-in-pipelines.md
-          - name: Deploy ML pipelines (Python)
-            href: how-to-deploy-pipelines.md
-          - name: Use Azure Synapse Apache spark pools in an ML pipeline (Python)
-            href: how-to-use-synapsesparkstep.md
-          - name: Trigger a pipeline
-            href: how-to-trigger-published-pipeline.md
-          - name: Designer (drag-n-drop)
-            items:
-              - name: Log metrics
-                displayName: designer, logging
-                href: how-to-track-designer-experiments.md
-              - name: Transform data
-                displayName: pipeline
-                href: how-to-designer-transform-data.md
-              - name: Use pipeline parameters
-                displayName: designer, pipeline parameters
-                href: how-to-use-pipeline-parameter.md
-              - name: Retrain using published pipelines
-                displayName: retrain, designer, published pipeline
-                href: how-to-retrain-designer.md
-              - name: Batch predictions
-                displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
-                href: how-to-run-batch-predictions-designer.md
-              - name: Execute Python code
-                displayName: feature extraction, feature engineering
-                href: how-to-designer-python.md
+            - name: Create ML pipelines using components (CLI v2)
+              href: how-to-create-component-pipelines-cli.md
+            - name: Create ML pipelines using components (Python SDK v2)
+              href: how-to-create-component-pipeline-python.md
+            - name: Create ML pipelines using components (UI)
+              href: how-to-create-component-pipelines-ui.md
+            - name: How to use sweep in pipelines (v2)
+              href: how-to-use-sweep-in-pipeline.md
+            - name: Build and debug pipelines (UI)
+              href: how-to-use-pipeline-ui.md
+            - name: Designer (drag-n-drop)
+              items: 
+                - name: Log metrics
+                  displayName: designer, logging
+                  href: how-to-track-designer-experiments.md
+                - name: Transform data
+                  displayName: pipeline
+                  href: how-to-designer-transform-data.md
+                - name: Use pipeline parameters
+                  displayName: designer, pipeline parameters
+                  href: how-to-use-pipeline-parameter.md
+                - name: Retrain using published pipelines
+                  displayName: retrain, designer, published pipeline
+                  href: how-to-retrain-designer.md
+                - name: Batch predictions
+                  displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
+                  href: how-to-run-batch-predictions-designer.md
+                - name: Execute Python code
+                  displayName: feature extraction, feature engineering
+                  href: how-to-designer-python.md
         - name: Manage resource quotas
           displayName: limits
           href: how-to-manage-quotas.md
@@ -725,21 +656,27 @@
         - name: Manage resources VS Code
           displayName: vscode,resources
           href: how-to-manage-resources-vscode.md
+    - name: Implement Responsible AI in Practice
+      items:
+        - name: Generate Responsible AI dashboard
+          items:
+            - name: Responsible AI dashboard (V2)
+              displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
+              href: how-to-responsible-ai-dashboard-sdk-cli.md
+            - name: Responsible AI dashboard (UI)
+              displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
+              href: how-to-responsible-ai-dashboard-ui.md
+        - name: Using the Responsible AI dashboard in studio
+          displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
+          href: how-to-responsible-ai-dashboard.md
+        - name: Responsible AI dashboard scorecard
+          displayName: explanations, interpretability, fairness, bias, model performance, disparity metrics, unfairness, causal analysis, causal inference, exploratory data analysis, EDA, dataset explorer
+          href: how-to-responsible-ai-scorecard.md
 - name: Troubleshoot & debug
-  items:
+  items: 
     - name: VS Code interactive debugging
       displayName: vscode,remote,debug,pipelines,deployments,ssh
       href: how-to-debug-visual-studio-code.md
-    - name: Pipeline issues
-      items:
-        - name: Troubleshoot pipelines
-          displayName: designer
-          href: how-to-debug-pipelines.md
-        - name: Log pipeline data to Application Insights
-          href: how-to-log-pipelines-application-insights.md
-        - name: Troubleshoot the ParallelRunStep
-          displayName: debug_batch consume pipeline parallelrunstep inference
-          href: how-to-debug-parallel-run-step.md
 - name: Reference
   items: 
     - name: Python SDK
@@ -751,7 +688,7 @@
       displayName: extension, command line, command-line, az, ci/cd, automate, automated
       href: /cli/azure/ml/
     - name: CLI (v2) YAML schemas
-      items:
+      items: 
         - name: Overview
           href: reference-yaml-overview.md
         - name: Core syntax
@@ -765,7 +702,7 @@
         - name: Model
           href: reference-yaml-model.md
         - name: Compute
-          items:
+          items: 
             - name: Compute cluster (AmlCompute)
               href: reference-yaml-compute-aml.md
             - name: Compute instance
@@ -775,7 +712,7 @@
             - name: Attached Azure Arc-enabled Kubernetes (KubernetesCompute)
               href: reference-yaml-compute-kubernetes.md
         - name: Job
-          items:
+          items: 
             - name: Command
               href: reference-yaml-job-command.md
             - name: Sweep
@@ -783,7 +720,7 @@
             - name: Pipeline
               href: reference-yaml-job-pipeline.md
         - name: Datastore
-          items:
+          items: 
             - name: Azure Blob
               href: reference-yaml-datastore-blob.md
             - name: Azure Files
@@ -793,13 +730,13 @@
             - name: Azure Data Lake Gen2
               href: reference-yaml-datastore-data-lake-gen2.md
         - name: Endpoint
-          items:
+          items: 
             - name: Online (real-time)
               href: reference-yaml-endpoint-online.md
             - name: Batch
               href: reference-yaml-endpoint-batch.md
         - name: Deployment
-          items:
+          items: 
             - name: Managed online (real-time)
               href: reference-yaml-deployment-managed-online.md
             - name: Kubernetes online (real-time)
@@ -807,12 +744,9 @@
             - name: Batch
               href: reference-yaml-deployment-batch.md
         - name: Component
-          items:
+          items: 
             - name: Command
               href: reference-yaml-component-command.md
-    - name: CLI (v1)
-      displayName: extension, command line, command-line, az, ci/cd, automate, automated
-      href: reference-azure-machine-learning-cli.md
     - name: Image data schemas for AutoML
       displayName: automl, schema, data, computer vision, image model
       href: reference-automl-images-schema.md
@@ -824,8 +758,6 @@
       href: algorithm-module-reference/module-reference.md
     - name: Monitor data reference
       href: monitor-resource-reference.md
-    - name: Machine learning CLI (v1) pipeline YAML reference
-      href: reference-pipeline-yaml.md
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
       href: ./policy-reference.md

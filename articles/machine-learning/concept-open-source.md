@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.topic: conceptual
 author: ssalgadodev
 ms.author: ssalgado
-ms.custom: mktng-kw-nov2021
+ms.custom: mktng-kw-nov2021, event-tier1-build-2022
 ms.date: 11/04/2021
 ---
 
@@ -87,7 +87,7 @@ For more information on ONNX and how to consume ONNX models, see the following a
 
 ### Package and deploy models as containers
 
-Container technologies such as Docker are one way to deploy models as web services. Containers provide a platform and resource agnostic way to build and orchestrate reproducible software environments. With these core technologies, you can use [preconfigured environments](./how-to-use-environments.md), [preconfigured container images](./how-to-deploy-custom-container.md) or custom ones to deploy your machine learning models to such as [Kubernetes clusters](./how-to-deploy-azure-kubernetes-service.md?tabs=python). For GPU intensive workflows, you can use tools like NVIDIA Triton Inference server to [make predictions using GPUs](how-to-deploy-with-triton.md?tabs=python).
+Container technologies such as Docker are one way to deploy models as web services. Containers provide a platform and resource agnostic way to build and orchestrate reproducible software environments. With these core technologies, you can use [preconfigured environments](./how-to-use-environments.md), [preconfigured container images](./how-to-deploy-custom-container.md) or custom ones to deploy your machine learning models to such as [Kubernetes clusters](./v1/how-to-deploy-azure-kubernetes-service.md?tabs=python). For GPU intensive workflows, you can use tools like NVIDIA Triton Inference server to [make predictions using GPUs](how-to-deploy-with-triton.md?tabs=python).
 
 ### Secure deployments with homomorphic encryption
 

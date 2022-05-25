@@ -19,7 +19,7 @@ monikerRange: ">=iotedge-2020-11"
 You can use Azure IoT Edge MQTT broker to publish and subscribe to messages. This article shows you how to connect to this broker, publish and subscribe to messages over user-defined topics, and use IoT Hub messaging primitives. The IoT Edge MQTT broker is built in the IoT Edge hub. For more information, see [the brokering capabilities of the IoT Edge hub](iot-edge-runtime.md).
 
 > [!NOTE]
-> IoT Edge MQTT broker is currently in public preview.
+> IoT Edge MQTT broker (currently in preview) will not move to general availability and will be removed from the future version of IoT Edge Hub. We appreciate the feedback we received on the preview, and we are continuing to refine our plans for an MQTT broker. In the meantime, if you need a standards-compliant MQTT broker on IoT Edge, consider deploying an open-source broker like [Mosquitto](https://mosquitto.org/) as an IoT Edge module.
 
 ## Prerequisites
 

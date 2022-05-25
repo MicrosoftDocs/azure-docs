@@ -1,21 +1,24 @@
 ---
-title: "Quickstart - Monitoring Azure Spring Cloud apps with logs, metrics, and tracing"
-description: Use log streaming, log analytics, metrics, and tracing to monitor PetClinic sample apps on Azure Spring Cloud.
+title: "Quickstart - Monitoring Azure Spring Apps apps with logs, metrics, and tracing"
+description: Use log streaming, log analytics, metrics, and tracing to monitor PetClinic sample apps on Azure Spring Apps.
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/12/2021
-ms.custom: devx-track-java, mode-other
+ms.custom: devx-track-java, mode-other, event-tier1-build-2022
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 
-# Quickstart: Monitoring Azure Spring Cloud apps with logs, metrics, and tracing
+# Quickstart: Monitoring Azure Spring Apps apps with logs, metrics, and tracing
+
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ✔️ Basic/Standard tier ❌ Enterprise tier
 
 ::: zone pivot="programming-language-csharp"
-With the built-in monitoring capability in Azure Spring Cloud, you can debug and monitor complex issues. Azure Spring Cloud integrates Steeltoe [distributed tracing](https://docs.steeltoe.io/api/v3/tracing/) with Azure's [Application Insights](../azure-monitor/app/app-insights-overview.md). This integration provides powerful logs, metrics, and distributed tracing capability from the Azure portal.
+With the built-in monitoring capability in Azure Spring Apps, you can debug and monitor complex issues. Azure Spring Apps integrates Steeltoe [distributed tracing](https://docs.steeltoe.io/api/v3/tracing/) with Azure's [Application Insights](../azure-monitor/app/app-insights-overview.md). This integration provides powerful logs, metrics, and distributed tracing capability from the Azure portal.
 
 The following procedures explain how to use Log Streaming, Log Analytics, Metrics, and Distributed Tracing with the sample app that you deployed in the preceding quickstarts.
 
@@ -23,21 +26,21 @@ The following procedures explain how to use Log Streaming, Log Analytics, Metric
 
 * Complete the previous quickstarts in this series:
 
-  * [Provision Azure Spring Cloud service](./quickstart-provision-service-instance.md).
-  * [Set up Azure Spring Cloud configuration server](./quickstart-setup-config-server.md).
+  * [Provision Azure Spring Apps service](./quickstart-provision-service-instance.md).
+  * [Set up Azure Spring Apps configuration server](./quickstart-setup-config-server.md).
   * [Build and deploy apps](./quickstart-deploy-apps.md).
   * [Set up Log Analytics workspace](./quickstart-setup-log-analytics.md).
 
 ## Logs
 
-There are two ways to see logs on Azure Spring Cloud: **Log Streaming** of real-time logs per app instance or **Log Analytics** for aggregated logs with advanced query capability.
+There are two ways to see logs on Azure Spring Apps: **Log Streaming** of real-time logs per app instance or **Log Analytics** for aggregated logs with advanced query capability.
 
 ### Log streaming
 
 You can use log streaming in the Azure CLI with the following command.
 
 ```azurecli
-az spring-cloud app logs -n solar-system-weather -f
+az spring app logs -n solar-system-weather -f
 ```
 
 You will see output similar to the following example:
@@ -57,11 +60,11 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 ```
 
 > [!TIP]
-> Use `az spring-cloud app logs -h` to explore more parameters and log stream functionality.
+> Use `az spring app logs -h` to explore more parameters and log stream functionality.
 
 ### Log Analytics
 
-1. In the Azure portal, go to the **service | Overview** page and select **Logs** in the **Monitoring** section. Select **Run** on one of the sample queries for Azure Spring Cloud.
+1. In the Azure portal, go to the **service | Overview** page and select **Logs** in the **Monitoring** section. Select **Run** on one of the sample queries for Azure Spring Apps.
 
    [ ![Logs Analytics entry](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-entry.png#lightbox)
 
@@ -107,20 +110,20 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-With the built-in monitoring capability in Azure Spring Cloud, you can debug and monitor complex issues. Azure Spring Cloud integrates [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) with Azure's [Application Insights](../azure-monitor/app/app-insights-overview.md). This integration provides powerful logs, metrics, and distributed tracing capability from the Azure portal. The following procedures explain how to use Log Streaming, Log Analytics, Metrics, and Distributed tracing with deployed PetClinic apps.
+With the built-in monitoring capability in Azure Spring Apps, you can debug and monitor complex issues. Azure Spring Apps integrates [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) with Azure's [Application Insights](../azure-monitor/app/app-insights-overview.md). This integration provides powerful logs, metrics, and distributed tracing capability from the Azure portal. The following procedures explain how to use Log Streaming, Log Analytics, Metrics, and Distributed tracing with deployed PetClinic apps.
 
 ## Prerequisites
 
 Complete previous steps:
 
-* [Provision an instance of Azure Spring Cloud](./quickstart-provision-service-instance.md)
+* [Provision an instance of Azure Spring Apps](./quickstart-provision-service-instance.md)
 * [Set up the config server](./quickstart-setup-config-server.md). For enterprise tier, please follow [set up Application Configuration Service](./how-to-enterprise-application-configuration-service.md).
 * [Build and deploy apps](./quickstart-deploy-apps.md).
 * [Set up Log Analytics workspace](./quickstart-setup-log-analytics.md).
 
 ## Logs
 
-There are two ways to see logs on Azure Spring Cloud: **Log Streaming** of real-time logs per app instance or **Log Analytics** for aggregated logs with advanced query capability.
+There are two ways to see logs on Azure Spring Apps: **Log Streaming** of real-time logs per app instance or **Log Analytics** for aggregated logs with advanced query capability.
 
 ### Log streaming
 
@@ -129,7 +132,7 @@ There are two ways to see logs on Azure Spring Cloud: **Log Streaming** of real-
 You can use log streaming in the Azure CLI with the following command.
 
 ```azurecli
-az spring-cloud app logs -s <service instance name> -g <resource group name> -n gateway -f
+az spring app logs -s <service instance name> -g <resource group name> -n gateway -f
 ```
 
 You will see logs like this:
@@ -137,7 +140,7 @@ You will see logs like this:
 [ ![Log Streaming from Azure CLI](media/spring-cloud-quickstart-logs-metrics-tracing/logs-streaming-cli.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/logs-streaming-cli.png#lightbox)
 
 > [!TIP]
-> Use `az spring-cloud app logs -h` to explore more parameters and log stream functionalities.
+> Use `az spring app logs -h` to explore more parameters and log stream functionalities.
 
 To learn more about the query language that's used in Log Analytics, see [Azure Monitor log queries](/azure/data-explorer/kusto/query/). To query all your Log Analytics logs from a centralized client, check out [Azure Data Explorer](/azure/data-explorer/query-monitor-data).
 
@@ -167,7 +170,7 @@ To get the logs using Azure Toolkit for IntelliJ:
 
 ### Log Analytics
 
-1. Go to the **service | Overview** page and select **Logs** in the **Monitoring** section. Select **Run** on one of the sample queries for Azure Spring Cloud.
+1. Go to the **service | Overview** page and select **Logs** in the **Monitoring** section. Select **Run** on one of the sample queries for Azure Spring Apps.
 
    [ ![Logs Analytics portal entry](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/logs-entry.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/logs-entry.png#lightbox)
 
@@ -177,8 +180,7 @@ To get the logs using Azure Toolkit for IntelliJ:
 
 ## Metrics
 
-Navigate to the `Application insights` blade. Then, navigate to the `Metrics` blade - you can see metrics contributed by Spring Boot apps, 
-Spring Cloud modules, and dependencies. 
+Navigate to the `Application insights` blade. Then, navigate to the `Metrics` blade - you can see metrics contributed by Spring Boot apps, Spring modules, and dependencies.
 
 The chart below shows `gateway-requests` (Spring Cloud Gateway), `hikaricp_connections`
  (JDBC Connections) and `http_client_requests`.
@@ -208,7 +210,7 @@ Navigate to the `Live Metrics` blade - you can see live metrics on screen with l
 
 ## Tracing
 
-Open the Application Insights created by Azure Spring Cloud and start monitoring Spring applications.
+Open the Application Insights created by Azure Spring Apps and start monitoring Spring applications.
 
 Navigate to the `Application Map` blade:
 [ ![Application map](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/distributed-tracking-new-ai-agent.jpg) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/distributed-tracking-new-ai-agent.jpg#lightbox)
@@ -249,8 +251,8 @@ az config set defaults.group=
 
 ## Next steps
 
-To explore more monitoring capabilities of Azure Spring Cloud, see:
+To explore more monitoring capabilities of Azure Spring Apps, see:
 
 > [!div class="nextstepaction"]
 > [Analyze logs and metrics with diagnostics settings](diagnostic-services.md)>
-> [Stream Azure Spring Cloud app logs in real-time](./how-to-log-streaming.md)
+> [Stream Azure Spring Apps app logs in real-time](./how-to-log-streaming.md)

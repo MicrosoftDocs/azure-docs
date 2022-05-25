@@ -10,11 +10,12 @@ ms.author: nilsp
 author: NilsPohlmann
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python,contperf-fy21q1
-
+ms.custom: devx-track-python, contperf-fy21q1, sdkv1, event-tier1-build-2022
 ---
 
 # Create and run machine learning pipelines with Azure Machine Learning SDK
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, you learn how to create and run [machine learning pipelines](concept-ml-pipelines.md) by using the [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro). Use **ML pipelines** to create a workflow that stitches together various ML phases. Then, publish that pipeline for later access or sharing with others. Track ML pipelines to see how your model is performing in the real world and to detect data drift. ML pipelines are ideal for batch scoring scenarios, using various computes, reusing steps instead of rerunning them, and sharing ML workflows with others.
 
@@ -51,7 +52,7 @@ Create the resources required to run an ML pipeline:
 
 * Configure a `Dataset` object to point to persistent data that lives in, or is accessible in, a datastore. Configure an `OutputFileDatasetConfig` object for temporary data passed between pipeline steps. 
 
-* Set up the [compute targets](concept-azure-machine-learning-architecture.md#compute-targets) on which your pipeline steps will run.
+* Set up the [compute targets](v1/concept-azure-machine-learning-architecture.md#compute-targets) on which your pipeline steps will run.
 
 ### Set up a datastore
 
@@ -71,7 +72,7 @@ def_file_store = Datastore(ws, "workspacefilestore")
 
 ```
 
-Steps generally consume data and produce output data. A step can create data such as a model, a directory with model and dependent files, or temporary data. This data is then available for other steps later in the pipeline. To learn more about connecting your pipeline to your data, see the articles [How to Access Data](how-to-access-data.md) and [How to Register Datasets](how-to-create-register-datasets.md). 
+Steps generally consume data and produce output data. A step can create data such as a model, a directory with model and dependent files, or temporary data. This data is then available for other steps later in the pipeline. To learn more about connecting your pipeline to your data, see the articles [How to Access Data](how-to-access-data.md) and [How to Register Datasets](./v1/how-to-create-register-datasets.md). 
 
 ### Configure data with `Dataset` and `OutputFileDatasetConfig` objects
 
@@ -307,7 +308,7 @@ When you submit the pipeline, Azure Machine Learning checks the dependencies for
 > [!IMPORTANT]
 > [!INCLUDE [amlinclude-info](../../includes/machine-learning-amlignore-gitignore.md)]
 >
-> For more information, see [Snapshots](concept-azure-machine-learning-architecture.md#snapshots).
+> For more information, see [Snapshots](v1/concept-azure-machine-learning-architecture.md#snapshots).
 
 ```python
 from azureml.core import Experiment

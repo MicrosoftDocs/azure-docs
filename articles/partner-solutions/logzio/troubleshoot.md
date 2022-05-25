@@ -3,6 +3,8 @@ title: Logz.io troubleshooting - Azure partner solutions
 description: Learn about how to troubleshoot the Azure integration with Logz.io.
 ms.topic: conceptual
 ms.date: 10/25/2021
+author: davidsmatlak
+ms.author: davidsmatlak
 ---
 
 # Troubleshoot Logz.io integration with Azure

@@ -2,14 +2,14 @@
 title: Attach and detach permissions for users, roles, and groups for Amazon Web Services (AWS) identities in the Remediation dashboard in CloudKnox Permissions Management
 description: How to attach and detach permissions for users, roles, and groups for Amazon Web Services (AWS) identities in the Remediation dashboard in CloudKnox Permissions Management.
 services: active-directory
-author: Yvonne-deQ
-manager: karenh444
+author: kenwith
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: kenwith
 ---
 
 # Attach and detach policies for Amazon Web Services (AWS) identities 
