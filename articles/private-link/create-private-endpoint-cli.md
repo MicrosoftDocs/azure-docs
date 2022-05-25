@@ -116,12 +116,13 @@ id=$(az webapp list \
     --output tsv)
 
 az network private-endpoint create \
+    --connection-name myConnection
     --name myPrivateEndpoint \
-    --resource-group CreatePrivateEndpointQS-rg \
-    --vnet-name myVNet --subnet myBackendSubnet \
     --private-connection-resource-id $id \
+    --resource-group CreatePrivateEndpointQS-rg \
+    --subnet myBackendSubnet \
     --group-id sites \
-    --connection-name myConnection  
+    --vnet-name myVNet    
 ```
 
 # [**Static IP**](#tab/static-ip)
