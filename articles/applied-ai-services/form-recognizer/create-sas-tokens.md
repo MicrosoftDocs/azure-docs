@@ -114,7 +114,7 @@ The Azure portal is a web-based console that enables you to manage your Azure su
 
 Azure Storage Explorer is a free standalone app that enables you to easily manage your Azure cloud storage resources from your desktop.
 
-Prerequisites:
+### Get started
 
 * You'll need the [**Azure Storage Explorer**](../../vs-azure-tools-storage-manage-with-storage-explorer.md) app installed in your Windows, macOS, or Linux development environment.
 
