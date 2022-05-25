@@ -20,7 +20,7 @@ ms.custom: references_regions
 
 ## Migrate by November 28
 
-The Power Query connector preview was announced in May 2021 and will not be moving forward into general availability. The following migration guidance is available for Snowflake and PostgreSQL. If you're using a different connector and need migration instructions, please use the email contact information provided in your preview sign up to request help or open a ticket with Azure Support.
+The Power Query connector preview was announced in May 2021 and won't be moving forward into general availability. The following migration guidance is available for Snowflake and PostgreSQL. If you're using a different connector and need migration instructions, please use the email contact information provided in your preview sign up to request help or open a ticket with Azure Support.
 
 ## Prerequisites
 
@@ -29,18 +29,18 @@ The Power Query connector preview was announced in May 2021 and will not be movi
 
 ## Migrate a Snowflake data pipeline
 
-This section explains how to copy data from a Snowflake database to an [Azure Cognitive Search index](search-what-is-an-index.md). There is no process for directly indexing from Snowflake to Azure Cognitive Search, so this section includes a staging phase that copies PostgreSQL database content to an Azure Storage blob container. You'll then index from that staging container using a [Data Factory pipeline](../data-factory/quickstart-create-data-factory-portal.md).
+This section explains how to copy data from a Snowflake database to an [Azure Cognitive Search index](search-what-is-an-index.md). There's no process for directly indexing from Snowflake to Azure Cognitive Search, so this section includes a staging phase that copies PostgreSQL database content to an Azure Storage blob container. You'll then index from that staging container using a [Data Factory pipeline](../data-factory/quickstart-create-data-factory-portal.md).
 
 ### Step 1: Retrieve Snowflake database information
 
 1. Go to [Snowflake](https://app.snowflake.com/) and sign in to your Snowflake account. A Snowflake account looks like: *https://<account_name>.snowflakecomputing.com*.
 
-1. Once your signed in, collect the following information from the left pane. You'll use this information in [Step 2](#step-2-configure-snowflake-linked-service):
+1. Once you're signed in, collect the following information from the left pane. You'll use this information in [Step 2](#step-2-configure-snowflake-linked-service):
    - From **Data**, select **Databases** and copy the name of the database source.
    - From **Admin**, select **Users & Roles** and copy the name of the user. Make sure the user has read permissions.
    - From **Admin**, select **Accounts** and copy the **LOCATOR** value of the account.
-   - From the Snowflake URL (similar to `https://app.snowflake.com/<region_name>/xy12345/organization)` copy the region name. For example, in `https://app.snowflake.com/south-central-us.azure/xy12345/organization`, the region name is `south-central-us.azure`.
-   - From **Admin**, select **Warehouses** and copy the name of the warehouse associated with the database you'll use as source.
+   - From the Snowflake URL, similar to `https://app.snowflake.com/<region_name>/xy12345/organization)`. copy the region name. For example, in `https://app.snowflake.com/south-central-us.azure/xy12345/organization`, the region name is `south-central-us.azure`.
+   - From **Admin**, select **Warehouses** and copy the name of the warehouse associated with the database you'll use as the source.
 
 ### Step 2: Configure Snowflake Linked Service
 
@@ -48,7 +48,7 @@ This section explains how to copy data from a Snowflake database to an [Azure Co
 
 1. Select your Data Factory and then select **Continue**.
 
-1. In the left menu, select **Manage** icon.
+1. From the left menu, select the **Manage** icon.
    
    :::image type="content" source="media/search-power-query-connectors/azure-data-factory-manage-icon.png" alt-text="Screenshot showing how to choose Manage icon in Azure Data Factory to configure Snowflake Linked Service.":::
    
@@ -56,11 +56,11 @@ This section explains how to copy data from a Snowflake database to an [Azure Co
    
    :::image type="content" source="media/search-power-query-connectors/new-linked-service.png" alt-text="Screenshot showing how to choose New Linked Service in Azure Data Factory.":::
    
-1. In the right pane, in the **Data store** search, type "snowflake". Select the **Snowflake** icon and select **Continue**.
+1. On the right pane, in the data store search, enter "snowflake". Select the **Snowflake** icon and select **Continue**.
    
    :::image type="content" source="media/search-power-query-connectors/snowflake-icon.png" alt-text="Screenshot showing how to choose Snowflake icon in new Linked Service data store.":::
    
-1. Fill out the **New linked service** form with the data you collected in [Step 1](#step-1-retrieve-snowflake database information). Keep in mind that **Account name** is formed with Snowflake account **LOCATOR** value and the region. For example: `xy56789south-central-us.azure`.
+1. Fill out the **New linked service** form with the data you collected in [Step 1](#step-1-retrieve-snowflake-database-information). Keep in mind that **Account name** is formed with Snowflake account **LOCATOR** value and the region. For example: `xy56789south-central-us.azure`.
    
    :::image type="content" source="media/search-power-query-connectors/new-linked-service-snowflake-form.png" alt-text="Screenshot showing how to fill out Snowflake Linked Service form.":::
    
@@ -70,9 +70,9 @@ This section explains how to copy data from a Snowflake database to an [Azure Co
 
 ### Step 3: Configure Snowflake Dataset
 
-1. In the left menu, select **Author** icon.
+1. From the left menu, select **Author** icon.
 
-1. Select **Datasets** and `...`.
+1. Select **Datasets**, and then select the Datasets Actions ellipses menu (`...`).
    
    :::image type="content" source="media/search-power-query-connectors/author-datasets.png" alt-text="Screenshot showing how to choose Author icon and datasets option.":::
    
@@ -80,13 +80,13 @@ This section explains how to copy data from a Snowflake database to an [Azure Co
    
    :::image type="content" source="media/search-power-query-connectors/new-dataset.png" alt-text="Screenshot showing how to choose a new dataset in Azure Data Factory for Snowflake.":::
    
-1. In the right pane, in the **Data store** search, type *snowflake*. Select **Snowflake** icon and select **Continue**.
+1. On the right pane, in the data store search, enter "snowflake". Select the **Snowflake** icon and select **Continue**.
    
    :::image type="content" source="media/search-power-query-connectors/new-dataset-snowflake.png" alt-text="Screenshot showing how to choose Snowflake from data source for Dataset.":::
    
 1. In the **Set Properties** form:
-   - Select the Linked Service created in [Step 2](#step-2-configure-snowflake-linked-service).
-   - Select the table that you would like to import and select **OK**.
+   - Select the Linked Service you created in [Step 2](#step-2-configure-snowflake-linked-service).
+   - Select the table that you would like to import, and then select **OK**.
    
    :::image type="content" source="media/search-power-query-connectors/set-snowflake-properties.png" alt-text="Screenshot showing how to configure dataset properties for Snowflake.":::
    
@@ -96,13 +96,13 @@ This section explains how to copy data from a Snowflake database to an [Azure Co
 
 [Create a new index](/rest/api/searchservice/create-index) in your Azure Cognitive Search service with the same schema as the one you have currently configured for your Snowflake data.
 
-Keep in mind that you can copy the index schema from the Azure Portal, by selecting the Azure Cognitive Search service index you currently are using for the Snowflake Power Connector and selecting **Index Definition (JSON)**. You can then select all the content and copy to the body of your new index request.
+Keep in mind that you can repurpose the index you're currently using for the Snowflake Power Connector. In the Azure portal, find the index and then select **Index Definition (JSON)**. Select the definition and copy it to the body of your new index request.
 
    :::image type="content" source="media/search-power-query-connectors/snowflake-index.png" alt-text="Screenshot showing how to copy existing Azure Cognitive Search index JSON configuration for existing Snowflake index.":::
 
 ### Step 5: Configure Azure Cognitive Search Linked Service
 
-1. In the left menu, select **Manage** icon.
+1. From the left menu, select **Manage** icon.
    
    :::image type="content" source="media/search-power-query-connectors/azure-data-factory-manage-icon.png" alt-text="Screenshot showing how to choose Manage icon in Azure Data Factory to add a new linked service.":::
    
@@ -110,20 +110,18 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
    
    :::image type="content" source="media/search-power-query-connectors/new-linked-service.png" alt-text="Screenshot showing how to choose New Linked Service in Azure Data Factory for Cognitive Search.":::
    
-1. In the right pane, in the **Data store** search, type *search*. Select **Azure Search** icon and select **Continue**.
+1. On the right pane, in the data store search, enter "search". Select the **Azure Search** icon and select **Continue**.
    
    :::image type="content" source="media/search-power-query-connectors/linked-service-search-new.png" alt-text="Screenshot showing how to choose New Linked Blob Storage Service in Azure Data Factory to import from Snowflake.":::
    
 1. Fill out the **New linked service** form:
    - Choose the Azure subscription where your Azure Cognitive Search service resides.
-   - Choose the Azure Cognitive Search service where your Power Query connector indexer lives.
+   - Choose the Azure Cognitive Search service that has your Power Query connector indexer.
    - Select **Create**.
-     
-     :::image type="content" source="media/search-power-query-connectors/linked-service-search-new.png" alt-text="Screenshot showing how to choose a New Search Linked Service for in Azure Data Factory.":::
 
 ### Step 6: Configure Azure Cognitive Search Dataset
 
-1. In the left menu, select **Author** icon. 
+1. From the left menu, select **Author** icon. 
 
 1. Select **Datasets** and `..`. 
    
@@ -133,7 +131,7 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
    
    :::image type="content" source="media/search-power-query-connectors/new-dataset.png" alt-text="Screenshot showing how to choose a new dataset in Azure Data Factory.":::
    
-1. In the right pane, in the **Data store** search, type *search*. Select **Azure Search** icon and select **Continue**.
+1. On the right pane, in the data store search, enter "search". Select the **Azure Search** icon and select **Continue**.
    
    :::image type="content" source="media/search-power-query-connectors/new-dataset-search.png" alt-text="Screenshot showing how to choose an Azure Cognitive Search service for a Dataset in Azure Data Factory to use as sink.":::
    
@@ -148,7 +146,7 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
 
 ### Step 7: Configure Azure Blob Storage Linked Service
 
-1. In the left menu, select **Manage** icon.
+1. From the left menu, select **Manage** icon.
    
    :::image type="content" source="media/search-power-query-connectors/azure-data-factory-manage-icon.png" alt-text="Screenshot showing how to choose Manage icon in Azure Data Factory to link a new service.":::
    
@@ -156,7 +154,7 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
    
    :::image type="content" source="media/search-power-query-connectors/new-linked-service.png" alt-text="Screenshot showing how to choose New Linked Service in Azure Data Factory to assign a storage account.":::
    
-1. In the right pane, in the Data store search, type *storage*. Select **Azure Blob Storage** icon and select **Continue**.
+1. On the right pane, in the Data store search, enter "storage". Select the **Azure Blob Storage** icon and select **Continue**.
    
    :::image type="content" source="media/search-power-query-connectors/new-linked-service-blob.png" alt-text="Screenshot showing how to choose New Linked Blob Storage Service to use as sink for Snowflake in Azure Data Factory.":::
    
@@ -169,9 +167,9 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
 
 ### Step 8: Configure Storage dataset
 
-1. In the left menu, select **Author** icon. 
+1. From the left menu, select **Author** icon. 
 
-1. Select **Datasets** and `...`.
+1. Select **Datasets**, and then select the Datasets Actions ellipses menu (`...`).
    
    :::image type="content" source="media/search-power-query-connectors/author-datasets.png" alt-text="Screenshot showing how to choose Author icon and datasets option.":::
    
@@ -179,15 +177,15 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
    
    :::image type="content" source="media/search-power-query-connectors/new-dataset.png" alt-text="Screenshot showing how to choose a new dataset for storage in Azure Data Factory.":::
    
-1. In the right pane, in the Data store search, type *storage*. Select **Azure Blob Storage** icon and select **Continue**.
+1. On the right pane, in the Data store search, enter "storage". Select the **Azure Blob Storage** icon and select **Continue**.
    
    :::image type="content" source="media/search-power-query-connectors/new-dataset-blob-storage.png" alt-text="Screenshot showing how to choose a new blob storage data store in Azure Data Factory for staging.":::
    
 1. Select **DelimitedText** format and select **Continue**.
 
 1. In **Set Properties** form:
-   - Under **Linked Service** select the linked service created in [Step 7](#step-7-configure-azure-blob-storage-linked-service)
-   - Under **File path** Choose the container that will be the sink for the staging process and select **OK**
+   - Under **Linked Services**, select the linked service created in [Step 7](#step-7-configure-azure-blob-storage-linked-service)
+   - Under **File path**, Choose the container that will be the sink for the staging process and select **OK**
      
      :::image type="content" source="media/search-power-query-connectors/storage-set-properties-snowflake.png" alt-text="Screenshot showing how to configure properties for storage dataset for Snowflake in Azure Data Factory.":::
      
@@ -199,9 +197,9 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
      
 ### Step 9: Configure Pipeline
 
-1. In the left menu, select **Author** icon. 
+1. From the left menu, select **Author** icon. 
 
-1. Select **Pipelines** and `...`.
+1. Select **Pipelines**, and then select the Pipelines Actions ellipses menu (`...`).
    
    :::image type="content" source="media/search-power-query-connectors/author-pipelines.png" alt-text="Screenshot showing how to choose Author icon and Pipelines option to configure Pipeline for Snowflake data transformation.":::
    
@@ -253,7 +251,7 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
 
 ### Step 10: Configure Activity order 
 
-1. In the Pipeline canvas editor, select the little green square in front of the Pipeline activity that copies data from Snowflake to Azure Blob Storage and drag to the activity that Indexes from Storage Account to Azure Cognitive Search to provide the execution order. 
+1. In the Pipeline canvas editor, select the little green square at the edge of the pipeline activity tile. Drag it to the "Indexes from Storage Account to Azure Cognitive Search" activity to provide the execution order. 
 
 1. Select **Save**.
    :::image type="content" source="media/search-power-query-connectors/pipeline-link-activities-snowflake-storage-index.png" alt-text="Screenshot showing how to link Pipeline activities to provide the order of execution for Snowflake.":::
@@ -281,15 +279,15 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
 
 ## Migrate a PostgreSQL data pipeline
 
-This section has the instructions to copy data from PostgreSQL database to an [Azure Cognitive Search index](search-what-is-an-index.md). There is no process to directly index from PostgreSQL to Azure Cognitive Search, so this section includes a staging phase of copying the PostgreSQL database contents to Azure Storage blob container and then indexing to an Azure Cognitive Search index from that staging container using a [Data Factory pipeline](../data-factory/quickstart-create-data-factory-portal.md).
+This section has the instructions to copy data from PostgreSQL database to an [Azure Cognitive Search index](search-what-is-an-index.md). There's no process to directly index from PostgreSQL to Azure Cognitive Search, so this section includes a staging phase of copying the PostgreSQL database contents to Azure Storage blob container. You'll then index from that staging container using a [Data Factory pipeline](../data-factory/quickstart-create-data-factory-portal.md).
 
 ### Step 1: Configure PostgreSQL Linked Service
 
-1. Logon with your Azure account to [Azure Data Factory Studio](https://ms-adf.azure.com/).
+1. Sign in to [Azure Data Factory Studio](https://ms-adf.azure.com/) with your Azure account.
 
 1. Choose your Data Factory and select **Continue**.
 
-1. In the left menu, select **Manage** icon.
+1. From the left menu, select the **Manage** icon.
    
    :::image type="content" source="media/search-power-query-connectors/azure-data-factory-manage-icon.png" alt-text="How to choose Manage icon in Azure Data Factory.":::
    
@@ -297,13 +295,13 @@ This section has the instructions to copy data from PostgreSQL database to an [A
    
    :::image type="content" source="media/search-power-query-connectors/new-linked-service.png" alt-text="Screenshot showing how to choose New Linked Service in Azure Data Factory.":::
    
-1. In the right pane, in the **Data store** search, type *postgresql*. Select **PostgreSQL** icon that represents where your PostgreSQL database is located (Azure or other) and select Continue. In this example, PostgreSQL database is located in Azure.
+1. On the right pane, in the data store search, enter "postgresql". Select **PostgreSQL** icon that represents where your PostgreSQL database is located (Azure or other) and select Continue. In this example, PostgreSQL database is located in Azure.
    
    :::image type="content" source="media/search-power-query-connectors/search-postgresql-data-store.png" alt-text="How to choose PostgreSQL data store for a Linked Service in Azure Data Factory.":::
    
 1. Fill out the **New linked service** form:
-   - In **Account selection method** select **Enter manually** button.
-   - From your Azure Database for PostgreSQL Overview page in the [Azure portal](https://portal.azure.com/) copy the following values in their respective field:
+   - In **Account selection method**, select **Enter manually** button.
+   - From your Azure Database for PostgreSQL Overview page in the [Azure portal](https://portal.azure.com/), copy the following values in their respective field:
      - *Server name* to **Fully qualified domain name**.
      - *Admin username* to **user name**.
    - Add the respective **database name**.
@@ -314,9 +312,9 @@ This section has the instructions to copy data from PostgreSQL database to an [A
 
 ### Step 2: Configure PostgreSQL Dataset
 
-1. In the left menu, select **Author** icon. 
+1. From the left menu, select **Author** icon. 
 
-1. Select **Datasets** and `...`.
+1. Select **Datasets**, and then select the Datasets Actions ellipses menu (`...`).
    
    :::image type="content" source="media/search-power-query-connectors/author-datasets.png" alt-text="Screenshot showing how to choose Author icon and datasets option.":::
    
@@ -324,7 +322,7 @@ This section has the instructions to copy data from PostgreSQL database to an [A
    
    :::image type="content" source="media/search-power-query-connectors/new-dataset.png" alt-text="Screenshot showing how to choose a new dataset in Azure Data Factory.":::
    
-1. In the right pane, in the **Data store** search, type *postgresql*. Select **Azure PostgreSQL** icon. Select **Continue**.
+1. On the right pane, in the data store search, enter "postgresql". Select **Azure PostgreSQL** icon. Select **Continue**.
    
    :::image type="content" source="media/search-power-query-connectors/new-dataset-postgresql.png" alt-text="Screenshot showing how to choose PostgreSQL data store for a Dataset in Azure Data Factory.":::
    
@@ -339,38 +337,36 @@ This section has the instructions to copy data from PostgreSQL database to an [A
 
 ### Step 3: Create a new index in Azure Cognitive Search
 
-[Create a new index](/rest/api/searchservice/create-index) in your Azure Cognitive Search service with the same schema as the one you have currently configured for your PostgreSQL data.
+[Create a new index](/rest/api/searchservice/create-index) in your Azure Cognitive Search service with the same schema as the one used for your PostgreSQL data.
 
-Keep in mind that you can copy the index schema from the Azure Portal, by selecting the Azure Cognitive Search service index you currently are using for the PostgreSQL Power Connector and selecting **Index Definition (JSON)**. You can then select all the content and copy to the body of your new index request.
+Keep in mind that you can repurpose the index you're currently using for the PostgreSQL Power Connector. In the Azure portal, find the index and then select **Index Definition (JSON)**. Select the definition and copy it to the body of your new index request.
 
    :::image type="content" source="media/search-power-query-connectors/postgresql-index.png" alt-text="Screenshot showing how to copy existing Azure Cognitive Search index JSON configuration.":::
    
 ### Step 4: Configure Azure Cognitive Search Linked Service
 
-1. In the left menu, select **Manage** icon.
+1. From the left menu, select **Manage** icon.
    
    :::image type="content" source="media/search-power-query-connectors/azure-data-factory-manage-icon.png" alt-text="Screenshot showing how to choose Manage icon in Azure Data Factory to link a service.":::
    
-1. Under **Linked services** select **New**.
+1. Under **Linked services**, select **New**.
    
    :::image type="content" source="media/search-power-query-connectors/new-linked-service.png" alt-text="Screenshot showing how to choose New Linked Service in Azure Data Factory.":::
    
-1. In the right pane, in the **Data store** search, type *search*. Select **Azure Search** icon and select **Continue**.
+1. On the right pane, in the data store search, enter "search". Select **Azure Search** icon and select **Continue**.
    
    :::image type="content" source="media/search-power-query-connectors/linked-service-search-new.png" alt-text="Screenshot showing how to choose New Linked Search service in Azure Data Factory." border="true":::
 
 1. Fill out the **New linked service** form:
    - Choose the Azure subscription where your Azure Cognitive Search service resides.
-   - Choose the Azure Cognitive Search service where your Power Query connector indexer lives.
+   - Choose the Azure Cognitive Search service that has your Power Query connector indexer.
    - Select **Create**.
-     
-     :::image type="content" source="media/search-power-query-connectors/linked-service-search-new.png" alt-text="Screenshot showing how to fill New Linked Service for search in Azure Data Factory.":::
 
 ### Step 5: Configure Azure Cognitive Search Dataset
 
-1. In the left menu, select **Author** icon. 
+1. From the left menu, select **Author** icon. 
 
-1. Select **Datasets** and `...`.
+1. Select **Datasets**, and then select the Datasets Actions ellipses menu (`...`).
    
    :::image type="content" source="media/search-power-query-connectors/author-datasets.png" alt-text="Screenshot showing how to choose Author icon and datasets option.":::
    
@@ -378,7 +374,7 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
    
    :::image type="content" source="media/search-power-query-connectors/new-dataset.png" alt-text="Screenshot showing how to choose a new dataset in Azure Data Factory.":::
    
-1. In the right pane, in the Data store search, type *search*. Select **Azure Search** icon and select **Continue**.
+1. On the right pane, in the Data store search, enter "search". Select the **Azure Search** icon and select **Continue**.
    
    :::image type="content" source="media/search-power-query-connectors/new-dataset-search.png" alt-text="Screenshot showing how to choose an Azure Cognitive Search service for a Dataset in Azure Data Factory.":::
    
@@ -393,7 +389,7 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
 
 ### Step 6: Configure Azure Blob Storage Linked Service
 
-1. In the left menu, select **Manage** icon.
+1. From the left menu, select **Manage** icon.
    
    :::image type="content" source="media/search-power-query-connectors/azure-data-factory-manage-icon.png" alt-text="Screenshot showing how to choose Manage icon in Azure Data Factory to link a service.":::
    
@@ -401,7 +397,7 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
 
    :::image type="content" source="media/search-power-query-connectors/new-linked-service.png" alt-text="Screenshot showing how to choose New Linked Service in Azure Data Factory.":::
    
-1. In the right pane, in the **Data store** search, type *storage*. Select **Azure Blob Storage** icon and select **Continue**.
+1. On the right pane, in the data store search, enter "storage". Select the **Azure Blob Storage** icon and select **Continue**.
    
    :::image type="content" source="media/search-power-query-connectors/new-linked-service-blob.png" alt-text="Screenshot showing how to choose a new data store":::
    
@@ -414,9 +410,9 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
 
 ### Step 7: Configure Storage dataset
 
-1. In the left menu, select **Author** icon. 
+1. From the left menu, select **Author** icon. 
 
-1. Select **Datasets** and `...`.
+1. Select **Datasets**, and then select the Datasets Actions ellipses menu (`...`).
    
    :::image type="content" source="media/search-power-query-connectors/author-datasets.png" alt-text="Screenshot showing how to choose Author icon and datasets option.":::
    
@@ -424,7 +420,7 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
    
    :::image type="content" source="media/search-power-query-connectors/new-dataset.png" alt-text="Screenshot showing how to choose a new dataset in Azure Data Factory.":::
    
-1. In the right pane, in the **Data store** search, type *storage*. Select **Azure Blob Storage** icon and select **Continue**.
+1. On the right pane, in the data store search, enter "storage". Select the **Azure Blob Storage** icon and select **Continue**.
    
    :::image type="content" source="media/search-power-query-connectors/new-dataset-blob-storage.png" alt-text="Screenshot showing how to choose a new blob storage data store in Azure Data Factory.":::
    
@@ -441,9 +437,9 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
 
 ### Step 8: Configure Pipeline
 
-1. In the left menu, select **Author** icon. 
+1. From the left menu, select **Author** icon. 
 
-1. Select **Pipelines** and `...`.
+1. Select **Pipelines**, and then select the Pipelines Actions ellipses menu (`...`).
    
    :::image type="content" source="media/search-power-query-connectors/author-pipelines.png" alt-text="Screenshot showing how to choose Author icon and Pipelines option.":::
    
@@ -480,7 +476,7 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
      - In the **General** tab, leave the default values, unless you need to customize the execution.
      - In the **Source** tab:
        - Select the Storage source dataset configured in [Step 7](#step-7-configure-storage-dataset).
-       - In the **File path type** select *Wildcard file path*.
+       - In the **File path type** field, select *Wildcard file path*.
        - Leave all remaining fields with default values.
          
          :::image type="content" source="media/search-power-query-connectors/source-storage-postgresql.png" alt-text="Screenshot showing how to configure Source for indexing from Storage to Azure Cognitive Search index.":::
@@ -493,7 +489,7 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
 
 ### Step 9: Configure Activity order 
 
-1. In the Pipeline canvas editor, select the little green square in front of the Pipeline Activity that copies data from Snowflake to Azure Blob Storage and drag to the Activity that Indexes from Storage Account to Azure Cognitive Search to provide the execution order. 
+1. In the Pipeline canvas editor, select the little green square at the edge of the pipeline activity. Drag it to the "Indexes from Storage Account to Azure Cognitive Search" activity to provide the execution order. 
 
 1. Select **Save**.
    
@@ -521,7 +517,7 @@ Keep in mind that you can copy the index schema from the Azure Portal, by select
 
 ## Legacy content for Power Query connector preview
 
-A Power Query connector is used with a search indexer to automate data ingestion from a variety of data sources, including those on other cloud providers. It uses [Power Query](/power-query/power-query-what-is-power-query) to retrieve the data. 
+A Power Query connector is used with a search indexer to automate data ingestion from various data sources, including those on other cloud providers. It uses [Power Query](/power-query/power-query-what-is-power-query) to retrieve the data. 
 
 Data sources supported in the preview include:
 
@@ -568,9 +564,9 @@ The preview is only available on search services in the following regions:
 
 This section describes the limitations that are specific to the current version of the preview.
 
-+ Pulling binary data from your data source is not supported in this version of the preview. 
++ Pulling binary data from your data source isn't supported. 
 
-+ [Debug sessions](cognitive-search-debug-session.md) are not supported at this time.
++ [Debug session](cognitive-search-debug-session.md) isn't supported.
 
 ### Getting started using the Azure portal
 
@@ -601,7 +597,7 @@ Once you've selected your data source, select **Next: Configure your data** to m
 
 #### Step 4 – Configure your data
 
-Once you've selected your data source, you'll configure your connection. Each data source will require different information. For a few data sources, the Power Query documentation provides additional details on how to connect to your data. 
+Once you've selected your data source, you'll configure your connection. Each data source will require different information. For a few data sources, the Power Query documentation provides more detail on how to connect to your data. 
 
 + [PostgreSQL](/power-query/connectors/postgresql)
 + [Salesforce Objects](/power-query/connectors/salesforceobjects)
@@ -611,7 +607,7 @@ Once you've provided your connection credentials, select **Next**.
 
 #### Step 5 – Select your data
 
-The import wizard will preview various tables that are available in your data source. In this step you'll check one table that contains the data you want to import into your index.
+The import wizard will preview various tables that are available in your data source. In this step, you'll check one table that contains the data you want to import into your index.
 
 :::image type="content" source="media/search-power-query-connectors/power-query-preview-data.png" alt-text="Screenshot of data preview." border="true":::
 
@@ -647,13 +643,13 @@ After you've provided a data source name and connection string, select “Next: 
 
 [AI enrichment](cognitive-search-concept-intro.md) is an extension of indexers that can be used to make your content more searchable.
 
-This is an optional step for this preview. When complete, select **Next: Customize target index**.
+You can add any enrichments that add benefit to your scenario. When complete, select **Next: Customize target index**.
 
 #### Step 9 – Customize target index
 
 On the Index page, you should see a list of fields with a data type and a series of checkboxes for setting index attributes. The wizard can generate a fields list based on metadata and by sampling the source data.
 
-You can bulk-select attributes by selecting the checkbox at the top of an attribute column. Choose Retrievable and Searchable for every field that should be returned to a client app and subject to full text search processing. You'll notice that integers are not full text or fuzzy searchable (numbers are evaluated verbatim and are often useful in filters).
+You can bulk-select attributes by selecting the checkbox at the top of an attribute column. Choose Retrievable and Searchable for every field that should be returned to a client app and subject to full text search processing. You'll notice that integers aren't full text or fuzzy searchable (numbers are evaluated verbatim and are often useful in filters).
 
 Review the description of index attributes and language analyzers for more information.
 
@@ -687,7 +683,7 @@ This change detection policy relies on a "high water mark" column capturing the 
 
 ### Unsupported column names
 
-Field names in an Azure Cognitive Search index have to meet certain requirements. One of these requirements is that some characters such as "/" are not allowed. If a column name in your database does not meet these requirements, the index schema detection will not recognize your column as a valid field name and you won't see that column listed as a suggested field for your index. Normally, using [field mappings](search-indexer-field-mappings.md) would solve this problem but field mappings are not supported in the portal.
+Field names in an Azure Cognitive Search index have to meet certain requirements. One of these requirements is that some characters such as "/" aren't allowed. If a column name in your database does not meet these requirements, the index schema detection won't recognize your column as a valid field name and you won't see that column listed as a suggested field for your index. Normally, using [field mappings](search-indexer-field-mappings.md) would solve this problem but field mappings aren't supported in the portal.
 
 To index content from a column in your table that has an unsupported field name, rename the column during the "Transform your data" phase of the import data process. For example, you can rename a column named "Billing code/Zip code" to "zipcode". By renaming the column, the index schema detection will recognize it as a valid field name and add it as a suggestion to your index definition.
 
