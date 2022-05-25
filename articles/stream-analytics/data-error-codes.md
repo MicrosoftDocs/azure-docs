@@ -19,7 +19,7 @@ You can use activity logs and resource logs to help debug unexpected behaviors f
 
 ## InputEventTimestampNotFound
 
-* **Cause**: Stream Analytics is unable to get a timestamp for resource. 
+* **Cause**: Stream Analytics is unable to get a timestamp for a resource. 
 
 ## InputEventTimestampByOverValueNotFound
 
