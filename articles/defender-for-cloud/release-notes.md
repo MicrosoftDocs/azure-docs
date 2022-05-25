@@ -22,7 +22,7 @@ Updates in May include:
 
 - [Multi-cloud settings of Servers plan are now available in connector level](#multi-cloud-settings-of-servers-plan-are-now-available-in-connector-level)
 - [JIT (Just-in-time) access for VMs is now available for AWS EC2 instances (Preview)](#jit-just-in-time-access-for-vms-is-now-available-for-aws-ec2-instances-preview)
-- [Add and remove the Defender profile for AKS containers from the CLI](#add-and-remove-the-defender-profile-for-aks-containers-from-the-cli)
+- [Add and remove the Defender profile for AKS clusters from the CLI](#add-and-remove-the-defender-profile-for-aks-clusters-from-the-cli)
 
 ### Multi-cloud settings of Servers plan are now available in connector level
 
@@ -44,9 +44,9 @@ When you [connect AWS accounts](quickstart-onboard-aws.md), JIT will automatical
 
 Learn how [JIT protects your AWS EC2 instances](just-in-time-access-overview.md#how-jit-operates-with-network-resources-in-azure-and-aws)
 
-### Add and remove the Defender profile for AKS containers from the CLI
+### Add and remove the Defender profile for AKS clusters from the CLI
 
-You can now use the Azure CLI to [add and remove the Defender profile](/includes/defender-for-containers-enable-plan-aks.md#deploy-the-defender-profile) for a subscription and containers.
+The Defender profile (preview) is required for Defender for Containers to provide the runtime protections and collects signals from nodes. You can now use the Azure CLI to [add and remove the Defender profile](/includes/defender-for-containers-enable-plan-aks.md#deploy-the-defender-profile) for an AKS cluster.
 
 > [!NOTE]
 > This option is included in [Azure CLI 3.7 and above](/cli/azure/update-azure-cli.md).
