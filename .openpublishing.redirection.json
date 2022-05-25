@@ -639,6 +639,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/conversational-language-understanding/how-to/deploy-query-model.md",
+      "redirect_url": "/azure/cognitive-services/language-service/conversational-language-understanding/how-to/deploy-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/conversational-language-understanding/fail-over.md",
+      "redirect_url": "/azure/cognitive-services/language-service/conversational-language-understanding/how-to/fail-over",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/orchestration-workflow/deploy-query-model.md",
+      "redirect_url": "/azure/cognitive-services/language-service/orchestration-workflow/how-to/call-api",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/whats-new-docs.md",
       "redirect_url": "/azure/cognitive-services/what-are-cognitive-services",
       "redirect_document_id": false
@@ -2926,6 +2941,11 @@
     {
       "source_path_from_root": "/articles/api-management/api-management-product.md",
       "redirect_url": "/azure/api-management/api-management-howto-add-products",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/api-management/graphql-validation-policies.md",
+      "redirect_url": "/azure/api-management/graphql-policies",
       "redirect_document_id": false
     },
     {
@@ -13134,6 +13154,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-howto-openvpn-clients.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-cert-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-cert-windows",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-vmware/public-ip-usage.md",
       "redirect_url": "/azure/azure-vmware/enable-public-internet-access",
       "redirect_document_id": false
@@ -17804,6 +17834,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-dps/tutorial-net-provision-device-to-hub.md",
+      "redirect_url": "/azure/iot-dps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/tutorial-provision-device-to-hub.md",
+      "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/tutorial-set-up-cloud.md",
+      "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/tutorial-set-up-device.md",
+      "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/security/fundamentals/iot-overview.md",
       "redirect_url": "/azure/iot-fundamentals/iot-security-architecture",
       "redirect_document_id": false
@@ -21172,6 +21222,16 @@
     {
       "source_path_from_root": "/articles/machine-learning/reference-pipeline-yaml.md",
       "redirect_url": "/azure/machine-learning/v1/reference-pipeline-yaml",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/how-to-create-register-datasets.md",
+      "redirect_url": "/azure/machine-learning/how-to-create-register-data-assets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/how-to-access-data.md",
+      "redirect_url": "/azure/machine-learning/how-to-datastore",
       "redirect_document_id": false
     },
     {
@@ -27139,6 +27199,11 @@
       "redirect_url": "/azure/virtual-wan/scenario-route-between-vnets-firewall",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/virtual-wan/high-availability-vpn-client.md",
+      "redirect_url": "/azure/virtual-wan/global-hub-profile",
+      "redirect_document_id": false
+    },  
     {
       "source_path_from_root": "/articles/virtual-wan/virtual-wan-site-to-site-packet-capture.md",
       "redirect_url": "/azure/virtual-wan/packet-capture-site-to-site-powershell",
@@ -42740,6 +42805,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/aks/spark-job.md",
+      "redirect_url": "/azure/aks/integrations#open-source-and-third-party-integrations",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-dps/quick-create-device-symmetric-key-csharp.md",
       "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
       "redirect_document_id": false
@@ -43217,6 +43287,31 @@
     {
       "source_path_from_root": "/articles/cognitive-services/language-service/text-summarization/quickstart.md",
       "redirect_url": "/azure/cognitive-services/language-service/summarization/quickstart",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md",
+      "redirect_url": "/azure/virtual-network/nat-gateway/quickstart-create-nat-gateway-portal",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-create-nat-gateway-powershell.md",
+      "redirect_url": "/azure/virtual-network/nat-gateway/quickstart-create-nat-gateway-powershell",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-create-nat-gateway-cli.md",
+      "redirect_url": "/azure/virtual-network/nat-gateway/quickstart-create-nat-gateway-cli",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/aks/web-app-routing.md",
+      "redirect_url": "/azure/aks/intro-kubernetes",
+      "redirect_document_id":false
+    },
+    {
+      "source_path_from_root": "/articles/private-link/private-endpoint-static-ip-powershell.md",
+      "redirect_url": "/azure/private-link/create-private-endpoint-powershell",
       "redirect_document_id": true
     }
   ]
