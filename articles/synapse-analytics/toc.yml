@@ -566,6 +566,8 @@ items:
         href: sql/create-use-external-tables.md
       - name: Store query results to storage
         href: sql/create-external-table-as-select.md
+      - name: Query Parquet files and containers in Azure Synapse Link for Azure Cosmos DB
+        href: how-to-analyze-complex-schema.md
     - name: Integrate
       items:
       - name: Build data pipelines
@@ -796,8 +798,6 @@ items:
           href: ./spark/synapse-spark-sql-pool-import-export.md
         - name: Azure SQL and SQL Server 
           href: ./spark/data-sources/apache-spark-sql-connector.md
-        - name: JSON
-          href: how-to-analyze-complex-schema.md
         - name: External Hive Metastore
           href: ./spark/apache-spark-external-metastore.md
 - name: Synapse Link
