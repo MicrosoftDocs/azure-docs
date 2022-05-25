@@ -37,7 +37,7 @@ items:
   - name: How-to guides
     items:
     - name: Call the Read API
-      href: Vision-API-How-to-Topics/call-read-api.md
+      href: how-to/call-read-api.md
     - name: Upgrade from Read 2.x to Read 3.x
       href: upgrade-api-versions.md
     - name: Use the Read container
@@ -95,9 +95,9 @@ items:
   - name: How-to guides
     items:
     - name: Call the Image Analysis API
-      href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
+      href: how-to/HowToCallVisionAPI.md
     - name: Analyze videos in real time
-      href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
+      href: how-to/HowtoAnalyzeVideo_Vision.md
   - name: Concepts
     items:
     - name: Object detection
