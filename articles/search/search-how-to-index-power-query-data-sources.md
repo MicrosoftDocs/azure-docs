@@ -178,7 +178,7 @@ You can repurpose the index you're currently using for the Snowflake Power Conne
 
    :::image type="content" source="media/search-power-query-connectors/new-dataset.png" alt-text="Screenshot showing how to choose a new dataset for storage in Azure Data Factory.":::
 
-1. On the right pane, in the Data store search, enter "storage". Select the **Azure Blob Storage** tile and select **Continue**.
+1. On the right pane, in the data store search, enter "storage". Select the **Azure Blob Storage** tile and select **Continue**.
 
    :::image type="content" source="media/search-power-query-connectors/new-dataset-blob-storage.png" alt-text="Screenshot showing how to choose a new blob storage data store in Azure Data Factory for staging.":::
 
@@ -306,11 +306,11 @@ This section explains how to copy data from a PostgreSQL database to an [Azure C
 
    - In **Account selection method**, select **Enter manually**.
    - From your Azure Database for PostgreSQL Overview page in the [Azure portal](https://portal.azure.com/), paste the following values into their respective field:
-     - *Server name* to **Fully qualified domain name**.
-     - *Admin username* to **user name**.
-   - Add the respective **database name**.
-   - Add the **username password**.
-   - Select **Create**.
+     - Add *Server name* to **Fully qualified domain name**.
+     - Add *Admin username* to **User name**.
+     - Add *Database* to **Database name**.
+     - Enter the Admin username password to **Username password**.
+     - Select **Create**.
 
      :::image type="content" source="media/search-power-query-connectors/new-linked-service-postgresql.png" alt-text="Choose the Manage icon in Azure Data Factory":::
 
@@ -380,7 +380,7 @@ You can repurpose the index you're currently using for the PostgreSQL Power Conn
 
    :::image type="content" source="media/search-power-query-connectors/new-dataset.png" alt-text="Screenshot showing how to choose a new dataset in Azure Data Factory.":::
 
-1. On the right pane, in the Data store search, enter "search". Select the **Azure Search** tile and select **Continue**.
+1. On the right pane, in the data store search, enter "search". Select the **Azure Search** tile and select **Continue**.
 
    :::image type="content" source="media/search-power-query-connectors/new-dataset-search.png" alt-text="Screenshot showing how to choose an Azure Cognitive Search service for a Dataset in Azure Data Factory.":::
 
