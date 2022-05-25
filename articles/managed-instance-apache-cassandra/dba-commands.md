@@ -58,7 +58,7 @@ Both will return a json of the following form:
 
 ## How to run an sstable command
 
-The `sstable` commands require read/write access to the cassandra data directory and the cassandra database to be stopped. To accomodate this, two additional parameters `--cassandra-stop-start true` and  `--readwrite true` need to be given:
+The `sstable` commands require read/write access to the cassandra data directory and the cassandra database to be stopped. To accommodate this, two additional parameters `--cassandra-stop-start true` and  `--readwrite true` need to be given:
 
 ```azurecli-interactive
     az managed-cassandra cluster invoke-command  --resource-group  <test-rg>   --cluster-name <test-cluster> --host <ip> --cassandra-stop-start true --readwrite true  --command-name sstableutil --arguments "system"="peers"
