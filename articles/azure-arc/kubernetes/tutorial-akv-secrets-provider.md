@@ -1,6 +1,6 @@
 ---
-title: Azure Key Vault Secrets Provider extension
-description: Tutorial for setting up Azure Key Vault provider for Secrets Store CSI Driver interface as an extension on Azure Arc enabled Kubernetes cluster
+title: Use Azure Key Vault Secrets Provider extension to fetch secrets into Azure Arc-enabled Kubernetes clusters
+description: Learn how to set up the Azure Key Vault Provider for Secrets Store CSI Driver interface as an extension on Azure Arc enabled Kubernetes cluster
 services: azure-arc
 ms.service: azure-arc
 ms.date: 5/13/2022
@@ -9,26 +9,11 @@ author: mayurigupta13
 ms.author: mayg
 ---
 
-# Using Azure Key Vault Secrets Provider extension to fetch secrets into Arc clusters
+# Use the Azure Key Vault Secrets Provider extension to fetch secrets into Azure Arc-enabled Kubernetes clusters
 
-The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integration of Azure Key Vault as a secrets store with a Kubernetes cluster via a [CSI volume](https://kubernetes-csi.github.io/docs/).
+The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integration of Azure Key Vault as a secrets store with a Kubernetes cluster via a [CSI volume](https://kubernetes-csi.github.io/docs/). For Azure Arc-enabled Kubernetes clusters, you can install the Azure Key Vault Secrets Provider extension to fetch secrets.
 
-## Prerequisites
-1. Ensure you have met all the common prerequisites for cluster extensions listed [here](extensions.md#prerequisites).
-2. Use az k8s-extension CLI version >= v0.4.0
-
-### Support limitations for Azure Key Vault (AKV) secrets provider extension
-- Following Kubernetes distributions are currently supported
-    - Cluster API Azure
-    - Azure Kubernetes Service on Azure Stack HCI (AKS-HCI)
-    - Google Kubernetes Engine
-    - OpenShift Kubernetes Distribution
-    - Canonical Kubernetes Distribution
-    - Elastic Kubernetes Service
-    - Tanzu Kubernetes Grid
-
-
-## Features
+Benefits of the Azure Key Vault Secrets Provider extension include the folllowing:
 
 - Mounts secrets/keys/certs to pod using a CSI Inline volume
 - Supports pod portability with the SecretProviderClass CRD
@@ -36,34 +21,54 @@ The Azure Key Vault Provider for Secrets Store CSI Driver allows for the integra
 - Supports sync with Kubernetes Secrets
 - Supports auto rotation of secrets
 
+## Prerequisites
 
-## Install AKV secrets provider extension on an Arc enabled Kubernetes cluster
+- A cluster with a supported Kubernetes distribution that has already been [connected to Azure Arc](quickstart-connect-cluster.md). The following Kubernetes distributions are currently supported for this scenario:
+  - Cluster API Azure
+  - Azure Kubernetes Service on Azure Stack HCI (AKS-HCI)
+  - Google Kubernetes Engine
+  - OpenShift Kubernetes Distribution
+  - Canonical Kubernetes Distribution
+  - Elastic Kubernetes Service
+  - Tanzu Kubernetes Grid
+- Ensure you have met the [general prerequisites for cluster extensions](extensions.md#prerequisites). You must use version 0.4.0 or newer of the the `k8s-extension` Azure CLI extension.
 
-The following steps assume that you already have a cluster with supported Kubernetes distribution connected to Azure Arc.
+## Install the Azure Key Vault Secrets Provider extension on an Arc-enabled Kubernetes cluster
 
-To deploy using Azure portal, go to the cluster's **Extensions** blade under **Settings**. Click on **+Add** button.
+You can install the Azure Key Vault Secrets Provider extension on your connected cluster in the Azure portal, by using Azure CLI, or by deploying ARM template.
 
-[![Extensions located under Settings for Arc enabled Kubernetes cluster](media/tutorial-akv-secrets-provider/extension-install-add-button.jpg)](media/tutorial-akv-secrets-provider/extension-install-add-button.jpg#lightbox)
+> [!TIP]
+> Only one instance of the extension can be deployed on each Azure Arc-enabled Kubernetes cluster.
 
-From the list of available extensions, select the **Azure Key Vault Secrets Provider** to deploy the latest version of the extension. You can also choose to customize the installation through the portal by changing the defaults on **Configuration** tab.
+### Azure portal
 
-[![AKV Secrets Provider available as an extension by clicking on Add button on Extensions blade](media/tutorial-akv-secrets-provider/extension-install-new-resource.jpg)](media/tutorial-akv-secrets-provider/extension-install-new-resource.jpg#lightbox)
+1. In the [Azure portal](https://portal/azure.com), navigate to **Kubernetes - Azure Arc** and select your cluster.
+1. Select **Extensions** (under **Settings**), and then select **+ Add**.
 
-Alternatively, you can use the CLI experience captured below.
+   [![Extensions located under Settings for Arc enabled Kubernetes cluster](media/tutorial-akv-secrets-provider/extension-install-add-button.jpg)](media/tutorial-akv-secrets-provider/extension-install-add-button.jpg#lightbox)
 
-Set the environment variables:
-```azurecli-interactive
-export CLUSTER_NAME=<arc-cluster-name>
-export RESOURCE_GROUP=<resource-group-name>
-```
+1. From the list of available extensions, select **Azure Key Vault Secrets Provider** to deploy the latest version of the extension.
 
-```azurecli-interactive
-az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.AzureKeyVaultSecretsProvider --name akvsecretsprovider
-```
+   [![AKV Secrets Provider available as an extension by clicking on Add button on Extensions blade](media/tutorial-akv-secrets-provider/extension-install-new-resource.jpg)](media/tutorial-akv-secrets-provider/extension-install-new-resource.jpg#lightbox)
 
-The above will install the Secrets Store CSI Driver and the Azure Key Vault Provider on your cluster nodes. You should see output similar to the output shown below. It may take 3-5 minutes for the actual AKV secrets provider helm chart to get deployed to the cluster.
+1. Follow the prompts to deploy the extension. If needed, you can customize the installation by changing the default options on the **Configuration** tab.
 
-Note that only one instance of AKV secrets provider extension can be deployed on an Arc connected Kubernetes cluster.
+### Azure CLI
+
+1. Set the environment variables:
+
+   ```azurecli-interactive
+   export CLUSTER_NAME=<arc-cluster-name>
+   export RESOURCE_GROUP=<resource-group-name>
+   ```
+
+2. Install the Secrets Store CSI Driver and the Azure Key Vault Secrets Provider extension by running the following command: 
+
+   ```azurecli-interactive
+   az k8s-extension create --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.AzureKeyVaultSecretsProvider --name akvsecretsprovider
+   ```
+
+You should see output similar to the example below. Note that it may take several minutes before the secrets provider Helm chart is deployed to the cluster.
 
 ```json
 {
@@ -106,88 +111,93 @@ Note that only one instance of AKV secrets provider extension can be deployed on
 }
 ```
 
-### Install AKV secrets provider extension using ARM template
-After connecting your cluster to Azure Arc, create a json file with the following format, making sure to update the \<cluster-name\> value:
+### ARM template
 
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "ConnectedClusterName": {
-            "defaultValue": "<cluster-name>",
-            "type": "String",
-            "metadata": {
-                "description": "The Connected Cluster name."
-            }
-        },
-        "ExtensionInstanceName": {
-            "defaultValue": "akvsecretsprovider",
-            "type": "String",
-            "metadata": {
-                "description": "The extension instance name."
-            }
-        },
-        "ExtensionVersion": {
-            "defaultValue": "",
-            "type": "String",
-            "metadata": {
-                "description": "The version of the extension type."
-            }
-        },
-        "ExtensionType": {
-            "defaultValue": "Microsoft.AzureKeyVaultSecretsProvider",
-            "type": "String",
-            "metadata": {
-                "description": "The extension type."
-            }
-        },
-        "ReleaseTrain": {
-            "defaultValue": "stable",
-            "type": "String",
-            "metadata": {
-                "description": "The release train."
-            }
-        }
-    },
-    "functions": [],
-    "resources": [
-        {
-            "type": "Microsoft.KubernetesConfiguration/extensions",
-            "apiVersion": "2021-09-01",
-            "name": "[parameters('ExtensionInstanceName')]",
-            "properties": {
-                "extensionType": "[parameters('ExtensionType')]",
-                "releaseTrain": "[parameters('ReleaseTrain')]",
-                "version": "[parameters('ExtensionVersion')]"
-            },
-            "scope": "[concat('Microsoft.Kubernetes/connectedClusters/', parameters('ConnectedClusterName'))]"
-        }
-    ]
-}
-```
-Now set the environment variables:
-```azurecli-interactive
-export TEMPLATE_FILE_NAME=<template-file-path>
-export DEPLOYMENT_NAME=<desired-deployment-name>
-```
+1. Create a .json file using the following format. Be sure to update the \<cluster-name\> value to refer to your cluster.
 
-Finally, run this command to install the AKV secrets provider extension through az CLI:
+   ```json
+   {
+       "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+       "contentVersion": "1.0.0.0",
+       "parameters": {
+           "ConnectedClusterName": {
+               "defaultValue": "<cluster-name>",
+               "type": "String",
+               "metadata": {
+                   "description": "The Connected Cluster name."
+               }
+           },
+           "ExtensionInstanceName": {
+               "defaultValue": "akvsecretsprovider",
+               "type": "String",
+               "metadata": {
+                   "description": "The extension instance name."
+               }
+           },
+           "ExtensionVersion": {
+               "defaultValue": "",
+               "type": "String",
+               "metadata": {
+                   "description": "The version of the extension type."
+               }
+           },
+           "ExtensionType": {
+               "defaultValue": "Microsoft.AzureKeyVaultSecretsProvider",
+               "type": "String",
+               "metadata": {
+                   "description": "The extension type."
+               }
+           },
+           "ReleaseTrain": {
+               "defaultValue": "stable",
+               "type": "String",
+               "metadata": {
+                   "description": "The release train."
+               }
+           }
+       },
+       "functions": [],
+       "resources": [
+           {
+               "type": "Microsoft.KubernetesConfiguration/extensions",
+               "apiVersion": "2021-09-01",
+               "name": "[parameters('ExtensionInstanceName')]",
+               "properties": {
+                   "extensionType": "[parameters('ExtensionType')]",
+                   "releaseTrain": "[parameters('ReleaseTrain')]",
+                   "version": "[parameters('ExtensionVersion')]"
+               },
+               "scope": "[concat('Microsoft.Kubernetes/connectedClusters/', parameters('ConnectedClusterName'))]"
+           }
+       ]
+   }
+   ```
 
-```azurecli-interactive
-az deployment group create --name $DEPLOYMENT_NAME --resource-group $RESOURCE_GROUP --template-file $TEMPLATE_FILE_NAME
-```
-Now, you should be able to view the AKV provider resources and use the extension in your cluster.
+1. Now set the environment variables by using the following Azure CLI command:
+
+   ```azurecli-interactive
+   export TEMPLATE_FILE_NAME=<template-file-path>
+   export DEPLOYMENT_NAME=<desired-deployment-name>
+   ```
+
+1. Finally, run this Azure CLI command to install the Azure Key Vault Secrets Provider extension:
+
+   ```azurecli-interactive
+   az deployment group create --name $DEPLOYMENT_NAME --resource-group $RESOURCE_GROUP --template-file $TEMPLATE_FILE_NAME
+   ```
+
+You should now be able to view the secret provider resources and use the extension in your cluster.
 
 ## Validate the extension installation
 
-Run the following command.
+To confirm successful installation of the Azure Key Vault Secrets Provider extension, run the following command.
 
 ```azurecli-interactive
 az k8s-extension show --cluster-type connectedClusters --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --name akvsecretsprovider
 ```
 
-You should see a JSON output similar to the output below:
+You should see output similar to the example below.
+
 ```json
 {
   "aksAssignedIdentity": null,
@@ -229,112 +239,118 @@ You should see a JSON output similar to the output below:
 }
 ```
 
-## Create or use an existing Azure Key Vault
+## Create or select an Azure Key Vault
 
-Set the environment variables:
+Next, specify the Azure Key Vault to use with your connected cluster. If you don't already have one, create a new Key Vault by using the following commands. Keep in mind that the name of your Key Vault must be globally unique.
+
+```azurecli
+az keyvault create -n $AZUREKEYVAULT_NAME -g $AKV_RESOURCE_GROUP -l $AZUREKEYVAULT_LOCATION
+
+Next, set the following environment variables:
+
 ```azurecli-interactive
 export AKV_RESOURCE_GROUP=<resource-group-name>
 export AZUREKEYVAULT_NAME=<AKV-name>
 export AZUREKEYVAULT_LOCATION=<AKV-location>
 ```
 
-You will need an Azure Key Vault resource containing the secret content. Keep in mind that the Key Vault's name must be globally unique.
-
-```azurecli
-az keyvault create -n $AZUREKEYVAULT_NAME -g $AKV_RESOURCE_GROUP -l $AZUREKEYVAULT_LOCATION
-```
-
-Azure Key Vault can store keys, secrets, and certificates. In this example, we'll set a plain text secret called `DemoSecret`:
+Azure Key Vault can store keys, secrets, and certificates. For this example, you can set a plain text secret called `DemoSecret` by using the following command:
 
 ```azurecli
 az keyvault secret set --vault-name $AZUREKEYVAULT_NAME -n DemoSecret --value MyExampleSecret
 ```
 
-Take note of the following properties for use in the next section:
+Before you move on to the next section, take note of the following properties:
 
-- Name of secret object in Key Vault
+- Name of the secret object in Key Vault
 - Object type (secret, key, or certificate)
-- Name of your Azure Key Vault resource
-- Azure Tenant ID the Subscription belongs to
+- Name of your Key Vault resource
+- The Azure Tenant ID for the subscription to which the Key Vault belongs
 
 ## Provide identity to access Azure Key Vault
 
-The Secrets Store CSI Driver on Arc connected clusters currently allows for the following methods to access an Azure Key Vault instance:
-- Service Principal
-
-Follow the steps below to provide identity to access Azure Key Vault
+Currently, the Secrets Store CSI Driver on Arc-enabled clusters can be accessed through a service principal. Follow the steps below to provide an identity that can access your Key Vault.
 
 1. Follow the steps [here](../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) to create a service principal in Azure. Take note of the Client ID and Client Secret generated in this step.
-2. Provide Azure Key Vault GET permission to the created service principal by following the steps [here](../../key-vault/general/assign-access-policy.md).
-3. Use the client ID and Client Secret from step 1 to create a Kubernetes secret on the Arc connected cluster:
-```bash
-kubectl create secret generic secrets-store-creds --from-literal clientid="<client-id>" --from-literal clientsecret="<client-secret>"
-```
-4. Label the created secret:
-```bash
-kubectl label secret secrets-store-creds secrets-store.csi.k8s.io/used=true
-```
-5. Create a SecretProviderClass with the following YAML, filling in your values for key vault name, tenant ID, and objects to retrieve from your AKV instance:
-```yml
-# This is a SecretProviderClass example using service principal to access Keyvault
-apiVersion: secrets-store.csi.x-k8s.io/v1
-kind: SecretProviderClass
-metadata:
-  name: akvprovider-demo
-spec:
-  provider: azure
-  parameters:
-    usePodIdentity: "false"
-    keyvaultName: <key-vault-name>
-    objects:  |
-      array:
-        - |
-          objectName: DemoSecret
-          objectType: secret             # object types: secret, key or cert
-          objectVersion: ""              # [OPTIONAL] object versions, default to latest if empty
-    tenantId: <tenant-Id>                # The tenant ID of the Azure Key Vault instance
-```
-6. Apply the SecretProviderClass to your cluster:
+1. Provide Azure Key Vault GET permission to the created service principal by following the steps [here](../../key-vault/general/assign-access-policy.md).
+1. Use the client ID and Client Secret from step 1 to create a Kubernetes secret on the Arc connected cluster:
 
-```bash
-kubectl apply -f secretproviderclass.yaml
-```
-7. Create a pod with the following YAML, filling in the name of your identity:
+   ```bash
+   kubectl create secret generic secrets-store-creds --from-literal clientid="<client-id>" --from-literal clientsecret="<client-secret>"
+   ```
 
-```yml
-# This is a sample pod definition for using SecretProviderClass and service principal to access Keyvault
-kind: Pod
-apiVersion: v1
-metadata:
-  name: busybox-secrets-store-inline
-spec:
-  containers:
-    - name: busybox
-      image: k8s.gcr.io/e2e-test-images/busybox:1.29
-      command:
-        - "/bin/sleep"
-        - "10000"
-      volumeMounts:
-      - name: secrets-store-inline
-        mountPath: "/mnt/secrets-store"
-        readOnly: true
-  volumes:
-    - name: secrets-store-inline
-      csi:
-        driver: secrets-store.csi.k8s.io
-        readOnly: true
-        volumeAttributes:
-          secretProviderClass: "akvprovider-demo"
-        nodePublishSecretRef:                       
-          name: secrets-store-creds
-```
-8. Apply the pod to your cluster:
+1. Label the created secret:
 
-```bash
-kubectl apply -f pod.yaml
-```
+   ```bash
+   kubectl label secret secrets-store-creds secrets-store.csi.k8s.io/used=true
+   ```
+
+1. Create a SecretProviderClass with the following YAML, filling in your values for key vault name, tenant ID, and objects to retrieve from your AKV instance:
+
+   ```yml
+   # This is a SecretProviderClass example using service principal to access Keyvault
+   apiVersion: secrets-store.csi.x-k8s.io/v1
+   kind: SecretProviderClass
+   metadata:
+   name: akvprovider-demo
+   spec:
+     provider: azure
+     parameters:
+       usePodIdentity: "false"
+       keyvaultName: <key-vault-name>
+       objects:  |
+         array:
+           - |
+             objectName: DemoSecret
+             objectType: secret             # object types: secret, key or cert
+             objectVersion: ""              # [OPTIONAL] object versions, default to latest if empty
+       tenantId: <tenant-Id>                # The tenant ID of the Azure Key Vault instance
+   ```
+
+1. Apply the SecretProviderClass to your cluster:
+
+   ```bash
+   kubectl apply -f secretproviderclass.yaml
+   ```
+
+1. Create a pod with the following YAML, filling in the name of your identity:
+
+   ```yml
+   # This is a sample pod definition for using SecretProviderClass and service principal to access Keyvault
+   kind: Pod
+   apiVersion: v1
+   metadata:
+     name: busybox-secrets-store-inline
+   spec:
+     containers:
+       - name: busybox
+         image: k8s.gcr.io/e2e-test-images/busybox:1.29
+         command:
+           - "/bin/sleep"
+           - "10000"
+         volumeMounts:
+         - name: secrets-store-inline
+           mountPath: "/mnt/secrets-store"
+           readOnly: true
+     volumes:
+       - name: secrets-store-inline
+         csi:
+           driver: secrets-store.csi.k8s.io
+           readOnly: true
+           volumeAttributes:
+             secretProviderClass: "akvprovider-demo"
+           nodePublishSecretRef:                       
+             name: secrets-store-creds
+   ```
+
+1. Apply the pod to your cluster:
+
+   ```bash
+   kubectl apply -f pod.yaml
+   ```
 
 ## Validate the secrets
+
 After the pod starts, the mounted content at the volume path specified in your deployment YAML is available.
 ```Bash
 ## show secrets held in secrets-store
