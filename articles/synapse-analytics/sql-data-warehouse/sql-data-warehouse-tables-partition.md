@@ -239,9 +239,6 @@ Once you have completed the movement of the data, it is a good idea to refresh t
 
 ```sql
 UPDATE STATISTICS [dbo].[FactInternetSales];
-DROP TABLE [dbo].[FactInternetSales_20000101]
-DROP TABLE [dbo].[FactInternetSales_20000101_20010101]
-
 ```
 
 ### Load new data into partitions that contain data in one step
