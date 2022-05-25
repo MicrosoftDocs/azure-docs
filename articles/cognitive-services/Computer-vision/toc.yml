@@ -150,6 +150,66 @@ items:
       href: /cli/azure/cognitiveservices#az_cognitiveservices_list
     - name: Azure PowerShell
       href: /powershell/module/azurerm.cognitiveservices/
+- name: Identity
+  items:
+  - name: Identity overview
+    href: overview-identity.md
+  - name: Quickstart
+    href: quickstarts-sdk/identity-client-libraries.md
+  - name: Samples
+    href: /samples/browse/?products=azure&term=face
+  - name: How-to guides
+    items:
+    - name: Detect and analyze faces
+      href: how-to/identity-detect-faces.md
+    - name: Find similar faces
+      href: how-to/find-similar-faces.md
+    - name: Specify a face detection model version
+      href: how-to/specify-detection-model.md
+    - name: Specify a face recognition model version
+      href: how-to/specify-recognition-model.md
+    - name: Add faces to a group
+      href: how-to/add-faces.md
+    - name: Use the large-scale feature
+      href: how-to/use-large-scale.md
+    - name: Use the PersonDirectory structure
+      href: how-to/use-persondirectory.md
+    - name: Use the HeadPose attribute
+      href: how-to/use-headpose.md
+    - name: Mitigate latency when using the Face service
+      href: how-to/mitigate-latency.md
+    - name: Analyze videos in real time
+      href: how-to/identity-analyze-video.md
+    - name: Migrate face data
+      href: how-to/migrate-face-data.md
+    - name: Use customer-managed keys
+      href: identity-encrypt-data-at-rest.md
+  - name: Concepts
+    items:
+    - name: Face detection and analysis
+      href: concept-face-detection.md
+    - name: Face recognition
+      href: concept-face-recognition.md
+  - name: Tutorials
+    items:
+    - name: Add users to a Face service
+      items:
+      - name: Best practices for enrolling users
+        href: enrollment-overview.md
+      - name: Build a React app to enroll users
+        href: Tutorials/build-enrollment-app.md
+  - name: Reference
+    items:
+    - name: Face REST API
+      href: identity-api-reference.md
+    - name: .NET
+      href: /dotnet/api/overview/azure/cognitiveservices/face-readme
+    - name: Java
+      href: /java/api/overview/azure/cognitiveservices/client/faceapi
+    - name: Node.js
+      href: /javascript/api/overview/azure/cognitiveservices/face
+    - name: Python
+      href: /python/api/overview/azure/cognitiveservices/face-readme
 - name: Spatial Analysis
   items: 
   - name: Spatial Analysis overview
