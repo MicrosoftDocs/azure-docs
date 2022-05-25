@@ -278,7 +278,7 @@ You can repurpose the index you're currently using for the Snowflake Power Conne
 
 1. Select **Publish**.
 
-   :::image type="content" source="media/search-power-query-connectors/publish_pipeline.png" alt-text="How to Publish a Pipeline in Data Factory for Snowflake ingestion to index.":::
+   :::image type="content" source="media/search-power-query-connectors/publish_pipeline.png" alt-text="How to Publish a Pipeline in Data Factory for Snowflake ingestion to index." border="true":::
 
 ## Migrate a PostgreSQL data pipeline
 
@@ -414,8 +414,6 @@ You can repurpose the index you're currently using for the PostgreSQL Power Conn
    - [Generate a SAS URL](../cognitive-services/Translator/document-translation/create-sas-tokens.md) for the storage account you will be using for staging and copy the Blob SAS URL to SAS URL field.
    - Select **Create**.
 
-     :::image type="content" source="media/search-power-query-connectors/new-linked-service-blob.png" alt-text="Screenshot showing how to choose New Linked Storage Service in Azure Data Factory.":::
-
 ### Step 7: Configure Storage dataset
 
 1. From the left menu, select **Author** icon. 
@@ -464,17 +462,17 @@ You can repurpose the index you're currently using for the PostgreSQL Power Conn
 
    - In the **Source** tab, select your PostgreSQL table. Leave the remaining options with the default values.
 
-      :::image type="content" source="media/search-power-query-connectors/source-postgresql.png" alt-text="Screenshot showing how to configure Source to import data from PostgreSQL into Azure Storage blob in staging phase.":::
+      :::image type="content" source="media/search-power-query-connectors/source-postgresql.png" alt-text="Screenshot showing how to configure Source to import data from PostgreSQL into Azure Storage blob in staging phase." border="true":::
 
    - In the **Sink** tab:
       - Select the Storage DelimitedText PostgreSQL dataset configured in [Step 7](#step-7-configure-storage-dataset).
       - In **File Extension**, add *.csv*
       - Leave the remaining options with the default values.
 
-         :::image type="content" source="media/search-power-query-connectors/sink-storage-postgresql.png" alt-text="Screenshot showing how to configure sink to import data from PostgreSQL into Azure Storage blob.":::
+         :::image type="content" source="media/search-power-query-connectors/sink-storage-postgresql.png" alt-text="Screenshot showing how to configure sink to import data from PostgreSQL into Azure Storage blob." border="true":::
 
    - Select **Save**.
- 
+
 1. Configure the activities that copy from Azure Storage to a search index:
 
    - Expand **Move & transform** section and drag and drop **Copy Data** activity to the blank pipeline editor canvas.
@@ -488,11 +486,11 @@ You can repurpose the index you're currently using for the PostgreSQL Power Conn
       - In the **File path type** field, select *Wildcard file path*.
       - Leave all remaining fields with default values.
 
-      :::image type="content" source="media/search-power-query-connectors/source-storage-postgresql.png" alt-text="Screenshot showing how to configure Source for indexing from Storage to Azure Cognitive Search index.":::
+      :::image type="content" source="media/search-power-query-connectors/source-storage-postgresql.png" alt-text="Screenshot showing how to configure Source for indexing from Storage to Azure Cognitive Search index." border="true":::
 
    - In the **Sink** tab, select your Azure Cognitive Search index. Leave the remaining options with the default values.
 
-      :::image type="content" source="media/search-power-query-connectors/sink-search-index-postgresql.png" alt-text="Screenshot showing how to configure Sink for indexing from Storage to Azure Cognitive Search index.":::
+      :::image type="content" source="media/search-power-query-connectors/sink-search-index-postgresql.png" alt-text="Screenshot showing how to configure Sink for indexing from Storage to Azure Cognitive Search index." border="true":::
 
    - Select **Save**.
 
@@ -502,13 +500,13 @@ You can repurpose the index you're currently using for the PostgreSQL Power Conn
 
 1. Select **Save**.
 
-   :::image type="content" source="media/search-power-query-connectors/pipeline-link-acitivities-postgresql.png" alt-text="Screenshot showing how to configure activity order in the pipeline for proper execution.":::
+   :::image type="content" source="media/search-power-query-connectors/pipeline-link-acitivities-postgresql.png" alt-text="Screenshot showing how to configure activity order in the pipeline for proper execution." border="true":::
 
 ### Step 10: Add a Pipeline trigger
 
 1. Select [Add trigger](../data-factory/how-to-create-schedule-trigger.md) to schedule the pipeline run and select **New/Edit**.
 
-   :::image type="content" source="media/search-power-query-connectors/add-pipeline-trigger-postgresql.png" alt-text="Screenshot showing how to add a new trigger for a Pipeline in Data Factory.":::
+   :::image type="content" source="media/search-power-query-connectors/add-pipeline-trigger-postgresql.png" alt-text="Screenshot showing how to add a new trigger for a Pipeline in Data Factory." border="true":::
 
 1. From the **Choose trigger** dropdown, select **New**.
 
@@ -522,7 +520,7 @@ You can repurpose the index you're currently using for the PostgreSQL Power Conn
 
 1. Select **Publish**.
 
-   :::image type="content" source="media/search-power-query-connectors/publish_pipeline-postgresql.png" alt-text="Screenshot showing how to Publish a Pipeline in Data Factory for PostgreSQL data copy.":::
+   :::image type="content" source="media/search-power-query-connectors/publish_pipeline-postgresql.png" alt-text="Screenshot showing how to Publish a Pipeline in Data Factory for PostgreSQL data copy." border="true":::
 
 ## Legacy content for Power Query connector preview
 
