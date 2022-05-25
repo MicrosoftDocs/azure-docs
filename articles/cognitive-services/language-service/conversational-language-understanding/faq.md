@@ -61,6 +61,10 @@ Yes, you can [import any LUIS application](./concepts/backwards-compatibility.md
 
 No, the service only supports JSON format. You can go to LUIS, import the `.LU` file and export it as a JSON file. 
 
+## How do I handle out of scope or domain utterances that aren't relevant to my intents?
+
+Add any out of scope utterances to the [none intent](./concepts/none-intent.md).
+
 ## Is there any SDK support?
 
 Yes, only for predictions, and [samples are available](https://aka.ms/cluSampleCode). There is currently no authoring support for the SDK.
