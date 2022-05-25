@@ -29,7 +29,7 @@ During the creation of a private endpoint with Azure PowerShell and Azure CLI, t
 
 * **MemberName** is the unique stamp for the private IP address of the endpoint.
 
-For more information about Private Endpoint subresources and their values, see [Private-link resource](private-endpoint-overview#private-link-resource).
+For more information about Private Endpoint subresources and their values, see [Private-link resource](private-endpoint-overview.md#private-link-resource).
 
 To determine the values of **GroupID** and **MemberName** for your private endpoint resource, use the following commands.  **MemberName** is contained within the **RequiredMembers** property.
 
