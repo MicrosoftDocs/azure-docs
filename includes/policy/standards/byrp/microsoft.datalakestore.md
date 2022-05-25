@@ -2,7 +2,7 @@
 author: timwarner-msft
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/10/2022
+ms.date: 05/18/2022
 ms.author: timwarner
 ms.custom: generated
 ---
@@ -11,9 +11,9 @@ ms.custom: generated
 
 To review how the available Azure Policy built-ins for all Azure services map to this compliance
 standard, see
-[Azure Policy Regulatory Compliance - NIST SP 800-53 Rev. 4](../../../../articles/governance/policy/samples/nist-sp-800-53-r4.md).
+[Azure Policy Regulatory Compliance details for [Preview]: SWIFT CSCF v2021](../../../../articles/governance/policy/samples/swift-cscf-v2021.md).
 For more information about this compliance standard, see
-[NIST SP 800-53 Rev. 4](https://nvd.nist.gov/800-53).
+[SWIFT CSCF v2021](https://www.swift.com/myswift/customer-security-programme-csp).
 
 |Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
 |---|---|---|---|---|

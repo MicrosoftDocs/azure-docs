@@ -2,14 +2,14 @@
 title: View analytic information about active resources in CloudKnox Permissions Management
 description: How to view usage analytics about active resources in CloudKnox Permissions Management.
 services: active-directory
-author: mtillman
-manager: karenh444
+author: kenwith
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: mtillman
+ms.author: kenwith
 ---
 
 # View analytic information about active resources

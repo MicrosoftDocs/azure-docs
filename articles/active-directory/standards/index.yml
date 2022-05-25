@@ -1,18 +1,19 @@
 ### YamlMime:Landing
 
-title: Azure Active Directory configuring to standards documentation 
-summary: Azure and Azure Active Directory enable you to leverage their compliance certifications and configure your environment to meet governmental and industry standards.
+title: Implement identity standards with Azure Active Directory
+summary: Azure and Azure Active Directory offer compliance certifications. Learn to configure your environment to meet governmental and industry standards.
 
 metadata:
-  title: Azure Active Directory configuring to standards documentation 
-  description: "Learn to configure Azure and Azure Active directory to meet governmental and industry standards."
+  title: Implement identity standards with Azure Active Directory
+  description: "Azure and Azure Active Directory offer compliance certifications. Learn to configure your environment to meet governmental and industry standards."
   manager: mtillman
   ms.author: baselden
   ms.collection: na
-  ms.date: 04/26/2021
+  ms.date: 04/29/2022
   ms.service: active-directory
   ms.subservice: na
   ms.topic: landing-page
+  ms.custom: kr2b-contr-experiment
   services: active-directory
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -29,7 +30,19 @@ landingContent:
             url: nist-overview.md
           - text: FedRAMP High impact overview
             url: configure-azure-active-directory-for-fedramp-high-impact.md
-    
+
+  # Card 
+  - title: Understand NIST AALs
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Authenticator assurance levels
+            url: nist-about-authenticator-assurance-levels.md
+          - text: Authenticator basics
+            url: nist-authentication-basics.md
+          - text: Types and methods
+            url: nist-authenticator-types.md
+
   # Card 
   - title: Configure NIST AALs
     linkLists:
@@ -54,3 +67,16 @@ landingContent:
           - text: Configure additional controls
             url: fedramp-other-controls.md
   
+  # Card
+  - title: Meet identity requirements of memorandum 22-09
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Enterprise-wide identity management system
+            url: memo-22-09-enterprise-wide-identity-management-system.md
+          - text: Meet multifactor authentication requirements
+            url: memo-22-09-multi-factor-authentication.md
+          - text: Meet authorization requirements
+            url: memo-22-09-authorization.md
+          - text: Other areas of Zero Trust
+            url: memo-22-09-other-areas-zero-trust.md
