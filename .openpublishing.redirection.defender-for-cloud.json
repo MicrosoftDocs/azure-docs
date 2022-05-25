@@ -16,6 +16,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/security-center/security-center-identity-access.md",
+            "redirect_url": "/articles/defender-for-cloud/multi-factor-authentication-enforcement",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/security-center/security-center-policy-definitions.md",
             "redirect_url": "/azure/defender-for-cloud/policy-reference",
             "redirect_document_id": false
