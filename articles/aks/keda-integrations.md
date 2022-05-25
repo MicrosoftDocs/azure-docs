@@ -17,6 +17,12 @@ The Kubernetes Event-driven Autoscaling (KEDA) add-on integrates with features p
 > [!IMPORTANT]
 > Integrations with open source projects are not covered by the [AKS support policy][aks-support-policy].
 
+## Observe your autoscaling with Kubernetes events
+
+KEDA automatically emits events to the Kubernetes events allowing customers to operate their application autoscaling.
+
+To learn about the available metrics, we recommend reading the [KEDA documentation][keda-event-docs].
+
 ## Scalers for Azure services
 
 KEDA can integrate with a variety of tools and services through the [a rich catalog of 40+ KEDA scalers][keda-scalers] including leading cloud platforms (such as Azure) and open-source technologies (such as Redis and Kafka).
@@ -41,3 +47,4 @@ It leverages the following scalers for Azure services:
 <!-- LINKS - external -->
 [keda-scalers]: https://keda.sh/docs/scalers/
 [keda-metrics]: https://keda.sh/docs/latest/operate/prometheus/
+[keda-event-docs]: https://keda.sh/docs/latest/operate/kubernetes-events/
