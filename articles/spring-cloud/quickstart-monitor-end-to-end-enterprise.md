@@ -159,7 +159,7 @@ AppPlatformLogsforSpring
 
 This query produces results similar to the ones shown in the following screenshot:
 
-:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/all-app-logs-in-log-analytics.png" alt-text="Screenshot of Azure portal showing example output from all application logs query.":::
+:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/all-app-logs-in-log-analytics.png" alt-text="Screenshot of Azure portal showing example output from all application logs query." lightbox="media/quickstart-monitor-end-to-end-enterprise/all-app-logs-in-log-analytics.png":::
 
 Type and run the following Kusto query to see `catalog-service` application logs:
 
@@ -173,7 +173,7 @@ AppPlatformLogsforSpring
 
 This query produces results similar to the ones shown in the following screenshot:
 
-:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/catalog-app-logs-in-log-analytics.png" alt-text="Screenshot of Azure portal showing example output from Catalog Service application logs.":::
+:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/catalog-app-logs-in-log-analytics.png" alt-text="Screenshot of Azure portal showing example output from Catalog Service application logs." lightbox="media/quickstart-monitor-end-to-end-enterprise/catalog-app-logs-in-log-analytics.png":::
 
 Type and run the following Kusto query to see errors and exceptions thrown by each app:
 
@@ -188,7 +188,7 @@ AppPlatformLogsforSpring
 
 This query produces results similar to the ones shown in the following screenshot:
 
-:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/ingress-logs-in-log-analytics.png" alt-text="Screenshot of Azure portal showing example output from the Ingress Logs.":::
+:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/ingress-logs-in-log-analytics.png" alt-text="Screenshot of Azure portal showing example output from the Ingress Logs." lightbox="media/quickstart-monitor-end-to-end-enterprise/ingress-logs-in-log-analytics.png":::
 
 Type and run the following Kusto query to see all in the inbound calls into Azure Spring Apps:
 
@@ -209,7 +209,7 @@ AppPlatformSystemLogs
 
 This query produces results similar to the ones shown in the following screenshot:
 
-:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/spring-cloud-gateway-logs-in-log-analytics.png" alt-text="Screenshot of Azure portal showing example output from the Spring Cloud Gateway Logs.":::
+:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/spring-cloud-gateway-logs-in-log-analytics.png" alt-text="Screenshot of Azure portal showing example output from the Spring Cloud Gateway Logs." lightbox="media/quickstart-monitor-end-to-end-enterprise/spring-cloud-gateway-logs-in-log-analytics.png":::
 
 Type and run the following Kusto query to see all the logs from the managed Spring Cloud
 Service Registry managed by Azure Spring Apps:
@@ -222,7 +222,7 @@ AppPlatformSystemLogs
 
 This query produces results similar to the ones shown in the following screenshot:
 
-:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/service-registry-logs-in-log-analytics.png" alt-text="Screenshot of Azure portal showing example output from service registry logs.":::
+:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/service-registry-logs-in-log-analytics.png" alt-text="Screenshot of Azure portal showing example output from service registry logs." lightbox="media/quickstart-monitor-end-to-end-enterprise/service-registry-logs-in-log-analytics.png":::
 
 ## Use tracing
 
@@ -230,33 +230,33 @@ In the Azure portal, open the Application Insights instance created by Azure Spr
 
 Navigate to the **Application map** pane, which will be similar to the following screenshot:
 
-:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/fitness-store-application-map.png" alt-text="Screenshot of Azure portal showing the Application Map of Azure Application Insights.":::
+:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/fitness-store-application-map.png" alt-text="Screenshot of Azure portal showing the Application Map of Azure Application Insights." lightbox="media/quickstart-monitor-end-to-end-enterprise/fitness-store-application-map.png":::
 
 Navigate to the **Performance** pane, which will be similar to the following screenshot:
 
-:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/performance.png" alt-text="Screenshot of Azure portal showing the Performance pane of Azure Application Insights.":::
+:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/performance.png" alt-text="Screenshot of Azure portal showing the Performance pane of Azure Application Insights." lightbox="media/quickstart-monitor-end-to-end-enterprise/performance.png":::
 
 Navigate to the **Performance/Dependencies** pane. Here you can see the performance number for dependencies, particularly SQL calls, similar to what's shown in the following screenshot:
 
-:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/performance-dependencies.png" alt-text="Screenshot of Azure portal showing the Dependencies section of the Performance pane of Azure Application Insights.":::
+:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/performance-dependencies.png" alt-text="Screenshot of Azure portal showing the Dependencies section of the Performance pane of Azure Application Insights." lightbox="media/quickstart-monitor-end-to-end-enterprise/performance-dependencies.png":::
 
 Navigate to the **Performance/Roles** pane. Here you can see the performance metrics for individual instances or roles, similar to what's shown in the following screenshot:
 
-:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/fitness-store-roles-in-performance-pane.png" alt-text="Screenshot of Azure portal showing the Roles section of the Performance pane of Azure Application Insights.":::
+:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/fitness-store-roles-in-performance-pane.png" alt-text="Screenshot of Azure portal showing the Roles section of the Performance pane of Azure Application Insights." lightbox="media/quickstart-monitor-end-to-end-enterprise/fitness-store-roles-in-performance-pane.png":::
 
 Select a SQL call to see the end-to-end transaction in context, similar to what's shown in the following screenshot:
 
-:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/fitness-store-end-to-end-transaction-details.png" alt-text="Screenshot of Azure portal showing the end-to-end transaction of an S Q L call.":::
+:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/fitness-store-end-to-end-transaction-details.png" alt-text="Screenshot of Azure portal showing the end-to-end transaction of an S Q L call." lightbox="media/quickstart-monitor-end-to-end-enterprise/fitness-store-end-to-end-transaction-details.png":::
 
 Navigate to the **Failures/Exceptions** pane. Here you can see a collection of exceptions, similar to what's shown in the following screenshot:
 
-:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/fitness-store-exceptions.png" alt-text="Screenshot of Azure portal showing application failures graphed.":::
+:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/fitness-store-exceptions.png" alt-text="Screenshot of Azure portal showing application failures graphed." lightbox="media/quickstart-monitor-end-to-end-enterprise/fitness-store-exceptions.png":::
 
 ## View metrics
 
 Navigate to the **Metrics** pane. Here you can see metrics contributed by Spring Boot apps, Spring Cloud modules, and dependencies. The chart in the following screenshot shows **http_server_requests** and **Heap Memory Used**:
 
-:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/metrics.png" alt-text="Screenshot of Azure portal showing metrics over time graph.":::
+:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/metrics.png" alt-text="Screenshot of Azure portal showing metrics over time graph." lightbox="media/quickstart-monitor-end-to-end-enterprise/metrics.png":::
 
 Spring Boot registers a large number of core metrics: JVM, CPU, Tomcat, Logback, and so on.
 The Spring Boot auto-configuration enables the instrumentation of requests handled by Spring MVC.
@@ -268,11 +268,11 @@ The `acem-payment` application has the following custom metric enabled: @Timed: 
 
 You can see these custom metrics in the **Metrics** pane, as shown in the following screenshot.
 
-:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/fitness-store-custom-metrics-with-payments.png" alt-text="Screenshot showing custom metrics instrumented by Micrometer.":::
+:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/fitness-store-custom-metrics-with-payments.png" alt-text="Screenshot showing custom metrics instrumented by Micrometer." lightbox="media/quickstart-monitor-end-to-end-enterprise/fitness-store-custom-metrics-with-payments.png":::
 
 Navigate to the **Live Metrics** pane. Here you can see live metrics on screen with low latencies < 1 second, as shown in the following screenshot:
 
-:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/live-metrics.png" alt-text="Screenshot showing the live metrics of all applications.":::
+:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/live-metrics.png" alt-text="Screenshot showing the live metrics of all applications." lightbox="media/quickstart-monitor-end-to-end-enterprise/live-metrics.png":::
 
 ## Working with other monitoring tools
 

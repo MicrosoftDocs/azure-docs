@@ -85,11 +85,11 @@ The automation associated with the sample application requires a Storage account
 
 1. This example uses the [ACME Fitness Store](https://github.com/Azure-Samples/acme-fitness-store) sample on GitHub. Fork the sample, open the GitHub repository page, and then select the **Settings** tab. Open the **Secrets** menu, then select **Add a new secret**, as shown in the following screenshot.
 
-   :::image type="content" source="media/github-actions/actions1.png" alt-text="Screenshot showing GitHub Settings Add new secret.":::
+   :::image type="content" source="media/github-actions/actions1.png" alt-text="Screenshot showing GitHub Settings Add new secret." lightbox="media/github-actions/actions1.png"
 
 1. Set the secret name to `AZURE_CREDENTIALS` and set its value to the JSON string that you found under the heading **Set up your GitHub repository and authenticate**.
 
-   :::image type="content" source="media/github-actions/actions2.png" alt-text="Screenshot showing GitHub Settings Set secret data.":::
+   :::image type="content" source="media/github-actions/actions2.png" alt-text="Screenshot showing GitHub Settings Set secret data." lightbox="media/github-actions/actions2.png"
 
 1. Add the following secrets to GitHub Actions:
 
@@ -113,15 +113,15 @@ The automation associated with the sample application requires a Storage account
 
 Now you can run GitHub Actions in your repository. The [provision workflow](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/.github/workflows/provision.yml) provisions all resources necessary to run the example application. The following screenshot shows an example run:
 
-:::image type="content" source="media/quickstart-automate-deployments-github-actions-enterprise/provision.png" alt-text="Screenshot of GitHub showing output from the provision workflow.":::
+:::image type="content" source="media/quickstart-automate-deployments-github-actions-enterprise/provision.png" alt-text="Screenshot of GitHub showing output from the provision workflow." lightbox="media/quickstart-automate-deployments-github-actions-enterprise/provision.png"
 
 Each application has a [deploy workflow](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/.github/workflows/catalog.yml) that will redeploy the application when changes are made to that application. The following screenshot shows some example output from the catalog service:
 
-:::image type="content" source="media/quickstart-automate-deployments-github-actions-enterprise/deploy-catalog.png" alt-text="Screenshot of GitHub showing output from the Deploy Catalog workflow.":::
+:::image type="content" source="media/quickstart-automate-deployments-github-actions-enterprise/deploy-catalog.png" alt-text="Screenshot of GitHub showing output from the Deploy Catalog workflow." lightbox="media/quickstart-automate-deployments-github-actions-enterprise/deploy-catalog.png"
 
 The [cleanup workflow](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/.github/workflows/cleanup.yml) can be manually run to delete all resources created by the `provision` workflow. The following screenshot shows the output:
 
-:::image type="content" source="media/quickstart-automate-deployments-github-actions-enterprise/cleanup.png" alt-text="Screenshot of GitHub showing output from the cleanup workflow.":::
+:::image type="content" source="media/quickstart-automate-deployments-github-actions-enterprise/cleanup.png" alt-text="Screenshot of GitHub showing output from the cleanup workflow." lightbox="media/quickstart-automate-deployments-github-actions-enterprise/cleanup.png"
 
 ## Clean up resources
 

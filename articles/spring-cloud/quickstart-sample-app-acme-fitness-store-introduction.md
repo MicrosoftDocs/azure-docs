@@ -21,7 +21,7 @@ This quickstart describes the [ACME Fitness Store](https://github.com/Azure-Samp
 
 The following diagram shows a common application architecture:
 
-:::image type="content" source="media/quickstart-sample-app-acme-fitness-store-introduction/architecture.png" alt-text="Diagram showing the architecture of the ACME Fitness Store application.":::
+:::image type="content" source="media/quickstart-sample-app-acme-fitness-store-introduction/architecture.png" alt-text="Diagram showing the architecture of the ACME Fitness Store application." lightbox="media/quickstart-sample-app-acme-fitness-store-introduction/architecture.png" border="false":::
 
 This architecture shows an application composed of smaller applications with a gateway, multiple databases, security services, monitoring, and automation.
 
@@ -43,7 +43,7 @@ This quickstart applies this architecture to a Fitness Store application. This a
 
 The following screenshot shows the ACME Fitness Store home page.
 
-:::image type="content" source="media/quickstart-sample-app-acme-fitness-store-introduction/homepage.png" alt-text="Screenshot of the ACME Fitness store application.":::
+:::image type="content" source="media/quickstart-sample-app-acme-fitness-store-introduction/homepage.png" alt-text="Screenshot of the ACME Fitness store application." lightbox="media/quickstart-sample-app-acme-fitness-store-introduction/homepage.png":::
 
 ## Next steps
 
