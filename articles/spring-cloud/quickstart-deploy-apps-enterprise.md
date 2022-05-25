@@ -210,9 +210,9 @@ Use the following steps to configure Application Configuration Service.
        --service <Azure-Spring-Apps-service-instance-name>
    ```
 
-## Service registration and discovery
+## Activate service registration and discovery
 
-Bind applications to Service Registry to activate Service Registration and Discovery by using the following commands:
+Bind applications to Service Registry to activate service registration and discovery by using the following commands:
 
 ```azurecli
 az spring service-registry bind \
@@ -298,7 +298,7 @@ Use the following steps to deploy and build applications. For these steps, make 
 > [!TIP]
 > To troubleshot deployments, you can use the following command to get logs streaming in real time whenever the app is running: `az spring app logs --name <app name> --follow`.
 
-## Effortlessly route requests to apps with Spring Cloud Gateway
+## Route requests to apps with Spring Cloud Gateway
 
 Use the following steps to configure Spring Cloud Gateway and configure routes to applications.
 
@@ -382,7 +382,7 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
    echo "https://${GATEWAY_URL}"
    ```
 
-   You can open the output URL in a browser to explore the updated application.
+   You can open the output URL in a browser to explore the deployed application.
 
 ## Browse and try APIs with API Portal
 
@@ -407,7 +407,7 @@ Use the following steps to configure API Portal.
    echo "https://${PORTAL_URL}"
    ```
 
-   You can open the output URL in a browser to explore the updated application.
+   You can open the output URL in a browser to explore the application APIs.
 
 ---
 

@@ -27,9 +27,9 @@ This quickstart shows you automate deployments to Azure Spring Apps Enterprise t
 - [jq](https://stedolan.github.io/jq/download/)
 - [!INCLUDE [install-enterprise-extension](includes/install-enterprise-extension.md)]
 
-## Set up GitHub repository and authenticate
+## Set up a GitHub repository and authenticate
 
-The automation associated with the sample application requires a Storage Account for maintaining terraform state. The following instructions describe how to create a Storage Account for use with GitHub Actions and Terraform.
+The automation associated with the sample application requires a Storage account for maintaining Terraform state. The following instructions describe how to create a Storage Account for use with GitHub Actions and Terraform.
 
 Create a new resource group to contain the Storage Account by using the following command:
 

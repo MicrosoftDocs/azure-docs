@@ -265,7 +265,7 @@ PORTAL_URL=$(az spring api-portal show \
 echo "https://${PORTAL_URL}"
 ```
 
-You can open the output URL in a browser to explore the updated application. This time, you'll be directed to sign on before exploring APIs.
+You can open the output URL in a browser to explore the application APIs. This time, you'll be directed to sign on before exploring APIs.
 
 ---
 

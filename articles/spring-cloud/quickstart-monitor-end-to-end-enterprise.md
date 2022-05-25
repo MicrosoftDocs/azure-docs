@@ -50,11 +50,12 @@ The Application Insights connection string must be provided manually to the Orde
 
    az keyvault secret set \
        --vault-name <key-vault-name> \
-       --name "ApplicationInsights--ConnectionString" --value ${INSTRUMENTATION_KEY}
+       --name "ApplicationInsights--ConnectionString" \
+       --value ${INSTRUMENTATION_KEY}
    ```
 
-> [!NOTE]
-> By default, the Application Insights service instance has the same name as the Azure Spring Apps service instance.
+   > [!NOTE]
+   > By default, the Application Insights service instance has the same name as the Azure Spring Apps service instance.
 
 1. Update the sampling rate for the Application Insights binding to increase the amount of data available by using the following command:
 
