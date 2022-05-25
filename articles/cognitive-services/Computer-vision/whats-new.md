@@ -30,7 +30,7 @@ Computer Vision's [OCR (Read) API](overview-ocr.md) latest model with [164 suppo
 * Performance and latency improvements.
 * Available as [cloud service](overview-ocr.md#read-api) and [Docker container](computer-vision-how-to-install-containers.md).
 
-See the [OCR how-to guide](Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) to learn how to use the GA model.
+See the [OCR how-to guide](how-to/call-read-api.md#determine-how-to-process-the-data-optional) to learn how to use the GA model.
 
 > [!div class="nextstepaction"]
 > [Get Started with the Read API](./quickstarts-sdk/client-library.md)
@@ -46,7 +46,7 @@ Computer Vision's [OCR (Read) API](overview-ocr.md) expands [supported languages
 * Enhancements including better support for extracting handwritten dates, amounts, names, and single character boxes.
 * General performance and AI quality improvements
 
-See the [OCR how-to guide](Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) to learn how to use the new preview features.
+See the [OCR how-to guide](how-to/call-read-api.md#determine-how-to-process-the-data-optional) to learn how to use the new preview features.
 
 > [!div class="nextstepaction"]
 > [Get Started with the Read API](./quickstarts-sdk/client-library.md)
@@ -66,7 +66,7 @@ Computer Vision's [OCR (Read) API](overview-ocr.md) expands [supported languages
 * Enhancements for processing digital PDFs and Machine Readable Zone (MRZ) text in identity documents.
 * General performance and AI quality improvements
 
-See the [OCR how-to guide](Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) to learn how to use the new preview features.
+See the [OCR how-to guide](how-to/call-read-api.md#determine-how-to-process-the-data-optional) to learn how to use the new preview features.
 
 > [!div class="nextstepaction"]
 > [Get Started with the Read API](./quickstarts-sdk/client-library.md)
@@ -102,8 +102,8 @@ A new version of the [Spatial Analysis container](spatial-analysis-container.md)
 
 The Computer Vision API v3.2 is now generally available with the following updates:
 
-* Improved image tagging model: analyzes visual content and generates relevant tags based on objects, actions, and content displayed in the image. This model is available through the [Tag Image API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f200). See the Image Analysis [how-to guide](./vision-api-how-to-topics/howtocallvisionapi.md) and [overview](./overview-image-analysis.md) to learn more.
-* Updated content moderation model: detects presence of adult content and provides flags to filter images containing adult, racy, and gory visual content. This model is available through the [Analyze API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b). See the Image Analysis [how-to guide](./vision-api-how-to-topics/howtocallvisionapi.md) and [overview](./overview-image-analysis.md) to learn more.
+* Improved image tagging model: analyzes visual content and generates relevant tags based on objects, actions, and content displayed in the image. This model is available through the [Tag Image API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f200). See the Image Analysis [how-to guide](./how-to/howtocallvisionapi.md) and [overview](./overview-image-analysis.md) to learn more.
+* Updated content moderation model: detects presence of adult content and provides flags to filter images containing adult, racy, and gory visual content. This model is available through the [Analyze API](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/56f91f2e778daf14a499f21b). See the Image Analysis [how-to guide](./how-to/howtocallvisionapi.md) and [overview](./overview-image-analysis.md) to learn more.
 * [OCR (Read) available for 73 languages](./language-support.md#optical-character-recognition-ocr) including Simplified and Traditional Chinese, Japanese, Korean, and Latin languages.
 * [OCR (Read)](./overview-ocr.md) also available as a [Distroless container](./computer-vision-how-to-install-containers.md?tabs=version-3-2) for on-premise deployment.
 
@@ -136,7 +136,7 @@ The Computer Vision Read API v3.2 public preview, available as cloud service and
 * Extract text only for selected pages for a multi-page document.
 * Available as a [Distroless container](./computer-vision-how-to-install-containers.md?tabs=version-3-2) for on-premise deployment.
 
-See the [Read API how-to guide](Vision-API-How-to-Topics/call-read-api.md) to learn more.
+See the [Read API how-to guide](how-to/call-read-api.md) to learn more.
 
 > [!div class="nextstepaction"]
 > [Use the Read API v3.2 Public Preview](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2/operations/5d986960601faab4bf452005)
@@ -198,7 +198,7 @@ The Computer Vision Read API v3.1 public preview adds these capabilities:
 
 * This preview version of the Read API supports English, Dutch, French, German, Italian, Japanese, Portuguese, Simplified Chinese, and Spanish languages.
 
-See the [Read API how-to guide](Vision-API-How-to-Topics/call-read-api.md) to learn more.
+See the [Read API how-to guide](how-to/call-read-api.md) to learn more.
 
 > [!div class="nextstepaction"]
 > [Learn more about Read API v3.1 Public Preview 2](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005)
@@ -215,7 +215,7 @@ The Computer Vision Read API v3.1 public preview adds support for Simplified Chi
 
 * This preview version of the Read API supports English, Dutch, French, German, Italian, Portuguese, Simplified Chinese, and Spanish languages.
 
-See the [Read API how-to guide](Vision-API-How-to-Topics/call-read-api.md) to learn more.
+See the [Read API how-to guide](how-to/call-read-api.md) to learn more.
 
 > [!div class="nextstepaction"]
 > [Learn more about Read API v3.1 Public Preview 1](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)

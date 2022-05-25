@@ -139,6 +139,6 @@ A successful response writes the thumbnail image to the file specified in `<thum
 In this quickstart, you learned how to make basic image analysis calls using the REST API. Next, learn more about the Analyze API features.
 
 > [!div class="nextstepaction"]
->[Call the Analyze API](../Vision-API-How-to-Topics/HowToCallVisionAPI.md)
+>[Call the Analyze API](../how-to/HowToCallVisionAPI.md)
 
 * [Image Analysis overview](../overview-image-analysis.md)

@@ -20,7 +20,7 @@ keywords: on-premises, OCR, Docker, container
 
 Containers enable you to run the Computer Vision APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run Computer Vision containers.
 
-The *Read* OCR container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API how-to guide](Vision-API-How-to-Topics/call-read-api.md).
+The *Read* OCR container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API how-to guide](how-to/call-read-api.md).
 
 ## What's new
 The `3.2-model-2022-04-30` GA version of the Read container is available with support for [164 languages and other enhancements](./whats-new.md#may-2022). If you are an existing customer, please follow the [download instructions](#docker-pull-for-the-read-ocr-container) to get started.

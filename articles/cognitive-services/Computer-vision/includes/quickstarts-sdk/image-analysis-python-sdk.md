@@ -19,7 +19,7 @@ Use the Image Analysis client library for Python to analyze a remote image for c
 > You can also analyze a local image. See the [ComputerVisionClientOperationsMixin](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin) methods, such as **analyze_image_in_stream**. Or, see the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ImageAnalysisQuickstart.py) for scenarios involving local images.
 
 > [!TIP]
-> The Analyze API can do many different operations other than generate image tags. See the [Image Analysis how-to guide](../../Vision-API-How-to-Topics/HowToCallVisionAPI.md) for examples that showcase all of the available features.
+> The Analyze API can do many different operations other than generate image tags. See the [Image Analysis how-to guide](../../how-to/HowToCallVisionAPI.md) for examples that showcase all of the available features.
 
 [Reference documentation](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-computervision) | [Package (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-computervision/) | [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
@@ -109,7 +109,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 In this quickstart, you learned how to install the Image Analysis client library and make basic image analysis calls. Next, learn more about the Analyze API features.
 
 > [!div class="nextstepaction"]
->[Call the Analyze API](../../Vision-API-How-to-Topics/HowToCallVisionAPI.md)
+>[Call the Analyze API](../../how-to/HowToCallVisionAPI.md)
 
 * [Image Analysis overview](../../overview-image-analysis.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ImageAnalysisQuickstart.py).

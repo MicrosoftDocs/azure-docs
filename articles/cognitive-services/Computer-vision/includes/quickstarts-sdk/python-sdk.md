@@ -63,7 +63,7 @@ Use the OCR client library to read printed and handwritten text from a remote im
    > [!IMPORTANT]
    > Remember to remove the subscription key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../../key-vault/general/overview.md).
 
-1. As an optional step, see [How to specify the model version](../../Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional). For example, to explicitly specify the latest GA model, edit the `read` statement as shown. Skipping the parameter or using `"latest"` automatically uses the most recent GA model.
+1. As an optional step, see [How to specify the model version](../../how-to/call-read-api.md#determine-how-to-process-the-data-optional). For example, to explicitly specify the latest GA model, edit the `read` statement as shown. Skipping the parameter or using `"latest"` automatically uses the most recent GA model.
 
    ```python
       # Call API with URL and raw response (allows you to get the operation location)
@@ -103,7 +103,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 In this quickstart, you learned how to install the OCR client library and use the Read API. Next, learn more about the Read API features.
 
 > [!div class="nextstepaction"]
->[Call the Read API](../../Vision-API-How-to-Topics/call-read-api.md)
+>[Call the Read API](../../how-to/call-read-api.md)
 
 * [OCR overview](../../overview-ocr.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py).
