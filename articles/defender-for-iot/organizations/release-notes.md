@@ -50,7 +50,7 @@ We've recently optimized and enhanced our documentation as follows:
 
 ### New OT monitoring appliance catalog
 
-We've refreshed and revamped the catalog of supported appliances for OT monitoring systems, including both OT sensors and on-premises management consoles.
+We've refreshed and revamped the catalog of supported appliances for OT monitoring systems, including both OT sensors and on-premises management consoles. The Defender for IoT OT monitoring appliance catalog supports flexible deployment options for various system sizes.
 
 Use the new pages as follows:
 
