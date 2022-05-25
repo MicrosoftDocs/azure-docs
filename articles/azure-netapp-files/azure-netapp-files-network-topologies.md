@@ -78,7 +78,7 @@ The following table describes the network topologies supported by each network f
 |---|---|---|
 |     Connectivity to volume in a local VNet    |     Yes    |     Yes    |
 |     Connectivity to volume in a peered VNet (Same region)    |     Yes    |     Yes    |
-|     Connectivity to volume in a peered VNet (Cross region or global peering)    |     No    |     No    |
+|     Connectivity to volume in a peered VNet (Cross region or global peering)    |     Yes*(1)    |     No    |
 |     Connectivity to a volume over ExpressRoute gateway    |     Yes    |     Yes    |
 |     ExpressRoute (ER) FastPath    |     Yes    |     No    |
 |     Connectivity from on-premises to a volume in a spoke VNet   over ExpressRoute gateway and VNet peering with gateway transit    |     Yes    |     Yes    |
@@ -89,6 +89,7 @@ The following table describes the network topologies supported by each network f
 |     Connectivity over Active/Active Zone Redundant gateways    |     No    |     No    |
 |     Connectivity over Virtual WAN (VWAN)    |     No    |     No    |
 
+*(1) Requires fowarding traffic to a Network Virtual Appliance such as Azure Firewall using User Defined Routes. 
 ## Virtual network for Azure NetApp Files volumes
 
 This section explains concepts that help you with virtual network planning.
