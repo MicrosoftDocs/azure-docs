@@ -34,7 +34,7 @@ landingContent:
           - text: Hub and spoke
             url: concepts-hub-and-spoke.md
           - text: Internet connectivity design considerations
-            url: concepts-design-avs-public-internet-access.md
+            url: concepts-design-public-internet-access.md
           - text: Network design considerations
             url: concepts-network-design-considerations.md
           - text: Networking and interconnectivity
