@@ -54,4 +54,4 @@ The Network Connection settings are applied to the dev box only at the time of p
 A Dev Box Pool is a resource associated with a Project. It consists of the configuration and network information for a given group of dev boxes. It is defined as the 'Type' of the dev box as well as the container for managing dev boxes. A user given access to a Pool can create dev boxes from it, adhering to the Pool's settings. 
 
 ## Dev Box 
-A dev box is an instance of a virtual machine configured for developer use. It is built on [Windows 365 Cloud PC](https://docs.microsoft.com/windows-365/enterprise/overview) and managed by Microsoft Intune.
+A dev box is an instance of a virtual machine configured for developer use. It is built on [Windows 365 Cloud PC](/windows-365/enterprise/overview) and managed by Microsoft Intune.

@@ -59,7 +59,7 @@ conceptualContent:
     # Card
     - title: Microsoft Dev Box concepts
       links:
-        - url: concept-dev-box-concepts.md
+        - url: dev-box-concepts.md
           itemType: reference
           text: Learn key concepts and terminology for Microsoft Dev Box.
 
