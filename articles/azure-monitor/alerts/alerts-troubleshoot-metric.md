@@ -4,7 +4,7 @@ description: Common issues with Azure Monitor metric alerts and possible solutio
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 2/23/2022
+ms.date: 5/25/2022
 ---
 # Troubleshooting problems in Azure Monitor metric alerts 
 
@@ -233,6 +233,16 @@ To create a metric alert rule, you’ll need to have the following permissions:
 - Write permission on the resource group in which the alert rule is created (if you’re creating the alert rule from the Azure portal, the alert rule is created by default in the same resource group in which the target resource resides)
 - Read permission on any action group associated to the alert rule (if applicable)
 
+## Subscription registration to the Microsoft.Insights resource provider
+
+Metric alerts can only access resources in subscriptions registered to the Microsoft.Insights resource provider.
+Therefore, to create a metric alert rule, all involved subscriptions must be registered to this resource provider:
+
+- The subscription containing the alert rule's target resource (scope)
+- The subscription containing the action groups associated with the alert rule (if defined)
+- The subscription in which the alert rule is saved
+
+Learn more about [registering resource providers](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
 
 ## Naming restrictions for metric alert rules
 

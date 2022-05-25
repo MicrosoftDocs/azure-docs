@@ -71,6 +71,8 @@ The SharePoint indexer supports both [delegated and application](/graph/auth/aut
 
 + Application permissions, where the indexer runs under the identity of the SharePoint tenant with access to all sites and files within the SharePoint tenant. The indexer requires a [client secret](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) to access the SharePoint tenant. The indexer will also require [tenant admin approval](../active-directory/manage-apps/grant-admin-consent.md) before it can index any content.
 
+Note that if your Azure Active Directory organization has [Conditional Access enabled](/active-directory/conditional-access/overview.md) and your administrator is not able to grant any device access for Delegated permissions, you should consider Application permissions instead. For more information, refer to [SharePoint Conditional Access policies](/remove-search-indexer-troubleshooting.md#sharepoint-conditional-access-policies).
+
 ### Step 3: Create an Azure AD application
 
 The SharePoint indexer will use this Azure Active Directory (Azure AD) application for authentication.
