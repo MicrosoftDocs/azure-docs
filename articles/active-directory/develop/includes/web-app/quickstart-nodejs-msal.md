@@ -16,7 +16,7 @@ ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
 # Customer intent: As an application developer, I want to know how to set up authentication in a web application built using Node.js and MSAL Node.
 ---
 
-In this quickstart, you download and run a code sample that demonstrates how a Node.js web app can sign in users by using the authorization code flow. The code sample also demonstrates how to get an access token to call Microsoft Graph API.
+In this quickstart, you download and run a code sample that demonstrates how a Node.js web app can sign in users by using the authorization code flow. The code sample also demonstrates how to get an access token to call the Microsoft Graph API.
 
 See [How the sample works](#how-the-sample-works) for an illustration.
 
@@ -38,7 +38,7 @@ This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node
 1. Under **Manage**, select **App registrations** > **New registration**.
 1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
-1. Set the **Redirect URI** value to `http://localhost:3000/redirect`.
+1. Set the **Redirect URI** value to `http://localhost:3000/auth/redirect`.
 1. Select **Register**.
 1. On the app **Overview** page, note the **Application (client) ID** value for later use.
 1. Under **Manage**, select **Certificates & secrets** > **Client secrets** > **New client secret**.  Leave the description blank and default expiration, and then select **Add**.
@@ -51,44 +51,36 @@ To run the project with a web server by using Node.js, [download the core projec
 
 #### Step 3: Configure your Node app
 
-Extract the project, open the *ms-identity-node-main* folder, and then open the *index.js* file.
+Extract the project, open the *ms-identity-node-main* folder, and then open the *.env* file.
 
-Set the `clientID` value with the application (client) ID, and then set the `clientSecret` value with the client secret.
-
-```javascript
-const config = {
-    auth: {
-        clientId: "Enter_the_Application_Id_Here",
-        authority: "https://login.microsoftonline.com/common",
-        clientSecret: "Enter_the_Client_Secret_Here"
-    },
-    system: {
-        loggerOptions: {
-            loggerCallback(loglevel, message, containsPii) {
-                console.log(message);
-            },
-            piiLoggingEnabled: false,
-            logLevel: msal.LogLevel.Verbose,
-        }
-    }
-};
+```txt
+    AAD_CLOUD_INSTANCE=Enter_the_Cloud_Instance_Id_Here # cloud instance string should end with a trailing slash
+    AAD_TENANT_INFO=Enter_the_Tenant_Info_Here
+    AAD_CLIENT_ID=Enter_the_Application_Id_Here
+    AAD_CLIENT_SECRET=Enter_the_Client_Secret_Here
+    
+    AAD_REDIRECT_URI=http://localhost:3000/auth/redirect
+    AAD_POST_LOGOUT_REDIRECT_URI=http://localhost:3000
+    
+    GRAPH_API_ENDPOINT=Enter_the_Graph_Endpoint_Here # graph api endpoint string should end with a trailing slash
+    
+    EXPRESS_SESSION_SECRET=Enter_the_Express_Session_Secret_Here
 ```
 
+Replace the values above as follows:
 
-Modify the values in the `config` section:
-
-- `Enter_the_Application_Id_Here` is the application (client) ID for the application you registered.
-
-   To find the application (client) ID, go to the app registration's **Overview** page in the Azure portal.
-- `Enter_the_Client_Secret_Here` is the client secret for the application you registered.
-
-   To retrieve or generate a new client secret, under **Manage**, select **Certificates & secrets**.
-
-The default `authority` value represents the main (global) Azure cloud:
-
-```javascript
-authority: "https://login.microsoftonline.com/common",
-```
+- `Enter_the_Cloud_Instance_Id_Here`: The Azure cloud instance in which your application is registered.
+  - For the main (or *global*) Azure cloud, enter `https://login.microsoftonline.com/` (include the trailing forward-slash).
+  - For **national** clouds (for example, China), you can find appropriate values in [National clouds](../../authentication-national-cloud.md).
+- `Enter_the_Tenant_Info_here` should be one of the following:
+  - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name**. For example, `contoso.microsoft.com`.
+  - If your application supports *accounts in any organizational directory*, replace this value with `organizations`.
+  - If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with `common`.
+  - To restrict support to *personal Microsoft accounts only*, replace this value with `consumers`.
+- `Enter_the_Application_Id_Here`: The **Application (client) ID** of the application you registered.
+- `Enter_the_Client_secret`: Replace this value with the client secret you created earlier. To generate a new key, use **Certificates & secrets** in the app registration settings in the Azure portal.
+- `Enter_the_Graph_Endpoint_Here`: The Microsoft Graph API cloud instance that your app will call. For the main (global) Microsoft Graph API service, enter `https://graph.microsoft.com/` (include the trailing forward-slash). For more information, see the [National cloud deployments](https://docs.microsoft.com/graph/deployments).
+- `Enter_the_Express_Session_Secret_Here` the secret used to encrypt the Express session cookie. Choose a hard to guess value to replace this string with, such as your client secret.
 
 #### Step 4: Run the project
 
@@ -97,21 +89,22 @@ Run the project by using Node.js.
 1. To start the server, run the following commands from within the project directory:
 
     ```console
+    cd App
     npm install
     npm start
     ```
 
 1. Go to `http://localhost:3000/`.
 
-1. Select **Sign In** to start the sign-in process.
+1. Select **Sign in** to start the sign-in process.
 
-    The first time you sign in, you're prompted to provide your consent to allow the application to access your profile and sign you in. After you're signed in successfully, you will see a log message in the command line.
+    The first time you sign in, you're prompted to provide your consent to allow the application to sign you in and access your profile. After you're signed in successfully, you'll be redirected back to application home page.
 
 ## More information
 
 ### How the sample works
 
-The sample hosts a web server on localhost, port 3000. When a web browser accesses this site, the sample immediately redirects the user to a Microsoft authentication page. Because of this, the sample does not contain any HTML or display elements. Authentication success displays the message "OK".
+The sample hosts a web server on localhost, port 3000. When a web browser accesses this address, the app renders the home page. Once the user selects **Sign in**, the app redirects the browser to Azure AD sign-in screen, via the URL generated by the MSAL Node library. After user consents, the browser redirects the user back to the application home page, along with an ID and access token.  
 
 ### MSAL Node
 
@@ -123,5 +116,6 @@ npm install @azure/msal-node
 
 ## Next steps
 
+Learn more about the web app scenario that the Microsoft identity platform supports:
 > [!div class="nextstepaction"]
-> [Adding Auth to an existing web app - GitHub code sample >](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/auth-code)
+> [Web app that signs in users scenario](../../scenario-web-app-sign-user-overview.md)

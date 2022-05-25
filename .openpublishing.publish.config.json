@@ -79,7 +79,7 @@
       "url": "https://github.com/Azure-Samples/msdocs-storage-bind-function-service",
       "branch": "main",
       "branch_mapping": {}
-    },    
+    },
     {
       "path_to_root": "azure_cli_scripts",
       "url": "https://github.com/Azure-Samples/azure-cli-samples",
@@ -889,8 +889,13 @@
       "url": "https://github.com/Azure-Samples/azure-sql-binding-func-dotnet-todo",
       "branch": "docs-snippets",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "ms-identity-node",
+      "url": "https://github.com/Azure-Samples/ms-identity-node",
+      "branch": "main",
+      "branch_mapping": {}
     }
-
   ],
   "branch_target_mapping": {
     "live": ["Publish", "PDF"],
