@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 03/04/2022
+ms.date: 05/25/2022
 ms.author: victorh
 ---
 
@@ -61,7 +61,7 @@ Unregister-AzProviderFeature -FeatureName AFWEnableNetworkRuleNameLogging -Provi
 
 As more applications move to the cloud, the performance of the network elements can become a bottleneck. As the central piece of any network design, the firewall needs to support all the workloads. The Azure Firewall Premium performance boost feature allows more scalability for these deployments.
 
-This feature significantly increases the throughput of Azure Firewall Premium. For more details, see [Azure Firewall performance](firewall-performance.md).
+This feature significantly increases the throughput of Azure Firewall Premium. For more information, see [Azure Firewall performance](firewall-performance.md).
 
 To enable the Azure Firewall Premium Performance boost feature, run the following commands in Azure PowerShell. Stop and start the firewall for the feature to take effect immediately. Otherwise, the firewall/s is updated with the feature within several days. 
 
@@ -81,6 +81,12 @@ Run the following Azure PowerShell command to turn off this feature:
 ```azurepowershell
 Unregister-AzProviderFeature -FeatureName AFWEnableAccelnet -ProviderNamespace Microsoft.Network
 ```
+
+### IDPS Private IP ranges (preview)
+
+In Azure Firewall Premium IDPS, private IP address ranges are used to identify if traffic is inbound, outbound, or internal (East-West). Each signature is applied on specific traffic direction, as indicated in the signature rules table. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses. So traffic sent from a private IP address range to a private IP address range is considered internal. To modify your private IP addresses, you can now easily edit, remove, or add ranges as needed.
+
+:::image type="content" source="media/firewall-preview/idps-private-ip.png" alt-text="Screenshot showing I D P S private IP address ranges.":::
 
 ## Next steps
 
