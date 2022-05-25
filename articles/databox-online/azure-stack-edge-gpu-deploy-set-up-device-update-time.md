@@ -14,7 +14,7 @@ ms.author: alkohli
 
 # Tutorial: Configure the device settings for Azure Stack Edge Pro GPU
 
-This tutorial describes how to configure device related settings for your 1-node Azure Stack Edge Pro GPU device. You can set up your device name, update server, and time server via the local web UI.
+This tutorial describes how to configure device related settings for your Azure Stack Edge Pro GPU device. You can set up your device name, update server, and time server via the local web UI.
 
 The device settings can take around 5-7 minutes to complete.
 
