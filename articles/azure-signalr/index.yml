@@ -135,10 +135,10 @@ landingContent:
       - linkListType: concept
         links:
           - text: Choice between Azure SignalR service and Azure Web PubSub service
-            url: signalr-resource-faq.yml#how-do-i-choose-between-azure-signalr-service-and-azure-web-pubsub-service
+            url: signalr-resource-faq.yml#how-do-i-choose-between-azure-signalr-service-and-azure-web-pubsub-service-
       - linkListType: how-to-guide
         links:
-          - text: Troubleshoting guide
+          - text: Troubleshooting guide
             url: signalr-howto-troubleshoot-guide.md
       - linkListType: reference
         links:
