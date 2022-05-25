@@ -35309,6 +35309,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Computer-vision/Vision-API-How-to-Topics/HowToCallVisionAPI.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/how-to/call-analyze-image",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Computer-vision/Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/how-to/analyze-video",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Computer-vision/Vision-API-How-to-Topics/call-read-api.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/how-to/call-read-api",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Upload-Images.md",
       "redirect_url": "/azure/cognitive-services/content-moderator",
       "redirect_document_id": false
