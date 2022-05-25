@@ -52,16 +52,19 @@ The resource defined in the Bicep file is:
     # [CLI](#tab/CLI)
 
     ```azurecli
-    az deployment sub create --name demoSubDeployment --location eastus --template-file main.bicep
+    az deployment create --location eastus --template-file main.bicep --parameters actions=[]
     ```
 
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
-    New-AzSubscriptionDeployment -Name demoSubDeployment -Location eastus -TemplateFile ./main.bicep
+    New-AzDeployment -Location eastus -TemplateFile ./main.bicep -actions = []
     ```
 
     ---
+
+    > [!NOTE]
+    >  Within the brackets, enter the **actions** as a comma-separated list (i.e. action1, action2).
 
  When the deployment finishes, you should see a message indicating the deployment succeeded.
 
@@ -72,13 +75,13 @@ Use the Azure portal, Azure CLI, or Azure PowerShell to verify that the custom r
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
-az resource list --resource-group exampleRG
+az role definition list --name "Custom Role - RG Reader"
 ```
 
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-Get-AzResource -ResourceGroupName exampleRG
+Get-AzRoleDefinition "Custom Role - RG Reader"
 ```
 
 ---
@@ -114,34 +117,34 @@ Then, use Azure CLI or Azure PowerShell to deploy the updated Bicep file.
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
-az deployment group create --resource-group exampleRG --template-file main.bicep --roleDefName=<role-name>
+az deployment create --template-file main.bicep --parameters actions=[] roleDefName=<role-name>
 ```
 
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-New-AzDeployment -ResourceGroupName exampleRG -Location eastus -TemplateFile ./main.bicep -roleDefName "<role-name>"
+New-AzDeployment -Location eastus -TemplateFile ./main.bicep -actions [] -roleDefName "<role-name>"
 ```
 
 ---
 
 > [!NOTE]
-> Replace **\<role-name\>** with the role ID to update.
+> Within the brackets, enter the **actions** as a comma-separated list (i.e. action1, action2). Replace **\<role-name\>** with the role ID to update.
 
 ## Clean up resources
 
-When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to delete the resource group and its resources.
+When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to remove the custom role.
 
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
-az group delete --name exampleRG
+az role definition delete --name "Custom Role - RG Reader"
 ```
 
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name exampleRG
+Get-AzRoleDefinition -Name "Custom Role - RG Reader" | Remove-AzRoleDefinition
 ```
 
 ---
