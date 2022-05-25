@@ -261,6 +261,7 @@ dfToReadFromTable = (spark.read
 # Show contents of the dataframe
 dfToReadFromTable.show()
 ```
+---
 
 #### Read using basic authentication
 
@@ -332,6 +333,7 @@ dfToReadFromTable = (spark.read
 dfToReadFromTable.show()
 
 ```
+---
 
 ### Write to Azure Synapse Dedicated SQL Pool
 
@@ -475,6 +477,7 @@ from com.microsoft.spark.sqlanalytics.Constants import Constants
              "/path/to/external/table"))
 
 ```
+---
 
 #### Write using basic authentication
 
@@ -570,6 +573,7 @@ from com.microsoft.spark.sqlanalytics.Constants import Constants
              "/path/to/external/table"))
 
 ```
+---
 
 In a basic authentication approach, in order to read data from a source storage path other configuration options are required. Following code snippet provides an example to read from an Azure Data Lake Storage Gen2 data source using Service Principal credentials:
 
