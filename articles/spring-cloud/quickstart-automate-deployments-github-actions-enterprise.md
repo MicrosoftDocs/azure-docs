@@ -1,5 +1,6 @@
 ---
-title: "Quickstart - Automate Deployments"
+title: "Quickstart - Automate deployments"
+titleSuffix: Azure Spring Apps Enterprise tier
 description: Explains how to automate deployments to Azure Spring Apps Enterprise tier by using GitHub Actions and Terraform.
 author: KarlErickson
 ms.author: asirveda # external contributor: paly@vmware.com
@@ -16,7 +17,7 @@ ms.custom: devx-track-java
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This quickstart shows you automate deployments to Azure Spring Apps Enterprise tier by using GitHub Actions and Terraform.
+This quickstart shows you how to automate deployments to Azure Spring Apps Enterprise tier by using GitHub Actions and Terraform.
 
 ## Prerequisites
 
@@ -29,84 +30,84 @@ This quickstart shows you automate deployments to Azure Spring Apps Enterprise t
 
 ## Set up a GitHub repository and authenticate
 
-The automation associated with the sample application requires a Storage account for maintaining Terraform state. The following instructions describe how to create a Storage Account for use with GitHub Actions and Terraform.
+The automation associated with the sample application requires a Storage account for maintaining Terraform state. The following steps show you how to create a Storage Account for use with GitHub Actions and Terraform.
 
-Use the following command to create a new resource group to contain the Storage Account:
+1. Use the following command to create a new resource group to contain the Storage Account:
 
-```azurecli
-az group create \
-    --name <storage-resource-group> \
-    --location <location>
-```
+   ```azurecli
+   az group create \
+       --name <storage-resource-group> \
+       --location <location>
+   ```
 
-Use the following command to create a Storage Account:
+1. Use the following command to create a Storage Account:
 
-```azurecli
-az storage account create \
-    --resource-group <storage-resource-group> \
-    --name <storage-account-name> \
-    --location <location> \
-    --sku Standard_RAGRS \
-    --kind StorageV2
-```
+   ```azurecli
+   az storage account create \
+       --resource-group <storage-resource-group> \
+       --name <storage-account-name> \
+       --location <location> \
+       --sku Standard_RAGRS \
+       --kind StorageV2
+   ```
 
-Use the following command to create a Storage Container within the Storage Account:
+1. Use the following command to create a Storage Container within the Storage Account:
 
-```azurecli
-az storage container create \
-    --resource-group <storage-resource-group> \
-    --name terraform-state-container \
-    --account-name <storage-account-name> \
-    --auth-mode login
-```
+   ```azurecli
+   az storage container create \
+       --resource-group <storage-resource-group> \
+       --name terraform-state-container \
+       --account-name <storage-account-name> \
+       --auth-mode login
+   ```
 
-You need an Azure service principal credential to authorize Azure login action. To get an Azure credential, execute the following commands:
+1. Use the following commands to get an Azure credential. You need an Azure service principal credential to authorize Azure login action.
 
-```azurecli
-az login
-az ad sp create-for-rbac \
-    --role contributor \
-    --scopes /subscriptions/<SUBSCRIPTION_ID> \
-    --sdk-auth
-```
+   ```azurecli
+   az login
+   az ad sp create-for-rbac \
+       --role contributor \
+       --scopes /subscriptions/<SUBSCRIPTION_ID> \
+       --sdk-auth
+   ```
 
-The command should output a JSON object:
+   The command should output a JSON object:
 
-```json
-{
-    "clientId": "<GUID>",
-    "clientSecret": "<GUID>",
-    "subscriptionId": "<GUID>",
-    "tenantId": "<GUID>",
-    ...
-}
-```
+   ```json
+   {
+       "clientId": "<GUID>",
+       "clientSecret": "<GUID>",
+       "subscriptionId": "<GUID>",
+       "tenantId": "<GUID>",
+       ...
+   }
+   ```
 
-This example uses the [ACME Fitness Store](https://github.com/Azure-Samples/acme-fitness-store) sample on GitHub. Fork the sample, open GitHub repository page, and select the **Settings** tab. Open **Secrets** menu, and select **Add a new secret**:
+1. This example uses the [ACME Fitness Store](https://github.com/Azure-Samples/acme-fitness-store) sample on GitHub. Fork the sample, open the GitHub repository page, and then select the **Settings** tab. Open the **Secrets** menu, then select **Add a new secret**, as shown in the following screenshot.
 
-:::image type="content" source="media/github-actions/actions1.png" alt-text="Screenshot showing GitHub Settings Add new secret.":::
+   :::image type="content" source="media/github-actions/actions1.png" alt-text="Screenshot showing GitHub Settings Add new secret.":::
 
-Set the secret name to `AZURE_CREDENTIALS` and its value to the JSON string that you found under the heading **Set up your GitHub repository and authenticate**.
+1. Set the secret name to `AZURE_CREDENTIALS` and set its value to the JSON string that you found under the heading **Set up your GitHub repository and authenticate**.
 
-:::image type="content" source="media/github-actions/actions2.png" alt-text="Screenshot showing GitHub Settings Set secret data.":::
+   :::image type="content" source="media/github-actions/actions2.png" alt-text="Screenshot showing GitHub Settings Set secret data.":::
 
-In addition to `AZURE_CREDENTIALS`, add the following secrets to GitHub Actions:
+1. Add the following secrets to GitHub Actions:
 
-- `TF_PROJECT_NAME` - with the value of your choosing. This will be the name of your Terraform Project
-- `AZURE_LOCATION` - this is the Azure Region your resources will be created in.
-- `OIDC_JWK_SET_URI` - use the `JWK_SET_URI` defined in [Quickstart: Configure single sign-on for applications using Azure Spring Apps Enterprise tier](quickstart-configure-single-sign-on-enterprise.md)
-- `OIDC_CLIENT_ID` - use the `CLIENT_ID` defined in [Quickstart: Configure single sign-on for applications using Azure Spring Apps Enterprise tier](quickstart-configure-single-sign-on-enterprise.md)
-- `OIDC_CLIENT_SECRET` - use the `CLIENT_SECRET` defined in [Quickstart: Configure single sign-on for applications using Azure Spring Apps Enterprise tier](quickstart-configure-single-sign-on-enterprise.md)
-- `OIDC_ISSUER_URI` - use the `ISSUER_URI` defined in [Quickstart: Configure single sign-on for applications using Azure Spring Apps Enterprise tier](quickstart-configure-single-sign-on-enterprise.md)
+   - `TF_PROJECT_NAME`: Use a value of your choosing. This value will be the name of your Terraform Project.
+   - `AZURE_LOCATION`: The Azure Region your resources will be created in.
+   - `OIDC_JWK_SET_URI`: Use the `JWK_SET_URI` defined in [Quickstart: Configure single sign-on for applications using Azure Spring Apps Enterprise tier](quickstart-configure-single-sign-on-enterprise.md).
+   - `OIDC_CLIENT_ID`: Use the `CLIENT_ID` defined in [Quickstart: Configure single sign-on for applications using Azure Spring Apps Enterprise tier](quickstart-configure-single-sign-on-enterprise.md).
+   - `OIDC_CLIENT_SECRET`: Use the `CLIENT_SECRET` defined in [Quickstart: Configure single sign-on for applications using Azure Spring Apps Enterprise tier](quickstart-configure-single-sign-on-enterprise.md).
+   - `OIDC_ISSUER_URI`: Use the `ISSUER_URI` defined in [Quickstart: Configure single sign-on for applications using Azure Spring Apps Enterprise tier](quickstart-configure-single-sign-on-enterprise.md).
 
-Add the secret `TF_BACKEND_CONFIG` to GitHub Actions with the value:
+1. Add the secret `TF_BACKEND_CONFIG` to GitHub Actions with the following value:
 
-```text
-resource_group_name  = "<storage-resource-group>"
-storage_account_name = "<storage-account-name>"
-container_name       = "terraform-state-container"
-key                  = "dev.terraform.tfstate"
-```
+   ```text
+   resource_group_name  = "<storage-resource-group>"
+   storage_account_name = "<storage-account-name>"
+   container_name       = "terraform-state-container"
+   key                  = "dev.terraform.tfstate"
+   ```
 
 ## Automate with GitHub Actions
 

@@ -1,5 +1,6 @@
 ---
-title: "Quickstart - Set Request Rate Limits"
+title: "Quickstart - Set request rate limits"
+titleSuffix: Azure Spring Apps Enterprise tier
 description: Explains how to set request rate limits by using Spring Cloud Gateway on Azure Spring Apps Enterprise tier.
 author: KarlErickson
 ms.author: asirveda # external contributor: paly@vmware.com
@@ -34,14 +35,14 @@ Rate limiting enables you to avoid problems that arise with spikes in traffic. W
 
 Spring Cloud Gateway includes route filters from the Open Source version and several more route filters. One of these filters is the [RateLimit: Limiting user requests filter](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.1/scg-k8s/GUID-route-filters.html#ratelimit-limiting-user-requests-filter). The RateLimit filter limits the number of requests allowed per route during a time window.
 
-When defining a Route, you can add the RateLimit filter by including it in the list of filters for the route. The filter accepts four options:
+When defining a route, you can add the RateLimit filter by including it in the list of filters for the route. The filter accepts four options:
 
-- Number of requests accepted during the window.
-- Duration of the window: by default milliseconds, but you can use s, m or h suffix to specify it in seconds, minutes or hours.
-- (Optional) User partition key: it's also possible to apply rate limiting per user, that is, different users can have its own throughput allowed based on an identifier found in the request. Set whether the key is in a JWT claim or HTTP header with '' or '' syntax.
-- (Optional) It's possible to rate limit by IP addresses, although not in combination with rate limiting per user.
+- The number of requests accepted during the window.
+- The duration of the window. This value is in milliseconds by default, but you can specify a suffix of *s*, *m*, or *h* to indicate that the value is in seconds, minutes, or hours.
+- (Optional) A user partition key. You can also apply rate limiting per user. That is, different users can have their own throughput allowed based on an identifier found in the request. Indicate whether the key is in a JWT claim or HTTP header with '' or '' syntax.
+- (Optional) You can rate limit by IP addresses, but not in combination with rate limiting per user.
 
-The following example would limit all users to two requests every 5 seconds to the `/products` route:
+The following example would limit all users to two requests every five seconds to the `/products` route:
 
 ```json
 {
@@ -56,7 +57,7 @@ The following example would limit all users to two requests every 5 seconds to t
 }
 ```
 
-When the limit is exceeded, response will fail with `429 Too Many Requests` status.
+When the limit is exceeded, responses will fail with `429 Too Many Requests` status.
 
 Use the following command to apply the `RateLimit` filter to the `/products` route:
 
@@ -69,7 +70,7 @@ az spring gateway route-config update \
     --routes-file azure/routes/catalog-service_rate-limit.json
 ```
 
-Use the following command to retrieve the URL for the `/products` route in Spring Cloud Gateway:
+Use the following commands to retrieve the URL for the `/products` route in Spring Cloud Gateway:
 
 ```azurecli
 GATEWAY_URL=$(az spring gateway show \

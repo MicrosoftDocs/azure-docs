@@ -1,5 +1,6 @@
 ---
-title: "Quickstart - Introduction to the sample app - Azure Spring Apps Enterprise tier"
+title: Introduction to the ACME Fitness Store sample app
+titleSuffix: Azure Spring Apps Enterprise tier
 description: Describes the sample app used in this series of quickstarts for deployment to Azure Spring Apps Enterprise tier.
 author: KarlErickson
 ms.author: asirveda # external contributor: paly@vmware.com

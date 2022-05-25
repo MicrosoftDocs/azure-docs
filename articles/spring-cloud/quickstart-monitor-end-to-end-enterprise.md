@@ -1,5 +1,6 @@
 ---
 title: "Quickstart - Monitor applications end-to-end"
+titleSuffix: Azure Spring Apps Enterprise tier
 description: Explains how to monitor apps running Azure Spring Apps Enterprise tier by using Application Insights and Log Analytics.
 author: KarlErickson
 ms.author: asirveda # external contributor: paly@vmware.com
@@ -36,10 +37,10 @@ This quickstart shows you how monitor apps running Azure Spring Apps Enterprise 
 
 ## Update applications
 
-The Application Insights connection string must be provided manually to the Order Service (ASP.NET core) and Cart Service (python) applications. The following instructions describe how to provide this connection string and increase the sampling rate to Application Insights.
+You must manually provide the Application Insights connection string to the Order Service (ASP.NET core) and Cart Service (python) applications. The following instructions describe how to provide this connection string and increase the sampling rate to Application Insights.
 
 > [!NOTE]
-> Currently only the buildpacks for Java and NodeJS applications support Application Insights instrumentation. This will be changed in future iterations.
+> Currently only the buildpacks for Java and NodeJS applications support Application Insights instrumentation.
 
 1. Use the following commands to retrieve the Application Insights connection string and set it in Key Vault:
 
@@ -98,11 +99,11 @@ The Application Insights connection string must be provided manually to the Orde
        --name identity-service
    ```
 
-   For the Java and NodeJS applications, this will allow the new sampling rate to take effect. For the non-java applications, this will allow them to access the newly added Instrumentation Key from the Key Vault.
+   For the Java and NodeJS applications, restarting will allow the new sampling rate to take effect. For the non-Java applications, restarting will allow them to access the newly added Instrumentation Key from the Key Vault.
 
 ## View logs
 
-There are two ways to see logs on Azure Spring Apps: **Log Streaming** of real-time logs per app instance or **Log Analytics** for aggregated logs with advanced query capability
+There are two ways to see logs on Azure Spring Apps: log streaming of real-time logs per app instance or **Log Analytics** for aggregated logs with advanced query capability
 
 ### Use log streaming
 
@@ -117,7 +118,7 @@ cd traffic-generator
 GATEWAY_URL=https://${GATEWAY_URL} ./gradlew gatlingRun-com.vmware.acme.simulation.GuestSimulation
 ```
 
-Use the following command to get the latest 100 lines of application console logs from the Catalog Service:
+Use the following command to get the latest 100 lines of application console logs from the Catalog Service application:
 
 ```azurecli
 az spring app logs \
@@ -127,7 +128,7 @@ az spring app logs \
     --lines 100
 ```
 
-By adding the `--follow` option, you can get real-time log streaming from an app. Use the following command to try log streaming for the Catalog Service:
+By adding the `--follow` option, you can get real-time log streaming from an app. Use the following command to try log streaming for the Catalog Service application:
 
 ```azurecli
 az spring app logs \
@@ -142,9 +143,9 @@ az spring app logs \
 
 ### Use Log Analytics
 
-Open the Log Analytics that you created - you can find the Log Analytics in the same Resource Group where you created an Azure Spring Apps service instance.
+Navigate to the Azure portal and open the Log Analytics instance that you created. You can find the Log Analytics instance in the same resource group where you created the Azure Spring Apps service instance.
 
-In the Log Analytics page, select the **Logs** pane and run any of the following sample queries for Azure Spring Apps.
+On the Log Analytics page, select the **Logs** pane and run any of the following sample queries for Azure Spring Apps.
 
 Type and run the following Kusto query to see application logs:
 
@@ -155,6 +156,8 @@ AppPlatformLogsforSpring
 | sort by TimeGenerated
 | project TimeGenerated, AppName, Log
 ```
+
+This query produces results similar to those shown in the following screenshot:
 
 :::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/all-app-logs-in-log-analytics.png" alt-text="Screenshot of Azure portal showing example output from all application logs query.":::
 
@@ -168,7 +171,9 @@ AppPlatformLogsforSpring
 | project TimeGenerated, AppName, Log
 ```
 
-:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/catalog-app-logs-in-log-analytics.png" alt-text="Screenshot of Azure portal showing example output from catalog service logs.":::
+This query produces results similar to those shown in the following screenshot:
+
+:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/catalog-app-logs-in-log-analytics.png" alt-text="Screenshot of Azure portal showing example output from Catalog Service application logs.":::
 
 Type and run the following Kusto query to see errors and exceptions thrown by each app:
 
@@ -180,6 +185,8 @@ AppPlatformLogsforSpring
 | sort by count_per_app desc
 | render piechart
 ```
+
+This query produces results similar to those shown in the following screenshot:
 
 :::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/ingress-logs-in-log-analytics.png" alt-text="Screenshot of Azure portal showing example output from the Ingress Logs.":::
 
@@ -200,6 +207,8 @@ AppPlatformSystemLogs
 | project TimeGenerated,Log
 ```
 
+This query produces results similar to those shown in the following screenshot:
+
 :::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/spring-cloud-gateway-logs-in-log-analytics.png" alt-text="Screenshot of Azure portal showing example output from the Spring Cloud Gateway Logs.":::
 
 Type and run the following Kusto query to see all the logs from the managed Spring Cloud
@@ -211,33 +220,35 @@ AppPlatformSystemLogs
 | project TimeGenerated, Log
 ```
 
+This query produces results similar to those shown in the following screenshot:
+
 :::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/service-registry-logs-in-log-analytics.png" alt-text="Screenshot of Azure portal showing example output from service registry logs.":::
 
 ## Use tracing
 
-Open the Application Insights created by Azure Spring Apps and start monitoring Spring Boot applications. You can find the Application Insights in the same Resource Group where you created an Azure Spring Apps service instance.
+In the Azure portal, open the Application Insights instance created by Azure Spring Apps and start monitoring Spring Boot applications. You can find the Application Insights instance in the same resource group where you created an Azure Spring Apps service instance.
 
-Navigate to the **Application Map** pane:
+Navigate to the **Application map** pane, which will be similar to the following screenshot:
 
 :::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/fitness-store-application-map.png" alt-text="Screenshot of Azure portal showing the Application Map of Azure Application Insights.":::
 
-Navigate to the **Performance** pane:
+Navigate to the **Performance** pane, which will be similar to the following screenshot:
 
 :::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/performance.png" alt-text="Screenshot of Azure portal showing the Performance pane of Azure Application Insights.":::
 
-Navigate to the **Performance/Dependencies** pane. Here you can see the performance number for dependencies, particularly SQL calls, as shown in the following screenshot:
+Navigate to the **Performance/Dependencies** pane. Here you can see the performance number for dependencies, particularly SQL calls, similar to what's shown in the following screenshot:
 
 :::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/performance-dependencies.png" alt-text="Screenshot of Azure portal showing the Dependencies section of the Performance pane of Azure Application Insights.":::
 
-Navigate to the **Performance/Roles** pane. Here you can see the performance metrics for individual instances or roles, as shown in the following screenshot:
+Navigate to the **Performance/Roles** pane. Here you can see the performance metrics for individual instances or roles, similar to what's shown in the following screenshot:
 
 :::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/fitness-store-roles-in-performance-pane.png" alt-text="Screenshot of Azure portal showing the Roles section of the Performance pane of Azure Application Insights.":::
 
-Select a SQL call to see the end-to-end transaction in context, as shown in the following screenshot:
+Select a SQL call to see the end-to-end transaction in context, similar to what's shown in the following screenshot:
 
 :::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/fitness-store-end-to-end-transaction-details.png" alt-text="Screenshot of Azure portal showing the end-to-end transaction of an S Q L call.":::
 
-Navigate to the **Failures/Exceptions** pane. Here you can see a collection of exceptions, as shown in the following screenshot:
+Navigate to the **Failures/Exceptions** pane. Here you can see a collection of exceptions, similar to what's shown in the following screenshot:
 
 :::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/fitness-store-exceptions.png" alt-text="Screenshot of Azure portal showing application failures graphed.":::
 
@@ -247,14 +258,13 @@ Navigate to the **Metrics** pane. Here you can see metrics contributed by Spring
 
 :::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/metrics.png" alt-text="Screenshot of Azure portal showing metrics over time graph.":::
 
-Spring Boot registers a lot number of core metrics: JVM, CPU, Tomcat, Logback, etc.
+Spring Boot registers a large number of core metrics: JVM, CPU, Tomcat, Logback, and so on.
 The Spring Boot auto-configuration enables the instrumentation of requests handled by Spring MVC.
-The REST controllers `ProductController`, and `PaymentController` have been instrumented by the `@Timed` Micrometer annotation at class level.
+The REST controllers `ProductController` and `PaymentController` have been instrumented by the `@Timed` Micrometer annotation at the class level.
 
-- `acme-catalog` application has the following custom metrics enabled:
-  - @Timed: `store.products`
-- `acem-payment` application has the following custom metrics enabled:
-  - @Timed: `store.payment`
+The `acme-catalog` application has the following custom metric enabled: @Timed: `store.products`
+
+The `acem-payment` application has the following custom metric enabled: @Timed: `store.payment`
 
 You can see these custom metrics in the **Metrics** pane, as shown in the following screenshot.
 
@@ -266,7 +276,7 @@ Navigate to the **Live Metrics** pane. Here you can see live metrics on screen w
 
 ## Working with other monitoring tools
 
-In addition to Application Insights, Azure Spring Apps enterprise tier supports exporting metrics to other tools including:
+Azure Spring Apps enterprise tier also supports exporting metrics to other tools, including the following:
 
 - AppDynamics
 - ApacheSkyWalking

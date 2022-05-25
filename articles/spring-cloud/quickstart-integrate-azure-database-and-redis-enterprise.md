@@ -1,5 +1,6 @@
 ---
 title: "Quickstart - Integrate with Azure Database for PostgreSQL and Azure Cache for Redis"
+titleSuffix: Azure Spring Apps Enterprise tier
 description: Explains how to provision and prepare an Azure Database for PostgreSQL and an Azure Cache for Redis to be used with apps running Azure Spring Apps Enterprise tier.
 author: KarlErickson
 ms.author: asirveda # external contributor: paly@vmware.com
@@ -207,7 +208,7 @@ The following steps show how to bind applications running in Azure Spring Apps E
        --env "DatabaseProvider=Postgres" "ConnectionStrings__OrderContext=${POSTGRES_CONNECTION_STR}"
    ```
 
-1. Use the following commands to Retrieve Redis connection information and update the Cart Service application:
+1. Use the following commands to retrieve Redis connection information and update the Cart Service application:
 
    ```azurecli
    REDIS_CONN_STR=$(az spring connection show \

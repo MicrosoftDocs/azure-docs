@@ -1,5 +1,6 @@
 ---
 title: "Quickstart - Load application secrets using Key Vault"
+titleSuffix: Azure Spring Apps Enterprise tier
 description: Explains how to use Azure Key Vault to securely load secrets for apps running Azure Spring Apps Enterprise tier.
 author: KarlErickson
 ms.author: asirveda # external contributor: paly@vmware.com
@@ -188,7 +189,7 @@ The following instructions describe how to grant access to Key Vault secrets to 
        --secret-permissions get list
    ```
 
-1. If you've configured [single sign-on](quickstart-configure-single-sign-on-enterprise.md), sse the following command to enable a System Assigned Identity for the Identity Service application:
+1. If you've configured [single sign-on](quickstart-configure-single-sign-on-enterprise.md), use the following command to enable a System Assigned Identity for the Identity Service application:
 
    ```azurecli
    az spring app identity assign \
@@ -213,7 +214,7 @@ The following instructions describe how to grant access to Key Vault secrets to 
 
 ## Update applications to load Key Vault secrets
 
-After granting access to read secrets from Key Vault, the applications must be updated to use the new secret values in their configurations. The following instructions describe how to do this.
+After granting access to read secrets from Key Vault, you must update the applications to use the new secret values in their configurations. The following instructions describe how to do this.
 
 1. Use the following command to retrieve the URI for Key Vault to be used in updating applications:
 
