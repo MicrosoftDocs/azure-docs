@@ -1,5 +1,5 @@
 ---
-title: Enable Network Watcher | Microsoft Docs
+title: Enable Azure Network Watcher | Microsoft Docs
 description: Learn how to enable Network Watcher.
 services: network-watcher
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.date: 05/11/2022
 ms.author: v-ssenthilna
 ms.custom: references_regions, devx-track-azurepowershell
 ---
-# Enable Network Watcher
+# Enable Azure Network Watcher
 
 To analyze traffic, you need to have an existing network watcher, or [enable a network watcher](network-watcher-create.md) in each region that you have NSGs that you want to analyze traffic for. Traffic analytics can be enabled for NSGs hosted in any of the [supported regions](supported-region-traffic-analytics.md).
 
@@ -23,7 +23,7 @@ Before enabling NSG flow logging, you must have a network security group to log 
 
 In Azure portal, go to **Network watcher**, and then select **NSG flow logs**. Select the network security group that you want to enable an NSG flow log for, as shown in the following picture:
 
-![Selection of NSGs that require enablement of NSG flow log](./media/traffic-analytics/selection-of-nsgs-that-require-enablement-of-nsg-flow-logging.png)
+![Screenshot of portal to select NSGs that require enablement of NSG flow log.](./media/traffic-analytics/selection-of-nsgs-that-require-enablement-of-nsg-flow-logging.png)
 
 If you try to enable traffic analytics for an NSG that is hosted in any region other than the [supported regions](supported-region-traffic-analytics.md), you receive a "Not found" error.
 
@@ -58,8 +58,8 @@ Select the following options, as shown in the picture:
 6. Select processing interval. Based on your choice, flow logs will be collected from storage account and processed by Traffic Analytics. You can choose processing interval of every 1 hour or every 10 mins. 
 7. Select an existing Log Analytics (OMS) Workspace, or select **Create New Workspace** to create a new one. A Log Analytics workspace is used by Traffic Analytics  to store the aggregated and indexed data that is then used to generate the analytics. If you select an existing workspace, it must exist in one of the [supported regions](supported-region-traffic-analytics.md) and have been upgraded to the new query language. If you do not wish to upgrade an existing workspace, or do not have a workspace in a supported region, create a new one. For more information about query languages, see [Azure Log Analytics upgrade to new log search](../azure-monitor/logs/log-query-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
-> [!NOTE]
-> The log analytics workspace hosting the traffic analytics solution and the NSGs do not have to be in the same region. For example, you may have traffic analytics in a workspace in the West Europe region, while you may have NSGs in East US and West US. Multiple NSGs can be configured in the same workspace.
+    > [!NOTE]
+    > The log analytics workspace hosting the traffic analytics solution and the NSGs do not have to be in the same region. For example, you may have traffic analytics in a workspace in the West Europe region, while you may have NSGs in East US and West US. Multiple NSGs can be configured in the same workspace.
 
 8. Select **Save**.
 
