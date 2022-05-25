@@ -34,4 +34,4 @@ Use the following header to authenticate your request.
 |--|--|
 |`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
  
-After you send your API request, you'll receive a 202 response with an Operation-Location header used to check the status of the job.
+After you send your API request, you'll receive a 202 response with an `Operation-Location` header used to check the status of the job.

@@ -21,7 +21,7 @@ Submit a **PUT** request using the following URL, headers, and JSON body to subm
 | `{ENDPOINT}` | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 | `{PROJECT-NAME}` | The name of your project. This value is case-sensitive.   | `myProject` |
 | `{DEPLOYMENT-NAME}`     | The name of your deployment. This value is case-sensitive.  | `staging` |
-|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest version released. Learn more about other available [API versions](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data)  | `2022-05-01` |
+|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest version released. See [Model lifecycle](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data) to learn more about other available API versions.  | `2022-05-01` |
 
 #### Headers
 
@@ -51,4 +51,4 @@ Once you send your API request, you’ll receive a `202` response indicating tha
 {ENDPOINT}/language/authoring/analyze-text/projects/{PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}/jobs/{JOB-ID}?api-version={API-VERSION}
 ``` 
 
-{JOB-ID} is used to identify your request, since this operation is asynchronous. You can use this URL to get the deployment status.
+`{JOB-ID}` is used to identify your request, since this operation is asynchronous. You can use this URL to get the deployment status.
