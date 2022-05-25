@@ -28,7 +28,8 @@ To complete this tutorial, you need the following:
     
     To configure this table for ingestion-time transformations, the table must already have some data.
     
-    The table can't be linked to the workspace’s default DCR.  
+    The table can't be linked to the workspace’s default DCR.
+  
 - [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace. 
 
 
