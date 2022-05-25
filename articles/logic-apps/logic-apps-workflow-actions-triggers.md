@@ -1029,7 +1029,7 @@ This action definition merges `abcdefg ` with a trailing space and the value `12
 },
 ```
 
-Here is the output that this action creates:
+Here's the output that this action creates:
 
 `abcdefg 1234`
 
@@ -1045,7 +1045,7 @@ This action definition merges a string variable that contains `abcdefg` and an i
 },
 ```
 
-Here is the output that this action creates:
+Here's the output that this action creates:
 
 `"abcdefg1234"`
 
@@ -1148,7 +1148,7 @@ This action calls a previously created [Azure function](../azure-functions/funct
 
 | Value | Type | Description | 
 |-------|------|-------------|  
-| <*Azure-function-ID*> | String | The resource ID for the Azure function you want to call. Here is the format for this value:<p>"/subscriptions/<*Azure-subscription-ID*>/resourceGroups/<*Azure-resource-group*>/providers/Microsoft.Web/sites/<*Azure-function-app-name*>/functions/<*Azure-function-name*>" | 
+| <*Azure-function-ID*> | String | The resource ID for the Azure function you want to call. Here's the format for this value:<p>"/subscriptions/<*Azure-subscription-ID*>/resourceGroups/<*Azure-resource-group*>/providers/Microsoft.Web/sites/<*Azure-function-app-name*>/functions/<*Azure-function-name*>" | 
 | <*method-type*> | String | The HTTP method to use for calling the function: "GET", "PUT", "POST", "PATCH", or "DELETE" <p>If not specified, the default is the "POST" method. | 
 ||||
 
@@ -1564,7 +1564,7 @@ This action definition creates a JSON object array from an integer array. The ac
 },
 ```
 
-Here is the array that this action creates:
+Here's the array that this action creates:
 
 `[ { "number": 1 }, { "number": 2 }, { "number": 3 } ]`
 
@@ -1671,7 +1671,7 @@ This action definition creates a CSV table from the "myItemArray" variable. The 
 }
 ```
 
-Here is the CSV table that this action creates: 
+Here's the CSV table that this action creates: 
 
 ```
 ID,Product_Name 
@@ -1694,7 +1694,7 @@ This action definition creates an HTML table from the "myItemArray" variable. Th
 }
 ```
 
-Here is the HTML table that this action creates: 
+Here's the HTML table that this action creates: 
 
 <table><thead><tr><th>ID</th><th>Product_Name</th></tr></thead><tbody><tr><td>0</td><td>Apples</td></tr><tr><td>1</td><td>Oranges</td></tr></tbody></table>
 
@@ -1723,7 +1723,7 @@ This action definition creates an HTML table from the "myItemArray" variable. Ho
 },
 ```
 
-Here is the HTML table that this action creates: 
+Here's the HTML table that this action creates: 
 
 <table><thead><tr><th>Stock_ID</th><th>Description</th></tr></thead><tbody><tr><td>0</td><td>Organic Apples</td></tr><tr><td>1</td><td>Organic Oranges</td></tr></tbody></table>
 
@@ -2442,7 +2442,7 @@ Here are some considerations to review before you enable concurrency on a trigge
 
   * To work around this possibility, add a timeout to any action that might hold up these runs. If you're working in the code editor, see [Change asynchronous duration](#asynchronous-limits). Otherwise, if you're using the designer, follow these steps:
 
-    1. In your logic app, on the action where you want to add a timeout, in the upper-right corner, select the ellipses (**...**) button, and then select **Settings**.
+    1. In your logic app workflow, select the action where you want to add a timeout. In the action's upper-right corner, select the ellipses (**...**) button, and then select **Settings**.
 
        ![Open action settings](./media/logic-apps-workflow-actions-triggers/action-settings.png)
 
@@ -2500,7 +2500,7 @@ To change the default limit, you can use either the code view editor or Logic Ap
 
 In the underlying "for each" definition, add or update the `runtimeConfiguration.concurrency.repetitions` property, which can have a value that ranges from `1` and `50`.
 
-Here is an example that limits concurrent runs to 10 iterations:
+Here's an example that limits concurrent runs to 10 iterations:
 
 ```json
 "For_each" {
