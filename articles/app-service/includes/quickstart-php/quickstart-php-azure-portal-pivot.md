@@ -4,7 +4,7 @@ This quickstart configures an App Service app in the **Free** tier and incurs no
 
 This quickstart shows you how to make these changes within your browser, without having to install the development environment tools on your machine.
 
-![Sample app running in Azure](../../media/quickstart-php/php8-hello-world-in-browser.png)
+![Sample app running in Azure](../../media/quickstart-php/php-8-hello-world-in-browser.png)
 
 You can follow the steps here using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.
 
@@ -57,7 +57,7 @@ Sign in to the Azure portal at https://portal.azure.com.
    - **Operating system**: Select *Linux*.
    - **Region**: Select the region you want to serve your app from.
 
-    ![On the Create Web App screen, on the Basics tab, in the Instance Details section, use a globally unique name. Select the options for Publish, Runtime stack, Operating system, and region.](../../media/quickstart-php/azure-portal-create-app-service-instance-details-php8.png)
+    ![On the Create Web App screen, on the Basics tab, in the Instance Details section, use a globally unique name. Select the options for Publish, Runtime stack, Operating system, and region.](../../media/quickstart-php/azure-portal-create-app-service-instance-details-php-8.png)
 
 5. Under **App Service Plan**, select **Create new** App Service Plan. Type *myAppServicePlan* for the name. Then select **OK**.
 
@@ -107,7 +107,7 @@ From the left navigation of your app, select **Overview** > **URL**.
 
 The PHP sample code is running in an Azure App Service Linux web app.
 
-![Sample app running in Azure](../../media/quickstart-php/php8-hello-world-in-browser.png)
+![Sample app running in Azure](../../media/quickstart-php/php-8-hello-world-in-browser.png)
 
 **Congratulations!** You've deployed your first PHP app to App Service using the Azure portal.
 
@@ -138,21 +138,21 @@ The PHP sample code is running in an Azure App Service Linux web app.
 
 6. Once deployment has completed, return to the browser window that opened during the **Browse to the app** step, and refresh the page.
 
-    ![Updated sample app running in Azure](../../media/quickstart-php/php8-hello-azure-in-browser.png)
+    ![Updated sample app running in Azure](../../media/quickstart-php/php-8-hello-azure-in-browser.png)
 
 ## 4 - Manage your new Azure app
 
-1. Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app you created. Search for and select **App Services**.
+1. Go to the Azure portal to manage the web app you created. Search for and select **App Services**.
 
     ![In the Azure portal, search for app services. Then select App Services.](../../media/quickstart-php/azure-portal-search-for-app-services.png)
 
 2. Select the name of your Azure app.
 
-    ![Portal navigation to Azure app](../../media/quickstart-php/php8-docs-hello-world-app-service-list.png)
+    ![Portal navigation to Azure app](../../media/quickstart-php/php-8-docs-hello-world-app-service-list.png)
 
     Your web app's **Overview** page will be displayed. Here, you can perform basic management tasks like **Browse**, **Stop**, **Restart**, and **Delete**.
 
-    ![App Service page in Azure portal](../../media/quickstart-php/php8-docs-hello-world-app-service-detail.png)
+    ![App Service page in Azure portal](../../media/quickstart-php/php-8-docs-hello-world-app-service-detail.png)
 
     The web app menu provides different options for configuring your app.
 
