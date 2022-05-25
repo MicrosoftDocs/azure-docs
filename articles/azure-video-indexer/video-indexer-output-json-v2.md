@@ -11,7 +11,7 @@ ms.author: juliako
 
 # Examine the Azure Video Indexer output
 
-When a video is indexed, Azure Video Indexer (formerly Azure Video Analyzer for Media) produces the JSON content that contains details of the specified video insights. The insights include transcripts, optical character recognition elements (OCRs), faces, topics, blocks, and similar details. Each insight type includes instances of time ranges that show when the insight appears in the video. 
+When a video is indexed, Azure Video Indexer (formerly Azure Video Analyzer for Media) produces the JSON content that contains details of the specified video insights. The insights include transcripts, optical character recognition elements (OCRs), faces, topics, and similar details. Each insight type includes instances of time ranges that show when the insight appears in the video. 
 
 The produced JSON output contains `Insights` and `SummarizedInsights` elements. We highly recommend using `Insights` and not using `SummarizedInsights` (which is present for backward compatibility). 
 
@@ -170,7 +170,7 @@ A face might have an ID, a name, a thumbnail, other metadata, and a list of its 
 |`transcript`|The [transcript](#transcript) insight.|
 |`ocr`|The [OCR](#ocr) insight.|
 |`keywords`|The [keywords](#keywords) insight.|
-|`blocks`|Might contain one or more [blocks](#blocks).|
+|`transcripts`|Might contain one or more [transcript](#transcript).|
 |`faces/animatedCharacters`|The [faces/animatedCharacters](#facesanimatedcharacters) insight.|
 |`labels`|The [labels](#labels) insight.|
 |`shots`|The [shots](#shots) insight.|
@@ -203,13 +203,6 @@ Example:
   "textualContentModeration": ...
 }
 ```
-
-#### blocks
-
-Attribute | Description
----|---
-`id`|The ID of the block.|
-`instances`|A list of time ranges for this block.|
 
 #### transcript
 
@@ -666,7 +659,7 @@ Sentiments are aggregated by their `sentimentType` field (`Positive`, `Neutral`,
 
 #### visualContentModeration
 
-The `visualContentModeration` block contains time ranges that Azure Video Indexer found to potentially have adult content. If `visualContentModeration` is empty, no adult content was identified.
+The `visualContentModeration` transcript contains time ranges that Azure Video Indexer found to potentially have adult content. If `visualContentModeration` is empty, no adult content was identified.
 
 Videos that contain adult or racy content might be available for private view only. Users have the option to submit a request for a human review of the content. In that case, the `IsAdult` attribute will contain the result of the human review.
 
