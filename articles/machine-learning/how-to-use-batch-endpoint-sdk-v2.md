@@ -35,7 +35,7 @@ In this article, you'll learn to:
 ## Prerequisites
 
 * A basic understanding of Machine Learning.
-* An Azure account with an active subscription. [Create an account for free(https://azure.microsoft.com/free/?WT.mc_id=A261C142F)].
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 * An Azure ML workspace with computer cluster to run your batch scoring job.
 * The [Azure Machine Learning SDK v2 for Python](/python/api/overview/azure/ml/installv2).
 
