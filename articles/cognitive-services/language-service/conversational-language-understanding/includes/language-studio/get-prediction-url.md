@@ -15,7 +15,7 @@ ms.custom: language-service-clu
 
 1. After the deployment job is completed successfully, select the deployment you want to use and from the top menu click on **Get prediction URL**.
 
-    :::image type="content" source="../../media/prediction-url.png" alt-text="A screenshot showing the prediction URL in Language Studio." lightbox="../../media/get-prediction-url-1.png":::
+    :::image type="content" source="../../media/prediction-url.png" alt-text="A screenshot showing the prediction URL in Language Studio." lightbox="../../media/get-prediction-url.png":::
 
 2. In the window that appears, copy the sample request URL and body into your command line.
 
