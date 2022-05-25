@@ -71,6 +71,8 @@ landingContent:
             url: https://azure.github.io/azure-webpubsub/demos/chat
           - text: Code streaming
             url: https://azure.github.io/azure-webpubsub/demos/code-streaming
+          - text: Score board
+            url: https://azure.github.io/azure-webpubsub/demos/scoreboard
 
   # Card
    - title: Common tasks
