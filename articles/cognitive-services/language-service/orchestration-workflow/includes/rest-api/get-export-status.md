@@ -42,7 +42,7 @@ Use the following header to authenticate your request.
 }
 ```
 
-Use the url from the `resultUrl` key in the body to view the exported assets from this job.
+Use the URL from the `resultUrl` key in the body to view the exported assets from this job.
 
 ### Get export results
 
