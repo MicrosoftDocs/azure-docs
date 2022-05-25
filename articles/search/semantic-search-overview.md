@@ -131,7 +131,7 @@ PUT https://management.azure.com/subscriptions/{{subscriptionId}}/resourcegroups
 To re-enable semantic search, rerun the above request, setting "semanticSearch" to either "free" (default) or "standard".
 
 > [!TIP]
-> Management REST API calls are authenticated through Azure Active Directory. For guidance on setting up a security principle and a request, see this blog post [Azure REST APIs with Postman (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/). The previous example was tested using the instructions and Postman collection provided in the blog post.
+> Management REST API calls are authenticated through Azure Active Directory. For guidance on setting up a security principal and a request, see this blog post [Azure REST APIs with Postman (2021)](https://blog.jongallant.com/2021/02/azure-rest-apis-postman-2021/). The previous example was tested using the instructions and Postman collection provided in the blog post.
 
 ## Next steps
 

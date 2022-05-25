@@ -1,20 +1,29 @@
 ---
 title: Connect hybrid machines to Azure at scale
 description: In this article, you learn how to connect machines to Azure using Azure Arc-enabled servers using a service principal.
-ms.date: 02/23/2022
+ms.date: 05/23/2022
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
 
 # Connect hybrid machines to Azure at scale
 
-You can enable Azure Arc-enabled servers for multiple Windows or Linux machines in your environment with several flexible options depending on your requirements. Using the template script we provide, you can automate every step of the installation, including establishing the connection to Azure Arc. However, you are required to interactively execute this script with an account that has elevated permissions on the target machine and in Azure.
+You can enable Azure Arc-enabled servers for multiple Windows or Linux machines in your environment with several flexible options depending on your requirements. Using the template script we provide, you can automate every step of the installation, including establishing the connection to Azure Arc. However, you are required to execute this script manually with an account that has elevated permissions on the target machine and in Azure.
 
-To connect the machines to Azure Arc-enabled servers, you can use an Azure Active Directory [service principal](../../active-directory/develop/app-objects-and-service-principals.md) instead of using your privileged identity to [interactively connect the machine](onboard-portal.md). This service principal is a special limited management identity that is granted only the minimum permission necessary to connect machines to Azure using the `azcmagent` command. This is safer than using a higher privileged account like a Tenant Administrator, and follows our access control security best practices. The service principal is used only during onboarding; it is not used for any other purpose.  
+One method to connect the machines to Azure Arc-enabled servers is to use an Azure Active Directory [service principal](../../active-directory/develop/app-objects-and-service-principals.md). This service principal method can be used instead of your privileged identity to [interactively connect the machine](onboard-portal.md). This service principal is a special limited management identity that has only the minimum permission necessary to connect machines to Azure using the `azcmagent` command. This method is safer than using a higher privileged account like a Tenant Administrator and follows our access control security best practices. **The service principal is used only during onboarding; it is not used for any other purpose.**  
 
-The installation methods to install and configure the Connected Machine agent requires that the automated method you use has administrator permissions on the machines: on Linux by using the root account, and on Windows as a member of the Local Administrators group.
+Before you start connecting your machines, review the following requirements:
 
-Before you get started, be sure to review the [prerequisites](prerequisites.md) and verify that your subscription and resources meet the requirements. For information about supported regions and other related considerations, see [supported Azure regions](overview.md#supported-regions). Also review our [at-scale planning guide](plan-at-scale-deployment.md) to understand the design and deployment criteria, as well as our management and monitoring recommendations.  
+1. Make sure you have administrator permission on the machines you want to onboard.
+
+    Administrator permissions are required to install the Connected Machine agent on the machines; on Linux by using the root account, and on Windows as a member of the Local Administrators group.
+1. Review the [prerequisites](prerequisites.md) and verify that your subscription and resources meet the requirements. You will need to have the **Azure Connected Machine Onboarding** role or the **Contributor** role for the resource group of the machine.
+
+    For information about supported regions and other related considerations, see [supported Azure regions](overview.md#supported-regions). Also review our [at-scale planning guide](plan-at-scale-deployment.md) to understand the design and deployment criteria, as well as our management and monitoring recommendations.
+
+<!--The installation methods to install and configure the Connected Machine agent requires that the automated method you use has administrator permissions on the machines: on Linux by using the root account, and on Windows as a member of the Local Administrators group.
+
+Before you get started, be sure to review the [prerequisites](prerequisites.md) and verify that your subscription and resources meet the requirements. For information about supported regions and other related considerations, see [supported Azure regions](overview.md#supported-regions). Also review our [at-scale planning guide](plan-at-scale-deployment.md) to understand the design and deployment criteria, as well as our management and monitoring recommendations.--> 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
