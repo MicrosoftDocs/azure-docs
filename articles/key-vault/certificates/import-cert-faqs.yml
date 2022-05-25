@@ -13,13 +13,15 @@ metadata:
   ms.author: mbaldwin
 title: Importing Azure Key Vault certificates FAQ
 summary: This article answers frequently asked questions about Azure Key Vault certificates.
+
 sections:
-  - name: Importing Azure Key Vault certificates FAQ
+  - name: Importing Azure Key Vault certificates
     questions:
       - question: |
           How can I import a certificate in Azure Key Vault?
         answer: |
           For a certificate import operation, Azure Key Vault accepts two certificate file formats: PEM and PFX. Although there are PEM files with only the public portion, Key Vault requires and accepts only a PEM or PFX file with a private key. For more information, see [Import a certificate to Key Vault](./tutorial-import-certificate.md).
+          
       - question: |
           After I import a password-protected certificate to Key Vault and then download it, why can't I see the password that's associated with it?
         answer: |
@@ -27,7 +29,7 @@ sections:
       - question: |
           How can I resolve a "Bad parameter" error? What are the supported certificate formats for importing to Key Vault?
         answer: |
-          When you import a certificate, you need to ensure that the key is included in the file. If you have a private key stored separately in a different format, you need to combine the key with the certificate. Some certificate authorities (CAs) provide certificates in other formats. Therefore, before you import the certificate, make sure that it's in either PEM or PFX file format and that the key uses either Rivest–Shamir–Adleman (RSA) or elliptic-curve cryptography (ECC) encryption. 
+          When you import a certificate, you need to ensure that the key is included in the file. If you have a private key stored separately in a different format, you need to combine the key with the certificate. Some certificate authorities (CAs) provide certificates in other formats. Therefore, before you import the certificate, make sure that it's in either PEM or PFX file format and that the key uses either Rivest-Shamir-Adleman (RSA) or elliptic-curve cryptography (ECC) encryption. 
           
           For more information, see [certificate requirements](./certificate-scenarios.md#formats-of-import-we-support) and [certificate key requirements](../keys/about-keys.md).       
       - question: |
