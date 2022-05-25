@@ -316,7 +316,7 @@ The file `CreateImage.parameters.json` takes the following parameters:
 
 Edit the file `CreateImage.parameters.json` to include the following values for your Azure Stack Edge Pro device:
 
-1. Provide the OS type corresponding to the VHD you'll upload. The OS type can be Windows or Linux.
+1. Provide the OS type and Hyper V Generation corresponding to the VHD you'll upload. The OS type can be Windows or Linux and the VM Generation can be V1 or V2.
 
     ```json
     "parameters": {
@@ -351,12 +351,15 @@ Edit the file `CreateImage.parameters.json` to include the following values for 
         "osType": {
           "value": "Linux"
         },
+        "hyperVGeneration": {
+         "value": "V1"
+        },
         "imageName": {
           "value": "myaselinuximg"
         },
         "imageUri": {
           "value": "https://sa2.blob.myasegpuvm.wdshcsso.com/con1/ubuntu18.04waagent.vhd"
-        }
+        }        
       }
     }
     ```
