@@ -48,11 +48,11 @@ landingContent:
         links:
           - text: Build a chat app 
             url: tutorial-build-chat.md
-          - text: Build a serverless notification app with Azure Functions
+          - text: Build a notification app with Azure Functions
             url: tutorial-serverless-notification.md
           - text: Build a simple chatroom serverless application 
             url: quickstart-serverless.md
-          - text: Client streaming using service-supported subprotocol
+          - text: Client streaming using subprotocol
             url: tutorial-subprotocol.md
 
   # Card
@@ -105,7 +105,11 @@ landingContent:
 
   # Card
   - title: More resources
-    linkLists:       
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Choice between Azure Web PubSub service and Azure SignalR service
+            url: https://docs.microsoft.com/azure/azure-web-pubsub/resource-faq#how-do-i-choose-between-azure-signalr-service-and-azure-web-pubsub-service
       - linkListType: reference
         links:
           - text: REST API
