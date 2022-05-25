@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/1/2022
+ms.date: 05/24/2022
 
 ms.author: justinha
 author: justinha
@@ -72,6 +72,9 @@ Users can set one of the following options as the default Multi-Factor Authentic
 - Authenticator app or hardware token – code
 - Phone call
 - Text message
+
+>[!NOTE]
+>Virtual phone numbers are not supported for Voice calls or SMS messages.
 
 Third party authenticator apps do not provide push notification. As we continue to add more authentication methods to Azure AD, those methods become available in combined registration.
 
