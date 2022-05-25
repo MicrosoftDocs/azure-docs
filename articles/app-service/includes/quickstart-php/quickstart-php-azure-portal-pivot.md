@@ -15,7 +15,7 @@ You can follow the steps here using a Mac, Windows, or Linux machine. Once the p
 - Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
 - Have a GitHub account to fork a repository.
 
-## Fork the sample repository
+## 1 - Fork the sample repository
 
 1. In your browser, navigate to the repository containing [the sample code](https://github.com/Azure-Samples/php-docs-hello-world).
 
@@ -30,12 +30,11 @@ You can follow the steps here using a Mac, Windows, or Linux machine. Once the p
     >[!NOTE]
     > This should take you to the new fork. Your fork URL will look something like this: https://github.com/YOUR_GITHUB_ACCOUNT_NAME/php-docs-hello-world
 
-## Deploy to Azure
+## 2 - Deploy to Azure
 
 ### Sign in to Azure portal
 
 Sign in to the Azure portal at https://portal.azure.com.
-
 
 ### Create Azure resources
 
@@ -103,8 +102,7 @@ This step will set up continuous deployment using GitHub actions.
 
 > [!TIP]
 > This quickstart uses GitHub. Additional continuous deployment sources include Bitbucket, Local Git, Azure Repos, and External Git. FTPS is also a supported deployment method.
-
-   
+ 
 ### Browse to the app
 
 Browse to the deployed application using your web browser. 
@@ -123,7 +121,7 @@ The PHP sample code is running in an Azure App Service Linux web app.
 
 **Congratulations!** You've deployed your first PHP app to App Service using the Azure portal.
 
-## Update in GitHub and redeploy the code
+## 3 - Update in GitHub and redeploy the code
 
 1. Browse to your GitHub fork of php-docs-hello-world.
 
@@ -152,7 +150,7 @@ The PHP sample code is running in an Azure App Service Linux web app.
 
     ![Updated sample app running in Azure](../../media/quickstart-php/php8-hello-azure-in-browser.png)
 
-## Manage your new Azure app
+## 4 - Manage your new Azure app
 
 1. Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app you created. Search for and select **App Services**.
 
@@ -168,7 +166,7 @@ The PHP sample code is running in an Azure App Service Linux web app.
 
     The web app menu provides different options for configuring your app.
 
-## Clean up resources
+## 5 - Clean up resources
 
 When you're finished with the sample app, you can remove all of the resources for the app from Azure. It will not incur extra charges and keep your Azure subscription uncluttered. Removing the resource group also removes all resources in the resource group and is the fastest way to remove all Azure resources for your app.
 
