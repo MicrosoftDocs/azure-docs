@@ -15,26 +15,33 @@ recommendations: false
 
  In this article, you'll learn how to create user delegation, shared access signature (SAS) tokens, using the Azure portal or Azure Storage Explorer. User delegation SAS tokens are secured with Azure AD credentials. SAS tokens provide secure, delegated access to resources in your Azure storage account.
 
-At a high level, here's how SAS tokens work: your application submits the SAS token to Azure Storage as part of an REST API request. If the storage service verifies that the shared access signature is valid, the request is authorized. If the shared access signature is considered invalid, the request is declined with error code 403 (Forbidden).
+At a high level, here's how SAS tokens work:
 
-Azure Blob Storage offers three types of resources:
+* Your application submits the SAS token to Azure Storage as part of a REST API request.
+
+* If the storage service verifies that the SAS is valid, the request is authorized.
+
+* If the shared access signature is considered invalid, the request is declined with error code 403 (Forbidden).
+
+Azure Blob Storage offers three resource types:
 
 * **Storage** accounts provide a unique namespace in Azure for your data.
-* **Containers** are located in storage accounts and organize sets of blobs.
+* **Data storage containers** are located in storage accounts and organize sets of blobs.
 * **Blobs** are located in containers and store text and binary data such as files, text, and images.
 
 ## When to use a shared access signature
 
 * **Training custom models**. Your assembled set of training documents *must* be uploaded to an Azure Blob Storage container.
+
 * **Using storage containers with public access**. You can opt to use a SAS token to grant limited access to your storage resources that have public read access.
 
-> [!IMPORTANT]
->
-> * If your Azure storage account is protected by a virtual network or firewall, you can't grant access by using a SAS token. You'll have to use a [managed identity](managed-identity-byos.md) to grant access to your storage resource.
->
-> * [Managed identity](managed-identity-byos.md) supports both privately and publicly accessible Azure Blob Storage accounts.
->
-> * Shared access signature grant permissions to storage resources, and should be protected in the same manner as an account key. Operations that use shared access signatures should be performed only over an HTTPS connection, and shared access signature URIs should only be distributed on a secure connection such as HTTPS.
+  > [!IMPORTANT]
+  >
+  > * If your Azure storage account is protected by a virtual network or firewall, you can't grant access with a SAS token. You'll have to use a [managed identity](managed-identities.md) to grant access to your storage resource.
+  >
+  > * [Managed identity](managed-identities-secured-access.md) supports both privately and publicly accessible Azure Blob Storage accounts.
+  >
+  > * Shared access signature grant permissions to storage resources, and should be protected in the same manner as an account key. Operations that use shared access signatures should be performed only over an HTTPS connection, and shared access signature URIs should only be distributed on a secure connection such as HTTPS.
 
 ## Prerequisites
 
@@ -51,7 +58,7 @@ To get started, you'll need:
 
 ## Upload your documents
 
-1. Go to the [Azure portal](https://portal.azure.com/#home). Select **Your storage account** > **Data storage** > **Containers**.
+1. Go to the [Azure portal](https://portal.azure.com/#home). Select **Your storage account** → **Data storage** → **Containers**.
 
    :::image type="content" source="media/sas-tokens/data-storage-menu.png" alt-text="Screenshot that shows the Data storage menu in the Azure portal.":::
 
@@ -65,18 +72,14 @@ To get started, you'll need:
 
     :::image type="content" source="media/sas-tokens/upload-blob-window.png" alt-text="Screenshot that shows the Upload blob window in the Azure portal.":::
 
-> [!NOTE]
-> By default, the REST API uses form documents located at the root of your container. You can also use data organized in subfolders if specified in the API call. For more information, see [Organize your data in subfolders](./build-training-data-set.md#organize-your-data-in-subfolders-optional).
+   > [!NOTE]
+   > By default, the REST API uses form documents located at the root of your container. You can also use data organized in subfolders if specified in the API call. For more information, see [Organize your data in subfolders](./build-training-data-set.md#organize-your-data-in-subfolders-optional).
 
-## Create SAS tokens in the Azure portal
+## Use the Azure portal
 
 The Azure portal is a web-based console that enables you to manage your Azure subscription and resources using a graphical user interface (GUI).
 
-Go to the [Azure portal](https://portal.azure.com/#home) and navigate as follows:
-
- **Your storage account** → **containers** → **your container**
-
-Continue as follows:
+1. Go to the [Azure portal](https://portal.azure.com/#home) and navigate as follows:  **Your storage account** → **containers** → **your container**
 
 1. Select **Generate SAS** from the menu near the top of the page.
 
@@ -107,13 +110,17 @@ Continue as follows:
 
 1. Copy and paste the **Blob SAS token** and **Blob SAS URL** values in a secure location. They're displayed only once and can't be retrieved after the window is closed.
 
-## Create SAS tokens with Azure Storage Explorer
+## Use Azure Storage Explorer
 
 Azure Storage Explorer is a free standalone app that enables you to easily manage your Azure cloud storage resources from your desktop.
 
+Prerequisites:
+
 * You'll need the [**Azure Storage Explorer**](../../vs-azure-tools-storage-manage-with-storage-explorer.md) app installed in your Windows, macOS, or Linux development environment.
 
-* After the Azure Storage Explorer app is installed, [connect it the storage account](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#connect-to-a-storage-account-or-service) you're using for Form Recognizer and follow the steps below:
+* After the Azure Storage Explorer app is installed, [connect it the storage account](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#connect-to-a-storage-account-or-service) you're using for Form Recognizer.
+
+### Create your SAS tokens
 
 1. Open the Azure Storage Explorer app on your local machine and navigate to your connected **Storage Accounts**.
 1. Expand the Storage Accounts node and select **Blob Containers**.
@@ -135,6 +142,8 @@ Azure Storage Explorer is a free standalone app that enables you to easily manag
 
 ## Use your SAS URL to grant access
 
+The SAS URL includes a special set of [query parameters](s/rest/api/storageservices/create-user-delegation-sas#assign-permissions-with-rbac). Those parameters indicate how the resources may be accessed by the client.
+
 ### REST API
 
 To use your SAS URL with the [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/TrainCustomModelAsync), add the SAS URL to the request body:
@@ -147,14 +156,13 @@ To use your SAS URL with the [REST API](https://westus.dev.cognitive.microsoft.c
 
 ### Sample Labeling Tool
 
-To use your SAS URL with the [Form Recognizer labeling tool](https://fott-2-1.azurewebsites.net/connections/create), add the SAS URL to the **Connection Settings** > **Azure blob container** > **SAS URI** field:
+To use your SAS URL with the [Form Recognizer labeling tool](https://fott-2-1.azurewebsites.net/connections/create), add the SAS URL to the **Connection Settings** → **Azure blob container** → **SAS URI** field:
 
   :::image type="content" source="media/sas-tokens/fott-add-sas-uri.png" alt-text="Screenshot that shows the SAS URI field.":::
 
-That's it. You've learned how to create SAS tokens to authorize how clients access your data.
+That's it! You've learned how to create SAS tokens to authorize how clients access your data.
 
 ## Next step
 
 > [!div class="nextstepaction"]
 > [Build a training data set](build-training-data-set.md)
-

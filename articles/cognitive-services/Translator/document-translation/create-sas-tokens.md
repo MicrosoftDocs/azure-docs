@@ -12,10 +12,18 @@ ms.date: 05/25/2022
 
 In this article, you'll learn how to create user delegation, shared access signature (SAS) tokens, using Azure Storage Explorer or the Azure portal. User delegation SAS tokens are secured with Azure AD credentials. SAS tokens provide secure, delegated access to resources in your Azure storage account.
 
+At a high level, here's how SAS tokens work:
+
+* Your application submits the SAS token to Azure Storage as part of a REST API request.
+
+* If the storage service verifies that the SAS is valid, the request is authorized.
+
+* If the shared access signature is assessed invalid, the request is declined with error code 403 (Forbidden).
+
 Azure Blob Storage offers three resource types:
 
 * **Storage** accounts provide a unique namespace in Azure for your data.
-* **Containers** are located in storage accounts and organize sets of blobs (files, text, or images).
+* **Data storage containers** are located in storage accounts and organize sets of blobs (files, text, or images).
 * **Blobs** are located in containers and store text and binary data such as files, text, and images.
 
 > [!IMPORTANT]
