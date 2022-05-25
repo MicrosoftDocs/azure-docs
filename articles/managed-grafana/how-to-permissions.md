@@ -54,6 +54,8 @@ To change permissions for a specific resource, follow these steps:
 
 1. Click **Next**, then **Review + assign** to confirm the application of the new permission
 
+For more information about how to use Managed Grafana with Azure Monitor, go to [Monitor your Azure services in Grafana](../azure-monitor/visualize/grafana-plugin.md).
+
 ## Next steps
 
 > [!div class="nextstepaction"]
