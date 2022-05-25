@@ -214,9 +214,6 @@ az group delete --name ACIResourceGroup
 
 See the Azure QuickStart template [Create an Azure container group with VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet), to deploy a container group within a virtual network.
 
-<!-- IMAGES -->
-[aci-vnet-01]: ./media/container-instances-virtual-network-concepts/aci-vnet-01.png
-
 <!-- LINKS - Internal -->
 [az-network-vnet-create]: /cli/azure/network/vnet#az-network-vnet-create
 [az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-create
