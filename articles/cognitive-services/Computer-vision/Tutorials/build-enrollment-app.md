@@ -59,7 +59,7 @@ Now that you have set up the sample app, you can tailor it to your own needs.
 For example, you may want to add situation-specific information on your consent page:
 
 > [!div class="mx-imgBorder"]
-> ![app consent page](./media/enrollment-app/1-consent-1.jpg)
+> ![app consent page](../media/enrollment-app/1-consent-1.jpg)
 
 Many face recognition issues are caused by low-quality reference images. Some factors that can degrade model performance are:
 * Face size (faces that are distant from the camera)
@@ -72,20 +72,20 @@ The service provides image quality checks to help you make the choice of whether
 
 
 > [!div class="mx-imgBorder"]
-> ![app image capture instruction page](./media/enrollment-app/4-instruction.jpg)
+> ![app image capture instruction page](../media/enrollment-app/4-instruction.jpg)
 
 Notice the app also offers functionality for deleting the user's information and the option to re-add.
 
 > [!div class="mx-imgBorder"]
-> ![profile management page](./media/enrollment-app/10-manage-2.jpg)
+> ![profile management page](../media/enrollment-app/10-manage-2.jpg)
 
-To extend the app's functionality to cover the full experience, read the [overview](enrollment-overview.md) for additional features to implement and best practices.
+To extend the app's functionality to cover the full experience, read the [overview](../enrollment-overview.md) for additional features to implement and best practices.
 
 ## Deploy the app
 
 #### [Android](#tab/android)
 
-First, make sure that your app is ready for production deployment: remove any keys or secrets from the app code and make sure you have followed the [security best practices](../cognitive-services-security.md?tabs=command-line%2ccsharp).
+First, make sure that your app is ready for production deployment: remove any keys or secrets from the app code and make sure you have followed the [security best practices](../../cognitive-services-security.md?tabs=command-line%2ccsharp).
 
 When you're ready to release your app for production, you'll generate a release-ready APK file, which is the package file format for Android apps. This APK file must be signed with a private key. With this release build, you can begin distributing the app to your devices directly. 
 
@@ -95,7 +95,7 @@ Once you've created a signed APK, see the <a href="https://developer.android.com
 
 #### [iOS](#tab/ios)
 
-First, make sure that your app is ready for production deployment: remove any keys or secrets from the app code and make sure you have followed the [security best practices](../cognitive-services-security.md?tabs=command-line%2ccsharp). To prepare for distribution, you will need to create an app icon, a launch screen, and configure deployment info settings. Follow the [documentation from Xcode](https://developer.apple.com/documentation/Xcode/preparing_your_app_for_distribution) to prepare your app for distribution. 
+First, make sure that your app is ready for production deployment: remove any keys or secrets from the app code and make sure you have followed the [security best practices](../../cognitive-services-security.md?tabs=command-line%2ccsharp). To prepare for distribution, you will need to create an app icon, a launch screen, and configure deployment info settings. Follow the [documentation from Xcode](https://developer.apple.com/documentation/Xcode/preparing_your_app_for_distribution) to prepare your app for distribution. 
 
 When you're ready to release your app for production, you'll build an archive of your app. Follow the [Xcode documentation](https://developer.apple.com/documentation/Xcode/distributing_your_app_for_beta_testing_and_releases) on how to create an archive build and options for distributing your app.  
 
@@ -103,4 +103,4 @@ When you're ready to release your app for production, you'll build an archive of
 
 ## Next steps  
 
-In this guide, you learned how to set up your development environment and get started with the sample app. If you're new to React Native, you can read their [getting started docs](https://reactnative.dev/docs/getting-started) to learn more background information. It also may be helpful to familiarize yourself with [Face API](Overview.md). Read the other sections on adding users before you begin development.
+In this guide, you learned how to set up your development environment and get started with the sample app. If you're new to React Native, you can read their [getting started docs](https://reactnative.dev/docs/getting-started) to learn more background information. It also may be helpful to familiarize yourself with [Face API](../overview-identity.md). Read the other sections on adding users before you begin development.

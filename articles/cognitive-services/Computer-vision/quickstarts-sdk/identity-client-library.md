@@ -20,24 +20,24 @@ keywords: face search by image, facial recognition search, facial recognition, f
 
 ::: zone pivot="programming-language-csharp"
 
-[!INCLUDE [C# quickstart](../includes/quickstarts/csharp-sdk.md)]
+[!INCLUDE [C# quickstart](../includes/quickstarts-sdk/identity-csharp-sdk.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
 
-[!INCLUDE [JavaScript quickstart](../includes/quickstarts/javascript-sdk.md)]
+[!INCLUDE [JavaScript quickstart](../includes/quickstarts-sdk/identity-javascript-sdk.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
-[!INCLUDE [Python quickstart](../includes/quickstarts/python-sdk.md)]
+[!INCLUDE [Python quickstart](../includes/quickstarts-sdk/identity-python-sdk.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-rest-api"
 
-[!INCLUDE [cURL quickstart](../includes/quickstarts/rest-api.md)]
+[!INCLUDE [cURL quickstart](../includes/identity-curl-quickstart.md)]
 
 ::: zone-end
