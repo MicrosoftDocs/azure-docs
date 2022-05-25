@@ -71,7 +71,7 @@ Here is a list of properties that can be selected for your VM. Enable the proper
 
 - **Remote desktop/SSH not supported**: Enable this property if any of the following conditions are true:
 
-    - Virtual machines deployed with these images don't allow customers to access it using Remote Desktop or SSH. Learn more about [locked VM images](./azure-vm-certification-faq.yml#locked-down-or-ssh-disabled-offer.md). Images that are published with either SSH disabled (for Linux) or RDP disabled (for Windows) are treated as Locked down VMs. There are special business scenarios to restrict access to users. During validation checks, Locked down VMs might not allow execution of certain certification commands.
+    - Virtual machines deployed with these images don't allow customers to access it using Remote Desktop or SSH. Learn more about [locked VM images](./azure-vm-certification-faq.yml#locked-down-or-ssh-disabled-offer). Images that are published with either SSH disabled (for Linux) or RDP disabled (for Windows) are treated as Locked down VMs. There are special business scenarios to restrict access to users. During validation checks, Locked down VMs might not allow execution of certain certification commands.
 
     - Image does not support sampleuser while deploying.
     - Image has limited access.
