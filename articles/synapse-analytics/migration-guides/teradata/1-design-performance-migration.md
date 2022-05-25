@@ -38,7 +38,7 @@ Microsoft Azure is a globally available, highly secure, scalable cloud environme
 :::image type="content" source="../media/1-design-performance-migration/azure-synapse-ecosystem.png" border="true" alt-text="Chart showing the Azure Synapse ecosystem of supporting tools and capabilities.":::
 
 > [!TIP]
-> Azure Synapse gives best-of-breed performance and price-performance in independent benchmark.
+> Azure Synapse gives best-of-breed performance and price-performance in independent benchmarks.
 
 Azure Synapse provides best-of-breed relational database performance by using techniques such as massively parallel processing (MPP) and multiple levels of automated caching for frequently used data. See the results of this approach in independent benchmarks such as the one run recently by [GigaOm](https://research.gigaom.com/report/data-warehouse-cloud-benchmark/), which compares Azure Synapse to other popular cloud data warehouse offerings. Customers who have migrated to this environment have seen many benefits including:
 
@@ -178,11 +178,11 @@ Teradata supports special table types for time series and temporal data. The syn
 
 Teradata implements the temporal query functionality via query rewriting to add additional filters within a temporal query to limit the applicable date range. If this functionality is currently used in the source Teradata environment and is to be migrated, add this additional filtering into the relevant temporal queries.
 
-The Azure environment also includes specific features for complex analytics on time- series data at a scale called [time series insights](https://azure.microsoft.com/services/time-series-insights/). This is aimed at IoT data analysis applications and may be more appropriate for this use case.
+The Azure environment also includes specific features for complex analytics on time-series data at a scale called [time series insights](https://azure.microsoft.com/services/time-series-insights/). This is aimed at IoT data analysis applications and may be more appropriate for this use case.
 
 #### SQL DML syntax differences
 
-There are a few differences in SQL Data Manipulation Language (DML) syntax between Teradata SQL and Azure Synapse (T-SQL) that you should be aware during migration:
+There are a few differences in SQL Data Manipulation Language (DML) syntax between Teradata SQL and Azure Synapse (T-SQL) that you should be aware of during migration:
 
 - `QUALIFY`&mdash;Teradata supports the `QUALIFY` operator. For example:
 
@@ -288,7 +288,7 @@ Recommended data formats for the extracted data include delimited text files (al
 
 For more detailed information on the process of migrating data and ETL from a Teradata environment, see Section 2.1. Data Migration ETL and Load from Teradata.
 
-## Performance Recommendations for Teradata Migrations
+## Performance recommendations for Teradata migrations
 
 This article provides general information and guidelines about use of performance optimization techniques for Azure Synapse and adds specific recommendations for use when migrating from a Teradata environment.
 
@@ -307,7 +307,7 @@ For large table-large table joins, hash distributing one or, ideally, both table
 
 Another way to achieve local joins for small table-large table joins&mdash;typically dimension table to fact table in a star schema model&mdash;is to replicate the smaller dimension table across all nodes. This ensures that any value of the join key of the larger table will have a matching dimension row locally available. The overhead of replicating the dimension tables is relatively low, provided the tables aren't very large (see [Design guidance for replicated tables](/azure/synapse-analytics/sql-data-warehouse/design-guidance-for-replicated-tables))&mdash;in which case, the hash distribution approach as described above is more appropriate. For more information, see [Distributed tables design](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute).
 
-#### Data Indexing
+#### Data indexing
 
 Azure Synapse provides several indexing options, but these are different from the indexing options implemented in Teradata. More details of the different indexing options are described in [table indexes](/azure/sql-data-warehouse/sql-data-warehouse-tables-index).
 
@@ -327,9 +327,9 @@ Ensure that statistics on data tables are up to date by building in a [statistic
 
 PolyBase is the most efficient method for loading large amounts of data into the warehouse since it can leverage parallel loading streams. For more information, see [PolyBase data loading strategy](/azure/synapse-analytics/sql/load-data-overview).
 
-#### Use Workload management
+#### Use workload management
 
-Use [Workload management](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management?context=/azure/synapse-analytics/context/context) instead of resource classes. ETL would be in its own workgroup and should be configured to have more resources per query (less concurrency by more resources). For more information, see [What is dedicated SQL pool in Azure Synapse Analytics](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is).
+Use [workload management](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management?context=/azure/synapse-analytics/context/context) instead of resource classes. ETL would be in its own workgroup and should be configured to have more resources per query (less concurrency by more resources). For more information, see [What is dedicated SQL pool in Azure Synapse Analytics](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is).
 
 ## Next steps
 

@@ -122,11 +122,11 @@ A key question when migrating your existing reports and dashboards to Azure Syna
 
 These factors are discussed in more detail later in this article.
 
-Whatever the decision is, it must involve the business, since they produce the reports and dashboards, and consume the insights these artifacts provide in support of the decisions that are made around your business. That said, if most reports and dashboards can be migrated seamlessly, with minimal effort, and offer up like- for-like results, simply by pointing your BI tool(s) at Azure Synapse, instead of your legacy data warehouse system, then everyone benefits. Therefore, if it's that straight forward and there's no reliance on legacy system proprietary SQL extensions, then there's no doubt that the above ease of migration option breeds confidence.
+Whatever the decision is, it must involve the business, since they produce the reports and dashboards, and consume the insights these artifacts provide in support of the decisions that are made around your business. That said, if most reports and dashboards can be migrated seamlessly, with minimal effort, and offer up like-for-like results, simply by pointing your BI tool(s) at Azure Synapse, instead of your legacy data warehouse system, then everyone benefits. Therefore, if it's that straight forward and there's no reliance on legacy system proprietary SQL extensions, then there's no doubt that the above ease of migration option breeds confidence.
 
 ### Migrate reports based on usage
 
-Usage is interesting, since it's an indicator of business value. Reports and dashboards that are never used clearly aren't contributing to supporting any decisions and$1 [don't currently offer any value. So, do you've any mechanism for finding out which reports, and dashboards are currently not used? Several BI tools provide statistics on usage, which would be an obvious place to start.
+Usage is interesting, since it's an indicator of business value. Reports and dashboards that are never used clearly aren't contributing to supporting any decisions and don't currently offer any value. So, do you have any mechanism for finding out which reports and dashboards are currently not used? Several BI tools provide statistics on usage, which would be an obvious place to start.
 
 If your legacy data warehouse has been up and running for many years, there's a high chance you could have hundreds, if not thousands, of reports in existence. In these situations, usage is an important indicator to the business value of a specific report or dashboard. In that sense, it's worth compiling an inventory of the reports and dashboards you've and defining their business purpose and usage statistics.
 

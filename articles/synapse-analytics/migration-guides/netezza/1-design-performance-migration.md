@@ -199,7 +199,7 @@ There are third-party vendors who offer tools and services to automate migration
 
 #### SQL DML syntax differences
 
-There are a few differences in SQL Data Manipulation Language (DML) syntax between Netezza SQL and Azure Synapse (T-SQL) that you should be aware during migration:
+There are a few differences in SQL Data Manipulation Language (DML) syntax between Netezza SQL and Azure Synapse (T-SQL) that you should be aware of during migration:
 
 - `STRPOS`: In Netezza, the `STRPOS` function returns the position of a substring within a string. The equivalent function in Azure Synapse is `CHARINDEX`, with the order of the arguments reversed. For example, `SELECT STRPOS('abcdef','def')...` in Netezza is equivalent to `SELECT CHARINDEX('def','abcdef')...` in Azure Synapse.
 
@@ -325,9 +325,9 @@ Ensure that statistics on data tables are up to date by building in a [statistic
 
 PolyBase is the most efficient method for loading large amounts of data into the warehouse since it can leverage parallel loading streams. For more information, see [PolyBase data loading strategy](/azure/synapse-analytics/sql/load-data-overview).
 
-#### Use Workload management
+#### Use workload management
 
-Use [Workload management](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management?context=/azure/synapse-analytics/context/context) instead of resource classes. ETL would be in its own workgroup and should be configured to have more resources per query (less concurrency by more resources). For more information, see [What is dedicated SQL pool in Azure Synapse Analytics](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is).
+Use [workload management](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management?context=/azure/synapse-analytics/context/context) instead of resource classes. ETL would be in its own workgroup and should be configured to have more resources per query (less concurrency by more resources). For more information, see [What is dedicated SQL pool in Azure Synapse Analytics](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is).
 
 ## Next steps
 
