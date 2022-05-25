@@ -1,6 +1,6 @@
 ---
 title: "Quickstart - Automate Deployments"
-description: Explains how to automate deployments to Azure Spring Apps Enterprise tier using GitHub Actions and Terraform.
+description: Explains how to automate deployments to Azure Spring Apps Enterprise tier by using GitHub Actions and Terraform.
 author: KarlErickson
 ms.author: asirveda # external contributor: paly@vmware.com
 ms.service: spring-cloud
@@ -16,7 +16,7 @@ ms.custom: devx-track-java
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This quickstart shows you automate deployments to Azure Spring Apps Enterprise tier using GitHub Actions and Terraform.
+This quickstart shows you automate deployments to Azure Spring Apps Enterprise tier by using GitHub Actions and Terraform.
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ This quickstart shows you automate deployments to Azure Spring Apps Enterprise t
 
 The automation associated with the sample application requires a Storage account for maintaining Terraform state. The following instructions describe how to create a Storage Account for use with GitHub Actions and Terraform.
 
-Create a new resource group to contain the Storage Account by using the following command:
+Use the following command to create a new resource group to contain the Storage Account:
 
 ```azurecli
 az group create \
@@ -39,7 +39,7 @@ az group create \
     --location <location>
 ```
 
-Create a Storage Account by using the following command:
+Use the following command to create a Storage Account:
 
 ```azurecli
 az storage account create \
@@ -50,7 +50,7 @@ az storage account create \
     --kind StorageV2
 ```
 
-Create a Storage Container within the Storage Account by using the following command:
+Use the following command to create a Storage Container within the Storage Account:
 
 ```azurecli
 az storage container create \

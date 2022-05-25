@@ -40,7 +40,7 @@ cd acme-fitness-store
 
 Use the following steps to provision an Azure Spring Apps service instance.
 
-1. Sign in to the Azure CLI and choose your active subscription by using the following command:
+1. Use the following command to sign in to the Azure CLI and choose your active subscription:
 
    ```azurecli
    az login
@@ -60,7 +60,7 @@ Use the following steps to provision an Azure Spring Apps service instance.
 
 1. Select a location. This location must be a location supporting Azure Spring Apps Enterprise tier. For more information, see the [Azure Spring Apps FAQ](faq.md).
 
-1. Create a resource group by using the following command:
+1. Use the following command to create a resource group:
 
    ```azurecli
    az group create \
@@ -72,7 +72,7 @@ Use the following steps to provision an Azure Spring Apps service instance.
 
 1. Prepare a name for your Azure Spring Apps service instance. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number.
 
-1. Create an Azure Spring Apps service instance by using the following the command:
+1. Use the following command to create an Azure Spring Apps service instance:
 
    ```azurecli
    az spring create \
@@ -85,7 +85,7 @@ Use the following steps to provision an Azure Spring Apps service instance.
        --enable-api-portal
    ```
 
-1. Create a Log Analytics Workspace to be used for your Azure Spring Apps service by using the following command:
+1. Use the following command to create a Log Analytics Workspace to be used for your Azure Spring Apps service:
 
    ```azurecli
    az monitor log-analytics workspace create \
@@ -94,7 +94,7 @@ Use the following steps to provision an Azure Spring Apps service instance.
        --location <location>
    ```
 
-1. Retrieve the Resource ID for your Log Analytics Workspace and Azure Spring Apps service by using the following commands:
+1. Use the following commands to retrieve the Resource ID for your Log Analytics Workspace and Azure Spring Apps service instance:
 
    ```bash
    LOG_ANALYTICS_RESOURCE_ID=$(az monitor log-analytics workspace show \
@@ -106,7 +106,7 @@ Use the following steps to provision an Azure Spring Apps service instance.
        --name <Azure-Spring-Apps-service-instance-name> | jq -r '.id')
    ```
 
-1. Configure diagnostic settings for the Azure Spring Apps Service by using the following command:
+1. Use the following command to configure diagnostic settings for the Azure Spring Apps Service:
 
    ```azurecli
    az monitor diagnostic-settings create \
@@ -151,7 +151,7 @@ Use the following steps to provision an Azure Spring Apps service instance.
           ]'
    ```
 
-1. Create applications for `cart-service`, `order-service`, `payment-service`, `catalog-service`, and `frontend` by using the following commands:
+1. Use the following commands to create applications for `cart-service`, `order-service`, `payment-service`, `catalog-service`, and `frontend`:
 
    ```azurecli
    az spring app create \
@@ -184,7 +184,7 @@ Use the following steps to provision an Azure Spring Apps service instance.
 
 Use the following steps to configure Application Configuration Service.
 
-1. Create a configuration repository for Application Configuration Service by using the following command:
+1. Use the following command to create a configuration repository for Application Configuration Service:
 
    ```azurecli
    az spring application-configuration-service git repo add \
@@ -196,7 +196,7 @@ Use the following steps to configure Application Configuration Service.
        --uri "https://github.com/Azure-Samples/acme-fitness-store-config"
    ```
 
-1. Bind applications to Application Configuration Service by using the following commands:
+1. Use the following commands to bind applications to Application Configuration Service:
 
    ```azurecli
    az spring application-configuration-service bind \
@@ -212,7 +212,7 @@ Use the following steps to configure Application Configuration Service.
 
 ## Activate service registration and discovery
 
-Bind applications to Service Registry to activate service registration and discovery by using the following commands:
+To active service registration and discovery, use the following commands to bind applications to Service Registry:
 
 ```azurecli
 az spring service-registry bind \
@@ -230,7 +230,7 @@ az spring service-registry bind \
 
 Use the following steps to deploy and build applications. For these steps, make sure that the terminal is in the project folder before running any commands.
 
-1. Create a custom builder in Tanzu Build Service by using the following command:
+1. Use the following command to create a custom builder in Tanzu Build Service:
 
    ```azurecli
    az spring build-service builder create \
@@ -240,7 +240,7 @@ Use the following steps to deploy and build applications. For these steps, make 
        --builder-file azure/builder.json
    ```
 
-1. Build and deploy the payment service by using the following command:
+1. Use the following command to build and deploy the payment service:
 
    ```azurecli
    az spring app deploy \
@@ -251,7 +251,7 @@ Use the following steps to deploy and build applications. For these steps, make 
        --source-path apps/acme-payment
    ```
 
-1. Build and deploy the catalog service by using the following command:
+1. Use the following command to build and deploy the catalog service:
 
    ```azurecli
    az spring app deploy \
@@ -262,7 +262,7 @@ Use the following steps to deploy and build applications. For these steps, make 
        --source-path apps/acme-catalog
    ```
 
-1. Build and deploy the order service by using the following command:
+1. Use the following command to build and deploy the order service:
 
    ```azurecli
    az spring app deploy \
@@ -273,7 +273,7 @@ Use the following steps to deploy and build applications. For these steps, make 
        --source-path apps/acme-order
    ```
 
-1. Build and deploy the cart service by using the following command:
+1. Use the following command to build and deploy the cart service:
 
    ```azurecli
    az spring app deploy \
@@ -285,7 +285,7 @@ Use the following steps to deploy and build applications. For these steps, make 
        --source-path apps/acme-cart
    ```
 
-1. Build and deploy the frontend application by using the following command:
+1. Use the following command to build and deploy the frontend application:
 
    ```azurecli
    az spring app deploy \
@@ -302,7 +302,7 @@ Use the following steps to deploy and build applications. For these steps, make 
 
 Use the following steps to configure Spring Cloud Gateway and configure routes to applications.
 
-1. Assign an endpoint to Spring Cloud Gateway by using the following command:
+1. Use the following command to assign an endpoint to Spring Cloud Gateway:
 
    ```azurecli
    az spring gateway update \
@@ -311,7 +311,7 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
        --assign-endpoint true
    ```
 
-1. Configure Spring Cloud Gateway API information by using the following command:
+1. Use the following commands to configure Spring Cloud Gateway API information:
 
    ```azurecli
    GATEWAY_URL=$(az spring gateway show \
@@ -328,7 +328,7 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
        --allowed-origins "*"
    ```
 
-1. Create routes for the cart service by using the following command:
+1. Use the following command to create routes for the cart service:
 
    ```azurecli
    az spring gateway route-config create \
@@ -339,7 +339,7 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
        --routes-file azure/routes/cart-service.json
    ```
 
-1. Create routes for the order service by using the following command:
+1. Use the following command to create routes for the order service:
 
    ```azurecli
    az spring gateway route-config create \
@@ -350,7 +350,7 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
        --routes-file azure/routes/order-service.json
    ```
 
-1. Create routes for the catalog service by using the following command:
+1. Use the following command to create routes for the catalog service:
 
    ```azurecli
    az spring gateway route-config create \
@@ -361,7 +361,7 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
        --routes-file azure/routes/catalog-service.json
    ```
 
-1. Create routes for the frontend by using the following command:
+1. Use the following command to create routes for the frontend:
 
    ```azurecli
    az spring gateway route-config create \
@@ -372,7 +372,7 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
        --routes-file azure/routes/frontend.json
    ```
 
-1. Retrieve the URL for Spring Cloud Gateway by using the following commands:
+1. Use the following commands to retrieve the URL for Spring Cloud Gateway:
 
    ```azurecli
    GATEWAY_URL=$(az spring gateway show \
@@ -388,7 +388,7 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
 
 Use the following steps to configure API Portal.
 
-1. Assign an endpoint to API Portal by using the following command:
+1. Use the following command to assign an endpoint to API Portal:
 
    ```azurecli
    az spring api-portal update \
@@ -397,7 +397,7 @@ Use the following steps to configure API Portal.
        --assign-endpoint true
    ```
 
-1. Retrieve the URL for API Portal by using the following commands:
+1. Use the following commands to retrieve the URL for API Portal:
 
    ```azurecli
    PORTAL_URL=$(az spring api-portal show \

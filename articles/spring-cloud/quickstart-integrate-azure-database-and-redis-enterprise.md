@@ -18,7 +18,7 @@ ms.custom: devx-track-java
 
 This quickstart shows you how to provision and prepare an Azure Database for PostgreSQL and an Azure Cache for Redis to be used with apps running in Azure Spring Apps Enterprise tier.
 
-This article uses these services for demonstration purposes, but you can connect your application to any backing service of your choice by using similar instructions. For more information, see [Create Service Connectors](#create-service-connectors) later in this article.
+This article uses these services for demonstration purposes. You can connect your application to any backing service of your choice by using instructions similar to those in the [Create Service Connectors](#create-service-connectors) section later in this article.
 
 ## Prerequisites
 
@@ -32,13 +32,13 @@ This article uses these services for demonstration purposes, but you can connect
 
 ## Provision services
 
-To add persistence to the application, you must create an Azure Cache for Redis and an Azure Database for PostgreSQL Flexible Server.
+To add persistence to the application, create an Azure Cache for Redis and an Azure Database for PostgreSQL Flexible Server.
 
 ### [Azure CLI](#tab/azure-cli)
 
-The following steps describe how to provision an Azure Cache for Redis instance and an Azure Database for PostgreSQL Flexible Server using the Azure CLI.
+The following steps describe how to provision an Azure Cache for Redis instance and an Azure Database for PostgreSQL Flexible Server by using the Azure CLI.
 
-1. Create an instance of Azure Cache for Redis by using the following command:
+1. Use the following command to create an instance of Azure Cache for Redis:
 
    ```azurecli
    az redis create \
@@ -50,9 +50,9 @@ The following steps describe how to provision an Azure Cache for Redis instance 
    ```
 
    > [!NOTE]
-   > Redis Cache creation takes approximately 20 minutes
+   > Redis Cache creation takes approximately 20 minutes.
 
-1. Create an Azure Database for PostgreSQL Flexible Server instance by using the following command:
+1. Use the following command to create an Azure Database for PostgreSQL Flexible Server instance:
 
    ```azurecli
    az postgres flexible-server create \
@@ -64,7 +64,7 @@ The following steps describe how to provision an Azure Cache for Redis instance 
        --yes
    ```
 
-1. Allow connections from other Azure Services to the newly created Flexible Server by using the following command:
+1. Use the following command to allow connections from other Azure Services to the newly created Flexible Server:
 
    ```azurecli
    az postgres flexible-server firewall-rule create \
@@ -75,7 +75,7 @@ The following steps describe how to provision an Azure Cache for Redis instance 
        --end-ip-address 0.0.0.0
    ```
 
-1. Enable the `uuid-ossp` extension for the newly created Flexible Server by using the following command:
+1. Use the following command to enable the `uuid-ossp` extension for the newly created Flexible Server:
 
    ```azurecli
    az postgres flexible-server parameter set \
@@ -85,7 +85,7 @@ The following steps describe how to provision an Azure Cache for Redis instance 
        --server-name <postgres-server-name> \
    ```
 
-1. Create a database for the Order Service application by using the following command:
+1. Use the following command to create a database for the Order Service application:
 
    ```azurecli
    az postgres flexible-server db create \
@@ -94,7 +94,7 @@ The following steps describe how to provision an Azure Cache for Redis instance 
        --database-name acmefit_order
    ```
 
-1. Create a database for the Catalog Service application by using the following command:
+1. Use the following command to create a database for the Catalog Service application:
 
    ```azurecli
    az postgres flexible-server db create \
@@ -105,11 +105,11 @@ The following steps describe how to provision an Azure Cache for Redis instance 
 
 ### [ARM template](#tab/arm-template)
 
-The following instructions describe how to provision an Azure Cache for Redis and an Azure Database for PostgreSQL Flexible Server using an Azure Resource Manager template (ARM template).
+The following instructions describe how to provision an Azure Cache for Redis and an Azure Database for PostgreSQL Flexible Server by using an Azure Resource Manager template (ARM template).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-The template used in this quickstart can be found in the [ACME Fitness Store GitHub Repository](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/azure/templates/azuredeploy.json).
+You can find the template used in this quickstart in the [ACME Fitness Store GitHub repository](https://github.com/Azure-Samples/acme-fitness-store/blob/Azure/azure/templates/azuredeploy.json).
 
 To deploy this template, follow these steps:
 
@@ -119,7 +119,7 @@ To deploy this template, follow these steps:
 
 1. Enter values for the following fields:
 
-   - **Resource Group:** select **Create new**, enter a unique name for the **resource group**, and then select **OK**.
+   - **Resource Group:** Select **Create new**, enter a unique name for the **resource group**, and then select **OK**.
    - **cacheName:** Enter the name for the Azure Cache for Redis Server.
    - **dbServerName:** Enter the name for the Azure Database for PostgreSQL Flexible Server.
    - **administratorLogin:** Enter the admin username for the Azure Database for PostgreSQL Flexible Server.
@@ -132,9 +132,9 @@ To deploy this template, follow these steps:
 
 ## Create Service Connectors
 
-The following steps show how to bind applications running in Azure Spring Apps Enterprise tier to other Azure services using Service Connectors.
+The following steps show how to bind applications running in Azure Spring Apps Enterprise tier to other Azure services by using Service Connectors.
 
-1. Create a service connector to Azure Database for PostgreSQL for the Order Service Application by using the following command:
+1. Use the following command to create a service connector to Azure Database for PostgreSQL for the Order Service application:
 
    ```azurecli
    az spring connection create postgres-flexible \
@@ -150,7 +150,7 @@ The following steps show how to bind applications running in Azure Spring Apps E
        --client-type dotnet
    ```
 
-1. Create a service connector to Azure Database for PostgreSQL for the Catalog Service Application by using the following command:
+1. Use the following command to create a service connector to Azure Database for PostgreSQL for the Catalog Service application:
 
    ```azurecli
    az spring connection create postgres-flexible \
@@ -166,7 +166,7 @@ The following steps show how to bind applications running in Azure Spring Apps E
        --client-type springboot
    ```
 
-1. Create a service connector to Azure Cache for Redis for the Cart Service Application by using the following command:
+1. Use the following command to create a service connector to Azure Cache for Redis for the Cart Service application:
 
    ```azurecli
    az spring connection create redis \
@@ -181,7 +181,7 @@ The following steps show how to bind applications running in Azure Spring Apps E
        --client-type java
    ```
 
-1. Use the following command to reload the Catalog Service Application to load the new connection properties:
+1. Use the following command to reload the Catalog Service application to load the new connection properties:
 
    ```azurecli
    az spring app restart
@@ -190,7 +190,7 @@ The following steps show how to bind applications running in Azure Spring Apps E
        --service <Azure-Spring-Apps-service-instance-name>
    ```
 
-1. Retrieve the database connection information and update the Order Service Application by using the following commands:
+1. Use the following commands to retrieve the database connection information and update the Order Service application:
 
    ```azurecli
    POSTGRES_CONNECTION_STR=$(az spring connection show \
@@ -207,7 +207,7 @@ The following steps show how to bind applications running in Azure Spring Apps E
        --env "DatabaseProvider=Postgres" "ConnectionStrings__OrderContext=${POSTGRES_CONNECTION_STR}"
    ```
 
-1. Retrieve Redis connection information and update the Cart Service Application by using the following commands:
+1. Use the following commands to Retrieve Redis connection information and update the Cart Service application:
 
    ```azurecli
    REDIS_CONN_STR=$(az spring connection show \
@@ -226,7 +226,7 @@ The following steps show how to bind applications running in Azure Spring Apps E
 
 ## Access the application
 
-Retrieve the URL for Spring Cloud Gateway and explore the updated application. The output from the following command can be used to explore the application:
+Retrieve the URL for Spring Cloud Gateway and explore the updated application. You can use the output from the following command to explore the application:
 
 ```azurecli
 GATEWAY_URL=$(az spring gateway show \

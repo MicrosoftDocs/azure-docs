@@ -1,6 +1,6 @@
 ---
-title: "Quickstart - Monitor Applications End-to-End"
-description: Explains how to monitor apps running Azure Spring Apps Enterprise tier using Application Insights and Log Analytics.
+title: "Quickstart - Monitor applications end-to-end"
+description: Explains how to monitor apps running Azure Spring Apps Enterprise tier by using Application Insights and Log Analytics.
 author: KarlErickson
 ms.author: asirveda # external contributor: paly@vmware.com
 ms.service: spring-cloud
@@ -16,10 +16,10 @@ ms.custom: devx-track-java
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This quickstart shows you how monitor apps running Azure Spring Apps Enterprise tier using Application Insights and Log Analytics.
+This quickstart shows you how monitor apps running Azure Spring Apps Enterprise tier by using Application Insights and Log Analytics.
 
 > [!NOTE]
-> You can monitor your Spring workloads end-to-end using any tool and platform of your choice, including App Insights, Log Analytics, New Relic, Dynatrace, AppDynamics, Elastic, or Splunk. For more information, see [Working with other monitoring tools](#working-with-other-monitoring-tools) later in this article.
+> You can monitor your Spring workloads end-to-end by using any tool and platform of your choice, including App Insights, Log Analytics, New Relic, Dynatrace, AppDynamics, Elastic, or Splunk. For more information, see [Working with other monitoring tools](#working-with-other-monitoring-tools) later in this article.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ This quickstart shows you how monitor apps running Azure Spring Apps Enterprise 
 - Resources to monitor, such as the ones created in the following quickstarts:
   - [Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md)
   - [Integrate with Azure Database for PostgreSQL and Azure Cache for Redis](quickstart-integrate-azure-database-and-redis-enterprise.md)
-  - [Securely Load Application Secrets using Key Vault](quickstart-key-vault-enterprise.md)
+  - [Load application secrets using Key Vault](quickstart-key-vault-enterprise.md)
 
 ## Update applications
 
@@ -41,7 +41,7 @@ The Application Insights connection string must be provided manually to the Orde
 > [!NOTE]
 > Currently only the buildpacks for Java and NodeJS applications support Application Insights instrumentation. This will be changed in future iterations.
 
-1. Retrieve the Application Insights connection string and set it in Key Vault by using the following commands:
+1. Use the following commands to retrieve the Application Insights connection string and set it in Key Vault:
 
    ```azurecli
    INSTRUMENTATION_KEY=$(az monitor app-insights component show \
@@ -57,7 +57,7 @@ The Application Insights connection string must be provided manually to the Orde
    > [!NOTE]
    > By default, the Application Insights service instance has the same name as the Azure Spring Apps service instance.
 
-1. Update the sampling rate for the Application Insights binding to increase the amount of data available by using the following command:
+1. Use the following command to update the sampling rate for the Application Insights binding to increase the amount of data available:
 
    ```azurecli
    az spring build-service builder buildpack-binding set \
@@ -69,7 +69,7 @@ The Application Insights connection string must be provided manually to the Orde
        --properties sampling-rate=100 connection_string=${INSTRUMENTATION_KEY}
    ```
 
-1. Restart applications to reload configuration by using the following commands:
+1. Use the following commands to restart applications to reload configuration:
 
    ```azurecli
    az spring app restart \
@@ -106,7 +106,7 @@ There are two ways to see logs on Azure Spring Apps: **Log Streaming** of real-t
 
 ### Use log streaming
 
-Generate traffic in the Application by moving through the application, viewing the catalog, and placing orders. Use the following commands to generate traffic continuously, until canceled:
+Generate traffic in the application by moving through the application, viewing the catalog, and placing orders. Use the following commands to generate traffic continuously, until canceled:
 
 ```azurecli
 GATEWAY_URL=$(az spring gateway show \
@@ -127,7 +127,7 @@ az spring app logs \
     --lines 100
 ```
 
-By adding the `--follow` option, you can get real-time log streaming from an app. Try log streaming for the Catalog Service by using the following command:
+By adding the `--follow` option, you can get real-time log streaming from an app. Use the following command to try log streaming for the Catalog Service:
 
 ```azurecli
 az spring app logs \

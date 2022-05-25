@@ -1,6 +1,6 @@
 ---
 title: "Quickstart - Set Request Rate Limits"
-description: Explains how to set request rate limits using Spring Cloud Gateway on Azure Spring Apps Enterprise tier.
+description: Explains how to set request rate limits by using Spring Cloud Gateway on Azure Spring Apps Enterprise tier.
 author: KarlErickson
 ms.author: asirveda # external contributor: paly@vmware.com
 ms.service: spring-cloud
@@ -16,7 +16,7 @@ ms.custom: devx-track-java
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-This quickstart shows you how to set request rate limits using Spring Cloud Gateway on Azure Spring Apps Enterprise tier.
+This quickstart shows you how to set request rate limits by using Spring Cloud Gateway on Azure Spring Apps Enterprise tier.
 
 Rate limiting enables you to avoid problems that arise with spikes in traffic. When you set request rate limits, your application can reject excessive requests. This configuration helps you minimize throttling errors and more accurately predict throughput.
 
@@ -58,7 +58,7 @@ The following example would limit all users to two requests every 5 seconds to t
 
 When the limit is exceeded, response will fail with `429 Too Many Requests` status.
 
-Apply the `RateLimit` filter to the `/products` route by using the following command:
+Use the following command to apply the `RateLimit` filter to the `/products` route:
 
 ```azurecli
 az spring gateway route-config update \
@@ -69,7 +69,7 @@ az spring gateway route-config update \
     --routes-file azure/routes/catalog-service_rate-limit.json
 ```
 
-Retrieve the URL for the `/products` route in Spring Cloud Gateway by using the following command:
+Use the following command to retrieve the URL for the `/products` route in Spring Cloud Gateway:
 
 ```azurecli
 GATEWAY_URL=$(az spring gateway show \

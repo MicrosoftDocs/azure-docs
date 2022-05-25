@@ -37,7 +37,7 @@ This quickstart applies this architecture to a Fitness Store application. This a
 - One ASP.NET Core application:
   - **Order Service** places orders to buy products that are in the users' carts.
 
-- One NodeJS and static HTML Application:
+- One NodeJS and static HTML application:
   - **Frontend** is the shopping application that depends on the other services.
 
 The following screenshot shows the ACME Fitness Store home page.
