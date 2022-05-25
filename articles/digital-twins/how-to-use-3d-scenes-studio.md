@@ -324,7 +324,7 @@ Alternatively, you can create layers while [creating or modifying a behavior](#n
 
 :::image type="content" source="media/how-to-use-3d-scenes-studio/layers-start-behavior.png" alt-text="Screenshot of the Modify Behavior options in 3D Scenes Studio. A Scene layer is being selected." lightbox="media/how-to-use-3d-scenes-studio/layers-start-behavior.png":::
 
-When looking at your scene in the viewer, you can use the **Select layers** button to choose which layers show up in the visualization. Behaviors that aren't part of any layer are grouped under **Unlayered behaviors**.
+When looking at your scene in the viewer, you can use the **Select layers** button to choose which layers show up in the visualization. Behaviors that aren't part of any layer are grouped under **Default layer**.
 
 :::image type="content" source="media/how-to-use-3d-scenes-studio/layers-select-viewer.png" alt-text="Screenshot of 3D Scenes Studio in View mode. The layer selection is highlighted." lightbox="media/how-to-use-3d-scenes-studio/layers-select-viewer.png":::
 

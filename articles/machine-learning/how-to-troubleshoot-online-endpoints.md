@@ -113,7 +113,7 @@ There are three supported tracing headers:
    > [!Note]
    > When you create a support ticket for a failed request, attach the failed request ID to expedite investigation.
    
-- `x-ms-request-id` and `x-ms-client-request-id` are available for client tracing scenarios. We sanitize these headers to remove non-alphanumeric symbols. These headers are truncated to 72 characters.
+- `x-ms-client-request-id` is available for client tracing scenarios. We sanitize this header to remove non-alphanumeric symbols. This header is truncated to 72 characters.
 
 ## Common deployment errors
 
