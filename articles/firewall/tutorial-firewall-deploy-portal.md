@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 11/10/2021
+ms.date: 05/25/2022
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
@@ -183,7 +183,7 @@ After deployment completes, select **Go to resource**.
 
     Azure Firewall is actually a managed service, but virtual appliance works in this situation.
 18. For **Next hop address**, type the private IP address for the firewall that you noted previously.
-19. Select **OK**.
+19. Select **Add**.
 
 ## Configure an application rule
 
