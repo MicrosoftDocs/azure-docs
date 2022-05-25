@@ -144,16 +144,16 @@ To run pipelines and perform system tasks, Azure Synapse requires managed servic
     ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 
-## STEP 5: Grant Synapse administrators the Azure Contributor role for the workspace
+## STEP 5: Grant Synapse administrators an Azure Contributor role for the workspace
 
-To create SQL pools, Apache Spark pools and Integration runtimes, users must at minimum have an Azure Contributor role for the workspace. The Contributor role also allows users to manage resources, including pausing and scaling. To use Azure portal or Synapse Studio to create SQL pools, Apache Spark pools and Integration runtimes, you need a Contributor role at the resource group level.
+To create SQL pools, Apache Spark pools and Integration runtimes, users at minimum need an Azure Contributor role for the workspace. The Contributor role also allows users to manage resources, including pausing and scaling. To use Azure portal or Synapse Studio to create SQL pools, Apache Spark pools and Integration runtimes, you need a Contributor role at the resource group level.
 
-- Open the Azure portal
+- Open Azure portal
 - Locate the workspace, `workspace1`
 - Select **Access control (IAM)**.
 - Select **Add** > **Add role assignment** to open the Add role assignment page.
 - Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
-    
+
     | Setting | Value |
     | --- | --- |
     | Role | Contributor |
@@ -162,45 +162,45 @@ To create SQL pools, Apache Spark pools and Integration runtimes, users must at 
 
     ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png) 
 
-## STEP 6: Assign SQL Active Directory Admin role
+## STEP 6: Assign an SQL Active Directory Admin role
 
-The workspace creator is automatically set up as the SQL Active Directory Admin for the workspace.  Only a single user or group can be granted this role. In this step, you assign the SQL Active Directory Admin on the workspace  to the `workspace1_SQLAdmins` security group.  Assigning this role gives this group highly privileged admin access to all SQL pools and databases in the workspace.   
+The workspace creator is automatically assigned as SQL Active Directory Admin for the workspace.  Only a single user or a group can be granted this role. In this step, you assign the SQL Active Directory Admin for the workspace to the `workspace1_SQLAdmins` security group.  This gives the group highly privileged admin access to all SQL pools and databases in the workspace.
 
-- Open the Azure portal
+- Open Azure portal
 - Navigate to `workspace1`
 - Under **Settings**, select **SQL Active Directory admin**
 - Select **Set admin** and choose **`workspace1_SQLAdmins`**
 
 >[!Note]
->Step 6 is optional.  You might choose to grant the `workspace1_SQLAdmins` group a less privileged role. To assign `db_owner` or other SQL roles, you must run scripts on each SQL database. 
+>Step 6 is optional.  You might choose to grant the `workspace1_SQLAdmins` group a less privileged role. To assign `db_owner` or other SQL roles, you must run scripts on each SQL database.
 
 ## STEP 7: Grant access to SQL pools
 
-By default, all users assigned the Synapse Administrator role are also assigned the SQL `db_owner` role on the serverless SQL pools in the workspace.
+The Synapse Administrator is by default given the SQL `db_owner` role for serverless SQL pools in the workspace as well.
 
-Access to SQL pools for other users is controlled using SQL permissions.  Assigning SQL permissions requires that SQL scripts are run on each SQL database after creation.  There are three cases that require you run these scripts:
-1. Granting other users access to the serverless SQL pool, 'Built-in', and its databases
-2. Granting any user access to dedicated SQL pool databases
+Access to SQL pools for other users is controlled by SQL permissions.  Assigning SQL permissions requires SQL scripts to be run on each SQL database after creation.  The following are examples that require you to run these scripts:
+1. TO grant users access to the serverless SQL pool, 'Built-in', and its databases
+2. To grant users access to dedicated SQL pool databases
 
-Example SQL scripts are included below.
+Example SQL scripts are included later in this article.
 
-To grant access to a dedicated SQL pool database, the scripts can be run by the workspace creator or any member of the `workspace1_SynapseAdministrators` group.  
+To grant access to a dedicated SQL pool database, scripts can be run by the workspace creator or any member of the `workspace1_SynapseAdministrators` group.  
 
-To grant access to the serverless SQL pool, 'Built-in', the scripts can be run by any member of the `workspace1_SQLAdmins` group or the  `workspace1_SynapseAdministrators` group. 
+To grant access to the serverless SQL pool, 'Built-in', scripts can be run by any member of the `workspace1_SQLAdmins` group or the `workspace1_SynapseAdministrators` group.
 
 > [!TIP]
-> The steps below need to be run for **each** SQL pool to grant user access to all SQL databases except in section [Workspace-scoped permission](#workspace-scoped-permission) where you can assign a user a sysadmin role at the workspace level.
+>You can grant access to all SQL databases by taking the following steps for **each** SQL pool. Section [Workspace-scoped permission](#workspace-scoped-permission) is an exception to the rule and it allows you to assign a user a sysadmin role at the workspace level.
 
 ### STEP 7.1: Serverless SQL pool, Built-in
 
-In this section, there are script examples showing how to give a user permission to access a particular database or to all databases in the serverless SQL pool, `Built-in`.
+You can use the script examples in this section to give users permission to access an individual database or all databases in the serverless SQL pool, `Built-in`.
 
 > [!NOTE]
-> In the script examples, replace *alias* with the alias of the user or group being granted access, and *domain* with the company domain you are using.
+> In the script examples, replace *alias* with the alias of the user or group being granted access. Replace *domain* with the company domain you are using.
 
-#### Database-scoped permission
+#### Configure Database-scoped permissions
 
-To grant access to a user to a **single** serverless SQL database, follow the steps in this example:
+You can grant users access to a **single** serverless SQL database with the steps outlined in this example:
 
 1. Create a login. Change to the `master` database context.
 
@@ -222,20 +222,20 @@ To grant access to a user to a **single** serverless SQL database, follow the st
     ALTER ROLE db_owner ADD member alias; -- Type USER name from step 2
     ```
 
-#### Workspace-scoped permission
+#### Configure Workspace-scoped permissions
 
-To grant full access to **all** serverless SQL pools in the workspace, in the `master` database, use the script in this example:
+You can grant full access to **all** serverless SQL pools in the workspace. Run the script in this example in the `master` database:
 
 ```sql
 CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
 ALTER SERVER ROLE sysadmin ADD MEMBER [alias@domain.com];
 ```
 
-### STEP 7.2: Dedicated SQL pools
+### STEP 7.2: configure Dedicated SQL pools
 
-To grant access to a **single** dedicated SQL pool database, follow these steps in the Azure Synapse SQL script editor:
+You can grant access to a **single**, dedicated, SQL pool database. Use these steps in the Azure Synapse SQL script editor:
 
-1. Create the user in the database by running the following command on the target database, selected using the *Connect to* dropdown:
+1. Create a user in the database by running the following commands. Select the target database in the *Connect to* dropdown:
 
     ```sql
     --Create user in the database
@@ -250,16 +250,16 @@ To grant access to a **single** dedicated SQL pool database, follow these steps 
     ```
 
 > [!IMPORTANT]
-> The **db_datareader** and **db_datawriter** database roles can work for read/write permissions if granting **db_owner** permission is not desired.
-> However, for a Spark user to read and write directly from Spark into or from a SQL pool, **db_owner** permission is required.
+> **db_datareader** and **db_datawriter** database roles can provide read/write permission when you do not want to give **db_owner** permissions.
+> However, **db_owner** permission is necessary for Spark users to read and write directly from Spark into or from an SQL pool.
 
-After creating the users, run queries to validate that the serverless SQL pool can query the storage account.
+You can run queries to confirm that serverless SQL pools can query storage accounts, after you have created your users.
 
 ## STEP 8: Add users to security groups
 
-The initial configuration for your access control system is complete.
+The initial configuration for your access control system is now complete.
 
-To manage access, you can add and remove users to the security groups you've set up.  Although you can manually assign users to Azure Synapse roles, if you do, it won't configure their permissions consistently. Instead, only add or remove users to the security groups.
+You can add and remove users to the security groups you've set up, to manage access to them. You can manually assign users to Azure Synapse roles, but this sets permissions inconsistently. Instead, only add or remove users to your security groups.
 
 ## STEP 9: Network security
 
