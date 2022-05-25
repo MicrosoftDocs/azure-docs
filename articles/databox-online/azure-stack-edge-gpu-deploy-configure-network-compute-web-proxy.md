@@ -145,7 +145,7 @@ Follow these steps to add or delete virtual switches and virtual networks.
  
     ![Screenshot of "Advanced networking" page with virtual switch added and enabled for compute in local UI for one node.](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-compute-network-3.png)
 
-1. You can create more than one switches by following the steps described earlier.
+1. You can create more than one switch by following the steps described earlier.
 1. To delete a virtual switch, under the **Virtual switch** section, select **Delete virtual switch**. When a virtual switch is deleted, the associated virtual networks will also be deleted.
 
 You can now create virtual networks and associate with the virtual switches you created.
@@ -451,7 +451,7 @@ After the cluster is formed and configured, you can now create new virtual switc
 
     ![Configure compute page in Advanced networking in local UI 3](./media/azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy/configure-compute-network-3.png)
 
-1. You can create more than one switches by following the steps described earlier.
+1. You can create more than one switch by following the steps described earlier.
 
 1. To delete a virtual switch, under the **Virtual switch** section, select **Delete virtual switch**. When a virtual switch is deleted, the associated virtual networks will also be deleted.
 
