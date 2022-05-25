@@ -19,7 +19,7 @@ ms.author: anfdocs
 
 Azure’s push towards the use of [availability zones](../availability-zones/az-overview.md#availability-zones) (AZs) has increased, and the use of high availability (HA) deployments with availability zones are now a default and best practice recommendation in [Azure’s Well Architected Framework](/azure/architecture/framework/resiliency/design-best-practices#use-zone-aware-services). Azure NetApp Files lets you deploy new volumes in the logical availability zone of your choice. 
 
-Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple datacenter infrastructures. Using Azure availability zones lets you design and operate applications and databases that automatically transition between zones without interruption.  
+Azure availability zones are highly available, fault tolerant, and more scalable than traditional single or multiple data center infrastructures. Using Azure availability zones lets you design and operate applications and databases that automatically transition between zones without interruption.  
 
 Availability zones are referred to as *logical zones*. Each data center is assigned to a *physical zone*. Physical zones are mapped to logical zones in your Azure subscription. Azure subscriptions are automatically assigned this mapping when a subscription is created. Enterprise applications and resources are increasingly deployed into multiple availability zones to achieve this level of high availability (HA) or failure domain (zone) isolation. 
 
@@ -43,7 +43,7 @@ The following diagram summarizes availability zone volume placement for Azure Ne
 
 * Each data center is assigned to a physical zone. Physical zones are mapped to logical zones in your Azure subscription. Azure subscriptions are automatically assigned this mapping at the time a subscription is created. This feature aligns with the generic logical-to-physical availability zone mapping for the subscription. 
 
-* VMs and Azure NetApp Files volumes are to be deployed separately, within the same logical availability zone to create zone alignment between VMs and Azure NetApp Files. This availability zone volume placement feature does not create zonal VMs upon volume creation or vice versa.
+* VMs and Azure NetApp Files volumes are to be deployed separately, within the same logical availability zone to create zone alignment between VMs and Azure NetApp Files. The availability zone volume placement feature does not create zonal VMs upon volume creation, or vice versa.
 
 ## Register the feature 
 
@@ -52,13 +52,13 @@ The feature of availability zone volume placement is currently in preview. If yo
 1.  Register the feature: 
 
     ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName <<NEED FEATURE NAME>>
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName <FEATURE-NAME>
     ```
 
 2. Check the status of the feature registration: 
 
     ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName <<NEED FEATURE NAME>>
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName <FEATURE-NAME>
     ```
 
     > [!NOTE]
@@ -68,7 +68,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 
 ## Create a volume with an availability zone 
 
-1.	Click **Volumes** from your capacity pool. Then Click **+ Add volume** to create a volume.
+1.	Select **Volumes** from your capacity pool. Then select **+ Add volume** to create a volume.
 
     For details about volume creation, see:   
     * [Create an NFS volume](azure-netapp-files-create-volumes.md)   
