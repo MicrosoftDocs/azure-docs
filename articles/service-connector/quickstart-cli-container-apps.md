@@ -46,12 +46,12 @@ az containerapp connection list-support-types --output table
     az containerapp connection create storage-blob --secret
     ```
 
-1. Provide the following information at the Azure CLI's request :
+1. Provide the following information at the Azure CLI's request:
 
    - **The resource group which contains the container app**: the name of the resource group with the container app.
    - **Name of the container app**: the name of your container app.
    - **The container where the connection information will be saved:** the name of the container, in your container app, that connects to the target service
-   - **The resource group which contains the storage account:** the name of the resource group name with the storage account. In this guide, we are using a Blob Storage.
+   - **The resource group which contains the storage account:** the name of the resource group name with the storage account. In this guide, we're using a Blob Storage.
    - **Name of the storage account:** the name of the storage account that contains your blob.
 
 > [!NOTE]
@@ -68,12 +68,12 @@ az containerapp connection list-support-types --output table
     az containerapp connection create storage-blob --system-identity
     ```
 
-1. Provide the following information at the Azure CLI's request :
+1. Provide the following information at the Azure CLI's request:
 
    - **The resource group which contains the container app**: the name of the resource group with the container app.
    - **Name of the container app**: the name of your container app.
    - **The container where the connection information will be saved:** the name of the container, in your container app, that connects to the target service
-   - **The resource group which contains the storage account:** the name of the resource group name with the storage account. In this guide, we are using a Blob Storage.
+   - **The resource group which contains the storage account:** the name of the resource group name with the storage account. In this guide, we're using a Blob Storage.
    - **Name of the storage account:** the name of the storage account that contains your blob.
 
 > [!NOTE]
