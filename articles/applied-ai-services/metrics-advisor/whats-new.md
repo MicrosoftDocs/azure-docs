@@ -16,6 +16,13 @@ ms.author: mbullwin
 
 Welcome! This page covers what's new in the Metrics Advisor docs. Check back every month for information on service changes, doc additions and updates this month.
 
+## May 2022
+
+Come to learn new feature of **detection configuration auto-tuning** which enables you to customize the service to surface and personalize anomalies. Instead of traditional way to set configurations for each time series or a bunch of time series. A guided experience will be provided to get detection preferences input, such as level of sensitivity and anomaly pattern, to tailor the model on the back end. Then those preference will be further applied to all the time series monitored. Eventually less configuration cost been spent but with better detection results. 
+
+Please check [this document](how-tos/configure-metrics.md/#tune-the-detection-configuration) to apply the new feature to your metrics.  
+
+
 ## SDK updates
 
 If you want to learn about the latest updates to Metrics Advisor client SDKs see: 
