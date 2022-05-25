@@ -18,14 +18,14 @@ This diagram shows you how alerts work:
 
 :::image type="content" source="media/alerts-overview/alerts-flow.png" alt-text="Graphic explaining Azure Monitor alerts.":::
 
-An **alert rule** monitors your telemetry and captures a signal that indicates that something is happening on a specified target. After capturing the signal, the alert rule checks to see if the signal meets the criteria of the condition. If the conditions are met, an alert is triggered, which initiates the associated action group and updates the state of the alert. 
+An **alert rule** monitors your telemetry and captures a signal that indicates that something is happening on a specified target. The alert rule  captures the signal and checks to see if the signal meets the criteria of the condition. If the conditions are met, an alert is triggered, which initiates the associated action group and updates the state of the alert. 
  
-You create an alert rule by combining :
+You create an alert rule by combining:
  - The resource(s) to be monitored.
  - The signal or telemetry from the resource
  - Conditions
 
-If you are monitoring more than one resource, the condition is evaluated separately for each of the resources and alerts are fired for each resource separately.
+If you're monitoring more than one resource, the condition is evaluated separately for each of the resources and alerts are fired for each resource separately.
 
 Once an alert is triggered, the alert is made up of:
  - An **Alert processing rule** allows you to apply processing on fired alerts. Alert processing rules modify the fired alerts as they are being fired. You can use alert processing rules to add or suppress action groups, apply filters or have the rule processed on a pre-defined schedule.
@@ -41,7 +41,7 @@ Once an alert is triggered, the alert is made up of:
 - The **alert condition** is set by the system. When an alert fires, the alert’s monitor condition is set to ‘fired’, and when the underlying condition that caused the alert to fire clears, the monitor condition is set to ‘resolved’.
 - The **user response** is set by the user and doesn’t change until the user changes it. 
 
-You can see all all alert instances in all your Azure resources generated in the last 30 days on the **[Alerts page](alerts-page.md)** in the Azure portal. 
+You can see all alert instances in all your Azure resources generated in the last 30 days on the **[Alerts page](alerts-page.md)** in the Azure portal. 
 ## Types of alerts
 
 There are four types of alerts. This table provides a brief description of each alert type. 
@@ -79,13 +79,13 @@ These built-in Azure roles, supported at all Azure Resource Manager scopes, have
 
 You can configure whether log or metric alerts are stateful or stateless. Activity log alerts are stateless. 
 - Stateless alerts fire each time the condition is met, even if fired previously.
-- Stateful alerts fire when the condition is met and then do not fire again or trigger any more actions until the conditions are resolved.  
+- Stateful alerts fire when the condition is met and then don't fire again or trigger any more actions until the conditions are resolved.  
 For stateful alerts, the alert is considered resolved when:
 
 |Alert type  |The alert is resolved when |
 |---------|---------|
-|Metric alerts|The alert condition is not met for three consecutive checks.|
-|Log alerts|The alert condition isn't met for 30 minutes for a specific evaluation period (to account for log ingestion delay), and <br>the alert condition is not met for three consecutive checks.|
+|Metric alerts|The alert condition isn't met for three consecutive checks.|
+|Log alerts|The alert condition isn't met for 30 minutes for a specific evaluation period (to account for log ingestion delay), and <br>the alert condition isn't met for three consecutive checks.|
 
 When the alert is considered resolved, the alert rule sends out a resolved notification using webhooks or email and the monitor state in the Azure portal is set to resolved.
 

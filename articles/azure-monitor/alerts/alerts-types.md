@@ -72,19 +72,19 @@ You can monitor at scale by applying the same metric alert rule to multiple reso
 
 These platform metrics for these services in the following Azure clouds are supported:
 
-| Service                      | Public Azure | Government | China   |
+| Service                      | Global Azure | Government | China   |
 |:-----------------------------|:-------------|:-----------|:--------|
-| Virtual machines<sup>1</sup> | Yes      |Yes     | Yes |
+| Virtual machines* | Yes      |Yes     | Yes |
 | SQL server databases         | Yes      | Yes    | Yes |
 | SQL server elastic pools     | Yes      | Yes    | Yes |
 | NetApp files capacity pools  | Yes      | Yes    | Yes |
 | NetApp files volumes         | Yes      | Yes    | Yes |
 | Key vaults                   | Yes      | Yes    | Yes |
 | Azure Cache for Redis        | Yes      | Yes    | Yes |
-| Data box edge devices        | Yes      | Yes    | Yes |
+| Azure Stack Edge devices        | Yes      | Yes    | Yes |
 | Recovery Services vaults     | Yes      | No     | No  |
 
-<sup>1</sup> Not supported for virtual machine network metrics (Network In Total, Network Out Total, Inbound Flows, Outbound Flows, Inbound Flows Maximum Creation Rate, Outbound Flows Maximum Creation Rate).
+* Not supported for virtual machine network metrics (Network In Total, Network Out Total, Inbound Flows, Outbound Flows, Inbound Flows Maximum Creation Rate, Outbound Flows Maximum Creation Rate).
 
 You can specify the scope of monitoring with a single metric alert rule in one of three ways. For example, with virtual machines you can specify the scope as:  
 
@@ -103,7 +103,7 @@ Dynamic thresholds use advanced machine learning (ML) to:
 Machine Learning continuously uses new data to learn more and make the threshold more accurate. Because the system adapts to the metrics’ behavior over time, and alerts based on deviations from its pattern, you don't have to know the "right" threshold for each metric. 
 
 Dynamic thresholds help you:
-- Create scalable alerts for hundreds of metric series with one alert rule. Fewer alert rules translates to less time that you have to spend on creating and managing alerts rules.
+- Create scalable alerts for hundreds of metric series with one alert rule. Fewer alert rules leads to to less time that you have to spend on creating and managing alerts rules.
 - Create rules without having to know what threshold to configure
 - Configure up metric alerts using high-level concepts without extensive domain knowledge about the metric
 - Prevent noisy (low precision) or wide (low recall) thresholds that don’t have an expected pattern

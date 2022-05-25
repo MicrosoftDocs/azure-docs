@@ -1,14 +1,14 @@
 ---
-title: Azure Monitor alerts page
+title: View and manage your alert instances
 description: The alerts page summarizes all alert instances in all your Azure resources generated in the last 30 days.
 ms.topic: conceptual
 ms.date: 2/23/2022
 ms.reviewer: harelb
 
 ---
-# The alerts page
+# View and manage your alert instances
 
-The alerts page summarizes all alert instances in all your Azure resources generated in the last 30 days. You can see all your different types of alerts from multiple subscriptions in a single pane, and you can find specific alert instances for troubleshooting puproses. 
+The alerts page summarizes all alert instances in all your Azure resources generated in the last 30 days. You can see all your different types of alerts from multiple subscriptions in a single pane, and you can find specific alert instances for troubleshooting purposes. 
 
 You can get to the alerts page in any of the following ways:
 

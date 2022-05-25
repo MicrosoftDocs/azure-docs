@@ -726,7 +726,7 @@ items:
         href: alerts/action-groups-logic-app.md
     - name: Alert user interface
       items:
-      - name: Manage alert instances
+      - name: View and manage alert instances
         href: alerts/alerts-managing-alert-instances.md
     - name: Troubleshoot alerts
       href: alerts/alerts-troubleshoot.md
