@@ -101,6 +101,10 @@ communicationMonitoring.close()
 
 ```
 
+## Download logs
+
+The tool includes the ability to download the logs captured using the `Download logs` button on the top right. The tool will generate a compressed log file that can be provided to our customer support team for debugging.
+
 ## Next Steps
 
 - [Explore User-Facing Diagnostic APIs](../voice-video-calling/user-facing-diagnostics.md)
