@@ -157,8 +157,6 @@ items:
     - name: Log data ingestion time
       displayName: latency
       href: logs/data-ingestion-time.md
-  - name: Data collection rules
-    href: essentials/data-collection-rule-overview.md
   - name: Usage and cost
     items:
     - name: View and estimate charges
@@ -197,12 +195,8 @@ items:
     items:
     - name: Overview
       href: alerts/alerts-overview.md
-    - name: Metric alerts
-      href: alerts/alerts-metric-overview.md
-    - name: Log alerts
-      href: alerts/alerts-unified-log.md
-    - name: Activity log alerts
-      href: alerts/activity-log-alerts.md
+    - name: Alert Types
+      href: alerts/alerts-types.md
   - name: Partner integrations
     href: partners.md
   - name: Security
@@ -448,6 +442,9 @@ items:
     items:
     - name: Data collection rules
       items:
+      - name: Overview
+        displayName: Data collection rules
+        href: essentials/data-collection-rule-overview.md
       - name: Structure
         displayName: Data collection rules
         href: essentials/data-collection-rule-structure.md
@@ -729,7 +726,7 @@ items:
         href: alerts/action-groups-logic-app.md
     - name: Alert user interface
       items:
-      - name: Manage alert instances
+      - name: View and manage alert instances
         href: alerts/alerts-managing-alert-instances.md
     - name: Troubleshoot alerts
       href: alerts/alerts-troubleshoot.md
@@ -1191,6 +1188,8 @@ items:
       href: change/change-analysis-powershell.md
     - name: Custom filters
       href: change/change-analysis-custom-filters.md
+    - name: Pin and share changes via Azure dashboard
+      href: change/change-analysis-query.md
     - name: Troubleshoot
       href: change/change-analysis-troubleshoot.md
   - name: VM insights
@@ -1283,6 +1282,8 @@ items:
         href: containers/container-insights-agent-config.md
       - name: Update to enable metrics
         href: containers/container-insights-update-metrics.md
+      - name: Enable ContainerLogv2 (preview)
+        href: containers/container-insights-logging-v2.md
       - name: Migration from Azure Red Hat OpenShift v4.x to Azure Arc enabled cluster
         href: containers/container-insights-transition-hybrid.md
     - name: Monitor

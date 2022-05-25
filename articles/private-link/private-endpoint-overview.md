@@ -74,6 +74,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Container Registry | Microsoft.ContainerRegistry/registries | registry |
 | Azure Kubernetes Service - Kubernetes API | Microsoft.ContainerService/managedClusters | management |
 | Azure Data Factory | Microsoft.DataFactory/factories | dataFactory |
+| Azure Data Explorer | Microsoft.Kusto/clusters | cluster |
 | Azure Database for MariaDB | Microsoft.DBforMariaDB/servers | mariadbServer |
 | Azure Database for MySQL | Microsoft.DBforMySQL/servers | mysqlServer |
 | Azure Database for PostgreSQL - Single server | Microsoft.DBforPostgreSQL/servers | postgresqlServer |

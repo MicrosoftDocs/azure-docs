@@ -180,12 +180,10 @@
       href: /security/benchmark/azure/baselines/cognitive-search-security-baseline?toc=/azure/search/TOC.json
 - name: How-to guides
   items:
-  - name: Service management
+  - name: Planning
     items:
     - name: Choose a tier
       href: search-sku-tier.md
-    - name: Create a service
-      href: search-create-service-portal.md
     - name: Service limits
       href: search-limits-quotas-capacity.md
     - name: Plan capacity
@@ -196,12 +194,18 @@
       href: search-performance-optimization.md
     - name: Multi-tenancy
       href: search-modeling-multitenant-saas-applications.md
+  - name: Service management
+    items:
+    - name: Create a service
+      href: search-create-service-portal.md
     - name: Manage in the portal
       href: search-manage.md
     - name: Manage with PowerShell
       href: search-manage-powershell.md
     - name: Manage with Azure CLI
       href: search-manage-azure-cli.md
+    - name: Manage with REST
+      href: search-manage-rest.md
     - name: Move service across regions
       href: search-howto-move-across-regions.md
   - name: Security
@@ -521,6 +525,8 @@
       href: ./policy-reference.md
     - name: Monitoring data reference
       href: monitor-azure-cognitive-search-data-reference.md
+  - name: Stopwords reference
+    href: reference-stopwords.md
   - name: OData language reference
     items:
     - name: Overview
