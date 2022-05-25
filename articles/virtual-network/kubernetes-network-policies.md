@@ -123,16 +123,16 @@ The different quantile levels in "exec_time" metrics help you differentiate betw
 
 There's also an "exec_time_count" and "exec_time_sum" metric for each "exec_time" Summary metric.
 
-The metrics can be scraped through Azure Monitor for Containers or through Prometheus.
+The metrics can be scraped through Container insights or through Prometheus.
 
 ### Setup for Azure Monitor
-The first step is to enable Azure Monitor for containers for your Kubernetes cluster. Steps can be found in [Azure Monitor for containers Overview](../azure-monitor/containers/container-insights-overview.md). Once you have Azure Monitor for containers enabled, configure the [Azure Monitor for containers ConfigMap](https://aka.ms/container-azm-ms-agentconfig) to enable NPM integration and collection of Prometheus NPM metrics. Azure monitor for containers ConfigMap has an ```integrations``` section with settings to collect NPM metrics. These settings are disabled by default in the ConfigMap. Enabling the basic setting ```collect_basic_metrics = true```, will collect basic NPM metrics. Enabling advanced setting ```collect_advanced_metrics = true``` will collect advanced metrics in addition to basic metrics. 
+The first step is to enable Container insights for your Kubernetes cluster. Steps can be found in [Container insights Overview](../azure-monitor/containers/container-insights-overview.md). Once you have Container insights enabled, configure the [Container insights ConfigMap](https://aka.ms/container-azm-ms-agentconfig) to enable NPM integration and collection of Prometheus NPM metrics. Container insights ConfigMap has an ```integrations``` section with settings to collect NPM metrics. These settings are disabled by default in the ConfigMap. Enabling the basic setting ```collect_basic_metrics = true```, will collect basic NPM metrics. Enabling advanced setting ```collect_advanced_metrics = true``` will collect advanced metrics in addition to basic metrics. 
 
 After editing the ConfigMap, save it locally and apply the ConfigMap to your cluster as follows.
 
 `kubectl apply -f container-azm-ms-agentconfig.yaml`
 
-Below is a snippet from the [Azure monitor for containers ConfigMap](https://aka.ms/container-azm-ms-agentconfig), which shows the NPM integration enabled with advanced metrics collection.
+Below is a snippet from the [Container insights ConfigMap](https://aka.ms/container-azm-ms-agentconfig), which shows the NPM integration enabled with advanced metrics collection.
 ```
 integrations: |-
     [integrations.azure_network_policy_manager]
@@ -141,7 +141,7 @@ integrations: |-
 ```
 Advanced metrics are optional, and turning them on will automatically turn on basic metrics collection. Advanced metrics currently include only `npm_ipset_counts`
 
-Learn more about [Azure monitor for containers collection settings in config map](../azure-monitor/containers/container-insights-agent-config.md)
+Learn more about [Container insights collection settings in config map](../azure-monitor/containers/container-insights-agent-config.md)
 
 ### Visualization Options for Azure Monitor
 Once NPM metrics collection is enabled, you can view the metrics in the Azure portal using Container Insights or in Grafana.
@@ -161,7 +161,7 @@ Set up your Grafana Server and configure a Log Analytics Data Source as describe
 The dashboard has visuals similar to the Azure Workbook. You can add panels to chart & visualize NPM metrics from InsightsMetrics table.
 
 ### Setup for Prometheus Server
-Some users may choose to collect metrics with a Prometheus Server instead of Azure Monitor for containers. You merely need to add two jobs to your scrape config to collect NPM metrics.
+Some users may choose to collect metrics with a Prometheus Server instead of Container insights. You merely need to add two jobs to your scrape config to collect NPM metrics.
 
 To install a simple Prometheus Server, add this helm repo on your cluster
 ```

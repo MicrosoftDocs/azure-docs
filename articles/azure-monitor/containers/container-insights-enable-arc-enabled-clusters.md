@@ -1,6 +1,6 @@
 ---
-title: "Monitor Azure Arc-enabled Kubernetes clusters"
-ms.date: 04/05/2021
+title: Monitor Azure Arc-enabled Kubernetes clusters
+ms.date: 05/24/2022
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb

@@ -1,21 +1,14 @@
 ---
 
-title: Enable Container insights | Microsoft Docs
+title: Enable Container insights
 description: This article describes how to enable and configure Container insights so that you can understand how your container is performing and what performance-related issues have been identified. 
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 05/24/2022
 
 ---
 
 # Enable Container insights
 This article provides an overview of the requirements and options that are available for setting up Container insights to monitor the performance of workloads that are deployed to Kubernetes environments. You can enable Container insights for a new deployment or for one or more existing deployments of Kubernetes by using a number of supported methods.
-
-- The Azure portal
-- Azure PowerShell
-- The Azure CLI
-- [Terraform and AKS](/azure/developer/terraform/create-k8s-cluster-with-tf-and-aks)
-
-For any non-AKS kubernetes cluster, you will need to first connect your cluster to [Azure Arc](../../azure-arc/kubernetes/overview.md) before enabling monitoring.
 
 ## Supported configurations
 Container insights officially supports the following environments:
@@ -27,44 +20,9 @@ Container insights officially supports the following environments:
    - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) version 4.x  
    - [Red Hat OpenShift](https://docs.openshift.com/container-platform/4.3/welcome/index.html) version 4.x  
 
-You should connect your cluster to [Azure Arc](../../azure-arc/kubernetes/overview.md) and enabling monitoring through Container Insights via Azure Arc.
 
-> [!IMPORTANT]
-> Please note that the monitoring add-on is not currently supported for AKS clusters configured with the [HTTP Proxy (preview)](../../aks/http-proxy.md)
-
-## Supported versions
+## Supported Kubernetes versions
 The versions of Kubernetes and support policy are the same as those [supported in Azure Kubernetes Service (AKS)](../../aks/supported-kubernetes-versions.md).
-
-## Supported regions
-Supported AKS regions are listed in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service). The [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) used by Container insights must be in the same region except for the regions listed in the following table. Watch [AKS release notes](https://github.com/Azure/AKS/releases) for updates.
-
-
-|**AKS Cluster region** | **Log Analytics Workspace region** |
-|-----------------------|------------------------------------|
-|**Africa** | |
-|SouthAfricaNorth |WestEurope |
-|SouthAfricaWest |WestEurope |
-|**Australia** | |
-|AustraliaCentral2 |AustraliaCentral |
-|**Brazil** | |
-|BrazilSouth | SouthCentralUS |
-|**Canada** ||
-|CanadaEast |CanadaCentral |
-|**Europe** | |
-|FranceSouth |FranceCentral |
-|UKWest |UKSouth |
-|**India** | |
-|SouthIndia |CentralIndia |
-|WestIndia |CentralIndia |
-|**Japan** | |
-|JapanWest |JapanEast |
-|**Korea** | |
-|KoreaSouth |KoreaCentral |
-|**US** | |
-|WestCentralUS<sup>1</sup>|EastUS<sup>1</sup>|
-
-<sup>1</sup> Due to capacity restraints, the region isn't available when creating new resources. Preexisting linked resources in the region should continue to work.
-
 
 ## Prerequisites
 Before you start, make sure that you've met the following requirements:

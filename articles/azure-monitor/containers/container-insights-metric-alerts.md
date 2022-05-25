@@ -2,7 +2,7 @@
 title: Metric alerts from Container insights
 description: This article reviews the recommended metric alerts available from Container insights in public preview.
 ms.topic: conceptual
-ms.date: 10/28/2020
+ms.date: 05/24/2022
 
 ---
 

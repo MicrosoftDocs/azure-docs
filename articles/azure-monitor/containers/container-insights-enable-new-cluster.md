@@ -2,7 +2,7 @@
 title: Monitor a new Azure Kubernetes Service (AKS) cluster | Microsoft Docs
 description: Learn how to enable monitoring for a new Azure Kubernetes Service (AKS) cluster with Container insights subscription.
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 05/24/2022
 ms.custom: devx-track-terraform, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -22,12 +22,12 @@ To enable monitoring of a new AKS cluster created with Azure CLI, follow the ste
 
 ## Enable using Terraform
 
-If you are [deploying a new AKS cluster using Terraform](/azure/developer/terraform/create-k8s-cluster-with-tf-and-aks), you specify the arguments required in the profile [to create a Log Analytics workspace](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_workspace.html) if you do not chose to specify an existing one. 
+If you are [deploying a new AKS cluster using Terraform](/azure/developer/terraform/create-k8s-cluster-with-tf-and-aks), you specify the arguments required in the profile [to create a Log Analytics workspace](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_workspace) if you do not chose to specify an existing one. 
 
 >[!NOTE]
 >If you choose to use Terraform, you must be running the Terraform Azure RM Provider version 1.17.0 or above.
 
-To add Container insights to the workspace, see [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) and complete the profile by including the [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) and specify **oms_agent**. 
+To add Container insights to the workspace, see [azurerm_log_analytics_solution](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_solution) and complete the profile by including the [**addon_profile**](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster) and specify **oms_agent**. 
 
 After you've enabled monitoring and all configuration tasks are completed successfully, you can monitor the performance of your cluster in either of two ways:
 

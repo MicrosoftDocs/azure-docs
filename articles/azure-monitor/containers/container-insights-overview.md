@@ -15,7 +15,6 @@ Container insights is a feature designed to monitor the performance of container
 - Self-managed Kubernetes clusters hosted on Azure using [AKS Engine](https://github.com/Azure/aks-engine)
 - [Azure Container Instances](../../container-instances/container-instances-overview.md)
 - Self-managed Kubernetes clusters hosted on [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview) or on-premises
-- [Azure Red Hat OpenShift](../../openshift/intro-openshift.md)
 - [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/overview.md) (preview)
 
 Container insights supports clusters running the Linux and Windows Server 2019 operating system. The container runtimes it supports are Docker, Moby, and any CRI compatible runtime such as CRI-O and ContainerD.
@@ -24,7 +23,7 @@ Monitoring your containers is critical, especially when you're running a product
 
 Container insights gives you performance visibility by collecting memory and processor metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. After you enable monitoring from Kubernetes clusters, metrics and Container logs are automatically collected for you through a containerized version of the Log Analytics agent for Linux. Metrics are sent to the [metrics database in Azure Monitor](../essentials/data-platform-metrics.md), and log data is sent to your [Log Analytics workspace](../logs/log-analytics-workspace-overview.md).
 
-![Container insights architecture](./media/container-insights-overview/azmon-containers-architecture-01.png)
+:::image type="content" source="media/container-insights-overview/azmon-containers-architecture-01.png" lightbox="media/container-insights-overview/azmon-containers-architecture-01.png" alt-text="Overview diagram of Container insights":::
 
 ## Features of Container insights
 
@@ -38,7 +37,6 @@ Container insights delivers a comprehensive monitoring experience to understand 
 - Configure alerts to proactively notify you or record it when CPU and memory utilization on nodes or containers exceed your thresholds, or when a health state change occurs in the cluster at the infrastructure or nodes health rollup.
 - Integrate with [Prometheus](https://prometheus.io/docs/introduction/overview/) to view application and workload metrics it collects from nodes and Kubernetes using [queries](container-insights-log-query.md) to create custom alerts, dashboards, and perform detailed analysis.
 - Monitor container workloads [deployed to AKS Engine](https://github.com/Azure/aks-engine) on-premises and [AKS Engine on Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview).
-- Monitor container workloads [deployed to Azure Red Hat OpenShift](../../openshift/intro-openshift.md).
 - Monitor container workloads [deployed to Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/overview.md).
 
 
