@@ -1,7 +1,7 @@
 ---
 title: Organize your resources with management groups - Azure Governance
 description: Learn about the management groups, how their permissions work, and how to use them.
-ms.date: 05/12/2022
+ms.date: 05/25/2022
 ms.topic: overview
 author: timwarner-msft
 ms.author: timwarner
@@ -313,6 +313,9 @@ management group.
 
 When looking to query on management groups outside the Azure portal, the target scope for
 management groups looks like **"/providers/Microsoft.Management/managementGroups/{_management-group-id_}"**.
+
+> [!NOTE]
+> You can centralize your Azure Activity log auditing by using Log Analytics, as well as send Activity log events to Azure Storage and Azure Event Hub. For more information, see [Azure Activity log](../../azure-monitor/essentials/activity-log.md).
 
 ## Next steps
 
