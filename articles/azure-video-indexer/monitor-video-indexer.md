@@ -51,7 +51,7 @@ Some services in Azure have a special focused pre-built monitoring dashboard in 
 ## Monitoring data 
 
 <!-- REQUIRED. Please keep headings in this order -->
-Azure Video Indexer collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data-from-Azure-resources). 
+Azure Video Indexer collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data-from-azure-resources). 
 
 See [Monitoring *Azure Video Indexer* data reference](monitor-video-indexer-data-reference.md) for detailed information on the metrics and logs metrics created by Azure Video Indexer.
 
