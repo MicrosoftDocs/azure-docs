@@ -56,14 +56,14 @@
           href: conceptual-gitops-flux2.md
         - name: CI/CD workflow using GitOps (Flux v2)
           href: conceptual-gitops-flux2-ci-cd.md
+        - name: Inner loop developer experience (Flux v2)
+          href: conceptual-inner-loop-gitops.md
       - name: GitOps (Flux v1)
         items:
         - name: Configurations and GitOps (Flux v1)
           href: conceptual-configurations.md
         - name: CI/CD workflow using GitOps (Flux v1)
-          href: conceptual-gitops-ci-cd.md
-        - name: Inner loop developer experience (Flux v1)
-          href: conceptual-inner-loop-gitops.md
+          href: conceptual-gitops-ci-cd.md        
   - name: Frequently Asked Questions
     href: faq.md
 
