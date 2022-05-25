@@ -27,14 +27,15 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
-* A [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable&preserve-view=true
-), version 8 or later
+
+* A [**Java Development Kit** (JDK)](https://wiki.openjdk.java.net/display/jdk8u) version 8 or later. For more information, *see* [supported Java Versions and update schedule](/azure/developer/java/fundamentals/java-support-on-azure#supported-java-versions-and-update-schedule).
+
 * A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
 > [!TIP]
 > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'lll need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
 
-* After your resource deploys, click **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
+* After your resource deploys, select **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
 
   :::image type="content" source="../../media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
@@ -88,7 +89,7 @@ From your working directory, run the following command:
 mkdir -p src/main/java
 ```
 
-You will create the following directory structure:
+You'll create the following directory structure:
 
 :::image type="content" source="../../media/quickstarts/java-directories.png" alt-text="Screenshot: Java directory structure":::
 
@@ -117,7 +118,7 @@ import com.azure.core.util.polling.SyncPoller;
 
 > [!IMPORTANT]
 >
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See the Cognitive Services [security](../../../../cognitive-services/cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, _see_ Cognitive Services [security](../../../../cognitive-services/cognitive-services-security.md).
 
 ## **Try it**: Layout model
 
@@ -183,7 +184,7 @@ This sample demonstrates how to analyze data from certain types of common docume
 
 ### Choose a prebuilt model
 
-You are not limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are the prebuilt models currently supported by the Form Recognizer service:
+You aren't limited to invoices—there are several prebuilt models to choose from, each of which has its own set of supported fields. The model to use for the analyze operation depends on the type of document to be analyzed. Here are the prebuilt models currently supported by the Form Recognizer service:
 
 * [**Invoice**](../../concept-invoice.md): extracts text, selection marks, tables, fields, and key information from invoices.
 * [**Receipt**](../../concept-receipt.md): extracts text and key information from receipts.

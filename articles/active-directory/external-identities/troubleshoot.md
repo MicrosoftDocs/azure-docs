@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: troubleshooting
-ms.date: 03/31/2022
+ms.date: 05/17/2022
 tags: active-directory
 ms.author: mimart
 author: msmimart
@@ -81,7 +81,7 @@ By default, SharePoint Online and OneDrive have their own set of external user o
 
 If you're notified that you don't have permissions to invite users, verify that your user account is authorized to invite external users under Azure Active Directory > User settings > External users > Manage external collaboration settings:
 
-![Screenshot showing the External Users settings](media/troubleshoot/external-user-settings.png)
+![Screenshot showing the External Users settings.](media/troubleshoot/external-user-settings.png)
 
 If you've recently modified these settings or assigned the Guest Inviter role to a user, there might be a 15-60 minute delay before the changes take effect.
 
@@ -93,7 +93,7 @@ Common errors include:
 
 When inviting users whose organization is using Azure Active Directory, but where the specific user’s account doesn't exist (for example, the user doesn't exist in Azure AD contoso.com). The administrator of contoso.com may have a policy in place preventing users from being created. The user must check with their admin to determine if external users are allowed. The external user’s admin may need to allow Email Verified users in their domain (see this [article](/powershell/module/msonline/set-msolcompanysettings) on allowing Email Verified Users).
 
-![Error stating the tenant doesn't allow email verified users](media/troubleshoot/allow-email-verified-users.png)
+![Screenshot of the error stating the tenant doesn't allow email verified users.](media/troubleshoot/allow-email-verified-users.png)
 
 ### External user doesn't exist already in a federated domain
 
@@ -161,7 +161,21 @@ As of November 18, 2019, guest users in your directory (defined as user accounts
 
 ## In an Azure US Government tenant, I can't invite a B2B collaboration guest user
 
-Within the Azure US Government cloud, B2B collaboration is currently only supported between tenants that are both within Azure US Government cloud and that both support B2B collaboration. If you invite a user in a tenant that isn't part of the Azure US Government cloud or that doesn't yet support B2B collaboration, you'll get an error. For details and limitations, see [Azure Active Directory Premium P1 and P2 Variations](../../azure-government/compare-azure-government-global-azure.md#azure-active-directory-premium-p1-and-p2).
+Within the Azure US Government cloud, B2B collaboration is enabled between tenants that are both within Azure US Government cloud and that both support B2B collaboration. If you invite a user in a tenant that doesn't yet support B2B collaboration, you'll get an error. For details and limitations, see [Azure Active Directory Premium P1 and P2 Variations](../../azure-government/compare-azure-government-global-azure.md#azure-active-directory-premium-p1-and-p2).
+
+If you need to collaborate with an Azure AD organization that's outside of the Azure US Government cloud, you can use [Microsoft cloud settings (preview)](cross-cloud-settings.md) to enable B2B collaboration.
+
+## Invitation is blocked due to cross-tenant access policies
+
+When you try to invite a B2B collaboration user in another Microsoft Azure cloud, this error message will appear if B2B collaboration is supported between the two clouds but is blocked by cross-tenant access settings. The settings that are blocking collaboration could be either in the B2B collaboration user’s home tenant or in your tenant. Check your cross-tenant access settings to make sure you’ve added the B2B collaboration user’s home tenant to your Organizational settings and that your settings allow B2B collaboration with the user. Then make sure an admin in the user’s tenant does the same.
+
+## Invitation is blocked due to disabled Microsoft B2B Cross Cloud Worker application
+
+Rarely, you might see this message: “This action can't be completed because the Microsoft B2B Cross Cloud Worker application has been disabled in the invited user’s tenant. Please ask the invited user’s admin to re-enable it, then try again.” This error means that the Microsoft B2B Cross Cloud Worker application has been disabled in the B2B collaboration user’s home tenant. This app is typically enabled, but it might have been disabled by an admin in the user’s home tenant, either through PowerShell or the portal (see [Disable how a user signs in](../manage-apps/disable-user-sign-in-portal.md)). An admin in the user’s home tenant can re-enable the app through PowerShell or the Azure portal. In the portal, search for “Microsoft B2B Cross Cloud Worker” to find the app, select it, and then choose to re-enable it.
+
+## Redemption is blocked due to cross-tenant access settings
+
+A B2B collaboration user could see this message when they try to redeem a B2B collaboration invitation: “This invitation is blocked by cross-tenant access settings. Admins in both your organization and the inviter’s organization must configure cross-tenant access settings to allow the invitation.” This error can occur when cross-tenant policies are changed between the time the invitation was sent to the user and the time the user redeems it. Check your cross-tenant access settings to make sure B2B collaboration is properly configured, and make sure an admin in the user’s tenant does the same.
 
 ## I receive the error that Azure AD can't find the aad-extensions-app in my tenant
 
