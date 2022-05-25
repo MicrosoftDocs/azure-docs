@@ -89,8 +89,9 @@ sections:
           All apps submitted to Microsoft AppSource via Partner Center are free. You can monetize your app through the Microsoft Commercial Marketplace; for details, see [Monetize your add-in](monetize-addins-through-microsoft-commercial-marketplace.md). 
 
       - question: |
+          How am I notified of publishing status or required actions?
         answer: |
-          After publishing an offer, the [owner](user-roles.md) of your developer account is notified of the publishing status and required actions through email and the Action Center in Partner Center. For more information about Action Center, see [Action Center Overview](/partner-center/action-center-overview).
+          After publishing an offer, the [owner](/azure/marketplace/user-roles) of your developer account is notified of the publishing status and required actions through email and the Action Center in Partner Center. For more information about Action Center, see [Action Center Overview](/partner-center/action-center-overview).
 
       - question: |
           How do I reference the JavaScript APIs for Office in my apps?
