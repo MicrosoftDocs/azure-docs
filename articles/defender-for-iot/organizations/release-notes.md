@@ -56,7 +56,6 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 - [PCAP access from the Azure portal](#pcap-access-from-the-azure-portal-public-preview)
 - [Support diagnostic log enhancements](#support-diagnostic-log-enhancements-public-preview)
 - [Improved security for uploading protocol plugins](#improved-security-for-uploading-protocol-plugins)
-- [Documentation improvements](#documentation-improvements)
 
 ### Release note tracking per version
 
@@ -166,9 +165,6 @@ This version of the sensor provides a improved security for uploading proprietar
 :::image type="content" source="media/release-notes/horizon.png" alt-text="Screenshot of the new Protocols DPI (Horizon Plugins) page.":::
 
 For more information, see [Manage proprietary protocols with Horizon plugins](resources-manage-proprietary-protocols.md).
-
-- [New OT monitoring appliance catalog](#new-ot-monitoring-appliance-catalog)
-- [Documentation reorganization for end-user organizations](#documentation-reorganization-for-end-user-organizations)
 
 ## April 2022
 
