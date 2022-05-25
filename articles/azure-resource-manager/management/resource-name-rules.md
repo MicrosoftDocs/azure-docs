@@ -4,7 +4,7 @@ description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 05/17/2022
+ms.date: 05/25/2022
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -537,7 +537,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | mediaservices | resource group | 3-24 | Lowercase letters and numbers. |
+> | mediaservices | Azure region | 3-24 | Lowercase letters and numbers. |
 > | mediaservices / liveEvents | Media service | 1-32 | Alphanumerics and hyphens.<br><br>Start with alphanumeric. |
 > | mediaservices / liveEvents / liveOutputs | Live event | 1-256 | Alphanumerics and hyphens.<br><br>Start with alphanumeric. |
 > | mediaservices / streamingEndpoints | Media service | 1-24 | Alphanumerics and hyphens.<br><br>Start with alphanumeric. |
@@ -818,7 +818,8 @@ In the following tables, the term alphanumeric refers to:
 > | --- | --- | --- | --- |
 > | certificates | resource group | 1-260 | Can't use:<br>`/` <br><br>Can't end with space or period.  |
 > | serverfarms | resource group | 1-40 | Alphanumeric, hyphens and Unicode characters that can be mapped to Punycode |
-> | sites / functions / slots | global or per domain. See note below. | 2-60 | Alphanumeric, hyphens and Unicode characters that can be mapped to Punycode<br><br>Can't start or end with hyphen. |
+> | sites | global or per domain. See note below. | 2-60 | Alphanumeric, hyphens and Unicode characters that can be mapped to Punycode<br><br>Can't start or end with hyphen. |
+> | sites / slots | site | 2-59 | Alphanumeric, hyphens and Unicode characters that can be mapped to Punycode |
 
 > [!NOTE]
 > A web site must have a globally unique URL. When you create a web site that uses a hosting plan, the URL is `http://<app-name>.azurewebsites.net`. The app name must be globally unique. When you create a web site that uses an App Service Environment, the app name must be unique within the [domain for the App Service Environment](../../app-service/environment/using-an-ase.md#app-access). For both cases, the URL of the site is globally unique.
