@@ -61,22 +61,22 @@ For more information on Kubernetes volumes, see [Storage options for application
 |Name | Description | Example | Mandatory | Default value|
 |--- | --- | --- | --- | ---|
 |volumeAttributes.resourceGroup | Specify Azure resource group name | myResourceGroup | No | If empty, driver will use the same resource group name as current cluster.|
-|volumeAttributes.storageAccount | Specify existing Azure storage account name | STORAGE_ACCOUNT_NAME | Yes |
+|volumeAttributes.storageAccount | Specify existing Azure storage account name | STORAGE_ACCOUNT_NAME | Yes ||
 |volumeAttributes.containerName | Specify existing container name | container | Yes ||
 |volumeAttributes.protocol | Specify blobfuse mount or NFSv3 mount | `fuse`, `nfs` | No | `fuse`|
 |--- | **Following parameters are only for blobfuse** | --- | --- | --- |
-|volumeAttributes.secretName | Secret name that stores storage account name and key (only applies for SMB) | No ||
+|volumeAttributes.secretName | Secret name that stores storage account name and key (only applies for SMB)| | No ||
 |volumeAttributes.secretNamespace | Specify namespace of secret to store account key | `default` | No | Pvc namespace|
-|nodeStageSecretRef.name | Specify secret name that stores (see examples below):<br>`azurestorageaccountkey`<br>`azurestorageaccountsastoken`<br>`msisecret`<br>`azurestoragespnclientsecret` | |Existing Kubernetes secret name |  No  ||
-|nodeStageSecretRef.namespace | Specify the namespace of secret | k8s namespace  |  Yes  ||
+|nodeStageSecretRef.name | Specify secret name that stores (see examples below):<br>`azurestorageaccountkey`<br>`azurestorageaccountsastoken`<br>`msisecret`<br>`azurestoragespnclientsecret` | |Existing Kubernetes secret name |  No  |
+|nodeStageSecretRef.namespace | Specify the namespace of secret | k8s namespace | Yes ||
 |--- | **Following parameters are only for NFS protocol** | --- | --- | --- |
 |volumeAttributes.mountPermissions | Specify mounted folder permissions | `0777` | No ||
 |--- | **Following parameters are only for NFS vnet setting** | --- | --- | --- |
 |vnetResourceGroup | Specify vnet resource group where virtual network is | myResourceGroup | No | If empty, driver will use the `vnetResourceGroup` value specified in the Azure cloud config file.|
 |vnetName | Specify the virtual network name | aksVNet | No | If empty, driver will use the `vnetName` value specified in the Azure cloud config file.|
-|subnetName | Specify the existing subnet name of the agent node | aksSubnet | No | Ef empty, driver will use the `subnetName` value in azure cloud config file
-|--- | **Following parameters are only for feature: blobfuse [Managed Identity and Service Principal Name auth](https://github.com/Azure/azure-storage-fuse#environment-variables)** | --- | --- |
-|volumeAttributes.AzureStorageAuthType | Specify the authentication type | `Key`, `SAS`, `MSI`, `SPN` | No | `Key`
+|subnetName | Specify the existing subnet name of the agent node | aksSubnet | No | If empty, driver will use the `subnetName` value in azure cloud config file. |
+|--- | **Following parameters are only for feature: blobfuse [Managed Identity and Service Principal Name auth](https://github.com/Azure/azure-storage-fuse#environment-variables)** | --- | --- |--- |
+|volumeAttributes.AzureStorageAuthType | Specify the authentication type | `Key`, `SAS`, `MSI`, `SPN` | No | `Key`|
 |volumeAttributes.AzureStorageIdentityClientID | Specify the Identity Client ID |  | No ||
 |volumeAttributes.AzureStorageIdentityObjectID | Specify the Identity Object ID |  | No ||
 |volumeAttributes.AzureStorageIdentityResourceID | Specify the Identity Resource ID |  | No ||
