@@ -294,3 +294,15 @@ You can choose to opt into Microsoft-supported marketing and sales channels. Whe
 - [Plan a test SaaS offer](plan-saas-dev-test-offer.md)
 - [Offer listing best practices](gtm-offer-listing-best-practices.md)
 - [Create a SaaS offer](create-new-saas-offer.md)
+
+**Video tutorials**
+
+- [SaaS offer overview](https://go.microsoft.com/fwlink/?linkid=2196417)
+- [SaaS Offer Technical Overview](https://go.microsoft.com/fwlink/?linkid=2196315)
+- [Publishing a SaaS offer](https://go.microsoft.com/fwlink/?linkid=2196318)
+- [A SaaS Accelerator Hands-on Tour - The Basics](https://go.microsoft.com/fwlink/?linkid=2196164)
+- [SaaS Accelerator Architecture](https://go.microsoft.com/fwlink/?linkid=2196167)
+- [Installing the SaaS Accelerator With the Install Script](https://go.microsoft.com/fwlink/?linkid=2196326)
+- [Invoking Metered Billing with the SaaS Accelerator](https://go.microsoft.com/fwlink/?linkid=2196161)
+- [Configuring Email in the SaaS Accelerator](https://go.microsoft.com/fwlink/?linkid=2196165)
+- [Custom Landing Page Fields with the SaaS Accelerator](https://go.microsoft.com/fwlink/?linkid=2196166)

@@ -23,7 +23,13 @@ In this tutorial, you learn to:
 ## Prerequisites
 To complete this tutorial, you need the following: 
 
-- Log Analytics workspace where you have at least [contributor rights](manage-access.md#manage-access-using-azure-permissions) .
+- A Log Analytics workspace where you have at least [contributor rights](manage-access.md#manage-access-using-azure-permissions).
+- A [supported Azure table](../logs/tables-feature-support.md) in the workspace.
+    
+    To configure this table for ingestion-time transformations, the table must already have some data.
+    
+    The table can't be linked to the workspace’s default DCR.
+  
 - [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace. 
 
 

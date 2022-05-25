@@ -21,7 +21,8 @@ As we're adding new integrations, the auto-instrumentation capability matrix bec
 
 |Environment/Resource Provider          | .NET            | .NET Core       | Java            | Node.js         | Python          |
 |---------------------------------------|-----------------|-----------------|-----------------|-----------------|-----------------|
-|Azure App Service on Windows           | GA, OnBD*       | GA, opt-in      | Public Preview, Container and Custom Containers are GA  | Public Preview  | Not supported   |
+|Azure App Service on Windows - Publish as Code   | GA, OnBD* | GA          | GA              | GA, OnBD*       | Not supported   |
+|Azure App Service on Windows - Publish as Docker | Public Preview | Public Preview | Public Preview | Not supported  | Not supported   |
 |Azure App Service on Linux             | N/A             | Public Preview  | GA              | GA              | Not supported   |
 |Azure Functions - basic                | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       | GA, OnBD*       |
 |Azure Functions - dependencies         | Not supported   | Not supported   | Public Preview  | Not supported   | Through [extension](monitor-functions.md#distributed-tracing-for-python-function-apps)      |

@@ -4,19 +4,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 04/05/2022
+ms.date: 05/24/2022
 ms.author: aahi
 ---
-To start creating a custom text classification model, you need to create a project. Creating a project will let you tag data, train, evaluate, improve, and deploy your models.
+To start creating a custom text classification model, you need to create a project. Creating a project will let you label data, train, evaluate, improve, and deploy your models.
 
 > [!NOTE]
 > The project name is case-sensitive for all operations.
 
-Create a **POST** request using the following URL, headers, and JSON body to create your project and import the tags file.
+Create a **POST** request using the following URL, headers, and JSON body to create your project and import the labels file.
 
 ### Request URL
 
-Use the following URL to create a project and import your tags file. Replace the placeholder values below with your own values. 
+Use the following URL to create a project and import your labels file. Replace the placeholder values below with your own values. 
 
 ```rest
 {YOUR-ENDPOINT}/language/analyze-text/projects/{projectName}/:import?api-version=2021-11-01-preview
@@ -84,7 +84,7 @@ For the documents key:
 |---------|---------|---------|
 | `location`    | Document name on the blob store. | `doc2.txt` |
 |`language`   | The language of the document.   | `en-us` |
-|`dataset`   |  Optional field to specify the dataset which this document will belong to. | `Train` or `Test` |
+|`dataset`   |  Optional field to specify the dataset that this document will belong to. | `Train` or `Test` |
 
 This request will return an error if:
 
