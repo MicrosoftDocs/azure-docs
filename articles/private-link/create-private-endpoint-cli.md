@@ -16,7 +16,7 @@ Get started with Azure Private Link by using a private endpoint to connect secur
 
 In this quickstart, you'll create a private endpoint for an Azure web app and then create and deploy a virtual machine (VM) to test the private connection.  
 
-You can create private endpoints for a variety of Azure services, such as Azure SQL and Azure Storage.
+You can create private endpoints for various Azure services, such as Azure SQL and Azure Storage.
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ You can create private endpoints for a variety of Azure services, such as Azure 
 
 An Azure resource group is a logical container where Azure resources are deployed and managed.
 
-First, create a resource group by using [az group create](/cli/azure/group#az-group-create):
+First, create a resource group by using **[az group create](/cli/azure/group#az-group-create)**:
 
 ```azurecli-interactive
 az group create \
