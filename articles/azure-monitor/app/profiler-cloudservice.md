@@ -20,7 +20,7 @@ In this article, you will:
 
 - Make sure you've [set up diagnostics for Azure Cloud Services](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).
 - Use [.NET Framework 4.6.1](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or newer. 
-  - If you are using [OS Family 4](../../cloud-services/cloud-services-guestos-update-matrix.md#family-4-releases), install .NET Framework 4.6.1 or newer with a [startup task](../../cloud-services/cloud-services-dotnet-install-dotnet.md). 
+  - If you're using [OS Family 4](../../cloud-services/cloud-services-guestos-update-matrix.md#family-4-releases), install .NET Framework 4.6.1 or newer with a [startup task](../../cloud-services/cloud-services-dotnet-install-dotnet.md). 
   - [OS Family 5](../../cloud-services/cloud-services-guestos-update-matrix.md#family-5-releases) includes a compatible version of .NET Framework by default. 
 
 ## Track requests with Application Insights
@@ -29,7 +29,7 @@ When publishing your CloudService to Azure portal, add the [Application Insights
 
 :::image type="content" source="./media/profiler-cloudservice/enable-app-insights.png" alt-text="Screenshot showing the checkbox for sending information to Application Insights.":::
 
-Once you've added the SDK and published your Cloud Service to the Azure Portal, track requests using Application Insights.
+Once you've added the SDK and published your Cloud Service to the Azure portal, track requests using Application Insights.
 
 - **For ASP.NET web roles**, Application Insights tracks the requests automatically.
 - **For worker roles**, you need to [add code manually to your application to track requests](profiler-trackrequests.md).
@@ -79,7 +79,7 @@ Select the **Profiler** for your Cloud Service.
 
 :::image type="content" source="./media/profiler-cloudservice/select-profiler.png" alt-text="Screenshot of selecting the Profiler from the Cloud Service App Insights performance pane.":::
 
-Select **Profile now** to start a profiling session. This will take a few minutes.
+Select **Profile now** to start a profiling session. This process will take a few minutes.
 
 :::image type="content" source="./media/profiler-cloudservice/profile-now.png" alt-text="Screenshot of selecting Profile Now to start a profiling session.":::
 
