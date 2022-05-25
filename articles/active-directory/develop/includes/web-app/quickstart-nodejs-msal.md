@@ -51,21 +51,9 @@ To run the project with a web server by using Node.js, [download the core projec
 
 #### Step 3: Configure your Node app
 
-Extract the project, open the *ms-identity-node-main* folder, and then open the *.env* file.
+Extract the project, open the *ms-identity-node-main* folder, and then open the *.env* file under the **App** folder.
 
-```txt
-    AAD_CLOUD_INSTANCE=Enter_the_Cloud_Instance_Id_Here # cloud instance string should end with a trailing slash
-    AAD_TENANT_INFO=Enter_the_Tenant_Info_Here
-    AAD_CLIENT_ID=Enter_the_Application_Id_Here
-    AAD_CLIENT_SECRET=Enter_the_Client_Secret_Here
-    
-    AAD_REDIRECT_URI=http://localhost:3000/auth/redirect
-    AAD_POST_LOGOUT_REDIRECT_URI=http://localhost:3000
-    
-    GRAPH_API_ENDPOINT=Enter_the_Graph_Endpoint_Here # graph api endpoint string should end with a trailing slash
-    
-    EXPRESS_SESSION_SECRET=Enter_the_Express_Session_Secret_Here
-```
+:::code language="text" source="~/ms-identity-node/App/.env":::
 
 Replace the values above as follows:
 
@@ -80,7 +68,7 @@ Replace the values above as follows:
 - `Enter_the_Application_Id_Here`: The **Application (client) ID** of the application you registered.
 - `Enter_the_Client_secret`: Replace this value with the client secret you created earlier. To generate a new key, use **Certificates & secrets** in the app registration settings in the Azure portal.
 - `Enter_the_Graph_Endpoint_Here`: The Microsoft Graph API cloud instance that your app will call. For the main (global) Microsoft Graph API service, enter `https://graph.microsoft.com/` (include the trailing forward-slash). For more information, see the [National cloud deployments](https://docs.microsoft.com/graph/deployments).
-- `Enter_the_Express_Session_Secret_Here` the secret used to encrypt the Express session cookie. Choose a hard to guess value to replace this string with, such as your client secret.
+- `Enter_the_Express_Session_Secret_Here` the secret used to sign the Express session cookie. Choose a hard to guess value to replace this string with, such as your client secret.
 
 #### Step 4: Run the project
 
@@ -98,7 +86,7 @@ Run the project by using Node.js.
 
 1. Select **Sign in** to start the sign-in process.
 
-    The first time you sign in, you're prompted to provide your consent to allow the application to sign you in and access your profile. After you're signed in successfully, you'll be redirected back to application home page.
+    The first time you sign in, you're prompted to provide your consent to allow the application to sign you in and access your profile. After you're signed in successfully, you'll be redirected back to the application home page.
 
 ## More information
 
