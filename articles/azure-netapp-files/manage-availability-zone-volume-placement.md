@@ -52,13 +52,13 @@ The feature of availability zone volume placement is currently in preview. If yo
 1.  Register the feature: 
 
     ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFPopulateAvailabilityZone
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAvailabilityZone
     ```
 
 2. Check the status of the feature registration: 
 
     ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFPopulateAvailabilityZone
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAvailabilityZone
     ```
 
     > [!NOTE]
