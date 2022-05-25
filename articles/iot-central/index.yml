@@ -9,7 +9,7 @@ metadata:
   ms.topic: landing-page 
   author: dominicbetts 
   ms.author: dobett 
-  ms.date: 12/16/2021
+  ms.date: 05/18/2022
   ms.custom: contperf-fy21q3
 
 landingContent:
@@ -90,8 +90,8 @@ landingContent:
             url: core/overview-iot-central-solution-builder.md
       - linkListType: learn
         links:
-          - text: Export data to cloud destinations
-            url: core/howto-export-data.md           
+          - text: Export data from IoT Central
+            url: core/overview-iot-central-solution-builder.md#data-export          
           - text: Administer an application with the REST API
             url: /learn/modules/manage-iot-central-apps-with-rest-api/
 

@@ -62,10 +62,12 @@ items:
         href: storage-quickstart-blobs-xamarin.md
   - name: Tutorials
     items:
-    - name: Upload and process files
+    - name: Upload and process image files
       items:
-      - name: Upload and analyze an image using .NET
+      - name: .NET
         href: blob-upload-function-trigger.md
+      - name: JavaScript
+        href: blob-upload-function-trigger-javascript.md
     - name: Migrate data to cloud with AzCopy
       href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Optimize storage application performance and scalability
@@ -638,6 +640,12 @@ items:
           href: ../common/manage-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Troubleshoot
       items:
+      - name: Performance
+        href: ../common/troubleshoot-storage-performance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Availability
+        href: ../common/troubleshoot-storage-availability.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Client errors
+        href: ../common/troubleshoot-storage-client-application-errors.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Latency issues
         href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Reference
