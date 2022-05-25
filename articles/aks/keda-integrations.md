@@ -19,7 +19,7 @@ The Kubernetes Event-driven Autoscaling (KEDA) add-on integrates with features p
 
 ## Scalers for Azure services
 
-KEDA can integrate with a variety of tools and services through the [a rich catalog of 40+ KEDA scalers][keda-scalers] such as Azure, AWS, GCP, Redis, Kafka and more.
+KEDA can integrate with a variety of tools and services through the [a rich catalog of 40+ KEDA scalers][keda-scalers] including leading cloud platforms (such as Azure) and open-source technologies (such as Redis and Kafka).
 
 It leverages the following scalers for Azure services:
 
