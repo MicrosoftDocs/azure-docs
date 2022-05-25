@@ -43270,11 +43270,11 @@
       "redirect_document_id": false
     },
     {
-<<<<<<< HEAD
       "source_path_from_root": "/articles/applied-ai-services/form-recognizer/generate-sas-tokens.md",
       "redirect_url": "/azure/applied-ai-services/form-recognizer/create-sas-tokens.md",
       "redirect_document_id": false
-=======
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/language-service/text-summarization/how-to/call-api.md",
       "redirect_url": "/azure/cognitive-services/language-service/summarization/how-to/document-summarization",
       "redirect_document_id": true
@@ -43318,7 +43318,6 @@
       "source_path_from_root": "/articles/private-link/private-endpoint-static-ip-powershell.md",
       "redirect_url": "/azure/private-link/create-private-endpoint-powershell",
       "redirect_document_id": true
->>>>>>> main
     }
   ]
 }
