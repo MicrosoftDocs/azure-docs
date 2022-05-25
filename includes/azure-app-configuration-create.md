@@ -29,4 +29,4 @@ ms.date: 1/31/2020
 
 1. Select **Create**. The deployment might take a few minutes.
 
-1. After the deployment finishes, navigate to the App Configuration resource. Select **Settings** > **Access keys**. Make a note of the primary read-only key connection string. You'll use this connection string later to configure your application to communicate with the App Configuration store that you created.
+1. After the deployment finishes, navigate to the App Configuration resource. Select **Settings** > **Access keys**. Make a note of the primary read-write key connection string. You'll use this connection string later to configure your application to communicate with the App Configuration store that you created.
