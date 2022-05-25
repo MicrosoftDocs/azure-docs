@@ -128,13 +128,13 @@ The following metrics are available for Azure ExpressRoute gateways:
 | --- | --- |
 | **BitsInPerSecond** |  Bits per second ingressing Azure via ExpressRoute gateway which can be further split for specific connections. |
 | **BitsOutPerSecond** | Bits per second egressing Azure via ExpressRoute gateway which can be further split for specific connection.  |
-| **Bits Received Per Second** | Total Bits received on ExpressRoute gateway per second |
+| **Bits Received Per Second** | Total Bits received on ExpressRoute gateway per second. |
 | **CPU Utilization** | CPU Utilization of the ExpressRoute gateway.|
 | **Packets per second** | Total Packets received on ExpressRoute gateway per second.|
 | **Count of routes advertised to peer**| Count of Routes Advertised to Peer by ExpressRoute gateway. |
 | **Count of routes learned from peer**| Count of Routes Learned from Peer by ExpressRoute gateway.|
 | **Frequency of routes changed** | Frequency of Route changes in ExpressRoute gateway.|
-| **Number of VMs in Virtual Network**| Number of VM's that use this ExpressRoute gateway.|
+| **Number of VMs in Virtual Network**| Number of VMs that use this ExpressRoute gateway.|
 
 ### <a name="metrics-steps"></a>View gateway metrics
 
