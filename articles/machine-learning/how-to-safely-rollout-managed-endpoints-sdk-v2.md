@@ -56,7 +56,7 @@ cd azureml-examples/sdk
 
 ## Connect to Azure machine learning workspace
 
-The [workspace](https://docs.microsoft.com/azure/machine-learning/concept-workspace) is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which you'll perform deployment tasks.
+The [workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which you'll perform deployment tasks.
 
 1. Import the required libraries:
 
@@ -75,7 +75,7 @@ The [workspace](https://docs.microsoft.com/azure/machine-learning/concept-worksp
 
 1. Configure workspace details and get a handle to the workspace:
 
-    To connect to a workspace, we need identifier parameters - a subscription, resource group and workspace name. We'll use these details in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. We use the [default Azure authentication](https://docs.microsoft.com/python/api/azure-identity/azure.identity.defaultazurecredential?view=azure-python) for this tutorial.
+    To connect to a workspace, we need identifier parameters - a subscription, resource group and workspace name. We'll use these details in the `MLClient` from `azure.ai.ml` to get a handle to the required Azure Machine Learning workspace. This example uses the [default Azure authentication](/python/api/azure-identity/azure.identity.defaultazurecredential).
 
     ```python
     # enter details of your AML workspace
@@ -141,7 +141,7 @@ A deployment is a set of resources required for hosting the model that does the 
 * `code_configuration` - the configuration for the source code and scoring script
     * `path`- Path to the source code directory for scoring the model
     * `scoring_script` - Relative path to the scoring file in the source code directory
-* `instance_type` - The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](https://docs.microsoft.com/azure/machine-learning/reference-managed-online-endpoints-vm-sku-list).
+* `instance_type` - The VM size to use for the deployment. For the list of supported sizes, see [Managed online endpoints SKU list](reference-managed-online-endpoints-vm-sku-list.md).
 * `instance_count` - The number of instances to use for the deployment
 
 1. Configure blue deployment:
