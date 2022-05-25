@@ -339,10 +339,6 @@ You can use an Azure Resource Manager (ARM) template to create a new Azure Windo
       "metadata": {
         "description": "DNS name for the public IP"
       }
-    },
-    "_CurrentDateTimeInTicks": {
-      "type": "string",
-      "defaultValue": "[utcNow('yyyy-MM-dd')]"
     }
   },
   "variables": {
@@ -354,8 +350,7 @@ You can use an Azure Resource Manager (ARM) template to create a new Azure Windo
     "vmName": "[parameters('virtualMachineName')]",
     "virtualNetworkName": "MyVNETt",
     "publicIPAddressName": "myPublicIPt",
-    "networkSecurityGroupName": "default-NSGt",
-    "UniqueStringBasedOnTimeStamp": "[uniqueString(deployment().name, parameters('_CurrentDateTimeInTicks'))]"
+    "networkSecurityGroupName": "default-NSGt"
   },
   "resources": [
     {
@@ -499,7 +494,7 @@ You can use an Azure Resource Manager (ARM) template to create a new Azure Windo
       },
       "resources": [
         {
-          "name": "[concat(parameters('workerGroupName'),'/',guid('AzureAutomationJobName', variables('UniqueStringBasedOnTimeStamp')))]",
+          "name": "[concat(parameters('workerGroupName'),'/',guid(resourceId('Microsoft.Compute/virtualMachines', variables('vmName'))))]",
           "type": "hybridRunbookWorkerGroups/hybridRunbookWorkers",
           "apiVersion": "2021-06-22",
           "dependsOn": [
