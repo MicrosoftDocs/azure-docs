@@ -2,7 +2,7 @@
 title: Design a Log Analytics workspace architecture
 description: Describes the considerations and recommendations for customers preparing to deploy a workspace in Azure Monitor.
 ms.topic: conceptual
-ms.date: 05/11/2022
+ms.date: 05/25/2022
 
 ---
 
@@ -12,16 +12,18 @@ While a single [Log Analytics workspace](log-analytics-workspace-overview.md) ma
 > [!NOTE]
 > This article includes both Azure Monitor and Microsoft Sentinel since many customers need to consider both in their design, and most of the decision criteria applies to both. If you only use one of these services, then you can simply ignore the other in your evaluation.
 
-## Design criteria
+## Design strategy
+Your design should always start with a single workspace since this reduces the complexity of managing multiple workspaces and in querying data from them. There are no performance limitations from the amount of data in your workspace, and multiple services and data sources can send data to the same workspace. As you identify criteria to create additional workspaces, your design should use the fewest number that will match your particular requirements.
+
 Designing a workspace configuration includes evaluation of multiple criteria, some of which may in conflict. For example, you may be able to reduce egress charges by creating a separate workspace in each Azure region, but consolidating into a single workspace might allow you to reduce charges even more with a commitment tier. Evaluate each of the criteria below independently and consider your particular requirements and priorities in determining which design will be most effective for your particular environment.
 
-Your design should use the fewest number of workspaces that will match your particular requirements. This reduces the complexity of managing multiple workspaces and in querying data from them. There are no performance limitations from the amount of data in your workspace, and multiple services and data sources can send data to the same workspace.
 
+## Design criteria
 The following table briefly presents the criteria that you should consider in designing your workspace architecture. The sections below describe each of these criteria in full detail.
 
 | Criteria | Description |
 |:---|:---|
-| [Segregate operational and security data](#segregate-operational-and-security-data) | Most customers will create separate workspaces for their operational and security data for data ownership and the additional cost from Microsoft Sentinel. In some cases though, you may be able to save cost by consolidating into a single workspace to qualify for a commitment tier. |
+| [Segregate operational and security data](#segregate-operational-and-security-data) | Many customers will create separate workspaces for their operational and security data for data ownership and the additional cost from Microsoft Sentinel. In some cases though, you may be able to save cost by consolidating into a single workspace to qualify for a commitment tier. |
 | [Azure tenants](#azure-tenants) | If you have multiple Azure tenants, you'll usually create a workspace in each because several data sources can only send monitoring data to a workspace in the same Azure tenant. |
 | [Azure regions](#azure-regions) | Each workspace resides in a particular Azure region, and you may have regulatory or compliance requirements to store data in particular locations. |
 | [Data ownership](#data-ownership) | You may choose to create separate workspaces to define data ownership, for example by subsidiaries or affiliated companies. | 
@@ -70,10 +72,10 @@ You may have a requirement to segregate data or define boundaries based on owner
 - **If you do not require data segregation**, use a single workspace for all data owners.
 
 ### Split billing<a name="split-billing"></a>
-You may need to split billing between different parties or perform charge back to a customer or internal business unit. [Azure Cost Management + Billing](../usage-estimated-costs.md#azure-cost-management--billing) allows you to view charges by workspace. 
+You may need to split billing between different parties or perform charge back to a customer or internal business unit. [Azure Cost Management + Billing](../usage-estimated-costs.md#azure-cost-management--billing) allows you to view charges by workspace. You can also use a log query to view [billable data volume by Azure resource, resource group, or subscription](analyze-usage.md#data-volume-by-azure-resource-resource-group-or-subscription), which may be sufficient for your billing requirements.
 
 - **If you do not need to split billing or perform charge back**, use a single workspace for all cost owners.
-- **If you need to split billing or perform charge back**, consider whether [Azure Cost Management + Billing](../usage-estimated-costs.md#azure-cost-management--billing) provides granular enough cost reporting for your requirements. If not, use a separate workspace for each cost owner.
+- **If you need to split billing or perform charge back**, consider whether [Azure Cost Management + Billing](../usage-estimated-costs.md#azure-cost-management--billing) or a log query provides granular enough cost reporting for your requirements. If not, use a separate workspace for each cost owner.
 
 ### Data retention and archive<a name="data-retention-and-archive"></a>
 You can configure default [data retention and archive settings](data-retention-archive.md) for a workspace or [configure different settings for each table](data-retention-archive.md#set-retention-and-archive-policy-by-table). You may require different settings for different sets of data in a particular table. If this is the case, then you would need to separate that data into different workspaces, each with unique retention settings.
