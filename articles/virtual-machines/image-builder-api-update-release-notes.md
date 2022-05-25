@@ -22,7 +22,14 @@ This document contains all major API changes and feature updates for the Azure I
 ## API Releases
 
 
+### 2022-02-14
 
+**Improvements**:
+- [Validation Support](linux/image-builder-json.md#properties-validate)
+    - Shell (Linux) - Script or Inline
+    - PowerShell (Windows) - Script or Inline, run elevated, run as system
+    - Source-Validation-Only mode
+- [Customized staging resource group support](linux/image-builder-json.md#properties-stagingResourceGroup)
 
 ### 2021-10-01
 
@@ -80,7 +87,7 @@ For API versions 2021-10-01 and newer, the error output will look like the follo
     - Added support for customers to use their own VNet.
     - Added support for customers to customize the build VM (VM size, OS disk size).
     - Added support for user assigned MSI (for customize/distribute steps).
-    - Added support for [Gen2 images.](image-builder-overview.md#hyper-v-generation).
+    - Added support for [Gen2 images.](image-builder-overview.md#hyper-v-generation)
 
 ### Preview APIs
 
