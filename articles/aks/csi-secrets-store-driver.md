@@ -167,7 +167,9 @@ az aks disable-addons --addons azure-keyvault-secrets-provider -g myResourceGrou
 > When a secret is updated in an external secrets store after initial pod deployment, the Kubernetes Secret and the pod mount will be periodically updated depending on how the application consumes the secret data.
 >
 > **Mount the Kubernetes Secret as a volume**: Use the auto rotation and Sync K8s secrets features of Secrets Store CSI Driver. The application will need to watch for changes from the mounted Kubernetes Secret volume. When the Kubernetes Secret is updated by the CSI Driver, the corresponding volume contents are automatically updated.
+>
 > **Application reads the data from the container’s filesystem**: Use the rotation feature of Secrets Store CSI Driver. The application will need to watch for the file change from the volume mounted by the CSI driver.
+>
 > **Use the Kubernetes Secret for an environment variable**: Restart the pod to get the latest secret as an environment variable.
 > Use a tool such as [Reloader][reloader] to watch for changes on the synced Kubernetes Secret and perform rolling upgrades on pods.
 
@@ -330,5 +332,5 @@ Now that you've learned how to use the Azure Key Vault Provider for Secrets Stor
 [kube-csi]: https://kubernetes-csi.github.io/docs/
 [key-vault-provider-install]: https://azure.github.io/secrets-store-csi-driver-provider-azure/getting-started/installation
 [sample-secret-provider-class]: https://azure.github.io/secrets-store-csi-driver-provider-azure/getting-started/usage/#create-your-own-secretproviderclass-object
-[reloader]: https://github.com/stakater/Reloader:w
+[reloader]: https://github.com/stakater/Reloader
 
