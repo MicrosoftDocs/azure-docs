@@ -154,6 +154,8 @@ For success and failure of the silent token acquisition, MSAL Angular provides e
 import { MsalBroadcastService } from '@azure/msal-angular';
 import { EventMessage, EventType } from '@azure/msal-browser';
 
+import { filter, Subject, takeUntil } from 'rxjs';
+
 // In app.component.ts
 export class AppComponent implements OnInit {
 	private readonly _destroying$ = new Subject<void>();
@@ -226,7 +228,7 @@ For success and failure of the silent token acquisition, MSAL Angular provides c
 ```javascript
 // In app.component.ts
  ngOnInit() {
-    this.subscription=  this.broadcastService.subscribe("msal:acquireTokenFailure", (payload) => {
+    this.subscription = this.broadcastService.subscribe("msal:acquireTokenFailure", (payload) => {
     });
 }
 ngOnDestroy() {
@@ -394,15 +396,18 @@ You can use optional claims for the following purposes:
 To request optional claims in `IdToken`, you can send a stringified claims object to the `claimsRequest` field of the `AuthenticationParameters.ts` class.
 
 ```javascript
-"optionalClaims":
-   {
-      "idToken": [
-            {
-                  "name": "auth_time",
-                  "essential": true
-             }
-      ],
-
+var claims = {
+  optionalClaims:
+    {
+       idToken: [
+          {
+             name: "auth_time",
+             essential: true
+           }
+      	],
+   }
+};
+   
 var request = {
     scopes: ["user.read"],
     claimsRequest: JSON.stringify(claims)

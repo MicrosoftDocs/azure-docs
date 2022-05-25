@@ -43290,9 +43290,29 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md",
+      "redirect_url": "/azure/virtual-network/nat-gateway/quickstart-create-nat-gateway-portal",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-create-nat-gateway-powershell.md",
+      "redirect_url": "/azure/virtual-network/nat-gateway/quickstart-create-nat-gateway-powershell",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-create-nat-gateway-cli.md",
+      "redirect_url": "/azure/virtual-network/nat-gateway/quickstart-create-nat-gateway-cli",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/aks/web-app-routing.md",
       "redirect_url": "/azure/aks/intro-kubernetes",
-      "redirect_document_id": false
+      "redirect_document_id":false
+    },
+    {
+      "source_path_from_root": "/articles/private-link/private-endpoint-static-ip-powershell.md",
+      "redirect_url": "/azure/private-link/create-private-endpoint-powershell",
+      "redirect_document_id": true
     }
   ]
 }
