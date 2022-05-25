@@ -19,10 +19,10 @@
     - name: Continuous regression testing (CI/CD)
       expanded: true
       items:
-      - name: Automate with GitHub Actions
-        href: tutorial-cicd-github-actions.md
-      - name: Automate with Azure Pipelines
-        href: tutorial-cicd-azure-pipelines.md
+        - name: Automate with GitHub Actions
+          href: tutorial-cicd-github-actions.md
+        - name: Automate with Azure Pipelines
+          href: tutorial-cicd-azure-pipelines.md
 - name: Concepts
   expanded: true
   items: 
@@ -39,7 +39,7 @@
       href: how-to-monitor-server-side-metrics.md
     - name: Configure for high scale loads
       href: how-to-high-scale-load.md
-    - name: Troubleshoot test execution errors
+    - name: Troubleshoot with load test logs
       href: how-to-find-download-logs.md
     - name: Define test criteria
       href: how-to-define-test-criteria.md
@@ -47,7 +47,7 @@
       href: how-to-parameterize-load-tests.md
     - name: Use JMeter user properties
       href: how-to-configure-user-properties.md
-    - name: Read a CSV file in load tests
+    - name: Read data from a CSV file
       href: how-to-read-csv-data.md
     - name: Get insights from App Service Diagnostics
       href: how-to-appservice-insights.md
@@ -65,10 +65,11 @@
       href: monitor-load-testing.md
 - name: Reference
   items:
-      - name: Test configuration YAML
-        href: reference-test-config-yaml.md
-      - name: Monitor data reference
-        href: monitor-load-testing-reference.md
+    - name: Test configuration YAML
+      href: reference-test-config-yaml.md
+    - name: Monitor data reference
+      href: monitor-load-testing-reference.md
+
 - name: Resources
   items: 
     - name: Azure roadmap
