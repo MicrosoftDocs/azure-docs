@@ -25,13 +25,13 @@ The KEDA add-on makes it even easier by deploying a managed KEDA installation, p
 - **KEDA operator** allows end-users to scale workloads in/out from 0 to N instances with support for Kubernetes Deployments, Jobs, StatefulSets or any custom resource that defines `/scale` subresource.
 - **Metrics server** exposes external metrics to Horizontal Pod Autoscaler (HPA) in Kubernetes for autoscaling purposes such as messages in a Kafka topic, or number of events in an Azure event hub. Due to upstream limitations, this must be the only installed metric adapter.
 
-![Architecture](./media/keda/architecture.png)
+![Architecture of KEDA](./media/keda/architecture.png)
 
 Learn more about how KEDA works in the [official KEDA documentation](keda-architecture).
 
 ## Installation and version
 
-KEDA can be added to your Azure Kubernetes Service (AKS) cluster by enabling the KEDA add-on using an [ARM template][keda-deploy-addon-arm].
+KEDA can be added to your Azure Kubernetes Service (AKS) cluster by enabling the KEDA add-on using an [ARM template](keda-deploy-addon-arm).
 
 The KEDA add-on provides a fully supported installation of KEDA that is integrated with AKS.
 
@@ -71,7 +71,7 @@ For general KEDA questions, we recommend [visiting the FAQ overview][keda-faq].
 
 <!-- LINKS - external -->
 [keda]: https://keda.sh/
-[keda-architecture]: https://keda.sh/docs/latest/concepts/#how-keda-works
+[keda-architecture]: https://keda.sh/docs/latest/concepts/
 [keda-faq]: https://keda.sh/docs/latest/faq/
 [keda-sample]: https://github.com/kedacore/sample-dotnet-worker-servicebus-queue
 [keda-scalers]: https://keda.sh/docs/scalers/
