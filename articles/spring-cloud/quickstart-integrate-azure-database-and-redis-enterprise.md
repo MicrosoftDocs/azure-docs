@@ -19,7 +19,7 @@ ms.custom: devx-track-java
 
 This quickstart shows you how to provision and prepare an Azure Database for PostgreSQL and an Azure Cache for Redis to be used with apps running in Azure Spring Apps Enterprise tier.
 
-This article uses these services for demonstration purposes. You can connect your application to any backing service of your choice by using instructions similar to those in the [Create Service Connectors](#create-service-connectors) section later in this article.
+This article uses these services for demonstration purposes. You can connect your application to any backing service of your choice by using instructions similar to the ones in the [Create Service Connectors](#create-service-connectors) section later in this article.
 
 ## Prerequisites
 

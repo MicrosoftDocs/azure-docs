@@ -157,7 +157,7 @@ AppPlatformLogsforSpring
 | project TimeGenerated, AppName, Log
 ```
 
-This query produces results similar to those shown in the following screenshot:
+This query produces results similar to the ones shown in the following screenshot:
 
 :::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/all-app-logs-in-log-analytics.png" alt-text="Screenshot of Azure portal showing example output from all application logs query.":::
 
@@ -171,7 +171,7 @@ AppPlatformLogsforSpring
 | project TimeGenerated, AppName, Log
 ```
 
-This query produces results similar to those shown in the following screenshot:
+This query produces results similar to the ones shown in the following screenshot:
 
 :::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/catalog-app-logs-in-log-analytics.png" alt-text="Screenshot of Azure portal showing example output from Catalog Service application logs.":::
 
@@ -186,7 +186,7 @@ AppPlatformLogsforSpring
 | render piechart
 ```
 
-This query produces results similar to those shown in the following screenshot:
+This query produces results similar to the ones shown in the following screenshot:
 
 :::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/ingress-logs-in-log-analytics.png" alt-text="Screenshot of Azure portal showing example output from the Ingress Logs.":::
 
@@ -207,7 +207,7 @@ AppPlatformSystemLogs
 | project TimeGenerated,Log
 ```
 
-This query produces results similar to those shown in the following screenshot:
+This query produces results similar to the ones shown in the following screenshot:
 
 :::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/spring-cloud-gateway-logs-in-log-analytics.png" alt-text="Screenshot of Azure portal showing example output from the Spring Cloud Gateway Logs.":::
 
@@ -220,7 +220,7 @@ AppPlatformSystemLogs
 | project TimeGenerated, Log
 ```
 
-This query produces results similar to those shown in the following screenshot:
+This query produces results similar to the ones shown in the following screenshot:
 
 :::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/service-registry-logs-in-log-analytics.png" alt-text="Screenshot of Azure portal showing example output from service registry logs.":::
 
@@ -276,7 +276,7 @@ Navigate to the **Live Metrics** pane. Here you can see live metrics on screen w
 
 ## Working with other monitoring tools
 
-Azure Spring Apps enterprise tier also supports exporting metrics to other tools, including the following:
+Azure Spring Apps enterprise tier also supports exporting metrics to other tools, including the following tools:
 
 - AppDynamics
 - ApacheSkyWalking

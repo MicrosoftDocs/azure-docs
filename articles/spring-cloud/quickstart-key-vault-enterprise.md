@@ -214,7 +214,7 @@ The following instructions describe how to grant access to Key Vault secrets to 
 
 ## Update applications to load Key Vault secrets
 
-After granting access to read secrets from Key Vault, you must update the applications to use the new secret values in their configurations. The following instructions describe how to do this.
+After granting access to read secrets from Key Vault, use the following steps to update the applications to use the new secret values in their configurations.
 
 1. Use the following command to retrieve the URI for Key Vault to be used in updating applications:
 
