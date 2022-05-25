@@ -45,12 +45,12 @@ The Azure Functions project template in Visual Studio creates a C# class library
 
 1. In **Configure your new project**, enter a **Project name** for your project, and then select **Create**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other nonalphanumeric characters.
 
-1. For the **Create a new Azure Functions application** settings, use the values in the following table:
+1. For the **Additional information** settings, use the values in the following table:
 
     | Setting      | Value  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
-    | **.NET version** | **.NET 6** | This value creates a function project that runs in-process with version 4.x of the Azure Functions runtime. You can also choose **.NET 6 (isolated)** to create a project that runs in a separate worker process. Azure Functions 1.x supports the .NET Framework. For more information, see [Azure Functions runtime versions overview](./functions-versions.md).   |
-    | **Function template** | **HTTP trigger** | This value creates a function triggered by an HTTP request. |
+    | **Functions worker** | **.NET 6** | This value creates a function project that runs in-process with version 4.x of the Azure Functions runtime. You can also choose **.NET 6 (isolated)** to create a project that runs in a separate worker process. Azure Functions 1.x supports the .NET Framework. For more information, see [Azure Functions runtime versions overview](./functions-versions.md).   |
+    | **Function** | **HTTP trigger** | This value creates a function triggered by an HTTP request. |
     | **Storage account (AzureWebJobsStorage)**  | **Storage emulator** | Because a function app in Azure requires a storage account, one is assigned or created when you publish your project to Azure. An HTTP trigger doesn't use an Azure Storage account connection string; all other trigger types require a valid Azure Storage account connection string. When you select this option, the Azurite emulator is used. |
     | **Authorization level** | **Anonymous** | The created function can be triggered by any client without providing a key. This authorization setting makes it easy to test your new function. For more information about keys and authorization, see [Authorization keys](./functions-bindings-http-webhook-trigger.md#authorization-keys) and [HTTP and webhook bindings](./functions-bindings-http-webhook.md). |
     
@@ -58,7 +58,7 @@ The Azure Functions project template in Visual Studio creates a C# class library
 
     Make sure you set the **Authorization level** to **Anonymous**. If you choose the default level of **Function**, you're required to present the [function key](./functions-bindings-http-webhook-trigger.md#authorization-keys) in requests to access your function endpoint.
 
-1. Select **Create** to create the function project and HTTP trigger function.
+2. Select **Create** to create the function project and HTTP trigger function.
 
 Visual Studio creates a project and class that contains boilerplate code for the HTTP trigger function type. The boilerplate code sends an HTTP response that includes a value from the request body or query string. The `HttpTrigger` attribute specifies that the function is triggered by an HTTP request.
 
