@@ -11,6 +11,9 @@ ms.date: 10/21/2021
 ms.topic: how-to
 
 ---
+
+[//]: # (needs PM review; is it job_id or run_id)
+
 # Export or delete your Machine Learning service workspace data
 
 In Azure Machine Learning, you can export or delete your workspace data using either the portal's graphical interface or the Python SDK. This article describes both options.
@@ -23,7 +26,7 @@ In Azure Machine Learning, you can export or delete your workspace data using ei
 
 In-product data stored by Azure Machine Learning is available for export and deletion. You can export and delete using Azure Machine Learning studio, CLI, and SDK. Telemetry data can be accessed through the Azure Privacy portal. 
 
-In Azure Machine Learning, personal data consists of user information in run history documents. 
+In Azure Machine Learning, personal data consists of user information in job history documents. 
 
 ## Delete high-level resources using the portal
 
@@ -39,7 +42,7 @@ These resources can be deleted by selecting them from the list and choosing **De
 
 :::image type="content" source="media/how-to-export-delete-data/delete-resource-group-resources.png" alt-text="Screenshot of portal, with delete icon highlighted":::
 
-Run history documents, which may contain personal user information, are stored in the storage account in blob storage, in subfolders of `/azureml`. You can download and delete the data from the portal.
+Job history documents, which may contain personal user information, are stored in the storage account in blob storage, in subfolders of `/azureml`. You can download and delete the data from the portal.
 
 :::image type="content" source="media/how-to-export-delete-data/storage-account-folders.png" alt-text="Screenshot of azureml directory in storage account, within the portal":::
 
@@ -47,12 +50,12 @@ Run history documents, which may contain personal user information, are stored i
 
 Azure Machine Learning studio provides a unified view of your machine learning resources, such as notebooks, datasets, models, and experiments. Azure Machine Learning studio emphasizes preserving a record of your data and experiments. Computational resources such as pipelines and compute resources can be deleted using the browser. For these resources, navigate to the resource in question and choose **Delete**. 
 
-Datasets can be unregistered and Experiments can be archived, but these operations don't delete the data. To entirely remove the data, datasets and experiment data must be deleted at the storage level. Deleting at the storage level is done using the portal, as described previously. An individual Run can be deleted directly in studio. Deleting a Run deletes the Run's data. 
+Datasets can be unregistered and Experiments can be archived, but these operations don't delete the data. To entirely remove the data, datasets and experiment data must be deleted at the storage level. Deleting at the storage level is done using the portal, as described previously. An individual Job can be deleted directly in studio. Deleting a Job deletes the Job's data. 
 
 > [!NOTE]
 > Prior to unregistering a Dataset, use its **Data source** link to find the specific Data URL to delete. 
 
-You can download training artifacts from experimental runs using the Studio. Choose the **Experiment** and **Run** in which you're interested. Choose **Output + logs** and navigate to the specific artifacts you wish to download. Choose **...** and **Download**.
+You can download training artifacts from experimental jobs using the Studio. Choose the **Experiment** and **Job** in which you're interested. Choose **Output + logs** and navigate to the specific artifacts you wish to download. Choose **...** and **Download**.
 
 You can download a registered model by navigating to the **Model** and choosing **Download**. 
 
@@ -60,7 +63,7 @@ You can download a registered model by navigating to the **Model** and choosing 
 
 ## Export and delete resources using the Python SDK
 
-You can download the outputs of a particular run using: 
+You can download the outputs of a particular job using: 
 
 ```python
 # Retrieved from Azure Machine Learning web UI

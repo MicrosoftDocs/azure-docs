@@ -12,6 +12,8 @@ ms.topic: how-to
 ms.custom: github-actions-azure
 ---
 
+[//]: # (needs PM review is the code changing? )
+
 # Use GitHub Actions with Azure Machine Learning
 
 Get started with [GitHub Actions](https://docs.github.com/en/actions) to train a model on Azure Machine Learning. 
@@ -34,7 +36,7 @@ The file has four sections:
 |---------|---------|
 |**Authentication** | 1. Define a service principal. <br /> 2. Create a GitHub secret. |
 |**Connect** | 1. Connect to the machine learning workspace. <br /> 2. Connect to a compute target. |
-|**Run** | 1. Submit a training run. |
+|**Job** | 1. Submit a training job. |
 |**Deploy** | 1. Register model in Azure Machine Learning registry. 1. Deploy the model. |
 
 ## Create repository
@@ -112,7 +114,7 @@ Use the [Azure Machine Learning Compute action](https://github.com/Azure/aml-com
       with:
           azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
 ```
-## Submit training run
+## Submit training job
 
 Use the [Azure Machine Learning Training action](https://github.com/Azure/aml-run) to submit a ScriptRun, an Estimator or a Pipeline to Azure Machine Learning. 
 

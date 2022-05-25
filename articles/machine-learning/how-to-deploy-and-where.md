@@ -14,6 +14,8 @@ ms.custom: devx-track-python, deploy, devx-track-azurecli, contperf-fy21q2, cont
 adobe-target: true
 ---
 
+[//]: # (needs PM review, is Run now a Job in the code?)
+
 # Deploy machine learning models to Azure
 
 [!INCLUDE [sdk & cli v1](../../includes/machine-learning-dev-v1.md)]
@@ -119,7 +121,7 @@ Set `-p` to the path of a folder or a file that you want to register.
 
 For more information on `az ml model register`, see the [reference documentation](/cli/azure/ml(v1)/model).
 
-### Register a model from an Azure ML training run
+### Register a model from an Azure ML training job
 
 If you need to register a model that was created previously through an Azure Machine Learning training job, you can specify the experiment, run, and path to the model:
 
@@ -145,7 +147,7 @@ To include multiple files in the model registration, set `model_path` to the pat
 For more information, see the documentation for the [Model class](/python/api/azureml-core/azureml.core.model.model).
 
 
-### Register a model from an Azure ML training run
+### Register a model from an Azure ML training job
 
   When you use the SDK to train a model, you can receive either a [Run](/python/api/azureml-core/azureml.core.run.run) object or an [AutoMLRun](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun) object, depending on how you trained the model. Each object can be used to register a model created by an experiment run.
 

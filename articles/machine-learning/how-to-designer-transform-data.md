@@ -12,6 +12,8 @@ ms.topic: how-to
 ms.custom: designer
 ---
 
+[//]: # (needs PM review)
+
 # Transform data in Azure Machine Learning designer
 
 
@@ -127,15 +129,15 @@ Now that your pipeline is set up to split the data, you need to specify where to
     
     ![Screenshot showing how to configure the Export Data components](media/how-to-designer-transform-data/us-income-export-data.png).
 
-### Submit the run
+### Submit the job
 
-Now that your pipeline is setup to split and export the data, submit a pipeline run.
+Now that your pipeline is setup to split and export the data, submit a pipeline job.
 
 1. At the top of the canvas, select **Submit**.
 
-1. In the **Set up pipeline run** dialog, select **Create new** to create an experiment.
+1. In the **Set up pipeline job** dialog, select **Create new** to create an experiment.
 
-    Experiments logically group together related pipeline runs. If you run this pipeline in the future, you should use the same experiment for logging and tracking purposes.
+    Experiments logically group together related pipeline jobs. If you run this pipeline in the future, you should use the same experiment for logging and tracking purposes.
 
 1. Provide a descriptive experiment name like "split-census-data".
 

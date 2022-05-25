@@ -12,6 +12,8 @@ ms.date: 10/21/2021
 ms.custom: sdkv1, event-tier1-build-2022
 ---
 
+[//]: # (needs PM review)
+
 # Interactive debugging with Visual Studio Code
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
@@ -53,36 +55,36 @@ Use the Azure Machine Learning extension to validate, run, and debug your machin
 1. Expand the subscription node containing your workspace. If you don't already have one, you can [create an Azure Machine Learning workspace](how-to-manage-resources-vscode.md#create-a-workspace) using the extension.
 1. Expand your workspace node.
 1. Right-click the **Experiments** node and select **Create experiment**. When the prompt appears, provide a name for your experiment.
-1. Expand the **Experiments** node, right-click the experiment you want to run and select **Run Experiment**.
+1. Expand the **Experiments** node, right-click the experiment you want to run and select **Job Experiment**.
 1. From the list of options to run your experiment, select **Locally**.
-1. **First time use on Windows only**. When prompted to allow File Share, select **Yes**. When you enable file share it allows Docker to mount the directory containing your script to the container. Additionally, it also allows Docker to store the logs and outputs from your run in a temporary directory on your system.
+1. **First time use on Windows only**. When prompted to allow File Share, select **Yes**. When you enable file share it allows Docker to mount the directory containing your script to the container. Additionally, it also allows Docker to store the logs and outputs from your job in a temporary directory on your system.
 1. Select **Yes** to debug your experiment. Otherwise, select **No**. Selecting no will run your experiment locally without attaching to the debugger.
-1. Select **Create new Run Configuration** to create your run configuration. The run configuration defines the script you want to run, dependencies, and datasets used. Alternatively, if you already have one, select it from the dropdown.
+1. Select **Create new Job Configuration** to create your job configuration. The job configuration defines the script you want to run, dependencies, and datasets used. Alternatively, if you already have one, select it from the dropdown.
     1. Choose your environment. You can choose from any of the [Azure Machine Learning curated](resource-curated-environments.md) or create your own.
     1. Provide the name of the script you want to run. The path is relative to the directory opened in VS Code.
     1. Choose whether you want to use an Azure Machine Learning dataset or not. You can create [Azure Machine Learning datasets](how-to-manage-resources-vscode.md#create-dataset) using the extension.
     1. Debugpy is required in order to attach the debugger to the container running your experiment. To add debugpy as a dependency,select **Add Debugpy**. Otherwise, select **Skip**. Not adding debugpy as a dependency runs your experiment without attaching to the debugger.
-    1. A configuration file containing your run configuration settings opens in the editor. If you're satisfied with the settings, select **Submit experiment**. Alternatively, you open the command palette (**View > Command Palette**) from the menu bar and enter the `Azure ML: Submit experiment` command into the text box.
-1. Once your experiment is submitted, a Docker image containing your script and the configurations specified in your run configuration is created.
+    1. A configuration file containing your job configuration settings opens in the editor. If you're satisfied with the settings, select **Submit experiment**. Alternatively, you open the command palette (**View > Command Palette**) from the menu bar and enter the `Azure ML: Submit experiment` command into the text box.
+1. Once your experiment is submitted, a Docker image containing your script and the configurations specified in your job configuration is created.
 
     When the Docker image build process begins, the contents of the `60_control_log.txt` file stream to the output console in VS Code.
 
     > [!NOTE]
     > The first time your Docker image is created can take several minutes.
 
-1. Once your image is built, a prompt appears to start the debugger. Set your breakpoints in your script and select **Start debugger** when you're ready to start debugging. Doing so attaches the VS Code debugger to the container running your experiment. Alternatively, in the Azure Machine Learning extension, hover over the node for your current run and select the play icon to start the debugger.
+1. Once your image is built, a prompt appears to start the debugger. Set your breakpoints in your script and select **Start debugger** when you're ready to start debugging. Doing so attaches the VS Code debugger to the container running your experiment. Alternatively, in the Azure Machine Learning extension, hover over the node for your current job and select the play icon to start the debugger.
 
     > [!IMPORTANT]
     > You cannot have multiple debug sessions for a single experiment. You can however debug two or more experiments using multiple VS Code instances.
 
 At this point, you should be able to step-through and debug your code using VS Code.
 
-If at any point you want to cancel your run, right-click your run node and select **Cancel run**.
+If at any point you want to cancel your job, right-click your job node and select **Cancel job**.
 
-Similar to remote experiment runs, you can expand your run node to inspect the logs and outputs.
+Similar to remote experiment runs, you can expand your job node to inspect the logs and outputs.
 
 > [!TIP]
-> Docker images that use the same dependencies defined in your environment are reused between runs. However, if you run an experiment using a new or different environment, a new image is created. Since these images are saved to your local storage, it's recommended to remove old or unused Docker images. To remove images from your system, use the [Docker CLI](https://docs.docker.com/engine/reference/commandline/rmi/) or the [VS Code Docker extension](https://code.visualstudio.com/docs/containers/overview).
+> Docker images that use the same dependencies defined in your environment are reused between jobs. However, if you run an experiment using a new or different environment, a new image is created. Since these images are saved to your local storage, it's recommended to remove old or unused Docker images. To remove images from your system, use the [Docker CLI](https://docs.docker.com/engine/reference/commandline/rmi/) or the [VS Code Docker extension](https://code.visualstudio.com/docs/containers/overview).
 
 ## Debug and troubleshoot machine learning pipelines
 
@@ -129,7 +131,7 @@ To enable debugging, make the following changes to the Python script(s) used by 
     import os
     import debugpy
     import socket
-    from azureml.core import Run
+    from azureml.core import Job
     ```
 
 1. Add the following arguments. These arguments allow you to enable the debugger as needed, and set the timeout for attaching the debugger:
@@ -147,7 +149,7 @@ To enable debugging, make the following changes to the Python script(s) used by 
                         help=f'Defines Port of VS Code client')
     ```
 
-1. Add the following statements. These statements load the current run context so that you can log the IP address of the node that the code is running on:
+1. Add the following statements. These statements load the current job context so that you can log the IP address of the node that the code is running on:
 
     ```python
     global run
@@ -234,7 +236,7 @@ if not (args.output_train is None):
 
 ### Configure ML pipeline
 
-To provide the Python packages needed to start debugpy and get the run context, create an environment
+To provide the Python packages needed to start debugpy and get the job context, create an environment
 and set `pip_packages=['debugpy', 'azureml-sdk==<SDK-VERSION>']`. Change the SDK version to match the one you are using. The following code snippet demonstrates how to create an environment:
 
 ```python
@@ -273,7 +275,7 @@ step1 = PythonScriptStep(name="train_step",
                          allow_reuse=False)
 ```
 
-When the pipeline runs, each step creates a child run. If debugging is enabled, the modified script logs information similar to the following text in the `70_driver_log.txt` for the child run:
+When the pipeline runs, each step creates a child job. If debugging is enabled, the modified script logs information similar to the following text in the `70_driver_log.txt` for the child job:
 
 ```text
 Timeout for debug connection: 300
@@ -283,7 +285,7 @@ ip_address: 10.3.0.5
 Save the `ip_address` value. It is used in the next section.
 
 > [!TIP]
-> You can also find the IP address from the run logs for the child run for this pipeline step. For more information on viewing this information, see [Monitor Azure ML experiment runs and metrics](how-to-log-view-metrics.md).
+> You can also find the IP address from the job logs for the child job for this pipeline step. For more information on viewing this information, see [Monitor Azure ML experiment runs and metrics](how-to-log-view-metrics.md).
 
 ### Configure development environment
 

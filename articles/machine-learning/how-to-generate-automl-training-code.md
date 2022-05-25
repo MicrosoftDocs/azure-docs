@@ -12,6 +12,8 @@ ms.topic: how-to
 ms.date: 02/16/2022
 ---
 
+[//]: # (needs PM review; best_run? Child run? parent Run or Parent Job? is the code changing? )
+
 #  View automated ML model's training code (preview)
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
@@ -20,14 +22,14 @@ ms.date: 02/16/2022
 
 In this article, you learn how to view the generated training code from any automated machine learning trained model. 
 
-Code generation for automated ML trained models allows you to see the following details that automated ML uses to train and build the model for a specific run.
+Code generation for automated ML trained models allows you to see the following details that automated ML uses to train and build the model for a specific job.
 
 * Data preprocessing
 * Algorithm selection
 * Featurization
 * Hyperparameters 
 
-You can select any automated ML trained model, recommended or child run, and view the generated Python training code that created that specific model.
+You can select any automated ML trained model, recommended or child job, and view the generated Python training code that created that specific model.
 
 With the generated model's training code you can, 
 
@@ -96,7 +98,7 @@ There are two main files with the generated code,
 
 ## Get generated code and model artifacts
 
-After the automated ML training run completes, you can get the `script.py` and the `script_run_notebook.ipynb` files. 
+After the automated ML training job completes, you can get the `script.py` and the `script_run_notebook.ipynb` files. 
 The following code gets the best child run and downloads both files. 
 
 ```python
