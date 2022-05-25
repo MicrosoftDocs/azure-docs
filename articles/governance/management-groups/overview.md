@@ -315,7 +315,7 @@ When looking to query on management groups outside the Azure portal, the target 
 management groups looks like **"/providers/Microsoft.Management/managementGroups/{_management-group-id_}"**.
 
 > [!NOTE]
-> You can centralize your Azure Activity log auditing by using Log Analytics, as well as send Activity log events to Azure Storage and Azure Event Hub. For more information, see [Azure Activity log](../../azure-monitor/essentials/activity-log.md).
+> Using the Azure Resource Manager REST API, you can enable diagnostic settings on a management group to send related Azure Activity log entries to a Log Analytics workspace, Azure Storage, or Azure Event Hub. For more information, see [Management Group Diagnostic Settings - Create Or Update](https://docs.microsoft.com/rest/api/monitor/management-group-diagnostic-settings/create-or-update).
 
 ## Next steps
 
