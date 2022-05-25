@@ -59,7 +59,7 @@ This section explains how to copy data from a Snowflake database to an [Azure Co
 
 1. On the right pane, in the data store search, enter "snowflake". Select the **Snowflake** tile and select **Continue**.
 
-   :::image type="content" source="media/search-power-query-connectors/snowflake-icon.png" alt-text="Screenshot showing how to choose Snowflake tile in new Linked Service data store.":::
+   :::image type="content" source="media/search-power-query-connectors/snowflake-icon.png" alt-text="Screenshot showing how to choose Snowflake tile in new Linked Service data store." border="true":::
 
 1. Fill out the **New linked service** form with the data you collected in the previous step. The **Account name** includes a **LOCATOR** value and the region (for example: `xy56789south-central-us.azure`).
   
@@ -214,13 +214,14 @@ You can repurpose the index you're currently using for the Snowflake Power Conne
 
       :::image type="content" source="media/search-power-query-connectors/drag-and-drop-snowflake-copy-data.png" alt-text="Screenshot showing how to drag and drop a Copy data activity in Pipeline canvas to copy data from Snowflake.":::
 
-   - Navigate to the **General** tab, leave the default values, unless you need to customize the execution.
+   - Open the **General** tab. Accept the default values unless you need to customize the execution.
 
    - In the **Source** tab, select your Snowflake table. Leave the remaining options with the default values.
 
       :::image type="content" source="media/search-power-query-connectors/source-snowflake.png" alt-text="Screenshot showing how to configure the Source in a pipeline to import data from Snowflake.":::
 
    - In the **Sink** tab:
+
       - Select *Storage DelimitedText* dataset created in [Step 8](#step-8-configure-storage-dataset).
       - In **File Extension**, add *.csv*.
       - Leave the remaining options with the default values. 
@@ -235,9 +236,10 @@ You can repurpose the index you're currently using for the Snowflake Power Conne
 
       :::image type="content" source="media/search-power-query-connectors/index-from-storage-activity.png" alt-text="Screenshot showing how to drag and drop a Copy data activity in Pipeline canvas to index from Storage.":::
 
-   - In the **General** tab, leave the default values, unless you need to customize the execution.
+   - In the **General** tab, accept the default values, unless you need to customize the execution.
 
    - In the **Source** tab:
+
       - Select *Storage DelimitedText* dataset created in [Step 8](#step-8-configure-storage-dataset).
       - In the **File path type** select *Wildcard file path*.
       - Leave all remaining fields with default values.
@@ -262,7 +264,7 @@ You can repurpose the index you're currently using for the Snowflake Power Conne
 
 1. Select [Add trigger](../data-factory/how-to-create-schedule-trigger.md) to schedule the pipeline run and select **New/Edit**.
 
-   :::image type="content" source="media/search-power-query-connectors/add-pipeline-trigger.png" alt-text="Screenshot showing how to add a new trigger for a Pipeline in Data Factory to run for Snowflake.":::
+   :::image type="content" source="media/search-power-query-connectors/add-pipeline-trigger.png" alt-text="Screenshot showing how to add a new trigger for a Pipeline in Data Factory to run for Snowflake." border="true":::
 
 1. From the **Choose trigger** dropdown, select **New**.
 
@@ -438,7 +440,7 @@ You can repurpose the index you're currently using for the PostgreSQL Power Conn
 
 1. Select **Save**.
 
-   :::image type="content" source="media/search-power-query-connectors/delimited-text-save-postgresql.png" alt-text="Screenshot showing options to import data to Azure Storage blob.":::
+   :::image type="content" source="media/search-power-query-connectors/delimited-text-save-postgresql.png" alt-text="Screenshot showing options to import data to Azure Storage blob." border=true:::
 
 ### Step 8: Configure Pipeline
 
@@ -456,9 +458,9 @@ You can repurpose the index you're currently using for the PostgreSQL Power Conn
 
    - Expand **Move & transform** section and drag and drop **Copy Data** activity to the blank pipeline editor canvas.
 
-      :::image type="content" source="media/search-power-query-connectors/postgresql-pipeline-general.png" alt-text="Screenshot showing how to drag and drop in Azure Data Factory to copy data from PostgreSQL.":::
+      :::image type="content" source="media/search-power-query-connectors/postgresql-pipeline-general.png" alt-text="Screenshot showing how to drag and drop in Azure Data Factory to copy data from PostgreSQL." border="true":::
 
-   - Navigate to the **General** tab, leave the default values, unless you need to customize the execution.
+   - Open the **General** tab, accept the default values, unless you need to customize the execution.
 
    - In the **Source** tab, select your PostgreSQL table. Leave the remaining options with the default values.
 
@@ -477,7 +479,7 @@ You can repurpose the index you're currently using for the PostgreSQL Power Conn
 
    - Expand **Move & transform** section and drag and drop **Copy Data** activity to the blank pipeline editor canvas.
 
-      :::image type="content" source="media/search-power-query-connectors/index-from-storage-activity-postgresql.png" alt-text="Screenshot showing how to drag and drop in Azure Data Factory to configure a copy activity.":::
+      :::image type="content" source="media/search-power-query-connectors/index-from-storage-activity-postgresql.png" alt-text="Screenshot showing how to drag and drop in Azure Data Factory to configure a copy activity." border=true:::
 
    - In the **General** tab, leave the default values, unless you need to customize the execution.
 
@@ -494,7 +496,7 @@ You can repurpose the index you're currently using for the PostgreSQL Power Conn
 
    - Select **Save**.
 
-### Step 9: Configure Activity order 
+### Step 9: Configure Activity order
 
 1. In the Pipeline canvas editor, select the little green square at the edge of the pipeline activity. Drag it to the "Indexes from Storage Account to Azure Cognitive Search" activity to set the execution order. 
 
