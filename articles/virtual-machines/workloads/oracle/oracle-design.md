@@ -16,9 +16,9 @@ ms.reviewer: tigorman
 
 **Applies to:** :heavy_check_mark: Linux VMs 
 
-Suppose you're planning to migrate an Oracle database from an on-premises location to Azure. You have the [Diagnostics Pack](https://docs.oracle.com/cd/E11857_01/license.111/e11987/database_management.htm) or the [Automatic Workload Repository](https://www.oracle.com/technetwork/database/manageability/info/other-manageability/wp-self-managing-database18c-4412450.pdf) for the Oracle database you're looking to migrate. Further, you have an understanding of the various metrics in Oracle, and you have a baseline understanding of application performance and platform utilization.
+Azure is home for all Oracle workloads, including those which need to continue to run optimally in Azure with Oracle. If you have the [Diagnostic Pack](https://www.oracle.com/technetwork/database/enterprise-edition/overview/diagnostic-pack-11g-datasheet-1-129197.pdf) or the [Automatic Workload Repository](https://docs.oracle.com/en-us/iaas/operations-insights/doc/analyze-automatic-workload-repository-awr-performance-data.html) you can use this data to assess the Oracle workload, size the resource needs, and migrate it to Azure. The various metrics provided by Oracle in these reports can provide a baseline understanding of application performance and platform utilization.
 
-This article helps you understand how to optimize your Oracle deployment in Azure. You explore performance tuning options for an Oracle database in an Azure environment. And you develop clear expectations about the limits of physical tuning through architecture, the advantages of logical tuning of database code, and the overall database design.
+This article will help you to understand how to size out an Oracle workload to run in Azure and explore the best architecture solutions to provide the most optimal cloud performance. The data provided by Oracle in the Statspack and even more so in its descendent, the AWR, will assist you in developing clear expectations about the limits of physical tuning through architecture, the advantages of logical tuning of database code, and the overall database design.
 
 ## Differences between the two environments 
 
