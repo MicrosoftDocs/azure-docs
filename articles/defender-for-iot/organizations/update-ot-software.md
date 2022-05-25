@@ -15,9 +15,13 @@ For more information, see [Which appliances do I need?](ot-appliance-sizing.md),
 
 ## Legacy version updates vs. recent version updates
 
-- Updates from legacy versions may require a series of software updates. For example, if you still have a sensor version 3.1.1 installed, you'll need to first upgrade to version 10.5.5, and then to a 22.x version.
+When downloading your update files from the Azure portal, you’ll see the option to download different files for different types of updates. Update files differ depending on the version you’re updating from and updating to.
 
-- When downloading your update files from the Azure portal, you'll see the option to download different files for different types of updates. For example, update files differ, depending on if you're updating from version 10.x to version 22.x, or updating between 22.x versions. Make sure to download the right file for the update you're performing.
+Make sure to select the file that matches your upgrade scenario.
+
+Updates from legacy versions may require a series of software updates. For example, if you still have a sensor version 3.1.1 installed, you'll need to first upgrade to version 10.5.5, and then to a 22.x version.
+
+:::image type="content" source="media/update-ot-software/legacy.png" alt-text="Screenshot of the multiple download options displayed.":::
 
 ## Verify network requirements
 
