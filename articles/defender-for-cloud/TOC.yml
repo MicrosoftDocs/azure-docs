@@ -390,9 +390,9 @@
     href: https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/bg-p/MicrosoftDefenderCloudBlog
   - name: Microsoft Defender for Cloud on Stack Overflow
     href: https://stackoverflow.com/search?q=microsoft+defender+for+cloud
-  - name: Microsoft Defender for Cloud in the Field
+  - name: Microsoft Defender for Cloud in the field
     items:
-    - name: New AWS Connector
+    - name: New AWS connector
       href: episode-one.md
     - name: Integrate with Azure Purview
       href: episode-two.md
@@ -402,17 +402,17 @@
       href: episode-four.md
     - name: Microsoft Defender for Servers
       href: episode-five.md
-    - name: Lessons Learned from the Field
+    - name: Lessons learned from the field
       href: episode-six.md
-    - name: New GCP Connector
+    - name: New GCP connector
       href: episode-seven.md
     - name: Microsoft Defender for IoT
       href: episode-eight.md
     - name: Microsoft Defender for Containers in a multi-cloud environment
       href: episode-nine.md
-    - name: Protecting Containers in GCP with Defender for Containers
+    - name: Protecting containers in GCP with Defender for Containers
       href: episode-ten.md
-    - name: Threat landscape for Containers
+    - name: Threat landscape for containers
       href: episode-eleven.md
     - name: Enhanced workload protection features in Defender for Servers
       href: episode-twelve.md

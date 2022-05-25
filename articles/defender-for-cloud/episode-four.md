@@ -1,15 +1,13 @@
 ---
-title: Security posture management improvements
+title: Security posture management improvements in Microsoft Defender for Cloud
 description: Learn how to manage your security posture with Microsoft Defender for Cloud.
 ms.topic: reference
-ms.date: 05/19/2022
+ms.date: 05/25/2022
 ---
 
-# Security posture management improvements
+# Security posture management improvements in Microsoft Defender for Cloud
 
-## Episode description
-
-In this episode of Defender for Cloud in the field, Lior Arviv joins Yuri Diogenes to talk about the cloud security posture management improvements in Microsoft Defender for Cloud. Lior explains the MITRE ATT&CK Framework integration with recommendations, the overall improvements of recommendations and the other fields added in the API. Lior also demonstrates the different ways to access the MITRE ATT&CK integration via filters and recommendations.
+**Episode description**: In this episode of Defender for Cloud in the field, Lior Arviv joins Yuri Diogenes to talk about the cloud security posture management improvements in Microsoft Defender for Cloud. Lior explains the MITRE ATT&CK Framework integration with recommendations, the overall improvements of recommendations and the other fields added in the API. Lior also demonstrates the different ways to access the MITRE ATT&CK integration via filters and recommendations.
 
 <br>
 <br>
@@ -29,17 +27,17 @@ In this episode of Defender for Cloud in the field, Lior Arviv joins Yuri Diogen
   
 Learn how to [Review your security recommendations](review-security-recommendations.md).
 
-► Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqa0ZoTml2Qm9kZ2pjRzNMUXFqVUwyNl80YVNtd3xBQ3Jtc0trVm9QM2Z0NlpOeC1KSUE2UEd1cVJ5aHQ0MTN6WjJEYmNlOG9rWC1KZ1ZqaTNmcHdOOHMtWXRLSGhUTVBhQlhhYzlUc2xmTHZtaUpkd1c4LUQzLWt1YmRTbkVQVE5EcTJIM0Foc042SGdQZU5acVRJbw&q=https%3A%2F%2Faka.ms%2FSubscribeMicrosoftSecurity)
+-  Subscribe to [Microsoft Security on YouTube](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqa0ZoTml2Qm9kZ2pjRzNMUXFqVUwyNl80YVNtd3xBQ3Jtc0trVm9QM2Z0NlpOeC1KSUE2UEd1cVJ5aHQ0MTN6WjJEYmNlOG9rWC1KZ1ZqaTNmcHdOOHMtWXRLSGhUTVBhQlhhYzlUc2xmTHZtaUpkd1c4LUQzLWt1YmRTbkVQVE5EcTJIM0Foc042SGdQZU5acVRJbw&q=https%3A%2F%2Faka.ms%2FSubscribeMicrosoftSecurity)
 
-► Follow us on social media: 
+-  Follow us on social media: 
   [LinkedIn](https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbFk5TXZuQld2NlpBRV9BQlJqMktYSm95WWhCZ3xBQ3Jtc0tsQU13MkNPWGNFZzVuem5zc05wcnp0VGxybHprVTkwS2todWw0b0VCWUl4a2ZKYVktNGM1TVFHTXpmajVLcjRKX0cwVFNJaDlzTld4MnhyenBuUGRCVmdoYzRZTjFmYXRTVlhpZGc4MHhoa3N6ZDhFMA&q=https%3A%2F%2Fwww.linkedin.com%2Fshowcase%2Fmicrosoft-security%2F)
   [Twitter](https://twitter.com/msftsecurity)
 
-► Join our [Tech Community](https://aka.ms/SecurityTechCommunity)
+-  Join our [Tech Community](https://aka.ms/SecurityTechCommunity)
 
-► For more about [Microsoft Security](https://msft.it/6002T9HQY)
+-  For more about [Microsoft Security](https://msft.it/6002T9HQY)
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Microsoft Defender for Servers](episode-five.md)
