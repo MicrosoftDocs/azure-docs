@@ -47,14 +47,14 @@ For more information on Kubernetes volumes, see [Storage options for application
 |storageEndpointSuffix | Specify Azure storage endpoint suffix | `core.windows.net` | No | If empty, driver will use default storage endpoint suffix according to cloud environment.|
 |tags | [tags][az-tags] would be created in newly created storage account | Tag format: 'foo=aaa,bar=bbb' | No | ""|
 |matchTags | Whether matching tags when driver tries to find a suitable storage account | `true`,`false` | No | `false`|
-|--- | **Following parameters are only for blobfuse** | --- | --- |
+|--- | **Following parameters are only for blobfuse** | --- | --- |--- |
 |subscriptionID | Specify Azure subscription ID where blob storage directory will be created. | Azure subscription ID | No | If not empty, `resourceGroup` must be provided.|
 |storeAccountKey | Specify store account key to Kubernetes secret <br><br> Note:  <br> `false` means driver leverages kubelet identity to get account key. | `true`,`false` | No | `true`|
 |secretName | Specify secret name to store account key | | No |
 |secretNamespace | Specify the namespace of secret to store account key | `default`,`kube-system`, etc | No | pvc namespace |
 |isHnsEnabled | Enable `Hierarchical namespace` for Azure DataLake storage account | `true`,`false` | No | `false`|
-|--- | **Following parameters are only for NFS protocol** | --- | --- |
-|mountPermissions | Specify mounted folder permissions. The default is `0777`. If set to `0`, driver will not perform `chmod` after mount. | `0777` | No |
+|--- | **Following parameters are only for NFS protocol** | --- | --- |--- |
+|mountPermissions | Specify mounted folder permissions |The default is `0777`. If set to `0`, driver will not perform `chmod` after mount. | `0777` | No |
 
 ## Storage class for static disk parameters
 
@@ -64,14 +64,14 @@ For more information on Kubernetes volumes, see [Storage options for application
 |volumeAttributes.storageAccount | Specify existing Azure storage account name | STORAGE_ACCOUNT_NAME | Yes |
 |volumeAttributes.containerName | Specify existing container name | container | Yes ||
 |volumeAttributes.protocol | Specify blobfuse mount or NFSv3 mount | `fuse`, `nfs` | No | `fuse`|
-|--- | **Following parameters are only for blobfuse** | --- | --- |
+|--- | **Following parameters are only for blobfuse** | --- | --- | --- |
 |volumeAttributes.secretName | Secret name that stores storage account name and key (only applies for SMB) | No ||
 |volumeAttributes.secretNamespace | Specify namespace of secret to store account key | `default` | No | Pvc namespace|
 |nodeStageSecretRef.name | Specify secret name that stores (see examples below):<br>`azurestorageaccountkey`<br>`azurestorageaccountsastoken`<br>`msisecret`<br>`azurestoragespnclientsecret` | |Existing Kubernetes secret name |  No  ||
 |nodeStageSecretRef.namespace | Specify the namespace of secret | k8s namespace  |  Yes  ||
-|--- | **Following parameters are only for NFS protocol** | --- | --- |
+|--- | **Following parameters are only for NFS protocol** | --- | --- | --- |
 |volumeAttributes.mountPermissions | Specify mounted folder permissions | `0777` | No ||
-|--- | **Following parameters are only for NFS vnet setting** | --- | --- |
+|--- | **Following parameters are only for NFS vnet setting** | --- | --- | --- |
 |vnetResourceGroup | Specify vnet resource group where virtual network is | myResourceGroup | No | If empty, driver will use the `vnetResourceGroup` value specified in the Azure cloud config file.|
 |vnetName | Specify the virtual network name | aksVNet | No | If empty, driver will use the `vnetName` value specified in the Azure cloud config file.|
 |subnetName | Specify the existing subnet name of the agent node | aksSubnet | No | Ef empty, driver will use the `subnetName` value in azure cloud config file
@@ -84,7 +84,7 @@ For more information on Kubernetes volumes, see [Storage options for application
 |volumeAttributes.AzureStorageSPNClientID | Specify the Azure Service Principal Name (SPN) Client ID |  | No ||
 |volumeAttributes.AzureStorageSPNTenantID | Specify the Azure SPN Tenant ID |  | No ||
 |volumeAttributes.AzureStorageAADEndpoint | Specify the Azure Active Directory (AAD) Endpoint |  | No ||
-|--- | **Following parameters are only for feature: blobfuse read account key or SAS token from key vault** | --- | --- |
+|--- | **Following parameters are only for feature: blobfuse read account key or SAS token from key vault** | --- | --- | --- |
 |volumeAttributes.keyVaultURL | Specify Azure Key Vault DNS name | {vault-name}.vault.azure.net | No ||
 |volumeAttributes.keyVaultSecretName | Specify Azure Key Vault secret name | Existing Azure Key Vault secret name | No ||
 |volumeAttributes.keyVaultSecretVersion | Azure Key Vault secret version | existing version | No |If empty, driver will use "current version"|
