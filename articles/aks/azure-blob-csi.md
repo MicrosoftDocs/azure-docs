@@ -3,18 +3,18 @@ title: Use Container Storage Interface (CSI) driver for Azure Blob storage on Az
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Blob storage (preview) in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 05/23/2021
+ms.date: 05/25/2021
 author: mgoedtel
 
 ---
 
 # Use Azure Blob storage Container Storage Interface (CSI) driver (preview)
 
-The Azure Blob storage Container Storage Interface (CSI) driver (preview) is a [CSI specification](https://github.com/container-storage-interface/spec/blob/master/spec.md)-compliant driver used by Azure Kubernetes Service (AKS) to manage the lifecycle of Azure Blob storage.
+The Azure Blob storage Container Storage Interface (CSI) driver (preview) is a [CSI specification][csi-specification]-compliant driver used by Azure Kubernetes Service (AKS) to manage the lifecycle of Azure Blob storage.
 
 The CSI is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes. By adopting and using CSI, AKS now can write, deploy, and iterate plug-ins to expose new or improve existing storage systems in Kubernetes without having to touch the core Kubernetes code and wait for its release cycles.
 
-To create an AKS cluster with CSI driver support, see [Enable CSI drivers on AKS](csi-storage-drivers.md).
+To create an AKS cluster with CSI driver support, see [CSI drivers on AKS][csi-drivers-aks].
 
 > [!NOTE]
 > *In-tree driver* refers to the current storage driver that are part of the core Kubernetes code versus the new CSI driver, which is a plug-in.
@@ -27,9 +27,9 @@ In addition to the in-tree driver features, Azure Blob storage CSI driver (previ
 
 ## Use a persistent volume with Azure Blob storage
 
-A [persistent volume](concepts-storage.md#persistent-volumes) (PV) represents a piece of storage that's provisioned for use with Kubernetes pods. A PV can be used by one or many pods and can be dynamically or statically provisioned. If multiple pods need concurrent access to the same storage volume, you can use Azure Blob storage to connect by using the Network File System (NFS) or blobfuse. This article shows you how to dynamically create an Azure Blob storage container for use by multiple pods in an AKS cluster.
+A [persistent volume][persistent-volume] (PV) represents a piece of storage that's provisioned for use with Kubernetes pods. A PV can be used by one or many pods and can be dynamically or statically provisioned. If multiple pods need concurrent access to the same storage volume, you can use Azure Blob storage to connect by using the Network File System (NFS) or blobfuse. This article shows you how to dynamically create an Azure Blob storage container for use by multiple pods in an AKS cluster.
 
-For more information on Kubernetes volumes, see [Storage options for applications in AKS](concepts-storage.md).
+For more information on Kubernetes volumes, see [Storage options for applications in AKS][concepts-storage].
 
 ## Storage class driver dynamic disk parameters
 
@@ -45,7 +45,7 @@ For more information on Kubernetes volumes, see [Storage options for application
 |server | Specify Azure storage account server address | Existing server address, for example `accountname.privatelink.blob.core.windows.net`. | No | If empty, driver will use default `accountname.blob.core.windows.net` or other sovereign cloud account address.|
 |allowBlobPublicAccess | Allow or disallow public access to all blobs or containers for storage account created by driver. | `true`,`false` | No | `false`|
 |storageEndpointSuffix | Specify Azure storage endpoint suffix | `core.windows.net` | No | If empty, driver will use default storage endpoint suffix according to cloud environment.|
-|tags | [tags](../azure-resource-manager/management/tag-resources.md) would be created in newly created storage account | Tag format: 'foo=aaa,bar=bbb' | No | ""|
+|tags | [tags][az-tags] would be created in newly created storage account | Tag format: 'foo=aaa,bar=bbb' | No | ""|
 |matchTags | Whether matching tags when driver tries to find a suitable storage account | `true`,`false` | No | `false`|
 |--- | **Following parameters are only for blobfuse** | --- | --- |
 |subscriptionID | Specify Azure subscription ID where blob storage directory will be created. | Azure subscription ID | No | If not empty, `resourceGroup` must be provided.|
@@ -104,7 +104,7 @@ The reclaim policy on both storage classes ensures that the underlying Azure Blo
 
 To use these storage classes, create a PVC and respective pod that references and uses them. A PVC is used to automatically provision storage based on a storage class. A PVC can use one of the pre-created storage classes or a user-defined storage class to create an Azure Blob storage container for the desired SKU, size, and protocol to communicate with it. When you create a pod definition, the PVC is specified to request the desired storage.
 
-The following example creates a PVC that uses the NFS protocol to mount a Blob storage container using the [kubectl create](kubectl-create) command:
+The following example creates a PVC that uses the NFS protocol to mount a Blob storage container using the [kubectl create][kubectl-create] command:
 
 ```bash
 kubectl create -f https://raw.githubusercontent.com/kubernetes-sigs/blob-csi-driver/master/deploy/example/storageclass-blob-nfs.yaml
@@ -112,7 +112,7 @@ kubectl create -f https://raw.githubusercontent.com/kubernetes-sigs/blob-csi-dri
 storageclass.storage.k8s.io/blob-nfs created
 ```
 
-The following example creates a PVC that uses blobfuse to mount a Blob storage container using the [kubectl create](kubectl-create) command:
+The following example creates a PVC that uses blobfuse to mount a Blob storage container using the [kubectl create][kubectl-create] command:
 
 ```bash
 kubectl create -f https://raw.githubusercontent.com/kubernetes-sigs/blob-csi-driver/master/deploy/example/storageclass-blobfuse.yaml
@@ -122,7 +122,9 @@ storageclass.storage.k8s.io/blobfuse created
 
 ## Create a custom storage class
 
-The default storage classes suit the most common scenarios, but not all. For some cases, you might want to have your own storage class customized with your own parameters. For example, the following manifest configures mounting a Blob storage container using the NFS protocol. Use it to configure the *tags* parameter.
+The default storage classes suit the most common scenarios, but not all. For some cases, you might want to have your own storage class customized with your own parameters. To demonstrate two examples are shown, one based on using the NFS protocol, and the other using blobfuse.
+
+In this example, the following manifest configures mounting a Blob storage container using the NFS protocol. Use it to add the *tags* parameter.
 
 Create a file named azure-blob-nfs-sc.yaml, and paste the following example manifest:
 
@@ -136,8 +138,6 @@ parameters:
   protocol: nfs
   tags: environment=Development
 volumeBindingMode: Immediate
-
-
 mountOptions:
   - nconnect=8  # only supported on linux kernel version >= 5.3
 ```
@@ -150,7 +150,7 @@ kubectl apply -f azure-blob-nfs-sc.yaml
 storageclass.storage.k8s.io/blob-nfs created
 ```
 
-In the next example, the following manifest configures using blobfuse and mounts a Blob storage container. Use it to configure the *skuName* parameter.
+In this example, the following manifest configures using blobfuse and mount a Blob storage container. Use it to update the *skuName* parameter.
 
 Create a file named azure-blobfuse-sc.yaml, and paste the following example manifest:
 
@@ -201,11 +201,13 @@ This hasn't been tested yet by Vybava and team. THey will get back to me
 <!-- LINKS - external -->
 [access-modes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+[kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
 [managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
 [smb-overview]: /windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview
+[csi-specification]: https://github.com/container-storage-interface/spec/blob/master/spec.md
 
 <!-- LINKS - internal -->
 [azure-disk-volume]: azure-disk-volume.md
@@ -221,6 +223,8 @@ This hasn't been tested yet by Vybava and team. THey will get back to me
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
+[persistent-volume]: concepts-storage.md#persistent-volumes
+[csi-drivers-aks]: csi-storage-drivers.md
 [storage-class-concepts]: concepts-storage.md#storage-classes
 [az-extension-add]: /cli/azure/extension#az_extension_add
 [az-extension-update]: /cli/azure/extension#az_extension_update
@@ -230,3 +234,4 @@ This hasn't been tested yet by Vybava and team. THey will get back to me
 [node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
 [storage-skus]: ../storage/common/storage-redundancy.md
 [use-tags]: use-tags.md
+[az-tags]: ../azure-resource-manager/management/tag-resources.md
