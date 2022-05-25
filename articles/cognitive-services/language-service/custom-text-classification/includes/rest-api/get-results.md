@@ -17,7 +17,7 @@ Use the following **GET** request to query the status/results of the text classi
 |Placeholder  |Value  | Example |
 |---------|---------|---------|
 |`{ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest version released. Learn more about other available [API versions](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data)  | `2022-05-01` |
+|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest version released. See [Model lifecycle](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data) for more information on other available API versions.  | `2022-05-01` |
 
 #### Headers
 
