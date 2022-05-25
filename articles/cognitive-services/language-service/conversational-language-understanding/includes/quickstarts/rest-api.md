@@ -14,6 +14,8 @@ ms.custom: ignite-fall-2021
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services).
 
+## Create a Language resource from Azure portal
+
 [!INCLUDE [create a new resource from the Azure portal](../resource-creation-azure-portal.md)]
 
 ## Get your resource keys and endpoint
