@@ -61,7 +61,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Detect faces using a client library SDK or REST API
-            url: quickstart-sdk/identity-client-library.md?pivots=programming-language-csharp
+            url: quickstarts-sdk/identity-client-library.md?pivots=programming-language-csharp
       - linkListType: how-to-guide
         links:
           - text: Detect and analyze faces

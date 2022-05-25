@@ -96,13 +96,13 @@ Specify which visual features you'd like to extract in your analysis. See the [V
 
 #### [JavaScript](#tab/javascript)
 
-Specify which visual features you'd like to extract in your analysis. See the [VisualFeatureTypes](/javascript/api/@azure/cognitiveservices-computervision/visualfeaturetypes?view=azure-node-latest) enum for a complete list.
+Specify which visual features you'd like to extract in your analysis. See the [VisualFeatureTypes](/javascript/api/@azure/cognitiveservices-computervision/visualfeaturetypes) enum for a complete list.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ImageAnalysisQuickstart.js?name=snippet_features_remote)]
 
 #### [Python](#tab/python)
 
-Specify which visual features you'd like to extract in your analysis. See the [VisualFeatureTypes](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-python) enum for a complete list.
+Specify which visual features you'd like to extract in your analysis. See the [VisualFeatureTypes](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.models.visualfeaturetypes) enum for a complete list.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ImageAnalysisQuickstart.py?name=snippet_features_remote)]
 
@@ -132,7 +132,7 @@ A populated URL might look like this:
 
 #### [C#](#tab/csharp)
 
-Use the *language* parameter of [AnalyzeImageAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclientextensions.analyzeimageasync?view=azure-dotnet#microsoft-azure-cognitiveservices-vision-computervision-computervisionclientextensions-analyzeimageasync(microsoft-azure-cognitiveservices-vision-computervision-icomputervisionclient-system-string-system-collections-generic-ilist((system-nullable((microsoft-azure-cognitiveservices-vision-computervision-models-visualfeaturetypes))))-system-collections-generic-ilist((system-nullable((microsoft-azure-cognitiveservices-vision-computervision-models-details))))-system-string-system-collections-generic-ilist((system-nullable((microsoft-azure-cognitiveservices-vision-computervision-models-descriptionexclude))))-system-string-system-threading-cancellationtoken)) call to specify a language. A method call that specifies a language might look like the following.
+Use the *language* parameter of [AnalyzeImageAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.computervision.computervisionclientextensions.analyzeimageasync#microsoft-azure-cognitiveservices-vision-computervision-computervisionclientextensions-analyzeimageasync(microsoft-azure-cognitiveservices-vision-computervision-icomputervisionclient-system-string-system-collections-generic-ilist((system-nullable((microsoft-azure-cognitiveservices-vision-computervision-models-visualfeaturetypes))))-system-collections-generic-ilist((system-nullable((microsoft-azure-cognitiveservices-vision-computervision-models-details))))-system-string-system-collections-generic-ilist((system-nullable((microsoft-azure-cognitiveservices-vision-computervision-models-descriptionexclude))))-system-string-system-threading-cancellationtoken)) call to specify a language. A method call that specifies a language might look like the following.
 
 ```csharp
 ImageAnalysis results = await client.AnalyzeImageAsync(imageUrl, visualFeatures: features, language: "en");
@@ -160,7 +160,7 @@ const result = (await computerVisionClient.analyzeImage(imageURL,{visualFeatures
 
 #### [Python](#tab/python)
 
-Use the *language* parameter of your [analyze_image](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin?view=azure-python#azure-cognitiveservices-vision-computervision-operations-computervisionclientoperationsmixin-analyze-image) call to specify a language. A method call that specifies a language might look like the following.
+Use the *language* parameter of your [analyze_image](/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.operations.computervisionclientoperationsmixin#azure-cognitiveservices-vision-computervision-operations-computervisionclientoperationsmixin-analyze-image) call to specify a language. A method call that specifies a language might look like the following.
 
 ```python
 results_remote = computervision_client.analyze_image(remote_image_url , remote_image_features, remote_image_details, 'en')
