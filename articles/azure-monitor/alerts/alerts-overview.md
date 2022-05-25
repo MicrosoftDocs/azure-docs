@@ -28,7 +28,7 @@ You create an alert rule by combining:
 If you're monitoring more than one resource, the condition is evaluated separately for each of the resources and alerts are fired for each resource separately.
 
 Once an alert is triggered, the alert is made up of:
- - An **Alert processing rule** allows you to apply processing on fired alerts. Alert processing rules modify the fired alerts as they are being fired. You can use alert processing rules to add or suppress action groups, apply filters or have the rule processed on a pre-defined schedule.
+ - An **alert processing rule** allows you to apply processing on fired alerts. Alert processing rules modify the fired alerts as they are being fired. You can use alert processing rules to add or suppress action groups, apply filters or have the rule processed on a pre-defined schedule.
  - An **action group** can trigger notifications or an automated workflow to let users know that an alert has been triggered. Action groups can include:
      - Notification methods such as email, SMS, and push notifications.
      - Automation Runbooks
