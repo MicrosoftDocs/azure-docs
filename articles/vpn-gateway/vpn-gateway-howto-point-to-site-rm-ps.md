@@ -161,7 +161,7 @@ If you use self-signed certificates, they must be created using specific paramet
 
 ## <a name="upload"></a>Upload root certificate public key information
 
-Verify that your VPN gateway has finished creating. Once it has completed, you can upload the .cer file (which contains the public key information) for a trusted root certificate to Azure. Once a.cer file is uploaded, Azure can use it to authenticate clients that have installed a client certificate generated from the trusted root certificate. You can upload additional trusted root certificate files - up to a total of 20 - later, if needed.
+Verify that your VPN gateway has finished creating. Once it has completed, you can upload the .cer file (which contains the public key information) for a trusted root certificate to Azure. Once a .cer file is uploaded, Azure can use it to authenticate clients that have installed a client certificate generated from the trusted root certificate. You can upload additional trusted root certificate files - up to a total of 20 - later, if needed.
 
 >[!NOTE]
 > You can't upload the .cer file using Azure Cloud Shell. You can either use PowerShell locally on your computer, or you can use the [Azure portal steps](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile).
