@@ -97,11 +97,11 @@ The following diagrams represent a well-architected hub and spoke design that ad
 
 # [Azure Spring Standard](#tab/azure-spring-standard-private)
 
-![Reference architecture diagram for private applications using Azure Spring Apps Standard](./media/spring-cloud-reference-architecture/architecture-private_standard.png)
+:::image type="content" source="media/reference-architecture/architecture-private-standard.png" alt-text="Diagram showing the reference architecture for private applications using Azure Spring Apps Standard tier.":::
 
 # [Azure Spring Enterprise](#tab/azure-spring-enterprise-private)
 
-![Reference architecture diagram for private applications using Azure Spring Apps Enterprise](./media/spring-cloud-reference-architecture/architecture-private_enterprise.png)
+:::image type="content" source="media/reference-architecture/architecture-private-enterprise.png" alt-text="Diagram showing the reference architecture for private applications using Azure Spring Apps Enterprise tier.":::
 
 ---
 
@@ -159,11 +159,11 @@ The following diagrams represent a well-architected hub and spoke design that ad
 
 # [Azure Spring Standard](#tab/azure-spring-standard-public)
 
-![Reference architecture diagram for public applications using Azure Spring Apps Standard](./media/spring-cloud-reference-architecture/architecture-public_standard.png)
+:::image type="content" source="media/reference-architecture/architecture-public-standard.png" alt-text="Diagram showing the reference architecture for public applications using Azure Spring Apps Standard tier.":::
 
 # [Azure Spring Enterprise](#tab/azure-spring-enterprise-public)
 
-![Reference architecture diagram for public applications using Azure Spring Apps Enterprise](./media/spring-cloud-reference-architecture/architecture-public_enterprise.png)
+:::image type="content" source="media/reference-architecture/architecture-public-enterprise.png" alt-text="Diagram showing the reference architecture for public applications using Azure Spring Apps Enterprise tier.":::
 
 ---
 
