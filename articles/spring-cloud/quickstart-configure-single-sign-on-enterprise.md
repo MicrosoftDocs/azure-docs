@@ -235,7 +235,7 @@ Spring Cloud Gateway can be configured to authenticate requests via single sign-
 
    You can open the output URL in a browser to explore the updated application. The Log In function will now work, allowing you to add items to the cart and place orders. After logging in, the customer information button will display the logged in username, as shown in the following screenshot.
 
-   :::image type="content" source="media/quickstart-configure-single-sign-on-enterprise/login_success.png" alt-text="Screenshot of ACME Fitness Store app showing a logged in user.":::
+   :::image type="content" source="media/quickstart-configure-single-sign-on-enterprise/login-success.png" alt-text="Screenshot of ACME Fitness Store app showing a logged in user.":::
 
 ## Configure single sign-on for API Portal
 

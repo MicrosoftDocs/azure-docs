@@ -227,11 +227,11 @@ Navigate to the **Performance** pane:
 
 Navigate to the **Performance/Dependencies** pane. Here you can see the performance number for dependencies, particularly SQL calls, as shown in the following screenshot:
 
-:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/performance_dependencies.png" alt-text="Screenshot of Azure portal showing the Dependencies section of the Performance pane of Azure Application Insights.":::
+:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/performance-dependencies.png" alt-text="Screenshot of Azure portal showing the Dependencies section of the Performance pane of Azure Application Insights.":::
 
 Navigate to the **Performance/Roles** pane. Here you can see the performance metrics for individual instances or roles, as shown in the following screenshot:
 
-:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/fitness-store-roles-in-performance-blade.png" alt-text="Screenshot of Azure portal showing the Roles section of the Performance pane of Azure Application Insights.":::
+:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/fitness-store-roles-in-performance-pane.png" alt-text="Screenshot of Azure portal showing the Roles section of the Performance pane of Azure Application Insights.":::
 
 Select a SQL call to see the end-to-end transaction in context, as shown in the following screenshot:
 
@@ -256,9 +256,9 @@ The REST controllers `ProductController`, and `PaymentController` have been inst
 - `acem-payment` application has the following custom metrics enabled:
   - @Timed: `store.payment`
 
-You can see these custom metrics in the **Metrics** pane:
+You can see these custom metrics in the **Metrics** pane, as shown in the following screenshot.
 
-:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/fitness-store-custom-metrics-with-payments-2.png" alt-text="Screenshot showing custom metrics instrumented by Micrometer.":::
+:::image type="content" source="media/quickstart-monitor-end-to-end-enterprise/fitness-store-custom-metrics-with-payments.png" alt-text="Screenshot showing custom metrics instrumented by Micrometer.":::
 
 Navigate to the **Live Metrics** pane. Here you can see live metrics on screen with low latencies < 1 second, as shown in the following screenshot:
 
