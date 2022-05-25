@@ -88,7 +88,7 @@ In Azure Firewall Premium IDPS, private IP address ranges are used to identify i
 
 :::image type="content" source="media/firewall-preview/idps-private-ip.png" alt-text="Screenshot showing I D P S private IP address ranges.":::
 
-### Structured Firewall Logs (preview)
+### Structured firewall logs (preview)
 
 Today, the following diagnostic log categories are available for Azure Firewall:
 - Application rule log
