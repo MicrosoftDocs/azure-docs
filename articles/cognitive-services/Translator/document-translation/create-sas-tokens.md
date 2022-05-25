@@ -119,7 +119,6 @@ Azure Storage Explorer is a free standalone app that enables you to easily manag
 }
 ```
 
-
 ### [SAS tokens for blobs](#tab/blobs)
 
 1. Open the Azure Storage Explorer app on your local machine and navigate to your connected **Storage Accounts**.
