@@ -1,5 +1,5 @@
 ---
-title: What is document summarization in Azure Cognitive Service for Language (preview)?
+title: What is document and conversation summarization (preview)?
 titleSuffix: Azure Cognitive Services
 description: Learn about summarizing text.
 services: cognitive-services

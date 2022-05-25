@@ -96,7 +96,7 @@ Before proceeding, you'll need your Elastic APM server connectivity information 
    az spring app deploy \
        --name <your-app-name> \
        --artifact-path <unique-path-to-your-app-jar-on-custom-storage> \
-       --jvm-options='-javaagent:<agent-location>' \
+       --jvm-options='-javaagent:<elastic-agent-location>' \
        --env ELASTIC_APM_SERVICE_NAME=<your-app-name> \
              ELASTIC_APM_APPLICATION_PACKAGES='<your-app-package-name>' \
              ELASTIC_APM_SERVER_URL='<your-Elastic-APM-server-URL>' \
@@ -114,7 +114,7 @@ To configure the environment variables in a Terraform template, add the followin
 ```terraform
 resource "azurerm_spring_cloud_java_deployment" "example" {
   ...
-  jvm_options = "-javaagent:<unique-path-to-your-app-jar-on-custom-storage>"
+  jvm_options = "-javaagent:<elastic-agent-location>"
   ...
     environment_variables = {
       "ELASTIC_APM_SERVICE_NAME"="<your-app-name>",
@@ -137,7 +137,7 @@ To configure the environment variables in an ARM template, add the following cod
     "ELASTIC_APM_SERVER_URL"="<your-Elastic-APM-server-URL>",
     "ELASTIC_APM_SECRET_TOKEN"="<your-Elastic-APM-secret-token>"
   },
-  "jvmOptions": "-javaagent:<unique-path-to-your-app-jar-on-custom-storage>",
+  "jvmOptions": "-javaagent:<elastic-agent-location>",
   ...
 }
 ```
