@@ -15,7 +15,7 @@ ms.subservice: chat
 
 # Enable file sharing using UI Library and Azure Blob Storage
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 In this tutorial, we'll be configuring the Azure Communication Services UI Library Chat Composite to enable file sharing. The UI Library Chat Composite provides a set of rich components and UI controls that can be used to enable file sharing. We will be leveraging Azure Blob Storage to enable the storage of the files that are shared through the chat thread.
 
