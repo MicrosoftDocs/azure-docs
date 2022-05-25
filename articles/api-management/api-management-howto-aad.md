@@ -175,7 +175,7 @@ Users from the configured Azure AD instance can now:
 
 In the developer portal, you can sign in with Azure AD using the **Sign-in button: OAuth** widget included on the sign-in page of the default developer portal content.
 
-:::image type="content" source="media/api-management-howto-aad/developer-portal-aad-signin.png" alt-text="Screenshot showing OAuth widget in developer portal.":::
+:::image type="content" source="media/api-management-howto-aad/developer-portal-azure-ad-signin.png" alt-text="Screenshot showing OAuth widget in developer portal.":::
 
 
 Although a new account will automatically be created when a new user signs in with Azure AD, consider adding the same widget to the sign-up page. The **Sign-up form: OAuth** widget represents a form used for signing up with OAuth.
