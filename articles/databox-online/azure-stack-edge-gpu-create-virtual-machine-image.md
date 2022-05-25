@@ -59,7 +59,7 @@ Do the following steps to create a Linux VM image:
 
 1. Create a Linux virtual machine in Azure. For portal instructions, see [Quickstart: Create a Linux VM in the Azure portal](../virtual-machines/linux/quick-create-portal.md).  For PowerShell instructions, see [Quickstart: Create a Linux VM in Azure with PowerShell](../virtual-machines/linux/quick-create-powershell.md).
 
-   You can use any Gen1 or Gen2 VM with a fixed-size VHD in Azure Marketplace to create Linux custom images, with the exception of Red Hat Enterprise Linux (RHEL) images, which require extra steps. For a list of Azure Marketplace images that could work, see [Commonly used Azure Marketplace images for Azure Stack Edge](azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md#commonly-used-marketplace-images). For guidance on RHEL images, see [Using RHEL BYOS images](#using-rhel-byos-images), below.
+   You can use any Gen1 or Gen2 VM with a fixed-size VHD in Azure Marketplace to create Linux custom images. This excludes Red Hat Enterprise Linux (RHEL) images, which require extra steps and can only be used to create a Gen1 VM image. For a list of Azure Marketplace images that could work, see [Commonly used Azure Marketplace images for Azure Stack Edge](azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md#commonly-used-marketplace-images). For guidance on RHEL images, see [Using RHEL BYOS images](#using-rhel-byos-images), below.
 
 1. Deprovision the VM. Use the Azure VM agent to delete machine-specific files and data. Use the `waagent` command with the `-deprovision+user` parameter on your source Linux VM. For more information, see [Understanding and using Azure Linux Agent](../virtual-machines/extensions/agent-linux.md).
 

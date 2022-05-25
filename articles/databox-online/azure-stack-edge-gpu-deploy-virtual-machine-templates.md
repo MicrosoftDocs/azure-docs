@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/24/2022
+ms.date: 05/25/2022
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
 ---
@@ -307,6 +307,10 @@ The file `CreateImage.parameters.json` takes the following parameters:
         "imageUri": {
               "value": "<Path to the VHD that you uploaded in the Storage account>"
         },
+        "hyperVGeneration": { 
+              "type": "string", 
+              "value": "<Generation of the VM, V1 or V2> 
+        }, 
     }
 ```
 
@@ -318,12 +322,11 @@ Edit the file `CreateImage.parameters.json` to include the following values for 
     "parameters": {
             "osType": {
               "value": "Windows"
-            },
-            "hyperVGeneration": { 
-              "type": "string", 
-              "value": "<Generation of the VM, V1 or V2> 
             }, 
-        }
+            "hyperVGeneration": { 
+              "value": "V2" 
+        },
+    }
     ```
 
 2. Change the image URI to the URI of the image you uploaded in the earlier step:
@@ -347,9 +350,6 @@ Edit the file `CreateImage.parameters.json` to include the following values for 
       "parameters": {
         "osType": {
           "value": "Linux"
-        },
-        "hyperVGeneration": { 
-          "value": "V2" 
         },
         "imageName": {
           "value": "myaselinuximg"
