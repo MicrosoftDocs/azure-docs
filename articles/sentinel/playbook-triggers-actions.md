@@ -114,7 +114,7 @@ Basic playbook to send incident details over mail:
 
 The **Entities** dynamic field is an array of JSON objects, each of which represents an entity. Each entity type has its own schema, depending on its unique properties.
 
-The **"Entities - Get \<entity name>"** action allows you to do the following:
+The **"Entities - Get \<entity type>"** action allows you to do the following:
 
 - Filter the array of entities by the requested type.
 - Parse the specific fields of this type, so they can be used as dynamic fields in further actions.
