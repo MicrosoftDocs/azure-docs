@@ -265,6 +265,9 @@
               href: api-management-howto-ca-certificates.md
             - name: Manage protocols and ciphers
               href: api-management-howto-manage-protocols-ciphers.md
+            - name: Mitigate OWASP API threats
+              href: mitigate-owasp-api-threats.md
+              displayName: OWASP top 10, vulnerability, vulnerabilities
           - name: Set up backend authentication
             items:
             - name: Mutual certificate authentication
