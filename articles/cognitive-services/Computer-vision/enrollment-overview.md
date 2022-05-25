@@ -46,4 +46,4 @@ Before you design an enrollment flow, think about how the application you're bui
 
 ## Next steps  
 
-Follow the [Build an enrollment app](build-enrollment-app.md) guide to get started with a sample enrollment app. Then customize it or write your own app to suit the needs of your product.
+Follow the [Build an enrollment app](Tutorials/build-enrollment-app.md) guide to get started with a sample enrollment app. Then customize it or write your own app to suit the needs of your product.

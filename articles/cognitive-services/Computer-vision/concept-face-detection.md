@@ -17,7 +17,7 @@ ms.author: pafarley
 
 This article explains the concepts of face detection and face attribute data. Face detection is the process of locating human faces in an image and optionally returning different kinds of face-related data.
 
-You use the [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API to detect faces in an image. To get started using the REST API or a client SDK, follow a [quickstart](../Quickstarts/client-libraries.md). Or, for a more in-depth guide, see [Call the detect API](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md).
+You use the [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API to detect faces in an image. To get started using the REST API or a client SDK, follow a [quickstart](./quickstarts-sdk/identity-client-libraries.md). Or, for a more in-depth guide, see [Call the detect API](./how-to/identity-detact-faces.md).
 
 ## Face rectangle
 
@@ -31,7 +31,7 @@ The face ID is a unique identifier string for each detected face in an image. Yo
 
 Face landmarks are a set of easy-to-find points on a face, such as the pupils or the tip of the nose. By default, there are 27 predefined landmark points. The following figure shows all 27 points:
 
-![A face diagram with all 27 landmarks labeled](../media/landmarks.1.jpg)
+![A face diagram with all 27 landmarks labeled](./media/landmarks.1.jpg)
 
 The coordinates of the points are returned in units of pixels.
 
@@ -52,9 +52,9 @@ Attributes are a set of features that can optionally be detected by the [Face - 
 * **Hair**. The hair type of the face. This attribute shows whether the hair is visible, whether baldness is detected, and what hair colors are detected.
 * **Head pose**. The face's orientation in 3D space. This attribute is described by the roll, yaw, and pitch angles in degrees, which are defined according to the [right-hand rule](https://en.wikipedia.org/wiki/Right-hand_rule). The order of three angles is roll-yaw-pitch, and each angle's value range is from -180 degrees to 180 degrees. 3D orientation of the face is estimated by the roll, yaw, and pitch angles in order. See the following diagram for angle mappings:
 
-    ![A head with the pitch, roll, and yaw axes labeled](../media/headpose.1.jpg)
+    ![A head with the pitch, roll, and yaw axes labeled](./media/headpose.1.jpg)
 
-    For more details on how to use these values, see the [Head pose how-to guide](../Face-API-How-to-Topics/how-to-use-headpose.md).
+    For more details on how to use these values, see the [Head pose how-to guide](./how-to/use-headpose.md).
 * **Makeup**. Whether the face has makeup. This attribute returns a Boolean value for eyeMakeup and lipMakeup.
 * **Mask**.  Whether the face is wearing a mask. This attribute returns a possible mask type, and a Boolean value to indicate whether nose and mouth are covered.
 * **Noise**. The visual noise detected in the face image. This attribute returns a value between zero and one and an informal rating of low, medium, or high.
@@ -89,7 +89,7 @@ Some input images with JPEG format might contain orientation information in Exch
 
 To properly display the face rectangle and landmarks, you need to make sure the image is rotated correctly. Most of image visualization tools will auto-rotate the image according to its Exif orientation by default. For other tools, you might need to apply the rotation using your own code. The following examples show a face rectangle on a rotated image (left) and a non-rotated image (right).
 
-![Two face images with and without rotation](../media/image-rotation.png)
+![Two face images with and without rotation](./media/image-rotation.png)
 
 ### Video input
 
@@ -106,4 +106,4 @@ If you're detecting faces from a video feed, you may be able to improve performa
 
 Now that you're familiar with face detection concepts, learn how to write a script that detects faces in a given image.
 
-* [Call the detect API](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)
+* [Call the detect API](./how-to/identity-detect-faces.md)

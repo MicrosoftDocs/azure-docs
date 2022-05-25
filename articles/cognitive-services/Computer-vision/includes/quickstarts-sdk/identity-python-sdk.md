@@ -74,7 +74,7 @@ To delete the **PersonGroup** you created in this quickstart, run the following 
 In this quickstart, you learned how to use the Face client library for Python to do basic face identification. Next, learn about the different face detection models and how to specify the right model for your use case.
 
 > [!div class="nextstepaction"]
-> [Specify a face detection model version](../../Face-API-How-to-Topics/specify-detection-model.md)
+> [Specify a face detection model version](../../how-to/specify-detection-model.md)
 
 * [What is the Face service?](../../overview.md)
 * More extensive sample code can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/Face/FaceQuickstart.py).

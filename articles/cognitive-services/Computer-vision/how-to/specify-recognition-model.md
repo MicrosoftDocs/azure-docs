@@ -33,9 +33,9 @@ Read on to learn how to specify a selected model in different Face operations wh
 
 You should be familiar with the concepts of AI face detection and identification. If you aren't, see these guides first:
 
-* [Face detection concepts](../concepts/face-detection.md)
-* [Face recognition concepts](../concepts/face-recognition.md)
-* [Call the detect API](HowtoDetectFacesinImage.md)
+* [Face detection concepts](../concept-face-detection.md)
+* [Face recognition concepts](../concept-face-recognition.md)
+* [Call the detect API](identity-detect-faces.md)
 
 ## Detect faces with specified model
 

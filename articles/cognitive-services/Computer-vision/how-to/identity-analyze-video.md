@@ -148,7 +148,7 @@ The second sample app is a bit more interesting, and allows you to choose which 
 
 In most modes, there will be a visible delay between the live video on the left, and the visualized analysis on the right. This delay is the time taken to make the API call. One exception is the "EmotionsWithClientFaceDetect" mode, which performs face detection locally on the client computer using OpenCV, before submitting any images to Cognitive Services. This way, we can visualize the detected face immediately and then update the emotions once the API call returns. This is an example of a "hybrid" approach, where the client can perform some simple processing, and Cognitive Services APIs can augment this with more advanced analysis when necessary.
 
-![HowToAnalyzeVideo](../../Video/media/FramebyFrame.jpg)
+![HowToAnalyzeVideo](../../Video/Images/FramebyFrame.jpg)
 
 ### Integrating into your codebase
 
@@ -174,4 +174,4 @@ In this guide, you learned how to run near-real-time analysis on live video stre
 Feel free to provide feedback and suggestions in the [GitHub repository](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) or, for broader API feedback, on our [UserVoice](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858) site.
 
 ## Related Topics
-- [Call the detect API](HowtoDetectFacesinImage.md)
+- [Call the detect API](identity-detect-faces.md)

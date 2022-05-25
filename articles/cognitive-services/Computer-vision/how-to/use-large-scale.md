@@ -17,7 +17,7 @@ ms.custom: devx-track-csharp
 
 # Example: Use the large-scale feature
 
-This guide is an advanced article on how to scale up from existing PersonGroup and FaceList objects to LargePersonGroup and LargeFaceList objects, respectively. This guide demonstrates the migration process. It assumes a basic familiarity with PersonGroup and FaceList objects, the [Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4) operation, and the face recognition functions. To learn more about these subjects, see the [face recognition](../concepts/face-recognition.md) conceptual guide.
+This guide is an advanced article on how to scale up from existing PersonGroup and FaceList objects to LargePersonGroup and LargeFaceList objects, respectively. This guide demonstrates the migration process. It assumes a basic familiarity with PersonGroup and FaceList objects, the [Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4) operation, and the face recognition functions. To learn more about these subjects, see the [face recognition](../concept-face-recognition.md) conceptual guide.
 
 LargePersonGroup and LargeFaceList are collectively referred to as large-scale operations. LargePersonGroup can contain up to 1 million persons, each with a maximum of 248 faces. LargeFaceList can contain up to 1 million faces. The large-scale operations are similar to the conventional PersonGroup and FaceList but have some differences because of the new architecture. 
 
@@ -55,7 +55,7 @@ Migration from a PersonGroup to a LargePersonGroup is simple. They share exactly
 
 For PersonGroup- or person-related implementation, it's necessary to change only the API paths or SDK class/module to LargePersonGroup and LargePersonGroup Person.
 
-Add all of the faces and persons from the PersonGroup to the new LargePersonGroup. For more information, see [Add faces](how-to-add-faces.md).
+Add all of the faces and persons from the PersonGroup to the new LargePersonGroup. For more information, see [Add faces](add-faces.md).
 
 ### Migrate a FaceList to a LargeFaceList
 
@@ -259,7 +259,7 @@ private static void TrainTimerOnElapsed(string largePersonGroupId, int timeInter
 }
 ```
 
-For more information about data management and identification-related implementations, see [Add faces](how-to-add-faces.md).
+For more information about data management and identification-related implementations, see [Add faces](add-faces.md).
 
 ## Summary
 
@@ -272,5 +272,5 @@ In this guide, you learned how to migrate the existing PersonGroup or FaceList c
 
 Follow a how-to guide to learn how to add faces to a PersonGroup or write a script to do the Identify operation on a PersonGroup.
 
-- [Add faces](how-to-add-faces.md)
-- [Face client library quickstart](../Quickstarts/client-libraries.md)
+- [Add faces](add-faces.md)
+- [Face client library quickstart](../quickstarts-sdk/identity-client-libraries.md)

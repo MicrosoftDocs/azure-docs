@@ -44,13 +44,13 @@ This guide focuses on the specifics of the Detect call, such as what arguments y
 
 ### Get face landmarks
 
-[Face landmarks](../concepts/face-detection.md#face-landmarks) are a set of easy-to-find points on a face, such as the pupils or the tip of the nose. To get face landmark data, set the _detectionModel_ parameter to `DetectionModel.Detection01` and the _returnFaceLandmarks_ parameter to `true`.
+[Face landmarks](../concept-face-detection.md#face-landmarks) are a set of easy-to-find points on a face, such as the pupils or the tip of the nose. To get face landmark data, set the _detectionModel_ parameter to `DetectionModel.Detection01` and the _returnFaceLandmarks_ parameter to `true`.
 
 :::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/detect.cs" id="landmarks1":::
 
 ### Get face attributes
 
-Besides face rectangles and landmarks, the face detection API can analyze several conceptual attributes of a face. For a full list, see the [Face attributes](../concepts/face-detection.md#attributes) conceptual section.
+Besides face rectangles and landmarks, the face detection API can analyze several conceptual attributes of a face. For a full list, see the [Face attributes](../concept-face-detection.md#attributes) conceptual section.
 
 To analyze face attributes, set the _detectionModel_ parameter to `DetectionModel.Detection01` and the _returnFaceAttributes_ parameter to a list of [FaceAttributeType Enum](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype) values.
 
@@ -78,7 +78,7 @@ The following code shows how you might retrieve the face attribute data that you
 
 :::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/detect.cs" id="attributes2":::
 
-To learn more about each of the attributes, see the [Face detection and attributes](../concepts/face-detection.md) conceptual guide.
+To learn more about each of the attributes, see the [Face detection and attributes](../concept-face-detection.md) conceptual guide.
 
 ## Next steps
 

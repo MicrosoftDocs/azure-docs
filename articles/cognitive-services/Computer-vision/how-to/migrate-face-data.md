@@ -19,7 +19,7 @@ ms.custom: [devx-track-csharp, cogserv-non-critical-vision]
 
 This guide shows you how to move face data, such as a saved PersonGroup object with faces, to a different Azure Cognitive Services Face subscription. To move the data, you use the Snapshot feature. This way you avoid having to repeatedly build and train a PersonGroup or FaceList object when you move or expand your operations. For example, perhaps you created a PersonGroup object with a free subscription and now want to migrate it to your paid subscription. Or you might need to sync face data across subscriptions in different regions for a large enterprise operation.
 
-This same migration strategy also applies to LargePersonGroup and LargeFaceList objects. If you aren't familiar with the concepts in this guide, see their definitions in the [Face recognition concepts](../concepts/face-recognition.md) guide. This guide uses the Face .NET client library with C#.
+This same migration strategy also applies to LargePersonGroup and LargeFaceList objects. If you aren't familiar with the concepts in this guide, see their definitions in the [Face recognition concepts](../concept-face-recognition.md) guide. This guide uses the Face .NET client library with C#.
 
 > [!WARNING]
 > The Snapshot feature might move your data outside the geographic region you originally selected. Data might move to West US, West Europe, and Southeast Asia regions.
@@ -235,5 +235,5 @@ Next, see the relevant API reference documentation, explore a sample app that us
 
 - [Snapshot reference documentation (.NET SDK)](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations)
 - [Face snapshot sample](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)
-- [Add faces](how-to-add-faces.md)
-- [Call the detect API](HowtoDetectFacesinImage.md)
+- [Add faces](add-faces.md)
+- [Call the detect API](identity-detect-faces.md)

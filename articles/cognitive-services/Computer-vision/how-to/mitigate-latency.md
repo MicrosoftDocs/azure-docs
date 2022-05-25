@@ -64,7 +64,7 @@ Mitigations:
 var faces = await client.Face.DetectWithUrlAsync("https://csdx.blob.core.windows.net/resources/Face/Images/Family1-Daughter1.jpg");
 ```
 - Consider uploading a smaller file.
-    - See the guidelines regarding [input data for face detection](../concepts/face-detection.md#input-data) and [input data for face recognition](../concepts/face-recognition.md#input-data).
+    - See the guidelines regarding [input data for face detection](../concept-face-detection.md#input-data) and [input data for face recognition](../concept-face-recognition.md#input-data).
     - For face detection, when using detection model `DetectionModel.Detection01`, reducing the image file size will increase processing speed. When using detection model `DetectionModel.Detection02`, reducing the image file size will only increase processing speed if the image file is smaller than 1920x1080.
     - For face recognition, reducing the face size to 200x200 pixels does not affect the accuracy of the recognition model.
     - The performance of the `DetectWithUrlAsync` and `DetectWithStreamAsync` methods also depends on how many faces are in an image. The Face service can return up to 100 faces for an image. Faces are ranked by face rectangle size from large to small.
@@ -90,7 +90,7 @@ Mitigations:
 In this guide, you learned how to mitigate latency when using the Face service. Next, learn how to scale up from existing PersonGroup and FaceList objects to LargePersonGroup and LargeFaceList objects, respectively.
 
 > [!div class="nextstepaction"]
-> [Example: Use the large-scale feature](how-to-use-large-scale.md)
+> [Example: Use the large-scale feature](use-large-scale.md)
 
 ## Related topics
 

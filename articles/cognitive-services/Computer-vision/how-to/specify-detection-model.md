@@ -29,12 +29,12 @@ If you aren't sure whether you should use the latest model, skip to the [Evaluat
 
 You should be familiar with the concept of AI face detection. If you aren't, see the face detection conceptual guide or how-to guide:
 
-* [Face detection concepts](../concepts/face-detection.md)
-* [Call the detect API](HowtoDetectFacesinImage.md)
+* [Face detection concepts](../concept-face-detection.md)
+* [Call the detect API](identity-detect-faces.md)
 
 ## Detect faces with specified model
 
-Face detection finds the bounding-box locations of human faces and identifies their visual landmarks. It extracts the face's features and stores them for later use in [recognition](../concepts/face-recognition.md) operations.
+Face detection finds the bounding-box locations of human faces and identifies their visual landmarks. It extracts the face's features and stores them for later use in [recognition](../concept-face-recognition.md) operations.
 
 When you use the [Face - Detect] API, you can assign the model version with the `detectionModel` parameter. The available values are:
 
