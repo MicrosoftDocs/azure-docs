@@ -218,7 +218,7 @@ items:
         href: conversational-language-understanding/how-to/fail-over.md
   - name: Concepts
     items:
-      - name: Backwards compatibility
+      - name: Backwards compatibility with LUIS
         href: conversational-language-understanding/concepts/backwards-compatibility.md
       - name: Entity components
         href: conversational-language-understanding/concepts/entity-components.md
@@ -505,18 +505,18 @@ items:
   items:
   - name: Overview
     href: orchestration-workflow/overview.md
-  - name: FAQ
-    href: orchestration-workflow/faq.md
   - name: Quickstart
     href: orchestration-workflow/quickstart.md
+  - name: FAQ
+    href: orchestration-workflow/faq.md
   - name: Language support
     href: orchestration-workflow/language-support.md
   - name: How-to guides
     items:
-      - name: Build schema
-        href: orchestration-workflow/how-to/build-schema.md
       - name: Create project
         href: orchestration-workflow/how-to/create-project.md
+      - name: Build schema
+        href: orchestration-workflow/how-to/build-schema.md
       - name: Label utterances
         href: orchestration-workflow/how-to/tag-utterances.md
       - name: Train a model
@@ -535,10 +535,18 @@ items:
         href: orchestration-workflow/concepts/evaluation-metrics.md
       - name: Back up and recover your models
         href: orchestration-workflow/concepts/fail-over.md
-      - name: None intent
-        href: orchestration-workflow/concepts/none-intent.md
       - name: Data formats
         href: orchestration-workflow/concepts/data-formats.md
+      - name: None intent
+        href: orchestration-workflow/concepts/none-intent.md
+      - name: Enterprise readiness
+        items: 
+        - name: Virtual networks
+          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/language-service/context/context
+        - name: Cognitive Services security
+          href: ../cognitive-services-security.md?context=/azure/cognitive-services/language-service/context/context
+        - name: Encryption of data at rest
+          href: concepts/encryption-data-at-rest.md
   - name: Tutorials
     items:
       - name: Connect conversational language understanding and custom question answering
