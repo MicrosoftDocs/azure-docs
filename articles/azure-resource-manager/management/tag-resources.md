@@ -2,7 +2,7 @@
 title: Tag resources, resource groups, and subscriptions for logical organization
 description: Shows how to apply tags to organize Azure resources for billing and managing.
 ms.topic: conceptual
-ms.date: 05/18/2022
+ms.date: 05/25/2022
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
