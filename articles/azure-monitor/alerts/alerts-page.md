@@ -43,7 +43,7 @@ To see more details about a specific alert instance, select the alerts instance 
 
 :::image type="content" source="media/alerts-managing-alert-instances/alerts-details-page.png" alt-text="Screenshot of alerts details page.":::
 
-# Next steps
+## Next steps
 
 - [Learn about Azure Monitor alerts](./alerts-overview.md)
 - [Create a new alert rule](alerts-log.md)
