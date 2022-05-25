@@ -57,7 +57,7 @@ Before you put any device in production you should know how you're going to mana
 * IoT Edge
 * CA certificates
 
-[Device Update for IoT Hub](../iot-hub-device-update) (Preview) is a service that enables you to deploy over-the-air updates (OTA) for your IoT Edge devices. 
+[Device Update for IoT Hub](../iot-hub-device-update/) (Preview) is a service that enables you to deploy over-the-air updates (OTA) for your IoT Edge devices. 
 
 Alternative methods for updating IoT Edge require physical or SSH access to the IoT Edge device. For more information, see [Update the IoT Edge runtime](how-to-update-iot-edge.md). To update multiple devices, consider adding the update steps to a script or use an automation tool like Ansible.
 
