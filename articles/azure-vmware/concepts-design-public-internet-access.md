@@ -61,5 +61,5 @@ The option that you select depends on the following factors:
 ### Next Steps
  
 [Enable Managed SNAT for Azure VMware Solution Workloads (Preview)](enable-managed-snat-for-workloads.md)<br>
-[Enable Public IP to the NSX Edge for Azure VMware Solution (Preview)](enable-public-ip-to-the-nsx-edge.md)<br>
+[Enable Public IP to the NSX Edge for Azure VMware Solution (Preview)](enable-public-ip-nsx-edge.md)<br>
 [Disable Internet access or enable a default route (Preview)](disable-internet-access.md)
