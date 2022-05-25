@@ -56,6 +56,8 @@ After you create your directory, you can add your custom domain name.
 
     >[!IMPORTANT]
     >You must include *.com*, *.net*, or any other top-level extension for this to work properly.
+    > 
+    >When adding a custom domain, the Password Policy values will be inherited from the initial domain.
 
     The unverified domain is added. The **contoso.com** page appears showing your DNS information. Save this information. You need it later to create a TXT record to configure DNS.
 
