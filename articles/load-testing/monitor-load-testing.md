@@ -37,7 +37,7 @@ The following sections build on this article by describing the specific data gat
 ## Monitoring data 
 
 
-Azure Load Testing collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data-from-Azure-resources). 
+Azure Load Testing collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data-from-azure-resources). 
 
 See [Monitor Azure Load Testing data reference](monitor-load-testing-reference.md) for detailed information on logs metrics created by Azure Load Testing.
 
