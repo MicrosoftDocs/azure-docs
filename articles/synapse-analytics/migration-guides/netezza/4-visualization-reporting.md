@@ -126,7 +126,7 @@ Whatever the decision is, it must involve the business, since they produce the r
 
 ### Migrate reports based on usage
 
-Usage is interesting, since it's an indicator of business value. Reports and dashboards that are never used clearly aren't contributing to supporting any decisions and$1 [don't currently offer any value. So, do you've any mechanism for finding out which reports, and dashboards are currently not used? Several BI tools provide statistics on usage, which would be an obvious place to start.
+Usage is interesting, since it's an indicator of business value. Reports and dashboards that are never used clearly aren't contributing to supporting any decisions and don't currently offer any value. So, do you have any mechanism for finding out which reports, and dashboards are currently not used? Several BI tools provide statistics on usage, which would be an obvious place to start.
 
 If your legacy data warehouse has been up and running for many years, there's a high chance you could have hundreds, if not thousands, of reports in existence. In these situations, usage is an important indicator to the business value of a specific report or dashboard. In that sense, it's worth compiling an inventory of the reports and dashboards you've and defining their business purpose and usage statistics.
 
