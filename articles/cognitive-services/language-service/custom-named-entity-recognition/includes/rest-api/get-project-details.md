@@ -19,9 +19,7 @@ Use the following **GET** request to get your project details. Replace the place
 |---------|---------|---------|
 |`{ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
-|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest version released. Learn more about other available [API versions](../../../concepts/model-lifecycle.md#api-versions)  | `2022-03-01-preview` |
-
-
+|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest version released. Learn more about other available [API versions](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data)  | `2022-05-01` |
 
 #### Headers
 
@@ -39,12 +37,12 @@ Use the following header to authenticate your request.
         "lastModifiedDateTime": "2021-10-19T23:24:41.572Z",
         "lastTrainedDateTime": "2021-10-19T23:24:41.572Z",
         "lastDeployedDateTime": "2021-10-19T23:24:41.572Z",
-        "modelType": "{MODEL-TYPE}",
+        "projectKind": "CustomEntityRecognition",
         "storageInputContainerName": "{CONTAINER-NAME}",
-        "name": "myProject",
-        "multiLingual": true,
-        "description": "string",
-        "language": "en-us",
-        "settings": {}
+        "projectName": "{PROJECT-NAME}",
+        "multilingual": false,
+        "description": "Project description",
+        "language": "{LANGUAGE-CODE}"
     }
 ```
+
