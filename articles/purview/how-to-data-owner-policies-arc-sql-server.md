@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 05/16/2022
+ms.date: 05/24/2022
 ms.custom: references_regions, event-tier1-build-2022
 ---
 # Provision access by data owner for SQL Server on Azure Arc-enabled servers (preview)
@@ -35,8 +35,8 @@ This how-to guide describes how a data owner can delegate authoring policies in 
 ## Configuration
 [!INCLUDE [Access policies generic configuration](./includes/access-policies-configuration-generic.md)]
 
-> [!Warning]
-> "Access control (IAM)" for the "SQL Server - Azure Arc" resource is  visible in Azure portal only through a special link, described in the next section. You can assign the *IAM Owner* permission by entering Azure portal through that special link. You can alternatively configure this permission at the parent resource group level so that it gets inherited by this data source.
+> [!Important]
+> You can assign the data source side permission (i.e., *IAM Owner*) **only** by entering Azure portal through this [special link](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_HybridData_Platform=sqlrbacmain#blade/Microsoft_Azure_HybridCompute/AzureArcCenterBlade/sqlServers). Alternatively, you can configure this permission at the parent resource group level so that it gets inherited by the "SQL Server - Azure Arc" data source.
 
 ### SQL Server on Azure Arc-enabled server configuration
 This section describes the steps to configure the SQL Server on Azure Arc to use Microsoft Purview.
@@ -52,9 +52,9 @@ This section describes the steps to configure the SQL Server on Azure Arc to use
 
 1. Set **External Policy Based Authorization** to enabled
 
-1. Enter **Microsoft Purview Endpoint** in the format *https://\<purview-account-name\>.purview.azure.com*. Note: you can get the endpoint by selecting your Microsoft Purview account through [this link](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Purview%2FAccounts) and then navigating to the Properties section on the left menu. Scroll down until you see "Scan endpoint". Copy the listed endpoint but remove "/Scan" at the end.
+1. Enter **Microsoft Purview Endpoint** in the format *https://\<purview-account-name\>.purview.azure.com*. You can see the names of Microsoft Purview accounts in your tenant through [this link](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Purview%2FAccounts). Optionally, you can confirm the endpoint by navigating to the Microsoft Purview account, then  to the Properties section on the left menu and scrolling down until you see "Scan endpoint". The full endpoint path will be the one listed without the "/Scan" at the end.
 
-1. Make a note of the **App registration ID**, as you will need it when you register this data source for *Data use Management* in Microsoft Purview.
+1. Make a note of the **App registration ID**, as you will need it when you register and enable this data source for *Data use Management* in Microsoft Purview.
    
 1. Select the **Save** button to save the configuration.
 

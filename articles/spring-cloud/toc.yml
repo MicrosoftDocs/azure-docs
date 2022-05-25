@@ -264,6 +264,8 @@ items:
     href: reference-architecture.md
 - name: Reference
   items:
+  - name: API breaking changes
+    href: breaking-changes.md
   - name: Azure CLI plugin
     href: /cli/azure/spring?toc=/azure/spring-cloud/toc.json&bc=/azure/bread/toc.json
   - name: Azure PowerShell
