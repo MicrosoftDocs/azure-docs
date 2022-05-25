@@ -219,6 +219,8 @@ For this tutorial you only need a basic cluster, so we'll  use a Standard_DS3_v2
 > [!TIP]
 > If you already have a compute cluster, replace "cpu-cluster" in the code below with the name of your cluster.  This will keep you from creating another one.
 
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=cpu_cluster)]
+
 ```python
 from azure.ai.ml.entities import AmlCompute
 
@@ -850,7 +852,7 @@ Now that the model is deployed to the endpoint, you can run inference with it.
 
 Create a sample request file following the design expected in the run method in the score script.
 
-[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=sample-request.json)]
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=sample-request.json)][!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=write-sample-request)]
 
 ```python
 %%writefile {deploy_dir}/sample-request.json
