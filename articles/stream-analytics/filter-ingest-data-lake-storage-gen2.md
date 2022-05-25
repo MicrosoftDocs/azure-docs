@@ -60,7 +60,7 @@ Here's a sample **Metrics** page:
 
 1. You should see files created in the container you specified. 
 
-    :::image type="content" source="./media/filter-ingest-data-lake-storage-gen2/filtered-data-file.png" alt-text="Screenshot showing the the generated file with filtered data in the Azure Data Lake Storage." lightbox="./media/filter-ingest-data-lake-storage-gen2/filtered-data-file.png" :::        
+    :::image type="content" source="./media/filter-ingest-data-lake-storage-gen2/filtered-data-file.png" alt-text="Screenshot showing the generated file with filtered data in the Azure Data Lake Storage." lightbox="./media/filter-ingest-data-lake-storage-gen2/filtered-data-file.png" :::        
 1. Download and open the file to confirm that you see only the filtered data. In the following example, you see data with **SwitchNum** set to **US**.  
 
     ```json
