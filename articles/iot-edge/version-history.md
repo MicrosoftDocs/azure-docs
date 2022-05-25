@@ -14,6 +14,8 @@ ms.service: iot-edge
 
 Azure IoT Edge is a product built from the open-source IoT Edge project hosted on GitHub. All new releases are made available in the [Azure IoT Edge project](https://github.com/Azure/azure-iotedge). Contributions and bug reports can be made on the [open-source IoT Edge project](https://github.com/Azure/iotedge).
 
+Azure IoT Edge is governed by Microsoft's [Modern Lifecycle Policy](/lifecycle/policies/modern).
+
 ## Documented versions
 
 The IoT Edge documentation on this site is available for two different versions of the product, so that you can choose the content that applies to your IoT Edge environment. Currently, the two supported versions are:
