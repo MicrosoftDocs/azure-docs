@@ -1,4 +1,4 @@
-[Azure App Service](../../overview.md) provides a highly scalable, self-patching web hosting service. This quickstart tutorial shows how to deploy a Java app to Azure App Service on Linux using the Azure portal.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This quickstart tutorial shows how to deploy a Java app to Azure App Service on Linux using the Azure portal.
 
 This quickstart configures an App Service app in the **Free** tier and incurs no cost for your Azure subscription.
 
@@ -135,11 +135,11 @@ The Java sample code is running in an Azure App Service Linux web app.
 
 2. Select the name of your Azure app.
 
-    ![Screenshot of the App Services list in Azure. The name of the demo app service is highlighted.](media/quickstart-java/java-docs-spring-hello-world-app-service-list.png)
+    ![Screenshot of the App Services list in Azure. The name of the demo app service is highlighted.](media/quickstart-java/app-service-list.png)
 
 Your web app's **Overview** page will be displayed. Here, you can perform basic management tasks like **Browse**, **Stop**, **Restart**, and **Delete**.
 
-![Screenshot of the App Service overview page in Azure portal. In the action bar, the Browse, Stop, Swap (disabled), Restart, and Delete button group is highlighted.](media/quickstart-java/java-docs-spring-hello-world-app-service-detail.png)
+![Screenshot of the App Service overview page in Azure portal. In the action bar, the Browse, Stop, Swap (disabled), Restart, and Delete button group is highlighted.](media/quickstart-java/app-service-detail.png)
 
 The web app menu provides different options for configuring your app.
 
@@ -147,6 +147,6 @@ The web app menu provides different options for configuring your app.
 
 When you're finished with the sample app, you can remove all of the resources for the app from Azure. It will not incur extra charges and keep your Azure subscription uncluttered. Removing the resource group also removes all resources in the resource group and is the fastest way to remove all Azure resources for your app.
 
-1. From your App Service **Overview** page, select the resource group you created in the [Create Azure resources](#create-azure-resources) step.
+1. From your App Service **Overview** page, select the resource group you created earlier.
 
 2. From the resource group page, select **Delete resource group**. Confirm the name of the resource group to finish deleting the resources.
