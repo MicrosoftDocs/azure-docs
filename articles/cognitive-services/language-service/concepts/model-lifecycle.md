@@ -61,7 +61,7 @@ Use the table below to find which model versions are supported by each feature:
 | Question answering                                  | `2021-10-01`                                                        | `2021-10-01`                       |                        |
 | Text Analytics for health                           | `2021-05-15`, `2022-03-01`                                          | `2022-03-01`                       |                        |
 | Key phrase extraction                               | `2021-06-01`                                                        | `2021-06-01`                       |                        |
-| Document summarization (preview)                                 | `2021-08-01-preview`                                                        |                        |  `2021-08-01-preview`                      |
+| Document summarization (preview)                                 | `2021-08-01`                                                        |                        |  `2021-08-01`                      |
 | Conversation summarization (preview)                                  | `2022-05-15-preview`                                  |                       |     `2022-05-15-preview`                   |
 
 ## Custom features
