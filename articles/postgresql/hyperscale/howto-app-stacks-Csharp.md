@@ -118,7 +118,7 @@ namespace Driver
 
 ## Step 2: Super power of Distributed Tables
 
-Citus gives you [the super power  of distributing your table](https://docs.microsoft.com/azure/postgresql/hyperscale/overview#the-superpower-of-distributed-tables) across multiple nodes for scalability. Below command enables you to distribute a table. More on create_distributed_table and distribution column [here](howto-build-scalable-apps-concepts#distribution-column-also-known-as-shard-key).
+Citus gives you [the super power of distributing your table](overview#the-superpower-of-distributed-tables) across multiple nodes for scalability. Below command enables you to distribute a table. More on create_distributed_table and distribution column [here](howto-build-scalable-apps-concepts#distribution-column-also-known-as-shard-key).
 
 > [!TIP]
 >
