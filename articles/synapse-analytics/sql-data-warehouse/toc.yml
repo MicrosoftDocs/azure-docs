@@ -34,6 +34,9 @@ items:
       href: create-data-warehouse-portal.md
     - name: PowerShell
       href: create-data-warehouse-powershell.md
+    - name: Bicep
+      displayName: ARM, Resource Manager, Template
+      href: quickstart-bicep.md
     - name: ARM template
       displayName: Resource Manager
       href: quickstart-arm-template.md

@@ -1,6 +1,6 @@
 ---
 title: Using Microsoft Defender for Endpoint in Microsoft Defender for Cloud to protect native, on-premises, and AWS machines.
-description: Learn about deploying Microsoft Defender for Endpoint from Microsoft Defender for Cloud to protect Azure, hybrid, and multi-cloud machines.
+description: Learn about deploying Microsoft Defender for Endpoint from Microsoft Defender for Cloud to protect Azure, hybrid, and multicloud machines.
 author: bmansheim
 ms.author: benmansheim
 ms.topic: how-to
