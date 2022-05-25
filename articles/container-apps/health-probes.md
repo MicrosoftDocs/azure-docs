@@ -4,6 +4,7 @@ description: Check startup, liveness, and readiness with Azure Container Apps he
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.date: 03/30/2022
 ms.author: cshoe
@@ -64,7 +65,7 @@ TCP probes wait for a connection to be established with the server to indicate s
 
 The following code listing shows how you can define health probes for your containers.
 
-The `...` placeholders denote omitted code. Refer to [Container Apps Preview ARM template API specification](./azure-resource-manager-api-spec.md) for full ARM template details.
+The `...` placeholders denote omitted code. Refer to [Container Apps ARM template API specification](./azure-resource-manager-api-spec.md) for full ARM template details.
 
 # [ARM template](#tab/arm-template)
 
@@ -155,11 +156,11 @@ containers:
 
 The optional `failureThreshold` setting defines the number of attempts Container Apps tries if the probe if execution fails. Attempts that exceed the `failureThreshold` amount cause different results for each probe.
 
-## Default configuration 
+## Default configuration
 
 Container Apps offers default probe settings if no probes are defined. If your app takes an extended amount of time to start, which is very common in Java, you often need to customize the probes so your container won't crash.
 
-The following example demonstrates how to extend the liveness and readiness probes to accommodate an extended start-up process.
+The following example demonstrates how to configure the liveness and readiness probes in order to extend the startup times.
 
 ```json
 "probes": [

@@ -5,10 +5,11 @@ author: shizn
 ms.author: xshi
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 10/29/2021
+ms.date: 5/25/2022
 ms.custom:
 - ignite-fall-2021
 - kr2b-contr-experiment
+- event-tier1-build-2022
 ---
 
 # Integrate Azure SignalR Service with Service Connector
@@ -23,7 +24,7 @@ This article shows the supported authentication types and client types of Azure 
 
 | Client Type | System-assigned Managed Identity | User-assigned Managed Identity | Secret/ConnectionString | Service Principal |
 | --- | --- | --- | --- | --- |
-| .NET | :::image type="icon" source="./media/green-check.png" alt-text="yes icon" border="false"::: | :::image type="icon" source="./media/green-check.png" alt-text="yes icon" border="false"::: | :::image type="icon" source="./media/green-check.png" alt-text="yes icon" border="false"::: | :::image type="icon" source="./media/green-check.png" alt-text="yes icon" border="false"::: |
+| .NET | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
 
 ## Default environment variable names or application properties
 

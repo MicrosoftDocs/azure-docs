@@ -1,18 +1,22 @@
 ---
-title: How to deploy applications in Azure Spring Cloud with a custom container image (Preview)
-description: How to deploy applications in Azure Spring Cloud with a custom container image
+title: How to deploy applications in Azure Spring Apps with a custom container image (Preview)
+description: How to deploy applications in Azure Spring Apps with a custom container image
 author: karlerickson
 ms.author: xiangy
 ms.topic: how-to
 ms.service: spring-cloud
+ms.custom: event-tier1-build-2022
 ms.date: 4/28/2022
 ---
 
 # Deploy an application with a custom container image (Preview)
 
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+
 **This article applies to:** ✔️ Standard tier ✔️ Enterprise tier
 
-This article explains how to deploy Spring Boot applications in Azure Spring Cloud using a custom container image. Deploying an application with a custom container supports most features as when deploying a JAR application. Other Java and non-Java applications can also be deployed with the container image.
+This article explains how to deploy Spring Boot applications in Azure Spring Apps using a custom container image. Deploying an application with a custom container supports most features as when deploying a JAR application. Other Java and non-Java applications can also be deployed with the container image.
 
 ## Prerequisites
 
@@ -26,14 +30,14 @@ This article explains how to deploy Spring Boot applications in Azure Spring Clo
 
 To deploy an application to a custom container image, use the following steps:
 
-# [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
 To deploy a container image, use one of the following commands:
 
 * To deploy a container image to the public Docker Hub to an app, use the following command:
 
   ```azurecli
-  az spring-cloud app deploy \
+  az spring app deploy \
      --resource-group <your-resource-group> \
      --name <your-app-name> \
      --container-image <your-container-image> \
@@ -43,7 +47,7 @@ To deploy a container image, use one of the following commands:
 * To deploy a container image from ACR to an app, or from another private registry to an app, use the following command:
 
   ```azurecli
-  az spring-cloud app deploy \
+  az spring app deploy \
      --resource-group <your-resource-group> \
      --name <your-app-name> \
      --container-image <your-container-image> \
@@ -66,10 +70,10 @@ To disable listening on a port for images that aren't web applications, add the 
     --disable-probe true
 ```
 
-# [Portal](#tab/azure-portal)
+### [Portal](#tab/azure-portal)
 
 1. Open the [Azure portal](https://portal.azure.com).
-1. Open your existing Spring Cloud service instance.
+1. Open your existing Azure Spring Apps service instance.
 1. Select **Apps** from left the menu, then select **Create App**.
 1. Name your app, and in the **Runtime platform** pulldown list, select **Custom Container**.
 
@@ -212,7 +216,7 @@ AppDynamics:
 To view the console logs of your container application, the following CLI command can be used:
 
 ```azurecli
-az spring-cloud app logs \
+az spring app logs \
     --resource-group <your-resource-group> \
     --name <your-app-name> \
     --service <your-service-name> \
@@ -237,7 +241,7 @@ We recommend that you use Microsoft Defender for Cloud with ACR to prevent your 
 You can switch the deployment type directly by redeploying using the following command:
 
 ```azurecli
-az spring-cloud app deploy \
+az spring app deploy \
     --resource-group <your-resource-group> \
     --name <your-app-name> \
     --container-image <your-container-image> \
@@ -249,7 +253,7 @@ az spring-cloud app deploy \
 You can create another deployment using an existing JAR deployment using the following command:
 
 ```azurecli
-az spring-cloud app deployment create \
+az spring app deployment create \
     --resource-group <your-resource-group> \
     --name <your-deployment-name> \
     --app <your-app-name> \

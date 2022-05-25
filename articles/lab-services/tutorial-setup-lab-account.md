@@ -1,12 +1,12 @@
 ---
-title: Set up a lab account with Azure Lab Services (deprecated) | Microsoft Docs
+title: Set up a lab account with Azure Lab Services | Microsoft Docs
 description: Learn how to set up a lab account and add users that can create labs in the lab account. 
 ms.topic: tutorial
 ms.date: 01/06/2022
 ms.custom: subject-rbac-steps
 ---
 
-# Tutorial: Set up a lab account with Azure Lab Services (deprecated)
+# Tutorial: Set up a lab account with Azure Lab Services
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-note.md)]
 

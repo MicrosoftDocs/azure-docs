@@ -20,18 +20,18 @@ There are two scale properties that apply to all rules in your container app:
 
 | Scale property | Description | Default value | Min value | Max value |
 |---|---|---|---|---|
-| `minReplicas` | Minimum number of replicas running for your container app. | 0 | 1 | 10 |
+| `minReplicas` | Minimum number of replicas running for your container app. | 0 | 0 | 10 |
 | `maxReplicas` | Maximum number of replicas running for your container app. | n/a | 1 | 10 |
 
 - If your container app scales to zero, then you aren't billed.
 - Individual scale rules are defined in the `rules` array.
 - If you want to ensure that an instance of your application is always running, set `minReplicas` to 1 or higher.
 - Replicas not processing, but that remain in memory are billed in the "idle charge" category.
-- Changes to scaling rules are a [revision-scope](./revisions.md#revision-scope-changes) change.
-- When using non-HTTP event scale rules, setting the `activeRevisionMode` to `single` is recommended.
+- Changes to scaling rules are a [revision-scope](overview.md) change.
+- When using non-HTTP event scale rules, setting the `properties.configuration.activeRevisionsMode` property of the container app to `single` is recommended.
 
-> [!IMPORTANT]
-> Replica quantities are a target amount, not a guarantee. Even if you set `maxReplicas` to `1`, there is no assurance of thread safety.
+
+
 
 ## Scale triggers
 
@@ -47,7 +47,7 @@ With an HTTP scaling rule, you have control over the threshold that determines w
 
 | Scale property | Description | Default value | Min value | Max value |
 |---|---|---|---|---|
-| `concurrentRequests`| Once the number of requests exceeds this then another replica is added. Replicas will continue to be added up to the `maxReplicas` amount as the number of concurrent requests increase. | 100 | 1 | n/a |
+| `concurrentRequests`| Once the number of requests exceeds this then another replica is added. Replicas will continue to be added up to the `maxReplicas` amount as the number of concurrent requests increase. | 10 | 1 | n/a |
 
 In the following example, the container app scales out up to five replicas and can scale down to zero. The scaling threshold is set to 100 concurrent requests per second.
 

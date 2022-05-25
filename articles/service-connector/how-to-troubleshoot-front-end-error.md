@@ -5,10 +5,11 @@ author: shizn
 ms.author: xshi
 ms.service: service-connector
 ms.topic: troubleshooting
-ms.date: 10/29/2021
+ms.date: 5/25/2022
 ms.custom:
 - ignite-fall-2021
 - kr2b-contr-experiment
+- event-tier1-build-2022
 ---
 
 # How to troubleshoot with Service Connector
@@ -32,15 +33,16 @@ This article lists error messages and suggestions to troubleshoot Service Connec
 | Target resource ID is invalid: `{TargetId}` | <ul><li>Check whether the target service type is supported by Service Connector.</li><li>Check the correctness of target resource ID.</li></ul> |
 | Connection ID is invalid: `{ConnectionId}` | <ul><li>Check the correctness of the connection ID.</li></ul> |
 
-### RequiredArgumentMissingError
+
+#### RequiredArgumentMissingError
 
 | Error message | Suggested Action |
 | --- | --- |
-| `{Argument}` should not be blank | User should provide argument value for interactive input. |
-| Required keys missing for parameter `{Parameter}`. All possible keys are: `{Keys}` | Provide value for the authentication information, usually in the form of `--param key1=val1 key2=val2`. |
-| Required argument is missing, please provide the arguments: `{Arguments}` | Provide the required argument. |
+| `{Argument}` shouldn't be blank | User should provide argument value for interactive input |
+| Required keys missing for parameter `{Parameter}`. All possible keys are: `{Keys}` | Provide value for the authentication information parameter, usually in the form of `--param key1=val1 key2=val2`. |
+| Required argument is missing, please provide the arguments: `{Arguments}` | Provide the required argument. | 
 
-### ValidationError
+#### ValidationError
 
 | Error message | Suggested Action |
 | --- | --- |

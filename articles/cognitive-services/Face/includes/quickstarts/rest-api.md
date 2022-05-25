@@ -1,6 +1,6 @@
 ---
 title: "Face REST API quickstart"
-description: Use the Face REST API with cURL to detect faces, find similar (face search by image), identify faces (facial recognition search) and migrate your face data.
+description: Use the Face REST API with cURL to detect and analyze faces.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -13,13 +13,8 @@ ms.author: pafarley
 
 Get started with facial recognition using the Face REST API. The Face service provides you with access to advanced algorithms for detecting and recognizing human faces in images.
 
-Use the Face REST API to:
-
-* [Detect and analyze faces](#detect-and-analyze-faces)
-* [Find similar faces](#find-similar-faces)
-
 > [!NOTE]
-> This quickstart uses cURL commands to call the REST API. You can also call the REST API using a programming language. See the GitHub samples for examples in [C#](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/Face/rest), [Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/Face/rest), [Java](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/java/Face/rest), [JavaScript](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/Face/rest), and [Go](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/go/Face/rest).
+> This quickstart uses cURL commands to call the REST API. You can also call the REST API using a programming language. Complex scenarios like face identification are easier to implement using a language SDK. See the GitHub samples for examples in [C#](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/Face/rest), [Python](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/python/Face/rest), [Java](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/java/Face/rest), [JavaScript](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/javascript/Face/rest), and [Go](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/go/Face/rest).
 
 ## Prerequisites
 
@@ -31,191 +26,51 @@ Use the Face REST API to:
 * [PowerShell version 6.0+](/powershell/scripting/install/installing-powershell-core-on-windows), or a similar command-line application.
 
 
-## Detect and analyze faces
+## Identify faces
 
-You'll use a command like the following to call the Face API and get face attribute data from an image. First, copy the code into a text editor&mdash;you'll need to make changes to certain parts of the command before you can run it.
+1. First, call the Detect API on the source face. This is the face that we'll try to identify from the larger group. Copy the following command to a text editor, insert your own key, and then copy it into a shell window and run it.
 
-:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="detection_model_3":::
+    :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="identify_detect":::
 
-Make the following changes:
-1. Assign `Ocp-Apim-Subscription-Key` to your valid Face subscription key.
-1. Change the first part of the query URL to match the endpoint that corresponds to your subscription key.
-   [!INCLUDE [subdomains-note](../../../../../includes/cognitive-services-custom-subdomains-note.md)]
-1. Optionally change the URL in the body of the request to point to a different image.
+    Save the returned face ID string to a temporary location. You'll use it again at the end.
 
-Once you've made your changes, open a command prompt and enter the new command. The code will process the following remote image.
+1. Next you'll need to create a **LargePersonGroup**. This object will store the aggregated face data of several persons. Run the following command, inserting your own key. Optionally, change the group's name and metadata in the request body.
 
-![An older man and woman](../../media/quickstarts/lillian-gish.jpg)
+    :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="identify_create_persongroup":::
 
-### Examine the results
+    Save the returned ID of the created group to a temporary location.
 
-You should see the face information displayed as JSON data in the console window. For example:
+1. Next, you'll create **Person** objects that belong to the group. Run the following command, inserting your own key and the ID of the **LargePersonGroup** from the previous step. This command creates a **Person** named "Family1-Dad".
 
-```json
-[
-  {
-    "faceId": "49d55c17-e018-4a42-ba7b-8cbbdfae7c6f",
-    "faceRectangle": {
-      "top": 131,
-      "left": 177,
-      "width": 162,
-      "height": 162
-    }
-  }
-]  
-```
+    :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="identify_create_person":::
 
-### Get face attributes
+    After you run this command, run it again with different input data to create more **Person** objects: "Family1-Mom", "Family1-Son", "Family1-Daughter", "Family2-Lady", and "Family2-Man".
+
+    Save the IDs of each **Person** created; it's important to keep track of which person name has which ID.
+
+1. Next you'll need to detect new faces and associate them with the **Person** objects that exist. The following command detects a face from the image *Family1-Dad.jpg* and adds it to the corresponding person. You need to specify the `personId` as the ID that was returned when you created the "Family1-Dad" **Person** object. The image name corresponds to the name of the created **Person**. Also enter the **LargePersonGroup** ID and your key in the appropriate fields.
+
+    :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="identify_add_face":::
+
+    Then, run the above command again with a different source image and target **Person**. The images available are: *Family1-Dad1.jpg*, *Family1-Dad2.jpg* *Family1-Mom1.jpg*, *Family1-Mom2.jpg*, *Family1-Son1.jpg*, *Family1-Son2.jpg*, *Family1-Daughter1.jpg*, *Family1-Daughter2.jpg*, *Family2-Lady1.jpg*, *Family2-Lady2.jpg*, *Family2-Man1.jpg*, and *Family2-Man2.jpg*. Be sure that the **Person** whose ID you specify in the API call matches the name of the image file in the request body.
+
+    At the end of this step, you should have multiple **Person** objects that each have one or more corresponding faces, detected directly from the provided images.
+
+1. Next, train the **LargePersonGroup** with the current face data. The training operation teaches the model how to associate facial features, sometimes aggregated from multiple source images, to each single person. Insert the **LargePersonGroup** ID and your key before running the command.
+
+    :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="identify_train":::
  
-To extract face attributes, call the Detect API again, but set `detectionModel` to `detection_01`. Add the `returnFaceAttributes` query parameter as well. The command should now look like the following. As before, insert your Face subscription key and endpoint.
+1. Now you're ready to call the Identify API, using the source face ID from the first step and the **LargePersonGroup** ID. Insert these values into the appropriate fields in the request body, and insert your key.
 
-:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="detection_model_1":::
+    :::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="identify_identify":::
 
-### Examine the results
-
-The returned face information now includes face attributes. For example:
-
-```json
-[
-  {
-    "faceId": "49d55c17-e018-4a42-ba7b-8cbbdfae7c6f",
-    "faceRectangle": {
-      "top": 131,
-      "left": 177,
-      "width": 162,
-      "height": 162
-    },
-    "faceAttributes": {
-      "smile": 0,
-      "headPose": {
-        "pitch": 0,
-        "roll": 0.1,
-        "yaw": -32.9
-      },
-      "glasses": "NoGlasses",
-      "emotion": {
-        "anger": 0,
-        "contempt": 0,
-        "disgust": 0,
-        "fear": 0,
-        "happiness": 0,
-        "neutral": 0.986,
-        "sadness": 0.009,
-        "surprise": 0.005
-      },
-      "blur": {
-        "blurLevel": "low",
-        "value": 0.06
-      },
-      "exposure": {
-        "exposureLevel": "goodExposure",
-        "value": 0.67
-      },
-      "noise": {
-        "noiseLevel": "low",
-        "value": 0
-      },
-      "makeup": {
-        "eyeMakeup": true,
-        "lipMakeup": true
-      },
-      "accessories": [],
-      "occlusion": {
-        "foreheadOccluded": false,
-        "eyeOccluded": false,
-        "mouthOccluded": false
-      },
-      "hair": {
-        "bald": 0,
-        "invisible": false,
-        "hairColor": [
-          {
-            "color": "brown",
-            "confidence": 1
-          },
-          {
-            "color": "black",
-            "confidence": 0.87
-          },
-          {
-            "color": "other",
-            "confidence": 0.51
-          },
-          {
-            "color": "blond",
-            "confidence": 0.08
-          },
-          {
-            "color": "red",
-            "confidence": 0.08
-          },
-          {
-            "color": "gray",
-            "confidence": 0.02
-          }
-        ]
-      }
-    }
-  }
-]
-```
-
-## Find similar faces
-
-This operation takes a single detected face (source) and searches a set of other faces (target) to find matches (face search by image). When it finds a match, it prints the ID of the matched face to the console.
-
-### Detect faces for comparison
-
-First, you need to detect faces in images before you can compare them. Run this command as you did in the [Detect and analyze](#detect-and-analyze-faces) section. This detection method is optimized for comparison operations. It doesn't extract detailed face attributes like in the section above, and it uses a different detection model.
-
-:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="detect_for_similar":::
-
-Find the `"faceId"` value in the JSON response and save it to a temporary location. Then, call the above command again for these other image URLs, and save their face IDs as well. You'll use these IDs as the target group of faces from which to find a similar face.
-
-:::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="similar_group":::
-
-Finally, detect the single source face that you'll use for matching, and save its ID. Keep this ID separate from the others.
-
-:::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="similar_matcher":::
-
-![Photo of a man smiling](../../media/quickstarts/find-similar.jpg)
-
-### Find matches
-
-Copy the following command to a text editor.
-
-:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="similar":::
-
-Then make the following changes:
-1. Assign `Ocp-Apim-Subscription-Key` to your valid Face subscription key.
-1. Change the first part of the query URL to match the endpoint that corresponds to your subscription key.
-
-Use the following JSON content for the `body` value:
-
-:::code language="JSON" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="similar_body":::
-
-1. Use the source face ID for `"faceId"`.
-1. Paste the other face IDs as terms in the `"faceIds"` array.
-
-### Examine the results
-
-You'll receive a JSON response that lists the IDs of the faces that match your query face. 
-
-```json
-[
-    {
-        "persistedFaceId" : "015839fb-fbd9-4f79-ace9-7675fc2f1dd9",
-        "confidence" : 0.82
-    },
-    ...
-] 
-```
-
-In this program, the face detected in this image should be returned as the face that's similar to the source image face.
-
-![Photo of a man smiling; this is the same person as the previous image](../../media/quickstarts/family-1-dad-1.jpg)
+    The response should give you a **Person** ID indicating the person identified with the source face. It should be the ID that corresponds to the "Family1-Dad" person, because the source face is of that person.
 
 ## Clean up resources
+
+To delete the **LargePersonGroup** you created in this exercise, run the LargePersonGroup - Delete call.
+
+:::code source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="identify_delete":::
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
