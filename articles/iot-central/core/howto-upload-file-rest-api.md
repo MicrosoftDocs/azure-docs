@@ -131,7 +131,7 @@ The response to this request looks like the following example:
 Use the following request to create a file upload blob storage account configuration in your IoT Central application:
 
 ```http
-PUT https://{your-app-subdomain}/api/fileUploads?api-version=1.2-preview
+PUT https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=1.2-preview
 ```
 
 The request body has the following fields:
@@ -172,7 +172,7 @@ Use the following request to retrieve details of a file upload blob storage acco
 
 
 ```http
-GET https://{your-app-subdomain}/api/fileUploads?api-version=1.2-preview
+GET https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=1.2-preview
 ```
 
 The response to this request looks like the following example:
@@ -193,7 +193,7 @@ The response to this request looks like the following example:
 Use the following request to update a file upload blob storage account configuration in your IoT Central application:
 
 ```http
-PATCH https://{your-app-subdomain}/api/fileUploads?api-version=1.2-preview
+PATCH https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=1.2-preview
 ```
 
 ```json
@@ -311,8 +311,7 @@ Select the **Raw data** tab to verify the file upload status.
 
 :::image type="content" source="media/howto-upload-file-rest-api/raw-data.png" alt-text=" Verify file upload on UI" border="false":::
 
-You can also make a [REST API](/rest/api/storageservices/list-blobs)
- call to verify the file upload status.
+You can also make a [REST API](/rest/api/storageservices/list-blobs) call to verify the file upload status in the storage container.
 
 ## Next steps
 
