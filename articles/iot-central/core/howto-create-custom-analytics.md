@@ -28,28 +28,28 @@ In this how-to guide, you learn how to:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-In your shell environment, add the following variables.
+## Run the Script
 
-```
+The below script will create an IoT Central application, Event Hubs namespace, and Databricks workspace in a resource group called `eventhubsrg`.
+
+```azurecli-interactive
+
+# A unique name for the Event Hub Namespace.
 eventhubnamespace="your-event-hubs-name-data-bricks"
+
+# A unique name for the IoT Central application.
 iotcentralapplicationname="your-app-name-data-bricks"
+
+# A unique name for the Databricks workspace.
 databricksworkspace="your-databricks-name-data-bricks"
+
+# A unique name for the Resource group.
 resourcegroup=eventhubsrg
+
 eventhub=centralexport
 location=eastus
 authrule=ListenSend
-```
 
-* `iotcentralapplicationname`: A unique name for the IoT Central application.
-* `eventhubnamespace`: A unique name for the Event Hubs namespace.
-* `databricksworkspace`: A unique name for the Databricks workspace.
-
-## Run the Script
-
-The below script will create an IoT Central application, Event Hubs namespace, and Databricks workspace in a resource group called `eventhubsrg`
-
-
-```azurecli-interactive
 
 #Create a resource group for the IoT Central application.
 RESOURCE_GROUP=$(az group create --name $resourcegroup --location $location)
@@ -88,6 +88,8 @@ echo "Your event hub connection string is: $(jq -r .primaryConnectionString <<< 
 
 ```
 
+Make a note of the above three values in the command output, you need them in the following steps.
+
 ## Configure export in IoT Central
 
 In this section, you configure the application to stream telemetry from its simulated devices to your event hub.
@@ -103,8 +105,8 @@ On the [Azure IoT Central application manager](https://aka.ms/iotcentral) websit
     | Destination name | Telemetry event hub |
     | Destination type | Azure Event Hubs |
     | Authorization | System-assigned managed identity |
-    | Host name | The event hub namespace host name |
-    | Event Hub | The event hub name |
+    | Host name | The event hub namespace host name, it's the value you assigned to `eventhubnamespace` in the above script  |
+    | Event Hub | The event hub name, it's the value you assigned to `eventhub` in the above script  |
 
     :::image type="content" source="media/howto-create-custom-analytics/data-export-1.png" alt-text="Screenshot showing data export destination.":::
 
@@ -128,6 +130,24 @@ To create the export definition:
     :::image type="content" source="media/howto-create-custom-analytics/data-export-2.png" alt-text="Screenshot showing data export definition.":::
 
 Wait until the export status is **Healthy** on the **Data export** page before you continue.
+
+## Create a device template
+
+1. To add a new device template, select **+ New** on the **Device templates** page.
+1. On the **Select type** page, scroll down until you find the **MXCHIP AZ3166** tile in the **Featured device templates** section.
+1. Select the **MXCHIP AZ3166** tile, and then select **Next: Review**.
+1. On the **Review** page, select **Create**.
+
+## Add a device
+
+To add a device to your Azure IoT Central application:
+
+1. Choose **Devices** on the left pane.
+1. Choose the **MXCHIP AZ3166** device template from which you created.
+1. Choose + **New**.
+1. Enter a device name and ID or accept the default. The maximum length of a device name is 148 characters. The maximum length of a device ID is 128 characters.
+1. Turn the **Simulated** toggle to **On**.
+1. Select **Create**.
 
 ## Configure Databricks workspace
 
@@ -230,9 +250,11 @@ You can resize the plots in the notebook.
 
 ## Tidy up
 
-To tidy up after this how-to and avoid unnecessary costs, delete the **IoTCentralAnalysis** resource group in the Azure portal.
+To tidy up after this how-to and avoid unnecessary costs, you can run the following command to delete the resource group:
 
-You can delete the IoT Central application from the **Management** page within the application.
+```azurecli-interactive
+az group delete -n eventhubsrg
+```
 
 ## Next steps
 
