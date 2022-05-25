@@ -59,7 +59,7 @@ Global Azure cloud is supported with Arc support on the regions listed by [Azure
 ## Prerequisites 
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- Install the latest version of the [Azure CLI](/cli/azure/install-azure-cli-windows).
+- Install the latest version of the [Azure CLI][install-cli].
 - If you don't have one already, you need to create an [AKS cluster][deploy-cluster] or connect an [Arc-enabled Kubernetes cluster][arc-k8s-cluster].
 
 ### Set up the Azure CLI extension for cluster extensions
@@ -264,6 +264,7 @@ az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSClu
 [k8s-version-support-policy]: ./supported-kubernetes-versions.md?tabs=azure-cli#kubernetes-version-support-policy
 [arc-k8s-cluster]: ../azure-arc/kubernetes/quickstart-connect-cluster.md
 [update-extension]: ./cluster-extensions.md#update-extension-instance
+[install-cli]: https://docs.microsoft.com/cli/azure/install-azure-cli
 
 <!-- LINKS EXTERNAL -->
 [kubernetes-production]: https://docs.dapr.io/operations/hosting/kubernetes/kubernetes-production
