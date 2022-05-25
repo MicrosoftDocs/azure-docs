@@ -467,8 +467,14 @@
           href: open-service-mesh-uninstall-add-on.md
     - name: Track releases and region availability
       href: release-tracker.md
-    - name: Kubernetes Event-driven Autoscaler add-on (preview)
-      href: keda.md
+    - name: Deploy the Kubernetes Event-driven Autoscaler (KEDA) add-on (preview)
+      items:
+        - name: About Kubernetes Event-driven Autoscaler (KEDA)
+          href: keda-about.md
+        - name: Use ARM template
+          href: keda-deploy-addon-arm.md
+        - name: Kubernetes Event-driven Autoscaler (KEDA) integrations
+          href: keda-integrations.md
     - name: Use cluster extensions
       href: cluster-extensions.md
     - name: DevOps
