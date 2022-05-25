@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: vicancy
   ms.author: lianwei
-  ms.date: 03/11/2020
+  ms.date: 05/22/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -22,6 +22,16 @@ landingContent:
         links:
           - text: What is Azure SignalR Service?
             url: signalr-overview.md
+      - linkListType: concept
+        links:
+          - text: Service mode
+            url: concept-service-mode.md
+          - text: Messages and connections
+            url: signalr-concept-messages-and-connections.md
+          - text: Service internals
+            url: signalr-concept-internals.md
+          - text: Azure SignalR service FAQ
+            url: signalr-resource-faq.md
 
   # Card
   - title: Get started
