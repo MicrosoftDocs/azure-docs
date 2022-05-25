@@ -1,7 +1,7 @@
 ---
-title: How to set up access control for your Azure Synapse workspace
-description: This article will teach you how to control access to an Azure Synapse workspace using Azure roles, Synapse roles, SQL permissions, and Git permissions.
-services: synapse-analytics 
+title: Access control in Synapse workspace how to 
+description: Learn how to control access to Azure Synapse workspaces using Azure roles, Synapse roles, SQL permissions, and Git permissions.
+services: synapse-analytics  
 author: Rick Xu
 ms.service: synapse-analytics 
 ms.topic: how-to 
@@ -12,30 +12,30 @@ ms.reviewer: sngun, wiassaf
 ms.custom: kr2b-contr-experiment
 ---
 
-# How to set up access control for your Azure Synapse workspace 
+# How to set up access control for your Azure Synapse workspace
 
-This article will teach you how to control access to a Microsoft Azure Synapse workspace using Azure roles, Azure Synapse roles, SQL permissions, and Git permissions.
+This article teaches you how to control access to a Microsoft Azure Synapse workspace. We'll use a combination of Azure roles, Azure Synapse roles, SQL permissions, and Git permissions to achieve this.
 
-In this guide, you'll set up a workspace and configure a basic access control system suitable for many Azure Synapse projects.  It then describes more advanced options for finer-grained control should you need it.  
+In this guide, you'll set up a workspace and configure a basic access control system. This information is useful for many types of Synapse projects. This guide also provides advanced options for finer-grained control should you need it.  
 
-Azure Synapse access control can be simplified by using security groups that are aligned with the roles and personas in your organization.  You only need to add and remove users from security groups to manage access.
+Synapse access control can be simplified by using security groups that are aligned with the roles and personas in your organization.  This enables you to simply add and remove users from security groups to manage access.
 
-Before you start this walkthrough, read the [Azure Synapse access control overview](./synapse-workspace-access-control-overview.md) to familiarize yourself with the access control mechanisms used by Azure Synapse Analytics.
+Before you start this walkthrough, read the [Azure Synapse access control overview](./synapse-workspace-access-control-overview.md) to familiarize yourself with the access control mechanisms used by Synapse Analytics.
 
 ## Access control mechanisms
 
 > [!NOTE]
-> The approach taken in this guide is to create several security groups and then assign roles to these groups. After the groups are set up, you only need to manage membership within the security groups to control access to the workspace.
+> The approach with this guide is to create several security groups. When you assign roles to these security groups, you only need to manage memberships within those groups, to control access to the workspace.
 
-To secure an Azure Synapse workspace, you'll follow a pattern of configuring the following items:
+To secure a Synapse workspace, you'll configure the following items:
 
 - **Security Groups**, to group users with similar access requirements.
 - **Azure roles**, to control who can create and manage SQL pools, Apache Spark pools and Integration runtimes, and access ADLS Gen2 storage.
-- **Synapse roles**, to control access to published code artifacts, use of Apache Spark compute resources and Integration runtimes 
-- **SQL permissions**, to control administrative and data plane access to SQL pools. 
-- **Git permissions**, to control who can access code artifacts in source control if you configure Git-support for the workspace 
- 
-## Steps to secure an Azure Synapse workspace
+- **Synapse roles**, to control access to published code artifacts, use of Apache Spark compute resources and integration runtimes.
+- **SQL permissions**, to control administrative and data plane access to SQL pools.
+- **Git permissions**, to control who can access code artifacts in source control if you configure Git-support for the workspace.
+
+## Steps to secure a Synapse workspace
 
 This document uses standard names to simplify the instructions. Replace them with names of your choice.
 
@@ -50,23 +50,23 @@ This document uses standard names to simplify the instructions. Replace them wit
 ## STEP 1: Set up security groups
 
 >[!Note]
->During the preview, it was recommended to create security groups mapped to the Azure Synapse **Synapse SQL Administrator** and **Synapse Apache Spark Administrator** roles.  With the introduction of new finer-grained Synapse RBAC roles and scopes, it is now recommended that you use these new capabilities to control access to your workspace.  These new roles and scopes provide more configuration flexibility and recognize that developers often use a mix of SQL and Spark in creating analytics applications and may need to be granted access to specific resources rather than the entire workspace. [Learn more](./synapse-workspace-synapse-rbac.md) about Synapse RBAC.
+>During the preview, you were encouraged to create security groups and to map them to Azure Synapse **Synapse SQL Administrator** and **Synapse Apache Spark Administrator** roles.  With the introduction of new finer-grained Synapse RBAC roles and scopes, you are now encouraged to use newer capabilities to control access to your workspace.  The roles and scopes now available to you, provide greater configuration flexibility. They recognize that developers often use a mix of SQL and Spark to create analytics applications. This means that they may need to be granted access to individual resources rather than an entire workspace. [Learn more](./synapse-workspace-synapse-rbac.md) about Synapse RBAC.
 
 Create the following security groups for your workspace:
 
-- **`workspace1_SynapseAdministrators`**, for users who need complete control over the workspace.  Add yourself to this security group, at least initially.
-- **`workspace1_SynapseContributors`**, for developers who need to develop, debug, and publish code to the service.   
+- **`workspace1_SynapseAdministrators`**, for users who need complete control over a workspace.  Add yourself to this security group, at least initially.
+- **`workspace1_SynapseContributors`**, for developers who need to develop, debug, and publish code to a service.
 - **`workspace1_SynapseComputeOperators`**, for users who need to manage and monitor Apache Spark pools and Integration runtimes.
-- **`workspace1_SynapseCredentialUsers`**, for users who need to debug and run orchestration pipelines using the workspace MSI (managed service identity) credential and cancel pipeline runs.   
+- **`workspace1_SynapseCredentialUsers`**, for users who need to debug and run orchestration pipelines using workspace MSI (managed service identity) credentials and cancel pipeline runs.
 
 You'll assign Synapse roles to these groups at the workspace scope shortly.  
 
-Also create this security group: 
-- **`workspace1_SQLAdmins`**, group for users who need SQL Active Directory Admin authority within SQL pools in the workspace. 
+Also create this security group:
+- **`workspace1_SQLAdmins`**, group for users who need SQL Active Directory Admin authority, within SQL pools in the workspace.
 
-The `workspace1_SQLAdmins` group will be used when you configure SQL permissions in SQL pools as you create them. 
+The `workspace1_SQLAdmins` group to configure SQL permissions when you create SQL pools.
 
-For a basic setup, these five groups are sufficient. Later, you can  add security groups to handle users who need more specialized access or to give users access only to specific resources.
+To configure a basic setup, these five groups are sufficient. Later, you can add security groups to handle users who need more specialized access or restrict access to individual resources only.
 
 > [!NOTE]
 >- Learn how to create a security group in [this article](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
@@ -77,16 +77,16 @@ For a basic setup, these five groups are sufficient. Later, you can  add securit
 
 ## STEP 2: Prepare your ADLS Gen2 storage account
 
-An Azure Synapse workspace uses a default storage container for:
-  - Storing the backing data files for Spark tables
+Synapse workspaces use default storage containers for:
+  - Storage of backing data files for Spark tables
   - Execution logs for Spark jobs
-  - Managing libraries that you choose to install
+  - Management of libraries that you choose to install
 
 Identify the following information about your storage:
 
 - The ADLS Gen2 account to use for your workspace. This document calls it `storage1`. `storage1` is considered the "primary" storage account for your workspace.
-- The container inside `workspace1` that your Synapse workspace will use by default. This document calls it `container1`. 
- 
+- The container inside `workspace1` that your Synapse workspace will use by default. This document calls it `container1`.
+
 - Select **Access control (IAM)**.
 
 - Select **Add** > **Add role assignment** to open the Add role assignment page.
@@ -101,13 +101,13 @@ Identify the following information about your storage:
 
     ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
-## STEP 3: Create and configure your Azure Synapse Workspace
+## STEP 3: Create and configure your Synapse workspace
 
-In the Azure portal, create an Azure Synapse workspace:
+In Azure portal, create a Synapse workspace:
 
 - Select your subscription
 
-- Select or create a resource group for which you have the Azure **Owner** role.
+- Select or create a resource group for which you have an Azure **Owner** role.
 
 - Name the workspace `workspace1`
 
@@ -117,17 +117,17 @@ In the Azure portal, create an Azure Synapse workspace:
 
 - Open WS1 in Synapse Studio
 
-- Navigate to **Manage** > **Access Control** and assign Synapse roles at *workspace scope* to the security groups as follows:
-  - Assign the **Synapse Administrator** role to `workspace1_SynapseAdministrators` 
-  - Assign the **Synapse Contributor** role to `workspace1_SynapseContributors` 
+- In Synapse Studio, navigate to **Manage** > **Access Control** and assign Synapse roles at *workspace scope* to the security groups as follows:
+  - Assign the **Synapse Administrator** role to `workspace1_SynapseAdministrators`
+  - Assign the **Synapse Contributor** role to `workspace1_SynapseContributors`
   - Assign the **Synapse Compute Operator** role to `workspace1_SynapseComputeOperators`
 
 ## STEP 4: Grant the workspace MSI access to the default storage container
 
-To run pipelines and perform system tasks, Azure Synapse requires that the workspace managed service identity (MSI) needs access to `container1` in the default ADLS Gen2 account. For more information, see [Azure Synapse workspace managed identity](../../data-factory/data-factory-service-identity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics).
+To run pipelines and perform system tasks, Azure Synapse requires managed service identity (MSI) for the workspace, to have access to `container1` in the default ADLS Gen2 account. For more information, see [Azure Synapse workspace managed identity](../../data-factory/data-factory-service-identity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics).
 
-- Open the Azure portal
-- Locate the storage account, `storage1`, and then `container1`
+- Open Azure portal
+- Locate the storage account, `storage1`, and then `container1`.
 - Select **Access control (IAM)**.
 - Select **Add** > **Add role assignment** to open the Add role assignment page.
 - Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
@@ -144,9 +144,9 @@ To run pipelines and perform system tasks, Azure Synapse requires that the works
     ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 
-## STEP 5: Grant Synapse administrators the Azure Contributor role on the workspace 
+## STEP 5: Grant Synapse administrators the Azure Contributor role for the workspace
 
-To create SQL pools, Apache Spark pools and Integration runtimes, users must have at least Azure Contributor role at the workspace. The contributor role also allows these users to manage the resources, including pausing and scaling. If you're using Azure portal or Synapse Studio to create SQL pools, Apache Spark pools and Integration runtimes, then you need Azure Contributor role at the resource group level. 
+To create SQL pools, Apache Spark pools and Integration runtimes, users must at minimum have an Azure Contributor role for the workspace. The Contributor role also allows users to manage resources, including pausing and scaling. To use Azure portal or Synapse Studio to create SQL pools, Apache Spark pools and Integration runtimes, you need a Contributor role at the resource group level.
 
 - Open the Azure portal
 - Locate the workspace, `workspace1`
