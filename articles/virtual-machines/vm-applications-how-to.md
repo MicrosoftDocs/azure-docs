@@ -151,9 +151,9 @@ az vm application set \
 Create the VM application definition using `New-AzGalleryApplication`. In this example, we are creating a Linux app named *myApp* in the *myGallery* Azure Compute Gallery, in the *myGallery* resource group and I've given a short description of the VM application for my own use. Replace the values as needed.
 
 ```azurepowershell-interactive
-$galleryName = myGallery
-$rgName = myResourceGroup
-$applicationName = myApp
+$galleryName = "myGallery"
+$rgName = "myResourceGroup"
+$applicationName = "myApp"
 New-AzGalleryApplication `
   -ResourceGroupName $rgName `
   -GalleryName $galleryName `
