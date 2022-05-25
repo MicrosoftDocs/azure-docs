@@ -19,8 +19,8 @@ ms.author: alkohli
 This article describes how to install GPU driver extension to install appropriate Nvidia drivers on the GPU VMs running on your Azure Stack Edge device. The article covers installation steps for installing a GPU extension using Azure Resource Manager templates on both Windows and Linux VMs.
 
 > [!NOTE]
-> In the Azure portal, you can install a GPU extension during VM creation or after the VM is deployed. For steps and requirements, see [Deploy GPU virtual machines](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md).
-
+> - In the Azure portal, you can install a GPU extension during VM creation or after the VM is deployed. For steps and requirements, see [Deploy GPU virtual machines](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md).
+> - If you are running a Windows 2016 VHD, you must enable TLS1.2 inside the VHD before you install the extension to an existing VM. For detailed steps, see [Troubleshoot GPU extension issues for GPU VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md#enable-tls1.2-on-windows-2016-vhd-before-installing-nvidia-gpu-extension).
 
 ## Prerequisites
 
@@ -206,31 +206,6 @@ If you created your VM using a Red Hat Enterprise Linux Bring Your Own Subscript
 
 ### [Windows](#tab/windows)
 
-#### Version 2205 and higher
-
-Use the following steps to deploy the template `addGPUextensiontoVM.json`. This template deploys the extension to an existing VM.
-
-1. If you are not using a Windows 2016 VHD, skip to Step 2. For Windows 2016 VHD, run this command inside the VHD to enable TLS1.2:
-
-   ```powershell
-   sp hklm:\SOFTWARE\Microsoft\.NETFramework\v4.0.30319 SchUseStrongCrypto 1
-   ```
-
-1. Deploy the template `addGPUextensiontoVM.json` to install the extension on an existing VM.
-
-   Run the following command:
-
-   ```powershell
-   $templateFile = "<Path to addGPUextensiontoVM.json>" 
-   $templateParameterFile = "<Path to addGPUExtWindowsVM.parameters.json>" 
-   RGName = "<Name of your resource group>"
-   New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "<Name for your deployment>"
-   ```
-   > [!NOTE]
-   > The extension deployment is a long running job and takes about 10 minutes to complete.
-
-#### Versions lower than 2205
-
 Deploy the template `addGPUextensiontoVM.json` to install the extension on an existing VM.
 
 Run the following command:
@@ -281,22 +256,6 @@ Here is a sample output:
 
 ### [Linux](#tab/linux)
 
-#### Version 2205 and higher
-
-Deploy the template `addGPUextensiontoVM.json`. This template deploys the extension to an existing VM. Run the following command:
-
-```powershell
-$templateFile = "Path to addGPUextensiontoVM.json" 
-$templateParameterFile = "Path to addGPUExtLinuxVM.parameters.json" 
-$RGName = "<Name of your resource group>" 
-New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "<Name for your deployment>"
-```	
-
-> [!NOTE]
-> The extension deployment is a long running job and takes about 10 minutes to complete.
-
-#### Versions lower than 2205
-
 Deploy the template `addGPUextensiontoVM.json`. This template deploys the extension to an existing VM. Run the following command:
 
 ```powershell
@@ -346,46 +305,12 @@ Outputs                 :
 DeploymentDebugLogLevel :
 PS C:\WINDOWS\system32>
 ```
-**RHEL 7**
-
-If you are on RHEL 7, you must manually install the Nvidia driver.
-
-To manually install the driver:
-
-1. To resolve the certificate rotation issue, run the following command:
-
-```powershell
-$ sudo yum-config-manager --add-repo  https://developer.download.nvidia.com/compute/cuda/repos/rhel7/$arch/cuda-rhel7.repo
-```
- 
-To Install an Nvidia driver lower than version 510, use the following settings when deploying the ARM extension: 
- 
-```powershell
-settings": { 
-"isCustomInstall": true, 
-"InstallMethod": 0, 
-"DRIVER_URL": "  https://developer.download.nvidia.com/compute/cuda/11.4.4/local_installers/cuda-repo-rhel7-11-4-local-11.4.4_470.82.01-1.x86_64.rpm", 
-"DKMS_URL" : "  https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm", 
-"LIS_URL": "  https://aka.ms/lis", 
-"LIS_RHEL_ver": "3.10.0-1062.9.1.el7" 
-} 
-```
 
 ---
 
 ## Track deployment
 
 ### [Windows](#tab/windows)
-
-#### Version 2205 and higher
-
-To check the deployment state of extensions for a given VM, run the following command: 
-
-```powershell
-Get-AzureRmVMExtension -ResourceGroupName <Name of resource group> -VMName <Name of VM> -Name <Name of the extension>
-```
-
-#### Versions lower than 2205
 
 To check the deployment state of extensions for a given VM, run the following command: 
 
@@ -438,16 +363,6 @@ A successful install is indicated by a `message` as `Enable Extension` and `stat
 ```
 
 ### [Linux](#tab/linux)
-
-#### Version 2205 and higher
-
-Template deployment is a long running job. To check the deployment state of extensions for a given VM, open another PowerShell session (run as administrator). Run the following command: 
-
-```powershell
-Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName <VM Name> -Name <Extension Name>
-```
-
-#### Versions lower than 2205
 
 Template deployment is a long running job. To check the deployment state of extensions for a given VM, open another PowerShell session (run as administrator). Run the following command: 
 
@@ -553,14 +468,6 @@ For more information, see [Nvidia GPU driver extension for Windows](../virtual-m
 
 ### [Linux](#tab/linux)
 
-#### Version 2205 and higher
-
-Follow these steps to verify the driver installation:
-
-1. Connect to the GPU VM. Follow the instructions in [Connect to a Linux VM](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-linux-vm). 
-
-#### Versions lower than 2205
-
 Follow these steps to verify the driver installation:
 
 1. Connect to the GPU VM. Follow the instructions in [Connect to a Linux VM](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-linux-vm). 
@@ -642,14 +549,6 @@ For more information, see [Nvidia GPU driver extension for Linux](../virtual-mac
 ---
 
 ## Remove GPU extension
-
-### Version 2205 and higher
-
-To remove the GPU extension, use the following command:
-
-`Remove-AzureRmVMExtension -ResourceGroupName <Resource group name> -VMName <VM name> -Name <Extension name>`
-
-### Versions lower than 2205
 
 To remove the GPU extension, use the following command:
 

@@ -48,6 +48,62 @@ For installation steps, see [Install GPU extension](./azure-stack-edge-gpu-deplo
     keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu1804/x86_64/3bf863cc.pub 
     ```
 
+## Enable TLS1.2 on Windows 2016 VHD before installing Nvidia GPU extension
+
+**Error description:** Need updated description.
+
+**Suggested solution:** Use the following steps to enable TLS1.2 on a Windows 2016 VM, and then deploy the template `addGPUextensiontoVM.json`. This template deploys the extension to an existing VM.
+
+1. Run the following command inside the VHD to enable TLS1.2:
+
+   ```powershell
+   sp hklm:\SOFTWARE\Microsoft\.NETFramework\v4.0.30319 SchUseStrongCrypto 1
+   ```
+
+1. Deploy the template `addGPUextensiontoVM.json` to install the extension on an existing VM. For detailed steps, see [Install GPU extension on VMs for your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md# ).
+
+   Run the following command:
+
+   ```powershell
+   $templateFile = "<Path to addGPUextensiontoVM.json>" 
+   $templateParameterFile = "<Path to addGPUExtWindowsVM.parameters.json>" 
+   RGName = "<Name of your resource group>"
+   New-AzureRmResourceGroupDeployment -ResourceGroupName $RGName -TemplateFile $templateFile -TemplateParameterFile $templateParameterFile -Name "<Name for your deployment>"
+   ```
+   > [!NOTE]
+   > The extension deployment is a long running job and takes about 10 minutes to complete.``
+
+## Manually install the Nvidia driver on RHEL 7
+
+**Error description:** When installing GPU extensions on a RHEL 7 VM, you may see the following error message:
+
+   ```azurecli
+   Need to enable TLS1.2 for some VHDs.
+   ```
+
+ In this case, you must manually install the Nvidia driver.
+
+**Suggested solution:** To manually install the driver:
+
+1. Resolve the certificate rotation issue. Run the following command:
+
+```powershell
+$ sudo yum-config-manager --add-repo  https://developer.download.nvidia.com/compute/cuda/repos/rhel7/$arch/cuda-rhel7.repo
+```
+ 
+1. To install an Nvidia driver lower than version 510, use the following settings when deploying the ARM extension: 
+ 
+```powershell
+settings": { 
+"isCustomInstall": true, 
+"InstallMethod": 0, 
+"DRIVER_URL": "  https://developer.download.nvidia.com/compute/cuda/11.4.4/local_installers/cuda-repo-rhel7-11-4-local-11.4.4_470.82.01-1.x86_64.rpm", 
+"DKMS_URL" : "  https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm", 
+"LIS_URL": "  https://aka.ms/lis", 
+"LIS_RHEL_ver": "3.10.0-1062.9.1.el7" 
+} 
+```
+
 ## VM size is not GPU VM size
 
 **Error description:** A GPU VM must be either Standard_NC4as_T4_v3 or Standard_NC8as_T4_v3 size. If any other VM size is used, the GPU extension will fail to be attached.
