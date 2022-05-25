@@ -47,7 +47,7 @@ The SDFs are bound to *Evolved Packet System (EPS) bearers*. EPS bearers are als
 
 - A *QoS class identifier (QCI)*, which is the equivalent of a 5QI in 5G networks. 
 
-  You can find more information on QCI values in 3GPP 23.401. Each QCI value is mapped to a 5QI value, as described in 3GPP 23.502.
+  You can find more information on QCI values in 3GPP 23.203. Each standardized QCI value is mapped to a 5QI value.
 
 - An ARP value. This works in the same way as in 5G networks to define an EPS bearer's importance.
 
@@ -134,14 +134,14 @@ During PDU session establishment, the packet core instance takes the following s
    - Checks uplink packets against the SDFs.
    - Applies any necessary traffic control.
    - Identifies the QoS flow to which each SDF should be bound.
-   - Marks packets with the appropriate QFI. The QFI ensures packets receive the correct QoS handling between the UE and the packet core instance without further inspection.
+   - In 5G networks only, the UE marks packets with the appropriate QFI. The QFI ensures packets receive the correct QoS handling between the UE and the packet core instance without further inspection.
 
 1. Inspects downlink packets to check their properties against the data flow templates of the associated services, and then takes the following steps based on this matching:
 
    - Applies any necessary traffic control.
    - Identifies the QoS flow to which each SDF should be bound.
    - Applies any necessary QoS treatment.
-   - Marks packets with the QFI corresponding to the correct QoS flow. The QFI ensures the packets receive the correct QoS handling between the packet core instance and data network without further inspection.
+   - In 5G networks only, the packet core instance marks packets with the QFI corresponding to the correct QoS flow. The QFI ensures the packets receive the correct QoS handling between the packet core instance and data network without further inspection.
 
 ## Next steps
 
