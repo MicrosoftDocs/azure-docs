@@ -48,6 +48,9 @@ Learn how [JIT protects your AWS EC2 instances](just-in-time-access-overview.md#
 
 You can now use the Azure CLI to [add and remove the Defender profile](/includes/defender-for-containers-enable-plan-aks.md#deploy-the-defender-profile) for a subscription and containers.
 
+> [!NOTE]
+> This option is included in [Azure CLI 3.7 and above](/cli/azure/update-azure-cli.md).
+
 ## April 2022
 
 Updates in April include:
