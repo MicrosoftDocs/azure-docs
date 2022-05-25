@@ -6,6 +6,15 @@ ms.date: 05/10/2022
 ms.author: larryfr
 ---
 
+### Online endpoint creation fails with a V1LegacyMode == true message
+
+The Azure Machine Learning workspace can be configured for `v1_legacy_mode`, which disables v2 APIs. Managed online endpoints are a feature of the v2 API platform, and won't work if `v1_legacy_mode` is enabled for the workspace. 
+
+> [!IMPORTANT]
+> Check with your network security team before disabling `v1_legacy_mode`. It may have been enabled by your network security team for a reason.
+
+For information on how to disable `v1_legacy_mode`, see [Network isolation with v2](how-to-configure-network-isolation-with-v2.md).
+
 ### Online endpoint creation with key-based authentication fails
 
 Use the following command to list the network rules of the Azure Key Vault for your workspace. Replace `<keyvault-name>` with the name of your key vault:
