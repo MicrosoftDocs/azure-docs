@@ -97,8 +97,8 @@ You can also [create log alert rules using Azure Resource Manager templates](../
     
     :::image type="content" source="media/alerts-log/alerts-rule-details-tab.png" alt-text="Details tab.":::
 
-> [!NOTE]
-> If you, or your administrator assigned the Azure Policy **Azure Log Search Alerts over Log Analytics workspaces should use customer-managed keys**, you must select **Check workspace linked storage** option in **Advanced options**, or the rule creation will fail as it will not meet the policy requirements.
+    > [!NOTE]
+    > If you, or your administrator assigned the Azure Policy **Azure Log Search Alerts over Log Analytics workspaces should use customer-managed keys**, you must select **Check workspace linked storage** option in **Advanced options**, or the rule creation will fail as it will not meet the policy requirements.
 
 1. In the **Tags** tab, set any required tags on the alert rule resource.
 

@@ -20,7 +20,7 @@ There are four types of alerts:
 
 ## Choosing the right alert type
 
-This table can help you decide when to use what type of alert. See the [pricing page](https://azure.microsoft.com/pricing/details/monitor/) for more detailed information about pricing.
+This table can help you decide when to use what type of alert. For more detailed information about pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 
 |Alert Type  |When to Use |Pricing Information|
 |---------|---------|---------|
@@ -54,7 +54,7 @@ When you create an alert rule for a single resource, you can apply multiple cond
 ### Narrow the target using Dimensions
 
 Dimensions are name-value pairs that contain additional data about the metric value. Using dimensions allows you to filter the metrics and monitor specific time-series, instead of monitoring the aggregate of all the dimensional values. 
-For example, the Transactions metric of a storage account has an API name dimension, that contains the name of the API called by each transaction (for example, GetBlob, DeleteBlob, PutPage). You can choose to have an alert fired when the number of transactions is high across all API names (which is the aggregated data), or you can use dimensions to further break it down into alerting only when the number of transactions is high for specific API names.
+For example, the Transactions metric of a storage account can have an API name dimension that contains the name of the API called by each transaction (for example, GetBlob, DeleteBlob, PutPage). You can choose to have an alert fired when there is a high number of transactions in any API name (which is the aggregated data), or you can use dimensions to further break it down to alert only when the number of transactions is high for specific API names.
 If you use more than one dimension, the metric alert rule can monitor multiple dimension values from different dimensions of a metric. 
 The alert rule separately monitors all the dimensions value combinations.
 See [this article](alerts-metric-multiple-time-series-single-rule.md) for detailed instructions on using dimensions in metric alert rules.
@@ -99,14 +99,14 @@ Dynamic thresholds use advanced machine learning (ML) to:
 - Recognize anomalies that indicate possible service issues
 - Calculate the most appropriate threshold for the metric 
 
-Machine Learning continuously uses new data to learn more and make the threshold more accurate. By adapting to the metrics’ behavior over time and alerting based on deviations from its pattern you are relieved of the the burden of knowing the "right" threshold for each metric. 
+Machine Learning continuously uses new data to learn more and make the threshold more accurate. Because the system adapts to the metrics’ behavior over time, and alerts based on deviations from its pattern, you don't have to know the "right" threshold for each metric. 
 
 Dynamic thresholds help you:
-- Create scalable alerts for hundreds of metric series with one alert rule. Less alert rules means less time you have to spend on creating and managing alerts rules.
+- Create scalable alerts for hundreds of metric series with one alert rule. Fewer alert rules translates to less time that you have to spend on creating and managing alerts rules.
 - Create rules without having to know what threshold to configure
 - Configure up metric alerts using high-level concepts without extensive domain knowledge about the metric
 - Prevent noisy (low precision) or wide (low recall) thresholds that don’t have an expected pattern
-- Handle noisy metrics (such as machine CPU or memory) as well as metrics with low dispersion (such as availability and error rate).
+- Handle noisy metrics (such as machine CPU or memory) and metrics with low dispersion (such as availability and error rate).
 
 See [this article](alerts-dynamic-thresholds.md) for detailed instructions on using dynamic thresholds in metric alert rules.
 
@@ -118,7 +118,7 @@ The target of the log alert rule can be:
 - Multiple resources of the same type in the same Azure region, such as a resource group. This is currently available for selected resource types.
 - Multiple resources using [cross-resource query](../logs/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights). 
 
-Log alerts can measure two different things which can be used for different monitoring scenarios:
+Log alerts can measure two different things, which can be used for different monitoring scenarios:
 - Table rows: The number of rows returned can be used to work with events such as Windows event logs, syslog, application exceptions.
 - Calculation of a numeric column: Calculations based on any numeric column can be used to include any number of resources. For example, CPU percentage.
 
@@ -135,7 +135,7 @@ To monitor for the same condition on multiple Azure resources, you can use split
 You may also decide not to split when you want a condition applied to multiple resources in the scope. For example, if you want to fire an alert if at least five machines in the resource group scope have CPU usage over 80%.
 
 ### Using the API
-Manage new rules in your workspaces using the [ScheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules) API. 
+Manage new rules in your workspaces using the [ScheduledQueryRules](/rest/api/monitor/scheduledqueryrule-2021-08-01/scheduled-query-rules) API. 
 
 > [!NOTE]
 > Log alerts for Log Analytics used to be managed using the legacy [Log Analytics Alert API](api-alerts.md). Learn more about [switching to the current ScheduledQueryRules API](alerts-log-api-switch.md).
