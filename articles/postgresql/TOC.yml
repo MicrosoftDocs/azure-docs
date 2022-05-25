@@ -773,7 +773,7 @@
         items:
         - name: python
           href: hyperscale/howto-app-stacks-python.md
-        - name: nodejs
+        - name: Node.js
           href: hyperscale/howto-app-stacks-nodejs.md
         - name: C#
           href: hyperscale/howto-app-stacks-C#.md
