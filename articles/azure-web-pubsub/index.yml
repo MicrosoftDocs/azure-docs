@@ -24,8 +24,8 @@ landingContent:
         links:
           - text: What is Azure Web PubSub service?
             url: overview.md
-      - LinkListType: concept
-          - text: About hubs, groups and connections
+      - linkListType: concept
+          - text: About hubs, groups, and connections
             url: key-concepts.md
           - text: Client protocols
             url: client-protocols.md
@@ -76,7 +76,7 @@ landingContent:
 
   # Card
    - title: Common tasks
-    linkLists:       
+     linkLists:       
       - linkListType: how-to-guide
         links:
           - text: Use private endpoints
@@ -88,7 +88,7 @@ landingContent:
   
   # Card
    - title: Advanced usage
-    linkLists:       
+     linkLists:       
       - linkListType: concept
         links:
           - text: High availability
@@ -106,7 +106,7 @@ landingContent:
 
    # Card
    - title: More resources
-    linkLists:       
+     linkLists:       
       - linkListType: reference
         links:
           - text: REST API
