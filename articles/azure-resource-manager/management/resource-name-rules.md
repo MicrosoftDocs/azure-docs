@@ -826,7 +826,7 @@ In the following tables, the term alphanumeric refers to:
 >
 > Azure Functions has the same naming rules and restrictions as Microsoft.Web/sites. When generating the host ID, the function app name is truncated to 32 characters. This can cause host ID collision when a shared storage account is used. For more information, see [Host ID considerations](../../azure-functions/storage-considerations.md#host-id-considerations). 
 >
-> Unicode characters are parsed to Punycode using the following method: https://docs.microsoft.com/dotnet/api/system.globalization.idnmapping.getascii
+> Unicode characters are parsed to Punycode using the [IdnMapping.GetAscii method](/dotnet/api/system.globalization.idnmapping.getascii)
 
 ## Next steps
 
