@@ -91,7 +91,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Export data from IoT Central
-            url: core/quick-export-data.md           
+            url: core/overview-iot-central-solution-builder.md#data-export          
           - text: Administer an application with the REST API
             url: /learn/modules/manage-iot-central-apps-with-rest-api/
 

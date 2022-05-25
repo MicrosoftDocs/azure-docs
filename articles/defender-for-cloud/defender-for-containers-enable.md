@@ -25,7 +25,7 @@ Learn about this plan in [Overview of Microsoft Defender for Containers](defende
 ::: zone pivot="defender-for-container-arc,defender-for-container-eks,defender-for-container-gke"
 > [!NOTE]
 > Defender for Containers' support for Arc-enabled Kubernetes clusters, AWS EKS, and GCP GKE. This is a preview feature.
-> 
+>
 > [!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]
 ::: zone-end
 
@@ -70,7 +70,7 @@ A full list of supported alerts is available in the [reference table of all Defe
 1. In the Azure portal, open Microsoft Defender for Cloud's security alerts page and look for the alert on the relevant resource:
 
     :::image type="content" source="media/defender-for-kubernetes-azure-arc/sample-kubernetes-security-alert.png" alt-text="Sample alert from Microsoft Defender for Kubernetes." lightbox="media/defender-for-kubernetes-azure-arc/sample-kubernetes-security-alert.png":::
- 
+
 ::: zone pivot="defender-for-container-arc,defender-for-container-eks,defender-for-container-gke"
 [!INCLUDE [Remove the extension](./includes/defender-for-containers-remove-extension.md)]
 ::: zone-end
