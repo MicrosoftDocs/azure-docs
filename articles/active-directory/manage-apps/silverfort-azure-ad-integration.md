@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 [Silverfort](https://www.silverfort.com/) uses innovative agent-less and proxy-less technology to connect all your assets on-premises and in the cloud to Azure AD. This solution enables organizations to apply identity protection, visibility, and user experience across all environments in Azure AD. It enables universal risk-based monitoring and assessment of authentication activity for on-premises and cloud environments, and proactively prevents threats.  
 
-In this tutorial, learn how to integrate your existing on premises Silverfort implementation with Azure Active Directory (Azure AD) for [hybrid access](https://docs.microsoft.com/en-us/azure/active-directory/devices/concept-azure-ad-join-hybrid).
+In this tutorial, learn how to integrate your existing on premises Silverfort implementation with Azure Active Directory (Azure AD) for [hybrid access](../devices/concept-azure-ad-join-hybrid).
 
 Silverfort seamlessly connects assets with Azure AD. These **bridged** assets appear as regular applications in Azure AD and can be protected with Conditional Access, single-sign-on (SSO), multifactor authentication, auditing and more. Use Silverfort to connect assets including:
 
