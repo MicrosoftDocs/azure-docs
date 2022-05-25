@@ -31,19 +31,10 @@ In this tutorial, you learn how to:
 
 Before you start, make sure that you have:
 
-- Completed [Quickstart: Get started with Defender for IoT](getting-started.md) so that you have added Defender for IoT to an Azure subscription. If you already have a subscription that has Defender for IoT onboarded for OT environments, you'll need to perform the same procedure again to add a new Enterprise IoT plan.
+- Completed [Quickstart: Get started with Defender for IoT](getting-started.md) and that you have added Defender for IoT to an Azure subscription. If you already have a subscription that has Defender for IoT onboarded for OT environments, you'll need to perform the same procedure again to add a new Enterprise IoT plan.
 
-- The following Azure permissions:
+- The Azure permissions, as listed in [Quickstart: Getting Started with Defender for IoT](getting-started.md#permissions). 
 
-    There's a minimum security level needed to access different parts of Defender for IoT. You must have a level of Security owner or Subscription contributor of the subscription to onboard Enterprise IoT and commit to a pricing plan. <!--need to reword the following sentence what is it trying to say--> Security Reader level permissions to access the Defender for IoT user interface.
-
-The following table describes user access permissions to Defender for IoT portal tools:
-
-| Permission | Security reader | Security admin | Subscription contributor | Subscription owner |
-|--|--|--|--|--|
-| View details and access software, activation files, and threat intelligence packages | ✓ | ✓ | ✓ | ✓ |
-| Onboard a sensor |  | ✓ | ✓ | ✓ |
-| Update pricing plans |  |  | ✓ | ✓ |
 
 ## Set up a server or Virtual Machine (VM)
 
@@ -108,7 +99,7 @@ The environment will now have to be prepared.
 You can also download and add the [Azure public IP ranges](https://www.microsoft.com/download/details.aspx?id=56519) so your firewall will allow the Azure resources that are specified above, along with their region.
 
 > [!Note]
-> The Azure public IP range are updated weekly. New ranges appearing in the file will not be used in Azure for at least one week. Please download the new json file every week and perform the necessary changes at your site to correctly identify services running in Azure.
+> The Azure public IP ranges are updated weekly. New ranges appearing in the file will not be used in Azure for at least one week. Please download the new json file every week and perform the necessary changes at your site to correctly identify services running in Azure.
 
 ## Set up an Enterprise IoT sensor
 
@@ -216,14 +207,14 @@ The installation will now finish.
 
 ## Configure the integration with Defender for Endpoint
 
-You can view your IoT devices in both Defender for IoT and in Defender for Endpoint. 
-Alerts, vulnerabilities, and recommendations for enterprise IoT devices are currently visible only in Defender for Endpoint.
+You can view your Enterprise IoT devices in both Defender for IoT and in Defender for Endpoint. 
+Alerts, vulnerabilities, and recommendations for Enterprise IoT devices are currently visible only in Defender for Endpoint.
 For more information, see [Enable Microsoft Defender for IoT integration](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
 
 > [!TIP]
-> If you don't see your enterprise IoT data in Defender for IoT as expected, make sure that you're viewing the Azure portal with the correct subscriptions selected. For more information, see [Manage Azure portal settings](/azure/azure-portal/set-preferences).
+> If you don't see your Enterprise IoT data in Defender for IoT as expected, make sure that you're viewing the Azure portal with the correct subscriptions selected. For more information, see [Manage Azure portal settings](/azure/azure-portal/set-preferences).
 
-## View detected enterprise IoT devices
+## View detected Enterprise IoT devices
 
 Once you've validated your setup, you can view your devices in the Defender for IoT **Device inventory** page. Once you've enabled Defender for IoT in Defender for Endpoint, you can also view your devices in the Defender for Endpoint **Device inventory** page.
 
@@ -233,7 +224,7 @@ Once you've validated your setup, you can view your devices in the Defender for 
 
 ## View alerts, vulnerabilities, and recommendations
 
-Alerts, vulnerabilities, and recommendations for enterprise IoT devices are currently visible only in Defender for Endpoint.
+Alerts, vulnerabilities, and recommendations for Enterprise IoT devices are currently visible only in Defender for Endpoint.
 
 For more information, see:
 

@@ -9,7 +9,7 @@ ms.date: 03/24/2022
 
 This quickstart takes you through the initial steps of setting up Defender for IoT, including:
 
-- Add an Azure subscription to Defender for IoT
+- Add Defender for IoT to an Azure subscription
 - Identify and plan solution architecture
 
 You can use this procedure to set up a Defender for IoT trial. The trial provides 30-day support for 1000 devices and a virtual sensor, which you can use to monitor traffic, analyze data, generate alerts, understand network risks and vulnerabilities and more.
@@ -20,7 +20,7 @@ Before you start, make sure that you have:
 
 - An Azure account. If you don't already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
 
-- Access to an Azure subscription with the **Subscription Contributor** role.
+- Access to an Azure subscription with the subscription **Owner** or **Contributor** role.
 
 If you're using a Defender for IoT sensor version earlier than 22.1.x, you must also have an Azure IoT Hub (Free or Standard tier) **Contributor** role, for cloud-connected management. Make sure that the **Microsoft Defender for IoT** feature is enabled.
 
@@ -35,17 +35,19 @@ Defender for IoT users require the following permissions:
 | View details and access software, activation files and threat intelligence packages  | ✓ | ✓ | ✓ | ✓ |
 | Recover passwords  | ✓  |  ✓ | ✓ | ✓ |
 
+For more information, see [Azure roles](/azure/role-based-access-control/rbac-and-directory-admin-roles).
+
 ### Supported service regions
 
 Defender for IoT routes all traffic from all European regions to the *West Europe* regional datacenter. It routes traffic from all remaining regions to the *Central US* regional datacenter.
 
-If you're using a legacy version of the sensor traffic  are connecting sensors through your own IoT Hub, the IoT Hub supported regions are also relevant for your organization. For more information, see [IoT Hub supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
+If you're using a legacy version of the sensor traffic and are connecting through your own IoT Hub, the IoT Hub supported regions are also relevant for your organization. For more information, see [IoT Hub supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
 
 ## Identify and plan your OT solution architecture
 
 If you're working with an OT network, we recommend that you identify system requirements and plan your system architecture before you start, even if you plan to start with a trial subscription.
 
-If you're setting up network monitoring for enterprise IoT systems, you can skip directly to [Add a subscription to Defender for IoT](#add-a-subscription-to-defender-for-iot).
+If you're setting up network monitoring for enterprise IoT systems, you can skip directly to [Add Defender for IoT to a subscription](#add-defender-for-iot-to-a-subscription).
 
 **When working with an OT network**:
 
@@ -65,33 +67,47 @@ For more information, see:
 - [Sensor connection methods](architecture-connections.md)
 - [Prepare your OT network for Microsoft Defender for IoT](how-to-set-up-your-network.md)
 - [Predeployment checklist](pre-deployment-checklist.md)
-- [Identify required appliances](how-to-identify-required-appliances.md).
+- [Identify required appliances](how-to-identify-required-appliances.md)
 
-## Add a subscription to Defender for IoT
+## Add Defender for IoT to a subscription 
 
-This procedure describes how to add a new Azure subscription to Defender for IoT. If you're planning to monitor both OT and enterprise IoT networks, we recommend adding separate subscriptions.
+This procedure describes how to add Defender for IoT to an Azure subscription. If you're planning to monitor both OT and enterprise IoT networks, we recommend using separate subscriptions for each one.
 
-**To add your subscription**
+**To add Defender for IoT to your subscription**
 
 1. In the Azure portal, go to **Defender for IoT** > **Plans and pricing**.
 
-1. Select **Add** to add a new subscription, and then define the following values:
+1. Select **Add plan**.
 
-   - **Purchase method**. Select a monthly or annual commitment, or a trial. Microsoft Defender for IoT provides a 30-day free trial for the first 1,000 committed devices for evaluation purposes.
+1. In the **Plan settings** pane, define the plan:
 
-        For more information, see the **Microsoft Defender for IoT** section of the [Microsoft Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/).
+    - **Subscription**. Select the subscription where you would like to add Defender for IoT.
+    - Toggle on the **OT** and/or **Enterprise IoT** options as needed for your network types.
+    - **Price plan**. Select a monthly or annual commitment, or a [trial](#about-defender-for-iot-trials). Microsoft Defender for IoT provides a 30-day free trial for the first 1,000 committed devices for evaluation purposes.
+    
+        For more information, see the [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/).
 
-   - **Subscription**. Select a subscription where you have a **Subscription Contributor** role.
+    - **Committed sites** (OT only). Enter the number of committed sites.
 
-   - **Committed devices**. If you selected a monthly or annual commitment, enter the number of devices you'll want to monitor. If you selected a trial, this section doesn't appear as you have a default of 1000 devices.
+    - **Number of devices**. If you selected a monthly or annual commitment, enter the number of devices you'll want to monitor. If you selected a trial, this section doesn't appear as you have a default of 1000 devices.
 
-1. Select the **I accept the terms** option, and then select **Save**.
+1. Select **Next**.
+
+1. **Implementation services**. Choose if you would like to add implementation services for this deployment. Implementation Services will be deployed remotely by an expert consultant.
+    - If you select **Yes**, fill in the site and contact details as requested, and you will be contacted regarding this service.
+
+1. Select **Next**.
+
+1. **Review & purchase**. Review your selections and **accept the terms and conditions**. 
+
+1. Select **Purchase**.
+
 
 Your subscription is shown in the **Plans and pricing** grid. For example:
 
 :::image type="content" source="media/getting-started/pricing.png" alt-text="Screenshot of the Plans and pricing page in Defender for IoT." lightbox="media/getting-started/pricing.png"::::::
 
-For more information, see [Manage Defender for IoT subscriptions](how-to-manage-subscriptions.md).
+For more information, see [Manage your subscriptions](how-to-manage-subscriptions.md).
 
 ## Next steps
 
