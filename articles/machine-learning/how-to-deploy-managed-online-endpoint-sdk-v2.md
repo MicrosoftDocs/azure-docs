@@ -256,7 +256,7 @@ Next, deploy your online endpoint to Azure.
     ml_client.begin_create_or_update(endpoint)
     ```
 
-##Test the endpoint with sample data
+## Test the endpoint with sample data
 
 Using the `MLClient` created earlier, we'll get a handle to the endpoint. The endpoint can be invoked using the `invoke` command with the following parameters:
 
