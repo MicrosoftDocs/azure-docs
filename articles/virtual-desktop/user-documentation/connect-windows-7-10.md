@@ -7,6 +7,7 @@ ms.date: 01/27/2022
 ms.author: helohr
 manager: femila
 ms.custom: template-how-to
+adobe-target: true
 ---
 
 # Connect with the Windows Desktop client
