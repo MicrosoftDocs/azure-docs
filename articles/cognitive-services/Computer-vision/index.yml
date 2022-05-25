@@ -75,7 +75,7 @@ conceptualContent:
       footerLink:
         text: More
         url: index-image-analysis.yml
-    - title: Azure Identity
+    - title: Identity
       links:
         - itemType: overview
           text: About Identity
