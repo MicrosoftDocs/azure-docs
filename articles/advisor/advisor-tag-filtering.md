@@ -9,23 +9,23 @@ You can now get Advisor recommendations and scores scoped to a workload, environ
 
 ## How to filter recommendations using tags
 
-1.	Sign in to the Azure portal.
-1.	Search for and select Advisor from any page.
-1.	On the Advisor dashboard, click on the Add Filter button.
-1.	Select the tag in the Filter field and value(s).
-1.	Click Apply. Summary tiles will be updated to reflect the filter.
+1.	Sign in to the [Azure portal](https://portal.azure.com/).
+1.	Search for and select [Advisor](https://aka.ms/azureadvisordashboard) from any page.
+1.	On the Advisor dashboard, click on the **Add Filter** button.
+1.	Select the tag in the **Filter** field and value(s).
+1.	Click **Apply**. Summary tiles will be updated to reflect the filter.
 1.	Click on any of the categories to review recommendations.
  
     ![Azure Advisor dashboard](./media/tags/overview-tag-filters.png)
  
 ## How to calculate scores using resource tags
 
-1.	Sign in to the Azure portal.
-1.	Search for and select Advisor from any page.
+1.	Sign in to the [Azure portal](https://portal.azure.com/).
+1.	Search for and select [Advisor](https://aka.ms/azureadvisordashboard) from any page.
 1.	Select Advisor score (preview) from the navigation menu on the left.
-1.	On the Advisor dashboard, click on the Add Filter button.
-1.	Select the tag in the Filter field and value(s).
-1.	Click Apply. Advisor score will be updated to only include resources impacted by the filter. 
+1.	Click on the **Add Filter** button.
+1.	Select the tag in the **Filter** field and value(s).
+1.	Click **Apply**. Advisor score will be updated to only include resources impacted by the filter. 
 1.	Click on any of the categories to review recommendations.
  
     ![Azure Advisor dashboard](./media/tags/score-tag-filters.png)
