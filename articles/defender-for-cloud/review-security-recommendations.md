@@ -6,7 +6,7 @@ ms.date: 05/11/2022
 ---
 # Review your security recommendations
 
-This article explains how to view and understand the recommendations in Microsoft Defender for Cloud to help you protect your multi-cloud resources.
+This article explains how to view and understand the recommendations in Microsoft Defender for Cloud to help you protect your multicloud resources.
 
 ## View your recommendations <a name="monitor-recommendations"></a>
 

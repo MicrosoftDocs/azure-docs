@@ -30,10 +30,16 @@
       href: create-cluster.md
 - name: Tutorials
   items:
+  - name: Capture Event Hubs data in Parquet format
+    href: event-hubs-parquet-capture-tutorial.md
+  - name: Build near-real time dashboards with no code editor
+    href: no-code-power-bi-tutorial.md
   - name: Visualize fraudulent calls in Power BI
     href: stream-analytics-real-time-fraud-detection.md
-  - name: Run Azure Functions
+  - name: Integrate 3rd party services using Azure Functions
     href: stream-analytics-with-azure-functions.md
+  - name: Visualize fraudulent calls in Power BI
+    href: stream-analytics-real-time-fraud-detection.md
   - name: Run a C# UDF
     href: stream-analytics-edge-csharp-udf.md
   - name: Create a custom .NET deserializer
@@ -138,6 +144,8 @@
       href: repartition.md
     - name: Increase throughput of your job
       href: stream-analytics-scale-jobs.md
+  - name: No code editor
+    href: no-code-stream-processing.md
   - name: IoT Edge
     href: stream-analytics-edge.md
   - name: States of a job
@@ -198,6 +206,16 @@
       href: data-protection.md
     - name: Geo-redundancy
       href: geo-redundancy.md
+  - name: Build with no code editor
+    items:
+    - name: Capture Event Hubs data in Parquet format
+      href: capture-event-hub-data-parquet.md
+    - name: Materialize data to Cosmos DB
+      href: no-code-materialize-cosmos-db.md
+    - name: Filter and ingest Synapse SQL data
+      href: filter-ingest-synapse-sql.md
+    - name: Filter and ingest to Data Lake Storage Gen2
+      href: filter-ingest-data-lake-storage-gen2.md
   - name: Authenticate with managed identity
     items:
     - name: Managed Identities Overview
