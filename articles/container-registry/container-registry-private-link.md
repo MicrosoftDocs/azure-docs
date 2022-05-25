@@ -334,7 +334,7 @@ Consider the following options to execute the `az acr build` successfully.
 > [!NOTE]
 > Once you disable public network [access here](#disable-public-access), then `az acr build` commands will no longer work.
 
-1. Assign a [dedicated agent pool.](./tasks-agent-pools.md#Virtual-network-support) 
+1. Assign a [dedicated agent pool.](./tasks-agent-pools.md#virtual-network-support) 
 2. If agent pool is not available in the region, add the regional [Azure Container Registry Service Tag IPv4](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api) to the [firewall access rules.](./container-registry-firewall-access-rules.md#allow-access-by-ip-address-range)
 3. Create an ACR task with a managed identity, and enable trusted services to [access network restricted ACR.](./allow-access-trusted-services.md#example-acr-tasks)
 
