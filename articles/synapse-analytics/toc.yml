@@ -1512,8 +1512,42 @@ items:
   items:
   - name: Migration guides
     items:
+    - name: All migration guides
+      href: migration-guides/index.yml    
     - name: Migrate to a dedicated SQL pool
       href: migration-guides/migrate-to-synapse-analytics-guide.md
+    - name: From Teradata
+      items:
+      - name: 1 Design performance for Teradata migration
+        href: migration-guides/teradata/1-design-performance-migration.md
+      - name: 2 ETL and load migration considerations
+        href: migration-guides/teradata/2-etl-load-migration-considerations.md
+      - name: 3 Security access operations
+        href: migration-guides/teradata/3-security-access-operations.md
+      - name: 4 Visualization and reporting
+        href: migration-guides/teradata/4-visualization-reporting.md
+      - name: 5 Minimizing SQL issues
+        href: migration-guides/teradata/5-minimize-sql-issues.md
+      - name: 6 Microsoft and third-party tools
+        href: migration-guides/teradata/6-microsoft-third-party-migration-tools.md
+      - name: 7 Implementing modern data warehouses
+        href: migration-guides/teradata/7-beyond-data-warehouse-migration.md
+    - name: From Netezza
+      items:
+      - name: 1 Design performance for Netezza migration
+        href: migration-guides/netezza/1-design-performance-migration.md
+      - name: 2 ETL and load migration considerations
+        href: migration-guides/netezza/2-etl-load-migration-considerations.md
+      - name: 3 Security access operations
+        href: migration-guides/netezza/3-security-access-operations.md
+      - name: 4 Visualization and reporting
+        href: migration-guides/netezza/4-visualization-reporting.md
+      - name: 5 Minimizing SQL issues
+        href: migration-guides/netezza/5-minimize-sql-issues.md
+      - name: 6 Microsoft and third-party tools
+        href: migration-guides/netezza/6-microsoft-third-party-migration-tools.md
+      - name: 7 Implementing modern data warehouses
+        href: migration-guides/netezza/7-beyond-data-warehouse-migration.md
   - name: Security white paper
     items:
     - name: Introduction

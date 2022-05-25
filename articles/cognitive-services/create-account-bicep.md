@@ -13,17 +13,19 @@ ms.custom: subject-armqs, mode-arm
 
 # Quickstart: Create a Cognitive Services resource using Bicep
 
-This quickstart describes how to use Bicep to create Cognitive Services.
+Follow this quickstart to create Cognitive Services resource using Bicep.
 
 Azure Cognitive Services are cloud-base services with REST APIs, and client library SDKs available to help developers build cognitive intelligence into applications without having direct artificial intelligence (AI) or data science skills or knowledge. Azure Cognitive Services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, understand, and even begin to reason.
 
-Create a resource using Bicep. This multi-service resource lets you:
+[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+
+## Things to consider
+
+Using Bicep to create a Cognitive Service resource lets you create a multi-service resource. This enables you to:
 
 * Access multiple Azure Cognitive Services with a single key and endpoint.
 * Consolidate billing from the services you use.
 * [!INCLUDE [terms-azure-portal](./includes/quickstarts/terms-azure-portal.md)]
-
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
