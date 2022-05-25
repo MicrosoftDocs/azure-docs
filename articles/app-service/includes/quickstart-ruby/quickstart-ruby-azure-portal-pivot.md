@@ -104,7 +104,7 @@ The Ruby sample code is running in an Azure App Service Linux web app.
 
 3. Navigate to **app/controllers/application_controller.rb**.
 
-![Screenshot of Visual Studio Code in the browser, highlighting app/controllers/application_controller.rb in the Explorer pane.](../../media/quickstart-ruby/vscode-in-browser-navigate-to-application-controller.png)
+    ![Screenshot of Visual Studio Code in the browser, highlighting app/controllers/application_controller.rb in the Explorer pane.](../../media/quickstart-ruby/vscode-in-browser-navigate-to-application-controller.png)
 
 4. Edit the *ApplicationController* class so that it shows "Hello world from Azure App Service on Linux!" instead of "Hello from Azure App Service on Linux!".
 
@@ -126,7 +126,7 @@ The Ruby sample code is running in an Azure App Service Linux web app.
 
 7. Once deployment has completed, return to the browser window that opened during the **Browse to the app** step, and refresh the page.
 
-![Screenshot of the updated sample app running in Azure, showing 'Hello world from Azure App Service on Linux!'.](../../media/quickstart-ruby/ruby-hello-world-updated-in-browser.png)
+    ![Screenshot of the updated sample app running in Azure, showing 'Hello world from Azure App Service on Linux!'.](../../media/quickstart-ruby/ruby-hello-world-updated-in-browser.png)
 
 ## 4 - Manage your new Azure app
 
