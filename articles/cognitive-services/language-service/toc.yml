@@ -199,7 +199,7 @@ items:
       - name: Runtime prediction API
         href: https://aka.ms/ct-runtime-api
       - name: SDK samples
-      items:
+        items:
         - name: Java
           href: https://aka.ms/sdk-samples-java
         - name: Java script
@@ -274,7 +274,7 @@ items:
         href: https://aka.ms/clu-authoring-apis
       - name: Runtime prediction API
         href: https://aka.ms/clu-runtime-api
-      items:
+        items:
         - name: C#
           href:  https://aka.ms/sdk-sample-conversation-dot-net
         - name: Python
@@ -588,7 +588,7 @@ items:
         href: https://aka.ms/clu-authoring-apis
       - name: Runtime prediction API
         href: https://aka.ms/clu-runtime-api
-      items:
+        items:
         - name: C#
           href:  https://aka.ms/sdk-sample-conversation-dot-net
         - name: Python
