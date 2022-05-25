@@ -105,7 +105,7 @@ test.txt
 
 ## Create a custom storage class
 
-The default storage classes is suitable for most common scenarios. For some cases, you might want to have your own storage class customized with your own parameters. For example, you might want to change the `volumeBindingMode` class.
+The default storage classes are suitable for most common scenarios. For some cases, you might want to have your own storage class customized with your own parameters. For example, you might want to change the `volumeBindingMode` class.
 
 You can use a `volumeBindingMode: Immediate` class that guarantees it occurs immediately once the PVC is created. In cases where your node pools are topology constrained, for example when using availability zones, PVs would be bound or provisioned without knowledge of the pod's scheduling requirements (in this case to be in a specific zone).
 
