@@ -195,17 +195,22 @@ This section presents reference code templates to describe how to use and invoke
 
 #### Read Request - `synapsesql` method signature
 
+##### [Scala](#tab/scala)
+
 ```Scala
 synapsesql(tableName:String) => org.apache.spark.sql.DataFrame
 ```
 
+##### [Python](#tab/python)
+
 ```python
 synapsesql(table_name: str) -> org.apache.spark.sql.DataFrame
 ```
+---
 
 #### Read using Azure AD based authentication
 
-##### [Scala](#tab/scala)
+##### [Scala](#tab/scala1)
 
 ```Scala
 //Use case is to read data from an internal table in Synapse Dedicated SQL Pool DB
@@ -234,7 +239,7 @@ val dfToReadFromTable:DataFrame = spark.read.
 dfToReadFromTable.show()
 ```
 
-##### [Python](#tab/python)
+##### [Python](#tab/python1)
 
 ```python
 # Add required imports
@@ -265,7 +270,7 @@ dfToReadFromTable.show()
 
 #### Read using basic authentication
 
-##### [Scala](#tab/scala1)
+##### [Scala](#tab/scala2)
 
 ```Scala
 //Use case is to read data from an internal table in Synapse Dedicated SQL Pool DB
@@ -299,7 +304,7 @@ val dfToReadFromTable:DataFrame = spark.read.
 dfToReadFromTable.show()
 ```
 
-##### [Python](#tab/python1)
+##### [Python](#tab/python2)
 
 ```python
 # Add required imports
@@ -351,6 +356,8 @@ synapsesql(tableName:String,
 
 * Spark Pool Version 3.1.2
 
+##### [Scala](#tab/scala3)
+
 ```Scala
 synapsesql(tableName:String, 
            tableType:String = Constants.INTERNAL, 
@@ -358,15 +365,18 @@ synapsesql(tableName:String,
            callBackHandle=Option[(Map[String, Any], Option[Throwable])=>Unit]):Unit
 ```
 
+##### [Python](#tab/python3)
+
 ```python
 synapsesql(table_name: str, table_type: str = Constants.INTERNAL, location: str = None) -> None
 ```
+---
 
 #### Write using Azure AD based authentication
 
 Following is a comprehensive code template that describes how to use the Connector for write scenarios:
 
-##### [Scala](#tab/scala2)
+##### [Scala](#tab/scala4)
 
 ```Scala
 //Add required imports
@@ -425,7 +435,7 @@ readDF.
 if(errorDuringWrite.isDefined) throw errorDuringWrite.get
 ```
 
-##### [Python](#tab/python2)
+##### [Python](#tab/python4)
 
 ```python
 
@@ -483,7 +493,7 @@ from com.microsoft.spark.sqlanalytics.Constants import Constants
 
 Following code snippet replaces the write definition described in the [Write using Azure AD based authentication](#write-using-azure-ad-based-authentication) section, to submit write request using SQL basic authentication approach:
 
-##### [Scala](#tab/scala3)
+##### [Scala](#tab/scala5)
 
 ```Scala
 //Define write options to use SQL basic authentication
@@ -512,7 +522,7 @@ readDF.
                 callBackHandle = Some(callBackFunctionToReceivePostWriteMetrics))
 ```
 
-##### [Python](#tab/python3)
+##### [Python](#tab/python5)
 
 ```python
 # Write using Basic Auth to Internal table
@@ -704,9 +714,9 @@ Spark DataFrame's `createOrReplaceTempView` can be used to access data fetched i
 
 * Now, change the language preference on the Notebook to `PySpark (Python)` and fetch data from the registered view `<temporary_view_name>`
 
-    ```Python
+```Python
         spark.sql("select * from <temporary_view_name>").show()
-    ```
+```
 
 ### Response handling
 
