@@ -41,7 +41,7 @@ The Application Insights connection string must be provided manually to the Orde
 > [!NOTE]
 > Currently only the buildpacks for Java and NodeJS applications support Application Insights instrumentation. This will be changed in future iterations.
 
-1. Retrieve the Application Insights connection string and set it in Key Vault using the following commands:
+1. Retrieve the Application Insights connection string and set it in Key Vault by using the following commands:
 
    ```azurecli
    INSTRUMENTATION_KEY=$(az monitor app-insights component show \
@@ -56,7 +56,7 @@ The Application Insights connection string must be provided manually to the Orde
 > [!NOTE]
 > By default, the Application Insights service instance has the same name as the Azure Spring Apps service instance.
 
-1. Update the sampling rate for the Application Insights binding to increase the amount of data available using the following command:
+1. Update the sampling rate for the Application Insights binding to increase the amount of data available by using the following command:
 
    ```azurecli
    az spring build-service builder buildpack-binding set \
@@ -68,7 +68,7 @@ The Application Insights connection string must be provided manually to the Orde
        --properties sampling-rate=100 connection_string=${INSTRUMENTATION_KEY}
    ```
 
-1. Restart applications to reload configuration using the following commands:
+1. Restart applications to reload configuration by using the following commands:
 
    ```azurecli
    az spring app restart \

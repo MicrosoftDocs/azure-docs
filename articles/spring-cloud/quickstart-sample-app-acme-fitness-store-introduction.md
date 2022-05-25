@@ -16,7 +16,7 @@ ms.custom: devx-track-java
 
 **This article applies to:** ❌ Basic/Standard tier ✔️ Enterprise tier
 
-In this quickstart, we use the [ACME Fitness Store](https://github.com/Azure-Samples/acme-fitness-store) application that will show how to deploy polyglot applications to Azure Spring Apps Enterprise tier. You'll see how polyglot applications are built and deployed using Azure Spring Apps Enterprise tier capabilities including Tanzu Build Service, Service Discovery, externalized configuration with Application Configuration Service, application routing with Spring Cloud Gateway, logs, metrics, and distributed tracing.
+This quickstart describes the [ACME Fitness Store](https://github.com/Azure-Samples/acme-fitness-store) sample application, which will show you how to deploy polyglot applications to Azure Spring Apps Enterprise tier. You'll see how polyglot applications are built and deployed using Azure Spring Apps Enterprise tier capabilities. These capabilities include Tanzu Build Service, Service Discovery, externalized configuration with Application Configuration Service, application routing with Spring Cloud Gateway, logs, metrics, and distributed tracing.
 
 The following diagram shows a common application architecture:
 
@@ -24,23 +24,23 @@ The following diagram shows a common application architecture:
 
 This architecture shows an application composed of smaller applications with a gateway, multiple databases, security services, monitoring, and automation.
 
-This quickstart applies this architecture to a Fitness Store application. This application is composed of several services split up by domain:
+This quickstart applies this architecture to a Fitness Store application. This application is composed of the following services split up by domain:
 
 - Three Java Spring Boot applications:
-  - **Catalog Service**: contains an API for fetching available products
-  - **Payment Service**: Validates and processes payments for users' orders
-  - **Identity Service**: Provides reference to the authenticated user
+  - **Catalog Service** contains an API for fetching available products.
+  - **Payment Service** validates and processes payments for users' orders.
+  - **Identity Service** provides reference to the authenticated user.
 
 - One Python application:
-  - **Cart Service**: Manages users' items that have been selected for purchase
+  - **Cart Service** manages users' items that have been selected for purchase.
 
 - One ASP.NET Core application:
-  - **Order Service**: Places orders to buy products that are in the users' carts
+  - **Order Service** places orders to buy products that are in the users' carts.
 
-- One NodeJS and static HTML Application
-  - **Frontend**: shopping application that depends on other services
+- One NodeJS and static HTML Application:
+  - **Frontend** is the shopping application that depends on the other services.
 
-The following picture shows the ACME Fitness Store home page.
+The following screenshot shows the ACME Fitness Store home page.
 
 :::image type="content" source="media/quickstart-sample-app-acme-fitness-store-introduction/homepage.png" alt-text="Screenshot of the ACME Fitness store application.":::
 

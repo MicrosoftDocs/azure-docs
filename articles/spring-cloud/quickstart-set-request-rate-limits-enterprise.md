@@ -58,7 +58,7 @@ The following example would limit all users to two requests every 5 seconds to t
 
 When the limit is exceeded, response will fail with `429 Too Many Requests` status.
 
-Apply the `RateLimit` filter to the `/products` route using the following command:
+Apply the `RateLimit` filter to the `/products` route by using the following command:
 
 ```azurecli
 az spring gateway route-config update \
@@ -69,7 +69,7 @@ az spring gateway route-config update \
     --routes-file azure/routes/catalog-service_rate-limit.json
 ```
 
-Retrieve the URL for the `/products` route in Spring Cloud Gateway using the following command:
+Retrieve the URL for the `/products` route in Spring Cloud Gateway by using the following command:
 
 ```azurecli
 GATEWAY_URL=$(az spring gateway show \

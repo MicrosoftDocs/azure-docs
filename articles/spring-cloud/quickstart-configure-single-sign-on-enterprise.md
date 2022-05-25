@@ -36,7 +36,7 @@ To configure single sign-on for the application, you'll need to prepare credenti
 
 Follow these steps to configure single sign-on using an existing Identity Provider. If you're provisioning an Azure Active Directory App Registration, continue on to [Register with Azure Active Directory](#create-and-configure-an-application-registration-with-azure-active-directory).
 
-1. Your existing identity provider must be configured to allow redirects back to Spring Cloud Gateway and API Portal. Spring Cloud Gateway has a single URI to allow re-entry to the gateway. API Portal has two URIs for supporting the user interface and underlying API. Retrieve these URIs using the following commands and add them to your single sign-on provider's configuration:
+1. Your existing identity provider must be configured to allow redirects back to Spring Cloud Gateway and API Portal. Spring Cloud Gateway has a single URI to allow re-entry to the gateway. API Portal has two URIs for supporting the user interface and underlying API. Retrieve these URIs by using the following commands and add them to your single sign-on provider's configuration:
 
    ```azurecli
    GATEWAY_URL=$(az spring gateway show \
@@ -65,13 +65,13 @@ Follow these steps to configure single sign-on using an existing Identity Provid
 
 To register the application with Azure Active Directory, follow these steps. If you're using an existing provider's credentials, continue on to [Deploy the Identity Service Application](#deploy-the-identity-service-application).
 
-1. Create an Application registration with Azure Active Directory and save the output using the following command:
+1. Create an Application registration with Azure Active Directory and save the output by using the following command:
 
    ```azurecli
    az ad app create --display-name <app-registration-name> > ad.json
    ```
 
-1. Retrieve the Application ID and collect the client secret using the following commands:
+1. Retrieve the Application ID and collect the client secret by using the following commands:
 
    ```azurecli
    APPLICATION_ID=$(cat ad.json | jq -r '.appId')
@@ -84,7 +84,7 @@ To register the application with Azure Active Directory, follow these steps. If 
    az ad sp create --id ${APPLICATION_ID}
    ```
 
-1. Retrieve the URLs for Spring Cloud Gateway and API Portal and add the necessary Reply URLs to the Active Directory App Registration using the following command:
+1. Retrieve the URLs for Spring Cloud Gateway and API Portal and add the necessary Reply URLs to the Active Directory App Registration by using the following command:
 
    ```azurecli
    APPLICATION_ID=$(cat ad.json | jq -r '.appId')
@@ -132,7 +132,7 @@ To register the application with Azure Active Directory, follow these steps. If 
 
 To complete the single sign-on experience, deploy the Identity Service application. The Identity Service application provides a single route to aid in identifying the user. For these steps make sure that the terminal is in the project folder before running any commands.
 
-1. Create the `identity-service` application using the following command:
+1. Create the `identity-service` application by using the following command:
 
    ```azurecli
    az spring app create \
@@ -141,7 +141,7 @@ To complete the single sign-on experience, deploy the Identity Service applicati
        --service <Azure-Spring-Apps-service-instance-name>
    ```
 
-1. Enable externalized configuration for the identity service by binding to Application Configuration Service using the following command:
+1. Enable externalized configuration for the identity service by binding to Application Configuration Service by using the following command:
 
    ```azurecli
    az spring application-configuration-service bind \
@@ -150,7 +150,7 @@ To complete the single sign-on experience, deploy the Identity Service applicati
        --service <Azure-Spring-Apps-service-instance-name>
    ```
 
-1. Enable service discovery and registration for the identity service by binding to Service Registry using the following command:
+1. Enable service discovery and registration for the identity service by binding to Service Registry by using the following command:
 
    ```azurecli
    az spring service-registry bind \
@@ -159,7 +159,7 @@ To complete the single sign-on experience, deploy the Identity Service applicati
        --service <Azure-Spring-Apps-service-instance-name>
    ```
 
-1. Deploy the identity service using the following command:
+1. Deploy the identity service by using the following command:
 
    ```azurecli
    az spring app deploy \
@@ -171,7 +171,7 @@ To complete the single sign-on experience, deploy the Identity Service applicati
        --env "JWK_URI=<jwk-uri>"
    ```
 
-1. Route requests to the identity service using the following command:
+1. Route requests to the identity service by using the following command:
 
    ```azurecli
    az spring gateway route-config create \
@@ -186,7 +186,7 @@ To complete the single sign-on experience, deploy the Identity Service applicati
 
 Spring Cloud Gateway can be configured to authenticate requests via single sign-on. To configure Spring Cloud Gateway to use single sign-on follow these steps.
 
-1. Configure Spring Cloud Gateway to use single sign-on using the following command:
+1. Configure Spring Cloud Gateway to use single sign-on by using the following command:
 
    ```azurecli
    GATEWAY_URL=$(az spring gateway show \
@@ -207,7 +207,7 @@ Spring Cloud Gateway can be configured to authenticate requests via single sign-
        --issuer-uri <issuer-uri>
    ```
 
-1. Instruct the cart service application to use Spring Cloud Gateway for authentication by providing necessary environment variables using the following command:
+1. Instruct the cart service application to use Spring Cloud Gateway for authentication by providing necessary environment variables by using the following command:
 
    ```azurecli
    az spring app update \
@@ -217,7 +217,7 @@ Spring Cloud Gateway can be configured to authenticate requests via single sign-
        --env "AUTH_URL=https://${GATEWAY_URL}" "CART_PORT=8080"
    ```
 
-1. Instruct the order service application to use Spring Cloud Gateway for authentication by providing necessary environment variables using the following command:
+1. Instruct the order service application to use Spring Cloud Gateway for authentication by providing necessary environment variables by using the following command:
 
    ```azurecli
    az spring app update \
@@ -227,13 +227,13 @@ Spring Cloud Gateway can be configured to authenticate requests via single sign-
        --env "AcmeServiceSettings__AuthUrl=https://${GATEWAY_URL}"
    ```
 
-1. Retrieve the URL for Spring Cloud Gateway using the following command:
+1. Retrieve the URL for Spring Cloud Gateway by using the following command:
 
    ```bash
    echo "https://${GATEWAY_URL}"
    ```
 
-   The above URL can be opened in a browser, use this to explore the updated application. The Log In function will now work, allowing items to be added to the cart and orders to be placed. After logging in, the customer information button will display the logged in username:
+   You can open the output URL in a browser to explore the updated application. The Log In function will now work, allowing you to add items to the cart and place orders. After logging in, the customer information button will display the logged in username, as shown in the following screenshot.
 
    :::image type="content" source="media/quickstart-configure-single-sign-on-enterprise/login_success.png" alt-text="Screenshot of ACME Fitness Store app showing a logged in user.":::
 
@@ -241,31 +241,31 @@ Spring Cloud Gateway can be configured to authenticate requests via single sign-
 
 API Portal can be configured to use single sign-on to require authentication before exploring APIs. Use the following commands to configure single sign-on for API Portal:
 
-   ```azurecli
-   PORTAL_URL=$(az spring api-portal show \
-       --resource-group <resource-group-name> \
-       --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
+```azurecli
+PORTAL_URL=$(az spring api-portal show \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
 
-   az spring api-portal update \
-       --resource-group <resource-group-name> \
-       --service <Azure-Spring-Apps-service-instance-name> \
-       --client-id <client-id> \
-       --client-secret <client-secret> \
-       --scope "openid,profile,email" \
-       --issuer-uri <issuer-uri>
-   ```
+az spring api-portal update \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name> \
+    --client-id <client-id> \
+    --client-secret <client-secret> \
+    --scope "openid,profile,email" \
+    --issuer-uri <issuer-uri>
+```
 
-Retrieve the URL for API Portal using the following commands:
+Retrieve the URL for API Portal by using the following commands:
 
-   ```azurecli
-   PORTAL_URL=$(az spring api-portal show \
-       --resource-group <resource-group-name> \
-       --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
+```azurecli
+PORTAL_URL=$(az spring api-portal show \
+    --resource-group <resource-group-name> \
+    --service <Azure-Spring-Apps-service-instance-name> | jq -r '.properties.url')
 
-   echo "https://${PORTAL_URL}"
-   ```
+echo "https://${PORTAL_URL}"
+```
 
-The above URL can be opened in a browser, use this to explore the application APIs. This time, you'll be directed to sign on before exploring APIs.
+You can open the output URL in a browser to explore the updated application. This time, you'll be directed to sign on before exploring APIs.
 
 ---
 
