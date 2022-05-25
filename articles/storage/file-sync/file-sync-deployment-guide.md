@@ -4,7 +4,7 @@ description: Learn how to deploy Azure File Sync, from start to finish, using th
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/12/2022
+ms.date: 05/24/2022
 ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
@@ -482,9 +482,6 @@ Currently, pre-seeding approach has a few limitations -
 - After the cloud endpoint is created, Azure File Sync runs a process to detect the files in the cloud before starting the initial sync. The time taken to complete this process varies depending on the various factors like network speed, available bandwidth, and number of files and folders. For the rough estimation in the preview release, detection process runs approximately at 10 files/sec.  Hence, even if pre-seeding runs fast, the overall time to get a fully running system may be significantly longer when data is pre-seeded in the cloud.
 
 ## Self-service restore through Previous Versions and VSS (Volume Shadow Copy Service)
-
-> [!IMPORTANT]
-> The following information can only be used with version 9 (or above) of the storage sync agent. Versions lower than 9 will not have the StorageSyncSelfService cmdlets.
 
 Previous Versions is a Windows feature that allows you to utilize server-side VSS snapshots of a volume to present restorable versions of a file to an SMB client.
 This enables a powerful scenario, commonly referred to as self-service restore, directly for information workers instead of depending on the restore from an IT admin.
