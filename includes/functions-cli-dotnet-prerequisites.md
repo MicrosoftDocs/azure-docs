@@ -2,7 +2,7 @@
 
 + [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download)
 
-+ [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 3.x.
++ [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 4.x.
 
 + One of the following tools for creating Azure resources:
 
@@ -16,7 +16,7 @@
 
 + [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download). Required by the build process.
 
-+ [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 3.x.
++ [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 4.x.
 
 + One of the following tools for creating Azure resources:
 

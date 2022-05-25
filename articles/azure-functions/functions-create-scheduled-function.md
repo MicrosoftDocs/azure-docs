@@ -14,7 +14,7 @@ Learn how to use the Azure portal to create a function that runs [serverless](ht
 
 To complete this tutorial:
 
-+ Ensure that you have an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+Ensure that you have an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create a function app
 
