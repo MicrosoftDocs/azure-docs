@@ -96,7 +96,7 @@ The response appears in the following sample format:
 {
   "value": [
     {
-      "$schema": "https://product-ingestion.azureedge.net/schema/product/2022-03-01-preview2” ",
+      "$schema": "https://product-ingestion.azureedge.net/schema/product/2022-03-01-preview2",
       "id": "string",
       "identity": {
         "externalId": "string"
@@ -121,8 +121,8 @@ The response appears in the following sample format:
 {
   "value": [
     {
-      "$schema": "https://product-ingestion.azureedge.net/schema/plan/2022-03-01-preview2”,
-      "product": "string”,
+      "$schema": "https://product-ingestion.azureedge.net/schema/plan/2022-03-01-preview2",
+      "product": "string",
       "id": "string",
       "identity": {
         "externalId": "string"
@@ -201,16 +201,16 @@ Provide the details of the private offer using the ISV to Customer private offer
 
 ```json
 {
- "$schema": "https://product-ingestion.azureedge.net/schema/configure/2022-03-01-preview2”,
+ "$schema": "https://product-ingestion.azureedge.net/schema/configure/2022-03-01-preview2",
   "resources": [ 
     {
-       "$schema": "https://product-ingestion.azureedge.net/schema/private-offer/2022-03-01-preview2”, 
+       "$schema": "https://product-ingestion.azureedge.net/schema/private-offer/2022-03-01-preview2", 
        "name": "privateOffercustomer1705",
        "state": "live",
        "privateOfferType": "customerPromotion",
        "variableStartDate": true,
-       "end": "2022-01-31T00:00:00",
-       "acceptBy": "2022-02-28T00:00:00",
+       "end": "2022-01-31",
+       "acceptBy": "2022-02-28",
        "preparedBy": "amy@xyz.com",
        "termsAndConditionsDocSasUrl": "https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4rFOA",
        "notificationContacts": [ "amy@xyz.com" ],
@@ -251,8 +251,8 @@ Sample absolute pricing resource:
                 {
                     "pricePerPaymentInUSD": 2,
                     "paymentOption": {
-                        “type”: “month”,
-                        “value”: 1
+                        "type": "month",
+                        "value": 1
                     }
                     "billingTerm": {
                         "type": "year",
@@ -263,7 +263,7 @@ Sample absolute pricing resource:
         },
         "customMeters": {
             "priceInputOption": "usd",
-            “meters”: {
+            "meters": {
                 "meter1": {
                     "pricePerPaymentInUSD": 1
                 }
@@ -301,12 +301,12 @@ The response will contain the jobId you can use later to poll the status:
 
 ```json
 {
-    "$schema": "https://product-ingestion.azureedge.net/schema/configure-status/2022-03-01-preview2”,
+    "$schema": "https://product-ingestion.azureedge.net/schema/configure-status/2022-03-01-preview2",
     "jobId": "c32dd7e8-8619-462d-a96b-0ac1974bace5",
     "jobStatus": "notStarted",
     "jobResult": "pending",
     "jobStart": "2021-12-21T21:29:54.9702903Z",
-    "jobEnd": "0001-01-01T00:00:00",
+    "jobEnd": "0001-01-01",
     "errors": []
 }
 ```
@@ -342,16 +342,16 @@ Provide the details of the private offer using the **ISV to reseller margin priv
 
 ```json
 {
- "$schema": "https://product-ingestion.azureedge.net/schema/configure/2022-03-01-preview2”, 
+ "$schema": "https://product-ingestion.azureedge.net/schema/configure/2022-03-01-preview2", 
   "resources": [ 
     { 
-       "$schema": "https://product-ingestion.azureedge.net/schema/private-offer/2022-03-01-preview2”, 
+       "$schema": "https://product-ingestion.azureedge.net/schema/private-offer/2022-03-01-preview2", 
        "privateOfferType": "cspPromotion",
        "name": "privateOffercsp1034",
        "state": "live",
        "variableStartDate": false,
-       "start": "2022-01-31T00:00:00",
-       "end": "2022-02-28T00:00:00",
+       "start": "2022-01-31",
+       "end": "2022-02-28",
        "preparedBy": "amy@xyz.com",
        "notificationContacts": [ "amy@xyz.com" ],
        "beneficiaries": [ 
@@ -391,13 +391,13 @@ The request body will look like the sample below:
 The response will contain the jobId you can use later to poll the status.
 
 ```json
-}
-    "$schema": "https://product-ingestion.azureedge.net/schema/configure-status/2022-03-01-preview2”,
+{
+    "$schema": "https://product-ingestion.azureedge.net/schema/configure-status/2022-03-01-preview2",
     "jobId": "c32dd7e8-8619-462d-a96b-0ac1974bace5",
     "jobStatus": "notStarted",
     "jobResult": "pending",
     "jobStart": "2021-12-21T21:29:54.9702903Z",
-    "jobEnd": "0001-01-01T00:00:00",
+    "jobEnd": "0001-01-01",
     "errors": []
 }
 ```
@@ -431,12 +431,12 @@ There are no parameters for this method.
 
 ```json
 {
-    "$schema": " https://product-ingestion.azureedge.net/schema/configure/2022-03-01-preview2”
+    "$schema": "https://product-ingestion.azureedge.net/schema/configure/2022-03-01-preview2"
      "resources": [
         {
-            "$schema": https://product-ingestion.azureedge.net/schema/private-offer/2022-03-01-preview2,
-            “id”: “private-offer/456e-a345-c457-1234”,
-            “state”: “deleted”
+            "$schema": "https://product-ingestion.azureedge.net/schema/private-offer/2022-03-01-preview2",
+            "id": "private-offer/456e-a345-c457-1234",
+            "state": "deleted"
         }
     ]
 }
@@ -448,12 +448,12 @@ The response will contain the jobId you can use later to poll the status.
 
 ```json
 {
-    "$schema": "https://product-ingestion.azureedge.net/schema/configure-status/2022-03-01-preview2”,
+    "$schema": "https://product-ingestion.azureedge.net/schema/configure-status/2022-03-01-preview2",
     "jobId": "c32dd7e8-8619-462d-a96b-0ac1974bace5",
     "jobStatus": "notStarted",
     "jobResult": "pending",
     "jobStart": "2021-12-21T21:29:54.9702903Z",
-    "jobEnd": "0001-01-01T00:00:00",
+    "jobEnd": "0001-01-01",
     "errors": []
 }
 ```
@@ -489,12 +489,12 @@ There are no parameters for this method.
 
 ```json
 {
-    "$schema": " https://product-ingestion.azureedge.net/schema/configure/2022-03-01-preview2”
+    "$schema": "https://product-ingestion.azureedge.net/schema/configure/2022-03-01-preview2"
      "resources": [
          {
-            "$schema": https://product-ingestion.azureedge.net/schema/private-offer/2022-03-01-preview2,
-            “id”: “private-offer/456e-a345-c457-1234”,
-            “state”: “deleted”
+            "$schema": "https://product-ingestion.azureedge.net/schema/private-offer/2022-03-01-preview2",
+            "id": "private-offer/456e-a345-c457-1234",
+            "state": "withdrawn"
         }
     ]
 }
@@ -506,12 +506,12 @@ The response will contain the jobId you can later use to poll the status.
 
 ```json
 {
-    "$schema": "https://product-ingestion.azureedge.net/schema/configure-status/2022-03-01-preview2”,
+    "$schema": "https://product-ingestion.azureedge.net/schema/configure-status/2022-03-01-preview2",
     "jobId": "c32dd7e8-8619-462d-a96b-0ac1974bace5",
     "jobStatus": "notStarted",
     "jobResult": "pending",
     "jobStart": "2021-12-21T21:29:54.9702903Z",
-    "jobEnd": "0001-01-01T00:00:00",
+    "jobEnd": "0001-01-01",
     "errors": []
 }
 ```
@@ -550,10 +550,10 @@ You can use the same schemas as the two methods to create a new private offer de
 
 ```json
 {
-    "$schema": "https://product-ingestion.azureedge.net/schema/configure/2022-03-01-preview2”,
+    "$schema": "https://product-ingestion.azureedge.net/schema/configure/2022-03-01-preview2",
      "resources": [ 
        { 
-          "$schema": "https://product-ingestion.azureedge.net/schema/private-offer/2022-03-01-preview2”, 
+          "$schema": "https://product-ingestion.azureedge.net/schema/private-offer/2022-03-01-preview2", 
           "name": "publicApiCustAPIUpgrade1",
           "state": "live",
           "privateOfferType": "customerPromotion",
@@ -562,9 +562,9 @@ You can use the same schemas as the two methods to create a new private offer de
               "id": "private-offer/97ac19ce-04f9-40e7-934d-af41124a079d"
           },
           "variableStartDate": false,
-          "start":"2022-11-01T00:00:00",
-          "end": "2022-12-31T00:00:00",
-          "acceptBy": "2022-10-31T00:00:00",
+          "start":"2022-11-01",
+          "end": "2022-12-31",
+          "acceptBy": "2022-10-31",
           "pricing": [ 
              { "product": "product/4ce67c07-614f-4a5b-8627-95b16dbdbf2b", "discountType": "percentage", "discountPercentage": 20 },
              { "product": "product/92931a1c-f8ac-4bb8-a66f-4abcb9145852", "discountType": "percentage", "discountPercentage": 20 }
@@ -580,12 +580,12 @@ The response will contain the jobId you can use later to poll the status.
 
 ```json
 {
-    "$schema": "https://product-ingestion.azureedge.net/schema/configure-status/2022-03-01-preview2”,
+    "$schema": "https://product-ingestion.azureedge.net/schema/configure-status/2022-03-01-preview2",
     "jobId": "c32dd7e8-8619-462d-a96b-0ac1974bace5",
     "jobStatus": "notStarted",
     "jobResult": "pending",
     "jobStart": "2021-12-21T21:29:54.9702903Z",
-    "jobEnd": "0001-01-01T00:00:00",
+    "jobEnd": "0001-01-01",
     "errors": []
 }
 ```
@@ -635,13 +635,13 @@ Sample outputs:
 
 ```json
 {
-    "$schema": " https://product-ingestion.azureedge.net/schema/configure-status/2022-03-01-preview2”,
+    "$schema": "https://product-ingestion.azureedge.net/schema/configure-status/2022-03-01-preview2",
     "jobId": "c32dd7e8-8619-462d-a96b-0ac1974bace5",
     "jobStatus": "running",
     "jobResult": "pending",
     "jobStart": "2021-12-21T21:29:54.9702903Z",
     "jobEnd": "2021-12-21T21:30:10.3649551Z",
-    "errors”: []
+    "errors": []
 }
 ```
 
@@ -649,7 +649,7 @@ Sample outputs:
 
 ```json
 {
-    "$schema": " https://product-ingestion.azureedge.net/schema/configure-status/2022-03-01-preview2”,
+    "$schema": " https://product-ingestion.azureedge.net/schema/configure-status/2022-03-01-preview2",
     "jobId": "b3f49dff-381f-480d-a10e-17f4ce49b65f",
     "jobStatus": "completed",
     "jobResult": "succeeded",
@@ -668,7 +668,7 @@ Sample outputs:
 
 ```json
 {
-    "$schema": " https://product-ingestion.azureedge.net/schema/configure-status/2022-03-01-preview2”,
+    "$schema": " https://product-ingestion.azureedge.net/schema/configure-status/2022-03-01-preview2",
     "jobId": "c32dd7e8-8619-462d-a96b-0ac1974bace5",
     "jobStatus": "completed",
     "jobResult": "failed",
@@ -723,47 +723,47 @@ You'll receive the full details of the private offer.
 
 ```json
 {
-         "$schema": "" https://product-ingestion.azureedge.net/schema/configure/2022-03-01-preview2”,
-	        "resources": [
-		{
-   			"id": "private-offer/07380dd9-bcbb-cccbb-bbccbc",
-   			"name": "privateOffercsp1015",
-   			"privateOfferType": "cspPromotion",
-   			"upgradedFrom": null,
-   			"variableStartDate": false,
-   			"start": "2021-12-01T00:00:00Z",
-   			"end": "2022-01-31T00:00:00Z",
-   			"acceptBy": null,
-   			"preparedBy": "amy@xyz.com",
-   			"notificationContacts": [
-      					 "amy@xyz.com"
-   					    ],
-   			"state": "Live",
-   			"termsAndConditionsDocSasUrl": null,
-   			"beneficiaries": [
-       		{
-           			"id": "xxxxyyyzz",
-          			 "description": "Top First CSP",
-           			"beneficiaryRecipients": null
-       		}
-   			],
-   			"pricing": [
-       			{
-           			"product": "product/xxxxxyyyyyyzzzzz",
-           			"plan": "plan/123456",
-           			"discountType": "Percentage",
-           			"discountPercentage": 5.0,
-          			"featureAvailabilityId": null,
-           			"availabilityInstanceId": null
-       		}
-   			],
-   			"lastModified": "0001-01-01T00:00:00Z",
-   			"acceptanceLinks": null,
-   			"_etag": "\"9600487b-0000-0800-0000-61c24c7f0000\"",
-   			"schema": null,
-   			"resourceName": null,
-   			"validations": null
-		}
+    "$schema": "https://product-ingestion.azureedge.net/schema/configure/2022-03-01-preview2",
+    "resources": [
+        {
+            "id": "private-offer/07380dd9-bcbb-cccbb-bbccbc",
+            "name": "privateOffercsp1015",
+            "privateOfferType": "cspPromotion",
+            "upgradedFrom": null,
+            "variableStartDate": false,
+            "start": "2021-12-01",
+            "end": "2022-01-31",
+            "acceptBy": null,
+            "preparedBy": "amy@xyz.com",
+            "notificationContacts": [
+                "amy@xyz.com"
+                ],
+            "state": "Live",
+            "termsAndConditionsDocSasUrl": null,
+            "beneficiaries": [
+            {
+                "id": "xxxxyyyzz",
+                "description": "Top First CSP",
+                "beneficiaryRecipients": null
+            }
+            ],
+            "pricing": [
+            {
+                "product": "product/xxxxxyyyyyyzzzzz",
+                "plan": "plan/123456",
+                "discountType": "Percentage",
+                "discountPercentage": 5.0,
+                "featureAvailabilityId": null,
+                "availabilityInstanceId": null
+            }
+            ],
+            "lastModified": "0001-01-01",
+            "acceptanceLinks": null,
+            "_etag": "\"9600487b-0000-0800-0000-61c24c7f0000\"",
+            "schema": null,
+            "resourceName": null,
+            "validations": null
+        }
     ]
 }
 ```
