@@ -22,11 +22,11 @@ The `OPENROWSET(BULK...)` function allows you to access files in Azure Storage. 
 Since data is stored in the Parquet file format, automatic schema inference is available. You can query the data without listing the data types of all columns in the files. You also can use the virtual column mechanism and the `filepath` function to filter out a certain subset of files.
 
 > [!NOTE]
-> The default collation is SQL_Latin1_General_CP1_CI_ASIf. For a non-default collation, take into account case sensitivity.
+> The default collation is `SQL_Latin1_General_CP1_CI_ASIf`. For a non-default collation, take into account case sensitivity.
 >
 > If you create a database with case sensitive collation when you specify columns, make sure to use correct name of the column.
 >
-> A column name `tpepPickupDateTime` would be correct while `tpeppickupdatetime` wouldn't work in non-default collation.
+> A column name `tpepPickupDateTime` would be correct while `tpeppickupdatetime` wouldn't work in a non-default collation.
 
 This tutorial uses a dataset about [New York City (NYC) Taxi](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/):
 
