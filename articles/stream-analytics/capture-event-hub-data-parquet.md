@@ -39,7 +39,7 @@ Use the following steps to configure a Stream Analytics job to capture data in A
     1. For streaming blobs, the directory path pattern is expected to be a dynamic value. It's required for the date to be a part of the file path for the blob – referenced as `{date}`. To learn about custom path patterns, see to [Azure Stream Analytics custom blob output partitioning](stream-analytics-custom-path-patterns-blob-storage-output.md).  
         :::image type="content" source="./media/capture-event-hub-data-parquet/blob-configuration.png" alt-text="First screenshot showing the Blob window where you edit a blob's connection configuration." lightbox="./media/capture-event-hub-data-parquet/blob-configuration.png" :::  
     1. Select **Connect**
-1. When the connection is established, you will see fields that are present in the output data.
+1. When the connection is established, you'll see fields that are present in the output data.
 1. Select **Save** on the command bar to save your configuration.
 1. Select **Start** on the command bar to start the streaming flow to capture data. Then in the Start Stream Analytics job window:
     1. Choose the output start time.
@@ -50,14 +50,14 @@ Use the following steps to configure a Stream Analytics job to capture data in A
 ## Verify output
 Verify that the Parquet files are generated in the Azure Data Lake Storage container. 
 
-:::image type="content" source="./media/capture-event-hub-data-parquet/verify-captured-data.png" alt-text="Screenshot showing the generated Parquet files in the ADLS container." lightbox="./media/capture-event-hub-data-parquet/verify-captured-data.png.png" :::
+:::image type="content" source="./media/capture-event-hub-data-parquet/verify-captured-data.png" alt-text="Screenshot showing the generated Parquet files in the ADLS container." lightbox="./media/capture-event-hub-data-parquet/verify-captured-data.png" :::
 
 
 The new job is shown on the **Stream Analytics jobs** tab. Select **Open metrics** to monitor it. 
 
 :::image type="content" source="./media/capture-event-hub-data-parquet/open-metrics-link.png" alt-text="Screenshot showing Open Metrics link selected." lightbox="./media/capture-event-hub-data-parquet/open-metrics-link.png" :::
 
-Here's an example screnshot of metrics showing input and output events. 
+Here's an example screenshot of metrics showing input and output events. 
 
 :::image type="content" source="./media/capture-event-hub-data-parquet/job-metrics.png" alt-text="Screenshot showing metrics of the Stream Analytics job." lightbox="./media/capture-event-hub-data-parquet/job-metrics.png" :::
 
