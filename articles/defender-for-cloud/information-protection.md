@@ -6,7 +6,7 @@ ms.date: 11/09/2021
 ---
 # Prioritize security actions by data sensitivity
 
-[Microsoft Purview](../purview/overview.md), Microsoft's data governance service, provides rich insights into the *sensitivity of your data*. With automated data discovery, sensitive data classification, and end-to-end data lineage, Microsoft Purview helps organizations manage and govern data in hybrid and multi-cloud environments.
+[Microsoft Purview](../purview/overview.md), Microsoft's data governance service, provides rich insights into the *sensitivity of your data*. With automated data discovery, sensitive data classification, and end-to-end data lineage, Microsoft Purview helps organizations manage and govern data in hybrid and multicloud environments.
 
 Microsoft Defender for Cloud customers using Microsoft Purview can benefit from an additional vital layer of metadata in alerts and recommendations: information about any potentially sensitive data involved. This knowledge helps solve the triage challenge and ensures security professionals can focus their attention on threats to sensitive data.
 

@@ -42,9 +42,9 @@ Other changes in November include:
 
 ### Azure Security Center and Azure Defender become Microsoft Defender for Cloud
 
-According to the [2021 State of the Cloud report](https://info.flexera.com/CM-REPORT-State-of-the-Cloud#download), 92% of organizations now have a multi-cloud strategy. At Microsoft, our goal is to centralize security across these environments and help security teams work more effectively.
+According to the [2021 State of the Cloud report](https://info.flexera.com/CM-REPORT-State-of-the-Cloud#download), 92% of organizations now have a multicloud strategy. At Microsoft, our goal is to centralize security across these environments and help security teams work more effectively.
 
-**Microsoft Defender for Cloud** (formerly known as Azure Security Center and Azure Defender) is a Cloud Security Posture Management (CSPM) and cloud workload protection (CWP) solution that discovers weaknesses across your cloud configuration, helps strengthen the overall security posture of your environment, and protects workloads across multi-cloud and hybrid environments.
+**Microsoft Defender for Cloud** (formerly known as Azure Security Center and Azure Defender) is a Cloud Security Posture Management (CSPM) and cloud workload protection (CWP) solution that discovers weaknesses across your cloud configuration, helps strengthen the overall security posture of your environment, and protects workloads across multicloud and hybrid environments.
 
 At Ignite 2019, we shared our vision to create the most complete approach for securing your digital estate and integrating XDR technologies under the Microsoft Defender brand. Unifying Azure Security Center and Azure Defender under the new name **Microsoft Defender for Cloud**, reflects the integrated capabilities of our security offering and our ability to support any cloud platform.
 
@@ -57,7 +57,7 @@ A new **environment settings** page provides greater visibility and control over
 
 When you've added your AWS accounts, Defender for Cloud protects your AWS resources with any or all of the following plans:
 
-- **Defender for Cloud's CSPM features** extend to your AWS resources. This agentless plan assesses your AWS resources according to AWS-specific security recommendations and these are included in your secure score. The resources will also be assessed for compliance with built-in standards specific to AWS (AWS CIS, AWS PCI DSS, and AWS Foundational Security Best Practices). Defender for Cloud's [asset inventory page](asset-inventory.md) is a multi-cloud enabled feature helping you manage your AWS resources alongside your Azure resources.
+- **Defender for Cloud's CSPM features** extend to your AWS resources. This agentless plan assesses your AWS resources according to AWS-specific security recommendations and these are included in your secure score. The resources will also be assessed for compliance with built-in standards specific to AWS (AWS CIS, AWS PCI DSS, and AWS Foundational Security Best Practices). Defender for Cloud's [asset inventory page](asset-inventory.md) is a multicloud enabled feature helping you manage your AWS resources alongside your Azure resources.
 - **Microsoft Defender for Kubernetes** extends its container threat detection and advanced defenses to your **Amazon EKS Linux clusters**.
 - **Microsoft Defender for Servers** brings threat detection and advanced defenses to your Windows and Linux EC2 instances. This plan includes the integrated license for Microsoft Defender for Endpoint, security baselines and OS level assessments, vulnerability assessment scanning, adaptive application controls (AAC), file integrity monitoring (FIM), and more.
 
@@ -67,7 +67,7 @@ Learn more about [connecting your AWS accounts to Microsoft Defender for Cloud](
 ### Prioritize security actions by data sensitivity (powered by Microsoft Purview) (in preview)
 Data resources remain a popular target for threat actors. So it's crucial for security teams to identify, prioritize, and secure sensitive data resources across their cloud environments.
 
-To address this challenge, Microsoft Defender for Cloud now integrates sensitivity information from [Microsoft Purview](../purview/overview.md). Microsoft Purview is a unified data governance service that provides rich insights into the sensitivity of your data within multi-cloud, and on-premises workloads.
+To address this challenge, Microsoft Defender for Cloud now integrates sensitivity information from [Microsoft Purview](../purview/overview.md). Microsoft Purview is a unified data governance service that provides rich insights into the sensitivity of your data within multicloud, and on-premises workloads.
 
 The integration with Microsoft Purview extends your security visibility in Defender for Cloud from the infrastructure level down to the data, enabling an entirely new way to prioritize resources and security activities for your security teams.
 
@@ -660,7 +660,7 @@ This change is reflected in the names of the recommendation with a new prefix, *
 
 ### Prefix for Kubernetes alerts changed from "AKS_" to "K8S_"
 
-Azure Defender for Kubernetes recently expanded to protect Kubernetes clusters hosted on-premises and in multi-cloud environments. Learn more in [Use Azure Defender for Kubernetes to protect hybrid and multi-cloud Kubernetes deployments (in preview)](release-notes-archive.md#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-in-preview).
+Azure Defender for Kubernetes recently expanded to protect Kubernetes clusters hosted on-premises and in multicloud environments. Learn more in [Use Azure Defender for Kubernetes to protect hybrid and multicloud Kubernetes deployments (in preview)](release-notes-archive.md#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multicloud-kubernetes-deployments-in-preview).
 
 To reflect the fact that the security alerts provided by Azure Defender for Kubernetes are no longer restricted to clusters on Azure Kubernetes Service, we've changed the prefix for the alert types from "AKS_" to "K8S_". Where necessary, the names and descriptions were updated too. For example, this alert:
 
@@ -734,7 +734,7 @@ To simplify the process of enabling these plans, use the recommendations:
 Azure Security Center expands its offer for SQL  protection with a new bundle to cover your open-source relational databases:
 
 - **Azure Defender for Azure SQL database servers** - defends your Azure-native SQL Servers
-- **Azure Defender for SQL servers on machines** - extends the same protections to your SQL servers in hybrid, multi-cloud, and on-premises environments
+- **Azure Defender for SQL servers on machines** - extends the same protections to your SQL servers in hybrid, multicloud, and on-premises environments
 - **Azure Defender for open-source relational databases** - defends your Azure Databases for MySQL, PostgreSQL, and MariaDB single servers
 
 Azure Defender for open-source relational databases constantly monitors your servers for security threats and detects anomalous database activities indicating potential threats to Azure Database for MySQL, PostgreSQL, and MariaDB. Some examples are:
@@ -860,11 +860,11 @@ Learn more about the [Assessments REST API](/rest/api/securitycenter/assessments
 
 Security Center's asset inventory page offers many filters to quickly refine the list of resources displayed. Learn more in [Explore and manage your resources with asset inventory](asset-inventory.md).
 
-A new filter offers the option to refine the list according to the cloud accounts you've connected with Security Center's multi-cloud features:
+A new filter offers the option to refine the list according to the cloud accounts you've connected with Security Center's multicloud features:
 
 :::image type="content" source="media/asset-inventory/filter-environment.png" alt-text="Inventory's environment filter":::
 
-Learn more about the multi-cloud capabilities:
+Learn more about the multicloud capabilities:
 
 - [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md)
 - [Connect your GCP projects to Azure Security Center](quickstart-onboard-gcp.md)
@@ -875,7 +875,7 @@ Learn more about the multi-cloud capabilities:
 Updates in April include:
 - [Refreshed resource health page (in preview)](#refreshed-resource-health-page-in-preview)
 - [Container registry images that have been recently pulled are now rescanned weekly (released for general availability (GA))](#container-registry-images-that-have-been-recently-pulled-are-now-rescanned-weekly-released-for-general-availability-ga)
-- [Use Azure Defender for Kubernetes to protect hybrid and multi-cloud Kubernetes deployments (in preview)](#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multi-cloud-kubernetes-deployments-in-preview)
+- [Use Azure Defender for Kubernetes to protect hybrid and multicloud Kubernetes deployments (in preview)](#use-azure-defender-for-kubernetes-to-protect-hybrid-and-multicloud-kubernetes-deployments-in-preview)
 - [Microsoft Defender for Endpoint integration with Azure Defender now supports Windows Server 2019 and Windows 10 on Windows Virtual Desktop released for general availability (GA)](#microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-on-windows-virtual-desktop-released-for-general-availability-ga)
 - [Recommendations to enable Azure Defender for DNS and Resource Manager (in preview)](#recommendations-to-enable-azure-defender-for-dns-and-resource-manager-in-preview)
 - [Three regulatory compliance standards added: Azure CIS 1.3.0, CMMC Level 3, and New Zealand ISM Restricted](#three-regulatory-compliance-standards-added-azure-cis-130-cmmc-level-3-and-new-zealand-ism-restricted)
@@ -917,7 +917,7 @@ Scanning is charged on a per image basis, so there's no additional charge for th
 Learn more about this scanner in [Use Azure Defender for container registries to scan your images for vulnerabilities](defender-for-containers-usage.md).
 
 
-### Use Azure Defender for Kubernetes to protect hybrid and multi-cloud Kubernetes deployments (in preview)
+### Use Azure Defender for Kubernetes to protect hybrid and multicloud Kubernetes deployments (in preview)
 
 Azure Defender for Kubernetes is expanding its threat protection capabilities to defend your clusters wherever they're deployed. This has been enabled by integrating with [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md) and its new [extensions capabilities](../azure-arc/kubernetes/extensions.md). 
 
@@ -933,7 +933,7 @@ This integration between Azure Security Center, Azure Defender, and Azure Arc-en
 - Identified security threats from Azure Defender are reported in the new Security page of the Azure Arc Portal
 - Azure Arc-enabled Kubernetes clusters are integrated into the Azure Security Center platform and experience
 
-Learn more in [Use Azure Defender for Kubernetes with your on-premises and multi-cloud Kubernetes clusters](defender-for-kubernetes-azure-arc.md).
+Learn more in [Use Azure Defender for Kubernetes with your on-premises and multicloud Kubernetes clusters](defender-for-kubernetes-azure-arc.md).
 
 :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Azure Security Center's recommendation for deploying the Azure Defender extension for Azure Arc-enabled Kubernetes clusters." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
 
@@ -1313,11 +1313,11 @@ Learn more about how to [Explore and manage your resources with asset inventory]
 Updates in January include:
 
 - [Azure Security Benchmark is now the default policy initiative for Azure Security Center](#azure-security-benchmark-is-now-the-default-policy-initiative-for-azure-security-center)
-- [Vulnerability assessment for on-premise and multi-cloud machines is released for general availability (GA)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-is-released-for-general-availability-ga)
+- [Vulnerability assessment for on-premise and multicloud machines is released for general availability (GA)](#vulnerability-assessment-for-on-premise-and-multicloud-machines-is-released-for-general-availability-ga)
 - [Secure score for management groups is now available in preview](#secure-score-for-management-groups-is-now-available-in-preview)
 - [Secure score API is released for general availability (GA)](#secure-score-api-is-released-for-general-availability-ga)
 - [Dangling DNS protections added to Azure Defender for App Service](#dangling-dns-protections-added-to-azure-defender-for-app-service)
-- [Multi-cloud connectors are released for general availability (GA)](#multi-cloud-connectors-are-released-for-general-availability-ga)
+- [Multicloud connectors are released for general availability (GA)](#multicloud-connectors-are-released-for-general-availability-ga)
 - [Exempt entire recommendations from your secure score for subscriptions and management groups](#exempt-entire-recommendations-from-your-secure-score-for-subscriptions-and-management-groups)
 - [Users can now request tenant-wide visibility from their global administrator](#users-can-now-request-tenant-wide-visibility-from-their-global-administrator)
 - [35 preview recommendations added to increase coverage of Azure Security Benchmark](#35-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark)
@@ -1347,7 +1347,7 @@ To learn more, see the following pages:
 - [Learn more about Azure Security Benchmark](/security/benchmark/azure/introduction)
 - [Customize the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md)
 
-### Vulnerability assessment for on-premise and multi-cloud machines is released for general availability (GA)
+### Vulnerability assessment for on-premise and multicloud machines is released for general availability (GA)
 
 In October, we announced a preview for scanning Azure Arc-enabled servers with [Azure Defender for Servers](defender-for-servers-introduction.md)' integrated vulnerability assessment scanner (powered by Qualys).
 
@@ -1404,7 +1404,7 @@ Learn more:
 - [Introduction to Azure Defender for App Service](defender-for-app-service-introduction.md)
 
 
-### Multi-cloud connectors are released for general availability (GA)
+### Multicloud connectors are released for general availability (GA)
 
 With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same.
 
@@ -1423,9 +1423,9 @@ This capability means that Security Center provides visibility and protection ac
 - Incorporate all of your resources into Security Center's secure score calculations
 - Regulatory compliance assessments of your AWS and GCP resources
 
-From Defender for Cloud's menu, select **Multi-cloud connectors** and you'll see the options for creating new connectors:
+From Defender for Cloud's menu, select **Multicloud connectors** and you'll see the options for creating new connectors:
 
-:::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="Add AWS account button on Security Center's multi-cloud connectors page":::
+:::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="Add AWS account button on Security Center's multicloud connectors page":::
 
 Learn more in:
 - [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md)
@@ -1539,7 +1539,7 @@ Updates in December include:
 Azure Security Center offers two Azure Defender plans for SQL Servers:
 
 - **Azure Defender for Azure SQL database servers** - defends your Azure-native SQL Servers 
-- **Azure Defender for SQL servers on machines** - extends the same protections to your SQL servers in hybrid, multi-cloud, and on-premises environments
+- **Azure Defender for SQL servers on machines** - extends the same protections to your SQL servers in hybrid, multicloud, and on-premises environments
 
 With this announcement, **Azure Defender for SQL** now protects your databases and their data wherever they're located.
 
@@ -1808,13 +1808,13 @@ You can now see whether or not your subscriptions have the default Security Cent
 ## October 2020
 
 Updates in October include:
-- [Vulnerability assessment for on-premise and multi-cloud machines (preview)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview)
+- [Vulnerability assessment for on-premise and multicloud machines (preview)](#vulnerability-assessment-for-on-premise-and-multicloud-machines-preview)
 - [Azure Firewall recommendation added (preview)](#azure-firewall-recommendation-added-preview)
 - [Authorized IP ranges should be defined on Kubernetes Services recommendation updated with quick fix](#authorized-ip-ranges-should-be-defined-on-kubernetes-services-recommendation-updated-with-quick-fix)
 - [Regulatory compliance dashboard now includes option to remove standards](#regulatory-compliance-dashboard-now-includes-option-to-remove-standards)
 - [Microsoft.Security/securityStatuses table removed from Azure Resource Graph (ARG)](#microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg)
 
-### Vulnerability assessment for on-premise and multi-cloud machines (preview)
+### Vulnerability assessment for on-premise and multicloud machines (preview)
 
 [Azure Defender for Servers](defender-for-servers-introduction.md)' integrated vulnerability assessment scanner (powered by Qualys) now scans Azure Arc-enabled servers.
 
@@ -1967,7 +1967,7 @@ Updates in September include:
 - [Asset inventory tools are now generally available](#asset-inventory-tools-are-now-generally-available)
 - [Disable a specific vulnerability finding for scans of container registries and virtual machines](#disable-a-specific-vulnerability-finding-for-scans-of-container-registries-and-virtual-machines)
 - [Exempt a resource from a recommendation](#exempt-a-resource-from-a-recommendation)
-- [AWS and GCP connectors in Security Center bring a multi-cloud experience](#aws-and-gcp-connectors-in-security-center-bring-a-multi-cloud-experience)
+- [AWS and GCP connectors in Security Center bring a multicloud experience](#aws-and-gcp-connectors-in-security-center-bring-a-multicloud-experience)
 - [Kubernetes workload protection recommendation bundle](#kubernetes-workload-protection-recommendation-bundle)
 - [Vulnerability assessment findings are now available in continuous export](#vulnerability-assessment-findings-are-now-available-in-continuous-export)
 - [Prevent security misconfigurations by enforcing recommendations when creating new resources](#prevent-security-misconfigurations-by-enforcing-recommendations-when-creating-new-resources)
@@ -2068,7 +2068,7 @@ In such cases, you can create an exemption rule and ensure that resource isn't l
 Learn more in [Exempt a resource from recommendations and secure score](exempt-resource.md).
 
 
-### AWS and GCP connectors in Security Center bring a multi-cloud experience
+### AWS and GCP connectors in Security Center bring a multicloud experience
 
 With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same.
 
@@ -2997,7 +2997,7 @@ Azure Security Center (ASC) has launched new networking recommendations and impr
 
 ## June 2019
 
-### Adaptive Network Hardening - generally available
+### Adaptive network hardening - generally available
 
 One of the biggest attack surfaces for workloads running in the public cloud are connections to and from the public Internet. Our customers find it hard to know which Network Security Group (NSG) rules should be in place to make sure that Azure workloads are only available to required source ranges. With this feature, Security Center learns the network traffic and connectivity patterns of Azure workloads and provides NSG rule recommendations, for Internet facing virtual machines. This helps our customer better configure their network access policies and limit their exposure to attacks. 
 
