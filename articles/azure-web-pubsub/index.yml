@@ -25,6 +25,7 @@ landingContent:
           - text: What is Azure Web PubSub service?
             url: overview.md
       - linkListType: concept
+        links:
           - text: About hubs, groups, and connections
             url: key-concepts.md
           - text: Client protocols
