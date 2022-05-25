@@ -30,7 +30,7 @@ You can now get Advisor recommendations and scores scoped to a workload, environ
 
 1.	Sign in to the [Azure portal](https://portal.azure.com/).
 1.	Search for and select [Advisor](https://aka.ms/azureadvisordashboard) from any page.
-1.	Select Advisor score (preview) from the navigation menu on the left.
+1.	Select **Advisor score (preview)** from the navigation menu on the left.
 1.	Click on the **Add Filter** button.
 1.	Select the tag in the **Filter** field and value(s).
 1.	Click **Apply**. Advisor score will be updated to only include resources impacted by the filter. 
