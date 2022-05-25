@@ -343,6 +343,9 @@ You can set up other applications, such as RStudio, when creating a compute inst
 1.	Select **Add application** under the **Custom application setup (RStudio Workbench, etc.)** section
  
 :::image type="content" source="media/how-to-create-manage-compute-instance/custom-service-setup.png" alt-text="Screenshot showing Custom Service Setup.":::
+
+> [!NOTE]
+> Custom applications are currently not supported in private link workspaces.
  
 ### Setup RStudio Workbench
 
@@ -353,6 +356,12 @@ RStudio is one of the most popular IDEs among R developers for ML and data scien
 1. Select **Create** to add RStudio Workbench application to your compute instance.
  
 :::image type="content" source="media/how-to-create-manage-compute-instance/rstudio-workbench.png" alt-text="Screenshot shows RStudio settings." lightbox="media/how-to-create-manage-compute-instance/rstudio-workbench.png":::
+
+> [!NOTE]
+> * Support for accessing your workspace file store from RStudio is not yet available.
+> * When accessing multiple instances of RStudio, if you see a "400 Bad Request. Request Header Or Cookie Too Large" error, use a new browser or access from a browser in incognito mode.
+> * Shiny applications are not currently supported on RStudio Workbench.
+
  
 ### Setup RStudio open source
 
@@ -389,6 +398,8 @@ Access the custom applications that you set up in studio:
 1. On the **Compute instance** tab, see your applications under the **Applications** column.
 
 :::image type="content" source="media/how-to-create-manage-compute-instance/custom-service-access.png" alt-text="Screenshot shows studio access for your custom applications.":::
+> [!NOTE]
+> It might take a few minutes after setting up a custom application until you can access it via the links above. The amount of time taken will depend on the size of the image used for your custom application. If you see a 502 error message when trying to access the application, wait for some time for the application to be set up and try again.
 
 ## Manage
 

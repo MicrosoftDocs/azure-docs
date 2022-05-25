@@ -415,6 +415,8 @@
         href: chromeriver-tutorial.md
       - name: ChronicXÂ®
         href: chronicx-tutorial.md
+      - name: Chronus SAML
+        href: chronus-saml-tutorial.md
       - name: Cimpl
         href: cimpl-tutorial.md
       - name: Cirrus Identity Bridge for Azure AD
@@ -1164,6 +1166,8 @@
         href: isams-tutorial.md 
       - name: iServer Portal
         href: iserver-portal-tutorial.md
+      - name: i-Sight
+        href: isight-tutorial.md
       - name: ITRP
         href: itrp-tutorial.md
       - name: itslearning
@@ -2324,6 +2328,8 @@
         href: usertesting-tutorial.md  
       - name: UserVoice
         href: uservoice-tutorial.md
+      - name: UserZoom
+        href: userzoom-tutorial.md
       - name: ValidSign
         href: validsign-tutorial.md
       - name: Vault Platform

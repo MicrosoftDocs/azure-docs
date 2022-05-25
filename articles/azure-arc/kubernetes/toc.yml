@@ -12,18 +12,18 @@
     href: quickstart-connect-cluster.md
 - name: Tutorials
   items:
-  - name: GitOps (Flux v1)
-    items:
-    - name: Deploy configurations using GitOps (Flux v1)
-      href: tutorial-use-gitops-connected-cluster.md
-    - name: Implement CI/CD with GitOps (Flux v1)
-      href: tutorial-gitops-ci-cd.md
   - name: GitOps (Flux v2)
     items:
     - name: Deploy configurations using GitOps (Flux v2)
       href: tutorial-use-gitops-flux2.md
     - name: Implement CI/CD with GitOps (Flux v2)
       href: tutorial-gitops-flux2-ci-cd.md
+  - name: GitOps (Flux v1)
+    items:
+    - name: Deploy configurations using GitOps (Flux v1)
+      href: tutorial-use-gitops-connected-cluster.md
+    - name: Implement CI/CD with GitOps (Flux v1)
+      href: tutorial-gitops-ci-cd.md
 - name: Samples
   items:
   - name: Azure Resource Graph queries
@@ -50,6 +50,12 @@
         href: conceptual-custom-locations.md
   - name: Deploy applications to cluster
     items:
+      - name: GitOps (Flux v2)
+        items:
+        - name: Configurations and GitOps (Flux v2)
+          href: conceptual-gitops-flux2.md
+        - name: CI/CD workflow using GitOps (Flux v2)
+          href: conceptual-gitops-flux2-ci-cd.md
       - name: GitOps (Flux v1)
         items:
         - name: Configurations and GitOps (Flux v1)
@@ -58,12 +64,6 @@
           href: conceptual-gitops-ci-cd.md
         - name: Inner loop developer experience (Flux v1)
           href: conceptual-inner-loop-gitops.md
-      - name: GitOps (Flux v2)
-        items:
-        - name: Configurations and GitOps (Flux v2)
-          href: conceptual-gitops-flux2.md
-        - name: CI/CD workflow using GitOps (Flux v2)
-          href: conceptual-gitops-flux2-ci-cd.md
   - name: Frequently Asked Questions
     href: faq.md
 
@@ -105,6 +105,8 @@
         href: custom-locations.md
       - name: Azure Arc-enabled Machine Learning
         href: ../../machine-learning/how-to-attach-kubernetes-anywhere.md?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json
+  - name: Move between regions
+    href: move-regions.md
   - name: Troubleshooting
     href: troubleshooting.md
 - name: Reference

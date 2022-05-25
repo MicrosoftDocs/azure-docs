@@ -1,23 +1,31 @@
 - name: Azure Lab Services docs
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: About Lab Services
     href: lab-services-overview.md
   - name: What's New in Lab Services?
     href: lab-services-whats-new.md
 - name: Quickstarts
+  expanded: true
   items:
     - name: Create a lab plan (admin)
+      expanded: true
       items:
       - name: Azure portal
         href: quick-create-lab-plan-portal.md
+      - name: ARM template
+        href: quick-create-lab-plan-template.md
       - name: PowerShell
         href: quick-create-lab-plan-powershell.md
     - name: Create a lab (educator)
+      expanded: true
       items:
       - name: Azure Lab Services website
         href: quick-create-lab-portal.md
+      - name: ARM template
+        href: quick-create-lab-template.md
       - name: PowerShell
         href: quick-create-lab-powershell.md
 - name: Tutorials
