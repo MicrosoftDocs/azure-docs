@@ -1053,7 +1053,7 @@ Here is the output that this action creates:
 
 ### Execute JavaScript Code action
 
-This action runs a JavaScript code snippet and returns the results through a `Result` token that later actions can reference.
+This action runs a JavaScript code snippet and returns the results through a token that subsequent actions in the workflow can reference.
 
 ```json
 "Execute_JavaScript_Code": {
@@ -1061,7 +1061,7 @@ This action runs a JavaScript code snippet and returns the results through a `Re
    "inputs": {
       "code": "<JavaScript-code-snippet>",
       "explicitDependencies": {
-         "actions": [ <previous-actions> ],
+         "actions": [ <preceding-actions> ],
          "includeTrigger": true
       }
    },
@@ -1073,26 +1073,23 @@ This action runs a JavaScript code snippet and returns the results through a `Re
 
 | Value | Type | Description |
 |-------|------|-------------|
-| <*JavaScript-code-snippet*> | Varies | The JavaScript code that you want to run. For code requirements and more information, see [Add and run code snippets with inline code](../logic-apps/logic-apps-add-run-inline-code.md). <p>In the `code` attribute, your code snippet can use the read-only `workflowContext` object as input. This object has subproperties that give your code access to the results from the trigger and previous actions in your workflow. For more information about the `workflowContext` object, see [Reference trigger and action results in your code](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext). |
+| <*JavaScript-code-snippet*> | Varies | The JavaScript code that you want to run. For code requirements and more information, see [Run code snippets in workflows](logic-apps-add-run-inline-code.md). <p>In the `code` attribute, your code snippet can use the read-only `workflowContext` object as input. This object has subproperties that give your code access to the outputs from the trigger and any preceding actions in your workflow. For more information about the `workflowContext` object, see [Reference trigger and action results using the workflowContext object](logic-apps-add-run-inline-code.md#workflowcontext). |
 ||||
 
 *Required in some cases*
 
-The `explicitDependencies` attribute specifies that you want to explicitly 
-include results from the trigger, previous actions, or both as dependencies 
-for your code snippet. For more information about adding these dependencies, see 
-[Add parameters for inline code](../logic-apps/logic-apps-add-run-inline-code.md#add-parameters). 
+The `explicitDependencies` attribute specifies that you want to explicitly include results from the trigger, previous actions, or both as dependencies for your code snippet. For more information about adding these dependencies, see [Add dependencies as parameters to an Inline Code action](logic-apps-add-run-inline-code.md#add-parameters). 
 
 For the `includeTrigger` attribute, you can specify `true` or `false` values.
 
 | Value | Type | Description |
 |-------|------|-------------|
-| <*previous-actions*> | String array | An array with your specified action names. Use the action names that appear in your workflow definition where action names use underscores (_), not spaces (" "). |
+| <*preceding-actions*> | String array | An array with the action names in JSON format as dependencies. Make sure to use the action names that appear in your workflow definition where action names use underscores (**_**), not spaces (**" "**). |
 ||||
 
 *Example 1*
 
-This action runs code that gets your logic app's name and returns the text "Hello world from \<logic-app-name>" as the result. In this example, the code references the workflow's name by accessing the `workflowContext.workflow.name` property through the read-only `workflowContext` object. For more information about using the `workflowContext` object, see [Reference trigger and action results in your code](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext).
+This action runs code that gets your logic app workflow's name and returns the text "Hello world from \<logic-app-name>" as the result. In this example, the code references the workflow's name by accessing the `workflowContext.workflow.name` property through the read-only `workflowContext` object. For more information about using the `workflowContext` object, see [Reference trigger and action results in your code](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext).
 
 ```json
 "Execute_JavaScript_Code": {
@@ -1106,26 +1103,24 @@ This action runs code that gets your logic app's name and returns the text "Hell
 
 *Example 2*
 
-This action runs code in a logic app that triggers when a new email arrives in a work or school account. The logic app also uses a send approval email action that forwards the content from the received email along with a request for approval.
+This action runs code in a logic app workflow that triggers when a new email arrives in an Outlook account. The workflow also uses the Office 365 Outlook **Send approval email** action that forwards the content from the received email along with a request for approval.
 
-The code extracts the email addresses from the trigger's `Body` property and returns the addresses along with the `SelectedOption` property value from the approval action. The action explicitly includes the send approval email action as a dependency in the `explicitDependencies` > `actions` attribute.
+The code extracts the email addresses from the email message's `Body` property, and returns the addresses along with the `SelectedOption` property value from the approval action. The action explicitly includes the **Send approval email** action as a dependency in the `actions` object inside the `explicitDependencies` object.
 
 ```json
 "Execute_JavaScript_Code": {
    "type": "JavaScriptCode",
    "inputs": {
-      "code": "var re = /(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))/g;\r\n\r\nvar email = workflowContext.trigger.outputs.body.Body;\r\n\r\nvar reply = workflowContext.actions.Send_approval_email_.outputs.body.SelectedOption;\r\n\r\nreturn email.match(re) + \" - \" + reply;\r\n;",
+      "code": "var myResult = /(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))/g;\r\n\r\nvar email = workflowContext.trigger.outputs.body.Body;\r\n\r\nvar reply = workflowContext.actions.Send_approval_email.outputs.body.SelectedOption;\r\n\r\nreturn email.match(myResult) + \" - \" + reply;\r\n;",
       "explicitDependencies": {
          "actions": [
-            "Send_approval_email_"
+            "Send_approval_email"
          ]
       }
    },
    "runAfter": {}
 }
 ```
-
-
 
 <a name="function-action"></a>
 

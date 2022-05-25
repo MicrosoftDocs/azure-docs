@@ -111,7 +111,7 @@ The following diagram shows the highlights from example workflow:
 
    The dynamic content list shows the outputs from the trigger and any preceding actions when those outputs match the input format for the edit box that's currently in focus. This list makes these outputs easier to use and reference from your workflow. For this example, the list shows the outputs from the Outlook trigger, including the email message's **Body** property.
 
-   After you select the **Body** property, the Inline Code action resolves the token to a read-only `workflowContext` JSON object, which your snippet can use as input. The `workflowContext` object includes properties that give your code access to the outputs from the trigger and preceding actions in your workflow, such as the trigger's `body` property, which differs from the email message's **Body** property. For more information about the `workflowContext` object, see [Reference trigger and action outputs in your code](#workflowcontext) later in this article.
+   After you select the **Body** property, the Inline Code action resolves the token to a read-only `workflowContext` JSON object, which your snippet can use as input. The `workflowContext` object includes properties that give your code access to the outputs from the trigger and preceding actions in your workflow, such as the trigger's `body` property, which differs from the email message's **Body** property. For more information about the `workflowContext` object, see [Reference trigger and action outputs using the workflowContext object](#workflowcontext) later in this article.
 
    > [!IMPORTANT]
    >
@@ -176,7 +176,7 @@ The following diagram shows the highlights from example workflow:
 
    The dynamic content list shows the outputs from the trigger and any preceding actions where those outputs match the input format for the edit box that's currently in focus. This list makes these outputs easier to use and reference from your workflow. For this example, the list shows the outputs from the Outlook trigger, including the email message's **Body** property.
 
-   After you select the **Body** property, the Inline Code action resolves the token to a read-only `workflowContext` JSON object, which your snippet can use as input. The `workflowContext` object includes properties that give your code access to the outputs from the trigger and preceding actions in your workflow, such as the trigger's `body` property, which differs from the email message's **Body** property. For more information about the `workflowContext` object, see [Reference trigger and action outputs in your code](#workflowcontext) later in this article.
+   After you select the **Body** property, the Inline Code action resolves the token to a read-only `workflowContext` JSON object, which your snippet can use as input. The `workflowContext` object includes properties that give your code access to the outputs from the trigger and preceding actions in your workflow, such as the trigger's `body` property, which differs from the email message's **Body** property. For more information about the `workflowContext` object, see [Reference trigger and action outputs using the workflowContext object](#workflowcontext) later in this article.
 
    > [!IMPORTANT]
    >
@@ -367,7 +367,7 @@ Before you start, you need the JSON name for the trigger or action in the underl
 
 ### [Standard](#tab/standard)
 
-1. On the workflow menu, select **Code view**. In the `actions` object, find the action's name.
+1. On the workflow menu, select **Code**. In the `actions` object, find the action's name.
 
    For example, `Send_approval_email` is the JSON name for the **Send approval email** action.
 
