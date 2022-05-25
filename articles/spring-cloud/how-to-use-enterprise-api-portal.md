@@ -19,7 +19,7 @@ ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 
 This article shows you how to use API portal for VMware Tanzu® with Azure Spring Apps Enterprise Tier.
 
-[API portal](https://docs.vmware.com/en/API-portal-for-VMware-Tanzu/1.0/api-portal/GUID-index.html) is one of the commercial VMware Tanzu components. API portal supports viewing API definitions from [Spring Cloud Gateway for VMware Tanzu®](./how-to-use-enterprise-spring-cloud-gateway.md) and testing of specific API routes from the browser. It also supports enabling Single Sign-On authentication via configuration.
+[API portal](https://docs.vmware.com/en/API-portal-for-VMware-Tanzu/1.0/api-portal/GUID-index.html) is one of the commercial VMware Tanzu components. API portal supports viewing API definitions from [Spring Cloud Gateway for VMware Tanzu®](./how-to-use-enterprise-spring-cloud-gateway.md) and testing of specific API routes from the browser. It also supports enabling Single Sign-on authentication via configuration.
 
 ## Prerequisites
 
@@ -34,19 +34,21 @@ This article shows you how to use API portal for VMware Tanzu® with Azure Sprin
 
 The following sections describe configuration in API portal.
 
-### Configure single sign-on (SSO)
+### Configure single Sign-on (SSO)
 
-API portal supports authentication and authorization using single sign-on (SSO) with an OpenID identity provider (IdP) that supports the OpenID Connect Discovery protocol.
+API portal supports authentication and authorization using single Sign-on (SSO) with an OpenID identity provider (IdP) that supports the OpenID Connect Discovery protocol.
 
 > [!NOTE]
 > Only authorization servers supporting the OpenID Connect Discovery protocol are supported. Be sure to configure the external authorization server to allow redirects back to the gateway. Refer to your authorization server's documentation and add `https://<gateway-external-url>/login/oauth2/code/sso` to the list of allowed redirect URIs.
 
 | Property | Required? | Description |
 | - | - | - |
-| issuerUri | Yes | The URI that the it asserts as its Issuer Identifier. For example, if the issuer-uri provided is "https://example.com", then an OpenID Provider Configuration Request will be made to "https://example.com/.well-known/openid-configuration". The result is expected to be an OpenID Provider Configuration Response. |
+| issuerUri | Yes | The URI that the app asserts as its Issuer Identifier. For example, if the issuer-uri provided is "https://example.com", then an OpenID Provider Configuration Request will be made to "https://example.com/.well-known/openid-configuration". The result is expected to be an OpenID Provider Configuration Response. |
 | clientId | Yes | The OpenID Connect client ID provided by your IdP |
 | clientSecret | Yes | The OpenID Connect client secret provided by your IdP |
 | scope | Yes | A list of scopes to include in JWT identity tokens. This list should be based on the scopes allowed by your identity provider |
+
+To set up SSO with Azure AD, see [How to set up Single Sign-on with Azure AD for Spring Cloud Gateway and API Portal for Tanzu](./how-to-set-up-sso-with-azure-ad.md).
 
 > [!NOTE]
 > If you configure the wrong SSO property, such as the wrong password, you should remove the entire SSO property and re-add the correct configuration.
@@ -56,7 +58,7 @@ API portal supports authentication and authorization using single sign-on (SSO) 
 
 ### Configure the instance count
 
-Configuration of the instance count for API portal is supported, unless you are using SSO. If you are using the SSO feature, only one instance count is supported.
+Configuration of the instance count for API portal is supported, unless you're using SSO. If you're using the SSO feature, only one instance count is supported.
 
 ## Assign a public endpoint for API portal
 
