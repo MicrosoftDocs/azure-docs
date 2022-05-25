@@ -45,10 +45,11 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
 
-## May 2022
+## June 2022
 
-**Sensor version**: 22.2.1
+**Sensor version**: 22.2.3
 
+- [Release note tracking per version](#release-note-tracking-per-version)
 - [Active discovery scans](#active-discovery-scans-public-preview)
 - [Sensor management from the Azure portal](#sensor-management-from-the-azure-portal-public-preview)
 - [Bi-directional alert synch between sensors and the Azure portal](#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)
@@ -56,6 +57,18 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 - [Support diagnostic log enhancements](#support-diagnostic-log-enhancements-public-preview)
 - [Improved security for uploading protocol plugins](#improved-security-for-uploading-protocol-plugins)
 - [Documentation improvements](#documentation-improvements)
+
+### Release note tracking per version
+
+Starting in June 2022, we're tracking our release notes per software version for the sensor and on-premises management console, including major and minor versions.
+
+Going forward, find the sensor software versions released in a given month, and their features, at the top of the release notes for that month. For example, in June, we released version **22.2.3**. Features that are cloud-only and unrelated to sensor or on-premises management console software will also be listed separately from the software releases.
+
+> [!IMPORTANT]
+> Version numbers are listed only in this article, and not in detailed descriptions elsewhere in the documentation.
+> To understand whether a feature is supported in your sensor version, check the listed features for that sensor version on this page.
+
+For more information, see [Versioning and support for on-premises software versions](#versioning-and-support-for-on-premises-software-versions).
 
 ### Active discovery scans (Public preview)
 
@@ -154,61 +167,9 @@ This version of the sensor provides a improved security for uploading proprietar
 
 For more information, see [Manage proprietary protocols with Horizon plugins](resources-manage-proprietary-protocols.md).
 
-### Documentation improvements
-
-We've recently optimized and enhanced our documentation as follows:
-
-- [Release note tracking per version](#release-note-tracking-per-version)
 - [New OT monitoring appliance catalog](#new-ot-monitoring-appliance-catalog)
 - [Documentation reorganization for end-user organizations](#documentation-reorganization-for-end-user-organizations)
 
-#### Release note tracking per version
-
-Starting in May 2022, we're tracking our release notes per software version for the sensor and on-premises management console, including major and minor versions.
-
-Going forward, find the sensor software versions released in a given month, and their features, at the top of the release notes for that month. For example, in May, we released version **22.2.1**. Features that are cloud-only and unrelated to sensor or on-premises management console software will also be listed separately from the software releases.
-
-> [!IMPORTANT]
-> Version numbers are listed only in this article, and not in detailed descriptions elsewhere in the documentation.
-> To understand whether a feature is supported in your sensor version, check the listed features for that sensor version on this page.
-
-For more information, see [Versioning and support for on-premises software versions](#versioning-and-support-for-on-premises-software-versions).
-
-#### New OT monitoring appliance catalog
-
-We've refreshed and revamped the catalog of supported appliances for OT monitoring systems, including both OT sensors and on-premises management consoles.
-
-Use the new pages as follows:
-
-1. **Understand which hardware model best fits your organization's needs.** For more information, see [Which appliances do I need?](ot-appliance-sizing.md)
-
-1. **Learn about the preconfigured hardware appliances that are available to purchase, or system requirements for virtual machines.** For more information, see [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md) and [OT monitoring with virtual appliances](ot-virtual-appliances.md).
-
-    For more information about each appliance type, use the linked reference page, or browse through our new **Reference > OT monitoring appliances** section.
-
-    :::image type="content" source="media/release-notes/appliance-catalog.png" alt-text="Screenshot of the new appliance catalog reference section." lightbox="media/release-notes/appliance-catalog.png":::
-
-    Reference articles for each appliance type, including virtual appliances, include specific steps to configure the appliance for OT monitoring with Defender for IpT. Generic software installation and troubleshooting procedures are still documented in [Defender for IoT software installation](how-to-install-software.md).
-
-#### Documentation reorganization for end-user organizations
-
-We recently reorganized our Defender for IoT documentation for end-user organizations, highlighting a clearer path for onboarding and getting started.
-
-Check out our new structure to follow though viewing devices and assets, managing alerts, vulnerabilities and threats, integrating with other services, and deploying and maintaining your Defender for IoT system.
-
-**New and updated articles include**:
-
-- [Welcome to Microsoft Defender for IoT for organizations](overview.md)
-- [Microsoft Defender for IoT architecture](architecture.md)
-- [Quickstart: Get started with Defender for IoT](getting-started.md)
-- [Tutorial: Microsoft Defender for IoT trial setup](tutorial-onboarding.md)
-- [Tutorial: Get started with Enterprise IoT](tutorial-getting-started-eiot-sensor.md)
-- [Plan your sensor connections for OT monitoring](best-practices/plan-network-monitoring.md)
-- [About Microsoft Defender for IoT network setup](how-to-set-up-your-network.md)
-
-> [!NOTE]
-> To send feedback on docs via GitHub, scroll to the bottom of the page and select the **Feedback** option for **This page**. We'd be glad to hear from you!
->
 ## April 2022
 
 - [Extended device property data in the Device inventory](#extended-device-property-data-in-the-device-inventory)
