@@ -3,7 +3,7 @@ title: Azure Virtual Desktop required URL list - Azure
 description: A list of URLs you must unblock to ensure your Azure Virtual Desktop deployment works as intended.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 05/24/2022
+ms.date: 05/26/2022
 ms.author: helohr
 manager: femila
 ---
