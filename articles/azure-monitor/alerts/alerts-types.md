@@ -27,7 +27,7 @@ This table can help you decide when to use what type of alert. For more detailed
 |---------|---------|---------|
 |Metric alert|Metric alerts are useful when you want to be alerted about data that requires little or no manipulation.  Metric data is stored in the system already pre-computed, so metric alerts are less expensive than log alerts. If the data you want to monitor is available in metric data, you would want to metric alerts.|Each metrics alert rule is charged based on the number of time-series that are monitored. |
 |Log alert|Log alerts allow you to perform advanced logic operations on your data. If the data you want to monitor is available in logs, or requires advanced logic, you can use the robust features of KQL for data manipulation using log alerts. Log alerts are more expensive than metric alerts.|Each Log Alert rule is billed based the interval at which the log query is evaluated (more frequent query evaluation results in a higher cost). Additionally, for Log Alerts configured for [at scale monitoring](#splitting-by-dimensions-in-log-alert-rules), the cost will also depend on the number of time series created by the dimensions resulting from your query. | 
-|Activity Log alert|Activity logs provide auditing of all actions that occurred on resources. Use activity log alerts if you want to be alerted when a specific event happens to a resource, for example, a restart, a shutdown, or the creation or deletion of a resource.|Activity log alerts are free of charge for 90 days, with a limit of 100 rules per subscription.|
+|Activity Log alert|Activity logs provide auditing of all actions that occurred on resources. Use activity log alerts if you want to be alerted when a specific event happens to a resource, for example, a restart, a shutdown, or the creation or deletion of a resource.|See the [pricing page](https://azure.microsoft.com/pricing/details/monitor/).|
 
 ## Metric alerts
 
@@ -84,7 +84,7 @@ These platform metrics for these services in the following Azure clouds are supp
 | Azure Stack Edge devices        | Yes      | Yes    | Yes |
 | Recovery Services vaults     | Yes      | No     | No  |
 
-* Not supported for virtual machine network metrics (Network In Total, Network Out Total, Inbound Flows, Outbound Flows, Inbound Flows Maximum Creation Rate, Outbound Flows Maximum Creation Rate).
+'*' Not supported for virtual machine network metrics (Network In Total, Network Out Total, Inbound Flows, Outbound Flows, Inbound Flows Maximum Creation Rate, Outbound Flows Maximum Creation Rate).
 
 You can specify the scope of monitoring with a single metric alert rule in one of three ways. For example, with virtual machines you can specify the scope as:  
 
