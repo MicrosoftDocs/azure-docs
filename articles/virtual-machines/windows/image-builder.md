@@ -8,7 +8,7 @@ ms.date: 04/23/2021
 ms.topic: how-to
 ms.service: virtual-machines
 ms.subervice: image-builder
-ms.colletion: windows
+ms.collection: windows
 ---
 # Create a Windows VM with Azure Image Builder
 
