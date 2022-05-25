@@ -28,7 +28,7 @@ The resource will be deployed to your subscription and will create the Azure Vid
 
 ### Option 1: Click the "Deploy To Azure Button", and fill in the missing parameters
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fmedia-services-video-indexer%2Fmaster%2FARM-Qick-Start%2Favam.template.json)
+[![Deploy to Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fmedia-services-video-indexer%2Fmaster%2FARM-Quick-Start%2Favam.template.json)
 
 ----
 
