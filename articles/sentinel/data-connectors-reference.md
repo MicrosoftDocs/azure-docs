@@ -1121,7 +1121,8 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 
 
 ## Microsoft Purview Insider Risk Management (IRM) (Preview)
-
+<a id="microsoft-365-insider-risk-management-irm-preview"></a>
+        
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)**<br><br>Also available in the [Microsoft Purview Insider Risk Management solution](sentinel-solutions-catalog.md#domain-solutions) |
