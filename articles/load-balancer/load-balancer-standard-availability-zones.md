@@ -4,14 +4,14 @@ titleSuffix: Azure Load Balancer
 description: With this learning path, get started with Azure Standard Load Balancer and Availability Zones.
 services: load-balancer
 documentationcenter: na
-author: asudbring
+author: greg-lindsay
 ms.custom: seodec18
 ms.service: load-balancer
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
-ms.author: allensu
+ms.author: greglin
 ---
 
 # Load Balancer and Availability Zones

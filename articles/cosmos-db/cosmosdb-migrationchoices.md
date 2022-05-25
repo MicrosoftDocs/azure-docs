@@ -90,7 +90,6 @@ For APIs other than the SQL API, Mongo API and the Cassandra API, there are vari
 **Table API** 
 
 * [Data Migration Tool](table/table-import.md#data-migration-tool)
-* [AzCopy](table/table-import.md#migrate-data-by-using-azcopy)
 
 **Gremlin API**
 

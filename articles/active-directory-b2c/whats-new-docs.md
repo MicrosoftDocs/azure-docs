@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory business-to-customer (B2C)"
 description: "New and updated documentation for the Azure Active Directory business-to-customer (B2C)."
-ms.date: 05/04/2022
+ms.date: 05/23/2022
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: reference
@@ -19,8 +19,9 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 
 ### New articles
 
-- [Configure Asignio with Azure Active Directory B2C for multifactor authentication](partner-asignio.md)
-- [Set up sign up and sign in with Mobile ID using Azure Active Directory B2C](identity-provider-mobile-id.md)
+- [Tutorial: Configure Azure Web Application Firewall with Azure Active Directory B2C](partner-azure-web-application-firewall.md)
+- [Configure Asignio with Azure Active Directory B2C for multi-factor authentication](partner-asignio.md)
+- [Set up sign-up and sign-in with Mobile ID using Azure Active Directory B2C](identity-provider-mobile-id.md)
 - [Find help and open a support ticket for Azure Active Directory B2C](find-help-open-support-ticket.md)
 
 ### Updated articles

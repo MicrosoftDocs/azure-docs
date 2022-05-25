@@ -35,7 +35,7 @@ Azure Automation stores and manages runbooks and then delivers them to one or mo
 
 | Windows | Linux (x64)|
 |---|---|
-| &#9679; Windows Server 2019 (including Server Core), <br> &#9679; Windows Server 2016, version 1709 and 1803 (excluding Server Core), and <br> &#9679; Windows Server 2012, 2012 R2 <br><br> | &#9679; Debian GNU/Linux 7 and 8, <br> &#9679; Ubuntu 18.04, and 20.04 LTS, <br> &#9679; SUSE Linux Enterprise Server 15, and 15.1 (SUSE didn't release versions numbered 13 or 14), and <br> &#9679; Red Hat Enterprise Linux Server 7 and 8 |
+| &#9679; Windows Server 2022 (including Server Core) <br> &#9679; Windows Server 2019 (including Server Core) <br> &#9679; Windows Server 2016, version 1709 and 1803 (excluding Server Core), and <br> &#9679; Windows Server 2012, 2012 R2 | &#9679; Debian GNU/Linux 7 and 8 <br> &#9679; Ubuntu 18.04, and 20.04 LTS <br> &#9679; SUSE Linux Enterprise Server 15, and 15.1 (SUSE didn't release versions numbered 13 or 14), and <br> &#9679; Red Hat Enterprise Linux Server 7 and 8 |
 
 ### Other Requirements
 
@@ -67,6 +67,20 @@ If you use a proxy server for communication between Azure Automation and machine
 > [!NOTE]
 > You can set up the proxy settings by PowerShell cmdlets or API.
 
+ To install the extension using cmdlets:
+ 
+1. Get the automation account details using the below API call.
+
+   ```http
+   GET https://westcentralus.management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}?api-version=2021-06-22
+
+   ```
+
+   The API call will provide the value with the key: `AutomationHybridServiceUrl`. Use the URL in the next step to enable extension on the VM.
+
+1. Install the Hybrid Worker Extension on the VM by running the following PowerShell cmdlet (Required module: Az.Compute). Use the `properties.automationHybridServiceUrl` provided by the above API call  
+  
+
 **Proxy server settings**
 # [Windows](#tab/windows)
 
@@ -82,6 +96,17 @@ $protectedsettings = @{
 "ProxyPassword" = "password";
 };
 ```
+**Azure VMs**
+
+```powershell
+Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 0.1 -Settings $settings
+```
+
+**Azure Arc-enabled VMs**
+
+```powershell
+New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForWindows -TypeHandlerVersion 0.1 -Settings $settings -NoWait
+```
 
 # [Linux](#tab/linux)
 
@@ -93,6 +118,18 @@ $settings = @{
     "AutomationAccountURL"  = "<registration-url>/<subscription-id>";    
 };
 ```
+**Azure VMs**
+
+```powershell
+Set-AzVMExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForLinux -TypeHandlerVersion 0.1 -Settings $settings
+```
+
+**Azure Arc-enabled VMs**
+
+```powershell
+New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Location <VMLocation> -VMName <VMName> -Name "HybridWorkerExtension" -Publisher "Microsoft.Azure.Automation.HybridWorker" -ExtensionType HybridWorkerForLinux -TypeHandlerVersion 0.1 -Settings $settings -NoWait
+```
+
 ---
 
 ### Firewall use

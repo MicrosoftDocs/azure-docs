@@ -2,8 +2,8 @@
 title: Azure API Management advanced policies | Microsoft Docs
 description: Reference for the advanced policies available for use in Azure API Management. Provides policy usage, settings and examples.
 author: dlepow
-ms.topic: reference
-ms.date: 03/07/2022
+ms.topic: article
+ms.date: 04/28/2022
 ms.service: api-management
 ms.author: danlep
 ---
@@ -18,6 +18,7 @@ This article provides a reference for advanced API Management policies, such as 
 
 -   [Control flow](api-management-advanced-policies.md#choose) - Conditionally applies policy statements based on the results of the evaluation of Boolean [expressions](api-management-policy-expressions.md).
 -   [Forward request](#ForwardRequest) - Forwards the request to the backend service.
+-   [Include fragment](#IncludeFragment) - Inserts a policy fragment in the policy definition.
 -   [Limit concurrency](#LimitConcurrency) - Prevents enclosed policies from executing by more than the specified number of requests at a time.
 -   [Log to event hub](#log-to-eventhub) - Sends messages in the specified format to an event hub defined by a Logger entity.
 -   [Emit metrics](#emit-metrics) - Sends custom metrics to Application Insights at execution.
@@ -249,7 +250,7 @@ This operation level policy does not forward requests to the backend service.
 
 | Attribute                                     | Description                                                                                                                                                                                                                                                                                                    | Required | Default |
 | --------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| timeout="integer"                             | The amount of time in seconds to wait for the HTTP response headers to be returned by the backend service before a timeout error is raised. Minimum value is 0 seconds. Values greater than 240 seconds may not be honored as the underlying network infrastructure can drop idle connections after this time. | No       | None    |
+| timeout="integer"                             | The amount of time in seconds to wait for the HTTP response headers to be returned by the backend service before a timeout error is raised. Minimum value is 0 seconds. Values greater than 240 seconds may not be honored as the underlying network infrastructure can drop idle connections after this time. | No       | 300    |
 | follow-redirects="false &#124; true"          | Specifies whether redirects from the backend service are followed by the gateway or returned to the caller.                                                                                                                                                                                                    | No       | false   |
 | buffer-request-body="false &#124; true"       | When set to "true", request is buffered and will be reused on [retry](api-management-advanced-policies.md#Retry).                                                                                                                                                                                               | No       | false   |
 | buffer-response="false &#124; true" | Affects processing of chunked responses. When set to "false", each chunk received from the backend is immediately returned to the caller. When set to "true", chunks are buffered (8 KB, unless end of stream is detected) and only then returned to the caller.<br/><br/>Set to "false" with backends such as those implementing [server-sent events (SSE)](how-to-server-sent-events.md) that require content to be returned or streamed immediately to the caller. | No | true |
@@ -260,6 +261,50 @@ This operation level policy does not forward requests to the backend service.
 This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
 
 -   **Policy sections:** backend
+-   **Policy scopes:** all scopes
+
+## <a name="IncludeFragment"></a> Include fragment
+
+The `include-fragment` policy inserts the contents of a previously created [policy fragment](policy-fragments.md) in the policy definition. A policy fragment is a centrally managed, reusable XML policy snippet that can be included in policy definitions in your API Management instance.
+
+The policy inserts the policy fragment as-is at the location you select in the policy definition.  
+
+### Policy statement
+
+```xml
+<include-fragment fragment-id="fragment" />
+```
+
+### Example
+
+In the following example, the policy fragment named *myFragment* is added in the inbound section of a policy definition.
+
+```xml
+<inbound>
+    <include-fragment fragment-id="myFragment" />
+    <base />
+</inbound>
+[...]
+```
+
+## Elements
+
+| Element           | Description   | Required |
+| ----------------- | ------------- | -------- |
+| include-fragment | Root element. | Yes      |
+
+### Attributes
+
+| Attribute | Description                                                                                        | Required | Default |
+| --------- | -------------------------------------------------------------------------------------------------- | -------- | ------- |
+| fragment-id       | A string. Expression allowed. Specifies the identifier (name) of a policy fragment created in the API Management instance. | Yes      | N/A     |
+
+### Usage
+
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
+
+-   **Policy sections:** inbound, outbound, backend, on-error
+
 -   **Policy scopes:** all scopes
 
 ## <a name="LimitConcurrency"></a> Limit concurrency
@@ -276,9 +321,7 @@ The `limit-concurrency` policy prevents enclosed policies from executing by more
 </limit-concurrency>
 ```
 
-### Examples
-
-#### Example
+### Example
 
 The following example demonstrates how to limit number of requests forwarded to a backend based on the value of a context variable.
 
@@ -670,7 +713,7 @@ This sample policy shows an example of using the `send-one-way-request` policy t
 <choose>
     <when condition="@(context.Response.StatusCode >= 500)">
       <send-one-way-request mode="new">
-        <set-url>https://hooks.slack.com/services/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</set-url>
+        <set-url>https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX</set-url>
         <set-method>POST</set-method>
         <set-body>@{
                 return new JObject(

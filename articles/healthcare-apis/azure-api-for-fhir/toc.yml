@@ -13,6 +13,8 @@ items:
 - name: Quickstarts
   expanded: true
   items:
+  - name: Get started with Azure API for FHIR
+    href: get-started-with-azure-api-fhir.md
   - name: Deploy Azure API for FHIR
     expanded: false
     items:
@@ -122,13 +124,6 @@ items:
   - name: FHIR operations
     expanded: false
     items:
-    - name: $validate
-      expanded: false
-      items:  
-      - name: Store profiles
-        href: store-profiles-in-fhir.md
-      - name: Use $validate
-        href: validation-against-profiles.md
     - name: $export
       expanded: false
       items:
@@ -138,10 +133,19 @@ items:
         href: export-data.md
       - name: De-identified export
         href: de-identified-export.md
-    - name: Patient/$everything
-      href: patient-everything.md
     - name: $member-match
       href: tutorial-member-match.md
+    - name: Patient/$everything
+      href: patient-everything.md
+    - name: $purge-history operation
+      href: purge-history.md
+    - name: $validate
+      expanded: false
+      items:  
+      - name: Store profiles
+        href: store-profiles-in-fhir.md
+      - name: Use $validate
+        href: validation-against-profiles.md
   - name: How to convert data to FHIR 
     href: convert-data.md
   - name: Copy data to Synapse

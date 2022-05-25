@@ -169,7 +169,7 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
     
 1.  Under **Spoke network groups**, select **+ add**. Then, select **myNetworkGroupB** for the network group and click **Select**.
 
-    :::image type="content" source="media/how-to-create-hub-and-spoke/add-network-group.png" alt-text="Screenshot of Add network groups page.":::
+    :::image type="content" source="media/tutorial-create-secured-hub-and-spoke/select-network-group.png" alt-text="Screenshot of Add network groups page.":::
 
 1. After you've added the network group, select the following options. Then select add to create the connectivity configuration.
 
@@ -181,7 +181,7 @@ Deploy a virtual network gateway into the hub virtual network. This virtual netw
     | Hub as gateway | Select the checkbox for **Use hub as a gateway**. |    
     | Global Mesh | Leave this option **unchecked**. Since both spokes are in the same region this setting is not required. |
 
-1. Select **Next: Review + create >** and then **Create** to create the connectivity configuration.
+1. Select **Next: Review + create >** and then create the connectivity configuration.
 
 ## Deploy the connectivity configuration
 
@@ -196,13 +196,13 @@ Make sure the virtual network gateway has been successfully deployed before depl
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/deploy-configuration.png" alt-text="Screenshot of deploy a configuration page.":::
 
 
-1. Select **Deploy**. You should now see the deployment show up in the list for those regions. The deployment of the configuration can take several minutes to complete. You can select the **Refresh** button to check on the status of the deployment.
+1. Select **Deploy**. You should now see the deployment show up in the list for those regions. The deployment of the configuration can take several minutes to complete.
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/deployment-in-progress.png" alt-text="Screenshot of deployment in progress in deployment list.":::
 
 ## Create security configuration
 
-1. Select **Configuration** under *Settings* again, then select **+ Create**, and select **SecurityAdmin** from the menu to begin creating a SecurityAdmin configuration.
+1. Select **Configuration** under *Settings* again, then select **+ Create**, and select **SecurityAdmin** from the menu to begin creating a SecurityAdmin configuration..
 
 1. Enter the name **mySecurityConfig** for the configuration, then select **Next: Rule collections**.
 
@@ -240,7 +240,7 @@ Make sure the virtual network gateway has been successfully deployed before depl
 
     :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/deploy-security.png" alt-text="Screenshot of deploying a security configuration.":::
 
-1. Select **Next** and then **Deploy**. You should now see the deployment show up in the list for the selected region. The deployment of the configuration can take about 15-20 minutes to complete.
+1. Select **Next** and then **Deploy**.You should now see the deployment show up in the list for the selected region. The deployment of the configuration can take about 15-20 minutes to complete.
 
 ## Verify deployment of configurations
 

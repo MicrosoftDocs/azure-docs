@@ -2,7 +2,7 @@
 title: Move operation support by resource type
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
 ms.topic: conceptual
-ms.date: 05/03/2022
+ms.date: 05/04/2022
 ---
 
 # Move operation support for resources
@@ -52,6 +52,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.ClassicSubscription](#microsoftclassicsubscription)
 > - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
 > - [Microsoft.Commerce](#microsoftcommerce)
+> - [Microsoft.Communication](#microsoftcommunication)
 > - [Microsoft.Compute](#microsoftcompute)
 > - [Microsoft.Confluent](#microsoftconfluent)
 > - [Microsoft.Consumption](#microsoftconsumption)
@@ -594,6 +595,13 @@ Jump to a resource provider namespace:
 > | ratecard | No | No | No |
 > | usageaggregates | No | No | No |
 
+## Microsoft.Communication
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Resource group | Subscription | Region move |
+> | ------------- | ----------- | ---------- | ----------- |
+> | communicationservices | Yes | Yes | No |
+
 ## Microsoft.Compute
 
 > [!IMPORTANT]
@@ -618,7 +626,7 @@ Jump to a resource provider namespace:
 > | sharedvmextensions | No | No | No |
 > | sharedvmimages | No | No | No |
 > | sharedvmimages / versions | No | No | No |
-> | snapshots | Yes | Yes | No |
+> | snapshots | Yes - Full <br> No - Incremental | Yes - Full <br> No - Incremental | No - Full <br> No - Incremental |
 > | sshpublickeys | No | No | No |
 > | virtualmachines | Yes | Yes | Yes <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move Azure VMs. |
 > | virtualmachines / extensions | Yes | Yes | No |
@@ -1445,7 +1453,7 @@ Jump to a resource provider namespace:
 > | networkintentpolicies | Yes | Yes | No |
 > | networkinterfaces | Yes | Yes | Yes <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move NICs. |
 > | networkprofiles | No | No | No |
-> | networksecuritygroups | Yes | Yes | Yes <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move network security groups (NGSs). |
+> | networksecuritygroups | Yes | Yes | Yes <br/><br/> Use [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) to move network security groups (NSGs). |
 > | networkwatchers | No | No | No |
 > | networkwatchers / connectionmonitors | Yes | No | No |
 > | networkwatchers / flowlogs | Yes | No | No |

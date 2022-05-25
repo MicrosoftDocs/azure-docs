@@ -151,6 +151,8 @@
         items:
         - name: Create and manage users
           href: how-to-create-and-manage-users.md
+        - name: Integrate with active directory
+          href: integrate-with-active-directory.md
         - name: Define global user access control
           href: how-to-define-global-user-access-control.md
       - name: Enrich device information
@@ -187,12 +189,12 @@
         href: appliance-catalog/hpe-proliant-dl20-plus-enterprise.md
     - name: SMB appliances
       items:
-      - name: Dell Edge 5200
-        href: appliance-catalog/dell-edge-5200.md
       - name: HPE ProLiant DL20 Plus
         href: appliance-catalog/hpe-proliant-dl20-plus-smb.md
     - name: Rugged appliances
       items:
+      - name: Dell Edge 5200
+        href: appliance-catalog/dell-edge-5200.md
       - name: YS-techsystems YS-FIT2
         href: appliance-catalog/ys-techsystems-ys-fit2.md
     - name: Virtual appliances
