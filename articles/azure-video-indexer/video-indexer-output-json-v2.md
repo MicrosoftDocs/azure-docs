@@ -1,6 +1,6 @@
 ---
 title: Examine the Azure Video Indexer output
-description: This topic examines the Azure Video Indexer (formerly Azure Video Analyzer for Media) output produced by the Get Video Index API.
+description: This topic examines the Azure Video Indexer output produced by the Get Video Index API.
 services: azure-video-analyzer
 author: Juliako
 manager: femila
@@ -11,7 +11,7 @@ ms.author: juliako
 
 # Examine the Azure Video Indexer output
 
-When a video is indexed, Azure Video Indexer (formerly Azure Video Analyzer for Media) produces the JSON content that contains details of the specified video insights. The insights include transcripts, optical character recognition elements (OCRs), faces, topics, and similar details. Each insight type includes instances of time ranges that show when the insight appears in the video. 
+When a video is indexed, Azure Video Indexer produces the JSON content that contains details of the specified video insights. The insights include transcripts, optical character recognition elements (OCRs), faces, topics, blocks, and similar details. Each insight type includes instances of time ranges that show when the insight appears in the video. 
 
 The produced JSON output contains `Insights` and `SummarizedInsights` elements. We highly recommend using `Insights` and not using `SummarizedInsights` (which is present for backward compatibility). 
 
