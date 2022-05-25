@@ -6,7 +6,7 @@ author: schaffererin
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/19/2022
+ms.date: 05/25/2022
 ms.author: v-eschaffer 
 ms.custom: devx-track-azurepowershell
 
@@ -126,7 +126,7 @@ New-AzDeployment -ResourceGroupName exampleRG -Location eastus -TemplateFile ./m
 ---
 
 > [!NOTE]
-> Replace **\<actions\>** with . Replace **\<role-name\>** with
+> Replace **\<role-name\>** with the role ID to update.
 
 ## Clean up resources
 

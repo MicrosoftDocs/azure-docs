@@ -1,7 +1,7 @@
 ---
-title: Authentication and authorization best practices in Azure Maps
+title: Authentication best practices in Azure Maps
 titleSuffix: Microsoft Azure Maps
-description: Learn tips & tricks to optimize the use of Authentication and Authorization in your Azure Maps applications. 
+description: Learn tips & tricks to optimize the use of Authentication in your Azure Maps applications. 
 author: stevemunk
 ms.author: v-munksteve
 ms.date: 05/11/2022
@@ -10,7 +10,7 @@ ms.service: azure-maps
 services: azure-maps
 ---
 
-# Authentication and authorization best practices
+# Authentication best practices
 
 The single most important part of your application is its security. No matter how good the user experience might be, if your application isn't secure a hacker can ruin it.
 

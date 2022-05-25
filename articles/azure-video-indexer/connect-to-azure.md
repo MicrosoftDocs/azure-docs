@@ -1,6 +1,6 @@
 ---
 title: Create an Azure Video Indexer account connected to Azure
-description: Learn how to create an Azure Video Indexer (formerly Azure Video Analyzer for Media) account connected to Azure.
+description: Learn how to create an Azure Video Indexer account connected to Azure.
 ms.topic: tutorial
 ms.date: 05/03/2022
 ms.author: itnorman
@@ -9,7 +9,7 @@ ms.custom: ignite-fall-2021
 
 # Create an Azure Video Indexer account
 
-When creating an Azure Video Indexer (formerly Azure Video Analyzer for Media) account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you're not limited by the quota). With a free trial, Azure Video Indexer provides up to 600 minutes of free indexing to users and up to 2400 minutes of free indexing to users that subscribe to the Azure Video Indexer API on the [developer portal](https://aka.ms/avam-dev-portal). With the paid options, Azure Video Indexer offers two types of accounts: classic accounts(General Availability), and ARM-based accounts(Public Preview). Main difference between the two is account management platform. While classic accounts are built on the API Management, ARM-based accounts management is built on Azure, enables to apply access control to all services with role-based access control (Azure RBAC) natively.
+When creating an Azure Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you're not limited by the quota). With a free trial, Azure Video Indexer provides up to 600 minutes of free indexing to users and up to 2400 minutes of free indexing to users that subscribe to the Azure Video Indexer API on the [developer portal](https://aka.ms/avam-dev-portal). With the paid options, Azure Video Indexer offers two types of accounts: classic accounts(General Availability), and ARM-based accounts(Public Preview). Main difference between the two is account management platform. While classic accounts are built on the API Management, ARM-based accounts management is built on Azure, enables to apply access control to all services with role-based access control (Azure RBAC) natively.
 
 * You can create an Azure Video Indexer **classic** account through our [API](https://aka.ms/avam-dev-portal).
 * You can create an Azure Video Indexer **ARM-based** account through one of the following:
