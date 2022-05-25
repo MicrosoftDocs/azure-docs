@@ -18,7 +18,7 @@ ms.date: 05/11/2022
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
 > * [v1](how-to-create-register-datasets.md)
-> * [v2 (current version)](../how-to-create-register-datasets.md)
+> * [v2 (current version)](../how-to-create-register-data-assets.md)
 
 [!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
 

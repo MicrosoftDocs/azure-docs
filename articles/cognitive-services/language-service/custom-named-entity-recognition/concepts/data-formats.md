@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 05/06/2022
+ms.date: 05/24/2022
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021, event-tier1-build-2022
 ---
@@ -23,62 +23,79 @@ Your Labels file should be in the `json` format below to be used in [importing](
 
 ```json
 {
+  "projectFileVersion": "2022-05-01",
+  "stringIndexType": "Utf16CodeUnit",
+  "metadata": {
+    "projectKind": "CustomEntityRecognition",
+    "storageInputContainerName": "{CONTAINER-NAME}",
+    "projectName": "{PROJECT-NAME}",
+    "multilingual": false,
+    "description": "Project-description",
+    "language": "en-us"
+  },
+  "assets": {
+    "projectKind": "CustomEntityRecognition",
     "entities": [
-        {
-            "category": "Entity1"
-        },
-        {
-            "category": "Entity2"
-        }
+      {
+        "category": "Entity1"
+      },
+      {
+        "category": "Entity2"
+      }
     ],
     "documents": [
-        {
-            "location": "{DOCUMENT-NAME}",
-            "language": "{LANGUAGE-CODE}",
-            "dataset": "{DATASET}",
-            "entities": [
-                {
-                    "regionOffset": 0,
-                    "regionLength": 500,
-                    "labels": [
-                        {
-                            "category": "Entity1",
-                            "offset": 25,
-                            "length": 10
-                        },
-                        {
-                            "category": "Entity2",
-                            "offset": 120,
-                            "length": 8
-                        }
-                    ]
-                }
+      {
+        "location": "{DOCUMENT-NAME}",
+        "language": "{LANGUAGE-CODE}",
+        "dataset": "{DATASET}",
+        "entities": [
+          {
+            "regionOffset": 0,
+            "regionLength": 500,
+            "labels": [
+              {
+                "category": "Entity1",
+                "offset": 25,
+                "length": 10
+              },
+              {
+                "category": "Entity2",
+                "offset": 120,
+                "length": 8
+              }
             ]
-        },
-        {
-            "location": "{DOCUMENT-NAME}",
-            "language": "{LANGUAGE-CODE}",
-            "dataset": "{DATASET}",
-            "entities": [
-                {
-                    "regionOffset": 0,
-                    "regionLength": 100,
-                    "labels": [
-                        {
-                            "category": "Entity2",
-                            "offset": 20,
-                            "length": 5
-                        }
-                    ]
-                }
+          }
+        ]
+      },
+      {
+        "location": "{DOCUMENT-NAME}",
+        "language": "{LANGUAGE-CODE}",
+        "dataset": "{DATASET}",
+        "entities": [
+          {
+            "regionOffset": 0,
+            "regionLength": 100,
+            "labels": [
+              {
+                "category": "Entity2",
+                "offset": 20,
+                "length": 5
+              }
             ]
-        }
+          }
+        ]
+      }
     ]
+  }
 }
+
 ```
 
 |Key  |Placeholder  |Value  | Example |
 |---------|---------|----------|--|
+| `multilingual` | `true`| A boolean value that enables you to have documents in multiple languages in your dataset and when your model is deployed you can query the model in any supported language (not necessarily included in your training documents). See [language support](../language-support.md#multi-lingual-option) to learn more about multilingual support. | `true`|
+|`projectName`|`{PROJECT-NAME}`|Project name|`myproject`|
+| storageInputContainerName|`{CONTAINER-NAME}`|Container name|`mycontainer`|
 | `entities` | | Array containing all the entity types you have in the project. These are the entity types that will be extracted from your documents into.|  |
 | `documents` | | Array containing all the documents in your project and list of the entities labeled within each document. | [] |
 | `location` | `{DOCUMENT-NAME}` |  The location of the documents in the storage container. Since all the documents are in the root of the container this should be the document name.|`doc1.txt`|

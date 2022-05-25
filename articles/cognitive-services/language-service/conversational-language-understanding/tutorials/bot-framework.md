@@ -9,7 +9,7 @@ ms.reviewer: cahann, hazemelh
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: tutorial
-ms.date: 05/17/2022
+ms.date: 05/25/2022
 ---
 
 # Integrate conversational language understanding with Bot Framework
@@ -23,23 +23,22 @@ This tutorial will explain how to integrate your own conversational language und
 
 - Create a [Language resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
   - You will need the key and endpoint from the resource you create to connect your bot to the API. You'll paste your key and endpoint into the code below later in the tutorial.
-- Download the **Core Bot** for CLU [sample in C#](https://aka.ms/clu-botframework-overview).
-  - Clone the entire Bot Framework Samples repository to get access to this sample project.
-
+- Download the **CoreBotWithCLU** [sample](https://aka.ms/clu-botframework-overview).
+  - Clone the entire samples repository to get access to this solution.
 
 ## Import a project in conversational language understanding
 
-1. Copy the [FlightBooking.json](https://aka.ms/clu-botframework-json) file in the **Core Bot** for CLU sample.
+1. Download the [FlightBooking.json](https://aka.ms/clu-botframework-json) file in the **Core Bot with CLU** sample, in the _Cognitive Models_ folder.
 2. Sign into the [Language Studio](https://language.cognitive.azure.com/) and select your Language resource. 
 3. Navigate to [Conversational Language Understanding](https://language.cognitive.azure.com/clu/projects) and click on the service. This will route you the projects page. Click the Import button next to the Create New Project button. Import the FlightBooking.json file with the project name as **FlightBooking**. This will automatically import the CLU project with all the intents, entities, and utterances. 
     
     :::image type="content" source="../media/import.png" alt-text="A screenshot showing where to import a J son file." lightbox="../media/import.png":::
 
-4. Once the project is loaded, click on **Training** on the left. Press on Start a training job, provide the model name **v1** and press Train. All other settings such as **Standard Training** and the evaluation settings can be left as is.
+4. Once the project is loaded, click on **Training jobs** on the left. Press on Start a training job, provide the model name **v1** and press Train. All other settings such as **Standard Training** and the evaluation settings can be left as is.
     
-    :::image type="content" source="../media/train-model-tutorial.png" alt-text="A screenshot of the training page in C L U." lightbox="../media/train-model-tutorial.png":::
+    :::image type="content" source="../media/train-model.png" alt-text="A screenshot of the training page in C L U." lightbox="../media/train-model.png":::
     
-5. Once training is complete, click to **Deployments** on the left. Click on Add Deployment and create a new deployment with the name **Testing**, and assign model **v1** to the deployment.
+5. Once training is complete, click to **Deploying a model** on the left. Click on Add Deployment and create a new deployment with the name **Testing**, and assign model **v1** to the deployment.
     
     :::image type="content" source="../media/deploy-model-tutorial.png" alt-text="A screenshot of the deployment page within the deploy model screen in C L U." lightbox="../media/deploy-model-tutorial.png":::
     
@@ -52,7 +51,7 @@ In the **Core Bot** sample, update your [appsettings.json](https://aka.ms/clu-bo
 - The _CluProjectName_ is **FlightBooking**.
 - The _CluDeploymentName_ is **Testing**
 - The _CluAPIKey_ can be either of the keys in the **Keys and Endpoint** section for your Language resource in the [Azure portal](https://portal.azure.com). You can also copy your key from the Project Settings tab in CLU. 
-- The _CluAPIHostName_ is the endpoint found in the **Keys and Endpoint** section for your Language resource in the Azure portal. Note the format should be ```<Language_Resource_Name>.cognitiveservices.azure.com``` without `https://`
+- The _CluAPIHostName_ is the endpoint found in the **Keys and Endpoint** section for your Language resource in the Azure portal. Note the format should be ```<Language_Resource_Name>.cognitiveservices.azure.com``` without `https://`.
 
 ```json
 {
@@ -67,7 +66,7 @@ In the **Core Bot** sample, update your [appsettings.json](https://aka.ms/clu-bo
 
 ## Identify integration points
 
-In the Core Bot sample, under the CLU folder, you can check out the **FlightBookingRecognizer.cs** file. Here is where the CLU API call to the deployed endpoint is made to retrieve the CLU prediction for intents and entities.
+In the Core Bot sample, you can check out the **FlightBookingRecognizer.cs** file. Here is where the CLU API call to the deployed endpoint is made to retrieve the CLU prediction for intents and entities.
 
 ```csharp
         public FlightBookingRecognizer(IConfiguration configuration)
@@ -91,7 +90,7 @@ In the Core Bot sample, under the CLU folder, you can check out the **FlightBook
 ```
 
 
-Under the folder Dialogs folder, find the **MainDialog** which uses the following to make a CLU prediction.
+Under the Dialogs folder, find the **MainDialog** which uses the following to make a CLU prediction.
 
 ```csharp
             var cluResult = await _cluRecognizer.RecognizeAsync<FlightBooking>(stepContext.Context, cancellationToken);
@@ -136,7 +135,7 @@ Run the sample locally on your machine **OR** run the bot from a terminal or fro
 
 ### Run the bot from a terminal
 
-From a terminal, navigate to `samples/csharp_dotnetcore/90.core-bot-with-clu/90.core-bot-with-clu`
+From a terminal, navigate to the `cognitive-service-language-samples/CoreBotWithCLU` folder.
 
 Then run the following command
 
@@ -149,8 +148,8 @@ dotnet run
 
 1. Launch Visual Studio
 1. From the top navigation menu, select **File**, **Open**, then **Project/Solution**
-1. Navigate to the `samples/csharp_dotnetcore/90.core-bot-with-clu/90.core-bot-with-clu` folder
-1. Select the `CoreBotWithCLU.csproj` file
+1. Navigate to the `cognitive-service-language-samples/CoreBotWithCLU` folder
+1. Select the `CoreBotCLU.csproj` file
 1. Press `F5` to run the project
 
 
