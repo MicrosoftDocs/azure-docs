@@ -34,7 +34,7 @@ To complete this quickstart you need:
 
 2. Type **app services** in the search. Under **Services**, select **App Services**.
 
- ![Screenshot of the Azure portal with 'app services' typed in the search text box. In the results, the App Services option under Services is highlighted.](media/quickstart-java/azure-portal-search-for-app-services.png)
+    ![Screenshot of the Azure portal with 'app services' typed in the search text box. In the results, the App Services option under Services is highlighted.](media/quickstart-java/azure-portal-search-for-app-services.png)
 
 
 3. In the **App Services** page, select **Create**.
@@ -83,7 +83,7 @@ To complete this quickstart you need:
 > [!TIP]
 > This quickstart uses GitHub. Additional continuous deployment sources include Bitbucket, Local Git, Azure Repos, and External Git. FTPS is also a supported deployment method.
   
-14. Once the GitHub integration is saved, f the Overview, select the link under **URL**.
+14. Once the GitHub integration is saved, select **Overview** > **URL**.
 
     ![Screenshot of the App Service resource's overview with the URL highlighted.](media/quickstart-java/azure-portal-app-service-url.png)  
 
@@ -104,7 +104,7 @@ The Java sample code is running in an Azure App Service Linux web app.
 
 3. Navigate to **src/main/java/com/example/demo/DemoApplication.java**.
 
-![Screenshot of Visual Studio Code in the browser, highlighting src/main/java/com/example/demo/DemoApplication.java in the Explorer pane.](media/quickstart-java/vscode-in-browser-navigate-to-application-controller.png)
+    ![Screenshot of Visual Studio Code in the browser, highlighting src/main/java/com/example/demo/DemoApplication.java in the Explorer pane.](media/quickstart-java/vscode-in-browser-navigate-to-application-controller.png)
 
 4. Edit the *sayHello* method so that it shows "Hello Azure!" instead of "Hello World!"
 
@@ -119,13 +119,13 @@ The Java sample code is running in an Azure App Service Linux web app.
 
     ![Screenshot of Visual Studio Code in the browser, highlighting the Source Control navigation in the sidebar, then highlighting the Stage Changes button in the Source Control panel.](media/quickstart-java/vscode-in-browser-stage-changes.png)
 
-6. Enter a commit message such as `"Hello Azure"`. Then, select **Commit and Push**.
+6. Enter a commit message such as *Hello Azure*. Then, select **Commit and Push**.
 
     ![Screenshot of Visual Studio Code in the browser, Source Control panel with a commit message of 'Hello Azure' and the Commit and Push button highlighted ](media/quickstart-java/vscode-in-browser-commit-push.png)
 
 7. Once deployment has completed, return to the browser window that opened during the **Browse to the app** step, and refresh the page.
 
-![Screenshot of the updated sample app running in Azure, showing 'Hello Azure!'.](media/quickstart-java/hello-azure-in-browser.png)
+    ![Screenshot of the updated sample app running in Azure, showing 'Hello Azure!'.](media/quickstart-java/hello-azure-in-browser.png)
 
 ## 4 - Manage your new Azure app
 
@@ -139,7 +139,7 @@ The Java sample code is running in an Azure App Service Linux web app.
 
 Your web app's **Overview** page will be displayed. Here, you can perform basic management tasks like **Browse**, **Stop**, **Restart**, and **Delete**.
 
-![Screenshot of the App Service overview page in Azure portal. In the action bar, the Browse, Stop, Swap (disabled), Restart, and Delete button group is highlighted.](media/quickstart-java/app-service-detail.png)
+![Screenshot of the App Service overview page in Azure portal. In the action bar, the Browse, Stop, Swap (disabled), Restart, and Delete button group is highlighted.](media/quickstart-java/app-service-details.png)
 
 The web app menu provides different options for configuring your app.
 
