@@ -878,7 +878,7 @@ If you're not going to use the endpoint, delete it to stop using the resource.  
 > [!NOTE]
 > Expect this step to take approximately 6 to 8 minutes.
 
-[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name="ml_client.online_endpoints.begin_delete")]
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=ml_client.online_endpoints.begin_delete)]
 
 ```python
 ml_client.online_endpoints.begin_delete(name=online_endpoint_name)
