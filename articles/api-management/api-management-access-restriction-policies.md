@@ -280,6 +280,9 @@ This policy can be used in the following policy [sections](./api-management-howt
 -   **Policy sections:** inbound
 -   **Policy scopes:** all scopes
 
+> [!NOTE]
+> If you configure this policy at more than one scope, note the order of [policy evaluation](set-edit-policies.md#use-base-element-to-set-policy-evaluation-order) in your policy definition. The first policy occurrence that matchdes the IP address of a request takes precedence.
+
 ## <a name="SetUsageQuota"></a> Set usage quota by subscription
 
 The `quota` policy enforces a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis.
