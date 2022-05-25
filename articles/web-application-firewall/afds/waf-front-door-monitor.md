@@ -24,48 +24,67 @@ From Azure portal, go to Front Door resource type. From **Monitoring**/**Metrics
 
 ## Logs and diagnostics
 
-WAF with Front Door provides detailed reporting on each threat it detects. Logging is integrated with Azure's diagnostics logs and alerts. These logs can be integrated with [Azure Monitor logs](../../azure-monitor/insights/azure-networking-analytics.md).
+WAF with Front Door provides detailed reporting on each request, and each threat that it detects. Logging is integrated with Azure's diagnostics logs and alerts. These logs can be integrated with [Azure Monitor logs](../../azure-monitor/insights/azure-networking-analytics.md).
 
 ![WAFDiag](../media/waf-frontdoor-monitor/waf-frontdoor-diagnostics.png)
 
-[FrontDoorAccessLog](../../frontdoor/standard-premium/how-to-logs.md#access-log) logs all requests. `FrontDoorWebApplicationFirewalllog` logs any request that matches a WAF rule and each log entry has the following schema.  
+::: zone pivot="front-door-standard-premium"
 
-For logging on the classic tier, use [FrontdoorAccessLog](../../frontdoor/front-door-diagnostics.md) logs for Front Door requests and `FrontdoorWebApplicationFirewallLog` logs for matched WAF rules using the following schema:
+Front Door Standard/Premium provides two types of logs:
+
+- **[FrontDoorAccessLog](../../frontdoor/standard-premium/how-to-logs.md#access-log)**, which includes all requests.
+- **FrontDoorWebApplicationFirewallLog**, which includes any request that matches a WAF rule.
+
+::: zone-end
+
+::: zone pivot="front-door-classic"
+
+- **[FrontdoorAccessLog`](../../frontdoor/front-door-diagnostics.md)**, which includes all requests.
+- **FrontdoorWebApplicationFirewallLog**, which includes any request that matches a WAF rule.
+
+::: zone-end
+
+### FrontDoorWebApplicationFirewallLog schema
+
+The following table shows the values logged for each request
 
 | Property  | Description |
 | ------------- | ------------- |
-|Action|Action taken on the request. WAF log shows all action values. WAF metrics show all action values, except *Log*.|
-| ClientIp | The IP address of the client that made the request. If there was an X-Forwarded-For header in the request, then the Client IP is picked from the header field. |
+| Action |Action taken on the request. Logs include requests with all actions. Metrics include requests with all actions except *Log*.|
+| ClientIp | The IP address of the client that made the request. If there was an `X-Forwarded-For` header in the request, the client IP address is taken from that header field instead. |
 | ClientPort | The IP port of the client that made the request. |
-| Details|Additional details on the matched request. <br />matchVariableName:   HTTP parameter name of the request matched, for example, header names (max chars 100)<br /> matchVariableValue:  Values that triggered the match (max chars 100)|
-| Host | The host header of the matched request. |
-| Policy | The name of the WAF policy that the request matched. |
+| Details | Additional details on the request, including any threats that were detected. <br />matchVariableName:   HTTP parameter name of the request matched, for example, header names (up to 100 characters maximum).<br /> matchVariableValue:  Values that triggered the match (up to 100 characters maximum). |
+| Host | The `Host` header of the request. |
+| Policy | The name of the WAF policy that processed the request. |
 | PolicyMode | Operations mode of the WAF policy. Possible values are `Prevention` and `Detection`. |
-| RequestUri | Full URI of the matched request. |
+| RequestUri | Full URI of the request. |
 | RuleName | The name of the WAF rule that the request matched. |
-| SocketIp | The source IP address seen by WAF. This IP address is based on TCP session, independent of any request headers.|
+| SocketIp | The source IP address seen by WAF. This IP address is based on the TCP session, and does not consider any request headers. |
 | TrackingReference | The unique reference string that identifies a request served by Front Door. This value is sent to the client in the `X-Azure-Ref` response header. Use this field when searching for a specific request in the log. |
 
-The following query example returns WAF logs on blocked requests:
+The following example query shows the requests that were blocked by the Front Door WAF:
 
 ::: zone pivot="front-door-classic"
+
 ```kusto
 AzureDiagnostics
 | where ResourceType == "FRONTDOORS" and Category == "FrontdoorWebApplicationFirewallLog"
 | where action_s == "Block"
 ```
+
 ::: zone-end
 
 ::: zone pivot="front-door-standard-premium"
+
 ```kusto
 AzureDiagnostics 
 | where ResourceProvider == "MICROSOFT.CDN" and Category == "FrontDoorWebApplicationFirewallLog" 
 | where action_s == "Block" 
-
 ```
+
 ::: zone-end
 
-Here is an example of a logged request in WAF log:
+The following shows an example log entry, including the reason that the request was blocked:
 
 ```json
 {
@@ -95,13 +114,15 @@ Here is an example of a logged request in WAF log:
 }
 ```
 
-The following example query returns AccessLogs entries:
+The following example query returns the access log entries:
 
 ::: zone pivot="front-door-classic"
+
 ```kusto
 AzureDiagnostics
 | where ResourceType == "FRONTDOORS" and Category == "FrontdoorAccessLog"
 ```
+
 ::: zone-end
 
 ::: zone pivot="front-door-standard-premium"
@@ -112,7 +133,7 @@ AzureDiagnostics
 ```
 ::: zone-end
 
-Here is an example of a logged request in Access log:
+The following shows an example log entry:
 
 ```json
 {
