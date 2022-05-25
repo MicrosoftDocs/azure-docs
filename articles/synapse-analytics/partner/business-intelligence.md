@@ -8,7 +8,7 @@ ms.subservice: sql-dw
 ms.date: 07/09/2021
 author: gillharmeet
 ms.author: harmeetgill
-ms.reviewer: igorstan
+ms.reviewer: wiassaf
 ms.custom: seo-lt-2019
 ---
 

@@ -192,7 +192,7 @@ Now that you've created an NFS share, to use it you have to mount it on your Lin
 1. You should see **Connect to this NFS share from Linux** along with sample commands to use NFS on your Linux distribution and a provided mounting script.
 
    > [!IMPORTANT]
-   > The provided mounting script will mount the NFS share only until the Linux machine is rebooted. To automatically mount the share every time the machine reboots, use a [static mount with /etc/fstab](storage-how-to-use-files-linux.md#static-mount-with-etcfstab).
+   > The provided mounting script will mount the NFS share only until the Linux machine is rebooted. To automatically mount the share every time the machine reboots, [add an entry in /etc/fstab](storage-how-to-use-files-linux.md#static-mount-with-etcfstab). For more information, enter the command `man fstab` from the Linux command line.
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/mount-nfs-share.png" alt-text="Screenshot showing how to connect to an N F S file share from Linux using a provided mounting script." lightbox="media/storage-files-quick-create-use-linux/mount-nfs-share.png" border="true":::
 

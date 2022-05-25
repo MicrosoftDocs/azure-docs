@@ -337,7 +337,7 @@
           href: load-balancer-standard.md
         - name: Use a static IP address and DNS label
           href: static-ip.md
-        - name: Use an HTTP proxy (preview)
+        - name: Use an HTTP proxy
           href: http-proxy.md
         - name: Ingress
           items:
@@ -364,7 +364,7 @@
               href: limit-egress-traffic.md
             - name: Use a user defined route for egress
               href: egress-outboundtype.md
-            - name: Managed NAT Gateway (preview)
+            - name: Managed NAT Gateway
               href: nat-gateway.md              
         - name: Customize CoreDNS
           href: coredns-custom.md
@@ -465,10 +465,10 @@
           href: open-service-mesh-troubleshoot.md
         - name: Uninstall the Open Service Mesh AKS add-on
           href: open-service-mesh-uninstall-add-on.md
+    - name: Track releases and region availability
+      href: release-tracker.md
     - name: Kubernetes Event-driven Autoscaler add-on (preview)
       href: keda.md
-    - name: Web Application Routing (preview)
-      href: web-app-routing.md
     - name: Use cluster extensions
       href: cluster-extensions.md
     - name: DevOps

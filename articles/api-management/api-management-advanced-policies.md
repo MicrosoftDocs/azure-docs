@@ -713,7 +713,7 @@ This sample policy shows an example of using the `send-one-way-request` policy t
 <choose>
     <when condition="@(context.Response.StatusCode >= 500)">
       <send-one-way-request mode="new">
-        <set-url>https://hooks.slack.com/services/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</set-url>
+        <set-url>https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX</set-url>
         <set-method>POST</set-method>
         <set-body>@{
                 return new JObject(
