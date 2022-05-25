@@ -262,7 +262,7 @@ az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSClu
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [sample-application]: ./quickstart-dapr.md
 [k8s-version-support-policy]: ./supported-kubernetes-versions.md?tabs=azure-cli#kubernetes-version-support-policy
-[arc-k8s-cluster]: /azure-arc/kubernetes/quickstart-connect-cluster.md
+[arc-k8s-cluster]: ../azure-arc/kubernetes/quickstart-connect-cluster.md
 [update-extension]: ./cluster-extensions.md#update-extension-instance
 
 <!-- LINKS EXTERNAL -->
