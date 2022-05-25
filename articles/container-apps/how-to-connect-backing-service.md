@@ -25,7 +25,6 @@ In the guide below, learn how to connect your container app to a target service 
 - An application deployed to Container Apps in a [region supported by Service Connector](../service-connector/concept-region-support.md). If you don't have one yet, [create and deploy a container to Container Apps](quickstart-portal.md)
 - A resource in a target service, such as Azure Blob Storage
 
-
 ## Sign in to Azure
 
 First, sign in to the Azure portal.
@@ -41,6 +40,7 @@ Sign in to the Azure portal using the `az login` command in the [Azure CLI](/cli
 ```azurecli-interactive
 az login
 ```
+
 This command will prompt your web browser to launch and load an Azure sign-in page. If the browser fails to open, use device code flow with `az login --use-device-code`. For more sign in options, go to [sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
 
 ---
@@ -53,6 +53,9 @@ Use Service Connector to create a new service connection in Container Apps using
 
 1. Select **All resources** on the left of the Azure portal. Type **Container Apps** in the filter and select the name of the container app you want to use in the list.
 1. Select **Service Connector** from the left table of contents. Then select **Create**.
+
+    :::image type="content" source="media/connect-backing/connect-service-connector.png" alt-text="Screenshot of the Azure portal, selecting Service Connector within a container app":::
+
 1. Select or enter the following settings.
 
 | Setting      | Suggested value  | Description                                        |
@@ -81,15 +84,7 @@ Go through the steps below to create a service connection using an access key or
     az containerapp connection list-support-types --output table
     ```
 
-1. Use the Azure CLI command `az containerapp connection connection create` to create a service connection to an Azure Blob Storage, providing the following information.
-
-    | Setting      | Description  | Suggested value                                        |
-    | ------------ |  ------- | -------------------------------------------------- |
-    | **Source compute service resource group name** | The name of the resource group containing the container app. | MyResourceGroup. |
-    | **Container app name** | The name of the container app | MyContainerApp |
-    | **Container name** | The name of the container that connects to the target service | MyContainer |
-    | **Target service resource group name** | The name of the resource group that contains the Blob Storage. | MyBlobStorage  |
-    | **Storage account name** | The name of the target storage account you want to connect to. If you choose a different type of service, select the corresponding target service instance. | Your storage account| 
+1. Use the Azure CLI command `az containerapp connection connection create` to create a service connection from a container app.
 
     If you're connecting with an access key, run the code below:
 
@@ -102,6 +97,15 @@ Go through the steps below to create a service connection using an access key or
     ```azurecli-interactive
     az containerapp connection create storage-blob --system-identity
     ```
+
+1. Provide the following information at the Azure CLI's request:
+
+    - **The resource group which contains the container app**: the name of the resource group with the container app.
+    - **Name of the container app**: the name of your container app.
+    - **The container where the connection information will be saved**: the name of the container, in your container app, that connects to the target service
+    - **The resource group which contains the storage account:** the name of the resource group name with the storage account. In this guide, we're using a Blob Storage.
+    - **Name of the storage account**: the name of the storage account that contains your blob.
+
     > [!IMPORTANT]
     > To use Managed Identity, you must have the permission to manage [Azure Active Directory role assignments](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). If you don't have this permission, you won't be able to create a connection. You can ask your subscription owner to grant you this permission or use an access key instead to create the connection.
 
@@ -122,21 +126,20 @@ View your existing service connections using the Azure portal or the CLI.
 
 1. Select **...** and then **Validate**. You can see the connection validation details in the pop-up panel on the right.
 
+    :::image type="content" source="media/connect-backing/connect-service-connector-refresh.png" alt-text="Screenshot of the Azure portal, viewing connection validation details":::
+
 ### [Azure CLI](#tab/azure-cli)
 
-Use the Azure CLI command `az containerapp connection` to list the connections that belong to your container app. Provide the following information:
+Use the Azure CLI command `az containerapp connection list` to list all your container app's provisioned connections. Provide the following information:
 
-| Setting      | Description  | Suggested value                                        |
-| ------------ |  ------- | -------------------------------------------------- |
-| **Source compute service resource group name** | The name of the resource group containing the container app. | MyResourceGroup. |
-| **Container app name** | The name of the container app | MyContainerApp |
-| **Container name** | The name of the container that connects to the target service | MyContainer|
-
-Run the code below:
+- **Source compute service resource group name**: the resource group name of the container app.
+- **Container app name**: the name of your container app.
 
 ```azurecli-interactive
-az containerapp connection list -g "<your-container-app-resource-group>" --name "<your-container-app-name>" 
+az containerapp connection list -g "<your-container-app-resource-group>" --name "<your-container-app-name>" --output table
 ```
+
+The output also displays the provisioning state of your connections: failed or succeeded.
 
 ---
 
