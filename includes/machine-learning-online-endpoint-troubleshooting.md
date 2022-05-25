@@ -13,7 +13,7 @@ The Azure Machine Learning workspace can be configured for `v1_legacy_mode`, whi
 > [!IMPORTANT]
 > Check with your network security team before disabling `v1_legacy_mode`. It may have been enabled by your network security team for a reason.
 
-For information on how to disable `v1_legacy_mode`, see [Network isolation with v2](how-to-configure-network-isolation-with-v2.md).
+For information on how to disable `v1_legacy_mode`, see [Network isolation with v2](/azure/machine-learning/how-to-configure-network-isolation-with-v2.md).
 
 ### Online endpoint creation with key-based authentication fails
 
