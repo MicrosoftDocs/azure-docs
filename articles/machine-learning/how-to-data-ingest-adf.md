@@ -15,6 +15,8 @@ ms.custom: devx-track-python, data4ml, sdkv1, event-tier1-build-2022
 #Customer intent: As an experienced data engineer, I need to create a production data ingestion pipeline for the data used to train my models.
 ---
 
+[//]: # (needs PM review)
+
 # Data ingestion with Azure Data Factory
 
 In this article, you learn about the available options for building a data ingestion pipeline with [Azure Data Factory](../data-factory/introduction.md). This Azure Data Factory pipeline is used to ingest data for use with [Azure Machine Learning](overview-what-is-azure-machine-learning.md). Data Factory allows you to easily extract, transform, and load (ETL) data. Once the data has been transformed and loaded into storage, it can be used to train your machine learning models in Azure Machine Learning.
@@ -91,10 +93,10 @@ Consume your prepared data in Azure Machine Learning by,
 
 This method is recommended for [Machine Learning Operations (MLOps) workflows](concept-model-management-and-deployment.md#what-is-mlops). If you don't want to set up an Azure Machine Learning pipeline, see [Read data directly from storage](#read-data-directly-from-storage).
 
-Each time the Data Factory pipeline runs, 
+Each time the Data Factory pipeline jobs, 
 
 1. The data is saved to a different location in storage. 
-1. To pass the location to Azure Machine Learning, the Data Factory pipeline calls an [Azure Machine Learning pipeline](concept-ml-pipelines.md). When calling the ML pipeline, the data location and run ID are sent as parameters. 
+1. To pass the location to Azure Machine Learning, the Data Factory pipeline calls an [Azure Machine Learning pipeline](concept-ml-pipelines.md). When calling the ML pipeline, the data location and job ID are sent as parameters. 
 1. The ML pipeline can then create an Azure Machine Learning datastore and dataset with the data location. Learn more in [Execute Azure Machine Learning pipelines in Data Factory](../data-factory/transform-data-machine-learning-service.md).
 
 ![Diagram shows an Azure Data Factory pipeline and an Azure Machine Learning pipeline and how they interact with raw data and prepared data. The Data Factory pipeline feeds data to the Prepared Data database, which feeds a data store, which feeds datasets in the Machine Learning workspace.](media/how-to-data-ingest-adf/aml-dataset.png)
@@ -104,7 +106,7 @@ Each time the Data Factory pipeline runs,
 
 Once the data is accessible through a datastore or dataset, you can use it to train an ML model. The training process might be part of the same ML pipeline that is called from ADF. Or it might be a separate process such as experimentation in a Jupyter notebook.
 
-Since datasets support versioning, and each run from the pipeline creates a new version, it's easy to understand which version of the data was used to train a model.
+Since datasets support versioning, and each job from the pipeline creates a new version, it's easy to understand which version of the data was used to train a model.
 
 ### Read data directly from storage
 

@@ -14,6 +14,8 @@ ms.custom: devx-track-python, data4ml, synapse-azureml, contperf-fy21q4, sdkv1, 
 #Customer intent: As a data scientist, I want to prepare my data at scale, and to train my machine learning models from a single notebook using Azure Machine Learning.
 ---
 
+[//]: # (needs PM review; what to do about variable names with run? )
+
 # Data wrangling with Apache Spark pools (preview) 
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
@@ -257,23 +259,23 @@ Similarly, if you have an Azure Machine Learning pipeline, you can use the [Syna
 
 Making your data available to the Synapse Spark pool depends on your dataset type. 
 
-* For a FileDataset, you can use the [`as_hdfs()`](/python/api/azureml-core/azureml.data.filedataset#as-hdfs--) method. When the run is submitted, the dataset is made available to the Synapse Spark pool as a Hadoop distributed file system (HFDS). 
+* For a FileDataset, you can use the [`as_hdfs()`](/python/api/azureml-core/azureml.data.filedataset#as-hdfs--) method. When the job is submitted, the dataset is made available to the Synapse Spark pool as a Hadoop distributed file system (HFDS). 
 * For a [TabularDataset](./v1/how-to-create-register-datasets.md#tabulardataset), you can use the [`as_named_input()`](/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset#as-named-input-name-) method. 
 
 The following code, 
 
 * Creates the variable `input2` from the FileDataset `train_ds` that was created in the previous code example.
-* Creates the variable `output` with the HDFSOutputDatasetConfiguration class. After the run is complete, this class allows us to save the output of the run as the dataset, `test` in the datastore, `mydatastore`. In the Azure Machine Learning workspace, the `test` dataset is registered under the name `registered_dataset`. 
-* Configures settings the run should use in order to perform on the Synapse Spark pool. 
+* Creates the variable `output` with the HDFSOutputDatasetConfiguration class. After the job is complete, this class allows us to save the output of the job as the dataset, `test` in the datastore, `mydatastore`. In the Azure Machine Learning workspace, the `test` dataset is registered under the name `registered_dataset`. 
+* Configures settings the job should use in order to perform on the Synapse Spark pool. 
 * Defines the ScriptRunConfig parameters to, 
-  * Use the `dataprep.py`, for the run. 
+  * Use the `dataprep.py`, for the job. 
   * Specify which data to use as input and how to make it available to the Synapse Spark pool.
   * Specify where to store output data, `output`.  
 
 ```Python
 from azureml.core import Dataset, HDFSOutputDatasetConfig
 from azureml.core.environment import CondaDependencies
-from azureml.core import RunConfiguration
+from azureml.core import JobConfiguration
 from azureml.core import ScriptRunConfig 
 from azureml.core import Experiment
 
