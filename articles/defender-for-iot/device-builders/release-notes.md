@@ -13,7 +13,7 @@ This article lists new features and feature enhancements in Microsoft Defender f
 
 Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## May 2022
+## June 2022
 
 **Version 4.2.3**
 
