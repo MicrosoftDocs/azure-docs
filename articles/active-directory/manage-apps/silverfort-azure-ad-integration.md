@@ -14,11 +14,13 @@ ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Configure Silverfort with Azure Active Directory for secure hybrid access
+# Tutorial: Configure Secure Hybrid Access with Azure Active Directory and Silverfort 
 
-In this tutorial, learn how to integrate Silverfort with Azure Active Directory (Azure AD). [Silverfort](https://www.silverfort.com/) uses innovative agent-less and proxy-less technology to connect all your assets on-premises and in the cloud to Azure AD. This solution enables organizations to apply identity protection, visibility, and user experience across all environments in Azure AD. It enables universal risk-based monitoring and assessment of authentication activity for on-premises and cloud environments, and proactively prevents threats.  
+[Silverfort](https://www.silverfort.com/) uses innovative agent-less and proxy-less technology to connect all your assets on-premises and in the cloud to Azure AD. This solution enables organizations to apply identity protection, visibility, and user experience across all environments in Azure AD. It enables universal risk-based monitoring and assessment of authentication activity for on-premises and cloud environments, and proactively prevents threats.  
 
-Silverfort can seamlessly connect any type of asset into Azure AD, as if it was a modern web application. For example:
+In this tutorial, learn how to integrate your existing on premises Silverfort implementation with Azure Active Directory (Azure AD) for [hybrid access](https://docs.microsoft.com/en-us/azure/active-directory/devices/concept-azure-ad-join-hybrid).
+
+Silverfort seamlessly connects assets with Azure AD. These **bridged** assets appear as regular applications in Azure AD and can be protected with Conditional Access, single-sign-on (SSO), multifactor authentication, auditing and more. Use Silverfort to connect assets including:
 
 - Legacy and homegrown applications
 
@@ -30,17 +32,13 @@ Silverfort can seamlessly connect any type of asset into Azure AD, as if it was 
 
 - Infrastructure and industrial systems
 
-These **bridged** assets appear as regular applications in Azure AD and can be protected with Conditional Access, single-sign-on (SSO), multifactor authentication, auditing and more.
+Silverfort integrates your corporate assets and third-party Identity and Access Management (IAM) platforms. This includes Active Directory, Active Directory Federation Services (ADFS), and Remote Authentication Dial-In User Service (RADIUS) on Azure AD, including hybrid and multi-cloud environments.
 
-This solution combines all corporate assets and third-party Identity and Access Management (IAM) platforms. For example, Active Directory, Active Directory Federation Services (ADFS), and Remote Authentication Dial-In User Service (RADIUS) on Azure AD, including hybrid and multi-cloud environments.
+Follow the steps in this tutorial to configure and test the Silverfort Azure AD bridge in your Azure AD tenant to communicate with your existing Silverfort implementation. Once configured, you can create Silverfort authentication policies that bridge authentication requests from various identity sources to Azure AD for SSO. After an application is bridged, it can be managed in Azure AD.
 
-## Scenario description
+## Silverfort with Azure AD Authentication Architecture
 
-In this guide, you'll configure and test the Silverfort Azure AD bridge in your Azure AD tenant.
-
-Once configured, you can create Silverfort authentication policies that bridge authentication requests from various identity sources to Azure AD for SSO. Once an application is bridged, it can be managed in Azure AD.
-
-The following diagram shows the components included in the solution and sequence of authentication orchestrated by Silverfort.
+The following diagram describes the authentication architecture orchestrated by Silverfort in a hybrid environment.
 
 ![image shows the architecture diagram](./media/silverfort-azure-ad-integration/silverfort-architecture-diagram.png)
 
@@ -56,17 +54,15 @@ The following diagram shows the components included in the solution and sequence
 
 ## Prerequisites
 
-To set up SSO for an application that you added to your Azure AD tenant, you'll need:
+You must already have Silverfort deployed in your tenant or infrasturcture in order to perform this tutorial. To deploy Silverfort in your tenant or infrastructure, [contact Silverfort](https://www.silverfort.com/). You will need to install Silverfort Desktop app on relevant workstations.
+
+This tutorial requires you to set up Silverfort Azure AD Adapter in your Azure AD tenant. You'll need:
 
 - An Azure account with an active subscription. You can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 - One of the following roles in your Azure account - Global administrator, Cloud application administrator, Application administrator, or Owner of the service principal.
 
-- An application that supports SSO and that was already pre-configured and added to the Azure AD gallery. The Silverfort application in the Azure AD gallery is already pre-configured. You'll need to add it as an Enterprise application from the gallery.
-
-## Onboard with Silverfort
-
-To deploy Silverfort in your tenant or infrastructure, [contact Silverfort](https://www.silverfort.com/). Install Silverfort Desktop app on relevant workstations.
+- The Silverfort Azure AD Adapter application in the Azure AD gallery is pre-configured to support SSO. You'll need to add Silverfort Azure AD Adapter to your tenant as an Enterprise application from the gallery.
 
 ## Configure Silverfort and create a policy
 
@@ -91,7 +87,7 @@ To deploy Silverfort in your tenant or infrastructure, [contact Silverfort](http
 
    ![image shows enterprise application](./media/silverfort-azure-ad-integration/enterprise-application.png)
 
-5. In the Silverfot admin console, navigate to the **Policies** page, and select **Create Policy**.
+5. In the Silverfort admin console, navigate to the **Policies** page, and select **Create Policy**.
 
 6. The **New Policy** dialog will appear. Enter a **Policy Name**, that would indicate the application name that will be created in Azure. For example, if you're adding multiple servers or applications under this policy, name it to reflect the resources covered by the policy. In the example, we'll create a policy for the *SL-APP1* server.
 
@@ -131,10 +127,12 @@ To deploy Silverfort in your tenant or infrastructure, [contact Silverfort](http
 
     ![image shows add policy](./media/silverfort-azure-ad-integration/add-policy.png)
 
-14. Return to the Azure AD console, and navigate to **Enterprise applications**. The new Silverfort application should now appear. This application can now be included in [CA policies](../authentication/tutorial-enable-azure-mfa.md?bc=/azure/active-directory/conditional-access/breadcrumb/toc.json&toc=/azure/active-directory/conditional-access/toc.json%23create-a-conditional-access-policy).
+14. Return to the Azure AD console, and navigate to **Enterprise applications**. The new Silverfort application should now appear. This application can now be included in [Conditional Access policies](../authentication/tutorial-enable-azure-mfa.md?bc=/azure/active-directory/conditional-access/breadcrumb/toc.json&toc=/azure/active-directory/conditional-access/toc.json%23create-a-conditional-access-policy).
 
 ## Next steps
 
 - [Silverfort Azure AD adapter](https://azuremarketplace.microsoft.com/marketplace/apps/aad.silverfortazureadadapter?tab=overview)
 
 - [Silverfort resources](https://www.silverfort.com/resources/)
+
+- [Contact Silverfort](https://www.silverfort.com/company/contact/)
