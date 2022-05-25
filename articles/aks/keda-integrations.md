@@ -25,7 +25,7 @@ To learn about the available metrics, we recommend reading the [KEDA documentati
 
 ## Scalers for Azure services
 
-KEDA can integrate with a variety of tools and services through the [a rich catalog of 40+ KEDA scalers][keda-scalers] including leading cloud platforms (such as Azure) and open-source technologies (such as Redis and Kafka).
+KEDA can integrate with a variety of tools and services through the [a rich catalog of 50+ KEDA scalers][keda-scalers] including leading cloud platforms (such as Azure) and open-source technologies (such as Redis and Kafka).
 
 It leverages the following scalers for Azure services:
 
