@@ -9,7 +9,7 @@ ms.reviewer: cahann, hazemelh
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: tutorial
-ms.date: 05/17/2022
+ms.date: 05/25/2022
 ---
 
 # Connect different services with Orchestration workflow
@@ -88,21 +88,21 @@ Now your orchestration project is ready to be used. Any incoming request will be
 dotnet add package Azure.AI.Language.Conversations
 ```
 
-2. In `Program.cs`, replace `{api-key}` and the `{endpoint}` variables. Use the key and endpoint for the Language resource you created earlier. You can find them in the **Keys and Endpoint** tab in your Language resource in Azure.
+3. In `Program.cs`, replace `{api-key}` and the `{endpoint}` variables. Use the key and endpoint for the Language resource you created earlier. You can find them in the **Keys and Endpoint** tab in your Language resource in Azure.
 
 ```csharp
 Uri endpoint = new Uri("{endpoint}");
 AzureKeyCredential credential = new AzureKeyCredential("{api-key}");
 ```
 
-3. Replace the orchestrationProject parameters to **Orchestrator** and **Testing** as below if they are not set already.
+4. Replace the orchestrationProject parameters to **Orchestrator** and **Testing** as below if they are not set already.
 
 ```csharp
 ConversationsProject orchestrationProject = new ConversationsProject("Orchestrator", "Testing");
 ```
 
-4. Run the project or press F5 in Visual Studio. 
-5. Input a query such as "read the email from matt" or "hello how are you". You'll now observe different responses for each, a conversational language understanding **EmailProject** response from the first query, and the answer from the **chitchat** knowledge base for the second query.
+5. Run the project or press F5 in Visual Studio. 
+6. Input a query such as "read the email from matt" or "hello how are you". You'll now observe different responses for each, a conversational language understanding **EmailProject** response from the first query, and the answer from the **chitchat** knowledge base for the second query.
 
 **Conversational Language Understanding**:
 :::image type="content" source="../media/clu-response-orchestration.png" alt-text="A screenshot showing the sample response from conversational language understanding." lightbox="../media/clu-response-orchestration.png":::
