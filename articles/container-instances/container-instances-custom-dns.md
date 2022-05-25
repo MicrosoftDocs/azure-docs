@@ -42,7 +42,7 @@ Examples in this article are formatted for the Bash shell. For PowerShell or com
 
 ## Create your virtual network
 
-You will need a virtual network to deploy a container group with a custom DNS configuration within container group. This virtual network will require a subnet with permissions to create Azure Container Instances resources and a linked private DNS zone to test name resolution.
+You'll need a virtual network to deploy a container group with a custom DNS configuration within container group. This virtual network will require a subnet with permissions to create Azure Container Instances resources and a linked private DNS zone to test name resolution.
 
 This guide uses a virtual network named `aci-vnet`, a subnet named `aci-subnet`, and a private DNS zone named `private.contoso.com`. We use **Azure Private DNS Zones**, which you can learn about in the [Private DNS Overview](../dns/private-dns-overview.md).
 
@@ -94,7 +94,7 @@ Once you've completed the steps above, you should see an output with a final key
 
 ## Deploy with custom DNS settings
 
-For this guide, we are going to use a YAML file to create a container group with custom DNS settings.
+For this guide, we're going to use a YAML file to create a container group with custom DNS settings.
 
 > [!NOTE]
 > Custom DNS settings are not currently available in the Azure portal for container group deployments. They must be provided with YAML file, Resource Manager template, [REST API](/rest/api/container-instances/containergroups/createorupdate), or an [Azure SDK](https://azure.microsoft.com/downloads/).
@@ -174,7 +174,7 @@ After the status shows `Running`, execute the [az container exec][az-container-e
 az container exec --resource-group myResourceGroup --name pwsh-vnet-dns --exec-command "/bin/bash"
 ```
 
-Validate that DNS is working as expected from within your container. For example, read the `/etc/resolv.conf` file to ensure it is configured with the DNS settings provided in the YAML file.
+Validate that DNS is working as expected from within your container. For example, read the `/etc/resolv.conf` file to ensure it's configured with the DNS settings provided in the YAML file.
 
 ```console
 root@wk-caas-81d609b206c541589e11058a6d260b38-90b0aff460a737f346b3b0:/# cat /etc/resolv.conf
@@ -212,7 +212,7 @@ az group delete --name ACIResourceGroup
 
 ## Next steps
 
-See the Azure QuickStart template [Create an Azure container group with VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet), to deploy a container group within a virtual network.
+See the Azure quickstart template [Create an Azure container group with VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet), to deploy a container group within a virtual network.
 
 <!-- LINKS - Internal -->
 [az-network-vnet-create]: /cli/azure/network/vnet#az-network-vnet-create
