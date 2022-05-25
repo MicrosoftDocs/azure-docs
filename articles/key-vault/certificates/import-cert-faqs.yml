@@ -1,22 +1,20 @@
 ### YamlMime:FAQ
 metadata:
-  title: Frequently asked questions - Azure Key Vault certificate import
-  description: Get answers to frequently asked questions about importing Azure Key Vault certificates.
+  title: Azure Key Vault certificate FAQ
+  description: Frequently asked questions about Azure Key Vault certificates
   services: key-vault
   author: msmbaldwin
   tags: azure-resource-manager
   
   ms.service: key-vault
   ms.subservice: certificates
-  ms.topic: faq
-  ms.date: 07/20/2020
-  ms.author: sebansal
+  ms.topic: overview
+  ms.date: 05/25/2022
+  ms.author: mbaldwin
 title: Importing Azure Key Vault certificates FAQ
-summary: This article answers frequently asked questions about importing Azure Key Vault certificates.
-
-
+summary: This article answers frequently asked questions about Azure Key Vault certificates.
 sections:
-  - name: Frequently asked questions
+  - name: Importing Azure Key Vault certificates FAQ
     questions:
       - question: |
           How can I import a certificate in Azure Key Vault?
@@ -103,7 +101,35 @@ sections:
         answer: |
           Certificate Authorities may provide with the option to either download certificate individually (root, intermediate, leaf) or download all of them in a single file. While importing certificate in Key Vault, it will allow you to import one certificate or the whole chain, it's up to you.
 
+  - name: Renew your Azure Key Vault certificates
+    questions:
+      - question: What if the issued certificate is in *disabled* status in the Azure portal?
+        answer: |
+          Go to **Certificate Operation** and view the certificate's error message.
+      - question: How do I resolve error type "The CSR used to get your certificate has already been used. Please try to generate a new certificate with a new CSR."
+        answer: |
+          Go to 'Advanced Policy' section of the certificate and check if **'reuse key on renewal'** option is turned off.
+      - question: How can I test the autorotation feature of the certificate?
+        answer: |
+          Create a self-signed certificate with a validity of **1 month**, and then set the lifetime action for rotation at **1%**. You should be able to view certificate version history being created over next few days.
+      - question: Will the tags be replicated after autorenewal of the certificate?
+        answer: |
+          Yes, the tags are replicated after autorenewal.
+  - name: Integrate Key Vault with Integrated Certificate Authorities
+    questions:
+      - question: Can I generate a DigiCert wildcard certificate by using Key Vault?
+        answer: |
+          Yes, though it depends on how you configured your DigiCert account.
+      - question: How can I create an OV SSL or EV SSL certificate with DigiCert??
+        answer: |
+          Key Vault supports the creation of OV and EV SSL certificates. When you create a certificate, select **Advanced Policy Configuration** and then specify the certificate type. Supported values: OV SSL, EV SSL
+   
+          You can create this type of certificate in Key Vault if your DigiCert account allows it. For this type of certificate, validation is performed by DigiCert. If validation fails, the DigiCert support team can help. You can add information when you create a certificate by defining the information in `subjectName`.
 
+            For example: `SubjectName="CN = docs.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"`.
+      - question: Does it take longer to create a DigiCert certificate via integration than it does to acquire it directly from DigiCert?
+        answer: |
+          No. When you create a certificate, the verification process might take time. DigiCert controls that process.
 
 additionalContent: |
 

@@ -17,14 +17,11 @@ summary: |
   Here are some answers to common questions about [Azure Key Vault certificate renewal](/azure/key-vault/certificates/overview-renew-certificate).
 
 sections:
-  - name: Ignored
+  - name: Renew your Azure Key Vault certificates
     questions:
       - question: What if the issued certificate is in *disabled* status in the Azure portal?
         answer: |
         Go to **Certificate Operation** and view the certificate's error message.
-      - question: XXX?
-        answer: |
-          XXX
       - question: How do I resolve error type "The CSR used to get your certificate has already been used. Please try to generate a new certificate with a new CSR."
         answer: |
           Go to 'Advanced Policy' section of the certificate and check if **'reuse key on renewal'** option is turned off.
@@ -34,14 +31,21 @@ sections:
       - question: Will the tags be replicated after autorenewal of the certificate?
         answer: |
           Yes, the tags are replicated after autorenewal.
-      - question: XXX?
+  - name: Integrate Key Vault with Integrated Certificate Authorities
+    questions:
+      - question: Can I generate a DigiCert wildcard certificate by using Key Vault?
         answer: |
-          XXX
-      - question: Will the tags be replicated after autorenewal of the certificate?
+        Yes, though it depends on how you configured your DigiCert account.
+      - question: How can I create an OV SSL or EV SSL certificate with DigiCert??
         answer: |
-          Yes, the tags are replicated after autorenewal.
-      - question: XXX?
-        answer: |
-          XXX
+          Key Vault supports the creation of OV and EV SSL certificates. When you create a certificate, select **Advanced Policy Configuration** and then specify the certificate type. Supported values: OV SSL, EV SSL
+   
+          You can create this type of certificate in Key Vault if your DigiCert account allows it. For this type of certificate, validation is performed by DigiCert. If validation fails, the DigiCert support team can help. You can add information when you create a certificate by defining the information in `subjectName`.
 
+            For example: `SubjectName="CN = docs.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"`.
+      - question: Does it take longer to create a DigiCert certificate via integration than it does to acquire it directly from DigiCert?
+        answer: |
+          No. When you create a certificate, the verification process might take time. DigiCert controls that process.
+
+   
 
