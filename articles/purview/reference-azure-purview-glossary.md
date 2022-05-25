@@ -4,6 +4,7 @@ description: A glossary defining the terminology used throughout Microsoft Purvi
 author: djpmsft
 ms.author: daperlov
 ms.service: purview
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.date: 04/14/2022
 ---
@@ -89,6 +90,8 @@ An entry in the Business glossary that defines a concept specific to an organiza
 A scan that detects and processes assets that have been created, modified, or deleted since the previous successful scan. To run an incremental scan, at least one full scan must be completed on the source.
 ## Ingested asset
 An asset that has been scanned, classified (when applicable), and added to the Microsoft Purview data map. Ingested assets are discoverable and consumable within the data catalog through automated scanning or external connections, such as Azure Data Factory and Azure Synapse.
+## Insight reader
+A role that provides read-only access to insights reports for collections where the insights reader also has the **Data reader** role.
 ## Data Estate Insights
 An area within Microsoft Purview where you can view reports that summarize information about your data.
 ## Integration runtime

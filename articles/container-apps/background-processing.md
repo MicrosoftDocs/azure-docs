@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Deploy a background processing application with Azure Container Apps Preview'
+title: 'Tutorial: Deploy a background processing application with Azure Container Apps'
 description: Learn to create an application that continuously runs in the background with Azure Container Apps
 services: container-apps
 author: jorgearteiro
@@ -7,10 +7,10 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: joarteir
-ms.custom: ignite-fall-2021, devx-track-azurecli
+ms.custom: ignite-fall-2021, devx-track-azurecli, event-tier1-build-2022
 ---
 
-# Tutorial: Deploy a background processing application with Azure Container Apps Preview
+# Tutorial: Deploy a background processing application with Azure Container Apps
 
 Using Azure Container Apps allows you to deploy applications without requiring the exposure of public endpoints. By using Container Apps scale rules, the application can scale up and down based on the Azure Storage queue length. When there are no messages on the queue, the container app scales down to zero.
 
@@ -176,7 +176,7 @@ Create a file named *queue.json* and paste the following configuration code into
     {
         "name": "queuereader",
         "type": "Microsoft.App/containerApps",
-        "apiVersion": "2022-01-01-preview",
+        "apiVersion": "2022-03-01",
         "kind": "containerapp",
         "location": "[parameters('location')]",
         "properties": {

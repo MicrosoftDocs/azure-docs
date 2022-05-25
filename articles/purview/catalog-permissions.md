@@ -4,8 +4,9 @@ description: This article gives an overview permission, access control, and coll
 author: viseshag
 ms.author: viseshag
 ms.service: purview
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 03/09/2022
+ms.date: 05/16/2022
 ---
 
 # Access control in the Microsoft Purview Data Map
@@ -19,9 +20,6 @@ The Microsoft Purview Data Map uses **Collections** to organize and manage acces
 
 A collection is a tool Microsoft Purview uses to group assets, sources, and other artifacts into a hierarchy for discoverability and to manage access control. All accesses to Microsoft Purview's resources are managed from collections in the Microsoft Purview account itself.
 
-> [!NOTE]
-> As of November 8th, 2021, ***Microsoft Purview Data Estate Insights*** is accessible to Data Curators. Data Readers do not have access to Data Estate Insights.
-
 ## Roles
 
 Microsoft Purview uses a set of predefined roles to control who can access what within the account. These roles are currently:
@@ -31,6 +29,7 @@ Microsoft Purview uses a set of predefined roles to control who can access what 
 - **Data readers** - a role that provides read-only access to data assets, classifications, classification rules, collections and glossary terms.
 - **Data share contributor** - A role that can share data within an organization and with other organizations using Data share capabilities in Microsoft Purview. Data share contributors can view, create, update, and delete sent and received shares.
 - **Data source administrator** - a role that allows a user to manage data sources and scans. If a user is granted only to **Data source admin** role on a given data source, they can run new scans using an existing scan rule. To create new scan rules, the user must be also granted as either **Data reader** or **Data curator** roles.
+- **Insights reader** - a role that provides read-only access to insights reports for collections where the insights reader also has at least the **Data reader** role. For more information, see [insights permissions.](insights-permissions.md)
 - **Policy author (Preview)** - a role that allows a user to view, update, and delete Microsoft Purview policies through the policy management app within Microsoft Purview.
 - **Workflow administrator** - a role that allows a user to access the workflow authoring page in the Microsoft Purview governance portal, and publish workflows on collections where they have access permissions. Workflow administrator only has access to authoring, and so will need at least Data reader permission on a collection to be able to access the Purview governance portal.
 
@@ -52,6 +51,7 @@ Microsoft Purview uses a set of predefined roles to control who can access what 
 |I need to create and publish access policies | Data source administrator and policy author |
 |I need to create workflows for my Microsoft Purview account | Workflow administrator |
 |I need to share data from sources registered in Microsoft Purview | Data share contributor|
+|I need to view insights for collections I'm a part of | Insights reader **or** data curator |
 
 :::image type="content" source="media/catalog-permissions/catalog-permission-role.svg" alt-text="Chart showing Microsoft Purview roles" lightbox="media/catalog-permissions/catalog-permission-role.svg":::
 >[!NOTE]
