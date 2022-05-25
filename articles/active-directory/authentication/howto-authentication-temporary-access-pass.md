@@ -124,9 +124,9 @@ Users can also continue to sign-in by using their password; a TAP doesn’t repl
 
 ### User management of Temporary Access Pass
 
-Users with an active TAP who manage their security information at [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) will see an entry for the Temporary Access Pass. If a user does not have any other registered methods they will be presented a banner at the top of the screeen requesting them to add a new sign-in method. Users can additionally view the TAP expiration time, and delete the TAP if no longer needed. 
+Users managing their security information at [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) will see an entry for the Temporary Access Pass. If a user does not have any other registered methods they will be presented a banner at the top of the screen requesting them to add a new sign-in method. Users can additionally view the TAP expiration time, and delete the TAP if no longer needed. 
 
-![Screenshot of how to enter a Temporary Access Pass](./media/how-to-authentication-temporary-access-pass/enter.png)
+![Screenshot of how users can manage a Temporary Access Pass](./media/how-to-authentication-temporary-access-pass/tap_msi.png)
 
 ### Passwordless phone sign-in
 
