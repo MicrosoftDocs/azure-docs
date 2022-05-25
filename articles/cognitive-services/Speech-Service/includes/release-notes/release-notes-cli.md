@@ -13,7 +13,7 @@ Uses Speech SDK 1.22.0.
 #### New features
 
 - Added `spx init` command to guide users through the Speech resource key creation without going to Azure Web Portal.
-- Our docker contain now has Azure CLI included, so the `spx init` command will work out of the box.
+- Speech docker containers now have Azure CLI included, so the `spx init` command will work out of the box.
 - Added timestamp as an event output option, to make SPX more useful when calculating latencies.
 
 
