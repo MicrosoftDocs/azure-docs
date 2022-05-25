@@ -42,7 +42,12 @@ Key differences between persistent and ephemeral OS disks:
 | **Redeploy** | OS disk data is preserved | Data on the OS disk is deleted, OS is reprovisioned | 
 | **Stop/ Start of VM** | OS disk data is preserved | Not Supported | 
 | **Page file placement**| For Windows, page file is stored on the resource disk| For Windows, page file is stored on the OS disk (for both OS cache placement and Temp disk placement).|
+| **Maintenance of VM/VMSS using [healing](understand-vm-reboots#unexpected-downtime.md)** | OS disk data is preserved | OS disk data is not preserved  | 
+| **Maintenance of VM/VMSS using [Live Migration](maintenance-and-updates#live-migration.md)** | OS disk data is preserved | OS disk data is preserved  | 
 
+## Placement options for Ephemeral OS disks
+Ephemeral OS disk can be stored either on VM's OS cache disk or VM's temp/resource disk. 
+[DiffDiskPlacement](/rest/api/compute/virtualmachines/list#diffdiskplacement) is the new property that can be used to specify where you want to place the Ephemeral OS disk. With this feature, when a Windows VM is provisioned, we configure the pagefile to be located on the OS Disk. 
 
 ## Size requirements
 
@@ -55,13 +60,11 @@ If you want to opt for **Temp disk placement**: Standard Ubuntu server image fro
 > [!Important] 
 > If opting for temp disk placement the Final Temp disk size = (Initial temp disk size - OS image size).
 
+In the case of **Temp disk placement** as Ephemeral OS disk is created on the local VM it will always get the full IOPS as per the VM size chosen by you.
+
 Basic Linux and Windows Server images in the Marketplace that are denoted by `[smallsize]` tend to be around 30 GiB and can use most of the available VM sizes.
 Ephemeral disks also require that the VM size supports **Premium storage**. The sizes usually (but not always) have an `s` in the name, like DSv2 and EsV3. For more information, see [Azure VM sizes](sizes.md) for details around which sizes support Premium storage.
 
-## Placement options for Ephemeral OS disks
-Ephemeral OS disk can be stored either on VM's OS cache disk or VM's temp/resource disk. 
-[DiffDiskPlacement](/rest/api/compute/virtualmachines/list#diffdiskplacement) is the new property that can be used to specify where you want to place the Ephemeral OS disk. 
-With this feature, when a Windows VM is provisioned, we configure the pagefile to be located on the OS Disk.
 
 ## Unsupported features 
 - Capturing VM images
@@ -80,70 +83,11 @@ For example, If you try to create a Trusted launch Ephemeral OS disk VM using OS
 This is because the temp storage for [Standard_DS4_v2](dv2-dsv2-series.md) is 56 GiB, and 1 GiB is reserved for VMGS when using trusted launch.
 For the same example above if you create a standard Ephemeral OS disk VM you would not get any errors and it would be a successful operation.
 
-> [!NOTE]
+> [!Important]
 > 
 > While using ephemeral disks for Trusted Launch VMs, keys and secrets generated or sealed by the vTPM after VM creation may not be persisted for operations like reimaging and platform events like service healing.
 > 
 For more information on [how to deploy a trusted launch VM](trusted-launch-portal.md)
-
-## Frequently asked questions
-
-**Q: What is the size of the local OS Disks?**
-
-A: We support platform, Shared Image Gallery, and custom images, up to the VM cache size with OS cache placement and up to Temp disk size with Temp disk placement, where all read/writes to the OS disk will be local on the same node as the Virtual Machine. 
-
-**Q: Can the ephemeral OS disk be resized?**
-
-A: No, once the ephemeral OS disk is provisioned, the OS disk cannot be resized. 
-
-**Q: Can the ephemeral OS disk placement be modified after creation of VM?**
-
-A: No, once the ephemeral OS disk is provisioned, the OS disk placement cannot be changed. But the VM can be recreated via ARM template deployment/PowerShell/CLI by updating the OS disk placement of choosing. This would result in the recreation of the VM with Data on the OS disk deleted and OS is reprovisioned.
-
-**Q: Is there any Temp disk created if image size equals to Temp disk size of VM size selected?**
-
-A: No, in that case, there won't be any Temp disk drive created.
-
-**Q: Are Ephemeral OS disks supported on low-priority VMs and Spot VMs?**
-
-A: Yes. There is no option of Stop-Deallocate for Ephemeral VMs, rather users need to Delete instead of deallocating them.
-
-**Q: Can I attach a Managed Disks to an Ephemeral VM?**
-
-A: Yes, you can attach a managed data disk to a VM that uses an ephemeral OS disk. 
-
-**Q: Will all VM sizes be supported for ephemeral OS disks?**
-
-A: No, most Premium Storage VM sizes are supported (DS, ES, FS, GS, M, etc.). To know whether a particular VM size supports ephemeral OS disks, you can:
-
-Call `Get-AzComputeResourceSku` PowerShell cmdlet
-```azurepowershell-interactive
- 
-$vmSizes=Get-AzComputeResourceSku | where{$_.ResourceType -eq 'virtualMachines' -and $_.Locations.Contains('CentralUSEUAP')} 
-
-foreach($vmSize in $vmSizes)
-{
-   foreach($capability in $vmSize.capabilities)
-   {
-       if($capability.Name -eq 'EphemeralOSDiskSupported' -and $capability.Value -eq 'true')
-       {
-           $vmSize
-       }
-   }
-}
-```
- 
-**Q: Can the ephemeral OS disk be applied to existing VMs and scale sets?**
-
-A: No, ephemeral OS disk can only be used during VM and scale set creation. 
-
-**Q: Can you mix ephemeral and normal OS disks in a scale set?**
-
-A: No, you can't have a mix of ephemeral and persistent OS disk instances within the same scale set. 
-
-**Q: Can the ephemeral OS disk be created using PowerShell or CLI?**
-
-A: Yes, you can create VMs with Ephemeral OS Disk using REST, Templates, PowerShell, and CLI.
 
 > [!NOTE]
 > 
@@ -152,3 +96,4 @@ A: Yes, you can create VMs with Ephemeral OS Disk using REST, Templates, PowerSh
  
 ## Next steps
 Create a VM with ephemeral OS disk using [Azure Portal/CLI/Powershell/ARM template](ephemeral-os-disks-deploy.md).
+Check out the frequently asked questions
