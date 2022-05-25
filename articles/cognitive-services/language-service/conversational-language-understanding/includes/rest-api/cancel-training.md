@@ -34,5 +34,5 @@ Use the following header to authenticate your request.
 |--|--|
 |`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
  
-Once you send your API request, you will receive a 202 response indicating success, which means your training job has been canceled. A successful call results with an Operation-Location header used to check the status of the job.
+Once you send your API request, you will receive a 202 response indicating success, which means your training job has been canceled. A successful call results with an `Operation-Location` header used to check the status of the job.
 
