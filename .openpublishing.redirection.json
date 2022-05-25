@@ -39714,6 +39714,111 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Face/Overview.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/identity-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/ReleaseNotes.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/whats-new",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/build-enrollment-app.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/build-enrollment-app",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/encrypt-data-at-rest.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/identity-encrypt-data-at-rest",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/enrollment-overview.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/enrollment-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/index.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/index-identity",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/APIReference.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/identity-api-reference",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/Face-API-How-to-Topics/HowtoAnalyzeVideo_face.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/how-to/identity-analyze-video",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/Face-API-How-to-Topics/HowtoDetectFacesinImage.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/how-to/identity-detect-faces",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/Face-API-How-to-Topics/find-similar faces.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/how-to/find-similar-faces",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/Face-API-How-to-Topics/how-to-add-faces.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/how-to/add-faces",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/Face-API-How-to-Topics/how-to-migrate-face-data.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/how-to/migrate-face-data",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/Face-API-How-to-Topics/how-to-mitigate-latency.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/how-to/mitigate-latency",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/Face-API-How-to-Topics/how-to-use-headpose.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/how-to/use-headpose",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/Face-API-How-to-Topics/how-to-use-large-scale.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/how-to/use-large-scale",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/Face-API-How-to-Topics/specity-detection-model.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/how-to/specify-detection-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/Face-API-How-to-Topics/specify-recognition-model.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/how-to/specify-recognition-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/Face-API-How-to-Topics/use-persondirectory.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/how-to/use-persondirectory",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/QuickStarts/client-libraries.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/quickstarts-sdk/identity-client-libraries",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/concepts/face-detection.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/concept-face-detection",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Face/concepts/face-recognition.md",
+      "redirect_url": "/azure/cognitive-services/computer-vision/concept-face-recognition",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/azure-monitor/learn/tutorial-response.md",
       "redirect_url": "/azure/azure-monitor/alerts/tutorial-response",
       "redirect_document_id": false
