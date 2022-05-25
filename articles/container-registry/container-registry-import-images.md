@@ -93,7 +93,7 @@ To import an artifact by digest without adding a tag:
 ```azurecli
 az acr import \
    --name myregistry \
-   --source docker.io/library/hello-world@sha256:abc123
+   --source docker.io/library/hello-world@sha256:abc123 \
    --repository hello-world
 ```
 
