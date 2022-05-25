@@ -12,6 +12,7 @@ ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, contperf-fy21q1, sdkv1, event-tier1-build-2022
 ---
+[comment]: <> (needs PM review)
 
 # Create and run machine learning pipelines with Azure Machine Learning SDK
 
@@ -145,9 +146,9 @@ else:
     print(compute_target.status.serialize())
 ```
 
-## Configure the training run's environment
+## Configure the training job's environment
 
-The next step is making sure that the remote training run has all the dependencies needed by the training steps. Dependencies and the runtime context are set by creating and configuring a `RunConfiguration` object. 
+The next step is making sure that the remote training job has all the dependencies needed by the training steps. Dependencies and the runtime context are set by creating and configuring a `RunConfiguration` object. 
 
 ```python
 from azureml.core.runconfig import RunConfiguration
@@ -203,7 +204,7 @@ The above code shows a typical initial pipeline step. Your data preparation code
 The `arguments` values specify the inputs and outputs of the step. In the example above, the baseline data is the `my_dataset` dataset. The corresponding data will be downloaded to the compute resource since the code specifies it as `as_download()`. The script `prepare.py` does whatever data-transformation tasks are appropriate to the task at hand and outputs the data to `output_data1`, of type `OutputFileDatasetConfig`. For more information, see [Moving data into and between ML pipeline steps (Python)](how-to-move-data-in-out-of-pipelines.md). 
 The step will run on the machine defined by `compute_target`, using the configuration `aml_run_config`. 
 
-Reuse of previous results (`allow_reuse`) is key when using pipelines in a collaborative environment since eliminating unnecessary reruns offers agility. Reuse is the default behavior when the script_name, inputs, and the parameters of a step remain the same. When reuse is allowed, results from the previous run are immediately sent to the next step. If `allow_reuse` is set to `False`, a new run will always be generated for this step during pipeline execution.
+Reuse of previous results (`allow_reuse`) is key when using pipelines in a collaborative environment since eliminating unnecessary reruns offers agility. Reuse is the default behavior when the script_name, inputs, and the parameters of a step remain the same. When reuse is allowed, results from the previous job are immediately sent to the next step. If `allow_reuse` is set to `False`, a new job will always be generated for this step during pipeline execution.
 
 It's possible to create a pipeline with a single step, but almost always you'll choose to split your overall process into several steps. For instance, you might have steps for data preparation, training, model comparison, and deployment. For instance, one might imagine that after the `data_prep_step` specified above, the next step might be training:
 
@@ -227,7 +228,7 @@ train_step = PythonScriptStep(
 
 The above code is similar to the code in the data preparation step. The training code is in a directory separate from that of the data preparation code. The `OutputFileDatasetConfig` output of the data preparation step, `output_data1` is used as the _input_ to the training step. A new `OutputFileDatasetConfig` object, `training_results` is created to hold the results for a later comparison or deployment step. 
 
-For other code examples, see how to [build a two step ML pipeline](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb) and [how to write data back to datastores upon run completion](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/scriptrun-with-data-input-output/how-to-use-scriptrun.ipynb).
+For other code examples, see how to [build a two step ML pipeline](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb) and [how to write data back to datastores upon job completion](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/scriptrun-with-data-input-output/how-to-use-scriptrun.ipynb).
 
 After you define your steps, you build the pipeline by using some or all of those steps.
 
@@ -284,10 +285,10 @@ For more detail, including alternate ways to pass and access data, see [Moving d
 ## Caching & reuse  
 
 To optimize and customize the behavior of your pipelines, you can do a few things around caching and reuse. For example, you can choose to:
-+ **Turn off the default reuse of the step run output** by setting `allow_reuse=False` during [step definition](/python/api/azureml-pipeline-steps/). Reuse is key when using pipelines in a collaborative environment since eliminating unnecessary runs offers agility. However, you can opt out of reuse.
-+ **Force output regeneration for all steps in a run** with `pipeline_run = exp.submit(pipeline, regenerate_outputs=True)`
++ **Turn off the default reuse of the step job output** by setting `allow_reuse=False` during [step definition](/python/api/azureml-pipeline-steps/). Reuse is key when using pipelines in a collaborative environment since eliminating unnecessary jobs offers agility. However, you can opt out of reuse.
++ **Force output regeneration for all steps in a job** with `pipeline_run = exp.submit(pipeline, regenerate_outputs=True)`
 
-By default, `allow_reuse` for steps is enabled and the `source_directory` specified in the step definition is hashed. So, if the script for a given step remains the same (`script_name`, inputs, and the parameters), and nothing else in the` source_directory` has changed, the output of a previous step run is reused, the job isn't submitted to the compute, and the results from the previous run are immediately available to the next step instead.
+By default, `allow_reuse` for steps is enabled and the `source_directory` specified in the step definition is hashed. So, if the script for a given step remains the same (`script_name`, inputs, and the parameters), and nothing else in the` source_directory` has changed, the output of a previous step run is reused, the job isn't submitted to the compute, and the results from the previous job are immediately available to the next step instead.
 
 ```python
 step = PythonScriptStep(name="Hello World",
@@ -361,20 +362,20 @@ However, if you choose to use `PipelineParameter` objects to dynamically set var
 
 ## View results of a pipeline
 
-See the list of all your pipelines and their run details in the studio:
+See the list of all your pipelines and their job details in the studio:
 
 1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 
 1. [View your workspace](how-to-manage-workspace.md#view).
 
-1. On the left, select **Pipelines** to see all your pipeline runs.
+1. On the left, select **Pipelines** to see all your pipeline jobs.
  ![list of machine learning pipelines](./media/how-to-create-your-first-pipeline/pipelines.png)
  
-1. Select a specific pipeline to see the run results.
+1. Select a specific pipeline to see the job results.
 
 ### Git tracking and integration
 
-When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. For more information, see [Git integration for Azure Machine Learning](concept-train-model-git-integration.md).
+When you start a training job where the source directory is a local Git repository, information about the repository is stored in the job history. For more information, see [Git integration for Azure Machine Learning](concept-train-model-git-integration.md).
 
 ## Next steps
 
