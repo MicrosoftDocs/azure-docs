@@ -55,11 +55,7 @@ See [this article](alerts-types.md) for detailed information about each alert ty
 |[Smart detection alerts](alerts-types.md#smart-detection-alerts)|Smart detection on an Application Insights resource automatically warns you of potential performance problems and failure anomalies in your web application. You can migrate smart detection on your Application Insights resource to create alert rules for the different smart detection modules.|
 ## Out-of-the-box alert rules (preview)
 
-If you don't have alert rules defined for the selected resource, either individually or as part of a resource group or subscription, you can [enable recommended out-of-the-box alert rules in the Azure portal](alerts-log.md#enable-recommended-out-of-the-box-alert-rules-in-the-azure-portal-preview).
-
-The system compiles a list of recommended alert rules based on:
-- The resource provider’s knowledge of important signals and thresholds for monitoring the resource.
-- Telemetry that tells us what customers commonly alert on for this resource.
+If you don't have alert rules defined for the selected resource, you can [enable recommended out-of-the-box alert rules in the Azure portal](alerts-log.md#enable-recommended-out-of-the-box-alert-rules-in-the-azure-portal-preview).
 
 > [!NOTE]
 > The alert rule recommendations feature is currently in preview and is only enabled for VMs.
