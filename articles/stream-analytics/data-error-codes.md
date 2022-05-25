@@ -11,7 +11,7 @@ ms.custom: kr2b-contr-experiment
 
 # Azure Stream Analytics data error codes
 
-You can use activity logs and resource logs to help debug unexpected behaviors from your Azure Stream Analytics job. This article lists the description for every data error error code. Data errors occur when there is bad data in the stream, such as an unexpected record schema.
+You can use activity logs and resource logs to help debug unexpected behaviors from your Azure Stream Analytics job. This article lists the description for every data error code. Data errors occur when there's bad data in the stream, such as an unexpected record schema.
 
 ## InputDeserializationError
 
