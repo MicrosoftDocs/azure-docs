@@ -27,6 +27,6 @@ Note: not all capabilities are available when tag filters are used. Not supporte
 1.	Security score
 2.	Score history
 
-## Recommended content
-Define your tagging strategy - Cloud Adoption Framework | Microsoft Docs
+## Next steps
+Read more [Define your tagging strategy - Cloud Adoption Framework](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging)
 Tag resources, resource groups, and subscriptions for logical organization - Azure Resource Manager
