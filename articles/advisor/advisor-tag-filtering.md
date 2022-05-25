@@ -1,3 +1,11 @@
+---
+title: Review optimization opportunities by a workload, environment or team
+description: Review optimization opportunities by a workload, environment or team
+ms.topic: article
+ms.custom: tags
+ms.date: 05/25/2022
+---
+
 # Review optimization opportunities by a workload, environment or team
 
 You can now get Advisor recommendations and scores scoped to a workload, environment, or team  using resource tag filters. Filter recommendations and calculate scores using tags you have already assigned to Azure resources, resource groups and subscriptions. Use tag filters to:
@@ -28,13 +36,13 @@ You can now get Advisor recommendations and scores scoped to a workload, environ
 1.	Click **Apply**. Advisor score will be updated to only include resources impacted by the filter. 
 1.	Click on any of the categories to review recommendations.
  
-    ![Azure Advisor dashboard](./media/tags/score-tag-filters.png)
+    ![Azure Advisor score dashboard](./media/tags/score-tag-filters.png)
 
 > [!NOTE]
 > Not all capabilities are available when tag filters are used. For example, tag filters are not supported for security score and score history. 
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Define your tagging strategy - Cloud Adoption Framework](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging)
-> [Tag resources, resource groups, and subscriptions for logical organization - Azure Resource Manager](/azure/azure-resource-manager/management/tag-resources?tabs=json)
+To learn more about tagging, see: 
+- [Define your tagging strategy - Cloud Adoption Framework](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging)
+- [Tag resources, resource groups, and subscriptions for logical organization - Azure Resource Manager](/azure/azure-resource-manager/management/tag-resources?tabs=json)
