@@ -39715,7 +39715,7 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Face/Overview.md",
-      "redirect_url": "/azure/cognitive-services/computer-vision/identity-overview",
+      "redirect_url": "/azure/cognitive-services/computer-vision/overview-identity",
       "redirect_document_id": true
     },
     {
@@ -39725,7 +39725,7 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Face/build-enrollment-app.md",
-      "redirect_url": "/azure/cognitive-services/computer-vision/build-enrollment-app",
+      "redirect_url": "/azure/cognitive-services/computer-vision/Tutorials/build-enrollment-app",
       "redirect_document_id": true
     },
     {
@@ -39805,7 +39805,7 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Face/QuickStarts/client-libraries.md",
-      "redirect_url": "/azure/cognitive-services/computer-vision/quickstarts-sdk/identity-client-libraries",
+      "redirect_url": "/azure/cognitive-services/computer-vision/quickstarts-sdk/identity-client-library",
       "redirect_document_id": true
     },
     {
