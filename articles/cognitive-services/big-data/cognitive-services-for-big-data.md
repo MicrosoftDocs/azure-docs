@@ -31,7 +31,7 @@ Cognitive Services for Big Data can use services from any region in the world, a
 |Service Name|Service Description|
 |:-----------|:------------------|
 |[Computer Vision](../computer-vision/index.yml "Computer Vision")| The Computer Vision service provides you with access to advanced algorithms for processing images and returning information. |
-|[Face](../face/index.yml "Face")| The Face service provides access to advanced face algorithms, enabling face attribute detection and recognition. |
+|[Face](../computer-vision/index-identity.yml "Face")| The Face service provides access to advanced face algorithms, enabling face attribute detection and recognition. |
 
 ### Speech
 

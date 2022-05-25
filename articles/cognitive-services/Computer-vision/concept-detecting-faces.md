@@ -19,7 +19,7 @@ ms.custom: seodec18
 Computer Vision can detect human faces within an image and generate rectangle coordinates for each detected face. 
 
 > [!NOTE]
-> This feature is also offered by the Azure [Face](.index-identity.yml) service. Use this alternative for more detailed face analysis, including face identification and head pose detection. 
+> This feature is also offered by the Azure [Face](./index-identity.yml) service. Use this alternative for more detailed face analysis, including face identification and head pose detection. 
 
 ## Face detection examples
 
