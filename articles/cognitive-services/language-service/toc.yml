@@ -911,6 +911,9 @@ items:
       displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
     - name: Characteristics and limitations
       href: /legal/cognitive-services/language-service/characteristics-and-limitations-summarization?context=/azure/cognitive-services/language-service/context/context
+    - name: Data, privacy, and security  
+      href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context
+      displayName: Data privacy, logging, data retention
   - name: How-to guides
     items:
     - name: Call the document summarization API
