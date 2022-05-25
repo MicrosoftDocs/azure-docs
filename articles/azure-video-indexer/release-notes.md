@@ -1,6 +1,6 @@
 ---
-title: Azure Video Indexer (formerly Azure Video Analyzer for Media) release notes | Microsoft Docs
-description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Indexer (formerly Azure Video Analyzer for Media).
+title: Azure Video Indexer release notes | Microsoft Docs
+description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Indexer.
 ms.topic: article
 ms.custom: references_regions
 ms.date: 05/16/2022
@@ -11,7 +11,7 @@ ms.author: juliako
 
 >Get notified about when to revisit this page for updates by copying and pasting this URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` into your RSS feed reader.
 
-To stay up-to-date with the most recent Azure Video Indexer (formerly Azure Video Analyzer for Media) developments, this article provides you with information about:
+To stay up-to-date with the most recent Azure Video Indexer developments, this article provides you with information about:
 
 * [Important notice](#upcoming-critical-changes) about planned changes
 * The latest releases
@@ -45,7 +45,7 @@ var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Loc
 
 ### Line breaking in transcripts
 
-Improved line break logic to better split transcript into sentences. New editing capabilities are now available through the Azure Video Indexer portal, such as adding a new line and editing the line’s timestamp.
+Improved line break logic to better split transcript into sentences. New editing capabilities are now available through the Azure Video Indexer portal, such as adding a new line and editing the line’s timestamp. For more information, see [Insert or remove transcript lines](edit-transcript-lines-portal.md).
 
 ### Azure Monitor integration
  
@@ -182,7 +182,7 @@ Fixed bugs related to CSS, theming and accessibility:
 
 ### Automatic Scaling of Media Reserved Units
 
-Starting August 1st 2021, Azure Video Analyzer for Media (formerly Video Indexer) enabled [Media Reserved Units (MRUs)](/azure/azure/media-services/latest/concept-media-reserved-units) auto scaling by [Azure Media Services](/azure/azure/media-services/latest/media-services-overview), as a result you do not need to manage them through Azure Video Analyzer for Media. That will allow price optimization, for example price reduction in many cases, based on your business needs as it is being auto scaled.
+Starting August 1st 2021, Azure Video Indexer enabled [Media Reserved Units (MRUs)](/azure/azure/media-services/latest/concept-media-reserved-units) auto scaling by [Azure Media Services](/azure/azure/media-services/latest/media-services-overview), as a result you do not need to manage them through Azure Video Indexer. That will allow price optimization, for example price reduction in many cases, based on your business needs as it is being auto scaled.
 
 ## June 2021
 
