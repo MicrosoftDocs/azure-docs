@@ -40,15 +40,15 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 1. At the top of the portal, type **app services** in the search box. Under **Services**, select **App Services**.
 
- ![In the Azure portal, search for app services. Then select App Services.](../../media/quickstart-php/azure-portal-search-for-app-services.png)
+    ![In the Azure portal, search for app services. Then select App Services.](../../media/quickstart-php/azure-portal-search-for-app-services.png)
 
 2. On the **App Services** page, select **Create**.
 
- ![In the Azure portal, on the App Services page, select Create from the actions bar.](../../media/quickstart-php/azure-portal-create-app-service.png)
+    ![In the Azure portal, on the App Services page, select Create from the actions bar.](../../media/quickstart-php/azure-portal-create-app-service.png)
 
 3. In the **Basics** tab, under **Project details**, ensure the correct subscription is selected and then select to **Create new** resource group. Type *myResourceGroup* for the name. Then, select **OK**.
 
- ![On the Create Web App screen, on the Basics tab, in the Project Details section, for Resource group, select the 'Create new' link and add a group named 'myResourceGroup'.](../../media/quickstart-php/azure-portal-create-app-service-create-resource-group.png)
+    ![On the Create Web App screen, on the Basics tab, in the Project Details section, for Resource group, select the 'Create new' link and add a group named 'myResourceGroup'.](../../media/quickstart-php/azure-portal-create-app-service-create-resource-group.png)
 
 4. Under **Instance details**, set the following settings:
    - **Name**: Type a globally unique name for your web app. 
@@ -57,61 +57,51 @@ Sign in to the Azure portal at https://portal.azure.com.
    - **Operating system**: Select *Linux*.
    - **Region**: Select the region you want to serve your app from.
 
- ![On the Create Web App screen, on the Basics tab, in the Instance Details section, use a globally unique name. Select the options for Publish, Runtime stack, Operating system, and region.](../../media/quickstart-php/azure-portal-create-app-service-instance-details-php8.png)
+    ![On the Create Web App screen, on the Basics tab, in the Instance Details section, use a globally unique name. Select the options for Publish, Runtime stack, Operating system, and region.](../../media/quickstart-php/azure-portal-create-app-service-instance-details-php8.png)
 
 5. Under **App Service Plan**, select **Create new** App Service Plan. Type *myAppServicePlan* for the name. Then select **OK**.
 
- ![On the Create Web App screen, on the Basics tab, in the App Service Plan section, select the 'Create new' link. Enter myAppServicePlan in the textbox.](../../media/quickstart-php/azure-portal-create-app-service-create-app-service-plan.png)   
+    ![On the Create Web App screen, on the Basics tab, in the App Service Plan section, select the 'Create new' link. Enter myAppServicePlan in the textbox.](../../media/quickstart-php/azure-portal-create-app-service-create-app-service-plan.png)   
 
 6.  To change to the Free tier, next to **Sku and size**, select **Change size**. 
    
 7.  In the Spec Picker, select **Dev/Test** tab, select **F1**, and select the **Apply** button at the bottom of the page.
 
- ![In the Spec Picker, select Dev/Test, then select F1. Finally select the Apply.](../../media/quickstart-php/azure-portal-create-app-service-select-free-tier.png)   
+    ![In the Spec Picker, select Dev/Test, then select F1. Finally select the Apply.](../../media/quickstart-php/azure-portal-create-app-service-select-free-tier.png)   
 
     
 8. Select the **Review + create** button at the bottom of the page.
 
- ![At the bottom of the Create Web App screen, select 'Review + create'.](../../media/quickstart-php/azure-portal-create-app-service-review-create.png)   
+    ![At the bottom of the Create Web App screen, select 'Review + create'.](../../media/quickstart-php/azure-portal-create-app-service-review-create.png)   
 
 
 9. After validation runs, select the **Create** button at the bottom of the page.
 
-10. After deployment is complete, select **Go to resource**.
+10. After the Azure resources are created, select **Go to resource**.
+  
+11. From the left navigation, select **Deployment Center**.
 
-### Set up continuous deployment
+    ![On the App Service resource, under the Deployment section of navigation, select Deployment Center.](../../media/quickstart-php/azure-portal-configure-app-service-deployment-center.png)  
 
-This step will set up continuous deployment using GitHub actions.
+12. Under **Settings**, select a **Source**. For this quickstart, select `GitHub`.
 
-1. In the Azure portal, navigate to the app service.
-   
-2. From the navigation, select **Deployment Center**.
-
-![On the App Service resource, under the Deployment section of navigation, select Deployment Center.](../../media/quickstart-php/azure-portal-configure-app-service-deployment-center.png)  
-
-3. Under **Settings**, select a **Source**. For this quickstart, select `GitHub`.
-
-4. In the section under **GitHub**, select the following settings:
+13. In the section under **GitHub**, select the following settings:
     - Organization: Select your organization.
     - Repository: Select `php-docs-hello-world`.
-    - Branch: Select `main`.
+    - Branch: Select the default branch for your repository.
 
-5. Select **Save**.
+14. Select **Save**.
 
-![Verify organization, repository, and branch settings. Then select Save from the actions bar.](../../media/quickstart-php/azure-portal-configure-app-service-github-integration.png)  
+    ![Verify organization, repository, and branch settings. Then select Save from the actions bar.](../../media/quickstart-php/azure-portal-configure-app-service-github-integration.png)  
 
-> [!TIP]
-> This quickstart uses GitHub. Additional continuous deployment sources include Bitbucket, Local Git, Azure Repos, and External Git. FTPS is also a supported deployment method.
- 
+    > [!TIP]
+    > This quickstart uses GitHub. Additional continuous deployment sources include Bitbucket, Local Git, Azure Repos, and External Git. FTPS is also a supported deployment method.
+    
 ### Browse to the app
 
 Browse to the deployed application using your web browser. 
 
-1. From the Deployment Center screen, navigate to **Overview**.
-
-![On the App Service resource, on the Deployment Center, Overview is highlighted in the navigation window.](../../media/quickstart-php/azure-portal-navigate-to-overview-from-deployment-center.png)  
-
-2. On the Overview, select the link under **URL**.
+From the left navigation of your app, select **Overview** > **URL**.
 
 ![On the App Service resource, on the Overview, the URL is highlighted.](../../media/quickstart-php/azure-portal-app-service-url.png)  
 
