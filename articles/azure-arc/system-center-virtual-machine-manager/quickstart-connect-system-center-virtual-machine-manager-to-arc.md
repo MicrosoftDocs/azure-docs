@@ -32,7 +32,7 @@ This QuickStart shows you how to connect your SCVMM management server to Azure A
 
 1. Go to [Azure portal](https://aka.ms/SCVMM/MgmtServers).
 1. Search and select **Azure Arc**.
-1. In the **Overview** page, select **Add** in **Add your infrastructure for free** or move to the **Infrastructure** tab.
+1. In the **Overview** page, select **Add** in **Add your infrastructure for free** or move to the **infrastructure** tab.
 
     :::image type="content" source="media/quick-start-connect-scvmm-to-azure/overview-add-infrastructure-inline.png" alt-text="Screenshot of how to select Add your infrastructure for free." lightbox="media/quick-start-connect-scvmm-to-azure/overview-add-infrastructure-expanded.png":::
 
@@ -58,7 +58,8 @@ This QuickStart shows you how to connect your SCVMM management server to Azure A
 Use the following instructions to run the script, depending on the Operating System of the workstation.
 
 >[!NOTE]
->Install Azure CLI in the workstation before running the script.
+>Before running the script, install the latest version of Azure CLI (2.36.0 or later).
+
 
 ### Windows
 
@@ -126,6 +127,10 @@ If for any reason, the appliance creation fails, you need to retry it. Run the c
   ```sh
     bash resource-bridge-onboarding-script.sh --force
   ```
+>[!NOTE]
+> - After successful deployment, we recommend to maintain the state of **Arc Resource Bridge VM** as *online*.
+> - Intermittently appliance might become unreachable, when you shut down and restart the VM.
+
 
 ## Next steps
 
