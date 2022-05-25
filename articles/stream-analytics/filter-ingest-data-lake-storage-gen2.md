@@ -34,7 +34,7 @@ This article describes how you can use the no code editor to easily create a Str
         :::image type="content" source="./media/filter-ingest-data-lake-storage-gen2/sample-input.png" alt-text="Screenshot showing sample data on the Data preview tab." lightbox="./media/filter-ingest-data-lake-storage-gen2/sample-input.png" :::
 1. Select the **Filter** tile. In the **Filter** area, select a field to filter the incoming data with a condition.  
     :::image type="content" source="./media/filter-ingest-data-lake-storage-gen2/filter-data.png" alt-text="Screenshot showing the Filter area where you can add a conditional filter." lightbox="./media/filter-ingest-data-lake-storage-gen2/filter-data.png" :::
-1. Select the **Azure Data Lake Storage Gen2** tile. Select the **Azure Data Lake Gen2** table to send your filtered data:
+1. Select the **Azure Data Lake Storage Gen2** tile. Select the **Azure Data Lake Gen2** account to send your filtered data:
     1. Select the **subscription**, **storage account name**, and **container** from the drop-down menu.
     1. After the **subscription** is selected, the **authentication method** and **storage account key** should be automatically filled in. Select **Connect**.  
     For more information about the fields and to see examples of path pattern, see [Blob storage and Azure Data Lake Gen2 output from Azure Stream Analytics](blob-storage-azure-data-lake-gen2-output.md).  
