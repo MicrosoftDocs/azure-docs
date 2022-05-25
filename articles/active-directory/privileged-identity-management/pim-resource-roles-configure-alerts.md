@@ -36,10 +36,6 @@ Select an alert to see a report that lists the users or roles that triggered the
 | **Too many owners assigned to a resource** |Medium |Too many users have the owner role. |Review the users in the list and reassign some to less privileged roles. |
 | **Too many permanent owners assigned to a resource** |Medium |Too many users are permanently assigned to a role. |Review the users in the list and re-assign some to require activation for role use. |
 | **Duplicate role created** |Medium |Multiple roles have the same criteria. |Use only one of these roles. |
-| **Roles are being assigned outside of Privileged Identity Management (Preview)** | High |Some roles are managed directly through the Azure IAM resource blade or the ARM API. |Review the users in the list and remove them from privileged roles assigned outside of Privileged Identity Management. |
-
-> [!NOTE]
-> For the alert "Roles are being assigned outside of Privileged Identity Management (Preview)", only permissions assigned at the subscription level are supported.
 
 ### Severity
 
