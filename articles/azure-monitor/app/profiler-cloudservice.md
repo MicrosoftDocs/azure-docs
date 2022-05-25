@@ -1,71 +1,93 @@
 ---
-title: Profile live Azure Cloud Services with Application Insights | Microsoft Docs
-description: Enable Application Insights Profiler for Azure Cloud Services.
+title: Enable Profiler for Azure Cloud Services | Microsoft Docs
+description: Profile live Azure Cloud Services with Application Insights Profiler.
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
-ms.date: 08/06/2018
+ms.date: 05/25/2022
 ---
 
-# Profile live Azure Cloud Services with Application Insights
+# Enable Profiler for Azure Cloud Services
 
-You can also deploy Application Insights Profiler on these services:
-* [Azure App Service](profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Azure Service Fabric applications](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
-* [Azure Virtual Machines](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+Receive performance traces for your [Azure Cloud Service](../../cloud-services-extended-support/overview.md) by enabling the Application Insights Profiler. The Profiler is installed on your Cloud Service via the [Azure Diagnostics extension](../agents/diagnostics-extension-overview.md). 
 
-Application Insights Profiler is installed with the Azure Diagnostics extension. You just need to configure Azure Diagnostics to install Profiler and send profiles to your Application Insights resource.
+In this article, you will:
 
-## Enable Profiler for Azure Cloud Services
-1. Check to make sure that you're using [.NET Framework 4.6.1](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or newer. If you are using OS family 4, you'll need to install .NET Framework 4.6.1 or newer with a [startup task](../../cloud-services/cloud-services-dotnet-install-dotnet.md). OS Family 5 includes a compatible version of .NET Framework by default. 
+- Enable your Cloud Service to send diagnostics data to Application Insights.
+- Configure the Azure Diagnostics extension within your solution to install Profiler.
+- Deploy your service and generate traffic to view Profiler traces. 
 
-1. Add [Application Insights SDK to Azure Cloud Services](./cloudservices.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
+## Pre-requisites
 
-    **The bug in the profiler that ships in the WAD for Cloud Services has been fixed.** The latest version of WAD (1.12.2.0) for Cloud Services works with all recent versions of the App Insights SDK. Cloud Service hosts will upgrade WAD automatically, but it isn't immediate. To force an upgrade, you can redeploy your service or reboot the node.
+- Make sure you've [set up diagnostics for Azure Cloud Services](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).
+- Use [.NET Framework 4.6.1](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or newer. 
+  - If you are using [OS Family 4](../../cloud-services/cloud-services-guestos-update-matrix.md#family-4-releases), install .NET Framework 4.6.1 or newer with a [startup task](../../cloud-services/cloud-services-dotnet-install-dotnet.md). 
+  - [OS Family 5](../../cloud-services/cloud-services-guestos-update-matrix.md#family-5-releases) includes a compatible version of .NET Framework by default. 
 
-1. Track requests with Application Insights:
+## Track requests with Application Insights
 
-    * For ASP.NET web roles, Application Insights can track the requests automatically.
+When publishing your CloudService to Azure portal, add the [Application Insights SDK to Azure Cloud Services](./cloudservices.md).
 
-    * For worker roles, [add code to track requests](profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json).
+:::image type="content" source="./media/profiler-cloudservice/enable-app-insights.png" alt-text="Screenshot showing the checkbox for sending information to Application Insights.":::
 
-1. Configure the Azure Diagnostics extension to enable Profiler:
+Once you've added the SDK and published your Cloud Service to the Azure Portal, track requests using Application Insights.
 
-    a. Locate the [Azure Diagnostics](../agents/diagnostics-extension-overview.md) *diagnostics.wadcfgx* file for your application role, as shown here:  
+- **For ASP.NET web roles**, Application Insights tracks the requests automatically.
+- **For worker roles**, you need to [add code manually to your application to track requests](profiler-trackrequests.md).
 
-      ![Location of the diagnostics config file](./media/profiler-cloudservice/cloudservice-solutionexplorer.png)  
+## Configure the Azure Diagnostics extension
 
-      If you can't find the file, see [Set up diagnostics for Azure Cloud Services and Virtual Machines](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).
+Locate the Azure Diagnostics *diagnostics.wadcfgx* file for your application role:  
 
-    b. Add the following `SinksConfig` section as a child element of `WadCfg`:  
+:::image type="content" source="./media/profiler-cloudservice/diagnostics-file.png" alt-text="Screenshot of the diagnostics file in the Azure Cloud Service solution explorer.":::
 
-      ```xml
-      <WadCfg>
-        <DiagnosticMonitorConfiguration>...</DiagnosticMonitorConfiguration>
-        <SinksConfig>
-          <Sink name="MyApplicationInsightsProfiler">
-            <!-- Replace with your own Application Insights instrumentation key. -->
-            <ApplicationInsightsProfiler>00000000-0000-0000-0000-000000000000</ApplicationInsightsProfiler>
-          </Sink>
-        </SinksConfig>
-      </WadCfg>
-      ```
+Add the following `SinksConfig` section as a child element of `WadCfg`:  
 
-    > [!NOTE]
-    > If the *diagnostics.wadcfgx* file also contains another sink of type ApplicationInsights, all three of the following instrumentation keys must match:  
-    > * The key that's used by your application. 
-    > * The key that's used by the ApplicationInsights sink. 
-    > * The key that's used by the ApplicationInsightsProfiler sink. 
-    >
-    > You can find the actual instrumentation key value that's used by the `ApplicationInsights` sink in the     *ServiceConfiguration.\*.cscfg* files. 
-    > After the Visual Studio 15.5 Azure SDK release, only the instrumentation keys that are used by the application and the ApplicationInsightsProfiler sink need to match each other.
+```xml
+<WadCfg>
+  <DiagnosticMonitorConfiguration>...</DiagnosticMonitorConfiguration>
+  <SinksConfig>
+    <Sink name="MyApplicationInsightsProfiler">
+      <!-- Replace with your own Application Insights instrumentation key. -->
+      <ApplicationInsightsProfiler>00000000-0000-0000-0000-000000000000</ApplicationInsightsProfiler>
+    </Sink>
+  </SinksConfig>
+</WadCfg>
+```
 
-1. Deploy your service with the new Diagnostics configuration, and Application Insights Profiler is configured to run on your service.
+> [!NOTE]
+> If the *diagnostics.wadcfgx* file also contains another sink of type `ApplicationInsights`, all three of the following instrumentation keys must match:  
+> * The key used by your application. 
+> * The key used by the `ApplicationInsights` sink. 
+> * The key used by the `ApplicationInsightsProfiler` sink. 
+>
+> You can find the actual instrumentation key value used by the `ApplicationInsights` sink in the *ServiceConfiguration.\*.cscfg* files. 
+> After the Visual Studio 15.5 Azure SDK release, only the instrumentation keys that are used by the application and the ApplicationInsightsProfiler sink need to match each other.
+
+Deploy your service with the new Diagnostics configuration. Application Insights Profiler is now configured to run on your Cloud Service.
+
+## Generate traffic to your service
+
+Now that your Azure Cloud Service is deployed with Profiler, you can generate traffic to view Profiler traces.
+
+Generate traffic to your application by setting up an [availability test](monitor-web-app-availability.md)). Wait 10 to 15 minutes for traces to be sent to the Application Insights instance.
+
+Navigate to your Azure Cloud Service's Application Insights resource. In the left side menu, select **Performance**.
+
+:::image type="content" source="./media/profiler-cloudservice/cloud-service-performance.png" alt-text="Screenshot of the Application Insights performance option in the left menu of the Azure portal.":::
+
+Select the **Profiler** for your Cloud Service.
+
+:::image type="content" source="./media/profiler-cloudservice/select-profiler.png" alt-text="Screenshot of selecting the Profiler from the Cloud Service App Insights performance pane.":::
+
+Select **Profile now** to start a profiling session. This will take a few minutes.
+
+:::image type="content" source="./media/profiler-cloudservice/profile-now.png" alt-text="Screenshot of selecting Profile Now to start a profiling session.":::
+
+For more instructions on profiling sessions, see the [Profiler overview](./profiler-overview.md#start-a-profiler-on-demand-session).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
  
 ## Next steps
 
-* Generate traffic to your application (for example, launch an [availability test](monitor-web-app-availability.md)). Then, wait 10 to 15 minutes for traces to start to be sent to the Application Insights instance.
-* See [Profiler traces](profiler-overview.md?toc=/azure/azure-monitor/toc.json) in the Azure portal.
-* To troubleshoot Profiler issues, see [Profiler troubleshooting](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
-
+- Learn more about [configuring Profiler](./profiler-settings.md).
+- [Troubleshoot Profiler issues](./profiler-troubleshooting.md).
