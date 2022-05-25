@@ -50,7 +50,11 @@ For installation steps, see [Install GPU extension](./azure-stack-edge-gpu-deplo
 
 ## Enable TLS1.2 on Windows 2016 VHD before installing Nvidia GPU extension
 
-**Error description:** Need updated description.
+**Error description:** When installing the GPU extension on a Windows 2016 VM, you may see the following error message:
+
+   ```azurecli
+   Need to enable TLS1.2 for some VHDs.
+   ```
 
 **Suggested solution:** Use the following steps to enable TLS1.2 on a Windows 2016 VM, and then deploy the template `addGPUextensiontoVM.json`. This template deploys the extension to an existing VM.
 
@@ -75,7 +79,7 @@ For installation steps, see [Install GPU extension](./azure-stack-edge-gpu-deplo
 
 ## Manually install the Nvidia driver on RHEL 7
 
-**Error description:** When installing GPU extensions on a RHEL 7 VM, you may see the following error message:
+**Error description:** When installing the GPU extension on a RHEL 7 VM, you may see the following error message:
 
    ```azurecli
    Need to enable TLS1.2 for some VHDs.

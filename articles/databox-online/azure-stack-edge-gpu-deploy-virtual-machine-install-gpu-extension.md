@@ -20,7 +20,7 @@ This article describes how to install GPU driver extension to install appropriat
 
 > [!NOTE]
 > - In the Azure portal, you can install a GPU extension during VM creation or after the VM is deployed. For steps and requirements, see [Deploy GPU virtual machines](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md).
-> - If you are running a Windows 2016 VHD, you must enable TLS1.2 inside the VHD before you install the extension to an existing VM. For detailed steps, see [Troubleshoot GPU extension issues for GPU VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md#enable-tls1.2-on-windows-2016-vhd-before-installing-nvidia-gpu-extension).
+> - If you're running a Windows 2016 VHD, you must enable TLS1.2 inside the VHD before you install the GPU extension to an existing VM. For detailed steps, see [Troubleshoot GPU extension issues for GPU VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md#enable-tls12-on-windows-2016-vhd-before-installing-nvidia-gpu-extension).
 
 ## Prerequisites
 
@@ -108,7 +108,7 @@ The file `addGPUExtWindowsVM.parameters.json` takes the following parameters:
 
 ### [Linux](#tab/linux)
 
-To deploy Nvidia GPU drivers for an existing Linux VM, edit the parameters file and then deploy the template `addGPUextensiontoVM.json`.
+To deploy Nvidia GPU drivers for an existing Linux VM, edit the `addGPUExtWindowsVM.parameters.json` parameters file and then deploy the template `addGPUextensiontoVM.json`.
 
 #### Version 2205 and higher
 
@@ -256,7 +256,9 @@ Here is a sample output:
 
 ### [Linux](#tab/linux)
 
-Deploy the template `addGPUextensiontoVM.json`. This template deploys the extension to an existing VM. Run the following command:
+Deploy the template `addGPUextensiontoVM.json` to install the extension to an existing VM. 
+
+Run the following command:
 
 ```powershell
 $templateFile = "Path to addGPUextensiontoVM.json" 
@@ -312,7 +314,7 @@ PS C:\WINDOWS\system32>
 
 ### [Windows](#tab/windows)
 
-To check the deployment state of extensions for a given VM, run the following command: 
+To check the deployment state of extensions for a given VM, open another PowerShell session (run as administrator), and then run the following command:
 
 ```powershell
 Get-AzureRmVMExtension -ResourceGroupName <Name of resource group> -VMName <Name of VM> -Name <Name of the extension>
@@ -364,7 +366,7 @@ A successful install is indicated by a `message` as `Enable Extension` and `stat
 
 ### [Linux](#tab/linux)
 
-Template deployment is a long running job. To check the deployment state of extensions for a given VM, open another PowerShell session (run as administrator). Run the following command: 
+To check the deployment state of extensions for a given VM, open another PowerShell session (run as administrator), and then run the following command: 
 
 ```powershell
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName <VM Name> -Name <Extension Name>
