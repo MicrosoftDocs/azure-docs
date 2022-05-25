@@ -31,6 +31,8 @@
   items:
   - name: Azure Video Indexer samples
     href: https://github.com/Azure-Samples/media-services-video-indexer
+  - name: Azure Video Indexer widgets 
+    href: https://www.npmjs.com/package/@azure/video-indexer-widgets
 - name: Concepts
   items:
   - name: Overview
@@ -92,6 +94,8 @@
     href: network-security.md
   - name: Disaster recovery
     href: video-indexer-disaster-recovery.md
+  - name: Insert or remove transcript lines
+    href: edit-transcript-lines-portal.md    
   - name: Customize content models
     items:
     - name: Animated characters

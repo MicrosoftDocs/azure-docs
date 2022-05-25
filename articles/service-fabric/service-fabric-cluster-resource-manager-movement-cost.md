@@ -54,13 +54,16 @@ await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/AppName/Se
 
 ## Dynamically specifying move cost on a per-replica basis
 
-The preceding snippets are all for specifying MoveCost for a whole service at once from outside the service itself. However, move cost is most useful when the move cost of a specific service object changes over its lifespan. Since the services themselves probably have the best idea of how costly they are to move a given time, there's an API for services to report their own individual move cost during runtime. 
+The preceding snippets are all for specifying MoveCost for a whole service at once from outside the service itself. However, move cost is most useful when the move cost of a specific service object changes over its lifespan. Since the services themselves probably have the best idea of how costly they are to move a given time, there's an API for services to report their own individual move cost during runtime.
 
 C#:
 
 ```csharp
 this.Partition.ReportMoveCost(MoveCost.Medium);
 ```
+
+> [!NOTE]
+> You can only set the movement cost for secondary replicas through code.
 
 ## Reporting move cost for a partition
 

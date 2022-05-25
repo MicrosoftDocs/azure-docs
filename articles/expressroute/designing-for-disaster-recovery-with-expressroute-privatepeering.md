@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: article
-ms.date: 05/09/2022
+ms.date: 05/25/2022
 ms.author: duau
 ---
 
@@ -21,14 +21,20 @@ However, taking Murphy's popular adage--*if anything can go wrong, it will*--int
 
 ## Need for redundant connectivity solution
 
-There are possibilities and instances where an entire regional service (be it that of Microsoft, network service providers, customer, or other cloud service providers) gets degraded. The root cause for such regional wide service impact include natural calamity. That's why, for business continuity and mission critical applications it's important to plan for disaster recovery.   
+There are possibilities and instances where an ExpressRoute peering locations or an entire regional service (be it that of Microsoft, network service providers, customer, or other cloud service providers) gets degraded. The root cause for such regional wide service impact include natural calamity. That's why, for business continuity and mission critical applications it's important to plan for disaster recovery.   
 
 No matter what, whether you run your mission critical applications in an Azure region or on-premises or anywhere else, you can use another Azure region as your failover site. The following articles addresses disaster recovery from applications and frontend access perspectives:
 
 - [Enterprise-scale disaster recovery][Enterprise DR]
 - [SMB disaster recovery with Azure Site Recovery][SMB DR]
 
-If you rely on ExpressRoute connectivity between your on-premises network and Microsoft for mission critical operations, your disaster recovery plan should also include geo-redundant network connectivity. 
+If you rely on ExpressRoute connectivity between your on-premises network and Microsoft for mission critical operations, you need to consider the following to plan for  disaster recovery over ExpressRoute 
+
+- using geo-redundant ExpressRoute circuits
+- using diverse service provider network(s) for different ExpressRoute circuit
+- designing each of the ExpressRoute circuit for [high availability][HA]
+- terminating the different ExpressRoute circuit in different location on the customer network
+- using [Availability zone aware ExpressRoute Virtual Network Gateways](/articles/vpn-gateway/about-zone-redundant-vnet-gateways.md)
 
 ## Challenges of using multiple ExpressRoute circuits
 
@@ -36,13 +42,16 @@ When you interconnect the same set of networks using more than one connection, y
  
 However, if you load balance traffic across geo-redundant parallel paths, regardless of whether you have stateful entities or not, you would experience inconsistent network performance. These geo-redundant parallel paths can be through the same metro or different metro found on the [providers by location](expressroute-locations-providers.md#partners) page. 
 
-### Same metro
+### Redundancy with ExpressRoute circuits in same metro 
 
-[Many metros](expressroute-locations-providers.md#global-commercial-azure) have two ExpressRoute locations. An example would be *Amsterdam* and *Amsterdam2*. When designing redundancy, you could build two parallel paths to Azure with both locations in the same metro. The advantage of this design is when application failover happens, end-to-end latency between your on-premises applications and Microsoft stays approximately the same. However, if there is a natural disaster such as an earthquake, connectivity for both paths may no longer be available.
+[Many metros](expressroute-locations-providers.md#global-commercial-azure) have two ExpressRoute locations. An example would be *Amsterdam* and *Amsterdam2*. When designing redundancy, you could build two parallel paths to Azure with both locations in the same metro. You could do this with the same provider or choose to work with a different service provider to improve resiliency. Another advantage of this design is when application failover happens, end-to-end latency between your on-premises applications and Microsoft stays approximately the same. However, if there is a natural disaster such as an earthquake, connectivity for both paths may no longer be available.
 
-### Different metros
+### Redundancy with ExpressRoute circuits in different metros
 
 When using different metros for redundancy, you should select the secondary location in the same [geo-political region](expressroute-locations-providers.md#locations). To choose a location outside of the geo-political region, you'll need to use Premium SKU for both circuits in the parallel paths. The advantage of this configuration is the chances of a natural disaster causing an outage to both links are much lower but at the cost of increased latency end-to-end.
+
+>[!NOTE]
+>Enabling BFD on the ExpressRoute circuits will help with faster link failure detection between Microsoft Enterprise Edge (MSEE) devices and the Customer/Partner Edge routers. However, the overall failover and convergence to redundant site may take up to 180 seconds under some failure conditions and you may experience increased laterncy or performance degradation during this time.  
 
 In this article, let's discuss how to address challenges you may face when configuring geo-redundant paths.
 
@@ -51,13 +60,6 @@ In this article, let's discuss how to address challenges you may face when confi
 Let's consider the example network illustrated in the following diagram. In the example, geo-redundant ExpressRoute connectivity is established between a Contoso's on-premises location and Contoso's VNet in an Azure region. In the diagram, solid green line indicates preferred path (via ExpressRoute 1) and the dotted one represents stand-by path (via ExpressRoute 2).
 
 :::image type="content" source="./media/designing-for-disaster-recovery-with-expressroute-pvt/one-region.png" alt-text="Diagram of small to medium size on-premises network considerations.":::
-
-When you are designing ExpressRoute connectivity for disaster recovery, you need to consider:
-
-- using geo-redundant ExpressRoute circuits
-- using diverse service provider network(s) for different ExpressRoute circuit
-- designing each of the ExpressRoute circuit for [high availability][HA]
-- terminating the different ExpressRoute circuit in different location on the customer network
 
 By default, if you advertise routes identically over all the ExpressRoute paths, Azure will load-balance on-premises bound traffic across all the ExpressRoute paths using Equal-cost multi-path (ECMP) routing.
 
@@ -109,7 +111,7 @@ When you have a large distributed enterprise network, you're likely to have mult
 
 Let's consider the example illustrated in the following diagram. In the example, Contoso has two on-premises locations connected to two Contoso IaaS deployment in two different Azure regions via ExpressRoute circuits in two different peering locations. 
 
-[![6]][6]
+:::image type="content" source="./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region.png" alt-text="Diagram of large distributed on-premises network considerations.":::
 
 How we architect the disaster recovery has an impact on how cross-regional to cross location (region1/region2 to location2/location1) traffic is routed. Let's consider two different disaster architectures that routes cross region-location traffic differently.
 
@@ -119,21 +121,22 @@ In the first scenario, let's design disaster recovery such that all the traffic 
 
 Scenario 1 is illustrated in the following diagram. In the diagram, green lines indicate paths for traffic flow between VNet1 and on-premises networks. The blue lines indicate paths for traffic flow between VNet2 and on-premises networks. Solid lines indicate desired path in the steady-state and the dashed lines indicate traffic path in the failure of the corresponding ExpressRoute circuit that carries steady-state traffic flow. 
 
-[![7]][7]
+:::image type="content" source="./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region-arch1.png" alt-text="Diagram of traffic flow for first scenario.":::
 
 You can architect the scenario using connection weight to influence VNets to prefer connection to local peering location ExpressRoute for on-premises network bound traffic. To complete the solution, you need to ensure symmetrical reverse traffic flow. You can use local preference on the iBGP session between your BGP routers (on which ExpressRoute circuits are terminated on on-premises side) to prefer a ExpressRoute circuit. The solution is illustrated in the following diagram. 
 
-[![8]][8]
+:::image type="content" source="./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region-sol1.png" alt-text="Diagram of active-active ExpressRoute circuits solution 1.":::
 
 ### Scenario 2
 
 The Scenario 2 is illustrated in the following diagram. In the diagram, green lines indicate paths for traffic flow between VNet1 and on-premises networks. The blue lines indicate paths for traffic flow between VNet2 and on-premises networks. In the steady-state (solid lines in the diagram), all the traffic between VNets and on-premises locations flow via Microsoft backbone for the most part, and flows through the interconnection between on-premises locations only in the failure state (dotted lines in the diagram) of an ExpressRoute.
 
-[![9]][9]
+:::image type="content" source="./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region-arch2.png" alt-text="Diagram of traffic flow for second scenario.":::
 
 The solution is illustrated in the following diagram. As illustrated, you can architect the scenario either using more specific route (Option 1) or AS-path prepend (Option 2) to influence VNet path selection. To influence on-premises network route selection for Azure bound traffic, you need configure the interconnection between the on-premises location as less preferable. How you configure the interconnection link as preferable depends on the routing protocol used within the on-premises network. You can use local preference with iBGP or metric with IGP (OSPF or IS-IS).
 
-[![10]][10]
+
+:::image type="content" source="./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region-arch2.png" alt-text="Diagram of active-active ExpressRoute circuits solution 2.":::
 
 > [!IMPORTANT]
 > When one or multiple ExpressRoute circuits are connected to multiple virtual networks, virtual network to virtual network traffic can route via ExpressRoute. However, this is not recommended. To enable virtual network to virtual network connectivity, [configure virtual network peering](../virtual-network/virtual-network-manage-peering.md).
@@ -146,13 +149,6 @@ In this article, we discussed how to design for disaster recovery of an ExpressR
 
 - [Enterprise-scale disaster recovery][Enterprise DR]
 - [SMB disaster recovery with Azure Site Recovery][SMB DR]
-
-<!--Image References-->
-[6]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region.png "large distributed on-premises network considerations"
-[7]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region-arch1.png "scenario 1"
-[8]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region-sol1.png "active-active ExpressRoute circuits solution 1"
-[9]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region-arch2.png "scenario 2"
-[10]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region-sol2.png "active-active ExpressRoute circuits solution 2"
 
 <!--Link References-->
 [HA]: ./designing-for-high-availability-with-expressroute.md
