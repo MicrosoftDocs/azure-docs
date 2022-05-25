@@ -4,7 +4,7 @@ description: In this QuickStart, you will learn how to use the helper script to 
 author: jyothisuri
 ms.author: jsuri
 ms.topic: quickstart
-ms.date: 04/28/2022
+ms.date: 05/25/2022
 ms.custom: references_regions
 ---
 
@@ -32,7 +32,7 @@ This QuickStart shows you how to connect your SCVMM management server to Azure A
 
 1. Go to [Azure portal](https://aka.ms/SCVMM/MgmtServers).
 1. Search and select **Azure Arc**.
-1. In the **Overview** page, select **Add** in **Add your infrastructure for free** or move to the **Infrastructure** tab.
+1. In the **Overview** page, select **Add** in **Add your infrastructure for free** or move to the **infrastructure** tab.
 
     :::image type="content" source="media/quick-start-connect-scvmm-to-azure/overview-add-infrastructure-inline.png" alt-text="Screenshot of how to select Add your infrastructure for free." lightbox="media/quick-start-connect-scvmm-to-azure/overview-add-infrastructure-expanded.png":::
 
@@ -58,7 +58,8 @@ This QuickStart shows you how to connect your SCVMM management server to Azure A
 Use the following instructions to run the script, depending on the Operating System of the workstation.
 
 >[!NOTE]
->Install Azure CLI in the workstation before running the script.
+>Before running the script, install the latest version of Azure CLI (2.36.0 or later).
+
 
 ### Windows
 
@@ -101,7 +102,7 @@ The script execution will take up to half an hour and you'll be prompted for var
 | **SCVMM password** | Password for the SCVMM admin account |
 | **Private cloud selection** | Select the name of the private cloud where the Arc resource bridge VM should be deployed. |
 | **Virtual Network selection** | Select the name of the virtual network to which *Arc resource bridge VM* needs to be connected. This network should allow the appliance to talk to the VMM management server and the Azure endpoints (or internet). |
-| **Static IP** | Select the VMM static IP pool that will be used to allot IP address. |
+| **Static IP pool** | Select the VMM static IP pool that will be used to allot IP address. |
 | **Control Pane IP** | Provide a reserved IP address (a reserved IP address in your DHCP range or a static IP outside of DHCP range but still available on the network). The key thing is this IP address shouldn't be assigned to any other machine on the network. |
 | **Appliance proxy settings** | Type ‘Y’ if there's a proxy in your appliance network, else type ‘N’.|
 | **http** | Address of the HTTP proxy server. |
@@ -126,6 +127,10 @@ If for any reason, the appliance creation fails, you need to retry it. Run the c
   ```sh
     bash resource-bridge-onboarding-script.sh --force
   ```
+>[!NOTE]
+> - After successful deployment, we recommend to maintain the state of **Arc Resource Bridge VM** as *online*.
+> - Intermittently appliance might become unreachable, when you shut down and restart the VM.
+
 
 ## Next steps
 
