@@ -4,6 +4,7 @@ description: This article describes how to perform restore operations in Azure D
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: how-to
 ms.date: 04/01/2021
 ---

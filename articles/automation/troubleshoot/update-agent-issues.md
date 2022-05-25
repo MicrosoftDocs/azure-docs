@@ -44,11 +44,8 @@ Results are shown on the page when they're ready. The checks sections show what'
 
 ### Operating system
 
-The operating system check verifies whether the Hybrid Runbook Worker is running one of the operating systems shown in the next table.
-
-|Operating system  |Notes  |
-|---------|---------|
-|Windows Server 2012 and later |.NET Framework 4.6 or later is required. ([Download the .NET Framework](/dotnet/framework/install/guide-for-developers).)<br/> Windows PowerShell 5.1 is required.  ([Download Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616).)        |
+The operating system check verifies whether the Hybrid Runbook Worker is running [one of the supported operating systems.](/azure/automation/update-management/operating-system-requirements.md#windows-operating-system)  
+one of the supported operating systems
 
 ### .NET 4.6.2
 
