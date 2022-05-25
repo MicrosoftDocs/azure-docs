@@ -22,24 +22,24 @@ You may encounter latency when using the Face service. Latency refers to any kin
 - The time required by antivirus applications, firewalls, and other security mechanisms to inspect packets.
 - Malfunctions in client or server applications.
 
-This topic talks about possible causes of latency specific to using the Azure Cognitive Services, and how you can mitigate these causes.
+This article talks about possible causes of latency specific to using the Azure Cognitive Services, and how you can mitigate these causes.
 
 > [!NOTE]
-> Azure Cognitive Services do not provide any Service Level Agreement (SLA) regarding latency.
+> Azure Cognitive Services does not provide any Service Level Agreement (SLA) regarding latency.
 
 ## Possible causes of latency
 
 ### Slow connection between the Cognitive Service and a remote URL
 
-Some Azure Cognitive Services provide methods that obtain data from a remote URL that you provide. For example, when you call the [DetectWithUrlAsync method](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync#Microsoft_Azure_CognitiveServices_Vision_Face_FaceOperationsExtensions_DetectWithUrlAsync_Microsoft_Azure_CognitiveServices_Vision_Face_IFaceOperations_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Collections_Generic_IList_System_Nullable_Microsoft_Azure_CognitiveServices_Vision_Face_Models_FaceAttributeType___System_String_System_Nullable_System_Boolean__System_String_System_Threading_CancellationToken_) of the Face service, you can specify the URL of an image in which the service tries to detect faces.
+Some Azure services provide methods that obtain data from a remote URL that you provide. For example, when you call the [DetectWithUrlAsync method](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync#Microsoft_Azure_CognitiveServices_Vision_Face_FaceOperationsExtensions_DetectWithUrlAsync_Microsoft_Azure_CognitiveServices_Vision_Face_IFaceOperations_System_String_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Collections_Generic_IList_System_Nullable_Microsoft_Azure_CognitiveServices_Vision_Face_Models_FaceAttributeType___System_String_System_Nullable_System_Boolean__System_String_System_Threading_CancellationToken_) of the Face service, you can specify the URL of an image in which the service tries to detect faces.
 
 ```csharp
 var faces = await client.Face.DetectWithUrlAsync("https://www.biography.com/.image/t_share/MTQ1MzAyNzYzOTgxNTE0NTEz/john-f-kennedy---mini-biography.jpg");
 ```
 
-The Face service must then download the image from the remote server. If the connection from the Face service to the remote server is slow, that will impact the response time of the Detect method.
+The Face service must then download the image from the remote server. If the connection from the Face service to the remote server is slow, that will affect the response time of the Detect method.
 
-To mitigate this, consider [storing the image in Azure Premium Blob Storage](../../../storage/blobs/storage-upload-process-images.md?tabs=dotnet). For example:
+To mitigate this situation, consider [storing the image in Azure Premium Blob Storage](../../../storage/blobs/storage-upload-process-images.md?tabs=dotnet). For example:
 
 ``` csharp
 var faces = await client.Face.DetectWithUrlAsync("https://csdx.blob.core.windows.net/resources/Face/Images/Family1-Daughter1.jpg");
@@ -47,7 +47,7 @@ var faces = await client.Face.DetectWithUrlAsync("https://csdx.blob.core.windows
 
 ### Large upload size
 
-Some Azure Cognitive Services provide methods that obtain data from a file that you upload. For example, when you call the [DetectWithStreamAsync method](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync#Microsoft_Azure_CognitiveServices_Vision_Face_FaceOperationsExtensions_DetectWithStreamAsync_Microsoft_Azure_CognitiveServices_Vision_Face_IFaceOperations_System_IO_Stream_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Collections_Generic_IList_System_Nullable_Microsoft_Azure_CognitiveServices_Vision_Face_Models_FaceAttributeType___System_String_System_Nullable_System_Boolean__System_String_System_Threading_CancellationToken_) of the Face service, you can upload an image in which the service tries to detect faces.
+Some Azure services provide methods that obtain data from a file that you upload. For example, when you call the [DetectWithStreamAsync method](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync#Microsoft_Azure_CognitiveServices_Vision_Face_FaceOperationsExtensions_DetectWithStreamAsync_Microsoft_Azure_CognitiveServices_Vision_Face_IFaceOperations_System_IO_Stream_System_Nullable_System_Boolean__System_Nullable_System_Boolean__System_Collections_Generic_IList_System_Nullable_Microsoft_Azure_CognitiveServices_Vision_Face_Models_FaceAttributeType___System_String_System_Nullable_System_Boolean__System_String_System_Threading_CancellationToken_) of the Face service, you can upload an image in which the service tries to detect faces.
 
 ```csharp
 using FileStream fs = File.OpenRead(@"C:\images\face.jpg");
@@ -65,8 +65,8 @@ var faces = await client.Face.DetectWithUrlAsync("https://csdx.blob.core.windows
 ```
 - Consider uploading a smaller file.
     - See the guidelines regarding [input data for face detection](../concept-face-detection.md#input-data) and [input data for face recognition](../concept-face-recognition.md#input-data).
-    - For face detection, when using detection model `DetectionModel.Detection01`, reducing the image file size will increase processing speed. When using detection model `DetectionModel.Detection02`, reducing the image file size will only increase processing speed if the image file is smaller than 1920x1080.
-    - For face recognition, reducing the face size to 200x200 pixels does not affect the accuracy of the recognition model.
+    - For face detection, when using detection model `DetectionModel.Detection01`, reducing the image file size will increase processing speed. When you use detection model `DetectionModel.Detection02`, reducing the image file size will only increase processing speed if the image file is smaller than 1920x1080.
+    - For face recognition, reducing the face size to 200x200 pixels doesn't affect the accuracy of the recognition model.
     - The performance of the `DetectWithUrlAsync` and `DetectWithStreamAsync` methods also depends on how many faces are in an image. The Face service can return up to 100 faces for an image. Faces are ranked by face rectangle size from large to small.
     - If you need to call multiple service methods, consider calling them in parallel if your application design allows for it. For example, if you need to detect faces in two images to perform a face comparison:
 ```csharp
@@ -78,12 +78,12 @@ IEnumerable<DetectedFace> results = faces_1.Result.Concat (faces_2.Result);
 
 ### Slow connection between your compute resource and the Face service
 
-If your computer has a slow connection to the Face service, that will impact the response time of service methods.
+If your computer has a slow connection to the Face service, this will affect the response time of service methods.
 
 Mitigations:
 - When you create your Face subscription, make sure to choose the region closest to where your application is hosted.
 - If you need to call multiple service methods, consider calling them in parallel if your application design allows for it. See the previous section for an example.
-- If longer latencies impact the user experience, choose a timeout threshold (e.g. maximum 5s) before retrying the API call.
+- If longer latencies affect the user experience, choose a timeout threshold (for example, maximum 5 seconds) before retrying the API call.
 
 ## Next steps
 
