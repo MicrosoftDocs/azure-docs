@@ -467,6 +467,8 @@
           href: open-service-mesh-uninstall-add-on.md
     - name: Track releases and region availability
       href: release-tracker.md
+    - name: Use Web Application Routing (preview)
+      href: web-app-routing.md
     - name: Kubernetes Event-driven Autoscaler add-on (preview)
       href: keda.md
     - name: Use cluster extensions
