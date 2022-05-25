@@ -6,11 +6,11 @@ ms.date: 05/12/2022
 ---
 # Enable Public IP to the NSX Edge for Azure VMware Solution (Preview)
 
-In this article, you'll learn how to enable Public IP to the NSX Edge for your Azure VMware Solution. Before you enable Internet access to your Azure VMware Solution, review the [Internet connectivity design considerations](enable-public-ip-nsx-edge.md). 
+In this article, you'll learn how to enable Public IP to the NSX Edge for your Azure VMware Solution. Before you enable Internet access to your Azure VMware Solution, review the [Internet connectivity design considerations](concepts-design-public-internet-access.md). 
 
 Public IP to the NSX Edge is a feature in Azure VMware Solution that enables inbound and outbound internet access for your Azure VMware Solution environment. The Public IP is configured in Azure VMware Solution by way of the Azure portal and the NSX-T Data center interface all within your Azure VMware Solution private cloud.
 With this capability, you have the following features:
-- A cohesive and simplified experience for reserving and consuming a Public IP down to the NSX Edge.
+- A cohesive and simplified experience for reserving and using a Public IP down to the NSX Edge.
 - The ability to receive up to 1000 or more Public IPs, enabling Internet access at scale.
 - Inbound and outbound internet access for your workload VMs.
 - DDoS Security protection against network traffic in and out of the Internet. 
@@ -110,6 +110,6 @@ The Distributed Firewall may also be used to filter traffic to VMs. This feature
 
 
 ### Next Steps 
-[Internet connectivity design considerations (Preview)](concepts-design-avs-public-internet-access.md)<br>
-[Enable Managed SNAT for Azure VMware Solution Workloads (Preview)](enable-managed-snat-for-avs-workloads.md)<br>
+[Internet connectivity design considerations (Preview)](concepts-design-public-internet-access.md)<br>
+[Enable Managed SNAT for Azure VMware Solution Workloads (Preview)](enable-managed-snat-for-workloads.md)<br>
 [Disable Internet access or enable a default route (Preview)](disable-internet-access.md)<br>
