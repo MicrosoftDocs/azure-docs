@@ -28,11 +28,11 @@ The samples are written in C# by using the Azure Cognitive Services Face client 
 
 ## Step 1: Initialize the client object
 
-When you use the Face client library, the subscription key and subscription endpoint are passed in through the constructor of the FaceClient class. For example:
+When you use the Face client library, the key and subscription endpoint are passed in through the constructor of the FaceClient class. For example:
 
 ```csharp
-string SubscriptionKey = "<Subscription Key>";
-// Use your own subscription endpoint corresponding to the subscription key.
+string SubscriptionKey = "<Key>";
+// Use your own subscription endpoint corresponding to the key.
 string SubscriptionEndpoint = "https://westus.api.cognitive.microsoft.com";
 private readonly IFaceClient faceClient = new FaceClient(
             new ApiKeyServiceClientCredentials(subscriptionKey),
@@ -40,7 +40,7 @@ private readonly IFaceClient faceClient = new FaceClient(
 faceClient.Endpoint = SubscriptionEndpoint
 ```
 
-To get the subscription key with its corresponding endpoint, go to the Azure Marketplace from the Azure portal.
+To get the key with its corresponding endpoint, go to the Azure Marketplace from the Azure portal.
 For more information, see [Subscriptions](https://azure.microsoft.com/services/cognitive-services/directory/vision/).
 
 ## Step 2: Code migration

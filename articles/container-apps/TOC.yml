@@ -1,4 +1,4 @@
-- name: Azure Container Apps Preview documentation
+- name: Azure Container Apps documentation
   href: index.yml
 - name: Overview
   items:
@@ -30,6 +30,8 @@
           href: deploy-visual-studio.md
         - name: Visual Studio Code
           href: deploy-visual-studio-code.md
+      - name: With code on your local machine
+        href: quickstart-code-to-cloud.md
 - name: Concepts
   items:
     - name: Environment
@@ -102,6 +104,8 @@
       href: disaster-recovery.md
 - name: Tutorials
   items:
+    - name: Communicate between microservices
+      href: communicate-between-microservices.md
     - name: Microservices with Dapr using the CLI
       href: microservices-dapr.md
     - name: Microservices with Dapr using ARM or Bicep

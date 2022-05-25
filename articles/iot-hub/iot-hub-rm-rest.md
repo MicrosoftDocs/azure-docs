@@ -68,7 +68,7 @@ To complete this tutorial, you need the following:
     static string rgName = "{Resource group name}";
     static string iotHubName = "{IoT Hub name including your initials}";
     ```
-   
+
     [!INCLUDE [iot-hub-pii-note-naming-hub](../../includes/iot-hub-pii-note-naming-hub.md)]
 
 [!INCLUDE [iot-hub-get-access-token](../../includes/iot-hub-get-access-token.md)]
@@ -115,7 +115,7 @@ Use the [IoT Hub resource provider REST API](/rest/api/iothub/iothubresource) to
 
     ```csharp
     var content = new StringContent(JsonConvert.SerializeObject(description), Encoding.UTF8, "application/json");
-    var requestUri = string.Format("https://management.azure.com/subscriptions/{0}/resourcegroups/{1}/providers/Microsoft.devices/IotHubs/{2}?api-version=2016-02-03", subscriptionId, rgName, iotHubName);
+    var requestUri = string.Format("https://management.azure.com/subscriptions/{0}/resourcegroups/{1}/providers/Microsoft.devices/IotHubs/{2}?api-version=2021-04-12", subscriptionId, rgName, iotHubName);
     var result = client.PutAsync(requestUri, content).Result;
 
     if (!result.IsSuccessStatusCode)
@@ -142,7 +142,7 @@ Use the [IoT Hub resource provider REST API](/rest/api/iothub/iothubresource) to
 6. Add the following code to the end of the **CreateIoTHub** method. This code retrieves the keys of the IoT hub you created and prints them to the console:
 
     ```csharp
-    var listKeysUri = string.Format("https://management.azure.com/subscriptions/{0}/resourceGroups/{1}/providers/Microsoft.Devices/IotHubs/{2}/IoTHubKeys/listkeys?api-version=2016-02-03", subscriptionId, rgName, iotHubName);
+    var listKeysUri = string.Format("https://management.azure.com/subscriptions/{0}/resourceGroups/{1}/providers/Microsoft.Devices/IotHubs/{2}/IoTHubKeys/listkeys?api-version=2021-04-12", subscriptionId, rgName, iotHubName);
     var keysresults = client.PostAsync(listKeysUri, null).Result;
 
     Console.WriteLine("Keys: {0}", keysresults.Content.ReadAsStringAsync().Result);

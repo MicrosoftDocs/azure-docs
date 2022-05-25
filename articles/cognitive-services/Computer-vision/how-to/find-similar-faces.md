@@ -58,7 +58,7 @@ The following code uses the above method to get face data from a series of image
 
 #### [REST API](#tab/rest)
 
-Copy the following cURL command and insert your subscription key and endpoint where appropriate. Then run the command to detect one of the target faces.
+Copy the following cURL command and insert your key and endpoint where appropriate. Then run the command to detect one of the target faces.
 
 :::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="detect_for_similar":::
 
@@ -97,7 +97,7 @@ The following method takes a set of target faces and a single source face. Then,
 
 #### [REST API](#tab/rest)
 
-Copy the following cURL command and insert your subscription key and endpoint where appropriate.
+Copy the following cURL command and insert your key and endpoint where appropriate.
 
 :::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" ID="similar":::
 

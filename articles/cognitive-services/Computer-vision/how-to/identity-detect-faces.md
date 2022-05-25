@@ -24,7 +24,7 @@ The code snippets in this guide are written in C# by using the Azure Cognitive S
 
 ## Setup
 
-This guide assumes that you already constructed a [FaceClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient) object, named `faceClient`, with a Face subscription key and endpoint URL. For instructions on how to set up this feature, follow one of the quickstarts.
+This guide assumes that you already constructed a [FaceClient](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient) object, named `faceClient`, with a Face key and endpoint URL. For instructions on how to set up this feature, follow one of the quickstarts.
 
 ## Submit data to the service
 

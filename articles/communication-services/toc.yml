@@ -33,6 +33,18 @@ items:
         href: quickstarts/chat/meeting-interop.md
       - name: Using Chat SDK with React Native
         href: quickstarts/chat/react-native.md
+  - name: Email
+    items:
+      - name: Create a Email Communication Services resource
+        href: quickstarts/email/create-email-communication-resource.md
+      - name: Add Azure Managed domain
+        href: quickstarts/email/add-azure-managed-domains.md
+      - name: Add Custom domain
+        href: quickstarts/email/add-custom-verified-domains.md
+      - name: Connect domain to send Email
+        href: quickstarts/email/connect-email-communication-resource.md
+      - name: Send an Email
+        href: quickstarts/email/send-email.md
   - name: Telephony and phone numbers
     items:
       - name: Get and manage phone numbers
@@ -82,6 +94,10 @@ items:
 - name: Tutorials
   expanded: false
   items:
+  - name: Virtual visit scenarios
+    href: tutorials/virtual-visits.md
+  - name: Virtual event scenarios
+    href: tutorials/events-playbook.md
   - name: Use Postman to send SMS messages
     href: tutorials/postman-tutorial.md
   - name: Sign an HTTP request with HMAC using C#
@@ -91,7 +107,9 @@ items:
   - name: Prepare a Node.js web app for Calling
     href: tutorials/building-app-start.md
   - name: Export SDK telemetry to Application Insights
-    href: quickstarts/telemetry-application-insights.md  
+    href: quickstarts/telemetry-application-insights.md
+  - name: Add file sharing to your application with UI Library
+    href: tutorials/file-sharing-tutorial.md
 - name: Concepts
   expanded: false
   items:
@@ -113,6 +131,18 @@ items:
         href: concepts/chat/sdk-features.md
       - name: Chat concepts
         href: concepts/chat/concepts.md
+  - name: Email
+    items:
+      - name: Email concepts
+        href: concepts/email/email-overview.md
+      - name: What is Email Communication Service
+        href: concepts/email/prepare-email-communication-resource.md
+      - name: Email domains and sender authentication 
+        href: concepts/email/email-domain-and-sender-authentication.md
+      - name: Best practices for sender authentication support 
+        href: concepts/email/email-authentication-best-practice.md
+      - name: Email client library
+        href: concepts/email/sdk-features.md
   - name: Telephony and phone numbers
     items:
       - name: Telephony Concepts
@@ -226,6 +256,8 @@ items:
     href: concepts/privacy.md
   - name: Pricing
     href: concepts/pricing.md
+  - name: Email Pricing
+    href: concepts/email-pricing.md
   - name: SMS Pricing
     href: concepts/sms-pricing.md
   - name: PSTN Pricing
@@ -266,6 +298,10 @@ items:
     items: 
     - name: Setup Localization
       href: how-tos/ui-library-sdk/localization.md
+    - name: Setup Theming
+      href: how-tos/ui-library-sdk/theming.md
+    - name: Custom Data Model Injection 
+      href: how-tos/ui-library-sdk/data-model.md
 - name: Samples
   items:
   - name: Overview
@@ -349,3 +385,5 @@ items:
   items:
   - name: Release notes
     href: https://github.com/Azure/Communication/blob/master/releasenotes
+  - name: Learn modules
+    href: resources/learn-modules.md

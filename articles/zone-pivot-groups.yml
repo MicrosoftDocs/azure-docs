@@ -1823,6 +1823,15 @@ groups:
     title: Azure Resource Manager
   - id: aro-bicep
     title: Bicep   
+# Owner: cshoe
+- id: container-apps-image-build-type
+  title: Container build method
+  prompt: Choose how you want to build your containers
+  pivots:
+  - id: acr-remote
+    title: Cloud build
+  - id: docker-local
+    title: Local build (requires Docker)
  # Owner: rahulmehta
 - id: azure-red-hat-openshift-service-principal
   title: Azure CLI and Azure portal
@@ -1850,3 +1859,14 @@ groups:
     title: .Net
   - id: framework-spring
     title: Spring Framework
+# Owner: nicktrog
+- id: load-testing-config
+  title: Experience
+  prompt: Choose an experience
+  pivots:
+  - id: experience-azp
+    title: Azure portal
+  - id: experience-pipelines
+    title: Azure Pipelines
+  - id: experience-ghactions
+    title: GitHub Actions

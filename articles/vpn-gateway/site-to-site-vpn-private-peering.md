@@ -83,8 +83,7 @@ In both of these examples, Azure will send traffic to 10.0.1.0/24 over the VPN c
 1. To enable **Use Azure Private IP Address** on the connection, select  **Configuration**. Set **Use Azure Private IP Address** to **Enabled**, then select **Save**.
 
    :::image type="content" source="media/site-to-site-vpn-private-peering/connection.png" alt-text="Gateway Private IPs - Enabled":::
-1. From your firewall, ping the private IP that you wrote down in step 3. The private IP should be reachable over the ExpressRoute private peering.
-1. Use this private IP as the remote IP on your on-premises firewall to establish the Site-to-Site tunnel over the ExpressRoute private peering.
+1. Use the private IP that you wrote down in step 3 as the remote IP on your on-premises firewall to establish the Site-to-Site tunnel over the ExpressRoute private peering.
 
 ## <a name="powershell"></a>PowerShell steps
 

@@ -42,7 +42,7 @@ While FastPath supports most configurations, it doesn't support the following fe
 
 ### IP address limits
 
-| ExpressRoute SKU | Bandwidth | FathPath IP limit |
+| ExpressRoute SKU | Bandwidth | FastPath IP limit |
 | -- | -- | -- |
 | ExpressRoute Direct Port | 100Gbps | 200,000 |
 | ExpressRoute Direct Port | 10Gbps | 100,000 |
@@ -51,8 +51,6 @@ While FastPath supports most configurations, it doesn't support the following fe
 > [!NOTE]
 > * ExpressRoute Direct has a cumulative limit at the port level.
 > * Traffic will flow through the ExpressRoute gateway when these limits are reached.
->
-
 ## Public preview
 
 The following FastPath features are in Public preview:

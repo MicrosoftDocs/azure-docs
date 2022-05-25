@@ -9,11 +9,13 @@ ms.author: larryfr
 author: blackmist
 ms.date: 02/23/2022
 ms.topic: how-to
-
-# Customer intent: As a TensorFlow developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale. 
+ms.custom: sdkv1, event-tier1-build-2022
+#Customer intent: As a TensorFlow developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale.
 ---
 
 # Train TensorFlow models at scale with Azure Machine Learning
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, learn how to run your [TensorFlow](https://www.tensorflow.org/overview) training scripts at scale using Azure Machine Learning.
 
@@ -70,7 +72,7 @@ ws = Workspace.from_config()
 
 ### Create a file dataset
 
-A `FileDataset` object references one or multiple files in your workspace datastore or public urls. The files can be of any format, and the class provides you with the ability to download or mount the files to your compute. By creating a `FileDataset`, you create a reference to the data source location. If you applied any transformations to the data set, they'll be stored in the data set as well. The data remains in its existing location, so no extra storage cost is incurred. For more information the `Dataset` package, see the [How to create register datasets article](./how-to-create-register-datasets.md).
+A `FileDataset` object references one or multiple files in your workspace datastore or public urls. The files can be of any format, and the class provides you with the ability to download or mount the files to your compute. By creating a `FileDataset`, you create a reference to the data source location. If you applied any transformations to the data set, they'll be stored in the data set as well. The data remains in its existing location, so no extra storage cost is incurred. For more information the `Dataset` package, see the [How to create register datasets article](./v1/how-to-create-register-datasets.md).
 
 ```python
 from azureml.core.dataset import Dataset

@@ -50,7 +50,7 @@ Use the OCR client library to read printed and handwritten text from a remote im
 
     Create a new Python file&mdash;*quickstart-file.py*, for example. Then open it in your preferred editor or IDE.
 
-1. Find the subscription key and endpoint.
+1. Find the key and endpoint.
 
     [!INCLUDE [find key and endpoint](../find-key.md)]
 
@@ -58,10 +58,10 @@ Use the OCR client library to read printed and handwritten text from a remote im
 
    [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart-single.py?name=snippet_single)]
 
-1. Paste your subscription key and endpoint into the code where indicated. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
+1. Paste your key and endpoint into the code where indicated. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
 
    > [!IMPORTANT]
-   > Remember to remove the subscription key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../../key-vault/general/overview.md).
+   > Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. For example, [Azure key vault](../../../../key-vault/general/overview.md).
 
 1. As an optional step, see [How to specify the model version](../../how-to/call-read-api.md#determine-how-to-process-the-data-optional). For example, to explicitly specify the latest GA model, edit the `read` statement as shown. Skipping the parameter or using `"latest"` automatically uses the most recent GA model.
 

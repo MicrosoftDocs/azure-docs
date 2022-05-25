@@ -68,7 +68,7 @@ Specifically for OT networks, OT network sensors also provide the following anal
 
 - **Anomaly detection engine**. Detects unusual machine-to-machine (M2M) communications and behaviors. By modeling ICS networks as deterministic sequences of states and transitions, the platform requires a shorter learning period than generic mathematical approaches or analytics originally developed for IT rather than OT. It also detects anomalies faster, with minimal false positives. Anomaly detection engine alerts include Excessive SMB sign-in attempts, and PLC Scan Detected alerts.
 
-- **Operational incident detection**. Detects operational issues such as intermittent connectivity that can indicate early signs of equipment failure. For example, the device is thought to be disconnected (unresponsive), and Siemens S7 stop PLC command was sent alerts.
+- **Operational incident detection**. Detects operational issues such as intermittent connectivity that can indicate early signs of equipment failure. For example, the device might be disconnected (unresponsive), and Siemens S7 stop PLC command was sent alerts.
 
 ## Management options
 
