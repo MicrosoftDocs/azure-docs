@@ -75,6 +75,32 @@ conceptualContent:
       footerLink:
         text: More
         url: index-image-analysis.yml
+    - title: Azure Identity
+      links:
+        - itemType: overview
+          text: About Identity
+          url: overview-identity.md
+        - itemType: quickstart
+          text: Get started with Azure Identity
+          url: quickstarts-sdk/identity-client-library.md
+        - itemType: how-to-guide
+          text: Detect faces in an image
+          url: how-to/identity-detect-faces.md
+        - itemType: concept
+          text: Face detection
+          url: concept-face-detection.md
+        - itemType: concept
+          text: Face recognition
+          url: concept-face-recognition.md
+        - itemType: tutorial
+          text: Add users to a Face service
+          url: Tutorials/build-enrollment-app.md
+        - itemType: reference
+          text: Identity API reference
+          url: /rest/api/face/
+      footerLink:
+        text: More
+        url: index-identity.yml
     - title: Spatial Analysis
       links:
         - itemType: overview
