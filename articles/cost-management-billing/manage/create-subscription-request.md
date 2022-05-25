@@ -1,7 +1,7 @@
 ---
 title: Create a Microsoft Customer Agreement subscription request
 titleSuffix: Azure Cost Management + Billing
-description: Learn how to create a Azure subscription request in the Azure portal. See information about billing account forms and view additional available resources.
+description: Learn how to create an Azure subscription request in the Azure portal. See information about billing account forms and view other available resources.
 author: bandersmsft
 ms.reviewer: amberb
 ms.service: cost-management-billing
@@ -13,9 +13,9 @@ ms.author: banders
 
 # Create a Microsoft Customer Agreement subscription request
 
-This article helps you create an additional [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) subscription for someone else that's in a different Azure Active Directory (Azure AD) directory/tenant. After the request is created, the recipient accepts the subscription request. You may want an additional subscription to avoid hitting subscription limits, to create separate environments for security, or to isolate data for compliance reasons. 
+This article helps you create a [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) subscription for someone else that's in a different Azure Active Directory (Azure AD) directory/tenant. After the request is created, the recipient accepts the subscription request. You may want another subscription to avoid hitting subscription limits, to create separate environments for security, or to isolate data for compliance reasons. 
 
-If you instead want to create a subscription for yourself or for someone else in your current Azure Active Directory (Azure AD) directory/tenant, see [Create an additional Microsoft Customer Agreement subscription](create-subscription.md). If you want to create additional subscriptions for Enterprise Agreements, see [Create an EA subscription](create-enterprise-subscription.md). If you're a Microsoft Partner and you want to create a subscription for a customer, see [Create a subscription for a partner's customer](create-customer-subscription.md). Or, if you have a Microsoft Online Service Program (MOSP) billing account, also called pay-as-you-go, you can create additional subscriptions starting in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) and then you complete the process at https://signup.azure.com/.
+If you instead want to create a subscription for yourself or for someone else in your current Azure Active Directory (Azure AD) directory/tenant, see [Create a Microsoft Customer Agreement subscription](create-subscription.md). If you want to create subscriptions for Enterprise Agreements, see [Create an EA subscription](create-enterprise-subscription.md). If you're a Microsoft Partner and you want to create a subscription for a customer, see [Create a subscription for a partner's customer](create-customer-subscription.md). Or, if you have a Microsoft Online Service Program (MOSP) billing account, also called pay-as-you-go, you can create subscriptions starting in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) and then you complete the process at https://signup.azure.com/.
 
 To learn more about billing accounts and identify your billing account type, see [View billing accounts in Azure portal](view-all-accounts.md).
 
@@ -77,9 +77,9 @@ Or, the subscription creator might have manually sent the acceptor an **Accept o
 
 After the new subscription is created, the acceptor can see it in on the **Subscriptions** page.
 
-## Create an additional Azure subscription programmatically
+## Create an Azure subscription programmatically
 
-You can also create additional subscriptions programmatically. For more information, see [Create Azure subscriptions programmatically](programmatically-create-subscription).
+You can also create subscriptions programmatically. For more information, see [Create Azure subscriptions programmatically](programmatically-create-subscription.md).
 
 ## Need help? Contact us.
 

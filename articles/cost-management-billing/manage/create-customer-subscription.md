@@ -52,9 +52,9 @@ Partners with a Microsoft Partner Agreement use the following steps to create a 
 
 After the new subscription is created, the customer can see it in on the **Subscriptions** page.
 
-## Create an additional Azure subscription programmatically
+## Create an Azure subscription programmatically
 
-You can also create additional subscriptions programmatically. For more information, see [Create Azure subscriptions programmatically](programmatically-create-subscription).
+You can also create subscriptions programmatically. For more information, see [Create Azure subscriptions programmatically](programmatically-create-subscription.md).
 
 ## Need help? Contact us.
 
