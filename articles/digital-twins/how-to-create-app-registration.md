@@ -102,9 +102,11 @@ The output of the command is information about the app registration you've creat
 
 ### Verify success
 
-You can confirm that the Azure Digital Twins permissions were granted by looking for the following fields in the output of the `az ad app create` command, and confirming their values match what's shown in the screenshot below:
+You can confirm that the Azure Digital Twins permissions were granted by looking for the following fields in the output of the creation command, under `requiredResourceAccess`. Confirm their values match what's listed below.
+* `resourceAccess > id` is *4589bd03-58cb-4e6c-b17f-b580e39652f8*
+* `resourceAppId` is *0b07f429-9f4b-4714-9392-cc5e8e80c8b0*
 
-:::image type="content" source="media/how-to-create-app-registration/cli-required-resource-access.png" alt-text="Screenshot of Cloud Shell output of the app registration creation command. The items under 'requiredResourceAccess' are highlighted: there's a 'resourceAppId' value of 0b07f429-9f4b-4714-9392-cc5e8e80c8b0, and a 'resourceAccess > id' value of 4589bd03-58cb-4e6c-b17f-b580e39652f8.":::
+:::image type="content" source="media/how-to-create-app-registration/cli-required-resource-access.png" alt-text="Screenshot of Cloud Shell output of the app registration creation command.":::
 
 ---
 
