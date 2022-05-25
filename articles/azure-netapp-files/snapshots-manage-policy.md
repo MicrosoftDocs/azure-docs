@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 01/05/2022
+ms.date: 05/25/2022
 ms.author: anfdocs
 ---
 
@@ -76,15 +76,19 @@ You cannot apply a snapshot policy to a destination volume in cross-region repli
 
 ## Modify a snapshot policy 
 
-You can modify an existing snapshot policy to change the policy state, snapshot frequency (hourly, daily, weekly, or monthly), or number of snapshots to keep.  
+You can modify an existing snapshot policy to change the policy state, snapshot frequency (hourly, daily, weekly, or monthly), or number of snapshots to keep.
+
+When modifying a snapshot policy, snapshots created with an old schedule will not be deleted/overwritten by the new schedule or disable the schedule. If you proceed with the update, you will have to manually delete the old snapshots.
  
-1.	From the NetApp Account view, click **Snapshot policy**.
+1.	From the NetApp Account view, select **Snapshot policy**.
 
 2.	Right-click the snapshot policy you want to modify, then select **Edit**.
 
     ![Screenshot that shows the Snapshot policy right-click menu.](../media/azure-netapp-files/snapshot-policy-right-click-menu.png) 
 
-3.	Make the changes in the Snapshot Policy window that appears, then click **Save**. 
+3.	Make the changes in the Snapshot Policy window that appears, then select **Save**. 
+
+4.  You will receive a prompt asking you to confirm that you want to update the Snapshot Policy. Select **Yes** to confirm your choice. 
 
 ## Delete a snapshot policy 
 
