@@ -14,7 +14,7 @@ ms.custom: devx-track-java, devx-track-azurecli
 
 This article shows you how to set and update the ingress configuration in Azure Spring Apps, using the Azure portal and CLI.
 
-Azure Spring Apps service leverages ingress controller underlyingly to handle application traffic management. You can customize some ingress settings to fulfill your application or architectural requirements.
+Azure Spring Apps service uses ingress controller underlyingly to handle application traffic management. You can customize some ingress settings to fulfill your application or architectural requirements.
 
 ## Prerequisites
 You must have the following resource installed:
@@ -38,7 +38,7 @@ az spring create \
     --name <service-name> \
     --ingress-read-timeout 300
 ```
-This will create a service with ingress read timeout set to 300s.
+This command will create a service with ingress read timeout set to 300 s.
 
 ## Update ingress configuration for an existing service
 
@@ -59,9 +59,9 @@ az spring update \
     --name <service-name> \
     --ingress-read-timeout 600
 ```
-This will update the ingress read timeout to 600s.
+This command will update the ingress read timeout to 600 s.
 
 ## Next steps
 
-* [Learn more about ingress controler](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers)
+* [Learn more about ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers)
 * [Learn more about NGINX ingress controller](https://kubernetes.github.io/ingress-nginx)
