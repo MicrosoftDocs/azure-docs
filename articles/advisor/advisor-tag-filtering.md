@@ -1,12 +1,12 @@
 ---
-title: Review optimization opportunities by a workload, environment or team
-description: Review optimization opportunities by a workload, environment or team
+title: Review optimization opportunities by workload, environment or team
+description: Review optimization opportunities by workload, environment or team
 ms.topic: article
 ms.custom: tags
 ms.date: 05/25/2022
 ---
 
-# Review optimization opportunities by a workload, environment or team
+# Review optimization opportunities by workload, environment or team
 
 You can now get Advisor recommendations and scores scoped to a workload, environment, or team  using resource tag filters. Filter recommendations and calculate scores using tags you have already assigned to Azure resources, resource groups and subscriptions. Use tag filters to:
 1.	Identify cost saving opportunities by team
