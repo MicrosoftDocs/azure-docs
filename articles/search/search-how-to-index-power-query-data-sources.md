@@ -440,7 +440,7 @@ You can repurpose the index you're currently using for the PostgreSQL Power Conn
 
 1. Select **Save**.
 
-   :::image type="content" source="media/search-power-query-connectors/delimited-text-save-postgresql.png" alt-text="Screenshot showing options to import data to Azure Storage blob." border=true:::
+   :::image type="content" source="media/search-power-query-connectors/delimited-text-save-postgresql.png" alt-text="Screenshot showing options to import data to Azure Storage blob." border="true":::
 
 ### Step 8: Configure Pipeline
 
@@ -479,7 +479,7 @@ You can repurpose the index you're currently using for the PostgreSQL Power Conn
 
    - Expand **Move & transform** section and drag and drop **Copy Data** activity to the blank pipeline editor canvas.
 
-      :::image type="content" source="media/search-power-query-connectors/index-from-storage-activity-postgresql.png" alt-text="Screenshot showing how to drag and drop in Azure Data Factory to configure a copy activity." border=true:::
+      :::image type="content" source="media/search-power-query-connectors/index-from-storage-activity-postgresql.png" alt-text="Screenshot showing how to drag and drop in Azure Data Factory to configure a copy activity." border="true":::
 
    - In the **General** tab, leave the default values, unless you need to customize the execution.
 
