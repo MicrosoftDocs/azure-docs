@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms 
 ms.author: mingshen
-ms.date: 02/16/2022
+ms.date: 05/25/2022
 ---
 
 # Review and publish an offer to the commercial marketplace
@@ -27,6 +27,9 @@ You can review your offer status on the **Overview** tab of the commercial marke
 | Live | Offer is live in the marketplace and can be seen and acquired by customers. |
 | Pending Stop distribution | Publisher selected "Stop distribution" on an offer or plan, but the action has not yet been completed. |
 | Not available in the marketplace | A previously published offer in the marketplace has been removed. |
+
+> [!TIP]
+> After publishing an offer, the [owner](user-roles.md) of your developer account is notified of the publishing status and required actions through email and the Action Center in Partner Center. For more information about Action Center, see [Action Center Overview](/partner-center/action-center-overview).
 
 ## Validation and publishing steps
 
