@@ -30,22 +30,7 @@ WAF with Front Door provides detailed reporting on each request, and each threat
 
 Front Door provides two types of logs: access logs and WAF logs.
 
-::: zone pivot="front-door-standard-premium"
-
-
-- 
-- **FrontDoorWebApplicationFirewallLog**, which includes any request that matches a WAF rule.
-
-::: zone-end
-
-::: zone pivot="front-door-classic"
-
-- 
-- **FrontdoorWebApplicationFirewallLog**, which includes any request that matches a WAF rule.
-
-::: zone-end
-
-### Access log
+### Access logs
 
 ::: zone pivot="front-door-standard-premium"
 
@@ -110,7 +95,7 @@ The following shows an example log entry:
 }
 ```
 
-### WAF log
+### WAF logs
 
 ::: zone pivot="front-door-standard-premium"
 
