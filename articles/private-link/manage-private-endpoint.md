@@ -19,7 +19,7 @@ Azure Private Endpoints have several options when managing the configuration and
 
 A private endpoint has two custom properties, static IP address and the network interface name. These properties must be set when the private endpoint is created.
 
-With a service provider and consumer deployment of a Private Link Service an approval process is in place to make the connection.
+With a service provider and consumer deployment of a Private Link Service, an approval process is in place to make the connection.
 
 ## Determine GroupID and MemberName
 
@@ -27,7 +27,7 @@ During the creation of a private endpoint with Azure PowerShell and Azure CLI, t
 
 # [**PowerShell**](#tab/manage-private-link-powershell)
 
-An Azure WebApp is used as the example private endpoint resource. Use [Get-AzPrivateLinkResource](/powershell/module/az.network/get-azprivatelinkresource) to determine **GroupId** and **MemberName**.
+An Azure WebApp is used as the example private endpoint resource. Use **[Get-AzPrivateLinkResource](/powershell/module/az.network/get-azprivatelinkresource)** to determine **GroupId** and **MemberName**.
 
 ```azurepowershell
 ## Place the previously created webapp into a variable. ##
@@ -44,7 +44,7 @@ You should receive an output similar to the below example.
 
 # [**Azure CLI**](#tab/manage-private-link-cli)
 
-An Azure WebApp is used as the example private endpoint resource. Use [az network private-link-resource list](/cli/azure/network/private-link-resource#az-network-private-link-resource-list) to determine **GroupId** and **MemberName**. The parameter `--type` requires the namespace for the private link resource. For the webapp used in this example, the namespace is **Microsoft.Web/sites**. To determine the namespace for your private link resource, see [Azure services DNS zone configuration](private-endpoint-dns.md#azure-services-dns-zone-configuration).
+An Azure WebApp is used as the example private endpoint resource. Use **[az network private-link-resource list](/cli/azure/network/private-link-resource#az-network-private-link-resource-list)** to determine **GroupId** and **MemberName**. The parameter `--type` requires the namespace for the private link resource. For the webapp used in this example, the namespace is **Microsoft.Web/sites**. To determine the namespace for your private link resource, see **[Azure services DNS zone configuration](private-endpoint-dns.md#azure-services-dns-zone-configuration)**.
 
 ```azurecli
 az network private-link-resource list \
@@ -65,13 +65,13 @@ Network interface rename and static IP address assignment are custom properties 
 
 ### Network interface rename
 
-By default, when a private endpoint is created the network interface associated with the private endpoint is given a random name for it's network interface. The network interface must be named when the private endpoint is created. The renaming of the network interface of an existing private endpoint is unsupported.
+By default, when a private endpoint is created the network interface associated with the private endpoint is given a random name for its network interface. The network interface must be named when the private endpoint is created. The renaming of the network interface of an existing private endpoint is unsupported.
 
 Use the following commands when creating a private endpoint to rename the network interface.
 
 # [**PowerShell**](#tab/manage-private-link-powershell)
 
-To rename the network interface when the private endpoint is created, use the `-CustomNetworkInterfaceName` parameter. The following example uses a Azure PowerShell command to create a private endpoint to an Azure WebApp. For more information, see [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint).
+To rename the network interface when the private endpoint is created, use the `-CustomNetworkInterfaceName` parameter. The following example uses an Azure PowerShell command to create a private endpoint to an Azure WebApp. For more information, see **[New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint)**.
 
 ```azurepowershell
 ## Place the previously created webapp into a variable. ##
@@ -103,7 +103,7 @@ New-AzPrivateEndpoint @pe
 
 # [**Azure CLI**](#tab/manage-private-link-cli)
 
-To rename the network interface when the private endpoint is created, use the `--nic-name` parameter. The following example uses a Azure PowerShell command to create a private endpoint to an Azure WebApp. For more information, see [az network private-endpoint create](/cli/azure/network/private-endpoint#az-network-private-endpoint-create).
+To rename the network interface when the private endpoint is created, use the `--nic-name` parameter. The following example uses an Azure PowerShell command to create a private endpoint to an Azure WebApp. For more information, see **[az network private-endpoint create](/cli/azure/network/private-endpoint#az-network-private-endpoint-create)**.
 
 ```azurecli
 id=$(az webapp list \
@@ -126,9 +126,9 @@ az network private-endpoint create \
 
 ### Static IP address
 
-By default, when a private endpoint is created the IP address for the endpoint is automatically assigned from the IP range of the virtual network configured for the private endpoint. A situation may arise when a static IP address for the private endpoint is required. The static IP address must be assigned when the private endpoint is created. The configuration of a static IP address for an existing private endpoint is currently unsupported.
+By default, when a private endpoint is created the IP address for the endpoint is automatically assigned. The IP is assigned from the IP range of the virtual network configured for the private endpoint. A situation may arise when a static IP address for the private endpoint is required. The static IP address must be assigned when the private endpoint is created. The configuration of a static IP address for an existing private endpoint is currently unsupported.
 
-For procedures to configure a static IP address when creating a private endpoint, see [Create a private endpoint with a static IP address using PowerShell](private-endpoint-static-ip-powershell.md) and [Create a private endpoint with a static IP address using the Azure CLI](private-endpoint-static-ip-cli.md).
+For procedures to configure a static IP address when creating a private endpoint, see [Create a private endpoint using Azure PowerShell](create-private-endpoint-powershell.md) and [Create a private endpoint using the Azure CLI](create-private-endpoint-cli.md).
 
 ## Private endpoint connections
 
@@ -156,7 +156,7 @@ The below table shows the various service provider actions and the resulting con
 
 ## Manage private endpoint connections on Azure PaaS resources
 
-Use the following steps to managed a private endpoint connection in the Azure portal.
+Use the following steps to manage a private endpoint connection in the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -180,7 +180,7 @@ Use the following PowerShell commands to manage private endpoint connections.
 
 ## Get Private Link connection states
 
-Use [Get-AzPrivateEndpointConnection](/powershell/module/az.network/get-azprivateendpointconnection) to get the Private Endpoint connections and their states.  
+Use **[Get-AzPrivateEndpointConnection](/powershell/module/az.network/get-azprivateendpointconnection)** to get the Private Endpoint connections and their states.  
 
 ```azurepowershell
 $get = @{
@@ -192,7 +192,7 @@ Get-AzPrivateEndpointConnection @get
 
 ## Approve a Private Endpoint connection 
 
-Use [Approve-AzPrivateEndpointConnection](/powershell/module/az.network/approve-azprivateendpointconnection) cmdlet to approve a Private Endpoint connection. 
+Use **[Approve-AzPrivateEndpointConnection](/powershell/module/az.network/approve-azprivateendpointconnection)** cmdlet to approve a Private Endpoint connection. 
 
 ```azurepowershell
 $approve = @{
@@ -205,7 +205,7 @@ Approve-AzPrivateEndpointConnection @approve
 
 ## Deny Private Endpoint connection
 
-Use [Deny-AzPrivateEndpointConnection](/powershell/module/az.network/deny-azprivateendpointconnection) cmdlet to reject a Private Endpoint connection. 
+Use **[Deny-AzPrivateEndpointConnection](/powershell/module/az.network/deny-azprivateendpointconnection)** cmdlet to reject a Private Endpoint connection. 
 
 ```azurepowershell
 $deny = @{
@@ -218,7 +218,7 @@ Deny-AzPrivateEndpointConnection  @deny
 
 ## Remove Private Endpoint connection 
 
-Use [Remove-AzPrivateEndpointConnection](/powershell/module/az.network/remove-azprivateendpointconnection) cmdlet to remove a Private Endpoint connection. 
+Use **[Remove-AzPrivateEndpointConnection](/powershell/module/az.network/remove-azprivateendpointconnection)** cmdlet to remove a Private Endpoint connection. 
 
 ```azurepowershell
 $remove = @{
@@ -235,7 +235,7 @@ Use the following Azure CLI commands to manage private endpoint connections.
 
 ## Get Private Link connection states 
 
-Use [az network private-endpoint-connection show](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-show)  to get the Private Endpoint connections and their states.  
+Use **[az network private-endpoint-connection show](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-show)** to get the Private Endpoint connections and their states.  
 
 ```azurecli
   az network private-endpoint-connection show \
@@ -245,7 +245,7 @@ Use [az network private-endpoint-connection show](/cli/azure/network/private-end
 
 ## Approve a Private Endpoint connection 
  
-Use [az network private-endpoint-connection approve](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-approve) cmdlet to approve a Private Endpoint connection. 
+Use **[az network private-endpoint-connection approve](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-approve)** cmdlet to approve a Private Endpoint connection. 
  
 ```azurecli
   az network private-endpoint-connection approve \
@@ -255,7 +255,7 @@ Use [az network private-endpoint-connection approve](/cli/azure/network/private-
  
 ## Deny Private Endpoint connection 
  
-Use [az network private-endpoint-connection reject](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-reject) cmdlet to reject a Private Endpoint connection. 
+Use **[az network private-endpoint-connection reject](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-reject)** cmdlet to reject a Private Endpoint connection. 
 
 ```azurecli
   az network private-endpoint-connection reject \
@@ -265,7 +265,7 @@ Use [az network private-endpoint-connection reject](/cli/azure/network/private-e
 
 ## Remove Private Endpoint connection 
  
-Use [az network private-endpoint-connection delete](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-delete) cmdlet to remove a Private Endpoint connection. 
+Use **[az network private-endpoint-connection delete](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-delete)** cmdlet to remove a Private Endpoint connection. 
 
 ```azurecli
   az network private-endpoint-connection delete \
