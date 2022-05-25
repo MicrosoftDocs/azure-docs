@@ -9,6 +9,8 @@
   items:
   - name: Get started with Azure Digital Twins Explorer
     href: quickstart-azure-digital-twins-explorer.md
+  - name: Get started with 3D Scenes Studio
+    href: quickstart-3d-scenes-studio.md
 - name: Tutorials
   items:
   - name: Code a client app
@@ -41,7 +43,7 @@
     href: concepts-query-language.md
   - name: Query Units
     href: concepts-query-units.md 
-  - name: Data history (with Azure Data Explorer) (preview)
+  - name: Data history (with Azure Data Explorer)
     href: concepts-data-history.md
   - name: Querying with the Azure Data Explorer plugin
     href: concepts-data-explorer-plugin.md
@@ -59,6 +61,8 @@
     href: concepts-event-notifications.md
   - name: Endpoints and event routes
     href: concepts-route-events.md
+  - name: 3D Scenes Studio
+    href: concepts-3d-scenes-studio.md
   - name: Security for Azure Digital Twins solutions
     href: concepts-security.md  
   - name: High availability and disaster recovery
@@ -88,7 +92,7 @@
   - name: Use live execution environment
     items:
     - name: Use Azure Digital Twins Explorer
-      href: how-to-use-azure-digital-twins-explorer.md  
+      href: how-to-use-azure-digital-twins-explorer.md
     - name: Manage digital twins
       href: how-to-manage-twin.md
     - name: Manage the twin graph and relationships
@@ -101,14 +105,12 @@
     items:
     - name: Make API requests with Postman
       href: how-to-use-postman.md
+    - name: Use 3D Scenes Studio
+      href: how-to-use-3d-scenes-studio.md
     - name: Write app authentication code
       href: how-to-authenticate-client.md
     - name: Create an app registration with Azure Digital Twins access
-      items:
-      - name: Portal
-        href: how-to-create-app-registration-portal.md
-      - name: CLI
-        href: how-to-create-app-registration-cli.md
+      href: how-to-create-app-registration.md
     - name: Integrate with Azure SignalR Service
       href: how-to-integrate-azure-signalr.md
   - name: Connect input
@@ -127,7 +129,7 @@
       href: how-to-manage-routes.md
     - name: Route events with a managed identity
       href: how-to-route-with-managed-identity.md
-    - name: Use data history with Azure Data Explorer (preview)
+    - name: Use data history with Azure Data Explorer
       href: how-to-use-data-history.md
     - name: Integrate with Azure Time Series Insights
       href: how-to-integrate-time-series-insights.md
@@ -191,7 +193,7 @@
           href: reference-query-clause-select.md
         - name: FROM
           href: reference-query-clause-from.md
-        - name: MATCH (preview)
+        - name: MATCH
           href: reference-query-clause-match.md
         - name: JOIN
           href: reference-query-clause-join.md

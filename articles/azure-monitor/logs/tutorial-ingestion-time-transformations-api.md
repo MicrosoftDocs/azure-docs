@@ -8,6 +8,9 @@ ms.date: 02/20/2022
 # Tutorial: Add ingestion-time transformation to Azure Monitor Logs using resource manager templates (preview)
 [Ingestion-time transformations](ingestion-time-transformations.md) allow you to manipulate incoming data before it's stored in a Log Analytics workspace. You can add data filtering, parsing and extraction, and control the structure of the data that gets ingested. This tutorial walks you through configuration of a sample ingestion time transformation using resource manager templates.
 
+[!INCLUDE [Sign up for preview](../../../includes/azure-monitor-custom-logs-signup.md)]
+
+
 > [!NOTE]
 > This tutorial uses resource manager templates and REST API to configure an ingestion-time transformation. See [Tutorial: Add ingestion-time transformation to Azure Monitor Logs using the Azure portal (preview)](tutorial-ingestion-time-transformations.md) for the same tutorial using the Azure portal.
 
@@ -24,7 +27,13 @@ In this tutorial, you learn to:
 ## Prerequisites
 To complete this tutorial, you need the following: 
 
-- Log Analytics workspace where you have at least [contributor rights](manage-access.md#manage-access-using-azure-permissions) .
+- Log Analytics workspace where you have at least [contributor rights](manage-access.md#manage-access-using-azure-permissions).
+- - A [supported Azure table](../logs/tables-feature-support.md) in the workspace.
+    
+    To configure this table for ingestion-time transformations, the table must already have some data.
+    
+    The table can't be linked to the workspace’s default DCR.
+
 - [Permissions to create Data Collection Rule objects](../essentials/data-collection-rule-overview.md#permissions) in the workspace. 
 
 
