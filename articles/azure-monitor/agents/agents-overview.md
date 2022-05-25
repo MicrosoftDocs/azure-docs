@@ -6,7 +6,7 @@ services: azure-monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/11/2022
+ms.date: 05/24/2022
 ---
 
 # Overview of Azure Monitor agents
@@ -148,6 +148,7 @@ The following tables list the operating systems that are supported by the Azure 
 | Operating system | Azure Monitor agent | Log Analytics agent | Dependency agent | Diagnostics extension | 
 |:---|:---:|:---:|:---:|:---:|
 | Windows Server 2022                                      | X |   |   |   |
+| Windows Server 2022 Core                                 | X |   |   |   |
 | Windows Server 2019                                      | X | X | X | X |
 | Windows Server 2019 Core                                 | X |   |   |   |
 | Windows Server 2016                                      | X | X | X | X |
@@ -170,6 +171,7 @@ The following tables list the operating systems that are supported by the Azure 
 
 | Operating system | Azure Monitor agent <sup>1</sup> | Log Analytics agent <sup>1</sup> | Dependency agent | Diagnostics extension <sup>2</sup>| 
 |:---|:---:|:---:|:---:|:---:
+| AlmaLinux                                                   | X |   |   |   |
 | Amazon Linux 2017.09                                        |   | X |   |   |
 | Amazon Linux 2                                              |   | X |   |   |
 | CentOS Linux 8                                              | X <sup>3</sup> | X | X |   |
@@ -190,12 +192,14 @@ The following tables list the operating systems that are supported by the Azure 
 | Red Hat Enterprise Linux Server 7                           | X | X | X | X |
 | Red Hat Enterprise Linux Server 6                           |   | X | X |   |
 | Red Hat Enterprise Linux Server 6.7+                        |   | X | X | X |
+| Rocky Linux                                                 | X |   |   |   |
 | SUSE Linux Enterprise Server 15.2                           | X <sup>3</sup> |   |   |   |
 | SUSE Linux Enterprise Server 15.1                           | X <sup>3</sup> | X |   |   |
 | SUSE Linux Enterprise Server 15 SP1                         | X | X | X |   |
 | SUSE Linux Enterprise Server 15                             | X | X | X |   |
 | SUSE Linux Enterprise Server 12 SP5                         | X | X | X | X |
 | SUSE Linux Enterprise Server 12                             | X | X | X | X |
+| Ubuntu 22.04 LTS                                            | X |   |   |   |
 | Ubuntu 20.04 LTS                                            | X | X | X | X |
 | Ubuntu 18.04 LTS                                            | X | X | X | X |
 | Ubuntu 16.04 LTS                                            | X | X | X | X |

@@ -1,9 +1,10 @@
 ---
 title: 'Quickstart: Deploy an existing container image with the Azure CLI'
-description: Deploy an existing container image to Azure Container Apps Preview with the Azure CLI.
+description: Deploy an existing container image to Azure Container Apps with the Azure CLI.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: event-tier1-build-2022
 ms.topic: quickstart
 ms.date: 03/21/2022
 ms.author: cshoe
@@ -12,7 +13,7 @@ zone_pivot_groups: container-apps-registry-types
 
 # Quickstart: Deploy an existing container image with the Azure CLI
 
-The Azure Container Apps Preview service enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while you leave behind the concerns of manual cloud infrastructure configuration and complex container orchestrators.
+The Azure Container Apps service enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while you leave behind the concerns of manual cloud infrastructure configuration and complex container orchestrators.
 
 This article demonstrates how to deploy an existing container to Azure Container Apps.
 
@@ -24,6 +25,7 @@ This article demonstrates how to deploy an existing container to Azure Container
 - An Azure account with an active subscription.
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
+- Access to a public or private container registry.
 
 [!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
@@ -67,6 +69,22 @@ For details on how to provide values for any of these parameters to the `create`
 
 ::: zone pivot="container-apps-private-registry"
 
+If you are using Azure Container Registry (ACR), you can login to your registry and forego the need to use the `--registry-username` and `--registry-password` parameters in the `az containerapp create` command and eliminate the need to set the REGISTRY_USERNAME and REGISTRY_PASSWORD variables.
+
+# [Bash](#tab/bash)
+
+```azurecli
+az acr login --name <REGISTRY_NAME>
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+az acr login --name <REGISTRY_NAME>
+```
+
+---
+
 # [Bash](#tab/bash)
 
 ```bash
@@ -76,7 +94,9 @@ REGISTRY_USERNAME=<REGISTRY_USERNAME>
 REGISTRY_PASSWORD=<REGISTRY_PASSWORD>
 ```
 
-As you define these variables, replace the placeholders surrounded by `<>` with your values.
+(Replace the \<placeholders\> with your values.)
+
+If you have logged in to ACR, you can omit the `--registry-username` and `--registry-password` parameters in the `az containerapp create` command.
 
 ```azurecli
 az containerapp create \
@@ -98,7 +118,9 @@ $REGISTRY_USERNAME=<REGISTRY_USERNAME>
 $REGISTRY_PASSWORD=<REGISTRY_PASSWORD>
 ```
 
-As you define these variables, replace the placeholders surrounded by `<>` with your values.
+(Replace the \<placeholders\> with your values.)
+
+If you have logged in to ACR, you can omit the `--registry-username` and `--registry-password` parameters in the `az containerapp create` command.
 
 ```powershell
 az containerapp create `
@@ -166,6 +188,7 @@ az monitor log-analytics query \
 
 ```powershell
 $LOG_ANALYTICS_WORKSPACE_CLIENT_ID=(az containerapp env show --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP --query properties.appLogsConfiguration.logAnalyticsConfiguration.customerId --out tsv)
+
 
 az monitor log-analytics query `
   --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `

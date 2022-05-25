@@ -16,6 +16,8 @@ This article walks you through the process for using a Bicep file to deploy an A
 
 [!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
 
+Only those properties included in the template are used in the deployment. If more customization is required, such as [setting up network security](search-security-overview.md#network-security), you can [update the service configuration](/cli/azure/search/service?view=azure-cli-latest#az-search-service-update) as a post-deployment task.
+
 ## Prerequisites
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -23,8 +25,6 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Review the Bicep file
 
 The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/azure-search-create/).
-
-Only those properties included in the template are used in the deployment. If more customization is required, such as [setting up network security](search-security-overview.md#network-security), you can [update service configuration](/cli/azure/search/service?view=azure-cli-latest#az-search-service-update) after the service is deployed.
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.search/azure-search-create/main.bicep":::
 
