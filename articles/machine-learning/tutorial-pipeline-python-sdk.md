@@ -852,7 +852,9 @@ Now that the model is deployed to the endpoint, you can run inference with it.
 
 Create a sample request file following the design expected in the run method in the score script.
 
-[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=sample-request.json)][!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=write-sample-request)]
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=sample-request.json)]
+
+[!Notebook-python[] (~/azureml-examples-main/tutorials/e2e-ds-experience/e2e-ml-workflow.ipynb?name=write-sample-request)]
 
 ```python
 %%writefile {deploy_dir}/sample-request.json
