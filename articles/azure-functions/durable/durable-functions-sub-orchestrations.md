@@ -93,14 +93,14 @@ public String deviceProvisioningOrchestration(
         return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
             // Step 1: Create an installation package in blob storage and return a SAS URL.
             String deviceId = ctx.getInput(String.class);
-            String blobUri = ctx.callActivity("CreateInstallPackage", deviceId, String.class).get();
+            String blobUri = ctx.callActivity("CreateInstallPackage", deviceId, String.class).await();
 
             // Step 2: Notify the device that the installation package is ready.
             String[] args = { deviceId, blobUri };
-            ctx.callActivity("SendPackageUrlToDevice", args).get();
+            ctx.callActivity("SendPackageUrlToDevice", args).await();
 
             // Step 3: Wait for the device to acknowledge that it has downloaded the new package.
-            ctx.waitForExternalEvent("DownloadCompletedAck").get();
+            ctx.waitForExternalEvent("DownloadCompletedAck").await();
 
             // Step 4: ...
         });

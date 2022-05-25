@@ -145,16 +145,16 @@ public String transferFunds(
             TransferOperation transfer = ctx.getInput(TransferOperation.class);
             ctx.callActivity(
                 "DebitAccount", 
-                new OperationArgs(transfer.sourceAccount, transfer.amount)).get();
+                new OperationArgs(transfer.sourceAccount, transfer.amount)).await();
             try {
                 ctx.callActivity(
                     "CreditAccount", 
-                    new OperationArgs(transfer.destinationAccount, transfer.amount)).get();
+                    new OperationArgs(transfer.destinationAccount, transfer.amount)).await();
             } catch (TaskFailedException ex) {
                 // Refund the source account on failure
                 ctx.callActivity(
                     "CreditAccount", 
-                    new OperationArgs(transfer.sourceAccount, transfer.amount)).get();
+                    new OperationArgs(transfer.sourceAccount, transfer.amount)).await();
             }
         });
 }
@@ -244,7 +244,7 @@ Invoke-DurableActivity -FunctionName 'FlakyFunction' -RetryOptions $retryOptions
                 final int maxAttempts = 3;
                 final Duration firstRetryInterval = Duration.ofSeconds(5);
                 RetryPolicy policy = RetryPolicy.newBuilder(maxAttempts, firstRetryInterval).build();
-                ctx.callActivity("FlakeyFunction", null, TaskOptions.fromRetryPolicy(policy)).get();
+                ctx.callActivity("FlakeyFunction", null, TaskOptions.fromRetryPolicy(policy)).await();
                 // ...
             });
     }
@@ -316,7 +316,7 @@ RetryHandler retryHandler = retryCtx -> {
 
 TaskOptions options = TaskOptions.fromRetryHandler(retryHandler);
 try {
-    ctx.callActivity("FlakeyActivity", null, options).get();
+    ctx.callActivity("FlakeyActivity", null, options).await();
 } catch (TaskFailedException ex) {
     // Case when the retry handler returns false...
 }
@@ -439,7 +439,7 @@ public String timerOrchestrator(
             Task<Void> activityTask = ctx.callActivity("SlowFunction");
             Task<Void> timeoutTask = ctx.createTimer(Duration.ofMinutes(30));
 
-            Task<?> winner = ctx.anyOf(activityTask, timeoutTask).get();
+            Task<?> winner = ctx.anyOf(activityTask, timeoutTask).await();
             if (winner == activityTask) {
                 // success case
                 return true;

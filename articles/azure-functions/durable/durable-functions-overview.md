@@ -137,15 +137,15 @@ public String helloCitiesOrchestrator(
         @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
     return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
         String input = ctx.getInput(String.class);
-        int x = ctx.callActivity("F1", input, int.class).get();
-        int y = ctx.callActivity("F2", x, int.class).get();
-        int z = ctx.callActivity("F3", y, int.class).get();
-        return  ctx.callActivity("F4", z, double.class).get();
+        int x = ctx.callActivity("F1", input, int.class).await();
+        int y = ctx.callActivity("F2", x, int.class).await();
+        int z = ctx.callActivity("F3", y, int.class).await();
+        return  ctx.callActivity("F4", z, double.class).await();
     });
 }
 ```
 
-You can use the `ctx` object to invoke other functions by name, pass parameters, and return function output. The output of these method calls is a `Task<V>` object where `V` is the type of data returned by the invoked function. Each time the you call `Task<V>.get()`, the Durable Functions framework checkpoints the progress of the current function instance. If the process unexpectedly recycles midway through the execution, the function instance resumes from the preceding `Task<V>.get()` call. For more information, see the next section, Pattern #2: Fan out/fan in.
+You can use the `ctx` object to invoke other functions by name, pass parameters, and return function output. The output of these method calls is a `Task<V>` object where `V` is the type of data returned by the invoked function. Each time the you call `Task<V>.await()`, the Durable Functions framework checkpoints the progress of the current function instance. If the process unexpectedly recycles midway through the execution, the function instance resumes from the preceding `Task<V>.await()` call. For more information, see the next section, Pattern #2: Fan out/fan in.
 
 > [!NOTE]
 > The orchestrator function logic must implemented as a lambda function and wrapped by a call to `OrchestrationRunner.loadAndRun(...)` as shown in the above example.
@@ -274,7 +274,7 @@ The automatic checkpointing that happens at the `Wait-ActivityFunction` call ens
 public String fanOutFanInOrchestrator(
         @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
     return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-        List<?> batch = ctx.callActivity("F1", null, List.class).get();
+        List<?> batch = ctx.callActivity("F1", null, List.class).await();
 
         // Schedule each task to run in parallel
         List<Task<Integer>> parallelTasks = IntStream.range(0, batch.size())
@@ -282,15 +282,15 @@ public String fanOutFanInOrchestrator(
                 .collect(Collectors.toList());
 
         // Wait for all tasks to complete, then return the aggregated sum of the results
-        List<Integer> results = ctx.allOf(parallelTasks).get();
+        List<Integer> results = ctx.allOf(parallelTasks).await();
         return results.stream().reduce(0, Integer::sum);
     });
 }
 ```
 
-The fan-out work is distributed to multiple instances of the `F2` function. The work is tracked by using a dynamic list of tasks. `ctx.allOf(parallelTasks).get()` is called to wait for all the called functions to finish. Then, the `F2` function outputs are aggregated from the dynamic task list and returned as the orchestrator function's ouput.
+The fan-out work is distributed to multiple instances of the `F2` function. The work is tracked by using a dynamic list of tasks. `ctx.allOf(parallelTasks).await()` is called to wait for all the called functions to finish. Then, the `F2` function outputs are aggregated from the dynamic task list and returned as the orchestrator function's output.
 
-The automatic checkpointing that happens at the `.get()` call on `ctx.allOf(parallelTasks)` ensures that an unexpected process recycle doesn't require restarting any already completed tasks.
+The automatic checkpointing that happens at the `.await()` call on `ctx.allOf(parallelTasks)` ensures that an unexpected process recycle doesn't require restarting any already completed tasks.
 
 ---
 
@@ -478,17 +478,17 @@ public String monitorOrchestrator(
             Instant expiryTime = jobInfo.getExpirationTime();
 
             while (ctx.getCurrentInstant().compareTo(expiryTime) < 0) {
-                String status = ctx.callActivity("GetJobStatus", jobId, String.class).get();
+                String status = ctx.callActivity("GetJobStatus", jobId, String.class).await();
                 
                 // Perform an action when a condition is met
                 if (status.equals("Completed")) {
                     // send an alert and exit
-                    ctx.callActivity("SendAlert", jobId).get();
+                    ctx.callActivity("SendAlert", jobId).await();
                     break;
                 } else {
                     // wait N minutes before doing the next poll
                     Duration pollingDelay = jobInfo.getPollingDelay();
-                    ctx.createTimer(pollingDelay).get();
+                    ctx.createTimer(pollingDelay).await();
                 }
             }
 
@@ -632,23 +632,23 @@ public String approvalWorkflow(
     @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
         return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
             ApprovalInfo approvalInfo = ctx.getInput(ApprovalInfo.class);
-            ctx.callActivity("RequestApproval", approvalInfo).get();
+            ctx.callActivity("RequestApproval", approvalInfo).await();
 
             Duration timeout = Duration.ofHours(72);
             try {
                 // Wait for an approval. A TaskCanceledException will be thrown if the timeout expires.
-                boolean approved = ctx.waitForExternalEvent("ApprovalEvent", timeout, boolean.class).get();
+                boolean approved = ctx.waitForExternalEvent("ApprovalEvent", timeout, boolean.class).await();
                 approvalInfo.setApproved(approved);
 
-                ctx.callActivity("ProcessApproval", approvalInfo).get();
+                ctx.callActivity("ProcessApproval", approvalInfo).await();
             } catch (TaskCanceledException timeoutEx) {
-                ctx.callActivity("Escalate", approvalInfo).get();
+                ctx.callActivity("Escalate", approvalInfo).await();
             }
         });
 }
 ```
 
-The `ctx.waitForExternalEvent(...).get()` method call pauses the orchestration until it receives an event named `ApprovalEvent`, which has a `boolean` payload. If the event is received, an activity function is called to process the approval result. However, if no such event is received before the `timeout` (72 hours) expires, a `TaskCanceledException` is raised and the `Escalate` activity function is called.
+The `ctx.waitForExternalEvent(...).await()` method call pauses the orchestration until it receives an event named `ApprovalEvent`, which has a `boolean` payload. If the event is received, an activity function is called to process the approval result. However, if no such event is received before the `timeout` (72 hours) expires, a `TaskCanceledException` is raised and the `Escalate` activity function is called.
 
 ---
 

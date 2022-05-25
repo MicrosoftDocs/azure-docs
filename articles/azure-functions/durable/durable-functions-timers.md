@@ -50,7 +50,7 @@ Start-DurableTimer -Duration $duration
 
 ```java
 // Put the orchestrator to sleep for 72 hours
-ctx.createTimer(Duration.ofHours(72)).get();
+ctx.createTimer(Duration.ofHours(72)).await();
 ```
 
 ---
@@ -141,8 +141,8 @@ public String billingIssuer(
     @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
         return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
             for (int i = 0; i < 10; i++) {
-                ctx.createTimer(Duration.ofDays(1)).get();
-                ctx.callActivity("SendBillingEvent").get();
+                ctx.createTimer(Duration.ofDays(1)).await();
+                ctx.callActivity("SendBillingEvent").await();
             }
             return "done";
         });

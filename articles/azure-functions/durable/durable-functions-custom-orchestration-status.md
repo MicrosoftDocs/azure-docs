@@ -140,11 +140,11 @@ public String helloCitiesOrchestrator(
         @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
     return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
         String result = "";
-        result += ctx.callActivity("SayHello", "Tokyo", String.class).get() + ", ";
+        result += ctx.callActivity("SayHello", "Tokyo", String.class).await() + ", ";
         ctx.setCustomStatus("Tokyo");
-        result += ctx.callActivity("SayHello", "London", String.class).get() + ", ";
+        result += ctx.callActivity("SayHello", "London", String.class).await() + ", ";
         ctx.setCustomStatus("London");
-        result += ctx.callActivity("SayHello", "Seattle", String.class).get();
+        result += ctx.callActivity("SayHello", "Seattle", String.class).await();
         ctx.setCustomStatus("Seattle");
         return result;
     });
@@ -582,10 +582,10 @@ public String reserveTicket(
     @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
         return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
             String userID = ctx.getInput(String.class);
-            int discount = ctx.callActivity("CalculateDiscount", userID, int.class).get();
+            int discount = ctx.callActivity("CalculateDiscount", userID, int.class).await();
             ctx.setCustomStatus(new DiscountInfo(discount, 60, "https://www.myawesomebookingweb.com"));
 
-            boolean isConfirmed = ctx.waitForExternalEvent("BookingConfirmed", boolean.class).get();
+            boolean isConfirmed = ctx.waitForExternalEvent("BookingConfirmed", boolean.class).await();
             if (isConfirmed) {
                 ctx.setCustomStatus("Thank you for confirming your booking.");
             } else {

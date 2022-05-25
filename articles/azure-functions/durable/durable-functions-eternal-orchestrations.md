@@ -96,9 +96,9 @@ PowerShell doesn't support *continue-as-new*.
 public String periodicCleanupLoop(
     @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
         return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-            ctx.callActivity("DoCleanup").get();
+            ctx.callActivity("DoCleanup").await();
 
-            ctx.createTimer(Duration.ofHours(1)).get();
+            ctx.createTimer(Duration.ofHours(1)).await();
 
             ctx.continueAsNew(null);
         });

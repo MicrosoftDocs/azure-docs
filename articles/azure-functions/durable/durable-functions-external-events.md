@@ -88,7 +88,7 @@ if ($approved) {
 # [Java](#tab/java)
 
 ```java
-boolean approved = ctx.waitForExternalEvent("Approval", boolean.class).get();
+boolean approved = ctx.waitForExternalEvent("Approval", boolean.class).await();
 if (approved) {
     // approval granted - do the approved action
 } else {
@@ -206,7 +206,7 @@ public String selectOrchestrator(
             Task<Void> event2 = ctx.waitForExternalEvent("Event2");
             Task<Void> event3 = ctx.waitForExternalEvent("Event3");
 
-            Task<?> winner = ctx.anyOf(event1, event2, event3).get();
+            Task<?> winner = ctx.anyOf(event1, event2, event3).await();
             if (winner == event1) {
                 // ...
             } else if (winner == event2) {
@@ -314,9 +314,9 @@ public String newBuildingPermit(
             Task<Void> gate3 = ctx.waitForExternalEvent("BuildingDeptApproval");
 
             // all three departments must grant approval before a permit can be issued
-            ctx.allOf(gate1, gate2, gate3).get();
+            ctx.allOf(List.of(gate1, gate2, gate3)).await();
 
-            ctx.callActivity("IssueBuildingPermit", applicationId).get();
+            ctx.callActivity("IssueBuildingPermit", applicationId).await();
         });
 }
 ```

@@ -40,7 +40,7 @@ An orchestration's instance ID is a required parameter for most [instance manage
 
 Orchestrator functions reliably maintain their execution state by using the [event sourcing](/azure/architecture/patterns/event-sourcing) design pattern. Instead of directly storing the current state of an orchestration, the Durable Task Framework uses an append-only store to record the full series of actions the function orchestration takes. An append-only store has many benefits compared to "dumping" the full runtime state. Benefits include increased performance, scalability, and responsiveness. You also get eventual consistency for transactional data and full audit trails and history. The audit trails support reliable compensating actions.
 
-Durable Functions uses event sourcing transparently. Behind the scenes, the `await` (C#) or `yield` (JavaScript/Python) operator in an orchestrator function yields control of the orchestrator thread back to the Durable Task Framework dispatcher. In the case of Java, there is no special language keyword. Instead, calling `.get()` on a task will yield control back to the dispatcher via a custom `Throwable`. The dispatcher then commits any new actions that the orchestrator function scheduled (such as calling one or more child functions or scheduling a durable timer) to storage. The transparent commit action updates the execution history of the orchestration instance by appending all new events into storage, much like an append-only log. Similarly, the commit action creates messages in storage to schedule the actual work. At this point, the orchestrator function can be unloaded from memory. By default, Durable Functions uses Azure Storage as its runtime state store, but other [storage providers are also supported](durable-functions-storage-providers.md).
+Durable Functions uses event sourcing transparently. Behind the scenes, the `await` (C#) or `yield` (JavaScript/Python) operator in an orchestrator function yields control of the orchestrator thread back to the Durable Task Framework dispatcher. In the case of Java, there is no special language keyword. Instead, calling `.await()` on a task will yield control back to the dispatcher via a custom `Throwable`. The dispatcher then commits any new actions that the orchestrator function scheduled (such as calling one or more child functions or scheduling a durable timer) to storage. The transparent commit action updates the execution history of the orchestration instance by appending all new events into storage, much like an append-only log. Similarly, the commit action creates messages in storage to schedule the actual work. At this point, the orchestrator function can be unloaded from memory. By default, Durable Functions uses Azure Storage as its runtime state store, but other [storage providers are also supported](durable-functions-storage-providers.md).
 
 When an orchestration function is given more work to do (for example, a response message is received or a durable timer expires), the orchestrator wakes up and re-executes the entire function from the start to rebuild the local state. During the replay, if the code tries to call a function (or do any other async work), the Durable Task Framework consults the execution history of the current orchestration. If it finds that the [activity function](durable-functions-types-features-overview.md#activity-functions) has already executed and yielded a result, it replays that function's result and the orchestrator code continues to run. Replay continues until the function code is finished or until it has scheduled new async work.
 
@@ -124,9 +124,9 @@ public String helloCitiesOrchestrator(
         @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
     return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
         String result = "";
-        result += ctx.callActivity("SayHello", "Tokyo", String.class).get() + ", ";
-        result += ctx.callActivity("SayHello", "Seattle", String.class).get() + ", ";
-        result += ctx.callActivity("SayHello", "London", String.class).get();
+        result += ctx.callActivity("SayHello", "Tokyo", String.class).await() + ", ";
+        result += ctx.callActivity("SayHello", "Seattle", String.class).await() + ", ";
+        result += ctx.callActivity("SayHello", "London", String.class).await();
         return result;
     });
 }
@@ -451,7 +451,7 @@ public String getWeatherOrchestrator(
             var location = new Location();
             location.city = "Seattle";
             location.state = "WA";
-            String weather = ctx.callActivity("GetWeather", location, String.class).get();
+            String weather = ctx.callActivity("GetWeather", location, String.class).await();
             return weather;
         });
 }
