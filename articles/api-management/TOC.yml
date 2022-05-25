@@ -190,6 +190,7 @@
                   href: graphql-api.md
                 - name: Import and resolve GraphQL schema
                   href: graphql-schema-resolve-api.md
+                  displayName: synthetic GraphQL
                 - name: Import an App Service web API
                   href: import-app-service-as-api.md
                 - name: Import a Container App web API
@@ -238,6 +239,7 @@
                   href: api-management-policy-expressions.md
                 - name: Reuse policy configurations
                   href: policy-fragments.md
+                  displayName: policy fragments
                 - name: Error handling
                   href: api-management-error-handling-policies.md
                 - name: Advanced monitoring
