@@ -85,7 +85,7 @@ To complete this quickstart you need:
 
 15. On the Overview, select the link under **URL**.
 
-    ![On the App Service resource, on the Overview, the URL is highlighted.](../../media/quickstart-ruby/azure-portal-app-service-url.png)  
+    ![Screenshot of the App Service resource's overview with the URL highlighted.](../../media/quickstart-ruby/azure-portal-app-service-url.png)  
 
 The Ruby sample code is running in an Azure App Service Linux web app.
 
