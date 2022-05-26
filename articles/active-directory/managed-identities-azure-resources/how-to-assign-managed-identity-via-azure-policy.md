@@ -87,9 +87,11 @@ For PolicyAssignmentMI managed identity to be able to assign the built-in policy
 |PolicyAssigmentMI |Managed Identity Operator | /subscription/subscription-id/resourceGroups/built-in-identity <br> OR <br>Bring-your-own-User-assinged-Managed identity |Required to assign the built-in identity to VMs.|
 |PolicyAssigmentMI |Contributor | /subscription/subscription-id> |Required to create the resource-group that holds the built-in managed identity in the subscription. |
 |PolicyAssigmentMI |Managed Identity Contributor | /subscription/subscription-id/resourceGroups/built-in-identity |Required to create a new user-assigned managed identity.|
-|PolicyAssigmentMI |User Access Adminstrator | /subscription/subscription-id/resourceGroups/built-in-identity <br> OR <br>Bring-your-own-User-assinged-Managed identity |Required to set a lock on the user-assigned managed identity created by the policy.|
+|PolicyAssigmentMI |User Access Administrator | /subscription/subscription-id/resourceGroups/built-in-identity <br> OR <br>Bring-your-own-User-assigned-Managed identity |Required to set a lock on the user-assigned managed identity created by the policy.|
 
-As the policy assignment object must have this permission ahead of time, PolicyAssignmentMI cannot be a system-assigned managed identity for this scenario. The user performing the policy assignment task must pre-authorize PolicyAssignmentMI ahe3ad of time with the above role assignments.
+
+As the policy assignment object must have this permission ahead of time, PolicyAssignmentMI cannot be a system-assigned managed identity for this scenario. The user performing the policy assignment task must pre-authorize PolicyAssignmentMI ahead of time with the above role assignments.
+
 As you can see the resultant least privilege role required is “contributor” at the subscription scope.
 
 
@@ -99,7 +101,8 @@ As you can see the resultant least privilege role required is “contributor” 
 Possible race condition with another deployment that changes the identities assigned to a VM can result in unexpected results.
 
 If there are two or more parallel deployments updating the same virtual machine and they all change the identity configuration of the virtual machine, then it is possible, under specific race conditions, that all expected identities will NOT be assigned to the machines. 
-For example, if you the policy in this document is updating the managed identities of a VM and at the same time another process is also making changes to the managed identities section, then it is not guranteed that all the expected identities are proerly assigned to the VM. 
+For example, if the policy in this document is updating the managed identities of a VM and at the same time another process is also making changes to the managed identities section, then it is not guaranteed that all the expected identities are properly assigned to the VM. 
+
 
 ## Next steps
 
