@@ -209,7 +209,7 @@ Compiling the project takes 5-10 minutes. Once completed, you should have indivi
 1. If you didn't run the following commands in the previous quickstarts, set the CLI defaults.
 
    ```azurecli
-   az configure --defaults group=<resource-group-name> spring-cloud=<service-name>
+   az configure --defaults group=<resource-group-name> spring=<service-name>
    ```
 
 1. Create the 2 core Spring applications for PetClinic: API gateway and customers-service.
