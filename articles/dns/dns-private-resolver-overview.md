@@ -6,7 +6,7 @@ ms.custom: references_regions
 author: greg-lindsay
 ms.service: dns
 ms.topic: overview
-ms.date: 05/10/2022
+ms.date: 05/25/2022
 ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure DNS Private Resolver so I can determine if I want to use it instead of my current DNS resolver service.
 ---
@@ -20,12 +20,12 @@ Azure DNS Private Resolver is a new service that enables you to query Azure DNS 
 
 ## How does it work?
 
-Azure DNS Private Resolver requires an [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview).  When you create an Azure DNS Private Resolver inside a virtual network, one or more [inbound endpoints](#inbound-endpoints) are established that can be used as the destination for DNS queries. The resolver's [outbound endpoint](#outbound-endpoints) processes DNS queries based on a [DNS forwarding ruleset](#dns-forwarding-rulesets) that you configure.  DNS queries that are initiated in networks linked to a ruleset can be sent to other DNS servers.
+Azure DNS Private Resolver requires an [Azure Virtual Network](../virtual-network/virtual-networks-overview.md).  When you create an Azure DNS Private Resolver inside a virtual network, one or more [inbound endpoints](#inbound-endpoints) are established that can be used as the destination for DNS queries. The resolver's [outbound endpoint](#outbound-endpoints) processes DNS queries based on a [DNS forwarding ruleset](#dns-forwarding-rulesets) that you configure.  DNS queries that are initiated in networks linked to a ruleset can be sent to other DNS servers.
 
 The DNS query process when using an Azure DNS Private Resolver is summarized below:
 
 1. A client in a virtual network issues a DNS query.
-2. If the DNS servers for this virtual network are [specified as custom](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#specify-dns-servers), then the query is forwarded to the specified IP addresses.
+2. If the DNS servers for this virtual network are [specified as custom](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#specify-dns-servers), then the query is forwarded to the specified IP addresses.
 3. If Default (Azure-provided) DNS servers are configured in the virtual network, and there are Private DNS zones [linked to the same virtual network](private-dns-virtual-network-links.md), these zones are consulted.
 4. If the query doesn't match a Private DNS zone linked to the virtual network, then [Virtual network links](#virtual-network-links) for [DNS forwarding rulesets](#dns-forwarding-rulesets) are consulted.
 5. If no ruleset links are present, then Azure DNS is used to resolve the query.
@@ -34,7 +34,7 @@ The DNS query process when using an Azure DNS Private Resolver is summarized bel
 8. If multiple matches are present, the longest suffix is used.
 9. If no match is found, no DNS forwarding occurs and Azure DNS is used to resolve the query.
 
-The architecture for Azure DNS Private Resolver is summarized in the following figure. DNS resolution between Azure virtual networks and on-premises networks requires [Azure ExpressRoute](/azure/expressroute/expressroute-introduction) or a [VPN](/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+The architecture for Azure DNS Private Resolver is summarized in the following figure. DNS resolution between Azure virtual networks and on-premises networks requires [Azure ExpressRoute](../expressroute/expressroute-introduction.md) or a [VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 [ ![Azure DNS Private Resolver architecture](./media/dns-resolver-overview/resolver-architecture.png) ](./media/dns-resolver-overview/resolver-architecture.png#lightbox)
 
@@ -116,14 +116,8 @@ Subnets used for DNS resolver have the following limitations:
 Outbound endpoints have the following limitations:
 - An outbound endpoint can't be deleted unless the DNS forwarding ruleset and the virtual network links under it are deleted
 
-### DNS forwarding ruleset restrictions
-
-DNS forwarding rulesets have the following limitations:
-- A DNS forwarding ruleset can't be deleted unless the virtual network links under it are deleted
-
 ### Other restrictions
 
-- DNS resolver endpoints can't be updated to include IP configurations from a different subnet
 - IPv6 enabled subnets aren't supported in Public Preview
 
 

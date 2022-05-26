@@ -1,15 +1,14 @@
 ---
 title: Serverless SQL pool self-help
 description: This article contains information that can help you troubleshoot problems with serverless SQL pool.
-services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 9/23/2021
+ms.custom: event-tier1-build-2022
+ms.date: 05/16/2022
 ms.author: stefanazaric
 ms.reviewer: sngun, wiassaf
-ms.custom: ignite-fall-2021
 ---
 
 # Self-help for serverless SQL pool
@@ -119,7 +118,9 @@ For more information, see:
 
 #### Content of Dataverse table can't be listed
 
-If you use the Azure Synapse link for Dataverse to read the linked Dataverse tables, you must use an Azure AD account to access the linked data by using serverless SQL pool. If you try to use a SQL sign-in to read an external table that's referencing the Dataverse table, you'll get the following error:
+If you are using the Synapse link for Dataverse to read the linked DataVerse tables, you need to use Azure AD account to access the linked data using the serverless SQL pool. For more information, see [Azure Synapse Link for Dataverse with Azure Data Lake](/powerapps/maker/data-platform/azure-synapse-link-data-lake).
+
+If you try to use a SQL login to read an external table that is referencing the DataVerse table, you will get the following error:
 
 ```
 External table '???' is not accessible because content of directory cannot be listed.
@@ -199,11 +200,13 @@ Apply best practices before you file a support ticket.
 
 ### Query fails with an error handling an external file (max errors count reached)
 
-If your query fails with the error message "Error handling external file: Max errors count reached," it means there's a mismatch between a specified column type and the data that needs to be loaded. To get more information about the error and which rows and columns to look at, change the parser version from 2.0 to 1.0.
+If your query fails with the error message 'error handling external file: Max errors count reached', it means that there is a mismatch of a specified column type and the data that needs to be loaded.
 
-**Example**
+To get more information about the error and which rows and columns to look at, change the parser version from `2.0` to `1.0`.
 
-If you want to query the file names.csv with this Query 1, Azure Synapse serverless SQL pool returns with the following error:
+#### Example
+
+If you want to query the file `names.csv` with this Query 1, Azure Synapse serverless SQL pool returns with the following error:
 
 names.csv
 
@@ -236,7 +239,8 @@ FROM
 
     AS [result]
 ```
-Causes:
+
+#### Cause
 
 "Error handling external file: 'Max error count reached'. File/External table name: [filepath]."
 
@@ -291,7 +295,7 @@ To resolve this problem, inspect the file and the data types you chose. Also che
 
 For more information on field terminators, row delimiters, and escape quoting characters, see [Query CSV files](query-single-csv-file.md).
 
-**Example**
+#### Example
 
 If you want to query the file names.csv:
 
@@ -329,6 +333,9 @@ FROM
 Azure Synapse serverless SQL pool returns the error "Bulk load data conversion error (type mismatch or invalid character for the specified code page) for row 6, column 1 (ID) in data file [filepath]."
 
 It's necessary to browse the data and make an informed decision to handle this problem. To look at the data that causes this problem, the data type needs to be changed first. Instead of querying the ID column with the data type SMALLINT, VARCHAR(100) is now used to analyze this issue.
+
+It is necessary to browse the data and make an informed decision to handle this problem.
+To look at the data that causes this problem, the data type needs to be changed first. Instead of querying column "ID" with the data type "SMALLINT", VARCHAR(100) is now used to analyze this issue.
 
 With this slightly changed Query 2, the data can now be processed to return the list of names.
 
@@ -375,9 +382,9 @@ Your query might not fail, but you might see that your result set isn't as expec
 
 To resolve this problem, take another look at the data and change those settings. Debugging this query is easy, as shown in the following example.
 
-**Example**
+#### Example
 
-If you want to query the file names.csv with the query in Query 1, Azure Synapse serverless SQL pool returns with a result that looks odd:
+If you want to query the file `names.csv` with the query in Query 1, Azure Synapse serverless SQL pool returns with a result that looks odd:
 
 names.csv
 
@@ -417,7 +424,7 @@ FROM
 | 4,David       | NULL | 
 | 5,Eva         | NULL | 
 
-There seems to be no value in the column Firstname. Instead, all values ended up being in the ID column. Those values are separated by a comma. The problem was caused by this line of code because it's necessary to choose the comma instead of the semicolon symbol as field terminator:
+There seems to be no value in the column `Firstname`. Instead, all values ended up being in the `ID` column. Those values are separated by a comma. The problem was caused by this line of code because it's necessary to choose the comma instead of the semicolon symbol as field terminator:
 
 ```sql
 FIELDTERMINATOR =';',
@@ -501,7 +508,7 @@ FROM
     AS [result]
 ```
 
-"Column 'SumTripDistance' of type 'INT' is not compatible with external data type 'Parquet physical type: DOUBLE', please try with 'FLOAT'. File/External table name: '<filepath>taxi-data.parquet'."
+`Column 'SumTripDistance' of type 'INT' is not compatible with external data type 'Parquet physical type: DOUBLE', please try with 'FLOAT'. File/External table name: '<filepath>taxi-data.parquet'.`
 
 This error message tells you that data types aren't compatible and comes with the suggestion to use FLOAT instead of INT. The error is caused by this line of code:
 
@@ -626,9 +633,9 @@ More information about syntax and usage:
 
 When the file format is Parquet, the query won't recover automatically. It needs to be retried by the client application.
 
-### Azure Synapse Link for Dataverse
+### Synapse Link for Dataverse
 
-This error can occur when reading data from Azure Synapse Link for Dataverse, when Azure Synapse Link is syncing data to the lake and the data is being queried at the same time. The product group has a goal to improve this behavior.
+This error can occur when reading data from Synapse Link for Dataverse, when Synapse Link is syncing data to the lake and the data is being queried at the same time. The product group has a goal to improve this behavior. 
 
 ### [0x800700A1](#tab/x800700A1)
 
@@ -636,7 +643,7 @@ Confirm the storage account accessed is using the Archive access tier.
 
 The Archive access tier is an offline tier. While a blob is in the Archive access tier, it can't be read or modified.
 
-To read or download a blob in the Archive tier, rehydrate it to an online tier. See [Archive access tier](/azure/storage/blobs/access-tiers-overview#archive-access-tier).
+To read or download a blob in the Archive tier, rehydrate it to an online tier. See [Archive access tier](../../storage/blobs/access-tiers-overview.md#archive-access-tier).
 
 ### [0x80070057](#tab/x80070057)
 
@@ -896,10 +903,10 @@ If you use Synapse Studio, try using a desktop client such as SQL Server Managem
 
 Check the following issues if you experience slow query execution:
 
--	Make sure that the client applications are collocated with the serverless SQL pool endpoint. Executing a query across the region can cause more latency and slow streaming of the result set.
--	Make sure that you don't have networking issues that can cause the slow streaming of the result set.
--	Make sure that the client application has enough resources. For example, it's not using 100% CPU.
--	Make sure that the storage account or Azure Cosmos DB analytical storage is placed in the same region as your serverless SQL endpoint.
+- Make sure that the client applications are collocated with the serverless SQL pool endpoint. Executing a query across the region can cause additional latency and slow streaming of result set.
+- Make sure that you don't have networking issues that can cause the slow streaming of result set
+- Make sure that the client application has enough resources (for example, not using 100% CPU).
+- Make sure that the storage account or Cosmos DB analytical storage is placed in the same region as your serverless SQL endpoint.
 
 See best practices for [collocating the resources](best-practices-serverless-sql-pool.md#client-applications-and-network-connections).
 
