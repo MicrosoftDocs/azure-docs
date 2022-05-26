@@ -23,7 +23,7 @@ Before enabling NSG flow logging, you must have a network security group to log 
 
 In Azure portal, go to **Network watcher**, and then select **NSG flow logs**. Select the network security group that you want to enable an NSG flow log for, as shown in the following picture:
 
-![Screenshot of portal to select NSGs that require enablement of NSG flow log.](./media/traffic-analytics/selection-of-nsgs-that-require-enablement-of-nsg-flow-logging.png)
+![Screenshot of portal to select N S G that require enablement of NSG flow log.](./media/traffic-analytics/selection-of-nsgs-that-require-enablement-of-nsg-flow-logging.png)
 
 If you try to enable traffic analytics for an NSG that is hosted in any region other than the [supported regions](supported-region-traffic-analytics.md), you receive a "Not found" error.
 
@@ -63,7 +63,7 @@ Select the following options, as shown in the picture:
 
 8. Select **Save**.
 
-    ![Selection of storage account, Log Analytics workspace, and Traffic Analytics enablement](./media/traffic-analytics/ta-customprocessinginterval.png)
+    ![Selection of storage account, Log Analytics workspace, and Traffic Analytics enablement.](./media/traffic-analytics/ta-customprocessinginterval.png)
 
 Repeat the previous steps for any other NSGs for which you wish to enable traffic analytics for. Data from flow logs is sent to the workspace, so ensure that the local laws and regulations in your country/region permit data storage in the region where the workspace exists. If you have set different processing intervals for different NSGs, data will be collected at different intervals. For example, You can choose to enable processing interval of 10 mins for critical VNETs and 1 hour for noncritical VNETs.
 
@@ -73,6 +73,6 @@ You can also configure traffic analytics using the [Set-AzNetworkWatcherConfigFl
 
 To view Traffic Analytics, search for **Network Watcher** in the portal search bar. Once inside Network Watcher, to explore traffic analytics and its capabilities, select **Traffic Analytics** from the left menu. 
 
-![Accessing the Traffic Analytics dashboard](./media/traffic-analytics/accessing-the-traffic-analytics-dashboard.png)
+![Screenshot that displays how to access the Traffic Analytics dashboard.](./media/traffic-analytics/accessing-the-traffic-analytics-dashboard.png)
 
 The dashboard may take up to 30 minutes to appear the first time because Traffic Analytics must first aggregate enough data for it to derive meaningful insights, before it can generate any reports.

@@ -21,8 +21,8 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
 
 **Look for**
 
-- Which hosts, subnets, virtual networks and virtual machine scale set are sending or receiving the most traffic, traversing maximum malicious traffic and blocking significant flows?
-    - Check comparative chart for hosts, subnet, virtual network and virtual machine scale set. Understanding which hosts, subnets, virtual networks and virtual machine scale set are sending or receiving the most traffic can help you identify the hosts that are processing the most traffic, and whether the traffic distribution is done properly.
+- Which hosts, subnets, virtual networks, and virtual machine scale set are sending or receiving the most traffic, traversing maximum malicious traffic and blocking significant flows?
+    - Check comparative chart for hosts, subnet, virtual network, and virtual machine scale set. Understanding which hosts, subnets, virtual networks and virtual machine scale set are sending or receiving the most traffic can help you identify the hosts that are processing the most traffic, and whether the traffic distribution is done properly.
     - You can evaluate if the volume of traffic is appropriate for a host. Is the volume of traffic normal behavior, or does it merit further investigation?
 - How much inbound/outbound traffic is there?
     -   Is the host expected to receive more inbound traffic than outbound, or vice-versa?
@@ -31,13 +31,13 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
 - Statistics of malicious allowed/blocked traffic
   - Why is a host receiving malicious traffic and why are flows from malicious sources allowed? This behavior requires further investigation and probably optimization of configuration.
 
-    Select **See all**, under **IP**, as shown in the following picture:
+    Select **See all** under **IP** as shown in the following image:
 
     ![Screenshot of dashboard showcasing host with most traffic details.](media/traffic-analytics/dashboard-showcasing-host-with-most-traffic-details.png)
 
-    The following picture shows time trending for the top five talking hosts and the flow-related details (allowed – inbound/outbound and denied - inbound/outbound flows) for a host:
+    The following image shows time trending for the top five talking hosts and the flow-related details (allowed – inbound/outbound and denied - inbound/outbound flows) for a host:
 
-	Select **See more**, under **Details of top 5 talking IPs**, as shown in the following picture to get insights about all the hosts:
+	Select **See more** under **Details of top 5 talking IPs** as shown in the following image to get insights about all the hosts:
 
     ![Screenshot of top five most-talking host trends.](media/traffic-analytics/top-five-most-talking-host-trend.png)
 	
@@ -50,11 +50,11 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
     - Why a host is allowing or blocking significant traffic volume
 - Most frequently used application protocol among most conversing host pairs:
     - Are these applications allowed on this network?
-    - Are the applications configured properly? Are they using the appropriate protocol for communication? Select **See all** under **Frequent conversation**, as show in the following picture:
+    - Are the applications configured properly? Are they using the appropriate protocol for communication? Select **See all** under **Frequent conversation**, as show in the following image:
 
         ![Screenshot of dashboard showcasing most frequent conversations.](./media/traffic-analytics/dashboard-showcasing-most-frequent-conversation.png)
 
-- The following picture shows time trending for the top five conversations and the flow-related details such as allowed and denied inbound and outbound flows for a conversation pair:
+- The following image shows time trending for the top five conversations and the flow-related details such as allowed and denied inbound and outbound flows for a conversation pair:
 
     ![Screenshot of top five chatty conversation details and trends.](./media/traffic-analytics/top-five-chatty-conversation-details-and-trend.png)
 
@@ -62,15 +62,15 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
 
 - Which application protocol is most used in your environment, and which conversing host pairs are using the application protocol the most?
     - Are these applications allowed on this network?
-    - Are the applications configured properly? Are they using the appropriate protocol for communication? Expected behavior is common ports such as 80 and 443. For standard communication, if any unusual ports are displayed, they might require a configuration change. Select **See all** under **Application port**, in the following picture:
+    - Are the applications configured properly? Are they using the appropriate protocol for communication? Expected behavior is common ports such as 80 and 443. For standard communication, if any unusual ports are displayed, they might require a configuration change. Select **See all** under **Application port**, in the following image:
 
         ![Screenshot of dashboard showcasing top application protocols.](./media/traffic-analytics/dashboard-showcasing-top-application-protocols.png)
 
-- The following pictures show time trending for the top five L7 protocols and the flow-related details (for example, allowed and denied flows) for an L7 protocol:
+- The following images show time trending for the top five L7 protocols and the flow-related details (for example, allowed and denied flows) for an L7 protocol:
 
     ![Screenshot of top five layer 7 protocols details and trends.](./media/traffic-analytics/top-five-layer-seven-protocols-details-and-trend.png)
 
-    ![Flow details for application protocol in log search](./media/traffic-analytics/flow-details-for-application-protocol-in-log-search.png)
+    ![Screenshot of the flow details for application protocol in log search.](./media/traffic-analytics/flow-details-for-application-protocol-in-log-search.png)
 
 **Look for**
 
@@ -78,11 +78,11 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
     - Each VPN SKU allows a certain amount of bandwidth. Are the VPN gateways underutilized?
     - Are your gateways reaching capacity? Should you upgrade to the next higher SKU?
 - Which are the most conversing hosts, via which VPN gateway, over which port?
-    - Is this pattern normal? Select **See all** under **VPN gateway**, as shown in the following picture:
+    - Is this pattern normal? Select **See all** under **VPN gateway**, as shown in the following image:
 
         ![Screenshot of dashboard showcasing top active V P N connections.](./media/traffic-analytics/dashboard-showcasing-top-active-vpn-connections.png)
 
-- The following picture shows time trending for capacity utilization of an Azure VPN Gateway and the flow-related details (such as allowed flows and ports):
+- The following image shows time trending for capacity utilization of an Azure VPN Gateway and the flow-related details (such as allowed flows and ports):
 
     ![Screenshot of V P N gateway utilization trend and flow details.](./media/traffic-analytics/vpn-gateway-utilization-trend-and-flow-details.png)
 
@@ -94,7 +94,7 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
   - If you observe more load on a data center, you can plan for efficient traffic distribution.
   - If rogue networks are conversing in the data center, then correct NSG rules to block them.
 
-    Select **View map** under **Your environment**, as shown in the following picture:
+    Select **View map** under **Your environment**, as shown in the following image:
 
     ![Screenshot of dashboard showcasing traffic distribution.](./media/traffic-analytics/dashboard-showcasing-traffic-distribution.png)
 
@@ -120,7 +120,7 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
   - Knowing which virtual network is conversing to which virtual network. If the conversation is not expected, it can be corrected.
   - If rogue networks are conversing with a virtual network, you can correct NSG rules to block the rogue networks.
  
-    Select **View VNets** under **Your environment** as shown in the following picture:
+    Select **View VNets** under **Your environment** as shown in the following image:
 
     ![Screenshot of dashboard showcasing virtual network distribution.](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
@@ -182,13 +182,13 @@ Do you have malicious traffic in your environment? Where is it originating from?
 	- The Public IP Information section, gives a summary of all types of public IPs present in your network traffic. 
 	  Select the public IP type of interest to view details. This [schema document](./traffic-analytics-schema.md#public-ip-details-schema) defines the data fields presented.
 	  
-	  :::image type="content" source="./media/traffic-analytics/public-ip-information.png" alt-text="Public IP information" lightbox="./media/traffic-analytics/public-ip-information.png":::
+	  :::image type="content" source="./media/traffic-analytics/public-ip-information.png" alt-text="Screenshot that displays the public I P information." lightbox="./media/traffic-analytics/public-ip-information.png":::
 	  
 	- On the traffic analytics dashboard, click on any IP to view its information	
 	
-	  :::image type="content" source="./media/traffic-analytics/external-public-ip-details.png" alt-text="external IP information in tool tip" lightbox="./media/traffic-analytics/external-public-ip-details.png":::
+	  :::image type="content" source="./media/traffic-analytics/external-public-ip-details.png" alt-text="Screenshot that displays the external I P information in tool tip." lightbox="./media/traffic-analytics/external-public-ip-details.png":::
 	  
-	  :::image type="content" source="./media/traffic-analytics/malicious-ip-details.png" alt-text="malicious IP information in tool tip" lightbox="./media/traffic-analytics/malicious-ip-details.png":::
+	  :::image type="content" source="./media/traffic-analytics/malicious-ip-details.png" alt-text="Screenshot that displays the malicious I P information in tool tip." lightbox="./media/traffic-analytics/malicious-ip-details.png":::
 
 ## Visualize the trends in NSG/NSG rules hits
 
@@ -197,15 +197,15 @@ Do you have malicious traffic in your environment? Where is it originating from?
 - Which NSG/NSG rules have the most hits in comparative chart with flows distribution?
 - What are the top source and destination conversation pairs per NSG/NSG rules?
 
-    ![Screenshot of dashboard showcasing NSG hits statistics.](./media/traffic-analytics/dashboard-showcasing-nsg-hits-statistics.png)
+    ![Screenshot of dashboard showcasing N S G hits statistics.](./media/traffic-analytics/dashboard-showcasing-nsg-hits-statistics.png)
 
-- The following pictures show time trending for hits of NSG rules and source-destination flow details for a network security group:
+- The following images show time trending for hits of NSG rules and source-destination flow details for a network security group:
 
   - Quickly detect which NSGs and NSG rules are traversing malicious flows and which are the top malicious IP addresses accessing your cloud environment
   - Identify which NSG/NSG rules are allowing/blocking significant network traffic
   - Select top filters for granular inspection of an NSG or NSG rules
 
-    ![Screenshot showcasing time trending for NSG rule hits and top NSG rules.](./media/traffic-analytics/showcasing-time-trending-for-nsg-rule-hits-and-top-nsg-rules.png)
+    ![Screenshot showcasing time trending for N S G rule hits and top NSG rules.](./media/traffic-analytics/showcasing-time-trending-for-nsg-rule-hits-and-top-nsg-rules.png)
 
-    ![Screenshot of top NSG rules statistics details in log search.](./media/traffic-analytics/top-nsg-rules-statistics-details-in-log-search.png)
+    ![Screenshot of top N S G rules statistics details in log search.](./media/traffic-analytics/top-nsg-rules-statistics-details-in-log-search.png)
     
