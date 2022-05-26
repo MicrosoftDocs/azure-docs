@@ -55,7 +55,7 @@ Learn more about [Batch account - OldPool (Recreate your pool to get the latest 
 
 Your pool is using a deprecated internal component. Please delete and recreate your pool for improved stability and performance.
 
-Learn more about [Batch account - RecreatePool (Delete and recreate your pool to remove a deprecated internal component)](../batch/best-practices.md#pool-lifetime-and-billing).
+Learn more about [Batch account - RecreatePool (Delete and recreate your pool to remove a deprecated internal component)](/azure/batch/best-practices#pool-lifetime-and-billing)
 
 ### Upgrade to the latest API version to ensure your Batch account remains operational.
 
@@ -73,7 +73,7 @@ Learn more about [Batch account - RemoveA8_A11Pools (Delete and recreate your po
 
 Your pool is using an image with an imminent expiration date. Please recreate the pool with a new image to avoid potential interruptions. A list of newer images is available via the ListSupportedImages API.
 
-Learn more about [Batch account - EolImage (Recreate your pool with a new image)](../batch/batch-pool-vm-sizes.md#supported-vm-images).
+Learn more about [Batch account - EolImage (Recreate your pool with a new image)](/azure/batch/batch-pool-vm-sizes#supported-vm-images).
 
 ## Cognitive Service
 
@@ -139,7 +139,7 @@ Learn more about [Kubernetes service - UpdateServicePrincipal (Update cluster's 
 
 Monitoring addon workspace is deleted. Correct issues to setup monitoring addon.
 
-Learn more about [Kubernetes service - MonitoringAddonWorkspaceIsDeleted (Monitoring addon workspace is deleted)](../azure-monitor/containers/container-insights-optout.md#azure-cli).
+Learn more about [Kubernetes service - MonitoringAddonWorkspaceIsDeleted (Monitoring addon workspace is deleted)](/azure/azure-monitor/containers/container-insights-optout#azure-cli).
 
 ### Deprecated Kubernetes API in 1.16 is found
 
@@ -157,7 +157,7 @@ Learn more about [Kubernetes service - EnableClusterAutoscaler (Enable the Clust
 
 Some of the subnets for this cluster's node pools are full and cannot take any more worker nodes. Using the Azure CNI plugin requires to reserve IP addresses for each node and all the pods for the node at node provisioning time. If there is not enough IP address space in the subnet, no worker nodes can be deployed. Additionally, the AKS cluster cannot be upgraded if the node subnet is full.
 
-Learn more about [Kubernetes service - NodeSubnetIsFull (The AKS node pool subnet is full)](../aks/use-multiple-node-pools.md#add-a-node-pool-with-a-unique-subnet-preview).
+Learn more about [Kubernetes service - NodeSubnetIsFull (The AKS node pool subnet is full)](../aks/use-multiple-node-pools.md#add-a-node-pool-with-a-unique-subnet).
 
 ### Disable the Application Routing Addon
 
@@ -223,13 +223,13 @@ Learn more about [Cosmos DB account - CosmosDBMigrateToContinuousBackup (Improve
 
 We have detected that one or more of your alert rules have invalid queries specified in their condition section. Log alert rules are created in Azure Monitor and are used to run analytics queries at specified intervals. The results of the query determine if an alert needs to be triggered. Analytics queries may become invalid overtime due to changes in referenced resources, tables, or commands. We recommend that you correct the query in the alert rule to prevent it from getting auto-disabled and ensure monitoring coverage of your resources in Azure.
 
-Learn more about [Alert Rule - ScheduledQueryRulesLogAlert (Repair your log alert rule)](../azure-monitor/alerts/alerts-troubleshoot-log.md#query-used-in-a-log-alert-isnt-valid).
+Learn more about [Alert Rule - ScheduledQueryRulesLogAlert (Repair your log alert rule)](/azure/azure-monitor/alerts/alerts-troubleshoot-log#query-used-in-a-log-alert-is-not-valid).
 
 ### Log alert rule was disabled
 
 The alert rule was disabled by Azure Monitor as it was causing service issues. To enable the alert rule, contact support.
 
-Learn more about [Alert Rule - ScheduledQueryRulesRp (Log alert rule was disabled)](../azure-monitor/alerts/alerts-troubleshoot-log.md#query-used-in-a-log-alert-isnt-valid).
+Learn more about [Alert Rule - ScheduledQueryRulesRp (Log alert rule was disabled)](/azure/azure-monitor/alerts/alerts-troubleshoot-log#query-used-in-a-log-alert-is-not-valid).
 
 ## Key Vault
 
@@ -273,7 +273,7 @@ Learn more about [Network Security Group - NSGFlowLogsenableTA (Enable Traffic A
 
 Full mode installs the SQL IaaS Agent to the VM to deliver full functionality. Use it for managing a SQL Server VM with a single instance. There is no cost associated with using the full manageability mode. System administrator permissions are required. Note that installing or upgrading to full mode is an online operation, there is no restart required.
 
-Learn more about [SQL virtual machine - UpgradeToFullMode (SQL IaaS Agent should be installed in full mode)](../azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md?tabs=azure-powershell).
+Learn more about [SQL virtual machine - UpgradeToFullMode (SQL IaaS Agent should be installed in full mode)](/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management?tabs=azure-powershell).
 
 ## Storage
 
@@ -281,7 +281,7 @@ Learn more about [SQL virtual machine - UpgradeToFullMode (SQL IaaS Agent should
 
 A region can support a maximum of 250 storage accounts per subscription. You have either already reached or are about to reach that limit. If you reach that limit, you will be unable to create any more storage accounts in that subscription/region combination. Please evaluate the recommended action below to avoid hitting the limit.
 
-Learn more about [Storage Account - StorageAccountScaleTarget (Prevent hitting subscription limit for maximum storage accounts)](../storage/blobs/storage-performance-checklist.md).
+Learn more about [Storage Account - StorageAccountScaleTarget (Prevent hitting subscription limit for maximum storage accounts)](/azure/storage/blobs/storage-performance-checklist#what-to-do-when-approaching-a-scalability-target).
 
 ### Update to newer releases of the Storage Java v12 SDK for better reliability.
 

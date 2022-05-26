@@ -34,7 +34,6 @@ The following clients are known to be incompatible with SFTP for Azure Blob Stor
 - paramiko 1.16.0
 - Salesforce
 - SSH.NET 2016.1.0
-- Workday
 - XFB.Gateway
 
 > [!NOTE]
@@ -96,9 +95,9 @@ For performance issues and considerations, see [SSH File Transfer Protocol (SFTP
 
 - `ssh-keyscan` is not supported.
 
-- SSH commands, that are not SFTP, are not supported.
+- SSH and SCP commands, that are not SFTP, are not supported.
 
-- West Europe will temporarily still require registration of the SFTP preview feature.
+- FTPS and FTP are not supported.
 
 ## Troubleshooting
 
@@ -107,8 +106,6 @@ For performance issues and considerations, see [SSH File Transfer Protocol (SFTP
   - The account needs to be a general-purpose v2 and premium block blob accounts.
   
   - The account needs to have hierarchical namespace enabled on it.
-  
-  - Accounts in West Europe will temporarily require the customer's subscription to be signed up for the preview. Request to join via 'Preview features' in the Azure portal. Requests are automatically approved.
 
 - To resolve the `Home Directory not accessible error.` error, check that:
   

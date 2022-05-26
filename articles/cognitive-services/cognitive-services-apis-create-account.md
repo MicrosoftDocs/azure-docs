@@ -8,7 +8,7 @@ manager: nitinme
 keywords: cognitive services, cognitive intelligence, cognitive solutions, ai services
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/03/2022
+ms.date: 05/24/2022
 ms.author: aahi
 ---
 

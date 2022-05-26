@@ -1,5 +1,5 @@
 ---
-title: "Upload data for Custom Speech - Speech service"
+title: "Upload training and testing datasets for Custom Speech - Speech service"
 titleSuffix: Azure Cognitive Services
 description: Learn about how to upload data to test or train a Custom Speech model.
 services: cognitive-services
@@ -8,42 +8,33 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: how-to
-ms.date: 03/03/2022
+ms.date: 05/08/2022
 ms.author: eur
 ---
 
-# Upload data for Custom Speech
+# Upload training and testing datasets for Custom Speech 
 
-You need audio or text data for testing the accuracy of Microsoft speech recognition or training your custom models. For information about the data types supported for testing or training your model, see [Prepare data for Custom Speech](how-to-custom-speech-test-and-train.md).
+You need audio or text data for testing the accuracy of Microsoft speech recognition or training your custom models. For information about the data types supported for testing or training your model, see [Training and testing datasets](how-to-custom-speech-test-and-train.md).
 
-## Upload data in Speech Studio
+## Upload datasets in Speech Studio
 
-To upload your data:
+To upload your own datasets in Speech Studio, follow these steps:
 
-1. Go to [Speech Studio](https://aka.ms/speechstudio/customspeech). 
-1. After you create a project, go to the **Speech datasets** tab. Select **Upload data** to start the wizard and create your first dataset. 
-1. Select a speech data type for your dataset, and upload your data.
+1. Sign in to the [Speech Studio](https://speech.microsoft.com/customspeech). 
+1. Select **Custom Speech** > Your project name > **Speech datasets** > **Upload data**.
+1. Select the **Training data** or **Testing data** tab.
+1. Select a dataset type, and then select **Next**.
+1. Specify the dataset location, and then select **Next**. You can choose a local file or enter a remote location such as Azure Blob public access URL.
+1. Enter the dataset name and description, and then select **Next**.
+1. Review your settings, and then select **Save and close**.
 
-1. Specify whether the dataset will be used for **Training** or **Testing**. 
+After your dataset is uploaded, go to the **Train custom models** page to [train a custom model](how-to-custom-speech-train-model.md)
 
-   There are many types of data that can be uploaded and used for **Training** or **Testing**. Each dataset that you upload must be correctly formatted before uploading, and it must meet the requirements for the data type that you choose. Requirements are listed in the following sections.
+### Upload datasets via REST API
 
-1. After your dataset is uploaded, you can either:
+You can use [Speech-to-text REST API v3.0](rest-speech-to-text.md) to upload a dataset by using the [CreateDataset](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset) request.
 
-   * Go to the **Train custom models** tab to train a custom model.
-   * Go to the **Test models** tab to visually inspect quality with audio-only data or evaluate accuracy with audio + human-labeled transcription data.
-
-### Upload data by using Speech-to-text REST API v3.0
-
-You can use [Speech-to-text REST API v3.0](rest-speech-to-text.md) to automate any operations related to your custom models. In particular, you can use the REST API to upload a dataset.
-
-To create and upload a dataset, use a [Create Dataset](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset) request.
-
-A dataset that you create by using the Speech-to-text REST API v3.0 won't be connected to any of the Speech Studio projects, unless you specify a special parameter in the request body (see the code block later in this section). Connection with a Speech Studio project isn't required for any model customization operations, if you perform them by using the REST API.
-
-When you log on to Speech Studio, its user interface will notify you when any unconnected object is found (like datasets uploaded through the REST API without any project reference). The interface will also offer to connect such objects to an existing project. 
-
-To connect the new dataset to an existing project in Speech Studio during its upload, use [Create Dataset](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateDataset) and fill out the request body according to the following format:
+To connect the dataset to an existing project, fill out the request body according to the following format:
 
 ```json
 {
@@ -58,10 +49,13 @@ To connect the new dataset to an existing project in Speech Studio during its up
 }
 ```
 
-You can obtain the project URL that's required for the `project` element by using the [Get Projects](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects) request.
+You can get a list of existing project URLs that can be used in the `project` element by using the [GetProjects](https://eastus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetProjects) request.
+
+> [!NOTE] 
+> Connecting a dataset to a Custom Speech project isn't required to train and test a custom model using the REST API or Speech CLI. But if the dataset is not connected to any project, you won't be able to train or test a model in the [Speech Studio](https://aka.ms/speechstudio/customspeech). 
 
 ## Next steps
 
-* [Inspect your data](how-to-custom-speech-inspect-data.md)
-* [Evaluate your data](how-to-custom-speech-evaluate-data.md)
+* [Test recognition quality](how-to-custom-speech-inspect-data.md)
+* [Test model quantitatively](how-to-custom-speech-evaluate-data.md)
 * [Train a custom model](how-to-custom-speech-train-model.md)

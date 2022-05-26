@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/11/2022
+ms.date: 04/26/2022
 ms.author: anfdocs
 ---
 # Solution architectures using Azure NetApp Files
@@ -198,6 +198,8 @@ This section provides solutions for Azure platform services.
 * [Azure NetApp Files + Trident = Dynamic and Persistent Storage for Kubernetes](https://anfcommunity.com/2021/02/16/azure-netapp-files-trident-dynamic-and-persistent-storage-for-kubernetes/)
 * [Trident - Storage Orchestrator for Containers](https://netapp-trident.readthedocs.io/en/stable-v20.04/kubernetes/operations/tasks/backends/anf.html)
 * [Magento e-commerce platform in Azure Kubernetes Service (AKS)](/azure/architecture/example-scenario/magento/magento-azure)
+* [Protecting Magento e-commerce platform in AKS against disasters with Astra Control Service](https://techcommunity.microsoft.com/t5/azure-architecture-blog/protecting-magento-e-commerce-platform-in-aks-against-disasters/ba-p/3285525)
+* [Protecting applications on private Azure Kubernetes Service clusters with Astra Control Service](https://techcommunity.microsoft.com/t5/azure-architecture-blog/protecting-applications-on-private-azure-kubernetes-service/ba-p/3289422)
 
 ### Azure Red Hat Openshift   
 

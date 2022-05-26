@@ -62,10 +62,12 @@ items:
         href: storage-quickstart-blobs-xamarin.md
   - name: Tutorials
     items:
-    - name: Upload and process files
+    - name: Upload and process image files
       items:
-      - name: Upload and analyze an image using .NET
+      - name: .NET
         href: blob-upload-function-trigger.md
+      - name: JavaScript
+        href: blob-upload-function-trigger-javascript.md
     - name: Migrate data to cloud with AzCopy
       href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Optimize storage application performance and scalability
@@ -571,7 +573,7 @@ items:
             - name: Upload blobs
               href: storage-blob-upload.md
             - name: Append to blobs
-              href: storage-blob-append.md
+              href: storage-blob-append.md              
             - name: Download blobs
               href: storage-blob-download.md
             - name: Copy blobs
@@ -585,7 +587,37 @@ items:
             - name: Manage blob properties and metadata
               href: storage-blob-properties-metadata.md
             - name: Create and manage leases
-              href: storage-blob-container-lease.md
+              href: storage-blob-container-lease.md              
+        - name: JavaScript
+          items:
+          - name: Get started
+            href: storage-blob-javascript-get-started.md
+          - name: Work with containers
+            items:
+            - name: Create a container
+              href: storage-blob-container-create-javascript.md
+            - name: Delete and restore containers
+              href: storage-blob-container-delete-javascript.md
+            - name: List containers
+              href: storage-blob-containers-list-javascript.md
+            - name: Manage properties and metadata
+              href: storage-blob-container-properties-metadata-javascript.md
+          - name: Work with blobs
+            items:
+            - name: Upload blobs
+              href: storage-blob-upload-javascript.md
+            - name: Download blobs
+              href: storage-blob-download-javascript.md
+            - name: Copy blobs
+              href: storage-blob-copy-javascript.md
+            - name: List blobs
+              href: storage-blobs-list-javascript.md
+            - name: Delete and restore blobs
+              href: storage-blob-delete-javascript.md
+            - name: Find blobs using tags
+              href: storage-blob-tags-javascript.md
+            - name: Manage blob properties and metadata
+              href: storage-blob-properties-metadata-javascript.md             
       - name: Test with a storage emulator
         items:
         - name: Use the Azurite open-source emulator
@@ -608,6 +640,12 @@ items:
           href: ../common/manage-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Troubleshoot
       items:
+      - name: Performance
+        href: ../common/troubleshoot-storage-performance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Availability
+        href: ../common/troubleshoot-storage-availability.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Client errors
+        href: ../common/troubleshoot-storage-client-application-errors.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Latency issues
         href: ../common/troubleshoot-latency-storage-analytics-logs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Reference
@@ -640,10 +678,6 @@ items:
         href: ../common/storage-ref-azcopy-jobs-resume.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy jobs show
         href: ../common/storage-ref-azcopy-jobs-show.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: azcopy load
-        href: ../common/storage-ref-azcopy-load.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: azcopy load clfs
-        href: ../common/storage-ref-azcopy-load-avere-cloud-file-system.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy list
         href: ../common/storage-ref-azcopy-list.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy login
@@ -846,10 +880,10 @@ items:
       items:
       - name: Migrate from Data Lake Storage Gen1
         items:
-        - name: Migrate from Gen1
-          href: data-lake-storage-migrate-gen1-to-gen2.md
-        - name: Migrate by using Azure portal
+        - name: Migrate using Azure portal
           href: data-lake-storage-migrate-gen1-to-gen2-azure-portal.md
+        - name: Migration guidelines and patterns
+          href: data-lake-storage-migrate-gen1-to-gen2.md          
       - name: Migrate HDFS stores
         items:
         - name: Migrate an HDFS store offline

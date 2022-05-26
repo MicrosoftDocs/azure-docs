@@ -93,7 +93,7 @@ As explained before, IoT Edges for Linux on Windows updates are serviced using M
 
 1. **CSP Policies** - By using the **Update/AllowMUUpdateService** CSP Policy - For more information about Microsoft Updates CSP policy, see [Policy CSP - MU Update](/windows/client-management/mdm/policy-csp-update#update-allowmuupdateservice).
 
-1. **Manually manage Microsoft Updates** - For more information about how to Opt-In to Microsoft Updates, see [Opt-In to Microsoft Update](/windows/win32/wua_sdk/opt-in-to-microsoft-update):
+1. **Manually manage Microsoft Updates** - For more information about how to Opt-In to Microsoft Updates, see [Opt-In to Microsoft Update](/windows/win32/wua_sdk/opt-in-to-microsoft-update).
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
@@ -123,6 +123,6 @@ IoT Edge for Linux on Windows doesn't support migrations between the different r
 
 ## Next steps
 
-View the latest [Azure IoT Edge for Linux on Windows releases](https://github.com/Azure/iotedge-eflow/releases).
+View the latest [IoT Edge for Linux on Windows releases](https://github.com/Azure/iotedge-eflow/releases).
 
-Stay up-to-date with recent updates and announcements in the [Internet of Things blog](https://azure.microsoft.com/blog/topics/internet-of-things/)
+Read more about [IoT Edge for Linux on Windows security premises](./iot-edge-for-linux-on-windows-security.md).

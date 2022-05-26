@@ -13,6 +13,9 @@
     href: quickstart-create-logic-apps-with-visual-studio.md
   - name: Create logic apps - Visual Studio Code
     href: quickstart-create-logic-apps-visual-studio-code.md
+  - name: Create logic apps - Bicep
+    displayName: ARM, Resource Manager, Template
+    href: quickstart-create-deploy-bicep.md
   - name: Create logic apps - ARM template
     displayName: Resource Manager
     href: quickstart-create-deploy-azure-resource-manager-template.md
@@ -46,6 +49,8 @@
       href: ../connectors/managed.md
     - name: Built-in operations
       href: ../connectors/built-in.md
+    - name: Custom connectors
+      href: custom-connector-overview.md
   - name: Scheduled recurring workflows
     href: concepts-schedule-automated-recurring-tasks-workflows.md
   - name: Serverless with Azure
@@ -91,6 +96,8 @@
       href: deploy-single-tenant-logic-apps-private-storage-account.md
     - name: Estimate storage costs for single-tenant workflows
       href: estimate-storage-costs.md
+    - name: Create custom built-in connectors for single-tenant workflows
+      href: create-custom-built-in-connector-standard.md
   - name: Azure Arc-enabled Logic Apps
     items:
     - name: About Azure Arc-enabled Logic Apps
@@ -153,8 +160,6 @@
       href: handle-long-running-stored-procedures-sql-connector.md
     - name: Handle throttling problems or 429 errors
       href: handle-throttling-problems-429-errors.md
-    - name: Develop custom connectors
-      href: custom-connector-overview.md
     - name: Develop custom APIs
       items:
       - name: Create custom APIs for logic apps
@@ -409,6 +414,8 @@
         href: create-monitoring-tracking-queries.md
   - name: Business continuity and disaster recovery
     items:
+    - name: Set up zone redundant logic apps
+      href: set-up-zone-redundancy-availability-zones.md
     - name: Replicate Azure resources for business continuity and disaster recovery
       href: create-replication-tasks-azure-resources.md
     - name: Build a B2B business continuity and disaster recovery plan

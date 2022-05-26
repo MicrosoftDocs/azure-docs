@@ -16,7 +16,7 @@ In this guide, you will learn how to deploy _account_, _portal_ and _ingestion_ 
 
 The Microsoft Purview _account_ private endpoint is used to add another layer of security by enabling scenarios where only client calls that originate from within the virtual network are allowed to access the Microsoft Purview account. This private endpoint is also a prerequisite for the portal private endpoint.
 
-The Microsoft Purview _portal_ private endpoint is required to enable connectivity to [Microsoft Purview Studio](https://web.purview.azure.com/resource/) using a private network.
+The Microsoft Purview _portal_ private endpoint is required to enable connectivity to [Microsoft Purview governance portal](https://web.purview.azure.com/resource/) using a private network.
 
 Microsoft Purview can scan data sources in Azure or an on-premises environment by using _ingestion_ private endpoints. Three private endpoint resources are required to be deployed and linked to Microsoft Purview managed resources when ingestion private endpoint is deployed:
 

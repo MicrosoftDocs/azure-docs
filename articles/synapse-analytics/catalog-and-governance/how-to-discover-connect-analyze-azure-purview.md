@@ -7,7 +7,7 @@ ms.subservice: purview
 ms.topic: how-to
 ms.date: 12/16/2020
 ms.author: jejiang
-ms.reviewer: jrasnick
+ms.reviewer: wiassaf
 ---
 
 # Discover, connect, and explore data in Synapse using Microsoft Purview 
@@ -16,7 +16,7 @@ In this document, you will learn the type of interactions that you can perform
 
 ## Prerequisites 
 
-- [Azure Microsoft Purview account](../../purview/create-catalog-portal.md) 
+- [Microsoft Purview account](../../purview/create-catalog-portal.md) 
 - [Synapse workspace](../quickstart-create-workspace.md) 
 - [Connect a Microsoft Purview Account into Synapse](quickstart-connect-azure-purview.md) 
 

@@ -2,10 +2,10 @@
 title: Azure Virtual Desktop RDP Shortpath for public networks (preview) - Azure
 titleSuffix: Azure
 description: How to set up RDP Shortpath for public networks for Azure Virtual Desktop (preview).
-author: gundarev
+author: femila
 ms.topic: conceptual
 ms.date: 04/13/2022
-ms.author: denisgun
+ms.author: femila
 ---
 
 # Azure Virtual Desktop RDP Shortpath for public networks (preview)
@@ -108,7 +108,7 @@ Follow the recommendations below to increase the probability of a direct data fl
 ### Allow outbound UDP connectivity
 
 RDP Shortpath uses UDP to establish a data flow. If a firewall on your network blocks UDP traffic, RDP Shortpath will fail, and the connection will fall back to TCP-based reverse connect transport.
-Azure Virtual Desktop uses STUN servers provided by [Azure Communication Services](/communication-services) and Microsoft Teams.
+Azure Virtual Desktop uses STUN servers provided by [Azure Communication Services](../communication-services/overview.md) and Microsoft Teams.
 By the nature of the feature, outbound connectivity from the session hosts to the client is required. Unfortunately, you can't predict where your users are located in most cases. Therefore, we recommend allowing outbound UDP connectivity to the Internet.
 You can [limit the port range](#limiting-port-range-used-on-the-client-side) used to listen to the incoming UDP flow.
 Use the following table for reference when configuring firewalls for RDP Shortpath.
@@ -118,14 +118,14 @@ Use the following table for reference when configuring firewalls for RDP Shortpa
 | Name                          | Source    | Destination Port | Protocol | Destination                                                                  | Action |
 |-------------------------------|-----------|------------------|----------|------------------------------------------------------------------------------|--------|
 | RDP Shortpath Server Endpoint | VM Subnet | 1024-65535       | UDP      | *                                                                            | Allow  |
-| STUN Access                   | VM Subnet | 3478             | UDP      | 13.107.17.41/24, 13.107.64.0/18, 20.202.0.0/16, 52.112.0.0/14, 52.120.0.0/14 | Allow  |
+| STUN Access                   | VM Subnet | 3478             | UDP      | 13.107.17.41/32, 13.107.64.0/18, 20.202.0.0/16, 52.112.0.0/14, 52.120.0.0/14 | Allow  |
 
 #### Client network
 
 | Name                          | Source         | Destination Port | Protocol | Destination                                                                  | Action |
 |-------------------------------|----------------|------------------|----------|------------------------------------------------------------------------------|--------|
 | RDP Shortpath Server Endpoint | Client network | 1024-65535       | UDP      | Public IP addresses assigned to NAT Gateway or Azure Firewall                | Allow  |
-| STUN Access                   | Client network | 3478             | UDP      | 13.107.17.41/24, 13.107.64.0/18, 20.202.0.0/16, 52.112.0.0/14, 52.120.0.0/14 | Allow  |
+| STUN Access                   | Client network | 3478             | UDP      | 13.107.17.41/32, 13.107.64.0/18, 20.202.0.0/16, 52.112.0.0/14, 52.120.0.0/14 | Allow  |
 
  > [!NOTE]
    > The IP ranges for STUN servers used in preview would change at the feature's release to General Availability.
@@ -169,7 +169,7 @@ netsh interface Teredo set state type=enterpriseclient
 
 ### UPnP support
 
-To improve the chances of a direct connection, on the side of the Remote Desktop client, RDP Shortpath may use [UPnP](/windows/win32/upnp/universal-plug-and-play-start-page.md) to configure a port mapping on the NAT router. UPnP is a standard technology used by various applications, such as Xbox, Delivery Optimization, and Teredo. UPnP is generally available on the routers typically found on a home network. UPnP protocol is enabled by default on most home routers and access points. UPnP is often disabled on corporate networking.
+To improve the chances of a direct connection, on the side of the Remote Desktop client, RDP Shortpath may use [UPnP](/windows/win32/upnp/universal-plug-and-play-start-page) to configure a port mapping on the NAT router. UPnP is a standard technology used by various applications, such as Xbox, Delivery Optimization, and Teredo. UPnP is generally available on the routers typically found on a home network. UPnP protocol is enabled by default on most home routers and access points. UPnP is often disabled on corporate networking.
 
 ## General recommendations
 

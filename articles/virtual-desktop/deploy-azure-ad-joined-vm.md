@@ -7,7 +7,7 @@ manager: lizross
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/11/2022
+ms.date: 04/27/2022
 ms.author: helohr
 ---
 
@@ -31,7 +31,7 @@ User accounts can be cloud-only or synced users from the same Azure AD tenant.
 The following known limitations may impact access to your on-premises or Active Directory domain-joined resources and should be considered when deciding whether Azure AD-joined VMs are right for your environment. We currently recommend Azure AD-joined VMs for scenarios where users only need access to cloud-based resources or Azure AD-based authentication.
 
 - Azure Virtual Desktop (classic) doesn't support Azure AD-joined VMs.
-- Azure AD-joined VMs don't currently support external users.
+- Azure AD-joined VMs don't currently support external identities, such as Azure AD Business-to-Business (B2B) and Azure AD Business-to-Consumer (B2C).
 - Azure AD-joined VMs can only access Azure Files file shares for synced users using Azure AD Kerberos.
 - The Windows Store client doesn't currently support Azure AD-joined VMs.
 - Azure Virtual Desktop doesn't currently support single sign-on for Azure AD-joined VMs.

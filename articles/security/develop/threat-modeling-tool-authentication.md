@@ -132,7 +132,7 @@ ms.custom: "has-adal-ref, devx-track-js, devx-track-csharp"
 | **SDL Phase**               | Build |
 | **Applicable Technologies** | SQL Azure |
 | **Attributes**              | SQL Version - V12 |
-| **References**              | [Connecting to SQL Database By Using Azure Active Directory Authentication](../../azure-sql/database/authentication-aad-overview.md) |
+| **References**              | [Connecting to SQL Database By Using Azure Active Directory Authentication](/azure/azure-sql/database/authentication-aad-overview) |
 | **Steps** | **Minimum version:** Azure SQL Database V12 required to allow Azure SQL Database to use AAD Authentication against the Microsoft Directory |
 
 ## <a id="authn-account-pword"></a>When SQL authentication mode is used, ensure that account and password policy are enforced on SQL server

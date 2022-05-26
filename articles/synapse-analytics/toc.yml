@@ -238,6 +238,8 @@ items:
       href: database-designer/create-lake-database-from-lake-database-templates.md
     - name: Modify a lake database
       href: database-designer/modify-lake-database.md
+    - name: Clone a lake database
+      href: database-designer/clone-lake-database.md  
 - name: Synapse SQL
   items:
   - name: Overview
@@ -430,7 +432,7 @@ items:
     - name: Security 
       items:
       - name: Database access control
-        href: ../azure-sql/database/logins-create-manage.md?toc=%2fazure%2fsynapse-analytics%2ftoc.json
+        href: /azure/azure-sql/database/logins-create-manage?toc=%2fazure%2fsynapse-analytics%2ftoc.json
       - name: Shared database access control
         href: sql/shared-databases-access-control.md
       - name: Data security
@@ -442,9 +444,9 @@ items:
       - name: Data Encryption
         items:
         - name: Transparent Data Encryption overview
-          href: ../azure-sql/database/transparent-data-encryption-tde-overview.md?toc=%2fazure%2fsynapse-analytics%2ftoc.json
+          href: /azure/azure-sql/database/transparent-data-encryption-tde-overview?toc=%2fazure%2fsynapse-analytics%2ftoc.json
         - name: TDE with bring your own key
-          href: ../azure-sql/database/transparent-data-encryption-byok-overview.md?toc=%2fazure%2fsynapse-analytics%2ftoc.json
+          href: /azure/azure-sql/database/transparent-data-encryption-byok-overview?toc=%2fazure%2fsynapse-analytics%2ftoc.json
           displayName: transparent, data, encryption
     - name: Workload management
       items:
@@ -585,11 +587,11 @@ items:
       - name: Query with Visual Studio SSDT
         href: sql/get-started-visual-studio.md
       - name: Query using .NET Core
-        href: ../azure-sql/database/connect-query-dotnet-core.md?context=/azure/synapse-analytics/context/context
+        href: /azure/azure-sql/database/connect-query-dotnet-core?context=/azure/synapse-analytics/context/context
       - name: Query using Visual Studio .NET
-        href: ../azure-sql/database/connect-query-dotnet-visual-studio.md?context=/azure/synapse-analytics/context/context
+        href: /azure/azure-sql/database/connect-query-dotnet-visual-studio?context=/azure/synapse-analytics/context/context
       - name: Query using Python
-        href: ../azure-sql/database/connect-query-python.md?context=/azure/synapse-analytics/context/context
+        href: /azure/azure-sql/database/connect-query-python?context=/azure/synapse-analytics/context/context
       - name: Query with sqlcmd
         href: sql/get-started-connect-sqlcmd.md
 - name: Data Explorer
@@ -706,10 +708,12 @@ items:
       items:
         - name: Runtime overview
           href: ./spark/apache-spark-version-support.md
-        - name: Azure Synapse Apache Spark 2.4 runtime
-          href: ./spark/apache-spark-24-runtime.md
+        - name: Azure Synapse Apache Spark 3.2 runtime
+          href: ./spark/apache-spark-32-runtime.md
         - name: Azure Synapse Apache Spark 3.1 runtime
           href: ./spark/apache-spark-3-runtime.md
+        - name: Azure Synapse Apache Spark 2.4 runtime
+          href: ./spark/apache-spark-24-runtime.md
     - name: Machine learning
       href: ./spark/apache-spark-machine-learning-concept.md
     - name: Notebooks
@@ -775,7 +779,9 @@ items:
       - name: Collect Apache Spark applications logs and metrics with Azure Storage account
         href: ./spark/azure-synapse-diagnostic-emitters-azure-storage.md
       - name: Collect Apache Spark applications logs and metrics with Azure Event Hubs
-        href: ./spark//azure-synapse-diagnostic-emitters-azure-eventhub.md         
+        href: ./spark/azure-synapse-diagnostic-emitters-azure-eventhub.md
+      - name: Manage Apache Spark configuration
+        href: ./spark/apache-spark-azure-create-spark-configuration.md          
     - name: Data sources
       items:
         - name: Azure Cosmos DB Spark 3
@@ -800,6 +806,8 @@ items:
     items:
     - name: Synapse Link for Azure Cosmos DB
       href: ../cosmos-db/synapse-link.md?context=/azure/synapse-analytics/context/context
+    - name: Synapse Link for SQL
+      href: ./synapse-link/sql-synapse-link-overview.md
     - name: Synapse Link for Dataverse
       href: /powerapps/maker/data-platform/export-to-data-lake?context=/azure/synapse-analytics/context/context
   - name: Quickstarts
@@ -818,6 +826,18 @@ items:
         href: ../cosmos-db/synapse-link-frequently-asked-questions.yml?context=/azure/synapse-analytics/context/context
       - name: Synapse Link use cases
         href: ../cosmos-db/synapse-link-use-cases.md?context=/azure/synapse-analytics/context/context
+    - name: SQL Database
+      items:
+      - name: Synapse Link for Azure SQL Database
+        href: ./synapse-link/sql-database-synapse-link.md
+      - name: SQL FAQ
+        href: ./synapse-link/faq.yml
+    - name: SQL Server 2022
+      items:
+      - name: Synapse Link for SQL Server 2022
+        href: ./synapse-link/sql-server-2022-synapse-link.md
+      - name: SQL FAQ
+        href: ./synapse-link/faq.yml
     - name: Dataverse
       items: 
       - name: What is Dataverse
@@ -848,6 +868,18 @@ items:
         href: ./synapse-link/how-to-copy-to-sql-pool.md  
       - name: Query Azure Cosmos DB analytical store with serverless SQL pool
         href: sql/query-cosmos-db-analytical-store.md?context=/azure/synapse-analytics/context/context
+    - name: SQL Database
+      items:
+      - name: Configure Synapse Link
+        href: ./synapse-link/connect-synapse-link-sql-database.md
+      - name: Known limitations and issues
+        href: ./synapse-link/synapse-link-for-sql-known-issues.md
+    - name: SQL Server 2022
+      items:
+      - name: Configure Synapse Link
+        href: ./synapse-link/connect-synapse-link-sql-server-2022.md
+      - name: Known limitations and issues
+        href: ./synapse-link/synapse-link-for-sql-known-issues.md
     - name: Dataverse
       items:
       - name: Configure Synapse Link for Dataverse
@@ -860,8 +892,6 @@ items:
   #   items:
   # - name: Quickstarts
   #   items:
-  # - name: Tutorials
-  #   items:  
   - name: Quickstarts
     items:
     - name: Load data into SQL pools using copy activity
@@ -1482,8 +1512,42 @@ items:
   items:
   - name: Migration guides
     items:
+    - name: All migration guides
+      href: migration-guides/index.yml    
     - name: Migrate to a dedicated SQL pool
       href: migration-guides/migrate-to-synapse-analytics-guide.md
+    - name: From Teradata
+      items:
+      - name: 1 Design performance for Teradata migration
+        href: migration-guides/teradata/1-design-performance-migration.md
+      - name: 2 ETL and load migration considerations
+        href: migration-guides/teradata/2-etl-load-migration-considerations.md
+      - name: 3 Security access operations
+        href: migration-guides/teradata/3-security-access-operations.md
+      - name: 4 Visualization and reporting
+        href: migration-guides/teradata/4-visualization-reporting.md
+      - name: 5 Minimizing SQL issues
+        href: migration-guides/teradata/5-minimize-sql-issues.md
+      - name: 6 Microsoft and third-party tools
+        href: migration-guides/teradata/6-microsoft-third-party-migration-tools.md
+      - name: 7 Implementing modern data warehouses
+        href: migration-guides/teradata/7-beyond-data-warehouse-migration.md
+    - name: From Netezza
+      items:
+      - name: 1 Design performance for Netezza migration
+        href: migration-guides/netezza/1-design-performance-migration.md
+      - name: 2 ETL and load migration considerations
+        href: migration-guides/netezza/2-etl-load-migration-considerations.md
+      - name: 3 Security access operations
+        href: migration-guides/netezza/3-security-access-operations.md
+      - name: 4 Visualization and reporting
+        href: migration-guides/netezza/4-visualization-reporting.md
+      - name: 5 Minimizing SQL issues
+        href: migration-guides/netezza/5-minimize-sql-issues.md
+      - name: 6 Microsoft and third-party tools
+        href: migration-guides/netezza/6-microsoft-third-party-migration-tools.md
+      - name: 7 Implementing modern data warehouses
+        href: migration-guides/netezza/7-beyond-data-warehouse-migration.md
   - name: Security white paper
     items:
     - name: Introduction

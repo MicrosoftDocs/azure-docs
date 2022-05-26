@@ -2,14 +2,14 @@
 title: View information about active and completed tasks in CloudKnox Permissions Management
 description: How to view information about active and completed tasks in the Activities pane in CloudKnox Permissions Management.
 services: active-directory
-author: Yvonne-deQ
-manager: karenh444
+author: kenwith
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: kenwith
 ---
 
 # View information about active and completed tasks

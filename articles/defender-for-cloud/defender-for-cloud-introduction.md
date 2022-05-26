@@ -1,19 +1,19 @@
 ---
-title: Microsoft Defender for Cloud - an introduction
-description: Use Microsoft Defender for Cloud to protect your Azure, hybrid, and multi-cloud resources and workloads.
+title: What is Microsoft Defender for Cloud?
+description: Use Microsoft Defender for Cloud to protect your Azure, hybrid, and multicloud resources and workloads.
 ms.topic: overview
-ms.author: elkrieger
-author: ElazarK
+ms.author: benmansheim
+author: bmansheim
 ms.custom: mvc
-ms.date: 03/31/2022
+ms.date: 05/19/2022
 ---
 # What is Microsoft Defender for Cloud?
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+Microsoft Defender for Cloud is a Cloud Workload Protection Platform (CWPP) that also delivers Cloud Security Posture Management (CSPM) for all of your Azure, on-premises, and multicloud (Amazon AWS and Google GCP) resources.
 
-Defender for Cloud is a tool for security posture management and threat protection. It strengthens the security posture of your cloud resources, and with its integrated Microsoft Defender plans, Defender for Cloud protects workloads running in Azure, hybrid, and other cloud platforms.
-
-Defender for Cloud provides the tools needed to harden your resources, track your security posture, protect against cyber attacks, and streamline security management. Because it's natively integrated, deployment of Defender for Cloud is easy, providing you with simple auto provisioning to secure your resources by default.
+- [**Defender for Cloud recommendations**](security-policy-concept.md) identify cloud workloads that require security actions and provide you with steps to protect your workloads from security risks.
+- [**Defender for Cloud secure score**](secure-score-security-controls.md) gives you a clear view of your security posture based on the implementation of the security recommendations so you can track new security opportunities and precisely report on the progress of your security efforts.
+- [**Defender for Cloud alerts**](alerts-overview.md) warn you about security events in your workloads in real-time, including the indicators that led to the event.
 
 Defender for Cloud fills three vital needs as you manage the security of your resources and workloads in the cloud and on-premises:
 
@@ -42,7 +42,7 @@ When you open Defender for Cloud for the first time, it will meet the visibility
 
 1. **Generate a secure score** for your subscriptions based on an assessment of your connected resources compared with the guidance in [Azure Security Benchmark](/security/benchmark/azure/overview). Use the score to understand your security posture, and the compliance dashboard to review your compliance with the built-in benchmark. When you've enabled the enhanced security features, you can customize the standards used to assess your compliance, and add other regulations (such as NIST and Azure CIS) or organization-specific security requirements. You can also apply recommendations, and score based on the AWS Foundational Security Best practices standards.
 
-1. **Provide hardening recommendations** based on any identified security misconfigurations and weaknesses. Use these security recommendations to strengthen the security posture of your organization's Azure, hybrid, and multi-cloud resources.
+1. **Provide hardening recommendations** based on any identified security misconfigurations and weaknesses. Use these security recommendations to strengthen the security posture of your organization's Azure, hybrid, and multicloud resources.
 
 [Learn more about secure score](secure-score-security-controls.md).
 
@@ -50,11 +50,11 @@ When you open Defender for Cloud for the first time, it will meet the visibility
 
 Defender for Cloud offers security alerts that are powered by [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684). It also includes a range of advanced, intelligent, protections for your workloads. The workload protections are provided through Microsoft Defender plans specific to the types of resources in your subscriptions. For example, you can enable **Microsoft Defender for Storage** to get alerted about suspicious activities related to your Azure Storage accounts.
 
-## Azure, hybrid, and multi-cloud protections
+## Azure, hybrid, and multicloud protections
 
 Because Defender for Cloud is an Azure-native service, many Azure services are monitored and protected without needing any deployment.
 
-When necessary, Defender for Cloud can automatically deploy a Log Analytics agent to gather security-related data. For Azure machines, deployment is handled directly. For hybrid and multi-cloud environments, Microsoft Defender plans are extended to non Azure machines with the help of [Azure Arc](https://azure.microsoft.com/services/azure-arc/). CSPM features are extended to multi-cloud machines without the need for any agents (see [Defend resources running on other clouds](#defend-resources-running-on-other-clouds)).
+When necessary, Defender for Cloud can automatically deploy a Log Analytics agent to gather security-related data. For Azure machines, deployment is handled directly. For hybrid and multicloud environments, Microsoft Defender plans are extended to non Azure machines with the help of [Azure Arc](https://azure.microsoft.com/services/azure-arc/). CSPM features are extended to multicloud machines without the need for any agents (see [Defend resources running on other clouds](#defend-resources-running-on-other-clouds)).
 
 ### Azure-native protections
 
@@ -78,7 +78,7 @@ Defender for Cloud can protect resources in other clouds (such as AWS and GCP).
 
 For example, if you've [connected an Amazon Web Services (AWS) account](quickstart-onboard-aws.md) to an Azure subscription, you can enable any of these protections:
 
-- **Defender for Cloud's CSPM features** extend to your AWS resources. This agentless plan assesses your AWS resources according to AWS-specific security recommendations and these are included in your secure score. The resources will also be assessed for compliance with built-in standards specific to AWS (AWS CIS, AWS PCI DSS, and AWS Foundational Security Best Practices). Defender for Cloud's [asset inventory page](asset-inventory.md) is a multi-cloud enabled feature helping you manage your AWS resources alongside your Azure resources.
+- **Defender for Cloud's CSPM features** extend to your AWS resources. This agentless plan assesses your AWS resources according to AWS-specific security recommendations and these are included in your secure score. The resources will also be assessed for compliance with built-in standards specific to AWS (AWS CIS, AWS PCI DSS, and AWS Foundational Security Best Practices). Defender for Cloud's [asset inventory page](asset-inventory.md) is a multicloud enabled feature helping you manage your AWS resources alongside your Azure resources.
 - **Microsoft Defender for Kubernetes** extends its container threat detection and advanced defenses to your **Amazon EKS Linux clusters**.
 - **Microsoft Defender for Servers** brings threat detection and advanced defenses to your Windows and Linux EC2 instances. This plan includes the integrated license for Microsoft Defender for Endpoint, security baselines and OS level assessments, vulnerability assessment scanning, adaptive application controls (AAC), file integrity monitoring (FIM), and more.
 
@@ -97,7 +97,7 @@ Review the findings from these vulnerability scanners and respond to them all fr
 Learn more on the following pages:
 
 - [Defender for Cloud's integrated Qualys scanner for Azure and hybrid machines](deploy-vulnerability-assessment-vm.md)
-- [Identify vulnerabilities in images in Azure container registries](defender-for-container-registries-usage.md#identify-vulnerabilities-in-images-in-other-container-registries)
+- [Identify vulnerabilities in images in Azure container registries](defender-for-containers-usage.md#identify-vulnerabilities-in-images-in-other-container-registries)
 
 ## Optimize and improve security by configuring recommended controls
 
@@ -123,7 +123,7 @@ To help you understand how important each recommendation is to your overall secu
 
 Defender for Cloud provides:
 
-- **Security alerts** - When Defender for Cloud detects a threat in any area of your environment, it generates a security alert. These alerts describe details of the affected resources, suggested remediation steps, and in some cases an option to trigger a logic app in response. Whether an alert is generated by Defender for Cloud, or received by Defender for Cloud from an integrated  security product, you can export it. To export your alerts to Microsoft Sentinel, any third-party SIEM, or any other external tool, follow the instructions in [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md). Defender for Cloud's threat protection includes fusion kill-chain analysis, which automatically correlates alerts in your environment based on cyber kill-chain analysis, to help you better understand the full story of an attack campaign, where it started and what kind of impact it had on your resources. [Defender for Cloud's supported kill chain intents are based on version 7 of the MITRE ATT&CK matrix](alerts-reference.md#intentions).
+- **Security alerts** - When Defender for Cloud detects a threat in any area of your environment, it generates a security alert. These alerts describe details of the affected resources, suggested remediation steps, and in some cases an option to trigger a logic app in response. Whether an alert is generated by Defender for Cloud, or received by Defender for Cloud from an integrated  security product, you can export it. To export your alerts to Microsoft Sentinel, any third-party SIEM, or any other external tool, follow the instructions in [Stream alerts to a SIEM, SOAR, or IT Service Management solution](export-to-siem.md). Defender for Cloud's threat protection includes fusion kill-chain analysis, which automatically correlates alerts in your environment based on cyber kill-chain analysis, to help you better understand the full story of an attack campaign, where it started and what kind of impact it had on your resources. [Defender for Cloud's supported kill chain intents are based on version 9 of the MITRE ATT&CK matrix](alerts-reference.md#intentions).
 
 - **Advanced threat protection features** for virtual machines, SQL databases, containers, web applications, your network, and more - Protections include securing the management ports of your VMs with [just-in-time access](just-in-time-access-overview.md), and [adaptive application controls](adaptive-application-controls.md) to create allowlists for what apps should and shouldn't run on your machines.
 
@@ -144,6 +144,16 @@ Use the advanced protection tiles in the [workload protections dashboard](worklo
 
 > [!TIP]
 > Microsoft Defender for IoT is a separate product. You'll find all the details in [Introducing Microsoft Defender for IoT](../defender-for-iot/overview.md).
+
+## Learn More
+
+If you would like to learn more about Defender for Cloud from a cybersecurity expert, check out [Lessons Learned from the Field](episode-six.md).
+
+You can also check out the following blogs:
+
+- [A new name for multi-cloud security: Microsoft Defender for Cloud](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/a-new-name-for-multi-cloud-security-microsoft-defender-for-cloud/ba-p/2943020)
+- [Microsoft Defender for Cloud - Use cases](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-use-cases/ba-p/2953619)
+- [Microsoft Defender for Cloud PoC Series - Microsoft Defender for Containers](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-defender-for-cloud-poc-series-microsoft-defender-for/ba-p/3064644)
 
 ## Next steps
 

@@ -111,6 +111,8 @@ After successfully downloading the security domain, your HSM will be in an activ
 
 [!INCLUDE [Create a key vault](../../../includes/powershell-rg-delete.md)]
 
+> [!WARNING]
+> Deleting the resource group puts the Managed HSM into a soft-deleted state. The Managed HSM will continue to be billed until it is purged. See [Managed HSM soft-delete and purge protection](recovery.md)
 ## Next steps
 
 In this quickstart, you created and activated a Managed HSM. To learn more about Managed HSM and how to integrate it with your applications, continue on to these articles:

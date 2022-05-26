@@ -48,7 +48,7 @@ items:
     href: how-to-guides/use-prebuilt-read.md
   - name: Use SDKs and the REST API (v2.1)
     href: how-to-guides/try-sdk-rest-api.md
-  - name: Generate SAS tokens for Azure Blob containers
+  - name: Create SAS tokens for Azure Blob storage
     href:  generate-sas-tokens.md
   - name: Custom models
     items:
@@ -79,7 +79,7 @@ items:
       href: containers/form-recognizer-container-install-run.md
     - name: Configure containers
       href: containers/form-recognizer-container-configuration.md
-      displayName: docker, container, run, billing, apikey, logging
+      displayName: docker, container, run, billing, key, logging
     - name: Container image tags
       href: containers/form-recognizer-container-image-tags.md
     - name: Use container instances
@@ -90,6 +90,8 @@ items:
       href: ../../cognitive-services/cognitive-services-virtual-networks.md?context=/azure/applied-ai-services/form-recognizer/context/context
     - name: Create and use managed identities
       href: managed-identities.md
+    - name: Configure managed identities with private endpoints
+      href: managed-identities-secured-access.md
     - name: Use customer-managed keys
       href: encrypt-data-at-rest.md
     - name: Use Azure AD authentication

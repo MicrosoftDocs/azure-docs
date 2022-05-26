@@ -170,19 +170,19 @@ Azure Resource Manager restricts template size to be 4-MB. Limit the size of you
 
 For small to medium solutions, a single template is easier to understand and maintain. You can see all the resources and values in a single file. For advanced scenarios, linked templates enable you to break down the solution into targeted components. Follow best practice at [Using Linked and Nested Templates](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell).
 
-###  DevOps API limit of 20 MB causes ADF trigger twice instead of once 
+###  DevOps API limit of 20 MB causes ADF trigger twice or more instead of once 
 
 #### Issue
 
-While publishing ADF resources, the azure pipeline triggers twice instead of once.
+While publishing ADF resources, the azure pipeline triggers twice or more instead of once.
 
 #### Cause
  
-DevOps has limitation of 20-MB REST api load for arm templates, linked template and  global parameters. Large ADF resources are reorganized to get around  GitHub API rate limits. That may rarely cause ADF DevOps APIs hit 20-MB limit.
+Azure DevOps has the 20 MB Rest API limit. When the ARM template exceeds this size, ADF internally splits the template file into multiple files with linked templates to solve this issue. As a side effect, this split could result in customer's triggers being run more than once.
 
 #### Resolution
 
-Use ADF **Automated publish** (preferred)  or **manual trigger** method to trigger once instead of twice.
+Use ADF **Automated publish** (preferred)  or **manual trigger** method to trigger once instead of twice or more.
 
 ### Cannot connect to GIT Enterprise  
 
@@ -244,7 +244,7 @@ Following section is not valid because package.json folder is not valid.
 ```
 It should have DataFactory included in customCommand like *'run build validate $(Build.Repository.LocalPath)/DataFactory/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/yourFactoryName'*. Make sure the generated YAML file for higher stage should have required JSON artifacts.
 
-### Git Repository or Microsoft Purview Connection Disconnected
+### Git Repository or Microsoft Purview connection disconnected
 
 #### Issue
 When deploying a service instance, the git repository or purview connection is disconnected.

@@ -4,6 +4,7 @@ description: 'This tutorial shows you how to configure audit logs by using Azure
 author: SudheeshGH
 ms.author: sunaray
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: tutorial
 ms.date: 10/01/2021
 ---

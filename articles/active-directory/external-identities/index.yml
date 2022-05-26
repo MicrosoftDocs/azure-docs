@@ -42,7 +42,7 @@ landingContent:
         links:
           - text: Configure your external collaboration settings
             url: external-collaboration-settings-configure.md
-          - text: Set up SAML/WS-Fed IdP federation (preview)
+          - text: Set up SAML/WS-Fed IdP federation
             url: direct-federation.md
           - text: Set up One-time passcodes
             url: one-time-passcode.md

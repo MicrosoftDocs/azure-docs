@@ -43,7 +43,7 @@ Learn more about [Api Management - TlsRenegotiationBlocked (SSL/TLS renegotiatio
 
 Fragmentation and memory pressure can cause availability incidents during a failover or management operations. Increasing reservation of memory for fragmentation helps in reducing the cache failures when running under high memory pressure. Memory for fragmentation can be increased via maxfragmentationmemory-reserved setting available in advanced settings blade.
 
-Learn more about [Redis Cache Server - RedisCacheMemoryFragmentation (Availability may be impacted from high memory fragmentation. Increase fragmentation memory reservation to avoid potential impact.)](../azure-cache-for-redis/cache-configure.md#memory-policies).
+Learn more about [Redis Cache Server - RedisCacheMemoryFragmentation (Availability may be impacted from high memory fragmentation. Increase fragmentation memory reservation to avoid potential impact.)](/azure/azure-cache-for-redis/cache-configure#memory-policies).
 
 ## Compute
 
@@ -57,7 +57,7 @@ Learn more about [Virtual machine (classic) - EnableBackup (Enable Backups on yo
 
 We have identified that you are using standard disks with your premium-capable Virtual Machines and we recommend you consider upgrading the standard disks to premium disks. For any Single Instance Virtual Machine using premium storage for all Operating System Disks and Data Disks, we guarantee you will have Virtual Machine Connectivity of at least 99.9%. Consider these factors when making your upgrade decision. The first is that upgrading requires a VM reboot and this process takes 3-5 minutes to complete. The second is if the VMs in the list are mission-critical production VMs, evaluate the improved availability against the cost of premium disks.
 
-Learn more about [Virtual machine - MigrateStandardStorageAccountToPremium (Upgrade the standard disks attached to your premium-capable VM to premium disks)](../virtual-machines/disks-types.md#premium-ssds).
+Learn more about [Virtual machine - MigrateStandardStorageAccountToPremium (Upgrade the standard disks attached to your premium-capable VM to premium disks)](/azure/virtual-machines/disks-types#premium-ssd).
 
 ### Enable virtual machine replication to protect your applications from regional outage
 
@@ -75,7 +75,7 @@ Learn more about [Virtual machine - UpgradeVMToManagedDisksWithoutAdditionalCost
 
 Using IP Address based filtering has been identified as a vulnerable way to control outbound connectivity for firewalls. It is advised to use Service Tags as an alternative for controlling connectivity. We highly recommend the use of Service Tags, to allow connectivity to Azure Site Recovery services for the machines.
 
-Learn more about [Virtual machine - ASRUpdateOutboundConnectivityProtocolToServiceTags (Update your outbound connectivity protocol to Service Tags for Azure Site Recovery)](../site-recovery/azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags).
+Learn more about [Virtual machine - ASRUpdateOutboundConnectivityProtocolToServiceTags (Update your outbound connectivity protocol to Service Tags for Azure Site Recovery)](/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-using-service-tags).
 
 ### Use Managed Disks to improve data reliability
 
@@ -162,7 +162,7 @@ Learn more about [Cosmos DB account - CosmosDBSingleRegionProdAccounts (Add a se
 
 We observed your account is throwing a TooManyRequests error with the 16500 error code. Enabling Server Side Retry (SSR) can help mitigate this issue for you.
 
-Learn more about [Cosmos DB account - CosmosDBMongoServerSideRetries (Enable Server Side Retry (SSR) on your Azure Cosmos DB's API for MongoDB account)](../cosmos-db/cassandra/prevent-rate-limiting-errors.md).
+Learn more about [Cosmos DB account - CosmosDBMongoServerSideRetries (Enable Server Side Retry (SSR) on your Azure Cosmos DB's API for MongoDB account)](/azure/cosmos-db/cassandra/prevent-rate-limiting-errors).
 
 ### Migrate your Azure Cosmos DB API for MongoDB account to v4.0 to save on query/storage costs and utilize new features
 
@@ -294,7 +294,7 @@ Learn more about [Application gateway - AppGateway (Upgrade your SKU or add more
 
 The VPN gateway Basic SKU is designed for development or testing scenarios. Please move to a production SKU if you are using the VPN gateway for production purposes. The production SKUs offer higher number of tunnels, BGP support, active-active, custom IPsec/IKE policy in addition to higher stability and availability.
 
-Learn more about [Virtual network gateway - BasicVPNGateway (Move to production gateway SKUs from Basic gateways)](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+Learn more about [Virtual network gateway - BasicVPNGateway (Move to production gateway SKUs from Basic gateways)](/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku).
 
 ### Add at least one more endpoint to the profile, preferably in another Azure region
 
@@ -330,7 +330,7 @@ Learn more about [ExpressRoute circuit - ExpressRouteGatewayE2EMonitoring (Imple
 
 Try to avoid overriding the hostname when configuring Application Gateway.  Having a different domain on the frontend of Application Gateway than the one which is used to access the backend can potentially lead to cookies or redirect urls being broken.  Note that this might not be the case in all situations and that certain categories of backends (like REST API's) in general are less sensitive to this.  Please make sure the backend is able to deal with this or update the Application Gateway configuration so the hostname does not need to be overwritten towards the backend.  When used with App Service, attach a custom domain name to the Web App and avoid use of the *.azurewebsites.net host name towards the backend.
 
-Learn more about [Application gateway - AppGatewayHostOverride (Avoid hostname override to ensure site integrity)](../application-gateway/troubleshoot-app-service-redirection-app-service-url.md).
+Learn more about [Application gateway - AppGatewayHostOverride (Avoid hostname override to ensure site integrity)](/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url#alternate-solution-use-a-custom-domain-name).
 
 ### Use ExpressRoute Global Reach to improve your design for disaster recovery
 
@@ -399,13 +399,13 @@ Learn more about [Search service - StandardServiceStorageQuota90percent (You are
 
 After enabling Soft Delete, deleted data transitions to a soft deleted state instead of being permanently deleted. When data is overwritten, a soft deleted snapshot is generated to save the state of the overwritten data. You can configure the amount of time soft deleted data is recoverable before it permanently expires.
 
-Learn more about [Storage Account - StorageSoftDelete (Enable Soft Delete to protect your blob data)](../storage/blobs/soft-delete-blob-overview.md).
+Learn more about [Storage Account - StorageSoftDelete (Enable Soft Delete to protect your blob data)](https://aka.ms/softdelete).
 
 ### Use Managed Disks for storage accounts reaching capacity limit
 
 We have identified that you are using Premium SSD Unmanaged Disks in Storage account(s) that are about to reach Premium Storage capacity limit. To avoid failures when the limit is reached, we recommend migrating to Managed Disks that do not have account capacity limit. This migration can be done through the portal in less than 5 minutes.
 
-Learn more about [Storage Account - StoragePremiumBlobQuotaLimit (Use Managed Disks for storage accounts reaching capacity limit)](../storage/common/scalability-targets-standard-account.md).
+Learn more about [Storage Account - StoragePremiumBlobQuotaLimit (Use Managed Disks for storage accounts reaching capacity limit)](/azure/storage/common/scalability-targets-standard-account#premium-performance-page-blob-storage).
 
 ## Web
 
@@ -413,19 +413,19 @@ Learn more about [Storage Account - StoragePremiumBlobQuotaLimit (Use Managed Di
 
 Your App reached >90% CPU over the last couple of days. High CPU utilization can lead to runtime issues with your apps, to solve this you could scale out your app.
 
-Learn more about [App service - AppServiceCPUExhaustion (Consider scaling out your App Service Plan to avoid CPU exhaustion)](../app-service/app-service-best-practices.md#CPUresources).
+Learn more about [App service - AppServiceCPUExhaustion (Consider scaling out your App Service Plan to avoid CPU exhaustion)](/azure/app-service/app-service-best-practices#CPUresources).
 
 ### Fix the backup database settings of your App Service resource
 
 Your app's backups are consistently failing due to invalid DB configuration, you can find more details in backup history.
 
-Learn more about [App service - AppServiceFixBackupDatabaseSettings (Fix the backup database settings of your App Service resource)](../app-service/app-service-best-practices.md#appbackup).
+Learn more about [App service - AppServiceFixBackupDatabaseSettings (Fix the backup database settings of your App Service resource)](/azure/app-service/app-service-best-practices#appbackup.).
 
 ### Consider scaling up your App Service Plan SKU to avoid memory exhaustion
 
 The App Service Plan containing your app reached >85% memory allocated. High memory consumption can lead to runtime issues with your apps. Investigate which app in the App Service Plan is exhausting memory and scale up to a higher plan with more memory resources if needed.
 
-Learn more about [App service - AppServiceMemoryExhaustion (Consider scaling up your App Service Plan SKU to avoid memory exhaustion)](../app-service/app-service-best-practices.md#memoryresources).
+Learn more about [App service - AppServiceMemoryExhaustion (Consider scaling up your App Service Plan SKU to avoid memory exhaustion)](/azure/app-service/app-service-best-practices#memoryresources).
 
 ### Scale up your App Service resource to remove the quota limit
 
@@ -443,7 +443,7 @@ Learn more about [App service - AppServiceUseDeploymentSlots (Use deployment slo
 
 Your app's backups are consistently failing due to invalid storage settings, you can find more details in backup history.
 
-Learn more about [App service - AppServiceFixBackupStorageSettings (Fix the backup storage settings of your App Service resource)](../app-service/app-service-best-practices.md#appbackup).
+Learn more about [App service - AppServiceFixBackupStorageSettings (Fix the backup storage settings of your App Service resource)](/azure/app-service/app-service-best-practices#appbackup).
 
 ### Move your App Service resource to Standard or higher and use deployment slots
 

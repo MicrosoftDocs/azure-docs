@@ -74,9 +74,9 @@ To access lineage information for an asset in Microsoft Purview, follow the step
 
 1. In the Azure portal, go to the [Microsoft Purview accounts page](https://aka.ms/purviewportal).
 
-1. Select your Microsoft Purview account from the list, and then select **Open Microsoft Purview Studio** from the **Overview** page.
+1. Select your Microsoft Purview account from the list, and then select **Open Microsoft Purview governance portal** from the **Overview** page.
 
-1. On the Microsoft Purview Studio **Home** page, search for a dataset name or the process name such as ADF Copy or Data Flow activity. And then press Enter.
+1. On the Microsoft Purview governance portal **Home** page, search for a dataset name or the process name such as ADF Copy or Data Flow activity. And then press Enter.
 
 1. From the search results, select the asset and select its **Lineage** tab.
 

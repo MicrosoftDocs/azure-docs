@@ -1,15 +1,15 @@
 ---
 title: Configure import settings in the FHIR service - Azure Health Data Services
-description: This article describes how to configure import settings in the FHIR service
+description: This article describes how to configure import settings in the FHIR service.
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 04/16/2022
+ms.date: 04/20/2022
 ms.author: ranku
 ---
 
-# Configure bulk import settings (Preview)
+# Configure bulk-import settings (Preview)
 
 The FHIR service supports $import operation that allows you to import data into FHIR service account from a storage account.
 
@@ -47,7 +47,7 @@ The final step is to set the import configuration of the FHIR service, which con
 > [!NOTE]
 > If you haven't assigned storage access permissions to the FHIR service, the import operations ($import) will fail.
 
-To specify the Azure Storage account, you need to use [Rest API](/rest/api/healthcareapis/services/create-or-update) to update the FHIR service.
+To specify the Azure Storage account, you need to use [REST API](/rest/api/healthcareapis/services/create-or-update) to update the FHIR service.
 
 To get the request URL and body, browse to the Azure portal of your FHIR service. Select **Overview**, and then **JSON View**.
 
@@ -66,6 +66,9 @@ After you've completed this final step, you're ready to import data using $impor
 ## Next steps
 
 In this article, you've learned the FHIR service supports $import operation and how it allows you to import data into FHIR service account from a storage account. You also learned about the three steps used in configuring import settings in the FHIR service. For more information about converting data to FHIR, exporting settings to set up a storage account, and moving data to Azure Synapse, see
+
+>[!div class="nextstepaction"]
+>[Use $import](import-data.md)
 
 >[!div class="nextstepaction"]
 >[Converting your data to FHIR](convert-data.md)

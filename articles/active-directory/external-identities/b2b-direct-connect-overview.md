@@ -24,7 +24,7 @@ B2B direct connect requires a mutual trust relationship between two Azure AD org
 
 Currently, B2B direct connect capabilities work with Teams shared channels. When B2B direct connect is established between two organizations, users in one organization can create a shared channel in Teams and invite an external B2B direct connect user to it. Then from within Teams, the B2B direct connect user can seamlessly access the shared channel in their home tenant Teams instance, without having to manually sign in to the organization hosting the shared channel.
 
-For licensing and pricing information related to B2B direct connect users, refer to [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/).
+For licensing and pricing information related to B2B direct connect users, refer to [Azure Active Directory External Identities pricing](https://azure.microsoft.com/pricing/details/active-directory/external-identities/).
 
 ## Managing cross-tenant access for B2B direct connect
 
@@ -66,7 +66,7 @@ Then Contoso adds the Fabrikam organization and configures the following **Organ
 - Allow all Contoso users and groups to have outbound access to Fabrikam using B2B direct connect.
 - Allow Contoso B2B direct connect users to have outbound access to all Fabrikam applications.
 
-For this scenario to work, Fabrikam also needs to allow B2B direct connect with Contoso by configuring these same cross-tenant access settings for Contoso and for their own users and applications. Contoso users who manage Teams shared channels in your organizations will be able to add Fabrikam users by searching for their full Fabrikam email addresses.
+For this scenario to work, Fabrikam also needs to allow B2B direct connect with Contoso by configuring these same cross-tenant access settings for Contoso and for their own users and applications. When configuration is complete, Contoso users who manage Teams shared channels will be able to add Fabrikam users by searching for their full Fabrikam email addresses.
 
 ### Example 2: Enable B2B direct connect with Fabrikam's Marketing group only
 
@@ -77,7 +77,7 @@ Starting from the example above, Contoso could also choose to allow only the Fab
 - Allow all Contoso users and groups to have outbound access to Fabrikam using B2B direct connect.
 - Allow Contoso B2B direct connect users to have outbound access to all Fabrikam applications.
 
-Fabrikam will also need to configure their outbound cross-tenant access settings so that their Marketing group is allowed to collaborate with Contoso through B2B direct connect. Contoso users who manage Teams shared channels in your organizations will be able to add only Fabrikam Marketing group users by searching for their full Fabrikam email addresses.
+Fabrikam will also need to configure their outbound cross-tenant access settings so that their Marketing group is allowed to collaborate with Contoso through B2B direct connect. When configuration is complete, Contoso users who manage Teams shared channels will be able to add only Fabrikam Marketing group users by searching for their full Fabrikam email addresses.
 
 ## Authentication
 

@@ -2,10 +2,23 @@
 author: timwarner-msft
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/10/2022
+ms.date: 05/18/2022
 ms.author: timwarner
 ms.custom: generated
 ---
+
+## [Preview]: SWIFT CSCF v2021
+
+To review how the available Azure Policy built-ins for all Azure services map to this compliance
+standard, see
+[Azure Policy Regulatory Compliance details for [Preview]: SWIFT CSCF v2021](../../../../articles/governance/policy/samples/swift-cscf-v2021.md).
+For more information about this compliance standard, see
+[SWIFT CSCF v2021](https://www.swift.com/myswift/customer-security-programme-csp).
+
+|Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|SWIFT Environment Protection |SWIFT CSCF v2021 1.1 |SWIFT Environment Protection |[VM Image Builder templates should use private link](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2154edb9-244f-4741-9970-660785bccdaa) |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/VM%20Image%20Builder/PrivateLinkEnabled_Audit.json) |
+|Reduce Attack Surface and Vulnerabilities |SWIFT CSCF v2021 2.3 |System Hardening |[VM Image Builder templates should use private link](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2154edb9-244f-4741-9970-660785bccdaa) |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/VM%20Image%20Builder/PrivateLinkEnabled_Audit.json) |
 
 ## Azure Security Benchmark
 

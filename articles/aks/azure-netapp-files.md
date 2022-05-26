@@ -21,7 +21,7 @@ Using a CSI driver to directly consume Azure NetApp Files volumes from AKS workl
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 
 > [!IMPORTANT]
 > Your AKS cluster must also be [in a region that supports Azure NetApp Files][anf-regions].
@@ -520,8 +520,9 @@ For more details on using Azure tags, see [Use Azure tags in Azure Kubernetes Se
 
 * For more information on Azure NetApp Files, see [What is Azure NetApp Files][anf].
 
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
 [aks-nfs]: azure-nfs-volume.md
 [anf]: ../azure-netapp-files/azure-netapp-files-introduction.md
 [anf-delegate-subnet]: ../azure-netapp-files/azure-netapp-files-delegate-subnet.md

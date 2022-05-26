@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 03/14/2022
+ms.date: 05/04/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -51,22 +51,22 @@ To retrieve data types of view columns, Microsoft Purview issues a prepare state
 
 * An active [Microsoft Purview account](create-catalog-portal.md).
 
-* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview Studio. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
+* You need Data Source Administrator and Data Reader permissions to register a source and manage it in the Microsoft Purview governance portal. For more information about permissions, see [Access control in Microsoft Purview](catalog-permissions.md).
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
 
-    * Ensure [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
+    * Ensure [JDK 11](https://www.oracle.com/java/technologies/downloads/#java11) is installed on the machine where the self-hosted integration runtime is installed. Restart the machine after you newly install the JDK for it to take effect.
 
     * Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
 
-    * You'll have to manually download Teradata's JDBC Driver on your virtual machine where self-hosted integration runtime is running. The executable JAR file can be downloaded from the Teradata [website](https://downloads.teradata.com/).
+    * Download the [Teradata JDBC driver](https://downloads.teradata.com/) on the machine where your self-hosted integration runtime is running. Note down the folder path which you will use to set up the scan.
 
         > [!Note]
-        > The driver should be accessible to all accounts in the VM. Please do not install in a user account.
+        > The driver should be accessible by the self-hosted integration runtime. By default, self-hosted integration runtime uses [local service account "NT SERVICE\DIAHostService"](manage-integration-runtimes.md#service-account-for-self-hosted-integration-runtime). Make sure it has "Read and execute" and "List folder contents" permission to the driver folder.
 
 ## Register
 
-This section describes how to register Teradata in Microsoft Purview using the [Microsoft Purview Studio](https://web.purview.azure.com/).
+This section describes how to register Teradata in Microsoft Purview using the [Microsoft Purview governance portal](https://web.purview.azure.com/).
 
 ### Steps to register
 
@@ -81,7 +81,7 @@ On the **Register sources (Teradata)** screen, do the following:
 
 1.  Enter a **Name** that the data source will be listed with in the Catalog.
 
-1.  Enter the **Host** name to connect to a Teradata source. It can also be an IP address or a fully qualified connection string to the     server.
+1.  Enter the **Host** name to connect to a Teradata source. It can also be an IP address of the server.
 
 1.  Select a collection or create a new one (Optional)
 
@@ -97,7 +97,7 @@ Follow the steps below to scan Teradata to automatically identify assets and cla
 
 1. In the Management Center, select **Integration runtimes**. Make sure a self-hosted integration runtime is set up. If it isn't set up, use the steps mentioned [here](./manage-integration-runtimes.md) to set up a self-hosted integration runtime
 
-1. Select the **Data Map** tab on the left pane in the [Microsoft Purview Studio](https://web.purview.azure.com/resource/).
+1. Select the **Data Map** tab on the left pane in the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/).
 
 1. Select the registered Teradata source.
 
@@ -126,7 +126,7 @@ Follow the steps below to scan Teradata to automatically identify assets and cla
 
         Usage of NOT and special characters aren't acceptable
 
-    1. **Driver location**: Specify the path to the JDBC driver location in your VM where self-host integration runtime is running. This should be the path to valid JAR folder location.
+    1. **Driver location**: Specify the path to the JDBC driver location in your machine where self-host integration runtime is running, e.g. `D:\Drivers\Teradata`. It's the path to valid JAR folder location. Make sure the driver is accessible by the self-hosted integration runtime, learn more from [prerequisites section](#prerequisites).
 
     1. **Stored procedure details**: Controls the number of details imported from stored procedures:
 
@@ -162,6 +162,6 @@ Go to the asset -> lineage tab, you can see the asset relationship when applicab
 
 Now that you've registered your source, follow the below guides to learn more about Microsoft Purview and your data.
 
-- [Data insights in Microsoft Purview](concept-insights.md)
+- [Data Estate Insights in Microsoft Purview](concept-insights.md)
 - [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Search Data Catalog](how-to-search-catalog.md)

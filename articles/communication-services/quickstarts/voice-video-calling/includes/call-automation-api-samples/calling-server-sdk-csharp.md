@@ -22,7 +22,7 @@ Before you get started, make sure to:
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Services resource](../../../create-communication-resource.md). You'll need to record your resource **connection string** for this sample.
 - Get a phone number for your new Azure Communication Services resource. For details, see [Get a phone number](../../../telephony/get-phone-number.md?pivots=platform-azp).
 - Download and install [ngrok](https://www.ngrok.com/download). As the sample is run locally, ngrok will enable the receiving of all the events.
-- (Optional) Create Azure Speech resource for generating custom message to be played by application. Follow [this guidance](../../../../../cognitive-services/speech-service/overview.md#try-the-speech-service-for-free) to create the resource.
+- (Optional) Create Azure Speech resource for generating custom message to be played by application. Follow [this guidance](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource) to create the resource.
 
 > [!NOTE]
 > You can find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/OutboundCallReminder). This sample makes use of the Microsoft Cognitive Services Speech SDK. By downloading the Microsoft Cognitive Services Speech SDK, you acknowledge its [license](https://aka.ms/csspeech/license201809).

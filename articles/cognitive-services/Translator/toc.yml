@@ -1,10 +1,10 @@
 items:
-- name: Translator Service Documentation
+- name: Azure Cognitive Services Translator Documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: What is Translator?
+  - name: What is Translator Service?
     href: translator-overview.md
   - name: Language Support
     href: language-support.md
@@ -12,7 +12,7 @@ items:
     href: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/translator
   - name: What's new?
     href: whats-new.md
-  - name: Translator FAQ
+  - name: Translator Service FAQ
     href: translator-faq.md
 - name: Text Translation
   expanded: true
@@ -24,17 +24,23 @@ items:
   - name: Samples
     items:
     - name: Code Sample page
-      href: /samples/browse/?terms=microsoft%20translator
+      href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples
     - name: C#
-      href: /samples/microsofttranslator/text-translation-api-v3-c-sharp/translator-c-sharp-v3/
+      items:
+      - name: C# samples
+        href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/blob/main/C%23-Code-Samples
+      - name: Authenticate with Azure Active Directory
+        href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/Text-Translation-AAD
+      - name: Authenticate using Azure Active Directory tokens
+        href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/Text-Translation-AzureToken
     - name: Java
-      href: /samples/microsofttranslator/text-translation-api-v3-java/translator-java-v3/
+      href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/Java-Code-Samples
     - name: Python
-      href: /samples/microsofttranslator/text-translation-api-v3-python/translator-python-v3/
+      href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/Python-Code-Samples
     - name: Node.js
-      href: /samples/microsofttranslator/text-translation-api-v3-nodejs/translator-javascript-v3/
+      href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/NodeJS-Code-Samples
     - name: Go
-      href: /samples/microsofttranslator/text-translation-api-v3-go/translator-go-v3/
+      href: https://github.com/MicrosoftTranslator/Text-Translation-Code-Samples/tree/main/GO-Code-Samples
     - name: PHP
       href: https://github.com/MicrosoftTranslator/Text-Translation-API-V3-PHP
     - name: Ruby
@@ -42,7 +48,7 @@ items:
   - name: How-to guides
     items:
     - name: Create a Translator resource
-      href: ./translator-how-to-signup.md
+      href: ./how-to-create-translator-resource.md
     - name: Migrate to V3 Text API
       href: migrate-to-v3.md
     - name: Add profanity filtering
@@ -74,7 +80,7 @@ items:
     - name: Translate text with Translator
       href: /learn/modules/translate-text-with-translator-service?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json
     - name: Build a Translator app with Flask and Python
-      href: /learn/modules/python-flask-build-ai-web-app?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json 
+      href: /learn/modules/python-flask-build-ai-web-app?toc=/azure/cognitive-services/translator/toc.json&bc=/azure/cognitive-services/translator/breadcrumb/toc.json
   - name: Reference
     items:
     - name: v3 Translator reference
@@ -107,7 +113,7 @@ items:
       href: document-translation/get-started-with-document-translation.md
     - name: How-to guides
       items:
-      - name: Generate SAS tokens for Document Translation
+      - name: Create SAS tokens for storage containers
         href: document-translation/create-sas-tokens.md
       - name: Create and use managed identities
         href: document-translation/managed-identity.md
@@ -133,12 +139,14 @@ items:
         href: document-translation/reference/get-translation-status.md
       - name: Cancel translation
         href: document-translation/reference/cancel-translation.md
-    - name: FAQ
+    - name: Document Translation FAQ
       href: document-translation/faq.md
 - name: Custom Translator
   items:
   - name: What is Custom Translator?
     href: custom-translator/overview.md
+  - name: Key terms
+    href: custom-translator/key-terms.md
   - name: Custom Translation | Preview
     items:
     - name: Custom Translator for beginners
@@ -187,8 +195,6 @@ items:
         href: custom-translator/unsupported-language-deployments.md
     - name: Concepts
       items:
-      - name: Key terms
-        href: custom-translator/terminology.md
       - name: Customize and improve text translation
         href: customization.md
       - name: Workspaces and projects
@@ -213,11 +219,11 @@ items:
     items:
     - name: Release notes
       href: custom-translator/release-notes.md
-  - name: FAQ
+  - name: Custom Translator FAQ
     href: custom-translator/faq.md
 - name: Resources
   items:
-  - name: Sovereign Clouds
+  - name: Translator in sovereign clouds
     displayName: fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china
     href: sovereign-clouds.md
   - name: Compliance and certification

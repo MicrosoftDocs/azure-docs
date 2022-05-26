@@ -6,8 +6,6 @@ ms.date: 11/09/2021
 ---
 # Supported platforms 
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This page shows the platforms and environments supported by Microsoft Defender for Cloud.
 
 ## Combinations of environments <a name="vm-server"></a>
