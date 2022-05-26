@@ -11,6 +11,8 @@ ms.date: 10/18/2021
 ms.custom: sdkv1, event-tier1-build-2022
 ---
 
+[//]: # (needs PM review; run_id?)
+
 # Make predictions with ONNX on computer vision models from AutoML
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
@@ -19,7 +21,7 @@ In this article, you learn how to use Open Neural Network Exchange (ONNX) to mak
 
 To use ONNX for predictions, you need to: 
  
-1. Download ONNX model files from an AutoML training run.
+1. Download ONNX model files from an AutoML training job.
 1. Understand the inputs and outputs of an ONNX model.
 1. Preprocess your data so it's in the required format for input images.
 1. Perform inference with ONNX Runtime for Python.
@@ -40,14 +42,14 @@ In this guide, you'll learn how to use [Python APIs for ONNX Runtime](https://on
 
 ## Download ONNX model files
 
-You can download ONNX model files from AutoML runs by using the Azure Machine Learning studio UI or the Azure Machine Learning Python SDK. We recommend downloading via the SDK with the experiment name and parent run ID.
+You can download ONNX model files from AutoML jobs by using the Azure Machine Learning studio UI or the Azure Machine Learning Python SDK. We recommend downloading via the SDK with the experiment name and parent job ID.
 
 
 ### Azure Machine Learning studio
 
-On Azure Machine Learning studio, go to your experiment by using the hyperlink to the experiment generated in the training notebook, or by selecting the experiment name on the **Experiments** tab under **Assets**. Then select the best child run. 
+On Azure Machine Learning studio, go to your experiment by using the hyperlink to the experiment generated in the training notebook, or by selecting the experiment name on the **Experiments** tab under **Assets**. Then select the best child job. 
 
-Within the best child run, go to **Outputs+logs** > **train_artifacts**. Use the **Download** button to manually download the following files:
+Within the best child job, go to **Outputs+logs** > **train_artifacts**. Use the **Download** button to manually download the following files:
 
 - *labels.json*: File that contains all the classes or labels in the training dataset.
 - *model.onnx*: Model in ONNX format. 
@@ -58,9 +60,9 @@ Save the downloaded model files in a directory. The example in this article uses
 
 ### Azure Machine Learning Python SDK
 
-With the SDK, you can select the best child run (by primary metric) with the experiment name and parent run ID. Then, you can download the *labels.json* and *model.onnx* files.
+With the SDK, you can select the best child job (by primary metric) with the experiment name and parent job ID. Then, you can download the *labels.json* and *model.onnx* files.
 
-The following code returns the best child run based on the relevant primary metric.
+The following code returns the best child job based on the relevant primary metric.
 
 ```python
 from azureml.train.automl.run import AutoMLRun
@@ -116,7 +118,7 @@ best_child_run = automl_image_run.get_best_child()
 
 Use the following model specific arguments to submit the script. For more details on arguments, refer to [model specific hyperparameters](how-to-auto-train-image-models.md#configure-model-algorithms-and-hyperparameters) and for supported object detection model names refer to the [supported model algorithm section](how-to-auto-train-image-models.md#supported-model-algorithms).
 
-To get the argument values needed to create the batch scoring model, refer to the scoring scripts generated under the outputs folder of the Automl training runs. Use the hyperparameter values available in the model settings variable inside the scoring file for the best child run.
+To get the argument values needed to create the batch scoring model, refer to the scoring scripts generated under the outputs folder of the Automl training jobs. Use the hyperparameter values available in the model settings variable inside the scoring file for the best child job.
 
 # [Multi-class image classification ](#tab/multi-class)
 For multi-class image classification, the generated ONNX model for the best child-run supports batch scoring by default. Therefore, no model specific arguments are needed for this task type and you can skip to the [Load the labels and ONNX model files](#load-the-labels-and-onnx-model-files) section. 

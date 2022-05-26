@@ -11,11 +11,14 @@ ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
 ---
+
+[//]: # (needs PM review; pipeline jobs? Or pipeline runs? lots of code, please change the code as needed )
+
 # Collect machine learning pipeline log files in Application Insights for alerts and debugging
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
-The [OpenCensus](https://opencensus.io/quickstart/python/) Python library can be used to route logs to Application Insights from your scripts. Aggregating logs from pipeline runs in one place allows you to build queries and diagnose issues. Using Application Insights will allow you to track logs over time and compare pipeline logs across runs.
+The [OpenCensus](https://opencensus.io/quickstart/python/) Python library can be used to route logs to Application Insights from your scripts. Aggregating logs from pipeline jobs in one place allows you to build queries and diagnose issues. Using Application Insights will allow you to track logs over time and compare pipeline logs across jobs.
 
 Having your logs in once place will provide a history of exceptions and error messages. Since Application Insights integrates with Azure Alerts, you can also create alerts based on Application Insights queries.
 
@@ -61,7 +64,7 @@ sample_step = PythonScriptStep(
         runconfig=run_config
 )
 
-# Submit new pipeline run
+# Submit new pipeline job
 pipeline = Pipeline(workspace=ws, steps=[sample_step])
 pipeline.submit(experiment_name="Logging_Experiment")
 ```
@@ -87,9 +90,9 @@ logger.warning("I will be sent to Application Insights")
 
 ## Logging with Custom Dimensions
  
-By default, logs forwarded to Application Insights won't have enough context to trace back to the run or experiment. To make the logs actionable for diagnosing issues, additional fields are needed. 
+By default, logs forwarded to Application Insights won't have enough context to trace back to the job or experiment. To make the logs actionable for diagnosing issues, additional fields are needed. 
 
-To add these fields, Custom Dimensions can be added to provide context to a log message. One example is when someone wants to view logs across multiple steps in the same pipeline run.
+To add these fields, Custom Dimensions can be added to provide context to a log message. One example is when someone wants to view logs across multiple steps in the same pipeline job.
 
 Custom Dimensions make up a dictionary of key-value (stored as string, string) pairs. The dictionary is then sent to Application Insights and displayed as a column in the query results. Its individual dimensions can be used as [query parameters](#additional-helpful-queries).
 

@@ -26,7 +26,7 @@ In this how-to guide, you learn to use the interpretability package of the Azure
 
 * Explain the behavior for the entire model and individual predictions in Azure.
 
-* Upload explanations to Azure Machine Learning Run History.
+* Upload explanations to Azure Machine Learning Job History.
 
 * Use a visualization dashboard to interact with your model explanations, both in a Jupyter Notebook and in the Azure Machine Learning studio.
 
@@ -229,9 +229,9 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
                                      transformations=transformations)
 ```
 
-## Generate feature importance values via remote runs
+## Generate feature importance values via remote jobs
 
-The following example shows how you can use the `ExplanationClient` class to enable model interpretability for remote runs. It’s conceptually similar to the local process, except you:
+The following example shows how you can use the `ExplanationClient` class to enable model interpretability for remote jobs. It’s conceptually similar to the local process, except you:
 
 * Use the `ExplanationClient` in the remote run to upload the interpretability context.
 * Download the context later in a local environment.

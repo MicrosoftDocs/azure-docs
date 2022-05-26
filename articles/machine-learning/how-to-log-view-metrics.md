@@ -13,6 +13,8 @@ ms.topic: how-to
 ms.custom: sdkv1, event-tier1-build-2022
 ---
 
+[//]: # (needs PM review; Lots of code, what needs to be changed?)
+
 # Log & view metrics and log files
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning Python SDK you are using:"]
@@ -34,7 +36,7 @@ Logs can help you diagnose errors and warnings, or track performance metrics lik
 
 
 > [!TIP]
-> This article shows you how to monitor the model training process. If you're interested in monitoring resource usage and events from Azure Machine learning, such as quotas, completed training runs, or completed model deployments, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
+> This article shows you how to monitor the model training process. If you're interested in monitoring resource usage and events from Azure Machine learning, such as quotas, completed training jobs, or completed model deployments, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
 
 ## Prerequisites
 
@@ -58,7 +60,7 @@ The following table describes how to log specific value types:
 |Log numpy metrics or PIL image objects|`mlflow.log_image(img, 'figure.png')`||
 |Log matlotlib plot or image file|` mlflow.log_figure(fig, "figure.png")`||
 
-## Log a training run with MLflow
+## Log a training job with MLflow
 
 To set up for logging with MLflow, import `mlflow` and set the tracking URI:
 
@@ -76,16 +78,16 @@ ws = Workspace.from_config()
 mlflow.set_tracking_uri(ws.get_mlflow_tracking_uri())
 ```
 
-### Interactive runs
+### Interactive jobs
 
 When training interactively, such as in a Jupyter Notebook, use the following pattern:
 
 1. Create or set the active experiment. 
-1. Start the run.
+1. Start the job.
 1. Use logging methods to log metrics and other information.
-1. End the run.
+1. End the job.
 
-For example, the following code snippet demonstrates setting the tracking URI, creating an experiment, and then logging during a run
+For example, the following code snippet demonstrates setting the tracking URI, creating an experiment, and then logging during a job
 
 ```python
 from mlflow.tracking import MlflowClient
@@ -132,7 +134,7 @@ For remote training runs, the tracking URI and experiment are set automatically.
 
 To save the model from a training run, use the `log_model()` API for the framework you're working with. For example, [mlflow.sklearn.log_model()](https://mlflow.org/docs/latest/python_api/mlflow.sklearn.html#mlflow.sklearn.log_model). For frameworks that MLflow doesn't support, see [Convert custom models to MLflow](how-to-convert-custom-model-to-mlflow.md).
 
-## View run information
+## View job information
 
 You can view the logged information using MLflow through the [MLflow.entities.Run](https://mlflow.org/docs/latest/python_api/mlflow.entities.html#mlflow.entities.Run) object. After a training job completes, you can retrieve it using the [MlFlowClient()](https://mlflow.org/docs/latest/python_api/mlflow.tracking.html#mlflow.tracking.MlflowClient):
 
@@ -159,18 +161,18 @@ params = finished_mlflow_run.data.params
 
 <a name="view-the-experiment-in-the-web-portal"></a>
 
-## View run metrics in the studio UI
+## View job metrics in the studio UI
 
-You can browse completed run records, including logged metrics, in the [Azure Machine Learning studio](https://ml.azure.com).
+You can browse completed job records, including logged metrics, in the [Azure Machine Learning studio](https://ml.azure.com).
 
-Navigate to the **Experiments** tab. To view all your runs in your Workspace across Experiments, select the **All runs** tab. You can drill down on runs for specific Experiments by applying the Experiment filter in the top menu bar.
+Navigate to the **Experiments** tab. To view all your jobs in your Workspace across Experiments, select the **All jobs** tab. You can drill down on jobs for specific Experiments by applying the Experiment filter in the top menu bar.
 
 For the individual Experiment view, select the **All experiments** tab. On the experiment run dashboard, you can see tracked metrics and logs for each run. 
 
-You can also edit the run list table to select multiple runs and display either the last, minimum, or maximum logged value for your runs. Customize your charts to compare the logged metrics values and aggregates across multiple runs. You can plot multiple metrics on the y-axis of your chart and customize your x-axis to plot your logged metrics. 
+You can also edit the job list table to select multiple jobs and display either the last, minimum, or maximum logged value for your jobs. Customize your charts to compare the logged metrics values and aggregates across multiple jobs. You can plot multiple metrics on the y-axis of your chart and customize your x-axis to plot your logged metrics. 
 
 
-### View and download log files for a run 
+### View and download log files for a job 
 
 Log files are an essential resource for debugging the Azure ML workloads. After submitting a training job, drill down to a specific run to view its logs and outputs:  
 
