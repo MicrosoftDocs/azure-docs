@@ -115,4 +115,4 @@ The Distributed Firewall may also be used to filter traffic to VMs. This feature
 ### Next Steps 
 [Internet connectivity design considerations (Preview)](concepts-design-public-internet-access.md)<br>
 [Enable Managed SNAT for Azure VMware Solution Workloads (Preview)](enable-managed-snat-for-workloads.md)<br>
-[Disable Internet access or enable a default route (Preview)](disable-internet-access.md)<br>
+[Disable Internet access or enable a default route](disable-internet-access.md)<br>

@@ -28,5 +28,5 @@ If you don't have a default route from on-premises or from Azure, you have succe
 ## Next Steps 
 
 [Internet connectivity design considerations (Preview)](concepts-design-public-internet-access.md)<br>
-[Enable Managed SNAT for Azure VMware Solution Workloads(Preview)](enable-managed-snat-for-workloads.md)<br>
-[Enable Public IP to the NSX Edge for Azure VMware Solution (Preview)](enable-public-ip-nsx-edge.md)<br>
+[Enable Managed SNAT for Azure VMware Solution Workloads](enable-managed-snat-for-workloads.md)<br>
+[Enable Public IP to the NSX Edge for Azure VMware Solution](enable-public-ip-nsx-edge.md)<br>

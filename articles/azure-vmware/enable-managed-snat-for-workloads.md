@@ -1,10 +1,10 @@
 ---
-title: Enable Managed SNAT for Azure VMware Solution Workloads (Preview)
+title: Enable Managed SNAT for Azure VMware Solution Workloads 
 description: This article explains how to enable Managed SNAT for Azure VMware Solution Workloads.
 ms.topic: how-to
 ms.date: 05/12/2022
 ---
-# Enable Managed SNAT for Azure VMware Solution workloads (Preview)
+# Enable Managed SNAT for Azure VMware Solution workloads 
 
 In this article, you'll learn how to enable Azure VMware Solution’s Managed Source NAT (SNAT) to connect to the Internet outbound. A SNAT service translates from RFC1918 space to the public Internet for simple outbound Internet access.  The SNAT service won't work when you have a default route from Azure.  
 
@@ -14,6 +14,10 @@ With this capability, you:
 - Have no control of outbound SNAT rules. 
 - Are unable to view connection logs. 
 - Have a limit of 128 000 concurrent connections.  
+
+## Prerequisites
+- Azure Solution VMware private cloud
+- DNS Server configured on the NSX-T Datacenter
 
 ## Reference architecture
 The architecture shows Internet access to and from your Azure VMware Solution private cloud using a Public IP directly to the NSX Edge.     
