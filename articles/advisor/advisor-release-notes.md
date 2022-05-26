@@ -13,7 +13,7 @@ Learn what's new in the service. These items may be release notes, videos, blog 
 ### Unlimited number of subscriptions
 It is easier now to get an overview of optimization opportunities available to your organization – no need to spend time and effort to apply filters and process subscription in batches.
 
-To learn more, visit [Get started with Azure Advisor]().
+To learn more, visit [Get started with Azure Advisor](advisor-get-started.md).
 
 ### Tag filtering
 
@@ -22,7 +22,7 @@ You can now get Advisor recommendations scoped to a business unit, workload, or 
 1.	Identify cost saving opportunities by business units
 1.	Compare scores for workloads to optimize critical ones first
 
-To learn more, visit [How to filter Advisor recommendations using tags]().
+To learn more, visit [How to filter Advisor recommendations using tags](advisor-tag-filtering.md).
 
 ## January 2022
 
