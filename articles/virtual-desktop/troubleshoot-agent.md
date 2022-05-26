@@ -213,15 +213,16 @@ If the status listed for the session host or hosts in your host pool always says
 
 To resolve this issue, first reinstall the side-by-side stack:
 
-1. On your session host VM, from a command prompt run `qwinsta.exe` and make note of the version number that appears next to **rdp-sxs** in the *SESSIONNAME* column. If the *STATE* column for **rdp-tcp** and **rdp-sxs** entries isn't **Listen**, or if **rdp-tcp** and **rdp-sxs** entries aren't listed at all, it means that there's a stack issue.
+1. Sign in to your session host VM as an administrator.
+1. From an elevated PowerShell prompt run `qwinsta.exe` and make note of the version number that appears next to **rdp-sxs** in the *SESSIONNAME* column. If the *STATE* column for **rdp-tcp** and **rdp-sxs** entries isn't **Listen**, or if **rdp-tcp** and **rdp-sxs** entries aren't listed at all, it means that there's a stack issue.
 
-1. On your session host VM, open a PowerShell prompt as an administrator and run the following command to stop the RDAgentBootLoader service:
+1. Run the following command to stop the RDAgentBootLoader service:
 
    ```powershell
    Stop-Service RDAgentBootLoader
    ```
 
-1. Go to **Control Panel** > **Programs** > **Programs and Features**.
+1. Go to **Control Panel** > **Programs** > **Programs and Features**, or on Windows 11 go to the **Settings App > Apps**.
 1. Uninstall the latest version of the **Remote Desktop Services SxS Network Stack** or the version listed in Registry Editor in **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations** under the value for  **ReverseConnectionListener**.
 1. Back at the PowerShell prompt, run the following command to add the file path of the latest installer available on your session host VM for the side-by-side stack to a variable:
 
@@ -288,9 +289,16 @@ Follow these instructions in this section if one or more of the following scenar
 ### Step 1: Uninstall all agent, boot loader, and stack component programs
 
 Before reinstalling the agent, boot loader, and stack, you must uninstall any existing components from your VM. To uninstall all agent, boot loader, and stack component programs:
-1. Sign in to your VM as an administrator. 
-2. Go to **Control Panel** > **Programs** > **Programs and Features**.
-3. Uninstall the following programs:
+1. Sign in to your session host VM as an administrator.
+2. Go to **Control Panel** > **Programs** > **Programs and Features**, or on Windows 11 go to the **Settings App > Apps**.
+3. Uninstall the following programs, then restart your session host VM:
+
+   > [!CAUTION]
+   > When uninstalling **Remote Desktop Services SxS Network Stack**, you'll be prompted that *Remote Desktop Services* and *Remote Desktop Services UserMode Port Redirector* should be closed. If you're connected to the session host VM using RDP, select **Do not close applications** then select **OK**, otherwise your RDP connection will be closed.
+   > 
+   > [!div class="mx-imgBorder"]
+   > ![Prompt that Remote Desktop Services and Remote Desktop Services UserMode Port Redirector should be closed](media/uninstall-remote-desktop-services-sxs-network-stack.png)
+
    - Remote Desktop Agent Boot Loader
    - Remote Desktop Services Infrastructure Agent
    - Remote Desktop Services Infrastructure Geneva Agent
