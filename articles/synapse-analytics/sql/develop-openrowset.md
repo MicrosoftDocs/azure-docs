@@ -29,7 +29,7 @@ The `OPENROWSET` function can optionally contain a `DATA_SOURCE` parameter to sp
     ```sql
     SELECT *
     FROM OPENROWSET(BULK 'http://<storage account>.dfs.core.windows.net/container/folder/*.parquet',
-                    FORMAT = 'PARQUET') AS file
+                    FORMAT = 'PARQUET') AS [file]
     ```
 
 This is a quick and easy way to read the content of the files without pre-configuration. This option enables you to use the basic authentication option to access the storage (Azure AD passthrough for Azure AD logins and SAS token for SQL logins). 
@@ -40,7 +40,7 @@ This is a quick and easy way to read the content of the files without pre-config
     SELECT *
     FROM OPENROWSET(BULK '/folder/*.parquet',
                     DATA_SOURCE='storage', --> Root URL is in LOCATION of DATA SOURCE
-                    FORMAT = 'PARQUET') AS file
+                    FORMAT = 'PARQUET') AS [file]
     ```
 
 

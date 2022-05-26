@@ -3,7 +3,7 @@ title: Migrate to App Service Environment v3 by using the migration feature
 description: Overview of the migration feature for migration to App Service Environment v3
 author: seligj95
 ms.topic: article
-ms.date: 4/29/2022
+ms.date: 5/23/2022
 ms.author: jordanselig
 ms.custom: references_regions
 ---
@@ -24,6 +24,7 @@ At this time, App Service Environment migrations to v3 using the migration featu
 - Australia Southeast
 - Brazil South
 - Canada Central
+- Canada East
 - Central India
 - Central US
 - East Asia
@@ -87,7 +88,7 @@ If your App Service Environment doesn't pass the validation checks or you try to
 |Migrate is not available for this kind|App Service Environment v1 can't be migrated using the migration feature at this time. |Migrate using one of the [manual migration options](migration-alternatives.md) if you want to migrate immediately. Otherwise, wait for the migration feature to support this App Service Environment configuration.  |
 |Full migration cannot be called before IP addresses are generated|You'll see this error if you attempt to migrate before finishing the pre-migration steps. |Ensure you've completed all pre-migration steps before you attempt to migrate. See the [step-by-step guide for migrating](how-to-migrate.md).  |
 |Migration to ASEv3 is not allowed for this ASE|You won't be able to migrate using the migration feature. |Migrate using one of the [manual migration options](migration-alternatives.md).  |
-|Subscription has too many App Service Environments. Please remove some before trying to create more.|The App Service Environment [quota for your subscription](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits) has been met. |Remove unneeded environments or contact support to review your options.  |
+|Subscription has too many App Service Environments. Please remove some before trying to create more.|The App Service Environment [quota for your subscription](../../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits) has been met. |Remove unneeded environments or contact support to review your options.  |
 |`<ZoneRedundant><DedicatedHosts><ASEv3/ASE>` is not available in this location|You'll see this error if you're trying to migrate an App Service Environment in a region that doesn't support one of your requested features. |Migrate using one of the [manual migration options](migration-alternatives.md) if you want to migrate immediately. Otherwise, wait for the migration feature to support this App Service Environment configuration.  |
 |Migrate cannot be called on this ASE until the active upgrade has finished.    |App Service Environments can't be migrated during platform upgrades. You can set your [upgrade preference](using-an-ase.md#upgrade-preference) from the Azure portal.   |Wait until the upgrade finishes and then migrate.   |
 
@@ -113,11 +114,11 @@ App Service Environment v3 requires the subnet it's in to have a single delegati
 
 After updating all dependent resources with your new IPs and properly delegating your subnet, you should continue with migration as soon as possible.
 
-During migration, the following events will occur:
+During migration, which requires up to a three hour service window, the following events will occur:
 
 - The existing App Service Environment is shut down and replaced by the new App Service Environment v3.
 - All App Service plans in the App Service Environment are converted from Isolated to Isolated v2.
-- All of the apps that are on your App Service Environment are temporarily down. You should expect about one hour of downtime.
+- All of the apps that are on your App Service Environment are temporarily down. You should expect about one hour of downtime during this period.
   - If you can't support downtime, see [migration-alternatives](migration-alternatives.md#guidance-for-manual-migration).
 - The public addresses that are used by the App Service Environment will change to the IPs identified during the previous step.
 
@@ -136,7 +137,7 @@ There's no cost to migrate your App Service Environment. You'll stop being charg
 - **What if migrating my App Service Environment is not currently supported?**  
   You won't be able migrate using the migration feature at this time. If you have an unsupported environment and want to migrate immediately, see the [manual migration options](migration-alternatives.md). This doc will be updated as additional regions and supported scenarios become available.
 - **Will I experience downtime during the migration?**  
-  Yes, you should expect about one hour of downtime during the migration step so plan accordingly. If downtime isn't an option for you, see the [manual migration options](migration-alternatives.md).
+  Yes, you should expect about one hour of downtime during the three hour service window during the migration step so plan accordingly. If downtime isn't an option for you, see the [manual migration options](migration-alternatives.md).
 - **Will I need to do anything to my apps after the migration to get them running on the new App Service Environment?**  
   No, all of your apps running on the old environment will be automatically migrated to the new environment and run like before. No user input is needed.
 - **What if my App Service Environment has a custom domain suffix?**  

@@ -4,6 +4,8 @@
   items:
     - name: Welcome to Azure Cosmos DB
       href: introduction.md
+    - name: Try Azure Cosmos DB free
+      href: try-free.md
     - name: Choose an API
       href: choose-api.md
     - name: NoSQL vs. relational databases
@@ -30,6 +32,12 @@
           href: global-dist-under-the-hood.md
     - name: Partitioning and horizontal scaling
       href: partitioning-overview.md
+    - name: Hierarchical partition keys (preview)
+      items:
+        - name: Hierarchical partition keys overview
+          href: hierarchical-partition-keys.md
+        - name: Hierarchical partition keys FAQ
+          href: hierarchical-partition-keys-faq.yml
     - name: Capacity
       items:
         - name: Request units
@@ -53,7 +61,15 @@
         - name: Choose between provisioned throughput and serverless
           href: throughput-serverless.md
         - name: Best practices for scaling provisioned throughput
-          href: scaling-provisioned-throughput-best-practices.md
+          href: scaling-provisioned-throughput-best-practices.md        
+        - name: Burst capacity (preview)
+          items:
+            - name: Burst capacity overview
+              href: burst-capacity.md
+            - name: Burst capacity FAQ
+              href: burst-capacity-faq.yml
+        - name: Merge (preview)
+          href: merge.md
     - name: Security
       items:
         - name: Security overview
@@ -716,7 +732,14 @@
                   href: sql/how-to-provision-database-throughput.md
                 - name: Provision autoscale throughput - database or container
                   displayName: request units, RUs, RU, shared throughput, database level, collection level, autoscale
-                  href: sql/how-to-provision-autoscale-throughput.md
+                  href: sql/how-to-provision-autoscale-throughput.md                
+                - name: Distribute throughput across partitions (preview) - container
+                  displayName: request units, RUs, RU, collection levels
+                  items:
+                    - name: Distribute throughput across partitions overview        
+                      href: sql/distribute-throughput-across-partitions.md
+                    - name: Distribute throughput across partitions FAQ        
+                      href: sql/distribute-throughput-across-partitions-faq.yml
                 - name: Estimate RU/s with capacity planner
                   displayName: request units, RUs, RU, capacity
                   href: sql/estimate-ru-with-capacity-planner.md
@@ -890,6 +913,8 @@
               href: sql/how-to-migrate-from-bulk-executor-library.md
             - name: Bulk executor - Java library
               href: sql/bulk-executor-java.md
+            - name: Migrate from bulk executor to Java SDK
+              href: sql/how-to-migrate-from-bulk-executor-library-java.md              
         - name: Visualize Cosmos DB data
           items:
             - name: Use Power BI
@@ -996,6 +1021,8 @@
           href: sql/sql-api-sdk-node.md
         - name: Python
           href: sql/sql-api-sdk-python.md
+        - name: Go
+          href: sql/sql-api-sdk-go.md
         - name: REST (Data plane)
           href: /rest/api/cosmos-db/
         - name: REST (Management plane)
@@ -1152,6 +1179,8 @@
           href: cassandra/lwt-cassandra-api.md
         - name: Cassandra API extensions overview
           href: cassandra/cassandra-driver-extensions.md
+        - name: Monitor and debug with insights in Cassandra API
+          href: cassandra/cassandra-monitor-insights.md
     - name: Reference
       items:
         - name: REST resource provider
@@ -1178,12 +1207,8 @@
           href: mongodb/create-mongodb-java.md
         - name: Node.js
           href: mongodb/create-mongodb-nodejs.md
-        - name: Xamarin
-          href: mongodb/create-mongodb-xamarin.md
         - name: Golang
           href: mongodb/create-mongodb-go.md
-        - name: Rust
-          href: mongodb/create-mongodb-rust.md 
     - name: Tutorials
       items:
         - name: 1 - Create and manage data

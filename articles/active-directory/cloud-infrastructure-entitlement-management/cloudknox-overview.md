@@ -2,14 +2,14 @@
 title: What's CloudKnox Permissions Management?
 description: An introduction to CloudKnox Permissions Management.
 services: active-directory
-author: Yvonne-deQ
-manager: karenh444
+author: kenwith
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
 ms.date: 04/20/2022
-ms.author: v-ydequadros
+ms.author: kenwith
 ---
 
 # What's CloudKnox Permissions Management?

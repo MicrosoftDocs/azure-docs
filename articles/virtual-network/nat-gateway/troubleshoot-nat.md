@@ -44,7 +44,7 @@ Check the following configurations to ensure that NAT gateway can be used to dir
 [Virtual Network NAT gateway](./nat-overview.md#virtual-network-nat-basics) supports IPv4 UDP and TCP protocols. ICMP is not supported and is expected to fail. 
 
 To validate end-to-end connectivity of NAT gateway, follow these steps: 
-1. Validate that your [NAT gateway public IP address is being used](./tutorial-create-nat-gateway-portal.md#test-nat-gateway).
+1. Validate that your [NAT gateway public IP address is being used](./quickstart-create-nat-gateway-portal.md#test-nat-gateway).
 2. Conduct TCP connection tests and UDP-specific application layer tests.
 3. Look at NSG flow logs to analyze outbound traffic flows from NAT gateway.
 
@@ -168,7 +168,7 @@ The order of precedence for internet routing configurations is as follows:
 Virtual appliance UDR / VPN ExpressRoute >> NAT gateway >> default system 
 
 Test and resolve issues with a virtual appliance UDR or VPN ExpressRoute overriding your NAT gateway by: 
-1. [Testing that the NAT gateway public IP](./tutorial-create-nat-gateway-portal.md#test-nat-gateway) is used for outbound traffic. If a different IP is being used, it could be because of a custom UDR, follow the remaining steps on how to check for and remove custom UDRs.
+1. [Testing that the NAT gateway public IP](./quickstart-create-nat-gateway-portal.md#test-nat-gateway) is used for outbound traffic. If a different IP is being used, it could be because of a custom UDR, follow the remaining steps on how to check for and remove custom UDRs.
 2. Check for UDRs in the virtual network’s route table, refer to [view route tables](../manage-route-table.md#view-route-tables).
 3. Remove the UDR from the route table by following [create, change, or delete an Azure route table](../manage-route-table.md#change-a-route-table).
 

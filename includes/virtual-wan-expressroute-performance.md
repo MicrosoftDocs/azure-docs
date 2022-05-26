@@ -24,4 +24,6 @@
 |10 scale units <br> (20 instances) | 140,000 | 20,000 | 2,000,000
 
 >[!NOTE]
->*Scale units 2-10, during maintenance operations, maintain aggregate throughput. However, scale unit 1, during a maintenance operation, may see a slight variation in throughput numbers.  
+>*ExpressRoute gateways are deployed as n instances. Each gateway instance may support up to 100,000 packets per second. 
+
+Scale units 2-10, during maintenance operations, maintain aggregate throughput. However, scale unit 1, during a maintenance operation, may see a slight variation in throughput numbers.  
