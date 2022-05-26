@@ -281,7 +281,7 @@ This policy can be used in the following policy [sections](./api-management-howt
 -   **Policy scopes:** all scopes
 
 > [!NOTE]
-> If you configure this policy at more than one scope, note the order of [policy evaluation](set-edit-policies.md#use-base-element-to-set-policy-evaluation-order) in your policy definition. The first policy occurrence that matches the IP address of a request takes precedence.
+> If you configure this policy at more than one scope, IP filtering is applied in the order of [policy evaluation](set-edit-policies.md#use-base-element-to-set-policy-evaluation-order) in your policy definition. 
 
 ## <a name="SetUsageQuota"></a> Set usage quota by subscription
 
