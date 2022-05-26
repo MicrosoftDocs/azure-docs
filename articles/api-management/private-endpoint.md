@@ -19,7 +19,7 @@ You can configure a [private endpoint](../private-link/private-endpoint-overview
 
 * Configure custom DNS settings or an Azure DNS private zone to map the API Management hostname to the endpoint's private IP address. 
 
-:::image type="content" source="media/private-endpoint/api-management-private-endpoint.png" alt-text="Secure connection to API Management using private endpoint":::
+:::image type="content" source="media/private-endpoint/api-management-private-endpoint.png" alt-text="Diagram that shows a secure connection to API Management using private endpoint.":::
 
 With a private endpoint and Private Link, you can:
 
