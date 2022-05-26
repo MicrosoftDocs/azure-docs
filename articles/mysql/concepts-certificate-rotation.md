@@ -33,7 +33,8 @@ The new certificate is rolled out and in effect as of February 15, 2021 (02/15/2
 On February 15, 2021, the [BaltimoreCyberTrustRoot root certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) was replaced with a **compliant version** of the same [BaltimoreCyberTrustRoot root certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) to ensure existing customers don't need to change anything and there's no impact to their connections to the server. During this change, the [BaltimoreCyberTrustRoot root certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) was **not replaced** with [DigiCertGlobalRootG2](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) and that change is deferred to allow more time for customers to make the change.
 
 #### Do I need to make any changes on my client to maintain connectivity?
-
+> [!NOTE] 
+> If you are using PHP driver with [enableRedirect](https://docs.microsoft.com/en-us/azure/mysql/single-server/how-to-redirection) kindly follow the steps mentioned under [Previous recommendation](concepts-certificate-rotation.md/#previous-recommendation) to avoid connection failures.
 No change is required on client side. If you followed our previous recommendation below, you can continue to connect as long as **BaltimoreCyberTrustRoot certificate is not removed** from the combined CA certificate. **To maintain connectivity, we recommend that you retain the BaltimoreCyberTrustRoot in your combined CA certificate until further notice.**
 
 ###### Previous recommendation
@@ -175,6 +176,10 @@ To verify if you're using SSL connection to connect to the server refer [SSL ver
 #### Is there an action needed if I already have the DigiCertGlobalRootG2 in my certificate file?
 
 No. There's no action needed if your certificate file already has the **DigiCertGlobalRootG2**.
+
+#### Why do I need to update my root certificate if I am using PHP driver with [enableRedirect](https://docs.microsoft.com/en-us/azure/mysql/single-server/how-to-redirection) ?
+
+To address compliance requirements, the CA certificates of the host server were changed from BaltimoreCyberTrustRoot to DigiCertGlobalRootG2. With this update, database connections using the PHP Client driver with enableRedirect can no longer connect to the server, as the client devices are unaware of the certificate change and the new root CA details. Client devices that use PHP redirection drivers connect directly to the host server, bypassing the gateway. Refer this [link](single-server-overview.md#high-availability) for more on architecture of Azure Database for MySQL Single Server.
 
 #### What if I have further questions?
 
