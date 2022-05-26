@@ -226,7 +226,7 @@ You can revoke a client certificate by adding the thumbprint to the revocation l
 1. The thumbprint validates and is automatically added to the revocation list. A message appears on the screen that the list is updating.
 1. After updating has completed, the certificate can no longer be used to connect. Clients that try to connect using this certificate receive a message saying that the certificate is no longer valid.
 
-## <a name="faq"></a>point-to-site FAQ
+## <a name="faq"></a>Point-to-site FAQ
 
 For frequently asked questions, see the [FAQ](vpn-gateway-vpn-faq.md#P2S).
 
