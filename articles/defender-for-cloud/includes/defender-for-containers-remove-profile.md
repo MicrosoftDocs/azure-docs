@@ -25,7 +25,7 @@ You can remove the profile using the REST API or a Resource Manager template as 
     ```azurecli
     az login
     az account set --subscription <subscription-id>
-    az aks update --disable-defender
+    az aks update --disable-defender --resource-group <your-resource-group> --name <your-cluster-name>
     ```
 
     Removing the profile may take a few minutes.
