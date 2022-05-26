@@ -46,7 +46,7 @@ Follow the steps from either the [Unity HoloLens](get-started-unity-hololens.md)
 
 You'll see a dialog asking for confirmation to upgrade your project. Select the **Confirm** button.
 
-:::image type="content" source="./media/confirm-unity-upgrade.png" alt-text="Screenshot shows a dialog confirming the upgrade with Confirm selected.:::
+:::image type="content" source="./media/confirm-unity-upgrade.png" alt-text="Screenshot shows a dialog confirming the upgrade with Confirm selected.":::
 
 ## Upgrade package dependencies
 
