@@ -139,7 +139,7 @@ az role definition delete --name "Custom Role - RG Reader"
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-Get-AzRoleDefinition -Name "Custom Role - RG Reader" | Remove-AzRoleDefinition
+Remove-AzRoleDefinition -Name "Custom Role - RG Reader'
 ```
 
 > [!NOTE]
