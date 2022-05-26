@@ -15,7 +15,7 @@ In this article, you'll learn how to monitor an Azure Managed Grafana Preview wo
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
-- An Azure Managed Grafana workspace with access to at least one data source. If you don't have a workspace yet, [create an Azure Managed Grafana workspace](/azure/managed-grafana/how-to-permissions) and [add a data source](how-to-data-source-plugins-managed-identity.md).
+- An Azure Managed Grafana workspace with access to at least one data source. If you don't have a workspace yet, [create an Azure Managed Grafana workspace](./how-to-permissions.md) and [add a data source](how-to-data-source-plugins-managed-identity.md).
 
 ## Sign in to Azure
 

@@ -27420,6 +27420,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/web-application-firewall/waf-cdn-create-portal.md",
+      "redirect_url": "/azure/web-application-firewall/cdn/cdn-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/frontdoor/waf-faq.md",
       "redirect_url": "/azure/web-application-firewall/afds/waf-faq",
       "redirect_document_id": false
