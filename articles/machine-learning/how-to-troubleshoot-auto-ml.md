@@ -148,7 +148,7 @@ If the listed version is not a supported version:
 
 ## Data access
  
-For automated ML runs, you need to ensure the file datastore that connects to your AzureFile storage has the appropriate authentication credentials. Otherwise, the following message results. Learn how to [update your data access authentication credentials](how-to-train-with-datasets.md#azurefile-storage).
+For automated ML jobs, you need to ensure the file datastore that connects to your AzureFile storage has the appropriate authentication credentials. Otherwise, the following message results. Learn how to [update your data access authentication credentials](how-to-train-with-datasets.md#azurefile-storage).
 
 Error message: 
 `Could not create a connection to the AzureFileService due to missing credentials. Either an Account Key or SAS token needs to be linked the default workspace blob store.`

@@ -26,7 +26,7 @@ Learn how to troubleshoot issues with Docker environment image builds and packag
 ## Docker image build failures
  
 For most image build failures, you'll find the root cause in the image build log.
-Find the image build log from the Azure Machine Learning portal (20\_image\_build\_log.txt) or from your Azure Container Registry task run logs.
+Find the image build log from the Azure Machine Learning portal (20\_image\_build\_log.txt) or from your Azure Container Registry task job logs.
  
 It's usually easier to reproduce errors locally. Check the kind of error and try one of the following `setuptools`:
 

@@ -1,7 +1,7 @@
 ---
 title: Set up AutoML with the studio UI
 titleSuffix: Azure Machine Learning
-description: Learn how to set up AutoML training runs without a single line of code with Azure Machine Learning automated ML in the Azure Machine Learning studio.
+description: Learn how to set up AutoML training jobs without a single line of code with Azure Machine Learning automated ML in the Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
@@ -15,7 +15,7 @@ ms.custom: automl, FY21Q4-aml-seo-hack, contperf-fy21q4, event-tier1-build-2022
 
 # Set up no-code AutoML training with the studio UI 
 
-In this article, you learn how to set up AutoML training runs without a single line of code using Azure Machine Learning automated ML in the [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md).
+In this article, you learn how to set up AutoML training jobs without a single line of code using Azure Machine Learning automated ML in the [Azure Machine Learning studio](overview-what-is-machine-learning-studio.md).
 
 Automated machine learning, AutoML, is a process in which the best machine learning algorithm to use for your specific data is selected for you. This process enables you to generate machine learning models quickly. [Learn more about how Azure Machine Learning implements automated machine learning](concept-automated-ml.md).
  
@@ -45,7 +45,7 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
 
 ## Create and run experiment
 
-1. Select **+ New automated ML run** and populate the form.
+1. Select **+ New automated ML job** and populate the form.
 
 1. Select a dataset from your storage container, or create a new dataset. Datasets can be created from local files, web urls, datastores, or Azure open datasets. Learn more about [dataset creation](how-to-create-register-datasets.md).  
 
@@ -85,7 +85,7 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
         Select **Next**.
 1. Select your newly created dataset once it appears. You are also able to view a preview of the dataset and sample statistics. 
 
-1. On the **Configure run** form, select **Create new** and enter **Tutorial-automl-deploy** for the experiment name.
+1. On the **Configure job** form, select **Create new** and enter **Tutorial-automl-deploy** for the experiment name.
 
 1. Select a target column; this is the column that you would like to do predictions on.
 
@@ -133,7 +133,7 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
     Explain best model | Select to enable or disable, in order to show explanations for the recommended best model. <br> This functionality is not currently available for [certain forecasting algorithms](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model). 
     Blocked algorithm| Select algorithms you want to exclude from the training job. <br><br> Allowing algorithms is only available for [SDK experiments](how-to-configure-auto-train.md#supported-algorithms). <br> See the [supported algorithms for each task type](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels).
     Exit criterion| When any of these criteria are met, the training job is stopped. <br> *Training job time (hours)*: How long to allow the training job to run. <br> *Metric score threshold*:  Minimum metric score for all pipelines. This ensures that if you have a defined target metric you want to reach, you do not spend more time on the training job than necessary.
-    Concurrency| *Max concurrent iterations*: Maximum number of pipelines (iterations) to test in the training job. The job will not run more than the specified number of iterations. Learn more about how automated ML performs [multiple child runs on clusters](how-to-configure-auto-train.md#multiple-child-runs-on-clusters).
+    Concurrency| *Max concurrent iterations*: Maximum number of pipelines (iterations) to test in the training job. The job will not run more than the specified number of iterations. Learn more about how automated ML performs [multiple child jobs on clusters](how-to-configure-auto-train.md#multiple-child-runs-on-clusters).
 
 1. (Optional) View featurization settings: if you choose to enable **Automatic featurization** in the **Additional configuration settings** form, default featurization techniques are applied. In the **View featurization settings** you can change these defaults and customize accordingly. Learn how to [customize featurizations](#customize-featurization). 
 
@@ -146,16 +146,16 @@ Otherwise, you'll see a list of your recent automated  ML experiments, including
     
         1. Forecasting tasks only supports k-fold cross validation.
     
-    1. Provide a test dataset (preview) to evaluate the recommended model that automated ML generates for you at the end of your experiment. When you provide test data, a test run is automatically triggered at the end of your experiment. This test run is only run on the best model that was recommended by automated ML. Learn how to get the [results of the remote test run](#view-remote-test-run-results-preview).
+    1. Provide a test dataset (preview) to evaluate the recommended model that automated ML generates for you at the end of your experiment. When you provide test data, a test job is automatically triggered at the end of your experiment. This test job is only job on the best model that was recommended by automated ML. Learn how to get the [results of the remote test job](#view-remote-test-run-results-preview).
     
         >[!IMPORTANT]
         > Providing a test dataset to evaluate generated models is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
         
-        * Test data is considered a separate from training and validation, so as to not bias the results of the test run of the recommended model. [Learn more about bias during model validation](concept-automated-ml.md#training-validation-and-test-data).
+        * Test data is considered a separate from training and validation, so as to not bias the results of the test job of the recommended model. [Learn more about bias during model validation](concept-automated-ml.md#training-validation-and-test-data).
         * You can either provide your own test dataset or opt to use a percentage of your training dataset. Test data must be in the form of an [Azure Machine Learning TabularDataset](./v1/how-to-create-register-datasets.md#tabulardataset).         
         * The schema of the test dataset should match the training dataset. The target column is optional, but if no target column is indicated no test metrics are calculated.
         * The test dataset should not be the same as the training dataset or the validation dataset.
-        * Forecasting runs do not support train/test split.
+        * Forecasting jobs do not support train/test split.
         
         ![Screenshot shows the form where to select validation data and test data](media/how-to-use-automated-ml-for-ml-models/validate-test-form.png)
         
@@ -182,15 +182,15 @@ Select **Finish** to run your experiment. The experiment preparing process can t
 
 ### View experiment details
 
-The **Run Detail** screen opens to the **Details** tab. This screen shows you a summary of the experiment run including a status bar at the top next to the run number. 
+The **Job Detail** screen opens to the **Details** tab. This screen shows you a summary of the experiment job including a status bar at the top next to the job number. 
 
 The **Models** tab contains a list of the models created ordered by the metric score. By default, the model that scores the highest based on the chosen metric is at the top of the list. As the training job tries out more models, they are added to the list. Use this to get a quick comparison of the metrics for the models produced so far.
 
-![Run detail](./media/how-to-use-automated-ml-for-ml-models/explore-models.gif)
+![Job detail](./media/how-to-use-automated-ml-for-ml-models/explore-models.gif)
 
-### View training run details
+### View training job details
 
-Drill down on any of the completed models to see training run details. On the **Model** tab view details like a model summary and the hyperparameters used for the selected model. 
+Drill down on any of the completed models to see training job details. On the **Model** tab view details like a model summary and the hyperparameters used for the selected model. 
 
 [![Hyperparameter details](media/how-to-use-automated-ml-for-ml-models/hyperparameter-button.png)](media/how-to-use-automated-ml-for-ml-models/hyperparameter-details.png)
 
@@ -205,7 +205,7 @@ On the Data transformation tab, you can see a diagram of what data preprocessing
 
 ![Data transformation](./media/how-to-use-automated-ml-for-ml-models/data-transformation.png)
 
-## View remote test run results (preview)
+## View remote test job results (preview)
 
 If you specified a test dataset or opted for a train/test split during your experiment setup-- on the **Validate and test** form, automated ML automatically tests the recommended model by default. As a result, automated ML calculates test metrics to determine the quality of the recommended model and its predictions. 
 
@@ -217,24 +217,24 @@ If you specified a test dataset or opted for a train/test split during your expe
 >  * [Computer vision tasks (preview)](how-to-auto-train-image-models.md)
 >  * [Many models and hiearchical time series forecasting training (preview)](how-to-auto-train-forecast.md)
 >  * [Forecasting tasks where deep learning neural networks (DNN) are enabled](how-to-auto-train-forecast.md#enable-deep-learning)
->  * [Automated ML runs from local computes or Azure Databricks clusters](how-to-configure-auto-train.md#compute-to-run-experiment)
+>  * [Automated ML jobs from local computes or Azure Databricks clusters](how-to-configure-auto-train.md#compute-to-run-experiment)
 
-To view the test run metrics of the recommended model,
+To view the test job metrics of the recommended model,
  
 1. Navigate to the **Models** page, select the best model. 
 1. Select the **Test results (preview)** tab. 
-1. Select the run you want, and view the **Metrics** tab.
+1. Select the job you want, and view the **Metrics** tab.
     ![Test results tab of automatically tested, recommended model](./media/how-to-use-automated-ml-for-ml-models/test-best-model-results.png)
     
 To view the test predictions used to calculate the test metrics, 
 
 1. Navigate to the bottom of the page and select the link under **Outputs dataset** to open the dataset. 
-1. On the **Datasets** page, select the **Explore** tab to view the predictions from the test run.
+1. On the **Datasets** page, select the **Explore** tab to view the predictions from the test job.
     1. Alternatively, the prediction file can also be viewed/downloaded from the **Outputs + logs** tab, expand the **Predictions** folder to locate your `predicted.csv` file.
 
 Alternatively, the predictions file can also be viewed/downloaded from the Outputs + logs tab, expand Predictions folder to locate your predictions.csv file.
 
-The model test run generates the predictions.csv file that's stored in the default datastore created with the workspace. This datastore is visible to all users with the same subscription. Test runs are not recommended for scenarios if any of the information used for or created by the test run needs to remain private.
+The model test job generates the predictions.csv file that's stored in the default datastore created with the workspace. This datastore is visible to all users with the same subscription. Test jobs are not recommended for scenarios if any of the information used for or created by the test job needs to remain private.
 
 ## Test an existing automated ML model (preview)
 
@@ -250,14 +250,14 @@ The model test run generates the predictions.csv file that's stored in the defau
 
 After your experiment completes, you can test the model(s) that automated ML generates for you. If you want to test a different automated ML generated model, not the recommended model, you can do so with the following steps. 
 
-1. Select an existing automated ML experiment run.  
-1. Navigate to the **Models** tab of the run and select the completed model you want to test.
+1. Select an existing automated ML experiment job.  
+1. Navigate to the **Models** tab of the job and select the completed model you want to test.
 1. On the model **Details** page, select the **Test model(preview)** button to open the **Test model** pane.
-1. On the **Test model** pane, select the compute cluster and a test dataset you want to use for your test run. 
+1. On the **Test model** pane, select the compute cluster and a test dataset you want to use for your test job. 
 1. Select the **Test** button. The schema of the test dataset should match the training dataset, but the **target column** is optional.
-1. Upon successful creation of model test run, the **Details** page displays a success message. Select the **Test results** tab to see the progress of the run.
+1. Upon successful creation of model test job, the **Details** page displays a success message. Select the **Test results** tab to see the progress of the job.
 
-1. To view the results of the test run, open the **Details** page and follow the steps in the [view results of the remote test run](#view-remote-test-run-results-preview) section. 
+1. To view the results of the test job, open the **Details** page and follow the steps in the [view results of the remote test job](#view-remote-test-run-results-preview) section. 
 
     ![Test model form](./media/how-to-use-automated-ml-for-ml-models/test-model-form.png)
     
@@ -272,12 +272,12 @@ To get explanations for a particular model,
 
 1. On the **Models** tab, select the model you want to understand. 
 1. Select the **Explain model** button, and provide a compute that can be used to generate the explanations.
-1. Check the **Child runs** tab for the status. 
+1. Check the **Child jobs** tab for the status. 
 1. Once complete, navigate to the **Explanations (preview)** tab which contains the explanations dashboard. 
 
     ![Model explanation dashboard](media/how-to-use-automated-ml-for-ml-models/model-explanation-dashboard.png)
 
-## Edit and submit runs (preview)
+## Edit and submit jobs (preview)
 
 >[!IMPORTANT]
 > The ability to copy, edit and submit a new experiment based on an existing experiment is a preview feature. This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time.
@@ -286,7 +286,7 @@ In scenarios where you would like to create a new experiment based on the settin
 
 This functionality is limited to experiments initiated from the studio UI and requires the data schema for the new experiment to match that of the original experiment. 
 
-The **Edit and submit** button opens the **Create a new Automated ML run** wizard with the data, compute and experiment settings pre-populated. You can go through each form and edit selections as needed for your new experiment. 
+The **Edit and submit** button opens the **Create a new Automated ML job** wizard with the data, compute and experiment settings pre-populated. You can go through each form and edit selections as needed for your new experiment. 
 
 ## Deploy your model
 
@@ -302,7 +302,7 @@ Automated ML helps you with deploying the model without writing code:
 1. You have a couple options for deployment. 
 
     + Option 1: Deploy the best model, according to the metric criteria you defined. 
-        1. After the experiment is complete, navigate to the parent run page by selecting **Run 1** at the top of the screen. 
+        1. After the experiment is complete, navigate to the parent job page by selecting **Job 1** at the top of the screen. 
         1.  Select the model listed in the **Best model summary** section. 
         1. Select **Deploy** on the top left of the window. 
 
