@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: reference
-ms.date: 05/13/2022
+ms.date: 05/26/2022
 ms.author: cshoe
 ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
@@ -230,7 +230,7 @@ The following example ARM template deploys a container app.
       "name": "[parameters('containerappName')]",
       "location": "[parameters('location')]",
       "identity": {
-        "type": "None"      
+        "type": "None"
       },
       "properties": {
         "managedEnvironmentId": "[resourceId('Microsoft.App/managedEnvironments', parameters('environment_name'))]",
@@ -290,43 +290,44 @@ The following example ARM template deploys a container app.
                 "cpu": 0.5,
                 "memory": "1Gi"
               },
-              "probes":[
+              "probes": [
                 {
-                    "type":"liveness",
-                    "httpGet":{
-                    "path":"/health",
-                    "port":8080,
-                    "httpHeaders":[
-                        {
-                            "name":"Custom-Header",
-                            "value":"liveness probe"
-                        }]
-                    },
-                    "initialDelaySeconds":7,
-                    "periodSeconds":3
+                  "type": "liveness",
+                  "httpGet": {
+                    "path": "/health",
+                    "port": 8080,
+                    "httpHeaders": [
+                      {
+                        "name": "Custom-Header",
+                        "value": "liveness probe"
+                      }
+                    ]
+                  },
+                  "initialDelaySeconds": 7,
+                  "periodSeconds": 3
                 },
                 {
-                    "type":"readiness",
-                    "tcpSocket":
-                        {
-                            "port": 8081
-                        },
-                    "initialDelaySeconds": 10,
-                    "periodSeconds": 3
+                  "type": "readiness",
+                  "tcpSocket": {
+                    "port": 8081
+                  },
+                  "initialDelaySeconds": 10,
+                  "periodSeconds": 3
                 },
                 {
-                    "type": "startup",
-                    "httpGet": {
-                        "path": "/startup",
-                        "port": 8080,
-                        "httpHeaders": [
-                            {
-                                "name": "Custom-Header",
-                                "value": "startup probe"
-                            }]
-                    },
-                    "initialDelaySeconds": 3,
-                    "periodSeconds": 3
+                  "type": "startup",
+                  "httpGet": {
+                    "path": "/startup",
+                    "port": 8080,
+                    "httpHeaders": [
+                      {
+                        "name": "Custom-Header",
+                        "value": "startup probe"
+                      }
+                    ]
+                  },
+                  "initialDelaySeconds": 3,
+                  "periodSeconds": 3
                 }
               ],
               "volumeMounts": [
@@ -421,25 +422,25 @@ properties:
         probes:
           - type: liveness
             httpGet:
-              - path: "/health"
-                port: 8080
-                httpHeaders:
-                  - name: "Custom-Header"
-                    value: "liveness probe"
-                initialDelaySeconds: 7
-                periodSeconds: 3
+              path: "/health"
+              port: 8080
+              httpHeaders:
+                - name: "Custom-Header"
+                  value: "liveness probe"
+            initialDelaySeconds: 7
+            periodSeconds: 3
           - type: readiness
             tcpSocket:
-              - port: 8081
+              port: 8081
             initialDelaySeconds: 10
             periodSeconds: 3
           - type: startup
             httpGet:
-              - path: "/startup"
-                port: 8080
-                httpHeaders:
-                  - name: "Custom-Header"
-                    value: "startup probe"
+              path: "/startup"
+              port: 8080
+              httpHeaders:
+                - name: "Custom-Header"
+                  value: "startup probe"
             initialDelaySeconds: 3
             periodSeconds: 3
     scale:

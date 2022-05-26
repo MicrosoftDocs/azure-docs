@@ -9,13 +9,13 @@ ms.date: 05/20/2022
 ms.author: aahi
 ---
 
-Create a **GET** request using the following URL, headers, and JSON body to get trained model evaluation summary.
+Create a **GET** request using the following URL, headers, and JSON body to get the trained model evaluation summary.
 
 
 ### Request URL
 
 ```rest
-{ENDPOINT}/language/analyze-conversations/projects/{projectName}/models/{trainedModelLabel}/evaluation/summary-result?api-version={API-VERSION}
+{ENDPOINT}/language/authoring/analyze-conversations/projects/{projectName}/models/{trainedModelLabel}/evaluation/summary-result?api-version={API-VERSION}
 ```
 
 |Placeholder  |Value  | Example |
@@ -23,7 +23,7 @@ Create a **GET** request using the following URL, headers, and JSON body to get 
 |`{ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.   | `myProject` |
 |`{trainedModelLabel}`     | The name for your trained model. This value is case-sensitive.   | `Model1` |
-|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest released [model version](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data). | `2022-03-01-preview` |
+|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest released [model version](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data).  | `2022-05-01` |
 
 
 ### Headers
@@ -33,7 +33,6 @@ Use the following header to authenticate your request.
 |Key|Value|
 |--|--|
 |`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
-|`Content-Type` | application/json |
 
 ### Response Body
 
