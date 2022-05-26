@@ -23,11 +23,12 @@ The first step in designing and defining your automation rule is figuring out wh
 
 You also want to determine your use case. What are you trying to accomplish with this automation? Consider the following options:
 
-- Triage new incidents  
-    Change the incident's status from New to Active, assign the incident to the proper personnel, apply tags to classify it, and analyze it to see if any automation playbooks can be applied.
+- Suppress noisy incidents (see [this article on handling false positives](false-positives.md#add-exceptions-by-using-automation-rules) instead)
+- Triage new incidents by changing their status from New to Active and assigning an owner.
 - Tag incidents to classify them.
-- Change the status of incidents and close them.
-- Do almost anything else by calling a playbook.
+- Escalate an incident by assigning a new owner.
+- Close resolved incidents, specifying a reason and adding comments.
+- Analyze the incident's contents (alerts, entities, and other properties) and take further action by calling a playbook.
 
 ### Determine the trigger
 
