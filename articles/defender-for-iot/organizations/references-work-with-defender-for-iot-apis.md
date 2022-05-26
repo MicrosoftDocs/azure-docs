@@ -2659,7 +2659,7 @@ Use this API to request a PCAP file related to an alert.
 
 #### Query Parameters
 
-- ID: CM Alert ID  
+- id: CM Alert ID  
 Example:  
 `/external/v2/alerts/pcap/<id>`
 
