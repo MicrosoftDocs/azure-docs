@@ -345,7 +345,7 @@ Or like the following if providing workspace IDs explicitly instead of using the
 /> az ml job create --file ./hello-automl-job-basic.yml --workspace-name [YOUR_AZURE_WORKSPACE] --resource-group [YOUR_AZURE_RESOURCE_GROUP] --subscription [YOUR_AZURE_SUBSCRIPTION]
 ```
 
-To investigate additional AutoML model training examples using other ML-tasks such as regression, time-series forecasting, image classification, object detection, NLP text-classification, etc., see the complete list of [AutoML CLI examples](https://github.com/Azure/azureml-examples/tree/sdk-preview/cli/jobs/automl-standalone-jobs).
+To investigate additional AutoML model training examples using other ML-tasks such as regression, time-series forecasting, image classification, object detection, NLP text-classification, etc., see the complete list of [AutoML CLI examples](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/automl-standalone-jobs).
 
 ### Train a model with a custom script
 

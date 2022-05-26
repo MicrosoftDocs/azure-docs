@@ -18,6 +18,14 @@ ms.date: 05/24/2022
 
 This article summarizes new releases and features in Azure Database for MySQL - Flexible Server beginning in January 2021. Listings appear in reverse chronological order, with the most recent updates first.
 
+## May 2022
+
+- **Announcing Azure Database for MySQL - Flexible Server for business-critical workloads**
+    Azure Database for MySQL – Flexible Server Business Critical service tier is now generally available. Business Critical service tier is ideal for Tier 1 production workloads that require low latency, high concurrency, fast failover, and high scalability, such as gaming, e-commerce, and Internet-scale applications, to learn more about [Business Critical service Tier](https://techcommunity.microsoft.com/t5/azure-database-for-mysql-blog/announcing-azure-database-for-mysql-flexible-server-for-business/ba-p/3361718).
+
+- **Announcing the addition of new Burstable compute instances for Azure Database for MySQL - Flexible Server**
+    We are announcing the addition of new Burstable compute instances to support customers’ auto-scaling compute requirements from 1 vCore up to 20 vCores. learn more about [Compute Option for Azure Database for MySQL - Flexible Server](https://docs.microsoft.com/azure/mysql/flexible-server/concepts-compute-storage).
+
 ## April 2022
 
 - **Minor version upgrade for Azure Database for MySQL - Flexible server to 8.0.28**
@@ -254,9 +262,9 @@ This release of Azure Database for MySQL - Flexible Server includes the followin
 
     Flexible Server now supports [Data-in Replication](concepts-data-in-replication.md). Use this feature to synchronize and migrate data from a MySQL server running on-premises, in virtual machines, on Azure Database for MySQL Single Server, or on database services outside Azure to Azure Database for MySQL – Flexible Server. Learn more about [How to configure Data-in Replication](how-to-data-in-replication.md).
 
-- **GitHub actions support with Azure CLI**
+- **GitHub Actions support with Azure CLI**
 
-  Flexible Server CLI now allows customers to automate workflows to deploy updates with GitHub actions. This feature helps set up and deploy database updates with MySQL GitHub Actions workflow. These CLI commands assist with setting up a repository to enable continuous deployment for ease of development. [Learn more](/cli/azure/mysql/flexible-server/deploy).
+  Flexible Server CLI now allows customers to automate workflows to deploy updates with GitHub Actions. This feature helps set up and deploy database updates with MySQL GitHub Actions workflow. These CLI commands assist with setting up a repository to enable continuous deployment for ease of development. [Learn more](/cli/azure/mysql/flexible-server/deploy).
 
 - **Zone redundant HA forced failover fixes**
 

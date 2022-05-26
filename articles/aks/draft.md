@@ -28,30 +28,16 @@ Draft has the following commands to help ease your development on Kubernetes:
 - Install the latest version of the [Azure CLI](/cli/azure/install-azure-cli-windows) and the *aks-preview* extension.
 - If you don't have one already, you need to create an [AKS cluster][deploy-cluster].
 
-### Install the `AKS-Draft` extension preview
+### Install the `aks-preview` Azure CLI extension
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-To create an AKS cluster that can use the Draft extension, you must enable the `AKS-ExtensionManager` and `AKS-Draft` feature flags on your subscription.
-
-Register the `AKS-ExtensionManager` and `AKS-Draft` feature flags by using the [az feature register][az-feature-register] command, as shown in the following example:
-
 ```azurecli-interactive
-az extension add --name draft
-```
+# Install the aks-preview extension
+az extension add --name aks-preview
 
-### Set up the Azure CLI extension for cluster extensions
-
-You'll also need the `k8s-extension` Azure CLI extension, which can be installed by running the following command:
-  
-```azurecli-interactive
-az extension add --name k8s-extension
-```
-
-If the `k8s-extension` extension is already installed, you can update it to the latest version using the following command:
-
-```azurecli-interactive
-az extension update --name k8s-extension
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
 ```
 
 ## Create artifacts using `draft create`
@@ -120,14 +106,6 @@ You can also run the command on a specific directory using the `--destination` f
 az aks draft update --destination /Workspaces/ContosoAir
 ```
 
-## Delete the extension
-
-To delete the extension and remove Draft from your AKS cluster, you can use the following command: 
-
-```azure-cli-interactive
-az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSCluster --cluster-type managedClusters --name draft
-```
-
 <!-- LINKS INTERNAL -->
 [deploy-cluster]: ./tutorial-kubernetes-deploy-cluster.md
 [az-feature-register]: /cli/azure/feature#az-feature-register
@@ -136,3 +114,5 @@ az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSClu
 [sample-application]: ./quickstart-dapr.md
 [k8s-version-support-policy]: ./supported-kubernetes-versions.md?tabs=azure-cli#kubernetes-version-support-policy
 [web-app-routing]: web-app-routing.md
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
