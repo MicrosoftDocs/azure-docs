@@ -100,13 +100,13 @@ Each time that the trigger fires, Azure Logic Apps creates a workflow instance a
 
    ![Screenshot showing Azure portal with Standard logic app workflow runs and a failed run selected.](./media/logic-apps-diagnosing-failures/logic-app-runs-history-standard.png)
 
-1. After all the steps in the run appear, select each step to expand their shapes.
+1. After all the steps in the run appear, select each step to review their details.
 
    ![Screenshot showing Standard logic app workflow with failed step selected.](./media/logic-apps-diagnosing-failures/logic-app-run-pane-standard.png)
 
 1. Review the inputs, outputs, and any error messages for the failed step.
 
-   ![Screenshot showing Standard logic app workflow with failed step details.](./media/logic-apps-diagnosing-failures/failed-action-inputs-standard.png)
+   ![Screenshot showing Standard logic app workflow with failed step inputs.](./media/logic-apps-diagnosing-failures/failed-action-inputs-standard.png)
 
    For example, the following screenshot shows the outputs from the failed RSS action.
 
