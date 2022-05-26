@@ -20,13 +20,13 @@ When a primary and secondary on-premises management console is paired:
 
 - The primary on-premises management console data is automatically backed up to the secondary on-premises management console every 10 minutes. The on-premises management console configurations and device data are backed up. PCAP files and logs are not included in the backup. You can back up and restore of PCAPs and logs manually.
 
-- The primary setup at the management console is duplicated on the secondary; for example, system settings. If these settings are updated on the primary, they are also updated on the secondary.
+- The primary setup at the management console is duplicated on the secondary; for example, system settings. If these settings are updated on the primary, they're also updated on the secondary.
 
 - Before the license of the secondary expires, you should define it as the primary in order to update the license.
 
 ## About failover and failback
 
-If a sensor cannot connect to the primary on-premises management console, it automatically connects to the secondary. Your system will be supported by both the primary and secondary simultaneously, if less than half of the sensors are communicating with the secondary. The secondary takes over when more than half of the sensors are communicating with it. Fail over from the primary to the secondary takes approximately three minutes. When the failover occurs, the primary on-premises management console freezes. When this happens, you can sign in to the secondary using the same sign-in credentials.
+If a sensor can't connect to the primary on-premises management console, it automatically connects to the secondary. Your system will be supported by both the primary and secondary simultaneously, if less than half of the sensors are communicating with the secondary. The secondary takes over when more than half of the sensors are communicating with it. Fail over from the primary to the secondary takes approximately three minutes. When the failover occurs, the primary on-premises management console freezes. When this happens, you can sign in to the secondary using the same sign-in credentials.
 
 During failover, sensors continue attempting to communicate with the primary appliance. When more than half the managed sensors succeed to communicate with the primary, the primary is restored. The following message appears at the secondary console when the primary is restored.
 
@@ -48,7 +48,7 @@ The installation and configuration procedures are performed in four main stages:
 
 ## High availability requirements
 
-Verify that you have met the following high availability requirements:
+Verify that you've met the following high availability requirements:
 
 - Certificate requirements
 
