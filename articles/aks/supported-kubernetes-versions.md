@@ -264,7 +264,6 @@ Patches have a two month minimum lifecycle. To keep up to date when new patches 
 For information on how to upgrade your cluster, see [Upgrade an Azure Kubernetes Service (AKS) cluster][aks-upgrade].
 
 <!-- LINKS - External -->
-[aks-engine]: https://github.com/Azure/aks-engine
 [azure-update-channel]: https://azure.microsoft.com/updates/?product=kubernetes-service
 
 <!-- LINKS - Internal -->
