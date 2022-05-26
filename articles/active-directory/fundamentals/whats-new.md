@@ -71,15 +71,6 @@ With a recent improvement, Smart Lockout now synchronizes the lockout state acro
 
 ---
 
-### Public Preview - Enabling customization capabilities for the Self-Service Password Reset (SSPR) hyperlinks, footer hyperlinks and browser icons in Company Branding.
-
-**Type:** New feature  
-**Service category:** Authentications (Logins)  
-**Product capability:** User Authentication
-
-Updating the Company Branding functionality on the Azure AD/Microsoft 365 sign-in experience to allow customizing Self Service Password Reset (SSPR) hyperlinks, footer hyperlinks and browser icon. For more information, see: [Add branding to your organization’s Azure Active Directory sign-in page](customize-branding.md).
-
----
 
 ### Public Preview - Integration of Microsoft 365 App Certification details into AAD UX and Consent Experiences
 
@@ -92,15 +83,6 @@ Microsoft 365 Certification status for an app is now available in Azure AD conse
 
 ---
 
-### Public Preview - Organizations can replace all references to Microsoft on the AAD auth experience
-
-**Type:** New feature  
-**Service category:** Authentications (Logins)  
-**Product capability:** User Authentication
-
-Updating the Company Branding functionality on the Azure AD/Microsoft 365 sign-in experience to allow customizing Self Service Password Reset (SSPR) hyperlinks, footer hyperlinks and browser icon. For more information, see: [Add branding to your organization’s Azure Active Directory sign-in page](customize-branding.md).
-
----
 
 ### Public preview - Use Azure AD access reviews to review access of B2B direct connect users in Teams shared channels
 

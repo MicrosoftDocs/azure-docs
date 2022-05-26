@@ -30,10 +30,16 @@
       href: create-cluster.md
 - name: Tutorials
   items:
+  - name: Capture Event Hubs data in Parquet format
+    href: event-hubs-parquet-capture-tutorial.md
+  - name: Build near-real time dashboards with no code editor
+    href: no-code-power-bi-tutorial.md
   - name: Visualize fraudulent calls in Power BI
     href: stream-analytics-real-time-fraud-detection.md
-  - name: Run Azure Functions
+  - name: Integrate 3rd party services using Azure Functions
     href: stream-analytics-with-azure-functions.md
+  - name: Visualize fraudulent calls in Power BI
+    href: stream-analytics-real-time-fraud-detection.md
   - name: Run a C# UDF
     href: stream-analytics-edge-csharp-udf.md
   - name: Create a custom .NET deserializer

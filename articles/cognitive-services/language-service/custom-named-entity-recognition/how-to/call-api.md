@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 05/09/2022
+ms.date: 05/24/2022
 ms.author: aahi
 ms.devlang: csharp, python
 ms.custom: language-service-custom-ner, event-tier1-build-2022
@@ -17,7 +17,7 @@ ms.custom: language-service-custom-ner, event-tier1-build-2022
 # Query deployment to extract entities
 
 After the deployment is added successfully, you can query the deployment to extract entities from your text based on the model you assigned to the deployment.
-You can query the deployment programmatically using the [Prediction API](https://aka.ms/ct-runtime-swagger) or through the [Client libraries (Azure SDK)](#get-task-results). 
+You can query the deployment programmatically using the [Prediction API](https://aka.ms/ct-runtime-api) or through the [Client libraries (Azure SDK)](#get-task-results). 
 
 ## Test deployed model
 
@@ -80,4 +80,7 @@ First you will need to get your resource key and endpoint:
 
 ## Next steps
 
-* [Custom NER overview](../overview.md)
+* [Enrich a Cognitive Search index tutorial](../tutorials/cognitive-search.md)
+
+
+

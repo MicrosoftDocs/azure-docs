@@ -47,6 +47,9 @@ In the end, your resource will have the  **Data Use Management** toggle **Enable
 
 ![Screenshot shows how to register a resource group or subscription for policy by toggling the enable tab in the resource editor.](./media/how-to-data-owner-policies-resource-group/register-resource-group-for-policy.png)
 
+>[!Important]
+> - If you want to create a policy on a resource group or subscription and have it enforced in Arc-enabled SQL servers, you will need to also register those servers independently for *Data use management* to provide their App ID.
+
 ## Create and publish a data owner policy
 Execute the steps in the **Create a new policy** and **Publish a policy** sections of the [data-owner policy authoring tutorial](./how-to-data-owner-policy-authoring-generic.md#create-a-new-policy). The result will be a data owner policy similar to the example shown in the image: a policy that provides security group *sg-Finance* *modify* access to resource group *finance-rg*. Use the Data source box in the Policy user experience.
 
@@ -54,6 +57,7 @@ Execute the steps in the **Create a new policy** and **Publish a policy** sectio
 
 >[!Important]
 > - Publish is a background operation. For example, Azure Storage accounts can take up to **2 hours** to reflect the changes.
+> - Changing a policy does not require a new publish operation. The changes will be picked up with the next pull.
 
 >[!Warning]
 > **Known Issues**
