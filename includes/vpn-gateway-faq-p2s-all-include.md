@@ -49,27 +49,15 @@ DDNS is currently not supported in point-to-site VPNs.
 
 ### Can I have Site-to-Site and point-to-site configurations coexist for the same virtual network?
 
-<<<<<<< HEAD
-Yes. For the Resource Manager deployment model, you must have a RouteBased VPN type for your gateway. For the classic deployment model, you need a dynamic gateway. We don't support Point-to-Site for static routing VPN gateways or PolicyBased VPN gateways.
-=======
 Yes. For the Resource Manager deployment model, you must have a RouteBased VPN type for your gateway. For the classic deployment model, you need a dynamic gateway. We don't support point-to-site for static routing VPN gateways or PolicyBased VPN gateways.
->>>>>>> 06a84b12c65a806da1306e9f5e11064c00fdee6f
 
 ### Can I configure a point-to-site client to connect to multiple virtual network gateways at the same time?
 
-<<<<<<< HEAD
-Depending on the VPN Client software used, you may be able to connect to multiple Virtual Network Gateways provided the virtual networks being connected to don't have conflicting address spaces between them or the network from with the client is connecting from.  While the Azure VPN Client supports many VPN connections, only one connection can be Connected at any given time.
-=======
 Depending on the VPN Client software used, you may be able to connect to multiple Virtual Network Gateways provided the virtual networks being connected to don't have conflicting address spaces between them or the network from with the client is connecting from. While the Azure VPN Client supports many VPN connections, only one connection can be Connected at any given time.
->>>>>>> 06a84b12c65a806da1306e9f5e11064c00fdee6f
 
 ### Can I configure a point-to-site client to connect to multiple virtual networks at the same time?
 
-<<<<<<< HEAD
-Yes, Point-to-Site client connections to a virtual network gateway that is deployed in a VNet that is peered with other VNets may have access to other peered VNets. Point-to-Site clients will be able to connect to peered VNets as long as the peered VNets are using the UseRemoteGateway / AllowGatewayTransit features. For more information, see [About Point-to-Site routing](../articles/vpn-gateway/vpn-gateway-about-point-to-site-routing.md).
-=======
 Yes, point-to-site client connections to a virtual network gateway that is deployed in a VNet that is peered with other VNets may have access to other peered VNets. point-to-site clients will be able to connect to peered VNets as long as the peered VNets are using the UseRemoteGateway / AllowGatewayTransit features. For more information, see [About point-to-site routing](../articles/vpn-gateway/vpn-gateway-about-point-to-site-routing.md).
->>>>>>> 06a84b12c65a806da1306e9f5e11064c00fdee6f
 
 ### How much throughput can I expect through Site-to-Site or point-to-site connections?
 
@@ -85,11 +73,7 @@ Yes. In the portal, navigate to the **VPN gateway -> Point-to-site configuration
 
 ### Does Azure support IKEv2 VPN with Windows?
 
-<<<<<<< HEAD
-IKEv2 is supported on Windows 10 and Server 2016. However, in order to use IKEv2 in certain OS versions, you must install updates and set a registry key value locally. Note that OS versions prior to Windows 10 aren't supported and can only use SSTP or **OpenVPN® Protocol**.
-=======
 IKEv2 is supported on Windows 10 and Server 2016. However, in order to use IKEv2 in certain OS versions, you must install updates and set a registry key value locally. OS versions prior to Windows 10 aren't supported and can only use SSTP or **OpenVPN® Protocol**.
->>>>>>> 06a84b12c65a806da1306e9f5e11064c00fdee6f
 
 > [!NOTE]
 > Windows OS builds newer than Windows 10 Version 1709 and Windows Server 2016 Version 1607 do not require these steps.
@@ -122,11 +106,7 @@ Azure supports Windows, Mac, and Linux for P2S VPN.
 
 ### I already have an Azure VPN Gateway deployed. Can I enable RADIUS and/or IKEv2 VPN on it?
 
-<<<<<<< HEAD
-Yes, if the gateway SKU that you're using supports RADIUS and/or IKEv2, you can enable these features on gateways that you've already deployed by using PowerShell or the Azure portal. Note that the Basic SKU doesn't support RADIUS or IKEv2.
-=======
 Yes, if the gateway SKU that you're using supports RADIUS and/or IKEv2, you can enable these features on gateways that you've already deployed by using PowerShell or the Azure portal. The Basic SKU doesn't support RADIUS or IKEv2.
->>>>>>> 06a84b12c65a806da1306e9f5e11064c00fdee6f
 
 ### <a name="removeconfig"></a>How do I remove the configuration of a P2S connection?
 
