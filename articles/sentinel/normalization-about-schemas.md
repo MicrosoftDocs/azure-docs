@@ -214,7 +214,7 @@ The allowed values for a device ID type are:
 | **VectraId** | A Vectra AI assigned resource ID.|
 | **Other** | An ID type not listed above.| 
 
-For example, the Azure Monitor [VM Insights solution](/azure/azure-monitor/vm/vminsights-log-search) provides network sessions information in the `VMConnection`. The table provides an Azure Resource ID in the `_ResourceId` field and a VM insights specific device ID in the `Machine` field. Use the following mapping to represent those IDs:
+For example, the Azure Monitor [VM Insights solution](../azure-monitor/vm/vminsights-log-search.md) provides network sessions information in the `VMConnection`. The table provides an Azure Resource ID in the `_ResourceId` field and a VM insights specific device ID in the `Machine` field. Use the following mapping to represent those IDs:
 
 | Field | Map to  |
 | ----- | ----- | 
