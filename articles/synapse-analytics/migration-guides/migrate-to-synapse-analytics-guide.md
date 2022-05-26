@@ -26,7 +26,7 @@ Consider using Azure Synapse Analytics when you:
 - Need the ability to scale compute and storage.
 - Want to save on costs by pausing compute resources when you don't need them.
 
-Rather than Azure Synapse Analytics, consider other options for operational online transaction processing workloads that have:
+Rather than Azure Synapse Analytics, consider other options for operational online transaction processing (OLTP) workloads that have:
 
 - High frequency reads and writes.
 - Large numbers of singleton selects.
