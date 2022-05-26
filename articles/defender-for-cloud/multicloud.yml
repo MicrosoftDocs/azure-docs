@@ -26,10 +26,10 @@ landingContent:
         links:
           - text: Protect your AWS virtual machines with Defender for Servers
             url: https://docs.microsoft.com/en-us/azure/defender-for-cloud/defender-for-servers-introduction.md
-          - text: Protect your AWS EKS containers with Defender for Containers
-            url: https://docs.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-introduction.md
           - text: Supported features for AWS virtual machines
             url: https://docs.microsoft.com/en-us/azure/defender-for-cloud/supported-machines-endpoint-solutions-clouds-servers.md?tabs=features-multi-cloud#supported-features-for-virtual-machines-and-servers
+          - text: Protect your AWS EKS containers with Defender for Containers
+            url: https://docs.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-introduction.md
           - text: Supported features for AWS EKS containers
             url: https://docs.microsoft.com/en-us/azure/defender-for-cloud/supported-machines-endpoint-solutions-clouds-containers.md?tabs=aws-eks
       - linkListType: get-started
@@ -68,10 +68,10 @@ landingContent:
         links:
           - text: Protect your GCP virtual machines with Defender for Servers
             url: https://docs.microsoft.com/en-us/azure/defender-for-cloud/defender-for-servers-introduction.md
-          - text: Protect your GCP GKE containers with Defender for Containers
-            url: https://docs.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-introduction.md
           - text: Supported features for GCP virtual machines
             url: https://docs.microsoft.com/en-us/azure/defender-for-cloud/supported-machines-endpoint-solutions-clouds-servers.md?tabs=features-multi-cloud#supported-features-for-virtual-machines-and-servers
+          - text: Protect your GCP GKE containers with Defender for Containers
+            url: https://docs.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-introduction.md
           - text: Supported features for GCP GKE containers
             url: https://docs.microsoft.com/en-us/azure/defender-for-cloud/supported-machines-endpoint-solutions-clouds-containers.md?tabs=gcp-gke
       - linkListType: get-started
