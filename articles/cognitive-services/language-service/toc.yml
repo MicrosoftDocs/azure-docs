@@ -35,18 +35,18 @@ items:
   - name: Data, privacy, and security  
     href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context
     displayName: Data privacy, logging, data retention
-- name: Custom text classification
+- name: Custom text classification (preview)
   items:
   - name: Overview
-    href: custom-text-classification/overview.md
+    href: custom-classification/overview.md
   - name: Quickstart
-    href: custom-text-classification/quickstart.md
+    href: custom-classification/quickstart.md
   - name: Language support
-    href: custom-text-classification/language-support.md
+    href: custom-classification/language-support.md
   - name: FAQ
-    href: custom-text-classification/faq.md
+    href: custom-classification/faq.md
   - name: Responsible use of AI
-    items:
+    items: 
     - name: Transparency note for custom text classification
       href: /legal/cognitive-services/language-service/ctc-transparency-note?context=/azure/cognitive-services/language-service/context/context
       displayName: Transparency note for Custom classification, Custom classification transparency, Responsible AI, Responsible use of AI
@@ -56,73 +56,63 @@ items:
     - name: Characteristics and limitations
       href: /legal/cognitive-services/language-service/ctc-characteristics-and-limitations?context=/azure/cognitive-services/language-service/context/context
       displayName: Custom classification characteristics, Custom classification limitations
-    - name: Data, privacy, and security
+    - name: Data, privacy, and security  
       href: /legal/cognitive-services/language-service/ctc-data-privacy-security?context=/azure/cognitive-services/language-service/context/context
       displayName: Data privacy, logging, data retention
   - name: How-to guides
     items:
     - name: Create projects
-      href: custom-text-classification/how-to/create-project.md
+      href: custom-classification/how-to/create-project.md
     - name: Data selection and schema design
-      href: custom-text-classification/how-to/design-schema.md
+      href: custom-classification/how-to/design-schema.md
       displayName: Best practices
-    - name: Label data
-      href: custom-text-classification/how-to/tag-data.md
+    - name: Tag data
+      href: custom-classification/how-to/tag-data.md
     - name: Train a model
-      href: custom-text-classification/how-to/train-model.md
-    - name: View model performance
-      href: custom-text-classification/how-to/view-model-evaluation.md
+      href: custom-classification/how-to/train-model.md
+    - name: View model evaluation
+      href: custom-classification/how-to/view-model-evaluation.md
     - name: Improve a model
-      href: custom-text-classification/how-to/improve-model.md
-    - name: Deploy a model
-      href: custom-text-classification/how-to/deploy-model.md
-    - name: Classify text
-      href: custom-text-classification/how-to/call-api.md
+      href: custom-classification/how-to/improve-model.md
+    - name: Deploy a model and classify text
+      href: custom-classification/how-to/call-api.md
     - name: Back up and recover your models
-      href: custom-text-classification/fail-over.md
+      href: custom-classification/fail-over.md
   - name: Concepts
     items:
     - name: Evaluation metrics
-      href: custom-text-classification/concepts/evaluation-metrics.md
-    - name: Accepted data formats
-      href: custom-text-classification/concepts/data-formats.md
+      href: custom-classification/concepts/evaluation.md
+    - name: Accepted data tag formats
+      href: custom-classification/concepts/data-formats.md
       displayName: Data representation
-    - name: Enterprise readiness
-      items: 
-      - name: Virtual networks
-        href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/language-service/context/context
-      - name: Cognitive Services security
-        href: ../cognitive-services-security.md?context=/azure/cognitive-services/language-service/context/context
-      - name: Encryption of data at rest
-        href: concepts/encryption-data-at-rest.md
   - name: Tutorials
     items:
     - name: Enrich a Cognitive Search index 
-      href: custom-text-classification/tutorials/cognitive-search.md
+      href: custom-classification/tutorials/cognitive-search.md
   - name: Reference
     items:
     - name: Glossary
-      href: custom-text-classification/glossary.md
+      href: custom-classification/glossary.md
       displayName: Model, Project, Class
     - name: Service limits
-      href: custom-text-classification/service-limits.md
-    - name: REST API
+      href: custom-classification/service-limits.md
+    - name: REST API (v3.2-preview.2)
       items:
       - name: Authoring API
-        href: https://aka.ms/ct-authoring-apis
+        href: https://aka.ms/ct-authoring-swagger
       - name: Runtime prediction API
-        href: https://aka.ms/ct-runtime-api
-    - name: SDK samples
+        href: https://aka.ms/ct-runtime-swagger
+    - name: SDKs (v3.2-preview.2)
       items:
-      - name: Java
-        href: https://aka.ms/sdk-samples-java
-      - name: Java script
-        href: https://aka.ms/sdk-samples-java-script
-      - name: C#
-        href:  https://aka.ms/sdk-samples-dot-net
-      - name: Python
-        href:  https://aka.ms/sdk-samples-python
-- name: Custom named entity recognition (NER)
+        - name: .NET
+          href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+        - name: Python
+          href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+        - name: Java
+          href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+        - name: Node.js
+          href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
+- name: Custom Named Entity Recognition (NER) (preview)
   items:
   - name: Overview
     href: custom-named-entity-recognition/overview.md
@@ -152,19 +142,15 @@ items:
       href: custom-named-entity-recognition/how-to/create-project.md
     - name: Data selection and schema design
       href: custom-named-entity-recognition/how-to/design-schema.md
-    - name: Label data
+    - name: Tag data
       href: custom-named-entity-recognition/how-to/tag-data.md
-    - name: Auto label your data (preview)
-      href: custom-named-entity-recognition/how-to/use-autotagging.md
     - name: Train a model
       href: custom-named-entity-recognition/how-to/train-model.md
-    - name: View model performance
+    - name: View model evaluation
       href: custom-named-entity-recognition/how-to/view-model-evaluation.md 
     - name: Improve a model
       href: custom-named-entity-recognition/how-to/improve-model.md
-    - name: Deploy a model
-      href: custom-named-entity-recognition/how-to/deploy-model.md
-    - name: Extract entities from text
+    - name: Deploy a model and extract entities from text
       href: custom-named-entity-recognition/how-to/call-api.md
     - name: Back up and recover your models
       href: custom-named-entity-recognition/fail-over.md
@@ -176,39 +162,31 @@ items:
     items:
       - name: Evaluation metrics
         href: custom-named-entity-recognition/concepts/evaluation-metrics.md
-      - name: Accepted data formats
+      - name: Accepted data tag formats
         href: custom-named-entity-recognition/concepts/data-formats.md
-      - name: Enterprise readiness
-        items: 
-        - name: Virtual networks
-          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/language-service/context/context
-        - name: Cognitive Services security
-          href: ../cognitive-services-security.md?context=/azure/cognitive-services/language-service/context/context
-        - name: Encryption of data at rest
-          href: concepts/encryption-data-at-rest.md
   - name: Reference
     items:
     - name: Glossary
       href: custom-named-entity-recognition/glossary.md
     - name: Service limits
       href: custom-named-entity-recognition/service-limits.md
-    - name: REST API
+    - name: REST API (v3.2-preview.2)
       items:
       - name: Authoring API
-        href: https://aka.ms/ct-authoring-apis
+        href: https://aka.ms/ct-authoring-swagger
       - name: Runtime prediction API
-        href: https://aka.ms/ct-runtime-api
-      - name: SDK samples
+        href: https://aka.ms/ct-runtime-swagger
+    - name: SDKs (v3.2-preview.2)
       items:
-        - name: Java
-          href: https://aka.ms/sdk-samples-java
-        - name: Java script
-          href: https://aka.ms/sdk-samples-java-script
-        - name: C#
-          href:  https://aka.ms/sdk-samples-dot-net
+        - name: .NET
+          href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
         - name: Python
-          href:  https://aka.ms/sdk-samples-python
-- name: Conversational language understanding
+          href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+        - name: Java
+          href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-preview&preserve-view=true
+        - name: Node.js
+          href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
+- name: Conversational language understanding (preview)
   items:
   - name: Overview
     href: conversational-language-understanding/overview.md
@@ -218,24 +196,34 @@ items:
     href: conversational-language-understanding/language-support.md
   - name: FAQ
     href: conversational-language-understanding/faq.md
+  - name: Responsible use of AI
+    items: 
+    - name: Transparency note for CLU
+      href: /legal/cognitive-services/clu/clu-transparency-note?context=/azure/cognitive-services/language-service/context/context
+      displayName: Transparency note for CLU, CLU Transparency, Language understanding transparency note, Responsible AI, Responsible use of AI
+    - name: Integration and responsible use
+      href: /legal/cognitive-services/clu/clu-guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
+      displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
+    - name: Characteristics and limitations
+      href: /legal/cognitive-services/clu/clu-characteristics-and-limitations?context=/azure/cognitive-services/language-service/context/context
+      displayName: CLU characteristics, CLU limitations, Language understanding characteristics
+    - name: Data, privacy, and security  
+      href: /legal/cognitive-services/clu/clu-data-privacy-security?context=/azure/cognitive-services/language-service/context/context
+      displayName: Data privacy, logging, data retention
   - name: How-to guides
     items:
       - name: Create projects
         href: conversational-language-understanding/how-to/create-project.md
       - name: Build a schema
         href: conversational-language-understanding/how-to/build-schema.md
-      - name: Label utterances
+      - name: Tag utterances
         href: conversational-language-understanding/how-to/tag-utterances.md
       - name: Train a model
         href: conversational-language-understanding/how-to/train-model.md
-      - name: View model performance
-        href: conversational-language-understanding/how-to/view-model-evaluation.md
-      - name: Deploy a model
-        href: conversational-language-understanding/how-to/deploy-model.md
-      - name: Call the API to make predictions
-        href: conversational-language-understanding/how-to/call-api.md
+      - name: Deploy a model and get predictions
+        href: conversational-language-understanding/how-to/deploy-query-model.md
       - name: Back up and recover your models
-        href: conversational-language-understanding/how-to/fail-over.md
+        href: conversational-language-understanding/fail-over.md
   - name: Concepts
     items:
       - name: Backwards compatibility
@@ -244,41 +232,28 @@ items:
         href: conversational-language-understanding/concepts/entity-components.md
       - name: Evaluation metrics
         href: conversational-language-understanding/concepts/evaluation-metrics.md
-      - name: Data formats
-        href: conversational-language-understanding/concepts/data-formats.md
       - name: None intent
         href: conversational-language-understanding/concepts/none-intent.md
-      - name: Enterprise readiness
-        items: 
-        - name: Virtual networks
-          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/language-service/context/context
-        - name: Cognitive Services security
-          href: ../cognitive-services-security.md?context=/azure/cognitive-services/language-service/context/context
-        - name: Encryption of data at rest
-          href: concepts/encryption-data-at-rest.md
-  - name: Tutorials
-    items:
-      - name: Use Bot Framework
-        href: conversational-language-understanding/tutorials/bot-framework.md
+      - name: Using multiple languages
+        href: conversational-language-understanding/concepts/multiple-languages.md
   - name: Reference
     items:
     - name: Prebuilt component reference
       href: conversational-language-understanding/prebuilt-component-reference.md
     - name: Service limits
       href: conversational-language-understanding/service-limits.md
-    - name: Glossary
-      href: conversational-language-understanding/glossary.md
     - name: REST API
       items:
-      - name: Authoring API
+      - name: Authoring
         href: https://aka.ms/clu-authoring-apis
-      - name: Runtime prediction API
-        href: https://aka.ms/clu-runtime-api
+      - name: Runtime API
+        href: https://aka.ms/clu-apis
+    - name: SDKs
       items:
-        - name: C#
-          href:  https://aka.ms/sdk-sample-conversation-dot-net
-        - name: Python
-          href:   https://aka.ms/sdk-samples-conversation-python
+      - name: .NET
+        href: /dotnet/api/azure.ai.language.conversations?view=azure-dotnet-preview&preserve-view=true
+      - name: Python
+        href: /python/api/azure-ai-language-conversations/azure.ai.language.conversations?view=azure-python-preview&preserve-view=true
 - name: Entity linking
   items:
   - name: Overview
@@ -526,7 +501,7 @@ items:
             href: /java/api/overview/azure/ai-textanalytics-readme?preserve-view=true
           - name: Node.js
             href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true
-- name: Orchestration workflow
+- name: Orchestration workflow (preview)
   items:
   - name: Overview
     href: orchestration-workflow/overview.md
@@ -534,65 +509,36 @@ items:
     href: orchestration-workflow/faq.md
   - name: Quickstart
     href: orchestration-workflow/quickstart.md
-  - name: Language support
-    href: orchestration-workflow/language-support.md
   - name: How-to guides
     items:
-      - name: Build schema
-        href: orchestration-workflow/how-to/build-schema.md
-      - name: Create project
+      - name: Create project and build schema
         href: orchestration-workflow/how-to/create-project.md
-      - name: Label utterances
+      - name: Tag utterances
         href: orchestration-workflow/how-to/tag-utterances.md
       - name: Train a model
         href: orchestration-workflow/how-to/train-model.md
-      - name: View model performance
-        href: orchestration-workflow/how-to/view-model-evaluation.md
-      - name: Deploy a model
-        href: orchestration-workflow/how-to/deploy-model.md
-      - name: Get predictions by calling the API
-        href: orchestration-workflow/how-to/call-api.md
+      - name: Deploy a model and get predictions
+        href: orchestration-workflow/how-to/deploy-query-model.md
       - name: Back up and recover your models
-        href: conversational-language-understanding/how-to/fail-over.md
+        href: conversational-language-understanding/fail-over.md
   - name: Concepts
     items: 
       - name: Evaluation metrics
         href: orchestration-workflow/concepts/evaluation-metrics.md
-      - name: Back up and recover your models
-        href: orchestration-workflow/concepts/fail-over.md
-      - name: None intent
-        href: orchestration-workflow/concepts/none-intent.md
-      - name: Data formats
-        href: orchestration-workflow/concepts/data-formats.md
-  - name: Enterprise readiness
-    items: 
-    - name: Virtual networks
-      href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/language-service/context/context
-    - name: Cognitive Services security
-      href: ../cognitive-services-security.md?context=/azure/cognitive-services/language-service/context/context
-    - name: Encryption of data at rest
-      href: concepts/encryption-data-at-rest.md
-  - name: Tutorials
-    items:
-      - name: Connect conversational language understanding and custom question answering
-        href: orchestration-workflow/tutorials/connect-services.md
   - name: Reference
     items:
-    - name: Service limits
-      href: orchestration-workflow/service-limits.md
-    - name: Glossary
-      href: orchestration-workflow/glossary.md
     - name: REST API
       items:
-      - name: Authoring API
+      - name: Authoring
         href: https://aka.ms/clu-authoring-apis
-      - name: Runtime prediction API
-        href: https://aka.ms/clu-runtime-api
+      - name: Runtime API
+        href: https://aka.ms/clu-apis
+    - name: SDKs
       items:
-        - name: C#
-          href:  https://aka.ms/sdk-sample-conversation-dot-net
-        - name: Python
-          href:   https://aka.ms/sdk-samples-conversation-python
+      - name: .NET
+        href: /dotnet/api/azure.ai.language.conversations?view=azure-dotnet-preview&preserve-view=true
+      - name: Python
+        href: /python/api/azure-ai-language-conversations/azure.ai.language.conversations?view=azure-python-preview&preserve-view=true
 - name: Personally Identifying Information (PII) detection
   items:
   - name: Overview
@@ -678,6 +624,8 @@ items:
       href: question-answering/how-to/create-test-deploy.md
     - name: Export/import/refresh
       href: question-answering/how-to/export-import-refresh.md
+    - name: Refresh URL source content
+      href: question-answering/how-to/smart-url-refresh.md
     - name: Encrypt data at rest
       href: question-answering/how-to/encrypt-data-at-rest.md
     - name: Migrate knowledge base
@@ -893,44 +841,38 @@ items:
             href: /java/api/overview/azure/ai-textanalytics-readme?preserve-view=true
           - name: Node.js
             href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-latest&preserve-view=true
-- name: Summarization (preview)
+- name: Text summarization (preview)
   items:
   - name: Overview
-    href: summarization/overview.md
+    href: text-summarization/overview.md
   - name: Quickstart
-    href: summarization/quickstart.md
+    href: text-summarization/quickstart.md
   - name: Language support
-    href: summarization/language-support.md
+    href: text-summarization/language-support.md
   - name: Responsible use of AI
     items: 
-    - name: Transparency note for summarization
+    - name: Transparency note for text summarization
       href: /legal/cognitive-services/language-service/transparency-note-extractive-summarization?context=/azure/cognitive-services/language-service/context/context
-      displayName: Transparency note for summarization, summarization transparency, Responsible AI, Responsible use of AI
+      displayName: Transparency note for text summarization, text summarization transparency, Responsible AI, Responsible use of AI
     - name: Integration and responsible use
-      href: /legal/cognitive-services/language-service/guidance-integration-responsible-use-summarization?context=/azure/cognitive-services/language-service/context/context
+      href: /legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context
       displayName: Responsible deployment, Responsible use, Responsible integration, AI deployment, AI use
-    - name: Characteristics and limitations
-      href: /legal/cognitive-services/language-service/characteristics-and-limitations-summarization?context=/azure/cognitive-services/language-service/context/context
     - name: Data, privacy, and security  
       href: /legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context
       displayName: Data privacy, logging, data retention
   - name: How-to guides
     items:
-    - name: Call the document summarization API
-      href: summarization/how-to/document-summarization.md
-    - name: Call the conversation summarization API
-      href: summarization/how-to/conversation-summarization.md
+    - name: Call the Text Summarization API
+      href: text-summarization/how-to/call-api.md
   - name: Reference
     items:
     - name: REST API
       items:
-        - name: Document summarization
+        - name: v3.2-preview.2
           href: https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-2-Preview-2/operations/Analyze
-        - name: Conversation summarization
-          href: https://go.microsoft.com/fwlink/?linkid=2195178
     - name: SDKs
       items:
-      - name: Document summarization
+      - name: v3.2-preview.2
         items:
           - name: .NET
             href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
@@ -950,6 +892,9 @@ items:
     href: concepts/model-lifecycle.md
   - name: Send requests asynchronously
     href: concepts/use-asynchronously.md 
+  - name: Service limits
+    href: concepts/data-limits.md
+    displayName: Data limits, maximum, Service limits
 - name: Tutorials
   items:
   - name: Use Cognitive Services in canvas apps

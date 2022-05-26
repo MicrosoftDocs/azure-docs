@@ -42,7 +42,6 @@ Once you send the request, you will get the following response. Keep polling thi
   "result": {
     "modelLabel": "{MODEL-LABEL}",
     "trainingConfigVersion": "{TRAINING-CONFIG-VERSION}",
-    "trainingMode": "{TRAINING-MODE}",
     "estimatedEndDateTime": "2022-04-18T15:47:58.8190649Z",
     "trainingStatus": {
       "percentComplete": 3,
@@ -66,7 +65,6 @@ Once you send the request, you will get the following response. Keep polling thi
 |---------|----------|--|
 | `modelLabel` |The model name| `Model1` |
 | `trainingConfigVersion` | The training configuration version. By default, the [latest version](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data) is used. | `2022-05-01` |
-| `trainingMode` | Your selected [training mode](../../how-to/train-model.md#training-modes).  | `standard` |
 | `startDateTime` | The time training started  |`2022-04-14T10:23:04.2598544Z`|
 | `status` | The status of the training job | `running`|
 |`estimatedEndDateTime` | Estimated time for the training job to finish| `2022-04-14T10:29:38.2598544Z`|
