@@ -647,28 +647,28 @@ How to use the `validate` property to validate Linux images
         
 ```json
 {
- "properties": {
-    "validate": {
-      "continueDistributeOnFailure": false,
-      "sourceValidationOnly": false,
-      "inVMValidations": [
-        {
-          "type": "Shell",
-          "name": "<name>",
-          "inline": [
-            "<command to run inline>"
-          ]
-        },
-        {
-          "type": "Shell",
-          "name": "<name>",
-          "scriptUri": "<path to script>",
-	  "sha256Checksum": "<sha256 checksum>" 
-        }
-      ]
-    },
-  }
-}
+    "properties": {
+       "validate": {
+         "continueDistributeOnFailure": false,
+         "sourceValidationOnly": false,
+         "inVMValidations": [
+           {
+             "type": "Shell",
+             "name": "<name>",
+             "inline": [
+               "<command to run inline>"
+             ]
+           },
+           {
+             "type": "Shell",
+             "name": "<name>",
+             "scriptUri": "<path to script>",
+            "sha256Checksum": "<sha256 checksum>" 
+           }
+         ]
+       },
+     }
+ }
 ```
 
 `inVMValidations` properties:
