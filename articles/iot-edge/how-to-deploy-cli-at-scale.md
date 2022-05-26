@@ -230,7 +230,7 @@ The create command for deployment takes the following parameters:
 To monitor a deployment by using the Azure CLI, see [Monitor IoT Edge deployments](how-to-monitor-iot-edge-deployments.md#monitor-a-deployment-with-azure-cli).
 
 > [!NOTE]
-> When a new edge deployment is created, sometimes it can take up to 5 minutes for the IoT Hub to process the new configuration and propagate the new desired properties to the targeted devices.
+> When a new IoT Edge deployment is created, sometimes it can take up to 5 minutes for the IoT Hub to process the new configuration and propagate the new desired properties to the targeted devices.
 
 ## Modify a deployment
 
