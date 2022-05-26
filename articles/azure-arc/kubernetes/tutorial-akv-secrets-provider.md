@@ -32,7 +32,7 @@ Benefits of the Azure Key Vault Secrets Provider extension include the folllowin
   - Canonical Kubernetes Distribution
   - Elastic Kubernetes Service
   - Tanzu Kubernetes Grid
-- Ensure you have met the [general prerequisites for cluster extensions](extensions.md#prerequisites). You must use version 0.4.0 or newer of the the `k8s-extension` Azure CLI extension.
+- Ensure you have met the [general prerequisites for cluster extensions](extensions.md#prerequisites). You must use version 0.4.0 or newer of the `k8s-extension` Azure CLI extension.
 
 ## Install the Azure Key Vault Secrets Provider extension on an Arc-enabled Kubernetes cluster
 
