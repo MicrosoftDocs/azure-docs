@@ -19,7 +19,7 @@ Article tested with the following Terraform and Terraform provider versions:
 - [Terraform v1.2.1](https://releases.hashicorp.com/terraform/)
 - [AzureRM Provider v.2.99.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
 
-[!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
+[!INCLUDE [terraform-intro.md](includes/terraform-abstract.md)]
 
 [!INCLUDE [About Azure Database for MySQL - Flexible Server](../includes/azure-database-for-mysql-flexible-server-abstract.md)]
 
