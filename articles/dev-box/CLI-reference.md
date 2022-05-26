@@ -12,23 +12,22 @@ adobe-target: true
 
 # CLI Reference
 
-During the Preview, in addition to the Azure admin portal and the Dev Box user portal, you can use Project Fidalgo's Azure CLI Extension to create resources.
+During the Preview, in addition to the Azure admin portal and the Dev Box user portal, you can use the Microsoft Dev Azure CLI Extension to create resources.
 
 ## Setup
 
-1. Download and install the Azure CLI [How to install the Azure CLI](/cli/azure/install-azure-cli)
+1. [Download and install the Az CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 
 1. Install the Fidalgo AZ CLI extension -
 
     **Option 1**: 
-    using https://aka.ms/fidalgo/Install-FidalgoCli.ps1 - this will uninstall any existing Fidalgo extension and install the latest version.
+    using https://aka.ms/fidalgo/Install-FidalgoCli.ps1 - this will uninstall any existing fidalgo extension and install the latest version.
 
     To execute the script directly in PowerShell:
    ```
    iex "& { $(irm https://aka.ms/fidalgo/Install-FidalgoCli.ps1 ) }"
    ```
     > Note - Ensure 'source' in above command is pointed to the downloaded file
-
     **Option 2**: manually run this command in the CLI
     ```
     az extension add --source https://fidalgosetup.blob.core.windows.net/cli-extensions/fidalgo-0.3.2-py3-none-any.whl
@@ -38,7 +37,31 @@ During the Preview, in addition to the Azure admin portal and the Dev Box user p
     ```
     az login
     ```
+
+1. Set your default subscription to the sub where you will be creating your specific Fidalgo resources
+    ```
+    az account set --subscription {subscriptionId}
+    ```
+
+1. Set default resource group (which means no need to pass into each command)
+    ```
+    az configure --defaults group={resourceGroupName}
+    ```
+
+1. Get Help for a command
+    ```
+    az fidalgo admin --help
+    ```
+
 ## Commands
+
+* [Azure Compute Gallery](#azure-compute-gallery)
+* [DevCenter](#devcenter)
+* [Project](#project)
+* [Network Connection](#network-connection)
+* [Dev Box Definition](#dev-box-definition)
+* [Dev Box Pool](#dev-box-pool)
+* [Dev Boxes](#dev-boxes)
 
 ### Azure Compute Gallery
 
@@ -77,6 +100,14 @@ az fidalgo admin project create -g demo-rg `
 --description "project description" `
 --dev-center-id /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Fidalgo/devcenters/{devCenterName} `
 ```
+
+#### Delete a Project
+```
+az fidalgo admin project delete `
+-g {resourceGroupName} `
+--project {projectName} `
+```
+
 ### Network Connection
 
 #### Create a native AADJ Network Connection
@@ -104,6 +135,12 @@ az fidalgo admin attached-network create --attached-network-connection-name west
 ```
 ### Dev Box Definition
 
+#### List Dev Box Definitions in a DevCenter
+```
+az fidalgo admin devbox-definition list `
+--dev-center-name "Contoso" --resource-group "rg1" `
+```
+
 #### Create a Dev Box Definition with a marketplace image
 ```
 az fidalgo admin devbox-definition create -g demo-rg `
@@ -129,7 +166,60 @@ az fidalgo admin pool create -g demo-rg `
 --network-connection-name westus3network
 ```
 
+#### Get Pool
+```
+az fidalgo admin pool show --resource-group "{resourceGroupName}" `
+--project-name {projectName} --name "{poolName}" `
+```
+
+#### List Pools
+```
+az fidalgo admin pool list --resource-group "{resourceGroupName}" `
+--project-name {projectName} `
+```
+
+#### Update Pool
+Update Network Connection
+```
+az fidalgo admin pool update `
+--resource-group "{resourceGroupName}" `
+--project-name {projectName} `
+--name "{poolName}" `
+--network-connection-name {networkConnectionName}
+```
+Update Dev Box Definition
+```
+az fidalgo admin pool update `
+--resource-group "{resourceGroupName}" `
+--project-name {projectName} `
+--name "{poolName}" `
+--devbox-definition {machineDefinitionId} `
+```
+
+#### Delete Pool
+```
+az fidalgo admin pool delete `
+--resource-group "{resourceGroupName}" `
+--project-name "{projectName}" `
+--name "{poolName}" `
+```
+
+
+
 ### Dev Boxes
+
+#### List available Projects
+```
+az fidalgo dev project list `
+--dev-center {devCenterName}
+```
+
+#### List Pools in a Project
+```
+az fidalgo dev pool list
+--dev-center {devCenterName}
+--project-name {ProjectName}
+```
 
 #### Create a dev box
 ```
@@ -139,6 +229,14 @@ az fidalgo dev virtual-machine create `
 --pool-name {poolName} `
 -n {vmName} `
 ```
+
+#### Get web connection URL for a dev box
+```
+az fidalgo dev virtual-machine get-remote-connection `
+--dev-center {devCenterName} --project-name {projectName} `
+-n {vmName} `
+```
+
 #### List your Dev Boxes
 ```
 az fidalgo dev virtual-machine list --dev-center {devCenterName} `

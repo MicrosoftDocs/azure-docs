@@ -16,8 +16,8 @@
 - name: Tutorials
   expanded: true
   items: 
-    - name: Tutorial Coming Soon
-      href: Tutorial-1.md
+    - name: Tutorial Connect to a Microsoft Dev Box by using a Microsoft Remote Desktop app.
+      href: tutorial-connect-to-dev-box-with-rd-app.md
 - name: How-tos
   expanded: true
   items: 
@@ -30,7 +30,7 @@
 - name: Reference
   items:
       - name: Microsoft Dev Box concepts
-        href: dev-box-concepts.md
+        href: concept-dev-box-concepts.md
       - name: CLI reference
         href: cli-reference.md
 - name: Resources
