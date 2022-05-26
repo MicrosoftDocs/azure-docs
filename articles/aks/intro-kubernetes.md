@@ -149,7 +149,6 @@ Learn more about deploying and managing AKS with the Azure CLI Quickstart.
 > [Deploy an AKS Cluster using Azure CLI][aks-quickstart-cli]
 
 <!-- LINKS - external -->
-[aks-engine]: https://github.com/Azure/aks-engine
 [kubectl-overview]: https://kubernetes.io/docs/user-guide/kubectl-overview/
 [compliance-doc]: https://azure.microsoft.com/overview/trusted-cloud/compliance/
 
