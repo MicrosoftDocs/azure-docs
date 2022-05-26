@@ -32,13 +32,13 @@ administration and development platform for PostgreSQL.
 
 4. Enter connection details in the Connection tab.
 
-   ![pgAdmin db connection settings](../media/howto-hyperscale-ssl/pgadmin-connection.png)
+   ![pgAdmin db connection settings](../media/howto-hyperscale-connect/pgadmin-connection.png)
 
    Customize the following fields:
 
    * **Host name/address**: Obtain this value from the **Overview** page for your
      server group in the Azure portal. It's listed there as **Coordinator name**.
-     It will be of the form, `c.servergroup.postgres.database.azure.com`.
+     It will be of the form, `c.myservergroup.postgres.database.azure.com`.
    * **Maintenance database**: use the value `citus`.
    * **Username**: use the value `citus`.
    * **Password**: the connection password.
@@ -46,7 +46,7 @@ administration and development platform for PostgreSQL.
 
 5. In the SSL tab, set **SSL mode** to **Require**.
 
-   ![pgAdmin ssl settings](../media/howto-hyperscale-connect/pgadmin-connection.png)
+   ![pgAdmin ssl settings](../media/howto-hyperscale-connect/pgadmin-ssl.png)
 
 6. Select **Save** to save and connect to the database.
 
