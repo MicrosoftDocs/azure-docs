@@ -4,7 +4,7 @@ description: Learn how to mount an Azure file share over SMB with macOS using Fi
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 05/26/2022
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -17,7 +17,7 @@ ms.subservice: files
 
 * **Storage account key**: To mount an Azure file share, you will need the primary (or secondary) storage key. SAS keys are not currently supported for mounting.
 
-* **Ensure port 445 is open**: SMB communicates over TCP port 445. On your client machine (the Mac), check to make sure your firewall isn't blocking TCP port 445. If your organization or ISP is blocking port 445, as is sometimes the case, you may need to set up a VPN from on-premises to your Azure storage account with Azure Files exposed on your internal network using private endpoints, so that the traffic will go through a secure tunnel as opposed to over the internet. For more information, see [Networking considerations for direct Azure file share access](storage-files-networking-overview.md). To see the summary of ISPs that allow or disallow access from port 445, go to [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
+* **Ensure port 445 is open**: SMB communicates over TCP port 445. On your client machine (the Mac), check to make sure your firewall isn't blocking TCP port 445. If your organization or ISP is blocking port 445, you may need to set up a VPN from on-premises to your Azure storage account with Azure Files exposed on your internal network using private endpoints, so that the traffic will go through a secure tunnel as opposed to over the internet. For more information, see [Networking considerations for direct Azure file share access](storage-files-networking-overview.md). To see the summary of ISPs that allow or disallow access from port 445, go to [TechNet](https://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
 ## Applies to
 | File share type | SMB | NFS |
