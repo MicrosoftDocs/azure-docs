@@ -1290,6 +1290,8 @@
       href: ephemeral-os-disks.md
     - name: Create a VM using ephemeral OS disks
       href: ephemeral-os-disks-deploy.md
+    - name: FAQ on ephemeral OS disks
+      href: ephemeral-os-disks-faq.md      
   - name: Securely import/export a disk
     items:
     - name: Configure private links for disks - CLI
