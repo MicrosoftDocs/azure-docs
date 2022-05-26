@@ -180,31 +180,15 @@ In the Azure portal, the reply URIs that you register on the **Authentication** 
 
 # [Node.js](#tab/nodejs)
 
-Here, the configuration parameters reside in `index.js`
+Here, the configuration parameters reside in *.env* as environment variables:
 
-```javascript
+:::code language="text" source="~/ms-identity-node/App/.env":::
 
-const REDIRECT_URI = "http://localhost:3000/redirect";
+These parameters are used to create a configuration object in *authConfig.js* file, which will eventually be used to initialize MSAL Node:
 
-const config = {
-    auth: {
-        clientId: "Enter_the_Application_Id_Here",
-        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here/",
-        clientSecret: "Enter_the_Client_Secret_Here"
-    },
-    system: {
-        loggerOptions: {
-            loggerCallback(loglevel, message, containsPii) {
-                console.log(message);
-            },
-            piiLoggingEnabled: false,
-            logLevel: msal.LogLevel.Verbose,
-        }
-    }
-};
-```
+:::code language="js" source="~/ms-identity-node/App/authConfig.js":::
 
-In the Azure portal, the reply URIs that you register on the Authentication page for your application need to match the redirectUri instances that the application defines (`http://localhost:3000/redirect`).
+In the Azure portal, the reply URIs that you register on the Authentication page for your application need to match the redirectUri instances that the application defines (`http://localhost:3000/auth/redirect`).
 
 > [!NOTE]
 > This quickstart proposes to store the client secret in the configuration file for simplicity. In your production app, you'd want to use other ways to store your secret, such as a key vault or an environment variable.
@@ -350,12 +334,9 @@ For details about the authorization code flow that this method triggers, see the
 
 # [Node.js](#tab/nodejs)
 
-```javascript
-const msal = require('@azure/msal-node');
+Node sample the Express framework. MSAL is initialized in *auth* route handler:
 
-// Create msal application object
-const cca = new msal.ConfidentialClientApplication(config);
-```
+:::code language="js" source="~/ms-identity-node/App/routes/auth.js" range="6-17":::
 
 # [Python](#tab/python)
 

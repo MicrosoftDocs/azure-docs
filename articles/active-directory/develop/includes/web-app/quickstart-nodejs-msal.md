@@ -58,7 +58,7 @@ Extract the project, open the *ms-identity-node-main* folder, and then open the 
 | `Enter_the_Cloud_Instance_Id_Here` | The Azure cloud instance in which your application is registered | `https://login.microsoftonline.com/` (include the trailing forward-slash) |
 | `Enter_the_Tenant_Info_here` | Tenant ID or Primary domain | `contoso.microsoft.com` or `cbe899ec-5f5c-4efe-b7a0-599505d3d54f` |
 | `Enter_the_Application_Id_Here` | Client ID of the application you registered | `cbe899ec-5f5c-4efe-b7a0-599505d3d54f` |
-| `Enter_the_Client_Secret_Here` | Replace this value with the client secret you created earlier. To generate a new key, use **Certificates & secrets** in the app registration settings in the Azure portal | `WxvhStRfDXoEiZQj1qCy` |
+| `Enter_the_Client_Secret_Here` | Client secret of the application you registered | `WxvhStRfDXoEiZQj1qCy` |
 | `Enter_the_Graph_Endpoint_Here` | The Microsoft Graph API cloud instance that your app will call | `https://graph.microsoft.com/` (include the trailing forward-slash) |
 | `Enter_the_Express_Session_Secret_Here` | A random string of characters used to sign the Express session cookie | `WxvhStRfDXoEiZQj1qCy` |
 
