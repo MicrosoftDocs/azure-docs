@@ -1539,7 +1539,7 @@ This endpoint does not use a regular access token for authorization. Instead, it
 
 #### Query Parameters
 
-- id: Xsense Alert ID  
+- ID: Xsense Alert ID  
 Example:  
 `/api/v2/alerts/pcap/<id>`
 
@@ -2659,7 +2659,7 @@ Use this API to request a PCAP file related to an alert.
 
 #### Query Parameters
 
-- id: CM Alert ID  
+- ID: CM Alert ID  
 Example:  
 `/external/v2/alerts/pcap/<id>`
 
@@ -2777,7 +2777,7 @@ The below API's can be used with the ServiceNow integration via the ServiceNow's
 
 - Type: JSON
 - Structure:
-    - “**u_id**” - the internal id of the device.
+    - “**u_id**” - the internal ID of the device.
     - “**u_vendor**” - the name of the vendor.
     - “**u_mac_address_objects**” - array of
         - “**u_mac_address**” - mac address of the device.
@@ -2804,7 +2804,7 @@ The below API's can be used with the ServiceNow integration via the ServiceNow's
         - “**u_protocol**” - protocol the device uses.
     - “**u_purdue_layer**” - the purdue layer that was manually set by the user.
     - “**u_sensor_ids**” - array of
-        - “**u_sensor_id**” - the id of the sensor that saw the device.
+        - “**u_sensor_id**” - the ID of the sensor that saw the device.
     - “**u_device_urls**” - array of
         - “**u_device_url**” the URL to view the device in the sensor.
     - “**u_firmwares**” - array of
@@ -2829,7 +2829,7 @@ The below API's can be used with the ServiceNow integration via the ServiceNow's
 - Type: JSON
 - Structure:
     - Array of
-        - “**u_id**” - the id of the deleted device.
+        - “**u_id**” - the ID of the deleted device.
 
 ### Sensors
 
@@ -2843,7 +2843,7 @@ The below API's can be used with the ServiceNow integration via the ServiceNow's
 - Type: JSON
 - Structure:
     - Array of
-        - “**u_id**” - internal sensor id, to be used in the devices API.
+        - “**u_id**” - internal sensor ID, to be used in the devices API.
         - “**u_name**” - the name of the appliance.
         - “**u_connection_state**” - connectivity with the CM state. One of the following:
             - “**SYNCED**” - Connection is successful.
