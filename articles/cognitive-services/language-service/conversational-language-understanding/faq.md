@@ -76,7 +76,7 @@ Add any out of scope utterances to the [none intent](./concepts/none-intent.md).
 
 ## Is there any SDK support?
 
-Yes, only for predictions, and samples are available for [python](https://aka.ms/sdk-samples-conversation-python) and [C#](https://aka.ms/sdk-sample-conversation-dot-net). There is currently no authoring support for the SDK.
+Yes, only for predictions, and samples are available for [Python](https://aka.ms/sdk-samples-conversation-python) and [C#](https://aka.ms/sdk-sample-conversation-dot-net). There is currently no authoring support for the SDK.
 
 ## What are the training modes?
 
