@@ -4,7 +4,7 @@ description: Tips to avoid and fix configuration errors and other problems that 
 author: ekpgh    
 ms.service: hpc-cache
 ms.topic: troubleshooting
-ms.date: 05/25/2022
+ms.date: 05/26/2022
 ms.author: v-erinkelly
 ---
 
@@ -49,9 +49,9 @@ Check these settings both on the NAS itself and also on any firewalls between th
 
 ## Check root squash settings
 
-Root squash settings can disrupt file access if they are improperly configured. You should check that the settings on each storage export and on the matching HPC Cache client access policies are consistent. This section has more information.
+Root squash settings can disrupt file access if they are improperly configured. You should check that the settings on each storage export and on the matching HPC Cache client access policies are consistent.
 
-Root squash prevents requests sent by a local superuser root on the client from being sent to a back-end storage system as root. It reassigns requests from root to a non-privileged user ID (UID) like 'anonymous' or 'nobody'.
+Root squash prevents requests sent by a local superuser root on the client from being sent to a back-end storage system as root. It reassigns requests from root to a non-privileged user ID (UID) like 'nobody'.
 
 > [!TIP]
 >
@@ -65,7 +65,7 @@ Root squash can be configured in an HPC Cache system in these places:
 
 * At the storage export - You can configure your storage system to reassign incoming requests from root to a non-privileged user ID (UID).
 
-By default, Azure HPC Cache does not squash root. If a storage system export squashes root, you should change its HPC Cache client access rule to also squash root. If the settings don't match, you can have access problems when you try to read or write from the back-end storage system through the cache.
+These two settings should match. That is, if a storage system export squashes root, you should change its HPC Cache client access rule to also squash root. If the settings don't match, you can have access problems when you try to read or write to the back-end storage system through the HPC Cache.
 
 This table illustrates the behavior for different root squash scenarios when a client request is sent as UID 0 (root). The scenarios marked with * are ***not recommended*** because they can cause access problems.
 
