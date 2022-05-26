@@ -37,12 +37,12 @@ An AKS cluster can be attached to a Log Analytics workspace in a different Azure
 **Permissions**
 To enable container monitoring, you require the following permissions:
 
-- Member of the [Log Analytics contributor](../logs/manage-access.md#manage-access-using-azure-permissions) role.
+- Member of the [Log Analytics contributor](../logs/manage-access.md#azure-rbac) role.
 - Member of the [*Owner* group](../../role-based-access-control/built-in-roles.md#owner) on any AKS cluster resources.
 
 To enable container monitoring, you require the following permissions:
 
-- Member of [Log Analytics reader](../logs/manage-access.md#manage-access-using-azure-permissions) role if you aren't already a member of [Log Analytics contributor](../logs/manage-access.md#manage-access-using-azure-permissions).
+- Member of [Log Analytics reader](../logs/manage-access.md#azure-rbac) role if you aren't already a member of [Log Analytics contributor](../logs/manage-access.md#azure-rbac).
 
 **Promethues**
 Prometheus metrics aren't collected by default. Before you [configure the agent](container-insights-prometheus-integration.md) to collect the metrics, it's important to review the [Prometheus documentation](https://prometheus.io/) to understand what data can be scraped and what methods are supported.
