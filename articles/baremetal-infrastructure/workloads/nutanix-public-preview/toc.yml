@@ -11,7 +11,7 @@
   - name: Supported instances
     href: supported-instances.md
 - name: Deployment
-  it/ems:
+  items:
   - name: Overview
     href: nutanix-deployment-overview.md
 
