@@ -52,19 +52,21 @@ You'll see a dialog asking for confirmation to upgrade your project. Select the 
 
 Once the upgrade process completes, **Unity Editor** opens.
 
-Follow the [Mixed Reality Feature Tool](/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool) documentation to set up the tool and learn how to use it.
+1. Follow the [Mixed Reality Feature Tool](/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool) documentation to set up the tool and learn how to use it.
 
-Under **Platform Support**, install the **Mixed Reality OpenXR Plugin** feature package, version 1.0.0 or newer, into the Unity project folder. If you're working with the `quickstarts/apps/unity/mrtk` project, also open the **Mixed Reality Toolkit** section, locate the **Mixed Reality Toolkit Foundation** and **Mixed Reality Toolkit Tools** feature packages, and upgrade them to version 2.7.0 or newer.
+1. Under **Platform Support**, install the **Mixed Reality OpenXR Plugin** feature package, version 1.0.0 or newer, into the Unity project folder.
 
-Go back to your **Unity Editor**. It might take a few minutes, while the **Mixed Reality Feature Tool** feature packages are installed.
+1. If you're working with the `quickstarts/apps/unity/mrtk` project, also open the **Mixed Reality Toolkit** section, locate the **Mixed Reality Toolkit Foundation** and **Mixed Reality Toolkit Tools** feature packages, and upgrade them to version 2.7.0 or newer.
 
-You'll see a dialog asking for confirmation to enable the new input system. Select **Yes**.
+1. Go back to your **Unity Editor**. It might take a few minutes, while the **Mixed Reality Feature Tool** feature packages are installed.
 
-:::image type="content" source="./media/new-input-system.png" alt-text="Screenshot shows a dialog that contains a warning with the Yes button highlighted.":::
+   You'll see a dialog asking for confirmation to enable the new input system. Select **Yes**.
 
- If you get a dialog asking you to overwrite MRTK shaders, select **Yes**.
+   :::image type="content" source="./media/new-input-system.png" alt-text="Screenshot shows a dialog that contains a warning with the Yes button highlighted.":::
 
-:::image type="content" source="./media/mrtk-shaders.png" alt-text="Screenshot shows the Mixed Reality Toolkit Standard Assets dialog.":::
+   If you get a dialog asking you to overwrite MRTK shaders, select **Yes**.
+
+   :::image type="content" source="./media/mrtk-shaders.png" alt-text="Screenshot shows the Mixed Reality Toolkit Standard Assets dialog.":::
 
 Once the install process completes, Unity restarts automatically.
 
