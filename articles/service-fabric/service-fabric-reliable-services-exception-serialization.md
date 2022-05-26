@@ -311,7 +311,7 @@ The actual exception observed during the execution of the remoting call is passe
 
   - *StatefulService*
 
-        ```csharp
+    ```csharp
         protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
         {
             return new[]
@@ -331,11 +331,11 @@ The actual exception observed during the execution of the remoting call is passe
                     "ServiceEndpointV2")
             };
         }
-        ```
+    ```
 
   - *ActorService*
     
-        ```csharp
+    ```csharp
         protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
         {
             return new List<ServiceReplicaListener>
@@ -356,7 +356,7 @@ The actual exception observed during the execution of the remoting call is passe
                 "MyActorServiceEndpointV2")
             };
         }
-        ```
+    ```
 
 - `IExceptionConvertor` registration on the **Client** side:
 
