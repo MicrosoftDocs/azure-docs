@@ -32,7 +32,7 @@ administration and development platform for PostgreSQL.
 
 4. Enter connection details in the Connection tab.
 
-   ![pgAdmin db connection settings](../media/howto-hyperscale-connect/pgadmin-connection.png)
+   ![pgAdmin db connection settings](../media/howto-hyperscale-ssl/pgadmin-connection.png)
 
    Customize the following fields:
 
