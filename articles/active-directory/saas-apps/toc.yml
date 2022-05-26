@@ -2923,6 +2923,8 @@
         href: webroot-security-awareness-training-provisioning-tutorial.md
       - name: WEDO
         href: wedo-provisioning-tutorial.md
+      - name: Whimsical
+        href: whimsical-provisioning-tutorial.md
       - name: Workday to Active Directory
         href: workday-inbound-tutorial.md
       - name: Workday to Azure AD
