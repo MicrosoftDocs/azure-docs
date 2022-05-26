@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 05/25/2022
 ---
 
-# Connect to a Hyperscale (Citus) server group
+# Connect to a server group
 
 Choose your database client below to learn how to configure it to connect to
 Hyperscale (Citus).
