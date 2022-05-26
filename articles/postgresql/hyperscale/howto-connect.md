@@ -24,15 +24,15 @@ administration and development platform for PostgreSQL.
 2. Open the pgAdmin application on your client computer. From the Dashboard,
    select **Add New Server**.
 
-   ![pgAdmin dashboard](../media/concepts-hyperscale-howto-connect/pgadmin-dashboard.png)
+   ![pgAdmin dashboard](../media/howto-hyperscale-connect/pgadmin-dashboard.png)
 
 3. Choose a **Name** in the General tab. Any name will work.
 
-   ![pgAdmin general connection settings](../media/concepts-hyperscale-howto-connect/pgadmin-general.png)
+   ![pgAdmin general connection settings](../media/howto-hyperscale-connect/pgadmin-general.png)
 
 4. Enter connection details in the Connection tab.
 
-   ![pgAdmin db connection settings](../media/concepts-hyperscale-howto-connect/pgadmin-connection.png)
+   ![pgAdmin db connection settings](../media/howto-hyperscale-connect/pgadmin-connection.png)
 
    Customize the following fields:
 
@@ -44,7 +44,7 @@ administration and development platform for PostgreSQL.
 
 5. In the SSL tab, set **SSL mode** to **Require**.
 
-   ![pgAdmin ssl settings](../media/concepts-hyperscale-howto-connect/pgadmin-connection.png)
+   ![pgAdmin ssl settings](../media/howto-hyperscale-connect/pgadmin-connection.png)
 
 6. Select **Save** to save and connect to the database.
 
