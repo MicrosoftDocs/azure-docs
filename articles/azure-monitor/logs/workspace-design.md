@@ -33,7 +33,7 @@ The following table briefly presents the criteria that you should consider in de
 | [Legacy agent limitations](#legacy-agent-limitations) | Legacy virtual machine agents have limitations on the number of workspaces they can connect to. |
 | [Data access control](#data-access-control) | Configure access to the workspace and to different tables and data from different resources. |
 
-### Segregate operational and security data<a name="segregate-operational-and-security-data"></a>
+### Segregate operational and security data
 Most customers who use both Azure Monitor and Microsoft Sentinel will create a dedicated workspace for each to segregate ownership of data between your operational and security teams and also to optimize costs. If Microsoft Sentinel is enabled in a workspace, then all data in that workspace is subject to Sentinel pricing, even if it's operational data collected by Azure Monitor. While a workspace with Sentinel gets 3 months of free data retention instead of 31 days, this will typically result in higher cost for operational data in a workspace without Sentinel. See [Azure Monitor Logs pricing details](cost-logs.md#workspaces-with-microsoft-sentinel).
 
 The exception is if combining data in the same workspace helps you reach a [commitment tier](#commitment-tiers), which provides a discount to your ingestion charges. For example, consider an organization that has operational data and security data each ingesting about 50 GB per day. Combining the data in the same workspace would allow a commitment tier at 100 GB per day that would provide a 15% discount for Azure Monitor and 50% discount for Sentinel.
@@ -44,13 +44,13 @@ If you create separate workspaces for other criteria then you'll usually create 
 - **If you use both Azure Monitor and Microsoft Sentinal**, create a separate workspace for each. Consider combining the two if it helps you reach a commitment tier.
 
 
-### Azure tenants<a name="azure-tenants"></a>
+### Azure tenants
 Most resources can only send monitoring data to a workspace in the same Azure tenant. Virtual machines using the [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) or the [Log Analytics agents](../agents/log-analytics-agent.md) can send data to workspaces in separate Azure tenants, which may be a scenario that you consider as a [service provider](#multiple-tenant-strategies).
 
 - **If you have a single Azure tenant**, then create a single workspace for that tenant.
 - **If you have multiple Azure tenants**, then create a workspace for each tenant. See [Multiple tenant strategies](#multiple-tenant-strategies) for other options including strategies for service providers.
  
-### Azure regions<a name="azure-regions"></a>
+### Azure regions
 Log Analytics workspaces each reside in a [particular Azure region](https://azure.microsoft.com/global-infrastructure/geographies/), and you may have regulatory or compliance purposes for keeping data in a particular region. For example, an international company might locate a workspace in each major geographical region, such as United States and Europe.
 
 - **If you have requirements for keeping data in a particular geography**, create a separate workspace for each region with such requirements.
@@ -65,19 +65,19 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 - **If bandwidth charges are not significant enough to justify the additional complexity**, use a single workspace for all regions.
 
 
-### Data ownership<a name="data-ownership"></a>
+### Data ownership
 You may have a requirement to segregate data or define boundaries based on ownership. For example, you may have different subsidiaries or affiliated companies that require delineation of their monitoring data. 
 
 - **If you require data segregation**, use a separate workspace for each data owner.
 - **If you do not require data segregation**, use a single workspace for all data owners.
 
-### Split billing<a name="split-billing"></a>
+### Split billing
 You may need to split billing between different parties or perform charge back to a customer or internal business unit. [Azure Cost Management + Billing](../usage-estimated-costs.md#azure-cost-management--billing) allows you to view charges by workspace. You can also use a log query to view [billable data volume by Azure resource, resource group, or subscription](analyze-usage.md#data-volume-by-azure-resource-resource-group-or-subscription), which may be sufficient for your billing requirements.
 
 - **If you do not need to split billing or perform charge back**, use a single workspace for all cost owners.
 - **If you need to split billing or perform charge back**, consider whether [Azure Cost Management + Billing](../usage-estimated-costs.md#azure-cost-management--billing) or a log query provides granular enough cost reporting for your requirements. If not, use a separate workspace for each cost owner.
 
-### Data retention and archive<a name="data-retention-and-archive"></a>
+### Data retention and archive
 You can configure default [data retention and archive settings](data-retention-archive.md) for a workspace or [configure different settings for each table](data-retention-archive.md#set-retention-and-archive-policy-by-table). You may require different settings for different sets of data in a particular table. If this is the case, then you would need to separate that data into different workspaces, each with unique retention settings.
 
 - **If you can use the same retention and archive settings for all data in each table**, use a single workspace for all resources.
@@ -85,7 +85,7 @@ You can configure default [data retention and archive settings](data-retention-a
 
 
 
-### Commitment tiers<a name="commitment-tiers"></a>
+### Commitment tiers
 [Commitment tiers](../logs/cost-logs.md#commitment-tiers) provide a discount to your workspace ingestion costs when you commit to a particular amount of daily data. You may choose to consolidate data in a single workspace in order to reach the level of a particular tier. This same volume of data spread across multiple workspaces would not be eligible for the same tier, unless you have a dedicated cluster.
 
 If you can commit to daily ingestion of at least 500 GB/day, then you should implement a [dedicated cluster](../logs/cost-logs.md#dedicated-clusters) which provides additional functionality and performance. Dedicated clusters also allow you to combine the data from multiple workspaces in the cluster to reach the level of a commitment tier.
@@ -95,7 +95,7 @@ If you can commit to daily ingestion of at least 500 GB/day, then you should imp
 
 
 
-### Legacy agent limitations<a name="legacy-agent-limitations"></a>
+### Legacy agent limitations
 While you should avoid sending duplicate data to multiple workspaces because of the additional charges, you may have virtual machines connected to multiple workspaces. The most common scenario is an agent connected to separate workspaces for Azure Monitor and Microsoft Sentinel.
 
  The [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) and [Log Analytics agent for Windows](../agents/log-analytics-agent.md) can connect to multiple workspaces. The [Log Analytics agent for Linux](../agents/log-analytics-agent.md) though can only connect to a single workspace.
@@ -103,7 +103,7 @@ While you should avoid sending duplicate data to multiple workspaces because of 
 - **If you use the Log Analytics agent for Linux**, migrate to the [Azure Monitor agent](../agents/azure-monitor-agent-overview.md) or ensure that your Linux machines only require access to a single workspace.
 
 
-### Data access control<a name="data-access-control"></a>
+### Data access control
 When you grant a user [access to a workspace](manage-access.md#azure-rbac), they have access to all data in that workspace. This is appropriate for a member of a central administration or security team who must access data for all resources. Access to the workspace is also determined by resource-context RBAC and table-level RBAC.
 
 Resource-context RBAC](manage-access.md#access-mode)
