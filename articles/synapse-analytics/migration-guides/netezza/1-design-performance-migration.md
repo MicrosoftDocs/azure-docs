@@ -81,7 +81,7 @@ Legacy Netezza environments have typically evolved over time to encompass multip
 
 - Create a template for further migrations specific to the source Netezza environment and the current tools and processes that are already in place.
 
-A good candidate for an initial migration from the Netezza environment that would enable the items above, is typically one that implements a BI/Analytics workload, rather than an online transaction processing workload, with a data model that can be migrated with minimal modifications&mdash;normally a star or snowflake schema.
+A good candidate for an initial migration from the Netezza environment that would enable the items above, is typically one that implements a BI/Analytics workload, rather than an online transaction processing (OLTP) workload, with a data model that can be migrated with minimal modifications&mdash;normally a star or snowflake schema.
 
 The migration data volume for the initial exercise should be large enough to demonstrate the capabilities and benefits of the Azure Synapse environment while quickly demonstrating the value&mdash;typically in the 1-10TB range.
 
