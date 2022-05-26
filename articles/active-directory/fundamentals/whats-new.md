@@ -42,7 +42,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
  
 
 
-In May 2022 we have added the following 25 new applications in our App gallery with Federation support:
+In May 2022 we've added the following 25 new applications in our App gallery with Federation support:
 
 [UserZoom](../saas-apps/userzoom-tutorial.md), [AMX Mobile](https://www.amxsolutions.co.uk/), [i-Sight](../saas-apps/isight-tutorial.md), [Method InSight](https://digital.methodrecycling.com/), [Chronus SAML](../saas-apps/chronus-saml-tutorial.md), [Attendant Console for Microsoft Teams](https://attendant.anywhere365.io/), [Skopenow](../saas-apps/skopenow-tutorial.md), [Fidelity PlanViewer](../saas-apps/fidelity-planviewer-tutorial.md), [Lyve Cloud](../saas-apps/lyve-cloud-tutorial.md), [Framer](../saas-apps/framer-tutorial.md), [Authomize](../saas-apps/authomize-tutorial.md), [gamba!](../saas-apps/gamba-tutorial.md), [Datto File Protection Single Sign On](../saas-apps/datto-file-protection-tutorial.md), [LONEALERT](https://portal.lonealert.co.uk/auth/azure/saml/signin), [Payfactors](https://pf.payfactors.com/client/auth/login), [deBroome Brand Portal](../saas-apps/debroome-brand-portal-tutorial.md), [TeamSlide](../saas-apps/teamslide-tutorial.md), [Sensera Systems](https://sitecloud.senserasystems.com/), [YEAP](https://prismaonline.propay.be/logon/login.aspx), [Monaca Education](https://monaca.education/ja/signup), [Personify Inc](https://personifyinc.com/login), [Phenom TXM](../saas-apps/phenom-txm-tutorial.md), [Forcepoint Cloud Security Gateway - User Authentication](../saas-apps/forcepoint-cloud-security-gateway-tutorial.md), [GoalQuest](../saas-apps/goalquest-tutorial.md), [OpenForms](https://login.openforms.com/Login).
 
@@ -103,8 +103,6 @@ The signIns Microsoft Graph API now supports confirming safe and compromised on 
 ---
  
 
-[1199241](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1199241&triage=true&fullScreen=false&_a=edit)
-
 ### Public Preview of Microsoft cloud settings for Azure AD B2B
 
 **Type:** New feature  
@@ -124,8 +122,6 @@ To learn more about Microsoft cloud settings for B2B collaboration, see: [Cross-
 ---
  
 
-[1277429](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1277429&triage=true&fullScreen=false&_a=edit)
-
 ### General Availability of SAML and WS-Fed federation in External Identities
 
 **Type:** Changed feature  
@@ -139,8 +135,6 @@ When setting up federation with a partner's IdP, new guest users from that domai
 
 ---
  
-
-[1419833](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1419833&triage=true&fullScreen=false&_a=edit)
 
 ### Public Preview - Create Group in Administrative Unit
 
@@ -156,8 +150,6 @@ Groups Administrators assigned over the scope of an administrative unit can now 
 ---
  
 
-[1262171](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1262171&triage=true&fullScreen=false&_a=edit)
-
 ### Public Preview - Dynamic administrative unit support for onPremisesDistinguishedName property
 
 **Type:** Changed feature  
@@ -171,8 +163,6 @@ The public preview of dynamic administrative units now supports the **onPremises
 
 ---
  
-
-[1468176](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1468176&triage=true&fullScreen=false&_a=edit)
 
 ### General Availability - Improvements to Azure AD Smart Lockout
 
