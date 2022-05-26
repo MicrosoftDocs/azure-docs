@@ -95,7 +95,7 @@ sections:
 
       - question: What is the SLA for Azure Video Indexer?
         answer: |
-          Azure Media Service’s SLA covers Azure Video Indexer and can be found on the [SLA](https://azure.microsoft.com/support/legal/sla/azure/media-services/v1_2/) page. The SLA only applies to Azure Video Indexer paid accounts and does not apply to the free trial.
+          Azure Media Service’s SLA covers Azure Video Indexer and can be found on the [SLA](https://azure.microsoft.com/support/legal/sla/media-services/v1_2/) page. The SLA only applies to Azure Video Indexer paid accounts and does not apply to the free trial.
 
   - name: Privacy Questions
     questions:
