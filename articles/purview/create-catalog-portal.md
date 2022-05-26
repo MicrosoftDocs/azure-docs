@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create an account in the Microsoft Purview governance portal'
-description: This Quickstart describes how to create an account in the Microsoft Purview governance portal and configure permissions to begin using it.
+title: 'Quickstart: Create a Microsoft Purview (formerly Azure Purview) account'
+description: This Quickstart describes how to create a Microsoft Purview (formerly Azure Purview) account and configure permissions to begin using it.
 author: nayenama
 ms.author: nayenama
 ms.date: 05/23/2022
@@ -10,11 +10,11 @@ ms.custom: mode-ui
 ---
 # Quickstart: Create an account in the Microsoft Purview governance portal
 
-This quickstart describes the steps to Create an account in the Microsoft Purview governance portal through the Azure portal. Then we'll get started on the process of classifying, securing, and discovering your data in the Microsoft Purview Data Map!
+This quickstart describes the steps to Create a Microsft Purview (formerly Azure Purview) account through the Azure portal. Then we'll get started on the process of classifying, securing, and discovering your data in the Microsoft Purview Data Map!
 
-The Microsoft Purview governance portal surfaces data governance tools, like the Microsoft Purview Data Map, that help you manage and govern your data landscape. By connecting to data across your on-premises, multi-cloud, and software-as-a-service (SaaS) sources, the Microsoft Purview Data Map creates an up-to-date map of your data estate. It identifies and classifies sensitive data, and provides end-to-end linage. Data consumers are able to discover data across your organization, and data administrators are able to audit, secure, and ensure right use of your data.
+The Microsoft Purview governance portal surfaces tools like the Microsoft Purview Data Map and Microsoft Purview Data Catalog, that help you manage and govern your data landscape. By connecting to data across your on-premises, multi-cloud, and software-as-a-service (SaaS) sources, the Microsoft Purview Data Map creates an up-to-date map of your data estate. It identifies and classifies sensitive data, and provides end-to-end linage. Data consumers are able to discover data across your organization, and data administrators are able to audit, secure, and ensure right use of your data.
 
-For more information about the governance capabilities of Microsoft Purview, formally Azure Purview, [see our overview page](overview.md). For more information about deploying Microsoft Purview across your organization, [see our deployment best practices](deployment-best-practices.md).
+For more information about the governance capabilities of Microsoft Purview, formerly Azure Purview, [see our overview page](overview.md). For more information about deploying Microsoft Purview across your organization, [see our deployment best practices](deployment-best-practices.md).
 
 [!INCLUDE [purview-quickstart-prerequisites](includes/purview-quickstart-prerequisites.md)]
 
@@ -24,7 +24,7 @@ For more information about the governance capabilities of Microsoft Purview, for
 
     :::image type="content" source="media/create-catalog-portal/purview-accounts-page.png" alt-text="Screenshot showing the purview accounts page in the Azure portal":::
 
-1. Select **Create** to create a new account in the Microsoft Purview governance portal.
+1. Select **Create** to create a new Microsoft Purview account.
 
    :::image type="content" source="media/create-catalog-portal/select-create.png" alt-text="Screenshot of the Microsoft Purview accounts page with the create button highlighted in the Azure portal.":::
   
@@ -32,9 +32,9 @@ For more information about the governance capabilities of Microsoft Purview, for
 
      :::image type="content" source="media/create-catalog-portal/search-marketplace.png" alt-text="Screenshot showing Microsoft Purview in the Azure Marketplace, with the create button highlighted.":::
 
-1. On the new Create Microsoft Purview account page under the **Basics** tab, select the Azure subscription where you want to create your account in the Microsoft Purview governance portal.
+1. On the new Create Microsoft Purview account page under the **Basics** tab, select the Azure subscription where you want to create your account.
 
-1. Select an existing **resource group** or create a new one to hold your account in the Microsoft Purview governance portal.
+1. Select an existing **resource group** or create a new one to hold your account.
 
     To learn more about resource groups, see our article on [using resource groups to manage your Azure resources](../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group).
 
@@ -47,7 +47,7 @@ For more information about the governance capabilities of Microsoft Purview, for
     The list shows only locations that support the Microsoft Purview governance portal. The location you choose will be the region where your Microsoft Purview account and meta data will be stored. Sources can be housed in other regions.
 
       > [!Note]
-      > The Microsoft Purview governance portal does not support moving accounts across regions, so be sure to deploy to the correction region. You can find out more information about this in [move operation support for resources](../azure-resource-manager/management/move-support-resources.md).
+      > The Microsoft Purview, formerly Azure Purview, does not support moving accounts across regions, so be sure to deploy to the correction region. You can find out more information about this in [move operation support for resources](../azure-resource-manager/management/move-support-resources.md).
 
 1. Select **Review & Create**, and then select **Create**. It takes a few minutes to complete the creation. The newly created account will appear in the list on your **Microsoft Purview accounts** page.
 
@@ -64,7 +64,7 @@ After your account is created, you'll use the Microsoft Purview governance porta
 
 ## Next steps
 
-In this quickstart, you learned how to create an account in the Microsoft Purview governance portal and how to access it.
+In this quickstart, you learned how to create a Microsoft Purview (formerly Azure Purview) account, and how to access it.
 
 Next, you can create a user-assigned managed identity (UAMI) that will enable your new Microsoft Purview account to authenticate directly with resources using Azure Active Directory (Azure AD) authentication.
 

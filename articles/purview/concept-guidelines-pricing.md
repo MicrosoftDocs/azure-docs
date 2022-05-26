@@ -1,6 +1,6 @@
 ---
-title: Pricing guidelines for Microsoft Purview in the governance portal
-description: This article provides a guideline to understand and strategize pricing for the components of Microsoft Purview in the governance portal.
+title: Pricing guidelines for Microsoft Purview (formerly Azure Purview)
+description: This article provides a guideline to understand and strategize pricing for the components of Microsoft Purview (formerly Azure Purview).
 author: athenads
 ms.author: athenadsouza
 ms.service: purview
@@ -9,19 +9,19 @@ ms.date: 05/23/2022
 ms.custom: ignite-fall-2021
 ---
 
-# Pricing for Microsoft Purview in the governance portal  
+# Pricing for Microsoft Purview (formerly Azure Purview)  
 
 Microsoft Purview, formally known as Azure Purview, provides a single pane of glass for managing data governance by enabling automated scanning and classifying data at scale through the Microsoft Purview governance portal.
 
-## Why do you need to understand the components of pricing in the governance portal? 
+## Why do you need to understand the components of pricing? 
 
-- While the pricing for Microsoft Purview in the governance portal is on a subscription-based **Pay-As-You-Go** model, there are various dimensions that you can consider while budgeting for Microsoft Purview
+- While the pricing for Microsoft Purview (formerly Azure Purview) is on a subscription-based **Pay-As-You-Go** model, there are various dimensions that you can consider while budgeting
 - This guideline is intended to help you plan the budgeting for Microsoft Purview in the governance portal by providing a view on the control factors that impact the budget
 
 
 ## Factors impacting Azure Pricing 
 
-There are **direct** and **indirect** costs that need to be considered while planning budgeting and cost management for Microsoft Purview in the governance portal.
+There are **direct** and **indirect** costs that need to be considered while planning budgeting and cost management.
 
 ### Direct costs
 
@@ -73,9 +73,10 @@ There are two major automated processes that can trigger ingestion of metadata i
    - Ingestion of metadata into the Microsoft Purview Data Map
 
 2. Automated ingestion using Azure Data Factory and/or Azure Synapse pipelines. This process includes:
-   - Ingestion of metadata and lineage into the Microsoft Purview data Map if the account is connected to any Azure Data Factory or Azure Synapse pipelines. 
+   - Ingestion of metadata and lineage into the Microsoft Purview Data Map if the account is connected to any Azure Data Factory or Azure Synapse pipelines.
 
 ##### 1. Automatic scans using native connectors
+
 - A **full scan** processes all assets within a selected scope of a data source whereas an **incremental scan** detects and processes assets, which have been created, modified, or deleted since the previous successful scan 
 
 - All scans (full or Incremental scans) will pick up **updated, modified, or deleted** assets
@@ -119,14 +120,14 @@ There are two major automated processes that can trigger ingestion of metadata i
 
 ### Indirect costs   
 
-Indirect costs impacting Microsoft Purview governance portal pricing to be considered are:
+Indirect costs impacting Microsoft Purview (formerly Azure Purview) pricing to be considered are:
 
 - [Managed resources](https://azure.microsoft.com/pricing/details/azure-purview/)
-    - When an account in the Microsoft Purview governance portal is provisioned, a storage account and event hub queue are created within the subscription in order to cater to secured scanning, which may be charged separately
+    - When an account is provisioned, a storage account and event hub queue are created within the subscription in order to cater to secured scanning, which may be charged separately
 
 
 - [Azure private endpoint](./catalog-private-link.md)
-    - Azure private end points are used for accounts in the Microsoft Purview governance portal where it's required for users on a virtual network (VNet) to securely access the catalog over a private link
+    - Azure private end points are used for Microsoft Purview (formerly Azure Purview), where it's required for users on a virtual network (VNet) to securely access the catalog over a private link
     - The prerequisites for setting up private endpoints could result in extra costs
 
 - [Self-hosted integration runtime related costs](./manage-integration-runtimes.md) 
@@ -157,4 +158,4 @@ Indirect costs impacting Microsoft Purview governance portal pricing to be consi
 
 
 ## Next steps
-- [Microsoft Purview, formally Azure Purview, pricing page](https://azure.microsoft.com/pricing/details/azure-purview/)
+- [Microsoft Purview, forerly Azure Purview, pricing page](https://azure.microsoft.com/pricing/details/azure-purview/)

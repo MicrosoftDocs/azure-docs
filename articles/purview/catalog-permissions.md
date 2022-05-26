@@ -11,7 +11,7 @@ ms.date: 05/16/2022
 
 # Access control in the Microsoft Purview governance portal
 
-The Microsoft Purview governance portal in uses **Collections** in the Microsoft Purview Data Map to organize and manage access across its sources, assets, and other artifacts. This article describes collections and access management for your account in the Microsoft Purview governance portal.
+The Microsoft Purview governance portal uses **Collections** in the Microsoft Purview Data Map to organize and manage access across its sources, assets, and other artifacts. This article describes collections and access management for your account in the Microsoft Purview governance portal.
 
 > [!IMPORTANT]
 > This article refers to permissions required for the Microsoft Purview governance portal, and applications like the Microsoft Purview Data Map, Data Catalog, Data Estate Insights, etc. If you are looking for permissions information for the Microsoft Purview compliance center, follow [the article for permissions in the Microsoft Purview compliance portal](/microsoft-365/compliance/microsoft-365-compliance-center-permissions).
@@ -58,11 +58,11 @@ The Microsoft Purview governance portal uses a set of predefined roles to contro
 
 All access control is managed through collections in the Microsoft Purview Data Map. The collections can be found in the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/). Open your account in the [Azure portal](https://portal.azure.com) and select the Microsoft Purview governance portal tile on the Overview page. From there, navigate to the data map on the left menu, and then select the 'Collections' tab.
 
-When an account is created in the Microsoft Purview governance portal, it starts with a root collection that has the same name as the account itself. The creator of the account is automatically added as a Collection Admin, Data Source Admin, Data Curator, and Data Reader on this root collection, and can edit and manage this collection.
+When a Microsoft Purview (formerly Azure Purview) account is created, it starts with a root collection that has the same name as the account itself. The creator of the account is automatically added as a Collection Admin, Data Source Admin, Data Curator, and Data Reader on this root collection, and can edit and manage this collection.
 
 Sources, assets, and objects can be added directly to this root collection, but so can other collections. Adding collections will give you more control over who has access to data across your account.
 
-All other users can only access information within the Microsoft Purview governance portal if they, or a group they're in, are given one of the above roles. This means, when you create an account in the Microsoft Purview governance portal, no one but the creator can access or use its APIs until they're [added to one or more of the above roles in a collection](how-to-create-and-manage-collections.md#add-role-assignments).
+All other users can only access information within the Microsoft Purview governance portal if they, or a group they're in, are given one of the above roles. This means, when you create an account, no one but the creator can access or use its APIs until they're [added to one or more of the above roles in a collection](how-to-create-and-manage-collections.md#add-role-assignments).
 
 Users can only be added to a collection by a collection admin, or through permissions inheritance. The permissions of a parent collection are automatically inherited by its subcollections. However, you can choose to [restrict permission inheritance](how-to-create-and-manage-collections.md#restrict-inheritance) on any collection. If you do this, its subcollections will no longer inherit permissions from the parent and will need to be added directly, though collection admins that are automatically inherited from a parent collection can't be removed.
 
@@ -70,7 +70,7 @@ You can assign roles to users, security groups, and service principals from your
 
 ## Assign permissions to your users
 
-After creating an account in the Microsoft Purview governance portal, the first thing to do is create collections and assign users to roles within those collections.
+After creating a Microsoft Purview (formerly Azure Purview) account, the first thing to do is create collections and assign users to roles within those collections.
 
 > [!NOTE]
 > If you created your account using a service principal, to be able to access the Microsoft Purview governance portal and assign permissions to users, you will need to grant a user collection admin permissions on the root collection.
@@ -112,7 +112,7 @@ For full instructions, see our [how-to guide for adding role assignments](how-to
 
 ## Administrator change
 
-There may be a time when your [root collection admin](#roles) needs to change. By default, the user who creates the account in the Microsoft Purview governance portal is automatically assigned collection admin to the root collection. To update the root collection admin, there are three options:
+There may be a time when your [root collection admin](#roles) needs to change. By default, the user who creates the account is automatically assigned collection admin to the root collection. To update the root collection admin, there are three options:
 
 - You can [assign permissions through the portal](how-to-create-and-manage-collections.md#add-role-assignments) as you have for any other role.
 

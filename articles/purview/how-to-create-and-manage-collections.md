@@ -20,7 +20,7 @@ Collections in the Microsoft Purview Data Map can be used to organize assets and
 
 * Your own [Azure Active Directory tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
-* An active [account in the Microsoft Purview governance portal](create-catalog-portal.md).
+* An active [Microsoft Purview (formerly Azure Purview) account](create-catalog-portal.md).
 
 ### Check permissions
 
