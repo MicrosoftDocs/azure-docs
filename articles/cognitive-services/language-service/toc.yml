@@ -116,7 +116,7 @@ items:
       items:
       - name: Java
         href: https://aka.ms/sdk-samples-java
-      - name: Java script
+      - name: JavaScript
         href: https://aka.ms/sdk-samples-java-script
       - name: C#
         href:  https://aka.ms/sdk-samples-dot-net
@@ -202,7 +202,7 @@ items:
         items:
         - name: Java
           href: https://aka.ms/sdk-samples-java
-        - name: Java script
+        - name: JavaScript
           href: https://aka.ms/sdk-samples-java-script
         - name: C#
           href:  https://aka.ms/sdk-samples-dot-net
@@ -238,7 +238,7 @@ items:
         href: conversational-language-understanding/how-to/fail-over.md
   - name: Concepts
     items:
-      - name: Backwards compatibility
+      - name: Backwards compatibility with LUIS
         href: conversational-language-understanding/concepts/backwards-compatibility.md
       - name: Entity components
         href: conversational-language-understanding/concepts/entity-components.md
@@ -530,18 +530,18 @@ items:
   items:
   - name: Overview
     href: orchestration-workflow/overview.md
-  - name: FAQ
-    href: orchestration-workflow/faq.md
   - name: Quickstart
     href: orchestration-workflow/quickstart.md
+  - name: FAQ
+    href: orchestration-workflow/faq.md
   - name: Language support
     href: orchestration-workflow/language-support.md
   - name: How-to guides
     items:
-      - name: Build schema
-        href: orchestration-workflow/how-to/build-schema.md
       - name: Create project
         href: orchestration-workflow/how-to/create-project.md
+      - name: Build schema
+        href: orchestration-workflow/how-to/build-schema.md
       - name: Label utterances
         href: orchestration-workflow/how-to/tag-utterances.md
       - name: Train a model
