@@ -8,7 +8,7 @@ ms.topic: include
 ms.date: 04/06/2022
 ms.author: aahi
 ---
-To start creating a custom named entity reccognition model, you need to create a project. Creating a project will let you label data, train, evaluate, improve, and deploy your models.
+To start creating a custom named entity recognition model, you need to create a project. Creating a project will let you label data, train, evaluate, improve, and deploy your models.
 
 > [!NOTE]
 > The project name is case-sensitive for all operations.
