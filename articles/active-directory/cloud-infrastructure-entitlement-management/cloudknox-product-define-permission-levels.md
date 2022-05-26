@@ -2,14 +2,14 @@
 title: Define and manage users, roles, and access levels in CloudKnox Permissions Management
 description: How to define and manage users, roles, and access levels in CloudKnox Permissions Management User management dashboard.
 services: active-directory
-author: Yvonne-deQ
-manager: karenh444
+author: kenwith
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: kenwith
 ---
 
 # Define and manage users, roles, and access levels

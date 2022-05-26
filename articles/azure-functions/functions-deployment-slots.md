@@ -56,7 +56,6 @@ Some configuration settings are slot-specific. The following lists detail which 
 * Custom domain names
 * Non-public certificates and TLS/SSL settings
 * Scale settings
-* WebJobs schedulers
 * IP restrictions
 * Always On
 * Diagnostic settings
@@ -69,7 +68,6 @@ Some configuration settings are slot-specific. The following lists detail which 
 * Connection strings (can be configured to stick to a slot)
 * Handler mappings
 * Public certificates
-* WebJobs content
 * Hybrid connections *
 * Virtual network integration *
 * Service endpoints *

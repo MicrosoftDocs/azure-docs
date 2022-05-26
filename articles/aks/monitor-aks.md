@@ -41,7 +41,7 @@ You require at least one Log Analytics workspace to support Container insights a
 
 If you're just getting started with Azure Monitor, then start with a single workspace and consider creating additional workspaces as your requirements evolve. Many environments will use a single workspace for all the Azure resources they monitor. You can even share a workspace used by [Microsoft Defender for Cloud and Microsoft Sentinel](../azure-monitor/vm/monitor-virtual-machine-security.md), although many customers choose to segregate their availability and performance telemetry from security data. 
 
-See [Designing your Azure Monitor Logs deployment](../azure-monitor/logs/design-logs-deployment.md) for details on logic that you should consider for designing a workspace configuration.
+See [Designing your Azure Monitor Logs deployment](../azure-monitor/logs/workspace-design.md) for details on logic that you should consider for designing a workspace configuration.
 
 ### Enable container insights
 When you enable Container insights for your AKS cluster, it deploys a containerized version of the [Log Analytics agent](../agents/../azure-monitor/agents/log-analytics-agent.md) that sends data to Azure Monitor. There are multiple methods to enable it depending whether you're working with a new or existing AKS cluster. See [Enable Container insights](../azure-monitor/containers/container-insights-onboard.md) for prerequisites and configuration options.

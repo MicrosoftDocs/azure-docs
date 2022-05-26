@@ -14,12 +14,15 @@ This article is part of the scenario [Recommendations for configuring Azure Moni
 > [!IMPORTANT]
 > The features of Azure Monitor and their configuration will vary depending on your business requirements balanced with the cost of the enabled features. Each step below will identify whether there is potential cost, and you should assess these costs before proceeding. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/) for complete pricing details.
 
-## Create Log Analytics workspace
-You require at least one Log Analytics workspace to enable [Azure Monitor Logs](logs/data-platform-logs.md), which is required for collecting such data as logs from Azure resources, collecting data from the guest operating system of Azure virtual machines, and for most Azure Monitor insights. Other services such as Microsoft Sentinel and Microsoft Defender for Cloud also use a Log Analytics workspace and can share the same one that you use for Azure Monitor. You can start with a single workspace to support this monitoring, but see  [Designing your Azure Monitor Logs deployment](logs/design-logs-deployment.md) for guidance on when to use multiple workspaces.
+## Design Log Analytics workspace architecture
+You require at least one Log Analytics workspace to enable [Azure Monitor Logs](logs/data-platform-logs.md), which is required for collecting such data as logs from Azure resources, collecting data from the guest operating system of Azure virtual machines, and for most Azure Monitor insights. Other services such as Microsoft Sentinel and Microsoft Defender for Cloud also use a Log Analytics workspace and can share the same one that you use for Azure Monitor. 
 
-There is no cost for creating a Log Analytics workspace, but there is a potential charge once you configure data to be collected into it. See [Azure Monitor Logs pricing details](logs/cost-logs.md) for details.  
+There is no cost for creating a Log Analytics workspace, but there is a potential charge once you configure data to be collected into it. See [Azure Monitor Logs pricing details](logs/cost-logs.md) for details on how log data is charged.  
 
-See [Create a Log Analytics workspace in the Azure portal](logs/quick-create-workspace.md) to create an initial Log Analytics workspace. See [Manage access to log data and workspaces in Azure Monitor](logs/manage-access.md) to configure access. You can use scalable methods such as Resource Manager templates to configure workspaces though,  this is often not required since most environments will require a minimal number.
+See [Create a Log Analytics workspace in the Azure portal](logs/quick-create-workspace.md) to create an initial Log Analytics workspace and [Manage access to Log Analytics workspaces](logs/manage-access.md) to configure access. You can use scalable methods such as Resource Manager templates to configure workspaces, though this is often not required since most environments will require a minimal number.
+
+Start with a single workspace to support initial monitoring, but see  [Design a Log Analytics workspace configuration](logs/workspace-design.md) for guidance on when to use multiple workspaces and how to locate and configure them.
+
 
 ## Collect data from Azure resources
 Some monitoring of Azure resources is available automatically with no configuration required, while you must perform configuration steps to collect additional monitoring data. The following table illustrates the configuration steps required to collect all available data from your Azure resources, including at which step data is sent to Azure Monitor Metrics and Azure Monitor Logs. The sections below describe each step in further detail.
@@ -41,11 +44,11 @@ Resources in Azure automatically generate [resource logs](essentials/platform-lo
 
 There is a cost for collecting resource logs in your Log Analytics workspace, so only select those log categories with valuable data. Collecting all categories will incur cost for collecting data with little value. See the monitoring documentation for each Azure service for a description of categories and recommendations for which to collect. Also see [Azure Monitor best practices - cost management](logs/cost-logs.md) for recommendations on optimizing the cost of your log collection.
 
-See [Create diagnostic setting to collect resource logs and metrics in Azure](essentials/diagnostic-settings.md#create-in-azure-portal) to create a diagnostic setting for an Azure resource. 
+See [Create diagnostic setting to collect resource logs and metrics in Azure](essentials/diagnostic-settings.md#create-diagnostic-settings) to create a diagnostic setting for an Azure resource. 
 
 Since a diagnostic setting needs to be created for each Azure resource, use Azure Policy to automatically create a diagnostic setting as each resource is created. Each Azure resource type has a unique set of categories that need to be listed in the diagnostic setting. Because of this, each resource type requires a separate policy definition. Some resource types have built-in policy definitions that you can assign without modification. For other resource types, you need to create a custom definition.
 
-See [Create at scale using Azure Policy](essentials/diagnostic-settings.md#create-at-scale-using-azure-policy) for a process for creating policy definitions for a particular Azure service and details for creating diagnostic settings at scale.
+See [Create diagnostic settings at scale using Azure Policy](essentials/diagnostic-settings-policy.md) for a process for creating policy definitions for a particular Azure service and details for creating diagnostic settings at scale.
 
 ### Enable insights
 Insights provide a specialized monitoring experience for a particular service. They use the same data already being collected such as platform metrics and resource logs, but they provide custom workbooks the assist you in identifying and analyzing the most critical data. Most insights will be available in the Azure portal with no configuration required, other than collecting resource logs for that service. See the monitoring documentation for each Azure service to determine whether it has an insight and if it requires configuration.

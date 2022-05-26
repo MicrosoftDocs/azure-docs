@@ -5,7 +5,7 @@
  author: tamram
  ms.service: storage
  ms.topic: include
- ms.date: 05/05/2022
+ ms.date: 05/09/2022
  ms.author: tamram
  ms.custom: include file, references_regions
 ---
@@ -31,13 +31,9 @@ Microsoft recommends that you use a GPv2 storage account for most scenarios. You
 | Default maximum egress for general-purpose v2 and Blob storage accounts in the following regions (LRS/GRS):<br /><ul><li>Australia East</li><li>Central US</li><li>East Asia</li><li>East US 2</li><li>Japan East</li><li>Korea Central</li><li>North Europe</li><li>South Central US</li><li>Southeast Asia</li><li>UK South</li><li>West Europe</li><li>West US</li></ul> | 120 Gbps<sup>1</sup> |
 | Default maximum egress for general-purpose v2 and Blob storage accounts in the following regions (ZRS): <ul><li>Australia East</li><li>Central US</li><li>East US</li><li>East US 2</li><li>Japan East</li><li>North Europe</li><li>South Central US</li><li>Southeast Asia</li><li>UK South</li><li>West Europe</li><li>West US 2</li></ul> | 120 Gbps<sup>1</sup> |
 | Default maximum egress for general-purpose v2 and Blob storage accounts in regions that aren't listed in the previous row. | 50 Gbps<sup>1</sup> |
-| Maximum egress for general-purpose v1 storage accounts (US regions) | 20 Gbps if RA-GRS/GRS is enabled, 30 Gbps for LRS/ZRS<sup>2</sup> |
-| Maximum egress for general-purpose v1 storage accounts (non-US regions) | 10 Gbps if RA-GRS/GRS is enabled, 15 Gbps for LRS/ZRS<sup>2</sup> |
 | Maximum number of IP address rules per storage account | 200 |
 | Maximum number of virtual network rules per storage account | 200 |
 | Maximum number of resource instance rules per storage account | 200 |
 | Maximum number of private endpoints per storage account | 200 |
 
 <sup>1</sup> Azure Storage standard accounts support higher capacity limits and higher limits for ingress and egress by request. To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).
-
-<sup>2</sup> If your storage account has read-access enabled with geo-redundant storage (RA-GRS) or geo-zone-redundant storage (RA-GZRS), then the egress targets for the secondary location are identical to the egress targets of the primary location. For more information, see [Azure Storage replication](../articles/storage/common/storage-redundancy.md).
