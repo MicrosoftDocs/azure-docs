@@ -52,19 +52,17 @@ The resource defined in the Bicep file is:
     # [CLI](#tab/CLI)
 
     ```azurecli
-    az deployment create --location eastus --template-file main.bicep --parameters actions=[]
+    az deployment sub create --location eastus --name customrole --template-file main.bicep --parameters actions='("Microsoft.Resources/subscriptions/resourceGroups/read", "Microsoft.Resources/subscriptions/read")'
     ```
 
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
-    New-AzDeployment -Location eastus -TemplateFile ./main.bicep -actions = []
+    $actions = "Microsoft.Resources/subscriptions/resourceGroups/read", "Microsoft.Resources/subscriptions/read"
+    New-AzSubscriptionDeployment -Location eastus -Name customrole -TemplateFile ./main.bicep -actions $actions
     ```
 
     ---
-
-    > [!NOTE]
-    >  Within the brackets, enter the **actions** as a comma-separated list (i.e. action1, action2).
 
  When the deployment finishes, you should see a message indicating the deployment succeeded.
 
@@ -97,17 +95,17 @@ Here are the changes you would need to make to the previous Bicep file to update
     ```bicep
     ...
     @description('ID of the role definition')
-    param roleDefName string = '<ID-name>'
+    param roleDefName string
     ...
 
     ```
 
-- Include the role ID parameter in the role definition.
+- Add the role ID as a parameter. Remove the variable named roleDefName.
 
     ```bicep
     ...
     resource roleDef 'Microsoft.Authorization/roleDefinitions@2018-07-01' = {
-        name: '[parameters('roleDefName')]'
+        name: roleDefName
         properties : {
         ...
     ```
@@ -117,19 +115,16 @@ Then, use Azure CLI or Azure PowerShell to deploy the updated Bicep file.
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
-az deployment create --template-file main.bicep --parameters actions=[] roleDefName=<role-name>
+az deployment sub create --location eastus --name customrole --template-file main.bicep --parameters actions='("Microsoft.Resources/subscriptions/resourceGroups/read", "Microsoft.Resources/subscriptions/read")' roleDefName="name-id>" roleName="Custom Role - RG Reader updated"
 ```
 
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-New-AzDeployment -Location eastus -TemplateFile ./main.bicep -actions [] -roleDefName "<role-name>"
+New-AzSubscriptionDeployment -Location eastus -Name customrole -TemplateFile ./main.bicep -actions $actions -roleDefName "name-id" -roleName "Custom Role - RG Reader updated"
 ```
 
 ---
-
-> [!NOTE]
-> Within the brackets, enter the **actions** as a comma-separated list (i.e. action1, action2). Replace **\<role-name\>** with the role ID to update.
 
 ## Clean up resources
 
@@ -146,6 +141,9 @@ az role definition delete --name "Custom Role - RG Reader"
 ```azurepowershell-interactive
 Get-AzRoleDefinition -Name "Custom Role - RG Reader" | Remove-AzRoleDefinition
 ```
+
+> [!NOTE]
+> If you ran the update command, you need to instead pass "Custom Role - RG Reader updated".
 
 ---
 
