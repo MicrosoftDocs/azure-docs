@@ -1539,7 +1539,7 @@ This endpoint does not use a regular access token for authorization. Instead, it
 
 #### Query Parameters
 
-- ID: Xsense Alert ID  
+- id: Xsense Alert ID  
 Example:  
 `/api/v2/alerts/pcap/<id>`
 
