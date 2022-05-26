@@ -8,7 +8,7 @@ ms.date: 02/03/2020
 
 ---
 
-# Azure Monitor Logs for Service Providers
+# Log Analytics workspace design for service providers
 
 Log Analytics workspaces in Azure Monitor can help managed service providers (MSPs), large enterprises, independent software vendors (ISVs), and hosting service providers manage and monitor servers in customer's on-premises or cloud infrastructure.
 
@@ -20,7 +20,7 @@ Log Analytics in Azure Monitor can also be used by a service provider managing c
 
 ## Architectures for Service Providers
 
-Log Analytics workspaces provide a method for the administrator to control the flow and isolation of [log](../logs/data-platform-logs.md) data and create an architecture that addresses its specific business needs. [This article](../logs/design-logs-deployment.md) explains the design, deployment, and migration considerations for a workspace, and the [manage access](../logs/manage-access.md) article discusses how to apply and manage permissions to log data. Service providers have additional considerations.
+Log Analytics workspaces provide a method for the administrator to control the flow and isolation of [log](../logs/data-platform-logs.md) data and create an architecture that addresses its specific business needs. [This article](../logs/workspace-design.md) explains the design, deployment, and migration considerations for a workspace, and the [manage access](../logs/manage-access.md) article discusses how to apply and manage permissions to log data. Service providers have additional considerations.
 
 There are three possible architectures for service providers regarding Log Analytics workspaces:
 
