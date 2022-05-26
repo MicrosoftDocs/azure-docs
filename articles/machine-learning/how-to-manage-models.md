@@ -128,7 +128,7 @@ Use the tabs below to select where your model is located.
 
 ```python
 from azure.ai.ml.entities import Model
-from azure.ai.ml._constants import ModelType
+from azure.ai.ml.constants import ModelType
 
 file_model = Model(
     path="mlflow-model/model.pkl",
@@ -146,7 +146,7 @@ A model can be created from a cloud path using any one of the following supporte
 
 ```python
 from azure.ai.ml.entities import Model
-from azure.ai.ml._constants import ModelType
+from azure.ai.ml.constants import ModelType
 
 cloud_model = Model(
     path= "azureml://datastores/workspaceblobstore/paths/model.pkl"
@@ -173,7 +173,7 @@ Example:
 
 ```python
 from azure.ai.ml.entities import Model
-from azure.ai.ml._constants import ModelType
+from azure.ai.ml.constants import ModelType
 
 run_model = Model(
     path="runs:/$RUN_ID/model/"
@@ -205,7 +205,7 @@ Saving model from a named output:
 
 ```python
 from azure.ai.ml.entities import Model
-from azure.ai.ml._constants import ModelType
+from azure.ai.ml.constants import ModelType
 
 run_model = Model(
     path="azureml://jobs/$RUN_ID/outputs/artifacts/paths/model/"
