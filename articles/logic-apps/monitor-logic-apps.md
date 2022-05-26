@@ -301,7 +301,7 @@ To get alerts based on specific metrics or exceeded thresholds for your logic ap
 
    1. In the **Signal name** column, find and select the **Triggers Failed** signal.
 
-      ![Select signal for creating alert](./media/monitor-logic-apps/find-and-select-signal.png)
+      ![Screenshot showing "Select a signal pane", the "Signal name" column, and "Triggers Failed" signal selected.](./media/monitor-logic-apps/find-and-select-signal.png)
 
    1. On the **Configure signal logic** pane, under **Alert logic**, set up your condition, and select **Done**, for example:
 
