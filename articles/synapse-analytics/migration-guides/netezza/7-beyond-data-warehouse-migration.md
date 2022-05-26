@@ -72,7 +72,7 @@ For ELT strategies, consider offloading ELT processing to Azure Data Lake to eas
 
 - Build scalable data integration pipelines code-free. Easily acquire data at scale. Pay only for what you use and connect to on premises, cloud, and SaaS-based data sources.
 
-- Ingest, move, clean, transform, integrate, and analyze cloud and on-premises data at scale and take automatic action, such as a recommendation or alert.
+- Ingest, move, clean, transform, integrate, and analyze cloud and on-premises data at scale. Take automatic action, such as a recommendation or alert.
 
 - Seamlessly author, monitor, and manage pipelines that span data stores both on-premises and in the cloud.
 
@@ -173,11 +173,11 @@ Internally, Data Factory utilizes Azure Synapse Spark Pools&mdash;Microsoft's Sp
 > [!TIP]
 > Data Factory support for wrangling data flows in addition to mapping data flows means that business and IT can work together on a common platform to integrate data.
 
-Another new capability in Data Factory is wrangling data flows. This lets business users (also known as citizen data integrators and data engineers) make use of the platform to visually discover, explore and prepare data at scale without writing code. This easy-to-use Data Factory capability is similar to Microsoft Excel Power Query or Microsoft Power BI dataflows, where self-service data preparation business users use a spreadsheet-style UI with drop-down transforms to prepare and integrate data. The following screenshot shows an example Data Factory wrangling data flow.
+Another new capability in Data Factory is wrangling data flows. This lets business users (also known as citizen data integrators and data engineers) make use of the platform to visually discover, explore, and prepare data at scale without writing code. This easy-to-use Data Factory capability is similar to Microsoft Excel Power Query or Microsoft Power BI dataflows, where self-service data preparation business users use a spreadsheet-style UI with drop-down transforms to prepare and integrate data. The following screenshot shows an example Data Factory wrangling data flow.
 
 :::image type="content" source="../media/6-microsoft-3rd-party-migration-tools/azure-data-factory-wrangling-dataflows.png" border="true" alt-text="Screenshot showing an example of Azure Data Factory wrangling dataflows.":::
 
-This differs from Excel and Power BI, as Data Factory wrangling data flows uses Power Query Online to generate M code and translate it into a massively parallel in-memory Spark job for cloud scale execution. The combination of mapping data flows and wrangling data flows in Data Factory lets IT professional ETL developers and business users collaborate to prepare, integrate, and analyze data for a common business purpose. The preceding Data Factory mapping data flow diagram shows how both Data Factory and Azure Synapse Spark Pool Notebooks can be combined in the same Data Factory pipeline. This allows IT and business to be aware of what each has created. Mapping data flows and wrangling data flows can then be available for reuse to maximize productivity and consistency and minimize reinvention.
+This differs from Excel and Power BI, as Data Factory wrangling data flows uses Power Query Online to generate M code and translate it into a massively parallel in-memory Spark job for cloud-scale execution. The combination of mapping data flows and wrangling data flows in Data Factory lets IT professional ETL developers and business users collaborate to prepare, integrate, and analyze data for a common business purpose. The preceding Data Factory mapping data flow diagram shows how both Data Factory and Azure Synapse Spark Pool Notebooks can be combined in the same Data Factory pipeline. This allows IT and business to be aware of what each has created. Mapping data flows and wrangling data flows can then be available for reuse to maximize productivity and consistency and minimize reinvention.
 
 #### Link data and analytics in analytical pipelines
 
@@ -192,7 +192,7 @@ Store integrated data and any results from analytics included in a Data Factory 
 > [!TIP]
 > Microsoft has created a lake database to describe core data entities to be shared across the enterprise.
 
-A key objective in any data integration set-up is the ability to integrate data once and reuse it everywhere, not just in a data warehouse&mdash;for example, in data science. Reuse avoids reinvention and ensures consistent, commonly understood data that everyone can trust.
+A key objective in any data integration setup is the ability to integrate data once and reuse it everywhere, not just in a data warehouse&mdash;for example, in data science. Reuse avoids reinvention and ensures consistent, commonly understood data that everyone can trust.
 
 > [!TIP]
 > Azure Data Lake is shared storage that underpins Microsoft Azure Synapse, Azure Machine Learning, Azure Synapse Spark, and Azure HDInsight.
@@ -202,7 +202,7 @@ To achieve this goal, establish a set of common data names and definitions descr
 > [!TIP]
 > Integrating data to create lake database logical entities in shared storage enables maximum reuse of common data assets.
 
-Microsoft has done this by creating a [lake database](/azure/synapse-analytics/database-designer/concepts-lake-database). The lake database is a common language for business entities that represents commonly used concepts and activities across a business. Azure Synapse Analytics provides industry specific database templates to help standardize data in the lake. [Lake database templates](/azure/synapse-analytics/database-designer/concepts-database-templates) provide schemas for predefined business areas, enabling data to the loaded into a lake database in a structured way. The power comes when data integration software is used to create lake database common data assets. This results in self-describing trusted data that can be consumed by applications and analytical systems. Create a lake database in Azure Data Lake Storage using Azure Data Factory, and consume it with Power BI, Azure Synapse Spark, Azure Synapse and Azure Machine Learning. The following diagram shows a lake database used in Azure Synapse Analytics.
+Microsoft has done this by creating a [lake database](/azure/synapse-analytics/database-designer/concepts-lake-database). The lake database is a common language for business entities that represents commonly used concepts and activities across a business. Azure Synapse Analytics provides industry specific database templates to help standardize data in the lake. [Lake database templates](/azure/synapse-analytics/database-designer/concepts-database-templates) provide schemas for predefined business areas, enabling data to the loaded into a lake database in a structured way. The power comes when data integration software is used to create lake database common data assets. This results in self-describing trusted data that can be consumed by applications and analytical systems. Create a lake database in Azure Data Lake Storage by using Azure Data Factory, and consume it with Power BI, Azure Synapse Spark, Azure Synapse and Azure Machine Learning. The following diagram shows a lake database used in Azure Synapse Analytics.
 
 :::image type="content" source="../media/7-beyond-data-warehouse-migration/azure-synapse-analytics-lake-database.png" border="true" alt-text="Screenshot showing how a lake database can be used in Azure Synapse Analytics.":::
 
