@@ -36,13 +36,13 @@ Container insights supports monitoring Azure Red Hat OpenShift as described in t
 
 ## Prerequisites
 
-- A [Log Analytics workspace](../logs/design-logs-deployment.md).
+- A [Log Analytics workspace](../logs/workspace-design.md).
 
     Container insights supports a Log Analytics workspace in the regions listed in Azure [Products by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). To create your own workspace, it can be created through [Azure Resource Manager](../logs/resource-manager-workspace.md), through [PowerShell](../logs/powershell-workspace-configuration.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../logs/quick-create-workspace.md).
 
-- To enable and access the features in Container insights, at a minimum you need to be a member of the Azure *Contributor* role in the Azure subscription, and a member of the [*Log Analytics Contributor*](../logs/manage-access.md#manage-access-using-azure-permissions) role of the Log Analytics workspace configured with Container insights.
+- To enable and access the features in Container insights, at a minimum you need to be a member of the Azure *Contributor* role in the Azure subscription, and a member of the [*Log Analytics Contributor*](../logs/manage-access.md#azure-rbac) role of the Log Analytics workspace configured with Container insights.
 
-- To view the monitoring data, you are a member of the [*Log Analytics reader*](../logs/manage-access.md#manage-access-using-azure-permissions) role permission with the Log Analytics workspace configured with Container insights.
+- To view the monitoring data, you are a member of the [*Log Analytics reader*](../logs/manage-access.md#azure-rbac) role permission with the Log Analytics workspace configured with Container insights.
 
 ## Identify your Log Analytics workspace ID
 
