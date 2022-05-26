@@ -36,16 +36,7 @@ For example, active monitoring is helpful in the following situations:
 
 - **Deeply hierarchical networks**. Passive monitoring architectures might not create mirrors of the full depth of your network hierarchy, leaving your device visibility with gaps. Use active monitoring to capture the full picture of your devices.
 
-## Supported protocols for active monitoring
-
-Active discovery scans are supported for the following protocols:
-
-|Scan type  |Supported protocols  | Method |
-|---------|---------|---------|
-|**Switch discovery scans**     |  - SNMPv1<br>- SNMPv2<br>- SNMPv3<br>- HTTP       | [Configure active discovery scans](../configure-active-discovery-scans.md) |
-|**PLC discovery and enrichment scans**     | - S7 (Siemens) <br>- CIP (Rockwell)        | [Configure active discovery scans](../configure-active-discovery-scans.md) |
-|**Windows event scans** | - WMI | [Configure Windows Endpoint Monitoring](../configure-windows-endpoint-monitoring.md) |
-|**DNS lookup scans** | - DNS | [Configure reverse DNS lookup](../configure-reverse-dns-lookup.md) |
+[!INCLUDE [active-monitoring-protocols](../includes/active-monitoring-protocols.md)]
 
 ## Challenges with active monitoring
 
