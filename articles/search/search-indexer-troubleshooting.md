@@ -72,7 +72,7 @@ When you are receiving any of those errors:
 * Make sure your source is accessible by trying to connect to it directly and not through the search service
 * Check your source in the Azure portal for any current errors or outages
 * Check for any network outages in [Azure Status](https://status.azure.com/status)
-* Check you are using public DNS for name resolution and not an [Azure Private DNS](/dns/private-dns-overview)
+* Check you are using public DNS for name resolution and not an [Azure Private DNS](/azure/dns/private-dns-overview)
 
 
 ## Azure SQL Database serverless indexing (error code 40613)
