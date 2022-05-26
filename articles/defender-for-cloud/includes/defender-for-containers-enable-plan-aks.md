@@ -3,7 +3,7 @@ author: ElazarK
 ms.author: elkrieger
 ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 05/12/2022
+ms.date: 05/26/2022
 ---
 
 ## Enable the plan
@@ -21,6 +21,10 @@ ms.date: 05/12/2022
 
 1. By default, when enabling the plan through the Azure portal, [Microsoft Defender for Containers](../defender-for-containers-introduction.md) is configured to auto provision (automatically install) required components to provide the protections offered by plan, including the assignment of a default workspace. 
 
+    If you wish to disable auto provisioning during the onboading process, click **edit configuration** on the **Containers** line of the onboarding setup screen. This will take you to the Advanced menu, where you can disable auto provisioning:
+    
+    :::image type="content" source="../media/defender-for-containers/Edit auto provisioning configuration.png" alt-text="Menu to select edit configuration and disable auto provisioning":::
+    
     Optionally, you can modify this configuration from the [Defender plans page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/pricingTier) or from the [Auto provisioning page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/dataCollection) on the **Microsoft Defender for Containers components (preview)** row:
 
     :::image type="content" source="../media/defender-for-containers/auto-provisioning-defender-for-containers.png" alt-text="Screenshot of the auto provisioning options for Microsoft Defender for Containers." lightbox="../media/defender-for-containers/auto-provisioning-defender-for-containers.png":::
