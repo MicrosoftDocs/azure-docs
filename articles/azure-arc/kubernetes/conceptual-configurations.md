@@ -1,5 +1,5 @@
 ---
-title: "GitOps Flux v1 Configurations with Azure Arc-enabled Kubernetes"
+title: "GitOps Flux v1 configurations with Azure Arc-enabled Kubernetes"
 services: azure-arc
 ms.service: azure-arc
 ms.date: 05/24/2022
@@ -10,7 +10,7 @@ description: "This article provides a conceptual overview of GitOps and configur
 keywords: "Kubernetes, Arc, Azure, containers, configuration, GitOps"
 ---
 
-# GitOps Flux v1 Configurations with Azure Arc-enabled Kubernetes
+# GitOps Flux v1 configurations with Azure Arc-enabled Kubernetes
 
 > [!NOTE]
 > This document is for GitOps with Flux v1.  GitOps with Flux v2 is now available for Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS) clusters; [learn about GitOps with Flux v2](./conceptual-gitops-flux2.md). Eventually Azure will stop supporting GitOps with Flux v1, so begin using Flux v2 as soon as possible.
