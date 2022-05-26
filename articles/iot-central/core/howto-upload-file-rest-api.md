@@ -24,7 +24,12 @@ The IoT Central REST API lets you:
 * Get the file upload storage account configuration
 * Delete the file upload storage configuration
 
-Every Azure Storage REST API call requires an authorization header. To learn more, see [How to Use use OAuth access tokens for authentication](/rest/api/storageservices/authorize-with-azure-active-directory#use-oauth-access-tokens-for-authentication)
+To use the Azure Storage REST API, you need a bearer token for the `management.azure.com` resource. To get a bearer token, you can use the Azure CLI:
+
+```azurecli
+az account get-access-token --resource https://management.azure.com
+```
+
 
 Every IoT Central REST API call requires an authorization header. To learn more, see [How to authenticate and authorize IoT Central REST API calls](howto-authorize-rest-api.md).
 
