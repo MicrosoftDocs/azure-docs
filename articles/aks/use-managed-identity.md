@@ -319,22 +319,20 @@ A successful cluster creation using your own kubelet managed identity contains t
   },
 ```
 
-### Update an existing cluster using kubelet identity (Preview)
+### Update an existing cluster using kubelet identity 
 
 Update kubelet identity on an existing cluster with your existing identities. 
 
-#### Install the `aks-preview` Azure CLI
-
-You also need the *aks-preview* Azure CLI extension version 0.5.64 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
+#### Make sure the CLI version is 2.37.0 or later
 
 ```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
+# Check the version of Azure CLI modules 
+az version
 
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
+# Upgrade the version to make sure it is 2.37.0 or later
+az upgrade
 ```
-#### Updating your cluster with kubelet identity (Preview)
+#### Updating your cluster with kubelet identity 
 
 Now you can use the following command to update your cluster with your existing identities. Provide the control plane identity id via `assign-identity` and the kubelet managed identity via `assign-kubelet-identity`:
 
