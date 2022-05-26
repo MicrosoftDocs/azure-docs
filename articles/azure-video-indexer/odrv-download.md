@@ -11,7 +11,7 @@ This article shows how to index videos stored on OneDrive by using the Azure Vid
 
 ## Supported file formats
 
-For a list of file formats that you can use with Azure Video Indexer, see [Standard Encoder formats and codecs](/azure/azure/media-services/latest/encode-media-encoder-standard-formats-reference).
+For a list of file formats that you can use with Azure Video Indexer, see [Standard Encoder formats and codecs](/azure/media-services/latest/encode-media-encoder-standard-formats-reference).
 
 ## Index a video by using the website
 
