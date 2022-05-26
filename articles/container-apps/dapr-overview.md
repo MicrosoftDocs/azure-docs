@@ -39,7 +39,7 @@ The following Pub/sub example demonstrates how Dapr works alongside your contain
 
 | Label | Dapr settings | Description |  
 | ----- | ------------- | ----------- |
-| 1 | Container Apps with Dapr enabled | Dapr is enabled at the container app level by configuring Dapr settings. Dapr settings exist at the app-level, meaning they apply across revisions. |
+| 1 | Container Apps with Dapr enabled | Dapr is enabled at the container app level by configuring Dapr settings. Dapr settings apply across all revisions of a given container app. |
 | 2 | Dapr sidecar | Fully managed Dapr APIs are exposed to your container app via the Dapr sidecar. These APIs are available through HTTP and gRPC protocols. By default, the sidecar runs on port 3500 in Container Apps. |
 | 3 | Dapr component | Dapr components can be shared by multiple container apps. Using scopes, the Dapr sidecar will determine which components to load for a given container app at runtime. |
 
@@ -190,6 +190,12 @@ scopes:
 - publisher-app
 - subscriber-app
 ```
+
+## Current supported Dapr version
+
+Azure Container Apps supports Dapr version 1.7.3. 
+
+Version upgrades are handled transparently by Azure Container Apps. You can find the current version via the Azure portal and the CLI. 
 
 ## Limitations
 

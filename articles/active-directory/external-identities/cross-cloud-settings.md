@@ -44,9 +44,16 @@ After each organization has completed these steps, Azure AD B2B collaboration be
 
 In your Microsoft cloud settings, enable the Microsoft Azure cloud you want to collaborate with.
 
+> [!NOTE]
+> The admin experience is currently still deploying to national clouds. To access the admin experience in Microsoft Azure Government or Microsoft Azure China, you can use these links: 
+>
+>Microsoft Azure Government - https://aka.ms/cloudsettingsusgov
+>
+>Microsoft Azure China - https://aka.ms/cloudsettingschina
+
 1. Sign in to the [Azure portal](https://portal.azure.com) using a Global administrator or Security administrator account. Then open the **Azure Active Directory** service.
 1. Select **External Identities**, and then select **Cross-tenant access settings (Preview)**.
-1. Select **Cross cloud settings**.
+1. Select **Microsoft cloud settings (Preview)**.
 1. Select the checkboxes next to the external Microsoft Azure clouds you want to enable.
 
    ![Screenshot showing Microsoft cloud settings.](media/cross-cloud-settings/cross-cloud-settings.png)
