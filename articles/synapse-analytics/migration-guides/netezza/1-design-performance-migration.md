@@ -251,7 +251,7 @@ You can edit existing Netezza CREATE TABLE and CREATE VIEW scripts to create the
 
 However, all the information that specifies the current definitions of tables and views within the existing Netezza environment is maintained within system catalog tables. These tables are the best source of this information, as it's guaranteed to be up to date and complete. User-maintained documentation may not be in sync with the current table definitions.
 
-Access the information in these tables via utilities such as `nz_ddl_table` and generate the `CREATE TABLE DDL` statements for the equivalent tables in Azure Synapse.
+Access the information in these tables via utilities such as `nz_ddl_table` and generate the `CREATE TABLE` DDL statements for the equivalent tables in Azure Synapse.
 
 Third-party migration and ETL tools also use the catalog information to achieve the same result.
 

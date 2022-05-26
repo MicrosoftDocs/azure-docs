@@ -32,9 +32,9 @@ Most existing Netezza installations are on-premises, so many users are consideri
 
 Netezza technology is often used to implement a data warehouse, supporting complex analytic queries on large data volumes using SQL. Dimensional data models&mdash;star or snowflake schemas&mdash;are common, as is the implementation of data marts for individual departments.
 
-This combination of SQL and dimensional data models simplifies migration to Azure Synapse, since the basic concepts and SQL skills are transferable. The recommended approach is to migrate the existing data model as-is to reduce risk and time taken. Even if the eventual intention is to make changes to the data model (for example, moving to a Data Vault model), perform an initial as-is migration and then make changes within the Azure cloud environment, leveraging the performance, elastic scalability, and cost advantages there.
+This combination of SQL and dimensional data models simplifies migration to Azure Synapse, since the basic concepts and SQL skills are transferable. The recommended approach is to migrate the existing data model as-is to reduce risk and time taken. Even if the eventual intention is to make changes to the data model (for example, moving to a data vault model), perform an initial as-is migration and then make changes within the Azure cloud environment, leveraging the performance, elastic scalability, and cost advantages there.
 
-While the SQL language has been standardized, individual vendors have in some cases implemented proprietary extensions. This document highlights potential SQL differences you may encounter while migrating from a legacy Netezza environment, and to provide workarounds.
+While the SQL language has been standardized, individual vendors have in some cases implemented proprietary extensions. This document highlights potential SQL differences you may encounter while migrating from a legacy Netezza environment, and provides workarounds.
 
 ### Use Azure Data Factory to implement a metadata-driven migration
 
@@ -130,7 +130,7 @@ Edit existing Netezza `CREATE TABLE` and `CREATE VIEW` scripts to create the equ
 
 However, all the information that specifies the current definitions of tables and views within the existing Netezza environment is maintained within system catalog tables. This is the best source of this information as it's guaranteed to be up to date and complete. Be aware that user-maintained documentation may not be in sync with the current table definitions.
 
-Access this information by using utilities such as `nz_ddl_table` and generate the `CREATE TABLE DDL` statements. Edit these statements for the equivalent tables in Azure Synapse.
+Access this information by using utilities such as `nz_ddl_table` and generate the `CREATE TABLE` DDL statements. Edit these statements for the equivalent tables in Azure Synapse.
 
 > [!TIP]
 > Third-party tools and services can automate data mapping tasks.
@@ -144,13 +144,13 @@ There are [Microsoft partners](/azure/synapse-analytics/partner/data-integration
 > [!TIP]
 > SQL DML commands `SELECT`, `INSERT` and `UPDATE` have standard core elements but may also implement different syntax options.
 
-The ANSI SQL standard defines the basic syntax for DML commands such as `SELECT`, `INSERT`, `UPDATE` and `DELETE`. Both Netezza and Azure Synapse use these commands, but in some cases there are implementation differences.
+The ANSI SQL standard defines the basic syntax for DML commands such as `SELECT`, `INSERT`, `UPDATE`, and `DELETE`. Both Netezza and Azure Synapse use these commands, but in some cases there are implementation differences.
 
 The following sections discuss the Netezza-specific DML commands that you should consider during a migration to Azure Synapse.
 
 ### SQL DML syntax differences
 
-Be aware of these differences in SQL Data Manipulation Language (DML) syntax between Netezza SQL and Azure Synapse when migrating:
+Be aware of these differences in SQL DML syntax between Netezza SQL and Azure Synapse when migrating:
 
 - `STRPOS`: In Netezza, the `STRPOS` function returns the position of a substring within a string. The equivalent function in Azure Synapse is `CHARINDEX`, with the order of the arguments reversed. For example, `SELECT STRPOS('abcdef','def')...` in Netezza is equivalent to `SELECT CHARINDEX('def','abcdef')...` in Azure Synapse.
 
@@ -178,7 +178,7 @@ See the following sections for more information on each of these elements.
 
 #### Functions
 
-As with most database products, Netezza supports system functions and user-defined functions within the SQL implementation. When migrating to another database platform such as Azure Synapse, common system functions are available and can be migrated without change. Some system functions may have slightly different syntax, but the required changes can be automated. System functions where there's no equivalent, such arbitrary user-defined functions, may need to be recoded using the languages available in the target environment. Azure Synapse uses the popular Transact-SQL language to implement user-defined functions. Netezza user-defined functions are coded in nzlua or C++ languages.
+As with most database products, Netezza supports system functions and user-defined functions within the SQL implementation. When migrating to another database platform such as Azure Synapse, common system functions are available and can be migrated without change. Some system functions may have slightly different syntax, but the required changes can be automated. System functions where there's no equivalent, such as arbitrary user-defined functions, may need to be recoded using the languages available in the target environment. Azure Synapse uses the popular Transact-SQL language to implement user-defined functions. Netezza user-defined functions are coded in nzlua or C++ languages.
 
 #### Stored procedures
 
@@ -190,7 +190,7 @@ SQL Azure Data Warehouse also supports stored procedures using T-SQL, so if you 
 
 In Netezza, a sequence is a named database object created via `CREATE SEQUENCE` that can provide the unique value via the `NEXT VALUE FOR` method. Use these to generate unique numbers for use as surrogate key values for primary key values.
 
-In Azure Synapse, there's no `CREATE SEQUENCE`. Sequences are handled using [Identity to create surrogate keys](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-identity) or [managed identity](/azure/data-factory/data-factory-service-identity?tabs=data-factory) using SQL code to create the next sequence number in a series.
+In Azure Synapse, there's no `CREATE SEQUENCE`. Sequences are handled using [identity to create surrogate keys](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-identity) or [managed identity](/azure/data-factory/data-factory-service-identity?tabs=data-factory) using SQL code to create the next sequence number in a series.
 
 ### Use [EXPLAIN](/sql/t-sql/queries/explain-transact-sql?msclkid=91233fc1cff011ec9dff597671b7ae97) to validate legacy SQL
 
@@ -249,11 +249,11 @@ The IBM Netezza to T-SQL compliant with Azure Synapse SQL data type mapping is i
 
 ## Summary
 
-Typical existing legacy Netezza installations are implemented in a way that makes migration to Azure Synapse easy. They use SQL for analytical queries on large data volumes, and are in some form of dimensional data model. These factors make it a good candidate for migration to Azure Synapse.
+Typical existing legacy Netezza installations are implemented in a way that makes migration to Azure Synapse easy. They use SQL for analytical queries on large data volumes, and are in some form of dimensional data model. These factors make them good candidates for migration to Azure Synapse.
 
 To minimize the task of migrating the actual SQL code, follow these recommendations:
 
-- Initial migration of the data warehouse should be as-is to minimize risk and time taken, even if the eventual final environment will incorporate a different data model such as Data Vault.
+- Initial migration of the data warehouse should be as-is to minimize risk and time taken, even if the eventual final environment will incorporate a different data model such as data vault.
 
 - Understand the differences between Netezza SQL implementation and Azure Synapse.
 

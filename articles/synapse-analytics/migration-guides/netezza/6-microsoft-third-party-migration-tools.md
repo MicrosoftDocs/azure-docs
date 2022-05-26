@@ -76,7 +76,7 @@ You can develop simple or comprehensive ETL and ELT processes without coding or 
 
 You can use Data Factory to implement and manage a hybrid environment that includes on-premises, cloud, streaming and SaaS data&mdash;for example, from applications like Salesforce&mdash;in a secure and consistent way.
 
-A new capability in Data Factory is wrangling data flows. This opens up Data Factory to business users who want to visually discover, explore, and prepare data at scale without writing code. This capability, similar to Microsoft Excel Power Query or Microsoft Power BI Dataflows, offers self-service data preparation. Business users can prepare and integrate data through a spreadsheet style user interface with drop-down transform options.
+A new capability in Data Factory is wrangling data flows. This opens up Data Factory to business users who want to visually discover, explore, and prepare data at scale without writing code. This capability, similar to Microsoft Excel Power Query or Microsoft Power BI dataflows, offers self-service data preparation. Business users can prepare and integrate data through a spreadsheet style user interface with drop-down transform options.
 
 Azure Data Factory is the recommended approach for implementing data integration and ETL/ELT processes for an Azure Synapse environment, especially if existing legacy processes need to be refactored.
 

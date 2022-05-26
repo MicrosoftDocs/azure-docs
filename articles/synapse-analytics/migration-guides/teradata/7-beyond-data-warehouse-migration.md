@@ -173,7 +173,7 @@ Internally, Data Factory utilizes Azure Synapse Spark Pools&mdash;Microsoft's Sp
 > [!TIP]
 > Data Factory support for wrangling data flows in addition to mapping data flows means that business and IT can work together on a common platform to integrate data.
 
-Another new capability in Data Factory is wrangling data flows. This lets business users (also known as citizen data integrators and data engineers) make use of the platform to visually discover, explore and prepare data at scale without writing code. This easy-to-use Data Factory capability is similar to Microsoft Excel Power Query or Microsoft Power BI Dataflows, where self-service data preparation business users use a spreadsheet-style UI with drop-down transforms to prepare and integrate data. The following screenshot shows an example Data Factory wrangling data flow.
+Another new capability in Data Factory is wrangling data flows. This lets business users (also known as citizen data integrators and data engineers) make use of the platform to visually discover, explore and prepare data at scale without writing code. This easy-to-use Data Factory capability is similar to Microsoft Excel Power Query or Microsoft Power BI dataflows, where self-service data preparation business users use a spreadsheet-style UI with drop-down transforms to prepare and integrate data. The following screenshot shows an example Data Factory wrangling data flow.
 
 :::image type="content" source="../media/6-microsoft-3rd-party-migration-tools/azure-data-factory-wrangling-dataflows.png" border="true" alt-text="Screenshot showing an example of Azure Data Factory wrangling dataflows.":::
 
