@@ -13,7 +13,7 @@ To learn about Azure Resource Manager templates (ARM templates), see the [ARM te
 
 ## Consistent management layer
 
-When you use any of the Azure APIs, tools, or SDKs to perform an action, Resource Manager receives the request. It authenticates and authorizes the request before forwarding it to the appropriate Azure service. Because all requests are handled through the same API, you see consistent results and capabilities in all the different tools.
+When you send a request through any of the Azure APIs, tools, or SDKs, Resource Manager receives the request. It authenticates and authorizes the request before forwarding it to the appropriate Azure service. Because all requests are handled through the same API, you see consistent results and capabilities in all the different tools.
 
 The following image shows the role Azure Resource Manager plays in handling Azure requests.
 
