@@ -6,7 +6,7 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 04/06/2022
+ms.date: 05/26/2022
 ms.custom: devx-track-csharp, subject-rbac-steps
 ---
 # Secure access to data in Azure Cosmos DB
@@ -140,9 +140,8 @@ For an example of a middle tier service used to generate or broker resource toke
 Azure Cosmos DB users are associated with a Cosmos database.  Each database can contain zero or more Cosmos DB users. The following code sample shows how to create a Cosmos DB user  using the [Azure Cosmos DB .NET SDK v3](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/UserManagement).
 
 ```csharp
-//Create a user.
-Database database = benchmark.client.GetDatabase("SalesDatabase");
-
+// Create a user.
+Database database = client.GetDatabase("SalesDatabase");
 User user = await database.CreateUserAsync("User 1");
 ```
 
@@ -172,10 +171,10 @@ The following code sample shows how to create a permission resource, read the re
 ```csharp
 // Create a permission on a container and specific partition key value
 Container container = client.GetContainer("SalesDatabase", "OrdersContainer");
-user.CreatePermissionAsync(
+await user.CreatePermissionAsync(
     new PermissionProperties(
-        id: "permissionUser1Orders",
-        permissionMode: PermissionMode.All,
+        id: "permissionUser1Orders", 
+        permissionMode: PermissionMode.All, 
         container: container,
         resourcePartitionKey: new PartitionKey("012345")));
 ```
@@ -185,10 +184,10 @@ user.CreatePermissionAsync(
 The following code snippet shows how to retrieve the permission associated with the user created above and instantiate a new CosmosClient on behalf of the user, scoped to a single partition key.
 
 ```csharp
-//Read a permission, create user client session.
-PermissionProperties permissionProperties = await user.GetPermission("permissionUser1Orders")
+// Read a permission, create user client session.
+Permission permission = await user.GetPermission("permissionUser1Orders").ReadAsync();
 
-CosmosClient client = new CosmosClient(accountEndpoint: "MyEndpoint", authKeyOrResourceToken: permissionProperties.Token);
+CosmosClient client = new CosmosClient(accountEndpoint: "MyEndpoint", authKeyOrResourceToken: permission.Resource.Token);
 ```
 
 ## Differences between RBAC and resource tokens
