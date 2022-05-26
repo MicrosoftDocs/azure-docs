@@ -12,6 +12,9 @@ ms.reviewer: zezha-msft
 
 # azcopy
 
+AzCopy 10.15.0
+Project URL: [github.com/Azure/azure-storage-azcopy](github.com/Azure/azure-storage-azcopy)
+
 AzCopy is a command-line tool that moves data into and out of Azure Storage. See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and learn about the ways that you can provide authorization credentials to the storage service.
 
 ## Synopsis
@@ -29,13 +32,15 @@ To report issues or to learn more about the tool, see [https://github.com/Azure/
 
 ## Options
 
-**--cap-mbps** (float)  Caps the transfer rate, in megabits per second. Moment-by-moment throughput might vary slightly from the cap. If this option is set to zero, or it is omitted, the throughput isn't capped.
 
-**--help** Help for azcopy
+### Options
 
-**--output-type**  (string) Format of the command's output. The choices include: text, json. The default value is `text`. (default `text`)
-
-**--trusted-microsoft-suffixes** (string) Specifies additional domain suffixes where Azure Active Directory login tokens may be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.
+```
+      --cap-mbps float                      Caps the transfer rate, in megabits per second. Moment-by-moment throughput might vary slightly from the cap. If this option is set to zero, or it is omitted, the throughput isn't capped.
+  -h, --help                                help for azcopy
+      --output-type string                  Format of the command's output. The choices include: text, json. The default value is 'text'. (default "text")
+      --trusted-microsoft-suffixes string   Specifies additional domain suffixes where Azure Active Directory login tokens may be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net;*.storage.azure.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.
+```
 
 ## See also
 

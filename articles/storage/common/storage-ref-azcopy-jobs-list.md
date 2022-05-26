@@ -28,17 +28,16 @@ azcopy jobs list [flags]
 
 ## Options
 
-|Option|Description|
-|--|--|
-|-h, --help|Show help content for the list command.|
+`-h`, `--help`    help for list
+`--with-status`    (string)    List the jobs with given status, available values: All, Cancelled, Failed, InProgress, Completed, CompletedWithErrors, CompletedWithFailures, CompletedWithErrorsAndSkipped (default "All")
 
 ## Options inherited from parent commands
 
-|Option|Description|
-|---|---|
-|--cap-mbps float|Caps the transfer rate, in megabits per second. Moment-by-moment throughput might vary slightly from the cap. If this option is set to zero, or it is omitted, the throughput isn't capped.|
-|--output-type string|Format of the command's output. The choices include: text, json. The default value is "text".|
-|--trusted-microsoft-suffixes string   | Specifies additional domain suffixes where Azure Active Directory login tokens may be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.|
+`--cap-mbps`    (float)    Caps the transfer rate, in megabits per second. Moment-by-moment throughput might vary slightly from the cap. If this option is set to zero, or it is omitted, the throughput isn't capped.
+
+`--output-type`    (string)    Format of the command's output. The choices include: text, json. The default value is 'text'. (default "text")
+
+`--trusted-microsoft-suffixes`    (string)    Specifies additional domain suffixes where Azure Active Directory login tokens may be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net;*.storage.azure.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.
 
 ## See also
 

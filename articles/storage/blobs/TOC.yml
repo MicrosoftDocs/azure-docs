@@ -682,6 +682,8 @@ items:
         href: ../common/storage-ref-azcopy-list.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy login
         href: ../common/storage-ref-azcopy-login.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: azcopy login status
+        href: ../common/storage-ref-azcopy-login-status.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy logout
         href: ../common/storage-ref-azcopy-logout.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: azcopy make

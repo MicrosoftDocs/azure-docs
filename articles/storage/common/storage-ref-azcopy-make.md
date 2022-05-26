@@ -28,26 +28,29 @@ azcopy make [resourceURL] [flags]
 - [Transfer data with AzCopy and Blob storage](./storage-use-azcopy-v10.md#transfer-data)
 - [Transfer data with AzCopy and file storage](storage-use-azcopy-files.md)
 
+
 ## Examples
 
-```azcopy
-azcopy make "https://[account-name].[blob,file,dfs].core.windows.net/[top-level-resource-name]"
+```
+
+  - azcopy make "https://[account-name].[blob,file,dfs].core.windows.net/[top-level-resource-name]"
+
 ```
 
 ## Options
 
-|Option|Description|
-|--|--|
-|-h, --help|Show help content for the make command. |
-|--quota-gb uint32|Specifies the maximum size of the share in gigabytes (GB), zero means you accept the file service's default quota.|
+```
+  -h, --help              help for make
+      --quota-gb uint32   Specifies the maximum size of the share in gigabytes (GiB), 0 means you accept the file service's default quota.
+```
 
 ## Options inherited from parent commands
 
-|Option|Description|
-|---|---|
-|--cap-mbps float|Caps the transfer rate, in megabits per second. Moment-by-moment throughput might vary slightly from the cap. If this option is set to zero, or it is omitted, the throughput isn't capped.|
-|--output-type string|Format of the command's output. The choices include: text, json. The default value is "text".|
-|--trusted-microsoft-suffixes string   |Specifies additional domain suffixes where Azure Active Directory login tokens may be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.|
+```
+      --cap-mbps float                      Caps the transfer rate, in megabits per second. Moment-by-moment throughput might vary slightly from the cap. If this option is set to zero, or it is omitted, the throughput isn't capped.
+      --output-type string                  Format of the command's output. The choices include: text, json. The default value is 'text'. (default "text")
+      --trusted-microsoft-suffixes string   Specifies additional domain suffixes where Azure Active Directory login tokens may be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net;*.storage.azure.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.
+```
 
 ## See also
 
