@@ -241,7 +241,7 @@ The pod is assigned an internal IP address from the Azure virtual network subnet
 To test the pod running on the virtual node, browse to the demo application with a web client. As the pod is assigned an internal IP address, you can quickly test this connectivity from another pod on the AKS cluster. Create a test pod and attach a terminal session to it:
 
 ```console
-kubectl run -it --rm testvk --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
+kubectl run -it --rm testvk --image=mcr.microsoft.com/dotnet/runtime-deps:6.0
 ```
 
 Install `curl` in the pod using `apt-get`:
@@ -299,13 +299,19 @@ AKS_SUBNET=myVirtualNodeSubnet
 NODE_RES_GROUP=$(az aks show --resource-group $RES_GROUP --name $AKS_CLUSTER --query nodeResourceGroup --output tsv)
 
 # Get network profile ID
-NETWORK_PROFILE_ID=$(az network profile list --resource-group $NODE_RES_GROUP --query [0].id --output tsv)
+NETWORK_PROFILE_ID=$(az network profile list --resource-group $NODE_RES_GROUP --query "[0].id" --output tsv)
 
 # Delete the network profile
 az network profile delete --id $NETWORK_PROFILE_ID -y
 
+# Grab the service association link ID
+SAL_ID=$(az network vnet subnet show --resource-group $RES_GROUP --vnet-name $AKS_VNET --name $AKS_SUBNET --query id --output tsv)/providers/Microsoft.ContainerInstance/serviceAssociationLinks/default
+
+# Delete the service association link for the subnet
+az resource delete --ids $SAL_ID --api-version {api-version}
+
 # Delete the subnet delegation to Azure Container Instances
-az network vnet subnet update --resource-group $RES_GROUP --vnet-name $AKS_VNET --name $AKS_SUBNET --remove delegations 0
+az network vnet subnet update --resource-group $RES_GROUP --vnet-name $AKS_VNET --name $AKS_SUBNET --remove delegations
 ```
 
 ## Next steps
