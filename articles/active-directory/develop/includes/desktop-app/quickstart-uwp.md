@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: include
 ms.workload: identity
-ms.date: 03/04/2022
+ms.date: 05/19/2022
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "languages:UWP", mode-api
 #Customer intent: As an application developer, I want to learn how my Universal Windows Platform (UWP) application can get an access token and call an API that's protected by the Microsoft identity platform.
@@ -134,7 +134,7 @@ Some situations require forcing users to interact with the Microsoft identity pl
 - When two factor authentication is required
 
 ```csharp
-authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
+authResult = await PublicClientApp.AcquireTokenInteractive(scopes)
                       .ExecuteAsync();
 ```
 
@@ -145,9 +145,9 @@ The `scopes` parameter contains the scopes being requested, such as `{ "user.rea
 Use the `AcquireTokenSilent` method to obtain tokens to access protected resources after the initial `AcquireTokenInteractive` method. You don’t want to require the user to validate their credentials every time they need to access a resource. Most of the time you want token acquisitions and renewal without any user interaction
 
 ```csharp
-var accounts = await App.PublicClientApp.GetAccountsAsync();
+var accounts = await PublicClientApp.GetAccountsAsync();
 var firstAccount = accounts.FirstOrDefault();
-authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
+authResult = await PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
                                       .ExecuteAsync();
 ```
 
