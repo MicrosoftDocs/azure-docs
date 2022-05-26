@@ -2,7 +2,6 @@
 title: Access control in Synapse workspace how to 
 description: Learn how to control access to Azure Synapse workspaces using Azure roles, Synapse roles, SQL permissions, and Git permissions.
 services: synapse-analytics  
-author: Rick Xu
 ms.service: synapse-analytics 
 ms.topic: how-to 
 ms.subservice: security 
@@ -220,7 +219,7 @@ You can grant users access to a **single** serverless SQL database with the step
     ALTER ROLE db_owner ADD member alias; -- Type USER name from step 2
     ```
 
-#### Configure Workspace-scoped permissions
+#### <a name="workspace-scoped-permission"></a>Configure Workspace-scoped permissions
 
 You can grant full access to **all** serverless SQL pools in the workspace. Run the script in this example in the `master` database:
 
