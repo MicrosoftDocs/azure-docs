@@ -1,6 +1,6 @@
 ---
-title: Generate an on-demand report from a query in the Audit dashboard in Entra Permissions Management
-description: How to generate an on-demand report from a query in the **Audit** dashboard in Entra Permissions Management.
+title: Generate an on-demand report from a query in the Audit dashboard in Permissions Management
+description: How to generate an on-demand report from a query in the **Audit** dashboard in Permissions Management.
 services: active-directory
 author: mtillman
 manager: karenh444
@@ -15,10 +15,10 @@ ms.author: mtillman
 # Generate an on-demand report from a query
 
 > [!IMPORTANT]
-> Entra Permissions Management (Entra) is currently in PREVIEW.
+> Microsoft Entra Permissions Management is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-This article describes how you can generate an on-demand report from a query in the **Audit** dashboard in Entra Permissions Management (Entra). You can:
+This article describes how you can generate an on-demand report from a query in the **Audit** dashboard in Permissions Management. You can:
 
 - Run a report on-demand.
 - Schedule and run a report as often as you want.
@@ -26,13 +26,13 @@ This article describes how you can generate an on-demand report from a query in 
 
 ## Generate a custom report on-demand
 
-1. In the Entra home page, select the **Audit** tab.
+1. In the Permissions Management home page, select the **Audit** tab.
 
-    Entra displays the query options available to you.
+    Permissions Management displays the query options available to you.
 1. In the **Audit** dashboard, select **Search** to run the query.
 1. Select **Export**.
 
-    Entra generates the report and exports it in comma-separated values (**CSV**) format, portable document format (**PDF**), or Microsoft Excel Open XML Spreadsheet (**XLSX**) format.
+    Permissions Management generates the report and exports it in comma-separated values (**CSV**) format, portable document format (**PDF**), or Microsoft Excel Open XML Spreadsheet (**XLSX**) format.
 
 <!---
 ## Create a schedule to automatically generate and share a report
@@ -46,7 +46,7 @@ This article describes how you can generate an on-demand report from a query in 
 7. In **Share report with people**, enter email addresses for people to whom you want to send the report.
 8. Select **Schedule**.
 
-    Entra generates the report as set in Steps 3 to 6, and emails it to the recipients you specified in Step 7.
+    Permissions Management generates the report as set in Steps 3 to 6, and emails it to the recipients you specified in Step 7.
 
 
 ## Delete the schedule for a report
@@ -54,7 +54,7 @@ This article describes how you can generate an on-demand report from a query in 
 1. In the **Audit** tab, load the query whose report schedule you want to delete.
 2. Select the ellipses menu **(…)** on the far right, and then select **Delete schedule**.
 
-    Entra deletes the schedule for running the query. The query itself isn't deleted.
+    Permissions Management deletes the schedule for running the query. The query itself isn't deleted.
 --->
 
 

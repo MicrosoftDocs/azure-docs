@@ -1,5 +1,5 @@
 ---
-title: Create or approve a request for permissions in the Remediation dashboard in Entra Permissions Management
+title: Create or approve a request for permissions in the Remediation dashboard in Permissions Management
 description: How to create or approve a request for permissions in the Remediation dashboard.
 services: active-directory
 author: mtillman
@@ -15,10 +15,10 @@ ms.author: mtillman
 # Create or approve a request for permissions
 
 > [!IMPORTANT]
-> Entra Permissions Management (Entra) is currently in PREVIEW.
+> Microsoft Entra Permissions Management is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-This article describes how to create or approve a request for permissions in the **Remediation** dashboard in Entra Permissions Management (Entra). You can create and approve requests for the Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP) authorization systems.
+This article describes how to create or approve a request for permissions in the **Remediation** dashboard in Permissions Management. You can create and approve requests for the Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP) authorization systems.
 
 The **Remediation** dashboard has two privilege-on-demand (POD) workflows you can use:
 - **New Request**: The workflow used by a user to create a request for permissions for a specified duration.
@@ -30,7 +30,7 @@ The **Remediation** dashboard has two privilege-on-demand (POD) workflows you ca
 
 ## Create a request for permissions
 
-1. On the Entra home page, select the **Remediation** tab, and then select the **My Requests** subtab.
+1. On the Permissions Management home page, select the **Remediation** tab, and then select the **My Requests** subtab.
 
     The **My Requests** subtab displays the following options:
     - **Pending**: A list of requests you've made but haven't yet been reviewed.
@@ -92,7 +92,7 @@ The **Remediation** dashboard has two privilege-on-demand (POD) workflows you ca
 
 ## Approve or reject a request for permissions
 
-1. On the Entra home page, select the **Remediation** tab, and then select the **My requests** subtab.
+1. On the Permissions Management home page, select the **Remediation** tab, and then select the **My requests** subtab.
 1. To view a list of requests that haven't yet been reviewed, select **Pending Requests**.
 1. In the **Request Summary** list, select the ellipses **(…)** menu on the right of a request, and then select:
 

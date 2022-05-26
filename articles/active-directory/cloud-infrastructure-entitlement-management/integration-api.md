@@ -15,10 +15,10 @@ ms.author: mtillman
 # Set and view configuration settings
 
 > [!IMPORTANT]
-> Entra Permissions Management (Entra) is currently in PREVIEW.
+> Entra Permissions Management is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-This topic describes how to view configuration settings, create and delete a service account, and create a role in Entra Permissions Management (Entra).
+This topic describes how to view configuration settings, create and delete a service account, and create a role in Entra Permissions Management.
 
 ## View configuration settings
 
@@ -30,7 +30,7 @@ The **Integrations** dashboard displays the authorization systems available to y
 
 1. Select an authorization system tile to view the following integration information:
 
-    1. To find out more about the Entra API, select **Entra API**, and then select documentation.
+    1. To find out more about the Entra Permissions Management API, select **Entra Permissions Management API**, and then select documentation.
         <!---Add Link: [documentation](https://developer.cloudknox.io/)--->
 
     1. To view information about service accounts, select **Integration**:

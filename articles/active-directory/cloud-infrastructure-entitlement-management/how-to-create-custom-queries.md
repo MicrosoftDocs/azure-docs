@@ -1,6 +1,6 @@
 ---
-title: Create a custom query in Entra Permissions Management
-description: How to create a custom query in the Audit dashboard in Entra Permissions Management.
+title: Create a custom query in Permissions Management
+description: How to create a custom query in the Audit dashboard in Permissions Management.
 services: active-directory
 author: mtillman
 manager: karenh444
@@ -15,16 +15,16 @@ ms.author: mtillman
 # Create a custom query
 
 > [!IMPORTANT]
-> Entra Permissions Management (Entra) is currently in PREVIEW.
+> Microsoft Entra Permissions Management is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-This article describes how you can use the **Audit** dashboard in Entra Permissions Management (Entra) to create custom queries that you can modify, save, and run as often as you want.
+This article describes how you can use the **Audit** dashboard in Permissions Management to create custom queries that you can modify, save, and run as often as you want.
 
 ## Open the Audit dashboard
 
-- In the Entra home page, select the **Audit** tab.
+- In the Permissions Management home page, select the **Audit** tab.
 
-    Entra displays the query options available to you.
+    Permissions Management displays the query options available to you.
 
 ## Create a custom query
 
@@ -44,14 +44,14 @@ This article describes how you can use the **Audit** dashboard in Entra Permissi
 1. When you're ready to run your query, select **Search**.
 1. To save the query, select **Save**.
 
-    Entra saves the query and adds it to the **Saved Queries** list.
+    Permissions Management saves the query and adds it to the **Saved Queries** list.
 
 ## Save the query under a new name
 
 1. In the **Audit** dashboard, select the ellipses menu **(…)** on the far right and select **Save As**.
 2. Enter a new name for the query, and then select **Save**.
 
-    Entra saves the query under the new name. Both the new query and the original query display in the **Saved Queries** list.
+    Permissions Management saves the query under the new name. Both the new query and the original query display in the **Saved Queries** list.
 
 ## View a saved query
 
@@ -63,7 +63,7 @@ This article describes how you can use the **Audit** dashboard in Entra Permissi
 4. To open the query with the authorization systems you have currently selected (which may be different from the ones you originally saved), select **Load with the currently selected authorization systems**.
 5. Select **Load Queries**.
 
-    Entra displays details of the query in the **Activity** table. Select a query to see its details:
+    Permissions Management displays details of the query in the **Activity** table. Select a query to see its details:
 
     - The **Identity Details**.
     - The **Domain** name.
@@ -86,14 +86,14 @@ This article describes how you can use the **Audit** dashboard in Entra Permissi
 
 1. In the **Audit** dashboard, select the query you want to run.
 
-    Entra displays the results of the query in the **Activity** table.
+    Permissions Management displays the results of the query in the **Activity** table.
 
 ## Delete a query
 
 1. In the **Audit** dashboard, load the query you want to delete.
 2. Select **Delete**.
 
-    Entra deletes the query. Deleted queries don't display in the **Saved Queries** list.
+    Permissions Management deletes the query. Deleted queries don't display in the **Saved Queries** list.
 
 ## Rename a query
 
@@ -101,7 +101,7 @@ This article describes how you can use the **Audit** dashboard in Entra Permissi
 2. Select the ellipses menu **(…)** on the far right, and select **Rename**.
 3. Enter a new name for the query, and then select **Save**.
 
-    Entra saves the query under the new name. Both the new query and the original query display in the **Saved Queries** list.
+    Permissions Management saves the query under the new name. Both the new query and the original query display in the **Saved Queries** list.
 
 ## Duplicate a query
 

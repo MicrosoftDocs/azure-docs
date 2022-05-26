@@ -1,6 +1,6 @@
 ---
-title: Attach and detach permissions for users, roles, and groups for Amazon Web Services (AWS) identities in the Remediation dashboard in Entra Permissions Management
-description: How to attach and detach permissions for users, roles, and groups for Amazon Web Services (AWS) identities in the Remediation dashboard in Entra Permissions Management.
+title: Attach and detach permissions for users, roles, and groups for Amazon Web Services (AWS) identities in the Remediation dashboard in Permissions Management
+description: How to attach and detach permissions for users, roles, and groups for Amazon Web Services (AWS) identities in the Remediation dashboard in Permissions Management.
 services: active-directory
 author: mtillman
 manager: karenh444
@@ -16,7 +16,7 @@ ms.author: mtillman
 
 
 > [!IMPORTANT]
-> Entra Permissions Management (Entra) is currently in PREVIEW.
+> Microsoft Entra Permissions Management is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 This article describes how you can attach and detach permissions for users, roles, and groups for Amazon Web Services (AWS) identities using the **Remediation** dashboard.
@@ -26,13 +26,13 @@ This article describes how you can attach and detach permissions for users, role
 
 ## View permissions
 
-1. On the Entra home page, select the **Remediation** tab, and then select the **Permissions** subtab.
+1. On the Permissions Management home page, select the **Remediation** tab, and then select the **Permissions** subtab.
 1. From the **Authorization System Type** dropdown, select **AWS**.
 1. From the **Authorization System** dropdown, select the accounts you want to access.
 1. From the **Search For** dropdown, select **Group**, **User**, or **Role**.
 1. To search for more parameters, you can make a selection from the **User States**, **Permission Creep Index**, and **Task Usage** dropdowns.
 1. Select **Apply**.
-    Entra displays a list of users, roles, or groups that match your criteria.
+    Permissions Management displays a list of users, roles, or groups that match your criteria.
 1. In **Enter a username**, enter or select a user.
 1. In **Enter a group name**, enter or select a group, then select **Apply**.
 1. Make a selection from the results list.
@@ -42,7 +42,7 @@ This article describes how you can attach and detach permissions for users, role
 
 ## Attach policies
 
-1. On the Entra home page, select the **Remediation** tab, and then select the **Permissions** subtab.
+1. On the Permissions Management home page, select the **Remediation** tab, and then select the **Permissions** subtab.
 1. From the **Authorization System Type** dropdown, select **AWS**.
 1. In **Enter a username**, enter or select a user.
 1. In **Enter a Group Name**, enter or select a group, then select **Apply**.
@@ -57,7 +57,7 @@ This article describes how you can attach and detach permissions for users, role
 
 ## Detach policies
 
-1. On the Entra home page, select the **Remediation** tab, and then select the **Permissions** subtab.
+1. On the Permissions Management Permissions Management home page, select the **Remediation** tab, and then select the **Permissions** subtab.
 1. From the **Authorization System Type** dropdown, select **AWS**.
 1. In **Enter a username**, enter or select a user.
 1. In **Enter a Group Name**, enter or select a group, then select **Apply**.
