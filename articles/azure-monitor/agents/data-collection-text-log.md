@@ -356,7 +356,7 @@ The [data collection rule (DCR)](../essentials/data-collection-rule-overview.md)
                                     "Microsoft-W3CIISLog"
                                 ],
                                 "logDirectories": [
-                                    "C:\\inetpub\\logs\\LogFiles\\*.log"
+                                    "C:\\inetpub\\logs\\LogFiles\\"
                                 ],
                                 "name": "myIisLogsDataSource"
                             }
