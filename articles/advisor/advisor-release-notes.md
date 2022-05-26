@@ -20,7 +20,7 @@ To learn more, visit [Get started with Azure Advisor](advisor-get-started.md).
 You can now get Advisor recommendations scoped to a business unit, workload, or team. Filter recommendations and calculate scores using tags you have already assigned to Azure resources, resource groups and subscriptions. Apply tag filters to:
 
 1.  Identify cost saving opportunities by business units
-1 Compare scores for workloads to optimize critical ones first
+1. Compare scores for workloads to optimize critical ones first
 
 To learn more, visit [How to filter Advisor recommendations using tags](advisor-tag-filtering.md).
 
