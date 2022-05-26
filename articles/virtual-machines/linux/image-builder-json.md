@@ -663,7 +663,7 @@ How to use the `validate` property to validate Linux images
              "type": "Shell",
              "name": "<name>",
              "scriptUri": "<path to script>",
-            "sha256Checksum": "<sha256 checksum>" 
+             "sha256Checksum": "<sha256 checksum>" 
            }
          ]
        },
