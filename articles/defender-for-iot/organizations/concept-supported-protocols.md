@@ -1,7 +1,7 @@
 ---
 title: Protocols supported by Microsoft Defender for IoT
 description: Learn about protocols that are supported by Microsoft Defender for IoT.
-ms.date: 03/16/2022
+ms.date: 05/26/2022
 ms.topic: article
 ---
 
@@ -45,20 +45,7 @@ Defender for IoT can detect the following protocols when identifying assets and 
 |**Toshiba**     |Toshiba Computer Link         |
 |**Yokogawa**     |   Centum ODEQ (Centum / ProSafe DCS)<br> HIS Equalize<br> Vnet/IP      |
 
-
-## Supported protocols for active monitoring
-
-Defender for IoT can detect the following protocols using active monitoring, such as ping sweeps and queries:
-
-
-|Brand / Vendor  |Protocols  |
-|---------|---------|
-|**IETF**     |  Ping Sweep <br>SNMP Network Layout Query<br>SNMP Query       |
-|**Microsoft**     |  Windows WMI Query (req. WMI/WinRM): hardware, BIOS, version, software, patches       |
-|**Rockwell Automation**     |  ENIP Query<br> ENIP Scan<br>  EtherNet/IP CIP (CIP Query)       |
-|**Siemens**     | Siemens S7        |
-
-
+[!INCLUDE [active-monitoring-protocols](includes/active-monitoring-protocols.md)]
 
 ## Don't see your protocol here? 
 

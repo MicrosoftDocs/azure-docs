@@ -2,11 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-<<<<<<< HEAD
-ms.date: 05/08/2022
-=======
 ms.date: 05/25/2022
->>>>>>> 76a9ab90377e42d034884039f6f42ad1b354caae
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -40,6 +36,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 | Version | Date released | End support date |
 |--|--|--|
+| 22.2.3 | 06/2022 | 1/2023 |
 | 22.2.1 | 05/2022 | 1/2023 |
 | 22.1.4 | 04/2022 | 12/2022 |
 | 22.1.3 | 03/2022 | 11/2022 |
@@ -49,7 +46,6 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
 
-<<<<<<< HEAD
 ## June 2022
 
 **Sensor version**: 22.2.3
@@ -76,7 +72,7 @@ For more information, see [Versioning and support for on-premises software versi
 
 ### Active discovery scans (Public preview)
 
-Starting in version 22.2.x, you can configure active discovery scans from your sensor to dive deeper into your device data or discover new devices in your network.
+Starting in version 22.2.3, you can configure active discovery scans from your sensor to dive deeper into your device data or discover new devices in your network.
 
 Active discovery scans allow for faster deployments, enriching your existing device data with more details. They also help you discover more devices across your network, including older network switches where you can't create a SPAN port or put in a network TAP device.
 
@@ -171,7 +167,6 @@ This version of the sensor provides a improved security for uploading proprietar
 
 For more information, see [Manage proprietary protocols with Horizon plugins](resources-manage-proprietary-protocols.md).
 
-=======
 ## May 2022
 
 We've recently optimized and enhanced our documentation as follows:
@@ -215,7 +210,6 @@ Check out our new structure to follow though viewing devices and assets, managin
 > To send feedback on docs via GitHub, scroll to the bottom of the page and select the **Feedback** option for **This page**. We'd be glad to hear from you!
 >
 
->>>>>>> 76a9ab90377e42d034884039f6f42ad1b354caae
 ## April 2022
 
 - [Extended device property data in the Device inventory](#extended-device-property-data-in-the-device-inventory)
