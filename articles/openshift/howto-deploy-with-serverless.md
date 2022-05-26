@@ -299,7 +299,7 @@ List routes using the command below:
 kn route describe greeter
 ```
 
-You'll get an output showing the URLs for each of the tags, along with their traffic distribution.
+You'll receive output showing the URLs for each of the tags, along with their traffic distribution.
 
 ```output
 Name:       greeter
@@ -319,19 +319,19 @@ Traffic Targets:
 [..]
 ```
 
-Let's say you want to quickly rollback to the previous version, you can update the traffic distribution to send 100% of traffic to the previous tag:
+Let's say you want to quickly rollback to the previous version, you can update traffic distribution to send 100% of traffic to the previous tag:
 
 ```azurecli-interactive
 kn service update greeter --traffic current=0 --traffic prev=100
 ```
 
-Check again by listing the routes using the command below:
+List the routes and check again, by using the following command:
 
 ```azurecli-interactive
 kn route describe greeter
 ```
 
-You'll get an output showing 100% of traffic distribution is going to the previous version.
+You'll see output showing that 100% of traffic distribution is going to the previous version.
 
 ```output
 Name:       greeter
@@ -351,11 +351,11 @@ Traffic Targets:
 [..]
 ```
 
-Play around with the traffic distribution while refreshing the main route (`http://greeter-demoserverless.apps.wzy5hg7x.eastus.aroapp.io` in this case) in your browser.
+Play around with the traffic distribution while refreshing the main route in your browser (`http://greeter-demoserverless.apps.wzy5hg7x.eastus.aroapp.io` in this case).
 
 ## Clean up resources
 
-When you're done with the application, you can run the following command to delete the project:
+When you're finished with the application, you can run the following command to delete the project:
 
 ```azurecli-interactive
 oc delete project demoserverless
