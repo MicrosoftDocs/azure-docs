@@ -33,7 +33,7 @@ azcopy jobs clean --with-status=completed
 ## Options
 
 `-h`, `--help`    help for clean
-`--with-status`    (string)    only remove the jobs with this status, available values: All, Cancelled, Failed, Completed CompletedWithErrors, CompletedWithSkipped, CompletedWithErrorsAndSkipped (default "All")
+`--with-status`    (string)    only remove the jobs with this status, available values: All, Canceled, Failed, Completed CompletedWithErrors, CompletedWithSkipped, CompletedWithErrorsAndSkipped (default "All")
 
 ## Options inherited from parent commands
 

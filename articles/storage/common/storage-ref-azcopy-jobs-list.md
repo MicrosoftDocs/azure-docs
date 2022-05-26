@@ -29,7 +29,7 @@ azcopy jobs list [flags]
 ## Options
 
 `-h`, `--help`    help for list
-`--with-status`    (string)    List the jobs with given status, available values: All, Cancelled, Failed, InProgress, Completed, CompletedWithErrors, CompletedWithFailures, CompletedWithErrorsAndSkipped (default "All")
+`--with-status`    (string)    List the jobs with given status, available values: All, Canceled, Failed, InProgress, Completed, CompletedWithErrors, CompletedWithFailures, CompletedWithErrorsAndSkipped (default "All")
 
 ## Options inherited from parent commands
 
