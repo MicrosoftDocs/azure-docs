@@ -12,7 +12,7 @@ services: azure-maps
 
 # Understanding Azure Maps Transactions
 
-When you use Azure Maps Services, the API requests you make generate transactions. Your transaction usage is available for review in your [Azure Portal]( https://ms.portal.azure.com) ‘Metrics’ report. These transactions can be either billable or non-billable usage, depending on the service and the feature. It’s important to understand which usage generates a billable transaction and how it’s calculated so you can plan and budget for the costs associated with using Azure Maps. Billable transactions will show up in your Cost Analysis report within the Azure Portal.
+When you use Azure Maps Services, the API requests you make generate transactions. Your transaction usage is available for review in your [Azure Portal]( https://portal.azure.com) ‘Metrics’ report. For additional information see [View Azure Maps API usage metrics](how-to-view-api-usag). These transactions can be either billable or non-billable usage, depending on the service and the feature. It’s important to understand which usage generates a billable transaction and how it’s calculated so you can plan and budget for the costs associated with using Azure Maps. Billable transactions will show up in your Cost Analysis report within the Azure Portal.
 
 Below is a summary of which Azure Maps services generate transactions, billable and non-billable, along with any notable aspects that are helpful to understand in how the number of transactions are calculated.
 
