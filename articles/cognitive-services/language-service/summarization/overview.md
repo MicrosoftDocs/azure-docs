@@ -1,5 +1,5 @@
 ---
-title: What is document summarization in Azure Cognitive Service for Language (preview)?
+title: What is document and conversation summarization (preview)?
 titleSuffix: Azure Cognitive Services
 description: Learn about summarizing text.
 services: cognitive-services
@@ -91,11 +91,11 @@ Conversation summarization feature would simplify the text into the following:
 
 ---
 
-## Get started with text summarization
+## Get started with summarization
 
 # [Document summarization](#tab/document-summarization)
 
-To use this feature, you submit raw unstructured text for analysis and handle the API output in your application. Analysis is performed as-is, with no additional customization to the model used on your data. There are two ways to use text summarization:
+To use this feature, you submit raw unstructured text for analysis and handle the API output in your application. Analysis is performed as-is, with no additional customization to the model used on your data. There are two ways to use summarization:
 
 
 |Development option  |Description  | Links | 
@@ -119,8 +119,8 @@ To use this feature, you submit raw text for analysis and handle the API output 
 
 # [Document summarization](#tab/document-summarization)
 
-* Text summarization takes raw unstructured text for analysis. See [Data and service limits](../concepts/data-limits.md) in the how-to guide for more information.
-* Text summarization works with a variety of written languages. See [language support](language-support.md) for more information.
+* Summarization takes raw unstructured text for analysis. See [Data and service limits](../concepts/data-limits.md) in the how-to guide for more information.
+* Summarization works with a variety of written languages. See [language support](language-support.md) for more information.
 
 
 # [Conversation summarization](#tab/conversation-summarization)

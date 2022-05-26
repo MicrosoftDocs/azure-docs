@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual 
-ms.date: 05/06/2022
+ms.date: 05/24/2022
 ms.author: aahi
 ms.custom: language-service-custom-ner, ignite-fall-2021, event-tier1-build-2022
 ---
@@ -133,5 +133,5 @@ Similarly,
 
 ## Next steps
 
-* [View a model's evaluation in Language Studio](../how-to/view-model-evaluation.md)
+* [View a model's performance in Language Studio](../how-to/view-model-evaluation.md)
 * [Train a model](../how-to/train-model.md)

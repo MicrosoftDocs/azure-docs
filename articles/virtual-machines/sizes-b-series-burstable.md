@@ -2,7 +2,7 @@
 title: B-series burstable - Azure Virtual Machines
 description: Describes the B-series of burstable Azure VM sizes.
 services: virtual-machines
-ms.subservice: vm-sizes-general
+ms.subservice: sizes
 author: rishabv90
 ms.service: virtual-machines
 ms.topic: conceptual

@@ -40,7 +40,7 @@ All of the Management REST APIs have examples. If a task isn't covered in this a
 
 * Azure Active Directory (Azure AD) to obtain a bearer token for request authentication
 
-## Create a security principle
+## Create a security principal
 
 Management REST API calls are authenticated through Azure Active Directory (Azure AD). You'll need a security principal for your client, along with permissions to create and configure a resource. This section explains how to create a security principal and assign a role. 
 
