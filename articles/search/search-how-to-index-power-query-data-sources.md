@@ -168,7 +168,7 @@ You can repurpose the index you're currently using for the Snowflake Power Conne
    - [Generate a SAS URL](../cognitive-services/Translator/document-translation/create-sas-tokens.md) for the storage account you'll be using for staging. Paste the Blob SAS URL into the SAS URL field.
    - Select **Create**.
 
-    :::image type="content" source="media/search-power-query-connectors/sas-url-storage-linked-service-snowflake.png" alt-text="Screenshot showing how to fill out New Linked Search Service form in Azure Data Factory with its properties to import from SnowFlake.":::
+     :::image type="content" source="media/search-power-query-connectors/sas-url-storage-linked-service-snowflake.png" alt-text="Screenshot showing how to fill out New Linked Search Service form in Azure Data Factory with its properties to import from SnowFlake.":::
 
 ### Step 8: Configure Storage dataset
 
@@ -420,7 +420,7 @@ You can repurpose the index you're currently using for the PostgreSQL Power Conn
    - [Generate a SAS URL](../cognitive-services/Translator/document-translation/create-sas-tokens.md) for the storage account you will be using for staging and copy the Blob SAS URL to SAS URL field.
    - Select **Create**.
 
-   :::image type="content" source="media/search-power-query-connectors/sas-url-storage-linked-service-postgresql.png" alt-text="Screenshot showing how to fill out New Linked Search Service form in Azure Data Factory with its properties to import from PostgreSQL.":::
+     :::image type="content" source="media/search-power-query-connectors/sas-url-storage-linked-service-postgresql.png" alt-text="Screenshot showing how to fill out New Linked Search Service form in Azure Data Factory with its properties to import from PostgreSQL.":::
 
 ### Step 7: Configure Storage dataset
 
