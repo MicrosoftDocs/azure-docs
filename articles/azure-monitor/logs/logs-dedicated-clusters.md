@@ -39,10 +39,10 @@ Log Analytics Dedicated Clusters use a commitment tier pricing model of at least
 
 Provide the following properties when creating new dedicated cluster:
 
-- **ClusterName**--must be unique per resource group
-- **ResourceGroupName**--use central IT resource group since clusters are usually shared by many teams in the organization. For more design considerations, review [Designing your Azure Monitor Logs deployment](../logs/design-logs-deployment.md).
+- **ClusterName**: Must be unique for the resource group.
+- **ResourceGroupName**: You should use a central IT resource group because clusters are usually shared by many teams in the organization. For more design considerations, review Design a Log Analytics workspace configuration(../logs/workspace-design.md).
 - **Location**
-- **SkuCapacity**--the Commitment Tier (formerly called capacity reservations) can be set to 500, 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Dedicate clusters](./cost-logs.md#dedicated-clusters). 
+- **SkuCapacity**: The Commitment Tier (formerly called capacity reservations) can be set to 500, 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Dedicate clusters](./cost-logs.md#dedicated-clusters). 
 
 The user account that creates the clusters must have the standard Azure resource creation permission: `Microsoft.Resources/deployments/*` and cluster write permission `Microsoft.OperationalInsights/clusters/write` by having in their role assignments this specific action or `Microsoft.OperationalInsights/*` or `*/write`.
 
@@ -654,4 +654,4 @@ Authorization: Bearer <token>
 ## Next steps
 
 - Learn about [Log Analytics dedicated cluster billing](cost-logs.md#dedicated-clusters)
-- Learn about [proper design of Log Analytics workspaces](../logs/design-logs-deployment.md)
+- Learn about [proper design of Log Analytics workspaces](../logs/workspace-design.md)

@@ -27,7 +27,7 @@ When you're uploading videos by using the API, you have the following options:
 
 ## Supported file formats
 
-For a list of file formats that you can use with Azure Video Indexer, see [Standard Encoder formats and codecs](/azure/azure/media-services/latest/encode-media-encoder-standard-formats-reference).
+For a list of file formats that you can use with Azure Video Indexer, see [Standard Encoder formats and codecs](/azure/media-services/latest/encode-media-encoder-standard-formats-reference).
 
 ## Storage of video files
 
