@@ -14,7 +14,7 @@ ms.topic: how-to
 
 In this article, you'll learn how to download the test results from Azure Load Testing Preview in the Azure portal. You might use these results for reporting in third-party tools.
 
-The test results contain comma-separated values (CSV) file(s) with details of each application request. See [Apache JMeter CSV log format](https://jmeter.apache.org/usermanual/listeners.html#csvlogformat) and the [Apache JMeter Glossary](https://jmeter.apache.org/usermanual/glossary.html) for details about the different fields.
+The test results contains comma-separated values (CSV) file(s) with details of each application request. See [Apache JMeter CSV log format](https://jmeter.apache.org/usermanual/listeners.html#csvlogformat) and the [Apache JMeter Glossary](https://jmeter.apache.org/usermanual/glossary.html) for details about the different fields.
 
 You can also use the test results to diagnose errors during a load test. The `responseCode` and `responseMessage` fields give you more information about failed requests. For more information about investigating errors, see [Troubleshoot test execution errors](./how-to-find-download-logs.md).
 
