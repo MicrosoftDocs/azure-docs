@@ -26,7 +26,7 @@ ms.collection: M365-identity-device-management
 
 Once you have established the policies for who should have access to your application, then you can [connect your application to Azure AD](../manage-apps/what-is-application-management.md) and then deploy the policies for governing access to them.
 
-Azure AD identity governance can be integrated with many applications, using [standards](../fundamentals/auth-sync-overview.md) such as OpenID Connect, SAML, SCIM, SQL and LDAP.  Through these standards, Azure AD can be used with many popular SaaS applications, as well as on-premises applications, and applications which your organization has developed.  This deployment plan covers how to connect your application to Azure AD and enable identity governance features to be used for that application.
+Azure AD identity governance can be integrated with many applications, using [standards](../fundamentals/auth-sync-overview.md) such as OpenID Connect, SAML, SCIM, SQL and LDAP.  Through these standards, Azure AD can be used with many popular SaaS applications and on-premises applications, including applications which your organization has developed.  This deployment plan covers how to connect your application to Azure AD and enable identity governance features to be used for that application.
 
 In order for Azure AD identity governance to be used for an application, then the application must first be integrated with Azure AD. An application being integrated with Azure AD means one of two requirements must be met:
 
@@ -39,7 +39,7 @@ If neither of those criteria are met for an application, as the application does
 
 Typically this process of integrating an application begins with configuring that application to rely upon Azure AD for user authentication, with a federated single sign-on (SSO) protocol connection, and then adds provisioning.  The most commonly used protocols for SSO are [SAML and OpenID Connect](../develop/active-directory-v2-protocols.md).  You can read more about the tools and process to [discover and migrate application authentication to Azure AD](../manage-apps/migrate-application-authentication-to-azure-active-directory.md).
 
-If the application permits provisioning, to automatically add, remove or update users, then you should also configure provisioning, so that Azure AD can signal to the application when a user has been granted access or access has been removed.  These provisioning signals permit the application to make automatic corrections, such as to reassign content created by an employee who has left to their manager.
+Next, if the application implements a provisioning protocol, then you should configure Azure AD to provision users to the application, so that Azure AD can signal to the application when a user has been granted access or a user's access has been removed.  These provisioning signals permit the application to make automatic corrections, such as to reassign content created by an employee who has left to their manager.
 
 1. Check if your application is on the [list of enterprise applications](../manage-apps/view-applications-portal.md) or [list of app registrations](../develop/app-objects-and-service-principals.md). If the application is already present in your tenant, then skip to step 5 in this section.
 1. If your application is a SaaS application that isn't already registered in your tenant, then check if the application is available the [application gallery](../manage-apps/overview-application-gallery.md) for applications that can be integrated for federated SSO. If it is in the gallery, then use the tutorials to integrate the application with Azure AD.
@@ -83,9 +83,9 @@ If the application permits provisioning, to automatically add, remove or update 
      | local user accounts, stored in a SQL database |  configure an application with the  [provisioning agent for on-premises SQL-based applications](../app-provisioning/on-premises-sql-connector-configure.md)|
      | local user accounts, stored in an LDAP directory | configure an application with the [provisioning agent for on-premises LDAP-based applications](../app-provisioning/on-premises-ldap-connector-configure.md) |
 
-1. If your application uses Microsoft Graph to query groups from Azure AD, then consent to the applications to have the appropriate permissions to read from your tenant.
+1. If your application uses Microsoft Graph to query groups from Azure AD, then [consent](../develop/consent-framework.md) to the applications to have the appropriate permissions to read from your tenant.
 
-1. Set that access to the application is only permitted for users assigned to the application.  This will prevent users from seeing and attempting to log into the application prior to Conditional Access policies being enabled.
+1. Set that access to the application is only permitted for users assigned to the application.  This will prevent users from inadvertently seeing the application in MyApps, and attempting to sign into the application, prior to Conditional Access policies being enabled.
 
 ## Perform an initial access review
 
