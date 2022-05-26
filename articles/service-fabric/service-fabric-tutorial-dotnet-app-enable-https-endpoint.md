@@ -265,6 +265,14 @@ if ($cert -eq $null)
     $keyName=$cert.PrivateKey.CspKeyContainerInfo.UniqueKeyContainerName
 
     $keyPath = "C:\ProgramData\Microsoft\Crypto\RSA\MachineKeys\"
+    
+    if ($keyName -eq $null){
+      $privateKey =
+      [System.Security.Cryptography.X509Certificates.RSACertificateExtensions]::GetRSAPrivateKey($cert)
+      $keyName = $privateKey.Key.UniqueName
+      $keyPath = "C:\ProgramData\Microsoft\Crypto\Keys"
+      }
+
     $fullPath=$keyPath+$keyName
     $acl=(Get-Item $fullPath).GetAccessControl('Access')
 
