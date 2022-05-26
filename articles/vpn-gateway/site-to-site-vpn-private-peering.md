@@ -22,7 +22,7 @@ You can configure a Site-to-Site VPN to a virtual network gateway over an Expres
 * It is possible to deploy Site-to-Site VPN connections over ExpressRoute private peering at the same time as Site-to-Site VPN connections via the Internet on the same VPN gateway.
 
 >[!NOTE]
->This feature is supported on gateways with a standard public IP only.
+>This feature is supported on gateways with a Standard Public IP only.
 >
 
 To complete this configuration, verify that you meet the following prerequisites:
@@ -71,7 +71,7 @@ In both of these examples, Azure will send traffic to 10.0.1.0/24 over the VPN c
 
 ## <a name="portal"></a>Portal steps
 
-1. Configure a Site-to-Site connection. For steps, see the [Site-to-site configuration](./tutorial-site-to-site-portal.md) article. Be sure to pick a gateway with a STandard Public IP. 
+1. Configure a Site-to-Site connection. For steps, see the [Site-to-site configuration](./tutorial-site-to-site-portal.md) article. Be sure to pick a gateway with a Standard Public IP. 
 
    :::image type="content" source="media/site-to-site-vpn-private-peering/gateway.png" alt-text="Gateway Private IPs":::
 1. Enable Private IPs on the gateway. Select **Configuration**, then set **Gateway Private IPs** to **Enabled**. Select **Save** to save your changes.
