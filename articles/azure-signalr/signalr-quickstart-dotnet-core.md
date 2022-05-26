@@ -22,6 +22,14 @@ The code for this tutorial is available for download in the [AzureSignalR-sample
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note-dotnet.md)]
 
+Ready to start?
+
+> [!div class="nextstepaction"]
+> [Step by step build](#prerequisites)
+
+> [!div class="nextstepaction"]
+> [Play with chat demo](https://asrs-simplechat-live-demo.azurewebsites.net/)
+
 ## Prerequisites
 
 * Install the [.NET Core SDK](https://dotnet.microsoft.com/download).
