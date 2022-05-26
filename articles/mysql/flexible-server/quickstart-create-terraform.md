@@ -7,7 +7,7 @@ ms.subservice: flexible-server
 ms.topic: quickstart
 ms.custom: devx-track-terraform
 ms.author: tarcher
-ms.date: 5/24/2022
+ms.date: 5/26/2022
 ---
 
 # Quickstart: Use Terraform to create an Azure Database for MySQL - Flexible Server
@@ -19,7 +19,7 @@ Article tested with the following Terraform and Terraform provider versions:
 - [Terraform v1.2.1](https://releases.hashicorp.com/terraform/)
 - [AzureRM Provider v.2.99.0](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs)
 
-[Learn more about using Terraform in Azure](/azure/developer/terraform)
+[!INCLUDE [terraform-intro.md](includes/terraform-intro.md)]
 
 [!INCLUDE [About Azure Database for MySQL - Flexible Server](../includes/azure-database-for-mysql-flexible-server-abstract.md)]
 
@@ -32,8 +32,8 @@ In this article, you learn how to deploy an Azure MySQL Flexible Server Database
 > * Create an Azure subnet using [azurerm_subnet](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet)
 > * Define a private DNS zone within an Azure DNS using [azurerm_private_dns_zone](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_zone)
 > * Define a private DNS zone VNet link using using [azurerm_private_dns_zone_virtual_network_link](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_zone_virtual_network_link)
-> * Deploy an Azure PostgreSQL Flexible Server on which the database runs using [azurerm_mysql_flexible_server](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/postgresql_flexible_server)
-> * Instantiate an Azure PostgreSQL database using using [azurerm_mysql_flexible_database](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mysql_flexible_database)
+> * Deploy Flexible Server using [azurerm_mysql_flexible_server](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mysql_flexible_server)
+> * Deploy a database using [azurerm_mysql_flexible_database](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mysql_flexible_database)
 
 > [!NOTE]
 > The example code in this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/201-mysql-fs-db).
