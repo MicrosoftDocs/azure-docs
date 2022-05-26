@@ -75,7 +75,6 @@ When editing a collection using the My Apps portal, users can now add their own 
 **Type:** New feature  
 **Service category:** App Provisioning  
 **Product capability:** 3rd Party Integration  
-**Clouds impacted:** 
  
 
 You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
