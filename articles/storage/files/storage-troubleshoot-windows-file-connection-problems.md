@@ -4,7 +4,7 @@ description: Troubleshooting Azure Files problems in Windows. See common issues 
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 05/25/2022
+ms.date: 05/26/2022
 ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
@@ -117,7 +117,7 @@ TcpTestSucceeded : True
 Azure File Sync can be used as a workaround to access Azure Files from clients that have port 445 blocked. Although Azure Files doesn't directly support SMB over QUIC, Windows Server 2022 Azure Edition does support the QUIC protocol. You can create a lightweight cache of your Azure file shares on a Windows Server 2022 Azure Edition VM using Azure File Sync. This uses port 443, which is widely open outbound to support HTTPS, instead of port 445. To learn more about this option, see [SMB over QUIC with Azure File Sync](storage-files-networking-overview.md#smb-over-quic).
 
 #### Solution 2 — Use VPN or ExpressRoute
-By setting up a VPN or ExpressRoute to your specific Storage Account, the traffic will go through a secure tunnel as opposed to over the internet. Follow the [instructions to setup VPN](storage-files-configure-p2s-vpn-windows.md) to access Azure Files from Windows.
+By setting up a VPN or ExpressRoute from on-premises to your Azure storage account, with Azure Files exposed on your internal network using private endpoints, the traffic will go through a secure tunnel as opposed to over the internet. Follow the [instructions to setup VPN](storage-files-configure-p2s-vpn-windows.md) to access Azure Files from Windows.
 
 #### Solution 3 — Unblock port 445 with help of your ISP/IT Admin
 Work with your IT department or ISP to open port 445 outbound to [Azure IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
