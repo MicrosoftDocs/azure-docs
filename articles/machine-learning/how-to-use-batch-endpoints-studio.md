@@ -118,7 +118,7 @@ To change where the results are stored, providing a blob store and output path w
 
 ### Summary of all submitted jobs
 
-To see a summary of all the submitted jobs for an endpoint, select the endpoint and then select the **Runs** tab.
+To see a summary of all the submitted jobs for an endpoint, select the endpoint and then select the **Jobs** tab.
 
 :::image type="content" source="media/how-to-use-batch-endpoints-studio/summary-jobs.png" alt-text="Screenshot of summary of jobs submitted to a batch endpoint":::
 ## Check batch scoring results

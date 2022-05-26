@@ -257,7 +257,7 @@ Follow the below steps to view the scoring results in Azure Storage Explorer whe
 
     :::code language="azurecli" source="~/azureml-examples-main/cli/batch-score.sh" ID="show_job_in_studio" :::
 
-1. In the graph of the run, select the `batchscoring` step.
+1. In the graph of the job, select the `batchscoring` step.
 1. Select the __Outputs + logs__ tab and then select **Show data outputs**.
 1. From __Data outputs__, select the icon to open __Storage Explorer__.
 

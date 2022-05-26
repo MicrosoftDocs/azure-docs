@@ -13,6 +13,8 @@ ms.topic: how-to
 ms.custom: devx-track-python, automl, sdkv1, event-tier1-build-2022
 ---
 
+[//]: # (needs PM review; is stepjob correct?; jobconfiguration?)
+
 # Use automated ML in an Azure Machine Learning pipeline in Python
 
 [!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
@@ -33,11 +35,11 @@ Automated ML in a pipeline is represented by an `AutoMLStep` object. The `AutoML
 
 There are several subclasses of `PipelineStep`. In addition to the `AutoMLStep`, this article will show a `PythonScriptStep` for data preparation and another for registering the model.
 
-The preferred way to initially move data _into_ an ML pipeline is with `Dataset` objects. To move data _between_ steps and possible save data output from runs, the preferred way is with [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig) and [`OutputTabularDatasetConfig`](/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig) objects. To be used with `AutoMLStep`, the `PipelineData` object must be transformed into a `PipelineOutputTabularDataset` object. For more information, see [Input and output data from ML pipelines](how-to-move-data-in-out-of-pipelines.md).
+The preferred way to initially move data _into_ an ML pipeline is with `Dataset` objects. To move data _between_ steps and possible save data output from jobs, the preferred way is with [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig) and [`OutputTabularDatasetConfig`](/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig) objects. To be used with `AutoMLStep`, the `PipelineData` object must be transformed into a `PipelineOutputTabularDataset` object. For more information, see [Input and output data from ML pipelines](how-to-move-data-in-out-of-pipelines.md).
 
 The `AutoMLStep` is configured via an `AutoMLConfig` object. `AutoMLConfig` is a flexible class, as discussed in [Configure automated ML experiments in Python](./how-to-configure-auto-train.md#configure-your-experiment-settings). 
 
-A `Pipeline` runs in an `Experiment`. The pipeline `Run` has, for each step, a child `StepRun`. The outputs of the automated ML `StepRun` are the training metrics and highest-performing model.
+A `Pipeline` runs in an `Experiment`. The pipeline `Job` has, for each step, a child `StepJob`. The outputs of the automated ML `StepJob` are the training metrics and highest-performing model.
 
 To make things concrete, this article creates a simple pipeline for a classification task. The task is predicting Titanic survival, but we won't be discussing the data or task except in passing.
 
@@ -102,9 +104,9 @@ After that, the code checks if the AML compute target `'cpu-cluster'` already ex
 
 The code blocks until the target is provisioned and then prints some details of the just-created compute target. Finally, the named compute target is retrieved from the workspace and assigned to `compute_target`. 
 
-### Configure the training run
+### Configure the training job
 
-The runtime context is set by creating and configuring a `RunConfiguration` object. Here we set the compute target.
+The runtime context is set by creating and configuring a `JobConfiguration` object. Here we set the compute target.
 
 ```python
 from azureml.core.runconfig import RunConfiguration
@@ -249,7 +251,7 @@ Comparing the two techniques:
 |-|-|
 |`OutputTabularDatasetConfig`| Higher performance | 
 || Natural route from `OutputFileDatasetConfig` | 
-|| Data isn't persisted after pipeline run |
+|| Data isn't persisted after pipeline job |
 ||  |
 | Registered `Dataset` | Lower performance |
 | | Can be generated in many ways | 
@@ -311,7 +313,7 @@ train_step = AutoMLStep(name='AutoML_Classification',
     enable_default_metrics_output=False,
     allow_reuse=True)
 ```
-The snippet shows an idiom commonly used with `AutoMLConfig`. Arguments that are more fluid (hyperparameter-ish) are specified in a separate dictionary while the values less likely to change are specified directly in the `AutoMLConfig` constructor. In this case, the `automl_settings` specify a brief run: the run will stop after only 2 iterations or 15 minutes, whichever comes first.
+The snippet shows an idiom commonly used with `AutoMLConfig`. Arguments that are more fluid (hyperparameter-ish) are specified in a separate dictionary while the values less likely to change are specified directly in the `AutoMLConfig` constructor. In this case, the `automl_settings` specify a brief job: the job will stop after only 2 iterations or 15 minutes, whichever comes first.
 
 The `automl_settings` dictionary is passed to the `AutoMLConfig` constructor as kwargs. The other parameters aren't complex:
 
@@ -400,7 +402,7 @@ run = experiment.submit(pipeline, show_output=True)
 run.wait_for_completion()
 ```
 
-The code above combines the data preparation, automated ML, and model-registering steps into a `Pipeline` object. It then creates an `Experiment` object. The `Experiment` constructor will retrieve the named experiment if it exists or create it if necessary. It submits the `Pipeline` to the `Experiment`, creating a `Run` object that will asynchronously run the pipeline. The `wait_for_completion()` function blocks until the run completes.
+The code above combines the data preparation, automated ML, and model-registering steps into a `Pipeline` object. It then creates an `Experiment` object. The `Experiment` constructor will retrieve the named experiment if it exists or create it if necessary. It submits the `Pipeline` to the `Experiment`, creating a `Run` object that will asynchronously run the pipeline. The `wait_for_completion()` function blocks until the job completes.
 
 ### Examine pipeline results 
 
@@ -454,11 +456,11 @@ with open(model_filename, "rb" ) as f:
 
 For more information on loading and working with existing models, see [Use an existing model with Azure Machine Learning](how-to-deploy-and-where.md).
 
-### Download the results of an automated ML run
+### Download the results of an automated ML job
 
-If you've been following along with the article, you'll have an instantiated `run` object. But you can also retrieve completed `Run` objects from the `Workspace` by way of an `Experiment` object.
+If you've been following along with the article, you'll have an instantiated `job` object. But you can also retrieve completed `Job` objects from the `Workspace` by way of an `Experiment` object.
 
-The workspace contains a complete record of all your experiments and runs. You can either use the portal to find and download the outputs of experiments or use code. To access the records from a historic run, use Azure Machine Learning to find the ID of the run in which you are interested. With that ID, you can choose the specific `run` by way of the `Workspace` and `Experiment`.
+The workspace contains a complete record of all your experiments and jobs. You can either use the portal to find and download the outputs of experiments or use code. To access the records from a historic job, use Azure Machine Learning to find the ID of the job in which you are interested. With that ID, you can choose the specific `job` by way of the `Workspace` and `Experiment`.
 
 ```python
 # Retrieved from Azure Machine Learning web UI
@@ -467,9 +469,9 @@ experiment = ws.experiments['titanic_automl']
 run = next(run for run in ex.get_runs() if run.id == run_id)
 ```
 
-You would have to change the strings in the above code to the specifics of your historical run. The snippet above assumes that you've assigned `ws` to the relevant `Workspace` with the normal `from_config()`. The experiment of interest is directly retrieved and then the code finds the `Run` of interest by matching the `run.id` value.
+You would have to change the strings in the above code to the specifics of your historical job. The snippet above assumes that you've assigned `ws` to the relevant `Workspace` with the normal `from_config()`. The experiment of interest is directly retrieved and then the code finds the `Job` of interest by matching the `run.id` value.
 
-Once you have a `Run` object, you can download the metrics and model. 
+Once you have a `Job` object, you can download the metrics and model. 
 
 ```python
 automl_run = next(r for r in run.get_children() if r.name == 'AutoML_Classification')
@@ -481,7 +483,7 @@ metrics.get_port_data_reference().download('.')
 model.get_port_data_reference().download('.')
 ```
 
-Each `Run` object contains `StepRun` objects that contain information about the individual pipeline step run. The `run` is searched for the `StepRun` object for the `AutoMLStep`. The metrics and model are retrieved using their default names, which are available even if you don't pass `PipelineData` objects to the `outputs` parameter of the `AutoMLStep`. 
+Each `Job` object contains `StepRun` objects that contain information about the individual pipeline step job. The `job` is searched for the `StepRun` object for the `AutoMLStep`. The metrics and model are retrieved using their default names, which are available even if you don't pass `PipelineData` objects to the `outputs` parameter of the `AutoMLStep`. 
 
 Finally, the actual metrics and model are downloaded to your local machine, as was discussed in the "Examine pipeline results" section above.
 

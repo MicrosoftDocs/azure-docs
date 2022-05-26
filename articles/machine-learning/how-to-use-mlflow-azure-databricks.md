@@ -19,14 +19,14 @@ ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
 
 In this article, learn how to enable MLflow's tracking URI and logging API, collectively known as [MLflow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api), to connect your Azure Databricks (ADB) experiments, MLflow, and Azure Machine Learning.
 
-[MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. MLFlow Tracking is a component of MLflow that logs and tracks your training run metrics and model artifacts. Learn more about [Azure Databricks and MLflow](/azure/databricks/applications/mlflow/). 
+[MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. MLFlow Tracking is a component of MLflow that logs and tracks your training job metrics and model artifacts. Learn more about [Azure Databricks and MLflow](/azure/databricks/applications/mlflow/). 
 
 See [MLflow and Azure Machine Learning](concept-mlflow.md) for additional MLflow and Azure Machine Learning functionality integrations.
 
 If you have an MLflow Project to train with Azure Machine Learning, see [Train ML models with MLflow Projects and Azure Machine Learning (preview)](how-to-train-mlflow-projects.md).
 
 > [!TIP]
-> The information in this document is primarily for data scientists and developers who want to monitor the model training process. If you are an administrator interested in monitoring resource usage and events from Azure Machine Learning, such as quotas, completed training runs, or completed model deployments, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
+> The information in this document is primarily for data scientists and developers who want to monitor the model training process. If you are an administrator interested in monitoring resource usage and events from Azure Machine Learning, such as quotas, completed training jobs, or completed model deployments, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ If you have an MLflow Project to train with Azure Machine Learning, see [Train M
 * [Create an Azure Machine Learning Workspace](how-to-manage-workspace.md).
     * See which [access permissions you need to perform your MLflow operations with your workspace](how-to-assign-roles.md#mlflow-operations).
 
-## Track Azure Databricks runs
+## Track Azure Databricks jobs
 
 MLflow Tracking with Azure Machine Learning lets you store the logged metrics and artifacts from your Azure Databricks runs into both your: 
 
@@ -144,7 +144,7 @@ uri = ws.get_mlflow_tracking_uri()
 mlflow.set_tracking_uri(uri)
 ```
 
-In your training script, import `mlflow` to use the MLflow logging APIs, and start logging your run metrics. The following example, logs the epoch loss metric. 
+In your training script, import `mlflow` to use the MLflow logging APIs, and start logging your job metrics. The following example, logs the epoch loss metric. 
 
 ```python
 import mlflow 
@@ -236,5 +236,5 @@ The [MLflow with Azure Machine Learning notebooks](https://github.com/Azure/Mach
 ## Next steps
 * [Deploy MLflow models as an Azure web service](how-to-deploy-mlflow-models.md). 
 * [Manage your models](concept-model-management-and-deployment.md).
-* [Track experiment runs with MLflow and Azure Machine Learning](how-to-use-mlflow.md). 
+* [Track experiment jobs with MLflow and Azure Machine Learning](how-to-use-mlflow.md). 
 * Learn more about [Azure Databricks and MLflow](/azure/databricks/applications/mlflow/).
