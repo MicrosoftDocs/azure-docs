@@ -34,7 +34,7 @@
     href: single-server/concept-reserved-pricing.md
   - name: Known issues & limitations
     href: single-server/concepts-known-issues-limitations.md
-    displayName: issues, limitations, postgresql 
+    displayName: issues, limitations, postgresql
 - name: Single Server
   expanded: true
   items:
@@ -405,7 +405,7 @@
         href: single-server/how-to-migrate-using-dump-and-restore.md
       - name: Upgrade/Migrate data with pg_dump and psql
         href: single-server/how-to-migrate-using-export-and-import.md
-- name: Flexible Server 
+- name: Flexible Server
   expanded: true
   items:
   - name: Flexible Server documentation
@@ -413,11 +413,11 @@
   - name: Overview
     href: flexible-server/overview.md
   - name: Release notes
-    href: flexible-server/release-notes.md   
+    href: flexible-server/release-notes.md
   - name: Compare Single Server and Flexible Server
     href: flexible-server/concepts-compare-single-server-flexible-server.md
   - name: Try Flexible Server for free
-    href: flexible-server/how-to-deploy-on-azure-free-account.md   
+    href: flexible-server/how-to-deploy-on-azure-free-account.md
   - name: Quickstarts
     expanded: true
     items:
@@ -427,12 +427,15 @@
         href: flexible-server/quickstart-create-server-portal.md
       - name: Azure CLI
         href: flexible-server/quickstart-create-server-cli.md
+      - name: Bicep
+        displayName: Resource Manager, ARM
+        href: flexible-server/quickstart-create-server-bicep.md
       - name: ARM template
         displayName: Resource Manager
         href: flexible-server/quickstart-create-server-arm-template.md
     - name: Connect and query
       items:
-        - name: Connect to a server in VNET 
+        - name: Connect to a server in VNET
           href: flexible-server/quickstart-create-connect-server-vnet.md
         - name: Azure CLI
           href: flexible-server/connect-azure-cli.md
@@ -478,9 +481,9 @@
     - name: Scheduled maintenance
       href: flexible-server/concepts-maintenance.md
     - name: Connection pooling (PgBouncer)
-      href: flexible-server/concepts-pgbouncer.md   
+      href: flexible-server/concepts-pgbouncer.md
     - name: Server parameters
-      href: flexible-server/concepts-server-parameters.md      
+      href: flexible-server/concepts-server-parameters.md
     - name: Business continuity
       items:
       - name: Business continuity overview
@@ -516,9 +519,9 @@
     - name: Azure Advisor recommendations
       href: flexible-server/concepts-azure-advisor-recommendations.md
   - name: Troubleshooting
-    items:  
+    items:
     - name: Troubleshoot CLI errors
-      href: flexible-server/how-to-troubleshoot-cli-errors.md    
+      href: flexible-server/how-to-troubleshoot-cli-errors.md
   - name: How-to guides
     items:
     - name: Manage a server
@@ -558,7 +561,7 @@
       - name: Connect using TLS/SSL
         href: flexible-server/how-to-connect-tls-ssl.md
       - name: Connect using SCRAM
-        href: flexible-server/how-to-connect-scram.md          
+        href: flexible-server/how-to-connect-scram.md
     - name: Configure server parameters
       items:
       - name: Azure portal
@@ -576,7 +579,7 @@
       - name: Azure portal
         href: flexible-server/how-to-restart-server-portal.md
       - name: Azure CLI
-        href: flexible-server/how-to-restart-server-cli.md        
+        href: flexible-server/how-to-restart-server-cli.md
     - name: Restore a server
       items:
       - name: Azure portal
@@ -594,7 +597,7 @@
       - name: Azure portal
         href: flexible-server/how-to-manage-high-availability-portal.md
       - name: Azure CLI
-        href: flexible-server/how-to-configure-high-availability-cli.md        
+        href: flexible-server/how-to-configure-high-availability-cli.md
     - name: Monitor
       items:
       - name: Create alerts on metrics using portal
@@ -794,7 +797,7 @@
   items:
   - name: Azure CLI samples
     items:
-      - name: Samples overview 
+      - name: Samples overview
         href: sample-scripts-azure-cli.md
       - name: Create a server and firewall rule
         href: ./scripts/sample-create-server-and-firewall-rule.md

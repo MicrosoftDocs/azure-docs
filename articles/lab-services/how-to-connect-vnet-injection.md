@@ -26,9 +26,9 @@ You can connect to your own virtual network to your lab plan when you create the
 
 Before you configure VNet injection for your lab plan:
 
-- [Create a virtual network](/azure/virtual-network/quick-create-portal).  The virtual network must be in the same region as the lab plan.
-- [Create a subnet](/azure/virtual-network/virtual-network-manage-subnet) for the virtual network.
-- [Create a network security group (NSG)](/azure/virtual-network/manage-network-security-group) and apply it to the subnet.
+- [Create a virtual network](../virtual-network/quick-create-portal.md).  The virtual network must be in the same region as the lab plan.
+- [Create a subnet](../virtual-network/virtual-network-manage-subnet.md) for the virtual network.
+- [Create a network security group (NSG)](../virtual-network/manage-network-security-group.md) and apply it to the subnet.
 - [Delegate the subnet](#delegate-the-virtual-network-subnet-for-use-with-a-lab-plan) to **Microsoft.LabServices/labplans**.
 
 Certain on-premises networks are connected to Azure Virtual Network either through [ExpressRoute](../expressroute/expressroute-introduction.md) or [Virtual Network Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). These services must be set up outside of Azure Lab Services. To learn more about connecting an on-premises network to Azure using ExpressRoute, see [ExpressRoute overview](../expressroute/expressroute-introduction.md). For on-premises connectivity using a Virtual Network Gateway, the gateway, specified virtual network, network security group, and the lab plan all must be in the same region.
@@ -38,11 +38,11 @@ Certain on-premises networks are connected to Azure Virtual Network either throu
 
 ## Delegate the virtual network subnet for use with a lab plan
 
-After you create a subnet for your virtual network, you must [delegate the subnet](/azure/virtual-network/subnet-delegation-overview) for use with Azure Lab Services.
+After you create a subnet for your virtual network, you must [delegate the subnet](../virtual-network/subnet-delegation-overview.md) for use with Azure Lab Services.
 
 Only one lab plan at a time can be delegated for use with one subnet.
 
-1. Create a [virtual network](/azure/virtual-network/manage-virtual-network), [subnet](/azure/virtual-network/virtual-network-manage-subnet), and [network security group (NSG)](/azure/virtual-network/manage-network-security-group) if not done already.
+1. Create a [virtual network](../virtual-network/manage-virtual-network.md), [subnet](../virtual-network/virtual-network-manage-subnet.md), and [network security group (NSG)](../virtual-network/manage-network-security-group.md) if not done already.
 1. Open the **Subnets** page for your virtual network.
 1. Select the subnet you wish to delegate to Lab Services to open the property window for that subnet.
 1. For the **Delegate subnet to a service** property, select **Microsoft.LabServices/labplans**. Select **Save**.

@@ -7,10 +7,10 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 05/04/2022
+ms.date: 05/24/2022
 ms.topic: conceptual
-ms.custom: references_regions, devx-track-azurecli
-# Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
+ms.custom: references_regions, devx-track-azurecli, event-tier1-build-2022
+#Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
 ---
 # Release notes - Azure Arc-enabled data services
 
@@ -26,9 +26,27 @@ This release is published May 24, 2022.
 
 For complete release version information, see [Version log](version-log.md).
 
+### Data controller reminders and warnings
+
+Reminders and warnings are implemented in Azure portal, custom resource status, and through CLI when the billing data related to all resources managed by the data controller has not been uploaded or exported for an extended period.
+
 ### SQL Managed Instance
 
-Azure SQL Managed Instance Business Critical tier is generally available.
+General Availability of Business Critical service tier.  Azure Arc-enabled SQL Managed Instance instances that have a version greater than or equal to v1.7.0 will be charged through Azure billing meters.
+
+### User experience improvements
+
+#### Azure portal
+
+Added ability to create AD Connectors from Azure portal.
+
+Preview expected costs for Azure Arc-enabled SQL Managed Instance Business Critical tier when you create new instances.
+
+#### Azure Data Studio
+
+Added ability to upgrade Azure Arc-enabled SQL Managed Instances from Azure Data Studio in the indirect and direct connectivity modes.
+
+Preview expected costs for Azure Arc-enabled SQL Managed Instance Business Critical tier when you create new instances.
 
 ## May 4, 2022
 
@@ -63,7 +81,7 @@ Separated the availability group and failover group status into two different se
 
 Updated SQL engine binaries to the latest version.
 
-Add support for `NodeSelector`, `TopologySpreadConstraints` and `Affinity`.  Only available through Kubernetes yaml/json file create/edit currently.  No Azure CLI, Azure Portal, or Azure Data Studio user experience yet.
+Add support for `NodeSelector`, `TopologySpreadConstraints` and `Affinity`.  Only available through Kubernetes yaml/json file create/edit currently.  No Azure CLI, Azure portal, or Azure Data Studio user experience yet.
 
 Add support for specifying labels and annotations on the secondary service endpoint. `REQUIRED_SECONDARIES_TO_COMMIT` is now a function of the number of replicas.  
 
@@ -74,7 +92,7 @@ In this release, the default value of the readable secondary service is `Cluster
 
 ### User experience improvements
 
-Notifications added in Azure Portal if billing data has not been uploaded to Azure recently.
+Notifications added in Azure portal if billing data has not been uploaded to Azure recently.
 
 #### Azure Data Studio
 
@@ -171,7 +189,7 @@ For complete release version information, see [Version log](version-log.md).
     - Set `--readable-secondaries` to any value between 0 and the number of replicas minus 1.
     - `--readable-secondaries` only applies to Business Critical tier. 
 - Automatic backups are taken on the primary instance in a Business Critical service tier when there are multiple replicas. When a failover happens, backups move to the new primary. 
-- [ReadWriteMany (RWX) capable storage class](/azure/aks/concepts-storage#azure-disks) is required for backups, for both General Purpose and Business Critical service tiers. Specifying a non-ReadWriteMany storage class will cause the SQL Managed Instance to be stuck in "Pending" status during deployment.
+- [ReadWriteMany (RWX) capable storage class](../../aks/concepts-storage.md#azure-disks) is required for backups, for both General Purpose and Business Critical service tiers. Specifying a non-ReadWriteMany storage class will cause the SQL Managed Instance to be stuck in "Pending" status during deployment.
 - Billing support when using multiple read replicas.
 
 For additional information about service tiers, see [High Availability with Azure Arc-enabled SQL Managed Instance (preview)](managed-instance-high-availability.md).

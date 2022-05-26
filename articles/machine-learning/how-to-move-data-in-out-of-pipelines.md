@@ -9,11 +9,13 @@ ms.author: larryfr
 author: blackmist
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: contperf-fy20q4, devx-track-python, data4ml
+ms.custom: contperf-fy20q4, devx-track-python, data4ml, sdkv1, event-tier1-build-2022
 #Customer intent: As a data scientist using Python, I want to get data into my pipeline and flowing between steps.
 ---
 
 # Moving data into and between ML pipeline steps (Python)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 This article provides code for importing, transforming, and moving data between steps in an Azure Machine Learning pipeline. For an overview of how data works in Azure Machine Learning, see [Access data in Azure storage services](how-to-access-data.md). For the benefits and structure of Azure Machine Learning pipelines, see [What are Azure Machine Learning pipelines?](concept-ml-pipelines.md)
 
@@ -67,7 +69,7 @@ datastore_path = [
 cats_dogs_dataset = Dataset.File.from_files(path=datastore_path)
 ```
 
-For more options on creating datasets with different options and from different sources, registering them and reviewing them in the Azure Machine Learning UI, understanding how data size interacts with compute capacity, and versioning them, see [Create Azure Machine Learning datasets](how-to-create-register-datasets.md). 
+For more options on creating datasets with different options and from different sources, registering them and reviewing them in the Azure Machine Learning UI, understanding how data size interacts with compute capacity, and versioning them, see [Create Azure Machine Learning datasets](./v1/how-to-create-register-datasets.md). 
 
 ### Pass datasets to your script
 
@@ -192,7 +194,7 @@ After the initial pipeline step writes some data to the `OutputFileDatasetConfig
 
 In the following code: 
 
-* `step1_output_data` indicates that the output of the PythonScriptStep, `step1` is written to the ADLS Gen 2 datastore, `my_adlsgen2` in upload access mode. Learn more about how to [set up role permissions](how-to-access-data.md#azure-data-lake-storage-generation-2) in order to write data back to ADLS Gen 2 datastores. 
+* `step1_output_data` indicates that the output of the PythonScriptStep, `step1` is written to the ADLS Gen 2 datastore, `my_adlsgen2` in upload access mode. Learn more about how to [set up role permissions](./v1/how-to-access-data.md) in order to write data back to ADLS Gen 2 datastores. 
 
 * After `step1` completes and the output is written to the destination indicated by `step1_output_data`, then step2 is ready to use `step1_output_data` as an input. 
 
@@ -241,5 +243,5 @@ For more information, see [Plan and manage costs for Azure Machine Learning](con
 
 ## Next steps
 
-* [Create an Azure machine learning dataset](how-to-create-register-datasets.md)
+* [Create an Azure machine learning dataset](./v1/how-to-create-register-datasets.md)
 * [Create and run machine learning pipelines with Azure Machine Learning SDK](./how-to-create-machine-learning-pipelines.md)
