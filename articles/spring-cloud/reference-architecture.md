@@ -18,11 +18,11 @@ description: This reference architecture is a foundation using a typical enterpr
 
 This reference architecture is a foundation using a typical enterprise hub and spoke design for the use of Azure Spring Apps. In the design, Azure Spring Apps is deployed in a single spoke that's dependent on shared services hosted in the hub. The architecture is built with components to achieve the tenets in the [Microsoft Azure Well-Architected Framework][16].
 
-There are two flavors of Azure Spring Apps: Standard tier and Enterprise tier
+There are two flavors of Azure Spring Apps: Standard tier and Enterprise tier.
 
-Azure Spring Apps Standard tier is composed of the Spring Cloud Config Server, Spring Cloud Service Registry, and the kpack build service
+Azure Spring Apps Standard tier is composed of the Spring Cloud Config Server, the Spring Cloud Service Registry, and the kpack build service.
 
-Azure Spring Apps Enterprise tier is composed of the Tanzu Build Service, Application Configuration Service, Service Registry, Spring Cloud Gateway and API portal
+Azure Spring Apps Enterprise tier is composed of the VMware Tanzu® Build Service™, Application Configuration Service for VMware Tanzu®, VMware Tanzu® Service Registry, Spring Cloud Gateway for VMware Tanzu®, and API portal for VMware Tanzu®.
 
 For an implementation of this architecture, see the [Azure Spring Apps Reference Architecture][10] repository on GitHub.
 
