@@ -21,7 +21,6 @@ In this tutorial:
 > * Store a signing certificate in Azure Key Vault
 > * Sign a container image with notation
 > * Verify a container image signature with notation
-> TODO: Include a diagram of AKV --> Build --> Sign --> ACR --> Verify
 
 ## Prerequisites
 
@@ -169,18 +168,22 @@ Otherwise, create or provide an x509 signing certificate, storing it in AKV for 
 1. Get the Key ID for the certificate
 
     ```bash
-    KEY_ID=$(az keyvault certificate show --vault-name $AKV_NAME \
-                        --name $KEY_NAME \
-                        --query "kid" -o tsv)
+    KEY_ID=$(az keyvault certificate show -n $KEY_NAME --vault-name $AKV_NAME --query 'id' -otsv)
     ```
-1. Add the Key ID to the kms keys and certs
+4. Download public certificate
 
     ```bash
-    notation key add --name $KEY_NAME --plugin azure-kv --id $KEY_ID --kms
-    notation cert add --name $KEY_NAME --plugin azure-kv --id $KEY_ID --kms
+    az keyvault certificate download --file $CERT_PATH --id $KEY_ID --encoding PEM
     ```
 
-1. List the keys and certs to confirm
+5. Add the Key Id to the keys and certs
+
+    ```bash
+    notation key add --name $KEY_NAME --plugin azure-kv --id $KEY_ID
+    notation cert add --name $KEY_NAME $CERT_PATH
+    ```
+
+6. List the keys and certs to confirm
 
     ```bash
     notation key ls
@@ -200,12 +203,14 @@ Otherwise, create or provide an x509 signing certificate, storing it in AKV for 
     ```azure-cli
     export USER_NAME="00000000-0000-0000-0000-000000000000"
     export PASSWORD=$(az acr login --name $ACR_NAME --expose-token --output tsv --query accessToken)
+    export NOTATION_USERNAME=$USER_NAME
+    export NOTATION_PASSWORD=$PASSWORD
     ```
 
 3. Sign the container image
 
     ```bash
-    notation sign $IMAGE --key $KEY_NAME
+    notation sign --key $KEY_NAME $IMAGE
     ```
 
 ## View the graph of artifacts with the ORAS CLI
@@ -224,32 +229,26 @@ ACR support for ORAS Artifacts creates a linked graph of supply chain artifacts 
 1. List the manifest details for the container image
 
     ```azure-cli
-    az acr manifest list-metadata $REGISTRY/$REPO -o jsonc
+    az acr manifest show-metadata $IMAGE -o jsonc
     ```
 
-2.  Generates a result, showing the `subject` in the artifact. The `subject` represents the notary v2 signature pointing to the container image. Notice the `"tags": []` collection is empty.
+2.  Generates a result, showing the `digest` which represents the notary v2 signature.
 
     ```json
-    [
     {
-        "changeableAttributes": {
+      "changeableAttributes": {
         "deleteEnabled": true,
         "listEnabled": true,
         "readEnabled": true,
-        "writeEnabled": true,
-        "quarantineState": "Passed"
-        },
-        "artifactType": "application/vnd.cncf.notary.v2",
-        "createdTime": "2021-11-09T23:36:26.3394051Z",
-        "digest": "sha256:348d322ed14675993e0926bc6a681ff03d03dc8372c4c4d0c09e08fa7cbeccbe",
-        "imageSize": 32,
-        "lastUpdateTime": "2021-11-09T23:36:26.3394051Z",
-        "mediaType": "application/vnd.cncf.oras.artifact.manifest.v1+json",
-        "size": 32,
-        "subject": "sha256:a0fc570a245b09ed752c42d600ee3bb5b4f77bbd70d8898780b7ab43454530eb"
-    },
-    "tags": []
-    ]
+        "writeEnabled": true
+      },
+      "createdTime": "2022-05-13T23:15:54.3478293Z",
+      "digest": "sha256:effba96d9b7092a0de4fa6710f6e73bf8c838e4fbd536e95de94915777b18613",
+      "lastUpdateTime": "2022-05-13T23:15:54.3478293Z",
+      "name": "v1",
+      "quarantineState": "Passed",
+      "signed": false
+    }
     ```
 
 ## Verify the container image
@@ -257,8 +256,8 @@ ACR support for ORAS Artifacts creates a linked graph of supply chain artifacts 
 1. The notation command can also help to ensure the container image hasn't been tampered with since build time by comparing the `sha` with what is in the registry.
 
 ```azure-cli
-notation verify wabbitnetworks.azurecr.io/net-monitor:v1
-sha256:81a768032a0dcf5fd0d571092d37f2ab31afcac481aa91bb8ea891b0cff8a6ec
+notation verify $IMAGE
+sha256:effba96d9b7092a0de4fa6710f6e73bf8c838e4fbd536e95de94915777b18613
 ```
 
 ## Next steps
