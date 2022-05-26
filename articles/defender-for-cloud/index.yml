@@ -32,7 +32,6 @@ landingContent:
             url: get-started.md
           - text: What are security policies, initiatives, and recommendations?
             url: security-policy-concept.md
-
  
   # Card
   - title: Stay current
@@ -47,7 +46,7 @@ landingContent:
             url: quickstart-onboard-aws.md
           - text: Threat and vulnerability management vulnerability assessment
             url: deploy-vulnerability-assessment-tvm.md
- 
+
   # Card
   - title: Get started
     linkLists:
@@ -91,3 +90,15 @@ landingContent:
             url: adaptive-network-hardening.md
           - text: Use the Workload protections
             url: workload-protections-dashboard.md
+
+  # Card
+  - title: Defend multicloud resources
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Use Defender for Cloud to protect multicloud resources
+            url: multicloud.yml
+      - linkListType: video
+        links:
+          - text: Protecting multicloud environments (AWS & GCP)
+            url: https://youtu.be/bVsifz3ZyPY
