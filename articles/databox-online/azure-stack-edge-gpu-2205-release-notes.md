@@ -25,15 +25,13 @@ This article applies to the **Azure Stack Edge 2205** release, which maps to sof
 
 The 2205  release has the following features and enhancements:
 
-- **Kubernetes changes** - This release contains the following Kubernetes-related changes:
-    - Beginning this release, AKS is supported on the Azure Stack Edge Kubernetes cluster. This feature is in preview.
-    - Compute enablement is moved to a dedicated Kubernetes page in the local UI.
+- **Kubernetes changes** - Beginning this release, compute enablement is moved to a dedicated Kubernetes page in the local UI.
 - **Generation 2 virtual machines** - Starting this release, Generation 2 virtual machines can be deployed on Azure Stack Edge. For more information, see [Supported VM sizes and types](azure-stack-edge-gpu-virtual-machine-overview.md#operating-system-disks-and-images).
 - **GPU extension update** - In this release, the GPU extension packages are updated. These updates will fix some issues that were encountered in a previous release during the installation of the extension. For more information, see how to [Update GPU extension of your Azure Stack Edge](azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md).
 - **No IP option** -  Going forward, there's an option to not set an IP for a network interface on your Azure Stack Edge device. For more information, see [Configure network](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#configure-network).
 
 
-## Issues fixed in 2202 release
+## Issues fixed in 2205 release
 
 The following table lists the issues that were release noted in previous releases and fixed in the current release.
 
