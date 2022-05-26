@@ -57,11 +57,11 @@ For more customization including custom domain support, see the [Azure Spring Ap
 
 The configuration file used in this quickstart is from the [Azure Spring Apps reference architecture](reference-architecture.md).
 
-### [Azure Spring Apps Standard tier](#tab/azure-spring-apps-standard)
+### [Standard tier](#tab/azure-spring-apps-standard)
 
 :::code language="hcl" source="~/azure-spring-cloud-reference-architecture/terraform/brownfield-deployment/Standard/main.tf":::
 
-### [Azure Spring Apps Enterprise tier](#tab/azure-spring-apps-enterprise)
+### [Enterprise tier](#tab/azure-spring-apps-enterprise)
 
 :::code language="hcl" source="~/azure-spring-cloud-reference-architecture/terraform/brownfield-deployment/Enterprise/main.tf":::
 
@@ -79,23 +79,25 @@ To apply the Terraform plan, follow these steps:
 
    * A deployment location from the regions where Azure Spring Apps is available, as shown in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=spring-cloud&regions=all). You'll need the short form of the location name. To get this value, use the following command to generate a list of Azure locations, then look up the **Name** value for the region you selected.
 
-   ```azurecli
-   az account list-locations --output table
-   ```
+     ```azurecli
+     az account list-locations --output table
+     ```
 
-*New Deployment Information*
-* The name of the resource group you'll deploy to.
-* A name of your choice for the Spring Apps Deployment
-* A name of your choice for the App Insights Resource
-* Three CIDR ranges (at least /16) which are used to host the Spring Apps backend infrastructure. The CIDR ranges must not overlap with any existing CIDR ranges in the target Subnet
-* The key/value pairs to be applied as tags on all resources that support tags. For more information, see [Use tags to organize your Azure resources and management hierarchy](../azure-resource-manager/management/tag-resources.md)
+1. Edit the file to add the following new deployment information:
 
-*Existing Infrastructure Information*
-* The name of the resource group where the existing virtual network resides
-* The name of the existing scope virtual network
-* The name of the existing subnet to be used by the Spring Apps Application Service
-* The name of the existing subnet to be used by the Spring Apps Runtime Service
-* The name of the Azure Log Analytics workspace
+   * The name of the resource group you'll deploy to.
+   * A name of your choice for the Azure Spring Apps Deployment.
+   * A name of your choice for the Application Insights resource.
+   * Three CIDR ranges (at least /16) which are used to host the Azure Spring Apps backend infrastructure. The CIDR ranges must not overlap with any existing CIDR ranges in the target Subnet
+   * The key/value pairs to be applied as tags on all resources that support tags. For more information, see [Use tags to organize your Azure resources and management hierarchy](../azure-resource-manager/management/tag-resources.md)
+
+1. Edit the file to add the following existing infrastructure information:
+
+   * The name of the resource group where the existing virtual network resides.
+   * The name of the existing scope virtual network.
+   * The name of the existing subnet to be used by the Azure Spring Apps Application Service.
+   * The name of the existing subnet to be used by the Azure Spring Apps Runtime Service.
+   * The name of the Azure Log Analytics workspace.
 
 1. Run the following command to initialize the Terraform modules:
 

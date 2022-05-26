@@ -53,11 +53,11 @@ The Enterprise tier deployment plan includes the following Tanzu components:
 
 To deploy the cluster, follow these steps:
 
-### [Azure Spring Apps Standard tier](#tab/azure-spring-apps-standard)
+### [Standard tier](#tab/azure-spring-apps-standard)
 
 1. Create an *azuredeploy.bicep* file with the following contents:
 
-:::code language="bicep" source="~/azure-spring-cloud-reference-architecture/Bicep/brownfield-deployment/azuredeploySpringStandard.bicep":::
+   :::code language="bicep" source="~/azure-spring-cloud-reference-architecture/Bicep/brownfield-deployment/azuredeploySpringStandard.bicep":::
 
 1. Open a Bash window and run the following Azure CLI command, replacing the *\<value>* placeholders with the following values:
 
@@ -85,7 +85,7 @@ To deploy the cluster, follow these steps:
 
      This command uses the Bicep template to create an Azure Spring Apps instance in an existing virtual network. The command also creates a workspace-based Application Insights instance in an existing Azure Monitor Log Analytics Workspace.
 
-### [Azure Spring Apps Enterprise tier](#tab/azure-spring-apps-enterprise)
+### [Enterprise tier](#tab/azure-spring-apps-enterprise)
 
 1. Create an *azuredeploy.bicep* file with the following contents:
 

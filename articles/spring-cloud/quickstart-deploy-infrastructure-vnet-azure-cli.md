@@ -54,11 +54,11 @@ The Enterprise tier deployment plan includes the following Tanzu components:
 
 The deployment script used in this quickstart is from the [Azure Spring Apps reference architecture](reference-architecture.md).
 
-### [Azure Spring Apps Standard tier](#tab/azure-spring-apps-standard)
+### [Standard tier](#tab/azure-spring-apps-standard)
 
 :::code language="azurecli" source="~/azure-spring-cloud-reference-architecture/CLI/brownfield-deployment/azuredeploySpringStandard.sh":::
 
-### [Azure Spring Apps Enterprise tier](#tab/azure-spring-apps-enterprise)
+### [Enterprise tier](#tab/azure-spring-apps-enterprise)
 
 :::code language="azurecli" source="~/azure-spring-cloud-reference-architecture/CLI/brownfield-deployment/azuredeploySpringEnterprise.sh":::
 
@@ -110,13 +110,13 @@ To deploy the Azure Spring Apps cluster using the Azure CLI script, follow these
 
 1. Save the script for Azure Spring Apps [Standard tier](https://raw.githubusercontent.com/Azure/azure-spring-cloud-reference-architecture/main/CLI/brownfield-deployment/azuredeploySpringStandard.sh) or [Enterprise tier](https://raw.githubusercontent.com/Azure/azure-spring-cloud-reference-architecture/main/CLI/brownfield-deployment/azuredeploySpringEnterprise.sh) locally, then run it from the Bash prompt.
 
-### [Azure Spring Apps Standard tier](#tab/azure-spring-apps-standard)
+### [Standard tier](#tab/azure-spring-apps-standard)
 
    ```azurecli
    ./azuredeploySpringStandard.sh
    ```
 
-### [Azure Spring Apps Enterprise tier](#tab/azure-spring-apps-enterprise)
+### [Enterprise tier](#tab/azure-spring-apps-enterprise)
 
    ```azurecli
    ./azuredeploySpringEnterprise.sh
@@ -131,8 +131,8 @@ To deploy the Azure Spring Apps cluster using the Azure CLI script, follow these
    * The name of the resource group that you created earlier.
    * The name of the virtual network resource group where you'll deploy your resources.
    * The name of the spoke virtual network (for example, *vnet-spoke*).
-   * The name of the subnet to be used by the Spring Apps Application Service (for example, *snet-app*).
-   * The name of the subnet to be used by the Spring Apps Runtime Service (for example, *snet-runtime*).
+   * The name of the subnet to be used by the Azure Spring Apps Application Service (for example, *snet-app*).
+   * The name of the subnet to be used by the Azure Spring Apps Runtime Service (for example, *snet-runtime*).
    * The name of the resource group for the Azure Log Analytics workspace to be used for storing diagnostic logs.
    * The name of the Azure Log Analytics workspace (for example, *la-cb5sqq6574o2a*).
    * The CIDR ranges from your virtual network to be used by Azure Spring Apps (for example, *XX.X.X.X/16,XX.X.X.X/16,XX.X.X.X/16*).

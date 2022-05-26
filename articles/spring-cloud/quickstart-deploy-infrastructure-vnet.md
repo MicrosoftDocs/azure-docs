@@ -56,42 +56,16 @@ The Enterprise tier deployment plan includes the following Tanzu components:
 
 The templates used in this quickstart are from the [Azure Spring Apps Reference Architecture](reference-architecture.md).
 
-### [Azure Spring Apps Standard tier](#tab/azure-spring-apps-standard)
-
-The template used in this quickstart is from the [Azure Spring Apps reference architecture](reference-architecture.md).
+### [Standard tier](#tab/azure-spring-apps-standard)
 
 :::code language="json" source="~/azure-spring-cloud-reference-architecture/ARM/brownfield-deployment/azuredeploySpringStandard.json":::
 
-Two Azure resources are defined in the template:
-
-* [Microsoft.AppPlatform/Spring](/azure/templates/microsoft.appplatform/spring) creates an Azure Spring Apps instance.
-* [Microsoft.Insights/components](/azure/templates/microsoft.insights/components) creates an Application Insights workspace.
-
-## Deploy the template
-
-To deploy the template, follow these steps:
-
-1. Select the following image to sign in to Azure and open a template. The template creates an Azure Spring Apps instance in an existing Virtual Network and a workspace-based Application Insights instance in an existing Azure Monitor Log Analytics Workspace.
-
-   :::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy the ARM template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-spring-cloud-reference-architecture%2Fmain%2FARM%2Fbrownfield-deployment%2fazuredeploySpringStandard.json":::
-
-1. Enter values for the following fields:
-
-   * **Resource Group:** Select **Create new**, enter a unique name for the **resource group**, and then select **OK**.
-   * **springCloudInstanceName:** Enter the name of the Azure Spring Apps resource.
-   * **appInsightsName:** Enter the name of the Application Insights instance for Azure Spring Apps.
-   * **laWorkspaceResourceId:** Enter the resource ID of the existing Log Analytics workspace (for example, */subscriptions/\<your subscription>/resourcegroups/\<your log analytics resource group>/providers/Microsoft.OperationalInsights/workspaces/\<your log analytics workspace name>*.)
-   * **springCloudAppSubnetID:** Enter the resource ID of the Azure Spring Apps Application Subnet.
-   * **springCloudRuntimeSubnetID:** Enter the resource ID of the Azure Spring Apps Runtime Subnet.
-   * **springCloudServiceCidrs:** Enter a comma-separated list of IP address ranges (three in total) in CIDR format. The IP ranges are reserved to host underlying Azure Spring Apps infrastructure. These three ranges should be at least */16* unused IP ranges, and must not overlap with any routable subnet IP ranges used within the network.
-   * **tags:** Enter any custom tags.
-
-1. Select **Review + Create** and then **Create**.
-
-### [Azure Spring Apps Enterprise tier](#tab/azure-spring-apps-enterprise)
+### [Enterprise tier](#tab/azure-spring-apps-enterprise)
 
 :::code language="json" source="~/azure-spring-cloud-reference-architecture/ARM/brownfield-deployment/azuredeploySpringEnterprise.json":::
 
+---
+
 Two Azure resources are defined in the template:
 
 * [Microsoft.AppPlatform/Spring](/azure/templates/microsoft.appplatform/spring) creates an Azure Spring Apps instance.
@@ -103,7 +77,15 @@ To deploy the template, follow these steps:
 
 1. Select the following image to sign in to Azure and open a template. The template creates an Azure Spring Apps instance in an existing Virtual Network and a workspace-based Application Insights instance in an existing Azure Monitor Log Analytics Workspace.
 
+### [Standard tier](#tab/azure-spring-apps-standard)
+
+   :::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy the ARM template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-spring-cloud-reference-architecture%2Fmain%2FARM%2Fbrownfield-deployment%2fazuredeploySpringStandard.json":::
+
+### [Enterprise tier](#tab/azure-spring-apps-enterprise)
+
    :::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy the ARM template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-spring-cloud-reference-architecture%2Fmain%2FARM%2Fbrownfield-deployment%2fazuredeploySpringEnterprise.json":::
+
+---
 
 1. Enter values for the following fields:
 
@@ -117,8 +99,6 @@ To deploy the template, follow these steps:
    * **tags:** Enter any custom tags.
 
 1. Select **Review + Create** and then **Create**.
-
----
 
 ## Review deployed resources
 
