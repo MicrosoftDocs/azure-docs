@@ -136,7 +136,7 @@ Smart deployments is a back-end capability that improves the performance of depl
 While smart deployments is enabled by default on newly created connections, we understand that some customers would prefer all their source control content to be deployed every time a deployment is triggered, regardless of whether that content was modified or not. You can modify your workflow to disable smart deployments to have your connection deploy all content regardless of its modification status. See [Customize the deployment workflow](#customize-the-deployment-workflow) for more details. 
 
    > [!NOTE]
-   > This capapbilty was launched in public preview on April 20th, 2022. Connections created prior to launch would need to be updated or recreated for smart deployments to be turned on.
+   > This capability was launched in public preview on April 20th, 2022. Connections created prior to launch would need to be updated or recreated for smart deployments to be turned on.
    >
 
 ### Customize the deployment workflow
