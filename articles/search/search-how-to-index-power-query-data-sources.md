@@ -5,7 +5,7 @@ description: Import data from different data sources using the Power Query conne
 
 author: gmndrg
 ms.author: gimondra
-manager: nitinme
+manager: liamca
 
 ms.service: cognitive-search
 ms.topic: conceptual
@@ -113,13 +113,15 @@ You can repurpose the index you're currently using for the Snowflake Power Conne
 
 1. On the right pane, in the data store search, enter "search". Select the **Azure Search** tile and select **Continue**.
 
-   :::image type="content" source="media/search-power-query-connectors/linked-service-search-new.png" alt-text="Screenshot showing how to choose New Linked Blob Storage Service in Azure Data Factory to import from Snowflake.":::
+   :::image type="content" source="media/search-power-query-connectors/linked-service-search-new.png" alt-text="Screenshot showing how to choose New Linked Search in Azure Data Factory to import from Snowflake.":::
 
 1. Fill out the **New linked service** values:
 
    - Choose the Azure subscription where your Azure Cognitive Search service resides.
    - Choose the Azure Cognitive Search service that has your Power Query connector indexer.
    - Select **Create**.
+
+   :::image type="content" source="media/search-power-query-connectors/new-linked-service-search.png" alt-text="Screenshot showing how to choose New Linked Search Service in Azure Data Factory with its properties to import from Snowflake.":::
 
 ### Step 6: Configure Azure Cognitive Search Dataset
 
@@ -166,6 +168,8 @@ You can repurpose the index you're currently using for the Snowflake Power Conne
    - [Generate a SAS URL](../cognitive-services/Translator/document-translation/create-sas-tokens.md) for the storage account you'll be using for staging. Paste the Blob SAS URL into the SAS URL field.
    - Select **Create**.
 
+    :::image type="content" source="media/search-power-query-connectors/sas-url-storage-linked-service-snowflake.png" alt-text="Screenshot showing how to fill out New Linked Search Service form in Azure Data Factory with its properties to import from SnowFlake.":::
+
 ### Step 8: Configure Storage dataset
 
 1. From the left menu, select **Author** icon.
@@ -188,7 +192,7 @@ You can repurpose the index you're currently using for the Snowflake Power Conne
    - Under **Linked service**, select the linked service created in [Step 7](#step-7-configure-azure-blob-storage-linked-service).
    - Under **File path**, choose the container that will be the sink for the staging process and select **OK**.
 
-     :::image type="content" source="media/search-power-query-connectors/storage-set-properties-snowflake.png" alt-text="Screenshot showing how to configure properties for storage dataset for Snowflake in Azure Data Factory.":::
+     :::image type="content" source="media/search-power-query-connectors/set-delimited-text-properties.png" alt-text="Screenshot showing how to configure properties for storage dataset for Snowflake in Azure Data Factory.":::
 
    - In **Row delimiter**, select *Line feed (\n)*.
    - Check **First row as a header** box.
@@ -367,6 +371,8 @@ You can repurpose the index you're currently using for the PostgreSQL Power Conn
    - Choose the Azure subscription where your Azure Cognitive Search service resides.
    - Choose the Azure Cognitive Search service that has your Power Query connector indexer.
    - Select **Create**.
+   
+   :::image type="content" source="media/search-power-query-connectors/new-linked-service-search.png" alt-text="Screenshot showing how to choose New Linked Search Service in Azure Data Factory with its properties to import from PostgreSQL.":::
 
 ### Step 5: Configure Azure Cognitive Search Dataset
 
@@ -413,6 +419,8 @@ You can repurpose the index you're currently using for the PostgreSQL Power Conn
    - Choose the **Authentication type**: *SAS URI*. Only this method can be used to import data from PostgreSQL into Azure Blob Storage.
    - [Generate a SAS URL](../cognitive-services/Translator/document-translation/create-sas-tokens.md) for the storage account you will be using for staging and copy the Blob SAS URL to SAS URL field.
    - Select **Create**.
+
+   :::image type="content" source="media/search-power-query-connectors/sas-url-storage-linked-service-postgresql.png" alt-text="Screenshot showing how to fill out New Linked Search Service form in Azure Data Factory with its properties to import from PostgreSQL.":::
 
 ### Step 7: Configure Storage dataset
 
