@@ -12,7 +12,7 @@ ms.custom: template-how-to #Required; leave this attribute/value as-is.
 
 # Self-service access workflows for hybrid data estates
 
-[!INCLUDE [Region Notice](./includes/workflow-regions.md)]
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 [Workflows](concept-workflow.md) allow you to automate some business processes through Microsoft Purview. Self-service access workflows allow you to create a process for your users to request access to datasets they've discovered in Microsoft Purview!
 
