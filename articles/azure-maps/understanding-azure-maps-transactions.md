@@ -4,7 +4,7 @@ titleSuffix:  Microsoft Azure Maps
 description: Learn about Microsoft Azure Maps Transactions
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 04/12/2022
+ms.date: 06/03/2022
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -12,38 +12,37 @@ services: azure-maps
 
 # Understanding Azure Maps Transactions
 
-When you use any [Azure Maps API](/rest/api/maps/), API requests generate transaction usage that is reported in your [Azure Portal]( https://ms.portal.azure.com) Metrics report. The transactions can be billable or non-billable transaction usage.  Below is a summary of which Azure Maps API requests generate billable transactions and which generate non-billable transactions.
+When you use Azure Maps Services, the API requests you make generate transactions. Your transaction usage is available for review in your [Azure Portal]( https://ms.portal.azure.com) ‘Metrics’ report. These transactions can be either billable or non-billable usage, depending on the service and the feature. It’s important to understand which usage generates a billable transaction and how it’s calculated so you can plan and budget for the costs associated with using Azure Maps. Billable transactions will show up in your Cost Analysis report within the Azure Portal.
+
+Below is a summary of which Azure Maps services generate transactions, billable and non-billable, along with any notable aspects that are helpful to understand in how the number of transactions are calculated.
 
 ## Azure Maps Transaction information by service
 
-| Service | Description |
-|---------|-------------|
-| [Data](/rest/api/maps/data-v2) | Each request made to the Data service results in a single transaction. |
-| [Data V2](/rest/api/maps/data-v2) | Each request made to the Data V2 service results in a single transaction. |
-| [Elevation](/rest/api/maps/elevation) | For [Elevation multiple point](/rest/api/maps/elevation/get-data-for-points) requests, each API call counts as two Elevation transactions.<br/><br/>For [Elevation bounding box](/rest/api/maps/elevation/get-data-for-bounding-box) requests, one API tile request is counted as 50 Elevation transactions. |
-| [Geolocation](/rest/api/maps/geolocation) | Each request made to the Geolocation service results in a single transaction. |
-| [Render](/rest/api/maps/render) | 15 tile requests results in one transaction for Base Maps as well as Imagery, Traffic and Weather Tiles.<br/><br/>Transactions aren't counted for any calls to get or set copyright information. |
-| [Render V2](/rest/api/maps/render-v2) | 15 tile requests results in one transaction for Base Maps as well as Imagery, Traffic and Weather Tiles.<br/><br/>Transactions aren't counted for any calls to get or set copyright information. |
-| [Route](/rest/api/maps/route) | For [Batch Route](/rest/api/maps/route/get-route-directions-batch) calls, each individual route calculation query in the batch counts as a Routing transaction.<br/><br/>For [Route Matrix](/rest/api/maps/route/get-route-matrix), one transaction is counted for every cell in the matrix. If you provide 5 origins and 10 destinations, that would result in 50 Routing transactions |
-| [Search](/rest/api/maps/search) | For [Batch Search](/rest/api/maps/search/get-geocoding-batch) calls, each individual query in the batch counts as a Search transaction. |
-| [Search V2](/rest/api/maps/search-v2) | For [Batch Search](/rest/api/maps/search-v2/get-geocoding-batch) calls, each individual query in the batch counts as a Search transaction. |
-| [Spatial](/rest/api/maps/spatial) | Each request made to the Spatial service results in a single transaction. |
-| [Timezone](/rest/api/maps/timezone) | Each request made to the Timezone service results in a single transaction. |
-| [Traffic](/rest/api/maps/traffic) | Each request made to the Traffic service results in a single transaction. |
-| [Weather](/rest/api/maps/weather) | Each request made to the Weather service results in a single transaction. |
+| Azure Maps Service  | Billable       | Transaction                                                                    |
+|---------------------|----------------|--------------------------------------------------------------------------------|
+| Data <br/> Data v2| Yes, with the exception of MapDataStorageService.GetDataStatus and MapDataStorageService.GetUserData which are non-billable. | 1 request = 1 transaction |
+| Elevation (DEM)     | Yes            | 1 request = 2 transactions <br/><br/>If requesting elevation for a single point then 1 request = 1 transaction |
+| Geolocation         | Yes            | 1 request = 1 transaction |
+| Render<br/>Render v2| Yes, with the exception of Terra maps (MapTile.GetTerraTile and layer=terra) which are non-billable. | 15 tiles = 1 transaction, except microsoft.dem is 1 tile = 50 transactions |
+| Route               | Yes            | 1 request = 1 transaction <br/><br/>If using the Route Matrix, each cell in the Route Matrix request generates a billable Route transaction.  <br/><br/>If using Batch Directions, each origin/destination coordinate pair in the Batch request call generates a billable Route transaction.  |
+| Search<br/>Search v2 | Yes            | 1 request = 1 transaction.  <br/><br/>If using Batch Search, each location in the Batch request generates a billable Search transaction.  |
+| Spatial             | Yes, with the exception of Spatial.GetBoundingBox, Spatial.PostBoundingBox and Spatial.PostPointInPolygonBatch which are non-billable.  | 1 request = 1 transaction.  <br/><br/>If using Geofence, 5 requests = 1 transaction  |
+| Timezone            | Yes            | 1 request = 1 transaction            |
+| Traffic             | Yes            | 1 request = 1 transaction            |
+| Weather             | Yes            | 1 request = 1 transaction            |
 
 <!-- In Bing Maps, any time a synchronous Truck Routing request is made, three transactions are counted. Does this apply also to Azure Maps?-->
 
 ## Azure Maps Creator
 
-| Service                                          | Description                                                                     |
-|--------------------------------------------------|---------------------------------------------------------------------------------|
-| [Alias](/rest/api/maps/v2/alias)                 | Each request made to the Alias service results in a single transaction.         |
-| [Conversion](/rest/api/maps/v2/conversion)       | Each request made to the Conversion service results in a single transaction.    |
-| [Dataset](/rest/api/maps/v2/dataset)             | Each request made to the Dataset service results in a single transaction.       |
-| [Feature State](/rest/api/maps/v2/feature-state) | Each request made to the Feature State service results in a single transaction. |
-| [Tileset](/rest/api/maps/v2/tileset)             | Each request made to the Tileset service results in a single transaction.       |
-| [WFS](/rest/api/maps/v2/wfs)                     | Each request made to the WFS service results in a single transaction.           |
+| Service                                          | Billable                                                                        | Transaction Calculation |
+|--------------------------------------------------|---------------------------------------------------------------------------------|-------------------------|
+| [Alias](/rest/api/maps/v2/alias)                 | Each request made to the Alias service results in a single transaction.         |1 request = 1 transaction|
+| [Conversion](/rest/api/maps/v2/conversion)       | Each request made to the Conversion service results in a single transaction.    | Not transaction-based   |
+| [Dataset](/rest/api/maps/v2/dataset)             | Each request made to the Dataset service results in a single transaction.       | Not transaction-based   |
+| [Feature State](/rest/api/maps/v2/feature-state) | Each request made to the Feature State service results in a single transaction. |1 request = 1 transaction|
+| [Tileset](/rest/api/maps/v2/tileset)             | Each request made to the Tileset service results in a single transaction.       | Not transaction-based   |
+| [WFS](/rest/api/maps/v2/wfs)                     | Each request made to the WFS service results in a single transaction.           |1 request = 1 transaction|
 
 <!--
 | Service          | Unit of measure         | Price  |
