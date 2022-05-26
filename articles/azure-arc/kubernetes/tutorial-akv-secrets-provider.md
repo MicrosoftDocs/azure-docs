@@ -401,14 +401,15 @@ To confirm that the extension instance has been deleted, run the following comma
 az k8s-extension list --cluster-type connectedClusters --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP
 ```
 
-If the extension was successfully removed, you shouldn't see the the Azure Key Vault Secrets Provider extension listed in the output. If you don't have any other extensions installed on your cluster, it will just be an empty array.
+If the extension was successfully removed, you won't see the the Azure Key Vault Secrets Provider extension listed in the output. If you don't have any other extensions installed on your cluster, you'll see an empty array.
 
 ## Reconciliation and troubleshooting
 
-The Azure Key Vault Secrets Provider extension is self-healing. If somebody tries to change or delete an extension component that was deployed when the extension was installed, that component will be reconciled to its original state. The only exceptions are Custom Resource Definitions (CRDs). If CRDs are deleted, they are not reconciled. To retrieve deleted CRDs, use the 'az k8s-exstension create' command again with the existing extension instance name.
+The Azure Key Vault Secrets Provider extension is self-healing. If somebody tries to change or delete an extension component that was deployed when the extension was installed, that component will be reconciled to its original state. The only exceptions are for Custom Resource Definitions (CRDs). If CRDs are deleted, they won't be reconciled. To restore deleted CRDs, use the `az k8s-exstension create` command again with the existing extension instance name.
 
 For more information about resolving common issues, see the open source troubleshooting guides for [Azure Key Vault provider for Secrets Store CSI driver](https://azure.github.io/secrets-store-csi-driver-provider-azure/docs/troubleshooting/) and [Secrets Store CSI Driver](https://secrets-store-csi-driver.sigs.k8s.io/troubleshooting.html).
 
 ## Next steps
 
 - Want to try things out? Get started quickly with an [Azure Arc Jumpstart scenario](https://aka.ms/arc-jumpstart-akv-secrets-provider) using Cluster API.
+- Learn more about [Azure Key Vault](/azure/key-vault/general/overview).
