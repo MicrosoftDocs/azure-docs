@@ -36,7 +36,9 @@ administration and development platform for PostgreSQL.
 
    Customize the following fields:
 
-   * **Host name/address**: foo
+   * **Host name/address**: Obtain this value from the **Overview** page for your
+     server group in the Azure portal. It's listed there as **Coordinator name**.
+     It will be of the form, `c.servergroup.postgres.database.azure.com`.
    * **Maintenance database**: use the value `citus`.
    * **Username**: use the value `citus`.
    * **Password**: the connection password.
