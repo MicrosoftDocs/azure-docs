@@ -57,10 +57,6 @@ The Vision service offers multiple features that use prebuilt, pre-configured mo
 
 Each of these features has a try-it-out experience inside Vision Studio that allows you to input images and pre-configured sample images and offers JSON and text responses. These experiences help you quickly test these prebuilt features using a no-code approach.
 
-## Vision Studio additional features
-
-In addition to the try-it-out experiences, Vision Studio also offers experiences that highlight the importance of fairness, particularly when working with Face models. See [Face fairness information]() for more information on how Microsoft employs the principles of Responsible AI, and learn how you can too.
-
 ## Cleaning up resources
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
