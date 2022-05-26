@@ -12,11 +12,7 @@ services: azure-maps
 
 # Understanding Azure Maps Transactions
 
-When you use any [Azure Maps API](/rest/api/maps/) with an Azure Maps Key (you must have an [Azure Maps Account](quick-demo-map-app.md#get-the-primary-key-for-your-account)), transactions are recorded. Transactions track API usage and can be billable or non-billable. For example, using the [Azure Maps Render Service](/rest/api/maps/render-v2) to show a map on a web page is a billable transaction, while using the [Get Map Attribution](/rest/api/maps/render-v2/get-map-attribution) API to request map copyright attribution information for a tileset isn't.
-
-## Pricing tiers
-
-Azure Maps now offers two pricing tiers: Gen 1 and Gen 2. The pricing tier doesn't change how transactions are calculated, however there are differences that affect performance and overall cost. For more information, see [Choose the right pricing tier in Azure Maps](choose-pricing-tier.md)
+When you use any [Azure Maps API](/rest/api/maps/), API requests generate transaction usage that is reported in your [Azure Portal]( https://ms.portal.azure.com) Metrics report. The transactions can be billable or non-billable transaction usage.  Below is a summary of which Azure Maps API requests generate billable transactions and which generate non-billable transactions.
 
 ## Azure Maps Transaction information by service
 
