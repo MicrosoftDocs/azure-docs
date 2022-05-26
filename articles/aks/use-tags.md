@@ -48,7 +48,7 @@ When you create or update an AKS cluster with the `--tags` parameter, the follow
 * The private endpoint associated with the private cluster
 
 > [!NOTE]
-> Azure Private DNS only supports 15 tags. https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources. 
+> Azure Private DNS only supports 15 tags. [tag resources](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-resources). 
 
 To create a cluster and assign Azure tags, run `az aks create` with the `--tags` parameter, as shown in the following command. Running the command creates a *myAKSCluster* in the *myResourceGroup* with the tags *dept=IT* and *costcenter=9999*.
 
