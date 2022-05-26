@@ -312,50 +312,50 @@ The actual exception observed during the execution of the remoting call is passe
   - *StatefulService*
 
     ```csharp
-        protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
+    protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
+    {
+        return new[]
         {
-            return new[]
-            {
-                new ServiceReplicaListener(serviceContext =>
-                    new FabricTransportServiceRemotingListener(
-                        serviceContext,
-                        this,
-                        new FabricTransportRemotingListenerSettings
-                        {
-                            ExceptionSerializationTechnique = FabricTransportRemotingListenerSettings.ExceptionSerialization.Default,
-                        },
-                        exceptionConvertors: new []
-                        {
-                            new CustomConvertorService(),
-                        }),
-                    "ServiceEndpointV2")
-            };
-        }
+            new ServiceReplicaListener(serviceContext =>
+                new FabricTransportServiceRemotingListener(
+                    serviceContext,
+                    this,
+                    new FabricTransportRemotingListenerSettings
+                    {
+                        ExceptionSerializationTechnique = FabricTransportRemotingListenerSettings.ExceptionSerialization.Default,
+                    },
+                    exceptionConvertors: new []
+                    {
+                        new CustomConvertorService(),
+                    }),
+                "ServiceEndpointV2")
+        };
+    }
     ```
 
   - *ActorService*
     
     ```csharp
-        protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
+    protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
+    {
+        return new List<ServiceReplicaListener>
         {
-            return new List<ServiceReplicaListener>
+            new ServiceReplicaListener(_ =>
             {
-                new ServiceReplicaListener(_ =>
-                {
-                    return new FabricTransportActorServiceRemotingListener(
-                        this,
-                        new FabricTransportRemotingListenerSettings
-                        {
-                            ExceptionSerializationTechnique = FabricTransportRemotingListenerSettings.ExceptionSerialization.Default,
-                        },
-                        exceptionConvertors: new[]
-                        {
-                            new CustomConvertorService(),
-                        });
-                },
-                "MyActorServiceEndpointV2")
-            };
-        }
+                return new FabricTransportActorServiceRemotingListener(
+                    this,
+                    new FabricTransportRemotingListenerSettings
+                    {
+                        ExceptionSerializationTechnique = FabricTransportRemotingListenerSettings.ExceptionSerialization.Default,
+                    },
+                    exceptionConvertors: new[]
+                    {
+                        new CustomConvertorService(),
+                    });
+            },
+            "MyActorServiceEndpointV2")
+        };
+    }
     ```
 
 - `IExceptionConvertor` registration on the **Client** side:
