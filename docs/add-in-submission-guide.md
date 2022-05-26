@@ -54,7 +54,7 @@ This article is a step-by-step guide that will detail how to submit your app to 
     If so, connect this system using the Connect link.
 
     > [!NOTE]
-    > If you’re submitting a Teams add-in, make sure you update your Apple ID in your account settings to make your app available on iOS mobile devices.
+    > If you’re submitting a Teams add-in, make sure to update the Apple ID in your account settings to make your app acquirable on iOS mobile devices.
 
 1. Select **Save draft** before continuing to the next page: Packages.
 
