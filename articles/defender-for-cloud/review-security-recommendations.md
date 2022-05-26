@@ -12,17 +12,11 @@ To get to the list of recommendations:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Navigate to **Microsoft Defender for Cloud** > **Recommendations**.
+1. Either:
+   - In the Defender for Cloud overview, select **Security posture** and then select **View recommendations** for the environment that you want to improve.
+   - Go to **Recommendations** in the Defender for Cloud menu.
 
 You can search for specific recommendations by name. Use the search box and filters above the list of recommendations to find specific recommendations, and look at the [details of the recommendation](security-policy-concept.md#security-recommendation-details) to decide whether to [remediate it](implement-security-recommendations.md), [exempt resources](exempt-resource.md), or [disable the recommendation](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations).
-
-## Find recommendations that are assigned to you and plan for resolution
-
-Security teams can assign a recommendation to a specific person and assign a due date in order to drive your organization towards increased security. If you have recommendations assigned to you, you are accountable to handle those recommendations in order to help your organization be compliant with the security policy.
-
-Recommendations are listed as **On-time** until their due date is passed, when they are changed to **Overdue**. Before the recommendation is overdue, the recommendation does not impact the secure score. The security team can also apply a grace period when overdue recommendations continue to not impact the secure score.
-
-To help you plan your work and report on progress, you can set an ETA for the recommendation to show when you plan to have the recommendation resolved by.
 
 ## Finding recommendations with high impact on your secure score<a name="monitor-recommendations"></a>
 
@@ -32,10 +26,29 @@ The list of recommendations shows the **Potential score increase** that you can 
 
 **To find recommendations that can improve your secure score**:
 
-1. In the Defender for Cloud overview, select **Security posture**.
-1. Look at the security scores of the environments, and for the environment that you want to improve, select **View recommendations**.
-1. In the list of recommendations, identify the security control that contains recommendations that will increase your secure score.
-1. Remediate all of the recommendations in the security control to increase your secure score by the specified percentage points.
+1. In the list of recommendations, use the **Potential score increase** to identify the security control that contains recommendations that will increase your secure score.
+    - You can also use the search box and filters above the list of recommendations to find specific recommendations.
+1. Open a security control to see the recommendations that have unhealthy resources.
+
+When you [remediate](implement-security-recommendations.md) all of the recommendations in the security control, your secure score increases by the percentage points listed for the control.
+
+## Manage the recommendations that are assigned to you
+
+Security teams can assign a recommendation to a specific person and assign a due date to drive your organization towards increased security. If you have recommendations assigned to you, you are accountable to remediate the resources affected by the recommendations to help your organization be compliant with the security policy.
+
+Recommendations are listed as **On-time** until their due date is passed, when they are changed to **Overdue**. Before the recommendation is overdue, the recommendation does not impact the secure score. The security team can also apply a grace period during which overdue recommendations continue to not impact the secure score.
+
+To help you plan your work and report on progress, you can set an ETA for the recommendation to show when you plan to have the recommendation resolved by.
+
+**To manage recommendations that are assigned to you**:
+
+1. In the filters for list of recommendations, select **Show my items only**.
+
+    - The status column indicates the recommendations that are on-time, overdue, or completed.
+    - The insights column indicates the recommendations that are overdue but in a grace period, so they currently do not impact your secure score.
+
+1. Select an on-time or overdue recommendation.
+1. 
 
 ## Review recommendation data in Azure Resource Graph Explorer (ARG)
 
