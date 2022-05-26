@@ -10,70 +10,10 @@
     href: requirements.md
   - name: Supported instances
     href: supported-instances.md
-- name: Deployment
-  items:
+/* - name: Deployment
+  it/ems:
   - name: Overview
     href: nutanix-deployment-overview.md
-  - name: Registering Nutanix Clusters in Azure
-    href: registering-nutanix-clusters.md
-    items:
-    - name: Creating a My Nutanix Account 
-      href: creating-a-my-nutanix-account.md
-    - name: Onboarding Nutanix Clusters 
-      href: onboarding-nutanix-clusters.md
-  - name: Azure Portal Workflow
-    href: azure-portal-workflow.md
-    items:
-    - name: Setup an Account
-      href: setup-an-account.md
-  - name: Setup networking infrastructure in Azure
-    href: setup-networking-infrastructure-in-azure.md
-    items:
-    - name: Create a virtual network and subnet in Azure
-      href: create-a-virtual-network-and-subnet-in-azure.md
-    - name: Create a NAT Gateway in Azure
-      href: create-a-nat-gateway-in-azure.md
-  - name: Nutanix Clusters Console Workflow
-    href: nutanix-clusters-console-workflow.md
-    items:
-    - name: Enable Asure
-      href: enable-azure.md
-    - name: Create an Organization in the Nutanix Clusters Console
-      href: create-an-org-in-the-nutanix-clusters-console.md
-    - name: Add an Azure Cloud Account to Nutanix Clusters
-      href: add-an-azure-cloud-account-to-nutanix-clusters.md
-    - name: Create a cluster
-      href: create-a-cluster.md
-    - name: Log into a Cluster Using the Prism Element Web Console
-      href: log-into-a-cluster-using-the-prism-element-web-console.md
-- name: User VM (UVM) Network Management 
-  href: uvm-network-management.md
-  items:
-  - name: Create a Virtual Private Cloud
-    href: create-a-virtual-private-cloud.md
-  - name: Create a UVM subnet
-    href: create-a-uvm-subnet.md
-  - name: Upload a VM image
-    href: upload-a-vm-image.md
-  - name: Create a VM
-    href: create-a-vm.md
-- name: Cluster Management
-  href: cluster-management.md
-  items:
-    - name: Nutanix Clusters Management Console
-      href: nutanix-clusters-management-console.md
-    - name: Nutanix Clusters Dashboard
-      href: nutanix-clusters-dashboard.md
-    - name: Update the Cluster Capacity
-      href: update-the-cluster-capacity.md
-    - name: Manually Condemn a Node
-      href: manually-condemn-a-node.md
-    - name: Delete a Cluster
-      href: delete-a-cluster.md
-- name: Cluster Account Administration
-  href: cluster-account-administration.md
-  items:
-  - name: User Management
-    href: user-management.md    
+
 
   
