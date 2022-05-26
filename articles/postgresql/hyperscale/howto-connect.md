@@ -83,7 +83,8 @@ interactively, issue them to PostgreSQL, and see the query results.
 
 **Next steps**
 
-* Now that you can connect to the database, learn how to [build scalable
-  apps](howto-build-scalable-apps-overview.md).
+* Troubleshoot [connection issues](howto-troubleshoot-common-connection-issues.md).
 * [Verify TLS](howto-ssl-connection-security.md) certificates in your
   connections.
+* Now that you can connect to the database, learn how to [build scalable
+  apps](howto-build-scalable-apps-overview.md).
