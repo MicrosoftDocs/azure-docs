@@ -239,11 +239,11 @@ Message string with the operation status details:
 
 - **Failure – error**: User authentication failure
 
-- **Failure – error**: User does not exist
+- **Failure – error**: User doesn't exist
 
 - **Failure – error**: Password doesn't match security policy
 
-- **Failure – error**: User does not have the permissions to change password
+- **Failure – error**: User doesn't have the permissions to change password
 
 #### Response example
 
