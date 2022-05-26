@@ -25,6 +25,10 @@ See the [quickstart](./quickstart.md) to quickly create your first project, or t
 
 Yes, using orhcestration workflow, see the [orchestration workflow documentation](../orchestration-workflow/overview.md) for more information.
 
+## What is the difference between LUIS and CLU?
+
+CLU is the next generation of LUIS. 
+
 ## Training is taking a long time, is this expected?
 
 For conversation projects, long training times are expected. Based on the number of examples you have your training times may vary from 5 minutes to 1 hour or more. 
@@ -61,6 +65,10 @@ Yes, you can [import any LUIS application](./concepts/backwards-compatibility.md
 
 No, the service only supports JSON format. You can go to LUIS, import the `.LU` file and export it as a JSON file. 
 
+## Can I use CLU with custom Question answering?
+
+Yes, you can use orchestration workflow to orchestrate between different CLU and [custom Question answering](../question-answering/overview.md) projects. Start by creating orchestration workflow projects and connect your CLU and custom question answering projects. All you need is to make sure that these projects are under the same Language resource.
+
 ## How do I handle out of scope or domain utterances that aren't relevant to my intents?
 
 Add any out of scope utterances to the [none intent](./concepts/none-intent.md).
@@ -69,9 +77,9 @@ Add any out of scope utterances to the [none intent](./concepts/none-intent.md).
 
 Yes, only for predictions, and samples are available for [python](https://aka.ms/sdk-samples-conversation-python) and [C#](https://aka.ms/sdk-sample-conversation-dot-net). There is currently no authoring support for the SDK.
 
-## Can I use CLU with custom Question answering?
+## What are the training modes?
 
-Yes, you can use orchestration workflow to orchestrate between different CLU and [custom Question answering](../question-answering/overview.md) projects. Start by creating orchestration workflow projects and connect your CLU and custom question answering projects. All you need is to make sure that these projects are under the same Language resource.
+There are two training modes. **Standard training** is faster training times for quicker iterations. Only available in English. Free of charge. While **advanced training** trains using fine-tuned neural network transformer models. Can train multilingual projects. Learn more about [training modes](how-to/train-model#training-modes)
 
 ## Are there APIs for this feature?
 
