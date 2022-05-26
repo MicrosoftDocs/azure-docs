@@ -67,11 +67,11 @@ Add any out of scope utterances to the [none intent](./concepts/none-intent.md).
 
 ## Is there any SDK support?
 
-Yes, only for predictions, and [samples are available](https://aka.ms/cluSampleCode). There is currently no authoring support for the SDK.
+Yes, only for predictions, and samples are available for [python](https://aka.ms/sdk-samples-conversation-python) and [C#](https://aka.ms/sdk-sample-conversation-dot-net). There is currently no authoring support for the SDK.
 
-## Can I use CLU with Question answering?
+## Can I use CLU with custom Question answering?
 
-Yes, you can use orchestration workflow to orchestrate between different CLU and Question answering projects. Start by creating orchestration workflow projects and connect your CLU and question answering projects. All you need is to make sure that these projects are under the same Language resource.
+Yes, you can use orchestration workflow to orchestrate between different CLU and [custom Question answering](../question-answering-overview.md) projects. Start by creating orchestration workflow projects and connect your CLU and custom question answering projects. All you need is to make sure that these projects are under the same Language resource.
 
 ## Are there APIs for this feature?
 
