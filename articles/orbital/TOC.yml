@@ -37,3 +37,5 @@ items:
   items:
   - name: Geospatial Reference Architecture
     href: geospatial-reference-architecture.md
+  - name: Spacecraft Object
+    href: spacecraft-object.md  
