@@ -10,6 +10,8 @@ items:
   items:
   - name: Create a Managed Grafana workspace from the portal
     href: quickstart-managed-grafana-portal.md
+  - name: Create a Managed Grafana workspace from the CLI
+    href: quickstart-managed-grafana-cli.md  
 - name: How-to guides
   items:
   - name: Configure data source plugins

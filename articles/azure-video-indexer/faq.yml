@@ -1,7 +1,7 @@
 ### YamlMime:FAQ
 metadata:
-  title: Frequently asked questions about Azure Video Indexer (formerly Azure Video Analyzer for Media) - Azure
-  description: This article gives answers to frequently asked questions about Azure Video Indexer (formerly Azure Video Analyzer for Media).
+  title: Frequently asked questions about Azure Video Indexer - Azure
+  description: This article gives answers to frequently asked questions about Azure Video Indexer.
   services: azure-video-analyzer
   author: Juliako
   manager: femila
@@ -9,7 +9,7 @@ metadata:
   ms.date: 05/25/2021
   ms.author: juliako
 title: Azure Video Indexer frequently asked questions
-summary: This article answers frequently asked questions about Azure Video Indexer (formerly Azure Video Analyzer for Media).
+summary: This article answers frequently asked questions about Azure Video Indexer.
 
 
 sections:
