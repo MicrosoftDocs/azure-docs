@@ -54,7 +54,7 @@ The [psql utility](https://www.postgresql.org/docs/current/app-psql.html) is a
 terminal-based front-end to PostgreSQL. It enables you to type in queries
 interactively, issue them to PostgreSQL, and see the query results.
 
-1. Install psql. It is included with a [PostgreSQL
+1. Install psql. It's included with a [PostgreSQL
    installation](https://www.postgresql.org/docs/current/tutorial-install.html),
    or available separately in package managers for several operating systems.
 
@@ -83,3 +83,5 @@ interactively, issue them to PostgreSQL, and see the query results.
 
 * Now that you can connect to the database, learn how to [build scalable
   apps](howto-build-scalable-apps-overview.md).
+* [Verify TLS](howto-ssl-connection-security.md) certificates in your
+  connections.

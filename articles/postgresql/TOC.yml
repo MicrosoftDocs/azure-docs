@@ -697,6 +697,8 @@
       href: hyperscale/concepts-columnar.md
   - name: How-to guides
     items:
+    - name: Connect and query
+      href: hyperscale/howto-connect.md
     - name: Build scalable apps
       items:
       - name: Overview
