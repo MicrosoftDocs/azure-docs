@@ -11,7 +11,7 @@ ms.subservice: disks
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
-# Frequently asked questions
+# Frequently asked questions about Ephemeral OS disks
 
 **Q: What is the size of the local OS Disks?**
 
