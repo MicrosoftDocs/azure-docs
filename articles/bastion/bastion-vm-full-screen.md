@@ -31,5 +31,4 @@ Select the **Fullscreen** button to switch the session to a full screen experien
  
 ## Next steps
 
-Read the [Bastion FAQ](bastion-faq.md).
-Learn how to [Copy and paste](bastion-vm-copy-paste.md) to and from an Azure VM.
+For more VM features, see [About VM connections and features](vm-about.md).

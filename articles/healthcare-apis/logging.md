@@ -5,7 +5,7 @@ services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 03/15/2022
+ms.date: 03/22/2022
 ms.author: ginle
 ---
 
@@ -56,12 +56,12 @@ In this article, you learned how to enable diagnostic logging for Azure Health D
 >[!div class="nextstepaction"]
 >[Supported metrics with Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
 
-For more information about service logs and metrics for the DICOM service and IoT connector, see
+For more information about service logs and metrics for the DICOM service and MedTech service, see
 
 >[!div class="nextstepaction"]
 >[Enable diagnostic logging in the DICOM service](./dicom/enable-diagnostic-logging.md)
 
 >[!div class="nextstepaction"]
->[How to display IoT connector metrics](./../healthcare-apis/iot/how-to-display-metrics.md)
+>[How to display MedTech service metrics](./../healthcare-apis/iot/how-to-display-metrics.md)
 
 

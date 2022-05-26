@@ -20,7 +20,7 @@ Following table shows a summary of key types and supported algorithms.
 
 |Key types/sizes/curves| Encrypt/Decrypt<br>(Wrap/Unwrap) | Sign/Verify | 
 | --- | --- | --- |
-|EC-P256, EC-P256K, EC-P384, EC-521|NA|ES256<br>ES256K<br>ES384<br>ES512|
+|EC-P256, EC-P256K, EC-P384, EC-P521|NA|ES256<br>ES256K<br>ES384<br>ES512|
 |RSA 2K, 3K, 4K| RSA1_5<br>RSA-OAEP<br>RSA-OAEP-256|PS256<br>PS384<br>PS512<br>RS256<br>RS384<br>RS512<br>RSNULL| 
 |AES 128-bit, 256-bit <br/>(Managed HSM only)| AES-KW<br>AES-GCM<br>AES-CBC| NA| 
 |||
@@ -66,6 +66,9 @@ Following table shows a summary of key types and supported algorithms.
 - **AES-GCM** - AES encryption in Galois Counter Mode ([NIST SP 800-38d](https://csrc.nist.gov/publications/sp800))
 - **AES-CBC** - AES encryption in Cipher Block Chaining Mode ([NIST SP 800-38a](https://csrc.nist.gov/publications/sp800))
 
+> [!NOTE] 
+> Sign and verify operations algorithms must match the key type, otherwise service will return key size is incorrect error.
+
 ##  Key operations
 
 Key Vault, including Managed HSM, supports the following operations on key objects:  
@@ -98,12 +101,12 @@ Users may restrict any of the cryptographic operations that Key Vault supports o
 
 For more information on JWK objects, see [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41).  
 
-##  Key rotation policy operations (preview)
+##  Key rotation policy operations
 
 Key vault key auto-rotation can be set by configuring key auto-rotation policy. It is only available on Key Vault resource.
 
--   **Get Rotation Policy (preview)**: Allows a client to retrieve rotation policy configuration
--   **Set Rotation Policy (preview)**: Allows a client to set rotation policy configuration 
+-   **Get Rotation Policy**: Allows a client to retrieve rotation policy configuration
+-   **Set Rotation Policy**: Allows a client to set rotation policy configuration 
 
 ## Key attributes
 

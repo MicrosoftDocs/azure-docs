@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/08/2022
+ms.date: 04/19/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -34,9 +34,10 @@ Administrators can assign a Conditional Access policy to the following cloud app
 - [Office 365](#office-365)
 - Azure Analysis Services
 - Azure DevOps
+- [Azure Data Explorer](/azure/data-explorer/security-conditional-access)
 - Azure Event Hubs
 - Azure Service Bus
-- [Azure SQL Database and Azure Synapse Analytics](../../azure-sql/database/conditional-access-configure.md)
+- [Azure SQL Database and Azure Synapse Analytics](/azure/azure-sql/database/conditional-access-configure)
 - Common Data Service
 - Microsoft Application Insights Analytics
 - [Microsoft Azure Information Protection](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
@@ -97,7 +98,6 @@ The following key applications are included in the Office 365 client app:
 - Microsoft Whiteboard Services
 - Office Delve
 - Office Online
-- Office.com
 - OneDrive
 - Power Apps
 - Power Automate
@@ -123,7 +123,7 @@ The Microsoft Azure Management application includes multiple services.
    - Azure Data Factory portal
    - Azure Event Hubs
    - Azure Service Bus
-   - [Azure SQL Database](../../azure-sql/database/conditional-access-configure.md)
+   - [Azure SQL Database](/azure/azure-sql/database/conditional-access-configure)
    - SQL Managed Instance
    - Azure Synapse
    - Visual Studio subscriptions administrator portal
@@ -133,7 +133,8 @@ The Microsoft Azure Management application includes multiple services.
 
 For more information on how to set up a sample policy for Microsoft Azure Management, see [Conditional Access: Require MFA for Azure management](howto-conditional-access-policy-azure-management.md).
 
-For Azure Government, you should target the Azure Government Cloud Management API application.
+>[!NOTE]
+>For Azure Government, you should target the Azure Government Cloud Management API application.
 
 ### Other applications
 
@@ -194,7 +195,7 @@ Administrators can select published authentication contexts in their Conditional
 
 For more information about authentication context use in applications, see the following articles.
 
-- [Microsoft Information Protection sensitivity labels to protect SharePoint sites](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#more-information-about-the-dependencies-for-the-authentication-context-option)
+- [Use sensitivity labels to protect content in Microsoft Teams, Microsoft 365 groups, and SharePoint sites](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites)
 - [Microsoft Defender for Cloud Apps](/cloud-app-security/session-policy-aad?branch=pr-en-us-2082#require-step-up-authentication-authentication-context)
 - [Custom applications](../develop/developer-guide-conditional-access-authentication-context.md)
 

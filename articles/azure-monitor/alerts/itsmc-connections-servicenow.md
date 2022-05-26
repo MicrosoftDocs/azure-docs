@@ -22,10 +22,13 @@ For information about installing ITSMC, see [Add the IT Service Management Conne
 
 ### OAuth setup
 
-ServiceNow supported versions include Quebec,  Paris, Orlando, New York, Madrid, London, Kingston, Jakarta, Istanbul, Helsinki, and Geneva.
+ServiceNow supported versions include San Diego, Rome, Quebec,  Paris, Orlando, New York, Madrid, London, Kingston, Jakarta, Istanbul, Helsinki, and Geneva.
 
 ServiceNow admins must generate a client ID and client secret for their ServiceNow instance. See the following information as required:
 
+
+- [Set up OAuth for San Diego](https://docs.servicenow.com/bundle/sandiego-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
+- [Set up OAuth for Rome](https://docs.servicenow.com/bundle/rome-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Set up OAuth for Quebec](https://docs.servicenow.com/bundle/quebec-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Set up OAuth for Paris](https://docs.servicenow.com/bundle/paris-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 - [Set up OAuth for Orlando](https://docs.servicenow.com/bundle/orlando-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
@@ -56,7 +59,7 @@ As a part of setting up OAuth, we recommend:
 
 ## Install the user app and create the user role
 
-Use the following procedure to install the Service Now user app and create the integration user role for it. You'll use these credentials to make the ServiceNow connection in Azure.
+Use the following procedure to install the ServiceNow user app and create the integration user role for it. You'll use these credentials to make the ServiceNow connection in Azure.
 
 > [!NOTE]
 > ITSMC supports only the official user app for Microsoft Log Analytics integration that's downloaded from the ServiceNow store. ITSMC does not support any code ingestion on the ServiceNow side or any application that's not part of the official ServiceNow solution. 

@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Microsoft Defender for IoT for device builders documentation
-summary: 'Microsoft Defender for IoT provides comprehensive threat detection for IoT/OT environments, with multiple deployment options including fully on-premises, cloud-connected, or hybrid. NOTE: Microsoft Defender for IoT is being renamed to Microsoft Defender for IoT. The documentation will be updated soon.'
+summary: 'Microsoft Defender for IoT provides comprehensive threat detection for IoT/OT environments, with multiple deployment options including fully on-premises, cloud-connected, or hybrid.'
 
 metadata: 
    title: Microsoft Defender for IoT for device builders documentation
@@ -10,8 +10,7 @@ metadata:
    ms.service: defender-for-iot
    ms.topic: landing-page
    ms.collection: M365-security-compliance
-   author: elazark
-   ms.author: v-ekrieg
+   author: batamig
    manager: raynew
    ms.date: 11/09/2021
 

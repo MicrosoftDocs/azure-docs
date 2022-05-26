@@ -2,6 +2,8 @@
 title: Azure DevTest Labs concepts
 description: Learn definitions of some basic DevTest Labs concepts related to labs, virtual machines (VMs), and environments.
 ms.topic: conceptual
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 03/03/2022
 ---
 

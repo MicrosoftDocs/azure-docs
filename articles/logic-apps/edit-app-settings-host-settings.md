@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 03/07/2022
+ms.date: 03/22/2022
 ms.custom: fasttrack-edit
 ---
 
 # Edit host and app settings for logic apps in single-tenant Azure Logic Apps
 
-In *single-tenant* Azure Logic Apps, the *app settings* for a logic app specify the global configuration options that affect *all the workflows* in that logic app. However, these settings apply *only* when these workflows run in your *local development environment*. Locally-running workflows can access these app settings as *local environment variables*, which are used by local development tools for values that can often change between environments. For example, these values can contain connection strings. When you deploy to Azure, app settings are ignored and aren't included with your deployment.
+In *single-tenant* Azure Logic Apps, the *app settings* for a logic app specify the global configuration options that affect *all the workflows* in that logic app. However, these settings apply *only* when these workflows run in your *local development environment*. Locally running workflows can access these app settings as *local environment variables*, which are used by local development tools for values that can often change between environments. For example, these values can contain connection strings. When you deploy to Azure, app settings are ignored and aren't included with your deployment.
 
 Your logic app also has *host settings*, which specify the runtime configuration settings and values that apply to *all the workflows* in that logic app, for example, default values for throughput, capacity, data size, and so on, *whether they run locally or in Azure*.
 
@@ -51,7 +51,7 @@ App settings in Azure Logic Apps work similarly to app settings in Azure Functio
 | `Workflows.Connection.AuthenticationAudience` | None | Sets the audience for authenticating an Azure-hosted connection. |
 | `Workflows.WebhookRedirectHostUri` | None | Sets the host name to use for webhook callback URLs. |
 | `WEBSITE_LOAD_ROOT_CERTIFICATES` | None | Sets the thumbprints for the root certificates to be trusted. |
-| `ServiceProviders.Sql.QueryExecutionTimeout` | `00:02:00` <br>(2 min) | Sets the request timeout value for SQL service provider operations. |
+| `ServiceProviders.Sql.QueryTimeout` | `00:02:00` <br>(2 min) | Sets the request timeout value for SQL service provider operations. |
 ||||
 
 <a name="manage-app-settings"></a>
@@ -197,7 +197,7 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
 | `Runtime.FlowRunRetryableActionJobCallback.MaximumContentLengthInBytesForPartialContent` | `1073741824` bytes | When chunking is supported and enabled on an operation, sets the maximum size in bytes for downloaded or uploaded content. |
-| `Runtime.FlowRunRetryableActionJobCallback.MaxChunkSizeInBytes` | `52428800` bytes | When chunking is supported and enabled on an operation , sets the maximum size in bytes for each content chunk. |
+| `Runtime.FlowRunRetryableActionJobCallback.MaxChunkSizeInBytes` | `52428800` bytes | When chunking is supported and enabled on an operation, sets the maximum size in bytes for each content chunk. |
 | `Runtime.FlowRunRetryableActionJobCallback.MaximumRequestCountForPartialContent` | `1000` requests | When chunking is supported and enabled on an operation, sets the maximum number of requests that an action execution can make to download content. |
 ||||
 
@@ -280,7 +280,7 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | `Runtime.Backend.HttpWebhookOperation.DefaultRetryInterval` | `00:00:07` <br>(7 sec) | Sets the default retry interval for HTTP webhook triggers and actions. |
 | `Runtime.Backend.HttpWebhookOperation.DefaultRetryMaximumInterval` | `01:00:00` <br>(1 hour) | Sets the maximum retry interval for HTTP webhook triggers and actions. |
 | `Runtime.Backend.HttpWebhookOperation.DefaultRetryMinimumInterval` | `00:00:05` <br>(5 sec) | Sets the minimum retry interval for HTTP webhook triggers and actions. |
-| `Runtime.Backend.HttpWebhookOperation.DefaultWakeUpInterval` | `01:00:00` <br>(1 hour) | Sets the default wake up interval for HTTP webhook trigger and action jobs. |
+| `Runtime.Backend.HttpWebhookOperation.DefaultWakeUpInterval` | `01:00:00` <br>(1 hour) | Sets the default wake-up interval for HTTP webhook trigger and action jobs. |
 ||||
 
 <a name="built-in-azure-functions"></a>
@@ -319,7 +319,7 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | `Runtime.Backend.ApiConnectionOperation.DefaultRetryInterval` | `00:00:07` <br>(7 sec) | Sets the default retry interval for managed API connector triggers and actions. |
 | `Runtime.Backend.ApiWebhookOperation.DefaultRetryMaximumInterval` | `01:00:00` <br>(1 day) | Sets the maximum retry interval for managed API connector webhook triggers and actions. |
 | `Runtime.Backend.ApiConnectionOperation.DefaultRetryMinimumInterval` | `00:00:05` <br>(5 sec) | Sets the minimum retry interval for managed API connector triggers and actions. |
-| `Runtime.Backend.ApiWebhookOperation.DefaultWakeUpInterval` | `01:00:00` <br>(1 day) | Sets the default wake up interval for managed API connector webhook trigger and action jobs. |
+| `Runtime.Backend.ApiWebhookOperation.DefaultWakeUpInterval` | `01:00:00` <br>(1 day) | Sets the default wake-up interval for managed API connector webhook trigger and action jobs. |
 ||||
 
 <a name="blob-storage"></a>

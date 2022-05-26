@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 03/04/2022
+ms.date: 03/25/2022
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -88,6 +88,12 @@ The sign-in logs are used to review how policy is enforced for service principal
 1. Select a log entry and choose the **Conditional Access** tab to view evaluation information.
 
 Failure reason when Service Principal is blocked by Conditional Access: “Access has been blocked due to conditional access policies.” 
+
+#### Report-only mode
+
+To view results of a location-based policy, refer to the **Report-only** tab of events in the **Sign-in report**, or use the **Conditional Access Insights and Reporting** workbook. 
+
+To view results of a risk-based policy, refer to the **Report-only** tab of events in the **Sign-in report**.
 
 ## Reference
 

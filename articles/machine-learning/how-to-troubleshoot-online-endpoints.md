@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting online endpoints deployment (preview)
+title: Troubleshooting online endpoints deployment
 titleSuffix: Azure Machine Learning
 description: Learn how to troubleshoot some common deployment and scoring errors with online endpoints.
 services: machine-learning
@@ -7,18 +7,18 @@ ms.service: machine-learning
 ms.subservice: mlops
 author: petrodeg
 ms.author:  petrodeg
-ms.reviewer: laobri
-ms.date: 11/03/2021
+ms.reviewer: larryfr
+ms.date: 04/12/2022
 ms.topic: troubleshooting
-ms.custom: devplatv2, devx-track-azurecli
+ms.custom: devplatv2, devx-track-azurecli, cliv2, event-tier1-build-2022
 #Customer intent: As a data scientist, I want to figure out why my online endpoint deployment failed so that I can fix it.
 ---
 
-# Troubleshooting online endpoints deployment and scoring (preview)
+# Troubleshooting online endpoints deployment and scoring
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-Learn how to resolve common issues in the deployment and scoring of Azure Machine Learning online endpoints (preview).
+Learn how to resolve common issues in the deployment and scoring of Azure Machine Learning online endpoints.
 
 This document is structured in the way you should approach troubleshooting:
 
@@ -28,17 +28,15 @@ This document is structured in the way you should approach troubleshooting:
 
 The section [HTTP status codes](#http-status-codes) explains how invocation and prediction errors map to HTTP status codes when scoring endpoints with REST requests.
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
-
 ## Prerequisites
 
 * An **Azure subscription**. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/).
 * The [Azure CLI](/cli/azure/install-azure-cli).
-* The [Install, set up, and use the CLI (v2) (preview)](how-to-configure-cli.md).
+* The [Install, set up, and use the CLI (v2)](how-to-configure-cli.md).
 
 ## Deploy locally
 
-Local deployment is deploying a model to a local Docker environment. Local deployment is useful for testing and debugging before to deployment to the cloud.
+Local deployment is deploying a model to a local Docker environment. Local deployment is useful for testing and debugging before deployment to the cloud.
 
 > [!TIP]
 > Use Visual Studio Code to test and debug your endpoints locally. For more information, see [debug online endpoints locally in Visual Studio Code](how-to-debug-managed-online-endpoints-visual-studio-code.md).
@@ -54,7 +52,23 @@ As a part of local deployment the following steps take place:
 - Docker either builds a new container image or pulls an existing image from the local Docker cache. An existing image is used if there's one that matches the environment part of the specification file.
 - Docker starts a new container with mounted local artifacts such as model and code files.
 
-For more, see [Deploy locally in Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints).
+For more, see [Deploy locally in Deploy and score a machine learning model with a managed online endpoint](how-to-deploy-managed-online-endpoints.md#deploy-and-debug-locally-by-using-local-endpoints).
+
+## Conda installation
+ 
+Generally, issues with mlflow deployment stem from issues with the installation of the user environment specified in the `conda.yaml` file. 
+
+To debug conda installation problems, try the following:
+
+1. Check the logs for conda installation. If the container crashed or taking too long to start up, it is likely that conda environment update has failed to resolve correctly.
+
+1. Install the mlflow conda file locally with the command `conda env create -n userenv -f <CONDA_ENV_FILENAME>`. 
+
+1. If there are errors locally, try resolving the conda environment and creating a functional one before redeploying. 
+
+1. If the container crashes even if it resolves locally, the SKU size used for deployment may be too small. 
+    1. Conda package installation occurs at runtime, so if the SKU size is too small to accommodate all of the packages detailed in the `conda.yaml` environment file, then the container may crash. 
+    1. A Standard_F4s_v2 VM is a good starting SKU size, but larger ones may be needed depending on which dependencies are specified in the conda file.
 
 ## Get container logs
 
@@ -99,12 +113,13 @@ There are three supported tracing headers:
    > [!Note]
    > When you create a support ticket for a failed request, attach the failed request ID to expedite investigation.
    
-- `x-ms-request-id` and `x-ms-client-request-id` are available for client tracing scenarios. We sanitize these headers to remove non-alphanumeric symbols. These headers are truncated to 72 characters.
+- `x-ms-client-request-id` is available for client tracing scenarios. We sanitize this header to remove non-alphanumeric symbols. This header is truncated to 72 characters.
 
 ## Common deployment errors
 
 Below is a list of common deployment errors that are reported as part of the deployment operation status.
 
+* [ImageBuildFailure](#error-imagebuildfailure)
 * [OutOfQuota](#error-outofquota)
 * [OutOfCapacity](#error-outofcapacity)
 * [BadArgument](#error-badargument)
@@ -112,6 +127,14 @@ Below is a list of common deployment errors that are reported as part of the dep
 * [ResourceNotFound](#error-resourcenotfound)
 * [OperationCancelled](#error-operationcancelled)
 * [InternalServerError](#error-internalservererror)
+
+### ERROR: ImageBuildFailure
+
+This error is returned when the environment (docker image) is being built. You can check the build log for more information on the failure(s). The build log is located in the default storage for your Azure Machine Learning workspace. The exact location is returned as part of the error. For example, 'The build log is available in the workspace blob store "storage-account-name" under the path "/azureml/ImageLogs/your-image-id/build.log"'. In this case, "azureml" is the name of the blob container in the storage account.
+
+If no obvious error is found in the build log, and the last line is `Installing pip dependencies: ...working...`, then the error may be caused by a dependency. Pinning version dependencies in your conda file could fix this problem.
+
+We also recommend using a [local deployment](#deploy-locally) to test and debug your models locally before deploying in the cloud.
 
 ### ERROR: OutOfQuota
 
@@ -150,7 +173,7 @@ Try to delete some unused endpoints in this subscription.
 
 #### Kubernetes quota
 
-The requested CPU or memory couldn't be satisfied. Please adjust your request or the cluster.
+The requested CPU or memory couldn't be satisfied. Adjust your request or the cluster.
 
 #### Other quota
 
@@ -173,13 +196,16 @@ The specified VM Size failed to provision due to a lack of Azure Machine Learnin
 Below is a list of reasons you might run into this error:
 
 * [Resource request was greater than limits](#resource-requests-greater-than-limits)
-* [Unable to download resources](#unable-to-download-resources)
+* [Startup task failed due to authorization error](#authorization-error)
+* [Startup task failed due to incorrect role assignments on resource](#authorization-error)
+* [Unable to download user container image](#unable-to-download-user-container-image)
+* [Unable to download user model or code artifacts](#unable-to-download-user-model-or-code-artifacts)
 
 #### Resource requests greater than limits
 
 Requests for resources must be less than or equal to limits. If you don't set limits, we set default values when you attach your compute to an Azure Machine Learning workspace. You can check limits in the Azure portal or by using the `az ml compute show` command.
 
-#### Unable to download resources
+#### Authorization error
 
 After provisioning the compute resource, during deployment creation, Azure tries to pull the user container image from the workspace private Azure Container Registry (ACR) and mount the user model and code artifacts into the user container from the workspace storage account.
 
@@ -191,20 +217,9 @@ To pull blobs, Azure uses [managed identities](../active-directory/managed-ident
 
   - If you created the associated endpoint with UserAssigned, the user's managed identity must have Storage blob data reader permission on the workspace storage account.
 
-During this process, you can run into a few different issues depending on which stage the operation failed at:
-
-* [Unable to download user container image](#unable-to-download-user-container-image)
-* [Unable to download user model or code artifacts](#unable-to-download-user-model-or-code-artifacts)
-
-To get more details about these errors, run:
-
-```azurecli
-az ml online-deployment get-logs -n <endpoint-name> --deployment <deployment-name> --l 100
-``` 
-
 #### Unable to download user container image
 
-It is possible that the user container could not be found.
+It is possible that the user container could not be found. Check [container logs](#get-container-logs) to get more details.
 
 Make sure container image is available in workspace ACR.
 
@@ -213,7 +228,7 @@ For example, if image is `testacr.azurecr.io/azureml/azureml_92a029f831ce58d2ed0
 
 #### Unable to download user model or code artifacts
 
-It is possible that the user model or code artifacts can't be found.
+It is possible that the user model or code artifacts can't be found. Check [container logs](#get-container-logs) to get more details.
 
 Make sure model and code artifacts are registered to the same workspace as the deployment. Use the `show` command to show details for a model or code artifact in a workspace. 
 
@@ -244,7 +259,7 @@ To run the `score.py` provided as part of the deployment, Azure creates a contai
 
 ### ERROR: ResourceNotFound
 
-This error occurs when Azure Resource Manager can't find a required resource. For example, you will receive this error if a storage account was referred to but cannot be found at the path on which it was specified. Be sure to double check resources which might have been supplied by exact path or the spelling of their names.
+This error occurs when Azure Resource Manager can't find a required resource. For example, you will receive this error if a storage account was referred to but cannot be found at the path on which it was specified. Be sure to double check resources that might have been supplied by exact path or the spelling of their names.
 
 For more information, see [Resolve resource not found errors](../azure-resource-manager/troubleshooting/error-not-found.md). 
 
@@ -262,7 +277,7 @@ If you are having trouble with autoscaling, see [Troubleshooting Azure autoscale
 
 ## Bandwidth limit issues
 
-Managed online endpoints have bandwidth limits for each endpoints. You find the limit configuration in [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview) here. If your bandwidth usage exceeds the limit, your request will be delayed. To monitor the bandwidth delay:
+Managed online endpoints have bandwidth limits for each endpoint. You find the limit configuration in [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints) here. If your bandwidth usage exceeds the limit, your request will be delayed. To monitor the bandwidth delay:
 
 - Use metric “Network bytes” to understand the current bandwidth usage. For more information, see [Monitor managed online endpoints](how-to-monitor-online-endpoints.md).
 - There are two response trailers will be returned if the bandwidth limit enforced: 
@@ -284,9 +299,12 @@ When you access online endpoints with REST requests, the returned status codes a
 | 429 | Too many pending requests | Your model is getting more requests than it can handle. We allow 2 * `max_concurrent_requests_per_instance` * `instance_count` requests at any time. Additional requests are rejected. You can confirm these settings in your model deployment config under `request_settings` and `scale_settings`. If you are using auto-scaling, your model is getting requests faster than the system can scale up. With auto-scaling, you can try to resend requests with [exponential backoff](https://aka.ms/exponential-backoff). Doing so can give the system time to adjust. |
 | 500 | Internal server error | Azure ML-provisioned infrastructure is failing. |
 
+## Common network isolation issues
+
+[!INCLUDE [network isolation issues](../../includes/machine-learning-online-endpoint-troubleshooting.md)]
+
 ## Next steps
 
-- [Deploy and score a machine learning model with a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md)
-- [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)
-- [Managed online endpoints (preview) YAML reference](reference-yaml-endpoint-managed-online.md)
-
+- [Deploy and score a machine learning model with a managed online endpoint](how-to-deploy-managed-online-endpoints.md)
+- [Safe rollout for online endpoints](how-to-safely-rollout-managed-endpoints.md)
+- [Online endpoint YAML reference](reference-yaml-endpoint-online.md)

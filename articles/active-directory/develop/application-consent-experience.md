@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.custom: aaddev 
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 04/18/2022
 ms.author: ryanwi
 ms.reviewer: jesakowi, asteen
 ---
@@ -42,15 +42,14 @@ The following diagram and table provide information about the building blocks of
 | 1 | User identifier | This identifier represents the user that the client application is requesting to access protected resources on behalf of. |
 | 2 | Title | The title changes based on whether the users are going through the user or admin consent flow. In user consent flow, the title will be “Permissions requested” while in the admin consent flow the title will have an additional line “Accept for your organization”. |
 | 3 | App logo | This image should help users have a visual cue of whether this app is the app they intended to access. This image is provided by application developers and the ownership of this image isn't validated. |
-| 4 | App name | This value should inform users which application is requesting access to their data. Note this name is provided by the developers and the ownership of this app name isn't validated. |
-| 5 | Publisher domain | This value should provide users with a domain they may be able to evaluate for trustworthiness. This domain is provided by the developers and the ownership of this publisher domain is validated. |
-| 6 | Publisher verified | The blue "verified" badge means that the app publisher has verified their identity using a Microsoft Partner Network account and has completed the verification process.|
-| 7 | Publisher information  | Displays whether the application is published by Microsoft or your organization. |
+| 4 | App name | This value should inform users which application is requesting access to their data. Note this name is provided by the developers and the ownership of this app name isn't validated.|
+| 5 | Publisher name and verification | The blue "verified" badge means that the app publisher has verified their identity using a Microsoft Partner Network account and has completed the verification process. If the app is publisher verified, the publisher name is displayed.  If the app is not publisher verified, "Unverified" is displayed instead of a publisher name. For more information, read about [Publisher Verification](publisher-verification-overview.md). Selecting the publisher name displays more app info as available, such as the publisher name, publisher domain, date created, certification details, and reply URLs. |
+| 6 |  Microsoft 365 Certification | The Microsoft 365 Certification logo means that an app has been vetted against controls derived from leading industry standard frameworks, and that strong security and compliance practices are in place to protect customer data.  For more information, read about [Microsoft 365 Certification](/microsoft-365-app-certification/docs/enterprise-app-certification-guide).|
+| 7 | Publisher information  | Displays whether the application is published by Microsoft. |
 | 8 | Permissions | This list contains the permissions being requested by the client application. Users should always evaluate the types of permissions being requested to understand what data the client application will be authorized to access on their behalf if they accept. As an application developer it is best to request access, to the permissions with the least privilege. |
 | 9 | Permission description | This value is provided by the service exposing the permissions. To see the permission descriptions, you must toggle the chevron next to the permission. |
-| 10| App terms | These terms contain links to the terms of service and privacy statement of the application. The publisher is responsible for outlining their rules in their terms of service. Additionally, the publisher is responsible for disclosing the way they use and share user data in their privacy statement. If the publisher doesn't provide links to these values for multi-tenant applications, there will be a bolded warning on the consent prompt. |
-| 11 | https://myapps.microsoft.com | This is the link where users can review and remove any non-Microsoft applications that currently have access to their data. |
-| 12 | Report it here | This link is used to report a suspicious app if you don't trust the app, if you believe the app is impersonating another app, if you believe the app will misuse your data, or for some other reason. |
+| 10 | https://myapps.microsoft.com | This is the link where users can review and remove any non-Microsoft applications that currently have access to their data. |
+| 11 | Report it here | This link is used to report a suspicious app if you don't trust the app, if you believe the app is impersonating another app, if you believe the app will misuse your data, or for some other reason. |
 
 ## App requires a permission within the user's scope of authority
 

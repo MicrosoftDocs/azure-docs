@@ -8,15 +8,13 @@ ms.custom: references_regions
 
 # Feature coverage for machines
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 The **tabs** below show the features of Microsoft Defender for Cloud that are available for Windows and Linux machines.
 
 ## Supported features for virtual machines and servers <a name="vm-server-features"></a>
 
 ### [**Windows machines**](#tab/features-windows)
 
-| **Feature**                                                                                                                       | **Azure Virtual Machines**                                                                                      | **Azure Virtual Machine Scale Sets** | **Azure Arc-enabled machines** | **Defender for servers required** |
+| **Feature**                                                                                                                       | **Azure Virtual Machines**                                                                                      | **Azure Virtual Machine Scale Sets** | **Azure Arc-enabled machines** | **Defender for Servers required** |
 |-----------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------:|:------------------------------------:|:------------------------------:|:---------------------------------------:|
 | [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md)                                               | ✔</br>(on supported versions)                                                                                  | ✔</br>(on supported versions)        | ✔                             | Yes                                     |
 | [Virtual machine behavioral analytics (and security alerts)](alerts-reference.md)                                                 | ✔                                                                                                              | ✔                                    | ✔                             | Yes                                     |
@@ -36,11 +34,11 @@ The **tabs** below show the features of Microsoft Defender for Cloud that are av
 | Disk encryption assessment                                                                                                        | ✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)) | ✔                                    | -                              | No                                      |
 | Third-party vulnerability assessment                                                                                              | ✔                                                                                                              | -                                    | ✔                             | No                                      |
 | [Network security assessment](protect-network-resources.md)                                                                       | ✔                                                                                                              | ✔                                    | -                              | No                                      |
-|                                                                                                                                   |                                                                                                                 |                                      |                                |                                         |
+
 
 ### [**Linux machines**](#tab/features-linux)
 
-| **Feature**                                                                                                                       | **Azure Virtual Machines**                                                                                      | **Azure Virtual Machine Scale Sets** | **Azure Arc-enabled machines** | **Defender for servers required** |
+| **Feature**                                                                                                                       | **Azure Virtual Machines**                                                                                      | **Azure Virtual Machine Scale Sets** | **Azure Arc-enabled machines** | **Defender for Servers required** |
 |-----------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------:|:------------------------------------:|:------------------------------:|:---------------------------------------:|
 | [Microsoft Defender for Endpoint integration](integration-defender-for-endpoint.md)                                               | ✔                                                                                                              | -                                    | ✔                             | Yes                                     |
 | [Virtual machine behavioral analytics (and security alerts)](./azure-defender.md)                                                 | ✔</br>(on supported versions)                                                                                  | ✔</br>(on supported versions)        | ✔                             | Yes                                     |
@@ -60,10 +58,10 @@ The **tabs** below show the features of Microsoft Defender for Cloud that are av
 | Disk encryption assessment                                                                                                        | ✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)) | ✔                                    | -                              | No                                      |
 | Third-party vulnerability assessment                                                                                              | ✔                                                                                                              | -                                    | ✔                             | No                                      |
 | [Network security assessment](protect-network-resources.md)                                                                       | ✔                                                                                                              | ✔                                    | -                              | No                                      |
-|                                                                                                                                   |                                                                                                                 |                                      |                                |                                         |
 
 
-### [**Multi-cloud machines**](#tab/features-multi-cloud)
+
+### [**Multicloud machines**](#tab/features-multicloud)
 
 | **Feature** | **Availability in AWS** | **Availability in GCP** |
 |--|:-:|
@@ -85,7 +83,7 @@ The **tabs** below show the features of Microsoft Defender for Cloud that are av
 | Disk encryption assessment | ✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)) | ✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios)) |
 | Third-party vulnerability assessment | - | - |
 | [Network security assessment](protect-network-resources.md) | - | - |
-|  |  |
+
 
 --- 
 
@@ -109,7 +107,7 @@ For information about when recommendations are generated for each of these solut
 | McAfee v10+                                                         | Linux (GA)                   | No                              |
 | Microsoft Defender for Endpoint for Linux<sup>[1](#footnote1)</sup> | Linux (GA)                   | Via extension                   |
 | Sophos V9+                                                          | Linux (GA)                   | No                              |
-|                                                                     |                              |                                 |
+
 
 <sup><a name="footnote1"></a>1</sup> It's not enough to have Microsoft Defender for Endpoint on the Linux machine: the machine will only appear as healthy if the always-on scanning feature (also known as real-time protection (RTP)) is active. By default, the RTP feature is **disabled** to avoid clashes with other AV software.
 
@@ -131,11 +129,11 @@ For information about when recommendations are generated for each of these solut
 | - [Azure Monitor Workbooks reports in Microsoft Defender for Cloud's workbooks gallery](./custom-dashboards-azure-workbooks.md)                               | GA             | GA                             | GA                             |
 | - [Integration with Microsoft Defender for Cloud Apps](./other-threat-protections.md#display-recommendations-in-microsoft-defender-for-cloud-apps-)                | GA             | Not Available                  | Not Available                  |
 | **Microsoft Defender plans and extensions**                                                                                                                   |                |                                |                                |
-| - [Microsoft Defender for servers](./defender-for-servers-introduction.md)                                                                                    | GA             | GA                             | GA                             |
+| - [Microsoft Defender for Servers](./defender-for-servers-introduction.md)                                                                                    | GA             | GA                             | GA                             |
 | - [Microsoft Defender for App Service](./defender-for-app-service-introduction.md)                                                                            | GA             | Not Available                  | Not Available                  |
 | - [Microsoft Defender for DNS](./defender-for-dns-introduction.md)                                                                                            | GA             | GA                             | GA                             |
 | - [Microsoft Defender for container registries](./defender-for-container-registries-introduction.md) <sup>[1](#footnote1)</sup>                               | GA             | GA  <sup>[2](#footnote2)</sup> | GA  <sup>[2](#footnote2)</sup> |
-| - [Microsoft Defender for container registries scanning of images in CI/CD workflows](./defender-for-container-registries-cicd.md) <sup>[3](#footnote3)</sup> | Public Preview | Not Available                  | Not Available                  |
+| - [Microsoft Defender for container registries scanning of images in CI/CD workflows](./defender-for-containers-cicd.md) <sup>[3](#footnote3)</sup> | Public Preview | Not Available                  | Not Available                  |
 | - [Microsoft Defender for Kubernetes](./defender-for-kubernetes-introduction.md) <sup>[4](#footnote4)</sup>                                                   | GA             | GA                             | GA                             |
 | - [Microsoft Defender for Containers](./defender-for-containers-introduction.md) <sup>[10](#footnote4)</sup>                                                  | GA             | GA                             | GA                             |
 | - [Defender extension for Azure Arc-enabled Kubernetes clusters, servers or data services](./defender-for-kubernetes-azure-arc.md) <sup>[5](#footnote5)</sup> | Public Preview | Not Available                  | Not Available                  |
@@ -148,7 +146,7 @@ For information about when recommendations are generated for each of these solut
 | - [Microsoft Defender for Azure Cosmos DB](concept-defender-for-cosmos.md)                                              | Public Preview | Not Available                  | Not Available                  |
 | - [Kubernetes workload protection](./kubernetes-workload-protections.md)                                                                                      | GA             | GA                             | GA                             |
 | - [Bi-directional alert synchronization with Sentinel](../sentinel/connect-azure-security-center.md)                                                          | Public Preview | Not Available                  | Not Available                  |
-| **Microsoft Defender for servers features** <sup>[7](#footnote7)</sup>                                                                                        |                |                                |                                |
+| **Microsoft Defender for Servers features** <sup>[7](#footnote7)</sup>                                                                                        |                |                                |                                |
 | - [Just-in-time VM access](./just-in-time-access-usage.md)                                                                                                    | GA             | GA                             | GA                             |
 | - [File integrity monitoring](./file-integrity-monitoring-overview.md)                                                                                        | GA             | GA                             | GA                             |
 | - [Adaptive application controls](./adaptive-application-controls.md)                                                                                         | GA             | GA                             | GA                             |
@@ -159,7 +157,7 @@ For information about when recommendations are generated for each of these solut
 | - [Microsoft Defender for Endpoint deployment and integrated license](./integration-defender-for-endpoint.md)                                                 | GA             | GA                             | Not Available                  |
 | - [Connect AWS account](./quickstart-onboard-aws.md)                                                                                                          | GA             | Not Available                  | Not Available                  |
 | - [Connect GCP project](./quickstart-onboard-gcp.md)                                                                                                          | GA             | Not Available                  | Not Available                  |
-|                                                                                                                                                               |                |                                |                                |
+
 
 <sup><a name="footnote1"></a>1</sup> Partially GA: The ability to disable specific findings from vulnerability scans is in public preview.
 
@@ -173,7 +171,7 @@ For information about when recommendations are generated for each of these solut
 
 <sup><a name="footnote6"></a>6</sup> Partially GA: Some of the threat protection alerts from Microsoft Defender for Storage are in public preview.
 
-<sup><a name="footnote7"></a>7</sup> These features all require [Microsoft Defender for servers](./defender-for-servers-introduction.md).
+<sup><a name="footnote7"></a>7</sup> These features all require [Microsoft Defender for Servers](./defender-for-servers-introduction.md).
 
 <sup><a name="footnote8"></a>8</sup> There may be differences in the standards offered per cloud type.
  

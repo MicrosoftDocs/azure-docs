@@ -65,7 +65,7 @@ If you are using Azure File Sync on-premises, you can use the service tag API to
 - The service tag discovery API (preview) allows programmatic retrieval of the current list of service tags. In preview, the service tag discovery API may return information that's less current than information returned from the JSON documents published on the Microsoft Download Center. You can use the API surface based on your automation preference:
     - [REST API](/rest/api/virtualnetwork/servicetags/list)
     - [Azure PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag)
-    - [Azure CLI](/cli/azure/network#az_network_list_service_tags)
+    - [Azure CLI](/cli/azure/network#az-network-list-service-tags)
 
 To learn more about how to use the service tag API to retrieve the addresses of your services, see [Allow list for Azure File Sync IP addresses](file-sync-firewall-and-proxy.md#allow-list-for-azure-file-sync-ip-addresses).
 

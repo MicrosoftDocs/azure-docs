@@ -1,12 +1,12 @@
 ---
 title: Azure Front Door Rules actions
-description: This article provides a list of various actions you can do with Azure Front Door Rules engine/Rules set.
+description: This article provides a list of various actions you can do with Azure Front Door Rules set/Rules engine.
 services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 03/07/2022
+ms.date: 03/22/2022
 ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
@@ -15,47 +15,68 @@ zone_pivot_groups: front-door-tiers
 
 ::: zone pivot="front-door-standard-premium"
 
-An Azure Front Door Standard/Premium [Rule Set](front-door-rules-engine.md) consist of rules with a combination of match conditions and actions. This article provides a detailed description of the actions you can use in Azure Front Door Standard/Premium Rule Set. The action defines the behavior that gets applied to a request type that a match condition(s) identifies. In an Azure Front Door (Standard/Premium) Rule Set, a rule can contain up to five actions.
+An Azure Front Door [Rule set](front-door-rules-engine.md) consist of rules with a combination of match conditions and actions. This article provides a detailed description of actions you can use in an Azure Front Door Rule set. An action defines the behavior that gets applied to a request type that a match condition(s) identifies. In an Azure Front Door Rule set, a rule can contain up to five actions.
 
-> [!IMPORTANT]
-> Azure Front Door Standard/Premium (Preview) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Azure Front Door supports [server variable](rule-set-server-variables.md) in a Rule set action.
 
-The following actions are available to use in Azure Front Door rule set.  
+The following actions are available to use in an Azure Front Door rule set: 
 
-## <a name="CacheExpiration"></a> Cache expiration
+## <a name="RouteConfigurationOverride"></a> Route configuration override
 
-Use the **cache expiration** action to overwrite the time to live (TTL) value of the endpoint for requests that the rules match conditions specify.
+Use the **route configuration override** action to override the origin group or the caching configuration to use for the request. You can choose to override or honor the origin group configurations specified in the route. However, whenever you override the route configuration, you must configure caching. Otherwise, caching will be disabled for the request.
 
-> [!NOTE]
-> Origins may specify not to cache specific responses using the `Cache-Control` header with a value of `no-cache`, `private`, or `no-store`. In these circumstances, Front Door will never cache the content and this action will have no effect.
+You can also override how files get cached for specific requests, including:
+
+- Override the caching behavior specified by the origin.
+- How query string parameters are used to generate the request's cache key.
+- The time to live (TTL) value to control how long contents stay in cache.
 
 ### Properties
 
 | Property | Supported values |
+|----------|------------------|
+| Override origin group | <ul><li>**Yes:** Override the origin group used for the request.</li> <li>**No:** Use the origin group specified in the route.</li></ul> |
+| Caching | <ul><li>**Enabled:** Force caching to be enabled for the request.</li><li>**Disabled:** Force caching to be disabled for the request.</li></ul> |
+
+When **Override origin group** is set to **Yes**, set the following properties:
+
+| Property | Supported values |
+|----------|------------------|
+| Origin group | The origin group that the request should be routed to. This overrides the configuration specified in the Front Door endpoint route. |
+| Forwarding protocol | The protocol for Front Door to use when forwarding the request to the origin. Supported values are HTTP only, HTTPS only, Match incoming request. This overrides the configuration specified in the Front Door endpoint route. |
+
+When **Caching** is set to **Enabled**, set the following properties:
+
+| Property | Supported values |
 |-------|------------------|
-| Cache behavior | <ul><li>**Bypass cache:** The content should not be cached. In ARM templates, set the `cacheBehavior` property to `BypassCache`.</li><li>**Override:** The TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. In ARM templates, set the `cacheBehavior` property to `Override`.</li><li>**Set if missing:** If no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. In ARM templates, set the `cacheBehavior` property to `SetIfMissing`.</li></ul> |
-| Cache duration | When _Cache behavior_ is set to `Override` or `Set if missing`, these fields must specify the cache duration to use. The maximum duration is 366 days.<ul><li>In the Azure portal: specify the days, hours, minutes, and seconds.</li><li>In ARM templates: specify the duration in the format `d.hh:mm:ss`. |
+| Query string caching behavior | <ul><li>**Ignore Query String:** Query strings aren't considered when the cache key gets generated. In ARM templates, set the `queryStringCachingBehavior` property to `IgnoreQueryString`.</li><li>**Use query string:** Each unique URL has its own cache key. In ARM templates, use the `queryStringCachingBehavior` of `UseQueryString`.</li><li>**Ignore specified query string:** Query strings specified in the parameters get excluded when the cache key gets generated. In ARM templates, set the `queryStringCachingBehavior` property to `IgnoreSpecifiedQueryStrings`.</li><li>**Include specified query string:** Query strings specified in the parameters get included when the cache key gets generated. In ARM templates, set the `queryStringBehavior` property to `IncludeSpecifiedQueryStrings`.</li></ul> |
+| Query parameters | The list of query string parameter names, separated by commas. This property is only set when *Query string caching behavior* is set to *Ignore Specified Query Strings* or *Include Specified Query Strings*. |
+| Compression | <ul><li>**Enabled:** Front Door dynamically compresses content at the edge, resulting in a smaller and faster response. For more information, see [File compression](front-door-caching.md#file-compression). In ARM templates, set the `isCompressionEnabled` property to `Enabled`.</li><li>**Disabled.** Front Door does not perform compression. In ARM templates, set the `isCompressionEnabled` property to `Disabled`.</li></ul> |
+| Cache behavior | <ul><li>**Honor origin:** Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from 1 to 3 days. In ARM templates, set the `cacheBehavior` property to `HonorOrigin`.</li><li>**Override always:** The TTL value returned from your origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. In ARM templates, set the `cacheBehavior` property to `OverrideAlways`.</li><li>**Override if origin missing:** If no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. In ARM templates, set the `cacheBehavior` property to `OverrideIfOriginMissing`.</li></ul> |
+| Cache duration | When _Cache behavior_ is set to `Override always` or `Override if origin missing`, these fields must specify the cache duration to use. The maximum duration is 366 days. For a value of 0 seconds, the CDN caches the content, but must revalidate each request with the origin server. This property is only set when *Cache behavior* is set to *Override always* or *Override if origin missing*.<ul><li>In the Azure portal: specify the days, hours, minutes, and seconds.</li><li>In ARM templates: use the `cacheDuration` to specify the duration in the format `d.hh:mm:ss`. |
 
-### Example
+### Examples
 
-In this example, we override the cache expiration to 6 hours, for matched requests that don't specify a cache duration already.
+In this example, we route all matched requests to an origin group named `MyOriginGroup`, regardless of the configuration in the Front Door endpoint route.
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="./media/concept-rule-set-actions/cache-expiration.png" alt-text="Portal screenshot showing cache expiration action.":::
+:::image type="content" source="media/front-door-rules-engine-actions/origin-group-override.png" alt-text="Portal screenshot showing origin group override action.":::
 
 # [JSON](#tab/json)
 
 ```json
 {
-  "name": "CacheExpiration",
+  "name": "RouteConfigurationOverride",
   "parameters": {
-    "cacheBehavior": "SetIfMissing",
-    "cacheType": "All",
-    "cacheDuration": "0.06:00:00",
-    "typeName": "DeliveryRuleCacheExpirationActionParameters"
+    "originGroupOverride": {
+      "originGroup": {
+        "id": "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Cdn/profiles/<profile-name>/originGroups/MyOriginGroup"
+      },
+      "forwardingProtocol": "MatchRequest"
+    },
+    "cacheConfiguration": null,
+    "typeName": "DeliveryRuleRouteConfigurationOverrideActionParameters"
   }
 }
 ```
@@ -64,46 +85,43 @@ In this example, we override the cache expiration to 6 hours, for matched reques
 
 ```bicep
 {
-  name: 'CacheExpiration'
+  name: 'RouteConfigurationOverride'
   parameters: {
-    cacheBehavior: 'SetIfMissing'
-    cacheType: All
-    cacheDuration: '0.06:00:00'
-    typeName: 'DeliveryRuleCacheExpirationActionParameters'
+    originGroupOverride: {
+      originGroup: {
+        id: '/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Cdn/profiles/<profile-name>/originGroups/MyOriginGroup'
+      }
+      forwardingProtocol: 'MatchRequest'
+    }
+    cacheConfiguration: null
+    typeName: 'DeliveryRuleRouteConfigurationOverrideActionParameters'
   }
 }
 ```
 
 ---
 
-## <a name="CacheKeyQueryString"></a> Cache key query string
-
-Use the **cache key query string** action to modify the cache key based on query strings. The cache key is the way that Front Door identifies unique requests to cache.
-
-### Properties
-
-| Property | Supported values |
-|-------|------------------|
-| Behavior | <ul><li>**Include:** Query strings specified in the parameters get included when the cache key gets generated. In ARM templates, set the `queryStringBehavior` property to `Include`.</li><li>**Cache every unique URL:** Each unique URL has its own cache key. In ARM templates, use the `queryStringBehavior` of `IncludeAll`.</li><li>**Exclude:** Query strings specified in the parameters get excluded when the cache key gets generated. In ARM templates, set the `queryStringBehavior` property to `Exclude`.</li><li>**Ignore query strings:** Query strings aren't considered when the cache key gets generated. In ARM templates, set the `queryStringBehavior` property to `ExcludeAll`.</li></ul>  |
-| Parameters | The list of query string parameter names, separated by commas. |
-
-### Example
-
-In this example, we modify the cache key to include a query string parameter named `customerId`.
+In this example, we set the cache key to include a query string parameter named `customerId`. Compression is enabled, and the origin's caching policies are honored.
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="./media/concept-rule-set-actions/cache-key-query-string.png" alt-text="Portal screenshot showing cache key query string action.":::
+:::image type="content" source="media/front-door-rules-engine-actions/cache-key-query-string.png" alt-text="Portal screenshot showing cache key query string action.":::
 
 # [JSON](#tab/json)
 
 ```json
 {
-  "name": "CacheKeyQueryString",
+  "name": "RouteConfigurationOverride",
   "parameters": {
-    "queryStringBehavior": "Include",
-    "queryParameters": "customerId",
-    "typeName": "DeliveryRuleCacheKeyQueryStringBehaviorActionParameters"
+    "cacheConfiguration": {
+      "queryStringCachingBehavior": "IncludeSpecifiedQueryStrings",
+      "queryParameters": "customerId",
+      "isCompressionEnabled": "Enabled",
+      "cacheBehavior": "HonorOrigin",
+      "cacheDuration": null
+    },
+    "originGroupOverride": null,
+    "typeName": "DeliveryRuleRouteConfigurationOverrideActionParameters"
   }
 }
 ```
@@ -112,11 +130,59 @@ In this example, we modify the cache key to include a query string parameter nam
 
 ```bicep
 {
-  name: 'CacheKeyQueryString'
+  name: 'RouteConfigurationOverride'
   parameters: {
-    queryStringBehavior: 'Include'
-    queryParameters: 'customerId'
-    typeName: 'DeliveryRuleCacheKeyQueryStringBehaviorActionParameters'
+    cacheConfiguration: {
+      queryStringCachingBehavior: 'IncludeSpecifiedQueryStrings'
+      queryParameters: 'customerId'
+      isCompressionEnabled: 'Enabled'
+      cacheBehavior: 'HonorOrigin'
+      cacheDuration: null
+    }
+    originGroupOverride: null
+    typeName: 'DeliveryRuleRouteConfigurationOverrideActionParameters'
+  }
+}
+```
+
+---
+
+In this example, we override the cache expiration to 6 hours for matched requests that don't specify a cache duration already. Front Door ignores the query string when it determines the cache key, and compression is enabled.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="media/front-door-rules-engine-actions/cache-expiration.png" alt-text="Portal screenshot showing cache expiration action.":::
+
+# [JSON](#tab/json)
+
+```json
+{
+  "name": "RouteConfigurationOverride",
+  "parameters": {
+    "cacheConfiguration": {
+      "queryStringCachingBehavior": "IgnoreQueryString",
+      "cacheBehavior": "OverrideIfOriginMissing",
+      "cacheDuration": "0.06:00:00",
+    },
+    "originGroupOverride": null,
+    "typeName": "DeliveryRuleRouteConfigurationOverrideActionParameters"
+  }
+}
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  name: 'RouteConfigurationOverride'
+  parameters: {
+    cacheConfiguration: {
+      queryStringCachingBehavior: 'IgnoreQueryString'
+      cacheBehavior: 'OverrideIfOriginMissing'
+      cacheDuration: '0.06:00:00'
+    }
+    originGroupOverride: null
+    typeName: 'DeliveryRuleRouteConfigurationOverrideActionParameters'
   }
 }
 ```
@@ -141,7 +207,7 @@ In this example, we append the value `AdditionalValue` to the `MyRequestHeader` 
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="./media/concept-rule-set-actions/modify-request-header.png" alt-text="Portal screenshot showing modify request header action.":::
+:::image type="content" source="media/front-door-rules-engine-actions/modify-request-header.png" alt-text="Portal screenshot showing modify request header action.":::
 
 # [JSON](#tab/json)
 
@@ -191,7 +257,7 @@ In this example, we delete the header with the name `X-Powered-By` from the resp
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="./media/concept-rule-set-actions/modify-response-header.png" alt-text="Portal screenshot showing modify response header action.":::
+:::image type="content" source="media/front-door-rules-engine-actions/modify-response-header.png" alt-text="Portal screenshot showing modify response header action.":::
 
 # [JSON](#tab/json)
 
@@ -238,11 +304,11 @@ Use the **URL redirect** action to redirect clients to a new URL. Clients are se
 
 ### Example
 
-In this example, we redirect the request to `https://contoso.com/exampleredirection?clientIp={client_ip}`, while preserving the fragment. An HTTP Temporary Redirect (307) is used. The IP address of the client is used in place of the `{client_ip}` token within the URL by using the `client_ip` [server variable](#server-variables).
+In this example, we redirect the request to `https://contoso.com/exampleredirection?clientIp={client_ip}`, while preserving the fragment. An HTTP Temporary Redirect (307) is used. The IP address of the client is used in place of the `{client_ip}` token within the URL by using the `client_ip` [server variable](rule-set-server-variables.md).
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="./media/concept-rule-set-actions/url-redirect.png" alt-text="Portal screenshot showing URL redirect action.":::
+:::image type="content" source="media/front-door-rules-engine-actions/url-redirect.png" alt-text="Portal screenshot showing URL redirect action.":::
 
 # [JSON](#tab/json)
 
@@ -296,7 +362,7 @@ In this example, we rewrite all requests to the path `/redirection`, and don't p
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="./media/concept-rule-set-actions/url-rewrite.png" alt-text="Portal screenshot showing URL rewrite action.":::
+:::image type="content" source="media/front-door-rules-engine-actions/url-rewrite.png" alt-text="Portal screenshot showing URL rewrite action.":::
 
 # [JSON](#tab/json)
 
@@ -328,99 +394,11 @@ In this example, we rewrite all requests to the path `/redirection`, and don't p
 
 ---
 
-## Origin group override
-
-Use the **Origin group override** action to change the origin group that the request should be routed to.
-
-### Properties
-
-| Property | Supported values |
-|----------|------------------|
-| Origin group | The origin group that the request should be routed to. This overrides the configuration specified in the Front Door endpoint route. |
-
-### Example
-
-In this example, we route all matched requests to an origin group named `SecondOriginGroup`, regardless of the configuration in the Front Door endpoint route.
-
-# [Portal](#tab/portal)
-
-:::image type="content" source="./media/concept-rule-set-actions/origin-group-override.png" alt-text="Portal screenshot showing origin group override action.":::
-
-# [JSON](#tab/json)
-
-```json
-{
-  "name": "OriginGroupOverride",
-  "parameters": {
-    "originGroup": {
-      "id": "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Cdn/profiles/<profile-name>/originGroups/SecondOriginGroup"
-    },
-    "typeName": "DeliveryRuleOriginGroupOverrideActionParameters"
-  }
-}
-```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-{
-  name: 'OriginGroupOverride'
-  parameters: {
-    originGroup: {
-      id: '/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Cdn/profiles/<profile-name>/originGroups/SecondOriginGroup'
-    }
-    typeName: 'DeliveryRuleOriginGroupOverrideActionParameters'
-  }
-}
-```
-
----
-
-## Server variables
-
-Rule Set server variables provide access to structured information about the request. You can use server variables to dynamically change the request/response headers or URL rewrite paths/query strings, for example, when a new page load or when a form is posted.
-
-### Supported variables
-
-| Variable name    | Description                                                                                                                                                                                                                                                                               |
-|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `socket_ip`      | The IP address of the direct connection to Azure Front Door edge. If the client used an HTTP proxy or a load balancer to send the request, the value of `socket_ip` is the IP address of the proxy or load balancer.                                                                      |
-| `client_ip`      | The IP address of the client that made the original request. If there was an `X-Forwarded-For` header in the request, then the client IP address is picked from the header.                                                                                                               |
-| `client_port`    | The IP port of the client that made the request.                                                                                                                                                                                                                                          |
-| `hostname`       | The host name in the request from the client.                                                                                                                                                                                                                                             |
-| `geo_country`    | Indicates the requester's country/region of origin through its country/region code.                                                                                                                                                                                                       |
-| `http_method`    | The method used to make the URL request, such as `GET` or `POST`.                                                                                                                                                                                                                         |
-| `http_version`   | The request protocol. Usually `HTTP/1.0`, `HTTP/1.1`, or `HTTP/2.0`.                                                                                                                                                                                                                      |
-| `query_string`   | The list of variable/value pairs that follows the "?" in the requested URL.<br />For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `query_string` value will be `id=123&title=fabrikam`.                                                      |
-| `request_scheme` | The request scheme: `http` or `https`.                                                                                                                                                                                                                                                    |
-| `request_uri`    | The full original request URI (with arguments).<br />For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `request_uri` value will be `/article.aspx?id=123&title=fabrikam`.                                                                     |
-| `ssl_protocol`   | The protocol of an established TLS connection.                                                                                                                                                                                                                                            |
-| `server_port`    | The port of the server that accepted a request.                                                                                                                                                                                                                                           |
-| `url_path`       | Identifies the specific resource in the host that the web client wants to access. This is the part of the request URI without the arguments.<br />For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the `uri_path` value will be `/article.aspx`. |
-
-### Server variable format    
-
-Server variables can be specified using the following formats:
-
-* `{variable}`: Include the entire server variable. For example, if the client IP address is `111.222.333.444` then the `{client_ip}` token would evaluate to `111.222.333.444`.
-* `{variable:offset}`: Include the server variable after a specific offset, until the end of the variable. The offset is zero-based. For example, if the client IP address is `111.222.333.444` then the `{client_ip:3}` token would evaluate to `.222.333.444`.
-* `{variable:offset:length}`: Include the server variable after a specific offset, up to the specified length. The offset is zero-based. For example, if the client IP address is `111.222.333.444` then the `{client_ip:4:3}` token would evaluate to `222`.
-
-### Supported actions
-
-Server variables are supported on the following actions:
-
-* Cache key query string
-* Modify request header
-* Modify response header
-* URL redirect
-* URL rewrite
-
 ::: zone-end
 
 ::: zone pivot="front-door-classic"
 
-In Azure Front Door, a [Rules Engine](front-door-rules-engine.md) can consist up to 25 rules containing matching conditions and associated actions. This article provides a detailed description of each action you can define in a rule.
+In Azure Front Door (classic), a [Rules engine](front-door-rules-engine.md) can consist up to 25 rules containing matching conditions and associated actions. This article provides a detailed description of each action you can define in a rule.
 
 An action defines the behavior that gets applied to the request type that matches the condition or set of match conditions. In the Rules engine configuration, a rule can have up to 10 matching conditions and 5 actions. You can only have one *Override Routing Configuration* action in a single rule.
 

@@ -9,8 +9,6 @@ author: bmansheim
 
 # Protect your web apps and APIs
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 ## Prerequisites
 
 Defender for Cloud is natively integrated with App Service, eliminating the need for deployment and onboarding - the integration is transparent.
@@ -32,7 +30,7 @@ To protect your Azure App Service plan with Microsoft Defender for App Service, 
 | Pricing:                     | Microsoft Defender for App Service is billed as shown on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/)<br>Billing is according to total compute instances in all plans       |
 | Supported App Service plans: | [The supported App Service plans](https://azure.microsoft.com/pricing/details/app-service/plans/) are:<br>• Free plan<br>• Basic Service plan<br>• Standard Service plan<br>• Premium v2 Service Plan<br>• Premium v3 Service Plan<br>• App Service Environment v1<br>• App Service Environment v2<br>• App Service Environment v3|
 | Clouds:                      | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)                                                     |
-|                              |                                                                                                                                                                                                |
+
 
 ## What are the benefits of Microsoft Defender for App Service?
 

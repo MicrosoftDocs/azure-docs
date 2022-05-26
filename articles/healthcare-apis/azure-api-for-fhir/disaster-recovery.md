@@ -1,12 +1,12 @@
 ---
 title: Disaster recovery for Azure API for FHIR
 description: In this article, you'll learn how to enable disaster recovery features for Azure API for FHIR.
-author: stevewohl
+author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 02/15/2022
-ms.author: zxue
+ms.date: 05/03/2022
+ms.author: mikaelw
 ---
 
 # Disaster recovery for Azure API for FHIR
@@ -129,7 +129,7 @@ Consider the following steps for DR test.
 The disaster recovery feature incurs extra costs because data of the compute and data replica running in the environment in the secondary region. For more pricing details, refer to the [Azure API for FHIR pricing]( https://azure.microsoft.com/pricing/details/azure-api-for-fhir) web page.
 
 > [!NOTE]
-> The DR offering is subject to the [SLA for Azure API for FHIR](https://azure.microsoft.com/support/legal/sla/azure-api-for-fhir/v1_0/), 1.0.
+> The DR offering is subject to the [SLA for Azure API for FHIR](https://azure.microsoft.com/pricing/details/health-data-services), 1.0.
 
 
 ## Next steps

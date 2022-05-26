@@ -181,6 +181,8 @@ CREATE EXTERNAL DATA SOURCE SqlOnDemandDemo WITH (
     CREDENTIAL = sqlondemand
 );
 ```
+> [!NOTE]
+> The SQL users needs to have proper permissions on database scoped credentials to access the data source in Azure Synapse Analytics Serverless SQL Pool. [Access external storage using serverless SQL pool in Azure Synapse Analytics](./develop-storage-files-overview.md?tabs=impersonation#permissions).
 
 The following example creates an external data source for Azure Data Lake Gen2 pointing to the publicly available New York data set:
 
@@ -220,9 +222,9 @@ WITH (
 {  
     FIELD_TERMINATOR = field_terminator  
     | STRING_DELIMITER = string_delimiter
-    | First_Row = integer
+    | FIRST_ROW = integer
     | USE_TYPE_DEFAULT = { TRUE | FALSE }
-    | Encoding = {'UTF8' | 'UTF16'}
+    | ENCODING = {'UTF8' | 'UTF16'}
     | PARSER_VERSION = {'parser_version'}
 }
 ```
@@ -259,6 +261,9 @@ Specifies the row number that is read first and applies to all files. Setting th
 
 USE_TYPE_DEFAULT = { TRUE | **FALSE** } -
 Specifies how to handle missing values in delimited text files when retrieving data from the text file.
+
+> [!NOTE]
+> Please note that USE_TYPE_DEFAULT=true is not supported for FORMAT_TYPE = DELIMITEDTEXT, PARSER_VERSION = '2.0'.
 
 TRUE -
 If you're retrieving data from the text file, store each missing value by using the default value's data type for the corresponding column in the external table definition. For example, replace a missing value with:

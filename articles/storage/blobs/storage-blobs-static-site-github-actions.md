@@ -36,7 +36,7 @@ An Azure subscription and GitHub account.
 
 # [Service principal](#tab/userlevel)
 
-You can create a [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
+You can create a [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) with the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command in the [Azure CLI](/cli/azure/). Run this command with [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
 Replace the placeholder `myStaticSite` with the name of your site hosted in Azure Storage.
 
@@ -152,7 +152,7 @@ You need to provide your application's **Client ID**, **Tenant ID**, and **Subsc
 
 1. Go to **Actions** for your GitHub repository.
 
-    :::image type="content" source="media/storage-blob-static-website/storage-blob-github-actions-header.png" alt-text="GitHub actions menu item":::
+    :::image type="content" source="media/storage-blob-static-website/storage-blob-github-actions-header.png" alt-text="GitHub Actions menu item":::
 
 1. Select **Set up your workflow yourself**.
 
@@ -240,7 +240,7 @@ You need to provide your application's **Client ID**, **Tenant ID**, and **Subsc
 
 1. Go to **Actions** for your GitHub repository.
 
-    :::image type="content" source="media/storage-blob-static-website/storage-blob-github-actions-header.png" alt-text="GitHub actions menu item":::
+    :::image type="content" source="media/storage-blob-static-website/storage-blob-github-actions-header.png" alt-text="GitHub Actions menu item":::
 
 1. Select **Set up your workflow yourself**.
 
@@ -358,7 +358,7 @@ You need to provide your application's **Client ID**, **Tenant ID**, and **Subsc
 
 1. Open the first result to see detailed logs of your workflow's run.
 
-    :::image type="content" source="../media/index/github-actions-run.png" alt-text="Log of GitHub actions run":::
+    :::image type="content" source="../media/index/github-actions-run.png" alt-text="Log of GitHub Actions run":::
 
 ## Clean up resources
 

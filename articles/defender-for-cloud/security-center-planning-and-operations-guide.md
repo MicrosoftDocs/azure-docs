@@ -6,8 +6,6 @@ ms.date: 12/14/2021
 ---
 # Planning and operations guide
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This guide is for information technology (IT) professionals, IT architects, information security analysts, and cloud administrators planning to use Defender for Cloud.
 
 
@@ -164,7 +162,7 @@ After initial configuration and application of Defender for Cloud recommendation
 
 The Defender for Cloud Overview provides a unified view of security across all your Azure resources and any non-Azure resources you have connected. The example below shows an environment with many issues to be addressed:
 
-![dashboard.](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig11.png)
+![dashboard.](./media/security-center-planning-and-operations-guide/microsoft-defender-for-cloud-planning-and-operations-guide-fig-11.png)
 
 > [!NOTE]
 > Defender for Cloud will not interfere with your normal operational procedures, it will passively monitor your deployments and provide recommendations based on the security policies you enabled.

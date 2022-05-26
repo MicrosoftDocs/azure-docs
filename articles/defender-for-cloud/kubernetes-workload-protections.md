@@ -7,8 +7,6 @@ ms.date: 03/08/2022
 
 # Protect your Kubernetes data plane hardening
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This page describes how to use Microsoft Defender for Cloud's set of security recommendations dedicated to Kubernetes data plane hardening.
 
 > [!TIP]
@@ -124,7 +122,7 @@ You can manually configure the Kubernetes data plane hardening add-on, or extens
     | Kubernetes clusters should not grant CAPSYSADMIN security capabilities      | Manage access and permissions            | No                     |
     | Privileged containers should be avoided                                     | Manage access and permissions            | No                     |
     | Running containers as root user should be avoided                           | Manage access and permissions            | No                     |
-    ||||
+
 
 For recommendations with parameters that need to be customized, you will need to set the parameters:
 

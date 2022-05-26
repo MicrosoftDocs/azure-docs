@@ -171,7 +171,7 @@ You can also purge data from a workspace using the [purge feature](personal-data
 The Log Analytics [Purge API](/rest/api/loganalytics/workspacepurge/purge) doesn't affect retention billing. **To lower retention costs, decrease the retention period for the workspace or for specific tables.** 
 
 ## Tables with unique retention policies
-By default, the tables of two data types - `Usage` and `AzureActivity` - keep data for at least 90 days at no charge. Increasing the workspace retention policy to more than 90 days also increases the retention policy of these tables. These tables are also free from data ingestion charges. 
+By default, two data types - `Usage` and `AzureActivity` - keep data for at least 90 days at no charge. When you increase the workspace retention to more than 90 days, you also increase the retention of these data types, and you'll be charged for retaining this data beyond the 90-day period. These tables are also free from data ingestion charges. 
 
 Tables related to Application Insights resources also keep data for 90 days at no charge. You can adjust the retention policy of each of these tables individually. 
 
@@ -192,6 +192,19 @@ Tables related to Application Insights resources also keep data for 90 days at n
 You'll be charged for each day you retain data. The cost of retaining data for part of a day is the same as for a full day.
 
 For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+
+## Classic Application Insights resources
+Data workspace-based Application Insights resources is stored in a Log Analytics workspace, so it's included in the data retention and archive settings for the workspace. Classic Application Insights resources though, have separate retention settings.
+
+The default retention for Application Insights resources is 90 days. Different retention periods can be selected for each Application Insights resource. The full set of available retention periods is 30, 60, 90, 120, 180, 270, 365, 550 or 730 days. 
+
+To change the retention, from your Application Insights resource, go to the **Usage and Estimated Costs** page and select the **Data Retention** option:
+
+![Screenshot that shows where to change the data retention period.](../app/media/pricing/pricing-005.png)
+
+A several-day grace period begins when the retention is lowered before the oldest data is removed.
+
+The retention can also be [set programatically using PowerShell](../app/powershell.md#set-the-data-retention) using the `retentionInDays` parameter. If you set the data retention to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter, which may be useful for compliance-related scenarios. This purge functionality is only exposed via Azure Resource Manager and should be used with extreme care. The daily reset time for the data volume cap can be configured using Azure Resource Manager to set the `dailyQuotaResetTime` parameter.
 
 ## Next steps
 - [Learn more about Log Analytics workspaces and data retention and archive.](log-analytics-workspace-overview.md)

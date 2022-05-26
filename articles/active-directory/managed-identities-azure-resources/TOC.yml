@@ -106,6 +106,8 @@
       href: howto-assign-access-cli.md
     - name: PowerShell
       href: howto-assign-access-powershell.md
+    - name: Using Azure Policy
+      href: how-to-assign-managed-identity-via-azure-policy.md
 
   - name: Manage user-assigned managed identities
     href: how-manage-user-assigned-managed-identities.md
@@ -125,6 +127,8 @@
       href: how-to-assign-app-role-managed-identity-cli.md
   - name: View managed identity activity
     href: how-to-view-managed-identity-activity.md
+  - name: Move a managed identity to a new region
+    href: how-to-managed-identity-regional-move.md
 
 - name: Reference
   items:
@@ -137,7 +141,7 @@
   - name: Python
     href: /python/api/overview/azure/identity-readme
   - name: Go
-    href: https://golang.org/doc/
+    href: https://go.dev/doc/
 - name: Resources
   items:
   - name: Frequently asked questions

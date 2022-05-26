@@ -2,20 +2,20 @@
 title: Tag resources, resource groups, and subscriptions for logical organization
 description: Shows how to apply tags to organize Azure resources for billing and managing.
 ms.topic: conceptual
-ms.date: 03/15/2022
+ms.date: 05/03/2022
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Use tags to organize your Azure resources and management hierarchy
 
-You apply tags to your Azure resources, resource groups, and subscriptions to logically organize them into a taxonomy. Each tag consists of a name and a value pair. For example, you can apply the name _Environment_ and the value _Production_ to all the resources in production.
+You apply tags to your Azure resources, resource groups, and subscriptions to logically organize them by values that make sense for your organization. Each tag consists of a name and a value pair. For example, you can apply the name _Environment_ and the value _Production_ to all the resources in production.
 
 For recommendations on how to implement a tagging strategy, see [Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
 
-Resource tags support all cost-accruing services. You can use Azure Policy to ensure that cost-accruing services are provisioned with a tag by using one of the many different [tag policies](/azure/azure-resource-manager/management/tag-policies).  
+Resource tags support all cost-accruing services. To ensure that cost-accruing services are provisioned with a tag, use one of the [tag policies](tag-policies.md).  
 
 > [!WARNING]
-> Tags are stored as plain text. Never add sensitive values to tags. Sensitive values could be exposed through many methods, including cost reports, tag taxonomies, deployment histories, exported templates, and monitoring logs.
+> Tags are stored as plain text. Never add sensitive values to tags. Sensitive values could be exposed through many methods, including cost reports, commands that return existing tag definitions, deployment histories, exported templates, and monitoring logs.
 
 > [!IMPORTANT]
 > Tag names are case-insensitive for operations. A tag with a tag name, regardless of casing, is updated or retrieved. However, the resource provider might keep the casing you provide for the tag name. You'll see that casing in cost reports.
@@ -856,8 +856,9 @@ The following limitations apply to tags:
 * Tag names can't contain these characters: `<`, `>`, `%`, `&`, `\`, `?`, `/`
 
    > [!NOTE]
-   > * Azure DNS zones and Traffic Manager doesn't support the use of spaces in the tag or a tag that starts with a number.
-   > * Azure DNS tag names do not support special and unicode characters. The value can contain all characters.
+   > * Azure DNS zones don't support the use of spaces in the tag or a tag that starts with a number. Azure DNS tag names do not support special and unicode characters. The value can contain all characters.
+   >
+   > * Traffic Manager doesn't support the use of spaces, `#` or `:` in the tag name. The tag name can't start with a number.
    >
    > * Azure Front Door doesn't support the use of `#` or `:` in the tag name.
    >

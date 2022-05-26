@@ -8,10 +8,15 @@
     href: advisor-release-notes.md
 - name: Quickstarts
   items:
+  - name: Get started with Advisor
+    href: advisor-get-started.md
   - name: Configure alerts for new recommendations
     items:
     - name: Azure portal
       href: advisor-alerts-portal.md
+    - name: Bicep
+      displayName: ARM, Resource Manager, Template
+      href: advisor-alerts-bicep.md
     - name: ARM template
       displayName: Resource Manager
       href: advisor-alerts-arm.md
@@ -29,11 +34,7 @@
       href: advisor-reference-performance-recommendations.md
     - name: Reliability
       href: advisor-reference-reliability-recommendations.md    
-- name: Tutorials
-  items:
-  - name: Get started with Advisor
-    href: advisor-get-started.md
-- name: Samples
+- name: Samples 
   items:
   - name: Azure Resource Graph queries
     href: ./resource-graph-samples.md
@@ -62,7 +63,7 @@
   - name: Defender for Cloud
     href: https://azure.microsoft.com/services/security-center/
   - name: SQL Database Advisor
-    href: ../azure-sql/database/database-advisor-implement-performance-recommendations.md
+    href: /azure/azure-sql/database/database-advisor-implement-performance-recommendations
   - name: App Service
     href: ../app-service/app-service-best-practices.md
   - name: REST API

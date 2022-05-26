@@ -1,12 +1,12 @@
 ---
 title: Get started with the DICOM service - Azure Health Data Services
 description: This document describes how to get started with the DICOM service in Azure Health Data Services.
-author: stevewohl
+author: aersoy
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 03/02/2022
-ms.author: zxue
+ms.date: 05/03/2022
+ms.author: aersoy
 ms.custom: mode-api
 ---
 
@@ -14,7 +14,7 @@ ms.custom: mode-api
 
 This article outlines the basic steps to get started with the DICOM service in [Azure Health Data Services](../healthcare-apis-overview.md). 
 
-As a prerequisite, you'll need an Azure subscription and have been granted proper permissions to create Azure resource groups and to deploy Azure resources. You can follow all the steps, or skip some if you have an existing environment. Also, you can combine all the steps and complete them in PowerShell, Azure CLI, and REST API scripts. You'll need a workspace to provision a DICOM service. A FHIR service is optional and is needed only if you connect imaging data with electronic health records of the patient via DICOM cast.
+As a prerequisite, you'll need an Azure subscription and have been granted proper permissions to create Azure resource groups and to deploy Azure resources. You can follow all the steps, or skip some if you have an existing environment. Also, you can combine all the steps and complete them in PowerShell, Azure CLI, and REST API scripts. You'll need a workspace to provision a DICOM service. A FHIR service is optional and is needed only if you connect imaging data with electronic health records of the patient via DICOMcast.
 
 [![Screenshot of Get Started with DICOM diagram.](media/get-started-with-dicom.png)](media/get-started-with-dicom.png#lightbox)
 
@@ -67,9 +67,9 @@ You can obtain an Azure AD access token using PowerShell, Azure CLI, REST CLI, o
 
 You can find more details on DICOMweb standard APIs and change feed in the [DICOM service](dicom-services-overview.md) documentation.
 
-#### DICOM cast
+#### DICOMcast
 
-DICOM cast is currently available as an [open source](https://github.com/microsoft/dicom-server/blob/main/docs/concepts/dicom-cast.md) project, and it's under private preview as a managed service. To enable DICOM cast as a managed service for your Azure subscription, request access by creating an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/following) by following the guidance in the article [DICOM cast access request](dicom-cast-access-request.md).
+DICOMcast is currently available as an [open source](https://github.com/microsoft/dicom-server/blob/main/docs/concepts/dicom-cast.md) project, and it's under private preview as a managed service. To enable DICOMcast as a managed service for your Azure subscription, request access by creating an [Azure support ticket](https://azure.microsoft.com/support/create-ticket/) by following the guidance in the article [DICOMcast access request](dicom-cast-access-request.md).
 
 ## Next steps
 

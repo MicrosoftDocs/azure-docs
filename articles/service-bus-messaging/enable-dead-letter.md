@@ -30,7 +30,7 @@ On the **Overview** page for your Service Bus subscription, select the current v
 :::image type="content" source="./media/enable-dead-letter/subscription-configuration.png" alt-text="Enable dead-lettering on message expiration for an existing subscription":::
 
 ## Using Azure CLI
-To **create a queue with dead lettering on message expiration enabled**, use the [`az servicebus queue create`](/cli/azure/servicebus/queue#az_servicebus_queue_create) command with `--enable-dead-lettering-on-message-expiration` set to `true`. 
+To **create a queue with dead lettering on message expiration enabled**, use the [`az servicebus queue create`](/cli/azure/servicebus/queue#az-servicebus-queue-create) command with `--enable-dead-lettering-on-message-expiration` set to `true`. 
 
 ```azurecli-interactive
 az servicebus queue create \
@@ -40,7 +40,7 @@ az servicebus queue create \
     --enable-dead-lettering-on-message-expiration true
 ```
 
-To **enable the dead lettering on message expiration setting for an existing queue**, use the [`az servicebus queue update`](/cli/azure/servicebus/queue#az_servicebus_queue_update) command with `--enable-dead-lettering-on-message-expiration` set to `true`. 
+To **enable the dead lettering on message expiration setting for an existing queue**, use the [`az servicebus queue update`](/cli/azure/servicebus/queue#az-servicebus-queue-update) command with `--enable-dead-lettering-on-message-expiration` set to `true`. 
 
 ```azurecli-interactive
 az servicebus queue update \
@@ -51,7 +51,7 @@ az servicebus queue update \
 ```
 
 
-To **create a subscription to a topic with dead lettering on message expiration enabled**, use the [`az servicebus topic subscription create`](/cli/azure/servicebus/topic/subscription#az_servicebus_topic_subscription_create) command with `--enable-dead-lettering-on-message-expiration` set to `true`.
+To **create a subscription to a topic with dead lettering on message expiration enabled**, use the [`az servicebus topic subscription create`](/cli/azure/servicebus/topic/subscription#az-servicebus-topic-subscription-create) command with `--enable-dead-lettering-on-message-expiration` set to `true`.
 
 ```azurecli-interactive
 az servicebus topic subscription create \
@@ -62,7 +62,7 @@ az servicebus topic subscription create \
     --enable-dead-lettering-on-message-expiration true
 ```
 
-To **enable the dead lettering on message expiration setting for a subscription to a topic**, use the [`az servicebus topic subscription update`](/cli/azure/servicebus/topic/subscription#az_servicebus_topic_subscription_update) command with `--enable-dead-lettering-on-message-expiration` set `true`.
+To **enable the dead lettering on message expiration setting for a subscription to a topic**, use the [`az servicebus topic subscription update`](/cli/azure/servicebus/topic/subscription#az-servicebus-topic-subscription-update) command with `--enable-dead-lettering-on-message-expiration` set `true`.
 
 ```azurecli-interactive
 az servicebus topic subscription create \

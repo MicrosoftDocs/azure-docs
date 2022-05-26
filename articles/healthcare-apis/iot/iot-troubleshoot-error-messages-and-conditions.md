@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 02/16/2022
+ms.date: 03/21/2022
 ms.author: jasteppe
 ---
 
@@ -15,7 +15,7 @@ ms.author: jasteppe
 This article provides steps for troubleshooting and fixing MedTech service error messages and conditions.
 
 > [!IMPORTANT]
-> Having access to MedTech service Metrics is essential for monitoring and troubleshooting.  MedTech service assists you to do these actions through [Metrics](./how-to-display-metrics.md).
+> Having access to MedTech service metrics is essential for monitoring and troubleshooting. MedTech service assists you to do these actions through [Metrics](./how-to-display-metrics.md).
 
 > [!TIP]
 > Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting MedTech service Device and FHIR destination mappings. Export mappings for uploading to MedTech service in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of the MedTech service.
@@ -103,7 +103,7 @@ This property provides the name for a specific error. Below is the list of all e
 
 |Potential issues|Fixes|
 |----------------|-----|
-|Data is still being processed.|Data is egressed to the FHIR service in batches (every ~5 minutes).  It’s possible the data is still being processed and extra time is needed for the data to be persisted in the FHIR service.|
+|Data is still being processed.|Data is egressed to the FHIR service in batches (every ~5 minutes). It’s possible the data is still being processed and extra time is needed for the data to be persisted in the FHIR service.|
 |Device mapping hasn't been configured.|Configure and save conforming Device mapping.|
 |FHIR destination mapping hasn't been configured.|Configure and save conforming FHIR destination mapping.|
 |The device message doesn't contain an expected expression defined in the Device mapping.|Verify `JsonPath` expressions defined in the Device mapping match tokens defined in the device message.|

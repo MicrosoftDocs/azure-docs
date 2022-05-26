@@ -160,8 +160,6 @@
           items:
             - name: GitHub deployment
               href: ./scripts/functions-cli-create-function-app-github-continuous.md
-            - name: DevOps deployment
-              href: ./scripts/functions-cli-create-function-app-vsts-continuous.md
 - name: Concepts
   items:
     - name: Best practices
@@ -341,20 +339,20 @@
               href: add-bindings-existing-function.md
             - name: Azure Cosmos DB - portal
               href: functions-integrate-store-unstructured-data-cosmosdb.md
-            - name: Storage - Python
-              href: ./functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python
-            - name: Storage - portal
-              href: functions-integrate-storage-queue-output-binding.md
-            - name: Storage - Visual Studio Code
-              href: ./functions-add-output-binding-storage-queue-vs-code.md
-            - name: Storage - Visual Studio
-              href: ./functions-add-output-binding-storage-queue-vs.md
-            - name: Storage - Java
-              href: functions-add-output-binding-storage-queue-java.md
-        - name: Debug and test
+            - name: Storage
+              items: 
+                - name: Azure portal
+                  href: functions-integrate-storage-queue-output-binding.md
+                - name: Visual Studio Code
+                  href: ./functions-add-output-binding-storage-queue-vs-code.md
+                - name: Visual Studio
+                  href: ./functions-add-output-binding-storage-queue-vs.md
+                - name: Java
+                  href: functions-add-output-binding-storage-queue-java.md
+                - name: Python
+                  href: ./functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python
+        - name: Debug
           items:
-            - name: Test functions
-              href: functions-test-a-function.md
             - name: Debug local PowerShell functions
               href: functions-debug-powershell-local.md
             - name: Debug Event Grid trigger locally
@@ -392,8 +390,7 @@
         - name: Automate resource deployment
           href: functions-infrastructure-as-code.md
         - name: Deploy using the Jenkins plugin
-          href: /azure/developer/jenkins/deploy-to-azure-functions
-          maintainContext: true
+          href: /azure/developer/jenkins/deploy-to-azure-functions?toc=%2fazure%2fazure-functions%2ftoc.json
     - name: Configure
       items:
         - name: Manage a function app
@@ -471,14 +468,26 @@
           items:
             - name: Azure Cosmos DB - portal
               href: functions-integrate-store-unstructured-data-cosmosdb.md
-            - name: Storage - Python
-              href: ./functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python
-            - name: Storage - portal
-              href: functions-integrate-storage-queue-output-binding.md
-            - name: Storage - Visual Studio Code
-              href: functions-add-output-binding-storage-queue-vs-code.md
-            - name: Storage - Visual Studio
-              href: functions-add-output-binding-storage-queue-vs.md
+            - name: Storage
+              items:
+                - name: Azure portal
+                  href: functions-integrate-storage-queue-output-binding.md
+                - name: Visual Studio Code
+                  href: functions-add-output-binding-storage-queue-vs-code.md
+                - name: Visual Studio
+                  href: functions-add-output-binding-storage-queue-vs.md
+                - name: Python
+                  href: ./functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-python
+            - name: SignalR
+              items:
+                - name: C#
+                  href: ../azure-signalr/signalr-quickstart-azure-functions-csharp.md?toc=%2fazure%2fazure-functions%2ftoc.json
+                - name: Java
+                  href: ../azure-signalr/signalr-quickstart-azure-functions-java.md?toc=%2fazure%2fazure-functions%2ftoc.json
+                - name: JavaScript
+                  href: ../azure-signalr/signalr-quickstart-azure-functions-javascript.md?toc=%2fazure%2fazure-functions%2ftoc.json
+                - name: Python
+                  href: ../azure-signalr/signalr-quickstart-azure-functions-python.md?toc=%2fazure%2fazure-functions%2ftoc.json                  
             - name: Work with Event Grid
               href: event-grid-how-tos.md  
         - name: Start/Stop VMs
@@ -625,7 +634,16 @@
               href: functions-bindings-event-iot-trigger.md
               displayName: Azure IoT Hubs
         - name: Kafka
-          href: https://github.com/azure/azure-functions-kafka-extension
+          items:
+            - name: Overview
+              href: functions-bindings-kafka.md
+              displayName: Kafka
+            - name: Trigger
+              href: functions-bindings-kafka-trigger.md
+              displayName: Kafka
+            - name: Output
+              href: functions-bindings-kafka-output.md
+              displayName: Kafka
         - name: HTTP and webhooks
           items:
             - name: Overview

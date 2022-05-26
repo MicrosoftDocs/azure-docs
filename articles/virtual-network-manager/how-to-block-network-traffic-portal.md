@@ -1,11 +1,11 @@
 ---
 title: 'How to block network traffic with Azure Virtual Network Manager (Preview) - Azure portal'
 description: Learn how to block network traffic using security rules in Azure Virtual Network Manager with the Azure portal.
-author: duongau
-ms.author: duau
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 05/02/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -29,29 +29,25 @@ Before you start to configure security admin rules, confirm that you've done the
 
 1. Select **Configurations** under *Settings* and then select **+ Add a configuration**.
 
-    :::image type="content" source="./media/how-to-block-network-traffic-portal/create-security-admin.png" alt-text="Screenshot of add a security admin configuration.":::
+    :::image type="content" source="./media/create-virtual-network-manager-portal/add-configuration.png" alt-text="Screenshot of add a security admin configuration.":::
 
 1. Select **SecurityAdmin** from the drop-down menu.
 
     :::image type="content" source="./media/how-to-block-network-traffic-portal/security-admin-drop-down.png" alt-text="Screenshot of add a configuration drop-down.":::
 
-1. Enter a *Name* to identify this security configuration.
+1. On the **Basics** tab, enter a *Name* to identify this security configuration and select **Next: Rule collections**.
 
     :::image type="content" source="./media/how-to-block-network-traffic-portal/security-configuration-name.png" alt-text="Screenshot of security configuration name field.":::
 
 ## Add a rule collection
 
-1. Select **+ Add a rule collection** to create your set of rules.
-
-    :::image type="content" source="./media/how-to-block-network-traffic-portal/add-rule-collection-button.png" alt-text="Screenshot of add a rule collection button.":::
-
-1. Enter a *Name* to identify this rule collection and then select the *Network groups* you want to apply the set of rules to.
+1. Enter a *Name* to identify this rule collection and then select the *Target network groups* you want to apply the set of rules to.
 
     :::image type="content" source="./media/how-to-block-network-traffic-portal/rule-collection-target.png" alt-text="Screenshot of rule collection name and target network groups.":::
 
 ## Add a security rule
 
-1. Select **+ Add a rule** from the *Add a rule collection page*.
+1. Select **+ Add** from the *Add a rule collection page*.
 
     :::image type="content" source="./media/how-to-block-network-traffic-portal/add-rule-button.png" alt-text="Screenshot of add a rule button.":::
 
@@ -76,15 +72,14 @@ Before you start to configure security admin rules, confirm that you've done the
     | Destination service tag | This field will appear when you select the destination type of *Service tag*. Select service tag(s) for services you want to specify as the destination. See [Available service tags](../virtual-network/service-tags-overview.md#available-service-tags), for the list of supported tags. |
     | Destination port | Enter a single port number or a port range such as (1024-65535). When defining more than one port or port ranges, separate them using a comma. To specify any port, enter *. Enter **3389** for this example. |
 
-1. Repeat steps 1-3 again if you want to add more rule to the rule collection.
+1. Repeat steps 1-3 again if you want to add more rules to the rule collection.
 
-1. Once you're satisfied with all the rules you wanted to create, select **Save** to add the rule collection to the security admin configuration.
+1. Once you're satisfied with all the rules you wanted to create, select **Add** to add the rule collection to the security admin configuration.
 
-    :::image type="content" source="./media/how-to-block-network-traffic-portal/save-rule-collection.png" alt-text="Screenshot of a rule in a rule collection.":::
+    :::image type="content" source="./media/how-to-block-network-traffic-portal/save-rule-collection.png" alt-text="Screenshot of a rule collection.":::
 
-1. Then select **Add** to create the configuration.
+1. Then select **Review + Create** and **Create** to complete the security configuration.
 
-    :::image type="content" source="./media/how-to-block-network-traffic-portal/create-security-configuration.png" alt-text="Screenshot of add button for creating a security configuration.":::
 
 ## Deploy the security admin configuration
 
@@ -94,13 +89,11 @@ If you just created a new security admin configuration, make sure to deploy this
 
     :::image type="content" source="./media/how-to-block-network-traffic-portal/deploy-configuration.png" alt-text="Screenshot of deploy a configuration button.":::
 
-1. Select the configuration type of **SecurityAdmin** and the configuration you created in the last section. Then choose the region(s) you would like to deploy this configuration to and select **Deploy**.
+1. Select the configuration type of **Include security admin in your goal state** and the security configuration you created in the last section. Then choose the region(s) you would like to deploy this configuration to.
 
     :::image type="content" source="./media/how-to-block-network-traffic-portal/deploy-security-configuration.png" alt-text="Screenshot of deploy a security configuration page.":::
 
-1. Select **OK** to confirm you want to overwrite any existing configuration and deploy the security admin configuration.
-
-    :::image type="content" source="./media/how-to-block-network-traffic-portal/confirm-security.png" alt-text="Screenshot of confirmation message for deploying a security configuration.":::
+1. Select **Next** and **Deploy** to deploy the security admin configuration.
 
 ## Update existing security admin configuration
 

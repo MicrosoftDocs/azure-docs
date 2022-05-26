@@ -54,7 +54,7 @@ await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/AppName/Se
 
 ## Dynamically specifying move cost on a per-replica basis
 
-The preceding snippets are all for specifying MoveCost for a whole service at once from outside the service itself. However, move cost is most useful when the move cost of a specific service object changes over its lifespan. Since the services themselves probably have the best idea of how costly they are to move a given time, there's an API for services to report their own individual move cost during runtime. 
+The preceding snippets are all for specifying MoveCost for a whole service at once from outside the service itself. However, move cost is most useful when the move cost of a specific service object changes over its lifespan. Since the services themselves probably have the best idea of how costly they are to move a given time, there's an API for services to report their own individual move cost during runtime.
 
 C#:
 
@@ -62,9 +62,12 @@ C#:
 this.Partition.ReportMoveCost(MoveCost.Medium);
 ```
 
+> [!NOTE]
+> You can only set the movement cost for secondary replicas through code.
+
 ## Reporting move cost for a partition
 
-The previous section describes how service replicas or instances report MoveCost themselves. We provided Service Fabric API for reporting MoveCost values on behalf of other partitions. Sometimes service replica or instance can't determine the best MoveCost value by itself, and must rely on other services logic. Reporting MoveCost on behalf of other partitions, alongside [reporting load on behalf of other partitions](service-fabric-cluster-resource-manager-metrics.md#reporting-load-for-a-partition), allows you to completely manage partitions from outside. These APIs eliminate needs for [the Sidecar pattern](https://docs.microsoft.com/azure/architecture/patterns/sidecar), from the perspective of the Cluster Resource Manager.
+The previous section describes how service replicas or instances report MoveCost themselves. We provided Service Fabric API for reporting MoveCost values on behalf of other partitions. Sometimes service replica or instance can't determine the best MoveCost value by itself, and must rely on other services logic. Reporting MoveCost on behalf of other partitions, alongside [reporting load on behalf of other partitions](service-fabric-cluster-resource-manager-metrics.md#reporting-load-for-a-partition), allows you to completely manage partitions from outside. These APIs eliminate needs for [the Sidecar pattern](/azure/architecture/patterns/sidecar), from the perspective of the Cluster Resource Manager.
 
 You can report MoveCost updates for a different partition with the same API call. You need to specify PartitionMoveCostDescription object for each partition that you want to update with new values of MoveCost. The API allows multiple ways to update MoveCost:
 

@@ -14,7 +14,7 @@ When you build and manage an API in Azure API Management, you want to be prepare
 
 Although this experience is most helpful when you re having issues with your API within the last 24 hours, all the diagnostic graphs are always available for you to analyze.
 
-[!NOTE] Diagnose and solve problems is currenty not supported for Consumption Tier.
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## Open API Management Diagnostics
 

@@ -6,9 +6,10 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 08/26/2021
+ms.date: 03/29/2022
 ms.author: jroth
 ms.custom: devx-track-java
+ms.reviewer: wiassaf
 ---
 
 # Tutorial: Build a Java web application using Azure Cosmos DB and the SQL API
@@ -24,7 +25,7 @@ ms.custom: devx-track-java
 This Java web application tutorial shows you how to use the [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service to store and access data from a Java application hosted on Azure App Service Web Apps. In this article, you will learn:
 
 * How to build a basic JavaServer Pages (JSP) application in Eclipse.
-* How to work with the Azure Cosmos DB service using the [Azure Cosmos DB Java SDK](https://github.com/Azure/azure-documentdb-java).
+* How to work with the Azure Cosmos DB service using the [Azure Cosmos DB Java SDK](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos).
 
 This Java application tutorial shows you how to create a web-based task-management application that enables you to create, retrieve, and mark tasks as complete, as shown in the following image. Each of the tasks in the ToDo list is stored as JSON documents in Azure Cosmos DB.
 
@@ -43,7 +44,7 @@ Before you begin this application development tutorial, you must have the follow
 
 * [Java Development Kit (JDK) 7+](/java/azure/jdk/).
 * [Eclipse IDE for Java EE Developers.](https://www.eclipse.org/downloads/packages/release/luna/sr1/eclipse-ide-java-ee-developers)
-* [An Azure Web Site with a Java runtime environment (e.g. Tomcat or Jetty) enabled.](../../app-service/quickstart-java.md)
+* [An Azure Web Site with a Java runtime environment (for example, Tomcat or Jetty) enabled.](../../app-service/quickstart-java.md)
 
 If you're installing these tools for the first time, coreservlets.com provides a walk-through of the installation process in the quickstart section of their [Tutorial: Installing TomCat7 and Using it with Eclipse](https://www.youtube.com/watch?v=jOdCfW7-ybI&t=2s) article.
 
@@ -59,19 +60,19 @@ Let's start by creating an Azure Cosmos DB account. If you already have an accou
 
 To create the JSP application:
 
-1. First, we'll start off by creating a Java project. Start Eclipse, then click **File**, click **New**, and then click **Dynamic Web Project**. If you don't see **Dynamic Web Project** listed as an available project, do the following: click **File**, click **New**, click **Project**…, expand **Web**, click **Dynamic Web Project**, and click **Next**.
+1. First, we'll start off by creating a Java project. Start Eclipse, then select **File**, select **New**, and then select **Dynamic Web Project**. If you don't see **Dynamic Web Project** listed as an available project, do the following: Select **File**, select **New**, select **Project**…, expand **Web**, select **Dynamic Web Project**, and select **Next**.
    
     :::image type="content" source="./media/sql-api-java-application/image10.png" alt-text="JSP Java Application Development":::
 
-1. Enter a project name in the **Project name** box, and in the **Target Runtime** drop-down menu, optionally select a value (e.g. Apache Tomcat v7.0), and then click **Finish**. Selecting a target runtime enables you to run your project locally through Eclipse.
+1. Enter a project name in the **Project name** box, and in the **Target Runtime** drop-down menu, optionally select a value (e.g. Apache Tomcat v7.0), and then select **Finish**. Selecting a target runtime enables you to run your project locally through Eclipse.
 
-1. In Eclipse, in the Project Explorer view, expand your project. Right-click **WebContent**, click **New**, and then click **JSP File**.
+1. In Eclipse, in the Project Explorer view, expand your project. Right-click **WebContent**, select **New**, and then select **JSP File**.
 
-1. In the **New JSP File** dialog box, name the file **index.jsp**. Keep the parent folder as **WebContent**, as shown in the following illustration, and then click **Next**.
+1. In the **New JSP File** dialog box, name the file **index.jsp**. Keep the parent folder as **WebContent**, as shown in the following illustration, and then select **Next**.
    
     :::image type="content" source="./media/sql-api-java-application/image11.png" alt-text="Make a New JSP File - Java Web Application Tutorial":::
 
-1. In the **Select JSP Template** dialog box, for the purpose of this tutorial select **New JSP File (html)**, and then click **Finish**.
+1. In the **Select JSP Template** dialog box, for the purpose of this tutorial select **New JSP File (html)**, and then select **Finish**.
 
 1. When the *index.jsp* file opens in Eclipse, add text to display **Hello World!** within the existing `<body>` element. The updated `<body>` content should look like the following code:
 
@@ -83,7 +84,7 @@ To create the JSP application:
 
 1. Save the *index.jsp* file.
 
-1. If you set a target runtime in step 2, you can click **Project** and then **Run** to run your JSP application locally:
+1. If you set a target runtime in step 2, you can select **Project** and then **Run** to run your JSP application locally:
 
    :::image type="content" source="./media/sql-api-java-application/image12.png" alt-text="Hello World – Java Application Tutorial":::
 
@@ -91,13 +92,13 @@ To create the JSP application:
 
 The easiest way to pull in the SQL Java SDK and its dependencies is through [Apache Maven](https://maven.apache.org/). To do this, you need to convert your project to a Maven project by using the following steps:
 
-1. Right-click your project in the Project Explorer, click **Configure**, click **Convert to Maven Project**.
+1. Right-click your project in the Project Explorer, select **Configure**, select **Convert to Maven Project**.
 
-1. In the **Create new POM** window, accept the defaults, and click **Finish**.
+1. In the **Create new POM** window, accept the defaults, and select **Finish**.
 
 1. In **Project Explorer**, open the pom.xml file.
 
-1. On the **Dependencies** tab, in the **Dependencies** pane, click **Add**.
+1. On the **Dependencies** tab, in the **Dependencies** pane, select **Add**.
 
 1. In the **Select Dependency** window, do the following:
    
@@ -115,7 +116,7 @@ The easiest way to pull in the SQL Java SDK and its dependencies is through [Apa
    </dependency>
    ```
 
-1. Click **OK** and Maven will install the SQL Java SDK or save the pom.xml file.
+1. Select **OK** and Maven will install the SQL Java SDK or save the pom.xml file.
 
 ## <a id="UseService"></a>Use the Azure Cosmos DB service in your Java application
 
@@ -131,7 +132,7 @@ First, let's define a model within a new file *TodoItem.java*. The `TodoItem` cl
 
 Create a Data Access Object (DAO) to abstract persisting the ToDo items to Azure Cosmos DB. In order to save ToDo items to a collection, the client needs to know which database and collection to persist to (as referenced by self-links). In general, it is best to cache the database and collection when possible to avoid additional round-trips to the database.
 
-1. To invoke the Azure Cosmos DB service, you must instantiate a new `cosmosClient` object. In general, it is best to reuse the `cosmosClient` object rather than constructing a new client for each subsequent request. You can reuse the client by defining it within the `cosmosClientFactory` class. Update the HOST and MASTER_KEY values that you saved in [step 1](#CreateDB). Replace the HOST variable with with your URI and replace the MASTER_KEY with your PRIMARY KEY. Use the following code to create the `CosmosClientFactory` class within the *CosmosClientFactory.java* file:
+1. To invoke the Azure Cosmos DB service, you must instantiate a new `cosmosClient` object. In general, it is best to reuse the `cosmosClient` object rather than constructing a new client for each subsequent request. You can reuse the client by defining it within the `cosmosClientFactory` class. Update the HOST and MASTER_KEY values that you saved in [step 1](#CreateDB). Replace the HOST variable with your URI and replace the MASTER_KEY with your PRIMARY KEY. Use the following code to create the `CosmosClientFactory` class within the *CosmosClientFactory.java* file:
 
    :::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/cosmos/sample/dao/CosmosClientFactory.java":::
 
@@ -155,7 +156,7 @@ Create a Data Access Object (DAO) to abstract persisting the ToDo items to Azure
 
 ### Add a controller
 
-Add the *TodoItemController* controller to your application. In this project, you are using [Project Lombok](https://projectlombok.org/) to generate the constructor, getters, setters, and a builder. Alternatively, you can write this code manually or have the IDE generate it.:
+Add the *TodoItemController* controller to your application. In this project, you are using [Project Lombok](https://projectlombok.org/) to generate the constructor, getters, setters, and a builder. Alternatively, you can write this code manually or have the IDE generate it:
 
 :::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/cosmos/sample/controller/TodoItemController.java":::
 
@@ -165,7 +166,7 @@ Next, create a servlet to route HTTP requests to the controller. Create the *Api
 
 :::code language="java" source="~/samples-cosmosdb-java-v4-web-app/src/com/microsoft/azure/cosmos/sample/ApiServlet.java":::
 
-## <a id="Wire"></a>Wire the rest of the of Java app together
+## <a id="Wire"></a>Wire the rest of the Java app together
 
 Now that we've finished the fun bits, all that's left is to build a quick user interface and wire it up to your DAO.
 
@@ -183,13 +184,13 @@ Now that we've finished the fun bits, all that's left is to build a quick user i
 
 Azure Web Sites makes deploying Java applications as simple as exporting your application as a WAR file and either uploading it via source control (e.g. Git) or FTP.
 
-1. To export your application as a WAR file, right-click on your project in **Project Explorer**, click **Export**, and then click **WAR File**.
+1. To export your application as a WAR file, right-click on your project in **Project Explorer**, select **Export**, and then select **WAR File**.
 
 1. In the **WAR Export** window, do the following:
    
    * In the Web project box, enter azure-cosmos-java-sample.
    * In the Destination box, choose a destination to save the WAR file.
-   * Click **Finish**.
+   * Select **Finish**.
 
 1. Now that you have a WAR file in hand, you can simply upload it to your Azure Web Site's **webapps** directory. For instructions on uploading the file, see [Add a Java application to Azure App Service Web Apps](../../app-service/quickstart-java.md). After the WAR file is uploaded to the webapps directory, the runtime environment will detect that you've added it and will automatically load it.
 
@@ -203,41 +204,41 @@ All the samples in this tutorial are included in the [todo](https://github.com/A
 
 1. If Eclipse is open, close it and restart it to load Lombok.
 
-1. In Eclipse, on the **File** menu, click **Import**.
+1. In Eclipse, on the **File** menu, select **Import**.
 
-1. In the **Import** window, click **Git**, click **Projects from Git**, and then click **Next**.
+1. In the **Import** window, select **Git**, select **Projects from Git**, and then select **Next**.
 
-1. On the **Select Repository Source** screen, click **Clone URI**.
+1. On the **Select Repository Source** screen, select **Clone URI**.
 
-1. On the **Source Git Repository** screen, in the **URI** box, enter https://github.com/Azure-Samples/azure-cosmos-java-sql-api-todo-app, and then click **Next**.
+1. On the **Source Git Repository** screen, in the **URI** box, enter https://github.com/Azure-Samples/azure-cosmos-java-sql-api-todo-app, and then select **Next**.
 
-1. On the **Branch Selection** screen, ensure that **main** is selected, and then click **Next**.
+1. On the **Branch Selection** screen, ensure that **main** is selected, and then select **Next**.
 
-1. On the **Local Destination** screen, click **Browse** to select a folder where the repository can be copied, and then click **Next**.
+1. On the **Local Destination** screen, select **Browse** to select a folder where the repository can be copied, and then select **Next**.
 
-1. On the **Select a wizard to use for importing projects** screen, ensure that **Import existing projects** is selected, and then click **Next**.
+1. On the **Select a wizard to use for importing projects** screen, ensure that **Import existing projects** is selected, and then select **Next**.
 
-1. On the **Import Projects** screen, unselect the **DocumentDB** project, and then click **Finish**. The DocumentDB project contains the Azure Cosmos DB Java SDK, which we will add as a dependency instead.
+1. On the **Import Projects** screen, unselect the **DocumentDB** project, and then select **Finish**. The DocumentDB project contains the Azure Cosmos DB Java SDK, which we will add as a dependency instead.
 
 1. In **Project Explorer**, navigate to azure-cosmos-java-sample\src\com.microsoft.azure.cosmos.sample.dao\DocumentClientFactory.java and replace the HOST and MASTER_KEY values with the URI and PRIMARY KEY for your Azure Cosmos DB account, and then save the file. For more information, see [Step 1. Create an Azure Cosmos database account](#CreateDB).
 
-1. In **Project Explorer**, right-click the **azure-cosmos-java-sample**, click **Build Path**, and then click **Configure Build Path**.
+1. In **Project Explorer**, right-click the **azure-cosmos-java-sample**, select **Build Path**, and then select **Configure Build Path**.
 
-1. On the **Java Build Path** screen, in the right pane, select the **Libraries** tab, and then click **Add External JARs**. Navigate to the location of the lombok.jar file, and click **Open**, and then click **OK**.
+1. On the **Java Build Path** screen, in the right pane, select the **Libraries** tab, and then select **Add External JARs**. Navigate to the location of the lombok.jar file, and select **Open**, and then select **OK**.
 
-1. Use step 12 to open the **Properties** window again, and then in the left pane click **Targeted Runtimes**.
+1. Use step 12 to open the **Properties** window again, and then in the left pane select **Targeted Runtimes**.
 
-1. On the **Targeted Runtimes** screen, click **New**, select **Apache Tomcat v7.0**, and then click **OK**.
+1. On the **Targeted Runtimes** screen, select **New**, select **Apache Tomcat v7.0**, and then select **OK**.
 
-1. Use step 12 to open the **Properties** window again, and then in the left pane click **Project Facets**.
+1. Use step 12 to open the **Properties** window again, and then in the left pane select **Project Facets**.
 
-1. On the **Project Facets** screen, select **Dynamic Web Module** and **Java**, and then click **OK**.
+1. On the **Project Facets** screen, select **Dynamic Web Module** and **Java**, and then select **OK**.
 
-1. On the **Servers** tab at the bottom of the screen, right-click **Tomcat v7.0 Server at localhost** and then click **Add and Remove**.
+1. On the **Servers** tab at the bottom of the screen, right-click **Tomcat v7.0 Server at localhost** and then select **Add and Remove**.
 
-1. On the **Add and Remove** window, move **azure-cosmos-java-sample** to the **Configured** box, and then click **Finish**.
+1. On the **Add and Remove** window, move **azure-cosmos-java-sample** to the **Configured** box, and then select **Finish**.
 
-1. In the **Servers** tab, right-click **Tomcat v7.0 Server at localhost**, and then click **Restart**.
+1. In the **Servers** tab, right-click **Tomcat v7.0 Server at localhost**, and then select **Restart**.
 
 1. In a browser, navigate to `http://localhost:8080/azure-cosmos-java-sample/` and start adding to your task list. Note that if you changed your default port values, change 8080 to the value you selected.
 
@@ -246,8 +247,8 @@ All the samples in this tutorial are included in the [todo](https://github.com/A
 ## Next steps
 
 Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
-* If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
+* If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
 * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 
 > [!div class="nextstepaction"]
-> [Build a node.js application with Azure Cosmos DB](sql-api-nodejs-application.md)
+> [Build a Node.js application with Azure Cosmos DB](sql-api-nodejs-application.md)

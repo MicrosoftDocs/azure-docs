@@ -9,8 +9,6 @@ ms.custom: mode-other
 ---
 # Configure email notifications for security alerts 
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Security alerts need to reach the right people in your organization. By default, Microsoft Defender for Cloud emails subscription owners whenever a high-severity alert is triggered for their subscription. This page explains how to customize these notifications.
 
 Use Defender for Cloud's **Email notifications** settings page to define preferences for notification emails including:
@@ -34,7 +32,7 @@ To avoid alert fatigue, Defender for Cloud limits the volume of outgoing mails. 
 |Pricing:|Email notifications are free; for security alerts, enable the enhanced security plans ([plan pricing](https://azure.microsoft.com/pricing/details/defender-for-cloud/)) |
 |Required roles and permissions:|**Security Admin**<br>**Subscription Owner** |
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)|
-|||
+
 
 
 ## Customize the security alerts email notifications via the portal<a name="email"></a>

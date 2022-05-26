@@ -1,9 +1,9 @@
 ---
 author: cynthn
-ms.service: virtual-machines
+ms.service: virtual-machine-scale-sets
 ms.topic: include
 ms.date: 11/09/2018    
-ms.author: cynthn
+ms.author: jushim
 ---
 | Resource | Limit |
 | --- | --- |

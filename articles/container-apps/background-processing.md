@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Deploy a background processing application with Azure Container Apps Preview'
+title: 'Tutorial: Deploy a background processing application with Azure Container Apps'
 description: Learn to create an application that continuously runs in the background with Azure Container Apps
 services: container-apps
 author: jorgearteiro
@@ -7,10 +7,10 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 11/02/2021
 ms.author: joarteir
-ms.custom: ignite-fall-2021, devx-track-azurecli
+ms.custom: ignite-fall-2021, devx-track-azurecli, event-tier1-build-2022
 ---
 
-# Tutorial: Deploy a background processing application with Azure Container Apps Preview
+# Tutorial: Deploy a background processing application with Azure Container Apps
 
 Using Azure Container Apps allows you to deploy applications without requiring the exposure of public endpoints. By using Container Apps scale rules, the application can scale up and down based on the Azure Storage queue length. When there are no messages on the queue, the container app scales down to zero.
 
@@ -35,8 +35,6 @@ Individual container apps are deployed to an Azure Container Apps environment. T
 az containerapp env create \
   --name $CONTAINERAPPS_ENVIRONMENT \
   --resource-group $RESOURCE_GROUP \
-  --logs-workspace-id $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
-  --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET \
   --location "$LOCATION"
 ```
 
@@ -46,8 +44,6 @@ az containerapp env create \
 az containerapp env create `
   --name $CONTAINERAPPS_ENVIRONMENT `
   --resource-group $RESOURCE_GROUP `
-  --logs-workspace-id $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
-  --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET `
   --location $LOCATION
 ```
 
@@ -179,12 +175,12 @@ Create a file named *queue.json* and paste the following configuration code into
     "resources": [
     {
         "name": "queuereader",
-        "type": "Microsoft.Web/containerApps",
-        "apiVersion": "2021-03-01",
+        "type": "Microsoft.App/containerApps",
+        "apiVersion": "2022-03-01",
         "kind": "containerapp",
         "location": "[parameters('location')]",
         "properties": {
-            "kubeEnvironmentId": "[resourceId('Microsoft.Web/kubeEnvironments', parameters('environment_name'))]",
+            "managedEnvironmentId": "[resourceId('Microsoft.App/managedEnvironments', parameters('environment_name'))]",
             "configuration": {
                 "activeRevisionsMode": "single",
                 "secrets": [
@@ -280,6 +276,8 @@ Run the following command to see logged messages. This command requires the Log 
 # [Bash](#tab/bash)
 
 ```azurecli
+LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az containerapp env show --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP --query properties.appLogsConfiguration.logAnalyticsConfiguration.customerId --out tsv`
+
 az monitor log-analytics query \
   --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
   --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'queuereader' and Log_s contains 'Message ID'" \
@@ -289,6 +287,8 @@ az monitor log-analytics query \
 # [PowerShell](#tab/powershell)
 
 ```powershell
+$LOG_ANALYTICS_WORKSPACE_CLIENT_ID=(az containerapp env show --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP --query properties.appLogsConfiguration.logAnalyticsConfiguration.customerId --out tsv)
+
 $queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $LOG_ANALYTICS_WORKSPACE_CLIENT_ID -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'queuereader' and Log_s contains 'Message ID'"
 $queryResults.Results
 ```

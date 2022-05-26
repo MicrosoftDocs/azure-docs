@@ -146,9 +146,13 @@ The actions that are available in the **Action** column of the **Plan overview**
 
 ## Before you publish your offer
 
-If you haven't already done so, create a development and test (DEV) offer to test your offer before publishing your production offer live. To learn more, see [Create a test SaaS offer](create-saas-dev-test-offer.md).
+If you haven't already done so, create a development and test (DEV) offer to test your offer before publishing your production offer live. To learn more, see [Plan a test and development SaaS offer](plan-saas-dev-test-offer.md).
 
 ## Next steps
 
 - [Sell your SaaS offer](create-new-saas-offer-marketing.md) through the **Co-sell with Microsoft** and **Resell through CSPs** programs.
 - [Test and publish a SaaS offer](test-publish-saas-offer.md).
+
+**Video tutorials**
+
+- [Publishing a Private SaaS plan](https://go.microsoft.com/fwlink/?linkid=2196256)

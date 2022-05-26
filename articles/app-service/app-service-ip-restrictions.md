@@ -33,6 +33,8 @@ To add an access restriction rule to your app, do the following:
 
 1. Sign in to the Azure portal.
 
+1. Select the app that you wan't to add access restrictions to.
+
 1. On the left pane, select **Networking**.
 
 1. On the **Networking** pane, under **Access Restrictions**, select **Configure Access Restrictions**.

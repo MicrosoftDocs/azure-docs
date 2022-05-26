@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: nitinme
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: [devx-track-csharp, cogserv-non-critical-vision]
 ---
 
 # Migrate your face data to a different Face subscription
@@ -21,11 +21,14 @@ This guide shows you how to move face data, such as a saved PersonGroup object w
 
 This same migration strategy also applies to LargePersonGroup and LargeFaceList objects. If you aren't familiar with the concepts in this guide, see their definitions in the [Face recognition concepts](../concepts/face-recognition.md) guide. This guide uses the Face .NET client library with C#.
 
+> [!WARNING]
+> The Snapshot feature might move your data outside the geographic region you originally selected. Data might move to West US, West Europe, and Southeast Asia regions.
+
 ## Prerequisites
 
 You need the following items:
 
-- Two Face subscription keys, one with the existing data and one to migrate to. To subscribe to the Face service and get your key, follow the instructions in [Create a Cognitive Services account](../../cognitive-services-apis-create-account.md).
+- Two Face keys, one with the existing data and one to migrate to. To subscribe to the Face service and get your key, follow the instructions in [Create a Cognitive Services account](../../cognitive-services-apis-create-account.md).
 - The Face subscription ID string that corresponds to the target subscription. To find it, select **Overview** in the Azure portal. 
 - Any edition of [Visual Studio 2015 or 2017](https://www.visualstudio.com/downloads/).
 
@@ -44,18 +47,18 @@ In the **Main** method in *Program.cs*, create two [FaceClient](/dotnet/api/micr
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ```csharp
-var FaceClientEastAsia = new FaceClient(new ApiKeyServiceClientCredentials("<East Asia Subscription Key>"))
+var FaceClientEastAsia = new FaceClient(new ApiKeyServiceClientCredentials("<East Asia Key>"))
     {
         Endpoint = "https://southeastasia.api.cognitive.microsoft.com/>"
     };
 
-var FaceClientWestUS = new FaceClient(new ApiKeyServiceClientCredentials("<West US Subscription Key>"))
+var FaceClientWestUS = new FaceClient(new ApiKeyServiceClientCredentials("<West US Key>"))
     {
         Endpoint = "https://westus.api.cognitive.microsoft.com/"
     };
 ```
 
-Fill in the subscription key values and endpoint URLs for your source and target subscriptions.
+Fill in the key values and endpoint URLs for your source and target subscriptions.
 
 
 ## Prepare a PersonGroup for migration

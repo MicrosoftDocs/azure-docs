@@ -14,25 +14,7 @@ ms.custom: devx-track-java
 # Spring Data Azure Cosmos DB v3 for Core (SQL) API: Release notes and resources
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-> [!div class="op_single_selector"]
-> * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
-> * [.NET SDK v2](sql-api-sdk-dotnet.md)
-> * [.NET Core SDK v2](sql-api-sdk-dotnet-core.md)
-> * [.NET Change Feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
-> * [Node.js](sql-api-sdk-node.md)
-> * [Java SDK v4](sql-api-sdk-java-v4.md)
-> * [Async Java SDK v2](sql-api-sdk-async-java.md)
-> * [Sync Java SDK v2](sql-api-sdk-java.md)
-> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
-> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Spark 3 OLTP Connector](sql-api-sdk-java-spark-v3.md)
-> * [Spark 2 OLTP Connector](sql-api-sdk-java-spark.md)
-> * [Python](sql-api-sdk-python.md)
-> * [REST](/rest/api/cosmos-db/)
-> * [REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-query-getting-started.md)
-> * [Bulk executor - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
+[!INCLUDE[appliesto-sql-api](../includes/cosmos-db-sdk-list.md)]
 
 The Spring Data Azure Cosmos DB version 3 for Core (SQL) allows developers to use Azure Cosmos DB in Spring applications. Spring Data Azure Cosmos DB exposes the Spring Data interface for manipulating databases and collections, working with documents, and issuing queries. Both Sync and Async (Reactive) APIs are supported in the same Maven artifact. 
 
@@ -76,11 +58,12 @@ You can use Spring Data Azure Cosmos DB in your [Azure Spring Cloud](https://azu
 
 | Content | Link |
 |---|---|
-|**SDK download**| [Maven](https://mvnrepository.com/artifact/com.azure/azure-spring-data-cosmos) |
-|**API documentation** | [Java API reference documentation](/java/api/overview/azure/spring-data-cosmos-readme?view=azure-java-stable&preserve-view=true) |
-|**Contribute to SDK** | [Azure SDK for Java Central Repo on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-cosmos) | 
-|**Get started** | [Quickstart: Build a Spring Data Azure Cosmos DB app to manage Azure Cosmos DB SQL API data](./create-sql-api-spring-data.md) <br> [GitHub repo with quickstart code](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started) | 
-|**Basic code samples** | [Azure Cosmos DB: Spring Data Azure Cosmos DB examples for the SQL API](sql-api-spring-data-sdk-samples.md) <br> [GitHub repo with sample code](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples)|
+| **Release notes** | [Release notes for Spring Data Cosmos SDK v3](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/cosmos/azure-spring-data-cosmos/CHANGELOG.md) |
+| **SDK download** | [Maven](https://mvnrepository.com/artifact/com.azure/azure-spring-data-cosmos) |
+| **API documentation** | [Java API reference documentation](/java/api/overview/azure/spring-data-cosmos-readme?view=azure-java-stable&preserve-view=true) |
+| **Contribute to SDK** | [Azure SDK for Java Central Repo on GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-cosmos) | 
+| **Get started** | [Quickstart: Build a Spring Data Azure Cosmos DB app to manage Azure Cosmos DB SQL API data](./create-sql-api-spring-data.md) <br> [GitHub repo with quickstart code](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started) | 
+| **Basic code samples** | [Azure Cosmos DB: Spring Data Azure Cosmos DB examples for the SQL API](sql-api-spring-data-sdk-samples.md) <br> [GitHub repo with sample code](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-samples)|
 | **Performance tips**| [Performance tips for Java SDK v4 (applicable to Spring Data)](performance-tips-java-sdk-v4-sql.md)| 
 | **Troubleshooting** | [Troubleshoot Java SDK v4 (applicable to Spring Data)](troubleshoot-java-sdk-v4-sql.md) | 
 | **Azure Cosmos DB workshops and labs** |[Cosmos DB workshops home page](https://aka.ms/cosmosworkshop)

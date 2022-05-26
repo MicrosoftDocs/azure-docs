@@ -20,11 +20,44 @@ require code to be signed.
 
 To use the Signature Validation feature, run the
 `Protect-GuestConfigurationPackage` cmdlet to sign the package before it's
-published. This cmdlet requires a 'Code Signing' certificate.
+published. This cmdlet requires a 'Code Signing' certificate. If you do not have a 'Code Signing' certificate, please use the script below to create a self-signed certificate for testing purposes to follow along with the example. 
+
+## Windows signature validation
 
 ```azurepowershell-interactive
-$Cert = Get-ChildItem -Path cert:\LocalMachine\My | Where-Object {($_.Subject-eq "CN=mycert") }
-Protect-GuestConfigurationPackage -Path .\package\AuditWindowsService\AuditWindowsService.zip -Certificate $Cert -Verbose
+# How to create a self sign cert and use it to sign Guest Configuration custom policy package
+
+# Create Code signing cert
+$mycert = New-SelfSignedCertificate -Type CodeSigningCert -DnsName 'GCEncryptionCertificate' -HashAlgorithm SHA256
+
+# Export the certificates
+$mypwd = ConvertTo-SecureString -String "Password1234" -Force -AsPlainText
+$mycert | Export-PfxCertificate -FilePath C:\demo\GCPrivateKey.pfx -Password $mypwd
+$mycert | Export-Certificate -FilePath "C:\demo\GCPublicKey.cer" -Force
+
+# Import the certificate 
+Import-PfxCertificate -FilePath C:\demo\GCPrivateKey.pfx -Password $mypwd -CertStoreLocation 'Cert:\LocalMachine\My'
+
+
+# Sign the policy package
+$certToSignThePackage = Get-ChildItem -Path cert:\LocalMachine\My | Where-Object {($_.Subject-eq "CN=GCEncryptionCertificate") } 
+Protect-GuestConfigurationPackage -Path C:\demo\AuditWindowsService.zip -Certificate $certToSignThePackage -Verbose 
+```
+
+## Linux signature validation
+
+```bash
+# generate gpg key
+gpg --gen-key
+
+# export public key
+gpg --output public.gpg --export <email-id used to generate gpg key>
+# export private key 
+gpg --output private.gpg --export-secret-key <email-id used to generate gpg key>
+
+# Sign linux policy package
+Import-Module GuestConfiguration
+Protect-GuestConfigurationPackage -Path ./not_installed_application_linux.zip -PrivateGpgKeyPath ./private.gpg -PublicGpgKeyPath ./public.gpg -Verbose
 ```
 
 Parameters of the `Protect-GuestConfigurationPackage` cmdlet:
@@ -37,7 +70,7 @@ Parameters of the `Protect-GuestConfigurationPackage` cmdlet:
 
 GuestConfiguration agent expects the certificate public key to be present in
 "Trusted Root Certificate Authorities" on Windows machines and in the path
-`/usr/local/share/ca-certificates/extra` on Linux machines. For the node to
+`/usr/local/share/ca-certificates/gc` on Linux machines. For the node to
 verify signed content, install the certificate public key on the machine before
 applying the custom policy. This process can be done using any technique inside
 the VM or by using Azure Policy. An example template is available

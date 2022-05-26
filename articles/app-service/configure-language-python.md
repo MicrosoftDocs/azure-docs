@@ -6,6 +6,7 @@ ms.date: 06/11/2021
 ms.reviewer: astay; kraigb
 ms.devlang: python
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli, mode-other
+adobe-target: true
 ---
 
 # Configure a Linux Python app for Azure App Service
@@ -23,7 +24,7 @@ You can use either the [Azure portal](https://portal.azure.com) or the Azure CLI
 - **Azure CLI**: you have two options.
 
   - Run commands in the [Azure Cloud Shell](../cloud-shell/overview.md).
-  - Run commands locally by installing the latest version of the [Azure CLI](/cli/azure/install-azure-cli), then sign in to Azure using [az login](/cli/azure/reference-index#az_login).
+  - Run commands locally by installing the latest version of the [Azure CLI](/cli/azure/install-azure-cli), then sign in to Azure using [az login](/cli/azure/reference-index#az-login).
 
 > [!NOTE]
 > Linux is currently the recommended option for running Python apps in App Service. For information on the Windows option, see [Python on the Windows flavor of App Service](/visualstudio/python/managing-python-on-azure-app-service).
@@ -34,7 +35,7 @@ You can use either the [Azure portal](https://portal.azure.com) or the Azure CLI
 
 - **Azure CLI**:
 
-  - Show the current Python version with [az webapp config show](/cli/azure/webapp/config#az_webapp_config_show):
+  - Show the current Python version with [az webapp config show](/cli/azure/webapp/config#az-webapp-config-show):
 
     ```azurecli
     az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
@@ -42,13 +43,13 @@ You can use either the [Azure portal](https://portal.azure.com) or the Azure CLI
 
     Replace `<resource-group-name>` and `<app-name>` with the names appropriate for your web app.
 
-  - Set the Python version with [az webapp config set](/cli/azure/webapp/config#az_webapp_config_set)
+  - Set the Python version with [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set)
 
     ```azurecli
     az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PYTHON|3.7"
     ```
 
-  - Show all Python versions that are supported in Azure App Service with [az webapp list-runtimes](/cli/azure/webapp#az_webapp_list_runtimes):
+  - Show all Python versions that are supported in Azure App Service with [az webapp list-runtimes](/cli/azure/webapp#az-webapp-list-runtimes):
 
     ```azurecli
     az webapp list-runtimes --os linux | grep PYTHON
@@ -259,7 +260,7 @@ To specify a startup command or command file:
 
 - **Azure portal**: select the app's **Configuration** page, then select **General settings**. In the **Startup Command** field, place either the full text of your startup command or the name of your startup command file. Then select **Save** to apply the changes. See [Configure general settings](configure-common.md#configure-general-settings) for Linux containers.
 
-- **Azure CLI**: use the [az webapp config set](/cli/azure/webapp/config#az_webapp_config_set) command with the `--startup-file` parameter to set the startup command or file:
+- **Azure CLI**: use the [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set) command with the `--startup-file` parameter to set the startup command or file:
 
     ```azurecli
     az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"

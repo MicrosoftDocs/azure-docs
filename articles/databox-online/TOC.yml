@@ -298,6 +298,8 @@
           href: azure-stack-edge-gpu-deploy-virtual-machine-custom-script-extension.md
         - name: GPU extension
           href: azure-stack-edge-gpu-deploy-virtual-machine-install-gpu-extension.md
+        - name: Password reset extension
+          href: azure-stack-edge-gpu-deploy-virtual-machine-install-password-reset-extension.md
       - name: Manage
         items:        
         - name: Network interfaces
@@ -312,6 +314,8 @@
           href: azure-stack-edge-gpu-create-virtual-switch-powershell.md
         - name: VM tags
           href: azure-stack-edge-gpu-manage-virtual-machine-tags-powershell.md
+      - name: Reset VM password
+        href: azure-stack-edge-gpu-deploy-virtual-machine-reset-password-portal.md
       - name: Back up VM disks 
         href: azure-stack-edge-gpu-back-up-virtual-machine-disks.md
       - name: Monitor
@@ -430,6 +434,11 @@
       href: azure-stack-edge-gpu-activation-key-vault.md
     - name: Understand disconnected use
       href: azure-stack-edge-gpu-disconnected-scenario.md
+    - name: FAQ - Operational guidelines
+      href: azure-stack-edge-operational-guidelines-faq.yml
+    - name: Understand data resiliency
+      href: azure-stack-edge-gpu-data-resiliency.md
+      
   - name: Shared security
     items:
     - name: Security overview
@@ -490,7 +499,9 @@
         href: azure-stack-edge-contact-microsoft-support.md 
   - name: Shared release notes
     items:
-    - name: 2202 - Current
+    - name: 2203 - Current
+      href: azure-stack-edge-gpu-2203-release-notes.md
+    - name: 2202 
       href: azure-stack-edge-gpu-2202-release-notes.md
     - name: 2111 
       href: azure-stack-edge-gpu-2111-release-notes.md

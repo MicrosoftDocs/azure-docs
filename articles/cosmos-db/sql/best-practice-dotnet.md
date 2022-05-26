@@ -5,9 +5,10 @@ author: StefArroyo
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 01/25/2022
+ms.date: 04/01/2022
 ms.author: esarroyo
-
+ms.reviewer: wiassaf
+ms.custom: cosmos-db-video
 ---
 
 # Best practices for Azure Cosmos DB .NET SDK
@@ -17,9 +18,8 @@ This article walks through the best practices for using the Azure Cosmos DB .NET
 
 Watch the video below to learn more about using the .NET SDK from a Cosmos DB engineer!
 
-
-> [!VIDEO https://www.youtube.com/embed/McZIQhZpvew?start=118]
 >
+> [!VIDEO https://aka.ms/docs.dotnet-best-practices]
 
 ## Checklist
 |Checked  | Topic  |Details/Links  |
@@ -38,7 +38,7 @@ Watch the video below to learn more about using the .NET SDK from a Cosmos DB en
 |<input type="checkbox"/>  |   Retry Logic      |   A transient error is an error that has an underlying cause that soon resolves itself. Applications that connect to your database should be built to expect these transient errors. To handle them, implement retry logic in your code instead of surfacing them to users as application errors. The SDK has built-in logic to handle these transient failures on retryable requests like read or query operations. The SDK will not retry on writes for transient failures as writes are not idempotent. The SDK does allow users to configure retry logic for throttles. For details on which errors to retry on [visit](troubleshoot-dot-net-sdk.md#retry-logics) |
 |<input type="checkbox"/>  |     Caching database/collection names    |    Retrieve the names of your databases and containers from configuration or cache them on start. Calls like `ReadDatabaseAsync` or `ReadDocumentCollectionAsync` and  `CreateDatabaseQuery` or `CreateDocumentCollectionQuery` will result in metadata calls to the service, which consume from the system-reserved RU limit. `CreateIfNotExist` should also only be used once for setting up the database. Overall, these operations should be performed infrequently.       |
 |<input type="checkbox"/> |     Bulk Support      |     In scenarios where you may not need to optimize for latency, we recommend enabling [Bulk support](https://devblogs.microsoft.com/cosmosdb/introducing-bulk-support-in-the-net-sdk/) for dumping large volumes of data.    |
-| <input type="checkbox"/>  |     Parallel Queries     |    The Cosmos DB SDK supports [running queries in parallel](performance-tips-dotnet-sdk-v3-sql.md#sdk-usage) for better latency and throughput on your queries.  We recommend setting the `MaxConcurrency` property within the `QueryRequestsOptions` to the number of partitions you have. If you are not aware of the number of partitions, start by using `int.MaxValue` which will give you the best latency. Then decrease the number until it fits the resource restrictions of the environment to avoid high CPU issues. Also, set the `MaxBufferedItemCount` to the expected number of results returned to limit the number of pre-fetched results. |
+| <input type="checkbox"/>  |     Parallel Queries     |    The Cosmos DB SDK supports [running queries in parallel](performance-tips-query-sdk.md?pivots=programming-language-csharp) for better latency and throughput on your queries.  We recommend setting the `MaxConcurrency` property within the `QueryRequestsOptions` to the number of partitions you have. If you are not aware of the number of partitions, start by using `int.MaxValue` which will give you the best latency. Then decrease the number until it fits the resource restrictions of the environment to avoid high CPU issues. Also, set the `MaxBufferedItemCount` to the expected number of results returned to limit the number of pre-fetched results. |
 | <input type="checkbox"/> |     Performance Testing Backoffs      |    When performing testing on your application,  you should implement backoffs at [`RetryAfter`](performance-tips-dotnet-sdk-v3-sql.md#sdk-usage) intervals. Respecting the backoff helps ensure that you'll spend a minimal amount of time waiting between retries.   |
 |  <input type="checkbox"/>   |   Indexing     |   The Azure Cosmos DB indexing policy also allows you to specify which document paths to include or exclude from indexing by using indexing paths (IndexingPolicy.IncludedPaths and IndexingPolicy.ExcludedPaths).  Ensure that you exclude unused paths from indexing for faster writes.  For a sample on how to create indexes using the SDK [visit](performance-tips-dotnet-sdk-v3-sql.md#indexing-policy)   |
 |  <input type="checkbox"/>   |    Document Size  |    The request charge of a specified operation correlates directly to the size of the document. We recommend reducing the size of your documents as operations on large documents cost more than operations on smaller documents.      |

@@ -38,7 +38,7 @@ For more details on Open Liberty, see [the Open Liberty project page](https://op
 
 An Azure resource group is a logical group in which Azure resources are deployed and managed.  
 
-Create a resource group called *java-liberty-project* using the [az group create](/cli/azure/group#az_group_create) command in the *eastus* location. This resource group will be used later for creating the Azure Container Registry (ACR) instance and the AKS cluster. 
+Create a resource group called *java-liberty-project* using the [az group create](/cli/azure/group#az-group-create) command in the *eastus* location. This resource group will be used later for creating the Azure Container Registry (ACR) instance and the AKS cluster. 
 
 ```azurecli-interactive
 RESOURCE_GROUP_NAME=java-liberty-project
@@ -47,7 +47,7 @@ az group create --name $RESOURCE_GROUP_NAME --location eastus
 
 ## Create an ACR instance
 
-Use the [az acr create](/cli/azure/acr#az_acr_create) command to create the ACR instance. The following example creates an ACR instance named *youruniqueacrname*. Make sure *youruniqueacrname* is unique within Azure.
+Use the [az acr create](/cli/azure/acr#az-acr-create) command to create the ACR instance. The following example creates an ACR instance named *youruniqueacrname*. Make sure *youruniqueacrname* is unique within Azure.
 
 ```azurecli-interactive
 export REGISTRY_NAME=youruniqueacrname
@@ -78,7 +78,7 @@ You should see `Login Succeeded` at the end of command output if you have logged
 
 ## Create an AKS cluster
 
-Use the [az aks create](/cli/azure/aks#az_aks_create) command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. This will take several minutes to complete.
+Use the [az aks create](/cli/azure/aks#az-aks-create) command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. This will take several minutes to complete.
 
 ```azurecli-interactive
 CLUSTER_NAME=myAKSCluster
@@ -96,13 +96,13 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 
 ### Connect to the AKS cluster
 
-To manage a Kubernetes cluster, you use [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), the Kubernetes command-line client. If you use Azure Cloud Shell, `kubectl` is already installed. To install `kubectl` locally, use the [az aks install-cli](/cli/azure/aks#az_aks_install_cli) command:
+To manage a Kubernetes cluster, you use [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/), the Kubernetes command-line client. If you use Azure Cloud Shell, `kubectl` is already installed. To install `kubectl` locally, use the [az aks install-cli](/cli/azure/aks#az-aks-install-cli) command:
 
 ```azurecli-interactive
 az aks install-cli
 ```
 
-To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials](/cli/azure/aks#az_aks_get_credentials) command. This command downloads credentials and configures the Kubernetes CLI to use them.
+To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials) command. This command downloads credentials and configures the Kubernetes CLI to use them.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME --overwrite-existing
@@ -128,7 +128,7 @@ aks-nodepool1-xxxxxxxx-yyyyyyyyyy   Ready    agent   76s     v1.18.10
 
 The steps in this section guide you through creating an Azure SQL Database single database for use with your app. If your application doesn't require a database, you can skip this section.
 
-1. Create a single database in Azure SQL Database by following the steps in: [Quickstart: Create an Azure SQL Database single database](../azure-sql/database/single-database-create-quickstart.md). Return to this document after creating and configuring the database server.
+1. Create a single database in Azure SQL Database by following the steps in: [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart). Return to this document after creating and configuring the database server.
     > [!NOTE]
     >
     > * At the **Basics** step, write down **Database name**, ***Server name**.database.windows.net*, **Server admin login** and **Password**.
@@ -217,9 +217,9 @@ export PASSWORD=${PASSWORD}
 export DB_SERVER_NAME=<Server name>.database.windows.net
 export DB_PORT_NUMBER=1433
 export DB_NAME=<Database name>
-export DB_USER=<Server admin login>@<Database name>
+export DB_USER=<Server admin login>@<Server name>
 export DB_PASSWORD=<Server admin password>
-export NAMESPACE=${OPERATOR_NAMESPACE}
+export NAMESPACE=default
 
 mvn clean install
 ```
@@ -412,7 +412,7 @@ Open a web browser to the external IP address of your service (`52.152.189.57` f
 
 ## Clean up the resources
 
-To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, container service, container registry, and all related resources.
+To avoid Azure charges, you should clean up unnecessary resources. When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, container service, container registry, and all related resources.
 
 ```azurecli-interactive
 az group delete --name $RESOURCE_GROUP_NAME --yes --no-wait

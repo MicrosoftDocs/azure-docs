@@ -1,29 +1,30 @@
 ---
-title: Create diagnostic settings to send Azure Monitor platform metrics and logs to different destinations
+title: Diagnostic settings in Azure Monitor
 description: Send Azure Monitor platform metrics and logs to Azure Monitor Logs, Azure storage, or Azure Event Hubs using a diagnostic setting.
 author: rboucher
 ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 11/11/2021
+ms.date: 03/07/2022
 ---
 
-# Create diagnostic settings to send Azure Monitor platform logs and metrics to different destinations
-
+# Diagnostic settings in Azure Monitor
 This article provides details on creating and configuring diagnostic settings to send Azure platform metrics and logs to different destinations.
 
 [Platform metrics](./metrics-supported.md) are sent automatically to [Azure Monitor Metrics](./data-platform-metrics.md) by default and without configuration.
 
-[Platform logs](./platform-logs-overview.md), including the Azure Activity log and resource logs, provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. The Activity Log exists on its own but can be routed to other locations.  Resource logs are not collected until they are routed to a destination.
+[Platform logs](./platform-logs-overview.md) provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. 
+   - **Resource logs** are not collected until they are routed to a destination. 
+   - The **Activity Log** exists on its own but can be routed to other locations. 
 
 Each Azure resource requires its own diagnostic setting, which defines the following criteria:
 
-- Sources - The type of metric and log data to send to the destinations defined in the setting. The available types vary by resource type.
-- Destinations - One or more destinations to send to.
+- **Sources** - The type of metric and log data to send to the destinations defined in the setting. The available types vary by resource type.
+- **Destinations** - One or more destinations to send to.
 
 A single diagnostic setting can define no more than one of each of the destinations. If you want to send data to more than one of a particular destination type (for example, two different Log Analytics workspaces), then create multiple settings. Each resource can have up to 5 diagnostic settings.
 
-The following video walks you through routing platform logs with diagnostic settings. The video was done at an earlier time and doesn't include the following:
+The following video walks you through routing resource platform logs with diagnostic settings. The video was done at an earlier time and doesn't include the following:
  - There are now 4 destinations. You can send platform metrics and logs to certain Azure Monitor partners. 
  - A new feature called category groups was introduced in Nov 2021. 
 
@@ -39,7 +40,7 @@ Here are the source options.
 
 The **AllMetrics** setting routes a resource's platform metrics to additional destinations. This option may not be present for all resource providers.  
 
-### Logs
+### Resource Logs
 
 With logs, you can select the log categories you want to route individually or choose a category group.
 
@@ -56,15 +57,22 @@ Currently, there are two category groups:
 - **All** - Every resource log offered by the resource.
 - **Audit** - All resource logs that record customer interactions with data or the settings of the service.
 
+### Activity Log
+See [Activity Log settings](#activity-log-settings) section below. 
+
 ## Destinations
 Platform logs and metrics can be sent to the destinations in the following table. 
 
 | Destination | Description |
 |:---|:---|
-| [Log Analytics workspace](../logs/design-logs-deployment.md) | Metrics are converted to log form. This option may not be available for all resource types. Sending them to the Azure Monitor Logs store (which is searchable via Log Analytics) helps you to integrate them into queries, alerts, and visualizations with existing log data.  
+| [Log Analytics workspace](../logs/workspace-design.md) | Metrics are converted to log form. This option may not be available for all resource types. Sending them to the Azure Monitor Logs store (which is searchable via Log Analytics) helps you to integrate them into queries, alerts, and visualizations with existing log data.  
 | [Azure storage account](../../storage/blobs/index.yml) | Archiving logs and metrics to an Azure storage account is useful for audit, static analysis, or backup. Compared to Azure Monitor Logs and a Log Analytics workspace, Azure storage is less expensive and logs can be kept there indefinitely.  | 
 | [Event Hubs](../../event-hubs/index.yml) | Sending logs and metrics to Event Hubs allows you to stream data to external systems such as third-party SIEMs  and other Log Analytics solutions.  |
 | [Azure Monitor partner integrations](../../partner-solutions/overview.md)| Specialized integrations between Azure Monitor and other non-Microsoft monitoring platforms. Useful when you are already using one of the partners.  |
+
+## Activity Log settings
+
+The Activity Log uses a diagnostic setting, but has it's own user interface because it applies to the whole subscription rather than individual resources. The destination information listed below still applies.  For more information, see the [Azure Activity Log](activity-log.md). 
 
 ## Requirements and limitations
 
@@ -75,12 +83,6 @@ There are certain limitations with exporting metrics.
 - **Not all metrics are exportable with diagnostic settings** -  Due to internal limitations not all metrics are exportable to Azure Monitor Logs / Log Analytics. For more information, see the exportable column in the [list of supported metrics](./metrics-supported.md)
 
 To get around these limitations for specific metrics, you can manually extract them using the [Metrics REST API](/rest/api/monitor/metrics/list) and import them into Azure Monitor Logs using the [Azure Monitor Data collector API](../logs/data-collector-api.md).
-
-### Activity log as a source
-
-> [!IMPORTANT]
-> Before you create a diagnostic setting for the Activity log, you should first disable any legacy configuration. See [Legacy collection methods](../essentials/activity-log.md#legacy-collection-methods) for details.
-
 
 ### Destination limitations
 
@@ -93,7 +95,10 @@ Any destinations for the diagnostic setting must be created before creating the 
 | Event Hubs | The shared access policy for the namespace defines the permissions that the streaming mechanism has. Streaming to Event Hubs requires Manage, Send, and Listen permissions. To update the diagnostic setting to include streaming, you must have the ListKey permission on that Event Hubs authorization rule.<br><br>The event hub namespace needs to be in the same region as the resource being monitored if the resource is regional. <br><br> Diagnostic settings can't access Event Hubs resources when virtual networks are enabled. You have to enable the *Allow trusted Microsoft services* to bypass this firewall setting in Event Hub, so that Azure Monitor (Diagnostic Settings) service is granted access to your Event Hubs resources.|
 | Partner integrations | Varies by partner.  Check the [Azure Monitor partner integrations documentation](../../partner-solutions/overview.md) for details.  
 
-## Create in Azure portal
+## Create diagnostic settings
+You can create and edit diagnostic settings using multiple methods.
+
+# [Azure portal](#tab/portal)
 
 You can configure diagnostic settings in the Azure portal either from the Azure Monitor menu or from the menu for the resource.
 
@@ -152,7 +157,7 @@ You can configure diagnostic settings in the Azure portal either from the Azure 
 
 After a few moments, the new setting appears in your list of settings for this resource, and logs are streamed to the specified destinations as new event data is generated. It may take up to 15 minutes between when an event is emitted and when it [appears in a Log Analytics workspace](../logs/data-ingestion-time.md).
 
-## Create using PowerShell
+# [PowerShell](#tab/powershell)
 
 Use the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) cmdlet to create a diagnostic setting with [Azure PowerShell](../powershell-samples.md). See the documentation for this cmdlet for descriptions of its parameters.
 
@@ -165,16 +170,17 @@ Following is an example PowerShell cmdlet to create a diagnostic setting using a
 Set-AzDiagnosticSetting -Name KeyVault-Diagnostics -ResourceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.KeyVault/vaults/mykeyvault -Category AuditEvent -MetricCategory AllMetrics -Enabled $true -StorageAccountId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount -WorkspaceId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/myworkspace  -EventHubAuthorizationRuleId /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhub/authorizationrules/RootManageSharedAccessKey
 ```
 
-## Create using Azure CLI
+# [CLI](#tab/cli)
 
 Use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) command to create a diagnostic setting with [Azure CLI](/cli/azure/monitor). See the documentation for this command for descriptions of its parameters.
 
 > [!IMPORTANT]
 > You cannot use this method for the Azure Activity log. Instead, use [Create diagnostic setting in Azure Monitor using a Resource Manager template](./resource-manager-diagnostic-settings.md) to create a Resource Manager template and deploy it with CLI.
 
-Following is an example CLI command to create a diagnostic setting using all three destinations. The syntax is slightly difference depending on your client.
+Following is an example CLI command to create a diagnostic setting using all three destinations. The syntax is slightly different depending on your client.
 
-# [CMD](#tab/CMD)
+**CMD client**
+
 ```azurecli
 az monitor diagnostic-settings create  ^
 --name KeyVault-Diagnostics ^
@@ -185,7 +191,9 @@ az monitor diagnostic-settings create  ^
 --workspace /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/microsoft.operationalinsights/workspaces/myworkspace ^
 --event-hub-rule /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhub/authorizationrules/RootManageSharedAccessKey
 ```
-# [PowerShell](#tab/PowerShell)
+
+**PowerShell client**
+
 ```azurecli
 az monitor diagnostic-settings create  `
 --name KeyVault-Diagnostics `
@@ -196,7 +204,9 @@ az monitor diagnostic-settings create  `
 --workspace /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/microsoft.operationalinsights/workspaces/myworkspace `
 --event-hub-rule /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhub/authorizationrules/RootManageSharedAccessKey
 ```
-# [Bash](#tab/Bash)
+
+**Bash client**
+
 ```azurecli
 az monitor diagnostic-settings create  \
 --name KeyVault-Diagnostics \
@@ -207,94 +217,17 @@ az monitor diagnostic-settings create  \
 --workspace /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myresourcegroup/providers/microsoft.operationalinsights/workspaces/myworkspace \
 --event-hub-rule /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhub/authorizationrules/RootManageSharedAccessKey
 ```
----
 
-## Create using Resource Manager template
+# [Resource Manager](#tab/arm)
 See [Resource Manager template samples for diagnostic settings in Azure Monitor](./resource-manager-diagnostic-settings.md) to create or update diagnostic settings with a Resource Manager template.
 
-## Create using REST API
+## [REST API](#tab/api)
 See [Diagnostic Settings](/rest/api/monitor/diagnosticsettings) to create or update diagnostic settings using the [Azure Monitor REST API](/rest/api/monitor/).
 
-## Create at scale using Azure Policy
+# [Azure Policy](#tab/policy)
+See [Create diagnostic settings at scale using Azure Policy](diagnostic-settings-policy.md) for details on using Azure Policy to create diagnostic settings at scale.
 
-Since a diagnostic setting needs to be created for each Azure resource, Azure Policy can be used to automatically create a diagnostic setting as each resource is created. Each Azure resource type has a unique set of categories that need to be listed in the diagnostic setting. Because of this fact, each resource type requires a separate policy definition. Some resource types have built-in policy definitions that you can assign without modification. For other resource types, you need to create a custom definition. 
-
-With the addition of resource log category groups, you can now choose options that dynamically update as the log categories change.  For more information, see [diagnostic settings sources](#sources) listed earlier in this article. All resource types have the "All" category. Some have the "Audit" category.  
-
-### Built-in policy definitions for Azure Monitor
-There are two built-in policy definitions for each resource type: one to send to a Log Analytics workspace and another to send to an event hub. If you need only one location, assign that policy for the resource type. If you need both, assign both policy definitions for the resource.
-
-For example, the following image shows the built-in diagnostic setting policy definitions for Azure Data Lake Analytics.
-
-![Partial screenshot from the Azure Policy Definitions page showing two built-in diagnostic setting policy definitions for Data Lake Analytics.](media/diagnostic-settings/builtin-diagnostic-settings.png)
-
-### Custom policy definitions
-For resource types that don't have a built-in policy, you need to create a custom policy definition. You could do this manually in the Azure portal by copying an existing built-in policy and then modifying it for your resource type. It's more efficient, though, to create the policy programmatically by using a script in the PowerShell Gallery.
-
-The script [Create-AzDiagPolicy](https://www.powershellgallery.com/packages/Create-AzDiagPolicy) creates policy files for a particular resource type that you can install by using PowerShell or the Azure CLI. Use the following procedure to create a custom policy definition for diagnostic settings:
-
-1. Ensure that you have [Azure PowerShell](/powershell/azure/install-az-ps) installed.
-2. Install the script by using the following command:
-  
-    ```azurepowershell
-    Install-Script -Name Create-AzDiagPolicy
-    ```
-
-3. Run the script by using the parameters to specify where to send the logs. You'll be prompted to specify a subscription and resource type. 
-
-   For example, to create a policy definition that sends logs to a Log Analytics workspace and an event hub, use the following command:
-
-   ```azurepowershell
-   Create-AzDiagPolicy.ps1 -ExportLA -ExportEH -ExportDir ".\PolicyFiles"  
-   ```
-
-   Alternatively, you can specify a subscription and resource type in the command. For example, to create a policy definition that sends logs to a Log Analytics workspace and an event hub for SQL Server databases, use the following command:
-
-   ```azurepowershell
-   Create-AzDiagPolicy.ps1 -SubscriptionID xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -ResourceType Microsoft.Sql/servers/databases  -ExportLA -ExportEH -ExportDir ".\PolicyFiles"  
-   ```
-
-5. The script creates separate folders for each policy definition. Each folder contains three files named *azurepolicy.json*, *azurepolicy.rules.json*, and *azurepolicy.parameters.json*. If you want to create the policy manually in the Azure portal, you can copy and paste the contents of *azurepolicy.json* because it includes the entire policy definition. Use the other two files with PowerShell or the Azure CLI to create the policy definition from a command line.
-
-   The following examples show how to install the policy definition from both PowerShell and the Azure CLI. Each example includes metadata to specify a category of **Monitoring** to group the new policy definition with the built-in policy definitions.
-
-   ```azurepowershell
-   New-AzPolicyDefinition -name "Deploy Diagnostic Settings for SQL Server database to Log Analytics workspace" -policy .\Apply-Diag-Settings-LA-Microsoft.Sql-servers-databases\azurepolicy.rules.json -parameter .\Apply-Diag-Settings-LA-Microsoft.Sql-servers-databases\azurepolicy.parameters.json -mode All -Metadata '{"category":"Monitoring"}'
-   ```
-
-   ```azurecli
-   az policy definition create --name 'deploy-diag-setting-sql-database--workspace' --display-name 'Deploy Diagnostic Settings for SQL Server database to Log Analytics workspace'  --rules 'Apply-Diag-Settings-LA-Microsoft.Sql-servers-databases\azurepolicy.rules.json' --params 'Apply-Diag-Settings-LA-Microsoft.Sql-servers-databases\azurepolicy.parameters.json' --subscription 'AzureMonitor_Docs' --mode All
-   ```
-
-### Initiative
-Rather than create an assignment for each policy definition, a common strategy is to create an initiative that includes the policy definitions to create diagnostic settings for each Azure service. Create an assignment between the initiative and a management group, subscription, or resource group, depending on how you manage your environment. This strategy offers the following benefits:
-
-- Create a single assignment for the initiative instead of multiple assignments for each resource type. Use the same initiative for multiple monitoring groups, subscriptions, or resource groups.
-- Modify the initiative when you need to add a new resource type or destination. For example, your initial requirements might be to send data only to a Log Analytics workspace, but later you want to add an event hub. Modify the initiative instead of creating new assignments.
-
-For details on creating an initiative, see [Create and assign an initiative definition](../../governance/policy/tutorials/create-and-manage.md#create-and-assign-an-initiative-definition). Consider the following recommendations:
-
-- Set **Category** to **Monitoring** to group it with related built-in and custom policy definitions.
-- Instead of specifying the details for the Log Analytics workspace and the event hub for policy definitions included in the initiative, use a common initiative parameter. This parameter allows you to easily specify a common value for all policy definitions and change that value if necessary.
-
-![Screenshot that shows settings for initiative definition.](media/diagnostic-settings/initiative-definition.png)
-
-### Assignment 
-Assign the initiative to an Azure management group, subscription, or resource group, depending on the scope of your resources to monitor. A [management group](../../governance/management-groups/overview.md) is useful for scoping policy, especially if your organization has multiple subscriptions.
-
-![Screenshot of the settings for the Basics tab in the Assign initiative section of the Diagnostic settings to Log Analytics workspace in the Azure portal.](media/diagnostic-settings/initiative-assignment.png)
-
-By using initiative parameters, you can specify the workspace or any other details once for all of the policy definitions in the initiative. 
-
-![Screenshot that shows initiative parameters on the Parameters tab.](media/diagnostic-settings/initiative-parameters.png)
-
-### Remediation
-The initiative will apply to each virtual machine as it's created. A [remediation task](../../governance/policy/how-to/remediate-resources.md) deploys the policy definitions in the initiative to existing resources, so you can create diagnostic settings for any resources that were already created.
-
-When you create the assignment by using the Azure portal, you have the option of creating a remediation task at the same time. See [Remediate non-compliant resources with Azure Policy](../../governance/policy/how-to/remediate-resources.md) for details on the remediation.
-
-![Screenshot that shows initiative remediation for a Log Analytics workspace.](media/diagnostic-settings/initiative-remediation.png)
-
+---
 ## Troubleshooting
 
 ### Metric category is not supported

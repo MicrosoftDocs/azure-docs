@@ -37,7 +37,7 @@ For quota information, see [Azure subscription and service limits, quotas, and c
 
 # [Azure CLI](#tab/azure-cli)
 
-For Azure CLI, use the [az vm list-usage](/cli/azure/vm#az_vm_list_usage) command to find virtual machine quotas.
+For Azure CLI, use the [az vm list-usage](/cli/azure/vm#az-vm-list-usage) command to find virtual machine quotas.
 
 ```azurecli
 az vm list-usage --location "West US" --output table

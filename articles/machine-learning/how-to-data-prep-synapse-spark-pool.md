@@ -6,17 +6,18 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.author: nibaccam
-author: nibaccam
+ms.author: larryfr
+author: blackmist
 ms.reviewer: nibaccam
 ms.date: 10/21/2021
-ms.custom: devx-track-python, data4ml, synapse-azureml, contperf-fy21q4
-
-
-# Customer intent: As a data scientist, I want to prepare my data at scale, and to train my machine learning models from a single notebook using Azure Machine Learning.
+ms.custom: devx-track-python, data4ml, synapse-azureml, contperf-fy21q4, sdkv1, event-tier1-build-2022
+#Customer intent: As a data scientist, I want to prepare my data at scale, and to train my machine learning models from a single notebook using Azure Machine Learning.
 ---
 
 # Data wrangling with Apache Spark pools (preview) 
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 
 In this article, you learn how to perform data wrangling tasks interactively within a dedicated Synapse session, powered by [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md), in a Jupyter notebook using the [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/). 
 
@@ -111,7 +112,7 @@ There are two ways to load data from these storage services:
 
 * Directly load data from storage using its Hadoop Distributed Files System (HDFS) path.
 
-* Read in data from an existing [Azure Machine Learning dataset](how-to-create-register-datasets.md).
+* Read in data from an existing [Azure Machine Learning dataset](./v1/how-to-create-register-datasets.md).
 
 To access these storage services, you need **Storage Blob Data Reader** permissions. If you plan to write data back to these storage services, you need **Storage Blob Data Contributor** permissions. [Learn more about storage permissions and roles](../storage/blobs/assign-azure-role-data-access.md).
 
@@ -228,13 +229,13 @@ When you've completed data preparation and saved your prepared data to storage, 
 
 ## Create dataset to represent prepared data
 
-When you're ready to consume your prepared data for model training, connect to your storage with an [Azure Machine Learning datastore](how-to-access-data.md), and specify which file(s) you want to use with an [Azure Machine Learning dataset](how-to-create-register-datasets.md).
+When you're ready to consume your prepared data for model training, connect to your storage with an [Azure Machine Learning datastore](how-to-access-data.md), and specify which file(s) you want to use with an [Azure Machine Learning dataset](./v1/how-to-create-register-datasets.md).
 
 The following code example,
 
 * Assumes you already created a datastore that connects to the storage service where you saved your prepared data.  
 * Gets that existing datastore, `mydatastore`, from the workspace, `ws` with the get() method.
-* Creates a [FileDataset](how-to-create-register-datasets.md#filedataset), `train_ds`, that references the prepared data files located in the `training_data` directory in `mydatastore`.  
+* Creates a [FileDataset](./v1/how-to-create-register-datasets.md#filedataset), `train_ds`, that references the prepared data files located in the `training_data` directory in `mydatastore`.  
 * Creates the variable `input1`, which can be used at a later time to make the data files of the `train_ds` dataset available to a compute target for your training tasks.
 
 ```python
@@ -257,7 +258,7 @@ Similarly, if you have an Azure Machine Learning pipeline, you can use the [Syna
 Making your data available to the Synapse Spark pool depends on your dataset type. 
 
 * For a FileDataset, you can use the [`as_hdfs()`](/python/api/azureml-core/azureml.data.filedataset#as-hdfs--) method. When the run is submitted, the dataset is made available to the Synapse Spark pool as a Hadoop distributed file system (HFDS). 
-* For a [TabularDataset](how-to-create-register-datasets.md#tabulardataset), you can use the [`as_named_input()`](/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset#as-named-input-name-) method. 
+* For a [TabularDataset](./v1/how-to-create-register-datasets.md#tabulardataset), you can use the [`as_named_input()`](/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset#as-named-input-name-) method. 
 
 The following code, 
 
@@ -299,6 +300,8 @@ script_run_config = ScriptRunConfig(source_directory = './code',
                                                  "--output_dir", output],
                                     run_config = run_config)
 ```
+
+For more infomation about  `run_config.spark.configuration` and general Spark configuration, see [SparkConfiguration Class](/python/api/azureml-core/azureml.core.runconfig.sparkconfiguration) and [Apache Spark's configuration documentation](https://spark.apache.org/docs/latest/configuration.html).
 
 Once your `ScriptRunConfig` object is set up, you can submit the run.
 

@@ -2,7 +2,7 @@
 title: Security agent authentication methods
 description: Learn about the different authentication methods available when using the Defender for IoT service.
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 03/28/2022
 ---
 
 # Security agent authentication methods

@@ -114,7 +114,7 @@ To enable a customer-managed key for your existing Data Box order in the Azure p
     ![Customer-managed key URL](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-11.png)
 
 > [!IMPORTANT]
-> You must enable the `Get`, `UnwrapKey`, and `WrapKey` permissions on the key. To set the permissions in Azure CLI, see [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy).
+> You must enable the `Get`, `UnwrapKey`, and `WrapKey` permissions on the key. To set the permissions in Azure CLI, see [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy).
 
 ## Change key
 
@@ -145,7 +145,7 @@ To change the key vault, key, and/or key version for the customer-managed key yo
     ![Save updated encryption settings - 1](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-17-a.png)
 
 > [!IMPORTANT]
-> You must enable the `Get`, `UnwrapKey`, and `WrapKey` permissions on the key. To set the permissions in Azure CLI, see [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy).
+> You must enable the `Get`, `UnwrapKey`, and `WrapKey` permissions on the key. To set the permissions in Azure CLI, see [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy).
 
 ## Change identity
 

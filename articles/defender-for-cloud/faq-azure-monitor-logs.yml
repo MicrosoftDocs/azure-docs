@@ -3,8 +3,8 @@ metadata:
   title: 'Microsoft Defender for Cloud FAQ - questions about existing Log Analytics agents'
   description: This FAQ answers questions for customers already using the Log Analytics agent and considering Microsoft Defender for Cloud, a product that helps you prevent, detect, and respond to threats.
   services: defender-for-cloud
-  author: memildin
-  ms.author: memildin
+  author: elkrieger
+  ms.author: elkrieger
   manager: raynew
   ms.topic: faq
   ms.date: 11/14/2021
@@ -44,4 +44,4 @@ sections:
       - question: |
           I already have security solution on my workspaces. What are the billing implications?
         answer: |
-          The Security & Audit solution is used to enable **Microsoft Defender for servers**. If the Security & Audit solution is already installed on a workspace, Defender for Cloud uses the existing solution. There is no change in billing.
+          The Security & Audit solution is used to enable **Microsoft Defender for Servers**. If the Security & Audit solution is already installed on a workspace, Defender for Cloud uses the existing solution. There is no change in billing.

@@ -45,7 +45,6 @@ This document uses standard names to simplify instructions. Replace them with na
 | **ADLSGEN2 account** | `storage1` | The ADLS account to use with your workspace. |
 | **Container** | `container1` | The container in STG1 that the workspace will use by default. |
 | **Active directory tenant** | `contoso` | the active directory tenant name.|
-||||
 
 ## STEP 1: Set up security groups
 
@@ -69,8 +68,8 @@ The `workspace1_SQLAdmins` group to configure SQL permissions when you create SQ
 These five groups are sufficient for a basic setup. Later, you can add security groups to handle users who need more specialized access or restrict access to individual resources only.
 
 > [!NOTE]
->- Learn how to create a security group in [this article](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
->- Learn how to add a security group from another security group in [this article](../../active-directory/fundamentals/active-directory-groups-membership-azure-portal.md).
+>- Learn how to create a security group in [Create a basic group and add members using Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+>- Learn how to add a security group from another security group in [Add or remove a group from another group using Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-membership-azure-portal.md).
 
 >[!Tip]
 >Individual Synapse users can use Azure Active Directory in the Azure portal to view their group memberships to determine which roles they've been granted.
@@ -147,6 +146,7 @@ To run pipelines and perform system tasks, Azure Synapse requires managed servic
 ## STEP 5: Grant Synapse administrators an Azure Contributor role for the workspace
 
 To create SQL pools, Apache Spark pools and Integration runtimes, users need an Azure Contributor role for the workspace, at minimum. A Contributor role also allows users to manage resources, including pausing and scaling. To use Azure portal or Synapse Studio to create SQL pools, Apache Spark pools and Integration runtimes, you need a Contributor role at the resource group level.
+
 
 - Open Azure portal
 - Locate the workspace, `workspace1`
@@ -265,7 +265,7 @@ As a final step to secure your workspace, you should secure network access, usin
 
 - With and without a [managed virtual network](./synapse-workspace-managed-vnet.md), you can connect to your workspace from public networks. For more information, see [Connectivity Settings](connectivity-settings.md).
 - Access from public networks can be controlled by enabling the [public network access feature](connectivity-settings.md#public-network-access) or the [workspace firewall](./synapse-workspace-ip-firewall.md).
-- Alternatively, you can connect to your workspace using a [managed private endpoint](synapse-workspace-managed-private-endpoints.md) and [private Link](../../azure-sql/database/private-endpoint-overview.md). Azure Synapse workspaces without the [Azure Synapse Analytics Managed Virtual Network](synapse-workspace-managed-vnet.md) do not have the ability to connect via managed private endpoints.
+- Alternatively, you can connect to your workspace using a [managed private endpoint](synapse-workspace-managed-private-endpoints.md) and [private Link](/azure/azure-sql/database/private-endpoint-overview). Azure Synapse workspaces without the [Azure Synapse Analytics Managed Virtual Network](synapse-workspace-managed-vnet.md) do not have the ability to connect via managed private endpoints.
 
 ## STEP 10: Completion
 

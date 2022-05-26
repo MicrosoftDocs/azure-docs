@@ -6,8 +6,6 @@ ms.date: 11/09/2021
 ---
 # Manage multi-factor authentication (MFA) enforcement on your subscriptions
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 If you're only using passwords to authenticate your users, you're leaving an attack vector open. Users often use weak passwords or reuse them for multiple services. With [MFA](https://www.microsoft.com/security/business/identity/mfa) enabled, your accounts are more secure, and users can still authenticate to almost any application with single sign-on (SSO).
 
 There are multiple ways to enable MFA for your Azure Active Directory (AD) users based on the licenses that your organization owns. This page provides the details for each in the context of Microsoft Defender for Cloud.

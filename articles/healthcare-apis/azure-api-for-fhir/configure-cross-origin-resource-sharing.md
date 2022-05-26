@@ -1,9 +1,9 @@
 ---
 title: Configure cross-origin resource sharing in Azure API for FHIR
 description: This article describes how to configure cross-origin resource sharing in Azure API for FHIR.
-author: matjazl
-ms.author: zxue
-ms.date: 02/15/2022
+author: mikaelweave
+ms.author: mikaelw
+ms.date: 05/03/2022
 ms.topic: reference
 ms.service: healthcare-apis
 ms.subservice: fhir

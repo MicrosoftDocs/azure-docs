@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: Implement CI/CD with GitOps (Flux v2) in Azure Arc-enabled Kubernetes clusters'
-description: This tutorial walks through setting up a CI/CD solution using GitOps (Flux v2) in Azure Arc-enabled Kubernetes clusters. For a conceptual take on this workflow, see the CI/CD Workflow using GitOps - Azure Arc-enabled Kubernetes article.
-keywords: "GitOps, Flux, Kubernetes, K8s, Azure, Arc, ci/cd, devops"
+title: 'Tutorial: Implement CI/CD with GitOps (Flux v2)'
+description: This tutorial walks through setting up a CI/CD solution using GitOps (Flux v2) in Azure Arc-enabled Kubernetes or Azure Kubernetes Service clusters. For a conceptual take on this workflow, see the CI/CD Workflow using GitOps article.
+keywords: "GitOps, Flux, Kubernetes, K8s, Azure, Arc, AKS, ci/cd, devops"
 author: eedorenko
 ms.author: iefedore
 ms.service: azure-arc
 ms.topic: tutorial
-ms.date: 12/15/2021
+ms.date: 05/24/2022
 ms.custom: template-tutorial, devx-track-azurecli
 ---
-# Tutorial: Implement CI/CD with GitOps (Flux v2) using Azure Arc-enabled Kubernetes clusters
+# Tutorial: Implement CI/CD with GitOps (Flux v2)
 
-In this tutorial, you'll set up a CI/CD solution using GitOps (Flux v2) and Azure Arc-enabled Kubernetes clusters. Using the sample Azure Vote app, you'll:
+In this tutorial, you'll set up a CI/CD solution using GitOps with Flux v2 and Azure Arc-enabled Kubernetes or Azure Kubernetes Service (AKS) clusters. Using the sample Azure Vote app, you'll:
 
 > [!div class="checklist"]
-> * Create an Azure Arc-enabled Kubernetes cluster.
+> * Create an Azure Arc-enabled Kubernetes or AKS cluster.
 > * Connect your application and GitOps repositories to Azure Repos or Git Hub.
 > * Implement CI/CD flow with either Azure Pipelines or GitHub.
 > * Connect your Azure Container Registry to Azure DevOps and Kubernetes.
@@ -22,7 +22,8 @@ In this tutorial, you'll set up a CI/CD solution using GitOps (Flux v2) and Azur
 > * Deploy the `dev` and `stage` environments.
 > * Test the application environments.
 
-General Availability of Azure Arc-enabled Kubernetes includes GitOps with Flux v1. The public preview of GitOps with Flux v2, documented here, is available in both Azure Arc-enabled Kubernetes and AKS. Flux v2 is the way forward, and Flux v1 will eventually be deprecated.
+> [!NOTE]
+> Eventually Azure will stop supporting GitOps with Flux v1, so begin using Flux v2 as soon as possible.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -35,7 +36,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 * Verify you have:
   * A [connected Azure Arc-enabled Kubernetes cluster](./quickstart-connect-cluster.md#connect-an-existing-kubernetes-cluster) named **arc-cicd-cluster**.
   * A connected Azure Container Registry with either [AKS integration](../../aks/cluster-container-registry-integration.md) or [non-AKS cluster authentication](../../container-registry/container-registry-auth-kubernetes.md).
-* Install the latest versions of these Azure Arc-enabled Kubernetes CLI extensions:
+* Install the latest versions of these Azure Arc-enabled Kubernetes and Kubernetes Configuration CLI extensions:
 
   ```azurecli
   az extension add --name connectedk8s
@@ -92,8 +93,6 @@ Import an [application repository](./conceptual-gitops-ci-cd.md#application-repo
 * **arc-cicd-demo-src** application repository
    * URL: https://github.com/Azure/arc-cicd-demo-src
    * Contains the example Azure Vote App that you will deploy using GitOps.
-> [!NOTE]
-> Until Flux V2 integration is in Public Preview, work with [FluxV2 branch](https://github.com/Azure/arc-cicd-demo-src/tree/FluxV2) of the application repository. Once Flux V2 integration is in Public Preview, FluxV2 branch will be merged into the default branch.
 
 * **arc-cicd-demo-gitops** GitOps repository
    * URL: https://github.com/Azure/arc-cicd-demo-gitops
@@ -404,8 +403,6 @@ Fork an [application repository](./conceptual-gitops-ci-cd.md#application-repo) 
 * **arc-cicd-demo-src** application repository
    * URL: https://github.com/Azure/arc-cicd-demo-src
    * Contains the example Azure Vote App that you will deploy using GitOps.
-> [!NOTE]
-> Until Flux V2 integration is in Public Preview, work with [FluxV2 branch](https://github.com/Azure/arc-cicd-demo-src/tree/FluxV2) of the application repository. Once Flux V2 integration is in Public Preview, FluxV2 branch will be merged into the default branch.
 
 * **arc-cicd-demo-gitops** GitOps repository
    * URL: https://github.com/Azure/arc-cicd-demo-gitops

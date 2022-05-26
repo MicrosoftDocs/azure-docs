@@ -39,7 +39,11 @@ To view an individual device:
 
 ## Monitor your devices
 
-USe the **Devices** page to monitor and manage your devices
+Use the **Devices** page to monitor and manage your devices.
+
+The following video walks you through monitoring device connectivity status:
+
+> [!VIDEO https://aka.ms/docs/player?id=75d0de58-9cc0-4505-9fa1-a0a7da8bb466]
 
 ### Device status values
 
@@ -74,7 +78,7 @@ Watch the following video to learn more about how to monitor device connection s
 
 > [!VIDEO https://www.youtube.com/embed/EUZH_6Ihtto]
 
-You can include connection and disconnection events in [exports from IoT Central](howto-export-data.md#set-up-a-data-export). To learn more, see [React to IoT Hub events > Limitations for device connected and device disconnected events](../../iot-hub/iot-hub-event-grid.md#limitations-for-device-connected-and-device-disconnected-events).
+You can include connection and disconnection events in  [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md). To learn more, see [React to IoT Hub events > Limitations for device connected and device disconnected events](../../iot-hub/iot-hub-event-grid.md#limitations-for-device-connected-and-device-disconnected-events).
 
 ## Add a device
 
@@ -127,7 +131,7 @@ If you register devices by starting the import under **All devices**, then the d
 
 1. Use the filter on the grid to determine if the value in the **Device Template** column is **Unassigned** for any of your devices.
 
-1. Select the devices you want to assign to a template:
+1. Select the devices you want to assign to a template.
 
 1. Select **Migrate**:
 

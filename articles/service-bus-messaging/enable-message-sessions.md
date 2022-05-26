@@ -24,7 +24,7 @@ When creating a subscription for a topic in the Azure portal, select **Enable se
 :::image type="content" source="./media/message-sessions/subscription-sessions.png" alt-text="Enable session at the time of the subscription creation":::
 
 ## Using Azure CLI
-To **create a queue with message sessions enabled**, use the [`az servicebus queue create`](/cli/azure/servicebus/queue#az_servicebus_queue_create) command with `--enable-session` set to `true`.
+To **create a queue with message sessions enabled**, use the [`az servicebus queue create`](/cli/azure/servicebus/queue#az-servicebus-queue-create) command with `--enable-session` set to `true`.
 
 ```azurecli-interactive
 az servicebus queue create \
@@ -34,7 +34,7 @@ az servicebus queue create \
     --enable-session true
 ```
 
-To **create a subscription for a topic with message sessions enabled**, use the [`az servicebus topic subscription create`](/cli/azure/servicebus/topic/subscription#az_servicebus_topic_subscription_create) command with `--enable-session` set to `true`.
+To **create a subscription for a topic with message sessions enabled**, use the [`az servicebus topic subscription create`](/cli/azure/servicebus/topic/subscription#az-servicebus-topic-subscription-create) command with `--enable-session` set to `true`.
 
 ```azurecli-interactive
 az servicebus topic subscription create \

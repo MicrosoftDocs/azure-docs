@@ -5,7 +5,7 @@ services: healthcare-apis
 author: stevewohl
 ms.service: healthcare-apis
 ms.topic: overview
-ms.date: 03/17/2022
+ms.date: 03/22/2022
 ms.author: ginle
 ---
 
@@ -17,7 +17,7 @@ Azure Health Data Services provides the following benefits:
 * Empower new workloads to leverage PHI by enabling the data to be collected and accessed in one place, in a consistent way.
 * Discover new insight by bringing disparate PHI together and connecting it end-to-end with tools for machine learning, analytics, and AI.
 * Build on a trusted cloud with confidence in how Protected Health Information is managed, stored, and made available.
-The new Microsoft Azure Health Data Services will, in addition to FHIR, support other healthcare industry data standards, like DICOM, extending healthcare data interoperability. The business model and infrastructure platform have been redesigned to accommodate the expansion and introduction of different and future Healthcare data standards. Customers can use health data of different types across healthcare standards under the same compliance umbrella. Tools have been built into the managed service that allow customers to transform data from legacy or device proprietary formats, to FHIR. Some of these tools have been previously developed and open-sourced; others will be net new.
+The new Microsoft Azure Health Data Services will, in addition to FHIR, support other healthcare industry data standards, like DICOM, extending healthcare data interoperability. The business model and infrastructure platform have been redesigned to accommodate the expansion and introduction of different and future healthcare data standards. Customers can use health data of different types across healthcare standards under the same compliance umbrella. Tools have been built into the managed service that allow customers to transform data from legacy or device proprietary formats, to FHIR. Some of these tools have been previously developed and open-sourced; others will be net new.
 
 Azure Health Data Services enables you to: 
 * Quickly connect disparate health data sources and formats such as structured, imaging, and device data and normalize it to be persisted in the cloud.
