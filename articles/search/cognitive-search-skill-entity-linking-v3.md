@@ -4,8 +4,8 @@ titleSuffix: Azure Cognitive Search
 description: Extract different linked entities from text in an enrichment pipeline in Azure Cognitive Search.
 
 manager: jennmar
-author: ayokande
-ms.author: aakande
+author: nitinme
+ms.author: nitinme
 ms.service: cognitive-search
 ms.topic: reference
 ms.date: 12/09/2021
