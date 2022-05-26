@@ -20,18 +20,18 @@ There are two scale properties that apply to all rules in your container app:
 
 | Scale property | Description | Default value | Min value | Max value |
 |---|---|---|---|---|
-| `minReplicas` | Minimum number of replicas running for your container app. | 0 | 0 | 10 |
-| `maxReplicas` | Maximum number of replicas running for your container app. | n/a | 1 | 10 |
+| `minReplicas` | Minimum number of replicas running for your container app. | 0 | 0 | 30 |
+| `maxReplicas` | Maximum number of replicas running for your container app. | 10 | 1 | 30 |
 
 - If your container app scales to zero, then you aren't billed.
 - Individual scale rules are defined in the `rules` array.
 - If you want to ensure that an instance of your application is always running, set `minReplicas` to 1 or higher.
 - Replicas not processing, but that remain in memory are billed in the "idle charge" category.
-- Changes to scaling rules are a [revision-scope](overview.md) change.
-- When using non-HTTP event scale rules, setting the `properties.configuration.activeRevisionsMode` property of the container app to `single` is recommended.
-
-
-
+- Changes to scaling rules are a [revision-scope](revisions.md#revision-scope-changes) change.
+- It's recommended to set the  `properties.configuration.activeRevisionsMode` property of the container app to `single`, when using non-HTTP event scale rules.
+- Container Apps implements the KEDA ScaledObject with the following default settings.
+  - pollingInterval: 30 seconds
+  - cooldownPeriod: 300 seconds
 
 ## Scale triggers
 
@@ -47,7 +47,7 @@ With an HTTP scaling rule, you have control over the threshold that determines w
 
 | Scale property | Description | Default value | Min value | Max value |
 |---|---|---|---|---|
-| `concurrentRequests`| Once the number of requests exceeds this then another replica is added. Replicas will continue to be added up to the `maxReplicas` amount as the number of concurrent requests increase. | 10 | 1 | n/a |
+| `concurrentRequests`| When the number of requests exceeds this value, then another replica is added. Replicas will continue to be added up to the `maxReplicas` amount as the number of concurrent requests increase. | 10 | 1 | n/a |
 
 In the following example, the container app scales out up to five replicas and can scale down to zero. The scaling threshold is set to 100 concurrent requests per second.
 
@@ -99,13 +99,13 @@ In the following example, the container app scales out up to five replicas and c
 
     :::image type="content" source="media/scalers/http-scale-rule.png" alt-text="A screenshot showing how to add an h t t p scale rule.":::
 
-1. Select **Create** when you are done.
+1. Select **Create** when you're done.
 
     :::image type="content" source="media/scalers/create-http-scale-rule.png" alt-text="A screenshot showing the newly created http scale rule.":::
 
 ## Event-driven
 
-Container Apps can scale based of a wide variety of event types. Any event supported by [KEDA](https://keda.sh/docs/scalers/), is supported in Container Apps.
+Container Apps can scale based of a wide variety of event types. Any event supported by [KEDA](https://keda.sh/docs/scalers/) is supported in Container Apps.
 
 Each event type features different properties in the `metadata` section of the KEDA definition. Use these properties to define a scale rule in Container Apps.
 
@@ -132,7 +132,7 @@ The container app scales according to the following behavior:
         ...
         "scale": {
           "minReplicas": "0",
-          "maxReplicas": "10",
+          "maxReplicas": "30",
           "rules": [
           {
             "name": "queue-based-autoscaling",
@@ -162,7 +162,7 @@ To create a custom scale trigger, first create a connection string secret to aut
 
 1. Select **Add**, and then enter your secret key/value information.
 
-1. Select **Add** when you are done.
+1. Select **Add** when you're done.
 
     :::image type="content" source="media/scalers/connection-string.png" alt-text="A screenshot showing how to create a connection string.":::
 
@@ -178,11 +178,11 @@ To create a custom scale trigger, first create a connection string secret to aut
 
     :::image type="content" source="media/scalers/add-scale-rule.png" alt-text="A screenshot showing how to add a scale rule.":::
 
-1. Enter a **Rule name**, select **Custom** and enter a **Custom rule type**. Enter your **Secret reference** and **Trigger parameter** and then add your **Metadata** parameters. select **Add** when you are done.
+1. Enter a **Rule name**, select **Custom** and enter a **Custom rule type**. Enter your **Secret reference** and **Trigger parameter** and then add your **Metadata** parameters. select **Add** when you're done.
 
     :::image type="content" source="media/scalers/custom-scaler.png" alt-text="A screenshot showing how to configure a custom scale rule.":::
 
-1. Select **Create** when you are done.
+1. Select **Create** when you're done.
 
 > [!NOTE]
 > In multiple revision mode, adding a new scale trigger creates a new revision of your application but your old revision remains available with the old scale rules. Use the **Revision management** page to manage their traffic allocations.
@@ -207,7 +207,7 @@ Azure Container Apps supports KEDA ScaledObjects and all of the available [KEDA 
         ...
         "scale": {
           "minReplicas": "0",
-          "maxReplicas": "10",
+          "maxReplicas": "30",
           "rules": [
           {
             "name": "<YOUR_TRIGGER_NAME>",
@@ -224,9 +224,9 @@ Azure Container Apps supports KEDA ScaledObjects and all of the available [KEDA 
 }
 ```
 
-The following is an example of setting up an [Azure Storage Queue](https://keda.sh/docs/scalers/azure-storage-queue/) scaler that you can configure to auto scale based on Azure Storage Queues.
+The following YAML is an example of setting up an [Azure Storage Queue](https://keda.sh/docs/scalers/azure-storage-queue/) scaler that you can configure to auto scale based on Azure Storage Queues.
 
-Below is the KEDA trigger specification for an Azure Storage Queue. To set up a scale rule in Azure Container Apps, you will need the trigger `type` and any other required parameters. You can also add other optional parameters which vary based on the scaler you are using.
+Below is the KEDA trigger specification for an Azure Storage Queue. To set up a scale rule in Azure Container Apps, you'll need the trigger `type` and any other required parameters. You can also add other optional parameters, which vary based on the scaler you're using.
 
 In this example, you need the `accountName` and the name of the cloud environment that the queue belongs to `cloud` to set up your scaler in Azure Container Apps.
 
@@ -259,7 +259,7 @@ Now your JSON config file should look like this:
         ...
         "scale": {
           "minReplicas": "0",
-          "maxReplicas": "10",
+          "maxReplicas": "30",
           "rules": [
           {
             "name": "queue-trigger",
@@ -279,7 +279,7 @@ Now your JSON config file should look like this:
 ```
 
 > [!NOTE]
-> KEDA ScaledJobs are not supported. See [KEDA scaling Jobs](https://keda.sh/docs/concepts/scaling-jobs/#overview) for more details.
+> KEDA ScaledJobs are not supported. For more information, see [KEDA Scaling Jobs](https://keda.sh/docs/concepts/scaling-jobs/#overview).
 
 ## CPU
 
@@ -359,12 +359,11 @@ The following example shows how to create a memory scaling rule.
 
 ## Considerations
 
-- Vertical scaling is not supported.
+- Vertical scaling isn't supported.
 
 - Replica quantities are a target amount, not a guarantee.
-  - Even if you set `maxReplicas` to `1`, there is no assurance of thread safety.
-
-- If you are using [Dapr actors](https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/) to manage states, you should keep in mind that scaling to zero is not supported. Dapr uses virtual actors to manage asynchronous calls which means their in-memory representation is not tied to their identity or lifetime.
+ 
+- If you're using [Dapr actors](https://docs.dapr.io/developing-applications/building-blocks/actors/actors-overview/) to manage states, you should keep in mind that scaling to zero isn't supported. Dapr uses virtual actors to manage asynchronous calls, which means their in-memory representation isn't tied to their identity or lifetime.
 
 ## Next steps
 
