@@ -1335,7 +1335,7 @@ items:
     - name: Azure Cosmos DB
       href: insights/cosmosdb-insights-overview.md
     - name: Azure Data Explorer
-      href: insights/data-explorer.md
+      href: /azure/data-explorer/data-explorer-insights
     - name: Log Analytics workspace
       href: logs/log-analytics-workspace-insights-overview.md
     - name: Networks
