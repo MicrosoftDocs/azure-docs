@@ -239,7 +239,7 @@ Azure Spring Apps requires management traffic to egress from Azure when deployed
 
 #### Application security
 
-This design principal covers the fundamental components of identity, data protection, key management, and application configuration. By design, an application deployed in Azure Spring Apps runs with least privilege required to function. The set of authorization controls is directly related to data protection when using the service. Key management strengthens this layered application security approach.
+This design principle covers the fundamental components of identity, data protection, key management, and application configuration. By design, an application deployed in Azure Spring Apps runs with least privilege required to function. The set of authorization controls is directly related to data protection when using the service. Key management strengthens this layered application security approach.
 
 The following list shows the CCM controls that address key management in this reference:
 
