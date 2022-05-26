@@ -424,6 +424,104 @@ The final step is to create a data collection association that associates the da
 
     :::image type="content" source="media/data-collection-text-log/select-resources.png" lightbox="media/data-collection-text-log/select-resources.png" alt-text="Screenshot that shows portal blade to add resources to the data collection rule.":::
 
+## Troubleshooting
+
+
+### Check if there are any custom logs received in the last 2 days
+Start by checking if any records have been collected for your custom log table by running the following query in Log Analytics. If no records are returned then check the other sections for possible causes.
+
+``` kusto
+<YourCustomLog>_CL
+| where TimeGenerated > ago(48h)
+| order by TimeGenerated desc
+```
+
+### Verify that you created custom table
+As described in [Create new table in Log Analytics workspace](#create-new-table-in-log-analytics-workspace) above, you must create the custom log table before you can send data to it.
+
+### Verify that the agent is sending heartbeats successfully
+Verify that Azure Monitor agent is communicating properly by running the following query in Log Analytics to check if there are any records in the Heartbeat table.
+
+``` kusto
+Heartbeat
+| where TimeGenerated > ago(24h)
+| where Computer has "<computer name>"
+| project TimeGenerated, Category, Version
+| order by TimeGenerated desc
+```
+
+### Verify that you specified the correct log location in the data collection rule
+The data collection rule will have a section similar to the following:
+
+```json
+"dataSources": [{
+            "configuration": {
+                "filePatterns": ["C:\\JavaLogs\\*.log"],
+                "format": "text",
+                "settings": {
+                    "text": {
+                        "recordStartTimestampFormat": "yyyy-MM-ddTHH:mm:ssK"
+                    }
+                }
+            },
+            "id": "myTabularLogDataSource",
+            "kind": "logFile",
+            "streams": [{
+                    "stream": "Custom-TabularData-ABC"
+                }
+            ],
+            "sendToChannels": ["gigl-dce-00000000000000000000000000000000"]
+        }
+    ]
+```
+
+The `filePatterns` element specifies the path to the log file to collect from the agent computer. Check the agent computer to verify that this is correct.
+
+## Verify that the text logs are being populated
+The agent will only collect new content written to the log file being collected. If you are experimenting with the text logs collection feature, you can use the following script to generate sample logs.
+
+```powershell
+# This script writes a new log entry at the specified interval indefinitely.
+# Usage:
+# .\GenerateCustomLogs.ps1 [interval to sleep]
+#
+# Press Ctrl+C to terminate script.
+#
+# Example:
+# .\ GenerateCustomLogs.ps1 5
+
+param (
+    [Parameter(Mandatory=$true)][int]$sleepSeconds
+)
+
+$logFolder = "c:\\JavaLogs"
+if (!(Test-Path -Path $logFolder))
+{
+    mkdir $logFolder
+}
+
+$logFileName = "TestLog-$(Get-Date -format yyyyMMddhhmm).log"
+do
+{
+    $count++
+    $randomContent = New-Guid
+    $logRecord = "$(Get-Date -format s)Z Record number $count with random content $randomContent"
+    $logRecord | Out-File "$logFolder\\$logFileName" -Encoding utf8 -Append
+    Sleep $sleepSeconds
+}
+while ($true)
+
+```
+
+## Share logs with Microsoft
+If everything is configured properly, but you're still not collecting log data, use the following procedure to collect diagnostics logs for Azure Monitor agent to share with the Azure Monitor group.
+
+1. Open an elevated powershell window.
+2. cd to directory: C:\Packages\Plugins\Microsoft.Azure.Monitor.AzureMonitorWindowsAgent\[version]\
+3. Execute the script: .\CollectAMALogs.ps1
+4. Share the AMAFiles.zip file generated on the desktop.
+
+
 
 ## Next steps
 
