@@ -120,7 +120,7 @@ To monitor a device:
     az iot hub monitor-events --output table -p all -n {YourIoTHubName}
     ```
     
-    :::image type="content" source="media/quickstart-send-telemetry-cli/cloud-shell-monitor.png" alt-text="Monitor device events on a simulated device.":::
+    :::image type="content" source="media/quickstart-send-telemetry-cli/cloud-shell-monitor.png" alt-text="Screenshot of monitoring events on a simulated device.":::
 
 1. After you monitor the simulated device in the second CLI session, press Ctrl+C to stop monitoring. Keep the second CLI session open to use in later steps.
 
@@ -148,7 +148,7 @@ In this section, you send a message to the simulated device.
 
 1. In the first CLI session, confirm that the simulated device received the message.
 
-    :::image type="content" source="media/quickstart-send-telemetry-cli/cloud-shell-receive-message.png" alt-text="A simulated device receives a message.":::
+    :::image type="content" source="media/quickstart-send-telemetry-cli/cloud-shell-receive-message.png" alt-text="Screenshot of a simulated device receiving a message.":::
 
 
 ## Use the CLI to call a device method
@@ -166,7 +166,7 @@ In this section, you call a direct method on the simulated device.
     ```
 1. In the first CLI session, confirm the output shows the method call. 
 
-    :::image type="content" source="media/quickstart-send-telemetry-cli/cloud-shell-method-payload.png" alt-text="A simulated device displays the payload after a method was invoked.":::
+    :::image type="content" source="media/quickstart-send-telemetry-cli/cloud-shell-method-payload.png" alt-text="Screenshot of a simulated device displaying output after a method was invoked.":::
 
 ## Use the CLI to update device properties
 
@@ -184,7 +184,7 @@ In this section, you update the state of the simulated device by setting propert
 
 1. In the first CLI session, confirm that the simulated device outputs the property update.
 
-    :::image type="content" source="media/quickstart-send-telemetry-cli/cloud-shell-device-twin-update.png" alt-text="Update the properties on a device.":::
+    :::image type="content" source="media/quickstart-send-telemetry-cli/cloud-shell-device-twin-update.png" alt-text="Screenshot that shows how to update properties on a device.":::
 
 1. In the second CLI session, run the [az iot hub device-twin show](/cli/azure/iot/hub/device-twin#az-iot-hub-device-twin-show) command. This command reports changes to the device properties. 
 
@@ -194,7 +194,7 @@ In this section, you update the state of the simulated device by setting propert
     az iot hub device-twin show -d simDevice --query properties.reported -n {YourIoTHubName}
     ```
 
-    :::image type="content" source="media/quickstart-send-telemetry-cli/cloud-shell-device-twin-show-update.png" alt-text="Shows the updated properties on a device twin.":::
+    :::image type="content" source="media/quickstart-send-telemetry-cli/cloud-shell-device-twin-show-update.png" alt-text="Screenshot that shows the updated properties on a device twin.":::
 
 ## View messaging metrics in the portal
 
