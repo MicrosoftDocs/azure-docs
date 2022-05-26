@@ -158,7 +158,7 @@ If PIM is enabled, you have additional capabilities, such as making a user eligi
 
 ## Microsoft Graph API
 
-Follow these instructions to assign a role using the Microsoft Graph PIM API.
+Follow these instructions to assign a role using the Microsoft Graph API.
 
 ### Assign a role
 
