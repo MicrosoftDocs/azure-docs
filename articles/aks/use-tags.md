@@ -42,6 +42,13 @@ When you create or update an AKS cluster with the `--tags` parameter, the follow
 * The public IP that's associated with the cluster
 * The network security group that's associated with the cluster
 * The virtual network that's associated with the cluster
+* The AKS managed kubelet msi associated with the cluster
+* The AKS managed addon msi associated with the cluster
+* The private DNS zone associated with the private cluster
+* The private endpoint associated with the private cluster
+
+> [!NOTE]
+> Azure Private DNS only supports 15 tags. https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources. 
 
 To create a cluster and assign Azure tags, run `az aks create` with the `--tags` parameter, as shown in the following command. Running the command creates a *myAKSCluster* in the *myResourceGroup* with the tags *dept=IT* and *costcenter=9999*.
 
