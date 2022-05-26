@@ -1,13 +1,13 @@
 ---
 title: Quickstart - Provision Azure Spring Apps using Azure CLI
-description: This quickstart shows you how to use Azure CLI to deploy a Spring Apps cluster into an existing virtual network.
+description: This quickstart shows you how to use Azure CLI to deploy an Azure Spring Apps cluster into an existing virtual network.
 services: azure-cli
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.custom: devx-track-azurecli, devx-track-java, mode-api, event-tier1-build-2022
 ms.author: vramasubbu
-ms.date: 05/13/2022
+ms.date: 05/31/2022
 ---
 
 # Quickstart: Provision Azure Spring Apps using Azure CLI
@@ -15,13 +15,14 @@ ms.date: 05/13/2022
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✘ Basic Tier ✔️ Standard tier ✔️ Enterprise tier
+**This article applies to:** ❌ Basic tier ✔️ Standard tier ✔️ Enterprise tier
 
 This quickstart describes how to use Azure CLI to deploy an Azure Spring Apps cluster into an existing virtual network.
 
-Azure Spring Apps makes it easy to deploy Spring applications to Azure without any code changes. The service manages the infrastructure of Spring Apps applications so developers can focus on their code. Azure Spring Apps provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
+Azure Spring Apps makes it easy to deploy Spring applications to Azure without any code changes. The service manages the infrastructure of Spring applications so developers can focus on their code. Azure Spring Apps provides lifecycle management using comprehensive monitoring and diagnostics, configuration management, service discovery, CI/CD integration, blue-green deployments, and more.
 
-The Enterprise Tier deployment plan includes the following Tanzu Components:
+The Enterprise tier deployment plan includes the following Tanzu components:
+
 * Build Service
 * Application Configuration Service
 * Service Registry
@@ -33,31 +34,35 @@ The Enterprise Tier deployment plan includes the following Tanzu Components:
 * An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * Two dedicated subnets for the Azure Spring Apps cluster, one for the service runtime and another for the Spring applications. For subnet and virtual network requirements, see the [Virtual network requirements](how-to-deploy-in-azure-virtual-network.md#virtual-network-requirements) section of [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md).
 * An existing Log Analytics workspace for Azure Spring Apps diagnostics settings and a workspace-based Application Insights resource. For more information, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md) and [Application Insights Java In-Process Agent in Azure Spring Apps](how-to-application-insights.md).
-* Three internal Classless Inter-Domain Routing (CIDR) ranges (at least */16* each) that you've identified for use by the Azure Spring Apps cluster. These CIDR ranges will not be directly routable and will be used only internally by the Azure Spring Apps cluster. Clusters may not use *169.254.0.0/16*, *172.30.0.0/16*, *172.31.0.0/16*, or *192.0.2.0/24* for the internal Spring app CIDR ranges, or any IP ranges included within the cluster virtual network address range.
+* Three internal Classless Inter-Domain Routing (CIDR) ranges (at least */16* each) that you've identified for use by the Azure Spring Apps cluster. These CIDR ranges won't be directly routable and will be used only internally by the Azure Spring Apps cluster. Clusters may not use *169.254.0.0/16*, *172.30.0.0/16*, *172.31.0.0/16*, or *192.0.2.0/24* for the internal Spring app CIDR ranges, or any IP ranges included within the cluster virtual network address range.
 * Service permission granted to the virtual network. The Azure Spring Apps Resource Provider requires Owner permission to your virtual network in order to grant a dedicated and dynamic service principal on the virtual network for further deployment and maintenance. For instructions and more information, see the [Grant service permission to the virtual network](how-to-deploy-in-azure-virtual-network.md#grant-service-permission-to-the-virtual-network) section of [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md).
 * If you're using Azure Firewall or a Network Virtual Appliance (NVA), you'll also need to satisfy the following prerequisites:
   * Network and fully qualified domain name (FQDN) rules. For more information, see [Virtual network requirements](how-to-deploy-in-azure-virtual-network.md#virtual-network-requirements).
   * A unique User Defined Route (UDR) applied to each of the service runtime and Spring application subnets. For more information about UDRs, see [Virtual network traffic routing](../virtual-network/virtual-networks-udr-overview.md). The UDR should be configured with a route for *0.0.0.0/0* with a destination of your NVA before deploying the Azure Spring Apps cluster. For more information, see the [Bring your own route table](how-to-deploy-in-azure-virtual-network.md#bring-your-own-route-table) section of [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md).
 * [Azure CLI](/cli/azure/install-azure-cli)
-* If deploying Azure Spring Enterprise for the first time in the target subscription, you're required to register the provider, and accept the legal terms for the Enterprise tier
-```azurecli
-az provider register --namespace Microsoft.SaaS
-az term accept --publisher vmware-inc --product azure-spring-cloud-vmware-tanzu-2 --plan tanzu-asc-ent-mtr
-```
+* If you're deploying Azure Spring Apps Enterprise tier for the first time in the target subscription, use the following commands to register the provider and accept the legal terms and privacy statements for the Enterprise tier.
+
+   ```azurecli
+   az provider register --namespace Microsoft.SaaS
+   az term accept \
+       --publisher vmware-inc \
+       --product azure-spring-cloud-vmware-tanzu-2 \
+       --plan tanzu-asc-ent-mtr
+   ```
 
 ## Review the Azure CLI deployment script
 
 The deployment script used in this quickstart is from the [Azure Spring Apps reference architecture](reference-architecture.md).
 
-# [Azure Spring Standard](#tab/azure-spring-standard)
+### [Azure Spring Apps Standard tier](#tab/azure-spring-apps-standard)
 
 :::code language="azurecli" source="~/azure-spring-cloud-reference-architecture/CLI/brownfield-deployment/azuredeploySpringStandard.sh":::
 
-# [Azure Spring Enterprise](#tab/azure-spring-enterprise)
+### [Azure Spring Apps Enterprise tier](#tab/azure-spring-apps-enterprise)
 
 :::code language="azurecli" source="~/azure-spring-cloud-reference-architecture/CLI/brownfield-deployment/azuredeploySpringEnterprise.sh":::
 
-```
+---
 
 ## Deploy the cluster
 
@@ -103,19 +108,20 @@ To deploy the Azure Spring Apps cluster using the Azure CLI script, follow these
    az group create --name <your-resource-group-name> --location <location-name>
    ```
 
-1. Save the script for Azure Spring [Standard](https://raw.githubusercontent.com/Azure/azure-spring-cloud-reference-architecture/main/CLI/brownfield-deployment/azuredeploySpringStandard.sh) or [Enterprise](https://raw.githubusercontent.com/Azure/azure-spring-cloud-reference-architecture/main/CLI/brownfield-deployment/azuredeploySpringEnterprise.sh) locally, then execute it from the Bash prompt.
+1. Save the script for Azure Spring Apps [Standard tier](https://raw.githubusercontent.com/Azure/azure-spring-cloud-reference-architecture/main/CLI/brownfield-deployment/azuredeploySpringStandard.sh) or [Enterprise tier](https://raw.githubusercontent.com/Azure/azure-spring-cloud-reference-architecture/main/CLI/brownfield-deployment/azuredeploySpringEnterprise.sh) locally, then run it from the Bash prompt.
 
-# [Azure Spring Standard](#tab/azure-spring-standard-script)
+### [Azure Spring Apps Standard tier](#tab/azure-spring-apps-standard)
 
    ```azurecli
    ./azuredeploySpringStandard.sh
    ```
 
-# [Azure Spring Enterprise](#tab/azure-spring-enterprise-script)
+### [Azure Spring Apps Enterprise tier](#tab/azure-spring-apps-enterprise)
 
    ```azurecli
    ./azuredeploySpringEnterprise.sh
    ```
+
 ---
 
 1. Enter the following values when prompted by the script:
