@@ -18,7 +18,7 @@ There are three types of security issues that are detected:
 3. Suspicious user activity: the same user accesses the application from multiple countries or regions, around the same time. For example, the same user accessed the application from Spain and the United States within the same hour. This detection indicates a potentially malicious access attempt to your application.
 
 ## Does my app definitely have a security issue?
-A notification doesn't mean that your app definitely has a security issue. A detection of any of the scenarios above can, in many cases, indicate a security issue. in other cases, the detection may have a natural business justification, and can be ignored.
+A notification doesn't mean that your app definitely has a security issue. A detection of any of the scenarios above can, in many cases, indicate a security issue. In other cases, the detection may have a natural business justification, and can be ignored.
 
 ## How do I fix the "Insecure URL access" detection?
 1. **Triage.** The notification provides the number of users who accessed insecure URLs, and the URL that was most affected by insecure access. This information can help you assign a priority to the problem.

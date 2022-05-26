@@ -21,7 +21,7 @@ This article describes an OT sensor deployment on a virtual appliance using Micr
 
 The on-premises management console supports both VMware and Hyper-V deployment options. Before you begin the installation, make sure you have the following items:
 
-- Hyper-V hypervisor (Windows 10 Pro or Enterprise) installed and operational
+- Microsoft Hyper-V hypervisor (Windows 10 Pro or Enterprise) installed and operational. For more information, see [Introduction to Hyper-V on Windows 10](/virtualization/hyper-v-on-windows/about).
 
 - Available hardware resources for the virtual machine. For more information, see [OT monitoring with virtual appliances](../ot-virtual-appliances.md).
 
@@ -81,7 +81,7 @@ This procedure describes how to create a virtual machine by using Hyper-V.
 
     The VM will start from the ISO image, and the language selection screen will appear.
 
-1. Continue with the [generic procedure for installing sensor software](../how-to-install-software.md#install-ot-sensor-software).
+1. Continue with the [generic procedure for installing sensor software](../how-to-install-software.md#install-ot-monitoring-software).
 
 
 ## Configure a monitoring interface (SPAN)
@@ -96,7 +96,7 @@ For more information, see [Purdue reference model and Defender for IoT](../best-
 
 Before you start:
 
-- Ensure that there is no instance of a virtual appliance running.
+- Ensure that there's no instance of a virtual appliance running.
 
 - Enable Ensure SPAN on the data port, and not the management port.
 

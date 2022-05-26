@@ -25,7 +25,7 @@ Most often, this error indicates that your Azure role-based access control (Azur
 
 ### Cause #2
 
-If you're using a client app to communicate with Azure Digital Twins that's authenticating with an [app registration](./how-to-create-app-registration-portal.md), this error may happen because your app registration doesn't have permissions set up for the Azure Digital Twins service.
+If you're using a client app to communicate with Azure Digital Twins that's authenticating with an [app registration](./how-to-create-app-registration.md), this error may happen because your app registration doesn't have permissions set up for the Azure Digital Twins service.
 
 The app registration must have access permissions configured for the Azure Digital Twins APIs. Then, when your client app authenticates against the app registration, it will be granted the permissions that the app registration has configured.
 
@@ -82,7 +82,7 @@ Next, select **API permissions** from the menu bar to verify that this app regis
 
 #### Fix issues
 
-If any of this appears differently than described, follow the instructions on how to set up an app registration in [Create an app registration with Azure Digital Twins access](./how-to-create-app-registration-portal.md).
+If any of this appears differently than described, follow the instructions on how to set up an app registration in [Create an app registration with Azure Digital Twins access](./how-to-create-app-registration.md).
 
 ## Next steps
 

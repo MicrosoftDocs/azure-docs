@@ -66,7 +66,7 @@ This procedure describes how to create a virtual machine by using ESXi.
 
     The VM will start from the ISO image, and the language selection screen will appear.
 
-1. Continue with the [generic procedure for installing sensor software](../how-to-install-software.md#install-ot-sensor-software).
+1. Continue with the [generic procedure for installing sensor software](../how-to-install-software.md#install-ot-monitoring-software).
 
 
 ## Configure a monitoring interface (SPAN)
@@ -95,7 +95,7 @@ For more information, see [Purdue reference model and Defender for IoT](../best-
 
 1. Select **OK**, and then select **Close** to close the vSwitch properties.
 
-1. Open the **XSense VM** properties.
+1. Open the **OT Sensor VM** properties.
 
 1. For **Network Adapter 2**, select the **SPAN** network.
 

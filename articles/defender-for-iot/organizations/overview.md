@@ -78,7 +78,7 @@ Enterprise IoT network protection extends agentless features beyond operational 
 
 When you expand Microsoft Defender for IoT into the enterprise network, you can apply Microsoft 365 Defender's features for asset discovery and use Microsoft Defender for Endpoint for a single, integrated package that can secure all of your IoT/OT infrastructure.
 
-Use Microsoft Defender for IoT's sensors as extra data sources, providing visibility in areas of your organization's network where Microsoft Defender for Endpoint isn't deployed, and when employees are accessing information remotely. Microsoft Defender for IoT's sensors provide visibility into both the IoT-to-IoT and the IoT-to-internet communications. Integrating Defender for IoT and Defender for Endpoint synchronizes any devices discovered on the network by either service.
+Use Microsoft Defender for IoT's sensors as extra data sources, providing visibility in areas of your organization's network where Microsoft Defender for Endpoint isn't deployed, and when employees are accessing information remotely. Microsoft Defender for IoT's sensors provide visibility into both the IoT-to-IoT and the IoT-to-internet communications. Integrating Defender for IoT and Defender for Endpoint synchronizes any enterprise IoT devices discovered on the network by either service.
 
 For more information, see the [Microsoft 365 Defender](/microsoft-365/security/defender/microsoft-365-defender) and [Microsoft Defender for Endpoint documentation](/microsoft-365/security/defender-endpoint).
 

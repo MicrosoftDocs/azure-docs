@@ -19,21 +19,7 @@ Azure strives to enable high resiliency across every service and offering. Runni
 
 ## Azure regions with availability zones
 
-Azure provides the most extensive global footprint of any cloud provider and is rapidly opening new regions and availability zones. The following regions currently support availability zones.
-
-| Americas | Europe | Africa | Asia Pacific |
-|--------------------|----------------------|---------------------|----------------|
-| Brazil South | France Central | South Africa North | Australia East |
-| Canada Central | Germany West Central | | Central India |
-| Central US | North Europe | | Japan East |
-| East US | Norway East | | Korea Central |
-| East US 2 | UK South | | Southeast Asia |
-| South Central US | West Europe | | East Asia |
-| US Gov Virginia | Sweden Central | | China North 3 |
-| West US 2 | Switzerland North* | | |
-| West US 3 | | | |
-
-\* To learn more about Availability Zones and available services support in these regions, contact your Microsoft sales or customer representative. For the upcoming regions that will support Availability Zones, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
+[!INCLUDE [availability-zone-regions-include](./includes/availability-zone-regions-include.md)]
 
 For a list of Azure services that support availability zones by Azure region, see the [availability zones documentation](az-overview.md).
 
@@ -79,24 +65,24 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 | [Azure Load Balancer](../load-balancer/load-balancer-standard-availability-zones.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg) |
 | [Azure Service Bus](../service-bus-messaging/service-bus-geo-dr.md#availability-zones) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Service Fabric](../service-fabric/service-fabric-cross-availability-zones.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg)  |
-| [Azure Storage account](../storage/common/storage-redundancy.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
-| [Azure Storage: Azure Data Lake Storage](../storage/blobs/data-lake-storage-introduction.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
-| [Azure Storage: Disk Storage](../storage/common/storage-redundancy.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
-| Azure Storage: [Blob Storage](../storage/common/storage-redundancy.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
-| Azure Storage: [Managed Disks](../virtual-machines/managed-disks-overview.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg) |
-| [Azure Virtual Machine Scale Sets](../virtual-machine-scale-sets/scripts/cli-sample-zone-redundant-scale-set.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
-| [Azure Virtual Machines](../virtual-machines/windows/create-powershell-availability-zone.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
-| Virtual Machines: [Av2-Series](../virtual-machines/windows/create-powershell-availability-zone.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
-| Virtual Machines: [Bs-Series](../virtual-machines/windows/create-powershell-availability-zone.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
-| Virtual Machines: [DSv2-Series](../virtual-machines/windows/create-powershell-availability-zone.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
-| Virtual Machines: [DSv3-Series](../virtual-machines/windows/create-powershell-availability-zone.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
-| Virtual Machines: [Dv2-Series](../virtual-machines/windows/create-powershell-availability-zone.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
-| Virtual Machines: [Dv3-Series](../virtual-machines/windows/create-powershell-availability-zone.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
-| Virtual Machines: [ESv3-Series](../virtual-machines/windows/create-powershell-availability-zone.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
-| Virtual Machines: [Ev3-Series](../virtual-machines/windows/create-powershell-availability-zone.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
-| Virtual Machines: [F-Series](../virtual-machines/windows/create-powershell-availability-zone.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
-| Virtual Machines: [FS-Series](../virtual-machines/windows/create-powershell-availability-zone.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
-| Virtual Machines: [Azure Compute Gallery](../virtual-machines/azure-compute-gallery.md#high-availability)| ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Azure Storage account](migrate-storage.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
+| [Azure Storage: Azure Data Lake Storage](migrate-storage.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Azure Storage: Disk Storage](migrate-storage.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
+| [Azure Storage: Blob Storage](migrate-storage.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Azure Storage: Managed Disks](migrate-storage.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg) |
+| [Azure Virtual Machine Scale Sets](migrate-vm.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
+| [Azure Virtual Machines](migrate-vm.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
+| Virtual Machines: [Av2-Series](migrate-vm.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
+| Virtual Machines: [Bs-Series](migrate-vm.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
+| Virtual Machines: [DSv2-Series](migrate-vm.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
+| Virtual Machines: [DSv3-Series](migrate-vm.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
+| Virtual Machines: [Dv2-Series](migrate-vm.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
+| Virtual Machines: [Dv3-Series](migrate-vm.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
+| Virtual Machines: [ESv3-Series](migrate-vm.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
+| Virtual Machines: [Ev3-Series](migrate-vm.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
+| Virtual Machines: [F-Series](migrate-vm.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
+| Virtual Machines: [FS-Series](migrate-vm.md) | ![An icon that signifies this service is zonal.](media/icon-zonal.svg) |
+| Virtual Machines: [Azure Compute Gallery](migrate-vm.md)| ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 | [Azure Virtual Network](../vpn-gateway/create-zone-redundant-vnet-gateway.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure VPN Gateway](../vpn-gateway/about-zone-redundant-vnet-gateways.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 
