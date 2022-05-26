@@ -106,7 +106,7 @@ Check the [public voices available](./language-support.md#prebuilt-neural-voices
 **Option 2: Fail over to custom voice on another region.**
 
 1.  Create and deploy your custom voice in one main region (primary).
-2.  Copy your custom voice model to another region (the secondary region) in [Speech Studio](https://speech.microsoft.com).
+2.  Copy your custom voice model to another region (the secondary region) in [Speech Studio](https://aka.ms/speechstudio/).
 3.  Go to Speech Studio and switch to the Speech resource in the secondary region. Load the copied model and create a new endpoint.
     -   Voice model deployment usually finishes **in 3 minutes**.
     -   Note: additional endpoint is subjective to additional charges. [Check the pricing for model hosting here](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
