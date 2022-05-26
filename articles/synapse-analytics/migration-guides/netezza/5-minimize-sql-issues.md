@@ -45,7 +45,7 @@ Automate and orchestrate the migration process by making use of the capabilities
 
 Azure Data Factory is a cloud-based data integration service that allows creation of data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Using Data Factory, you can create and schedule data-driven workflows&mdash;called pipelines&mdash;that can ingest data from disparate data stores. It can process and transform data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning.
 
-By creating metadata to list the data tables to be migrated and their location, you can use the Data Factory facilities to manage and automate parts of the migration process. You can also use [Synapse pipelines](/azure/synapse-analytics/get-started-pipelines?msclkid=8f3e7e96cfed11eca432022bc07c18de).
+By creating metadata to list the data tables to be migrated and their location, you can use the Data Factory facilities to manage and automate parts of the migration process. You can also use [Synapse pipelines](../../get-started-pipelines.md?msclkid=8f3e7e96cfed11eca432022bc07c18de).
 
 ## SQL DDL differences between Netezza and Azure Synapse
 
@@ -135,7 +135,7 @@ Access this information by using utilities such as `nz_ddl_table` and generate t
 > [!TIP]
 > Third-party tools and services can automate data mapping tasks.
 
-There are [Microsoft partners](/azure/synapse-analytics/partner/data-integration) who offer tools and services to automate migration, including data-type mapping. Also, if a third-party ETL tool such as Informatica or Talend is already in use in the Netezza environment, that tool can implement any required data transformations.
+There are [Microsoft partners](../../partner/data-integration.md) who offer tools and services to automate migration, including data-type mapping. Also, if a third-party ETL tool such as Informatica or Talend is already in use in the Netezza environment, that tool can implement any required data transformations.
 
 ## SQL DML differences between Netezza and Azure Synapse
 
@@ -172,7 +172,7 @@ There may be facilities in the Azure environment that replace the functionality 
 > [!TIP]
 > Third-party products and services can automate migration of non-data elements.
 
-[Microsoft partners](/azure/synapse-analytics/partner/data-integration) offer tools and services that can automate the migration, including the mapping of data types. Also, third-party ETL tools, such as Informatica or Talend, that are already in use in the IBM Netezza environment can implement any required data transformations.
+[Microsoft partners](../../partner/data-integration.md) offer tools and services that can automate the migration, including the mapping of data types. Also, third-party ETL tools, such as Informatica or Talend, that are already in use in the IBM Netezza environment can implement any required data transformations.
 
 See the following sections for more information on each of these elements.
 
@@ -190,7 +190,7 @@ SQL Azure Data Warehouse also supports stored procedures using T-SQL, so if you 
 
 In Netezza, a sequence is a named database object created via `CREATE SEQUENCE` that can provide the unique value via the `NEXT VALUE FOR` method. Use these to generate unique numbers for use as surrogate key values for primary key values.
 
-In Azure Synapse, there's no `CREATE SEQUENCE`. Sequences are handled using [Identity to create surrogate keys](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-identity) or [managed identity](/azure/data-factory/data-factory-service-identity?tabs=data-factory) using SQL code to create the next sequence number in a series.
+In Azure Synapse, there's no `CREATE SEQUENCE`. Sequences are handled using [Identity to create surrogate keys](../../sql-data-warehouse/sql-data-warehouse-tables-identity.md) or [managed identity](../../../data-factory/data-factory-service-identity.md?tabs=data-factory) using SQL code to create the next sequence number in a series.
 
 ### Use [EXPLAIN](/sql/t-sql/queries/explain-transact-sql?msclkid=91233fc1cff011ec9dff597671b7ae97) to validate legacy SQL
 
@@ -261,7 +261,7 @@ To minimize the task of migrating the actual SQL code, follow these recommendati
 
 - Automate the process wherever possible to minimize errors, risk, and time for the migration.
 
-- Consider using specialist [Microsoft partners](/azure/synapse-analytics/partner/data-integration) and services to streamline the migration.
+- Consider using specialist [Microsoft partners](../../partner/data-integration.md) and services to streamline the migration.
 
 ## Next steps
 

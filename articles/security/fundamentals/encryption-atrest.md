@@ -76,7 +76,7 @@ Resource providers and application instances store the encrypted Data Encryption
 
 Microsoft Cloud services are used in all three cloud models: IaaS, PaaS, SaaS. Below you have examples of how they fit on each model:
 
-- Software services, referred to as Software as a Server or SaaS, which have applications provided by the cloud such as Microsoft 365.
+- Software services, referred to as Software as a Service or SaaS, which have applications provided by the cloud such as Microsoft 365.
 - Platform services in which customers use the cloud for things like storage, analytics, and service bus functionality in their applications.
 - Infrastructure services, or Infrastructure as a Service (IaaS) in which customer deploys operating systems and applications that are hosted in the cloud and possibly leveraging other cloud services.
 
