@@ -336,7 +336,7 @@ For details about the authorization code flow that this method triggers, see the
 
 Node sample the Express framework. MSAL is initialized in *auth* route handler:
 
-:::code language="js" source="~/ms-identity-node/App/routes/auth.js" range="6-17":::
+:::code language="js" source="~/ms-identity-node/App/routes/auth.js" range="6-16":::
 
 # [Python](#tab/python)
 

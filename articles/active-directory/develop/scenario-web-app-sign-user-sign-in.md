@@ -96,11 +96,11 @@ In the Java quickstart, the sign-in button is located in the [main/resources/tem
 
 In the Node.js quickstart, the code for the sign-in button is located in *index.hbs* template file.
 
-:::code language="hbs" source="~/ms-identity-node/App/views/index.hbs" range="10-12":::
+:::code language="hbs" source="~/ms-identity-node/App/views/index.hbs" range="10-11":::
 
 This template is served via the main (index) route of the app:
 
-:::code language="js" source="~/ms-identity-node/App/routes/index.js":::
+:::code language="js" source="~/ms-identity-node/App/routes/index.js" range="6-15":::
 
 # [Python](#tab/python)
 
@@ -169,7 +169,7 @@ public class AuthPageController {
 
 # [Node.js](#tab/nodejs)
 
-When the user selects the **Sign in** link, which triggers the `/auth/signin` route, the sign-in controller takes over to authenticate the user with Azure AD. 
+When the user selects the **Sign in** link, which triggers the `/auth/signin` route, the sign-in controller takes over to authenticate the user with Microsoft identity platform. 
 
 :::code language="js" source="~/ms-identity-node/App/routes/auth.js" range="27-107, 135-161":::
 
@@ -400,7 +400,7 @@ In Java, sign-out is handled by calling the Microsoft identity platform `logout`
 
 # [Node.js](#tab/nodejs)
 
-When the user selects the **Sign out** button, the app triggers the `/signout` route, which destroys the session and redirects the browser to Azure AD logout endpoint.
+When the user selects the **Sign out** button, the app triggers the `/signout` route, which destroys the session and redirects the browser to Microsoft identity platform sign-out endpoint.
 
 :::code language="js" source="~/ms-identity-node/App/routes/auth.js" range="163-174":::
 
@@ -450,7 +450,7 @@ In the Java quickstart, the post-logout redirect URI just displays the index.htm
 
 # [Node.js](#tab/nodejs)
 
-In the Node quickstart, the post-logout redirect URI is used to redirect the browser back to sample home page after the user completes the logout process with Azure AD.
+In the Node quickstart, the post-logout redirect URI is used to redirect the browser back to sample home page after the user completes the logout process with the Microsoft identity platform.
 
 # [Python](#tab/python)
 
