@@ -202,24 +202,21 @@ The `stagingResourceGroup` field contains information about the staging resource
     }
 ```
 
-> [!NOTE]
-> Any staging resource group specified for use by the Image Builder service must be empty (no resources inside), in the same region as the image template and have either "Contributor" or "Owner" RBAC assigned to the identity appointed to the Azure Image Builder image template resource.
-
 ### Template Creation Scenarios
 
 #### The stagingResourceGroup field is left empty
-If the `stagingResourceGroup` field is not specified or specified with an empty string, the Image Builder service will create a staging resource group with the default name convention "IT_***". The staging resource group will have the default tags applied to it: `createdBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. Also, the staging resource group will have the default RBAC applied to it, which is "Contributor".
+If the `stagingResourceGroup` field is not specified or specified with an empty string, the Image Builder service will create a staging resource group with the default name convention "IT_***". The staging resource group will have the default tags applied to it: `createdBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. Also, the default RBAC will be applied to the identity assigned to the Azure Image Builder template resource, which is "Contributor".
 
 #### The stagingResourceGroup field is specified with a resource group that exists
-If the `stagingResourceGroup` field is specified with a resource group that does exist, then the Image Builder service will check to make sure the resource group is empty (no resources inside), in the same region as the image template and has either "Contributor" or "Owner" RBAC assigned to the identity appointed to the Azure Image Builder image template resource. If any of the aforementioned requirements are not met an error will be thrown. The staging resource group will have the following tags added to it: `usedBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. Preexisting tags are not deleted.
+If the `stagingResourceGroup` field is specified with a resource group that does exist, then the Image Builder service will check to make sure the resource group is empty (no resources inside), in the same region as the image template, and has either "Contributor" or "Owner" RBAC applied to the identity assigned to the Azure Image Builder image template resource. If any of the aforementioned requirements are not met an error will be thrown. The staging resource group will have the following tags added to it: `usedBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. Preexisting tags are not deleted.
 
 #### The stagingResourceGroup field is specified with a resource group that DOES NOT exist
-If the `stagingResourceGroup` field is specified with a resource group that does not exist, then the Image Builder service will create a staging resource group with the name provided in the `stagingResourceGroup` field. There will be an error if the given name does not meet Azure naming requirements for resource groups. The staging resource group will have the default tags applied to it: `createdBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. By default the identity appointed to the Azure Image Builder image template resource will have the "Contributor" RBAC applied to it in the resource group.
+If the `stagingResourceGroup` field is specified with a resource group that does not exist, then the Image Builder service will create a staging resource group with the name provided in the `stagingResourceGroup` field. There will be an error if the given name does not meet Azure naming requirements for resource groups. The staging resource group will have the default tags applied to it: `createdBy`, `imageTemplateName`, `imageTemplateResourceGroupName`. By default the identity assigned to the Azure Image Builder image template resource will have the "Contributor" RBAC applied to it in the resource group.
 
 ### Template Deletion
 Any staging resource group created by the Image Builder service will be deleted after the image template is deleted. This includes staging resource groups that were specified in the `stagingResourceGroup` field, but did not exist prior to the image build. 
 
-If Image Builder did not create the staging resource group, but it did create resources inside of it, those resources will be deleted after the image build process as long as the Image Builder service has the appropriate permissions or role required to delete resources. 
+If Image Builder did not create the staging resource group, but it did create resources inside of it, those resources will be deleted after the image template is deleted as long as the Image Builder service has the appropriate permissions or role required to delete resources. 
 
 
 ## Properties: source
@@ -607,30 +604,31 @@ How to use the `validate` property to validate Windows images
         
 ```json
 {
-  "properties": {
-    "validate": {
-      "continueDistributeOnFailure": false,
-      "sourceValidationOnly": false,
-      "inVMValidations": [
-        {
-          "type": "PowerShell",
-          "name": "test PowerShell validator inline",
-          "inline": [
-            "<command to run inline>"
-          ],
-          "validExitCodes": "<exit code>",
-          "runElevated": <true or false> 
-        },
-        {
-          "type": "PowerShell",
-          "name": "<name>",
-          "scriptUri": "<path to script>",
-	  "runElevated": <true false>,
-          "sha256Checksum": "<sha256 checksum>" 
-        }
-      ]
-    },
-  }    
+    "properties": {
+      "validate": {
+        "continueDistributeOnFailure": false,
+        "sourceValidationOnly": false,
+        "inVMValidations": [
+          {
+            "type": "PowerShell",
+            "name": "test PowerShell validator inline",
+            "inline": [
+              "<command to run inline>"
+            ],
+            "validExitCodes": "<exit code>",
+            "runElevated": <true or false>,
+            "runAsSystem": <true or false>
+          },
+          {
+            "type": "PowerShell",
+            "name": "<name>",
+            "scriptUri": "<path to script>",
+            "runElevated": <true false>,
+            "sha256Checksum": "<sha256 checksum>" 
+          }
+        ]
+      },
+    }    
 }
 ```
 
