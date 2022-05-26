@@ -6,7 +6,7 @@ services: storage
 author: tamram
 
 ms.author: tamram
-ms.date: 05/05/2022
+ms.date: 05/26/2022
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
@@ -98,7 +98,7 @@ az storage account show \
 
 The service endpoints for a storage account provide the base URL for any blob, queue, table, or file object in Azure Storage. Use this base URL to construct the address for any given resource.
 
-# [Portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 To get the service endpoints for a storage account in the Azure portal, follow these steps:
 
