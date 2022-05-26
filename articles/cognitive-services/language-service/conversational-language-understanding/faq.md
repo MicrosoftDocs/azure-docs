@@ -73,6 +73,10 @@ Yes, you can use orchestration workflow to orchestrate between different CLU and
 
 Add any out of scope utterances to the [none intent](./concepts/none-intent.md).
 
+## How do I control the none intent?
+
+You can control the none intent threshhold from UI through the project settings, by changing the none inten threshold value. The values can be between 0.0 and 1.0. Also, you can change this threshold from the APIs by changing the *confidenceThreshold* in settings object. Learn more about [none intent](../concepts/none-intent#none-score-threshold)
+
 ## Is there any SDK support?
 
 Yes, only for predictions, and samples are available for [python](https://aka.ms/sdk-samples-conversation-python) and [C#](https://aka.ms/sdk-sample-conversation-dot-net). There is currently no authoring support for the SDK.
