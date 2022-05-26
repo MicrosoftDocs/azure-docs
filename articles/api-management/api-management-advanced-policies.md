@@ -2,8 +2,8 @@
 title: Azure API Management advanced policies | Microsoft Docs
 description: Reference for the advanced policies available for use in Azure API Management. Provides policy usage, settings and examples.
 author: dlepow
-ms.topic: reference
-ms.date: 03/07/2022
+ms.topic: article
+ms.date: 04/28/2022
 ms.service: api-management
 ms.author: danlep
 ---
@@ -18,6 +18,7 @@ This article provides a reference for advanced API Management policies, such as 
 
 -   [Control flow](api-management-advanced-policies.md#choose) - Conditionally applies policy statements based on the results of the evaluation of Boolean [expressions](api-management-policy-expressions.md).
 -   [Forward request](#ForwardRequest) - Forwards the request to the backend service.
+-   [Include fragment](#IncludeFragment) - Inserts a policy fragment in the policy definition.
 -   [Limit concurrency](#LimitConcurrency) - Prevents enclosed policies from executing by more than the specified number of requests at a time.
 -   [Log to event hub](#log-to-eventhub) - Sends messages in the specified format to an event hub defined by a Logger entity.
 -   [Emit metrics](#emit-metrics) - Sends custom metrics to Application Insights at execution.
@@ -262,6 +263,50 @@ This policy can be used in the following policy [sections](./api-management-howt
 -   **Policy sections:** backend
 -   **Policy scopes:** all scopes
 
+## <a name="IncludeFragment"></a> Include fragment
+
+The `include-fragment` policy inserts the contents of a previously created [policy fragment](policy-fragments.md) in the policy definition. A policy fragment is a centrally managed, reusable XML policy snippet that can be included in policy definitions in your API Management instance.
+
+The policy inserts the policy fragment as-is at the location you select in the policy definition.  
+
+### Policy statement
+
+```xml
+<include-fragment fragment-id="fragment" />
+```
+
+### Example
+
+In the following example, the policy fragment named *myFragment* is added in the inbound section of a policy definition.
+
+```xml
+<inbound>
+    <include-fragment fragment-id="myFragment" />
+    <base />
+</inbound>
+[...]
+```
+
+## Elements
+
+| Element           | Description   | Required |
+| ----------------- | ------------- | -------- |
+| include-fragment | Root element. | Yes      |
+
+### Attributes
+
+| Attribute | Description                                                                                        | Required | Default |
+| --------- | -------------------------------------------------------------------------------------------------- | -------- | ------- |
+| fragment-id       | A string. Expression allowed. Specifies the identifier (name) of a policy fragment created in the API Management instance. | Yes      | N/A     |
+
+### Usage
+
+This policy can be used in the following policy [sections](./api-management-howto-policies.md#sections) and [scopes](./api-management-howto-policies.md#scopes).
+
+-   **Policy sections:** inbound, outbound, backend, on-error
+
+-   **Policy scopes:** all scopes
+
 ## <a name="LimitConcurrency"></a> Limit concurrency
 
 The `limit-concurrency` policy prevents enclosed policies from executing by more than the specified number of requests at any time. When that number is exceeded, new requests will fail immediately with the `429` Too Many Requests status code.
@@ -276,9 +321,7 @@ The `limit-concurrency` policy prevents enclosed policies from executing by more
 </limit-concurrency>
 ```
 
-### Examples
-
-#### Example
+### Example
 
 The following example demonstrates how to limit number of requests forwarded to a backend based on the value of a context variable.
 
@@ -670,7 +713,7 @@ This sample policy shows an example of using the `send-one-way-request` policy t
 <choose>
     <when condition="@(context.Response.StatusCode >= 500)">
       <send-one-way-request mode="new">
-        <set-url>https://hooks.slack.com/services/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</set-url>
+        <set-url>https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXXXXXXXXXXXXXXXXXX</set-url>
         <set-method>POST</set-method>
         <set-body>@{
                 return new JObject(

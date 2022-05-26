@@ -4,7 +4,7 @@ description: Learn about Microsoft Defender for Containers
 author: bmansheim
 ms.author: benmansheim
 ms.topic: overview
-ms.date: 05/18/2022
+ms.date: 05/25/2022
 ---
 
 # Overview of Microsoft Defender for Containers
@@ -86,26 +86,14 @@ This solution monitors the growing attack surface of multi-cloud Kubernetes depl
 
 The full list of available alerts can be found in the [Reference table of alerts](alerts-reference.md#alerts-k8scluster).
 
-:::image type="content" source="media/defender-for-containers/sample-containers-plan-alerts.png" alt-text="Screenshot of Defender for Cloud's alerts page showing alerts for multi-cloud Kubernetes resources." lightbox="./media/defender-for-containers/sample-containers-plan-alerts.png":::
+:::image type="content" source="media/defender-for-containers/sample-containers-plan-alerts.png" alt-text="Screenshot of Defender for Cloud's alerts page showing alerts for multicloud Kubernetes resources." lightbox="./media/defender-for-containers/sample-containers-plan-alerts.png":::
 
 ## FAQ - Defender for Containers
 
-- [Overview of Microsoft Defender for Containers](#overview-of-microsoft-defender-for-containers)
-  - [Microsoft Defender for Containers plan availability](#microsoft-defender-for-containers-plan-availability)
-  - [What are the benefits of Microsoft Defender for Containers?](#what-are-the-benefits-of-microsoft-defender-for-containers)
-  - [Hardening](#hardening)
-    - [Continuous monitoring of your Kubernetes clusters - wherever they're hosted](#continuous-monitoring-of-your-kubernetes-clusters---wherever-theyre-hosted)
-    - [Kubernetes data plane hardening](#kubernetes-data-plane-hardening)
-  - [Vulnerability assessment](#vulnerability-assessment)
-    - [Scanning images in ACR registries](#scanning-images-in-acr-registries)
-    - [View vulnerabilities for running images](#view-vulnerabilities-for-running-images)
-  - [Run-time protection for Kubernetes nodes and clusters](#run-time-protection-for-kubernetes-nodes-and-clusters)
-  - [FAQ - Defender for Containers](#faq---defender-for-containers)
-    - [What are the options to enable the new plan at scale?](#what-are-the-options-to-enable-the-new-plan-at-scale)
-    - [Does Microsoft Defender for Containers support AKS clusters with virtual machines scale sets?](#does-microsoft-defender-for-containers-support-aks-clusters-with-virtual-machines-scale-sets)
-    - [Does Microsoft Defender for Containers support AKS without scale set (default)?](#does-microsoft-defender-for-containers-support-aks-without-scale-set-default)
-    - [Do I need to install the Log Analytics VM extension on my AKS nodes for security protection?](#do-i-need-to-install-the-log-analytics-vm-extension-on-my-aks-nodes-for-security-protection)
-  - [Next steps](#next-steps)
+- [What are the options to enable the new plan at scale?](#what-are-the-options-to-enable-the-new-plan-at-scale)
+- [Does Microsoft Defender for Containers support AKS clusters with virtual machines scale sets?](#does-microsoft-defender-for-containers-support-aks-clusters-with-virtual-machines-scale-sets)
+- [Does Microsoft Defender for Containers support AKS without scale set (default)?](#does-microsoft-defender-for-containers-support-aks-without-scale-set-default)
+- [Do I need to install the Log Analytics VM extension on my AKS nodes for security protection?](#do-i-need-to-install-the-log-analytics-vm-extension-on-my-aks-nodes-for-security-protection)
 
 ### What are the options to enable the new plan at scale?
 
@@ -122,6 +110,15 @@ No. Only Azure Kubernetes Service (AKS) clusters that use virtual machine scale 
 ### Do I need to install the Log Analytics VM extension on my AKS nodes for security protection?
 
 No, AKS is a managed service, and manipulation of the IaaS resources isn't supported. The Log Analytics VM extension isn't needed and may result in additional charges.
+
+## Learn More
+
+If you would like to learn more from the product manager about Microsoft Defender for Containers, check out [Microsoft Defender for Containers](episode-three.md).
+
+You can also check out the following blogs:
+
+- [How to demonstrate the new containers features in Microsoft Defender for Cloud](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/how-to-demonstrate-the-new-containers-features-in-microsoft/ba-p/3281172)
+- [Introducing Microsoft Defender for Containers](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/introducing-microsoft-defender-for-containers/ba-p/2952317)
 
 ## Next steps
 

@@ -127,3 +127,7 @@ Most apps that are registered with Azure AD grant delegated permissions to read 
 ## Next steps
 
 - [How to create a SaaS offer in the commercial marketplace](create-new-saas-offer.md)
+
+**Video tutorials**
+
+- [Building a Simple SaaS Landing Page in .NET](https://go.microsoft.com/fwlink/?linkid=2196323)

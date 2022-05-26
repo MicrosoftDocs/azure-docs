@@ -5,8 +5,9 @@ author: mksuni
 ms.author: sumuth
 ms.service: mysql
 ms.subservice: flexible-server
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 05/24/2022
 ---
 
 # Overview of business continuity with Azure Database for MySQL - Flexible Server
@@ -22,7 +23,7 @@ The table below illustrates the features that Flexible server offers.
 | **Backup & Recovery** | Flexible server automatically performs daily backups of your database files and continuously backs up transaction logs. Backups can be retained for any period between 1 to 35 days. You'll be able to restore your database server to any point in time within your backup retention period. Recovery time will be dependent on the size of the data to restore + the time to perform log recovery. Refer to [Concepts - Backup and Restore](./concepts-backup-restore.md) for more details. |Backup data remains within the region |
 | **Local redundant backup** | Flexible server backups are automatically and securely stored in a local redundant storage within a region and in same availability zone. The locally redundant backups replicate the server backup data files three times within a single physical location in the primary region. Locally redundant backup storage provides at least 99.999999999% (11 nines) durability of objects over a given year. Refer to [Concepts - Backup and Restore](./concepts-backup-restore.md) for more details.| Applicable in all regions |
 | **Geo-redundant backup** | Flexible server backups can be configured as geo-redundant at create time. Enabling Geo-redundancy replicates the server backup data files in the primary regionâ€™s paired region to provide regional resiliency. Geo-redundant backup storage provides at least 99.99999999999999% (16 nines) durability of objects over a given year. Refer to [Concepts - Backup and Restore](./concepts-backup-restore.md) for more details.| Available in all [Azure paired regions](overview.md#azure-regions) |
-| **Zone redundant high availability** | Flexible server can be deployed in high availability mode, which deploys primary and standby servers in two different availability zones within a region. This protects from zone-level failures and also helps with reducing application downtime during planned and unplanned downtime events. Data from the primary server is synchronously replicated to the standby replica. During any downtime event, the database server is automatically failed over to the standby replica. Refer to [Concepts - High availability](./concepts-high-availability.md) for more details. | Supported in general purpose and memory optimized compute tiers. Available only in regions where multiple zones are available.|
+| **Zone redundant high availability** | Flexible server can be deployed in high availability mode, which deploys primary and standby servers in two different availability zones within a region. This protects from zone-level failures and also helps with reducing application downtime during planned and unplanned downtime events. Data from the primary server is synchronously replicated to the standby replica. During any downtime event, the database server is automatically failed over to the standby replica. Refer to [Concepts - High availability](./concepts-high-availability.md) for more details. | Supported in general purpose and Business Critical compute tiers. Available only in regions where multiple zones are available.|
 | **Premium file shares** | Database files are stored in a highly durable and reliable Azure premium file shares that provide data redundancy with three copies of replica stored within an availability zone with automatic data recovery capabilities. Refer to [Premium File shares](../../storage/files/storage-how-to-create-file-share.md) for more details. | Data stored within an availability zone |
 
 ## Planned downtime mitigation
