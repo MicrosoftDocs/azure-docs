@@ -164,7 +164,15 @@ Request body parameters:
     {"logAnalyticsWorkspaceResourceID": "<workspace-id>"}
     ```
 
-Learn more about AKS CLI commands in [az aks](/cli/azure/aks).
+    Learn more about AKS CLI commands in [az aks](/cli/azure/aks).
+
+1. To verify that the profile was successfully added, run the following command on your machine with the `kubeconfig` file pointed to your cluster:
+
+    ```console
+    kubectl get pods -n azuredefender
+    ```
+
+    When the profile is added, you should see a pod called `azuredefender-XXXXX` in `Running` state. It might take a few minutes for pods to be added.
 
 ### [**Resource Manager**](#tab/aks-deploy-arm)
 
