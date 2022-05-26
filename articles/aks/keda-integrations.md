@@ -39,6 +39,12 @@ It leverages the following scalers for Azure services:
 - [Azure Service Bus](https://keda.sh/docs/latest/scalers/azure-service-bus/)
 - [Azure Storage Queue](https://keda.sh/docs/latest/scalers/azure-storage-queue/)
 
+Next to the built-in scalers, you can install external scalers yourself to autoscale on other Azure services:
+
+- [Azure Cosmos DB (Changefeed)](https://github.com/kedacore/external-scaler-azure-cosmos-db)
+
+However, these external scalers are not supported as part of the add-on and rely on community support.
+
 <!-- LINKS - internal -->
 [aks-support-policy]: support-policies.md
 [azure-monitor]: ../azure-monitor/overview.md
