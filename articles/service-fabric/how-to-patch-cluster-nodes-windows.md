@@ -31,7 +31,7 @@ When enabling automatic OS updates, you'll also need to disable Windows Update i
 > Service Fabric does not support in-VM upgrades where Windows Updates applies operating system patches without replacing the OS disk.
 
 > [!NOTE]
-> When managed disks are used ensure that Custom Extension script for mapping managed disks to drive letters handles reimage of the VM correctly.  See [Create a Service Fabric cluster with attached data disks](/azure/Virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks#create-a-service-fabric-cluster-with-attached-data-disks) for an example script that handles reimage of VMs with managed disks correctly.
+> When managed disks are used ensure that Custom Extension script for mapping managed disks to drive letters handles reimage of the VM correctly.  See [Create a Service Fabric cluster with attached data disks](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks) for an example script that handles reimage of VMs with managed disks correctly.
 
 1. Enable automatic OS image upgrades and disable Windows Updates in the deployment template:
 

@@ -31,7 +31,7 @@ Feature Supportability with HDInsight 4.0 Interactive Query(LLAP) Autoscale
 
 ### **Interactive Query Cluster setup for Autoscale**
 
-1. [Create an HDInsight Interactive Query Cluster.](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters)
+1. [Create an HDInsight Interactive Query Cluster.](../hdinsight-hadoop-provision-linux-clusters.md)
 2. Post successful creation of cluster, navigate to **Azure Portal** and apply the recommended Script Action
 
 ```
@@ -49,7 +49,7 @@ Feature Supportability with HDInsight 4.0 Interactive Query(LLAP) Autoscale
 
 ```
 
-3. [Enable and Configure Schedule-Based Autoscale](/azure/hdinsight/hdinsight-autoscale-clusters#create-a-cluster-with-schedule-based-autoscaling)
+3. [Enable and Configure Schedule-Based Autoscale](../hdinsight-autoscale-clusters.md#create-a-cluster-with-schedule-based-autoscaling)
 
 
 > [!NOTE]  
@@ -102,7 +102,7 @@ If the above guidelines didn't resolve your query, visit one of the following.
 * If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).  
 
 ## **Other References:**
-  * [Interactive Query in Azure HDInsight](/azure/hdinsight/interactive-query/apache-interactive-query-get-started)
-  * [Create a cluster with Schedule-based Autoscaling](/azure/hdinsight/interactive-query/apache-interactive-query-get-started)
-  * [Azure HDInsight Interactive Query Cluster (Hive LLAP) sizing guide](/azure/hdinsight/interactive-query/hive-llap-sizing-guide)
-  * [Hive Warehouse Connector in Azure HDInsight](/azure/hdinsight/interactive-query/apache-hive-warehouse-connector)
+  * [Interactive Query in Azure HDInsight](./apache-interactive-query-get-started.md)
+  * [Create a cluster with Schedule-based Autoscaling](./apache-interactive-query-get-started.md)
+  * [Azure HDInsight Interactive Query Cluster (Hive LLAP) sizing guide](./hive-llap-sizing-guide.md)
+  * [Hive Warehouse Connector in Azure HDInsight](./apache-hive-warehouse-connector.md)
