@@ -71,7 +71,7 @@ The output is similar to the following example.
 > [!NOTE]
 > This service principal only allows a contributor over the resource group the Azure Red Hat OpenShift cluster is located in. If your VNet is in another resource group, you need to assign the service principal contributor role to that resource group as well. 
 
-For more information, see [Manage service principal roles](/cli/azure/role/assignment?view=azure-cli-latest).
+For more information, see [Manage service principal roles](/cli/azure/role/assignment?view=azure-cli-latest&preserve-view=true).
 
 To grant permissions to an existing service principal with the Azure portal, see [Create an Azure AD app and service principal in the portal](../active-directory/develop/howto-create-service-principal-portal.md#configure-access-policies-on-resources).
 
