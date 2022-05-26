@@ -95,7 +95,7 @@ func init --worker-runtime node --language typescript --docker
 ```
 ::: zone-end
 ::: zone pivot="programming-language-java"  
-In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html).
+In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html):
 
 # [Bash](#tab/bash)
 ```bash
