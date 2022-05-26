@@ -43305,11 +43305,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/aks/web-app-routing.md",
-      "redirect_url": "/azure/aks/intro-kubernetes",
-      "redirect_document_id":false
-    },
-    {
       "source_path_from_root": "/articles/private-link/private-endpoint-static-ip-powershell.md",
       "redirect_url": "/azure/private-link/create-private-endpoint-powershell",
       "redirect_document_id": true
