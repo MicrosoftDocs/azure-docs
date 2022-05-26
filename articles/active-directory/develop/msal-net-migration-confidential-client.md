@@ -300,9 +300,9 @@ If your app uses ASP.NET Core, we strongly recommend that you update to Microsof
 
 Web apps that sign in users and call web APIs on behalf of users employ the OAuth2.0 [authorization code flow](v2-oauth2-auth-code-flow.md). Typically:
 
-1. The app signs in a user by executing a first leg of the authorization code flow. It does this by going to the Microsoft identity platform authorize endpoint. The user signs in and performs multi-factor authentications if needed. As an outcome of this operation, the app receives the authorization code. The authentication library is not used at this stage.
+1. The app signs in a user by executing a first leg of the authorization code flow by going to the Microsoft identity platform authorize endpoint. The user signs in and performs multi-factor authentications if needed. As an outcome of this operation, the app receives the authorization code. The authentication library isn't used at this stage.
 1. The app executes the second leg of the authorization code flow. It uses the authorization code to get an access token, an ID token, and a refresh token. Your application needs to provide the `redirectUri` value, which is the URI where the Microsoft identity platform endpoint will provide the security tokens. After the app receives that URI, it typically calls `AcquireTokenByAuthorizationCode` for ADAL or MSAL to redeem the code and to get a token that will be stored in the token cache.
-1. The app uses ADAL or MSAL to call `AcquireTokenSilent` so that it can get tokens for calling the necessary web APIs. This is done from the web app controllers.
+1. The app uses ADAL or MSAL to call `AcquireTokenSilent` to get tokens for calling the necessary web APIs from the web app controllers.
 
 #### Find out if your code uses the auth code flow
 
@@ -469,7 +469,7 @@ app.UseInMemoryTokenCaches(); // or a distributed token cache.
 #### Handling MsalUiRequiredException
 
 When your controller attempts to acquire a token silently for different
-scopes/resources, MSAL.NET might throw an `MsalUiRequiredException`. This is expected if the user needs to re-sign-in, or if the
+scopes/resources, MSAL.NET might throw an `MsalUiRequiredException` as expected if the user needs to re-sign-in, or if the
 access to the resource requires more claims (because of a conditional access
 policy). For details on mitigation see how to [Handle errors and exceptions in MSAL.NET](msal-error-handling-dotnet.md).
 
@@ -481,14 +481,14 @@ policy). For details on mitigation see how to [Handle errors and exceptions in M
 
 Key benefits of MSAL.NET for your app include:
 
-- **Resilience**. MSAL.NET helps make your app resilient through the following:
+- **Resilience**. MSAL.NET helps make your app resilient through:
 
   - Azure AD Cached Credential Service (CCS) benefits. CCS operates as an Azure AD backup.
   - Proactive renewal of tokens if the API that you call enables long-lived tokens through [continuous access evaluation](app-resilience-continuous-access-evaluation.md).
 
 - **Security**. You can acquire Proof of Possession (PoP) tokens if the web API that you want to call requires it. For details, see [Proof Of Possession tokens in MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Proof-Of-Possession-(PoP)-tokens)
 
-- **Performance and scalability**. If you don't need to share your cache with ADAL.NET, disable the legacy cache compatibility when you're creating the confidential client application (`.WithLegacyCacheCompatibility(false)`). This increases the performance significantly.
+- **Performance and scalability**. If you don't need to share your cache with ADAL.NET, disable the legacy cache compatibility when you're creating the confidential client application (`.WithLegacyCacheCompatibility(false)`) to significantly increase performance.
   
   ```csharp
   app = ConfidentialClientApplicationBuilder.Create(ClientId)
@@ -522,7 +522,7 @@ Troubleshoot the exception using these steps:
 
 ### MsalClientException
 
-In multi-tenant apps, you can have scenarios where you specify a common authority when building the app, but then want to target a specific tenant (for instance the tenant of the user) when calling a web API. Since MSAL.NET 4.37.0, when you specify `.WithAzureRegion` at the app creation, you can no longer specify the Authority using `.WithAuthority` during the token requests. If you do, you'll get the following error when updating from previous versions of MSAL.NET:
+In multi-tenant apps, specify a common authority when building the app to target a specific tenant such as, the tenant of the user when calling a web API. Since MSAL.NET 4.37.0, when you specify `.WithAzureRegion` at the app creation, you can no longer specify the Authority using `.WithAuthority` during the token requests. If you do, you'll get the following error when updating from previous versions of MSAL.NET:
 
   `MsalClientException - "You configured WithAuthority at the request level, and also WithAzureRegion. This is not supported when the environment changes from application to request. Use WithTenantId at the request level instead."`
 
