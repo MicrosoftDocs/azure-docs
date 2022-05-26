@@ -188,6 +188,8 @@ You can edit an action's "run after" behavior so that the action runs when the p
 
 #### Designer
 
+##### [Consumption](#tab/consumption)
+
 1. On the action shape, select the ellipses (**...**) button, and then select **Configure run after**.
 
    ![Screenshot showing the Azure portal and an action with the ellipses button and "Configure run after" selected.](./media/logic-apps-exception-handling/configure-run-after-property-setting.png)
@@ -204,7 +206,23 @@ You can edit an action's "run after" behavior so that the action runs when the p
 
    ![Screenshot showing the "run after" behavior changed to multiple statuses.](./media/logic-apps-exception-handling/run-after-property-multiple-statuses.png)
 
-### [Standard](#tab/standard)
+##### [Standard](#tab/standard)
+
+1. On the action shape, select the ellipses (**...**) button, and then select **Configure run after**.
+
+   ![Screenshot showing the Azure portal and an action with the ellipses button and "Configure run after" selected.](./media/logic-apps-exception-handling/configure-run-after-property-setting.png)
+
+   The action shape expands and shows the default status that's required for the predecessor action, which is **Add a row into a table** in the following example:
+
+   ![Screenshot showing the default "run after" behavior for an action.](./media/logic-apps-exception-handling/change-run-after-property-status.png)
+
+1. Change the "run after" behavior to the status that you want, which is **has failed** in this example:
+
+   ![Screenshot showing the "run after" behavior changed to "has failed".](./media/logic-apps-exception-handling/run-after-property-status-set-to-failed.png)
+
+1. To specify that the action runs whether the predecessor action is marked as `Failed`, `Skipped` or `TimedOut`, select the other statuses:
+
+   ![Screenshot showing the "run after" behavior changed to multiple statuses.](./media/logic-apps-exception-handling/run-after-property-multiple-statuses.png)
 
 ---
 
