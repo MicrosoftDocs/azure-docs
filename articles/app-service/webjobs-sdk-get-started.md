@@ -455,83 +455,17 @@ This initializes the Application Insights logging provider with default [filteri
 
 Bindings simplify code that reads and writes data. Input bindings simplify code that reads data. Output bindings simplify code that writes data.  
 
-### Add input binding
+### Add bindings
 
-Input bindings simplify code that reads data. For this example, the queue message is the name of a blob, which you'll use to find and read a blob in Azure Storage.
+Input bindings simplify code that reads data. For this example, the queue message is the name of a blob, which you'll use to find and read a blob in Azure Storage. You will then use output bindings to write a copy of the file to the same container.
 
-1. In *Functions.cs*, replace the `ProcessQueueMessage` method with the following code:
-
-   ```cs
-   public static void ProcessQueueMessage(
-       [QueueTrigger("queue")] string message,
-       [Blob("container/{queueTrigger}", FileAccess.Read)] Stream myBlob,
-       ILogger logger)
-   {
-       logger.LogInformation($"Blob name:{message} \n Size: {myBlob.Length} bytes");
-   }
-   ```
-
-   In this code, `queueTrigger` is a [binding expression](../azure-functions/functions-bindings-expressions-patterns.md), which means it resolves to a different value at runtime.  At runtime, it has the contents of the queue message.
-
-1. Add a `using`:
+1. In **Functions.cs**, add a `using`:
 
    ```cs
    using System.IO;
    ```
 
-1. In **Program.cs**, in the `ConfigureWebJobs` extension method, add the `AddAzureStorageBlobs` method on the [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) instance (before the `Build` command) to initialize the Storage extension. At this point, the `ConfigureWebJobs` method looks like this:
-
-    ```cs
-    builder.ConfigureWebJobs(b =>
-    {
-        b.AddAzureStorageCoreServices();
-        b.AddAzureStorageQueues();
-        b.AddAzureStorageBlobs();
-    });
-    ``` 
-
-1. Create a blob container in your storage account.
-
-   a. In the Azure portal, navigate to the **Containers** tab below **Data storage** and select **+ Container**
-
-   b. In the **New container** dialog, enter *container* as the container name, and then select **Create**.
-
-1. Upload the *Program.cs* file to the blob container. (This file is used here as an example; you could upload any text file and create a queue message with the file's name.)
-
-   a. Select the new container you created
-
-   b. Select the **Upload** button.
-
-   ![Blob upload button](./media/webjobs-sdk-get-started/blob-upload-button.png)
-
-   c. Find and select *Program.cs*, and then select **OK**.
-
-1. Publish the Web Job to the App Service instance.
-
-1. Create a queue message in the queue you created earlier, with *Program.cs* as the text of the message.
-
-   ![Queue message Program.cs](./media/webjobs-sdk-get-started/queue-msg-program-cs.png)
-
-TODO: Resolve local vs. Azure deployment conflict, given that the Azure Web Job will consume the message before the local Web Job
-
-1. Run the project locally.
-
-   The queue message triggers the function, which then reads the blob and logs its length. The console output looks like this:
-
-   ```console
-   Found the following functions:
-   ConsoleApp1.Functions.ProcessQueueMessage
-   Job host started
-   Executing 'Functions.ProcessQueueMessage' (Reason='New queue message detected on 'queue'.', Id=5a2ac479-de13-4f41-aae9-1361f291ff88)
-   Blob name:Program.cs
-   Size: 532 bytes
-   Executed 'Functions.ProcessQueueMessage' (Succeeded, Id=5a2ac479-de13-4f41-aae9-1361f291ff88)
-   ```
-### Add an output binding
-
-Output bindings simplify code that writes data. This example modifies the previous one by writing a copy of the blob instead of logging its size. Blob storage bindings are included in the Azure Storage extension package that we installed previously.
-
-1. Replace the `ProcessQueueMessage` method with the following code:
+2. Replace the `ProcessQueueMessage` method with the following code:
 
    ```cs
    public static void ProcessQueueMessage(
@@ -544,12 +478,37 @@ Output bindings simplify code that writes data. This example modifies the previo
        myBlob.CopyTo(outputBlob);
    }
    ```
+   
+   In this code, `queueTrigger` is a [binding expression](../azure-functions/functions-bindings-expressions-patterns.md), which means it resolves to a different value at runtime.  At runtime, it has the contents of the queue message.
 
-1. Create another queue message with *Program.cs* as the text of the message.
+   This code uses output bindings to create a copy of the file identified by the queue message. The file copy is prefixed with *copy-*.
 
-1. Run the project locally.
+3. In **Program.cs**, in the `ConfigureWebJobs` extension method, add the `AddAzureStorageBlobs` method on the [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) instance (before the `Build` command) to initialize the Storage extension. At this point, the `ConfigureWebJobs` method looks like this:
 
-   The queue message triggers the function, which then reads the blob, logs its length, and creates a new blob. The console output is the same, but when you go to the blob container window and select **Refresh**, you see a new blob named *copy-Program.cs.*
+    ```cs
+    builder.ConfigureWebJobs(b =>
+    {
+        b.AddAzureStorageCoreServices();
+        b.AddAzureStorageQueues();
+        b.AddAzureStorageBlobs();
+    });
+    ``` 
+
+4. Create a blob container in your storage account.
+
+   a. In the Azure portal, navigate to the **Containers** tab below **Data storage** and select **+ Container**
+
+   b. In the **New container** dialog, enter *container* as the container name, and then select **Create**.
+
+5. Upload the *Program.cs* file to the blob container. (This file is used here as an example; you could upload any text file and create a queue message with the file's name.)
+
+   a. Select the new container you created
+
+   b. Select the **Upload** button.
+
+   ![Blob upload button](./media/webjobs-sdk-get-started/blob-upload-button.png)
+
+   c. Find and select *Program.cs*, and then select **OK**.
 
 ### Republish the project
 
@@ -557,7 +516,11 @@ Output bindings simplify code that writes data. This example modifies the previo
 
 1. In the **Publish** dialog, make sure that the current profile is selected and then select **Publish**. Results of the publish are detailed in the **Output** window.
  
-1. Verify the function in Azure by again uploading a file to the blob container and adding a message to the queue that is the name of the uploaded file. You see the message get removed from the queue and a copy of the file created in the blob container. 
+1. Create a queue message in the queue you created earlier, with *Program.cs* as the text of the message.
+
+   ![Queue message Program.cs](./media/webjobs-sdk-get-started/queue-msg-program-cs.png)
+
+1. A copy of the file, *copy-Program.cs*, will appear in the blob container.
 
 ## Next steps
 
