@@ -13,7 +13,7 @@ ms.subservice: pstn
 ms.custom: kr2b-contr-experiment
 ---
 
-# Use direct voice routing to connect existing telephony service
+# Use direct routing to connect to existing telephony service
 Azure Communication Services direct routing enables you to connect your existing telephony infrastructure to Azure. The article lists the high-level steps required for connecting a supported Session Border Controller (SBC) to direct routing and how voice routing works for the enabled Communication resource. 
 
 [!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]

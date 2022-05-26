@@ -155,7 +155,7 @@ items:
         href: concepts/telephony/emergency-calling-concept.md 
       - name: Direct routing infrastructure requirements
         href: concepts/telephony/direct-routing-infrastructure.md
-      - name: Connect existing telephony infrastructure
+      - name: Connect to existing telephony
         href: concepts/telephony/direct-routing-provisioning.md
       - name: Certified Session Border Controllers
         href: concepts/telephony/certified-session-border-controllers.md
