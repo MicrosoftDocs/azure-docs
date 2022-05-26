@@ -1,10 +1,10 @@
 ---
-title: Create and view activity alerts and alert triggers in Entra Permissions Management
-description: How to create and view activity alerts and alert triggers in Entra Permissions Management.
+title: Create and view activity alerts and alert triggers in Permissions Management
+description: How to create and view activity alerts and alert triggers in Permissions Management.
 services: active-directory
 author: mtillman
 manager: karenh444
-ms.service: ciem
+ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
@@ -15,14 +15,14 @@ ms.author: mtillman
 # Create and view activity alerts and alert triggers
 
 > [!IMPORTANT]
-> Entra Permissions Management is currently in PREVIEW.
+> Microsoft Entra Permissions Management is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-This article describes how you can create and view activity alerts and alert triggers in Entra Permissions Management.
+This article describes how you can create and view activity alerts and alert triggers in Permissions Management.
 
 ## Create an activity alert trigger
 
-1. In the Entra Permissions Management home page, select **Activity Triggers** (the bell icon).
+1. In the Permissions Management home page, select **Activity Triggers** (the bell icon).
 1. In the **Activity** tab, select **Create Activity Trigger**.
 1. In the **Alert Name** box, enter a name for your alert.
 1. In **Authorization System Type**, select your authorization system: Amazon Web Services (**AWS**), Microsoft **Azure**, or Google Cloud Platform (**GCP**).
@@ -31,7 +31,7 @@ This article describes how you can create and view activity alerts and alert tri
 1. From the **Operator** dropdown, select an option:
 
     - **Is**/**Is Not**: Select in the value field to view a list of all available values. You can either select or enter the required value.
-    - **Contains**/**Not Contains**: Enter any text that the query parameter should or shouldn't contain, for example *Entra Permissions Management*.
+    - **Contains**/**Not Contains**: Enter any text that the query parameter should or shouldn't contain, for example *Permissions Management*.
     - **In**/**Not In**: Select in the value field to view list of all available values. Select the required multiple values.
 
 1. To add another parameter, select the plus sign **(+)**, then select an operator, and then enter a value.
@@ -46,7 +46,7 @@ This article describes how you can create and view activity alerts and alert tri
 
 ## View an activity alert
 
-1. In the Entra Permissions Management home page, select **Activity Triggers** (the bell icon).
+1. In the Permissions Management home page, select **Activity Triggers** (the bell icon).
 1. In the **Activity** tab, select the **Alerts** subtab.
 1. From the **Alert Name** dropdown, select an alert.
 1. From the **Date** dropdown, select **Last 24 Hours**, **Last 2 Days**, **Last Week**, or **Custom Range**.
@@ -60,7 +60,7 @@ This article describes how you can create and view activity alerts and alert tri
 
 ## View activity alert triggers
 
-1. In the Entra Permissions Management home page, select **Activity triggers** (the bell icon).
+1. In the Permissions Management home page, select **Activity triggers** (the bell icon).
 1. In the **Activity** tab, select the **Alert Triggers** subtab.
 1. From the **Status** dropdown, select **All**, **Activated** or **Deactivated**, then select **Apply**.
 

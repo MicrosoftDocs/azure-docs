@@ -1,17 +1,17 @@
-  - name: Entra Permissions Management
+  - name: Permissions Management
     href: index.yml
   - name: Overview
     expanded: true
     items:
-      - name: What's Entra Permissions Management?
+      - name: What's Permissions Management?
         href: overview.md       
   - name: How-to guides
     expanded: true
     items:
-    - name: Onboard Entra Permissions Management on the Azure AD tenant
+    - name: Onboard Permissions Management on the Azure AD tenant
       expanded: true
       items:
-      - name: Enable Entra Permissions Management in your organization 
+      - name: Enable Permissions Management in your organization 
         href: onboard-enable-tenant.md
       - name: Onboard an AWS account
         href: onboard-aws.md
@@ -149,7 +149,7 @@
   - name: Training videos
     expanded: false
     items:
-    - name: Get started with Entra Permissions Management training videos
+    - name: Get started with Permissions Management training videos
       href: training-videos.md
   - name: Reference
     expanded: false

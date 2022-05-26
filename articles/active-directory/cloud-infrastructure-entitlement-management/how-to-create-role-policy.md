@@ -1,10 +1,10 @@
 ---
-title: Create a role/policy in the Remediation dashboard in Entra Permissions Management
-description: How to create a role/policy in the Remediation dashboard in Entra Permissions Management.
+title: Create a role/policy in the Remediation dashboard in Permissions Management
+description: How to create a role/policy in the Remediation dashboard in Permissions Management.
 services: active-directory
 author: mtillman
 manager: karenh444
-ms.service: ciem
+ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
@@ -15,16 +15,16 @@ ms.author: mtillman
 # Create a role/policy in the Remediation dashboard
 
 > [!IMPORTANT]
-> Entra Permissions Management is currently in PREVIEW.
+> Microsoft Entra Permissions Management is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-This article describes how you can use the **Remediation** dashboard in Entra Permissions Management to create roles/policies for the Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP) authorization systems.
+This article describes how you can use the **Remediation** dashboard in Permissions Management to create roles/policies for the Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP) authorization systems.
 
 > [!NOTE]
 > To view the **Remediation** tab, you must have **Viewer**, **Controller**, or **Administrator** permissions. To make changes on this tab, you must have **Controller** or **Administrator** permissions. If you don't have these permissions, contact your system administrator.
 
 > [!NOTE]
-> Microsoft Azure uses the term *role* for what other cloud providers call *policy*. Entra Permissions Management automatically makes this terminology change when you select the authorization system type. In the user documentation, we use *role/policy* to refer to both.
+> Microsoft Azure uses the term *role* for what other cloud providers call *policy*. Permissions Management automatically makes this terminology change when you select the authorization system type. In the user documentation, we use *role/policy* to refer to both.
 
 ## Create a policy for AWS
 
@@ -68,16 +68,16 @@ This article describes how you can use the **Remediation** dashboard in Entra Pe
 
     A message confirms that your policy has been submitted for creation
 
-1. The [**Entra Permissions Management Tasks**](ui-tasks.md) pane appears on the right.
-    - The **Active** tab displays a list of the policies Entra Permissions Management is currently processing.
-    - The **Completed** tab displays a list of the policies Entra Permissions Management has completed.
+1. The [**Permissions Management Tasks**](ui-tasks.md) pane appears on the right.
+    - The **Active** tab displays a list of the policies Permissions Management is currently processing.
+    - The **Completed** tab displays a list of the policies Permissions Management has completed.
 1. Refresh the **Role/Policies** tab to see the policy you created.
 
 
 
 ## Create a role for Azure
 
-1. On the Entra Permissions Management home page, select the **Remediation** tab, and then select the **Role/Policies** tab.
+1. On the Permissions Management home page, select the **Remediation** tab, and then select the **Role/Policies** tab.
 1. Use the dropdown lists to select the **Authorization System Type** and **Authorization System**.
 1. Select **Create Role**.
 1. On the **Details** page, the **Authorization System Type** and **Authorization System** are pre-populated from your previous settings.
@@ -113,14 +113,14 @@ This article describes how you can use the **Remediation** dashboard in Entra Pe
 
     A message confirms that your role has been submitted for creation
 
-1. The [**Entra Permissions Management Tasks**](ui-tasks.md) pane appears on the right.
-    - The **Active** tab displays a list of the policies Entra Permissions Management is currently processing.
-    - The **Completed** tab displays a list of the policies Entra Permissions Management has completed.
+1. The [**Permissions Management Tasks**](ui-tasks.md) pane appears on the right.
+    - The **Active** tab displays a list of the policies Permissions Management is currently processing.
+    - The **Completed** tab displays a list of the policies Permissions Management has completed.
 1. Refresh the **Role/Policies** tab to see the role you created.
 
 ## Create a role for GCP
 
-1. On the Entra Permissions Management home page, select the **Remediation** tab, and then select the **Role/Policies** tab.
+1. On the Permissions Management home page, select the **Remediation** tab, and then select the **Role/Policies** tab.
 1. Use the dropdown lists to select the **Authorization System Type** and **Authorization System**.
 1. Select **Create Role**.
 1. On the **Details** page, the **Authorization System Type** and **Authorization System** are pre-populated from your previous settings.
@@ -151,10 +151,10 @@ This article describes how you can use the **Remediation** dashboard in Entra Pe
 1. Select **Submit**.
     A message confirms that your role has been submitted for creation
 
-1. The [**Entra Permissions Management Tasks**](ui-tasks.md) pane appears on the right.
+1. The [**Permissions Management Tasks**](ui-tasks.md) pane appears on the right.
 
-    - The **Active** tab displays a list of the policies Entra Permissions Management is currently processing.
-    - The **Completed** tab displays a list of the policies Entra Permissions Management has completed.
+    - The **Active** tab displays a list of the policies Permissions Management is currently processing.
+    - The **Completed** tab displays a list of the policies Permissions Management has completed.
 1. Refresh the **Role/Policies** tab to see the role you created.
 
 

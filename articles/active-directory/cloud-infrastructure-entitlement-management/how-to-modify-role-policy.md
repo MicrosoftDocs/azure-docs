@@ -1,10 +1,10 @@
 ---
-title: Modify a role/policy in the Remediation dashboard in Entra Permissions Management
-description: How to modify a role/policy in the Remediation dashboard in Entra Permissions Management.
+title: Modify a role/policy in the Remediation dashboard in Permissions Management
+description: How to modify a role/policy in the Remediation dashboard in Permissions Management.
 services: active-directory
 author: mtillman
 manager: karenh444
-ms.service: ciem
+ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
@@ -15,20 +15,20 @@ ms.author: mtillman
 # Modify a role/policy in the Remediation dashboard
 
 > [!IMPORTANT]
-> Entra Permissions Management is currently in PREVIEW.
+> Microsoft Entra Permissions Management is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-This article describes how you can use the **Remediation** dashboard in Entra Permissions Management to modify roles/policies for the Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP) authorization systems.
+This article describes how you can use the **Remediation** dashboard in Permissions Management to modify roles/policies for the Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP) authorization systems.
 
 > [!NOTE]
 > To view the **Remediation** tab, you must have **Viewer**, **Controller**, or **Administrator** permissions. To make changes on this tab, you must have **Controller** or **Administrator** permissions. If you don't have these permissions, contact your system administrator.
 
 > [!NOTE]
-> Microsoft Azure uses the term *role* for what other cloud providers call *policy*. Entra Permissions Management automatically makes this terminology change when you select the authorization system type. In the user documentation, we use *role/policy* to refer to both.
+> Microsoft Azure uses the term *role* for what other cloud providers call *policy*. Permissions Management automatically makes this terminology change when you select the authorization system type. In the user documentation, we use *role/policy* to refer to both.
 
 ## Modify a role/policy
 
-1. On the Entra Permissions Management home page, select the **Remediation** tab, and then select the **Role/Policies** tab.
+1. On the Permissions Management home page, select the **Remediation** tab, and then select the **Role/Policies** tab.
 1. Select the role/policy you want to modify, and from the **Actions** column, select **Modify**.
 
      You can't modify **System** policies and roles.

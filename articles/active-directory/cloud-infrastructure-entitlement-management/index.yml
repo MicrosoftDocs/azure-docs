@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Entra Permissions Management
-summary: Entra Permissions Management is a cloud infrastructure entitlement management (CIEM) solution that provides comprehensive visibility into permissions assigned to all identities (users and workloads),  actions, and resources across cloud infrastructures. It detects, right-sizes, and monitors unused and excessive permissions and enables Zero Trust security through least privilege access in Microsoft Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
+title: Permissions Management
+summary: Permissions Management is a cloud infrastructure entitlement management (CIEM) solution that provides comprehensive visibility into permissions assigned to all identities (users and workloads),  actions, and resources across cloud infrastructures. It detects, right-sizes, and monitors unused and excessive permissions and enables Zero Trust security through least privilege access in Microsoft Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
 
 metadata:
-  title: Entra Permissions Management
-  description: Learn how to use Entra Permissions Management and Cloud Infrastructure Entitlement Management (CIEM)
+  title: Permissions Management
+  description: Learn how to use Permissions Management and Cloud Infrastructure Entitlement Management (CIEM)
   services: active-directory
   author: mtillman
   manager: karenh444
@@ -24,18 +24,18 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: What's Entra Permissions Management? 
+  - title: What's Permissions Management? 
     linkLists:
       - linkListType: overview
         links:
           - text: Overview
             url: overview.md
   # Card
-  - title: Onboard Entra Permissions Management 
+  - title: Onboard Permissions Management 
     linkLists:
       - linkListType: overview
         links:
-          - text: Enable Entra Permissions Management
+          - text: Enable Permissions Management
             url: onboard-enable-tenant.md
   # Card
   - title: View risk metrics in your authorization system
@@ -103,11 +103,11 @@ landingContent:
           - text: Generate and view a system report
             url: report-view-system-report.md
   # Card
-  # - title: Learn with Entra Permissions Management videos
+  # - title: Learn with Permissions Management videos
     # linkLists:
       # - linkListType: overview
         # links:
-          # - text: Entra Permissions Management training videos
+          # - text: Permissions Management training videos
             # url: training-videos.md
   # Card
   - title: FAQs
