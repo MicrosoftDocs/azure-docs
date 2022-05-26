@@ -3,7 +3,7 @@ title: Cost Management + Billing automation FAQ | Azure
 description: This FAQ is a list of frequently asked questions and answers about Cost Management + Billing automation.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/22/2021
+ms.date: 05/26/2022
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -14,15 +14,15 @@ ms.reviewer: adwise
 
 ### What are Cost Details versus Usage Details?
 
-These are different names for the same dataset. Usage Details is the original name of the dataset back when only Azure consumption resource usage records were present. Over time, more types of cost have been added to the dataset, including marketplace usage, Azure purchases (such as Reservations), marketplace purchases and even M365 costs. Cost Details is the name being used moving forward for the dataset.
+Both are different names for the same dataset. Usage Details is the original name of the dataset back when only Azure consumption resource usage records were present. Over time, more types of cost have been added to the dataset, including marketplace usage, Azure purchases (such as Reservations), marketplace purchases and even Microsoft 365 costs. Cost Details is the name being used moving forward for the dataset.
 
 ### Why do I get Usage Details API timeouts?
 
-Cost datasets available from the Usage Details API can often be very large (multiple GBs or more). The larger the size of the dataset that you request, the longer the service takes to compile the data before sending it to you. Because of the delay, synchronous API solutions like the paginated [JSON Usage Details API](/rest/api/consumption/usage-details/list) might timeout before your data is provided. If you are encounter timeouts or have processes that frequently need to pull a large amount of cost data, see [Retrieve large cost datasets recurringly with Exports](../costs/tutorial-export-acm-data.md).
+Cost datasets available from the Usage Details API can often be overly large (multiple GBs or more). The larger the size of the dataset that you request, the longer the service takes to compile the data before sending it to you. Because of the delay, synchronous API solutions like the paginated [JSON Usage Details API](/rest/api/consumption/usage-details/list) might timeout before your data is provided. If you encounter timeouts or have processes that frequently need to pull a large amount of cost data, see [Retrieve large cost datasets recurringly with Exports](../costs/tutorial-export-acm-data.md).
 
 ### What is the difference between legacy and modern usage details?
 
-A legacy versus modern usage details record is identified by the kind field in the [Usage Details API](/rest/api/consumption/usage-details/list). The field is used to distinguish between data that’s returned for different customer types. The call patterns to obtain legacy and modern usage details are essentially the same. The granularity of the data is the same. The main difference is the fields available in the usage details records themselves. If you’re an EA customer, you’ll always get legacy usage details records. If you’re a Microsoft Customer Agreement customer, you will always get modern usage details records.
+A legacy versus modern usage details record is identified by the kind field in the [Usage Details API](/rest/api/consumption/usage-details/list). The field is used to distinguish between data that’s returned for different customer types. The call patterns to obtain legacy and modern usage details are essentially the same. The granularity of the data is the same. The main difference is the fields available in the usage details records themselves. If you’re an EA customer, you’ll always get legacy usage details records. If you’re a Microsoft Customer Agreement customer, you'll always get modern usage details records.
 
 ### How do I see my recurring charges?
 
@@ -30,7 +30,7 @@ Recurring charges are available in the [Cost Details API-UNPUBLISHED](../index.y
 
 ### Where can I see tax information in Cost Details?
 
-Cost details data is all pre tax. Tax related charges are only available on your invoice.
+Cost details data is all pre-tax. Tax related charges are only available on your invoice.
 
 ### Why is PAYGPrice zero in my cost details file?
 
@@ -38,7 +38,7 @@ If you’re an EA customer, we don’t currently support showing pay-as-you-go p
 
 ### Does Cost Details have Reservation charges?
 
-Yes it does. You can see those charges according to when the actual charges occurred (Actual Cost) or you can see the charges spread across the resources that consumed the Reservation (Amortized Cost). For more information, see [Get amortized costs]().
+Yes it does. You can see those charges according to when the actual charges occurred (Actual Cost). Or, you can see the charges spread across the resources that consumed the Reservation (Amortized Cost). For more information, see [Get amortized costs]().
 
 ### Am I charged for using the Cost Details API?
 
