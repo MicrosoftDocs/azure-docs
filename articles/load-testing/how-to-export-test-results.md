@@ -58,7 +58,7 @@ In this section, you'll retrieve and download the Azure Load Testing results fil
 
     :::image type="content" source="media/how-to-export-test-results/test-results-zip.png" alt-text="Screenshot that shows the test results zip file in the downloads list.":::  
 
-    The folder contains a CSV file for every test engine and contains details of each request that the test engine executed during the load test.
+    The folder contains a separate CSV file for every test engine and contains details of requests that the test engine executed during the load test.
 
 ## Next steps
 
