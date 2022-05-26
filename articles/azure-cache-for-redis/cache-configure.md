@@ -66,7 +66,7 @@ You can view and configure the following settings using the **Resource Menu**. T
 
 ### Activity log
 
-Select **Activity log** to view actions done to your cache. You can also use filtering to expand this view to include other resources. For more information on working with audit logs, see [Audit operations with Resource Manager](../azure-monitor/essentials/activity-log.md). For more information on monitoring Azure Cache for Redis events, see [Operations and alerts](cache-how-to-monitor.md#operations-and-alerts).
+Select **Activity log** to view actions done to your cache. You can also use filtering to expand this view to include other resources. For more information on working with audit logs, see [Audit operations with Resource Manager](../azure-monitor/essentials/activity-log.md). For more information on monitoring Azure Cache for Redis events, see [alerts](cache-how-to-monitor.md#alerts).
 
 ### Access control (IAM)
 

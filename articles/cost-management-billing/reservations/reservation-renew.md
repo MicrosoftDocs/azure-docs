@@ -25,7 +25,7 @@ There's no obligation to renew and you can opt out of the renewal at any time be
 Go to Azure portal > **Reservations**.
 
 1. Select the reservation.
-2. Click **Renewal**.
+2. Select **Renewal**.
 3. Select **Automatically purchase a new reservation upon expiry**.  
   ![Example showing reservation renewal](./media/reservation-renew/reservation-renewal.png)
 

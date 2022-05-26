@@ -340,7 +340,7 @@ A PaaS firewall is a network access control capability that can be applied to ce
 
 |Resource | Link|
 |---|---|
-|Azure SQL Database and Azure Synapse Analytics IP firewall rules | [https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure](../azure-sql/database/firewall-configure.md)|
+|Azure SQL Database and Azure Synapse Analytics IP firewall rules | [https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure](/azure/azure-sql/database/firewall-configure)|
 |Storage Network Security | [https://docs.microsoft.com/azure/storage/common/storage-network-security](../storage/common/storage-network-security.md)|
 |
 
@@ -350,7 +350,7 @@ Depending on the PaaS capability and its purpose, using network controls to rest
 
 |Resource | Link|
 |---|---|
-|Controlling and granting database access to SQL Database and Azure Synapse Analytics | [https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins](../azure-sql/database/logins-create-manage.md)|
+|Controlling and granting database access to SQL Database and Azure Synapse Analytics | [https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins](/azure/azure-sql/database/logins-create-manage)|
 |Authorization for the Azure Storage Services | [https://docs.microsoft.com/rest/api/storageservices/authorization-for-the-Azure-Storage-Services](/rest/api/storageservices/authorization-for-the-Azure-Storage-Services)|
 |
 

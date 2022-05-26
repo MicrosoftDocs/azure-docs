@@ -18,7 +18,7 @@ This article provides an overview of how encryption is used in Microsoft Azure. 
 
 ## Encryption of data at rest
 
-Data at rest includes information that resides in persistent storage on physical media, in any digital format. The media can include files on magnetic or optical media, archived data, and data backups. Microsoft Azure offers a variety of data storage solutions to meet different needs, including file, disk, blob, and table storage. Microsoft also provides encryption to protect [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md), [Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md), and Azure Data Lake.
+Data at rest includes information that resides in persistent storage on physical media, in any digital format. The media can include files on magnetic or optical media, archived data, and data backups. Microsoft Azure offers a variety of data storage solutions to meet different needs, including file, disk, blob, and table storage. Microsoft also provides encryption to protect [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), [Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md), and Azure Data Lake.
 
 Data encryption at rest is available for services across the software as a service (SaaS), platform as a service (PaaS), and infrastructure as a service (IaaS) cloud models. This article summarizes and provides resources to help you use the Azure encryption options.
 
@@ -75,11 +75,11 @@ Finally, you can also use the Azure Storage Client Library for Java to perform c
 
 ### Encryption of data at rest with Azure SQL Database
 
-[Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md) is a general-purpose relational database service in Azure that supports structures such as relational data, JSON, spatial, and XML. SQL Database supports both server-side encryption via the Transparent Data Encryption (TDE) feature and client-side encryption via the Always Encrypted feature.
+[Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) is a general-purpose relational database service in Azure that supports structures such as relational data, JSON, spatial, and XML. SQL Database supports both server-side encryption via the Transparent Data Encryption (TDE) feature and client-side encryption via the Always Encrypted feature.
 
 #### Transparent Data Encryption
 
-[TDE](/sql/relational-databases/security/encryption/transparent-data-encryption-tde) is used to encrypt [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](../../azure-sql/database/sql-database-paas-overview.md), and [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) data files in real time, using a Database Encryption Key (DEK), which is stored in the database boot record for availability during recovery.
+[TDE](/sql/relational-databases/security/encryption/transparent-data-encryption-tde) is used to encrypt [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), and [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) data files in real time, using a Database Encryption Key (DEK), which is stored in the database boot record for availability during recovery.
 
 TDE protects data and log files, using AES and Triple Data Encryption Standard (3DES) encryption algorithms. Encryption of the database file is performed at the page level. The pages in an encrypted database are encrypted before they are written to disk and are decrypted when they’re read into memory. TDE is now enabled by default on newly created Azure SQL databases.
 
@@ -199,7 +199,7 @@ Key Vault relieves organizations of the need to configure, patch, and maintain h
 
 - [Azure security overview](./overview.md)
 - [Azure network security overview](network-overview.md)
-- [Azure database security overview](../../azure-sql/database/security-overview.md)
+- [Azure database security overview](/azure/azure-sql/database/security-overview)
 - [Azure virtual machines security overview](virtual-machines-overview.md)
 - [Data encryption at rest](encryption-atrest.md)
 - [Data security and encryption best practices](data-encryption-best-practices.md)

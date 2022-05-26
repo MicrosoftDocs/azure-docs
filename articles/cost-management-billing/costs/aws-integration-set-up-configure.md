@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article walks you through setting up and configuring AWS Cost and Usage report integration with Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 04/13/2022
+ms.date: 04/28/2022
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -60,10 +60,10 @@ Use the Create a New Role wizard:
 1. Sign in to your AWS console and select **Services**.
 2. In the list of services, select **IAM**.
 3. Select **Roles** and then select **Create Role**.
-4. On the next page, select **Another AWS account**.
-5. In **Account ID**, enter **432263259397**.
-6. In **Options**, select **Require external ID (Best practice when a third party will assume this role)**.
-7. In **External ID**, enter the external ID, which is a shared passcode between the AWS role and Cost Management. The same external ID is also used on the **New Connector** page in Cost Management. Microsoft recommends that you use a strong passcode policy when entering the external ID.
+4. On the **Select trusted entity** page, select **AWS account** and then under **An AWS account**, select **Another AWS account**.
+5. Under **Account ID**, enter **432263259397**.
+6. Under **Options**, select **Require external ID (Best practice when a third party will assume this role)**.
+7. Under **External ID**, enter the external ID, which is a shared passcode between the AWS role and Cost Management. The same external ID is also used on the **New Connector** page in Cost Management. Microsoft recommends that you use a strong passcode policy when entering the external ID.
     > [!NOTE]
     > Don't change the selection for **Require MFA**. It should remain cleared.
 8. Select **Next: Permissions**.

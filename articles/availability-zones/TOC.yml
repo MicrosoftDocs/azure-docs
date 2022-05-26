@@ -14,6 +14,12 @@
     href: region-types-service-categories-azure.md
   - name: Azure Services that support Availability Zones
     href: az-region.md
+  - name: Migration Guidance
+    items:
+    - name: Virtual Machines and Virtual Machine Scale Sets
+      href: migrate-vm.md
+    - name: Storage accounts
+      href: migrate-storage.md
   - name: Terminology
     href: glossary.md
 - name: High Availability
@@ -68,9 +74,9 @@
     - name: SQL Database
       items:
       - name: Availability zones with SQL Database general purpose tier
-        href: ../azure-sql/database/high-availability-sla.md#general-purpose-service-tier-zone-redundant-availability
+        href: /azure/azure-sql/database/high-availability-sla#general-purpose-service-tier-zone-redundant-availability
       - name: Availability zones with SQL Database premium & business critical tiers
-        href: ../azure-sql/database/high-availability-sla.md#premium-and-business-critical-service-tier-zone-redundant-availability
+        href: /azure/azure-sql/database/high-availability-sla#premium-and-business-critical-service-tier-zone-redundant-availability
     - name: Storage
       items:
       - name: Zone-redundant storage
@@ -98,8 +104,7 @@
     - name: Identity
       items:
       - name: Create an Azure Active Directory Domain Services instance
-        href: ../active-directory-domain-services/tutorial-create-instance.md
-
+        href: ../active-directory-domain-services/tutorial-create-instance.md 
 - name: Disaster Recovery
   items:  
   - name: Business continuity management in Azure

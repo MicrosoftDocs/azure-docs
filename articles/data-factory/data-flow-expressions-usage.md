@@ -1001,7 +1001,7 @@ ___
 Given two or more inputs, returns the first not null item. This function is equivalent to coalesce.
 * ``iifNull(10, 20) -> 10``  
 * ``iifNull(null, 20, 40) -> 20``  
-* ``iifNull('azure', 'data', 'factory') -> 'factory'``  
+* ``iifNull('azure', 'data', 'factory') -> 'azure'``  
 * ``iifNull(null, 'data', 'factory') -> 'data'``  
 ___
 

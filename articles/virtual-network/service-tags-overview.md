@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: Learn about service tags. Service tags help minimize the complexity of security rule creation.
 services: virtual-network
 documentationcenter: na
-author: allegradomel
+author: mbender-ms
 ms.service: virtual-network
 ms.topic: conceptual
 ms.tgt_pltfrm: na

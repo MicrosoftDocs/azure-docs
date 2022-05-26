@@ -127,8 +127,46 @@ az connectedk8s connect --resource-group AzureArc --name AzureArcCluster
 Ensure that you have the latest helm version installed before proceeding to avoid unexpected errors.
 This operation might take a while...
 ```
+### Helm timeout error
 
-### Helm issue
+```azurecli
+az connectedk8s connect -n AzureArcTest -g AzureArcTest
+```
+
+```output
+Unable to install helm release: Error: UPGRADE Failed: time out waiting for the condition
+```
+
+If you get the above helm timeout issue, you can troubleshoot as follows:
+
+  1. Run the following command:
+
+      ```console
+      kubectl get pods -n azure-arc
+      ```
+  2. Check if the `clusterconnect-agent` or the `config-agent` pods are showing crashloopbackoff, or not all containers are running:
+    
+      ```output
+      NAME                                        READY   STATUS             RESTARTS   AGE
+      cluster-metadata-operator-664bc5f4d-chgkl   2/2     Running            0          4m14s
+      clusterconnect-agent-7cb8b565c7-wklsh       2/3     CrashLoopBackOff   0          1m15s
+      clusteridentityoperator-76d645d8bf-5qx5c    2/2     Running            0          4m15s
+      config-agent-65d5df564f-lffqm               1/2     CrashLoopBackOff   0          1m14s
+      ```
+  3. If the below certificate isn't present, the system assigned managed identity didn't get installed.
+    
+      ```console
+      kubectl get secret -n azure-arc -o yaml | grep name:
+      ```
+      
+      ```output
+      name: azure-identity-certificate
+      ```
+      This could be a transient issue. You can try deleting the Arc deployment by running the `az connectedk8s delete` command and reinstalling it. If you're consistently facing this, it could be an issue with your proxy settings. Please follow [these steps](./quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server) to connect your cluster to Arc via a proxy.
+  4. If the `clusterconnect-agent` and the `config-agent` pods are running, but the `kube-aad-proxy` pod is missing, check your pod security policies. This pod uses the `azure-arc-kube-aad-proxy-sa` service account, which doesn't have admin permissions but requires the permission to mount host path.
+  
+
+### Helm validation error
 
 Helm `v3.3.0-rc.1` version has an [issue](https://github.com/helm/helm/pull/8527) where helm install/upgrade (used by `connectedk8s` CLI extension) results in running of all hooks leading to the following error:
 
@@ -409,15 +447,15 @@ When you are connecting your cluster to Azure Arc or when you are enabling custo
 Unable to fetch oid of 'custom-locations' app. Proceeding without enabling the feature. Insufficient privileges to complete the operation.
 ```
 
-The above warning is observed when you have used a service principal to log into Azure and this service principal doesn't have permissions to get information of the application used by Azure Arc service. To avoid this error, execute the following steps:
+The above warning is observed when you have used a service principal to log into Azure. This is because a service principal doesn't have permissions to get information of the application used by Azure Arc service. To avoid this error, execute the following steps:
 
-1. Fetch the Object ID of the Azure AD application used by Azure Arc service:
+1. Login into Azure CLI using your user account. Fetch the Object ID of the Azure AD application used by Azure Arc service:
 
     ```azurecli
     az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query objectId -o tsv
     ```
 
-1. Use the `<objectId>` value from above step to enable custom locations feature on the cluster:
+1. Login into Azure CLI using the service principal. Use the `<objectId>` value from above step to enable custom locations feature on the cluster:
     - If you are enabling custom locations feature as part of connecting the cluster to Arc, run the following command:
 
         ```azurecli
@@ -429,8 +467,6 @@ The above warning is observed when you have used a service principal to log into
         ```azurecli
         az connectedk8s enable-features -n <cluster-name> -g <resource-group-name> --custom-locations-oid <objectId> --features cluster-connect custom-locations
         ```
-
-Once above permissions are granted, you can now proceed to [enabling the custom location feature](custom-locations.md#enable-custom-locations-on-cluster) on the cluster.
 
 ## Azure Arc-enabled Open Service Mesh
 

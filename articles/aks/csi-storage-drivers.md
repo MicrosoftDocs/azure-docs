@@ -1,75 +1,41 @@
 ---
-title: Enable Container Storage Interface (CSI) drivers on Azure Kubernetes Service (AKS)
+title: Container Storage Interface (CSI) drivers in Azure Kubernetes Service (AKS)
 description: Learn how to enable the Container Storage Interface (CSI) drivers for Azure disks and Azure Files in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 03/11/2022
+ms.date: 05/23/2022
 author: palma21
 
 ---
 
-# Enable Container Storage Interface (CSI) drivers for Azure disks and Azure Files on Azure Kubernetes Service (AKS)
+# Container Storage Interface (CSI) drivers in Azure Kubernetes Service (AKS)
 
 The Container Storage Interface (CSI) is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes. By adopting and using CSI, Azure Kubernetes Service (AKS) can write, deploy, and iterate plug-ins to expose new or improve existing storage systems in Kubernetes without having to touch the core Kubernetes code and wait for its release cycles.
 
 The CSI storage driver support on AKS allows you to natively use:
-- [*Azure disks*](azure-disk-csi.md), which can be used to create a Kubernetes *DataDisk* resource. Disks can use Azure Premium Storage, backed by high-performance SSDs, or Azure Standard Storage, backed by regular HDDs or Standard SSDs. For most production and development workloads, use Premium Storage. Azure disks are mounted as *ReadWriteOnce*, so are only available to a single pod. For storage volumes that can be accessed by multiple pods simultaneously, use Azure Files.
-- [*Azure Files*](azure-files-csi.md), which can be used to mount an SMB 3.0/3.1 share backed by an Azure Storage account to pods. With Azure Files, you can share data across multiple nodes and pods. Azure Files can use Azure Standard Storage backed by regular HDDs or Azure Premium Storage backed by high-performance SSDs.
+
+- [**Azure disks**](azure-disk-csi.md) can be used to create a Kubernetes *DataDisk* resource. Disks can use Azure Premium Storage, backed by high-performance SSDs, or Azure Standard Storage, backed by regular HDDs or Standard SSDs. For most production and development workloads, use Premium Storage. Azure disks are mounted as *ReadWriteOnce* and are only available to a single pod. For storage volumes that can be accessed by multiple pods simultaneously, use Azure Files.
+- [**Azure Files**](azure-files-csi.md) can be used to mount an SMB 3.0/3.1 share backed by an Azure storage account to pods. With Azure Files, you can share data across multiple nodes and pods. Azure Files can use Azure Standard storage backed by regular HDDs or Azure Premium storage backed by high-performance SSDs.
 
 > [!IMPORTANT]
-> Starting in Kubernetes version 1.21, AKS will use CSI drivers only and by default. CSI migration is also turned on starting from AKS 1.21, existing in-tree persistent volumes continue to function as they always have; however, behind the scenes Kubernetes hands control of all storage management operations (previously targeting in-tree drivers) to CSI drivers.
-> 
-> Please remove manual installed open source Azure Disk and Azure File CSI drivers before upgrading to AKS 1.21.
-> 
-> *In-tree drivers* refers to the current storage drivers that are part of the core Kubernetes code versus the new CSI drivers, which are plug-ins.
+> Starting with Kubernetes version 1.21, AKS only uses CSI drivers by default and CSI migration is enabled. Existing in-tree persistent volumes will continue to function. However, internally Kubernetes hands control of all storage management operations (previously targeting in-tree drivers) to CSI drivers.
+>
+> *In-tree drivers* refers to the current storage drivers that are part of the core Kubernetes code opposed to the new CSI drivers, which are plug-ins.
 
-## Install CSI storage drivers on a new cluster with version < 1.21
+> [!NOTE]
+> Azure disk CSI driver v2 (preview) improves scalability and reduces pod failover latency. It uses shared disks to provision attachment replicas on multiple cluster nodes and integrates with the pod scheduler to ensure a node with an attachment replica is chosen on pod failover. Azure disk CSI driver v2 (preview) also provides the ability to fine tune performance. If you're interested in participating in the preview, submit a request: [https://aka.ms/DiskCSIv2Preview](https://aka.ms/DiskCSIv2Preview). This preview version is provided without a service level agreement, and you can occasionally expect breaking changes while in preview. The preview version isn't recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Create a new cluster that can use CSI storage drivers for Azure disks and Azure Files by using the following CLI commands. Use the `--aks-custom-headers` flag to set the `EnableAzureDiskFileCSIDriver` feature.
+## Migrate custom in-tree storage classes to CSI
 
-Create an Azure resource group:
+If you created in-tree driver storage classes, those storage classes continue to work since CSI migration is turned on after upgrading your cluster to 1.21.x. If you want to use CSI features you'll need to perform the migration.
 
-```azurecli-interactive
-# Create an Azure resource group
-az group create --name myResourceGroup --location canadacentral
-```
+Migrating these storage classes involves deleting the existing ones, and re-creating them with the provisioner set to **disk.csi.azure.com** if using Azure disk storage, and **files.csi.azure.com** if using Azure Files.  
 
-Create the AKS cluster with support for CSI storage drivers:
+### Migrate storage class provisioner
 
-```azurecli-interactive
-# Create an AKS-managed Azure AD cluster
-az aks create -g MyResourceGroup -n MyManagedCluster --network-plugin azure  --aks-custom-headers EnableAzureDiskFileCSIDriver=true
-```
+The following example YAML manifest shows the difference between the in-tree storage class definition configured to use Azure disks, and the equivalent using a CSI storage class definition. The CSI storage system supports the same features as the in-tree drivers, so the only change needed would be the value for `provisioner`.
 
-If you want to create clusters in tree storage drivers instead of CSI storage drivers, you can do so by omitting the custom `--aks-custom-headers` parameter. Starting in Kubernetes version 1.21, Kubernetes will use CSI drivers only and by default.
-
-
-Check how many Azure disk-based volumes you can attach to this node by running:
-
-```console
-$ kubectl get nodes
-aks-nodepool1-25371499-vmss000000
-aks-nodepool1-25371499-vmss000001
-aks-nodepool1-25371499-vmss000002
-
-$ echo $(kubectl get CSINode <NODE NAME> -o jsonpath="{.spec.drivers[1].allocatable.count}")
-8
-```
-
-## Install CSI storage drivers on an existing cluster with version < 1.21
- - [Set up Azure Disk CSI driver on AKS cluster](https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/docs/install-driver-on-aks.md)
- - [Set up Azure File CSI driver on AKS cluster](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/docs/install-driver-on-aks.md)
-
-## Migrating custom in-tree storage classes to CSI
-If you have created in-tree driver storage classes, those storage classes will continue to work since CSI migration is turned on after upgrading your cluster to 1.21.x, while if you want to use CSI features (snapshotting etc.) you will need to carry out the migration.
-
-Migration of these storage classes will involve deleting the existing storage classes, and re-creating them with the provisioner set to **disk.csi.azure.com** if using Azure Disks, and **files.csi.azure.com** if using Azure Files.  
-
-### Migrating Storage Class provisioner
-
-As an example for Azure disks:
-
-#### Original In-tree storage class definition
+#### Original in-tree storage class definition
 
 ```yaml
 kind: StorageClass
@@ -95,28 +61,27 @@ parameters:
   storageAccountType: Premium_LRS
 ```
 
-The CSI storage system supports the same features as the In-tree drivers, so the only change needed would be the provisioner.
-
-## Migrating in-tree persistent volumes
+## Migrate in-tree persistent volumes
 
 > [!IMPORTANT]
-> If your in-tree Persistent Volume reclaimPolicy is set to Delete you will need to change the Persistent Volume to Retain to persist your data.  This can be achieved via a [patch operation on the PV](https://kubernetes.io/docs/tasks/administer-cluster/change-pv-reclaim-policy/). For example:
+> If your in-tree persistent volume `reclaimPolicy` is set to **Delete**, you need to change its policy to **Retain** to persist your data. This can be achieved using a [patch operation on the PV](https://kubernetes.io/docs/tasks/administer-cluster/change-pv-reclaim-policy/). For example:
+>
 > ```console
 > $ kubectl patch pv pv-azuredisk --type merge --patch '{"spec": {"persistentVolumeReclaimPolicy": "Retain"}}'
 > ```
 
-### Migrating in-tree Azure Disk persistent volumes
+### Migrate in-tree Azure disk persistent volumes
 
-If you have in-tree Azure Disk persistent volumes, get `diskURI` from in-tree persistent volumes and then follow this [guide][azure-disk-static-mount] to set up CSI driver persistent volumes
+If you have in-tree Azure disk persistent volumes, get `diskURI` from in-tree persistent volumes and then follow this [guide][azure-disk-static-mount] to set up CSI driver persistent volumes.
 
-### Migrating in-tree Azure File persistent volumes
+### Migrate in-tree Azure File persistent volumes
 
-If you have in-tree Azure File persistent volumes, get `secretName`, `shareName` from in-tree persistent volumes and then follow this [guide][azure-file-static-mount] to set up CSI driver persistent volumes
+If you have in-tree Azure File persistent volumes, get `secretName`, `shareName` from in-tree persistent volumes and then follow this [guide][azure-file-static-mount] to set up CSI driver persistent volumes.
 
 ## Next steps
 
-- To use the CSI drive for Azure disks, see [Use Azure disks with CSI drivers](azure-disk-csi.md).
-- To use the CSI drive for Azure Files, see [Use Azure Files with CSI drivers](azure-files-csi.md).
+- To use the CSI driver for Azure disks, see [Use Azure disks with CSI drivers](azure-disk-csi.md).
+- To use the CSI driver for Azure Files, see [Use Azure Files with CSI drivers](azure-files-csi.md).
 - For more about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][operator-best-practices-storage].
 - For more information on CSI migration, see [Kubernetes In-Tree to CSI Volume Migration][csi-migration-community].
 
@@ -131,7 +96,7 @@ If you have in-tree Azure File persistent volumes, get `secretName`, `shareName`
 
 <!-- LINKS - internal -->
 [azure-disk-volume]: azure-disk-volume.md
-[azure-disk-static-mount]: azure-disk-volume.md#mount-disk-as-volume
+[azure-disk-static-mount]: azure-disk-volume.md#mount-disk-as-a-volume
 [azure-file-static-mount]: azure-files-volume.md#mount-file-share-as-a-persistent-volume
 [azure-files-pvc]: azure-files-dynamic-pv.md
 [premium-storage]: ../virtual-machines/disks-types.md

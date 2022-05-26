@@ -26,9 +26,6 @@ A blue "verified" badge appears on the Azure AD consent prompt and other screens
 
 ![Consent prompt](./media/publisher-verification-overview/consent-prompt.png)
 
-> [!NOTE]
-> We recently changed the color of the "verified" badge from blue to gray. We will revert that change sometime in the last half of February 2022, so the "verified" badge will be blue.
-
 This feature is primarily for developers building multi-tenant apps that leverage [OAuth 2.0 and OpenID Connect](active-directory-v2-protocols.md) with the [Microsoft identity platform](v2-overview.md). These apps can sign users in using OpenID Connect, or they may use OAuth 2.0 to request access to data using APIs like [Microsoft Graph](https://developer.microsoft.com/graph/).
 
 ## Benefits
@@ -41,12 +38,13 @@ Publisher verification provides the following benefits:
 
 > [!NOTE]
 > - Starting in November 2020, end users will no longer be able to grant consent to most newly registered multi-tenant apps without verified publishers if [risk-based step-up consent](../manage-apps/configure-risk-based-step-up-consent.md) is enabled. This will apply to apps that are registered after November 8, 2020, use OAuth2.0 to request permissions beyond basic sign-in and read user profile, and request consent from users in different tenants than the one the app is registered in. A warning will be displayed on the consent screen informing users that these apps are risky and are from unverified publishers.    
-> - Publisher verification is not supported in national clouds. Applications registered in national cloud tenants can't be publisher-verified at this time.
 
 ## Requirements
 There are a few pre-requisites for publisher verification, some of which will have already been completed by many Microsoft partners. They are: 
 
 -  An MPN ID for a valid [Microsoft Partner Network](https://partner.microsoft.com/membership) account that has completed the [verification](/partner-center/verification-responses) process. This MPN account must be the [Partner global account (PGA)](/partner-center/account-structure#the-top-level-is-the-partner-global-account-pga) for your organization. 
+
+-  The application to be publisher verified must be registered using a Azure AD account. Applications registered using a Microsoft personal account aren't supported for publisher verification.
 
 -  The Azure AD tenant where the app is registered must be associated with the Partner Global account. If it's not the primary tenant associated with the PGA, follow the steps to [set up the MPN partner global account as a multi-tenant account and associate the Azure AD tenant](/partner-center/multi-tenant-account#add-an-azure-ad-tenant-to-your-account). 
 
@@ -65,6 +63,9 @@ There are a few pre-requisites for publisher verification, some of which will ha
 -  The publisher agrees to the [Microsoft identity platform for developers Terms of Use](/legal/microsoft-identity-platform/terms-of-use).
 
 Developers who have already met these pre-requisites can get verified in a matter of minutes. If the requirements have not been met, getting set up is free. 
+
+## National Clouds and Publisher Verification
+Publisher verification is currently not supported in national clouds. Applications registered in national cloud tenants can't be publisher-verified at this time.
 
 ## Frequently asked questions 
 Below are some frequently asked questions regarding the publisher verification program. For FAQs related to the requirements and the process, see [mark an app as publisher verified](mark-app-as-publisher-verified.md).

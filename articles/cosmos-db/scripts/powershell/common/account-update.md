@@ -9,7 +9,7 @@ ms.author: mjbrown
 ms.custom: devx-track-azurepowershell
 ---
 
-# Update the regions on an Azure Cosmos DB account using PowerShell
+# Update consistency level for an Azure Cosmos DB account with PowerShell
 [!INCLUDE[appliesto-all-apis](../../../includes/appliesto-all-apis.md)]
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]

@@ -10,7 +10,7 @@ ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: reference
 ms.date: 03/19/2021
-ms.author: davidmu
+ms.author: sureshja
 ms.reviewer: sureshja, saumadan
 ---
 

@@ -34,7 +34,6 @@ The following clients are known to be incompatible with SFTP for Azure Blob Stor
 - paramiko 1.16.0
 - Salesforce
 - SSH.NET 2016.1.0
-- Workday
 - XFB.Gateway
 
 > [!NOTE]
@@ -96,7 +95,9 @@ For performance issues and considerations, see [SSH File Transfer Protocol (SFTP
 
 - `ssh-keyscan` is not supported.
 
-- SSH commands, that are not SFTP, are not supported.
+- SSH and SCP commands, that are not SFTP, are not supported.
+
+- FTPS and FTP are not supported.
 
 ## Troubleshooting
 

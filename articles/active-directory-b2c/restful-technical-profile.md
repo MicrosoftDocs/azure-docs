@@ -259,7 +259,7 @@ Your REST API may need to return an error message, such as 'The user was not fou
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | version | Yes | Your REST API version. For example: 1.0.1 |
-| status | Yes | Must be 409 |
+| status | Yes | An HTTP response status codes-like number, and must be 409 |
 | code | No | An error code from the RESTful endpoint provider, which is displayed when `DebugMode` is enabled. |
 | requestId | No | A request identifier from the RESTful endpoint provider, which is displayed when `DebugMode` is enabled. |
 | userMessage | Yes | An error message that is shown to the user. |

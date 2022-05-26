@@ -10,7 +10,7 @@ metadata:
   ms.date: 04/01/2022
 title: Azure Monitor Frequently Asked Questions
 summary: |
-  This Microsoft FAQ is a list of commonly asked questions about Azure Monitor. If you have any additional questions, go to the [discussion forum](/answers/questions/topics/single/24223.html) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
+  This Microsoft FAQ is a list of commonly asked questions about Azure Monitor. If you have any other questions, go to the [discussion forum](/answers/questions/topics/single/24223.html) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
   
 
 sections:
@@ -34,12 +34,12 @@ sections:
       - question: |
           How do I enable Azure Monitor?
         answer: |
-          Azure Monitor is enabled the moment that you create a new Azure subscription, and [Activity log](./essentials/platform-logs-overview.md) and platform [metrics](essentials/data-platform-metrics.md) are automatically collected. Create [diagnostic settings](essentials/diagnostic-settings.md) to collect more detailed information about the operation of your Azure resources, and add [monitoring solutions](insights/solutions.md) and [insights](./monitor-reference.md) to provide additional analysis on collected data for particular services.
+          Azure Monitor is enabled the moment that you create a new Azure subscription, and [Activity log](./essentials/platform-logs-overview.md) and platform [metrics](essentials/data-platform-metrics.md) are automatically collected. Create [diagnostic settings](essentials/diagnostic-settings.md) to collect more detailed information about the operation of your Azure resources, and add [monitoring solutions](insights/solutions.md) and [insights](./monitor-reference.md) to provide extra analysis on collected data for particular services.
           
       - question: |
           How do I access Azure Monitor?
         answer: |
-          Access all Azure Monitor features and data from the **Monitor** menu in the Azure portal. The **Monitoring** section of the menu for different Azure services provides access to the same tools with data filtered to a particular resource. Azure Monitor data is also accessible for a variety of scenarios using CLI, PowerShell, and a REST API.
+          Access all Azure Monitor features and data from the **Monitor** menu in the Azure portal. The **Monitoring** section of the menu for different Azure services provides access to the same tools with data filtered to a particular resource. Azure Monitor data is also accessible for various scenarios using CLI, PowerShell, and a REST API.
 
       - question: |
           Is there an on-premises version of Azure Monitor?
@@ -54,7 +54,7 @@ sections:
       - question: |
           Does Azure Monitor integrate with System Center Operations Manager?
         answer: |
-          You can connect your existing System Center Operations Manager management group to Azure Monitor to collect data from agents into Azure Monitor Logs. This allows you to use log queries and solution to analyze data collected from agents. You can also configure existing System Center Operations Manager agents to send data directly to Azure Monitor. See [Connect Operations Manager to Azure Monitor](agents/om-agents.md).
+          You can connect your existing System Center Operations Manager management group to Azure Monitor to collect data from agents into Azure Monitor Logs. This capability allows you to use log queries and solution to analyze data collected from agents. You can also configure existing System Center Operations Manager agents to send data directly to Azure Monitor. See [Connect Operations Manager to Azure Monitor](agents/om-agents.md).
           
       - question: |
           What IP addresses does Azure Monitor use?
@@ -66,12 +66,12 @@ sections:
       - question: |
           Where does Azure Monitor get its data?
         answer: |
-          Azure Monitor collects data from a variety of sources including logs and metrics from Azure platform and resources, custom applications, and agents running on virtual machines. Other services such as Microsoft Defender for Cloud and Network Watcher collect data into a Log Analytics workspace so it can be analyzed with Azure Monitor data. You can also send custom data to Azure Monitor using the REST API for logs or metrics. See [Sources of monitoring data for Azure Monitor](agents/data-sources.md).
+          Azure Monitor collects data from various sources including logs and metrics from Azure platform and resources, custom applications, and agents running on virtual machines. Other services such as Microsoft Defender for Cloud and Network Watcher collect data into a Log Analytics workspace so it can be analyzed with Azure Monitor data. You can also send custom data to Azure Monitor using the REST API for logs or metrics. See [Sources of monitoring data for Azure Monitor](agents/data-sources.md).
           
       - question: |
           What data is collected by Azure Monitor?
         answer: |
-          Azure Monitor collects data from a variety of sources into [logs](logs/data-platform-logs.md) or [metrics](essentials/data-platform-metrics.md). Each type of data has its own relative advantages, and each supports a particular set of features in Azure Monitor. There is a single metrics database for each Azure subscription, while you can create multiple Log Analytics workspaces to collect logs depending on your requirements. See [Azure Monitor data platform](data-platform.md).
+          Azure Monitor collects data from various sources into [logs](logs/data-platform-logs.md) or [metrics](essentials/data-platform-metrics.md). Each type of data has its own relative advantages, and each supports a particular set of features in Azure Monitor. There is a single metrics database for each Azure subscription, while you can create multiple Log Analytics workspaces to collect logs depending on your requirements. See [Azure Monitor data platform](data-platform.md).
           
       - question: |
           Is there a maximum amount of data that I can collect in Azure Monitor?
@@ -88,7 +88,7 @@ sections:
         answer: |
           You may on occasion notice duplicate records in Azure Monitor Logs. This will typically be from one of the following two conditions.
           
-          - Components in the pipeline have retries to ensure reliable delivery at the destination. Occasionally, this may result in duplicates for a very small percentage of telemetry items.
+          - Components in the pipeline have retries to ensure reliable delivery at the destination. Occasionally, this capability may result in duplicates for a small percentage of telemetry items.
           - If the duplicate records come from a virtual machine, then you may have both the Log Analytics agent and Azure Monitor agent installed. If you still need the Log Analytics agent installed, then configure the Log Analytics workspace to no longer collect data that’s also being collected by the data collection rule used by Azure Monitor agent.
 
           
@@ -97,7 +97,7 @@ sections:
       - question: |
           What is an insight in Azure Monitor?
         answer: |
-          Insights provide a customized monitoring experience for particular Azure services. They use the same metrics and logs as other features in Azure Monitor but may collect additional data and provide a unique experience in the Azure portal. See [Insights in Azure Monitor](./monitor-reference.md).
+          Insights provide a customized monitoring experience for particular Azure services. They use the same metrics and logs as other features in Azure Monitor but may collect extra data and provide a unique experience in the Azure portal. See [Insights in Azure Monitor](./monitor-reference.md).
           
           To view insights in the Azure portal, see the **Insights** section of the **Monitor** menu or the **Monitoring** section of the service's menu.
           
@@ -106,7 +106,7 @@ sections:
         answer: |
           Monitoring solutions are packaged sets of logic for monitoring a particular application or service based on Azure Monitor features. They collect log data in Azure Monitor and provide log queries and views for their analysis using a common experience in the Azure portal. See [Monitoring solutions in Azure Monitor](insights/solutions.md).
           
-          To view solutions in the Azure portal, click **More** in the **Insights** section of the **Monitor** menu. Click **Add** to add additional solutions to the workspace.
+          To view solutions in the Azure portal, click **More** in the **Insights** section of the **Monitor** menu. Click **Add** to add more solutions to the workspace.
           
   - name: Logs
     questions:
@@ -128,12 +128,12 @@ sections:
       - question: |
           Is Log Analytics storage immutable?
         answer: |
-          Data in database storage cannot be altered once ingested but can be deleted via [*purge* API path for deleting private data](./logs/personal-data-mgmt.md#delete). Although data cannot be altered, some certifications require that data is kept immutable and cannot be changed or deleted in storage. Data immutability can be achieved using [data export](./logs/logs-data-export.md) to a storage account that is configured as [immutable storage](../storage/blobs/immutable-policy-configure-version-scope.md).
+          Data in database storage can't be altered once ingested but can be deleted via [*purge* API path for deleting private data](./logs/personal-data-mgmt.md#delete). Although data cannot be altered, some certifications require that data is kept immutable and cannot be changed or deleted in storage. Data immutability can be achieved using [data export](./logs/logs-data-export.md) to a storage account that is configured as [immutable storage](../storage/blobs/immutable-policy-configure-version-scope.md).
           
       - question: |
           What is a Log Analytics workspace?
         answer: |
-          All log data collected by Azure Monitor is stored in a Log Analytics workspace. A workspace is essentially a container where log data is collected from a variety of sources. You may have a single Log Analytics workspace for all your monitoring data or may have requirements for multiple workspaces. See [Designing your Azure Monitor Logs deployment](logs/design-logs-deployment.md).
+          All log data collected by Azure Monitor is stored in a Log Analytics workspace. A workspace is essentially a container where log data is collected from a variety of sources. You may have a single Log Analytics workspace for all your monitoring data or may have requirements for multiple workspaces. See Design a Log Analytics workspace configuration(logs/workspace-design.md).
           
       - question: |
           Can you move an existing Log Analytics workspace to another Azure subscription?
@@ -143,7 +143,7 @@ sections:
       - question: |
           Why can't I see Query Explorer and Save buttons in Log Analytics?
         answer: |
-          **Query Explorer**, **Save** and **New alert rule** buttons are not available when the [query scope](logs/scope.md) is set to a specific resource. To create alerts, save or load a query, Log Analytics must be scoped to a workspace. To open Log Analytics in workspace context, select **Logs** from the **Azure Monitor** menu. The last used workspace is selected, but you can select any other workspace. See [Log query scope and time range in Azure Monitor Log Analytics](logs/scope.md)
+          **Query Explorer**, **Save** and **New alert rule** buttons aren't available when the [query scope](logs/scope.md) is set to a specific resource. To create alerts, save or load a query, Log Analytics must be scoped to a workspace. To open Log Analytics in workspace context, select **Logs** from the **Azure Monitor** menu. The last used workspace is selected, but you can select any other workspace. See [Log query scope and time range in Azure Monitor Log Analytics](logs/scope.md)
           
       - question: |
           Why am I getting the error "Register resource provider `Microsoft.Insights` for this subscription to enable this query" when opening Log Analytics from a VM?
@@ -160,8 +160,19 @@ sections:
       - question: |
           Why are metrics from the guest OS of my Azure virtual machine not showing up in Metrics explorer?
         answer: |
-          [Platform metrics](essentials/monitor-azure-resource.md#monitoring-data) are collected automatically for Azure resources. You must perform some configuration though to collect metrics from the guest OS of a virtual machine. For a Windows VM, install the diagnostic extension and configure the Azure Monitor sink as described in [Install and configure Windows Azure diagnostics extension (WAD)](agents/diagnostics-extension-windows-install.md). For Linux, install the Telegraf agent as described in [Collect custom metrics for a Linux VM with the InfluxData Telegraf agent](essentials/collect-custom-metrics-linux-telegraf.md).
-          
+          [Platform metrics](essentials/monitor-azure-resource.md#monitoring-data) are collected automatically for Azure resources. You must perform some configuration though to collect metrics from the guest OS of a virtual machine. For a Windows VM, install the diagnostic extension and configure the Azure Monitor sink as described in [Install and configure Microsoft Azure diagnostics extension (WAD)](agents/diagnostics-extension-windows-install.md). For Linux, install the Telegraf agent as described in [Collect custom metrics for a Linux VM with the InfluxData Telegraf agent](essentials/collect-custom-metrics-linux-telegraf.md).
+
+  - name: Change Analysis
+    questions:
+      - question: |
+          Does using Change Analysis incur cost?
+        answer: |
+          You can use Change Analysis at no extra cost. Simply enable `Microsoft.ChangeAnalysis` resource provider and anything supported by Change Analysis will be open to you.
+      - question: |
+          How can I enable for a web application?
+        answer: |
+          Enable Change Analysis for web application in-guest changes using the [Diagnose and solve problems tool](change/change-analysis-visualizations.md#diagnose-and-solve-problems-tool).
+
   - name: Alerts
     questions:
       - question: |
@@ -196,7 +207,7 @@ sections:
       - question: |
           What's the difference between the Azure Monitor agents?
         answer: |
-          The Azure Monitor Agent is the new, improved agent that will consolidate the features from all the other legacy monitoring agents, whilst providing additional benefits like centralized data collection, filtering, multihoming and more. See [Overview of the Azure Monitor agents](agents/agents-overview.md).
+          The **Azure Monitor Agent** is the new, improved agent that consolidates features from all the other legacy monitoring agents while providing extra benefits, like centralized data collection, filtering, multihoming, and more. See [Overview of the Azure Monitor agents](agents/agents-overview.md).  
           The legacy agents include:
           - Azure Diagnostic extension is for Azure virtual machines and collects data to Azure Monitor Metrics, Azure Storage, and Azure Event Hubs.  
           - The Log Analytics agent is for virtual machines in Azure, another cloud environment, or on-premises and collects data to Azure Monitor Logs. These agents will be deprecated by August, 2024.
@@ -294,7 +305,7 @@ sections:
           Will the new Azure Monitor agent support data collection for the various Log Analytics solutions and Azure services such as Microsoft Defender for Cloud and Microsoft Sentinel?
         answer: |
           Review the list of [AMA extensions currently available in preview](./agents/azure-monitor-agent-overview.md#supported-services-and-features). These are the same solutions and services now available using the new Azure Monitor agent instead. 
-          You may see additional extensions getting installed for the solution/service, this is to collect additional data or perform transformation/processing as required for the solution/service, and then use AMA to route the final data to Azure Monitor. 
+          You may see more extensions getting installed for the solution/service to collect extra data or perform transformation/processing as required for the solution/service, and then use AMA to route the final data to Azure Monitor. 
           
           Here's a diagram explaining the **new extensibility architecture**:
           
@@ -323,7 +334,7 @@ sections:
       - question: |
           Will I duplicate events if I use the Azure Monitor agent and the Log Analytics agent on the same machine? 
         answer: |
-          If you are collecting the same events with both agents, there will be duplication. This could be the legacy agent collecting data from the [workspace configuration](agents/agent-data-sources.md) that duplicates data collected by the data collection rule. Or you might be collecting security events with legacy agent and enable Windows Security Events with the AMA connectors in Microsoft Sentinel.
+          If you are collecting the same events with both agents, there will be duplication. This duplication could be the legacy agent collecting redundant data from the [workspace configuration](agents/agent-data-sources.md) data, collected by the data collection rule. Or you might be collecting security events with legacy agent and enable Windows Security Events with the AMA connectors in Microsoft Sentinel.
           
           You should limit duplication events to only while you transition from one agent to the other. After you've fully tested the DCR and verified its data collection, you should disconnect disable collection for the workspace and disconnect any MMA data connectors.
 
@@ -335,17 +346,17 @@ sections:
       - question: |
           Does the Azure Monitor Agent support non-Azure environments (other clouds, on-premises)?
         answer: |
-          Both on-premises machines and machines connected to other clouds are supported for servers today, once you have the Azure Arc agent installed. For purposes of running AMA and DCR, the ARC requirement comes at **no additional cost or resource consumption**, since the ARC agent is only used as an installation mechanism and you need not enable the paid management features if you don’t wish to use them.
+          Both on-premises machines and machines connected to other clouds are supported for servers today, once you have the Azure Arc agent installed. For purposes of running AMA and DCR, the ARC requirement comes at **no extra cost or resource consumption**, since the ARC agent is only used as an installation mechanism and you need not enable the paid management features if you don’t wish to use them.
       
       - question: |
           Does the Azure Monitor Agent support private links?
         answer: |
-          Yes it does, via Data Collection Endpoints created and added to an Azure Monitor Private Link Scope (AMPLS). [View steps here](agents/azure-monitor-agent-data-collection-endpoint.md#enable-network-isolation-for-the-azure-monitor-agent) on how to set this up.
+          Yes it does, via Data Collection Endpoints created and added to an Azure Monitor Private Link Scope (AMPLS). [Walk through the setup steps](agents/azure-monitor-agent-data-collection-endpoint.md#enable-network-isolation-for-the-azure-monitor-agent).
 
       - question: |
           Is Azure Arc required for AAD-joined machines?
         answer: |
-          For AAD-joined (or hybrid AAD-joined) machines running Windows 10 or 11 (client OS), you **do not require Arc** to be installed on these machines. Instead, you can leverage the Windows MSI installer for AMA, currently available in preview ([click here](https://aka.ms/amadcr-privatepreviews)) to join the preview). 
+          For AAD-joined (or hybrid AAD-joined) machines running Windows 10 or 11 (client OS), you **do not require Arc** to be installed on these machines. Instead, you can leverage the Windows MSI installer for AMA, [currently available in preview](https://aka.ms/amadcr-privatepreviews)). 
 
       - question: |
           Why do I need to install the Azure Arc Connected Machine agent to use AMA?
@@ -360,7 +371,7 @@ sections:
       - question: |
           What types of machines does the new Azure Monitor Agent support?
         answer: |
-          You can directly install them on Virtual Machines, Virtual Machines Scale Sets, and Arc enabled Servers. Additional you can also install them on devices (workstations, desktops) running Windows 10 or 11 using the Windows MSI installer for AMA, currently available in preview ([click here](https://aka.ms/amadcr-privatepreviews)) to join the preview). 
+          You can directly install them on Virtual Machines, Virtual Machines Scale Sets, and Arc enabled Servers. You can also install them on devices (workstations, desktops) running Windows 10 or 11 using the Windows MSI installer for AMA, [currently available in preview](https://aka.ms/amadcr-privatepreviews). 
 
       - question: |
           Can we filter events using event ID, i.e. more granular event filtering using the new Azure Monitor Agent?
@@ -377,7 +388,7 @@ sections:
       - question: |
           Does the new Azure Monitor agent have hardening support for Linux?
         answer: |
-          This is not available yet.
+          Hardening support for Linux is not available yet.
 
       - question: |
           What roles do I need to create a DCR that collects events from my servers?
@@ -387,7 +398,7 @@ sections:
       - question: |
           If I create DCRs that contain the same event ID and associate it to the same VM, will the events be duplicated?
         answer: |
-          Yes. To avoid duplication, please make sure the event selection you make in your Data Collection Rules does not contain duplicate events.
+          Yes. To avoid duplication, please make sure the event selection you make in your Data Collection Rules doesn't contain duplicate events.
 
       - question: |
           How can I validate my XPATH queries on the AMA?
@@ -433,7 +444,6 @@ sections:
           * [Node.js apps](app/nodejs.md)
           * [Web apps on Azure](app/azure-web-apps.md)
           * [Cloud Services on Azure](app/cloudservices.md)
-          * [App servers running in Docker](./azure-monitor-app-hub.yml)
           * [Single-page web apps](app/javascript.md)
           * [SharePoint](app/sharepoint.md)
           * [Windows desktop app](app/windows-desktop.md)
@@ -473,7 +483,7 @@ sections:
           * Inserts items into:
             * Web.config
             * packages.config
-          * (New projects only - if you [add Application Insights to an existing project](app/app-insights-overview.md), you have to do this manually.) Inserts snippets into the client and server code to initialize them with the Application Insights resource ID. For example, in an MVC app, code is inserted into the master page Views/Shared/\_Layout.cshtml
+          * (For new projects only, you'll [add Application Insights to an existing project manually](app/app-insights-overview.md)). Inserts snippets into the client and server code to initialize them with the Application Insights resource ID. For example, in an MVC app, code is inserted into the master page Views/Shared/\_Layout.cshtml
           
       - question: |
           How do I upgrade from older SDK versions?
@@ -487,7 +497,7 @@ sections:
       - question: |
           Do new Azure regions require the use of connection strings?
         answer: |
-          New Azure regions **require** the use of connection strings instead of instrumentation keys. [Connection string](./app/sdk-connection-string.md) identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You will need to copy the connection string and add it to your application's code or to an environment variable.
+          New Azure regions **require** the use of connection strings instead of instrumentation keys. [Connection string](./app/sdk-connection-string.md) identifies the resource that you want to associate your telemetry data with. It also allows you to modify the endpoints your resource will use as a destination for your telemetry. You'll need to copy the connection string and add it to your application's code or to an environment variable.
           
       - question: |
           Should I use connection strings or instrumentation keys?
@@ -497,7 +507,7 @@ sections:
       - question: |
           Can I use `providers('Microsoft.Insights', 'components').apiVersions[0]` in my Azure Resource Manager deployments?
         answer: |
-          We do not recommend using this method of populating the API version. The newest version can represent preview releases which may contain breaking changes. Even with newer non-preview releases, the API versions are not always backwards compatible with existing templates, or in some cases the API version may not be available to all subscriptions.
+          We don't recommend using this method of populating the API version. The newest version can represent preview releases which may contain breaking changes. Even with newer non-preview releases, the API versions are not always backwards compatible with existing templates, or in some cases the API version may not be available to all subscriptions.
 
       - question: |
           What telemetry is collected by Application Insights?
@@ -516,6 +526,7 @@ sections:
           * [Page view counts](app/usage-overview.md)
           * [AJAX calls](app/asp-net-dependencies.md) Requests made from a running script.
           * Page view load data
+          * Configurable Page [visit time](./app/data-model-pageview-telemetry.md)
           * User and session counts
           * [Authenticated user IDs](app/api-custom-events-metrics.md#authenticated-users)
           
@@ -561,16 +572,16 @@ sections:
       - question: |
           Could personal data be sent in the telemetry?
         answer: |
-          This is possible if your code sends such data. It can also happen if variables in stack traces include personal data. Your development team should conduct risk assessments to ensure that personal data is properly handled. [Learn more about data retention and privacy](app/data-retention-privacy.md).
+          You can send personal data if your code sends such data. It can also happen if variables in stack traces include personal data. Your development team should conduct risk assessments to ensure that personal data is properly handled. [Learn more about data retention and privacy](app/data-retention-privacy.md).
           
           **All** octets of the client web address are always set to 0 after the geo location attributes are looked up.
           
-          The [Application Insights JavaScript SDK](app/javascript.md) does not include any personal data in its autocompletion by default. However, some personal data used in your application may be picked up by the SDK (for example, full names in `window.title` or account IDs in XHR URL query parameters). For custom personal data masking, add a [telemetry initializer](app/api-filtering-sampling.md#javascript-web-applications).
+          The [Application Insights JavaScript SDK](app/javascript.md) doesn't include any personal data in its autocompletion by default. However, some personal data used in your application may be picked up by the SDK (for example, full names in `window.title` or account IDs in XHR URL query parameters). For custom personal data masking, add a [telemetry initializer](app/api-filtering-sampling.md#javascript-web-applications).
           
       - question: |
           My Instrumentation Key is visible in my web page source.
         answer: |
-          * This is common practice in monitoring solutions.
+          * This visibility is common practice in monitoring solutions.
           * It can't be used to steal your data.
           * It could be used to skew your data or trigger alerts.
           * We have not heard that any customer has had such problems.
@@ -582,7 +593,7 @@ sections:
           
       - question: How do I see POST data in Diagnostic search?
         answer: |
-          We don't log POST data automatically, but you can use a TrackTrace call: put the data in the message parameter. This has a longer size limit than the limits on string properties, though you can't filter on it.
+          We don't log POST data automatically, but you can use a TrackTrace call: put the data in the message parameter. Message parameters have a longer size limit than the limits on string properties, though you can't filter on it.
           
       - question: |
           Should I use single or multiple Application Insights resources?
@@ -611,7 +622,7 @@ sections:
         answer: |
           The browser passes the User Agent string in the HTTP header of the request, and the Application Insights ingestion service uses [UA Parser](https://github.com/ua-parser/uap-core) to generate the fields you see in the data tables and experiences. As a result, Application Insights users are unable to change these fields.
           
-          Occasionally this data may be missing or inaccurate if the user or enterprise disables sending User Agent in Browser settings. Additionally, the [UA Parser regexes](https://github.com/ua-parser/uap-core/blob/master/regexes.yaml) may not include all device information or Application Insights may not have adopted the latest updates.
+          Occasionally this data may be missing or inaccurate if the user or enterprise disables sending User Agent in Browser settings. The [UA Parser regexes](https://github.com/ua-parser/uap-core/blob/master/regexes.yaml) may not include all device information or Application Insights may not have adopted the latest updates.
           
       - question:  Have I enabled everything in Application Insights?
         answer: |
@@ -663,6 +674,118 @@ sections:
           > If the resource you are creating in a new region is replacing a classic resource we recommend exploring the benefits of [creating a new workspace-based resource](app/create-workspace-resource.md) or alternatively [migrating your existing resource to workspace-based](app/convert-classic-resource.md).
           
       - question: |
+          What versions of ASP.NET and ASP.NET Core are supported by Application Insights?
+        answer: |
+          .NET and .NET Core [LTS](https://dotnet.microsoft.com/download/visual-studio-sdks)
+        
+      - question: |
+          How can I track telemetry that's not automatically collected?
+        answer: |
+          Get an instance of `TelemetryClient` by using constructor injection, and call the required `TrackXXX()` method on it. We don't recommend creating new `TelemetryClient` or `TelemetryConfiguration` instances in an ASP.NET Core application. A singleton instance of `TelemetryClient` is already registered in the `DependencyInjection` container, which shares `TelemetryConfiguration` with rest of the telemetry. Creating a new `TelemetryClient` instance is recommended only if it needs a configuration that's separate from the rest of the telemetry.
+         
+          The following example shows how to track more telemetry from a controller.
+         
+          ```csharp
+          using Microsoft.ApplicationInsights;
+          public class HomeController : Controller
+          {
+           private TelemetryClient telemetry;
+           // Use constructor injection to get a TelemetryClient instance.
+           public HomeController(TelemetryClient telemetry)
+           {
+            this.telemetry = telemetry;
+           }
+           public IActionResult Index()
+           {
+           // Call the required TrackXXX method.
+           this.telemetry.TrackEvent("HomePageRequested");
+           return View();
+           }
+          ```
+          For more information about custom data reporting in Application Insights, see [Application Insights custom metrics API reference](app/api-custom-events-metrics.md). A similar approach can be used for sending custom metrics to Application Insights using the [GetMetric API](app/get-metric.md).
+
+      - question: |
+          How do I customize ILogger logs collection?
+        answer: |
+          By default, only `Warning` logs and more severe logs are automatically captured. To change this behavior, explicitly override the logging configuration for the provider `ApplicationInsights` as shown below.
+         
+          The following configuration allows ApplicationInsights to capture all `Information` logs and more severe logs.
+         
+          ```json
+          {
+           "Logging": {
+            "LogLevel": {
+             "Default": "Warning"
+            },
+            "ApplicationInsights": {
+             "LogLevel": {
+              "Default": "Information"
+              }
+             }
+           }
+          }
+          ```
+          It's important to note that the following example doesn't cause the ApplicationInsights provider to capture `Information` logs. It doesn't capture it because the SDK adds a default logging filter that instructs `ApplicationInsights` to capture only `Warning` logs and more severe logs. ApplicationInsights requires an explicit override.
+          ```json
+          {
+           "Logging": {
+            "LogLevel": {
+             "Default": "Information"
+             }
+           }
+          }
+          ```
+          For more information, see [ILogger configuration](app/ilogger.md#logging-level).
+
+      - question: |
+          Some Visual Studio templates used the UseApplicationInsights() extension method on IWebHostBuilder to enable Application Insights. Is this usage still valid?
+        answer: |
+          The extension method `UseApplicationInsights()` is still supported, but it's marked as obsolete in Application Insights SDK version 2.8.0 and later. It will be removed in the next major version of the SDK. To enable Application Insights telemetry, we recommend using `AddApplicationInsightsTelemetry()` because it provides overloads to control some configuration. Also, in ASP.NET Core 3.X apps, `services.AddApplicationInsightsTelemetry()` is the only way to enable Application Insights.
+
+      - question: |
+          I'm deploying my ASP.NET Core application to Web Apps. Should I still enable the Application Insights extension from Web Apps?
+        answer: |
+           If the SDK is installed at build time as shown in this article, you don't need to enable the [Application Insights extension](app/azure-web-apps.md) from the App Service portal. If the extension is installed, it will back off when it detects the SDK is already added. If you enable Application Insights from the extension, you don't have to install and update the SDK. But if you enable Application Insights by following instructions in this article, you have more flexibility because:
+
+           * Application Insights telemetry will continue to work in:
+            * All operating systems, including Windows, Linux, and Mac.
+            * All publish modes, including self-contained or framework dependent.
+            * All target frameworks, including the full .NET Framework.
+            * All hosting options, including Web Apps, VMs, Linux, containers, Azure Kubernetes Service, and non-Azure hosting.
+            * All .NET Core versions including preview versions.
+           * You can see telemetry locally when you're debugging from Visual Studio.
+           * You can track more custom telemetry by using the `TrackXXX()` API.
+           * You have full control over the configuration.
+
+      - question: |
+          Can I enable Application Insights monitoring by using tools like Azure Monitor Application Insights Agent (formerly Status Monitor v2)?
+        answer: |
+          Yes. In [Application Insights Agent 2.0.0-beta1](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/2.0.0-beta1) and later, ASP.NET Core applications hosted in IIS are supported.
+
+      - question: |
+          Are all features supported if I run my application in Linux?
+        answer: |
+          Yes. Feature support for the SDK is the same in all platforms, with the following exceptions:
+
+          * The SDK collects [Event Counters](app/eventcounters.md) on Linux because [Performance Counters](app/performance-counters.md) are only supported in Windows. Most metrics are the same.
+          * Although `ServerTelemetryChannel` is enabled by default, if the application is running in Linux or macOS, the channel doesn't automatically create a local storage folder to keep telemetry temporarily if there are network issues. Because of this limitation, telemetry is lost when there are temporary network or server issues. To work around this issue, configure a local folder for the channel:
+          ```csharp
+          using Microsoft.ApplicationInsights.Channel;
+          using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
+          public void ConfigureServices(IServiceCollection services)
+          {
+           // The following will configure the channel to use the given folder to temporarily
+           // store telemetry items during network or Application Insights server issues.
+           // User should ensure that the given folder already exists
+           // and that the application has read/write permissions.
+           services.AddSingleton(typeof(ITelemetryChannel),
+           new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
+           services.AddApplicationInsightsTelemetry();
+          }
+          ```
+          This limitation isn't applicable from version [2.15.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore/2.15.0) and later.          
+
+      - question: |
           Automation
         answer: |
           ### Configuring Application Insights
@@ -692,7 +815,7 @@ sections:
           * If your Azure web app is hosted in a data center where there is an Application Insights collection endpoint, there is no charge.
           * If there is no collection endpoint in your host data center, then your app's telemetry will incur [Azure outgoing charges](https://azure.microsoft.com/pricing/details/bandwidth/).
           
-          This doesn't depend on where your Application Insights resource is hosted. It just depends on the distribution of our endpoints.
+          This answer depends on the distribution of our endpoints, **not** on where your Application Insights resource is hosted.
           
       - question: |
           Can I send telemetry to the Application Insights portal?
@@ -702,7 +825,7 @@ sections:
       - question: |
           Can I monitor an intranet web server?
         answer: |
-          Yes, but you will need to allow traffic to our services by either firewall exceptions or proxy redirects.
+          Yes, but you'll need to allow traffic to our services by either firewall exceptions or proxy redirects.
           - QuickPulse `https://rt.services.visualstudio.com:443`
           - ApplicationIdProvider `https://dc.services.visualstudio.com:443`
           - TelemetryChannel `https://dc.services.visualstudio.com:443`
@@ -782,14 +905,14 @@ sections:
       - question: |
           HTTP 502 and 503 responses are not always captured by Application Insights
         answer: |
-          "502 bad gateway" and "503 service unavailable" errors are not always captured by Application Insights. If only client-side JavaScript is being used for monitoring this would be expected behavior since the error response is returned prior to the page containing the HTML header with the monitoring JavaScript snippet being rendered.
+          "502 bad gateway" and "503 service unavailable" errors aren't always captured by Application Insights. If only client-side JavaScript is being used for monitoring this would be expected behavior since the error response is returned prior to the page containing the HTML header with the monitoring JavaScript snippet being rendered.
           
           If the 502 or 503 response was sent from a server with server-side monitoring enabled the errors would be collected by the Application Insights SDK.
           
           However, there are still cases where even when server-side monitoring is enabled on an application's web server that a 502 or 503 error will not be captured by Application Insights. Many modern web servers do not allow a client to communicate directly, but instead employ solutions like reverse proxies to pass information back and forth between the client and the front-end web servers.
           
-          In this scenario, a 502 or 503 response could be returned to a client due to an issue at the reverse proxy layer and this would not be captured out-of-box by Application Insights. To help detect issues at this layer you may need to forward logs from your reverse proxy to Log Analytics and create a custom rule to check for 502/503 responses. To learn more about common causes of 502 and 503 errors consult the Azure App Service [troubleshooting article for "502 bad gateway" and "503 service unavailable"](../app-service/troubleshoot-http-502-http-503.md).
-          
+          In this scenario, a 502 or 503 response could be returned to a client due to an issue at the reverse proxy layer and would not be captured out-of-box by Application Insights. To help detect issues at this layer you may need to forward logs from your reverse proxy to Log Analytics and create a custom rule to check for 502/503 responses. To learn more about common causes of 502 and 503 errors consult the Azure App Service [troubleshooting article for "502 bad gateway" and "503 service unavailable"](../app-service/troubleshoot-http-502-http-503.md).
+
   - name: OpenTelemetry
     questions:
       - question: |
@@ -798,7 +921,7 @@ sections:
           A new open-source standard for observability. Learn more at [https://opentelemetry.io/](https://opentelemetry.io/).
           
       - question: |
-          Why is Microsoft / Azure Monitor Application Insights investing in OpenTelemetry?
+          Why is Microsoft Azure Monitor Application Insights investing in OpenTelemetry?
         answer: |
           Microsoft is among the largest contributors to OpenTelemetry.
           
@@ -839,7 +962,7 @@ sections:
       - question: |
           What's the difference between manual and auto-instrumentation?
         answer: |
-          Manual instrumentation is coding against the OpenTelemetry API and typically consists of installing a language-specific SDK in an application. “Manual” does not mean you’ll be required to write complex code to define spans for distributed traces (though it remains an option). A rich and [growing set of instrumentation libraries](https://opentelemetry.io/registry/) maintained by OpenTelemetry contributors will enable you to effortlessly capture telemetry signals across common frameworks and libraries. 
+          Manual instrumentation is coding against the OpenTelemetry API and typically consists of installing a language-specific SDK in an application. “Manual” doesn't mean you’ll be required to write complex code to define spans for distributed traces (though it remains an option). A rich and [growing set of instrumentation libraries](https://opentelemetry.io/registry/) maintained by OpenTelemetry contributors will enable you to effortlessly capture telemetry signals across common frameworks and libraries. 
           
           Auto-instrumentation is enabling telemetry collection through configuration without touching the application's code. While highly convenient, it tends to be less configurable and it's not available in all languages.
           
@@ -856,7 +979,7 @@ sections:
           What's the difference between OpenCensus and OpenTelemetry?
         answer: |
           [OpenCensus](https://opencensus.io/) is the precursor to [OpenTelemetry](https://opentelemetry.io/). Microsoft helped bring together [OpenTracing](https://opentracing.io/) and OpenCensus to create OpenTelemetry, a single observability standard for the world. Azure Monitor's current [production-recommended Python SDK](app/opencensus-python.md) is based on OpenCensus, but eventually all Azure Monitor's SDKs will be based on OpenTelemetry.
-          
+
   - name: Container insights
     questions:
       - question: |
@@ -887,7 +1010,7 @@ sections:
       - question: |
           I don't see Image and Name property values populated when I query the ContainerLog table.
         answer: |
-          For agent version ciprod12042019 and later, by default these two properties are not populated for every log line to minimize cost incurred on log data collected. There are two options to query the table that include these properties with their values:
+          For agent version ciprod12042019 and later, by default these two properties aren't populated for every log line to minimize cost incurred on log data collected. There are two options to query the table that include these properties with their values:
           
           ### Option 1
           
@@ -928,7 +1051,7 @@ sections:
       - question: |
           Can I view metrics collected in Grafana?
         answer: |
-          Container insights supports viewing metrics stored in your Log Analytics workspace in Grafana dashboards. We have provided a template that you can download from Grafana's [dashboard repository](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker) to get you started and  reference to help you learn how to query additional data from your monitored clusters to visualize in custom Grafana dashboards.
+          Container insights supports viewing metrics stored in your Log Analytics workspace in Grafana dashboards. We have provided a template that you can download from Grafana's [dashboard repository](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker) to get you started and  reference to help you learn how to query data from your monitored clusters to visualize in custom Grafana dashboards.
           
       - question: |
           Can I monitor my AKS-engine cluster with Container insights?
@@ -1038,7 +1161,7 @@ sections:
       - question: |
           What do I do if my VM is already reporting to an existing workspace?
         answer: |
-          If you are already collecting data from your virtual machines, you may have already configured it to report data to an existing Log Analytics workspace.  As long as that workspace is in one of our supported regions, you can enable VM insights to that pre-existing workspace.  If the workspace you are already using is not in one of our supported regions, you won't be able to onboard to VM insights at this time.  We are actively working to support additional regions.
+          If you are already collecting data from your virtual machines, you may have already configured it to report data to an existing Log Analytics workspace.  As long as that workspace is in one of our supported regions, you can enable VM insights to that pre-existing workspace.  If the workspace you are already using is not in one of our supported regions, you won't be able to onboard to VM insights at this time.  We are actively working to support more regions.
 
       - question: |
           Why did my VM fail to onboard?
@@ -1049,14 +1172,14 @@ sections:
           * The Log Analytics agent is installed on Azure VMs using a VM extension, if determined it is required.
           * The VM insights Map Dependency agent is installed on Azure VMs using an extension, if determined it is required.
           
-          During the onboard process, we check for status on each of the above to return a notification status to you in the portal. Configuration of the workspace and the agent installation typically takes 5 to 10 minutes. Viewing monitoring data in the portal take an additional 5 to 10 minutes.
+          During the onboard process, we check for status on each of the above to return a notification status to you in the portal. Configuration of the workspace and the agent installation typically takes 5 to 10 minutes. Viewing monitoring data in the portal take an extra 5 to 10 minutes.
           
           If you have initiated onboarding and see messages indicating the VM needs to be onboarded,  allow for up to 30 minutes for the VM to complete the process.
           
       - question: |
           I don't see some or any data in the performance charts for my VM
         answer: |
-          Our performance charts have been updated to use data stored in the *InsightsMetrics* table.  To see data in these charts you will need to upgrade to use the new VM Insights solution.  Please refer to our [GA FAQ](vm/vminsights-ga-release-faq.yml) for additional information.
+          Our performance charts have been updated to use data stored in the *InsightsMetrics* table.  To see data in these charts you'll need to upgrade to use the new VM Insights solution.  Please refer to our [GA FAQ](vm/vminsights-ga-release-faq.yml) for more information.
           
           If you don't see performance data in the disk table or in some of the performance charts then your performance counters may not be configured in the workspace. To resolve, run the following [PowerShell script](./vm/vminsights-enable-powershell.md).
           
@@ -1073,7 +1196,7 @@ sections:
           * The map style has been updated to be more consistent with App Map from Application insights.
           * The side panels have been updated, and do not have the full set of integration's that were supported in Service Map - Update Management, Change Tracking, Security, and Service Desk.
           * The option for choosing groups and machines to map has been updated and now supports Subscriptions, Resource Groups, Azure virtual machine scale sets, and Cloud services.
-          * You cannot create new Service Map machine groups in the VM insights Map feature.
+          * You can't create new Service Map machine groups in the VM insights Map feature.
           
       - question: |
           Why do my performance charts show dotted lines?
@@ -1098,7 +1221,7 @@ sections:
       - question: |
           Does Map feature support IPv6?
         answer: |
-          Map feature currently only supports IPv4 and we are investigating support for IPv6. We also support IPv4 that is tunneled inside IPv6.
+          Map feature currently only supports IPv4 and we're investigating support for IPv6. We also support IPv4 that is tunneled inside IPv6.
 
       - question: |
           When I load a map for a Resource Group or other large group the map is difficult to view
@@ -1113,7 +1236,7 @@ sections:
       - question: |
           How is response time measured for data stored in VMConnection and displayed in the connection panel and workbooks?
         answer: |
-          Response time is an approximation. Since we do not instrument the code of the application, we do not really know when a request begins and when the response arrives. Instead we observe data being sent on a connection and then data coming back on that connection. Our agent keeps track of these sends and receives and attempts to pair them: a sequence of sends, followed by a sequence of receives, is interpreted as a request/response pair. The timing between these operations is the response time. It will include the network latency and the server processing time.
+          Response time is an approximation. Since we don't instrument the code of the application, we don't really know when a request begins and when the response arrives. Instead we observe data being sent on a connection and then data coming back on that connection. Our agent keeps track of these sends and receives and attempts to pair them: a sequence of sends, followed by a sequence of receives, is interpreted as a request/response pair. The timing between these operations is the response time. It will include the network latency and the server processing time.
           
           This approximation works well for protocols that are request/response based: a single request goes out on the connection, and a single response arrives. This is the case for HTTP(S) (without pipelining), but not satisfied for other protocols.
           
@@ -1122,7 +1245,7 @@ sections:
         answer: |
           If you have configured Azure Monitor with a Log Analytics workspace using the *Free* pricing tier, VM insights Map feature will only support five connected machines connected to the workspace. If you have five VMs connected to a free workspace, you disconnect one of the VMs and then later connect a new VM, the new VM is not monitored and reflected on the Map page.
           
-          Under this condition, you will be prompted with the **Try Now** option when you open the VM and select **Insights** from the left-hand pane, even after it has been installed already on the VM.  However, you are not prompted with options as would normally occur if this VM were not onboarded to VM insights.
+          Under this condition, you'll be prompted with the **Try Now** option when you open the VM and select **Insights** from the left-hand pane, even after it has been installed already on the VM.  However, you are not prompted with options as would normally occur if this VM were not onboarded to VM insights.
           
   - name: SQL Insights (preview)
     questions:
@@ -1136,15 +1259,15 @@ sections:
         answer: |
           - Azure SQL Database
           - Azure SQL Managed Instance
-          - SQL Server on Azure Virtual Machines (SQL Server running on virtual machines registered with the [SQL virtual machine](../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md) provider)
-          - Azure VMs (SQL Server running on virtual machines not registered with the [SQL virtual machine](../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm.md) provider)
+          - SQL Server on Azure Virtual Machines (SQL Server running on virtual machines registered with the [SQL virtual machine](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm) provider)
+          - Azure VMs (SQL Server running on virtual machines not registered with the [SQL virtual machine](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm) provider)
           
           See [Supported versions](insights/sql-insights-overview.md#supported-versions) for more details and for details about scenarios with no support or limited support.
           
       - question: |
           What operating systems for the virtual machine running SQL Server are supported?
         answer: |
-          We support all operating systems specified by the [Windows](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#getting-started) and [Linux](../azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md#create) documentation for SQL Server on Azure Virtual Machines.
+          We support all operating systems specified by the [Windows](/azure/azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview#getting-started) and [Linux](/azure/azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview#create) documentation for SQL Server on Azure Virtual Machines.
           
       - question: |
           What operating system for the monitoring virtual machine are supported?
@@ -1165,7 +1288,7 @@ additionalContent: |
 
   ## Next steps
   
-  If your question isn't answered here, you can refer to the following forums to additional questions and answers.
+  If your question isn't answered here, you can refer to the following forums for more questions and answers.
 
   - [Log Analytics](/answers/topics/azure-monitor.html)
   - [Application Insights](/answers/topics/azure-monitor.html)

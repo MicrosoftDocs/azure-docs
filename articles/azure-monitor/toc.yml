@@ -47,6 +47,10 @@ items:
       href: app/tutorial-app-dashboards.md
     - name: Monitor mobile application
       href: app/mobile-center-quickstart.md
+  - name: Change Analysis
+    items:
+    - name: Track web outages
+      href: change/tutorial-outages.md
   - name: Custom logs
     items:
     - name: Azure portal
@@ -54,7 +58,7 @@ items:
       href: logs/tutorial-custom-logs.md
     - name: Resource manager templates
       displayName: Custom logs
-      href: logs/tutorial-custom-logs.md
+      href: logs/tutorial-custom-logs-api.md
   - name: Ingestion-time transformations
     items:
     - name: Azure portal
@@ -138,23 +142,6 @@ items:
     - name: Logs
       displayName: Azure Monitor Logs, Logs, Log Analytics, log query, log queries, query, queries
       href: logs/data-platform-logs.md
-  - name: Workspaces
-    items:
-    - name: Overview
-      href: logs/log-analytics-workspace-overview.md
-    - name: Design a workspace deployment
-      href: logs/design-logs-deployment.md
-    - name: Design for service providers
-      href: logs/service-providers.md
-    - name: Dedicated clusters
-      href: logs/logs-dedicated-clusters.md
-    - name: Availability zones
-      href: logs/availability-zones.md
-    - name: Log data ingestion time
-      displayName: latency
-      href: logs/data-ingestion-time.md
-  - name: Data collection rules
-    href: essentials/data-collection-rule-overview.md
   - name: Usage and cost
     items:
     - name: View and estimate charges
@@ -171,8 +158,6 @@ items:
       href: roles-permissions-security.md
     - name: Log data
       href: logs/data-security.md
-    - name: Azure AD Authentication for Logs
-      href: logs/azure-ad-authentication-logs.md
     - name: Customer-managed keys
       href: logs/customer-managed-keys.md
     - name: Private Link networking
@@ -193,12 +178,8 @@ items:
     items:
     - name: Overview
       href: alerts/alerts-overview.md
-    - name: Metric alerts
-      href: alerts/alerts-metric-overview.md
-    - name: Log alerts
-      href: alerts/alerts-unified-log.md
-    - name: Activity log alerts
-      href: alerts/activity-log-alerts.md
+    - name: Alert Types
+      href: alerts/alerts-types.md
   - name: Partner integrations
     href: partners.md
   - name: Security
@@ -296,6 +277,8 @@ items:
           href: logs/daily-cap.md
         - name: Configure Basic Logs
           href: logs/basic-logs-configure.md
+        - name: Use Azure AD authentication
+          href: logs/azure-ad-authentication-logs.md
       - name: Archive and restore
         items:
         - name: Set retention and archive policy
@@ -304,12 +287,23 @@ items:
           href: logs/search-jobs.md
         - name: Restore logs
           href: logs/restore.md
+      - name: Design
+        items:
+        - name: Design a workspace architecture
+          href: logs/workspace-design.md
+        - name: Dedicated clusters
+          href: logs/logs-dedicated-clusters.md
+        - name: Availability zones
+          href: logs/availability-zones.md
       - name: Monitor
         items:
         - name: Monitor a workspace
           href: logs/monitor-workspace.md
         - name: Analyze usage and cost
           href: logs/analyze-usage.md
+        - name: Log data ingestion time
+          displayName: latency
+          href: logs/data-ingestion-time.md
       - name: Move and delete
         items:
         - name: Move a workspace
@@ -430,17 +424,23 @@ items:
       href: essentials/platform-logs-overview.md
     - name: Activity log
       href: essentials/activity-log.md
-    - name: Activity log insights
-      href: essentials/activity-logs-insights.md
     - name: Resource logs
       href: essentials/resource-logs.md
     - name: Diagnostic settings
-      displayName: Platform logs, Resource logs, Activity log
-      href: essentials/diagnostic-settings.md
+      items:
+      - name: Overview
+        displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
+        href: essentials/diagnostic-settings.md
+      - name: Create with Azure Policy
+        displayName: Diagnostic Settings, Platform logs, Resource logs, Activity log
+        href: essentials/diagnostic-settings-policy.md
   - name: Data collection
     items:
     - name: Data collection rules
       items:
+      - name: Overview
+        displayName: Data collection rules
+        href: essentials/data-collection-rule-overview.md
       - name: Structure
         displayName: Data collection rules
         href: essentials/data-collection-rule-structure.md
@@ -601,6 +601,17 @@ items:
           href: essentials/collect-custom-metrics-linux-telegraf.md
     - name: Troubleshoot
       items:
+      - name: Azure Monitor Agent
+        displayName: Troubleshooting guidance
+        items:
+        - name: Linux VM
+          href: agents/azure-monitor-agent-troubleshoot-linux-vm.md
+        - name: Linux Rsyslog issues
+          href: agents/azure-monitor-agent-troubleshoot-linux-vm-rsyslog.md
+        - name: Windows VM
+          href: agents/azure-monitor-agent-troubleshoot-windows-vm.md
+        - name: Windows Arc-enabled server
+          href: agents/azure-monitor-agent-troubleshoot-windows-arc.md
       - name: Log Analytics VM Extension
         displayName: troubleshoot, troubleshooting
         href: visualize/vmext-troubleshoot.md
@@ -711,7 +722,7 @@ items:
         href: alerts/action-groups-logic-app.md
     - name: Alert user interface
       items:
-      - name: Manage alert instances
+      - name: View and manage alert instances
         href: alerts/alerts-managing-alert-instances.md
     - name: Troubleshoot alerts
       href: alerts/alerts-troubleshoot.md
@@ -719,7 +730,7 @@ items:
       href: alerts/alerts-resource-move.md
     - name: IT Service Management
       items:
-      - name: ITSM Connector Overview
+      - name: Integrate with ITSM Providers
         href: alerts/itsmc-overview.md
       - name: Connect using a Secure Webhook action
         items:
@@ -735,18 +746,10 @@ items:
             href: alerts/itsmc-secure-webhook-connections-servicenow.md
       - name: Connect using an ITSM action
         items:
+          - name: Connect ServiceNow with an ITSM Connector
+            href: alerts/itsmc-connections-servicenow.md
           - name: Configure Azure for an ITSM Connector
             href: alerts/itsmc-definition.md
-          - name: ITSM Connector partners setup
-            items:
-            - name: ServiceNow ITSM
-              href: alerts/itsmc-connections-servicenow.md
-            - name: System Center Service Manager
-              items:
-              - name: Setup
-                href: alerts/itsmc-connections-scsm.md
-              - name: Create a Service Manager web app
-                href: alerts/itsmc-service-manager-script.md
           - name: Data Synced From Your ITSM Product
             href: alerts/itsmc-synced-data.md
           - name: Troubleshooting problems in ITSM Connector
@@ -1010,14 +1013,18 @@ items:
         href: app/profiler-overview.md
       - name: Enable Profiler for an App Service
         href: app/profiler.md
-      - name: Enable the Profiler for a Cloud Service
+      - name: Enable Profiler for an Azure Functions app
+        href: app/profiler-azure-functions.md
+      - name: Enable Profiler for a Cloud Service
         href: app/profiler-cloudservice.md
       - name: Enable Profiler for a Service Fabric Application
         href: app/profiler-servicefabric.md
       - name: Enable Profiler for an Azure VM
         href: app/profiler-vm.md
-      - name: Profiler for Linux App services (preview)
+      - name: Enable Profiler for Linux App services (preview)
         href: app/profiler-aspnetcore-linux.md
+      - name: Enable Profiler for a Container
+        href: app/profiler-containers.md
       - name: Profiler Settings
         href: app/profiler-settings.md
       - name: Track Requests for Profiling
@@ -1175,6 +1182,10 @@ items:
       href: change/change-analysis-visualizations.md
     - name: Azure PowerShell
       href: change/change-analysis-powershell.md
+    - name: Custom filters
+      href: change/change-analysis-custom-filters.md
+    - name: Pin and share changes via Azure dashboard
+      href: change/change-analysis-query.md
     - name: Troubleshoot
       href: change/change-analysis-troubleshoot.md
   - name: VM insights
@@ -1211,6 +1222,8 @@ items:
       items:
       - name: Overview
         href: vm/vminsights-health-overview.md
+      - name: Migrate
+        href: vm/vminsights-health-migrate.md
       - name: Enable
         href: vm/vminsights-health-enable.md
       - name: Alerts
@@ -1265,6 +1278,8 @@ items:
         href: containers/container-insights-agent-config.md
       - name: Update to enable metrics
         href: containers/container-insights-update-metrics.md
+      - name: Enable ContainerLogv2 (preview)
+        href: containers/container-insights-logging-v2.md
       - name: Migration from Azure Red Hat OpenShift v4.x to Azure Arc enabled cluster
         href: containers/container-insights-transition-hybrid.md
     - name: Monitor
@@ -1496,6 +1511,8 @@ items:
     href: service-limits.md
   - name: Terminology changes
     href: terminology.md
+  - name: Data reference
+    href: /azure/azure-monitor/reference/
   - name: Monitoring data reference
     href: azure-monitor-monitoring-reference.md 
   - name: Supported metrics
@@ -1558,12 +1575,12 @@ items:
         href: app/data-model-event-telemetry.md
       - name: Metric
         href: app/data-model-metric-telemetry.md
+      - name: PageView
+        href: app/data-model-pageview-telemetry.md
       - name: Context
         href: app/data-model-context.md
       - name: Integration with Azure Functions
         href: app/azure-functions-supported-features.md
-      - name: Workspace-based schema
-        href: app/apm-tables.md
   - name: Azure PowerShell
     items:
     - name: Azure Monitor
