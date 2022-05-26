@@ -92,6 +92,8 @@ az storage account show \
     --output tsv
 ```
 
+---
+
 ## Get service endpoints for the storage account
 
 The service endpoints for a storage account provide the base URL for any blob, queue, table, or file object in Azure Storage. Use this base URL to construct the address for any given resource.
