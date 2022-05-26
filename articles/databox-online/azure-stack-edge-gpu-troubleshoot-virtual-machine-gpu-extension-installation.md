@@ -7,7 +7,7 @@ author: v-dalc
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 05/25/2022
+ms.date: 05/26/2022
 ms.author: alkohli
 ---
 # Troubleshoot GPU extension issues for GPU VMs on Azure Stack Edge Pro GPU
@@ -28,7 +28,7 @@ For installation steps, see [Install GPU extension](./azure-stack-edge-gpu-deplo
    ```
 **Suggested solutions:** You have two options to mitigate this issue: 
  
-- **Option 1:** Upgrade your appliance to the Azure Stack Edge 2205 release.
+- **Option 1:** Apply the Azure Stack Edge 2205 updates to your device.
 - **Option 2:** After creating a GPU virtual machine of size in NCasT4_v3-series, manually install the new signing keys before installing the extension, then set required signing keys using steps in [Updating the CUDA Linux GPG Repository Key | NVIDIA Technical Blog](https://developer.nvidia.com/blog/updating-the-cuda-linux-gpg-repository-key/).
 
     Here's an example that installs signing keys on an Ubuntu 1804 virtual machine: 
@@ -40,7 +40,7 @@ For installation steps, see [Install GPU extension](./azure-stack-edge-gpu-deplo
 
 ## Failure to install GPU extension on a Windows 2016 VHD
 
-**Error description:** This is a known issue in versions lower than 2205. The GPU extension requires TLS1.2. In this case, you may see the following error message:
+**Error description:** This is a known issue in versions lower than 2205. The GPU extension requires TLS 1.2. In this case, you may see the following error message:
 
    ```azurecli
    Failed to download https://go.microsoft.com/fwlink/?linkid=871664 after 10 attempts. Exiting!
@@ -56,9 +56,9 @@ Additional details:
 If the installation failed during the package download, that error indicates the VM couldn't access the public network to download the driver.
 
 
-**Suggested solution:** Use the following steps to enable TLS1.2 on a Windows 2016 VM, and then deploy the GPU extension.
+**Suggested solution:** Use the following steps to enable TLS 1.2 on a Windows 2016 VM, and then deploy the GPU extension.
 
-1. Run the following command inside the VM to enable TLS1.2:
+1. Run the following command inside the VM to enable TLS 1.2:
 
    ```powershell
    sp hklm:\SOFTWARE\Microsoft\.NETFramework\v4.0.30319 SchUseStrongCrypto 1
