@@ -42,8 +42,8 @@ Key differences between persistent and ephemeral OS disks:
 | **Redeploy** | OS disk data is preserved | Data on the OS disk is deleted, OS is reprovisioned | 
 | **Stop/ Start of VM** | OS disk data is preserved | Not Supported | 
 | **Page file placement**| For Windows, page file is stored on the resource disk| For Windows, page file is stored on the OS disk (for both OS cache placement and Temp disk placement).|
-| **Maintenance of VM/VMSS using [healing](understand-vm-reboots#unexpected-downtime.md)** | OS disk data is preserved | OS disk data is not preserved  | 
-| **Maintenance of VM/VMSS using [Live Migration](maintenance-and-updates#live-migration.md)** | OS disk data is preserved | OS disk data is preserved  | 
+| **Maintenance of VM/VMSS using [healing](understand-vm-reboots.md#unexpected-downtime)** | OS disk data is preserved | OS disk data is not preserved  | 
+| **Maintenance of VM/VMSS using [Live Migration](maintenance-and-updates.md#live-migration)** | OS disk data is preserved | OS disk data is preserved  | 
 
 ## Placement options for Ephemeral OS disks
 Ephemeral OS disk can be stored either on VM's OS cache disk or VM's temp/resource disk. 
