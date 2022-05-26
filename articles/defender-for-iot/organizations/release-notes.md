@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 03/22/2022
+ms.date: 05/25/2022
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -40,6 +40,49 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 | 10.5.4 | 12/2021 | 09/2022 |
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
+
+## May 2022
+
+We've recently optimized and enhanced our documentation as follows:
+
+- [Updated appliance catalog for OT environments](#updated-appliance-catalog-for-ot-environments)
+- [Documentation reorganization for end-user organizations](#documentation-reorganization-for-end-user-organizations)
+
+### Updated appliance catalog for OT environments
+
+We've refreshed and revamped the catalog of supported appliances for monitoring OT environments. These appliances support flexible deployment options for environments of all sizes and can be used to host both the OT monitoring sensor and on-premises management consoles.
+
+Use the new pages as follows:
+
+1. **Understand which hardware model best fits your organization's needs.** For more information, see [Which appliances do I need?](ot-appliance-sizing.md)
+
+1. **Learn about the preconfigured hardware appliances that are available to purchase, or system requirements for virtual machines.** For more information, see [Pre-configured physical appliances for OT monitoring](ot-pre-configured-appliances.md) and [OT monitoring with virtual appliances](ot-virtual-appliances.md).
+
+    For more information about each appliance type, use the linked reference page, or browse through our new **Reference > OT monitoring appliances** section.
+
+    :::image type="content" source="media/release-notes/appliance-catalog.png" alt-text="Screenshot of the new appliance catalog reference section." lightbox="media/release-notes/appliance-catalog.png":::
+
+    Reference articles for each appliance type, including virtual appliances, include specific steps to configure the appliance for OT monitoring with Defender for IoT. Generic software installation and troubleshooting procedures are still documented in [Defender for IoT software installation](how-to-install-software.md).
+
+### Documentation reorganization for end-user organizations
+
+We recently reorganized our Defender for IoT documentation for end-user organizations, highlighting a clearer path for onboarding and getting started.
+
+Check out our new structure to follow though viewing devices and assets, managing alerts, vulnerabilities and threats, integrating with other services, and deploying and maintaining your Defender for IoT system.
+
+**New and updated articles include**:
+
+- [Welcome to Microsoft Defender for IoT for organizations](overview.md)
+- [Microsoft Defender for IoT architecture](architecture.md)
+- [Quickstart: Get started with Defender for IoT](getting-started.md)
+- [Tutorial: Microsoft Defender for IoT trial setup](tutorial-onboarding.md)
+- [Tutorial: Get started with Enterprise IoT](tutorial-getting-started-eiot-sensor.md)
+- [Plan your sensor connections for OT monitoring](plan-network-monitoring.md)
+- [About Microsoft Defender for IoT network setup](how-to-set-up-your-network.md)
+
+> [!NOTE]
+> To send feedback on docs via GitHub, scroll to the bottom of the page and select the **Feedback** option for **This page**. We'd be glad to hear from you!
+>
 
 ## April 2022
 
