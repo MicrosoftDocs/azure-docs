@@ -109,8 +109,6 @@ Once you've completed your terms of use policy document, use the following proce
 
 1. Under **Conditional Access**, use the **Enforce with Conditional Access policy template** list to select the template to enforce the terms of use policy.
 
-    ![Conditional Access drop-down list to select a policy template](./media/terms-of-use/conditional-access-templates.png)
-
    | Template | Description |
    | --- | --- |
    | **Custom policy** | Select the users, groups, and apps that this terms of use policy will be applied to. |
@@ -128,8 +126,6 @@ Once you've completed your terms of use policy document, use the following proce
    ![New Conditional Access pane if you chose the custom Conditional Access policy template](./media/terms-of-use/custom-policy.png)
 
    You should now see your new terms of use policies.
-
-   ![New terms of use listed in the terms of use blade](./media/terms-of-use/create-tou.png)
 
 ## View report of who has accepted and declined
 
