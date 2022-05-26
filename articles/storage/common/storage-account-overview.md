@@ -109,7 +109,7 @@ The following table lists the format for Azure DNS Zone endpoints for each of th
 
 Azure DNS zone endpoints are supported for accounts created with the Azure Resource Manager deployment model only. For more information, see [Azure Resource Manager overview](../../azure-resource-manager/management/overview.md).
 
-To learn how to create a storage account with Azure DNS Zone endpoints, see [Create a storage account with Azure DNS Zone endpoints (preview)](storage-account-create.md#create-a-storage-account-with-azure-dns-zone-endpoints-preview).
+To learn how to create a storage account with Azure DNS Zone endpoints, see [Create a storage account](storage-account-create.md).
 
 #### About the preview
 
