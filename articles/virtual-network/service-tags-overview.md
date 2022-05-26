@@ -25,9 +25,6 @@ You can use service tags to define network access controls on [network security
 > [!NOTE] 
 > As of March 2022, using service tags in place of explicit address prefixes in [user defined routes](./virtual-networks-udr-overview.md#user-defined) is out of preview and generally available.
 
-> [!NOTE]
-> When using service tags with Azure Firewall, you can only create destination rules on inbound and outbound traffic. Source rules are not supported. For more information, refer to the [Azure Firewall Service Tags](../firewall/service-tags.md) doc.
-
 You can use service tags to achieve network isolation and protect your Azure resources from the general Internet while accessing Azure services that have public endpoints. Create inbound/outbound network security group rules to deny traffic to/from **Internet** and allow traffic to/from **AzureCloud** or other [available service tags](#available-service-tags) of specific Azure services.
 
 ![Network isolation of Azure services using service tags](./media/service-tags-overview/service_tags.png)
@@ -39,7 +36,7 @@ The columns indicate whether the tag:
 
 - Is suitable for rules that cover inbound or outbound traffic.
 - Supports [regional](https://azure.microsoft.com/regions) scope.
-- Is usable in [Azure Firewall](../firewall/service-tags.md) rules as a *destination* rule only.
+- Is usable in [Azure Firewall](../firewall/service-tags.md) rules as a *destination* rule only for inbound or outbound traffic.
 
 By default, service tags reflect the ranges for the entire cloud. Some service tags also allow more granular control by restricting the corresponding IP ranges to a specified region. For example, the service tag **Storage** represents Azure Storage for the entire cloud, but **Storage.WestUS** narrows the range to only the storage IP address ranges from the WestUS region. The following table indicates whether each service tag supports such regional scope. Note that the direction listed for each tag is a recommendation. For example, the AzureCloud tag may be used to allow inbound traffic. However, we don't recommend this in most scenarios since this means allowing traffic from all Azure IP's, including those used by other Azure customers. 
 
@@ -122,6 +119,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **VirtualNetwork** | The virtual network address space (all IP address ranges defined for the virtual network), all connected on-premises address spaces, [peered](virtual-network-peering-overview.md) virtual networks, virtual networks connected to a [virtual network gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json), the [virtual IP address of the host](./network-security-groups-overview.md#azure-platform-considerations), and address prefixes used on [user-defined routes](virtual-networks-udr-overview.md). This tag might also contain default routes. | Both | No | No |
 
 > [!NOTE]
+> - When using service tags with Azure Firewall, you can only create destination rules on inbound and outbound traffic. Source rules are not supported. For more information, refer to the [Azure Firewall Service Tags](../firewall/service-tags.md) doc.
 >
 > - Service tags of Azure services denote the address prefixes from the specific cloud being used. For example, the underlying IP ranges that correspond to the **Sql** tag value on the Azure Public cloud will be different from the underlying ranges on the Azure China cloud.
 >
