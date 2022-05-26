@@ -6,7 +6,7 @@ author: schaffererin
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/25/2022
+ms.date: 05/26/2022
 ms.author: v-eschaffer 
 ms.custom: devx-track-azurepowershell
 
@@ -115,7 +115,7 @@ Then, use Azure CLI or Azure PowerShell to deploy the updated Bicep file.
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
-az deployment sub create --location eastus --name customrole --template-file main.bicep --parameters actions='("Microsoft.Resources/subscriptions/resourceGroups/read", "Microsoft.Resources/subscriptions/read")' roleDefName="name-id>" roleName="Custom Role - RG Reader updated"
+az deployment sub create --location eastus --name customrole --template-file main.bicep --parameters actions='("Microsoft.Resources/subscriptions/resourceGroups/read", "Microsoft.Resources/subscriptions/read")' roleDefName="name-id" roleName="Custom Role - RG Reader updated"
 ```
 
 # [PowerShell](#tab/PowerShell)
@@ -139,7 +139,7 @@ az role definition delete --name "Custom Role - RG Reader"
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-Remove-AzRoleDefinition -Name "Custom Role - RG Reader'
+Remove-AzRoleDefinition -Name "Custom Role - RG Reader"
 ```
 
 > [!NOTE]
