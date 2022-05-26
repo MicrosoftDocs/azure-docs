@@ -31,6 +31,164 @@ Azure AD receives improvements on an ongoing basis. To stay up to date with the 
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Active Directory](whats-new-archive.md).
 
+## May 2022
+ 
+
+### New Federated Apps available in Azure AD Application gallery - May 2022
+
+**Type:** New feature  
+**Service category:** Enterprise Apps  
+**Product capability:** 3rd Party Integration  
+ 
+
+
+In May 2022 we have added the following 25 new applications in our App gallery with Federation support:
+
+[UserZoom](../saas-apps/userzoom-tutorial.md), [AMX Mobile](https://www.amxsolutions.co.uk/), [i-Sight](../saas-apps/isight-tutorial.md), [Method InSight](https://digital.methodrecycling.com/), [Chronus SAML](../saas-apps/chronus-saml-tutorial.md), [Attendant Console for Microsoft Teams](https://attendant.anywhere365.io/), [Skopenow](../saas-apps/skopenow-tutorial.md), [Fidelity PlanViewer](../saas-apps/fidelity-planviewer-tutorial.md), [Lyve Cloud](../saas-apps/lyve-cloud-tutorial.md), [Framer](../saas-apps/framer-tutorial.md), [Authomize](../saas-apps/authomize-tutorial.md), [gamba!](../saas-apps/gamba-tutorial.md), [Datto File Protection Single Sign On](../saas-apps/datto-file-protection-tutorial.md), [LONEALERT](https://portal.lonealert.co.uk/auth/azure/saml/signin), [Payfactors](https://pf.payfactors.com/client/auth/login), [deBroome Brand Portal](../saas-apps/debroome-brand-portal-tutorial.md), [TeamSlide](../saas-apps/teamslide-tutorial.md), [Sensera Systems](https://sitecloud.senserasystems.com/), [YEAP](https://prismaonline.propay.be/logon/login.aspx), [Monaca Education](https://monaca.education/ja/signup), [Personify Inc](https://personifyinc.com/login), [Phenom TXM](../saas-apps/phenom-txm-tutorial.md), [Forcepoint Cloud Security Gateway - User Authentication](../saas-apps/forcepoint-cloud-security-gateway-tutorial.md), [GoalQuest](../saas-apps/goalquest-tutorial.md), [OpenForms](https://login.openforms.com/Login).
+
+You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial,
+
+For listing your application in the Azure AD app gallery, please read the details here https://aka.ms/AzureADAppRequest
+
+
+
+ 
+
+---
+ 
+
+### General Availability - Users can make apps from URLs (add sites)
+
+**Type:** New feature  
+**Service category:** My Apps  
+**Product capability:** End User Experiences  
+ 
+
+When editing a collection using the My Apps portal, users can now add their own sites, in addition to adding apps that have been assigned to them by an admin. To add a site, users must provide a name and URL. For more information on how to use this feature, see: [Customize app collections in the My Apps portal](https://support.microsoft.com/account-billing/customize-app-collections-in-the-my-apps-portal-2dae6b8a-d8b0-4a16-9a5d-71ed4d6a6c1d).
+ 
+
+---
+ 
+
+### Public preview - New provisioning connectors in the Azure AD Application Gallery - May 2022
+
+**Type:** New feature  
+**Service category:** App Provisioning  
+**Product capability:** 3rd Party Integration  
+**Clouds impacted:** 
+ 
+
+You can now automate creating, updating, and deleting user accounts for these newly integrated apps:
+
+- [Alinto Protect](../saas-apps/alinto-protect-provisioning-tutorial.md)
+- [Blinq](../saas-apps/blinq-provisioning-tutorial.md)
+- [Cerby](../saas-apps/cerby-provisioning-tutorial.md)
+
+For more information about how to better secure your organization by using automated user account provisioning, see: [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
+ 
+
+---
+ 
+
+### Public Preview: Confirm safe and compromised in signIns API beta
+
+**Type:** New feature  
+**Service category:** Identity Protection  
+**Product capability:** Identity Security & Protection  
+ 
+
+The signIns Microsoft Graph API now supports confirming safe and compromised on risky sign-ins. This public preview functionality is available at the beta endpoint. For more information, please check out the Microsoft Graph documentation: [signIn: confirmSafe - Microsoft Graph beta | Microsoft Docs](/graph/api/signin-confirmsafe?view=graph-rest-beta&preserve-view=true)
+ 
+
+---
+ 
+
+[1199241](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1199241&triage=true&fullScreen=false&_a=edit)
+
+### Public Preview of Microsoft cloud settings for Azure AD B2B
+
+**Type:** New feature  
+**Service category:** B2B  
+**Product capability:** B2B/B2C  
+**Clouds impacted:** China;Public (M365,GCC);US Gov (GCC-H, DoD)
+ 
+
+Microsoft cloud settings let you collaborate with organizations from different Microsoft Azure clouds. With Microsoft cloud settings, you can establish mutual B2B collaboration between the following clouds:
+
+-Microsoft Azure global cloud and Microsoft Azure Government
+-Microsoft Azure global cloud and Microsoft Azure China 21Vianet
+
+To learn more about Microsoft cloud settings for B2B collaboration, see: [Cross-tenant access overview - Azure AD | Microsoft Docs](../external-identities/cross-tenant-access-overview.md#microsoft-cloud-settings).
+ 
+
+---
+ 
+
+[1277429](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1277429&triage=true&fullScreen=false&_a=edit)
+
+### General Availability of SAML and WS-Fed federation in External Identities
+
+**Type:** Changed feature  
+**Service category:** B2B  
+**Product capability:** B2B/B2C  
+**Clouds impacted:** Public (M365,GCC);US Gov (GCC-H, DoD)
+ 
+
+When setting up federation with a partner's IdP, new guest users from that domain can use their own IdP-managed organizational account to sign in to your Azure AD tenant and start collaborating with you. There's no need for the guest user to create a separate Azure AD account. To learn more about federating with SAML or WS-Fed identity providers in External Identities, see: [Federation with a SAML/WS-Fed identity provider (IdP) for B2B - Azure AD | Microsoft Docs](../external-identities/direct-federation.md).
+ 
+
+---
+ 
+
+[1419833](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1419833&triage=true&fullScreen=false&_a=edit)
+
+### Public Preview - Create Group in Administrative Unit
+
+**Type:** Changed feature  
+**Service category:** Directory Management  
+**Product capability:** Access Control  
+**Clouds impacted:** China;Public (M365,GCC);US Gov (GCC-H, DoD)
+ 
+
+Groups Administrators assigned over the scope of an administrative unit can now create groups within the administrative unit.  This enables scoped group administrators to create groups that they can manage directly, without needing to elevate to Global Administrator or Privileged Role Administrator. For more information, see: [Administrative units in Azure Active Directory](../roles/administrative-units.md).
+ 
+
+---
+ 
+
+[1262171](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1262171&triage=true&fullScreen=false&_a=edit)
+
+### Public Preview - Dynamic administrative unit support for onPremisesDistinguishedName property
+
+**Type:** Changed feature  
+**Service category:** Directory Management  
+**Product capability:** AuthZ/Access Delegation  
+**Clouds impacted:** Public (M365,GCC)
+ 
+
+The public preview of dynamic administrative units now supports the **onPremisesDistinguishedName** property for users. This makes it possible to create dynamic rules which incorporate the organizational unit of the user from on-premises AD. For more information, see: [Manage users or devices for an administrative unit with dynamic membership rules (Preview)](../roles/admin-units-members-dynamic.md).
+ 
+
+---
+ 
+
+[1468176](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=1468176&triage=true&fullScreen=false&_a=edit)
+
+### General Availability - Improvements to Azure AD Smart Lockout
+
+**Type:** Changed feature  
+**Service category:** Other  
+**Product capability:** User Management  
+**Clouds impacted:** China;Public (M365,GCC);US Gov (GCC-H, DoD);US Nat;US Sec
+ 
+
+Smart Lockout now synchronizes the lockout state across Azure AD data centers, so the total number of failed sign-in attempts allowed before an account is locked out will match the configured lockout threshold. For more information, see: [Protect user accounts from attacks with Azure Active Directory smart lockout](../authentication/howto-password-smart-lockout.md).
+ 
+
+---
+ 
+
+
 ## April 2022
 
 ### General Availability - Microsoft Defender for Endpoint Signal in Identity Protection
@@ -147,7 +305,7 @@ We highly recommend enabling this new protection when using Azure AD Multi-Facto
 **Service category:** Enterprise Apps  
 **Product capability:** Third Party Integration
 
-In April 2022 we added the following 24 new applications in our App gallery with Federation support
+In April 2022 we added the following 24 new applications in our App gallery with Federation support:
 [X-1FBO](https://www.x1fbo.com/), [select Armor](https://app.clickarmor.ca/), [Smint.io Portals for SharePoint](https://www.smint.io/portals-for-sharepoint/), [Pluto](../saas-apps/pluto-tutorial.md), [ADEM](../saas-apps/adem-tutorial.md), [Smart360](../saas-apps/smart360-tutorial.md), [MessageWatcher SSO](https://messagewatcher.com/), [Beatrust](../saas-apps/beatrust-tutorial.md), [AeyeScan](https://aeyescan.com/azure_sso), [ABa Customer](https://abacustomer.com/), [Twilio Sendgrid](../saas-apps/twilio-sendgrid-tutorial.md), [Vault Platform](../saas-apps/vault-platform-tutorial.md), [Speexx](../saas-apps/speexx-tutorial.md), [Clicksign](https://app.clicksign.com/signin), [Per Angusta](../saas-apps/per-angusta-tutorial.md), [EruditAI](https://dashboard.erudit.ai/login), [MetaMoJi ClassRoom](https://business.metamoji.com/), [Numici](https://app.numici.com/), [MCB.CLOUD](https://identity.mcb.cloud/Identity/Account/Manage), [DepositLink](https://depositlink.com/external-login), [Last9](https://auth.last9.io/auth), [ParkHere Corporate](../saas-apps/parkhere-corporate-tutorial.md), [Keepabl](../saas-apps/keepabl-tutorial.md), [Swit](../saas-apps/swit-tutorial.md)
 
 You can also find the documentation of all the applications from here https://aka.ms/AppsTutorial.
