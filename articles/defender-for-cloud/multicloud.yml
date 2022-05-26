@@ -50,10 +50,17 @@ landingContent:
             url: https://docs.microsoft.com/en-us/azure/defender-for-cloud/file-integrity-monitoring-overview.md
           - text: Scan your AWS virtual machines for vulnerabilities
             url: https://docs.microsoft.com/en-us/azure/defender-for-cloud/deploy-vulnerability-assessment-vm.md
+          - text: Create custom assessments and standards for AWS workloads
+            url: https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/custom-assessments-and-standards-in-microsoft-defender-for-cloud/ba-p/3066575
+      - linkListType: video
+        links:
+          - text: How to connect AWS to Microsoft Defender for Cloud
+            url: https://youtu.be/LHwgEFXT3kQ
       - linkListType: reference
         links:
           - text: Security recommendations for AWS resources
             url: https://docs.microsoft.com/en-us/azure/defender-for-cloud/recommendations-reference-aws.md
+
   # Card
   - title: Defend Google GCP resources
     linkLists:
@@ -73,6 +80,14 @@ landingContent:
             url: https://docs.microsoft.com/en-us/azure/defender-for-cloud/quickstart-onboard-gcp.md?pivots=env-settings
           - text: Protect your GCP GKE containers with Defender for Containers
             url: https://docs.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-enable.md?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-gke
+      - linkListType: how-to-guide
+        links:
+          - text: Create custom assessments and standards for GCP workloads
+            url: https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/custom-assessments-and-standards-in-microsoft-defender-for-cloud/ba-p/3251252
+      - linkListType: video
+        links:
+          - text: How to connect GCP to Microsoft Defender for Cloud
+            url: https://youtu.be/6BpXG3EHoMo
       # - linkListType: reference
       #   links:
       #     - text: Security recommendations for GCP resources
