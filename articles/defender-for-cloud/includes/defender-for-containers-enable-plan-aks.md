@@ -172,7 +172,7 @@ Request body parameters:
     kubectl get pods -n azuredefender
     ```
 
-    When the profile is added, you should see a pod called `azuredefender-XXXXX` in `Running` state. It might take a few minutes for the pods to be added.
+    When the profile is added, you should see a pod called `azuredefender-XXXXX` in `Running` state. It might take a few minutes for pods to be added.
 
 ### [**Resource Manager**](#tab/aks-deploy-arm)
 
