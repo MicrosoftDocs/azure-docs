@@ -121,7 +121,6 @@ This section describes how the packet core instance uses policy control configur
 |PDU session | PDN connection |
 |QoS flow | EPS bearer |
 | gNodeB | eNodeB |
-| QFI | EBI |
 
 During PDU session establishment, the packet core instance takes the following steps:
 
