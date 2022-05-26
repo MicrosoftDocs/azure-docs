@@ -59,4 +59,4 @@ You can associate Active Directory groups defined here with specific permission 
 
 ## Next steps
 
-For more information, see [how to create and manage users](/azure/defender-for-iot/organizations/how-to-create-and-manage-users).
+For more information, see [how to create and manage users](./how-to-create-and-manage-users.md).

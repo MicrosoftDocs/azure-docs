@@ -28,30 +28,16 @@ Draft has the following commands to help ease your development on Kubernetes:
 - Install the latest version of the [Azure CLI](/cli/azure/install-azure-cli-windows) and the *aks-preview* extension.
 - If you don't have one already, you need to create an [AKS cluster][deploy-cluster].
 
-### Install the `AKS-Draft` extension preview
+### Install the `aks-preview` Azure CLI extension
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-To create an AKS cluster that can use the Draft extension, you must enable the `AKS-ExtensionManager` and `AKS-Draft` feature flags on your subscription.
-
-Register the `AKS-ExtensionManager` and `AKS-Draft` feature flags by using the [az feature register][az-feature-register] command, as shown in the following example:
-
 ```azurecli-interactive
-az extension add --name draft
-```
+# Install the aks-preview extension
+az extension add --name aks-preview
 
-### Set up the Azure CLI extension for cluster extensions
-
-You'll also need the `k8s-extension` Azure CLI extension, which can be installed by running the following command:
-  
-```azurecli-interactive
-az extension add --name k8s-extension
-```
-
-If the `k8s-extension` extension is already installed, you can update it to the latest version using the following command:
-
-```azurecli-interactive
-az extension update --name k8s-extension
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
 ```
 
 ## Create artifacts using `draft create`
@@ -104,12 +90,20 @@ You can also run the command on a specific directory using the `--destination` f
 az aks draft up --destination /Workspaces/ContosoAir
 ```
 
-## Delete the extension
+## Use Web Application Routing with Draft to make your application accessible over the internet
 
-To delete the extension and remove Draft from your AKS cluster, you can use the following command: 
+[Web Application Routing][web-app-routing] is the easiest way to get your web application up and running in Kubernetes securely, removing the complexity of ingress controllers and certificate and DNS management while offering configuration for enterprises looking to bring their own. Web Application Routing offers a managed ingress controller based on nginx that you can use without restrictions and integrates out of the box with Open Service Mesh to secure intra-cluster communications.
+
+To set up Draft with Web Application Routing, use `az aks draft update` and pass in the DNS name and Azure Key Vault-stored certificate when prompted:
 
 ```azure-cli-interactive
-az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSCluster --cluster-type managedClusters --name draft
+az aks draft update
+```
+
+You can also run the command on a specific directory using the `--destination` flag:
+
+```azure-cli-interactive
+az aks draft update --destination /Workspaces/ContosoAir
 ```
 
 <!-- LINKS INTERNAL -->
@@ -120,3 +114,5 @@ az k8s-extension delete --resource-group myResourceGroup --cluster-name myAKSClu
 [sample-application]: ./quickstart-dapr.md
 [k8s-version-support-policy]: ./supported-kubernetes-versions.md?tabs=azure-cli#kubernetes-version-support-policy
 [web-app-routing]: web-app-routing.md
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update

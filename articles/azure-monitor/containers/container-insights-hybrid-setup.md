@@ -39,7 +39,7 @@ Before you start, make sure that you have the following:
 
 - You are a member of the **Log Analytics contributor role** to enable container monitoring. For more information about how to control access to a Log Analytics workspace, see [Manage access to workspace and log data](../logs/manage-access.md).
 
-- To view the monitoring data, you need to have [*Log Analytics reader*](../logs/manage-access.md#manage-access-using-azure-permissions) role in the Log Analytics workspace, configured with Container insights.
+- To view the monitoring data, you need to have [*Log Analytics reader*](../logs/manage-access.md#azure-rbac) role in the Log Analytics workspace, configured with Container insights.
 
 - [HELM client](https://helm.sh/docs/using_helm/) to onboard the Container insights chart for the specified Kubernetes cluster.
 

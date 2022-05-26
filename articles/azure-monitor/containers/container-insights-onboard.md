@@ -7,10 +7,10 @@ ms.date: 05/24/2022
 ---
 
 # Enable Container insights
-This article provides an overview of the requirements and options that are available for setting up Container insights to monitor the performance of workloads that are deployed to Kubernetes environments. You can enable Container insights for a new deployment or for one or more existing deployments of Kubernetes by using a number of supported methods.
+This article provides an overview of the requirements and options that are available for configuring Container insights to monitor the performance of workloads that are deployed to Kubernetes environments. You can enable Container insights for a new deployment or for one or more existing deployments of Kubernetes by using a number of supported methods.
 
 ## Supported configurations
-Container insights officially supports the following environments:
+Container insights supports the following environments:
 
 - [Azure Kubernetes Service (AKS)](../../aks/index.yml)  
 - [Azure Arc-enabled Kubernetes cluster](../../azure-arc/kubernetes/overview.md)
@@ -26,15 +26,15 @@ The versions of Kubernetes and support policy are the same as those [supported i
 ## Prerequisites
 Before you start, make sure that you've met the following requirements:
 
-### Log Analytics workspace
+**Log Analytics workspace**
 Container insights supports a [Log Analytics workspace](../logs/log-analytics-workspace-overview.md) in the regions that are listed in [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). For a list of the supported mapping pairs to use for the default workspace, see [Region mappings supported by Container insights](container-insights-region-mapping.md).
 
 You can let the onboarding experience create a default workspace in the default resource group of the AKS cluster subscription. If you already have a workspace though, then you will most likely want to use that one. See [Designing your Azure Monitor Logs deployment](../logs/design-logs-deployment.md) for details.
 
-- An AKS cluster can be attached to a Log Analytics workspace in a different Azure subscription in the same Azure AD Tenant. This cannot currently be done with the Azure Portal, but can be done with Azure CLI or Resource Manager template.
+An AKS cluster can be attached to a Log Analytics workspace in a different Azure subscription in the same Azure AD Tenant. This cannot currently be done with the Azure Portal, but can be done with Azure CLI or Resource Manager template.
 
 
-### Permissions
+**Permissions**
 To enable container monitoring, you require the following permissions:
 
 - Member of the [Log Analytics contributor](../logs/manage-access.md#manage-access-using-azure-permissions) role.
@@ -44,10 +44,10 @@ To enable container monitoring, you require the following permissions:
 
 - Member of [Log Analytics reader](../logs/manage-access.md#manage-access-using-azure-permissions) role if you aren't already a member of [Log Analytics contributor](../logs/manage-access.md#manage-access-using-azure-permissions).
 
-### Promethues
+**Promethues**
 Prometheus metrics aren't collected by default. Before you [configure the agent](container-insights-prometheus-integration.md) to collect the metrics, it's important to review the [Prometheus documentation](https://prometheus.io/) to understand what data can be scraped and what methods are supported.
 
-### Kubelet secure port
+**Kubelet secure port**
 Log Analytics Containerized Linux Agent (replicaset pod) makes API calls to all the Windows nodes on Kubelet Secure Port (10250) within the cluster to collect Node and Container Performance related Metrics. Kubelet secure port (:10250) should be opened in the cluster's virtual network for both inbound and outbound for Windows Node and container performance related metrics collection to work.
 
 If you have a Kubernetes cluster with Windows nodes, then please review and configure the Network Security Group and Network Policies to make sure the Kubelet secure port (:10250) is opened for both inbound and outbound in cluster's virtual network.

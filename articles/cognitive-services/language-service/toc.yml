@@ -112,6 +112,16 @@ items:
         href: https://aka.ms/ct-authoring-apis
       - name: Runtime prediction API
         href: https://aka.ms/ct-runtime-api
+    - name: SDK samples
+      items:
+      - name: Java
+        href: https://aka.ms/sdk-samples-java
+      - name: JavaScript
+        href: https://aka.ms/sdk-samples-java-script
+      - name: C#
+        href:  https://aka.ms/sdk-samples-dot-net
+      - name: Python
+        href:  https://aka.ms/sdk-samples-python
 - name: Custom named entity recognition (NER)
   items:
   - name: Overview
@@ -188,6 +198,16 @@ items:
         href: https://aka.ms/ct-authoring-apis
       - name: Runtime prediction API
         href: https://aka.ms/ct-runtime-api
+      - name: SDK samples
+        items:
+        - name: Java
+          href: https://aka.ms/sdk-samples-java
+        - name: JavaScript
+          href: https://aka.ms/sdk-samples-java-script
+        - name: C#
+          href:  https://aka.ms/sdk-samples-dot-net
+        - name: Python
+          href:  https://aka.ms/sdk-samples-python
 - name: Conversational language understanding
   items:
   - name: Overview
@@ -208,7 +228,7 @@ items:
         href: conversational-language-understanding/how-to/tag-utterances.md
       - name: Train a model
         href: conversational-language-understanding/how-to/train-model.md
-      - name: View model evaluation
+      - name: View model performance
         href: conversational-language-understanding/how-to/view-model-evaluation.md
       - name: Deploy a model
         href: conversational-language-understanding/how-to/deploy-model.md
@@ -218,7 +238,7 @@ items:
         href: conversational-language-understanding/how-to/fail-over.md
   - name: Concepts
     items:
-      - name: Backwards compatibility
+      - name: Backwards compatibility with LUIS
         href: conversational-language-understanding/concepts/backwards-compatibility.md
       - name: Entity components
         href: conversational-language-understanding/concepts/entity-components.md
@@ -228,8 +248,6 @@ items:
         href: conversational-language-understanding/concepts/data-formats.md
       - name: None intent
         href: conversational-language-understanding/concepts/none-intent.md
-      - name: Using multiple languages
-        href: conversational-language-understanding/concepts/multiple-languages.md
       - name: Enterprise readiness
         items: 
         - name: Virtual networks
@@ -256,6 +274,11 @@ items:
         href: https://aka.ms/clu-authoring-apis
       - name: Runtime prediction API
         href: https://aka.ms/clu-runtime-api
+        items:
+        - name: C#
+          href:  https://aka.ms/sdk-sample-conversation-dot-net
+        - name: Python
+          href:   https://aka.ms/sdk-samples-conversation-python
 - name: Entity linking
   items:
   - name: Overview
@@ -507,23 +530,23 @@ items:
   items:
   - name: Overview
     href: orchestration-workflow/overview.md
-  - name: FAQ
-    href: orchestration-workflow/faq.md
   - name: Quickstart
     href: orchestration-workflow/quickstart.md
+  - name: FAQ
+    href: orchestration-workflow/faq.md
   - name: Language support
     href: orchestration-workflow/language-support.md
   - name: How-to guides
     items:
-      - name: Build schema
-        href: orchestration-workflow/how-to/build-schema.md
       - name: Create project
         href: orchestration-workflow/how-to/create-project.md
+      - name: Build schema
+        href: orchestration-workflow/how-to/build-schema.md
       - name: Label utterances
         href: orchestration-workflow/how-to/tag-utterances.md
       - name: Train a model
         href: orchestration-workflow/how-to/train-model.md
-      - name: View model evaluation
+      - name: View model performance
         href: orchestration-workflow/how-to/view-model-evaluation.md
       - name: Deploy a model
         href: orchestration-workflow/how-to/deploy-model.md
@@ -541,6 +564,14 @@ items:
         href: orchestration-workflow/concepts/none-intent.md
       - name: Data formats
         href: orchestration-workflow/concepts/data-formats.md
+  - name: Enterprise readiness
+    items: 
+    - name: Virtual networks
+      href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/language-service/context/context
+    - name: Cognitive Services security
+      href: ../cognitive-services-security.md?context=/azure/cognitive-services/language-service/context/context
+    - name: Encryption of data at rest
+      href: concepts/encryption-data-at-rest.md
   - name: Tutorials
     items:
       - name: Connect conversational language understanding and custom question answering
@@ -557,6 +588,11 @@ items:
         href: https://aka.ms/clu-authoring-apis
       - name: Runtime prediction API
         href: https://aka.ms/clu-runtime-api
+        items:
+        - name: C#
+          href:  https://aka.ms/sdk-sample-conversation-dot-net
+        - name: Python
+          href:   https://aka.ms/sdk-samples-conversation-python
 - name: Personally Identifying Information (PII) detection
   items:
   - name: Overview
@@ -580,14 +616,10 @@ items:
     items:
     - name: Call PII
       href: personally-identifiable-information/how-to-call.md
-    - name: Call PII for Conversation (preview)
-      href: personally-identifiable-information/how-to-call-for-conversations.md
   - name: Concepts
     items:
     - name: Recognized entity categories
-      href: personally-identifiable-information/concepts/entity-categories.md
-    - name: Recognized entity categories for conversation
-      href: personally-identifiable-information/concepts/conversations-entity-categories.md  
+      href: personally-identifiable-information/concepts/entity-categories.md 
   - name: Reference
     items:
     - name: REST API
