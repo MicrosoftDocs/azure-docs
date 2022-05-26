@@ -19,9 +19,9 @@ We recommend that you call the Cost Management APIs no more than once per day. C
 
 To enable a consistent experience for all Cost Management subscribers, Cost Management APIs are rate limited. When you reach the limit, you receive the HTTP status code `429: Too many requests`. Wait a while before you call again.
 
-## Cost Details API Rate Limits
+## Cost Details API rate limits
 
-Here are the rate limits for the [Cost Details API - UNPUBLISHED]().
+Here are the rate limits for the [Cost Details API - UNPUBLISHED](../index.yml).
 
 | Program | Scope | Limit | Rate Limit | Comments |
 | --- | --- | --- | --- | --- |
@@ -59,11 +59,11 @@ You might need to pull data across many different scopes or subscopes. Examples 
 
 For example, customers need to seed a 13 month historical dataset for a given scope, such as a Billing Account. If so, we recommend placing a call for data 1 month at a time. If your dataset is too large, then we recommend reducing the date range until the data size is manageable for your workloads. Decreasing your date range will affect the time it will take for you to fully ingest the dataset. If you need to chunk your data per day, then it will take about eight days for you to fully ingest your data. If you have a 30-GB month-over-month dataset, then a 13 month historical dataset will be around 390 GB.
 
-### Rate Limited URI Examples
+### Rate-limited URI examples
 
 Examples below show which API calls would apply to the rate limits outlined in the rate limit table above.
 
-#### Legacy/Modern - All scopes - Per distinct scope
+#### Legacy/Modern - all scopes - per distinct scope
 ```http
 https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/providers/Microsoft.CostManagement/CostDetails?api-version=2022-05-01
 ```
@@ -80,25 +80,25 @@ https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billin
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.CostManagement/CostDetails?api-version=2022-05-01
 ```
 
-#### Legacy/Modern: CostDetailsOperation - All scopes - Per operation ID
+#### Legacy/Modern - CostDetailsOperation - all scopes - per operation ID
 
 ```http
 https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/{enrollmentAccountId}/providers/Microsoft.CostManagement/CostDetailsOperationStatus/{operationId}?api-version=2022-05-01
 ```
 
-#### Legacy/Modern - Subscription scope - Per tenant ID
+#### Legacy/Modern - subscription scope - per tenant ID
 
 ```http
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.CostManagement/CostDetails?api-version=2022-05-01
 ```
 
-#### Legacy/Modern - Subscription scope - Per Billing Account
+#### Legacy/Modern - subscription scope - per billing account
 
 ```http
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.CostManagement/CostDetails?api-version=2022-05-01
 ```
 
-#### Legacy/Modern - All Non-subscription scope - Per Billing Account
+#### Legacy/Modern - all non-subscription scope - per billing account
 
 ```http
 https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/providers/Microsoft.CostManagement/CostDetails?api-version=2022-05-01
@@ -112,9 +112,9 @@ https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billin
 https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/customers/{customerId}/providers/Microsoft.CostManagement/CostDetails?api-version=2022-05-01
 ```
 
-## Consumption Usage Details API Rate Limits
+## Consumption Usage Details API rate limits
 
-Rate limits for the [Consumption Usage Details API]() are outlined below. The API should only be used by legacy pay-as-you-go users. If you're an Enterprise or Microsoft Customer Agreement user, you should use the Cost Details API or Exports.
+Rate limits for the [Consumption Usage Details API](/rest/api/consumption/usage-details) are outlined below. The API should only be used by legacy pay-as-you-go users. If you're an Enterprise or Microsoft Customer Agreement user, you should use the [Cost Details API - UNPUBLISHED](../index.yml) or [Exports](../costs/tutorial-export-acm-data.md).
 
 |Program|Scope|Limit|Rate Limit|Comments|
 |----|----|----|----|----|
@@ -125,46 +125,46 @@ Rate limits for the [Consumption Usage Details API]() are outlined below. The AP
 |EA|Per Billing Account|Per Billing Account|6 calls/minute | |
 |EA|Per Department|Per Department|2 calls/minute | |
 |EA|Per EnrollmentAccount|Per EnrollmentAccount|2 calls/minute | |
-|EA/MCA|All|Per unique skipToken|2 calls/minute |Usage Details provide next link with a URI including skip token. Here unique skip token calls are being considered next page calls that have unique skip token. Every next link URI is considered as unique skip token call|
+|EA/MCA|All|Per unique skipToken|2 calls/minute |Usage Details provide next link with a URI including skip token. Here unique skip token calls are being considered next page calls that have unique skip token. Every next link URI is considered as unique skip token call.|
 |EA/MCA|Subscription Scope|Per Tenant ID|10 calls/minute |Across all subscriptions at a unique tenant ID level|
 
-## Charges API Rate Limits
+## Charges API rate limits
 
-Rate limits for the [Charges API]() are outlined below.
+Rate limits for the [Charges API](/rest/api/consumption/charges) are outlined below.
 
 | Program | Scope | Limit | Rate Limit | Comments |
 | --- | --- | --- | --- | --- |
 | EA/MCA | All scopes | Per tenant | 125 calls / minute |   |
 | EA/MCA | Billing account | Per billing account | 20 calls / minute |  |
 
-## Price Sheet API Rate Limits
+## Price Sheet API rate limits
 
-Rate limits for the [Price Sheet API]() are outlined below.
-
-| Program | Scope | Limit | Rate Limit | Comments |
-| --- | --- | --- | --- | --- |
-| EA/MCA | Billing Account and Subscription | Per Billing Account | 30 calls / minute |  |
-| EA/MCA | Billing Account and Subscription | Per Subscription | 150 calls / minute |  |
-
-## Reservation Utilization Summaries API Rate Limits
-
-Rate limits for the [Reservation Utilization Summaries API]() are outlined below.
+Rate limits for the [Price Sheet API](/rest/api/consumption/price-sheet) are outlined below.
 
 | Program | Scope | Limit | Rate Limit | Comments |
 | --- | --- | --- | --- | --- |
-| EA/MCA |  | Per distinct URL | 10 calls / minute | Across all scopes for a given URL + user (tenantID + objectID) |
+| EA/MCA | Billing account and subscription | Per billing account | 30 calls / minute |  |
+| EA/MCA | Billing account and subscription | Per subscription | 150 calls / minute |  |
 
-## Reservation Utilization Details API Rate Limits
+## Reservation Utilization Summaries API rate limits
 
-Rate limits for the [Reservation Utilization Details API]() are outlined below.
+Rate limits for the [Reservation Utilization Summaries API](/rest/api/consumption/reservations-summaries) are outlined below.
 
 | Program | Scope | Limit | Rate Limit | Comments |
 | --- | --- | --- | --- | --- |
 | EA/MCA |  | Per distinct URL | 10 calls / minute | Across all scopes for a given URL + user (tenantID + objectID) |
 
-## Reservation Transactions API Rate Limits
+## Reservation Utilization Details API rate limits
 
-Rate limits for the [Reservation Transactions API]() are outlined below.
+Rate limits for the [Reservation Utilization Details API](/rest/api/consumption/reservations-details) are outlined below.
+
+| Program | Scope | Limit | Rate Limit | Comments |
+| --- | --- | --- | --- | --- |
+| EA/MCA |  | Per distinct URL | 10 calls / minute | Across all scopes for a given URL + user (tenantID + objectID) |
+
+## Reservation Transactions API rate limits
+
+Rate limits for the [Reservation Transactions API](/rest/api/consumption/reservation-transactions) are outlined below.
 
 | Program | Scope | Limit | Rate Limit | Comments |
 | --- | --- | --- | --- | --- |
