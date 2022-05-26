@@ -86,7 +86,7 @@ Yes, only for predictions, and samples are available for [python](https://aka.ms
 |Standard training     | Faster training times for quicker model iteration.        | Can only train projects in English.        | Included in your [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/).        |
 |Advanced training     | Slower training times using fine-tuned neural network transformer models.        | Can train [multilingual projects](language-support.md#multi-lingual-option).         | May incur [additional charges](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/).
 
-See [training modes](how-to/train-model#training-modes) for more information.
+See [training modes](how-to/train-model.md#training-modes) for more information.
 
 ## Are there APIs for this feature?
 
