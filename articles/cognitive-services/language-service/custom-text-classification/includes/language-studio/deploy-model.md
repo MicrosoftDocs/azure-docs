@@ -5,16 +5,16 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.custom: event-tier1-build-2022
 ms.topic: include
-ms.date: 04/22/2022
+ms.date: 05/24/2022
 ms.author: aahi
 ---
 
 
 To deploy your model from within the [Language Studio](https://aka.ms/LanguageStudio):
 
-1. Select **Deploy model** from the left side menu.
+1. Select **Deploying a model** from the left side menu.
 
-2. Click on **Start deployment job** to start a new deployment job.
+2. Click on **Add deployment** to start a new deployment job.
 
     :::image type="content" source="../../media/deploy-model.png" alt-text="A screenshot showing the deployment button" lightbox="../../media/deploy-model.png":::
 
