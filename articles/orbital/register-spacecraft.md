@@ -1,11 +1,11 @@
 ---
-title: 'Register Spacecraft on Azure Orbital Earth Observation service' 
+title: Register Spacecraft on Azure Orbital Earth Observation service
 description: 'Quickstart: Register Spacecraft'
 author: wamota
 ms.service: orbital
 ms.topic: quickstart
 ms.custom: ga
-ms.date: 05/25/2022
+ms.date: 05/26/2022
 ms.author: wamota
 # Customer intent: As a satellite operator, I want to ingest data from my satellite into Azure.
 ---

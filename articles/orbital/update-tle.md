@@ -1,16 +1,16 @@
 ---
-title: 'Update the spacecraft TLE on Azure Orbital Earth Observation service' 
-description: 'Update the spacecraft TLE'
+title: Update the spacecraft TLE on Azure Orbital Earth Observation service
+description: Update the TLE of an existing spacecraft resource.
 author: wamota
 ms.service: orbital
 ms.topic: tutorial
-ms.custom: public-preview
-ms.date: 11/16/2021
+ms.custom: ga
+ms.date: 05/26/2022
 ms.author: wamota
 # Customer intent: As a satellite operator, I want to ingest data from my satellite into Azure.
 ---
 
-# Update the spacecraft TLE
+# Tutorial: Update the spacecraft TLE
 
 Update the TLE of an existing spacecraft resource.
 
@@ -18,10 +18,6 @@ Update the TLE of an existing spacecraft resource.
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A registered spacecraft. Learn more on how to [register spacecraft](register-spacecraft.md).
-
-## Sign in to Azure
-
-Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 
 ## Update the spacecraft TLE
 
@@ -33,8 +29,8 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
     | **Field** | **Value** |
     | --- | --- |
     | TLE title line | Spacecraft updated TLE Title Line |
-    | TLE Line 1 | Spacecraft updated TLE Line 1 |
-    | TLE Line 2 | Spacecraft updated TLE Line 2 |
+    | TLE Line 1 | Updated TLE Line 1 |
+    | TLE Line 2 | Updated TLE Line 2 |
 
     :::image type="content" source="media/orbital-eos-ephemeris.png" alt-text="Spacecraft TLE update" lightbox="media/orbital-eos-ephemeris.png":::
 
