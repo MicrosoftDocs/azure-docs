@@ -156,7 +156,7 @@ If PIM is enabled, you have additional capabilities, such as making a user eligi
     $roleAssignmentEligible = Open-AzureADMSPrivilegedRoleAssignmentRequest -ProviderId 'aadRoles' -ResourceId $aadTenant.Id -RoleDefinitionId $roleDefinition.Id -SubjectId $user.objectId -Type 'AdminAdd' -AssignmentState 'Eligible' -schedule $schedule -reason "Review billing info"
     ```
 
-## Microsoft Graph PIM API
+## Microsoft Graph API
 
 Follow these instructions to assign a role using the Microsoft Graph PIM API.
 
