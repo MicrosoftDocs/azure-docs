@@ -21,7 +21,7 @@ Create a **POST** request using the following URL, headers, and JSON body to sta
 |Placeholder  |Value  | Example |
 |---------|---------|---------|
 |`{ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
-|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest released [model version](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data). | `2022-03-01-preview` |
+|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest released [model version](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data). | `2022-05-01` |
 
 
 ### Headers
@@ -36,20 +36,19 @@ Use the following header to authenticate your request.
 
 ```json
 {
-    "kind": "CustomConversation",
-    "analysisInput": {
-        "conversationItem": {
-            "participantId":"{JOB-NAME}",
-            "id":"{JOB-NAME}",
-            "modality":"text",
-            "text":"{TEST-UTTERANCE}",
-            "language":"{LANGUAGE-CODE}",
-        }
-    },
-    "parameters": {
-        "projectName": "{PROJECT-NAME}",
-        "deploymentName": "{DEPLOYMENT-NAME}"
-        }
+  "kind": "Conversation",
+  "analysisInput": {
+    "conversationItem": {
+      "id": "1",
+      "participantId": "1",
+      "text": "Text 1"
+    }
+  },
+  "parameters": {
+    "projectName": "{PROJECT-NAME}",
+    "deploymentName": "{DEPLOYMENT-NAME}",
+    "stringIndexType": "TextElement_V8"
+  }
 }
 ```
 
@@ -59,8 +58,6 @@ Use the following header to authenticate your request.
 | `participantId` | `{JOB-NAME}` |  | `"MyJobName` |
 | `id` | `{JOB-NAME}` |  | `"MyJobName` |
 | `text` | `{TEST-UTTERANCE}` | The utterance that you want to predict its intent and extract entities from. | `"Read Matt's email` |
-| `language` | `{LANGUAGE-CODE}` | A string specifying the language code for the utterance submitted. Learn more about supported language codes [here](../../language-support.md) |`en-us`|
-| `id` | `{JOB-NAME}` |  | `"MyJobName` |
 | `projectName` | `{PROJECT-NAME}` | The name of your project. This value is case-sensitive.   | `myProject` |
 | `deploymentName` | `{DEPLOYMENT-NAME}` | The name of your deployment. This value is case-sensitive.  | `staging` |
 
@@ -70,33 +67,37 @@ Once you send the request, you will get the following response for the predictio
 
 ```json
 {
-    "kind": "CustomConversationResult",
-    "results": {
-        "query": "Read Matt's email",
-        "prediction": {
-            "projectKind": "conversation",
-            "topIntent": "Read",
-            "intents": [
-                {
-                    "category": "Read",
-                    "confidenceScore": 0.9403077
-                },
-                {
-                    "category": "Delete",
-                    "confidenceScore": 0.016843017
-                },
-            ],
-            "entities": [
-                {
-                    "category": "SenderName",
-                    "text": "Matt",
-                    "offset": 5,
-                    "length": 4,
-                    "confidenceScore": 1
-                }
-            ]
+  "kind": "ConversationResult",
+  "result": {
+    "query": "Text1",
+    "prediction": {
+      "topIntent": "inten1",
+      "projectKind": "Conversation",
+      "intents": [
+        {
+          "category": "intent1",
+          "confidenceScore": 1
+        },
+        {
+          "category": "intent2",
+          "confidenceScore": 0
+        },
+        {
+          "category": "intent3",
+          "confidenceScore": 0
         }
+      ],
+      "entities": [
+        {
+          "category": "entity1",
+          "text": 'text1",
+          "offset": 29,
+          "length": 12,
+          "confidenceScore": 1
+        }
+      ]
     }
+  }
 }
 ```
 
