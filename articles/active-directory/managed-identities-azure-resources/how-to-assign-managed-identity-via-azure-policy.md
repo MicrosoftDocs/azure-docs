@@ -16,7 +16,6 @@ ms.collection: M365-identity-device-management
 
 # [Preview] Use Azure Policy to assign managed identities
 
-## Overview
 
 [Azure Policy](../../governance/policy/overview.md) helps enforce organizational standards and assess compliance at scale. Through its compliance dashboard, Azure policy provides an aggregated view that helps administrators evaluate the overall state of the environment. You have the ability to drill down to the per-resource, per-policy granularity. It also helps bring your resources to compliance through bulk remediation for existing resources and automatic remediation for new resources. Common use cases for Azure Policy include implementing governance for:
 
@@ -24,7 +23,8 @@ ms.collection: M365-identity-device-management
 - Regulatory compliance
 - Security
 - Cost
-- Management. 
+- Management
+
 
 Policy definitions for these common use cases are already available in your Azure environment to help you get started. 
 
@@ -49,7 +49,9 @@ When executed, the policy takes the following actions:
 1.	Create, if not exist, a new built-in user-assigned managed identity in the subscription and each Azure region based on the VMs that are in scope of the policy. 
 2.	Once created, put a lock on the user-assigned managed identity so that it will not be accidentally deleted. 
 3.	Assign the built-in user-assigned managed identity to Virtual Machines from the subscription and region based on the VMs that are in scope of the policy. 
+> [!NOTE]
 > If the Virtual Machine has exactly 1 user-assigned managed identity already assigned, then the policy skips this VM to assign the built-in identity. This is to make sure assignment of the policy does not break applications that take a dependency on [the default behavior of the token endpoint on IMDS.](managed-identities-faq.md#what-identity-will-imds-default-to-if-dont-specify-the-identity-in-the-request)
+
 
 There are two scenarios to use the policy: 
 
@@ -99,5 +101,6 @@ Possible race condition with another deployment that changes the identities assi
 If there are two or more parallel deployments updating the same virtual machine and they all change the identity configuration of the virtual machine, then it is possible, under specific race conditions, that all expected identities will NOT be assigned to the machines. 
 For example, if you the policy in this document is updating the managed identities of a VM and at the same time another process is also making changes to the managed identities section, then it is not guranteed that all the expected identities are proerly assigned to the VM. 
 
-## Next Steps
+## Next steps
+
 - [Deploy Azure Monitoring Agent](../../azure-monitor/overview.md)
