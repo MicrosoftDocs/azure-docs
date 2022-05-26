@@ -73,32 +73,32 @@ Two Azure resources are defined in the template:
 
 ## Deploy the template
 
-To deploy the template, follow these steps:
+To deploy the template, use the following steps.
 
-1. Select the following image to sign in to Azure and open a template. The template creates an Azure Spring Apps instance in an existing Virtual Network and a workspace-based Application Insights instance in an existing Azure Monitor Log Analytics Workspace.
+First, select the following image to sign in to Azure and open a template. The template creates an Azure Spring Apps instance in an existing Virtual Network and a workspace-based Application Insights instance in an existing Azure Monitor Log Analytics Workspace.
 
-   ### [Standard tier](#tab/azure-spring-apps-standard)
+### [Standard tier](#tab/azure-spring-apps-standard)
 
-   :::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy the ARM template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-spring-cloud-reference-architecture%2Fmain%2FARM%2Fbrownfield-deployment%2fazuredeploySpringStandard.json":::
+:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy the ARM template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-spring-cloud-reference-architecture%2Fmain%2FARM%2Fbrownfield-deployment%2fazuredeploySpringStandard.json":::
 
-   ### [Enterprise tier](#tab/azure-spring-apps-enterprise)
+### [Enterprise tier](#tab/azure-spring-apps-enterprise)
 
-   :::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy the ARM template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-spring-cloud-reference-architecture%2Fmain%2FARM%2Fbrownfield-deployment%2fazuredeploySpringEnterprise.json":::
+:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy the ARM template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-spring-cloud-reference-architecture%2Fmain%2FARM%2Fbrownfield-deployment%2fazuredeploySpringEnterprise.json":::
 
-   ---
+---
 
-1. Enter values for the following fields:
+Next, enter values for the following fields:
 
-   * **Resource Group:** Select **Create new**, enter a unique name for the **resource group**, and then select **OK**.
-   * **springCloudInstanceName:** Enter the name of the Azure Spring Apps resource.
-   * **appInsightsName:** Enter the name of the Application Insights instance for Azure Spring Apps.
-   * **laWorkspaceResourceId:** Enter the resource ID of the existing Log Analytics workspace (for example, */subscriptions/\<your subscription>/resourcegroups/\<your log analytics resource group>/providers/Microsoft.OperationalInsights/workspaces/\<your log analytics workspace name>*.)
-   * **springCloudAppSubnetID:** Enter the resource ID of the Azure Spring Apps Application Subnet.
-   * **springCloudRuntimeSubnetID:** Enter the resource ID of the Azure Spring Apps Runtime Subnet.
-   * **springCloudServiceCidrs:** Enter a comma-separated list of IP address ranges (three in total) in CIDR format. The IP ranges are reserved to host underlying Azure Spring Apps infrastructure. These three ranges should be at least */16* unused IP ranges, and must not overlap with any routable subnet IP ranges used within the network.
-   * **tags:** Enter any custom tags.
+* **Resource Group:** Select **Create new**, enter a unique name for the **resource group**, and then select **OK**.
+* **springCloudInstanceName:** Enter the name of the Azure Spring Apps resource.
+* **appInsightsName:** Enter the name of the Application Insights instance for Azure Spring Apps.
+* **laWorkspaceResourceId:** Enter the resource ID of the existing Log Analytics workspace (for example, */subscriptions/\<your subscription>/resourcegroups/\<your Log Analytics resource group>/providers/Microsoft.OperationalInsights/workspaces/\<your Log Analytics workspace name>*.)
+* **springCloudAppSubnetID:** Enter the resource ID of the Azure Spring Apps Application Subnet.
+* **springCloudRuntimeSubnetID:** Enter the resource ID of the Azure Spring Apps Runtime Subnet.
+* **springCloudServiceCidrs:** Enter a comma-separated list of IP address ranges (three in total) in CIDR format. The IP ranges are reserved to host underlying Azure Spring Apps infrastructure. These three ranges should be at least */16* unused IP ranges, and must not overlap with any routable subnet IP ranges used within the network.
+* **tags:** Enter any custom tags.
 
-1. Select **Review + Create** and then **Create**.
+Finally, select **Review + Create** and then **Create**.
 
 ## Review deployed resources
 

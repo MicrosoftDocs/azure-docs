@@ -51,73 +51,45 @@ The Enterprise tier deployment plan includes the following Tanzu components:
 
 ## Deploy using Bicep
 
-To deploy the cluster, follow these steps:
+To deploy the cluster, use the following steps.
+
+First, create an *azuredeploy.bicep* file with the following contents:
 
 ### [Standard tier](#tab/azure-spring-apps-standard)
 
-1. Create an *azuredeploy.bicep* file with the following contents:
-
-   :::code language="bicep" source="~/azure-spring-cloud-reference-architecture/Bicep/brownfield-deployment/azuredeploySpringStandard.bicep":::
-
-1. Open a Bash window and run the following Azure CLI command, replacing the *\<value>* placeholders with the following values:
-
-   * **resource-group:** The resource group name for deploying the Azure Spring Apps instance.
-   * **springCloudInstanceName:** The name of the Azure Spring Apps resource.
-   * **appInsightsName:** The name of the Application Insights instance for Azure Spring Apps.
-   * **laWorkspaceResourceId:** The resource ID of the existing Log Analytics workspace (for example, */subscriptions/\<your subscription>/resourcegroups/\<your log analytics resource group>/providers/Microsoft.OperationalInsights/workspaces/\<your log analytics workspace name>*.)
-   * **springCloudAppSubnetID:** The resource ID of the Azure Spring Apps Application Subnet.
-   * **springCloudRuntimeSubnetID:** The resource ID of the Azure Spring Apps Runtime Subnet.
-   * **springCloudServiceCidrs:** A comma-separated list of IP address ranges (three in total) in CIDR format. The IP ranges are reserved to host underlying Azure Spring Apps infrastructure. These three ranges should be at least */16* unused IP ranges, and must not overlap with any routable subnet IP ranges used within the network.
-
-     ```azurecli
-     az deployment group create \
-         --resource-group <value> \
-         --name initial \
-         --template-file azuredeploy.bicep \
-         --parameters \
-             springCloudInstanceName=<value> \
-             appInsightsName=<value> \
-             laWorkspaceResourceId=<value> \
-             springCloudAppSubnetID=<value> \
-             springCloudRuntimeSubnetID=<value> \
-             springCloudServiceCidrs=<value>
-     ```
-
-     This command uses the Bicep template to create an Azure Spring Apps instance in an existing virtual network. The command also creates a workspace-based Application Insights instance in an existing Azure Monitor Log Analytics Workspace.
+:::code language="bicep" source="~/azure-spring-cloud-reference-architecture/Bicep/brownfield-deployment/azuredeploySpringStandard.bicep":::
 
 ### [Enterprise tier](#tab/azure-spring-apps-enterprise)
 
-1. Create an *azuredeploy.bicep* file with the following contents:
-
-   :::code language="bicep" source="~/azure-spring-cloud-reference-architecture/Bicep/brownfield-deployment/azuredeploySpringEnterprise.bicep":::
-
-1. Open a Bash window and run the following Azure CLI command, replacing the *\<value>* placeholders with the following values:
-
-   * **resource-group:** The resource group name for deploying the Azure Spring Apps instance.
-   * **springCloudInstanceName:** The name of the Azure Spring Apps resource.
-   * **appInsightsName:** The name of the Application Insights instance for Azure Spring Apps.
-   * **laWorkspaceResourceId:** The resource ID of the existing Log Analytics workspace (for example, */subscriptions/\<your subscription>/resourcegroups/\<your log analytics resource group>/providers/Microsoft.OperationalInsights/workspaces/\<your log analytics workspace name>*.)
-   * **springCloudAppSubnetID:** The resource ID of the Azure Spring Apps Application Subnet.
-   * **springCloudRuntimeSubnetID:** The resource ID of the Azure Spring Apps Runtime Subnet.
-   * **springCloudServiceCidrs:** A comma-separated list of IP address ranges (three in total) in CIDR format. The IP ranges are reserved to host underlying Azure Spring Apps infrastructure. These three ranges should be at least */16* unused IP ranges, and must not overlap with any routable subnet IP ranges used within the network.
-
-     ```azurecli
-     az deployment group create \
-         --resource-group <value> \
-         --name initial \
-         --template-file azuredeploy.bicep \
-         --parameters \
-             springCloudInstanceName=<value> \
-             appInsightsName=<value> \
-             laWorkspaceResourceId=<value> \
-             springCloudAppSubnetID=<value> \
-             springCloudRuntimeSubnetID=<value> \
-             springCloudServiceCidrs=<value>
-     ```
-
-     This command uses the Bicep template to create an Azure Spring Apps instance in an existing virtual network. The command also creates a workspace-based Application Insights instance in an existing Azure Monitor Log Analytics Workspace.
+:::code language="bicep" source="~/azure-spring-cloud-reference-architecture/Bicep/brownfield-deployment/azuredeploySpringEnterprise.bicep":::
 
 ---
+
+Next, open a Bash window and run the following Azure CLI command, replacing the *\<value>* placeholders with the following values:
+
+* **resource-group:** The resource group name for deploying the Azure Spring Apps instance.
+* **springCloudInstanceName:** The name of the Azure Spring Apps resource.
+* **appInsightsName:** The name of the Application Insights instance for Azure Spring Apps.
+* **laWorkspaceResourceId:** The resource ID of the existing Log Analytics workspace (for example, */subscriptions/\<your subscription>/resourcegroups/\<your Log Analytics resource group>/providers/Microsoft.OperationalInsights/workspaces/\<your Log Analytics workspace name>*.)
+* **springCloudAppSubnetID:** The resource ID of the Azure Spring Apps Application Subnet.
+* **springCloudRuntimeSubnetID:** The resource ID of the Azure Spring Apps Runtime Subnet.
+* **springCloudServiceCidrs:** A comma-separated list of IP address ranges (three in total) in CIDR format. The IP ranges are reserved to host underlying Azure Spring Apps infrastructure. These three ranges should be at least */16* unused IP ranges, and must not overlap with any routable subnet IP ranges used within the network.
+
+  ```azurecli
+  az deployment group create \
+      --resource-group <value> \
+      --name initial \
+      --template-file azuredeploy.bicep \
+      --parameters \
+          springCloudInstanceName=<value> \
+          appInsightsName=<value> \
+          laWorkspaceResourceId=<value> \
+          springCloudAppSubnetID=<value> \
+          springCloudRuntimeSubnetID=<value> \
+          springCloudServiceCidrs=<value>
+  ```
+
+  This command uses the Bicep template to create an Azure Spring Apps instance in an existing virtual network. The command also creates a workspace-based Application Insights instance in an existing Azure Monitor Log Analytics Workspace.
 
 ## Review deployed resources
 

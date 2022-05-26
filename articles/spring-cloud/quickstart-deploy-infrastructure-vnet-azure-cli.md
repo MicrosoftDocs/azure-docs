@@ -110,19 +110,17 @@ To deploy the Azure Spring Apps cluster using the Azure CLI script, follow these
 
 1. Save the script for Azure Spring Apps [Standard tier](https://raw.githubusercontent.com/Azure/azure-spring-cloud-reference-architecture/main/CLI/brownfield-deployment/azuredeploySpringStandard.sh) or [Enterprise tier](https://raw.githubusercontent.com/Azure/azure-spring-cloud-reference-architecture/main/CLI/brownfield-deployment/azuredeploySpringEnterprise.sh) locally, then run it from the Bash prompt.
 
-   ### [Standard tier](#tab/azure-spring-apps-standard)
+   **Standard tier:**
 
    ```azurecli
    ./azuredeploySpringStandard.sh
    ```
 
-   ### [Enterprise tier](#tab/azure-spring-apps-enterprise)
+   **Enterprise tier:**
 
    ```azurecli
    ./azuredeploySpringEnterprise.sh
    ```
-
-   ---
 
 1. Enter the following values when prompted by the script:
 
