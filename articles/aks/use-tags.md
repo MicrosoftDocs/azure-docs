@@ -3,7 +3,7 @@ title: Use Azure tags in Azure Kubernetes Service (AKS)
 description: Learn how to use Azure provider tags to track resources in Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 02/08/2022
+ms.date: 05/26/2022
 ---
 
 # Use Azure tags in Azure Kubernetes Service (AKS)
