@@ -2,7 +2,7 @@
 title: Azure Blob Storage as Event Grid source
 description: Describes the properties that are provided for blob storage events with Azure Event Grid
 ms.topic: conceptual
-ms.date: 09/26/2022
+ms.date: 05/26/2022
 ---
 
 # Azure Blob Storage as an Event Grid source
@@ -343,6 +343,61 @@ If the blob storage account has a hierarchical namespace, the data looks similar
 }]
 ```
 
+### Microsoft.Storage.BlobInventoryPolicyCompleted event
+
+```json
+{
+  "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/BlobInventory/providers/Microsoft.EventGrid/topics/BlobInventoryTopic",
+  "subject": "BlobDataManagement/BlobInventory",
+  "eventType": "Microsoft.Storage.BlobInventoryPolicyCompleted",
+  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "data": {
+    "scheduleDateTime": "2021-05-28T03:50:27Z",
+    "accountName": "testaccount",
+    "ruleName": "Rule_1",
+    "policyRunStatus": "Succeeded",
+    "policyRunStatusMessage": "Inventory run succeeded, refer manifest file for inventory details.",
+    "policyRunId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "manifestBlobUrl": "https://testaccount.blob.core.windows.net/inventory-destination-container/2021/05/26/13-25-36/Rule_1/Rule_1.csv"
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "eventTime": "2021-05-28T15:03:18Z"
+}
+```
+
+### Microsoft.Storage.LifecyclePolicyCompleted event
+
+```json
+{
+    "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/contosoresourcegroup/providers/Microsoft.Storage/storageAccounts/contosostorageaccount",
+    "subject": "BlobDataManagement/LifeCycleManagement/SummaryReport",
+    "eventType": "Microsoft.Storage.LifecyclePolicyCompleted",
+    "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "data": {
+        "scheduleTime": "2022/05/24 22:57:29.3260160",
+        "deleteSummary": {
+            "totalObjectsCount": 16,
+            "successCount": 14,
+            "errorList": ""
+        },
+        "tierToCoolSummary": {
+            "totalObjectsCount": 0,
+            "successCount": 0,
+            "errorList": ""
+        },
+        "tierToArchiveSummary": {
+            "totalObjectsCount": 0,
+            "successCount": 0,
+            "errorList": ""
+        }
+    },
+    "dataVersion": "1",
+    "metadataVersion": "1",
+    "eventTime": "2022-05-26T00:00:40.1880331"
+}
+```
+
 # [Cloud event schema](#tab/cloud-event-schema)
 
 ### Microsoft.Storage.BlobCreated event
@@ -561,63 +616,7 @@ If the blob storage account has a hierarchical namespace, the data looks similar
 }]
 ```
 
-### Microsoft.Storage.BlobInventoryPolicyCompleted event
-
-```json
-{
-  "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/BlobInventory/providers/Microsoft.EventGrid/topics/BlobInventoryTopic",
-  "subject": "BlobDataManagement/BlobInventory",
-  "eventType": "Microsoft.Storage.BlobInventoryPolicyCompleted",
-  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "data": {
-    "scheduleDateTime": "2021-05-28T03:50:27Z",
-    "accountName": "testaccount",
-    "ruleName": "Rule_1",
-    "policyRunStatus": "Succeeded",
-    "policyRunStatusMessage": "Inventory run succeeded, refer manifest file for inventory details.",
-    "policyRunId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "manifestBlobUrl": "https://testaccount.blob.core.windows.net/inventory-destination-container/2021/05/26/13-25-36/Rule_1/Rule_1.csv"
-  },
-  "dataVersion": "1.0",
-  "metadataVersion": "1",
-  "eventTime": "2021-05-28T15:03:18Z"
-}
-```
-
-### Microsoft.Storage.LifecyclePolicyCompleted event
-
-```json
-{
-    "topic": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/contosoresourcegroup/providers/Microsoft.Storage/storageAccounts/contosostorageaccount",
-    "subject": "BlobDataManagement/LifeCycleManagement/SummaryReport",
-    "eventType": "Microsoft.Storage.LifecyclePolicyCompleted",
-    "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "data": {
-        "scheduleTime": "2022/05/24 22:57:29.3260160",
-        "deleteSummary": {
-            "totalObjectsCount": 16,
-            "successCount": 14,
-            "errorList": ""
-        },
-        "tierToCoolSummary": {
-            "totalObjectsCount": 0,
-            "successCount": 0,
-            "errorList": ""
-        },
-        "tierToArchiveSummary": {
-            "totalObjectsCount": 0,
-            "successCount": 0,
-            "errorList": ""
-        }
-    },
-    "dataVersion": "1",
-    "metadataVersion": "1",
-    "eventTime": "2022-05-26T00:00:40.1880331"
-}
-```
-
 ---
-
 
 ## Event properties
 
