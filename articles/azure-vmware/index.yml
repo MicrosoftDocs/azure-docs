@@ -1,16 +1,16 @@
 ### YamlMime:Landing
 
 title: Azure VMware Solution documentation
-summary: Learn how to use Azure VMware Solution to deploy a VMware private cloud to Azure
+summary: Learn how to use Azure VMware Solution to deploy a VMware Software-Defined Data Center (SDDC) private cloud to Azure
 
 metadata:
   title: Azure VMware Solution documentation 
-  description: Learn how to use Azure VMware Solution to deploy a VMware private cloud to Azure
+  description: Learn how to use Azure VMware Solution to deploy a VMware Software-Defined Data Center (SDDC) private cloud to Azure
   ms.service: azure-vmware 
   ms.topic: landing-page 
   author: suzizuber
   ms.author: v-szuber 
-  ms.date: 11/12/2021 
+  ms.date: 04/22/2022 
 
 
 # card 1

@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 05/09/2022
+ms.date: 05/25/2022
 ms.author: aahi
 ---
 
@@ -44,6 +44,8 @@ For asynchronous endpoints, use the `model-version` property in the request body
  
 The model-version used in your API request will be included in the response object.
 
+> [!NOTE]
+> If you are using an model version that is not listed in the table, then it was subjected to the expiration policy.
 
 Use the table below to find which model versions are supported by each feature:
 
@@ -59,8 +61,8 @@ Use the table below to find which model versions are supported by each feature:
 | Question answering                                  | `2021-10-01`                                                        | `2021-10-01`                       |                        |
 | Text Analytics for health                           | `2021-05-15`, `2022-03-01`                                          | `2022-03-01`                       |                        |
 | Key phrase extraction                               | `2021-06-01`                                                        | `2021-06-01`                       |                        |
-| Text summarization                                  | `2021-08-01`                                                        | `2021-08-01`                       |                        |
-
+| Document summarization (preview)                                 | `2021-08-01`                                                        |                        |  `2021-08-01`                      |
+| Conversation summarization (preview)                                  | `2022-05-15-preview`                                  |                       |     `2022-05-15-preview`                   |
 
 ## Custom features
 

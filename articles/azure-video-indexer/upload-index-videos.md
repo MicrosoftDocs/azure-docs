@@ -17,6 +17,8 @@ When you're creating an Azure Video Indexer account, you choose between:
 
 For more information about account types, see [Media Services pricing](https://azure.microsoft.com/pricing/details/azure/media-services/).
 
+After you upload and index a video, you can use [Azure Video Indexer website](video-indexer-view-edit.md) or [Azure Video Indexer Developer Portal](video-indexer-use-apis.md) to see the insights of the video (see [Examine the Azure Video Indexer output](video-indexer-output-json-v2.md)).
+
 When you're uploading videos by using the API, you have the following options:
 
 * Upload your video from a URL (preferred).
@@ -25,7 +27,7 @@ When you're uploading videos by using the API, you have the following options:
 
 ## Supported file formats
 
-For a list of file formats that you can use with Azure Video Indexer, see [Standard Encoder formats and codecs](/azure/azure/media-services/latest/encode-media-encoder-standard-formats-reference).
+For a list of file formats that you can use with Azure Video Indexer, see [Standard Encoder formats and codecs](/azure/media-services/latest/encode-media-encoder-standard-formats-reference).
 
 ## Storage of video files
 

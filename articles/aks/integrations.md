@@ -28,7 +28,6 @@ The below table shows the available add-ons.
 | azure-keyvault-secrets-provider | Use Azure Keyvault Secrets Provider addon.| [Use the Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster][keyvault-secret-provider] |
 | web_application_routing | Use a managed NGINX ingress Controller with your AKS cluster.| [Web Application Routing Overview][web-app-routing] |
 
-
 ## Extensions
 
 Cluster extensions build on top of certain Helm charts and provide an Azure Resource Manager-driven experience for installation and lifecycle management of different Azure capabilities on top of your Kubernetes cluster. For more details on the specific cluster extensions for AKS, see [Deploy and manage cluster extensions for Azure Kubernetes Service (AKS)][cluster-extensions]. For more details on the currently available cluster extensions, see [Currently available extensions][cluster-extensions-current].
@@ -88,4 +87,3 @@ The below table shows a few examples of open-source and third-party integrations
 [spark-kubernetes]: https://spark.apache.org/docs/latest/running-on-kubernetes.html
 [dapr-overview]: ./dapr.md
 [gitops-overview]: ../azure-arc/kubernetes/conceptual-gitops-flux2.md
-[web-app-routing]: web-app-routing.md

@@ -5,7 +5,7 @@ author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 05/23/2022
+ms.date: 05/25/2022
 ms.custom: seodec18
 ---
 
@@ -78,8 +78,8 @@ Before you start, make sure you've completed the following steps:
 
 ### Query using Azure Synapse Serverless SQL
 1. In the **Develop** hub,  create a new **SQL script**.
-2. Paste the following script and **Run** it using the **Built-in** serverless SQL endpoint. Replace *container* and *adlsname* with the name of the container and ADLS Gen2 account used in the previous step.
-    ``SQL
+2. Paste the following script and **Run** it using the **Built-in** serverless SQL endpoint. Replace *container* and *adlsname* with the name of the container and ADLS Gen2 account used in the previous step.    
+    ```SQL
     SELECT
         TOP 100 *
     FROM
