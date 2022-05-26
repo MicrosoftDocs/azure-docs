@@ -1,6 +1,6 @@
 ---
-title: Upload and index videos with Azure Video Indexer (formerly Azure Video Analyzer for Media)
-description: Learn two methods for uploading and indexing videos by using Azure Video Indexer (formerly Azure Video Analyzer for Media).
+title: Upload and index videos with Azure Video Indexer
+description: Learn two methods for uploading and indexing videos by using Azure Video Indexer.
 ms.topic: article
 ms.date: 11/15/2021
 ms.custom: ignite-fall-2021
@@ -8,7 +8,7 @@ ms.custom: ignite-fall-2021
 
 # Upload and index your videos
 
-This article shows how to upload and index videos by using the Azure Video Indexer (formerly Azure Video Analyzer for Media) website and the Upload Video API.
+This article shows how to upload and index videos by using the Azure Video Indexer website and the Upload Video API.
 
 When you're creating an Azure Video Indexer account, you choose between:
 
@@ -16,6 +16,8 @@ When you're creating an Azure Video Indexer account, you choose between:
 - A paid option where you're not limited by a quota. You create an Azure Video Indexer account that's [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for indexed minutes.
 
 For more information about account types, see [Media Services pricing](https://azure.microsoft.com/pricing/details/azure/media-services/).
+
+After you upload and index a video, you can use [Azure Video Indexer website](video-indexer-view-edit.md) or [Azure Video Indexer Developer Portal](video-indexer-use-apis.md) to see the insights of the video (see [Examine the Azure Video Indexer output](video-indexer-output-json-v2.md)).
 
 When you're uploading videos by using the API, you have the following options:
 
@@ -25,7 +27,7 @@ When you're uploading videos by using the API, you have the following options:
 
 ## Supported file formats
 
-For a list of file formats that you can use with Azure Video Indexer, see [Standard Encoder formats and codecs](/azure/azure/media-services/latest/encode-media-encoder-standard-formats-reference).
+For a list of file formats that you can use with Azure Video Indexer, see [Standard Encoder formats and codecs](/azure/media-services/latest/encode-media-encoder-standard-formats-reference).
 
 ## Storage of video files
 

@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: cawa
-ms.date: 04/18/2022 
+ms.date: 05/20/2022 
 ms.subservice: change-analysis
 ms.custom: devx-track-azurepowershell
 ---
@@ -29,6 +29,9 @@ Building on the power of [Azure Resource Graph](../../governance/resource-graph/
 > - Includes unsupported features and might have constrained capabilities. 
 >
 > For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+> [!NOTE]
+> Change Analysis is currently only available in Public Azure Cloud.
 
 ## Overview
 

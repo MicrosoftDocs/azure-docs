@@ -13,25 +13,8 @@ ms.custom: devx-track-java
 
 # Azure Cosmos DB Java SDK v4 for Core (SQL) API: release notes and resources
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
-> [!div class="op_single_selector"]
-> * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
-> * [.NET SDK v2](sql-api-sdk-dotnet.md)
-> * [.NET Core SDK v2](sql-api-sdk-dotnet-core.md)
-> * [.NET Change Feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
-> * [Node.js](sql-api-sdk-node.md)
-> * [Java SDK v4](sql-api-sdk-java-v4.md)
-> * [Async Java SDK v2](sql-api-sdk-async-java.md)
-> * [Sync Java SDK v2](sql-api-sdk-java.md)
-> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
-> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Spark 3 OLTP Connector](sql-api-sdk-java-spark-v3.md)
-> * [Spark 2 OLTP Connector](sql-api-sdk-java-spark.md)
-> * [Python](sql-api-sdk-python.md)
-> * [REST](/rest/api/cosmos-db/)
-> * [REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-query-getting-started.md)
-> * [Bulk executor - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
+
+[!INCLUDE[appliesto-sql-api](../includes/cosmos-db-sdk-list.md)]
 
 The Azure Cosmos DB Java SDK v4 for Core (SQL) combines an Async API and a Sync API into one Maven artifact. The v4 SDK brings enhanced performance, new API features, and Async support based on Project Reactor and the [Netty library](https://netty.io/). Users can expect improved performance with Azure Cosmos DB Java SDK v4 versus the [Azure Cosmos DB Async Java SDK v2](sql-api-sdk-async-java.md) and the [Azure Cosmos DB Sync Java SDK v2](sql-api-sdk-java.md).
 

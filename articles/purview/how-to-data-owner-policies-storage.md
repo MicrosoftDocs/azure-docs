@@ -6,15 +6,16 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
+ms.custom: references_regions, event-tier1-build-2022
 ms.date: 05/12/2022
-ms.custom:
 ---
 
 # Access provisioning by data owner to Azure Storage datasets (preview)
 
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
-[Access policies](concept-data-owner-policies.md) allow you to enable access to data sources that have been registered for *Data Use Management* in Microsoft Purview.
+[Access policies](concept-data-owner-policies.md) allow you to manage access from Microsoft Purview to data sources that have been registered for *Data Use Management*.
+
 This article describes how a data owner can delegate in Microsoft Purview management of access to Azure Storage datasets. Currently, these two Azure Storage sources are supported:
 
 - Blob storage
@@ -46,12 +47,12 @@ Once your data source has the  **Data Use Management** toggle **Enabled**, it wi
 :::image type="content" source="./media/how-to-data-owner-policies-storage/register-data-source-for-policy-storage.png" alt-text="Screenshot that shows how to register a data source for policy by toggling the enable tab in the resource editor.":::
 
 ## Create and publish a data owner policy
-Execute the steps in the [data-owner policy authoring tutorial](how-to-data-owner-policy-authoring-generic.md) to create and publish an access policy similar to the example shown in the image: a policy that provides group *Contoso Team* *read* access to Storage account *marketinglake1*:
+Execute the steps in the **Create a new policy** and **Publish a policy** sections of the [data-owner policy authoring tutorial](./how-to-data-owner-policy-authoring-generic.md#create-a-new-policy). The result will be a data owner policy similar to the example shown in the image: a policy that provides group *Contoso Team* *read* access to Storage account *marketinglake1*:
 
 :::image type="content" source="./media/how-to-data-owner-policies-storage/data-owner-policy-example-storage.png" alt-text="Screenshot that shows a sample data owner policy giving access to an Azure Storage account.":::
 
 >[!Important]
-> - Publish is a background operation. It can take up to **2 hours** for the changes to be reflected in Storage account(s).
+> - Publish is a background operation. Azure Storage accounts can take up to **2 hours** to reflect the changes.
 
 ## Additional information
 - Policy statements set below container level on a Storage account are supported. If no access has been provided at Storage account level or container level, then the App that requests the data must execute a direct access by providing a fully qualified name to the data object. If the App attempts to crawl down the hierarchy starting from the Storage account or Container (like Storage Explorer does), and there's no access at that level, the request will fail. The following documents show examples of how to perform a direct access. See also the blogs in the *Next steps* section of this how-to-guide.
@@ -76,17 +77,17 @@ This section contains a reference of how actions in Microsoft Purview data polic
 | **Microsoft Purview policy action** | **Data source specific actions**                                                        |
 |---------------------------|-----------------------------------------------------------------------------------------|
 |||
-| *Read*                    |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/read                      |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read                |
+| *Read*                    |Microsoft.Storage/storageAccounts/blobServices/containers/read                      |
+|                           |Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read                |
 |||
-| *Modify*                  |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read                |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write               |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action          |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action         |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete              |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/read                      |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/write                     |
-|                           |<sub>Microsoft.Storage/storageAccounts/blobServices/containers/delete                    |
+| *Modify*                  |Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read                |
+|                           |Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write               |
+|                           |Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action          |
+|                           |Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action         |
+|                           |Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete              |
+|                           |Microsoft.Storage/storageAccounts/blobServices/containers/read                      |
+|                           |Microsoft.Storage/storageAccounts/blobServices/containers/write                     |
+|                           |Microsoft.Storage/storageAccounts/blobServices/containers/delete                    |
 |||
 
 
