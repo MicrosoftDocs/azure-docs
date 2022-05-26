@@ -1,19 +1,16 @@
 ---
-title: Pre-load files in Azure HPC Cache (Preview)
-description: Use the cache priming feature (preview) to populate or preload cache contents before files are requested 
-author: ronhogue
+title: Pre-load files in Azure HPC Cache
+description: Use the cache priming feature to populate or preload cache contents before files are requested 
+author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 02/03/2022
-ms.author: rohogue
+ms.date: 05/26/2022
+ms.author: v-erinkelly
 ---
 
-# Pre-load files in Azure HPC Cache (preview)
+# Pre-load files in Azure HPC Cache
 
-> [!IMPORTANT]
-> Cache priming is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-Azure HPC Cache’s priming feature (preview) allows customers to pre-load files in the cache.
+Azure HPC Cache’s priming feature allows customers to pre-load files in the cache.
 
 You can use this feature to fetch your expected working set of files and populate the cache before work begins. This technique is sometimes called cache warming.
 
@@ -216,6 +213,8 @@ To delete a priming job, select it in the list and use the delete control at the
 
 You can use these REST API endpoints to create an HPC Cache priming job. These are part of the `2021-10-01-preview` version of the REST API, so make sure you use that string in the *api_version* term.
 
+***xxx update api version throughout xxx***
+
 Read the [Azure REST API reference](/rest/api/azure/) to learn how to use this interface.
 
 ### Add a priming job
@@ -279,5 +278,5 @@ BODY:
 
 ## Next steps
 
-* For help with HPC Cache priming (preview) or to report a problem, use the standard Azure support process, described in [Get help with Azure HPC Cache](hpc-cache-support-ticket.md).
+* For more help with HPC Cache priming, follow the process in [Get help with Azure HPC Cache](hpc-cache-support-ticket.md).
 * Learn more about [Azure REST APIs](/rest/api/azure/)
