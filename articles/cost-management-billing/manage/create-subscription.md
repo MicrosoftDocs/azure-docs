@@ -13,7 +13,7 @@ ms.author: banders
 
 # Create a Microsoft Customer Agreement subscription
 
-This article helps you create a [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) subscription for yourself or for someone else in your current Azure Active Directory (Azure AD) directory/tenant. You may want another subscription to avoid hitting subscription limits, to create separate environments for security, or to isolate data for compliance reasons.
+This article helps you create a [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) subscription for yourself or for someone else in your current Azure Active Directory (Azure AD) directory/tenant. You may want another subscription to avoid hitting subscription quota limits, to create separate environments for security, or to isolate data for compliance reasons.
 
 If you want to create a Microsoft Customer Agreement subscription in a different Azure AD tenant, see [Create an MCA subscription request](create-subscription-request.md). 
 
