@@ -16,7 +16,7 @@ Your requirements for security controls, visibility, capacity, and operations dr
 
 ## Internet Service hosted in Azure 
 
-There are multiple ways to generate a default route in Azure and send it towards your Azure VMware Solution private cloud or on-prem. The options are as follows: 
+There are multiple ways to generate a default route in Azure and send it towards your Azure VMware Solution private cloud or on-premise. The options are as follows: 
 
 - An Azure firewall in a Virtual WAN Hub. 
 - A third-party Network Virtual Appliance in a Virtual WAN Hub Spoke Virtual Network.
@@ -27,7 +27,7 @@ Use any of these patterns to provide an outbound SNAT service with the ability t
 
 The same service can also consume an Azure Public IP and create an inbound DNAT from the Internet towards targets in  Azure VMware Solution.    
 
-An environment can also be built that utilizes multiple paths for Internet traffic.  One for outbound SNAT, (for example, a third-party security NVA), and another for inbound DNAT (like a third party Load balancer NVA using SNAT pools for return traffic). 
+An environment can also be built that utilizes multiple paths for Internet traffic.  One for outbound SNAT (for example, a third-party security NVA), and another for inbound DNAT (like a third party Load balancer NVA using SNAT pools for return traffic). 
 
 ## Azure VMware Solution Managed SNAT 
 
@@ -41,13 +41,19 @@ A Managed SNAT service provides a simple method for outbound internet access fro
 
 ## Public IP to NSX edge 
 
-This option brings an allocated Azure Public IP directly to the NSX Edge for consumption. It allows the Azure VMware Solution private cloud to directly consume and apply public network addresses in NSX as required. These addresses are used for outbound SNAT configurations, inbound DNAT, load balancing using VMware AVI third-party Network Virtual Appliances, or for applications directly to a workload VM interface. This option also lets you configure the public address on a third-party Network Virtual Appliance to create a DMZ within the Azure VMware Solution private cloud.
+This option brings an allocated Azure Public IP directly to the NSX Edge for consumption. It allows the Azure VMware Solution private cloud to directly consume and apply public network addresses in NSX as required. These addresses are used for the following types of connections:
+- Outbound SNAT
+- Inbound DNAT
+- Load balancing using VMware AVI third-party Network Virtual Appliances
+- Applications directly connected to a workload VM interface.  
+
+This option also lets you configure the public address on a third-party Network Virtual Appliance to create a DMZ within the Azure VMware Solution private cloud.
    
 Features include: 
 
    - Scale – the soft limit of 64 public IPs can be increased by request to 1000s of Public IPs allocated if required by an application.
    - Flexibility – A Public IP can be applied anywhere in the NSX ecosystem. It can be used to provide SNAT or DNAT, on load balancers like VMware’s AVI, or third-party Network Virtual Appliances. It can also be used on third-party Network Virtual Security Appliances on VMware segments or on directly on VMs. 
-- Regionality – the Public IP to the NSX Edge is unique to the local SDDC. For “multi private cloud in distributed regions,” with local exit to Internet intentions, it’s much easier to direct traffic locally versus trying to control default route propagation for a security or SNAT service hosted in Azure. If you've two or more Azure VMware Solution private clouds connected with a Public IP configured, they can both have a local exit.  
+   - Regionality – the Public IP to the NSX Edge is unique to the local SDDC. For “multi private cloud in distributed regions,” with local exit to Internet intentions, it’s much easier to direct traffic locally versus trying to control default route propagation for a security or SNAT service hosted in Azure. If you've two or more Azure VMware Solution private clouds connected with a Public IP configured, they can both have a local exit.  
 
 ## Considerations for selecting an option 
 
