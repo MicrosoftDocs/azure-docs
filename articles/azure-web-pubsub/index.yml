@@ -29,7 +29,7 @@ landingContent:
           - text: About hubs, groups, and connections
             url: key-concepts.md
           - text: Client protocols
-            url: client-protocols.md
+            url: concept-client-protocols.md
           - text: Billing model
             url: concept-billing-model.md
           - text: Event handler
