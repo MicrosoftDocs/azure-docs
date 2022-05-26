@@ -76,7 +76,7 @@ In addition, all the required data needs to be migrated to ensure the same resul
 
 If BI tools are querying views in the underlying data warehouse or data mart database, then will these views still work? You might think yes, but if there are proprietary SQL extensions, specific to your legacy data warehouse DBMS in these views that have no equivalent in Azure Synapse, you'll need to know about them and find a way to resolve them.
 
-Other issues like the behavior of nulls or data type variations across DBMS platforms need to be tested, in case they cause slightly different calculation results. Obviously, you want to minimize these issues and take all necessary steps to shield business users from any kind of impact. Depending on your legacy data warehouse system (such as Netezza), there are [tools](/azure/synapse-analytics/partner/data-integration) that can help hide these differences so that BI tools and applications are kept unaware of them and can run unchanged.
+Other issues like the behavior of nulls or data type variations across DBMS platforms need to be tested, in case they cause slightly different calculation results. Obviously, you want to minimize these issues and take all necessary steps to shield business users from any kind of impact. Depending on your legacy data warehouse system (such as Netezza), there are [tools](../../partner/data-integration.md) that can help hide these differences so that BI tools and applications are kept unaware of them and can run unchanged.
 
 > [!TIP]
 > Use repeatable tests to ensure reports, dashboards, and other visualizations migrate successfully.
@@ -106,7 +106,7 @@ This breaks the dependency between business users utilizing self-service BI tool
 > [!TIP]
 > Schema alterations to tune your data model for Azure Synapse can be hidden from users.
 
-By introducing data virtualization, any schema alterations made during data warehouse and data mart migration to Azure Synapse (to optimize performance, for example) can be hidden from business users because they only access virtual tables in the data virtualization layer. If structural changes are needed, only the mappings between the data warehouse or data marts, and any virtual tables would need to be changed so that users remain unaware of those changes and unaware of the migration. [Microsoft partners](/azure/synapse-analytics/partner/data-integration) provide useful data virtualization software.
+By introducing data virtualization, any schema alterations made during data warehouse and data mart migration to Azure Synapse (to optimize performance, for example) can be hidden from business users because they only access virtual tables in the data virtualization layer. If structural changes are needed, only the mappings between the data warehouse or data marts, and any virtual tables would need to be changed so that users remain unaware of those changes and unaware of the migration. [Microsoft partners](../../partner/data-integration.md) provide useful data virtualization software.
 
 ## Identify high priority reports to migrate first
 
@@ -234,7 +234,7 @@ For information about how to migrate users, user groups, roles, and privileges, 
 > [!TIP]
 > Build an automated test suite to make tests repeatable.
 
-It's also best practice to automate testing as much as possible, to make each test repeatable and to allow a consistent approach to evaluating results. This works well for known regular reports, and could be managed via [Azure Synapse Pipelines](/azure/synapse-analytics/get-started-pipelines?msclkid=8f3e7e96cfed11eca432022bc07c18de) or [Azure Data Factory](/azure/data-factory/introduction?msclkid=2ccc66eccfde11ecaa58877e9d228779) orchestration. If you already have a suite of test queries in place for regression testing, you could use the testing tools to automate the post migration testing.
+It's also best practice to automate testing as much as possible, to make each test repeatable and to allow a consistent approach to evaluating results. This works well for known regular reports, and could be managed via [Azure Synapse Pipelines](../../get-started-pipelines.md?msclkid=8f3e7e96cfed11eca432022bc07c18de) or [Azure Data Factory](../../../data-factory/introduction.md?msclkid=2ccc66eccfde11ecaa58877e9d228779) orchestration. If you already have a suite of test queries in place for regression testing, you could use the testing tools to automate the post migration testing.
 
 > [!TIP]
 > Leverage tools that can compare metadata lineage to verify results.
@@ -276,7 +276,7 @@ This substantially simplifies the data migration process, because the business w
 > [!TIP]
 > Azure Data Factory and several third-party ETL tools support lineage.
 
-Several ETL tools provide end-to-end lineage capability, and you may be able to make use of this via your existing ETL tool if you're continuing to use it with Azure Synapse. [Azure Synapse Pipelines](/azure/synapse-analytics/get-started-pipelines?msclkid=8f3e7e96cfed11eca432022bc07c18de) or [Azure Data Factory](/azure/data-factory/introduction?msclkid=2ccc66eccfde11ecaa58877e9d228779) lets you view lineage in mapping flows. Also, [Microsoft partners](/azure/synapse-analytics/partner/data-integration) provide automated metadata discovery, data lineage, and lineage comparison tools.
+Several ETL tools provide end-to-end lineage capability, and you may be able to make use of this via your existing ETL tool if you're continuing to use it with Azure Synapse. [Azure Synapse Pipelines](../../get-started-pipelines.md?msclkid=8f3e7e96cfed11eca432022bc07c18de) or [Azure Data Factory](../../../data-factory/introduction.md?msclkid=2ccc66eccfde11ecaa58877e9d228779) lets you view lineage in mapping flows. Also, [Microsoft partners](../../partner/data-integration.md) provide automated metadata discovery, data lineage, and lineage comparison tools.
 
 ## Migrate BI tool semantic layers to Azure Synapse Analytics
 
@@ -292,7 +292,7 @@ A good way to get everything consistent across multiple BI tools is to create a 
 > [!TIP]
 > Use data virtualization to create a common semantic layer to guarantee consistency across all BI tools in an Azure Synapse environment.
 
-In this way, you get consistency across all BI tools, while at the same time breaking the dependency between BI tools and applications, and the underlying physical data structures in Azure Synapse. Use [Microsoft partners](/azure/synapse-analytics/partner/data-integration) on Azure to implement this. The following diagram shows how a common vocabulary in the Data Virtualization server lets multiple BI tools see a common semantic layer.
+In this way, you get consistency across all BI tools, while at the same time breaking the dependency between BI tools and applications, and the underlying physical data structures in Azure Synapse. Use [Microsoft partners](../../partner/data-integration.md) on Azure to implement this. The following diagram shows how a common vocabulary in the Data Virtualization server lets multiple BI tools see a common semantic layer.
 
 :::image type="content" source="../media/4-visualization-reporting/data-virtualization-semantics.png" border="true" alt-text="Diagram with common data names and definitions that relate to the data virtualization server.":::
 

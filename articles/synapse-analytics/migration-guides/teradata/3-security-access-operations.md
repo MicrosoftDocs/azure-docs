@@ -22,7 +22,7 @@ This article discusses connection methods for existing legacy Teradata environme
 
 We assume there's a requirement to migrate the existing methods of connection and user, role, and permission structure as is. If this isn't the case, then you can use Azure utilities from the Azure portal to create and manage a new security regime.
 
-For more information on the [Azure Synapse security](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security#authorization) options, see [Security whitepaper](/azure/synapse-analytics/guidance/security-white-paper-introduction).
+For more information on the [Azure Synapse security](../../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization) options, see [Security whitepaper](../../guidance/security-white-paper-introduction.md).
 
 ### Connection and authentication
 
@@ -210,7 +210,7 @@ Use the table `AccessRightsAbbv` to look up the full text of the access right, a
 
 1. In Azure Synapse, these features are handled outside of the database.
 
-For more information about access rights in Azure Synapse, see to [Azure Synapse Analytics security permissions](/azure/synapse-analytics/guidance/security-white-paper-introduction).
+For more information about access rights in Azure Synapse, see to [Azure Synapse Analytics security permissions](../../guidance/security-white-paper-introduction.md).
 
 ## Operational considerations
 
@@ -309,14 +309,14 @@ Database administrators can use Teradata Viewpoint to determine system status, t
 
 Similarly, Azure Synapse provides a rich monitoring experience within the Azure portal to provide insights into your data warehouse workload. The Azure portal is the recommended tool when monitoring your data warehouse as it provides configurable retention periods, alerts, recommendations, and customizable charts and dashboards for metrics and logs.
 
-The portal also enables integration with other Azure monitoring services such as Operations Management Suite (OMS) and [Azure Monitor](/azure/synapse-analytics/monitoring/how-to-monitor-using-azure-monitor?msclkid=d5e9e46ecfe111ec8ba8ee5360e77c4c) (logs) to provide a holistic monitoring experience for not only the data warehouse but also the entire Azure analytics platform for an integrated monitoring experience.
+The portal also enables integration with other Azure monitoring services such as Operations Management Suite (OMS) and [Azure Monitor](../../monitoring/how-to-monitor-using-azure-monitor.md?msclkid=d5e9e46ecfe111ec8ba8ee5360e77c4c) (logs) to provide a holistic monitoring experience for not only the data warehouse but also the entire Azure analytics platform for an integrated monitoring experience.
 
 > [!TIP]
 > Low-level and system-wide metrics are automatically logged in Azure Synapse.
 
 Resource utilization statistics for Azure Synapse are automatically logged within the system. The metrics for each query include usage statistics for CPU, memory, cache, I/O, and temporary workspace, as well as connectivity information like failed connection attempts.
 
-Azure Synapse provides a set of [Dynamic Management Views](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-monitor?msclkid=3e6eefbccfe211ec82d019ada29b1834) (DMVs). These views are useful when actively troubleshooting and identifying performance bottlenecks with your workload.
+Azure Synapse provides a set of [Dynamic Management Views](../../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?msclkid=3e6eefbccfe211ec82d019ada29b1834) (DMVs). These views are useful when actively troubleshooting and identifying performance bottlenecks with your workload.
 
 For more information, see [Azure Synapse operations and management options](/azure/sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance).
 
@@ -367,7 +367,7 @@ This information can also be used for capacity planning, determining the resourc
 > [!TIP]
 > A major benefit of Azure is the ability to independently scale up and down compute resources on demand to handle peaky workloads cost-effectively.
 
-The architecture of Azure Synapse separates storage and compute, allowing each to scale independently. As a result, [compute resources can be scaled](/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal) to meet performance demands independent of data storage. You can also pause and resume compute resources. A natural benefit of this architecture is that billing for compute and storage is separate. If a data warehouse isn't in use, you can save on compute costs by pausing compute.
+The architecture of Azure Synapse separates storage and compute, allowing each to scale independently. As a result, [compute resources can be scaled](../../sql-data-warehouse/quickstart-scale-compute-portal.md) to meet performance demands independent of data storage. You can also pause and resume compute resources. A natural benefit of this architecture is that billing for compute and storage is separate. If a data warehouse isn't in use, you can save on compute costs by pausing compute.
 
 Compute resources can be scaled up or scaled back by adjusting the data warehouse units setting for the data warehouse. Loading and query performance will increase linearly as you add more data warehouse units.
 

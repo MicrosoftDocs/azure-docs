@@ -56,7 +56,7 @@ Microsoft Azure Data Factory is a fully managed, pay-as-you-use, hybrid data int
 > [!TIP]
 > Data Factory allows you to build scalable data integration pipelines code-free.
 
-[Azure Data Factory connectors](/azure/data-factory/connector-overview?msclkid=00086e4acff211ec9263dee5c7eb6e69) connect to external data sources and databases and have templates for common data integration tasks. A visual front-end, browser-based UI enables non-programmers to create and run process pipelines to ingest, transform, and load data. More experienced programmers have the option to incorporate custom code, such as Python programs.
+[Azure Data Factory connectors](../../../data-factory/connector-overview.md?msclkid=00086e4acff211ec9263dee5c7eb6e69) connect to external data sources and databases and have templates for common data integration tasks. A visual front-end, browser-based UI enables non-programmers to create and run process pipelines to ingest, transform, and load data. More experienced programmers have the option to incorporate custom code, such as Python programs.
 
 > [!TIP]
 > Data Factory enables collaborative development between business and IT professionals.
@@ -91,7 +91,7 @@ Azure ExpressRoute creates private connections between Azure data centers and in
 
 #### AzCopy
 
-[AzCopy](/azure/storage/common/storage-use-azcopy-v10) is a command line utility that copies files to Azure Blob Storage via a standard internet connection. In a warehouse migration project, you can use AzCopy to upload extracted, compressed, and delimited text files before loading through PolyBase, or a native Parquet reader if the exported files are Parquet format. AzCopy can upload individual files, file selections, or file directories.
+[AzCopy](../../../storage/common/storage-use-azcopy-v10.md) is a command line utility that copies files to Azure Blob Storage via a standard internet connection. In a warehouse migration project, you can use AzCopy to upload extracted, compressed, and delimited text files before loading through PolyBase, or a native Parquet reader if the exported files are Parquet format. AzCopy can upload individual files, file selections, or file directories.
 
 #### Azure Data Box
 
@@ -125,7 +125,7 @@ However, PolyBase has some limitations. Rows to be loaded must be less than 1 MB
 
 ## Microsoft partners can help you migrate your data warehouse to Azure Synapse Analytics
 
-In addition to tools that can help you with various aspects of data warehouse migration, there are several practiced [Microsoft partners](/azure/synapse-analytics/partner/data-integration) that can bring their expertise to help you move your legacy on-premises data warehouse platform to Azure Synapse.
+In addition to tools that can help you with various aspects of data warehouse migration, there are several practiced [Microsoft partners](../../partner/data-integration.md) that can bring their expertise to help you move your legacy on-premises data warehouse platform to Azure Synapse.
 
 ## Next steps
 

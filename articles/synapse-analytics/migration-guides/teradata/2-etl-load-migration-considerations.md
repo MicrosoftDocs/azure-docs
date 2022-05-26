@@ -91,7 +91,7 @@ If these data marts are implemented as physical tables, they'll require addition
 > [!TIP]
 > The performance and scalability of Azure Synapse enables virtualization without sacrificing performance.
 
-With the advent of relatively low-cost scalable MPP architectures, such as Azure Synapse, and the inherent performance characteristics of such architectures, it may be that you can provide data mart functionality without having to instantiate the mart as a set of physical tables. This is achieved by effectively virtualizing the data marts via SQL views onto the main data warehouse, or via a virtualization layer using features such as views in Azure or the [visualization products of Microsoft partners](/azure/synapse-analytics/partner/data-integration). This approach simplifies or eliminates the need for additional storage and aggregation processing and reduces the overall number of database objects to be migrated.
+With the advent of relatively low-cost scalable MPP architectures, such as Azure Synapse, and the inherent performance characteristics of such architectures, it may be that you can provide data mart functionality without having to instantiate the mart as a set of physical tables. This is achieved by effectively virtualizing the data marts via SQL views onto the main data warehouse, or via a virtualization layer using features such as views in Azure or the [visualization products of Microsoft partners](../../partner/data-integration.md). This approach simplifies or eliminates the need for additional storage and aggregation processing and reduces the overall number of database objects to be migrated.
 
 There's another potential benefit to this approach: by implementing the aggregation and join logic within a virtualization layer, and presenting external reporting tools via a virtualized view, the processing required to create these views is pushed down into the data warehouse, which is generally the best place to run joins, aggregations, and other related operations on large data volumes.
 
@@ -120,7 +120,7 @@ You can get an accurate number for the volume of data to be mitigated for a give
 > [!TIP]
 > Plan the approach to ETL migration ahead of time and leverage Azure facilities where appropriate.
 
-For ETL/ELT processing, legacy Teradata data warehouses may use custom-built scripts using Teradata utilities such as BTEQ and Teradata Parallel Transporter (TPT), or third-party ETL tools such as Informatica or Ab Initio. Sometimes, Teradata data warehouses use a combination of ETL and ELT approaches that's evolved over time. When planning a migration to Azure Synapse, you need to determine the best way to implement the required ETL/ELT processing in the new environment while minimizing the cost and risk involved. To learn more about ETL and ELT processing, see [ELT vs ETL design approach](/azure/synapse-analytics/sql-data-warehouse/design-elt-data-loading).
+For ETL/ELT processing, legacy Teradata data warehouses may use custom-built scripts using Teradata utilities such as BTEQ and Teradata Parallel Transporter (TPT), or third-party ETL tools such as Informatica or Ab Initio. Sometimes, Teradata data warehouses use a combination of ETL and ELT approaches that's evolved over time. When planning a migration to Azure Synapse, you need to determine the best way to implement the required ETL/ELT processing in the new environment while minimizing the cost and risk involved. To learn more about ETL and ELT processing, see [ELT vs ETL design approach](../../sql-data-warehouse/design-elt-data-loading.md).
 
 The following sections discuss migration options and make recommendations for various use cases. This flowchart summarizes one approach:
 
@@ -128,7 +128,7 @@ The following sections discuss migration options and make recommendations for va
 
 The first step is always to build an inventory of ETL/ELT processes that need to be migrated. As with other steps, it's possible that the standard 'built-in' Azure features make it unnecessary to migrate some existing processes. For planning purposes, it's important to understand the scale of the migration to be performed.
 
-In the preceding flowchart, decision 1 relates to a high-level decision about whether to migrate to a totally Azure-native environment. If you're moving to a totally Azure-native environment, we recommend that you re-engineer the ETL processing using [Pipelines and activities in Azure Data Factory](/azure/data-factory/concepts-pipelines-activities?msclkid=b6ea2be4cfda11ec929ac33e6e00db98&tabs=data-factory) or [Azure Synapse Pipelines](/azure/synapse-analytics/get-started-pipelines?msclkid=b6e99db9cfda11ecbaba18ca59d5c95c). If you're not moving to a totally Azure-native environment, then decision 2 is whether an existing third-party ETL tool is already in use.
+In the preceding flowchart, decision 1 relates to a high-level decision about whether to migrate to a totally Azure-native environment. If you're moving to a totally Azure-native environment, we recommend that you re-engineer the ETL processing using [Pipelines and activities in Azure Data Factory](../../../data-factory/concepts-pipelines-activities.md?msclkid=b6ea2be4cfda11ec929ac33e6e00db98&tabs=data-factory) or [Azure Synapse Pipelines](../../get-started-pipelines.md?msclkid=b6e99db9cfda11ecbaba18ca59d5c95c). If you're not moving to a totally Azure-native environment, then decision 2 is whether an existing third-party ETL tool is already in use.
 
 In the Teradata environment, some or all ETL processing may be performed by custom scripts using Teradata-specific utilities like BTEQ and TPT. In this case, your approach should be to re-engineer using Data Factory.
 
@@ -194,7 +194,7 @@ There's also a hybrid approach that uses both methods. For example, you can use 
 
 #### Orchestrate from Teradata or Azure?
 
-The recommended approach when moving to Azure Synapse is to orchestrate the data extract and loading from the Azure environment using [Azure Synapse Pipelines](/azure/synapse-analytics/get-started-pipelines?msclkid=b6e99db9cfda11ecbaba18ca59d5c95c) or [Azure Data Factory](/azure/data-factory/introduction?msclkid=2ccc66eccfde11ecaa58877e9d228779), as well as associated utilities, such as PolyBase or [COPY INTO](/sql/t-sql/statements/copy-into-transact-sql), for most efficient data loading. This approach leverages the Azure capabilities and provides an easy method to build reusable data loading pipelines.
+The recommended approach when moving to Azure Synapse is to orchestrate the data extract and loading from the Azure environment using [Azure Synapse Pipelines](../../get-started-pipelines.md?msclkid=b6e99db9cfda11ecbaba18ca59d5c95c) or [Azure Data Factory](../../../data-factory/introduction.md?msclkid=2ccc66eccfde11ecaa58877e9d228779), as well as associated utilities, such as PolyBase or [COPY INTO](/sql/t-sql/statements/copy-into-transact-sql), for most efficient data loading. This approach leverages the Azure capabilities and provides an easy method to build reusable data loading pipelines.
 
 Other benefits of this approach include reduced impact on the Teradata system during the data load process since the management and loading process is running in Azure, and the ability to automate the process by using metadata-driven data load pipelines.
 
@@ -222,7 +222,7 @@ To summarize, our recommendations for migrating data and associated ETL processe
 
 - Identify and understand the most efficient tools for data extraction and loading in both Teradata and Azure environments. Use the appropriate tools at each phase in the process.
 
-- Use Azure facilities such as [Azure Synapse Pipelines](/azure/synapse-analytics/get-started-pipelines?msclkid=b6e99db9cfda11ecbaba18ca59d5c95c) or [Azure Data Factory](/azure/data-factory/introduction?msclkid=2ccc66eccfde11ecaa58877e9d228779) to orchestrate and automate the migration process while minimizing impact on the Teradata system.
+- Use Azure facilities such as [Azure Synapse Pipelines](../../get-started-pipelines.md?msclkid=b6e99db9cfda11ecbaba18ca59d5c95c) or [Azure Data Factory](../../../data-factory/introduction.md?msclkid=2ccc66eccfde11ecaa58877e9d228779) to orchestrate and automate the migration process while minimizing impact on the Teradata system.
 
 ## Next steps
 
