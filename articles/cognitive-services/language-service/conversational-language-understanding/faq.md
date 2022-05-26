@@ -71,7 +71,7 @@ Yes, only for predictions, and samples are available for [python](https://aka.ms
 
 ## Can I use CLU with custom Question answering?
 
-Yes, you can use orchestration workflow to orchestrate between different CLU and [custom Question answering](../../question-answering-overview.md) projects. Start by creating orchestration workflow projects and connect your CLU and custom question answering projects. All you need is to make sure that these projects are under the same Language resource.
+Yes, you can use orchestration workflow to orchestrate between different CLU and [custom Question answering](../question-answering/overview.md) projects. Start by creating orchestration workflow projects and connect your CLU and custom question answering projects. All you need is to make sure that these projects are under the same Language resource.
 
 ## Are there APIs for this feature?
 
