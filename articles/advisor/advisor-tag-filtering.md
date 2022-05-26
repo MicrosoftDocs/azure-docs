@@ -10,7 +10,7 @@ ms.date: 05/25/2022
 
 You can now get Advisor recommendations and scores scoped to a workload, environment, or team  using resource tag filters. Filter recommendations and calculate scores using tags you have already assigned to Azure resources, resource groups and subscriptions. Use tag filters to:
 - Identify cost saving opportunities by team
-1.	Compare scores for workloads to optimize the critical ones first
+- Compare scores for workloads to optimize the critical ones first
 
 > [!TIP]
 > For more information on how to use resource tags to organize and govern your Azure resources, please see the [Cloud Adoption Framework’s guidance](/azure/cloud-adoption-framework/ready/azure-best-practices/resource-tagging) and [Build a cloud governance strategy on Azure](/learn/modules/build-cloud-governance-strategy-azure/).
