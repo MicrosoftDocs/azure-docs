@@ -2,7 +2,7 @@
 title: Best practices for autoscale
 description: Autoscale patterns in Azure for Web Apps, Virtual Machine Scale sets, and Cloud Services
 ms.topic: conceptual
-ms.date: 07/07/2017
+ms.date: 04/22/2022
 ms.subservice: autoscale
 ---
 # Best practices for Autoscale
@@ -29,6 +29,14 @@ If you manually update the instance count to a value above or below the maximum,
 
 ### Always use a scale-out and scale-in rule combination that performs an increase and decrease
 If you use only one part of the combination, autoscale will only take action in a single direction (scale out, or in) until it reaches the maximum, or minimum instance counts, as defined in the profile. This is not optimal, ideally you want your resource to scale up at times of high usage to ensure availability. Similarly, at times of low usage you want your resource to scale down, so you can realize cost savings.
+
+When you use a scale-in and scale-out rule, ideally use the same metric to control both. Otherwise, it’s possible that the scale-in and scale-out conditions could be met at the same time resulting in some level of flapping. For example, the following rule combination is *not* recommended because there is no scale-in rule for memory usage:
+
+* If CPU > 90%, scale-out by 1
+* If Memory > 90%, scale-out by 1
+* If CPU < 45%, scale-in by 1
+
+In this example, you can have a situation in which the memory usage is over 90% but the CPU usage is under 45%. This can lead to flapping for as long as both conditions are met.
 
 ### Choose the appropriate statistic for your diagnostics metric
 For diagnostics metrics, you can choose among *Average*, *Minimum*, *Maximum* and *Total* as a metric to scale by. The most common statistic is *Average*.
@@ -141,6 +149,14 @@ Autoscale will post to the Activity Log if any of the following conditions occur
 You can also use an Activity Log alert to monitor the health of the autoscale engine. Here are examples to [create an Activity Log Alert to monitor all autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-alert) or to [create an Activity Log Alert to monitor all failed autoscale scale in/scale out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-failed-alert).
 
 In addition to using activity log alerts, you can also configure email or webhook notifications to get notified for scale actions via the notifications tab on the autoscale setting.
+
+## Send data securely using TLS 1.2
+To ensure the security of data in transit to Azure Monitor, we strongly encourage you to configure the agent to use at least Transport Layer Security (TLS) 1.2. Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**, and the industry is quickly moving to abandon support for these older protocols.
+
+The [PCI Security Standards Council](https://www.pcisecuritystandards.org/) has set a deadline of [June 30th, 2018](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) to disable older versions of TLS/SSL and upgrade to more secure protocols. Once Azure drops legacy support, if your agents cannot communicate over at least TLS 1.2 you would not be able to send data to Azure Monitor Logs.
+
+We recommend you do NOT explicit set your agent to only use TLS 1.2 unless absolutely necessary. Allowing the agent to automatically detect, negotiate, and take advantage of future security standards is preferable. Otherwise you may miss the added security of the newer standards and possibly experience problems if TLS 1.2 is ever deprecated in favor of those newer standards.
+
 
 ## Next Steps
 - [Create an Activity Log Alert to monitor all autoscale engine operations on your subscription.](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-alert)

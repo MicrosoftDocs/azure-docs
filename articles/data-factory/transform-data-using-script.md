@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
-ms.date: 02/28/2022
+ms.date: 04/20/2022
 ---
 
 # Transform data by using the Script activity in Azure Data Factory or Synapse Analytics 
@@ -64,22 +64,8 @@ Here is the JSON format for defining a Script activity:
             ] 
          }, 
          ... 
-      ], 
-      "scriptReference":{ 
-         "linkedServiceName":{ 
-            "referenceName": "<name>", 
-            "type": "<LinkedServiceReference>" 
-         }, 
-         "path": "<file path>", 
-         "parameters":[ 
-            { 
-               "name": "<name>", 
-               "value": "<value>", 
-               "type": "<type>", 
-               "direction": "<Input> or <Output> or <InputOutput> or <ReturnValue>", 
-               "size": 256 
-            }, 
-            ... 
+      ],     
+         ... 
          ] 
       }, 
       "logSettings": { 

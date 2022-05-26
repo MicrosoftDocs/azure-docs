@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 08/26/2021
+ms.date: 04/26/2022
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js, devx-track-azurecli, mode-api
 ---
 # Quickstart: Migrate an existing MongoDB Node.js web app to Azure Cosmos DB 
@@ -18,7 +18,6 @@ ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-
 > * [Python](create-mongodb-python.md)
 > * [Java](create-mongodb-java.md)
 > * [Node.js](create-mongodb-nodejs.md)
-> * [Xamarin](create-mongodb-xamarin.md)
 > * [Golang](create-mongodb-go.md)
 >  
 

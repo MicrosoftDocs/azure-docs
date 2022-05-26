@@ -6,8 +6,8 @@ ms.author: sidram
 
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 03/24/2022
-ms.custom: devx-track-js
+ms.date: 03/31/2022
+ms.custom: devx-track-js, event-tier1-build-2022
 ---
 # Integrate Azure Stream Analytics with Azure Machine Learning
 
@@ -70,6 +70,9 @@ If your input data sent to the ML UDF is inconsistent with the schema that is ex
 
 - Validate input to your ML UDF is not null
 - Validate the type of every field that is an input to your ML UDF to ensure it matches what the endpoint expects
+
+> [!NOTE]
+> ML UDFs are evaluated for each row of a given query step, even when called via a conditional expression (i.e. `CASE WHEN [A] IS NOT NULL THEN udf.score(A) ELSE '' END`). If need be, use the [WITH](/stream-analytics-query/with-azure-stream-analytics) clause to create diverging paths, calling the ML UDF only where required, before using [UNION](/stream-analytics-query/union-azure-stream-analytics) to merge paths together again.
 
 ## Pass multiple input parameters to the UDF
 
@@ -177,7 +180,7 @@ After you have deployed your web service, you send sample request with varying b
 
 At optimal scaling, your Stream Analytics job should be able to send multiple parallel requests to your web service and get a response within few milliseconds. The latency of the web service's response can directly impact the latency and performance of your Stream Analytics job. If the call from your job to the web service takes a long time, you will likely see an increase in watermark delay and may also see an increase in the number of backlogged input events.
 
-You can achieve low latency by ensuring that your Azure Kubernetes Service (AKS) cluster has been provisioned with the [right number of nodes and replicas](../machine-learning/how-to-deploy-azure-kubernetes-service.md?tabs=python#autoscaling). It's critical that your web service is highly available and returns successful responses. If your job receives an error that is retriable such as service unavailable response (503), it will automaticaly retry with exponential back off. If your job receives one of these errors as a response from the endpoint, the job will go to a failed state.
+You can achieve low latency by ensuring that your Azure Kubernetes Service (AKS) cluster has been provisioned with the [right number of nodes and replicas](../machine-learning/v1/how-to-deploy-azure-kubernetes-service.md?tabs=python#autoscaling). It's critical that your web service is highly available and returns successful responses. If your job receives an error that is retriable such as service unavailable response (503), it will automaticaly retry with exponential back off. If your job receives one of these errors as a response from the endpoint, the job will go to a failed state.
 * Bad Request (400)
 * Conflict (409)
 * Not Found (404)

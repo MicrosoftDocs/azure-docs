@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 03/16/2022
+ms.date: 03/31/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -45,7 +45,7 @@ In this quickstart you'll use following features to analyze and extract data and
 
 * If you aren't using VS Code, make sure you have the following installed in your development environment:
 
-  * A [**Java Development Kit** (JDK)](https://www.oracle.com/java/technologies/downloads/) version 8 or later.
+  * A [**Java Development Kit** (JDK)](https://wiki.openjdk.java.net/display/jdk8u) version 8 or later. For more information, *see* [supported Java Versions and update schedule](/azure/developer/java/fundamentals/java-support-on-azure#supported-java-versions-and-update-schedule).
 
   * [**Gradle**](https://gradle.org/), version 6.8 or later.
 
@@ -130,27 +130,9 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
     * [**Prebuilt Invoice**](#prebuilt-model)
 
-1. [Build and run your program](#build-and-run-the-application)
-
 > [!IMPORTANT]
 >
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, see* the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md).
-
-## Build and run the application
-
-Once you've added a code sample to your application, navigate back to your main project directory—**form-recognizer-app**.
-
-1. Build your application with the `build` command:
-
-    ```console
-    gradle build
-    ```
-
-1. Run your application with the `run` command:
-
-    ```console
-    gradle run
-    ```
 
 ## General document model
 
@@ -258,6 +240,23 @@ Extract text, tables, structure, key-value pairs, and named entities from docume
         }
     }
 ```
+<!-- markdownlint-disable MD036 -->
+
+**Build and run the application**
+
+Once you've added a code sample to your application, navigate back to your main project directory—**form-recognizer-app**.
+
+1. Build your application with the `build` command:
+
+    ```console
+    gradle build
+    ```
+
+1. Run your application with the `run` command:
+
+    ```console
+    gradle run
+    ```
 
 ### General document model output
 
@@ -374,6 +373,22 @@ Extract text, selection marks, text styles, table structures, and bounding regio
         }
     }
 ```
+
+**Build and run the application**
+
+Once you've added a code sample to your application, navigate back to your main project directory—**form-recognizer-app**.
+
+1. Build your application with the `build` command:
+
+    ```console
+    gradle build
+    ```
+
+1. Run your application with the `run` command:
+
+    ```console
+    gradle run
+    ```
 
 ### Layout model output
 
@@ -571,6 +586,22 @@ Analyze and extract common fields from specific document types using a prebuilt 
     }
 
 ```
+
+**Build and run the application**
+
+Once you've added a code sample to your application, navigate back to your main project directory—**form-recognizer-app**.
+
+1. Build your application with the `build` command:
+
+    ```console
+    gradle build
+    ```
+
+1. Run your application with the `run` command:
+
+    ```console
+    gradle run
+    ```
 
 ### Prebuilt model output
 

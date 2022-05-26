@@ -6,7 +6,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/15/2022
-ms.author: cavoeg
+ms.author: mikaelw
 ---
 
 # FHIR search examples for Azure API for FHIR

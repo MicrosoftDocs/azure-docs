@@ -1,15 +1,15 @@
 ---
-title: 'Tutorial: Use Azure Virtual WAN to Create Site-to-Site connections'
-description: Learn how to use Azure Virtual WAN to create a Site-to-Site VPN connection to Azure.
+title: 'Tutorial: Create site-to-site connections using Virtual WAN'
+description: Learn how to use Azure Virtual WAN to create a site-to-site VPN connection to Azure.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 03/18/2022
+ms.date: 05/02/2022
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ---
-# Tutorial: Create a Site-to-Site connection using Azure Virtual WAN
+# Tutorial: Create a site-to-site connection using Azure Virtual WAN
 
 This tutorial shows you how to use Virtual WAN to connect to your resources in Azure over an IPsec/IKE (IKEv1 and IKEv2) VPN connection. This type of connection requires a VPN device located on-premises that has an externally facing public IP address assigned to it. For more information about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md).
 

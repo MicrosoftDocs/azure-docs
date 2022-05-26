@@ -168,7 +168,7 @@ items:
       href: tutorial-deploy-ssis-virtual-network.md  
   - name: Lineage
     items:
-    - name: Push Data Factory lineage data to Azure Purview
+    - name: Push Data Factory lineage data to Microsoft Purview
       href: tutorial-push-lineage-to-purview.md
   - name: End-to-end labs
     items:
@@ -180,6 +180,8 @@ items:
       href: tutorial-managed-virtual-network-on-premise-sql-server.md
     - name: Access SQL Managed Instance
       href: tutorial-managed-virtual-network-sql-managed-instance.md 
+    - name: Move an existing Azure integration runtime to a managed virtual network
+      href: tutorial-managed-virtual-network-migrate.md
   - name: Self-hosted integration runtime
     items:
     - name: Enable remote access from intranet with TLS/SSL certificate (Advanced)
@@ -277,6 +279,9 @@ items:
             displayName: cumeDist, denseRank, lag, lead, nTile, rank, rowNumber
           - name: Alphabetical usage details for all functions
             href: data-flow-expressions-usage.md
+      - name: User defined functions
+        href: concepts-data-flow-udf.md
+        displayName: udf, user defined function,data flow library
     - name: Prepare data with Power Query data wrangling
       items:
       - name: Data wrangling overview
@@ -342,6 +347,8 @@ items:
       href: connector-amazon-simple-storage-service.md
     - name: Amazon S3 Compatible Storage
       href: connector-amazon-s3-compatible-storage.md
+    - name: Asana
+      href: connector-asana.md     
     - name: Avro format
       href: format-avro.md
     - name: Azure Blob Storage
@@ -394,6 +401,8 @@ items:
       href: connector-concur.md
     - name: Couchbase
       href: connector-couchbase.md
+    - name: data.world
+      href: connector-dataworld.md
     - name: DB2
       href: connector-db2.md
     - name: Dataverse
@@ -552,6 +561,8 @@ items:
       href: connector-teamdesk.md
     - name: Teradata
       href: connector-teradata.md
+    - name: Twilio
+      href: connector-twilio.md
     - name: Vertica
       href: connector-vertica.md
     - name: Web Table
@@ -811,6 +822,10 @@ items:
       href: data-factory-private-link.md
     - name: Azure security baseline
       href: /security/benchmark/azure/baselines/data-factory-security-baseline?toc=/azure/data-factory/TOC.json
+  - name: Settings
+    items: 
+    - name: Manage Azure Data Factory settings and preferences
+      href: how-to-manage-settings.md
   - name: Monitor and manage
     items:
     - name: Monitor visually
@@ -984,11 +999,11 @@ items:
       displayName: trigger
   - name: Data Catalog and Governance
     items:
-    - name: Connect a Data Factory to Azure Purview
+    - name: Connect a Data Factory to Microsoft Purview
       href: connect-data-factory-to-azure-purview.md
-    - name: Access a secured Azure Purview account
+    - name: Access a secured Microsoft Purview account
       href: ./how-to-access-secured-purview-account.md
-    - name: Discover and explore data in ADF using Azure Purview
+    - name: Discover and explore data in ADF using Microsoft Purview
       href: how-to-discover-explore-purview-data.md
   - name: Scenarios
     items: 
@@ -1029,6 +1044,14 @@ items:
         href: scenario-ssis-migration-overview.md
       - name: SSISDB migration to Azure SQL Managed Instance
         href: scenario-ssis-migration-ssisdb-mi.md
+    - name: SAP knowledge center
+      items:
+      - name: Overview
+        href: industry-sap-overview.md
+      - name: SAP connectors
+        href: industry-sap-connectors.md
+      - name: SAP templates
+        href: industry-sap-templates.md
   - name: Templates
     items:
     - name: Overview of templates
@@ -1043,6 +1066,10 @@ items:
       href: solution-template-bulk-copy-from-files-to-database.md
     - name: Delta copy from database
       href: solution-template-delta-copy-with-control-table.md
+    - name: Detect and mask PII data
+      href: solution-template-pii-detection-and-masking.md
+    - name: Extract data from PDF source
+      href: solution-template-extract-data-from-pdf.md
     - name: Migrate data from Amazon S3 to Azure Storage
       href: solution-template-migration-s3-azure.md
     - name: Move files

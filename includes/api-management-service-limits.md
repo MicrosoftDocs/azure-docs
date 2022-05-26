@@ -3,13 +3,13 @@
 title: Include file
 description: Include file
 services: api-management
-author: vladvino
+author: dlepow
 
 ms.assetid: 1b813833-39c8-46be-8666-fd0960cfbf04
 ms.service: api-management
-ms.topic: nclude
-ms.date: 08/20/2021
-ms.author: vlvinogr
+ms.topic: include
+ms.date: 04/01/2022
+ms.author: danlep
 ms.custom: Include file
 ---
 
@@ -33,9 +33,11 @@ ms.custom: Include file
 | Maximum request URL size<sup>9</sup> | 16,384 bytes |
 | Maximum length of URL path segment<sup>10</sup> | 260 characters |
 | Maximum size of API schema used by [validation policy](../articles/api-management/validation-policies.md)<sup>10</sup> | 4 MB |
+| Maximum number of [schemas](../articles/api-management/validation-policies.md#schemas-for-content-validation)<sup>10</sup> | 100 |
 | Maximum size of request or response body in [validate-content policy](../articles/api-management/validation-policies.md#validate-content)<sup>10</sup> | 100 KB |
 | Maximum number of self-hosted gateways<sup>11</sup> | 25 |
 | Maximum number of active WebSocket connections per unit | 200 |
+| Maximum number of tags supported by an API Management resource|15||
 
 <sup>1</sup> Scaling limits depend on the pricing tier. For details on the pricing tiers and their scaling limits, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).<br/>
 <sup>2</sup> Per unit cache size depends on the pricing tier. To see the pricing tiers and their scaling limits, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).<br/>

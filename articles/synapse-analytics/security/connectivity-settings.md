@@ -57,7 +57,7 @@ Selecting the **Disable** option will not apply any firewall rules that you may 
 5.    Select **Save** to save the change. A notification will confirm that the network setting was successfully saved.
 
 ## Connection policy
-The connection policy for Synapse SQL in Azure Synapse Analytics is set to *Default*. You cannot change this in Azure Synapse Analytics. You can learn more about how that affects connections to Synapse SQL in Azure Synapse Analytics [here](../../azure-sql/database/connectivity-architecture.md#connection-policy). 
+The connection policy for Synapse SQL in Azure Synapse Analytics is set to *Default*. You cannot change this in Azure Synapse Analytics. You can learn more about how that affects connections to Synapse SQL in Azure Synapse Analytics [here](/azure/azure-sql/database/connectivity-architecture#connection-policy). 
 
 ## Minimal TLS version
 The serverless SQL endpoint and development endpoint only accept TLS 1.2 and above.

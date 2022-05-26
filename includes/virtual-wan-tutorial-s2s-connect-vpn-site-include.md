@@ -1,7 +1,7 @@
 ---
 ms.author: cherylmc
 author: cherylmc
-ms.date: 03/18/2022
+ms.date: 04/12/2022
 ms.service: virtual-wan
 ms.topic: include
 ---
@@ -53,4 +53,4 @@ ms.topic: include
 
    * Edit the VPN connection to this hub.
    * Delete the VPN connection to this hub.
-   * Download the  VPN configuration file specific to this site. If you instead want to download the configuration file for sites connected to this hub, select **Download VPN Config** from the menu at the top of the page.
+   * Download the VPN configuration file specific to this site. If you instead want to download the configuration file for sites connected to this hub, select **Download VPN Config** from the menu at the top of the page.

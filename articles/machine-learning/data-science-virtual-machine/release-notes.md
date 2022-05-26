@@ -2,10 +2,10 @@
 title: What's new on the Data Science Virtual Machine
 titleSuffix: Azure Data Science Virtual Machine 
 description: Release notes for the Azure Data Science Virtual Machine
-author: michalmar
+author: jesscioffi
 ms.service: data-science-vm
 
-ms.author: mimarusa
+ms.author: jcioffi
 ms.date: 12/14/2021
 ms.topic: reference
 ---
@@ -20,10 +20,63 @@ Azure portal users will always find the latest image available for provisioning 
 
 See the [list of known issues](reference-known-issues.md) to learn about known bugs and workarounds.
 
+## May 17, 2022
+[Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
+
+Version `22.05.11`
+
+Main changes:
+
+- Upgraded `log4j(v2)` to version `2.17.2`
+
+## April 29, 2022
+[Data Science VM – Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=overview) and [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview)
+
+Version `22.04.27`
+
+Main changes:
+
+- `Plotly` and `summarytools` R studio extensions runtime import fix.
+- `Cudatoolkit` and `CUDNN` upgraded to 13.1 and 2.8.1 respectively.
+- Fix Python 3.8 - AzureML notebook run, pinned `matplotlib` to 3.2.1 and cycler to 0.11.0 packages in `Azureml_py38` environment.
+
+## April 26, 2022
+[Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview)
+
+Version: `22.04.21`
+
+Main changes:
+
+- `Plotly` R studio extension patch.
+- Update `Rscript` env path to support latest R studio version 4.1.3.
+
+## April 14, 2022
+New DSVM offering for [Data Science VM – Ubuntu 20.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-2004?tab=Overview) is currently live in the marketplace.
+
+Version: `22.04.05`
+
+## April 04, 2022
+New Image for [Data Science VM – Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=overview)
+
+Version: `22.04.01`
+
+Main changes:
+
+- Updated R environment - added libraries: Cluster, Devtools Factoextra, GlueHere, Ottr, Paletteer, Patchwork, Plotly, Rmd2jupyter, Scales, Statip, Summarytools, Tidyverse, Tidymodels and Testthat
+- Further `Log4j` vulnerability mitigation - although not used, we moved all `log4j` to version v2, we have removed old log4j jars1.0 and moved log4j version 2.0 jars.
+- Azure CLI to version 2.33.1
+- Fixed jupyterhub access issue using public ip address
+- Redesign of Conda environments - we're continuing with alignment and refining the Conda environments so we created:
+  - `azureml_py38`: environment based on Python 3.8 with preinstalled [AzureML SDK](/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true) containing also [AutoML](../concept-automated-ml.md) environment
+  - `azureml_py38_PT_TF`: additional azureml_py38 environment, preinstalled with latest TensorFlow and PyTorch
+  - `py38_default`: default system environment based on Python 3.8
+  - We have removed `azureml_py36_tensorflow`, `azureml_py36_pytorch`, `py38_tensorflow` and `py38_pytorch` environments.
+ 
+
 ## March 18, 2022
 [Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview)
 
-Version: 22.03.09
+Version: `22.03.09`
 
 Main changes:
 
@@ -31,7 +84,7 @@ Main changes:
 - Further `Log4j` vulnerability mitigation - although not used, we moved all `log4j` to version v2, we have removed old log4j jars1.0 and moved `log4j` version 2.0 jars.
 - Azure CLI to version 2.33.1
 - Redesign of Conda environments - we're continuing with alignment and refining the Conda environments so we created:
-  - `azureml_py38`: environment based on Python 3.8 with preinstalled [AzureML SDK](/python/api/overview/azure/ml/?view=azure-ml-py) containing also [AutoML](/azure/machine-learning/concept-automated-ml) environment
+  - `azureml_py38`: environment based on Python 3.8 with preinstalled [AzureML SDK](/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true) containing also [AutoML](../concept-automated-ml.md) environment
   - `azureml_py38_PT_TF`: complementary environment `azureml_py38` with preinstalled with latest TensorFlow and PyTorch
   - `py38_default`: default system environment based on Python 3.8
   - we removed `azureml_py36_tensorflow`, `azureml_py36_pytorch`, `py38_tensorflow` and `py38_pytorch` environments.
@@ -43,17 +96,17 @@ Main changes:
 
 [Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview)
 
-Version: 21.12.03
+Version: `21.12.03`
 
 Windows 2019 DSVM will now be supported under publisher: microsoft-dsvm, offer ID: dsvm-win-2019, plan ID/SKU ID: winserver-2019
  
-Users using Azure Resource Manager (ARM) template / virtual machine scale set (VMSS) to deploy the Windows DSVM machines, should configure the SKU with `winserver-2019` instead of `server-2019`, since we'll continue to ship updates to Windows DSVM images on the new SKU from March, 2022.
+Users using Azure Resource Manager (ARM) template / virtual machine scale set to deploy the Windows DSVM machines, should configure the SKU with `winserver-2019` instead of `server-2019`, since we'll continue to ship updates to Windows DSVM images on the new SKU from March, 2022.
 
 ## December 3, 2021
 
 New image for [Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview).
 
-Version: 21.12.03
+Version: `21.12.03`
 
 Main changes:
 
@@ -70,7 +123,7 @@ Main changes:
 
 New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview).
 
-Version: 21.11.04
+Version: `21.11.04`
 
 Main changes:
 * Changed .NET Framework to version 3.1.414
@@ -79,8 +132,8 @@ Main changes:
 * Changed CUDA to version 11.5
 * Changed Docker to version 20.10.10
 * Changed Intellijidea to version 2021.2.3
-* Changed NVIDIA Drivers to version 495.29.05
-* Changed NVIDIA SMI to version 495.29.05
+* Changed NVIDIA Drivers to version 470.103.01
+* Changed NVIDIA SMI to version 470.103.01
 * Changed Nodejs to version v16.13.0
 * Changed Pycharm to version 2021.2.3
 * Changed VS Code to version 1.61.2
@@ -107,7 +160,7 @@ Main changes:
 
 New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview).
 
-Version: 21.10.07
+Version: `21.10.07`
 
 Main changes:
  - Changed pytorch to version 1.9.1
@@ -125,7 +178,7 @@ Main changes:
 
 New image for [Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview).
 
-Version: 21.08.11
+Version: `21.08.11`
 
 Main changes:
 
@@ -154,7 +207,7 @@ Main changes:
 
 New image for [Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview).
 
-Version: 21.06.22
+Version: `21.06.22`
 
 Main changes:
 
@@ -166,7 +219,7 @@ Main changes:
 
 New image for [Ubuntu 18.04](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804?tab=Overview).
 
-Version: 21.06.01
+Version: `21.06.01`
 
 Main changes are:
 
@@ -184,7 +237,7 @@ Removed several icons from desktop.
 
 New image for [Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview).
 
-Version: 21.05.22
+Version: `21.05.22`
 
 Selected version updates are:
 - CUDA 11.1

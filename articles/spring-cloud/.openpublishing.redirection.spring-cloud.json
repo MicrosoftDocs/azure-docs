@@ -16,6 +16,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "how-to-enable-end-to-end-tls.md",
+            "redirect_url": "/azure/spring-cloud/how-to-enable-ingress-to-app-tls",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "tutorial-dump-jvm-options.md",
             "redirect_url": "/azure/spring-cloud/how-to-dump-jvm-options",
             "redirect_document_id": false
@@ -357,7 +362,7 @@
         },
         {
             "source_path": "spring-cloud-cli-reference.md",
-            "redirect_url": "/cli/azure/spring-cloud",
+            "redirect_url": "/cli/azure/spring",
             "redirect_document_id": false
         }
     ]

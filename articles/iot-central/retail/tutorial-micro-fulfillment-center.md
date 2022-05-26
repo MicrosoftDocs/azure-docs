@@ -116,7 +116,7 @@ Use the sample rule as inspiration to define rules that are more appropriate for
 
 If you're not going to continue to use this application, delete the application template. Go to **Application** > **Management**, and select **Delete**.
 
-:::image type="content" source="media/tutorial-micro-fulfillment-center-app/delete.png" alt-text="Screenshot of Micro-fulfillment center Application settings page.":::
+:::image type="content" source="media/tutorial-micro-fulfillment-center-app/delete.png" alt-text="Screenshot of Micro-fulfillment center Application Management page.":::
 
 ## Next steps
 

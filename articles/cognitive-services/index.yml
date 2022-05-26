@@ -1,7 +1,7 @@
 ### YamlMime:Hub
 
 title: Azure Cognitive Services documentation
-summary: Learn how to build intelligent and supported algorithms into apps, websites, and bots to see, hear, speak, understand, and interpret your user needs.
+summary: Learn how to use ready-made AI services to build intelligent apps, websites, and bots. Develop software that can see, hear, speak, and interpret your user's needs.
 brand: azure
 
 metadata:
@@ -12,9 +12,8 @@ metadata:
   author: nitinme
   ms.author: nitinme
   manager: nitinme
-  ms.custom: custom-portals-hub
+  ms.custom: custom-portals-hub, event-tier1-build-2022
   ms.date: 01/05/2022
-
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items:
@@ -102,6 +101,15 @@ conceptualContent:
         - url: ./personalizer/index.yml
           itemType: overview
           text: Personalizer
+    - title: Azure OpenAI
+      summary: Apply advanced language models to variety of use cases with the Azure OpenAI service 
+      links:
+        - url: ./openai/overview.md
+          itemType: overview
+          text:  Azure OpenAI 
+        - url: ./openai/concepts/engines.md
+          itemType: overview
+          text: Azure OpenAI Engines
     - title: Cognitive Service Containers
       summary: Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, and enables flexibility in where to deploy and host the services that come with Docker containers.
       links:

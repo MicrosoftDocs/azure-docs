@@ -200,7 +200,7 @@ sections:
             Yes. For an explanation of how to use template and pipelines, see [Tutorial: Continuous integration of ARM templates with Azure Pipelines](deployment-tutorial-pipeline.md) and [Integrate ARM templates with Azure Pipelines](add-template-to-azure-pipelines.md).
           
       - question: |
-          Can I use GitHub actions to deploy a template?
+          Can I use GitHub Actions to deploy a template?
         answer: |
             Yes, see [Deploy ARM templates by using GitHub Actions](deploy-github-actions.md).
           

@@ -4,7 +4,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 11/02/2021
+ms.date: 04/12/2022
 ms.custom: devx-track-java, ignite-fall-2021
 ms.author: aahi
 ---
@@ -55,8 +55,7 @@ public class Example {
 
     public static void main(String[] args) {
         TextAnalyticsClient client = authenticateClient(KEY, ENDPOINT);
-        recognizeEntitiesExample(client);
-        recognizePiiEntitiesExample(client);
+        sentimentAnalysisWithOpinionMiningExample(client);
     }
     // Method to authenticate the client object with your key and endpoint
     static TextAnalyticsClient authenticateClient(String key, String endpoint) {
@@ -70,42 +69,40 @@ public class Example {
     {
         // The text that need be analyzed.
         String text = "I had the best day of my life. I wish you were there with me.";
-    
+
         DocumentSentiment documentSentiment = client.analyzeSentiment(text);
         System.out.printf(
-            "Recognized document sentiment: %s, positive score: %s, neutral score: %s, negative score: %s.%n",
-            documentSentiment.getSentiment(),
-            documentSentiment.getConfidenceScores().getPositive(),
-            documentSentiment.getConfidenceScores().getNeutral(),
-            documentSentiment.getConfidenceScores().getNegative());
-    
+                "Recognized document sentiment: %s, positive score: %s, neutral score: %s, negative score: %s.%n",
+                documentSentiment.getSentiment(),
+                documentSentiment.getConfidenceScores().getPositive(),
+                documentSentiment.getConfidenceScores().getNeutral(),
+                documentSentiment.getConfidenceScores().getNegative());
+
         for (SentenceSentiment sentenceSentiment : documentSentiment.getSentences()) {
             System.out.printf(
-                "Recognized sentence sentiment: %s, positive score: %s, neutral score: %s, negative score: %s.%n",
-                sentenceSentiment.getSentiment(),
-                sentenceSentiment.getConfidenceScores().getPositive(),
-                sentenceSentiment.getConfidenceScores().getNeutral(),
-                sentenceSentiment.getConfidenceScores().getNegative());
-            }
+                    "Recognized sentence sentiment: %s, positive score: %s, neutral score: %s, negative score: %s.%n",
+                    sentenceSentiment.getSentiment(),
+                    sentenceSentiment.getConfidenceScores().getPositive(),
+                    sentenceSentiment.getConfidenceScores().getNeutral(),
+                    sentenceSentiment.getConfidenceScores().getNegative());
         }
     }
-
-    // Example method for detecting opinions in text 
+    // Example method for detecting opinions in text
     static void sentimentAnalysisWithOpinionMiningExample(TextAnalyticsClient client)
     {
         // The document that needs be analyzed.
         String document = "Bad atmosphere. Not close to plenty of restaurants, hotels, and transit! Staff are not friendly and helpful.";
-    
+
         System.out.printf("Document = %s%n", document);
-    
+
         AnalyzeSentimentOptions options = new AnalyzeSentimentOptions().setIncludeOpinionMining(true);
         final DocumentSentiment documentSentiment = client.analyzeSentiment(document, "en", options);
         SentimentConfidenceScores scores = documentSentiment.getConfidenceScores();
         System.out.printf(
                 "Recognized document sentiment: %s, positive score: %f, neutral score: %f, negative score: %f.%n",
                 documentSentiment.getSentiment(), scores.getPositive(), scores.getNeutral(), scores.getNegative());
-    
-    
+
+
         documentSentiment.getSentences().forEach(sentenceSentiment -> {
             SentimentConfidenceScores sentenceScores = sentenceSentiment.getConfidenceScores();
             System.out.printf("\tSentence sentiment: %s, positive score: %f, neutral score: %f, negative score: %f.%n",

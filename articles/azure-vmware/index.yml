@@ -1,16 +1,16 @@
 ### YamlMime:Landing
 
 title: Azure VMware Solution documentation
-summary: Learn how to use Azure VMware Solution to deploy a VMware private cloud to Azure
+summary: Learn how to use Azure VMware Solution to deploy a VMware Software-Defined Data Center (SDDC) private cloud to Azure
 
 metadata:
   title: Azure VMware Solution documentation 
-  description: Learn how to use Azure VMware Solution to deploy a VMware private cloud to Azure
+  description: Learn how to use Azure VMware Solution to deploy a VMware Software-Defined Data Center (SDDC) private cloud to Azure
   ms.service: azure-vmware 
   ms.topic: landing-page 
   author: suzizuber
   ms.author: v-szuber 
-  ms.date: 11/12/2021 
+  ms.date: 04/22/2022 
 
 
 # card 1
@@ -156,8 +156,6 @@ landingContent:
             url: integrate-azure-native-services.md
           - text: Integrate Microsoft Defender for Cloud
             url: azure-security-integration.md
-          - text: Integrate Azure NetApp Files
-            url: netapp-files-with-azure-vmware-solution.md
           - text: Protect web apps with Azure Application Gateway
             url: protect-azure-vmware-solution-with-application-gateway.md
           - text: Deploy Traffic Manager to balance workloads
@@ -166,6 +164,8 @@ landingContent:
             url: configure-alerts-for-azure-vmware-solution.md
           - text: Attach disk pools to Azure VMware Solution hosts
             url: attach-disk-pools-to-azure-vmware-solution-hosts.md
+          - text: Attach Azure NetApp Files to Azure VMware Solution VMs
+            url: netapp-files-with-azure-vmware-solution.md
 
 # card 6 == backup and restore
   - title: Backup with Azure Backup Server
@@ -190,6 +190,10 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Configure HCX network extension
+            url: configure-hcx-network-extension.md
+          - text: Configure HCX network extension high availability
+            url: configure-hcx-network-extension-high-availability.md
           - text: Configure vRealize Operations
             url: vrealize-operations-for-azure-vmware-solution.md
           - text: Deploy VMware Horizon

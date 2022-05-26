@@ -4,6 +4,8 @@
   items:
     - name: Welcome to Azure Cosmos DB
       href: introduction.md
+    - name: Try Azure Cosmos DB free
+      href: try-free.md
     - name: Choose an API
       href: choose-api.md
     - name: NoSQL vs. relational databases
@@ -30,6 +32,12 @@
           href: global-dist-under-the-hood.md
     - name: Partitioning and horizontal scaling
       href: partitioning-overview.md
+    - name: Hierarchical partition keys (preview)
+      items:
+        - name: Hierarchical partition keys overview
+          href: hierarchical-partition-keys.md
+        - name: Hierarchical partition keys FAQ
+          href: hierarchical-partition-keys-faq.yml
     - name: Capacity
       items:
         - name: Request units
@@ -53,7 +61,15 @@
         - name: Choose between provisioned throughput and serverless
           href: throughput-serverless.md
         - name: Best practices for scaling provisioned throughput
-          href: scaling-provisioned-throughput-best-practices.md
+          href: scaling-provisioned-throughput-best-practices.md        
+        - name: Burst capacity (preview)
+          items:
+            - name: Burst capacity overview
+              href: burst-capacity.md
+            - name: Burst capacity FAQ
+              href: burst-capacity-faq.yml
+        - name: Merge (preview)
+          href: merge.md
     - name: Security
       items:
         - name: Security overview
@@ -100,6 +116,8 @@
               href: continuous-backup-restore-resource-model.md
             - name: Latest restorable timestamp
               href: latest-restore-timestamp-continuous-backup.md
+            - name: Auditing restore action with continuous backup
+              href: audit-restore-continuous.md              
     - name: Optimize your Azure Cosmos DB cost
       items:
         - name: Plan and manage costs
@@ -152,6 +170,9 @@
           items:
             - name: Azure portal
               href: sql/create-cosmosdb-resources-portal.md
+            - name: Bicep
+              displayName: ARM, Resource Manager, Template
+              href: sql/quick-create-bicep.md
             - name: ARM template
               displayName: Resource Manager
               href: sql/quick-create-template.md
@@ -711,7 +732,14 @@
                   href: sql/how-to-provision-database-throughput.md
                 - name: Provision autoscale throughput - database or container
                   displayName: request units, RUs, RU, shared throughput, database level, collection level, autoscale
-                  href: sql/how-to-provision-autoscale-throughput.md
+                  href: sql/how-to-provision-autoscale-throughput.md                
+                - name: Distribute throughput across partitions (preview) - container
+                  displayName: request units, RUs, RU, collection levels
+                  items:
+                    - name: Distribute throughput across partitions overview        
+                      href: sql/distribute-throughput-across-partitions.md
+                    - name: Distribute throughput across partitions FAQ        
+                      href: sql/distribute-throughput-across-partitions-faq.yml
                 - name: Estimate RU/s with capacity planner
                   displayName: request units, RUs, RU, capacity
                   href: sql/estimate-ru-with-capacity-planner.md
@@ -752,6 +780,8 @@
                   href: sql/profile-sql-api-query.md
                 - name: Tune query performance
                   href: sql/sql-api-query-metrics.md
+                - name: Optimize query performance when using SDK
+                  href: sql/performance-tips-query-sdk.md
             - name: Indexing
               items:
                 - name: Indexing policies
@@ -883,6 +913,8 @@
               href: sql/how-to-migrate-from-bulk-executor-library.md
             - name: Bulk executor - Java library
               href: sql/bulk-executor-java.md
+            - name: Migrate from bulk executor to Java SDK
+              href: sql/how-to-migrate-from-bulk-executor-library-java.md              
         - name: Visualize Cosmos DB data
           items:
             - name: Use Power BI
@@ -969,11 +1001,11 @@
           items:
             - name: Java SDK v4
               href: sql/sql-api-sdk-java-v4.md
-            - name: Async Java SDK v2
+            - name: Async Java SDK v2 (legacy)
               href: sql/sql-api-sdk-async-java.md
-            - name: Sync Java SDK v2
+            - name: Sync Java SDK v2 (legacy)
               href: sql/sql-api-sdk-java.md
-            - name: Spring Data Connector v2
+            - name: Spring Data Connector v2 (legacy)
               href: sql/sql-api-sdk-java-spring-v2.md
             - name: Spring Data Connector v3
               href: sql/sql-api-sdk-java-spring-v3.md
@@ -981,7 +1013,7 @@
               href: sql/sql-api-sdk-java-spark-v3.md
             - name: Spark 2 OLTP Connector
               href: sql/sql-api-sdk-java-spark.md
-            - name: Java bulk executor library v2
+            - name: Java bulk executor library v2 (legacy)
               href: sql/sql-api-sdk-bulk-executor-java.md
         - name: Azure CLI
           href: /cli/azure/azure-cli-reference-for-cosmos-db
@@ -989,6 +1021,8 @@
           href: sql/sql-api-sdk-node.md
         - name: Python
           href: sql/sql-api-sdk-python.md
+        - name: Go
+          href: sql/sql-api-sdk-go.md
         - name: REST (Data plane)
           href: /rest/api/cosmos-db/
         - name: REST (Management plane)
@@ -1074,10 +1108,10 @@
           items:
             - name: Migrate - Oracle DB to Cassandra API using Striim
               href: cassandra/migrate-data-striim.md
-            - name: Migrate - Oracle DB to Cassandra API using Blitzz
-              href: cassandra/oracle-migrate-cosmos-db-blitzz.md
-            - name: Migrate - Apache Cassandra to Cassandra API using Blitzz
-              href: cassandra/migrate-data-blitzz.md
+            - name: Migrate - Oracle DB to Cassandra API using Arcion
+              href: cassandra/oracle-migrate-cosmos-db-arcion.md
+            - name: Migrate - Apache Cassandra to Cassandra API using Arcion
+              href: cassandra/migrate-data-arcion.md
             - name: Migrate - Apache Cassandra to Cassandra API using dual-write proxy
               href: cassandra/migrate-data-dual-write-proxy.md              
             - name: Migrate - Apache Cassandra to Cassandra API using Databricks
@@ -1145,6 +1179,8 @@
           href: cassandra/lwt-cassandra-api.md
         - name: Cassandra API extensions overview
           href: cassandra/cassandra-driver-extensions.md
+        - name: Monitor and debug with insights in Cassandra API
+          href: cassandra/cassandra-monitor-insights.md
     - name: Reference
       items:
         - name: REST resource provider
@@ -1171,12 +1207,8 @@
           href: mongodb/create-mongodb-java.md
         - name: Node.js
           href: mongodb/create-mongodb-nodejs.md
-        - name: Xamarin
-          href: mongodb/create-mongodb-xamarin.md
         - name: Golang
           href: mongodb/create-mongodb-go.md
-        - name: Rust
-          href: mongodb/create-mongodb-rust.md 
     - name: Tutorials
       items:
         - name: 1 - Create and manage data
@@ -1277,7 +1309,7 @@
           href: mongodb/estimate-ru-capacity-planner.md
         - name: Optimize write performance
           href: mongodb/optimize-write-performance.md
-        - name: Create a container - MongoDB API
+        - name: Create a collection - MongoDB API
           href: mongodb/how-to-create-container-mongodb.md
         - name: Provision throughput- MongoDB API
           displayName: request units, RUs, RU, collection level
@@ -1298,6 +1330,8 @@
         - name: MongoDB extension commands
           href: mongodb/custom-commands.md
           displayName: custom commands
+        - name: Configure role-based access control (RBAC)
+          href: mongodb/how-to-setup-rbac.md
         - name: Manage using Resource Manager templates
           href: mongodb/resource-manager-template-samples.md
           displayName: ARM
@@ -1460,6 +1494,8 @@
           href: table/how-to-use-nodejs.md
         - name: Python
           href: table/how-to-use-python.md
+        - name: Go
+          href: table/how-to-use-go.md
         - name: PHP
           href: table/how-to-use-php.md
         - name: C++
@@ -1539,6 +1575,20 @@
            href: scripts/cli/common/service-endpoints.md
          - name: Secure existing account with service endpoints
            href: scripts/cli/common/service-endpoints-ignore-missing-vnet.md
+     - name: Common Azure PowerShell samples
+       items:
+         - name: Overview common API samples
+           href: common-powershell-samples.md
+         - name: Account keys or connection strings
+           href: scripts/powershell/common/keys-connection-strings.md
+         - name: Change failover priority or trigger failover
+           href: scripts/powershell/common/failover-priority-update.md
+         - name: Create an account with IP Firewall
+           href: scripts/powershell/common/firewall-create.md
+         - name: Update account
+           href: scripts/powershell/common/account-update.md
+         - name: Update an account's regions
+           href: scripts/powershell/common/update-region.md
 - name: How-to guides
   items:
     - name: Free tier
@@ -1547,6 +1597,8 @@
     - name: Limit total account throughput
       displayName: cost, RUs, RU
       href: limit-total-account-throughput.md
+    - name: Access preview features
+      href: access-previews.md
     - name: Manage Azure Cosmos DB resources
       items:
         - name: Manage an Azure Cosmos account
@@ -1589,8 +1641,6 @@
               href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
         - name: Set up Azure DevOps CI/CD pipeline
           href: tutorial-setup-ci-cd.md
-        - name: Use Azure Storage Explorer
-          href: storage-explorer.md
         - name: Use Azure Cosmos DB Explorer
           href: data-explorer.md
     - name: Analytics and BI with Azure Synapse Link

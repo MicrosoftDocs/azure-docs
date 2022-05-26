@@ -18,139 +18,19 @@ You can securely connect to the Blob Storage endpoint of an Azure Storage accoun
 To learn more about SFTP support for Azure Blob Storage, see [SSH File Transfer Protocol (SFTP) in Azure Blob Storage](secure-file-transfer-protocol-support.md).
 
 > [!IMPORTANT]
-> SFTP support is currently in PREVIEW and is available on general-purpose v2 and premium block blob accounts.
+> SFTP support is currently in PREVIEW and is available on general-purpose v2 and premium block blob accounts. Complete [this form](https://forms.office.com/r/gZguN0j65Y) BEFORE using the feature in preview. Registration via 'preview features' is NOT required and confirmation email will NOT be sent after filling out the form. You can IMMEDIATELY access the feature.
 >
+> After testing your end-to-end scenarios with SFTP, please share your experience via [this form](https://forms.office.com/r/MgjezFV1NR).
+> 
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-> To enroll in the preview, see [this form](https://forms.office.com/r/gZguN0j65Y).
 
 ## Prerequisites
 
-- A standard general-purpose v2 or premium block blob storage account. You can also enable SFTP as create the account. For more information on these types of storage accounts, see [Storage account overview](../common/storage-account-overview.md).
+- A standard general-purpose v2 or premium block blob storage account. You can also enable SFTP as you create the account. For more information on these types of storage accounts, see [Storage account overview](../common/storage-account-overview.md).
 
 - The hierarchical namespace feature of the account must be enabled. To enable the hierarchical namespace feature, see [Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities](upgrade-to-data-lake-storage-gen2-how-to.md).
 
 - If you're connecting from an on-premises network, make sure that your client allows outgoing communication through port 22 used by SFTP.
-
-## Register the feature
-
-Before you can enable SFTP support, you must register the SFTP feature with your subscription.
-
-### [Portal](#tab/azure-portal)
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-2. Open the configuration page of your subscription.
-
-3. Under **Settings**, select **Preview features**.
-
-   > [!div class="mx-imgBorder"]
-   > ![Preview setting](./media/secure-file-transfer-protocol-support-how-to/preview-features-setting.png)
-
-4. In the **Preview features** page, select the **AllowSFTP** feature, and then select **Register**.
-
-### [PowerShell](#tab/powershell)
-
-1. Open a Windows PowerShell command window.
- 
-2.	Install **Az.Storage** preview module.
-
-    ```powershell
-    Install-Module -Name Az.Storage -AllowPrerelease 
-    ```
-
-    For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps)
-
-3. Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
-
-   ```powershell
-   Connect-AzAccount
-   ```
-
-4. If your identity is associated with more than one subscription, then set your active subscription.
-
-   ```powershell
-   $context = Get-AzSubscription -SubscriptionId <subscription-id>
-   Set-AzContext $context
-   ```
-
-   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
-
-5. Register the `AllowSFTP` feature by using the [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) command.
-
-   ```powershell
-   Register-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowSFTP
-   ```
-
-   > [!NOTE]
-   > The registration process might not complete immediately. Make sure to verify that the feature is registered before using it.
-
-### [Azure CLI](#tab/azure-cli)
-
-1. Open the [Azure Cloud Shell](../../cloud-shell/overview.md), or if you've [installed](/cli/azure/install-azure-cli) the Azure CLI locally, open a command console application such as Windows PowerShell.
-
-2. Install the `storage-preview` extension.
-
-   ```azurecli
-   az extension add -n storage-preview
-   ```
-
-2. If you're using Azure CLI locally, run the login command.
-
-   ```azurecli
-   az login
-   ```
-
-   If the CLI can open your default browser, it will do so and load an Azure sign-in page.
-
-   Otherwise, open a browser page at [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and enter the authorization code displayed in your terminal. Then, sign in with your account credentials in the browser.
-
-1. If your identity is associated with more than one subscription, then set your active subscription to subscription of the storage account.
-
-   ```azurecli
-   az account set --subscription <subscription-id>
-   ```
-
-   Replace the `<subscription-id>` placeholder value with the ID of your subscription.
-
-4. Register the `AllowSFTP` feature by using the [az feature register](/cli/azure/feature#az-feature-register) command.
-
-   ```azurecli
-   az feature register --namespace Microsoft.Storage --name AllowSFTP
-   ```
-
-   > [!NOTE]
-   > The registration process might not complete immediately. Make sure to verify that the feature is registered before using it.
-
----
-
-### Verify feature registration
-
-Verify that the feature is registered before continuing with the other steps in this article. 
-
-#### [Portal](#tab/azure-portal)
-
-1. Open the **Preview features** page of your subscription. 
-
-2. Locate the **AllowSFTP** feature and make sure that **Registered** appears in the **State** column.
-
-#### [PowerShell](#tab/powershell)
-
-To verify that the registration is complete, use the [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) command.
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowSFTP
-```
-
-#### [Azure CLI](#tab/azure-cli)
-
-To verify that the registration is complete, use the [az feature](/cli/azure/feature#az-feature-show) command.
-
-```azurecli
-az feature show --namespace Microsoft.Storage --name AllowSFTP
-```
-
----
 
 ## Enable SFTP support
 
@@ -241,7 +121,7 @@ To learn more about the SFTP permissions model, see [SFTP Permissions model](sec
    > [!div class="mx-imgBorder"]
    > ![Container permissions tab](./media/secure-file-transfer-protocol-support-how-to/container-perm-tab.png)
 
-6. In the **Home directory** edit box, type the name of the container or the directory path (including the container name) that will be the default location associated with this this local user. 
+6. In the **Home directory** edit box, type the name of the container or the directory path (including the container name) that will be the default location associated with this local user. 
 
    To learn more about the home directory, see [Home directory](secure-file-transfer-protocol-support.md#home-directory).
 
@@ -253,12 +133,15 @@ To learn more about the SFTP permissions model, see [SFTP Permissions model](sec
    > You can't retrieve this password later, so make sure to copy the password, and then store it in a place where you can find it.
 
    If you chose to generate a new key pair, then you'll be prompted to download the private key of that key pair after the local user has been added.
+   
+   > [!NOTE]
+   > Local users have a `sharedKey` property that is used for SMB authentication only.
 
 ### [PowerShell](#tab/powershell)
 
-1. Decide which containers you want to make available to the local user and the types of operations that you want to enable this local user to perform. Create a permission scope object by using the the **New-AzStorageLocalUserPermissionScope** command, and setting the `-Permission` parameter of that command to one or more letters that correspond to access permission levels. Possible values are Read(r), Write (w), Delete (d), List (l), and Create (c).
+1. Decide which containers you want to make available to the local user and the types of operations that you want to enable this local user to perform. Create a permission scope object by using the **New-AzStorageLocalUserPermissionScope** command, and setting the `-Permission` parameter of that command to one or more letters that correspond to access permission levels. Possible values are Read(r), Write (w), Delete (d), List (l), and Create (c).
   
-   The following example sets creates a permission scope object that gives read and write permission to the `mycontainer` container.  
+   The following example set creates a permission scope object that gives read and write permission to the `mycontainer` container.  
 
    ```powershell
    $permissionScope = New-AzStorageLocalUserPermissionScope -Permission rw -Service blob -ResourceName mycontainer 
@@ -296,6 +179,8 @@ To learn more about the SFTP permissions model, see [SFTP Permissions model](sec
 	$localuser.SshAuthorizedKeys | ft
 	$localuser.PermissionScopes | ft
    ```
+   > [!NOTE]
+   > Local users also have a `sharedKey` property that is used for SMB authentication only.
 
 5. If you want to use a password to authenticate the user, you can create a password by using the **New-AzStorageLocalUserSshPassword** command. Set the `-UserName` parameter to the user name.
 
@@ -330,6 +215,8 @@ To learn more about the SFTP permissions model, see [SFTP Permissions model](sec
    ```azurecli
    az storage account local-user create --account-name contosoaccount -g contoso-resource-group -n contosouser --home-directory contosocontainer --permission-scope permissions=rw service=blob resource-name=contosocontainer --ssh-authorized-key key="ssh-rsa ssh-rsa a2V5..." --has-ssh-key true --has-ssh-password true
    ```
+   > [!NOTE]
+   > Local users also have a `sharedKey` property that is used for SMB authentication only.
 3. If you want to use a password to authenticate the user, you can create a password by using the [az storage account local-user regenerate-password](/cli/azure/storage/account/local-user#az-storage-account-local-user-regenerate-password) command. Set the `-n` parameter to the local user name.
 
    The following example generates a password for the user.

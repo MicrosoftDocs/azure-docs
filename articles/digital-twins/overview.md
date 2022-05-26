@@ -22,7 +22,7 @@ ms.service: digital-twins
 Azure Digital Twins can be used to design a digital twin architecture that represents actual IoT devices in a wider cloud solution, and which connects to IoT Hub device twins to send and receive live data.
 
 > [!NOTE]
-> IoT Hub device twins differ from digital twins in the Azure Digital Twins service. While *IoT Hub device twins* are maintained by your IoT hub for each IoT device that you connect to it, *digital twins* can be representations of anything defined by digital models and instantiated within Azure Digital Twins. 
+> IoT Hub **device twins** are different from Azure Digital Twins **digital twins**. While *IoT Hub device twins* are maintained by your IoT hub for each IoT device that you connect to it, *digital twins* in Azure Digital Twins can be representations of anything defined by digital models and instantiated within Azure Digital Twins. 
 
 Take advantage of your domain expertise on top of Azure Digital Twins to build customized, connected solutions that:
 * Model any environment, and bring digital twins to life in a scalable and secure manner
@@ -40,14 +40,12 @@ In Azure Digital Twins, you define the digital entities that represent the peopl
 
 You can think of these model definitions as a specialized vocabulary to describe your business. For a building management solution, for example, you might define models such as Building, Floor, and Elevator. You can then create digital twins based on these models to represent your specific environment.
 
-[!INCLUDE [digital-twins-versus-device-twins](../../includes/digital-twins-versus-device-twins.md)]
-
 *Models* are defined in a JSON-like language called [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md), and they describe twins by their state properties, telemetry events, commands, components, and relationships. Here are some other capabilities of models:
 * Models define semantic *relationships* between your entities so that you can connect your twins into a graph that reflects their interactions. You can think of the models as nouns in a description of your world, and the relationships as verbs.
 * You can specialize twins using model *inheritance*. One model can inherit from another.
 * You can design your own model sets from scratch, or get started with a pre-existing set of [DTDL industry ontologies](concepts-ontologies.md) based on common vocabulary for your industry.
 
-DTDL is also used for data models throughout other Azure IoT services, including [IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md) and [Time Series Insights](../time-series-insights/overview-what-is-tsi.md). This type of commonality helps you keep your Azure Digital Twins solution connected and compatible with other parts of the Azure ecosystem.
+DTDL is also used for data models throughout other Azure IoT services, including [IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md) and [Time Series Insights](../time-series-insights/overview-what-is-tsi.md). This compatibility helps you connect your Azure Digital Twins solution with other parts of the Azure ecosystem.
 
 ### Live execution environment
 

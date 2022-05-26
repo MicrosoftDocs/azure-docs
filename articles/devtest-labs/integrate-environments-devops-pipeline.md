@@ -2,6 +2,8 @@
 title: Integrate DevTest Labs environments into Azure Pipelines
 description: Learn how to integrate Azure DevTest Labs environments into Azure Pipelines continuous integration (CI) and continuous delivery (CD) pipelines.
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 11/17/2021
 ---
 

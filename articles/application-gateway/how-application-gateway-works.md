@@ -2,11 +2,11 @@
 title: How an application gateway works
 description: This article provides information about how an application gateway accepts incoming requests and routes them to the backend.
 services: application-gateway
-author: KumudD
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
-ms.author: kumud
+ms.author: greglin
 ---
 
 # How an application gateway works

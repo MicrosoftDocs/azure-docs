@@ -13,7 +13,7 @@ ms.custom: contperf-fy21q1, e2e-hybrid
 
 # What is VPN Gateway?
 
-A VPN gateway is a specific type of virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an on-premises location over the public Internet. You can also use a VPN gateway to send encrypted traffic between Azure virtual networks over the Microsoft network. Each virtual network can have only one VPN gateway. However, you can create multiple connections to the same VPN gateway. When you create multiple connections to the same VPN gateway, all VPN tunnels share the available gateway bandwidth.
+VPN Gateway sends encrypted traffic between an Azure virtual network and an on-premises location over the public Internet. You can also use VPN Gateway to send encrypted traffic between Azure virtual networks over the Microsoft network. A VPN gateway is a specific type of virtual network gateway. Each virtual network can have only one VPN gateway. However, you can create multiple connections to the same VPN gateway. When you create multiple connections to the same VPN gateway, all VPN tunnels share the available gateway bandwidth.
 
 ## <a name="whatis"></a>What is a virtual network gateway?
 
@@ -39,7 +39,7 @@ Because you can create multiple connection configurations using VPN Gateway, you
 
 ### <a name="planningtable"></a>Planning table
 
-The following table can help you decide the best connectivity option for your solution. Note that ExpressRoute is not a part of VPN Gateway, but is included in the table.
+The following table can help you decide the best connectivity option for your solution. Note that ExpressRoute isn't a part of VPN Gateway, but is included in the table.
 
 [!INCLUDE [cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
@@ -83,5 +83,6 @@ Subscribe to the RSS feed and view the latest VPN Gateway feature updates on the
 ## Next steps
 
 - [Tutorial: Create and manage a VPN Gateway](tutorial-create-gateway-portal.md).
+- [Learn module: Introduction to Azure VPN Gateway](/learn/modules/intro-to-azure-vpn-gateway).
 - [Learn module: Connect your on-premises network to Azure with VPN Gateway](/learn/modules/connect-on-premises-network-with-vpn-gateway/).
 - [Subscription and service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).

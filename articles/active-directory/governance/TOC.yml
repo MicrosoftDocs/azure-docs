@@ -24,8 +24,6 @@
         href: entitlement-management-group-licenses.md
       - name: Onboard external users to Azure AD through an approval process
         href: entitlement-management-onboard-external-user.md
-      - name: Automate identity governance tasks
-        href: identity-governance-automation.md
     - name: API tutorials
       items:
       - name: Manage access to resources - Microsoft Graph
@@ -38,6 +36,8 @@
         href: /graph/tutorial-accessreviews-securitygroup
       - name: Review access to privileged roles - Microsoft Graph
         href: /graph/tutorial-accessreviews-roleassignments
+      - name: Automate identity governance tasks - PowerShell
+        href: identity-governance-automation.md
 - name: Concepts
   expanded: true
   items:
@@ -134,6 +134,8 @@
 
     - name: Groups and apps
       items:
+      - name: Prepare for an app access review
+        href: access-reviews-application-preparation.md
       - name: Create an access review
         href: create-access-review.md
       - name: Review access

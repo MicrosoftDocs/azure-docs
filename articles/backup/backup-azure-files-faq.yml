@@ -2,9 +2,11 @@
 metadata:
   title: Back up Azure Files FAQ
   description: In this article, discover answers to common questions about how to protect your Azure file shares with the Azure Backup service.
-  ms.date: 12/10/2021
+  ms.date: 04/05/2022
   ms.topic: faq
   ms.service: backup
+  author: v-amallick
+  ms.author: v-amallick
 title: Questions about backing up Azure Files
 summary: |
   This article answers common questions about backing up Azure Files. In some of the answers, there are links to the articles that have comprehensive information. You can also post questions about the Azure Backup service in the [Microsoft Q&A question page for discussion](/answers/topics/azure-backup.html).
@@ -78,6 +80,11 @@ sections:
           What happens if I cancel an ongoing restore job?
         answer: |
           If an ongoing restore job is canceled, the restore process stops and all files restored before the cancellation, stay in configured destination (original or alternate location) without any rollbacks.
+
+      - question: |
+          Why can't I see a specific recovery point?
+        answer: |
+          If a recovery point isn't listed, it must have expired. We recommend you checking the retention configured in the backup policy to understand the retention duration for recovery points of your backed-up file share.
 
   - name: Manage backup
     questions:

@@ -126,7 +126,7 @@ Follow these steps to create a new GO module.
     			fmt.Printf("CANCELED: Reason=%d.\n", cancellation.Reason)
     
     			if cancellation.Reason == common.Error {
-    				fmt.Printf("CANCELED: ErrorCode=%d\nCANCELED: ErrorDetails=[%s]\nCANCELED: Did you update the subscription info?\n",
+    				fmt.Printf("CANCELED: ErrorCode=%d\nCANCELED: ErrorDetails=[%s]\nCANCELED: Did you set the speech resource key and region values?\n",
     					cancellation.ErrorCode,
     					cancellation.ErrorDetails)
     			}

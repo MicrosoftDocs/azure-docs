@@ -152,7 +152,7 @@ Each property is a name-value pair of type string.
 * **Minimum Property Value Length**: `1`
 * **Maximum Property Value Length**: `64`
 
-_Note that the same exact set of compatibility properties cannot be re-used with a different Provider and Name combination._
+_Note that the same exact set of compatibility properties cannot be used with more than one Update Provider and Name combination._
 
 ### instructions object
 
@@ -314,7 +314,7 @@ File hashes.
 
 ### fileHashes object
 
-Base64-encoded file hashes with algorithm name as key. At least SHA-256 algorithm must be specified, and additional algorithm may be specified if supported by agent.
+Base64-encoded file hashes with algorithm name as key. At least SHA-256 algorithm must be specified, and additional algorithm may be specified if supported by agent. For an example of how to calculate the hash correctly, see the [AduUpdate.psm1 script](https://github.com/Azure/iot-hub-device-update/blob/main/tools/AduCmdlets/AduUpdate.psm1).
 
 **Properties**
 

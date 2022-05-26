@@ -558,7 +558,7 @@ public class UpdateWeatherObject
 }
 ```
 
-In the sample app, this object is passed to the `UpdateEntity` method in the `TableService` class.  This method first loads the existing entity from the Table API using the [GetEntity](/dotnet/api/azure.data.tables.tableclient.getentity) method on the [TableClient](/dotnet/api/azure.data.tables.tableclient).  It then updates that entity object and uses the `UpdateEntity` method save the updates to the database.  Note how the [UpdateEntity](/dotnet/api/azure.data.tables.tableclient.updateentity) method takes the current Etag of the object to insure the object has not changed since it was initially loaded.  If you want to update the entity regardless, you may pass a value of `Etag.Any` to the `UpdateEntity` method.
+In the sample app, this object is passed to the `UpdateEntity` method in the `TableService` class.  This method first loads the existing entity from the Table API using the [GetEntity](/dotnet/api/azure.data.tables.tableclient.getentity) method on the [TableClient](/dotnet/api/azure.data.tables.tableclient).  It then updates that entity object and uses the `UpdateEntity` method save the updates to the database.  Note how the [UpdateEntity](/dotnet/api/azure.data.tables.tableclient.updateentity) method takes the current Etag of the object to insure the object has not changed since it was initially loaded.  If you want to update the entity regardless, you may pass a value of `ETag.All` to the `UpdateEntity` method.
 
 ```csharp
 public void UpdateEntity(UpdateWeatherObject weatherObject)
