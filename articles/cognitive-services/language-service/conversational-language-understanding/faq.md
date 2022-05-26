@@ -21,9 +21,9 @@ Use this article to quickly get the answers to common questions about conversati
 
 See the [quickstart](./quickstart.md) to quickly create your first project, or the [how-to article](./how-to/create-project.md) for more details. 
 
-## How do I connect conversation language projects to other service applications?
+## Can I use more than one CLU project together?
 
-See the [orchestration workflow documentation](../orchestration-workflow/overview.md) for more information.
+Yes, using orhcestration workflow, see the [orchestration workflow documentation](../orchestration-workflow/overview.md) for more information.
 
 ## Training is taking a long time, is this expected?
 
@@ -69,9 +69,9 @@ Add any out of scope utterances to the [none intent](./concepts/none-intent.md).
 
 Yes, only for predictions, and [samples are available](https://aka.ms/cluSampleCode). There is currently no authoring support for the SDK.
 
-## Can I connect to Orchestration workflow projects?
+## Can I use CLU with Question answering?
 
-Yes, you can connect your CLU project in orchestration workflow. All you need is to make sure that both projects are under the same Language resource
+Yes, you can use orchestration workflow to orchestrate between different CLU and Question answering projects. Start by creating orchestration workflow projects and connect your CLU and question answering projects. All you need is to make sure that these projects are under the same Language resource.
 
 ## Are there APIs for this feature?
 
