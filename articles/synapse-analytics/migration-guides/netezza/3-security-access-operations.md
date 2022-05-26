@@ -22,7 +22,7 @@ This article discusses the methods of connection for existing legacy Netezza env
 
 It's assumed that there's a requirement to migrate the existing methods of connection and user/role/permission structure as-is. If this isn't the case, then use Azure utilities such as Azure portal to create and manage a new security regime.
 
-For more information on the [Azure Synapse security](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security#authorization) options see [Security whitepaper](/azure/synapse-analytics/guidance/security-white-paper-introduction).
+For more information on the [Azure Synapse security](../../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization) options see [Security whitepaper](../../guidance/security-white-paper-introduction.md).
 
 ### Connection and authentication
 
@@ -168,7 +168,7 @@ Comments on the preceding table:
 
 \*\*\*\* These features are managed automatically by the system or via Azure portal in Azure Synapse&mdash;see the next section on Operational considerations.
 
-Refer to [Azure Synapse Analytics security permissions](/azure/synapse-analytics/guidance/security-white-paper-introduction).
+Refer to [Azure Synapse Analytics security permissions](../../guidance/security-white-paper-introduction.md).
 
 ## Operational considerations
 
@@ -243,7 +243,7 @@ The portal also enables integration with other Azure monitoring services such as
 > Low-level and system-wide metrics are automatically logged in Azure Synapse.
 Resource utilization statistics for the Azure Synapse are automatically logged within the system. The metrics include usage statistics for CPU, memory, cache, I/O and temporary workspace for each query as well as connectivity information&mdash;such as failed connection attempts.
 
-Azure Synapse provides a set of [Dynamic management views](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-monitor?msclkid=3e6eefbccfe211ec82d019ada29b1834) (DMVs). These views are useful when actively troubleshooting and identifying performance bottlenecks with your workload.
+Azure Synapse provides a set of [Dynamic management views](../../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?msclkid=3e6eefbccfe211ec82d019ada29b1834) (DMVs). These views are useful when actively troubleshooting and identifying performance bottlenecks with your workload.
 
 For more information, see [Azure Synapse operations and management options](/azure/sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance).
 
@@ -305,7 +305,7 @@ This information can also be used for capacity planning, determining the resourc
 > [!TIP]
 > A major benefit of Azure is the ability to independently scale up and down compute resources on demand to handle peaky workloads cost-effectively.
 
-The architecture of Azure Synapse separates storage and compute, allowing each to scale independently. As a result, [compute resources can be scaled](/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal) to meet performance demands independent of data storage. You can also pause and resume compute resources. A natural benefit of this architecture is that billing for compute and storage is separate. If a data warehouse isn't in use, save on compute costs by pausing compute.
+The architecture of Azure Synapse separates storage and compute, allowing each to scale independently. As a result, [compute resources can be scaled](../../sql-data-warehouse/quickstart-scale-compute-portal.md) to meet performance demands independent of data storage. You can also pause and resume compute resources. A natural benefit of this architecture is that billing for compute and storage is separate. If a data warehouse isn't in use, save on compute costs by pausing compute.
 
 Compute resources can be scaled up or scaled back by adjusting the data warehouse units setting for the data warehouse. Loading and query performance will increase linearly as you add more data warehouse units.
 

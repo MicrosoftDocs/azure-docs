@@ -165,7 +165,7 @@ Teradata supports data replication across nodes via the FALLBACK option, where t
 
 The goal of the high availability architecture in Azure SQL Database is to guarantee that your database is up and running 99.9% of time, without worrying about the impact of maintenance operations and outages. Azure automatically handles critical servicing tasks such as patching, backups, and Windows and SQL upgrades, as well as unplanned events such as underlying hardware, software, or network failures.
 
-Data storage in Azure Synapse is automatically [backed up](/azure/synapse-analytics/sql-data-warehouse/backup-and-restore) with snapshots. These snapshots are a built-in feature of the service that creates restore points. You don't have to enable this capability. Users can't currently delete automatic restore points where the service uses these restore points to maintain SLAs for recovery.
+Data storage in Azure Synapse is automatically [backed up](../../sql-data-warehouse/backup-and-restore.md) with snapshots. These snapshots are a built-in feature of the service that creates restore points. You don't have to enable this capability. Users can't currently delete automatic restore points where the service uses these restore points to maintain SLAs for recovery.
 
 Azure Synapse Dedicated SQL pool takes snapshots of the data warehouse throughout the day creating restore points that are available for seven days. This retention period can't be changed. SQL Data Warehouse supports an eight-hour recovery point objective (RPO). You can restore your data warehouse in the primary region from any one of the snapshots taken in the past seven days. If you require more granular backups, other user-defined options are available.
 
@@ -236,7 +236,7 @@ As part of the preparation phase, create an inventory of these objects to be mig
 
 There may be facilities in the Azure environment that replace the functionality implemented as functions or stored procedures in the Teradata environment. In this case, it's more efficient to use the built-in Azure facilities rather than recoding the Teradata functions.
 
-[Data integration partners](/azure/synapse-analytics/partner/data-integration) offer tools and services that can automate the migration.
+[Data integration partners](../../partner/data-integration.md) offer tools and services that can automate the migration.
 
 ##### Functions
 
@@ -305,7 +305,7 @@ Azure enables the specification of data distribution methods for individual tabl
 
 For large table-large table joins, hash distributing one or, ideally, both tables on one of the join columns&mdash;which has a wide range of values to help ensure an even distribution. Perform join processing locally, as the data rows to be joined will already be collocated on the same processing node.
 
-Another way to achieve local joins for small table-large table joins&mdash;typically dimension table to fact table in a star schema model&mdash;is to replicate the smaller dimension table across all nodes. This ensures that any value of the join key of the larger table will have a matching dimension row locally available. The overhead of replicating the dimension tables is relatively low, provided the tables aren't very large (see [Design guidance for replicated tables](/azure/synapse-analytics/sql-data-warehouse/design-guidance-for-replicated-tables))&mdash;in which case, the hash distribution approach as described above is more appropriate. For more information, see [Distributed tables design](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute).
+Another way to achieve local joins for small table-large table joins&mdash;typically dimension table to fact table in a star schema model&mdash;is to replicate the smaller dimension table across all nodes. This ensures that any value of the join key of the larger table will have a matching dimension row locally available. The overhead of replicating the dimension tables is relatively low, provided the tables aren't very large (see [Design guidance for replicated tables](../../sql-data-warehouse/design-guidance-for-replicated-tables.md))&mdash;in which case, the hash distribution approach as described above is more appropriate. For more information, see [Distributed tables design](../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md).
 
 #### Data indexing
 
@@ -321,15 +321,15 @@ Only one field per table can be used for partitioning. That field is frequently 
 
 #### Data table statistics
 
-Ensure that statistics on data tables are up to date by building in a [statistics](/azure/synapse-analytics/sql/develop-tables-statistics) step to ETL/ELT jobs.
+Ensure that statistics on data tables are up to date by building in a [statistics](../../sql/develop-tables-statistics.md) step to ETL/ELT jobs.
 
 #### PolyBase for data loading
 
-PolyBase is the most efficient method for loading large amounts of data into the warehouse since it can leverage parallel loading streams. For more information, see [PolyBase data loading strategy](/azure/synapse-analytics/sql/load-data-overview).
+PolyBase is the most efficient method for loading large amounts of data into the warehouse since it can leverage parallel loading streams. For more information, see [PolyBase data loading strategy](../../sql/load-data-overview.md).
 
 #### Use workload management
 
-Use [workload management](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management?context=/azure/synapse-analytics/context/context) instead of resource classes. ETL would be in its own workgroup and should be configured to have more resources per query (less concurrency by more resources). For more information, see [What is dedicated SQL pool in Azure Synapse Analytics](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is).
+Use [workload management](../../sql-data-warehouse/sql-data-warehouse-workload-management.md?context=%2fazure%2fsynapse-analytics%2fcontext%2fcontext) instead of resource classes. ETL would be in its own workgroup and should be configured to have more resources per query (less concurrency by more resources). For more information, see [What is dedicated SQL pool in Azure Synapse Analytics](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md).
 
 ## Next steps
 

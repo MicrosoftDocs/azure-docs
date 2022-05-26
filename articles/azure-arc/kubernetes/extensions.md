@@ -65,7 +65,7 @@ A conceptual overview of this feature is available in [Cluster extensions - Azur
 | [Azure API Management on Azure Arc](../../api-management/how-to-deploy-self-hosted-gateway-azure-arc.md) | Deploy and manage API Management gateway on Azure Arc-enabled Kubernetes clusters. |
 | [Azure Arc-enabled Machine Learning](../../machine-learning/how-to-attach-kubernetes-anywhere.md) | Deploy and run Azure Machine Learning on Azure Arc-enabled Kubernetes clusters. |
 | [Flux (GitOps)](./conceptual-gitops-flux2.md) | Use GitOps with Flux to manage cluster configuration and application deployment. |
-| [Dapr extension for Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes](/azure/aks/dapr)| Eliminates the overhead of downloading Dapr tooling and manually installing and managing the runtime on your clusters. |
+| [Dapr extension for Azure Kubernetes Service (AKS) and Arc-enabled Kubernetes](../../aks/dapr.md)| Eliminates the overhead of downloading Dapr tooling and manually installing and managing the runtime on your clusters. |
 
 ## Usage of cluster extensions
 
