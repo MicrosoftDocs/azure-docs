@@ -1,6 +1,6 @@
 ---
 title: "Security, access, and operations for Teradata migrations"
-description: Learn about authentication, users, roles, permissions, monitoring, and auditing, and workload management in Azure Synapse and Teradata.
+description: Learn about authentication, users, roles, permissions, monitoring, and auditing, and workload management in Azure Synapse Analytics and Teradata.
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.custom:
@@ -18,32 +18,32 @@ This article is part three of a seven part series that provides guidance on how 
 
 ## Security considerations
 
-This article discusses connection methods for existing legacy Teradata environments and how they can be migrated to Azure Synapse with minimal risk and user impact.
+This article discusses connection methods for existing legacy Teradata environments and how they can be migrated to Azure Synapse Analytics with minimal risk and user impact.
 
-We assume there's a requirement to migrate the existing methods of connection and user, role, and permission structure as is. If this isn't the case, then you can use Azure utilities such as Azure portal to create and manage a new security regime.
+We assume there's a requirement to migrate the existing methods of connection and user, role, and permission structure as is. If this isn't the case, then you can use Azure utilities from the Azure portal to create and manage a new security regime.
 
-For more information on the [Azure Synapse security](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security#authorization) options see [Security whitepaper](/azure/synapse-analytics/guidance/security-white-paper-introduction).
+For more information on the [Azure Synapse security](../../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization) options, see [Security whitepaper](../../guidance/security-white-paper-introduction.md).
 
 ### Connection and authentication
 
-#### Teradata Authorization Options
+#### Teradata authorization options
 
 > [!TIP]
 > Authentication in both Teradata and Azure Synapse can be "in database" or through external methods.
 
 Teradata supports several mechanisms for connection and authorization. Valid mechanism values are:
 
-- **TD1**&mdash;selects Teradata 1 as the authentication mechanism. Username and password are required.
+- **TD1**, which selects Teradata 1 as the authentication mechanism. Username and password are required.
 
-- **TD2**&mdash;selects Teradata 2 as the authentication mechanism. Username and password are required.
+- **TD2**, which selects Teradata 2 as the authentication mechanism. Username and password are required.
 
-- **TDNEGO**&mdash;selects one of the authentication mechanisms automatically based on the policy, without user involvement.
+- **TDNEGO**, which selects one of the authentication mechanisms automatically based on the policy, without user involvement.
 
-- **LDAP**&mdash;selects Lightweight Directory Access Protocol (LDAP) as the Authentication Mechanism. The application provides the username and password.
+- **LDAP**, which selects Lightweight Directory Access Protocol (LDAP) as the authentication mechanism. The application provides the username and password.
 
-- **KRB5**&mdash;selects Kerberos (KRB5) on Windows clients working with Windows servers. To log on using KRB5, the user needs to supply a domain, username, and password. The domain is specified by setting the username to `MyUserName@MyDomain`.
+- **KRB5**, which selects Kerberos (KRB5) on Windows clients working with Windows servers. To log on using KRB5, the user needs to supply a domain, username, and password. The domain is specified by setting the username to `MyUserName@MyDomain`.
 
-- **NTLM**&mdash;selects NTLM on Windows clients working with Windows servers. The application provides the username and password.
+- **NTLM**, which selects NTLM on Windows clients working with Windows servers. The application provides the username and password.
 
 Kerberos (KRB5), Kerberos Compatibility (KRB5C), NT LAN Manager (NTLM), and NT LAN Manager Compatibility (NTLMC) are for Windows only.
 
@@ -144,75 +144,73 @@ Use the table `AccessRightsAbbv` to look up the full text of the access right, a
 | Teradata permission name | Teradata type | Azure Synapse equivalent |
 |------------------------------|---------------|-----------------|
 | **ABORT SESSION** | AS | KILL DATABASE CONNECTION |
-| **ALTER EXTERNAL PROCEDURE** | AE | \*\*\*\* |
+| **ALTER EXTERNAL PROCEDURE** | AE | <sup>4</sup> |
 | **ALTER FUNCTION** | AF | ALTER FUNCTION |
 | **ALTER PROCEDURE** | AP | ALTER PROCEDURE |
 | **CHECKPOINT** | CP | CHECKPOINT |
 | **CREATE AUTHORIZATION** | CA | CREATE LOGIN |
 | **CREATE DATABASE** | CD | CREATE DATABASE |
-| **CREATE EXTERNAL**  **PROCEDURE** | CE | \*\*\*\* |
+| **CREATE EXTERNAL**  **PROCEDURE** | CE | <sup>4</sup> |
 | **CREATE FUNCTION** | CF | CREATE FUNCTION |
-| **CREATE GLOP** | GC | \*\*\* |
-| **CREATE MACRO** | CM | CREATE PROCEDURE \*\* |
+| **CREATE GLOP** | GC | <sup>3</sup> |
+| **CREATE MACRO** | CM | CREATE PROCEDURE <sup>2</sup> |
 | **CREATE OWNER PROCEDURE** | OP | CREATE PROCEDURE |
 | **CREATE PROCEDURE** | PC | CREATE PROCEDURE |
-| **CREATE PROFILE** | CO | CREATE LOGIN \* |
+| **CREATE PROFILE** | CO | CREATE LOGIN <sup>1</sup> |
 | **CREATE ROLE** | CR | CREATE ROLE |
 | **DROP DATABASE** | DD | DROP DATABASE|
 | **DROP FUNCTION** | DF | DROP FUNCTION |
-| **DROP GLOP** | GD | \*\*\* |
-| **DROP MACRO** | DM | DROP PROCEDURE \*\* |
+| **DROP GLOP** | GD | <sup>3</sup> |
+| **DROP MACRO** | DM | DROP PROCEDURE <sup>2</sup> |
 | **DROP PROCEDURE** | PD | DELETE PROCEDURE |
-| **DROP PROFILE** | DO | DROP LOGIN \* |
+| **DROP PROFILE** | DO | DROP LOGIN <sup>1</sup> |
 | **DROP ROLE** | DR | DELETE ROLE |
 | **DROP TABLE** | DT | DROP TABLE |
-| **DROP TRIGGER** | DG | \*\*\* |
+| **DROP TRIGGER** | DG | <sup>3</sup> |
 | **DROP USER** | DU | DROP USER |
 | **DROP VIEW** | DV | DROP VIEW |
-| **DUMP** | DP | \*\*\*\* |
+| **DUMP** | DP | <sup>4</sup> |
 | **EXECUTE** | E | EXECUTE |
 | **EXECUTE FUNCTION** | EF | EXECUTE |
 | **EXECUTE PROCEDURE** | PE | EXECUTE |
-| **GLOP MEMBER** | GM | \*\*\* |
+| **GLOP MEMBER** | GM | <sup>3</sup> |
 | **INDEX** | IX | CREATE INDEX |
 | **INSERT** | I | INSERT |
-| **MONRESOURCE** | MR | \*\*\*\*\* |
-| **MONSESSION** | MS | \*\*\*\*\* |
-| **OVERRIDE DUMP CONSTRAINT** | OA | \*\*\*\* |
-| **OVERRIDE RESTORE CONSTRAINT** | OR | \*\*\*\* |
+| **MONRESOURCE** | MR | <sup>5</sup> |
+| **MONSESSION** | MS | <sup>5</sup> |
+| **OVERRIDE DUMP CONSTRAINT** | OA | <sup>4</sup> |
+| **OVERRIDE RESTORE CONSTRAINT** | OR | <sup>4</sup> |
 | **REFERENCES** | RF | REFERENCES |
-| **REPLCONTROL** | RO | \*\*\*\*\* |
-| **RESTORE** | RS | \*\*\*\* |
+| **REPLCONTROL** | RO | <sup>5</sup> |
+| **RESTORE** | RS | <sup>4</sup> |
 | **SELECT** | R | SELECT |
-| **SETRESRATE** | SR | \*\*\*\*\* |
-| **SETSESSRATE** | SS | \*\*\*\*\* |
-| **SHOW** | SH | \*\*\* |
+| **SETRESRATE** | SR | <sup>5</sup> |
+| **SETSESSRATE** | SS | <sup>5</sup> |
+| **SHOW** | SH | <sup>3</sup> |
 | **UPDATE** | U | UPDATE |
 
-Comments on the `AccessRightsAbbv` table:
+`AccessRightsAbbv` table notes:
 
-\* Teradata `PROFILE` is functionally equivalent to `LOGIN` in Azure Synapse
+1. Teradata `PROFILE` is functionally equivalent to `LOGIN` in Azure Synapse.
 
-\*\* In Teradata there are macros and stored procedures. The following table summarizes the differences between them:
+1. The following table summarizes the differences between macros and stored procedures in Teradata. In Azure Synapse, procedures provide the functionality described in the table.
 
-  | MACRO | Stored procedure |
-  |-|-|
-  | Contains SQL | Contains SQL |
-  | May contain BTEQ dot commands | Contains comprehensive SPL |
-  | May receive parameter values passed to it | May receive parameter values passed to it |
-  | May retrieve one or more rows | Must use a cursor to retrieve more than one row |
-  | Stored in DBC PERM space | Stored in DATABASE or USER PERM |
-  | Returns rows to the client | May return one or more values to client as parameters |
+   | Macro | Stored procedure |
+   |-|-|
+   | Contains SQL | Contains SQL |
+   | May contain BTEQ dot commands | Contains comprehensive SPL |
+   | May receive parameter values passed to it | May receive parameter values passed to it |
+   | May retrieve one or more rows | Must use a cursor to retrieve more than one row |
+   | Stored in DBC PERM space | Stored in DATABASE or USER PERM |
+   | Returns rows to the client | May return one or more values to client as parameters |
 
-In Azure Synapse, procedures can be used to provide this functionality.
+1. `SHOW`, `GLOP`, and `TRIGGER` have no direct equivalent in Azure Synapse.
 
-\*\*\* `SHOW`, `GLOP`, and `TRIGGER` have no direct equivalent in Azure Synapse.
+1. These features are managed automatically by the system in Azure Synapse. See [Operational considerations](#operational-considerations).
 
-\*\*\*\* These features are managed automatically by the system in Azure Synapse&mdash;see [Operational considerations](#operational-considerations).
+1. In Azure Synapse, these features are handled outside of the database.
 
-\*\*\*\*\* In Azure Synapse, these features are handled outside of the database.
-
-Refer to [Azure Synapse Analytics security permissions](/azure/synapse-analytics/guidance/security-white-paper-introduction).
+For more information about access rights in Azure Synapse, see to [Azure Synapse Analytics security permissions](../../guidance/security-white-paper-introduction.md).
 
 ## Operational considerations
 
@@ -293,7 +291,7 @@ Purge these tables when the associated removable media is expired and overwritte
 
 - `DBC.RCConfiguration`: archive/recovery config
 
-- `DBC.RCMedia`: VolSerial for Archive/recovery
+- `DBC.RCMedia`: VolSerial for archive/recovery
 
 Azure Synapse has an option to automatically create statistics so that they can be used as needed. Perform defragmentation of indexes and data blocks manually, on a scheduled basis, or automatically. Leveraging native built-in Azure capabilities can reduce the effort required in a migration exercise.
 
@@ -307,29 +305,29 @@ Teradata provides several tools to monitor the operation including Teradata View
 Database administrators can use Teradata Viewpoint to determine system status, trends, and individual query status. By observing trends in system usage, system administrators are better able to plan project implementations, batch jobs, and maintenance to avoid peak periods of use. Business users can use Teradata Viewpoint to quickly access the status of reports and queries and drill down into details.
 
 > [!TIP]
-> Azure portal provides a UI to manage monitoring and auditing tasks for all Azure data and processes.
+> The Azure portal provides a UI to manage monitoring and auditing tasks for all Azure data and processes.
 
 Similarly, Azure Synapse provides a rich monitoring experience within the Azure portal to provide insights into your data warehouse workload. The Azure portal is the recommended tool when monitoring your data warehouse as it provides configurable retention periods, alerts, recommendations, and customizable charts and dashboards for metrics and logs.
 
-The portal also enables integration with other Azure monitoring services such as Operations Management Suite (OMS) and [Azure Monitor](/azure/synapse-analytics/monitoring/how-to-monitor-using-azure-monitor?msclkid=d5e9e46ecfe111ec8ba8ee5360e77c4c) (logs) to provide a holistic monitoring experience for not only the data warehouse but also the entire Azure analytics platform for an integrated monitoring experience.
+The portal also enables integration with other Azure monitoring services such as Operations Management Suite (OMS) and [Azure Monitor](../../monitoring/how-to-monitor-using-azure-monitor.md?msclkid=d5e9e46ecfe111ec8ba8ee5360e77c4c) (logs) to provide a holistic monitoring experience for not only the data warehouse but also the entire Azure analytics platform for an integrated monitoring experience.
 
 > [!TIP]
 > Low-level and system-wide metrics are automatically logged in Azure Synapse.
 
-Resource utilization statistics for the Azure Synapse are automatically logged within the system. The metrics include usage statistics for CPU, memory, cache, I/O and temporary workspace for each query as well as connectivity information (such as failed connection attempts).
+Resource utilization statistics for Azure Synapse are automatically logged within the system. The metrics for each query include usage statistics for CPU, memory, cache, I/O, and temporary workspace, as well as connectivity information like failed connection attempts.
 
-Azure Synapse provides a set of [Dynamic Management Views](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-monitor?msclkid=3e6eefbccfe211ec82d019ada29b1834) (DMVs). These views are useful when actively troubleshooting and identifying performance bottlenecks with your workload.
+Azure Synapse provides a set of [Dynamic Management Views](../../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?msclkid=3e6eefbccfe211ec82d019ada29b1834) (DMVs). These views are useful when actively troubleshooting and identifying performance bottlenecks with your workload.
 
 For more information, see [Azure Synapse operations and management options](/azure/sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance).
 
 ### High Availability (HA) and Disaster Recovery (DR)
 
-Teradata implements features such as Fallback, Archive Restore Copy utility (ARC), and Data Stream Architecture (DSA) to provide protection against data loss and high availability (HA) via replication and archive of data. Disaster Recovery options include Dual-Active systems, DR as a service, or a replacement system depending on the recovery time requirement.
+Teradata implements features such as Fallback, Archive Restore Copy utility (ARC), and Data Stream Architecture (DSA) to provide protection against data loss and high availability (HA) via replication and archive of data. Disaster Recovery (DR) options include Dual Active Solution, DR as a service, or a replacement system depending on the recovery time requirement.
 
 > [!TIP]
 > Azure Synapse creates snapshots automatically to ensure fast recovery times.
 
-Azure Synapse uses database snapshots to provide high availability of the warehouse. A data warehouse snapshot creates a restore point that can be used to recover or copy a data warehouse to a previous state. Since Azure Synapse is a distributed system, a data warehouse snapshot consists of many files that are in Azure storage. Snapshots capture incremental changes from the data stored in your data warehouse.
+Azure Synapse uses database snapshots to provide high availability of the warehouse. A data warehouse snapshot creates a restore point that can be used to recover or copy a data warehouse to a previous state. Since Azure Synapse is a distributed system, a data warehouse snapshot consists of many files that are in Azure Storage. Snapshots capture incremental changes from the data stored in your data warehouse.
 
 Azure Synapse automatically takes snapshots throughout the day creating restore points that are available for seven days. This retention period can't be changed. Azure Synapse supports an eight-hour recovery point objective (RPO). A data warehouse can be restored in the primary region from any one of the snapshots taken in the past seven days.
 
@@ -346,7 +344,7 @@ As well as the snapshots described previously, Azure Synapse also performs as st
 ### Workload management
 
 > [!TIP]
-> In a production data warehouse, there are typically mixed workloads which have different resource usage characteristics running concurrently.
+> In a production data warehouse, there are typically mixed workloads with different resource usage characteristics running concurrently.
 
 A workload is a class of database requests with common traits whose access to the database can be managed with a set of rules. Workloads are useful for:
 
@@ -369,7 +367,7 @@ This information can also be used for capacity planning, determining the resourc
 > [!TIP]
 > A major benefit of Azure is the ability to independently scale up and down compute resources on demand to handle peaky workloads cost-effectively.
 
-The architecture of Azure Synapse separates storage and compute, allowing each to scale independently. As a result, [compute resources can be scaled](/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal) to meet performance demands independent of data storage. You can also pause and resume compute resources. A natural benefit of this architecture is that billing for compute and storage is separate. If a data warehouse isn't in use, you can save on compute costs by pausing compute.
+The architecture of Azure Synapse separates storage and compute, allowing each to scale independently. As a result, [compute resources can be scaled](../../sql-data-warehouse/quickstart-scale-compute-portal.md) to meet performance demands independent of data storage. You can also pause and resume compute resources. A natural benefit of this architecture is that billing for compute and storage is separate. If a data warehouse isn't in use, you can save on compute costs by pausing compute.
 
 Compute resources can be scaled up or scaled back by adjusting the data warehouse units setting for the data warehouse. Loading and query performance will increase linearly as you add more data warehouse units.
 
