@@ -20,7 +20,7 @@ This article describes how to install GPU driver extension to install appropriat
 
 > [!NOTE]
 > - In the Azure portal, you can install a GPU extension during VM creation or after the VM is deployed. For steps and requirements, see [Deploy GPU virtual machines](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md).
-> - If you're running a Windows 2016 VHD, you must enable TLS1.2 inside the VHD before you install the GPU extension to an existing VM. For detailed steps, see [Troubleshoot GPU extension issues for GPU VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md#failure-to-install-gpu-extension-on-a-windows-2016-vhd).
+> - If you're running a Windows 2016 VHD, you must enable TLS1.2 inside the VM before you install the GPU extension on 2205 and higher. For detailed steps, see [Troubleshoot GPU extension issues for GPU VMs on Azure Stack Edge Pro GPU](azure-stack-edge-gpu-troubleshoot-virtual-machine-gpu-extension-installation.md#failure-to-install-gpu-extension-on-a-windows-2016-vhd).
 
 ## Prerequisites
 
@@ -67,7 +67,7 @@ The file `addGPUExtWindowsVM.parameters.json` takes the following parameters:
 	},
 	"settings": {
 	"value": {
-	"DriverURL" : "http://us.download.nvidia.com/tesla/442.50/442.50-tesla-desktop-winserver-2019-2016-international.exe",
+	"DriverURL" : "http://us.download.nvidia.com/tesla/511.65/511.65-data-center-tesla-desktop-winserver-2016-2019-2022-dch-international.exe",
 	"DriverCertificateUrl" : "https://go.microsoft.com/fwlink/?linkid=871664",
 	"DriverType":"CUDA"
 	}
