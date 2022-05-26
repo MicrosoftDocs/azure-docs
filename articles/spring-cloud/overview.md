@@ -116,14 +116,14 @@ Typically, open-source Spring project minor releases are supported for a minimum
 
 Azure Spring Apps, including Enterprise tier, runs on Azure in a fully managed environment. You get all the benefits of Azure and the Java ecosystem, and the experience is familiar and intuitive, as shown in the following table:
 
-| Best practice                                                      | Ecosystem |
-|--------------------------------------------------------------------|-----------|
-| Create service instances using a provisioning tool.                | Azure Portal, CLI, ARM Template, Bicep, or Terraform |
-| Automate environments and application deployments.                 | GitHub, Azure DevOps, GitLab, and Jenkins |
-| Monitor end-to-end using any tool and platform.                    | Application Insights, Azure Log Analytics, Splunk, Elastic, New Relic, Dynatrace, or AppDynamics |
+| Best practice                                                      | Ecosystem                                                                                             |
+|--------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|
+| Create service instances using a provisioning tool.                | Azure portal, CLI, ARM Template, Bicep, or Terraform                                                  |
+| Automate environments and application deployments.                 | GitHub, Azure DevOps, GitLab, and Jenkins                                                             |
+| Monitor end-to-end using any tool and platform.                    | Application Insights, Azure Log Analytics, Splunk, Elastic, New Relic, Dynatrace, or AppDynamics      |
 | Connect Spring applications and interact with your cloud services. | Spring integration with Azure services for data, messaging, eventing, cache, storage, and directories |
-| Securely load app secrets and certificates.                        | Azure Key Vault |
-| Use familiar development tools.                                    | IntelliJ, VS Code, Eclipse, Spring Tool Suite, Maven, or Gradle |
+| Securely load app secrets and certificates.                        | Azure Key Vault                                                                                       |
+| Use familiar development tools.                                    | IntelliJ, VS Code, Eclipse, Spring Tool Suite, Maven, or Gradle                                       |
 
 After you create your Enterprise tier service instance and deploy your applications, you can monitor with Application Insights or any other application performance management tools of your choice.
 

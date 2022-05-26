@@ -39,7 +39,7 @@ When defining a route, you can add the RateLimit filter by including it in the l
 
 - The number of requests accepted during the window.
 - The duration of the window. This value is in milliseconds by default, but you can specify a suffix of *s*, *m*, or *h* to indicate that the value is in seconds, minutes, or hours.
-- (Optional) A user partition key. You can also apply rate limiting per user. That is, different users can have their own throughput allowed based on an identifier found in the request. Indicate whether the key is in a JWT claim or HTTP header with '' or '' syntax.
+- (Optional) A user partition key. You can also apply rate limiting per user. That is, different users can have their own throughput allowed based on an identifier found in the request. Indicate whether the key is in a JWT claim or HTTP header with `claim` or `header` syntax.
 - (Optional) You can rate limit by IP addresses, but not in combination with rate limiting per user.
 
 The following example would limit all users to two requests every five seconds to the `/products` route:
@@ -53,6 +53,21 @@ The following example would limit all users to two requests every five seconds t
     "filters": [
       "StripPrefix=0",
       "RateLimit=2,5s"
+    ]
+}
+```
+
+If you want to expose a route for different sets of users, each one identified by its own `client_id` HTTP header, use the following route definition:
+
+```json
+{
+    "predicates": [
+      "Path=/products",
+      "Method=GET"
+    ],
+    "filters": [
+      "StripPrefix=0",
+      "RateLimit=2,5s,{header:client_id}"
     ]
 }
 ```
