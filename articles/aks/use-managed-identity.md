@@ -215,6 +215,9 @@ A successful cluster creation using your own managed identities contains this us
 
 A Kubelet identity enables access to be granted to the existing identity prior to cluster creation. This feature enables scenarios such as connection to ACR with a pre-created managed identity.
 
+> [!WARNING]
+> Updating kubelet MI will upgrade Nodepool, which causes downtime for your AKS cluster as the nodes in the nodepools will be cordoned/drained and then reimaged.
+
 ### Prerequisites
 
 - You must have the Azure CLI, version 2.26.0 or later installed.

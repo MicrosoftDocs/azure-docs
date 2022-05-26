@@ -58,9 +58,9 @@ A DMARC policy record allows a domain to announce that their email uses authenti
 
 ## Next steps
 
-* [Best practices for implementing DMARC](https://docs.microsoft.com/microsoft-365/security/office-365-security/use-dmarc-to-validate-email?view=o365-worldwide#best-practices-for-implementing-dmarc-in-microsoft-365&preserve-view=true)
+* [Best practices for implementing DMARC](/microsoft-365/security/office-365-security/use-dmarc-to-validate-email?preserve-view=true&view=o365-worldwide#best-practices-for-implementing-dmarc-in-microsoft-365)
   
-* [Troubleshoot your DMARC implementation](https://docs.microsoft.com/microsoft-365/security/office-365-security/use-dmarc-to-validate-email?view=o365-worldwide#troubleshooting-your-dmarc-implementation&preserve-view=true) 
+* [Troubleshoot your DMARC implementation](/microsoft-365/security/office-365-security/use-dmarc-to-validate-email?preserve-view=true&view=o365-worldwide#troubleshooting-your-dmarc-implementation) 
 
 * [Email domains and sender authentication for Azure Communication Services](./email-domain-and-sender-authentication.md)
 
