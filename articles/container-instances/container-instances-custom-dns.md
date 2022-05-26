@@ -2,7 +2,7 @@
 title: Configure custom DNS settings for container group in Azure Container Instances
 description: Configure a public or private DNS configuration for a container group
 author: tomvcassidy
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: container-instances
 services: container-instances
 ms.author: tomcassidy
@@ -11,14 +11,14 @@ ms.date: 05/25/2022
 
 # Deploy a container group with custom DNS settings
 
-In [Azure Virtual Network](../virtual-network/virtual-networks-overview.md), you can deploy container groups using the `az container create` command in the Azure CLI. You can then provide advanced configuration settings to the `az container create` command with a YAML configuration file.  
+In [Azure Virtual Network](../virtual-network/virtual-networks-overview.md), you can deploy container groups using the `az container create` command in the Azure CLI. You can also provide advanced configuration settings to the `az container create` command using a YAML configuration file.  
 
 This article demonstrates how to deploy a container group with custom DNS settings using a YAML configuration file.  
 
 For more information on deploying container groups to a virtual network, see the [Deploy in a virtual network article](container-instances-vnet.md).
 
 > [!IMPORTANT]
-> Previously, [network profiles](/azure/container-instances/container-instances-virtual-network-concepts#network-profile) were used to configure custom DNS settings. However, network profiles have been retired as of the `2021-07-01` API version. We recommend you use the latest API version, which relies on subnet IDs instead.
+> Previously, the process of deploying container groups on virtual networks used [network profiles](/azure/container-instances/container-instances-virtual-network-concepts#network-profile) for configuration. However, network profiles have been retired as of the `2021-07-01` API version. We recommend you use the latest API version, which relies on [subnet IDs](/azure/virtual-network/subnet-delegation-overview) instead.
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ For more information on deploying container groups to a virtual network, see the
 
 * **Azure CLI**. The command-line examples in this article use the [Azure CLI](/cli/azure/) and are formatted for the Bash shell. You can [install the Azure CLI](/cli/azure/install-azure-cli) locally or use the [Azure Cloud Shell][cloud-shell-bash].
 
-* A resource group to manage all the resources you use in this how-to guide. We use the example resource group name **ACIResourceGroup** throughout this article.
+* A **resource group** to manage all the resources you use in this how-to guide. We use the example resource group name **ACIResourceGroup** throughout this article.
 
    ```azurecli-interactive
    az group create --name ACIResourceGroup --location westus
@@ -42,13 +42,14 @@ Examples in this article are formatted for the Bash shell. For PowerShell or com
 
 ## Create your virtual network
 
-You'll need a virtual network to deploy a container group with a custom DNS configuration within container group. This virtual network will require a subnet with permissions to create Azure Container Instances resources and a linked private DNS zone to test name resolution.
+You'll need a virtual network to deploy a container group with a custom DNS configuration. This virtual network will require a subnet with permissions to create Azure Container Instances resources and a linked private DNS zone to test name resolution.
 
 This guide uses a virtual network named `aci-vnet`, a subnet named `aci-subnet`, and a private DNS zone named `private.contoso.com`. We use **Azure Private DNS Zones**, which you can learn about in the [Private DNS Overview](../dns/private-dns-overview.md).
 
-If you have an existing virtual network that meets these criteria, you can skip to
+If you have an existing virtual network that meets these criteria, you can skip to [Deploy your container group](#deploy-your-container-group).
 
-You can modify the following commands with your own information as needed.
+> [!TIP]
+> You can modify the following commands with your own information as needed.
 
 1. Create the virtual network using the [az network vnet create][az-network-vnet-create] command. Enter address prefixes in Classless Inter-Domain Routing (CIDR) format (for example: `10.0.0.0/16`).
 
@@ -60,7 +61,7 @@ You can modify the following commands with your own information as needed.
      --address-prefix 10.0.0.0/16
    ```
 
-1. Create the subnet using the [az network vnet subnet create][az-network-vnet-subnet-create] command. The following command creates a subnet in your virtual network with a delegation giving it permission to create container groups. For more information about working with subnets, see the [Add, change, or delete a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md). For more information about subnet delegation, see [the Virtual Network Scenarios and Resources article section on delegated subnets](container-instances-virtual-network-concepts.md#subnet-delegated).
+1. Create the subnet using the [az network vnet subnet create][az-network-vnet-subnet-create] command. The following command creates a subnet in your virtual network with a delegation that permits it to create container groups. For more information about working with subnets, see the [Add, change, or delete a virtual network subnet](../virtual-network/virtual-network-manage-subnet.md). For more information about subnet delegation, see the [Virtual Network Scenarios and Resources article section on delegated subnets](container-instances-virtual-network-concepts.md#subnet-delegated).
 
    ```azurecli
    az network vnet subnet create \
@@ -71,7 +72,7 @@ You can modify the following commands with your own information as needed.
      --delegations Microsoft.ContainerInstance/containerGroups
    ```
 
-1. Record the subnet ID key-value pair from the output of this command. It will take the form `"id"`: `"/subscriptions/<subscription-ID>/resourceGroups/ACIResourceGroup/providers/Microsoft.Network/virtualNetworks/aci-vnet/subnets/aci-subnet"`.
+1. Record the subnet ID key-value pair from the output of this command. You'll use this in your YAML configuration file later. It will take the form `"id"`: `"/subscriptions/<subscription-ID>/resourceGroups/ACIResourceGroup/providers/Microsoft.Network/virtualNetworks/aci-vnet/subnets/aci-subnet"`.
 
 1. Create the private DNS Zone using the [az network private-dns zone create][az-network-private-dns-zone-create] command.
 
@@ -92,9 +93,7 @@ You can modify the following commands with your own information as needed.
 
 Once you've completed the steps above, you should see an output with a final key-value pair that reads `"virtualNetworkLinkState"`: `"Completed"`.
 
-## Deploy with custom DNS settings
-
-For this guide, we're going to use a YAML file to create a container group with custom DNS settings.
+## Deploy your container group
 
 > [!NOTE]
 > Custom DNS settings are not currently available in the Azure portal for container group deployments. They must be provided with YAML file, Resource Manager template, [REST API](/rest/api/container-instances/containergroups/createorupdate), or an [Azure SDK](https://azure.microsoft.com/downloads/).
@@ -149,7 +148,7 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Deploy the container group with the [az container create][az-container-create] command, specifying the YAML file name for the `--file` parameter:
+Deploy the container group with the [az container create][az-container-create] command, specifying the YAML file name with the `--file` parameter:
 
 ```azurecli
 az container create --resource-group ACIResourceGroup \
@@ -171,7 +170,7 @@ pwsh-vnet-dns     ACIResourceGroup  Running   mcr.microsoft.com/powershell      
 After the status shows `Running`, execute the [az container exec][az-container-exec] command to obtain bash access within the container.
 
 ```azurecli
-az container exec --resource-group myResourceGroup --name pwsh-vnet-dns --exec-command "/bin/bash"
+az container exec --resource-group ACIResourceGroup --name pwsh-vnet-dns --exec-command "/bin/bash"
 ```
 
 Validate that DNS is working as expected from within your container. For example, read the `/etc/resolv.conf` file to ensure it's configured with the DNS settings provided in the YAML file.
@@ -196,7 +195,7 @@ az container delete --resource-group ACIResourceGroup --name pwsh-vnet-dns -y
 
 ### Delete network resources
 
-If you don't plan on using this virtual network again, you can delete it with the [az network vnet delete][az-network-vnet-delete] command:
+If you don't plan to use this virtual network again, you can delete it with the [az network vnet delete][az-network-vnet-delete] command:
 
 ```azurecli
 az network vnet delete --resource-group ACIResourceGroup --name aci-vnet
@@ -204,11 +203,13 @@ az network vnet delete --resource-group ACIResourceGroup --name aci-vnet
 
 ### Delete resource group
 
-If you're not planning on using this resource group outside of this guide, you can delete it with [az group delete][az-group-delete] command:
+If you're don't plan to use this resource group outside of this guide, you can delete it with [az group delete][az-group-delete] command:
 
 ```azurecli
 az group delete --name ACIResourceGroup
 ```
+
+Enter `y` when prompted if you're sure you wish to perform the operation.
 
 ## Next steps
 
