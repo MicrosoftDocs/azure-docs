@@ -8,13 +8,15 @@ author: v-ssenthilna
 ms.service: network-watcher
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload:  infrastructure-services
+ms.workload: infrastructure-services
 ms.date: 05/11/2022
 ms.author: v-ssenthilna
 ms.custon: references_regions
 
 ---
 # Supported regions: NSG 
+
+This article provides the list of regions supported by Traffic Analytics. You can view the list of supported regions of both NSG and Log Analytics Workspaces below.
 
 You can use traffic analytics for NSGs in any of the following supported regions:
 :::row:::
@@ -138,3 +140,8 @@ The Log Analytics workspace must exist in the following regions:
 
 > [!NOTE]
 > If NSGs support a region, but the log analytics workspace does not support that region for traffic analytics as per above lists, then you can use log analytics workspace of any other supported region as a workaround.
+
+## Next steps
+
+- Learn how to [enable flow log settings](enable-network-watcher-flow-log-settings.md).
+- Learn the ways to [use traffic analytics](usage-scenarios-traffic-analytics.md).
