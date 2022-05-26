@@ -258,7 +258,7 @@ Azure Synapse doesn't support trigger creation, but trigger creation can be impl
 
 ##### Sequences
 
-With Azure Synapse, sequences are handled in a similar way to Teradata. Use [IDENTITY](/sql/t-sql/statements/create-table-transact-sql-identity-property?msclkid=8ab663accfd311ec87a587f5923eaa7b) columns or `USING` SQL code to create the next sequence number in a series.
+With Azure Synapse, sequences are handled in a similar way to Teradata. Use [IDENTITY](/sql/t-sql/statements/create-table-transact-sql-identity-property?msclkid=8ab663accfd311ec87a587f5923eaa7b) columns or SQL code to create the next sequence number in a series.
 
 ### Extract metadata and data from a Teradata environment
 
