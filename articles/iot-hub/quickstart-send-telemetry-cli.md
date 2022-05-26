@@ -155,9 +155,9 @@ In this section, you send a message to the simulated device.
 
 In this section, you call a direct method on the simulated device.
 
-1. As you did before, confirm that the simulated device in the first CLI session is still running.  If not, restart it. 
+1. As you did before, confirm that the simulated device in the first CLI session is running.  If not, restart it. 
 
-1. In the second CLI session, run the [az iot hub invoke-device-method](/cli/azure/iot/hub#az-iot-hub-invoke-device-method) command. In this example, there's no pre-existing method for the device. The command calls an example method name on the simulated device and returns a payload.
+1. In the second CLI session, run the [az iot hub invoke-device-method](/cli/azure/iot/hub#az-iot-hub-invoke-device-method) command. In this example, there's no preexisting method for the device. The command calls an example method name on the simulated device and returns a payload.
 
     *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub.
     
@@ -172,7 +172,7 @@ In this section, you call a direct method on the simulated device.
 
 In this section, you update the state of the simulated device by setting property values. 
 
-1. As you did before, confirm that the simulated device in the first CLI session is still running.  If not, restart it. 
+1. As you did before, confirm that the simulated device in the first CLI session is running.  If not, restart it. 
 
 1. In the second CLI session, run the [az iot hub device-twin update](/cli/azure/iot/hub/device-twin#az-iot-hub-device-twin-update) command. This command updates the properties to the desired state on the IoT hub device twin that corresponds to your simulated device. In this case, the command sets example temperature condition properties.
 
@@ -186,7 +186,7 @@ In this section, you update the state of the simulated device by setting propert
 
     :::image type="content" source="media/quickstart-send-telemetry-cli/cloud-shell-device-twin-update.png" alt-text="Update the properties on a device.":::
 
-1. In the second CLI session, run the [az iot hub device-twin show](/cli/azure/iot/hub/device-twin#az-iot-hub-device-twin-show) command. This command changes to the device properties. 
+1. In the second CLI session, run the [az iot hub device-twin show](/cli/azure/iot/hub/device-twin#az-iot-hub-device-twin-show) command. This command reports changes to the device properties. 
 
     *YourIotHubName*. Replace this placeholder below with the name you chose for your IoT hub.
     
