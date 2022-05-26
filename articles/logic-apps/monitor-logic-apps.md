@@ -311,7 +311,7 @@ To get alerts based on specific metrics or exceeded thresholds for your logic ap
       | **Aggregation type** | **Count** |
       | **Threshold value** | **1** |
       | **Unit** | **Count** |
-      | **Condition preview** | **Whenever the count of triggersfailed is greater than or equal to 1** |
+      | **Condition preview** | **Whenever the count of triggers failed is greater than or equal to 1** |
       | **Aggregation granularity (Period)** | **1 minute** |
       | **Frequency of evaluation** | **Every 1 Minute** |
       |||
