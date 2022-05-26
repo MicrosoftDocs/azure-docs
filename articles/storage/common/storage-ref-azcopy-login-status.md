@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy login st
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 09/26/2022
+ms.date: 05/26/2022
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
@@ -16,7 +16,7 @@ Lists the entities in a given resource.
 
 ## Synopsis
 
-Prints if you are currently logged in to your Azure Storage account.
+Prints if you're currently logged in to your Azure Storage account.
 
 ```azcopy
 azcopy login status [flags]
@@ -38,7 +38,7 @@ azcopy login status [flags]
 
 ### Options inherited from parent commands
 
-`--aad-endpoint`    (string)    The Azure Active Directory endpoint to use. The default (https://login.microsoftonline.com) is correct for the public Azure cloud. Set this parameter when authenticating in a national cloud. Not needed for Managed Service Identity
+`--aad-endpoint`    (string)    The Azure Active Directory endpoint to use. The default (https://login.microsoftonline.com) is correct for the global Azure cloud. Set this parameter when authenticating in a national cloud. Not needed for Managed Service Identity
 
 `--application-id`    (string)    Application ID of user-assigned identity. Required for service principal auth.
 

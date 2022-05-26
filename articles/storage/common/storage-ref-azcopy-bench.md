@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy bench co
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 09/26/2022
+ms.date: 05/26/2022
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
@@ -12,8 +12,7 @@ ms.reviewer: zezha-msft
 
 # azcopy bench
 
-Runs a performance benchmark by uploading or downloading test data to or from a specified destination.
-For uploads, the test data is automatically generated.
+Runs a performance benchmark by uploading or downloading test data to or from a specified destination. For uploads, the test data is automatically generated.
 
 The benchmark command runs the same process as 'copy', except that:
 
@@ -23,7 +22,7 @@ The benchmark command runs the same process as 'copy', except that:
     and 'Download'. Default value is 'Upload'.
 
 - For upload benchmarks, the payload is described by command line parameters, which control how many files are auto-generated and 
-    how big they are. The generation process takes place entirely in memory. Disk is not used.
+    how big they are. The generation process takes place entirely in memory. Disk isn't used.
 
 - For downloads, the payload consists of whichever files already exist at the source. (See example below about how to generate
     test files if needed).
@@ -63,7 +62,7 @@ Run a benchmark test that downloads existing files from a target
 
 `azcopy bench --mode='Download' "https://[account].blob.core.windows.net/[container]?<SAS?"`
 
-Run an upload that does not delete the transferred files. (These files can then serve as the payload for a download test)
+Run an upload that doesn't delete the transferred files. (These files can then serve as the payload for a download test)
 
 `azcopy bench "https://[account].blob.core.windows.net/[container]?<SAS>" --file-count 100 --delete-test-data=false`
 
@@ -71,11 +70,11 @@ Run an upload that does not delete the transferred files. (These files can then 
 
 `--blob-type string`    defines the type of blob at the destination. Used to allow benchmarking different blob types. Identical to the same-named parameter in the copy command (default "Detect")
 
-`--block-size-mb float`    Use this block size (specified in MiB). Default is automatically calculated based on file size. Decimal fractions are allowed - e.g. 0.25. Identical to the same-named parameter in the copy command
+`--block-size-mb float`    Use this block size (specified in MiB). Default is automatically calculated based on file size. Decimal fractions are allowed - for example, 0.25. Identical to the same-named parameter in the copy command
 
-`--check-length` Check the length of a file on the destination after the transfer. If there is a mismatch between source and destination, the transfer is marked as failed. (default true)
+`--check-length` Check the length of a file on the destination after the transfer. If there's a mismatch between source and destination, the transfer is marked as failed. (default true)
 
-`--delete-test-data`   If true, the benchmark data will be deleted at the end of the benchmark run.  Set it to false if you want to keep the data at the destination - e.g. to use it for manual tests outside benchmark mode (default true)
+`--delete-test-data`   If true, the benchmark data will be deleted at the end of the benchmark run.  Set it to false if you want to keep the data at the destination - for example, to use it for manual tests outside benchmark mode (default true)
 
 `--file-count`    (uint)    number of auto-generated data files to use (default 100)
 
@@ -93,7 +92,7 @@ Run an upload that does not delete the transferred files. (These files can then 
 
 ## Options inherited from parent commands
 
-`--cap-mbps`    (float)    Caps the transfer rate, in megabits per second. Moment-by-moment throughput might vary slightly from the cap. If this option is set to zero, or it is omitted, the throughput isn't capped.
+`--cap-mbps`    (float)    Caps the transfer rate, in megabits per second. Moment-by-moment throughput might vary slightly from the cap. If this option is set to zero, or it's omitted, the throughput isn't capped.
 
 `--output-type`    (string)    Format of the command's output. The choices include: text, json. The default value is 'text'. (default "text")
 
