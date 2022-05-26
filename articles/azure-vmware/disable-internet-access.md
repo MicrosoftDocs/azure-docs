@@ -11,7 +11,7 @@ With a default route setup, you can achieve the following tasks:
 - Disable Internet access to your Azure VMware Solution private cloud. 
 
   > [!Note]
-  > Ensure that a default route is not advertised from on-premises or Azure as that will override this behavior
+  > Ensure that a default route is not advertised from on-premises or Azure as that will override this setup.
  
 - Enable Internet access by generating a default route from Azure Firewall or third party Network Virtual Appliance. [Learn more.](https://docs.microsoft.com/azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-network-topology-connectivity)
 ## Prerequisites      
