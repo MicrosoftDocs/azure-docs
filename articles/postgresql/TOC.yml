@@ -777,6 +777,8 @@
           href: hyperscale/howto-app-stacks-nodejs.md
         - name: C#
           href: hyperscale/howto-app-stacks-Csharp.md
+        - name: Java
+          href: hyperscale/howto-app-stacks-java.md
   - name: Reference
     items:
       - name: PostgreSQL versions
