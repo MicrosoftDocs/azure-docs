@@ -13,7 +13,7 @@ As a service provider, you may have onboarded multiple customer tenants to [Azur
 This topic shows you how to use [Azure Monitor Logs](../../azure-monitor/logs/data-platform-logs.md) in a scalable way across the customer tenants you're managing. Though we refer to service providers and customers in this topic, this guidance also applies to [enterprises using Azure Lighthouse to manage multiple tenants](../concepts/enterprise.md).
 
 > [!NOTE]
-> Be sure that users in your managing tenants have been granted the [necessary roles for managing Log Analytics workspaces](../../azure-monitor/logs/manage-access.md#manage-access-using-azure-permissions) on your delegated customer subscriptions.
+> Be sure that users in your managing tenants have been granted the [necessary roles for managing Log Analytics workspaces](../../azure-monitor/logs/manage-access.md#azure-rbac) on your delegated customer subscriptions.
 
 ## Create Log Analytics workspaces
 
