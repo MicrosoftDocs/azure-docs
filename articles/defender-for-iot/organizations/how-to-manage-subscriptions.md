@@ -87,7 +87,9 @@ If you would like to evaluate Defender for IoT, you can use a trial subscription
 
 ## Committed devices overage
 
-If you've exceeded the number of committed devices on your plan, you will see a warning on the **Plans and pricing** page. More devices may require monitoring if, for example, you're increasing existing site coverage, discovered more devices than expected or there are network changes such as adding switches. If you see the device overage warning, you will need to adjust the number of committed devices on your plan accordingly. 
+You may need to add more devices for monitoring after your initial onboarding and commitment.  More devices may require monitoring if, for example, you're increasing existing site coverage, discovered more devices than expected or there are network changes such as adding switches.
+
+If the actual number of devices exceeds the number of committed devices on your plan, you will see a warning on the **Plans and pricing** page, and will need to adjust the number of committed devices on your plan accordingly. 
 
 ## Edit plans in a subscription
 
@@ -131,24 +133,18 @@ Remove all sensors that are associated with the subscription prior to removing D
 
 1. On the subscription row, select the three dots (**...**).
 
-1. Select **Remove plan**.
+1. Select **Cancel plan**.
 
 1.  In the confirmation popup, select **Accept** to confirm you would like to remove Defender for IoT from the subscription.
 
-1.  Select **Save**.
 
+## Apply Defender for IoT to a different subscription
 
+Business considerations may require that you apply Defender for IoT to a different subscription than the one currently being used. If you need to switch to a new subscription, you will need to: 
 
-## Apply a new subscription
-
-Business considerations may require that you apply a different subscription to your deployment than the one currently being used. If you change the subscription, you will need to upload a new sensor activation file. The file contains information on subscription expiration dates.
-
-**To apply a new subscription:**
-
-1. Delete the subscription currently being used.
-1. Select a new subscription.
-1. Download an activation file for the sensor associated with the subscription.
-1. Upload the activation file to the sensor.
+1. Remove your plans from the current subscription, see [Remove Defender for IoT from a subscription](#remove-defender-for-iot-from-a-subscription)
+1. Onboard Defender for IoT to the new subscription, see [Onboard Defender for IoT to a subscription](#onboard-defender-for-iot-to-a-subscription)
+1. For an on-premises management console: Upload a new activation file, see [Upload an activation file](how-to-manage-the-on-premises-management-console.md#upload-an-activation-file).
 
 ## Next steps
 

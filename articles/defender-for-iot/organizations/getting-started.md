@@ -83,7 +83,7 @@ This procedure describes how to add Defender for IoT to an Azure subscription. I
 
     - **Subscription**. Select the subscription where you would like to add Defender for IoT.
     - Toggle on the **OT** and/or **Enterprise IoT** options as needed for your network types.
-    - **Price plan**. Select a monthly or annual commitment, or a [trial](#about-defender-for-iot-trials). Microsoft Defender for IoT provides a 30-day free trial for the first 1,000 committed devices for evaluation purposes.
+    - **Price plan**. Select a monthly or annual commitment, or a [trial](how-to-manage-subscriptions.md#about-defender-for-iot-trials). Microsoft Defender for IoT provides a 30-day free trial for the first 1,000 committed devices for evaluation purposes.
     
         For more information, see the [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/).
 
