@@ -6,7 +6,7 @@ ms.date: 5/12/2022
 ---
 # Internet connectivity design considerations (Preview) 
 
-There are three primary patterns for creating outbound access to the Internet from Azure VMware Solution and to enable the Internet to access resources on your Azure VMware Solution private cloud (inbound). 
+There are three primary patterns for creating outbound access to the Internet from Azure VMware Solution and to enable inbound  Internet access to resources on your Azure VMware Solution private cloud. 
 
 - [Internet Service hosted in Azure](#internet-service-hosted-in-azure) 
 - [Azure VMware Solution Managed SNAT](#azure-vmware-solution-managed-snat) 
