@@ -20,7 +20,7 @@ This article is part seven of a seven part series that provides guidance on how 
 
 One of the key reasons to migrate your existing data warehouse to Azure Synapse Analytics is to utilize a globally secure, scalable, low-cost, cloud-native, pay-as-you-use analytical database. Azure Synapse also lets you integrate your migrated data warehouse with the complete Microsoft Azure analytical ecosystem to take advantage of, and integrate with, other Microsoft technologies that help you modernize your migrated data warehouse. This includes integration with technologies like:
 
-- Azure Data Lake Storage, for cost effective data ingestion, staging, cleansing and transformation to free up data warehouse capacity occupied by fast growing staging tables.
+- Azure Data Lake Storage, for cost effective data ingestion, staging, cleansing, and transformation to free up data warehouse capacity occupied by fast growing staging tables.
 
 - Azure Data Factory, for collaborative IT and self-service data integration [with connectors](/azure/data-factory/connector-overview) to cloud and on-premises data sources and streaming data.
 
@@ -43,11 +43,11 @@ One of the key reasons to migrate your existing data warehouse to Azure Synapse 
   - ML.NET
   - .NET for Apache Spark to enable data scientists to use Azure Synapse data to train machine learning models at scale.
   
-- [Azure HDInsight](/azure/hdinsight/), to leverage big data analytical processing and join big data with Azure Synapse data by creating a Logical Data Warehouse using PolyBase.
+- [Azure HDInsight](/azure/hdinsight/), to leverage big data analytical processing and join big data with Azure Synapse data by creating a logical data warehouse using PolyBase.
 
 - [Azure Event Hubs](/azure/event-hubs/event-hubs-about), [Azure Stream Analytics](/azure/stream-analytics/stream-analytics-introduction), and [Apache Kafka](/azure/databricks/spark/latest/structured-streaming/kafka), to integrate with live streaming data within Azure Synapse.
 
-There's often acute demand to integrate with [machine learning](/azure/synapse-analytics/machine-learning/what-is-machine-learning) to enable custom built, trained machine learning models for use in Azure Synapse. This would enable in-database analytics to run at scale in-batch, on an event-driven basis and on-demand. The ability to exploit in-database analytics in Azure Synapse from multiple BI tools and applications also guarantees that all get the same predictions and recommendations.
+There's often acute demand to integrate with [machine learning](/azure/synapse-analytics/machine-learning/what-is-machine-learning) to enable custom-built, trained machine learning models for use in Azure Synapse. This would enable in-database analytics to run at scale in-batch, on an event-driven basis and on-demand. The ability to exploit in-database analytics in Azure Synapse from multiple BI tools and applications also guarantees that all get the same predictions and recommendations.
 
 In addition, there's an opportunity to integrate Azure Synapse with Microsoft partner tools on Azure to shorten time to value.
 
@@ -57,7 +57,7 @@ Let's look at these in more detail to understand how you can take advantage of t
 
 Enterprises today have a key problem resulting from digital transformation. So much new data is being generated and captured for analysis, and much of this data is finding its way into data warehouses. A good example is transaction data created by opening online transaction processing (OLTP) systems to self-service access from mobile devices. These OLTP systems are the main sources of data to a data warehouse, and with customers now driving the transaction rate rather than employees, data in data warehouse staging tables has been growing rapidly in volume.
 
-The rapid influx of data into the enterprise, along with new sources of data like Internet of Things (IoT) streams, means that companies need to find a way to deal with unprecedented data growth and scale data integration ETL processing beyond current levels. One way to do this is to offload ingestion, data cleansing, transformation and integration to a data lake and process it at scale there, as part of a data warehouse modernization program.
+The rapid influx of data into the enterprise, along with new sources of data like Internet of Things (IoT) streams, means that companies need to find a way to deal with unprecedented data growth and scale data integration ETL processing beyond current levels. One way to do this is to offload ingestion, data cleansing, transformation, and integration to a data lake and process it at scale there, as part of a data warehouse modernization program.
 
 Once you've migrated your data warehouse to Azure Synapse, Microsoft provides the ability to modernize your ETL processing by ingesting data into, and staging data in, Azure Data Lake Storage. You can then clean, transform and integrate your data at scale using Data Factory before loading it into Azure Synapse in parallel using PolyBase.
 
@@ -70,11 +70,11 @@ For ELT strategies, consider offloading ELT processing to Azure Data Lake to eas
 
 [Data Factory](https://azure.microsoft.com/services/data-factory/) is a pay-as-you-use, hybrid data integration service for highly scalable ETL and ELT processing. Data Factory provides a simple web-based user interface to build data integration pipelines, in a code-free manner that can:
 
-- Data Factory allows you to build scalable data integration pipelines code-free. Easily acquire data at scale. Pay only for what you use and connect to on premises, cloud, and SaaS based data sources.
+- Build scalable data integration pipelines code-free. Easily acquire data at scale. Pay only for what you use and connect to on premises, cloud, and SaaS-based data sources.
 
-- Ingest, move, clean, transform, integrate, and analyze cloud and on-premises data at scale and take automatic action such a recommendation, an alert, and more.
+- Ingest, move, clean, transform, integrate, and analyze cloud and on-premises data at scale and take automatic action, such as a recommendation or alert.
 
-- Seamlessly author, monitor and manage pipelines that span data stores both on-premises and in the cloud.
+- Seamlessly author, monitor, and manage pipelines that span data stores both on-premises and in the cloud.
 
 - Enable pay-as-you-go scale out in alignment with customer growth.
 
@@ -96,7 +96,7 @@ Implement Data Factory pipeline development from any of several places including
 
 - Programmatically from .NET and Python using a multi-language SDK
 
-- Azure Resource Manager (ARM) Templates
+- Azure Resource Manager (ARM) templates
 
 - REST APIs
 
