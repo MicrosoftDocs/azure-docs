@@ -196,8 +196,8 @@ You can configure Spring Cloud Gateway to authenticate requests via single sign-
    az spring gateway update \
        --resource-group <resource-group-name> \
        --service <Azure-Spring-Apps-service-instance-name> \
-       --api-description "ACME Fitness Store API" \
-       --api-title "ACME Fitness Store" \
+       --api-description "Fitness Store API" \
+       --api-title "Fitness Store" \
        --api-version "v1.0" \
        --server-url "https://${GATEWAY_URL}" \
        --allowed-origins "*" \
@@ -233,9 +233,7 @@ You can configure Spring Cloud Gateway to authenticate requests via single sign-
    echo "https://${GATEWAY_URL}"
    ```
 
-   You can open the output URL in a browser to explore the updated application. The Log In function will now work, allowing you to add items to the cart and place orders. After you sign in, the customer information button will display the signed-in username, as shown in the following screenshot.
-
-   :::image type="content" source="media/quickstart-configure-single-sign-on-enterprise/login-success.png" alt-text="Screenshot of ACME Fitness Store app showing a signed-in user." lightbox="media/quickstart-configure-single-sign-on-enterprise/login-success.png":::
+   You can open the output URL in a browser to explore the updated application. The Log In function will now work, allowing you to add items to the cart and place orders. After you sign in, the customer information button will display the signed-in username.
 
 ## Configure single sign-on for API Portal
 

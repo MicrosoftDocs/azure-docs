@@ -83,7 +83,7 @@ The automation associated with the sample application requires a Storage account
    }
    ```
 
-1. This example uses the [ACME Fitness Store](https://github.com/Azure-Samples/acme-fitness-store) sample on GitHub. Fork the sample, open the GitHub repository page, and then select the **Settings** tab. Open the **Secrets** menu, then select **Add a new secret**, as shown in the following screenshot.
+1. This example uses the [fitness store](https://github.com/Azure-Samples/acme-fitness-store) sample on GitHub. Fork the sample, open the GitHub repository page, and then select the **Settings** tab. Open the **Secrets** menu, then select **Add a new secret**, as shown in the following screenshot.
 
    :::image type="content" source="media/github-actions/actions1.png" alt-text="Screenshot showing GitHub Settings Add new secret." lightbox="media/github-actions/actions1.png"
 

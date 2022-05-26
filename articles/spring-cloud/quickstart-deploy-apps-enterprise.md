@@ -321,8 +321,8 @@ Use the following steps to configure Spring Cloud Gateway and configure routes t
    az spring gateway update \
        --resource-group <resource-group-name> \
        --service <Azure-Spring-Apps-service-instance-name> \
-       --api-description "Acme Fitness Store API" \
-       --api-title "Acme Fitness Store" \
+       --api-description "Fitness Store API" \
+       --api-title "Fitness Store" \
        --api-version "v1.0" \
        --server-url "https://${GATEWAY_URL}" \
        --allowed-origins "*"
