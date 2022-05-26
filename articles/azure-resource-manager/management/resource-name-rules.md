@@ -4,7 +4,7 @@ description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 05/16/2022
+ms.date: 05/25/2022
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -476,6 +476,13 @@ In the following tables, the term alphanumeric refers to:
 > | labplans | resource group | 1-100 | Alphanumerics, hyphens, periods, and underscores.<br><br>Start with letter and end with alphanumeric. |
 > | labs | resource group | 1-100 | Alphanumerics, hyphens, periods, and underscores.<br><br>Start with letter and end with alphanumeric. |
 
+## Microsoft.LoadTestService
+
+> [!div class="mx-tableFixed"]
+> | Entity | Scope | Length | Valid Characters |
+> | --- | --- | --- | --- |
+> | loadtests | global | 1-64 | Can't use:<br>`<>*&@:?+/\,;=.|[]"` or space.<br><br>Can't start with underscore, hyphen, or number. Can't end with underscore or hyphen.  |
+
 ## Microsoft.Logic
 
 > [!div class="mx-tableFixed"]
@@ -530,7 +537,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | mediaservices | resource group | 3-24 | Lowercase letters and numbers. |
+> | mediaservices | Azure region | 3-24 | Lowercase letters and numbers. |
 > | mediaservices / liveEvents | Media service | 1-32 | Alphanumerics and hyphens.<br><br>Start with alphanumeric. |
 > | mediaservices / liveEvents / liveOutputs | Live event | 1-256 | Alphanumerics and hyphens.<br><br>Start with alphanumeric. |
 > | mediaservices / streamingEndpoints | Media service | 1-24 | Alphanumerics and hyphens.<br><br>Start with alphanumeric. |
@@ -811,14 +818,15 @@ In the following tables, the term alphanumeric refers to:
 > | --- | --- | --- | --- |
 > | certificates | resource group | 1-260 | Can't use:<br>`/` <br><br>Can't end with space or period.  |
 > | serverfarms | resource group | 1-40 | Alphanumeric, hyphens and Unicode characters that can be mapped to Punycode |
-> | sites / functions / slots | global or per domain. See note below. | 2-60 | Alphanumeric, hyphens and Unicode characters that can be mapped to Punycode<br><br>Can't start or end with hyphen. |
+> | sites | global or per domain. See note below. | 2-60 | Alphanumeric, hyphens and Unicode characters that can be mapped to Punycode<br><br>Can't start or end with hyphen. |
+> | sites / slots | site | 2-59 | Alphanumeric, hyphens and Unicode characters that can be mapped to Punycode |
 
 > [!NOTE]
 > A web site must have a globally unique URL. When you create a web site that uses a hosting plan, the URL is `http://<app-name>.azurewebsites.net`. The app name must be globally unique. When you create a web site that uses an App Service Environment, the app name must be unique within the [domain for the App Service Environment](../../app-service/environment/using-an-ase.md#app-access). For both cases, the URL of the site is globally unique.
 >
 > Azure Functions has the same naming rules and restrictions as Microsoft.Web/sites. When generating the host ID, the function app name is truncated to 32 characters. This can cause host ID collision when a shared storage account is used. For more information, see [Host ID considerations](../../azure-functions/storage-considerations.md#host-id-considerations). 
 >
-> Unicode characters are parsed to Punycode using the following method: https://docs.microsoft.com/dotnet/api/system.globalization.idnmapping.getascii
+> Unicode characters are parsed to Punycode using the [IdnMapping.GetAscii method](/dotnet/api/system.globalization.idnmapping.getascii)
 
 ## Next steps
 

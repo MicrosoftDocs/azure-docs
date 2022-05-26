@@ -279,7 +279,7 @@ Notebook reference works in both interactive mode and Synapse pipeline.
 > [!NOTE]
 > - ```%run``` command currently only supports to pass a absolute path or notebook name only as parameter, relative path is not supported. 
 > - ```%run``` command currently only supports to 4 parameter value types: `int`, `float`, `bool`, `string`, variable replacement operation is not supported.
-> - The referenced notebooks are required to be published. You need to publish the notebooks to reference them. Synapse Studio does not recognize the unpublished notebooks from the Git repo. 
+> - The referenced notebooks are required to be published. You need to publish the notebooks to reference them unless [Reference unpublished notebook](#reference-unpublished-notebook) is enabled. Synapse Studio does not recognize the unpublished notebooks from the Git repo.
 > - Referenced notebooks do not support statement that depth is larger than **five**.
 >
 
@@ -562,7 +562,9 @@ Available cell magics:
 
 --- 
 
-## Reference unpublished notebook
+
+<h2 id="reference-unpublished-notebook">Reference unpublished notebook</h2>
+
 
 Reference unpublished notebook is helpful when you want to debug "locally", when enabling this feature, notebook run will fetch the current content in web cache, if you run a cell including a reference notebooks statement, you will reference the presenting notebooks in the current notebook browser instead of a saved versions in cluster, that means the changes in your notebook editor can be referenced immediately by other notebooks without having to be published(Live mode) or committed(Git mode), by leveraging this approach you can easily avoid common libraries getting polluted during developing or debugging process. 
 

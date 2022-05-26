@@ -10,4 +10,4 @@ ms.author: aahi
 ---
 
 
-To cancel a training job in [Language Studio](https://aka.ms/laguageStudio), go to the **Train model** page. Select the training job you want to cancel, and click on **Cancel** from the top menu. 
+To cancel a training job in [Language Studio](https://aka.ms/laguageStudio), go to the **Training jobs** page. Select the training job you want to cancel, and click on **Cancel** from the top menu. 
