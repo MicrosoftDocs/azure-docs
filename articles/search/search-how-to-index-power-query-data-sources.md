@@ -282,7 +282,7 @@ You can repurpose the index you're currently using for the Snowflake Power Conne
 
 1. Select **Publish**.
 
-   :::image type="content" source="media/search-power-query-connectors/publish_pipeline.png" alt-text="How to Publish a Pipeline in Data Factory for Snowflake ingestion to index." border="true":::
+   :::image type="content" source="media/search-power-query-connectors/publish-pipeline.png" alt-text="How to Publish a Pipeline in Data Factory for Snowflake ingestion to index." border="true":::
 
 ## Migrate a PostgreSQL data pipeline
 
@@ -528,7 +528,7 @@ You can repurpose the index you're currently using for the PostgreSQL Power Conn
 
 1. Select **Publish**.
 
-   :::image type="content" source="media/search-power-query-connectors/publish_pipeline-postgresql.png" alt-text="Screenshot showing how to Publish a Pipeline in Data Factory for PostgreSQL data copy." border="true":::
+   :::image type="content" source="media/search-power-query-connectors/publish-pipeline-postgresql.png" alt-text="Screenshot showing how to Publish a Pipeline in Data Factory for PostgreSQL data copy." border="true":::
 
 ## Legacy content for Power Query connector preview
 
