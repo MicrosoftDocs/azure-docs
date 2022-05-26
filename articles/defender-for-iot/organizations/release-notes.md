@@ -45,12 +45,12 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 We've recently optimized and enhanced our documentation as follows:
 
-- [New OT monitoring appliance catalog](#new-ot-monitoring-appliance-catalog)
+- [Updated appliance catalog for OT environments](#updated-appliance-catalog-for-ot-environments)
 - [Documentation reorganization for end-user organizations](#documentation-reorganization-for-end-user-organizations)
 
-### New OT monitoring appliance catalog
+### Updated appliance catalog for OT environments
 
-We've refreshed and revamped the catalog of supported appliances for OT monitoring systems, including both OT sensors and on-premises management consoles. The Defender for IoT OT monitoring appliance catalog supports flexible deployment options for various system sizes.
+We've refreshed and revamped the catalog of supported appliances for monitoring OT environments. These appliances support flexible deployment options for environments of all sizes and can be used to host both the OT monitoring sensor and on-premises management consoles.
 
 Use the new pages as follows:
 
