@@ -158,7 +158,11 @@ $accountName = "storagesamplesdnszone2"
 
 # [Azure CLI](#tab/azure-cli)
 
-N/A
+To get a connection string with Azure CLI, call the [az storage account show-connection-string](/cli/azure/storage/account#az-storage-account-show-connection-string) command.
+
+```azurecli
+az storage account show-connection-string --resource-group <resource-group> --name <storage-account>
+```
 
 ---
 

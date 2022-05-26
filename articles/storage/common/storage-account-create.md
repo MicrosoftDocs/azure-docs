@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/18/2022
+ms.date: 05/25/2022
 ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -173,7 +173,7 @@ The following table describes the fields on the **Networking** tab.
 
 The following image shows a standard configuration of the networking properties for a new storage account.
 
-:::image type="content" source="media/storage-account-create/create-account-networking-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Networking tab" lightbox="media/storage-account-create/create-account-Networking-tab-lrg.png":::
+:::image type="content" source="media/storage-account-create/create-account-networking-tab.png" alt-text="Screenshot showing a standard configuration for a new storage account - Networking tab":::
 
 > [!IMPORTANT]
 > Azure DNS zone endpoints are currently in PREVIEW.
@@ -259,11 +259,23 @@ New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Kind StorageV2
 ```
 
-To create an account with Azure DNS zone endpoints (preview), first register for the preview as described in [Azure DNS zone endpoints (preview)](storage-account-overview.md#azure-dns-zone-endpoints-preview). Next, install version [4.4.2-preview](https://www.powershellgallery.com/packages/Az.Storage/4.4.2-preview) or later of the Az.Storage PowerShell module. You may need to uninstall other versions of the PowerShell module. For more information about installing Azure PowerShell, see [Install Azure PowerShell with PowerShellGet](/powershell/azure/install-az-ps).
+To create an account with Azure DNS zone endpoints (preview), follow these steps:
 
-```azurepowershell
-Install-Module Az.Storage -Repository PsGallery -RequiredVersion 4.4.2-preview -AllowClobber -AllowPrerelease -Force
-```
+1. Register for the preview as described in [Azure DNS zone endpoints (preview)](storage-account-overview.md#azure-dns-zone-endpoints-preview).
+
+1. Make sure you have the latest version of PowerShellGet installed.
+
+    ```azurepowershell
+    Install-Module PowerShellGet –Repository PSGallery –Force
+    ```
+
+1. Close and reopen the PowerShell console.
+
+1. Install version [4.4.2-preview](https://www.powershellgallery.com/packages/Az.Storage/4.4.2-preview) or later of the Az.Storage PowerShell module. You may need to uninstall other versions of the PowerShell module. For more information about installing Azure PowerShell, see [Install Azure PowerShell with PowerShellGet](/powershell/azure/install-az-ps).
+
+    ```azurepowershell
+    Install-Module Az.Storage -Repository PsGallery -RequiredVersion 4.4.2-preview -AllowClobber -AllowPrerelease -Force
+    ```
 
 Next, create the account, specifying `AzureDnsZone` for the `-DnsEndpointType` parameter. After the account is created, you can see the service endpoints by getting the `PrimaryEndpoints` and `SecondaryEndpoints` properties for the storage account.
 
@@ -423,10 +435,6 @@ To learn how to modify this template or create new ones, see:
 - [Additional storage account template samples](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage).
 
 ---
-
-### Create a storage account with Azure DNS Zone endpoints (preview)
-
-Add how-to content for DNS Zone endpoints here (portal/ps/cli)
 
 ## Delete a storage account
 
