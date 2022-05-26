@@ -91,7 +91,6 @@ Upload files and directories to Azure Storage account and set the query-string e
 - To set tags {key = "bla bla", val = "foo"} and {key = "bla bla 2", val = "bar"}, use the following syntax:
 - `azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
 - Keys and values are URL encoded and the key-value pairs are separated by an ampersand('&')
-- https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-index-how-to?tabs=azure-portal
 - While setting tags on the blobs, there are additional permissions('t' for tags) in SAS without which the service will give authorization error back.
 
 Download a single file by using OAuth authentication. If you haven't yet logged into AzCopy, please run the azcopy login command before you run the following command.
@@ -177,7 +176,7 @@ Copy a subset of buckets by using a wildcard symbol (*) in the bucket name. Like
 `azcopy cp "https://s3.amazonaws.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive=true`
 
 Copy blobs from one blob storage to another and preserve the tags from source. To preserve tags, use the following syntax:
-  	
+
 `azcopy cp "https://[account].blob.core.windows.net/[source_container]/[path/to/directory]?[SAS]" "https://[account].blob.core.windows.net/[destination_container]/[path/to/directory]?[SAS]" --s2s-preserve-blob-tags=true`
 
 Transfer files and directories to Azure Storage account and set the given query-string encoded tags on the blob.
@@ -187,8 +186,6 @@ Transfer files and directories to Azure Storage account and set the given query-
   `azcopy cp "https://[account].blob.core.windows.net/[source_container]/[path/to/directory]?[SAS]" "https://[account].blob.core.windows.net/[destination_container]/[path/to/directory]?[SAS]" --blob-tags="bla%20bla=foo&bla%20bla%202=bar"`
 
 - Keys and values are URL encoded and the key-value pairs are separated by an ampersand('&')
-
-- https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-index-how-to?tabs=azure-portal
 
 - While setting tags on the blobs, there are additional permissions('t' for tags) in SAS without which the service will give authorization error back.
 
@@ -204,11 +201,11 @@ Copy an entire bucket to Blob Storage from Google Cloud Storage (GCS) by using a
 
 `azcopy cp "https://storage.cloud.google.com/[bucket]" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true`
 
-Copy all buckets to Blob Storage from Google Cloud Storage (GCS) by using a service account key and a SAS token. First, set the environment variables GOOGLE_APPLICATION_CREDENTIALS and GOOGLE_CLOUD_PROJECT=<project-id> for GCS source
+Copy all buckets to Blob Storage from Google Cloud Storage (GCS) by using a service account key and a SAS token. First, set the environment variables GOOGLE_APPLICATION_CREDENTIALS and `GOOGLE_CLOUD_PROJECT=<project-id>` for GCS source
 
 `azcopy cp "https://storage.cloud.google.com/" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true`
 
-Copy a subset of buckets by using a wildcard symbol (*) in the bucket name from Google Cloud Storage (GCS) by using a service account key and a SAS token for destination. First, set the environment variables GOOGLE_APPLICATION_CREDENTIALS and GOOGLE_CLOUD_PROJECT=<project-id> for GCS source
+Copy a subset of buckets by using a wildcard symbol (*) in the bucket name from Google Cloud Storage (GCS) by using a service account key and a SAS token for destination. First, set the environment variables `GOOGLE_APPLICATION_CREDENTIALS and GOOGLE_CLOUD_PROJECT=<project-id>` for GCS source
 
 `azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true`
 
@@ -312,7 +309,7 @@ Copy a subset of buckets by using a wildcard symbol (*) in the bucket name from 
 
 `--s2s-handle-invalid-metadata`   (string)    Specifies how invalid metadata keys are handled. Available options: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (default 'ExcludeIfInvalid'). (default "ExcludeIfInvalid")
 
-`--s2s-preserve-access-tier`    Preserve access tier during service to service copy. Refer to [Azure Blob storage: hot, cool, and archive access tiers](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) to ensure destination storage account supports setting access tier. In the cases that setting access tier isn't supported, make sure to use s2sPreserveAccessTier=false to bypass copying access tier. (default true).  (default true)
+`--s2s-preserve-access-tier`    Preserve access tier during service to service copy. Refer to [Azure Blob storage: hot, cool, and archive access tiers](/azure/storage/blobs/storage-blob-storage-tiers) to ensure destination storage account supports setting access tier. In the cases that setting access tier isn't supported, make sure to use s2sPreserveAccessTier=false to bypass copying access tier. (default true).  (default true)
 
 `--s2s-preserve-blob-tags`    Preserve index tags during service to service transfer from one blob storage to another
 

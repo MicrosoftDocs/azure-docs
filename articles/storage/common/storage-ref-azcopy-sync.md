@@ -138,7 +138,7 @@ Note: if include and exclude flags are used together, only files matching the in
 
 `--recursive`    True by default, look into sub-directories recursively when syncing between directories. (default true). (default true)
 
-`--s2s-preserve-access-tier`    Preserve access tier during service to service copy. Please refer to [Azure Blob storage: hot, cool, and archive access tiers](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) to ensure destination storage account supports setting access tier. In the cases that setting access tier is not supported, please use s2sPreserveAccessTier=false to bypass copying access tier. (default true).  (default true)
+`--s2s-preserve-access-tier`    Preserve access tier during service to service copy. Please refer to [Azure Blob storage: hot, cool, and archive access tiers](../blobs/storage-blob-storage-tiers.md) to ensure destination storage account supports setting access tier. In the cases that setting access tier is not supported, please use `s2sPreserveAccessTier=false` to bypass copying access tier. (default true).  (default true)
 
 `--s2s-preserve-blob-tags`    Preserve index tags during service to service sync from one blob storage to another
 
