@@ -123,6 +123,8 @@ az acr task credential add \
 
 You can get the client ID of the identity by running the [az identity show][az-identity-show] command. The client ID is a GUID of the form `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
+The `--use-identity` parameter is not optional if the registry has public network access disabled and relies only on trusted services to run ACR tasks. 
+
 ### 5. Run the task
 
 After configuring a task with a managed identity, run the task. For example, to test one of the tasks created in this article, manually trigger it using the [az acr task run][az-acr-task-run] command. If you configured additional, automated task triggers, the task runs when automatically triggered.
