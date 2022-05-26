@@ -31,7 +31,7 @@ ms.author: aahi
     |Location | The [location](../service-limits.md#regional-availability) of your Language resource.    |
     |Pricing tier     | The [pricing tier](../service-limits.md#language-resource-limits) for your Language resource.        |
 
-7. In the **Custom text classification & custom named entity recognition** section, select an existing storage account or select **Create a new storage account**. These values are to help you get started, and not necessarily the [storage account values](/azure/storage/common/storage-account-overview) you’ll want to use in production environments. To avoid latency during building your project connect to storage accounts in the same region as your Language resource.
+7. In the **Custom text classification & custom named entity recognition** section, select an existing storage account or select **Create a new storage account**. These values are to help you get started, and not necessarily the [storage account values](../../../../storage/common/storage-account-overview.md) you’ll want to use in production environments. To avoid latency during building your project connect to storage accounts in the same region as your Language resource.
 
     |Storage account value  |Recommended value  |
     |---------|---------|
