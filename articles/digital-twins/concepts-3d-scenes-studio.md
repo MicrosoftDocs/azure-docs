@@ -54,10 +54,10 @@ To work with 3D Scenes Studio, you'll need the following required resources:
     * You'll need *Azure Digital Twins Data Owner* or *Azure Digital Twins Data Reader* access to the instance
     * The instance should be populated with [models](concepts-models.md) and [twins](concepts-twins-graph.md)
 
-* An [Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal), and a [private container](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) in the storage account
+* An [Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal), and a [private container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) in the storage account
     * To **view** 3D scenes, you'll need at least *Storage Blob Data Reader* access to these storage resources. To **build** 3D scenes, you'll need *Storage Blob Data Contributor* or *Storage Blob Data Owner* access. 
 
-        You can grant required roles at either the storage account level or the container level. For more information about Azure storage permissions, see [Assign an Azure role](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal#assign-an-azure-role).
+        You can grant required roles at either the storage account level or the container level. For more information about Azure storage permissions, see [Assign an Azure role](../storage/blobs/assign-azure-role-data-access.md?tabs=portal#assign-an-azure-role).
     * You should also configure [CORS](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) for your storage account, so that 3D Scenes Studio will be able to access your storage container. For complete CORS setting information, see [Use 3D Scenes Studio (preview)](how-to-use-3d-scenes-studio.md#prerequisites).
 
 Then, you can access 3D Scenes Studio at this link: [3D Scenes Studio](https://dev.explorer.azuredigitaltwins-test.net/3dscenes).
