@@ -7,7 +7,7 @@ ms.reviewer: cynthn
 ms.date: 03/02/2021
 ms.topic: how-to
 ms.service: virtual-machines
-ms.subervice: image-builder
+ms.subservice: image-builder
 ms.collection: windows
 ---
 # Create a new Windows VM image version from an existing image version using Azure Image Builder

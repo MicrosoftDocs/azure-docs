@@ -4,8 +4,8 @@ titleSuffix: Azure Active Directory Verifiable Credentials
 description: Learn how to issue and verify by using the Request Service REST API
 documentationCenter: ''
 author: barclayn
-manager: karenhoran
-ms.service: active-directory
+manager: rkarlin
+ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
 ms.date: 05/03/2022

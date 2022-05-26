@@ -19,7 +19,7 @@ In this article, you learn how to download a Windows virtual hard disk (VHD) fil
 
 ## Optional: Generalize the VM
 
-If you want to use the VHD as an [image](tutorial-custom-images.md) to create other VMs, you should use [Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) to generalize the operating system. Otherwise, you will have to make a copy the disk for each VM you want to create.
+If you want to use the VHD as an [image](tutorial-custom-images.md) to create other VMs, you should use [Sysprep](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) to generalize the operating system. Otherwise, you will have to make a copy of the disk for each VM you want to create.
 
 To use the VHD as an image to create other VMs, generalize the VM.
 
