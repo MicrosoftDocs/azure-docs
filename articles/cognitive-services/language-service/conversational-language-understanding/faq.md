@@ -75,7 +75,7 @@ Add any out of scope utterances to the [none intent](./concepts/none-intent.md).
 
 ## How do I control the none intent?
 
-You can control the none intent threshhold from UI through the project settings, by changing the none inten threshold value. The values can be between 0.0 and 1.0. Also, you can change this threshold from the APIs by changing the *confidenceThreshold* in settings object. Learn more about [none intent](concepts/none-intent#none-score-threshold)
+You can control the none intent threshhold from UI through the project settings, by changing the none inten threshold value. The values can be between 0.0 and 1.0. Also, you can change this threshold from the APIs by changing the *confidenceThreshold* in settings object. Learn more about [none intent](./concepts/none-intent.md#none-score-threshold)
 
 ## Is there any SDK support?
 
