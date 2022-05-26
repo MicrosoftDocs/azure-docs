@@ -54,7 +54,7 @@ Azure Synapse provides best-of-breed relational database performance by using te
 
 - Reduced storage and disaster recovery costs.
 
-- Lower overall TCO and better cost control.
+- Lower overall TCO, better cost control, and streamlined operational expenditure (OPEX).
 
 To maximize these benefits, migrate new or existing data and applications to the Azure Synapse platform. In many organizations, this will include migrating an existing data warehouse from legacy on-premises platforms such as Teradata. At a high level, the basic process includes these steps:
 
