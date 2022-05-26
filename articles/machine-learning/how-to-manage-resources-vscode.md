@@ -196,24 +196,24 @@ To view your job in Azure Machine Learning studio:
 
 Alternatively, use the `> Azure ML: View Experiment in Studio` command respectively in the command palette.
 
-### Track run progress
+### Track job progress
 
-As you're running your job, you may want to see its progress. To track the progress of a run in Azure Machine Learning studio from the extension:
+As you're running your job, you may want to see its progress. To track the progress of a job in Azure Machine Learning studio from the extension:
 
 1. Expand the subscription node that contains your workspace.
 1. Expand the **Experiments** node inside your workspace.
 1. Expand the job node you want to track progress for.
-1. Right-click the run and select **View Run in Studio**.
-1. A prompt appears asking you to open the run URL in Azure Machine Learning studio. Select **Open**.
+1. Right-click the job and select **View Job in Studio**.
+1. A prompt appears asking you to open the job URL in Azure Machine Learning studio. Select **Open**.
 
-### Download run logs & outputs
+### Download job logs & outputs
 
-Once a run is complete, you may want to download the logs and assets such as the model generated as part of a run.
+Once a job is complete, you may want to download the logs and assets such as the model generated as part of a job.
 
 1. Expand the subscription node that contains your workspace.
 1. Expand the **Experiments** node inside your workspace.
 1. Expand the job node you want to download logs and outputs for.
-1. Right-click the run:
+1. Right-click the job:
     - To download the outputs, select **Download outputs**.
     - To download the logs, select **Download logs**.
 

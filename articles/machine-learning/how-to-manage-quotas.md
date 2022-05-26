@@ -93,7 +93,7 @@ The following table shows additional limits in the platform. Please reach out to
 | Job lifetime on a low-priority node | 7 days<sup>2</sup> |
 | Parameter servers per node | 1 |
 
-<sup>1</sup> Maximum lifetime is the duration between when a run starts and when it finishes. Completed runs persist indefinitely. Data for runs not completed within the maximum lifetime is not accessible.
+<sup>1</sup> Maximum lifetime is the duration between when a job starts and when it finishes. Completed jobs persist indefinitely. Data for jobs not completed within the maximum lifetime is not accessible.
 
 <sup>2</sup> Jobs on a low-priority node can be preempted whenever there's a capacity constraint. We recommend that you implement checkpoints in your job.
 

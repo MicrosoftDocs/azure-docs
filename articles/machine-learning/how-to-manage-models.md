@@ -80,9 +80,9 @@ For a complete example, see the [CLI Reference](/cli/azure/ml/model).
 
 # [Job Output](#tab/use-job-output)
 
-__Use the mlflow run URI format__
+__Use the mlflow job URI format__
 
-This option is optimized for mlflow users who are likely already familiar with the mlflow run URI format. This option allows mlflow users to create a model from artifacts in the default artifact location (where all mlflow-logged models and artifacts will be located). This establishes a lineage between a registered model and the run the model came from.
+This option is optimized for mlflow users who are likely already familiar with the mlflow job URI format. This option allows mlflow users to create a model from artifacts in the default artifact location (where all mlflow-logged models and artifacts will be located). This establishes a lineage between a registered model and the run the model came from.
 
 Format:
 `runs:/<run-id>/<path-to-model-relative-to-the-root-of-the-artifact-location>`
@@ -163,7 +163,7 @@ The examples use shorthand `azureml` scheme for pointing to a path on the `datas
 
 __Use the mlflow run URI format__
 
-This option is optimized for mlflow users who are likely already familiar with the mlflow run URI format. This option allows mlflow users to create a model from artifacts in the default artifact location (where all mlflow-logged models and artifacts will be located). This establishes a lineage between a registered model and the run the model came from.
+This option is optimized for mlflow users who are likely already familiar with the mlflow job URI format. This option allows mlflow users to create a model from artifacts in the default artifact location (where all mlflow-logged models and artifacts will be located). This establishes a lineage between a registered model and the job the model came from.
 
 Format:
 `runs:/<run-id>/<path-to-model-relative-to-the-root-of-the-artifact-location>`
