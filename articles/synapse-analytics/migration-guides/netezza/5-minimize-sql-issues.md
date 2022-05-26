@@ -1,6 +1,6 @@
 ---
 title: "Minimize SQL issues for Netezza migrations"
-description: Learn how to minimize the risk of SQL issues when migrating from Netezza to Azure Synapse. 
+description: Learn how to minimize the risk of SQL issues when migrating from Netezza to Azure Synapse Analytics. 
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.custom:
@@ -25,7 +25,7 @@ This article is part five of a seven part series that provides guidance on how t
 
 In 2003, Netezza initially released their data warehouse appliance product. It reduced the cost of entry and improved the ease-of-use of massively parallel processing (MPP) techniques to enable data processing at scale more efficiently than the existing mainframe or other MPP technologies available at the time. Since then, the product has evolved and has many installations among large financial institutions, telecommunications, and retail companies. The original implementation used proprietary hardware including field programmable gate arrays&mdash;or FPGAs&mdash;and was accessible via ODBC or JDBC network connection over TCP/IP.
 
-Most existing Netezza installations are on-premises, so many users are considering migrating some or all their Netezza data to Azure Synapse to gain the benefits of a move to a modern cloud environment.
+Most existing Netezza installations are on-premises, so many users are considering migrating some or all their Netezza data to Azure Synapse Analytics to gain the benefits of a move to a modern cloud environment.
 
 > [!TIP]
 > Many existing Netezza installations are data warehouses using a dimensional data model.
@@ -45,7 +45,7 @@ Automate and orchestrate the migration process by making use of the capabilities
 
 Azure Data Factory is a cloud-based data integration service that allows creation of data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Using Data Factory, you can create and schedule data-driven workflows&mdash;called pipelines&mdash;that can ingest data from disparate data stores. It can process and transform data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning.
 
-By creating metadata to list the data tables to be migrated and their location, you can use the Data Factory facilities to manage and automate parts of the migration process. You can also use [Synapse pipelines](/azure/synapse-analytics/get-started-pipelines?msclkid=8f3e7e96cfed11eca432022bc07c18de).
+By creating metadata to list the data tables to be migrated and their location, you can use the Data Factory facilities to manage and automate parts of the migration process. You can also use [Azure Synapse Pipelines](/azure/synapse-analytics/get-started-pipelines?msclkid=8f3e7e96cfed11eca432022bc07c18de).
 
 ## SQL DDL differences between Netezza and Azure Synapse
 
@@ -74,18 +74,18 @@ It's important to understand where performance optimizations&mdash;such as index
 
 Netezza implements some database objects that aren't directly supported in Azure Synapse, but there are methods to achieve the same functionality within the new environment:
 
-- Zone Maps&mdash;In Netezza, zone maps are automatically created and maintained for some column types and are used at query time to restrict the amount of data to be scanned. Zone Maps are created on the following column types:
+- Zone Maps: In Netezza, zone maps are automatically created and maintained for some column types and are used at query time to restrict the amount of data to be scanned. Zone Maps are created on the following column types:
   - `INTEGER` columns of length 8 bytes or less.
   - Temporal columns. For instance, `DATE`, `TIME`, and `TIMESTAMP`.
   - `CHAR` columns, if these are part of a materialized view and mentioned in the `ORDER BY` clause.
 
   You can find out which columns have zone maps by using the `nz_zonemap` utility, which is part of the NZ Toolkit. Azure Synapse doesn't include zone maps, but you can achieve similar results by using other user-defined index types and/or partitioning.
 
-- Clustered Base tables (CBT)&mdash;In Netezza, CBTs are commonly used for fact tables, which can have billions of records. Scanning such a huge table requires a lot of processing time, since a full table scan might be needed to get relevant records. Organizing records on restrictive CBT via allows Netezza to group records in same or nearby extents. This process also creates zone maps that improve the performance by reducing the amount of data to be scanned.
+- Clustered Base tables (CBT): In Netezza, CBTs are commonly used for fact tables, which can have billions of records. Scanning such a huge table requires a lot of processing time, since a full table scan might be needed to get relevant records. Organizing records on restrictive CBT via allows Netezza to group records in same or nearby extents. This process also creates zone maps that improve the performance by reducing the amount of data to be scanned.
 
   In Azure Synapse, you can achieve a similar effect by use of partitioning and/or use of other indexes.
 
-- Materialized views&mdash;Netezza supports materialized views and recommends creating one or more of these over large tables having many columns where only a few of those columns are regularly used in queries. The system automatically maintains materialized views when data in the base table is updated.
+- Materialized views: Netezza supports materialized views and recommends creating one or more of these over large tables having many columns where only a few of those columns are regularly used in queries. The system automatically maintains materialized views when data in the base table is updated.
 
   Azure Synapse supports materialized views, with the same functionality as Netezza.
 
@@ -94,7 +94,7 @@ Netezza implements some database objects that aren't directly supported in Azure
 > [!TIP]
 > Assess the impact of unsupported data types as part of the preparation phase.
 
-Most Netezza data types have a direct equivalent in the Azure Synapse. The following table shows these data types along with the recommended approach for mapping them.
+Most Netezza data types have a direct equivalent in Azure Synapse. The following table shows these data types along with the recommended approach for mapping them.
 
 | Netezza Data Type              | Azure Synapse Data Type                      |
 |--------------------------------|-------------------------------------|

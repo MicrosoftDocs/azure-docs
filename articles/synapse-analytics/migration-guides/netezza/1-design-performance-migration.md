@@ -1,6 +1,6 @@
 ---
 title: "Design and performance for Netezza migrations"
-description: Learn how Netezza and Azure Synapse SQL databases differ in their approach to high query performance on exceptionally large data volumes.
+description: Learn how Netezza and Azure Synapse Analytics SQL databases differ in their approach to high query performance on exceptionally large data volumes.
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.custom:
@@ -18,12 +18,12 @@ This article is part one of a seven part series that provides guidance on how to
 
 ## Overview
 
+Due to end of support from IBM, many existing users of Netezza data warehouse systems want to take advantage of the innovations provided by newer environments such as cloud, IaaS, and PaaS, and to delegate tasks like infrastructure maintenance and platform development to the cloud provider.
+
 > [!TIP]
 > More than just a database&mdash;the Azure environment includes a comprehensive set of capabilities and tools.
 
-Due to end of support from IBM, many existing users of Netezza data warehouse systems want to take advantage of the innovations provided by newer environments such as cloud, IaaS, and PaaS, and to delegate tasks like infrastructure maintenance and platform development to the cloud provider.
-
-Although Netezza and Azure Synapse are both SQL databases designed to use massively parallel processing (MPP) techniques to achieve high query performance on exceptionally large data volumes, there are some basic differences in approach:
+Although Netezza and Azure Synapse Analytics are both SQL databases designed to use massively parallel processing (MPP) techniques to achieve high query performance on exceptionally large data volumes, there are some basic differences in approach:
 
 - Legacy Netezza systems are often installed on-premises and use proprietary hardware, while Azure Synapse is cloud based and uses Azure storage and compute resources.
 
@@ -52,7 +52,7 @@ Azure Synapse provides best-of-breed relational database performance by using te
 
 - Reduced storage and disaster recovery costs.
 
-- Lower overall TCO and better cost control (OPEX).
+- Lower overall TCO and better cost control.
 
 To maximize these benefits, migrate new or existing data and applications to the Azure Synapse platform. In many organizations, this will include migrating an existing data warehouse from legacy on-premises platforms such as Netezza. At a high level, the basic process includes these steps:
 
@@ -81,7 +81,7 @@ Legacy Netezza environments have typically evolved over time to encompass multip
 
 - Create a template for further migrations specific to the source Netezza environment and the current tools and processes that are already in place.
 
-A good candidate for an initial migration from the Netezza environment that would enable the items above, is typically one that implements a BI/Analytics workload (rather than an OLTP workload) with a data model that can be migrated with minimal modifications&mdash;normally a start or snowflake schema.
+A good candidate for an initial migration from the Netezza environment that would enable the items above, is typically one that implements a BI/Analytics workload, rather than an online transaction processing workload, with a data model that can be migrated with minimal modifications&mdash;normally a star or snowflake schema.
 
 The migration data volume for the initial exercise should be large enough to demonstrate the capabilities and benefits of the Azure Synapse environment while quickly demonstrating the value&mdash;typically in the 1-10TB range.
 
@@ -148,18 +148,18 @@ However, it's important to understand where performance optimizations such as in
 
 Netezza implements some database objects that aren't directly supported in Azure Synapse, but there are methods to achieve the same functionality within the new environment:
 
-- Zone Maps&mdash;In Netezza, zone maps are automatically created and maintained for some column types and are used at query time to restrict the amount of data to be scanned. Zone Maps are created on the following column types:
+- Zone Maps: In Netezza, zone maps are automatically created and maintained for some column types and are used at query time to restrict the amount of data to be scanned. Zone Maps are created on the following column types:
   - `INTEGER` columns of length 8 bytes or less.
   - Temporal columns. For instance, `DATE`, `TIME`, and `TIMESTAMP`.
   - `CHAR` columns, if these are part of a materialized view and mentioned in the `ORDER BY` clause.
 
   You can find out which columns have zone maps by using the `nz_zonemap` utility, which is part of the NZ Toolkit. Azure Synapse doesn't include zone maps, but you can achieve similar results by using other user-defined index types and/or partitioning.
 
-- Clustered Base tables (CBT)&mdash;In Netezza, CBTs are commonly used for fact tables, which can have billions of records. Scanning such a huge table requires a lot of processing time, since a full table scan might be needed to get relevant records. Organizing records on restrictive CBT via allows Netezza to group records in same or nearby extents. This process also creates zone maps that improve the performance by reducing the amount of data to be scanned.
+- Clustered Base tables (CBT): In Netezza, CBTs are commonly used for fact tables, which can have billions of records. Scanning such a huge table requires a lot of processing time, since a full table scan might be needed to get relevant records. Organizing records on restrictive CBT via allows Netezza to group records in same or nearby extents. This process also creates zone maps that improve the performance by reducing the amount of data to be scanned.
 
   In Azure Synapse, you can achieve a similar effect by use of partitioning and/or use of other indexes.
 
-- Materialized views&mdash;Netezza supports materialized views and recommends creating one or more of these over large tables having many columns where only a few of those columns are regularly used in queries. The system automatically maintains materialized views when data in the base table is updated. 
+- Materialized views: Netezza supports materialized views and recommends creating one or more of these over large tables having many columns where only a few of those columns are regularly used in queries. The system automatically maintains materialized views when data in the base table is updated. 
 
   Azure Synapse supports materialized views, with the same functionality as Netezza.
 
@@ -238,7 +238,7 @@ Azure Synapse Analytics also supports stored procedures using T-SQL. If you must
 
 In Netezza, a sequence is a named database object created via `CREATE SEQUENCE` that can provide the unique value via the `NEXT VALUE FOR` method. Use these to generate unique numbers for use as surrogate key values for primary key values.
 
-Within Azure Synapse, there's no `CREATE SEQUENCE`. Sequences are handled via use of [IDENTITY](/sql/t-sql/statements/create-table-transact-sql-identity-property?msclkid=8ab663accfd311ec87a587f5923eaa7b) columns or using SQL code to create the next sequence number in a series.
+Within Azure Synapse, there's no `CREATE SEQUENCE`. Sequences are handled via use of [IDENTITY](/sql/t-sql/statements/create-table-transact-sql-identity-property?msclkid=8ab663accfd311ec87a587f5923eaa7b) columns or `USING` SQL code to create the next sequence number in a series.
 
 ### Extract metadata and data from a Netezza environment
 

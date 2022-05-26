@@ -1,6 +1,6 @@
 ---
 title: "Security, access, and operations for Netezza migrations"
-description: Learn about authentication, users, roles, permissions, monitoring, and auditing, and workload management in Azure Synapse and Netezza.
+description: Learn about authentication, users, roles, permissions, monitoring, and auditing, and workload management in Azure Synapse Analytics and Netezza.
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.custom:
@@ -18,11 +18,11 @@ This article is part three of a seven part series that provides guidance on how 
 
 ## Security considerations
 
-This article discusses the methods of connection for existing legacy Netezza environments and how they can be migrated to Azure Synapse with minimal risk and user impact.
+This article discusses the methods of connection for existing legacy Netezza environments and how they can be migrated to Azure Synapse Analytics with minimal risk and user impact.
 
-It's assumed that there's a requirement to migrate the existing methods of connection and user/role/permission structure as-is. If this isn't the case, then use Azure utilities such as Azure portal to create and manage a new security regime.
+We assume there's a requirement to migrate the existing methods of connection and user, role, and permission structure as is. If this isn't the case, then you can use Azure utilities from the Azure portal to create and manage a new security regime.
 
-For more information on the [Azure Synapse security](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security#authorization) options see [Security whitepaper](/azure/synapse-analytics/guidance/security-white-paper-introduction).
+For more information on the [Azure Synapse security](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security#authorization) options, see [Security whitepaper](/azure/synapse-analytics/guidance/security-white-paper-introduction).
 
 ### Connection and authentication
 
@@ -187,9 +187,9 @@ Netezza administration tasks typically fall into two categories:
 
 IBM&reg; Netezza&reg; offers several ways or interfaces that you can use to perform the various system and database management tasks:
 
-- Netezza commands (nz* commands) are installed in the /nz/kit/bin directory on the Netezza host. For many of the nz* commands, you must be able to sign into the Netezza system to access and run those commands. In most cases, users sign in as the default nz user account, but you can create other Linux user accounts on your system. Some commands require you to specify a database user account, password, and database to ensure that you've permission to do the task.
+- Netezza commands (nz* commands) are installed in the /nz/kit/bin directory on the Netezza host. For many of the nz* commands, you must be able to sign into the Netezza system to access and run those commands. In most cases, users sign in as the default nz user account, but you can create other Linux user accounts on your system. Some commands require you to specify a database user account, password, and database to ensure that you have permission to do the task.
 
-- The Netezza CLI client kits package a subset of the nz* commands that can be run from Windows and UNIX client systems. The client commands might also require you to specify a database user account, password, and database to ensure that you've database administrative and object permissions to perform the task.
+- The Netezza CLI client kits package a subset of the nz* commands that can be run from Windows and UNIX client systems. The client commands might also require you to specify a database user account, password, and database to ensure that you have database administrative and object permissions to perform the task.
 
 - The SQL commands support administration tasks and queries within a SQL database session. You can run the SQL commands from the Netezza nzsql command interpreter or through SQL APIs such as ODBC, JDBC, and the OLE DB Provider. You must have a database user account to run the SQL commands with appropriate permissions for the queries and tasks that you perform.
 
@@ -241,7 +241,8 @@ The portal also enables integration with other Azure monitoring services such as
 
 > [!TIP]
 > Low-level and system-wide metrics are automatically logged in Azure Synapse.
-Resource utilization statistics for the Azure Synapse are automatically logged within the system. The metrics include usage statistics for CPU, memory, cache, I/O and temporary workspace for each query as well as connectivity information&mdash;such as failed connection attempts.
+
+Resource utilization statistics for Azure Synapse are automatically logged within the system. The metrics for each query include usage statistics for CPU, memory, cache, I/O, and temporary workspace, as well as connectivity information like failed connection attempts.
 
 Azure Synapse provides a set of [Dynamic management views](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-monitor?msclkid=3e6eefbccfe211ec82d019ada29b1834) (DMVs). These views are useful when actively troubleshooting and identifying performance bottlenecks with your workload.
 
@@ -266,7 +267,7 @@ Distributed Replicated Block Device (DRBD) is a block device driver that mirrors
 > [!TIP]
 > Azure Synapse creates snapshots automatically to ensure fast recovery times.
 
-Azure Synapse uses database snapshots to provide high availability of the warehouse. A data warehouse snapshot creates a restore point that can be used to recover or copy a data warehouse to a previous state. Since Azure Synapse is a distributed system, a data warehouse snapshot consists of many files that are in Azure storage. Snapshots capture incremental changes from the data stored in your data warehouse.
+Azure Synapse uses database snapshots to provide high availability of the warehouse. A data warehouse snapshot creates a restore point that can be used to recover or copy a data warehouse to a previous state. Since Azure Synapse is a distributed system, a data warehouse snapshot consists of many files that are in Azure Storage. Snapshots capture incremental changes from the data stored in your data warehouse.
 
 > [!TIP]
 > Use user-defined snapshots to define a recovery point before key updates.
@@ -290,7 +291,7 @@ As well as the snapshots described previously, Azure Synapse also performs as st
 ### Workload management
 
 > [!TIP]
-> In a production data warehouse, there are typically mixed workloads which have different resource usage characteristics running concurrently.
+> In a production data warehouse, there are typically mixed workloads with different resource usage characteristics running concurrently.
 
 Netezza incorporates various features for managing workloads:
 

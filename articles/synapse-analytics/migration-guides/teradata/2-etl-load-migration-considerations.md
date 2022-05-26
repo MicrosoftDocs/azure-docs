@@ -1,6 +1,6 @@
 ---
 title: "Data migration, ETL, and load for Teradata migrations"
-description: Learn how to plan your data migration from Teradata to Azure Synapse to minimize the risk and impact on users. 
+description: Learn how to plan your data migration from Teradata to Azure Synapse Analytics to minimize the risk and impact on users. 
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.custom:
@@ -57,7 +57,7 @@ If logging is enabled and the log history is accessible, other information, such
 
 This question comes up often since companies often want to lower the impact of changes on the data warehouse data model to improve agility. Companies see an opportunity to do so during a migration to modernize their data model. This approach carries a higher risk because it could impact ETL jobs populating the data warehouse from a data warehouse to feed dependent data marts. Because of that risk, it's usually better to redesign on this scale after the data warehouse migration.
 
-Even if a data model change is an intended part of the overall migration, it's good practice to migrate the existing model as-is to the new environment (Azure Synapse in this case), rather than do any re-engineering on the new platform during migration. This approach has the advantage of minimizing the impact on existing production systems, while also leveraging the performance and elastic scalability of the Azure platform for one-off re-engineering tasks.
+Even if a data model change is an intended part of the overall migration, it's good practice to migrate the existing model as-is to the new environment (Azure Synapse Analytics in this case), rather than do any re-engineering on the new platform during migration. This approach has the advantage of minimizing the impact on existing production systems, while also leveraging the performance and elastic scalability of the Azure platform for one-off re-engineering tasks.
 
 When migrating from Teradata, consider creating a Teradata environment in a VM within Azure as a stepping stone in the migration process.
 
@@ -97,13 +97,13 @@ There's another potential benefit to this approach: by implementing the aggregat
 
 The primary drivers for choosing a virtual data mart implementation over a physical data mart are:
 
-- More agility&mdash;a virtual data mart is easier to change than physical tables and the associated ETL processes.
+- More agility, since a virtual data mart is easier to change than physical tables and the associated ETL processes.
 
-- Lower total cost of ownership&mdash;a virtualized implementation requires fewer data stores and copies of data.
+- Lower total cost of ownership, since a virtualized implementation requires fewer data stores and copies of data.
 
 - Elimination of ETL jobs to migrate and simplify data warehouse architecture in a virtualized environment.
 
-- Performance&mdash;although physical data marts have historically been more performant, virtualization products now implement intelligent caching techniques to mitigate.
+- Performance, since although physical data marts have historically been more performant, virtualization products now implement intelligent caching techniques to mitigate.
 
 ### Data migration from Teradata
 
@@ -120,7 +120,7 @@ You can get an accurate number for the volume of data to be mitigated for a give
 > [!TIP]
 > Plan the approach to ETL migration ahead of time and leverage Azure facilities where appropriate.
 
-For ETL/ELT processing, legacy Teradata data warehouses may use custom-built scripts using Teradata utilities such as BTEQ and Teradata Parallel Transporter (TPT), or third-party ETL tools such as Informatica or Ab Initio. Sometimes, Teradata data warehouses use a combination of ETL and ELT approaches that's evolved over time. When planning a migration to Azure Synapse, you need to determine the best way to implement the required ETL/ELT processing in the new environment while minimizing the cost and risk involved. To learn more about ETL and ELT processing, see [ELT vs ETL Design approach](/azure/synapse-analytics/sql-data-warehouse/design-elt-data-loading).
+For ETL/ELT processing, legacy Teradata data warehouses may use custom-built scripts using Teradata utilities such as BTEQ and Teradata Parallel Transporter (TPT), or third-party ETL tools such as Informatica or Ab Initio. Sometimes, Teradata data warehouses use a combination of ETL and ELT approaches that's evolved over time. When planning a migration to Azure Synapse, you need to determine the best way to implement the required ETL/ELT processing in the new environment while minimizing the cost and risk involved. To learn more about ETL and ELT processing, see [ELT vs ETL design approach](/azure/synapse-analytics/sql-data-warehouse/design-elt-data-loading).
 
 The following sections discuss migration options and make recommendations for various use cases. This flowchart summarizes one approach:
 
@@ -128,7 +128,7 @@ The following sections discuss migration options and make recommendations for va
 
 The first step is always to build an inventory of ETL/ELT processes that need to be migrated. As with other steps, it's possible that the standard 'built-in' Azure features make it unnecessary to migrate some existing processes. For planning purposes, it's important to understand the scale of the migration to be performed.
 
-In the preceding flowchart, decision 1 relates to a high-level decision about whether to migrate to a totally Azure-native environment. If you're moving to a totally Azure-native environment, we recommend that you re-engineer the ETL processing using [Pipelines and activities in Azure Data Factory](/azure/data-factory/concepts-pipelines-activities?msclkid=b6ea2be4cfda11ec929ac33e6e00db98&tabs=data-factory) or [Synapse Pipelines](/azure/synapse-analytics/get-started-pipelines?msclkid=b6e99db9cfda11ecbaba18ca59d5c95c). If you're not moving to a totally Azure-native environment, then decision 2 is whether an existing third-party ETL tool is already in use.
+In the preceding flowchart, decision 1 relates to a high-level decision about whether to migrate to a totally Azure-native environment. If you're moving to a totally Azure-native environment, we recommend that you re-engineer the ETL processing using [Pipelines and activities in Azure Data Factory](/azure/data-factory/concepts-pipelines-activities?msclkid=b6ea2be4cfda11ec929ac33e6e00db98&tabs=data-factory) or [Azure Synapse Pipelines](/azure/synapse-analytics/get-started-pipelines?msclkid=b6e99db9cfda11ecbaba18ca59d5c95c). If you're not moving to a totally Azure-native environment, then decision 2 is whether an existing third-party ETL tool is already in use.
 
 In the Teradata environment, some or all ETL processing may be performed by custom scripts using Teradata-specific utilities like BTEQ and TPT. In this case, your approach should be to re-engineer using Data Factory.
 
@@ -154,7 +154,7 @@ One way of testing Teradata SQL for compatibility with Azure Synapse is to captu
 
 ### Use third party ETL tools
 
-As described in the previous section, in many cases the existing legacy data warehouse system will already be populated and maintained by third-party ETL products. For a list of Microsoft data integration partners for Azure Synapse, see [Data Integration partners](/azure/sql-data-warehouse/sql-data-warehouse-partner-data-integration).
+As described in the previous section, in many cases the existing legacy data warehouse system will already be populated and maintained by third-party ETL products. For a list of Microsoft data integration partners for Azure Synapse, see [Data integration partners](/azure/sql-data-warehouse/sql-data-warehouse-partner-data-integration).
 
 ## Data loading from Teradata
 
@@ -178,7 +178,7 @@ When migrating data from a Teradata data warehouse, there are some basic questio
 
 Once the database tables to be migrated have been created in Azure Synapse, you can move the data to populate those tables out of the legacy Teradata system and load it into the new environment. There are two basic approaches:
 
-- **File Extract**&mdash;Extract the data from the Teradata tables to flat files, normally in CSV format, via BTEQ, Fast Export, or Teradata Parallel Transporter (TPT). Use TPT whenever possible since it's the most efficient in terms of data throughput.
+- **File extract**: Extract the data from the Teradata tables to flat files, normally in CSV format, via BTEQ, Fast Export, or Teradata Parallel Transporter (TPT). Use TPT whenever possible since it's the most efficient in terms of data throughput.
 
   This approach requires space to land the extracted data files. The space could be local to the Teradata source database (if sufficient storage is available), or remote in Azure Blob Storage. The best performance is achieved when a file is written locally, since that avoids network overhead.
 
@@ -188,7 +188,7 @@ Once the database tables to be migrated have been created in Azure Synapse, you 
 
   Microsoft provides different options to move large volumes of data, including AZCopy for moving files across the network into Azure Storage, Azure ExpressRoute for moving bulk data over a private network connection, and Azure Data Box where the files are moved to a physical storage device that's then shipped to an Azure data center for loading. For more information, see [data transfer](/azure/architecture/data-guide/scenarios/data-transfer).
 
-- **Direct extract and load across network**&mdash;The target Azure environment sends a data extract request, normally via a SQL command, to the legacy Teradata system to extract the data. The results are sent across the network and loaded directly into Azure Synapse, with no need to 'land' the data into intermediate files. The limiting factor in this scenario is normally the bandwidth of the network connection between the Teradata database and the Azure environment. For very large data volumes this approach may not be practical.
+- **Direct extract and load across network**: The target Azure environment sends a data extract request, normally via a SQL command, to the legacy Teradata system to extract the data. The results are sent across the network and loaded directly into Azure Synapse, with no need to 'land' the data into intermediate files. The limiting factor in this scenario is normally the bandwidth of the network connection between the Teradata database and the Azure environment. For very large data volumes this approach may not be practical.
 
 There's also a hybrid approach that uses both methods. For example, you can use the direct network extract approach for smaller dimension tables and samples of the larger fact tables to quickly provide a test environment in Azure Synapse. For the large volume historical fact tables, you can use the file extract and transfer approach using Azure Data Box.
 
@@ -200,7 +200,7 @@ Other benefits of this approach include reduced impact on the Teradata system du
 
 #### Which tools can be used?
 
-The task of data transformation and movement is the basic function of all ETL products. If one of these products is already in use in the existing Teradata environment, then using the existing ETL tool may simplify data migration data from Teradata to Azure Synapse. This approach assumes that the ETL tool supports Azure Synapse as a target environment. For more information on tools that support Azure Synapse, see [Data integration partners](/azure/sql-data-warehouse/sql-data-warehouse-partner-data-integration).
+The task of data transformation and movement is the basic function of all ETL products. If one of these products is already in use in the existing Teradata environment, then using the existing ETL tool may simplify data migration from Teradata to Azure Synapse. This approach assumes that the ETL tool supports Azure Synapse as a target environment. For more information on tools that support Azure Synapse, see [Data integration partners](/azure/sql-data-warehouse/sql-data-warehouse-partner-data-integration).
 
 If you're using an ETL tool, consider running that tool within the Azure environment to benefit from Azure cloud performance, scalability, and cost, and free up resources in the Teradata data center. Another benefit is reduced data movement between the cloud and on-premises environments.
 

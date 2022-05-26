@@ -18,7 +18,7 @@ This article is part six of a seven part series that provides guidance on how to
 
 ## Data warehouse migration tools
 
-By migrating your existing data warehouse to Azure Synapse, you benefit from:
+By migrating your existing data warehouse to Azure Synapse Analytics, you benefit from:
 
 - A globally secure, scalable, low-cost, cloud-native, pay-as-you-use analytical database.
 

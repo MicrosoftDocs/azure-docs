@@ -1,6 +1,6 @@
 ---
 title: "Minimize SQL issues for Teradata migrations"
-description: Learn how to minimize the risk of SQL issues when migrating from Teradata to Azure Synapse. 
+description: Learn how to minimize the risk of SQL issues when migrating from Teradata to Azure Synapse Analytics. 
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.custom:
@@ -25,7 +25,7 @@ This article is part five of a seven part series that provides guidance on how t
 
 In 1984, Teradata initially released their database product. It introduced massively parallel processing (MPP) techniques to enable data processing at a scale more efficiently than the existing mainframe technologies available at the time. Since then, the product has evolved and has many installations among large financial institutions, telecommunications, and retail companies. The original implementation used proprietary hardware and was channel attached to mainframes&mdash;typically IBM or IBM-compatible processors.
 
-While more recent announcements have included network connectivity and the availability of Teradata technology stack in the cloud (including Azure), most existing installations are on premises, so many users are considering migrating some or all their Teradata data to Azure Synapse to gain the benefits of a move to a modern cloud environment.
+While more recent announcements have included network connectivity and the availability of Teradata technology stack in the cloud (including Azure), most existing installations are on premises, so many users are considering migrating some or all their Teradata data to Azure Synapse Analytics to gain the benefits of a move to a modern cloud environment.
 
 > [!TIP]
 > Many existing Teradata installations are data warehouses using a dimensional data model.
@@ -45,15 +45,15 @@ Leverage the Azure environment when running a migration from an on-premises Tera
 
 With this approach, standard Teradata utilities such as Teradata Parallel Data Transporter (or third-party data replication tools such as Attunity Replicate) can be used to efficiently move the subset of Teradata tables that are to be migrated onto the VM instance, and then all migration tasks can take place within the Azure environment. This approach has several benefits:
 
-- After the initial replication of data, the source system isn't impacted by the migration tasks
+- After the initial replication of data, the source system isn't impacted by the migration tasks.
 
-- The familiar Teradata interfaces, tools and utilities are available within the Azure environment
+- The familiar Teradata interfaces, tools and utilities are available within the Azure environment.
 
-- Once in the Azure environment there are no potential issues with network bandwidth availability between the on-premises source system and the cloud target system
+- Once in the Azure environment there are no potential issues with network bandwidth availability between the on-premises source system and the cloud target system.
 
-- Tools such as Azure Data Factory can efficiently call utilities such as Teradata Parallel Transporter to migrate data quickly and easily
+- Tools such as Azure Data Factory can efficiently call utilities such as Teradata Parallel Transporter to migrate data quickly and easily.
 
-- The migration process is orchestrated and controlled entirely within the Azure environment
+- The migration process is orchestrated and controlled entirely within the Azure environment.
 
 ### Use Azure Data Factory to implement a metadata-driven migration
 
@@ -64,7 +64,7 @@ Automate and orchestrate the migration process by making use of the capabilities
 
 Azure Data Factory is a cloud-based data integration service that allows creation of data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Using Data Factory, you can create and schedule data-driven workflows&mdash;called pipelines&mdash;that can ingest data from disparate data stores. It can process and transform data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning.
 
-By creating metadata to list the data tables to be migrated and their location, you can use the Data Factory facilities to manage and automate parts of the migration process. You can also use [Synapse pipelines](/azure/synapse-analytics/get-started-pipelines?msclkid=8f3e7e96cfed11eca432022bc07c18de).
+By creating metadata to list the data tables to be migrated and their location, you can use the Data Factory facilities to manage and automate parts of the migration process. You can also use [Azure Synapse Pipelines](/azure/synapse-analytics/get-started-pipelines?msclkid=8f3e7e96cfed11eca432022bc07c18de).
 
 ## SQL DDL differences between Teradata and Azure Synapse
 
@@ -84,7 +84,7 @@ The following sections discuss Teradata-specific options to consider during a mi
 
 When migrating tables between different technologies, only the raw data and its descriptive metadata gets physically moved between the two environments. Other database elements from the source system, such as indexes and log files, aren't directly migrated as these may not be needed or may be implemented differently within the new target environment. For example, there's no equivalent of the `MULTISET` option within Teradata's `CREATE TABLE` syntax.
 
-It's important to understand where performance optimizations&mdash;such as indexes&mdash;were used in the source environment. This indicates where performance optimization can be added in the new target environment. For example, if a NUSI has been created in the source Teradata environment, this might indicate that a non-clustered index should be created in the migrated Azure Synapse. Other native performance optimization techniques, such as table replication, may be more applicable than a straight 'like for like' index creation.
+It's important to understand where performance optimizations&mdash;such as indexes&mdash;were used in the source environment. This indicates where performance optimization can be added in the new target environment. For example, if a non-unique secondary index (NUSI) has been created in the source Teradata environment, this might indicate that a non-clustered index should be created in the migrated Azure Synapse. Other native performance optimization techniques, such as table replication, may be more applicable than a straight 'like for like' index creation.
 
 ### Unsupported Teradata table types
 
@@ -223,9 +223,9 @@ The following sections discuss the Teradata-specific DML commands that you shoul
 
 ### SQL DML syntax differences
 
-Be aware of these differences in SQL Data Manipulation Language (DML) syntax between Teradata SQL and Azure Synapse when migrating:
+There are a few differences in SQL Data Manipulation Language (DML) syntax between Teradata SQL and Azure Synapse (T-SQL) that you should be aware of during migration:
 
-- `QUALIFY`&mdash;Teradata supports the `QUALIFY` operator. For example:
+- `QUALIFY`: Teradata supports the `QUALIFY` operator. For example:
 
   ```sql
   SELECT col1
@@ -244,11 +244,11 @@ Be aware of these differences in SQL Data Manipulation Language (DML) syntax bet
   ) WHERE rn = 1;
   ```
 
-- Date Arithmetic&mdash;Azure Synapse has operators such as `DATEADD` and `DATEDIFF` which can be used on `DATE` or `DATETIME` fields. Teradata supports direct subtraction on dates such as `SELECT DATE1&mdash;DATE2 FROM...`.
+- Date arithmetic: Azure Synapse has operators such as `DATEADD` and `DATEDIFF` which can be used on `DATE` or `DATETIME` fields. Teradata supports direct subtraction on dates such as `SELECT DATE1 - DATE2 FROM...`
 
-- In Group by ordinal, explicitly provide the T-SQL column name.
+- In `GROUP BY` ordinal, explicitly provide the T-SQL column name.
 
-- `LIKE ANY`&mdash;Teradata supports `LIKE ANY` syntax such as:
+- `LIKE ANY`: Teradata supports `LIKE ANY` syntax such as:
 
   ```sql
   SELECT * FROM CUSTOMER
