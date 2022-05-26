@@ -49,7 +49,7 @@ In Studio (classic), you used a **REQUEST/RESPOND web service** to deploy a mode
 There are multiple ways to deploy a model in Azure Machine Learning. One of the simplest ways is to use the designer to automate the deployment process. Use the following steps to deploy a model as a real-time endpoint:
 
 1. Run your completed training pipeline at least once.
-1. After the run completes, at the top of the canvas, select **Create inference pipeline** > **Real-time inference pipeline**.
+1. After the job completes, at the top of the canvas, select **Create inference pipeline** > **Real-time inference pipeline**.
 
     ![Create realtime inference pipeline](./media/migrate-rebuild-web-service/create-inference-pipeline.png)
         
@@ -94,7 +94,7 @@ Use the following steps to publish a pipeline endpoint for batch prediction:
 
 1. Run your completed training pipeline at least once.
 
-1. After the run completes, at the top of the canvas, select **Create inference pipeline** > **Batch inference pipeline**.
+1. After the job completes, at the top of the canvas, select **Create inference pipeline** > **Batch inference pipeline**.
 
     ![Screenshot showing the create inference pipeline button on a training pipeline](./media/migrate-rebuild-web-service/create-inference-pipeline.png)
         
