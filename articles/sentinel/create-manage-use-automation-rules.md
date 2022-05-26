@@ -43,15 +43,15 @@ The following table shows the different possible ways that incidents can be crea
 | **An incident was created** | - A new incident is created by an analytics rule.<br>- An incident is ingested from Microsoft 365 Defender.<br>- A new incident is created manually. |
 | **An incident was updated** | - An incident's status is changed (closed/reopened/triaged).<br>- An incident's owner is assigned or changed.<br>- An incident's severity is raised or lowered.<br>- Alerts are added to an incident.<br>- Comments, tags, or tactics are added to an incident. |
 
-## Begin creating an automation rule
+## Create your automation rule
 
 Depending on your choice of scope and use case, choose a location from which to begin creating your rule:
 
 | Use case | Goal of automation rule | Start from here |
 | - | - | - |
-| **Suppression** | Ignore and close noisy incidents | **Incidents** blade |
-| **Detection-based triage** | Handle incidents based on the rules that created them<br>Create an automation rule that will apply only to one analytics rule | **Analytics** blade |
-| **Entity-based triage**<br>or anything else | Handle incidents based on criteria in the incident<br>Create a single automation rule that will apply to many or all detections | **Automation** blade |
+| **Suppression** | - Ignore and close noisy incidents | **Incidents** blade |
+| **Detection-based triage** | - Handle incidents based on the rules that created them<br>- Create an automation rule that will apply only to one analytics rule | **Analytics** blade |
+| **Entity-based triage**<br>or anything else | - Handle incidents based on criteria in the incident<br>- Create a single automation rule that will apply to detections made by many or all analytics rules | **Automation** blade |
 
 ### Choose a starting point
 
@@ -62,6 +62,8 @@ Depending on your choice of scope and use case, choose a location from which to 
     :::image type="content" source="media/create-manage-use-automation-rules/create-automation-rule-on-incident.png" alt-text="Screenshot of creating an automation rule from the incidents blade." lightbox="media/create-manage-use-automation-rules/create-automation-rule-on-incident.png":::
 
 1. Select **Actions** at the bottom of the incident details pane, and then **Create automation rule**.
+
+    :::image type="content" source="media/create-manage-use-automation-rules/select-create-automation-rule.png" alt-text="Screenshot of pop up menu to select automation rule.":::
 
     - The identifying fields in the **Create new automation rule** panel are automatically populated with values from the incident:
 
@@ -75,7 +77,9 @@ Depending on your choice of scope and use case, choose a location from which to 
         - **Actions:** Change status to **Closed**, with the reason **Benign Positive - suspicious but expected**.
         - **Rule expiration:** 24 hours from when the rule creation wizard was opened.
 
-    You can change any of these values, and add or remove conditions and actions, as you wish.
+    Depending on your needs for this rule, you can select the **When incident is updated** trigger instead, add or remove conditions and actions, or change any of the other values, as necessary.
+
+    :::image type="content" source="media/create-manage-use-automation-rules/incident-automation-rule-populated.png" alt-text="Screenshot of automation rule wizard launched from incident panel.":::
 
 # [Analytics](#tab/analytics)
 
@@ -86,12 +90,9 @@ Depending on your choice of scope and use case, choose a location from which to 
 
 1. In the **Automated response** tab of the **Analytics rule wizard**, under **Incident automation**, select **+ Add new**.
 
-    In the **Create new automation rule** panel, the **Analytics rule condition** is set to the analytics rule being edited, and this can't be changed. 
+    In the **Create new automation rule** panel, the **Analytics rule condition** is set to the analytics rule being edited, and the **Trigger** is set to **When incident is created**. These settings are locked and can't be changed. 
 
-    Only two other fields are populated:
-
-    - **Trigger:** When incident is created
-    - **Order:** a number higher than any automation rule already defined in this analytics rule. This ensures that the current automation rule will be the last to run.
+    The only other field populated is **Order**, set to a number higher than any automation rule already defined in this analytics rule. This ensures that the current automation rule will be the last to run. You can change this number if necessary.
 
     All the other fields in the panel are open and unpopulated, and you can add conditions and actions as you wish.
 
@@ -109,7 +110,11 @@ Depending on your choice of scope and use case, choose a location from which to 
 
 ---
 
-### Continue here
+### Choose your trigger
+
+From the **Trigger** drop-down, select **When incident is created** or **When incident is updated (Preview)** according to what you decided when designing your rule.
+
+### Add conditions
 
 1. Add any other conditions you want this automation rule's activation to depend on. Click **Add condition** and choose conditions from the drop-down list. The list of conditions is populated by alert detail and entity identifier fields.
 

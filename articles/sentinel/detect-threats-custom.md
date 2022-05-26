@@ -84,9 +84,6 @@ In the **Set rule logic** tab, you can either write a query directly in the **Ru
 
 ### Alert enrichment
 
-> [!IMPORTANT]
-> The alert enrichment features are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 - Use the **Entity mapping** configuration section to map parameters from your query results to Microsoft Sentinel-recognized entities. Entities enrich the rules' output (alerts and incidents) with essential information that serves as the building blocks of any investigative processes and remedial actions that follow. They are also the criteria by which you can group alerts together into incidents in the **Incident settings** tab.
 
     Learn more about [entities in Microsoft Sentinel](entities.md).
@@ -144,9 +141,6 @@ If you see that your query would trigger too many or too frequent alerts, you ca
 
 ### Event grouping and rule suppression
 
-> [!IMPORTANT]
-> Event grouping is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 - Under **Event grouping**, choose one of two ways to handle the grouping of **events** into **alerts**:
 
   - **Group all events into a single alert** (the default setting). The rule generates a single alert every time it runs, as long as the query returns more results than the specified **alert threshold** above. The alert includes a summary of all the events returned in the results.
@@ -180,9 +174,6 @@ If you see that your query would trigger too many or too frequent alerts, you ca
 ## Configure the incident creation settings
 
 In the **Incident Settings** tab, you can choose whether and how Microsoft Sentinel turns alerts into actionable incidents. If this tab is left alone, Microsoft Sentinel will create a single, separate incident from each and every alert. You can choose to have no incidents created, or to group several alerts into a single incident, by changing the settings in this tab.
-
-> [!IMPORTANT]
-> The incident settings tab is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 For example:
 
