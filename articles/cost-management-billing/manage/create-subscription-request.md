@@ -7,7 +7,7 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 05/25/2022
 ms.author: banders
 ---
 
@@ -64,7 +64,7 @@ The subscription creator can also view the subscription request details from **S
 
 The subscription acceptor receives an email inviting them to accept subscription ownership. Select the **Accept ownership** get started.
 
-:::image type="content" source="./media/create-subscription-request/accept-subscription-ownership-email.png" alt-text="ALTTEXT" lightbox="./media/create-subscription-request/accept-subscription-ownership-email.png" :::
+:::image type="content" source="./media/create-subscription-request/accept-subscription-ownership-email.png" alt-text="Screenshot showing the email with the Accept Ownership link." lightbox="./media/create-subscription-request/accept-subscription-ownership-email.png" :::
 
 Or, the subscription creator might have manually sent the acceptor an **Accept ownership URL** link. The acceptor uses the following steps to review and accept subscription ownership.
 
