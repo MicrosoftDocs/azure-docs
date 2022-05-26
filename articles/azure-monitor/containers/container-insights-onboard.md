@@ -4,7 +4,6 @@ title: Enable Container insights
 description: This article describes how to enable and configure Container insights so that you can understand how your container is performing and what performance-related issues have been identified. 
 ms.topic: conceptual
 ms.date: 05/24/2022
-
 ---
 
 # Enable Container insights
