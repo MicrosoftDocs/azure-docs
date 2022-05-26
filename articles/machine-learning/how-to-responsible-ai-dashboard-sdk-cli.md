@@ -90,11 +90,11 @@ Below are specifications of the Responsible AI components and examples of code s
 ### Limitations
 The current set of components have a number of limitations on their use:
 
-- All models must be in registered in AzureML in MLFlow format with an sklearn flavor.
+- All models must be in registered in AzureML in MLFlow format with a sklearn flavor.
 - The models must be loadable in the component environment.
 - The models must be pickleable.
-- The models must be supplied to the RAI components using the 'Fetch Registered Model' component which we provide. We plan to switch to the new AzureML 'model-as-input' feature in the near future.
-- The dataset inputs must be `pandas` DataFrames in Parquet format. We plan to start using AzureML's new `MLTable` feature in the near future.
+- The models must be supplied to the RAI components using the 'Fetch Registered Model' component which we provide.
+- The dataset inputs must be `pandas` DataFrames in Parquet format. 
 - A model must still be supplied even if only a causal analysis of the data is performed. The `DummyClassifier` and `DummyRegressor` estimators from SciKit-Learn can be used for this purpose.
 
 ### RAI Insights Dashboard Constructor
