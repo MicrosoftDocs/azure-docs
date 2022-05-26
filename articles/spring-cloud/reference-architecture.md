@@ -1,5 +1,5 @@
 ---
-ms.date: 02/16/2021
+ms.date: 05/31/2022
 ms.topic: reference-architecture
 author: karlerickson
 title: Azure Spring Apps reference architecture
@@ -14,9 +14,15 @@ description: This reference architecture is a foundation using a typical enterpr
 > [!NOTE]
 > Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
-**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+**This article applies to:** ✔️ Standard tier ✔️ Enterprise tier
 
 This reference architecture is a foundation using a typical enterprise hub and spoke design for the use of Azure Spring Apps. In the design, Azure Spring Apps is deployed in a single spoke that's dependent on shared services hosted in the hub. The architecture is built with components to achieve the tenets in the [Microsoft Azure Well-Architected Framework][16].
+
+There are two flavors of Azure Spring Apps: Standard tier and Enterprise tier.
+
+Azure Spring Apps Standard tier is composed of the Spring Cloud Config Server, the Spring Cloud Service Registry, and the kpack build service.
+
+Azure Spring Apps Enterprise tier is composed of the VMware Tanzu® Build Service™, Application Configuration Service for VMware Tanzu®, VMware Tanzu® Service Registry, Spring Cloud Gateway for VMware Tanzu®, and API portal for VMware Tanzu®.
 
 For an implementation of this architecture, see the [Azure Spring Apps Reference Architecture][10] repository on GitHub.
 
@@ -87,25 +93,33 @@ The following list describes the Azure services in this reference architecture:
 
 * [Azure Spring Apps][1]: a managed service that's designed and optimized specifically for Java-based Spring Boot applications and .NET-based [Steeltoe][9] applications.
 
-The following diagram represents a well-architected hub and spoke design that addresses the above requirements:
+The following diagrams represent a well-architected hub and spoke design that addresses the above requirements:
 
-![Reference architecture diagram for private applications](./media/spring-cloud-reference-architecture/architecture-private.png)
+### [Azure Spring Standard tier](#tab/azure-spring-standard)
+
+:::image type="content" source="media/reference-architecture/architecture-private-standard.png" alt-text="Diagram showing the reference architecture for private applications using Azure Spring Apps Standard tier." lightbox="media/reference-architecture/architecture-private-standard.png" border="false":::
+
+### [Azure Spring Enterprise tier](#tab/azure-spring-enterprise)
+
+:::image type="content" source="media/reference-architecture/architecture-private-enterprise.png" alt-text="Diagram showing the reference architecture for private applications using Azure Spring Apps Enterprise tier." lightbox="media/reference-architecture/architecture-private-enterprise.png" border="false":::
+
+---
 
 ## Public applications
 
-The following list describes the infrastructure requirements for public applications. These requirements are typical in highly regulated environments. These requirements are a superset of those in the preceding section. Additional items are indicated with italics.
+The following list describes the infrastructure requirements for public applications. These requirements are typical in highly regulated environments.
 
 * A subnet must only have one instance of Azure Spring Apps.
 * Adherence to at least one Security Benchmark should be enforced.
 * Application host Domain Name Service (DNS) records should be stored in Azure Private DNS.
-* _Azure DDoS Protection standard should be enabled._
+* Azure DDoS Protection standard should be enabled.
 * Azure service dependencies should communicate through Service Endpoints or Private Link.
 * Data at rest should be encrypted.
 * Data in transit should be encrypted.
 * DevOps deployment pipelines can be used (for example, Azure DevOps) and require network connectivity to Azure Spring Apps.
 * Egress traffic should travel through a central Network Virtual Appliance (NVA) (for example, Azure Firewall).
-* _Ingress traffic should be managed by at least Application Gateway or Azure Front Door._
-* _Internet routable addresses should be stored in Azure Public DNS._
+* Ingress traffic should be managed by at least Application Gateway or Azure Front Door.
+* Internet routable addresses should be stored in Azure Public DNS.
 * Microsoft's Zero Trust security approach requires secrets, certificates, and credentials to be stored in a secure vault. The recommended service is Azure Key Vault.
 * Name resolution of hosts on-premises and in the Cloud should be bidirectional.
 * No direct egress to the public Internet except for control plane traffic.
@@ -127,9 +141,9 @@ The following list shows the components that make up the design:
 
 The following list describes the Azure services in this reference architecture:
 
-* _[Azure Application Firewall][7]: a feature of Azure Application Gateway that provides centralized protection of applications from common exploits and vulnerabilities._
+* [Azure Application Firewall][7]: a feature of Azure Application Gateway that provides centralized protection of applications from common exploits and vulnerabilities.
 
-* _[Azure Application Gateway][6]: a load balancer responsible for application traffic with Transport Layer Security (TLS) offload operating at layer 7._
+* [Azure Application Gateway][6]: a load balancer responsible for application traffic with Transport Layer Security (TLS) offload operating at layer 7.
 
 * [Azure Key Vault][2]: a hardware-backed credential management service that has tight integration with Microsoft identity services and compute resources.
 
@@ -141,9 +155,17 @@ The following list describes the Azure services in this reference architecture:
 
 * [Azure Spring Apps][1]: a managed service that's designed and optimized specifically for Java-based Spring Boot applications and .NET-based [Steeltoe][9] applications.
 
-The following diagram represents a well-architected hub and spoke design that addresses the above requirements.  Note that only the hub-virtual-network communicates with the internet:
+The following diagrams represent a well-architected hub and spoke design that addresses the above requirements. Only the hub-virtual-network communicates with the internet:
 
-![Reference architecture diagram for public applications](./media/spring-cloud-reference-architecture/architecture-public.png)
+### [Azure Spring Standard tier](#tab/azure-spring-standard)
+
+:::image type="content" source="media/reference-architecture/architecture-public-standard.png" alt-text="Diagram showing the reference architecture for public applications using Azure Spring Apps Standard tier." lightbox="media/reference-architecture/architecture-public-standard.png" border="false":::
+
+### [Azure Spring Enterprise tier](#tab/azure-spring-enterprise)
+
+:::image type="content" source="media/reference-architecture/architecture-public-enterprise.png" alt-text="Diagram showing the reference architecture for public applications using Azure Spring Apps Enterprise tier." lightbox="media/reference-architecture/architecture-public-enterprise.png" border="false":::
+
+---
 
 ## Azure Spring Apps on-premises connectivity
 
@@ -187,9 +209,9 @@ The primary aspect of governance that this architecture addresses is segregation
 
 The following list shows the control that addresses datacenter security in this reference:
 
-| CSA CCM Control ID | CSA CCM Control Domain |
-| :----------------- | :----------------------|
-| DCS-08 | Datacenter Security Unauthorized Persons Entry |
+| CSA CCM Control ID | CSA CCM Control Domain                         |
+|:-------------------|:-----------------------------------------------|
+| DCS-08             | Datacenter Security Unauthorized Persons Entry |
 
 #### Network
 
@@ -206,37 +228,37 @@ The network implementation is further secured by defining controls from the MAFB
 
 The following list shows the CIS controls that address network security in this reference:
 
-| CIS Control ID | CIS Control Description |
-| :------------- | :---------------------- |
-| 6.2 | Ensure that SSH access is restricted from the internet. |
-| 6.3 | Ensure no SQL Databases allow ingress 0.0.0.0/0 (ANY IP). |
-| 6.5 | Ensure that Network Watcher is 'Enabled'. |
-| 6.6 | Ensure that ingress using UDP is restricted from the internet. |
+| CIS Control ID | CIS Control Description                                        |
+|:---------------|:---------------------------------------------------------------|
+| 6.2            | Ensure that SSH access is restricted from the internet.        |
+| 6.3            | Ensure no SQL Databases allow ingress 0.0.0.0/0 (ANY IP).      |
+| 6.5            | Ensure that Network Watcher is 'Enabled'.                      |
+| 6.6            | Ensure that ingress using UDP is restricted from the internet. |
 
-Azure Spring Apps requires management traffic to egress from Azure when deployed in a secured environment. To accomplish this, you must allow the network and application rules listed in [Customer responsibilities for running Azure Spring Apps in VNET](./vnet-customer-responsibilities.md).
+Azure Spring Apps requires management traffic to egress from Azure when deployed in a secured environment. You must allow the network and application rules listed in [Customer responsibilities for running Azure Spring Apps in VNET](./vnet-customer-responsibilities.md).
 
 #### Application security
 
-This design principal covers the fundamental components of identity, data protection, key management, and application configuration. By design, an application deployed in Azure Spring Apps runs with least privilege required to function. The set of authorization controls is directly related to data protection when using the service. Key management strengthens this layered application security approach.
+This design principle covers the fundamental components of identity, data protection, key management, and application configuration. By design, an application deployed in Azure Spring Apps runs with least privilege required to function. The set of authorization controls is directly related to data protection when using the service. Key management strengthens this layered application security approach.
 
 The following list shows the CCM controls that address key management in this reference:
 
-| CSA CCM Control ID | CSA CCM Control Domain |
-| :----------------- | :--------------------- |
-| EKM-01 | Encryption and Key Management Entitlement |
-| EKM-02 | Encryption and Key Management Key Generation |
-| EKM-03 | Encryption and Key Management Sensitive Data Protection |
-| EKM-04 | Encryption and Key Management Storage and Access |
+| CSA CCM Control ID | CSA CCM Control Domain                                  |
+|:-------------------|:--------------------------------------------------------|
+| EKM-01             | Encryption and Key Management Entitlement               |
+| EKM-02             | Encryption and Key Management Key Generation            |
+| EKM-03             | Encryption and Key Management Sensitive Data Protection |
+| EKM-04             | Encryption and Key Management Storage and Access        |
 
 From the CCM, EKM-02, and EKM-03 recommend policies and procedures to manage keys and to use encryption protocols to protect sensitive data. EKM-01 recommends that all cryptographic keys have identifiable owners so that they can be managed. EKM-04 recommends the use of standard algorithms.
 
 The following list shows the CIS controls that address key management in this reference:
 
-| CIS Control ID | CIS Control Description |
-| :------------- | :---------------------- |
-| 8.1 | Ensure that the expiration date is set on all keys. |
-| 8.2 | Ensure that the expiration date is set on all secrets. |
-| 8.4 | Ensure the key vault is recoverable. |
+| CIS Control ID | CIS Control Description                                |
+|:---------------|:-------------------------------------------------------|
+| 8.1            | Ensure that the expiration date is set on all keys.    |
+| 8.2            | Ensure that the expiration date is set on all secrets. |
+| 8.4            | Ensure the key vault is recoverable.                   |
 
 The CIS controls 8.1 and 8.2 recommend that expiration dates are set for credentials to ensure that rotation is enforced. CIS control 8.4 ensures that the contents of the key vault can be restored to maintain business continuity.
 
