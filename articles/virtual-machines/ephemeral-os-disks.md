@@ -60,7 +60,7 @@ If you want to opt for **Temp disk placement**: Standard Ubuntu server image fro
 > [!Important] 
 > If opting for temp disk placement the Final Temp disk size = (Initial temp disk size - OS image size).
 
-In the case of **Temp disk placement** as Ephemeral OS disk is created on the local VM it will always get the full IOPS as per the VM size chosen by you.
+In the case of **Temp disk placement** as Ephemeral OS disk is placed on temp disk it will share the IOPS with temp disk as per the VM size chosen by you.
 
 Basic Linux and Windows Server images in the Marketplace that are denoted by `[smallsize]` tend to be around 30 GiB and can use most of the available VM sizes.
 Ephemeral disks also require that the VM size supports **Premium storage**. The sizes usually (but not always) have an `s` in the name, like DSv2 and EsV3. For more information, see [Azure VM sizes](sizes.md) for details around which sizes support Premium storage.
@@ -96,4 +96,4 @@ For more information on [how to deploy a trusted launch VM](trusted-launch-porta
  
 ## Next steps
 Create a VM with ephemeral OS disk using [Azure Portal/CLI/Powershell/ARM template](ephemeral-os-disks-deploy.md).
-Check out the frequently asked questions
+Check out the [frequently asked questions on ephemeral os disk](ephemeral-os-disks-faq.md).
