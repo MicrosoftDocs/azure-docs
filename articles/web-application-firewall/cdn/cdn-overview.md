@@ -28,7 +28,7 @@ You can configure a WAF policy and associate that policy to one or more CDN endp
 
 - custom rules that you can create.
 
-- managed rule sets that are a collection of Azure managed pre-configured rules.
+- managed rule sets that are a collection of Azure-managed pre-configured rules.
 
 When both are present, custom rules are processed before processing the rules in a managed rule set. A rule is made of a match condition, a priority, and an action. Action types supported are: *ALLOW*, *BLOCK*, *LOG*, and *REDIRECT*. You can create a fully customized policy that meets your specific application protection requirements by combining managed and custom rules.
 
@@ -66,7 +66,7 @@ Custom rules can have match rules and rate control rules.
 
 You can configure the following custom match rules:
 
-- *IP allow list and block list*: You can control access to your web applications based on a list of client IP addresses or IP address ranges. Both IPv4 and IPv6 address types are supported. This list can be configured to either block or allow those requests where the source IP matches an IP in the list.
+- *IP allowlist and blocklist*: You can control access to your web applications based on a list of client IP addresses or IP address ranges. Both IPv4 and IPv6 address types are supported. This list can be configured to either block or allow those requests where the source IP matches an IP in the list.
 
 - *Geographic based access control*: You can control access to your web applications based on the country code that's associated with a client's IP address.
 
@@ -78,7 +78,7 @@ You can configure the following custom match rules:
 
 A rate control rule limits abnormally high traffic from any client IP address.
 
-- *Rate limiting rules*: You can configure a threshold on the number of web requests allowed from a client IP address during a one-minute duration. This rule is distinct from an IP list-based allow/block custom rule that either allows all or blocks all request from a client IP address. Rate limits can be combined with additional match conditions such as HTTP(S) parameter matches for granular rate control.
+- *Rate limiting rules*: You can configure a threshold on the number of web requests allowed from a client IP address during a one-minute duration. This rule is distinct from an IP list-based allow/block custom rule that either allows all or blocks all request from a client IP address. Rate limits can be combined with more match conditions such as HTTP(S) parameter matches for granular rate control.
 
 ### Azure-managed rule sets
 
