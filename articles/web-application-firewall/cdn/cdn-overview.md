@@ -5,7 +5,7 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 05/18/2022
+ms.date: 05/26/2022
 ms.author: victorh
 ---
 
@@ -51,7 +51,7 @@ You can choose one of the following actions when a request matches a rule's cond
 - *Allow*: The request passes through the WAF and is forwarded to back-end. No further lower priority rules can block this request.
 - *Block*: The request is blocked and WAF sends a response to the client without forwarding the request to the back-end.
 - *Log*:  The request is logged in the WAF logs and WAF continues evaluating lower priority rules.
-- *Redirect*: WAF redirects the request to the specified URI. The URI specified is a policy level setting. Once configured, all requests that match the *Redirect* action is sent to that URI.
+- *Redirect*: WAF redirects the request to the specified URI. The URI specified is a policy level setting. Once configured, all requests that match the *Redirect* action are sent to that URI.
 
 ## WAF rules
 
