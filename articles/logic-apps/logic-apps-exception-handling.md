@@ -18,7 +18,7 @@ The way that any integration architecture appropriately handles downtime or issu
 
 ## Retry policies
 
-For the most basic exception and error handling, you can use the *retry policy* where supported on a trigger or action, such as the [HTTP action](logic-apps-workflow-actions-triggers.md#http-trigger). If the trigger or action's original request times out or fails, which results in a 408, 429, or 5xx response, the retry policy specifies that trigger or action resend the request, based on the policy's settings.
+For the most basic exception and error handling, you can use the *retry policy* where supported on a trigger or action, such as the [HTTP action](logic-apps-workflow-actions-triggers.md#http-trigger). If the trigger or action's original request times out or fails, resulting in a 408, 429, or 5xx response, the retry policy specifies that the trigger or action resend the request per policy settings.
 
 By default, the retry policy is set to the **Default** type.
 
@@ -94,7 +94,7 @@ If you're working in code view, you can manually update the trigger or action de
 
 #### Default
 
-If you don't specify a retry policy, the action uses the default policy, which is actually an [exponential interval policy](#exponential-interval) that sends up to four retries at exponentially increasing intervals that are scaled by 7.5 seconds. The interval is capped between 5 and 45 seconds.
+If you don't specify a retry policy, the action uses the default policy. The default is actually an [exponential interval policy](#exponential-interval) that sends up to four retries at exponentially increasing intervals, which scales by 7.5 seconds. The interval is capped between 5 and 45 seconds.
 
 Though not explicitly defined in your action or trigger, here is how the default policy behaves in an example HTTP action:
 
@@ -157,7 +157,7 @@ The exponential interval retry policy specifies that the trigger or action waits
 
 **Random variable ranges**
 
-The following table shows how Azure Logic Apps generates a uniform random variable in the specified range for each retry up to and including the number of retries:
+The following table shows how Azure Logic Apps generates a uniform random variable for each retry by using a range that can vary up to and including the number of retries:
 
 | Retry number | Minimum interval | Maximum interval |
 |--------------|------------------|------------------|
@@ -299,11 +299,11 @@ For limits on scopes, see [Limits and config](logic-apps-limits-and-config.md).
 
 ### Get context and results for failures
 
-Although catching failures from a scope is useful, you might also want context to help you understand exactly which actions failed plus any errors or status codes that were returned. The [`result()` function](workflow-definition-language-functions-reference.md#result) returns the results from the top-level actions in a scoped action by accepting a single parameter, which is the scope's name, and returning an array that contains the results from those first-level actions. These action objects include the same attributes as those returned by the `actions()` function, such as the action's start time, end time, status, inputs, correlation IDs, and outputs. 
+Although catching failures from a scope is useful, you might also want more context to help you learn the exact failed actions plus any errors or status codes. The [`result()` function](workflow-definition-language-functions-reference.md#result) returns the results from the top-level actions in a scoped action. This function accepts the scope's name as a single parameter, and returns an array with the results from those top-level actions. These action objects have the same attributes as the attributes returned by the `actions()` function, such as the action's start time, end time, status, inputs, correlation IDs, and outputs. 
 
 > [!NOTE]
 >
-> The `result()` function returns the results from *only* the first-level actions 
+> The `result()` function returns the results *only* from the top-level actions 
 > and not from deeper nested actions such as switch or condition actions.
 
 To get context about the actions that failed in a scope, you can use the `@result()` expression with the scope's name and the `runAfter` property. To filter down the returned array to actions that have `Failed` status, you can add the [**Filter Array** action](logic-apps-perform-data-operations.md#filter-array-action). To run an action for a returned failed action, take the returned filtered array and use a [**For each** loop](logic-apps-control-flow-loops.md).
@@ -401,7 +401,7 @@ To perform different exception handling patterns, you can use the expressions pr
 
 ## Set up Azure Monitor logs
 
-The previous patterns are great way to handle errors and exceptions within a run, but you can also identify and respond to errors independent of the run itself. [Azure Monitor](../azure-monitor/overview.md) provides a simple way to send all workflow events, including all run and action statuses, to a [Log Analytics workspace](../azure-monitor/logs/data-platform-logs.md), [Azure storage account](../storage/blobs/storage-blobs-overview.md), or [Azure Event Hubs](../event-hubs/event-hubs-about.md).
+The previous patterns are useful ways to handle errors and exceptions that happen within a run. However, you can also identify and respond to errors that happen independently from the run. [Azure Monitor](../azure-monitor/overview.md) provides a streamlined way to send all workflow events, including all run and action statuses, to a destination. For example, you can send events to a [Log Analytics workspace](../azure-monitor/logs/data-platform-logs.md), [Azure storage account](../storage/blobs/storage-blobs-overview.md), or [Azure Event Hubs](../event-hubs/event-hubs-about.md).
 
 To evaluate run statuses, you can monitor the logs and metrics, or publish them into any monitoring tool that you prefer. One potential option is to stream all the events through Event Hubs into [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). In Stream Analytics, you can write live queries based on any anomalies, averages, or failures from the diagnostic logs. You can use Stream Analytics to send information to other data sources, such as queues, topics, SQL, Azure Cosmos DB, or Power BI.
 
