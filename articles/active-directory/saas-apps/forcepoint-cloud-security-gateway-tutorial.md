@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/19/2022
+ms.date: 05/26/2022
 ms.author: jeedes
 
 ---
@@ -72,7 +72,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+    ![Screenshot shows to edit Basic S A M L Configuration.](common/edit-urls.png "Basic Configuration")
 
 1. On the **Basic SAML Configuration** section, perform the following steps:
 
@@ -85,13 +85,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     c. In the **Sign-on URL** text box, type the URL:
     `https://mailcontrol.com`
 
-1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-   ![The Certificate download link](common/certificatebase64.png)
+    ![Screenshot shows the Certificate download link.](common/metadataxml.png "Certificate")
 
 1. On the **Set up Forcepoint Cloud Security Gateway - User Authentication** section, copy the appropriate URL(s) based on your requirement.
 
-   ![Copy configuration URLs](common/copy-configuration-urls.png)
+   ![Screenshot shows to copy appropriate configuration U R L.](common/copy-configuration-urls.png "Authentication")
 
 ### Create an Azure AD test user
 
@@ -131,7 +131,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     b. Select **Identity provider** from the dropdown.
 
-    c. Open the downloaded **Certificate (Base64)** from the Azure portal and upload the file into the **File upload** textbox by clicking **Browse** option.
+    c. Upload the **Federation Metadata XML** file from the Azure portal into the **File upload** textbox by clicking **Browse** option.
 
     d. Click **Save**.
 
