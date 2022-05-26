@@ -55,13 +55,7 @@ Add the following `SinksConfig` section as a child element of `WadCfg`:
 ```
 
 > [!NOTE]
-> If the *diagnostics.wadcfgx* file also contains another sink of type `ApplicationInsights`, all three of the following instrumentation keys must match:  
-> * The key used by your application. 
-> * The key used by the `ApplicationInsights` sink. 
-> * The key used by the `ApplicationInsightsProfiler` sink. 
->
-> You can find the actual instrumentation key value used by the `ApplicationInsights` sink in the *ServiceConfiguration.\*.cscfg* files. 
-> After the Visual Studio 15.5 Azure SDK release, only the instrumentation keys that are used by the application and the ApplicationInsightsProfiler sink need to match each other.
+> The instrumentation keys that are used by the application and the ApplicationInsightsProfiler sink need to match each other.
 
 Deploy your service with the new Diagnostics configuration. Application Insights Profiler is now configured to run on your Cloud Service.
 
