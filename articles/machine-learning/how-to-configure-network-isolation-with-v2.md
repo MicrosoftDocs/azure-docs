@@ -44,7 +44,7 @@ The Azure Machine Learning CLI v2 uses our new v2 API platform. New features suc
 
 As mentioned in the previous section, there are two types of operations; with ARM and with the workspace. With the __legacy v1 API__, most operations used the workspace. With the v1 API, adding a private endpoint to the workspace provided network isolation for everything except CRUD operations on the workspace or compute resources.
 
-With the __new v2 API__, most operations use ARM. So enabling a private endpoint on your workspace doesn't provide the same level of network isolation. Operations that use ARM communicate  over public networks, and include any metadata (such as your resource IDs) or parameters used by the operation. For example, the [create or update job](/rest/api/azureml/jobs/create-or-update) api sends metadata, and [parameters](/azure/machine-learning/reference-yaml-job-command).
+With the __new v2 API__, most operations use ARM. So enabling a private endpoint on your workspace doesn't provide the same level of network isolation. Operations that use ARM communicate  over public networks, and include any metadata (such as your resource IDs) or parameters used by the operation. For example, the [create or update job](/rest/api/azureml/jobs/create-or-update) api sends metadata, and [parameters](./reference-yaml-job-command.md).
 
 > [!TIP]
 > * Public ARM operations do not surface data in your storage account on public networks. 
@@ -116,4 +116,4 @@ az ml workspace show -g <myresourcegroup> -w <myworkspace> --query v1LegacyMode
 ## Next steps
 
 * [Use a private endpoint with Azure Machine Learning workspace](how-to-configure-private-link.md).
-* [Create private link for managing Azure resources](/azure/azure-resource-manager/management/create-private-link-access-portal).
+* [Create private link for managing Azure resources](../azure-resource-manager/management/create-private-link-access-portal.md).

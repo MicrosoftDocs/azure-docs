@@ -218,7 +218,7 @@ As part of the preparation phase, create an inventory of these objects to be mig
 
 There may be facilities in the Azure environment that replace the functionality implemented as functions or stored procedures in the Netezza environment. In this case, it's more efficient to use the built-in Azure facilities rather than recoding the Netezza functions.
 
-[Data integration partners](/azure/synapse-analytics/partner/data-integration) offer tools and services that can automate the migration.
+[Data integration partners](../../partner/data-integration.md) offer tools and services that can automate the migration.
 
 ##### Functions
 
@@ -303,7 +303,7 @@ This section highlights lower-level implementation differences between Netezza a
 
 `CREATE TABLE` statements in both Netezza and Azure Synapse allow for specification of a distribution definition&mdash;via `DISTRIBUTE ON` in Netezza, and `DISTRIBUTION =` in Azure Synapse.
 
-Compared to Netezza, Azure Synapse provides an additional way to achieve local joins for small table-large table joins (typically dimension table to fact table in a start schema model) is to replicate the smaller dimension table across all nodes. This ensures that any value of the join key of the larger table will have a matching dimension row locally available. The overhead of replicating the dimension tables is relatively low, provided the tables aren't very large (see [Design guidance for replicated tables](/azure/synapse-analytics/sql-data-warehouse/design-guidance-for-replicated-tables))&mdash;in which case, the hash distribution approach as described previously is more appropriate. For more information, see [Distributed tables design](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-distribute).
+Compared to Netezza, Azure Synapse provides an additional way to achieve local joins for small table-large table joins (typically dimension table to fact table in a start schema model) is to replicate the smaller dimension table across all nodes. This ensures that any value of the join key of the larger table will have a matching dimension row locally available. The overhead of replicating the dimension tables is relatively low, provided the tables aren't very large (see [Design guidance for replicated tables](../../sql-data-warehouse/design-guidance-for-replicated-tables.md))&mdash;in which case, the hash distribution approach as described previously is more appropriate. For more information, see [Distributed tables design](../../sql-data-warehouse/sql-data-warehouse-tables-distribute.md).
 
 #### Data indexing
 
@@ -319,15 +319,15 @@ Only one field per table can be used for partitioning. This is frequently a date
 
 #### Data table statistics
 
-Ensure that statistics on data tables are up to date by building in a [statistics](/azure/synapse-analytics/sql/develop-tables-statistics) step to ETL/ELT jobs.
+Ensure that statistics on data tables are up to date by building in a [statistics](../../sql/develop-tables-statistics.md) step to ETL/ELT jobs.
 
 #### PolyBase for data loading
 
-PolyBase is the most efficient method for loading large amounts of data into the warehouse since it can leverage parallel loading streams. For more information, see [PolyBase data loading strategy](/azure/synapse-analytics/sql/load-data-overview).
+PolyBase is the most efficient method for loading large amounts of data into the warehouse since it can leverage parallel loading streams. For more information, see [PolyBase data loading strategy](../../sql/load-data-overview.md).
 
 #### Use workload management
 
-Use [workload management](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-workload-management?context=/azure/synapse-analytics/context/context) instead of resource classes. ETL would be in its own workgroup and should be configured to have more resources per query (less concurrency by more resources). For more information, see [What is dedicated SQL pool in Azure Synapse Analytics](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is).
+Use [workload management](../../sql-data-warehouse/sql-data-warehouse-workload-management.md?context=%2fazure%2fsynapse-analytics%2fcontext%2fcontext) instead of resource classes. ETL would be in its own workgroup and should be configured to have more resources per query (less concurrency by more resources). For more information, see [What is dedicated SQL pool in Azure Synapse Analytics](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md).
 
 ## Next steps
 
