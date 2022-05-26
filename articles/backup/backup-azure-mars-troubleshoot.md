@@ -2,7 +2,7 @@
 title: Troubleshoot the Azure Backup agent
 description: In this article, learn how to troubleshoot the installation and registration of the Azure Backup agent.
 ms.topic: troubleshooting
-ms.date: 04/05/2022
+ms.date: 05/31/2022
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -103,7 +103,7 @@ We recommend that you check the following before you start troubleshooting Micro
 
 - You can use [Add Exclusion rules to existing policy](./backup-azure-manage-mars.md#add-exclusion-rules-to-existing-policy) to exclude unsupported, missing, or deleted files from your backup policy to ensure successful backups.
 
-- Avoid deleting and recreating protected folders with the same names in the top-level folder. Doing so could result in the backup completing with warnings with the error *A critical inconsistency was detected, therefore changes cannot be replicated.*  If you need to delete and recreate folders, then consider doing so in subfolders under the protected top-level folder.
+- Avoid deleting and recreating protected folders with the same names in the top-level folder. Doing so could result in the backup completing with warnings with the error: *A critical inconsistency was detected, therefore changes cannot be replicated.*  If you need to delete and recreate folders, then consider doing so in subfolders under the protected top-level folder.
 
 ## Failed to set the encryption key for secure backups
 
@@ -121,7 +121,7 @@ We recommend that you check the following before you start troubleshooting Micro
 
 | Error  | Possible causes | Recommended actions |
 |---------|---------|---------|
-| <br />Error 34506. The encryption passphrase stored on this computer is not correctly configured.    | <li> The scratch folder is located on a volume that doesn't have enough space. <li> The scratch folder has been incorrectly moved. <li> The OnlineBackup.KEK file is missing.        | <li>Upgrade to the [latest version](https://aka.ms/azurebackup_agent) of the MARS Agent.<li>Move the scratch folder or cache location to a volume with free space that's between 5% and 10% of the total size of the backup data. To correctly move the cache location, refer to the steps in [Common questions about backing up files and folders](./backup-azure-file-folder-backup-faq.yml).<li> Ensure that the OnlineBackup.KEK file is present. <br>*The default location for the scratch folder or the cache path is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.         |
+| <br />Error 34506. The encryption passphrase stored on this computer is not correctly configured.    | <li> The scratch folder is located on a volume that doesn't have enough space. <li> The scratch folder has been incorrectly moved. <li> The OnlineBackup.KEK file is missing.        | <li>Upgrade to the [latest version](https://aka.ms/azurebackup_agent) of the MARS Agent.<li>Move the scratch folder or cache location to a volume with free space that's between 5% and 10% of the total size of the backup data. To correctly move the cache location, refer to the steps in [Common questions about backing up files and folders](./backup-azure-file-folder-backup-faq.yml).<li> Ensure that the OnlineBackup.KEK file is present. <br>*The default location for the scratch folder or the cache path is C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*. <li> If you've recently moved your scratch folder `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`, ensure that the path of your scratch folder location matches with the values of the registry key entries shown below: <br><br> **Registry path**: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config <br> **Registry Key**: ScratchLocation <br> **Value**: *New cache folder location* <br><br>**Registry path**: `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` <br> **Registry Key**: ScratchLocation <br> **Value**: *New cache folder location*        |
 
 ## Backups don't run according to schedule
 
