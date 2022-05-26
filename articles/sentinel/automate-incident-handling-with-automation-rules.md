@@ -19,14 +19,16 @@ This article explains what Microsoft Sentinel automation rules are, and how to u
 Automation rules are a way to centrally manage the automation of incident handling, allowing you to perform simple automation tasks without using playbooks.
 
 For example, automation rules allow you to automatically:
-- assign incidents to the proper personnel
-- tag incidents to classify them
-- change the status of incidents and close them. 
+- Suppress noisy incidents.
+- Triage new incidents by changing their status from New to Active and assigning an owner.
+- Tag incidents to classify them.
+- Escalate an incident by assigning a new owner.
+- Close resolved incidents, specifying a reason and adding comments.
 
 Automation rules can also:
-- automate responses for multiple analytics rules at once
-- control the order of actions that are executed
-- run playbooks for those cases where more complex automation tasks are necessary. 
+- Automate responses for multiple analytics rules at once.
+- Control the order of actions that are executed.
+- Inspect the incident's contents (alerts, entities, and other properties) and take further action by calling a playbook.
 
 In short, automation rules streamline the use of automation in Microsoft Sentinel, enabling you to simplify complex workflows for your incident orchestration processes.
 
@@ -42,12 +44,93 @@ The following table shows the different possible ways that incidents can be crea
 
 | Trigger type | Events that cause the rule to run |
 | --------- | ------------ |
-| **An incident was created** | - A new incident is created by an analytics rule.<br>- An incident is ingested from Microsoft 365 Defender.<br>- A new incident is created manually. |
-| **An incident was updated** | - An incident's status is changed (closed/reopened/triaged).<br>- An incident's owner is assigned or changed.<br>- An incident's severity is raised or lowered.<br>- Alerts are added to an incident.<br>- Comments, tags, or tactics are added to an incident. |
+| **When incident is created** | - A new incident is created by an analytics rule.<br>- An incident is ingested from Microsoft 365 Defender.<br>- A new incident is created manually. |
+| **When incident is updated**<br>(Preview) | - An incident's status is changed (closed/reopened/triaged).<br>- An incident's owner is assigned or changed.<br>- An incident's severity is raised or lowered.<br>- Alerts are added to an incident.<br>- Comments, tags, or tactics are added to an incident. |
 
 ### Conditions
 
-Complex sets of conditions can be defined to govern when actions (see below) should run. These conditions are typically based on the states or values of attributes of incidents and their entities, and they can include `AND`/`OR`/`NOT`/`CONTAINS` operators.
+Complex sets of conditions can be defined to govern when actions (see below) should run. These conditions include the event that triggers the rule (incident created or updated), the states or values of the incident's properties and [entity properties](entities-reference.md), and sometimes the analytics rule that generated the incident as well.
+
+When an automation rule is triggered, it checks the triggering incident against the conditions defined in the rule. The conditions are evaluated according to their state at the moment the evaluation occurs. Since a single incident creation or update event could trigger several automation rules, the **order** in which they run (see below) makes a difference in determining the outcome of the conditions' evaluation. The **actions** defined in the rule will run only if all the conditions are satisfied.
+
+Here's a summary of the types of conditions that can be defined in a rule, and how they are evaluated depending on the trigger:
+
+#### Incident creation trigger
+
+The following conditions evaluate to `true` if the property being evaluated has the specified value.
+
+This is the case regardless of whether the incident *was created* with the property having the value, or if the property *was assigned* the value by another automation rule that ran when the incident was created. 
+
+- `{property}` "Equals"/"Does not equal" `{value}`
+- `{property}` "Contains"/"Does not contain" `{value}`
+- `{property}` "Starts with"/"Does not start with" `{value}`
+- `{property}` "Ends with"/"Does not end with" `{value}`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```json
+{
+"conditions":[
+    {
+        "conditionType": "PropertyChanged",
+        "conditionProperties": {
+            "propertyName": "IncidentSeverity",
+            "state": "changedFrom",
+            "operator": "Equals",
+            "propertyValues":
+	    ["Low","Medium"]
+            }
+        },
+    {
+        "conditionType": "PropertyChanged",
+        "conditionProperties": {
+            "propertyName": "IncidentSeverity",
+            "state": "changedTo",
+            "operator": "Equals",
+            "propertyValues": 
+	   ["Medium","High"]
+                }
+            }
+        ]
+    }
+
+```
 
 ### Actions
 
@@ -89,13 +172,13 @@ Automation rules provide a way to automate the handling of Microsoft security al
 
 Microsoft security alerts include the following:
 
-- Microsoft Defender for Cloud Apps
+- Microsoft Defender for Cloud Apps (formerly Microsoft Cloud App Security)
 - Azure AD Identity Protection
 - Microsoft Defender for Cloud (formerly Azure Defender or Azure Security Center)
 - Defender for IoT (formerly Azure Security Center for IoT)
-- Microsoft Defender for Office 365 (formerly Office 365 ATP)
-- Microsoft Defender for Endpoint (formerly MDATP)
-- Microsoft Defender for Identity (formerly Azure ATP)
+- Microsoft Defender for Office 365
+- Microsoft Defender for Endpoint
+- Microsoft Defender for Identity
 
 ### Multiple sequenced playbooks/actions in a single rule
 

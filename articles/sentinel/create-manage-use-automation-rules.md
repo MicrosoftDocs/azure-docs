@@ -40,12 +40,17 @@ The following table shows the different possible ways that incidents can be crea
 
 | Trigger type | Events that cause the rule to run |
 | --------- | ------------ |
-| **An incident was created** | - A new incident is created by an analytics rule.<br>- An incident is ingested from Microsoft 365 Defender.<br>- A new incident is created manually. |
-| **An incident was updated** | - An incident's status is changed (closed/reopened/triaged).<br>- An incident's owner is assigned or changed.<br>- An incident's severity is raised or lowered.<br>- Alerts are added to an incident.<br>- Comments, tags, or tactics are added to an incident. |
+| **When incident is created** | - A new incident is created by an analytics rule.<br>- An incident is ingested from Microsoft 365 Defender.<br>- A new incident is created manually. |
+| **When incident is updated**<br>(Preview) | - An incident's status is changed (closed/reopened/triaged).<br>- An incident's owner is assigned or changed.<br>- An incident's severity is raised or lowered.<br>- Alerts are added to an incident.<br>- Comments, tags, or tactics are added to an incident. |
 
 ## Create your automation rule
 
-Depending on your choice of scope and use case, choose a location from which to begin creating your rule:
+Most of the following instructions apply to any and all use cases for which you'll create automation rules.
+
+- For the use case of suppressing noisy incidents, see [this article on handling false positives](false-positives.md#add-exceptions-by-using-automation-rules).
+- For creating an automation rule that will apply to a single specific analytics rule, see [this article on configuring automated response in analytics rules](detect-threats-custom.md#set-automated-responses-and-create-the-rule).
+
+<!--Depending on your choice of scope and use case, choose a location from which to begin creating your rule:
 
 | Use case | Goal of automation rule | Start from here |
 | - | - | - |
@@ -96,7 +101,8 @@ Depending on your choice of scope and use case, choose a location from which to 
 
     All the other fields in the panel are open and unpopulated, and you can add conditions and actions as you wish.
 
-# [Automation](#tab/automation)
+# [Automation](#tab/automation)-->
+
 
 1. From the **Automation** blade in the Microsoft Sentinel navigation menu, select **Create** from the top menu and choose **Automation rule**.
 
@@ -104,19 +110,31 @@ Depending on your choice of scope and use case, choose a location from which to 
 
 1. The **Create new automation rule** panel opens. Enter a name for your rule.
 
-   :::image type="content" source="./media/create-manage-use-automation-rules/create-automation-rule.png" alt-text="Screenshot of Create new automation rule wizard.":::
+    :::image type="content" source="media/create-manage-use-automation-rules/create-automation-rule.png" alt-text="Screenshot of Create new automation rule wizard.":::
 
 1. If you want the automation rule to take effect only on certain analytics rules, specify which ones by modifying the **If Analytics rule name** condition.
-
----
 
 ### Choose your trigger
 
 From the **Trigger** drop-down, select **When incident is created** or **When incident is updated (Preview)** according to what you decided when designing your rule.
 
+:::image type="content" source="media/create-manage-use-automation-rules/select-trigger.png" alt-text="Screenshot of selecting the incident create or incident update trigger.":::
+
 ### Add conditions
 
-1. Add any other conditions you want this automation rule's activation to depend on. Click **Add condition** and choose conditions from the drop-down list. The list of conditions is populated by alert detail and entity identifier fields.
+Add any other conditions you want this automation rule's activation to depend on. Select **+ Add condition** and choose conditions from the drop-down list. The list of conditions is populated by incident property and entity identifier fields.
+
+1. Select a property from the first drop-down box on the left. You can begin typing any part of a property name in the search box to dynamically filter the list, so you can find what you're looking for quickly.
+    :::image type="content" source="media/create-manage-use-automation-rules/filter-list.png" alt-text="Screenshot of typing in a search box to filter the list of choices.":::
+
+1. Select an operator from the next drop-down box to the right.
+    :::image type="content" source="media/create-manage-use-automation-rules/select-operator.png" alt-text="Screenshot of selecting a condition operator for automation rules.":::
+
+1. Enter a value in the text box on the right. Depending on the property you chose, this might be a drop-down list from which you would select the values you choose. You might also be able to add several values by selecting the icon to the right of the text box (highlighted by the red arrow below).
+    :::image type="content" source="media/create-manage-use-automation-rules/add-values-to-condition.png" alt-text="Screenshot of adding values to your condition in automation rules.":::
+
+
+### Add actions
 
 1. Choose the actions you want this automation rule to take. Available actions include **Assign owner**, **Change status**, **Change severity**, **Add tags**, and **Run playbook**. You can add as many actions as you like.
 
