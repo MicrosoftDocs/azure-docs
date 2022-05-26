@@ -121,8 +121,8 @@ Fill in these details with the values you obtain from Azure app registration por
 > [!WARNING]
 > Any plaintext secret in source code poses an increased security risk. This article uses a plaintext client secret for simplicity only. Use [certificate credentials](active-directory-certificate-credentials.md) instead of client secrets in your confidential client applications, especially those apps you intend to deploy to production.
 
-- `Enter_the_Graph_Endpoint_Here`: The Microsoft Graph API cloud instance that your app will call. For the main (global) Microsoft Graph API service, enter `https://graph.microsoft.com/` (include the trailing forward-slash). For more information, see the [National cloud deployments](https://docs.microsoft.com/graph/deployments).
-- `Enter_the_Express_Session_Secret_Here` the secret used to sign the Express session cookie. Choose a hard to guess value to replace this string with, such as your client secret.
+- `Enter_the_Graph_Endpoint_Here`: The Microsoft Graph API cloud instance that your app will call. For the main (global) Microsoft Graph API service, enter `https://graph.microsoft.com/` (include the trailing forward-slash).
+- `Enter_the_Express_Session_Secret_Here` the secret used to sign the Express session cookie. Choose a random string of characters to replace this string with, such as your client secret.
 
 
 2. Next, create a file named *authConfig.js* in the root of your project for reading in these parameters. Once created, add the following code there:

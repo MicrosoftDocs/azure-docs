@@ -51,24 +51,38 @@ To run the project with a web server by using Node.js, [download the core projec
 
 #### Step 3: Configure your Node app
 
-Extract the project, open the *ms-identity-node-main* folder, and then open the *.env* file under the **App** folder.
+Extract the project, open the *ms-identity-node-main* folder, and then open the *.env* file under the **App** folder. Replace the values above as follows:
 
-:::code language="text" source="~/ms-identity-node/App/.env":::
+<table>
+<thead>
+<tr><th>Variable</th><th>Description</th><th>Example(s)</th></tr>
+</thead>
+<tbody>
+<tr><td>`Enter_the_Cloud_Instance_Id_Here`</td><td>The Azure cloud instance in which your application is registered</td><td>`https://login.microsoftonline.com/` (include the trailing forward-slash)</td></tr>
+<tr><td>`Enter_the_Tenant_Info_here`</td><td>Tenant ID or Primary domain</td><td>`contoso.microsoft.com` or `cbe899ec-5f5c-4efe-b7a0-599505d3d54f`</td></tr>
+<tr><td>`Enter_the_Application_Id_Here`</td><td>The **Application (client) ID** of the application you registered</td><td>`cbe899ec-5f5c-4efe-b7a0-599505d3d54f`</td></tr>
+<tr><td>`Enter_the_Client_Secret_Here`</td><td>Replace this value with the client secret you created earlier. To generate a new key, use **Certificates & secrets** in the app registration settings in the Azure portal.</td><td>`WxvhStRfDXoEiZQj1qCy`</td></tr>
+<tr><td>`Enter_the_Graph_Endpoint_Here`</td><td>The Microsoft Graph API cloud instance that your app will call</td><td>`https://graph.microsoft.com/` (include the trailing forward-slash)</td></tr>
+<tr><td>`Enter_the_Express_Session_Secret_Here`</td><td>A random string of characters used to sign the Express session cookie</td><td>`WxvhStRfDXoEiZQj1qCy`</td></tr>
+</tbody>
+</table>
 
-Replace the values above as follows:
+Your file should similar to below:
 
-- `Enter_the_Cloud_Instance_Id_Here`: The Azure cloud instance in which your application is registered.
-  - For the main (or *global*) Azure cloud, enter `https://login.microsoftonline.com/` (include the trailing forward-slash).
-  - For **national** clouds (for example, China), you can find appropriate values in [National clouds](../../authentication-national-cloud.md).
-- `Enter_the_Tenant_Info_here` should be one of the following:
-  - If your application supports *accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name**. For example, `contoso.microsoft.com`.
-  - If your application supports *accounts in any organizational directory*, replace this value with `organizations`.
-  - If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with `common`.
-  - To restrict support to *personal Microsoft accounts only*, replace this value with `consumers`.
-- `Enter_the_Application_Id_Here`: The **Application (client) ID** of the application you registered.
-- `Enter_the_Client_secret`: Replace this value with the client secret you created earlier. To generate a new key, use **Certificates & secrets** in the app registration settings in the Azure portal.
-- `Enter_the_Graph_Endpoint_Here`: The Microsoft Graph API cloud instance that your app will call. For the main (global) Microsoft Graph API service, enter `https://graph.microsoft.com/` (include the trailing forward-slash). For more information, see the [National cloud deployments](https://docs.microsoft.com/graph/deployments).
-- `Enter_the_Express_Session_Secret_Here` the secret used to sign the Express session cookie. Choose a hard to guess value to replace this string with, such as your client secret.
+```text
+CLOUD_INSTANCE=https://login.microsoftonline.com/
+TENANT_ID=cbe899ec-5f5c-4efe-b7a0-599505d3d54f
+CLIENT_ID=fa29b4c9-7675-4b61-8a0a-bf7b2b4fda91
+CLIENT_SECRET=WxvhStRfDXoEiZQj1qCy
+
+REDIRECT_URI=http://localhost:3000/auth/redirect
+POST_LOGOUT_REDIRECT_URI=http://localhost:3000
+
+GRAPH_API_ENDPOINT=https://graph.microsoft.com/
+
+EXPRESS_SESSION_SECRET=6DP6v09eLiW7f1E65B8k
+```
+
 
 #### Step 4: Run the project
 
