@@ -227,7 +227,7 @@ To resolve this issue, first reinstall the side-by-side stack:
 1. Back at the PowerShell prompt, run the following command to add the file path of the latest installer available on your session host VM for the side-by-side stack to a variable:
 
    ```powershell
-   $sxsMsi = (Get-ChildItem 'C:\Program Files\Microsoft RDInfra\' | ? Name -like SxSStack*.msi | Sort-Object CreationTime -Descending | Select-Object -First 1).FullName
+   $sxsMsi = (Get-ChildItem '$env:SystemDrive\Program Files\Microsoft RDInfra\' | ? Name -like SxSStack*.msi | Sort-Object CreationTime -Descending | Select-Object -First 1).FullName
    ```
 
 1. Install the latest installer available on your session host VM for the side-by-side stack by running the following command:
@@ -341,7 +341,7 @@ You must generate a new registration key that is used to re-register your sessio
   > [!NOTE]
   > The expiration date can be no less than an hour and no longer than 27 days from its generation time and date. We recommend you set the expiration date to the 27 day maximum.
 
-5. Copy the newly generated key to your clipboard. You'll need this key later.
+1. Copy the newly generated key to your clipboard. You'll need this key later.
 
 ### Step 4: Reinstall the agent and boot loader
 
