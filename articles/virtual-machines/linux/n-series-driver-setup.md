@@ -4,7 +4,7 @@ description: How to set up NVIDIA GPU drivers for N-series VMs running Linux in 
 services: virtual-machines
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subervice: vm-sizes-gpu
+ms.subservice: vm-sizes-gpu
 ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure-services
