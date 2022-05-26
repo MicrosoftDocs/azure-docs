@@ -4,7 +4,7 @@ description: How to attach and detach permissions for groups, users, and service
 services: active-directory
 author: mtillman
 manager: karenh444
-ms.service: active-directory
+ms.service: ciem
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
@@ -74,7 +74,7 @@ This article describes how you can add and remove roles and tasks for Microsoft 
 
 ## Add a task
 
-1. On the Entra home page, select the **Remediation** tab, and then select the **Permissions** subtab.
+1. On the Entra Permissions Management home page, select the **Remediation** tab, and then select the **Permissions** subtab.
 1. From the **Authorization System Type** dropdown, select **Azure** or **GCP**.
 1. From the **Authorization System** dropdown, select the accounts you want to access.
 1. From the **Search For** dropdown, select **Group**, **User**, or **APP/Service Account**, and then select **Apply**.

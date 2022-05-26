@@ -15,20 +15,20 @@ ms.author: mtillman
 # Clone a role/policy in the Remediation dashboard
 
 > [!IMPORTANT]
-> Entra Permissions Management (Entra) is currently in PREVIEW.
+> Entra Permissions Management is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-This article describes how you can use the **Remediation** dashboard in Entra Permissions Management (Entra) to clone roles/policies for the Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP) authorization systems.
+This article describes how you can use the **Remediation** dashboard in Entra Permissions Management to clone roles/policies for the Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP) authorization systems.
 
 > [!NOTE]
 > To view the **Remediation** tab, you must have **Viewer**, **Controller**, or **Administrator** permissions. To make changes on this tab, you must have **Controller** or **Administrator** permissions. If you don't have these permissions, contact your system administrator.
 
 > [!NOTE]
-> Microsoft Azure uses the term *role* for what other Cloud providers call *policy*. Entra automatically makes this terminology change when you select the authorization system type. In the user documentation, we use *role/policy* to refer to both.
+> Microsoft Azure uses the term *role* for what other Cloud providers call *policy*. Entra Permissions Management automatically makes this terminology change when you select the authorization system type. In the user documentation, we use *role/policy* to refer to both.
 
 ## Clone a role/policy
 
-1. On the Entra home page, select the **Remediation** tab, and then select the **Role/Policies** tab.
+1. On the Entra Permissions Management Permissions Management home page, select the **Remediation** tab, and then select the **Role/Policies** tab.
 1. Select the role/policy you want to clone, and from the **Actions** column, select **Clone**.
 1. **(AWS Only)** In the **Clone** box, the **Clone Resources** and **Clone Conditions** checkboxes are automatically selected.
     Deselect the boxes if the resources and conditions are different from what is displayed.

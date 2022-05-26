@@ -8,10 +8,10 @@
   - name: How-to guides
     expanded: true
     items:
-    - name: Onboard Entra on the Azure AD tenant
+    - name: Onboard Entra Permissions Management on the Azure AD tenant
       expanded: true
       items:
-      - name: Enable Entra in your organization 
+      - name: Enable Entra Permissions Management in your organization 
         href: onboard-enable-tenant.md
       - name: Onboard an AWS account
         href: onboard-aws.md
@@ -149,7 +149,7 @@
   - name: Training videos
     expanded: false
     items:
-    - name: Get started with Entra training videos
+    - name: Get started with Entra Permissions Management training videos
       href: training-videos.md
   - name: Reference
     expanded: false

@@ -35,7 +35,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Enable Entra
+          - text: Enable Entra Permissions Management
             url: onboard-enable-tenant.md
   # Card
   - title: View risk metrics in your authorization system
@@ -103,7 +103,7 @@ landingContent:
           - text: Generate and view a system report
             url: report-view-system-report.md
   # Card
-  # - title: Learn with Entra videos
+  # - title: Learn with Entra Permissions Management videos
     # linkLists:
       # - linkListType: overview
         # links:
