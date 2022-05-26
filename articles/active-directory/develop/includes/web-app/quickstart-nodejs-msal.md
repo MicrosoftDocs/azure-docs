@@ -53,21 +53,16 @@ To run the project with a web server by using Node.js, [download the core projec
 
 Extract the project, open the *ms-identity-node-main* folder, and then open the *.env* file under the **App** folder. Replace the values above as follows:
 
-<table>
-<thead>
-<tr><th>Variable</th><th>Description</th><th>Example(s)</th></tr>
-</thead>
-<tbody>
-<tr><td>`Enter_the_Cloud_Instance_Id_Here`</td><td>The Azure cloud instance in which your application is registered</td><td>`https://login.microsoftonline.com/` (include the trailing forward-slash)</td></tr>
-<tr><td>`Enter_the_Tenant_Info_here`</td><td>Tenant ID or Primary domain</td><td>`contoso.microsoft.com` or `cbe899ec-5f5c-4efe-b7a0-599505d3d54f`</td></tr>
-<tr><td>`Enter_the_Application_Id_Here`</td><td>The **Application (client) ID** of the application you registered</td><td>`cbe899ec-5f5c-4efe-b7a0-599505d3d54f`</td></tr>
-<tr><td>`Enter_the_Client_Secret_Here`</td><td>Replace this value with the client secret you created earlier. To generate a new key, use **Certificates & secrets** in the app registration settings in the Azure portal.</td><td>`WxvhStRfDXoEiZQj1qCy`</td></tr>
-<tr><td>`Enter_the_Graph_Endpoint_Here`</td><td>The Microsoft Graph API cloud instance that your app will call</td><td>`https://graph.microsoft.com/` (include the trailing forward-slash)</td></tr>
-<tr><td>`Enter_the_Express_Session_Secret_Here`</td><td>A random string of characters used to sign the Express session cookie</td><td>`WxvhStRfDXoEiZQj1qCy`</td></tr>
-</tbody>
-</table>
+| Variable  |  Description | Example(s) |
+|-----------|--------------|------------|
+| `Enter_the_Cloud_Instance_Id_Here` | The Azure cloud instance in which your application is registered | `https://login.microsoftonline.com/` (include the trailing forward-slash) |
+| `Enter_the_Tenant_Info_here` | Tenant ID or Primary domain | `contoso.microsoft.com` or `cbe899ec-5f5c-4efe-b7a0-599505d3d54f` |
+| `Enter_the_Application_Id_Here` | Client ID of the application you registered | `cbe899ec-5f5c-4efe-b7a0-599505d3d54f` |
+| `Enter_the_Client_Secret_Here` | Replace this value with the client secret you created earlier. To generate a new key, use **Certificates & secrets** in the app registration settings in the Azure portal | `WxvhStRfDXoEiZQj1qCy` |
+| `Enter_the_Graph_Endpoint_Here` | The Microsoft Graph API cloud instance that your app will call | `https://graph.microsoft.com/` (include the trailing forward-slash) |
+| `Enter_the_Express_Session_Secret_Here` | A random string of characters used to sign the Express session cookie | `WxvhStRfDXoEiZQj1qCy` |
 
-Your file should similar to below:
+Your file should look similar to below:
 
 ```text
 CLOUD_INSTANCE=https://login.microsoftonline.com/
