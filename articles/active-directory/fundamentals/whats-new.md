@@ -69,7 +69,7 @@ For listing your application in the Azure AD app gallery, please read the detail
 ---
  
 
-### General Availability - Users can make apps from URLs (add sites)
+### General Availability – My Apps users can make apps from URLs (add sites)
 
 **Type:** New feature  
 **Service category:** My Apps  
