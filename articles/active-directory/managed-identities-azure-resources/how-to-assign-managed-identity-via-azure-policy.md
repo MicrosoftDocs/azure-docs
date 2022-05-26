@@ -56,14 +56,14 @@ There are two scenarios to use the policy:
 -	Let the policy create and use a “built-in” user-assigned managed identity.
 -	Bring your own user-assigned managed identity.
 
-The policy takes three input parameters: 
+The policy takes the following input parameters: 
 
-1.	Bring-Your-Own-UAMI? - Should the policy create, if not exist, a new user-assigned managed identity? 
-2.	If set to true, then you must specify:
+- Bring-Your-Own-UAMI? - Should the policy create, if not exist, a new user-assigned managed identity? 
+- If set to true, then you must specify:
   - Name of the managed identity
-  - Resource group in which the managed identity should be created. 
-3.	If set to false, then no additional input is needed.
-  - The policy will create the required user-assigned managed identity called “built-in-identity” in a resource group calle “built-in-identity-rg".
+  - Resource group in which the managed identity should be created.
+- If set to false, then no additional input is needed.
+  - The policy will create the required user-assigned managed identity called “built-in-identity” in a resource group called “built-in-identity-rg".
 
 ## Using the policy
 ### Creating the policy assignment
@@ -98,3 +98,6 @@ Possible race condition with another deployment that changes the identities assi
 
 If there are two or more parallel deployments updating the same virtual machine and they all change the identity configuration of the virtual machine, then it is possible, under specific race conditions, that all expected identities will NOT be assigned to the machines. 
 For example, if you the policy in this document is updating the managed identities of a VM and at the same time another process is also making changes to the managed identities section, then it is not guranteed that all the expected identities are proerly assigned to the VM. 
+
+## Next Steps
+- [Deploy Azure Monitoring Agent](../../azure-monitor/overview.md)
