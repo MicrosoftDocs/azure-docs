@@ -169,18 +169,4 @@ landingContent:
             url:  workloads/nutanix-public-preview/supported-instances.md
           - text: Deployment Overview
             url:  workloads/nutanix-public-preview/nutanix-deployment-overview.md
-          - text: Registering Nutanix Clusters in Azure
-            url:  workloads/nutanix-public-preview/registering-nutanix-clusters.md
-          - text: Azure Portal Workflow
-            url:  workloads/nutanix-public-preview/azure-portal-workflow.md
-          - text: Setup networking infrastructure in Azure
-            url:  workloads/nutanix-public-preview/setup-networking-infrastructure-in-azure.md
-          - text: Nutanix Clusters Console Workflow
-            url:  workloads/nutanix-public-preview/nutanix-clusters-console-workflow.md
-          - text: User VM (UVM) Network Management 
-            url:  workloads/nutanix-public-preview/uvm-network-management.md
-          - text: Cluster Management
-            url:  workloads/nutanix-public-preview/cluster-management.md
-          - text: Cluster Account Administration
-            url:  workloads/nutanix-public-preview/cluster-account-administration.md
   

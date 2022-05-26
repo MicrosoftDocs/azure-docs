@@ -10,7 +10,7 @@
     href: requirements.md
   - name: Supported instances
     href: supported-instances.md
-/* - name: Deployment
+- name: Deployment
   it/ems:
   - name: Overview
     href: nutanix-deployment-overview.md
