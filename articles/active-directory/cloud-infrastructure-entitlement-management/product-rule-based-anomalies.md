@@ -1,6 +1,6 @@
 ---
-title: Create and view rule-based anomalies and anomaly triggers in Entra Permissions Management
-description: How to create and view rule-based anomalies and anomaly triggers in Entra Permissions Management.
+title: Create and view rule-based anomalies and anomaly triggers in Permissions Management
+description: How to create and view rule-based anomalies and anomaly triggers in Permissions Management.
 services: active-directory
 author: mtillman
 manager: karenh444
@@ -15,14 +15,14 @@ ms.author: mtillman
 # Create and view rule-based anomaly alerts and anomaly triggers
 
 > [!IMPORTANT]
-> Entra Permissions Management (Entra) is currently in PREVIEW.
+> Microsoft Entra Permissions Management is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-Rule-based anomalies identify recent activity in Entra Permissions Management (Entra) that is determined to be unusual based on explicit rules defined in the activity trigger. The goal of rule-based anomaly is high precision detection.
+Rule-based anomalies identify recent activity in Permissions Management that is determined to be unusual based on explicit rules defined in the activity trigger. The goal of rule-based anomaly is high precision detection.
 
 ## View rule-based anomaly alerts
 
-1. In the Entra home page, select **Activity triggers** (the bell icon).
+1. In the Permissions Management home page, select **Activity triggers** (the bell icon).
 1. Select **Rule-Based Anomaly**, and then select the **Alerts** subtab.
 
     The **Alerts** subtab displays the following information:
@@ -55,7 +55,7 @@ Rule-based anomalies identify recent activity in Entra Permissions Management (E
 
 ## Create a rule-based anomaly trigger
 
-1. In the Entra home page, select **Activity triggers** (the bell icon).
+1. In the Permissions Management home page, select **Activity triggers** (the bell icon).
 1. Select **Rule-Based Anomaly**, and then select the **Alerts** subtab.
 1. Select **Create Anomaly Trigger**.
 
@@ -78,7 +78,7 @@ Rule-based anomalies identify recent activity in Entra Permissions Management (E
 
 ## View a rule-based anomaly trigger
 
-1. In the Entra home page, select **Activity triggers** (the bell icon).
+1. In the Permissions Management home page, select **Activity triggers** (the bell icon).
 1. Select **Rule-Based Anomaly**, and then select the **Alert Triggers** subtab.
 
     The **Alert Triggers** subtab displays the following information:

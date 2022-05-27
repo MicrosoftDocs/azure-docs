@@ -1,6 +1,6 @@
 ---
-title: View system reports in the Reports dashboard in Entra Permissions Management
-description: How to view system reports in the Reports dashboard in Entra Permissions Management.
+title: View system reports in the Reports dashboard in Permissions Management
+description: How to view system reports in the Reports dashboard in Permissions Management.
 services: active-directory
 author: mtillman
 manager: karenh444
@@ -15,10 +15,10 @@ ms.author: mtillman
 # View system reports in the Reports dashboard
 
 > [!IMPORTANT]
-> Entra Permissions Management (Entra) is currently in PREVIEW.
+> Microsoft Entra Permissions Management is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-Entra Permissions Management (Entra) has various types of system report types available that capture specific sets of data. These reports allow management to:
+Permissions Management has various types of system report types available that capture specific sets of data. These reports allow management to:
 
 - Make timely decisions.
 - Analyze trends and system/user performance.
@@ -39,7 +39,7 @@ The **Reports** dashboard provides a table of information with both system repor
 
 ## Available system reports
 
-Entra offers the following reports for management associated with the authorization systems noted in parenthesis:
+Permissions Management offers the following reports for management associated with the authorization systems noted in parenthesis:
 
 - **Access Key Entitlements And Usage**:
     - **Summary of report**: Provides information about access key, for example, permissions, usage, and rotation date.
