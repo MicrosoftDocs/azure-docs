@@ -127,7 +127,7 @@ Deploying this service requires two basic components:
 1. A public IP address that will identify the gateway to your clients wherever they are in the world
 2. The root certificate you created earlier, which will be used to authenticate your clients
 
-Remember to replace `<desired-vpn-name-here>` in the below script with the name you would like for these resources.
+Remember to replace `<desired-vpn-name-here>` and `<desired-region-here>` in the below script with the proper values for these variables.
 
 > [!Note]  
 > Deploying the Azure virtual network gateway can take up to 45 minutes. While this resource is being deployed, this PowerShell script will block for the deployment to be completed. This is expected.
