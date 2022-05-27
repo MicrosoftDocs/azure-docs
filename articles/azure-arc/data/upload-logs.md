@@ -4,10 +4,10 @@ description: Upload logs for Azure Arc-enabled data services to Azure Monitor
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: twright-msft
-ms.author: twright
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 11/03/2021
+ms.date: 05/27/2022
 ms.topic: how-to
 ---
 
@@ -149,11 +149,11 @@ echo $WORKSPACE_SHARED_KEY
 
 With the environment variables set, you can upload logs to the log workspace. 
 
-## Upload logs to Azure Log Analytics Workspace in direct mode
+## Configure automatic upload of logs to Azure Log Analytics Workspace in direct mode using ```az``` CLI
 
 In the **direct** connected mode, Logs upload can only be setup in **automatic** mode. This automatic upload of metrics can be setup either during deployment or post deployment of Azure Arc data controller.
 
-### Enable automatic upload of logs to Azure Log Analytics Workspace
+### **Enable** automatic upload of logs to Azure Log Analytics Workspace
 
 If the automatic upload of logs was disabled during Azure Arc data controller deployment, run the below command to enable automatic upload of logs.
 
@@ -163,7 +163,7 @@ az arcdata dc update --name <name of datacontroller> --resource-group <resource 
 az arcdata dc update --name arcdc --resource-group <myresourcegroup> --auto-upload-logs true
 ```
 
-### Disable automatic upload of logs to Azure Log Analytics Workspace
+### **Disable** automatic upload of logs to Azure Log Analytics Workspace
 
 If the automatic upload of logs was enabled during Azure Arc data controller deployment, run the below command to disable automatic upload of logs.
 ```
@@ -172,7 +172,52 @@ az arcdata dc update --name <name of datacontroller> --resource-group <resource 
 az arcdata dc update --name arcdc --resource-group <myresourcegroup> --auto-upload-logs false
 ```
 
-## Upload logs to Azure Monitor in indirect mode
+## Configure automatic upload of logs to Azure Log Analytics Workspace in **direct** mode using ```kubectl``` CLI
+
+### **Enable** automatic upload of logs to Azure Log Analytics Workspace
+
+To configure automatic upload of logs using ```kubectl```:
+
+- ensure the Log Analytics Workspace is created as descibed in the earlier section
+- create a kubernetes secret for the Log Analytics workspace using the ```WorkspaceID``` and ```SharedAccessKey``` as follows:
+
+```
+apiVersion: v1
+data:
+  primaryKey: <base64 encoding of Azure Log Analytics workspace primary key>
+  workspaceId: <base64 encoding of Azure Log Analytics workspace Id>
+kind: Secret
+metadata:
+  name: log-workspace-secret
+  namespace: <your datacontroller namespace>
+type: Opaque
+```
+
+- Run the ```kubectl apply -f <myLogAnalyticssecret.yaml> --namespace <mynamespace> ``` to create the secret
+- Run the following ```kubectl edit``` command, to open the settings in a yaml file in the default editor
+
+```
+kubectl edit datacontroller <DC name> --name <namespace>
+```
+
+- update the autoUploadLogs property to ```"true"```, and save the file
+
+
+
+### **Disable** automatic upload of logs to Azure Log Analytics Workspace
+
+To disable automatic upload of logs,
+- Run the following ```kubectl edit``` command, to open the settings in a yaml file in the default editor
+
+```
+kubectl edit datacontroller <DC name> --name <namespace>
+```
+
+- update the autoUploadLogs property to ```"false"```, and save the file
+
+
+
+## Upload logs to Azure Monitor in **indirect** mode
 
  To upload logs for your Azure Arc-enabled SQL managed instances and Azure Arc-enabled PostgreSQL Hyperscale server groups run the following CLI commands-
 
