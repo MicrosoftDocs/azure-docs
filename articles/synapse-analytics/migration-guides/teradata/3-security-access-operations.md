@@ -20,7 +20,7 @@ This article is part three of a seven part series that provides guidance on how 
 
 This article discusses connection methods for existing legacy Teradata environments and how they can be migrated to Azure Synapse Analytics with minimal risk and user impact.
 
-We assume there's a requirement to migrate the existing methods of connection and user, role, and permission structure as is. If this isn't the case, then you can use Azure utilities from the Azure portal to create and manage a new security regime.
+This article assumes that there's a requirement to migrate the existing methods of connection and user/role/permission structure as-is. If not, use the Azure portal to create and manage a new security regime.
 
 For more information on the [Azure Synapse security](../../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization) options, see [Security whitepaper](../../guidance/security-white-paper-introduction.md).
 
@@ -53,7 +53,7 @@ Azure Synapse supports two basic options for connection and authorization:
 
 - **SQL authentication**: SQL authentication is via a database connection that includes a database identifier, user ID, and password plus other optional parameters. This is functionally equivalent to Teradata TD1, TD2 and default connections.
 
-- **Azure Active Directory (Azure AD) authentication**: With Azure Active Directory authentication, you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage SQL Data Warehouse users and simplifies permission management. Azure AD can also support connections to LDAP and Kerberos services&mdash;for example, Azure AD can be used to connect to existing LDAP directories if these are to remain in place after migration of the database.
+- **Azure Active Directory (Azure AD) authentication**: With Azure AD authentication, you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage SQL Data Warehouse users and simplifies permission management. Azure AD can also support connections to LDAP and Kerberos services&mdash;for example, Azure AD can be used to connect to existing LDAP directories if these are to remain in place after migration of the database.
 
 ### Users, roles, and permissions
 
@@ -62,7 +62,7 @@ Azure Synapse supports two basic options for connection and authorization:
 > [!TIP]
 > High-level planning is essential for a successful migration project.
 
-Both Teradata and Azure Synapse implement database access control via a combination of users, roles, and permissions. Both use standard `SQL CREATE USER` and `CREATE ROLE` statements to define users and roles, and `GRANT` and `REVOKE` statements to assign or remove permissions to those users and/or roles.
+Both Teradata and Azure Synapse implement database access control via a combination of users, roles, and permissions. Both use standard SQL `CREATE USER` and `CREATE ROLE` statements to define users and roles, and `GRANT` and `REVOKE` statements to assign or remove permissions to those users and/or roles.
 
 > [!TIP]
 > Automation of migration processes is recommended to reduce elapsed time and scope for errors.
@@ -137,7 +137,7 @@ WHERE RoleName='BI_DEVELOPER'
 Order By 2,3,4,5;
 ```
 
-Modify these example `SELECT` statements to produce a result set which is a series of `GRANT` statements by including the appropriate text as a literal within the `SELECT` statement.
+Modify these example `SELECT` statements to produce a result set that's a series of `GRANT` statements by including the appropriate text as a literal within the `SELECT` statement.
 
 Use the table `AccessRightsAbbv` to look up the full text of the access right, as the join key is an abbreviated 'type' field. See the following table for a list of Teradata access rights and their equivalent in Azure Synapse.
 
@@ -221,7 +221,7 @@ This section discusses how to implement typical Teradata operational tasks in Az
 
 As with all data warehouse products, once in production there are ongoing management tasks that are necessary to keep the system running efficiently and to provide data for monitoring and auditing. Resource utilization and capacity planning for future growth also falls into this category, as does backup/restore of data.
 
-While conceptually the management and operations tasks for different data warehouses are similar, the individual implementations may differ. In general, modern cloud-based products such as Azure Synapse tend to incorporate a more automated and "system managed" approach (as opposed to a more manual approach in legacy data warehouses such as Teradata).
+While conceptually the management and operations tasks for different data warehouses are similar, the individual implementations may differ. In general, modern cloud-based products such as Azure Synapse tend to incorporate a more automated and "system managed" approach (as opposed to a more "manual" approach in legacy data warehouses such as Teradata).
 
 The following sections compare Teradata and Azure Synapse options for various operational tasks.
 
@@ -230,7 +230,7 @@ The following sections compare Teradata and Azure Synapse options for various op
 > [!TIP]
 > Housekeeping tasks keep a production warehouse operating efficiently and optimize use of resources such as storage.
 
-In most legacy data warehouse environments, there's a requirement to perform regular 'housekeeping' tasks such as reclaiming disk storage space that can be freed up by removing old versions of updated or deleted rows, or reorganizing data log files or index blocks for efficiency. Collecting statistics is also a potentially time-consuming task. Collecting statistics is required after a bulk data ingest to provide the query optimizer with up-to-date data to base generation of query execution plans.
+In most legacy data warehouse environments, there's a requirement to perform regular "housekeeping" tasks such as reclaiming disk storage space that can be freed up by removing old versions of updated or deleted rows, or reorganizing data log files or index blocks for efficiency. Collecting statistics is also a potentially time-consuming task. Collecting statistics is required after a bulk data ingest to provide the query optimizer with up-to-date data to base generation of query execution plans.
 
 Teradata recommends collecting statistics as follows:
 
@@ -238,7 +238,7 @@ Teradata recommends collecting statistics as follows:
 
 - Prototype phase, newly populated tables.
 
-- Production phase, after a significant percentage of change to the table or partition (~10% rows). For high volumes of nonunique values, such as dates or timestamps, it may be advantageous to recollect at 7%.
+- Production phase, after a significant percentage of change to the table or partition (~10% of rows). For high volumes of nonunique values, such as dates or timestamps, it may be advantageous to recollect at 7%.
 
 - Recommendation: Collect production phase statistics after you've created users and applied real world query loads to the database (up to about three months of querying).
 
@@ -255,41 +255,41 @@ Teradata Database contains many log tables in the Data Dictionary that accumulat
 
 Reset accumulators and peak values using the `DBC.AMPUsage` view and the `ClearPeakDisk` macro provided with the software:
 
-- `DBC.Acctg`: resource usage by account/user
+- `DBC.Acctg`: Resource usage by account/user
 
-- `DBC.DataBaseSpace`: database and table space accounting
+- `DBC.DataBaseSpace`: Database and table space accounting
 
 Teradata automatically maintains these tables, but good practices can reduce their size:
 
-- `DBC.AccessRights`: user rights on objects
+- `DBC.AccessRights`: User rights on objects
 
-- `DBC.RoleGrants`: role rights on objects
+- `DBC.RoleGrants`: Role rights on objects
 
-- `DBC.Roles`: defined roles
+- `DBC.Roles`: Defined roles
 
-- `DBC.Accounts`: account codes by user
+- `DBC.Accounts`: Account codes by user
 
 Archive these logging tables (if desired) and purge information 60-90 days old. Retention depends on customer requirements:
 
-- `DBC.SW_Event_Log`: database console log
+- `DBC.SW_Event_Log`: Database console log
 
-- `DBC.ResUsage`: resource monitoring tables
+- `DBC.ResUsage`: Resource monitoring tables
 
-- `DBC.EventLog`: session logon/logoff history
+- `DBC.EventLog`: Session logon/logoff history
 
-- `DBC.AccLogTbl`: logged user/object events
+- `DBC.AccLogTbl`: Logged user/object events
 
-- `DBC.DBQL tables`: logged user/SQL activity
+- `DBC.DBQL tables`: Logged user/SQL activity
 
-- `.NETSecPolicyLogTbl`: logs dynamic security policy audit trails
+- `.NETSecPolicyLogTbl`: Logs dynamic security policy audit trails
 
-- `.NETSecPolicyLogRuleTbl`: controls when and how dynamic security policy is logged
+- `.NETSecPolicyLogRuleTbl`: Controls when and how dynamic security policy is logged
 
 Purge these tables when the associated removable media is expired and overwritten:
 
-- `DBC.RCEvent`: archive/recovery events
+- `DBC.RCEvent`: Archive/recovery events
 
-- `DBC.RCConfiguration`: archive/recovery config
+- `DBC.RCConfiguration`: Archive/recovery config
 
 - `DBC.RCMedia`: VolSerial for archive/recovery
 
@@ -300,7 +300,7 @@ Azure Synapse has an option to automatically create statistics so that they can 
 > [!TIP]
 > Over time, several different tools have been implemented to allow monitoring and logging of Teradata systems.
 
-Teradata provides several tools to monitor the operation including Teradata Viewpoint and Ecosystem Manager. For logging query history, the Database Query Log (DBQL) is a Teradata Database feature that provides a series of predefined tables that can store historical records of queries and their duration, performance, and target activity based on user-defined rules.
+Teradata provides several tools to monitor the operation including Teradata Viewpoint and Ecosystem Manager. For logging query history, the Database Query Log (DBQL) is a Teradata database feature that provides a series of predefined tables that can store historical records of queries and their duration, performance, and target activity based on user-defined rules.
 
 Database administrators can use Teradata Viewpoint to determine system status, trends, and individual query status. By observing trends in system usage, system administrators are better able to plan project implementations, batch jobs, and maintenance to avoid peak periods of use. Business users can use Teradata Viewpoint to quickly access the status of reports and queries and drill down into details.
 
@@ -322,7 +322,7 @@ For more information, see [Azure Synapse operations and management options](/azu
 
 ### High Availability (HA) and Disaster Recovery (DR)
 
-Teradata implements features such as Fallback, Archive Restore Copy utility (ARC), and Data Stream Architecture (DSA) to provide protection against data loss and high availability (HA) via replication and archive of data. Disaster Recovery (DR) options include Dual Active Solution, DR as a service, or a replacement system depending on the recovery time requirement.
+Teradata implements features such as `FALLBACK`, Archive Restore Copy utility (ARC), and Data Stream Architecture (DSA) to provide protection against data loss and high availability (HA) via replication and archive of data. Disaster Recovery (DR) options include Dual Active Solution, DR as a service, or a replacement system depending on the recovery time requirement.
 
 > [!TIP]
 > Azure Synapse creates snapshots automatically to ensure fast recovery times.
@@ -360,7 +360,7 @@ In Azure Synapse, resource classes are pre-determined resource limits that gover
 
 See [Resource classes for workload management](/azure/sql-data-warehouse/resource-classes-for-workload-management) for detailed information.
 
-This information can also be used for capacity planning, determining the resources required for additional users or application workload. This also applies to planning scale up/scale downs of compute resources for cost-effective support of 'peaky' workloads.
+This information can also be used for capacity planning, determining the resources required for additional users or application workload. This also applies to planning scale up/scale downs of compute resources for cost-effective support of "peaky" workloads.
 
 ### Scale compute resources
 
