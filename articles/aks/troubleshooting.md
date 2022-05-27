@@ -131,6 +131,20 @@ To help diagnose the issue run `az aks show -g myResourceGroup -n myAKSCluster -
 * If cluster is actively upgrading, wait until the operation finishes. If it succeeded, retry the previously failed operation again.
 * If cluster has failed upgrade, follow steps outlined in previous section.
 
+## I'm receiving an error due to "PodDrainFailure"
+
+This error is due to the requested operation being blocked by a PodDisruptionBudget (PDB) that has been set on the deployments within the cluster. To learn more about how PodDisruptionBudgets work, please visit check out [the official Kubernetes example](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#pdb-example).
+
+If you'd like to proceed, either configure your PDB to be less restrictive by reducing the minAvailable pod count, or increasing the maxUnavailable pod count, or deleting the PDB completely before proceeding with the operation.
+
+You may use this command to find the PDBs applied on your cluster:
+
+```
+kubectl get poddisruptionbudgets
+```
+
+For more information about PodDisruptionBudgets, please check out the [official Kubernetes guide on configuring a PDB](https://kubernetes.io/docs/tasks/run-application/configure-pdb/).
+
 ## Can I move my cluster to a different subscription or my subscription with my cluster to a new tenant?
 
 If you've moved your AKS cluster to a different subscription or the cluster's subscription to a new tenant, the cluster won't function because of missing cluster identity permissions. **AKS doesn't support moving clusters across subscriptions or tenants** because of this constraint.
