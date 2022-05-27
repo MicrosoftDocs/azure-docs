@@ -3,7 +3,7 @@ title: Durable Functions Overview - Azure
 description: Introduction to the Durable Functions extension for Azure Functions.
 author: cgillum
 ms.topic: overview
-ms.date: 12/23/2020
+ms.date: 05/24/2022
 ms.author: cgillum
 ms.reviewer: azfuncdf
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
@@ -15,17 +15,15 @@ ms.reviewer: azfuncdf
 
 ## <a name="language-support"></a>Supported languages
 
-Durable Functions currently supports the following languages:
+Durable Functions is designed to work with all Azure Functions programming languages but may have different minimum requirements for each language. The following table shows the minimum supported app configurations:
 
-* **C#**: both [precompiled class libraries](../functions-dotnet-class-library.md) and [C# script](../functions-reference-csharp.md).
-* **JavaScript**: supported only for version 2.x or later of the Azure Functions runtime. Requires version 1.7.0 of the Durable Functions extension, or a later version. 
-* **Python**: requires version 2.3.1 of the Durable Functions extension, or a later version.
-* **F#**: precompiled class libraries and F# script. F# script is only supported for version 1.x of the Azure Functions runtime.
-* **PowerShell**: Supported only for version 3.x of the Azure Functions runtime and PowerShell 7. Requires version 2.x of the bundle extensions.
-
-To access the latest features and updates, it is recommended you use the latest versions of the Durable Functions extension and the language-specific Durable Functions libraries. Learn more about [Durable Functions versions](durable-functions-versions.md).
-
-Durable Functions has a goal of supporting all [Azure Functions languages](../supported-languages.md). See the [Durable Functions issues list](https://github.com/Azure/azure-functions-durable-extension/issues) for the latest status of work to support additional languages.
+| Language stack | Azure Functions Runtime versions | Language worker version | Minimum bundles version |
+| - | - | - | - |
+| .NET / C# / F# | Functions 1.0+ | In-process (GA) <br/> Out-of-process ([preview](https://github.com/microsoft/durabletask-dotnet#usage-with-azure-functions)) | N/A |
+| JavaScript/TypeScript | Functions 2.0+ | Node 8+ | 2.x bundles |
+| Python | Functions 2.0+ | Python 3.7+ | 2.x bundles |
+| PowerShell | Functions 3.0+ | PowerShell 7+ | 2.x bundles |
+| Java (coming soon) | Functions 3.0+ | Java 8+ | 4.x bundles |
 
 Like Azure Functions, there are templates to help you develop Durable Functions using [Visual Studio 2019](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md), and the [Azure portal](durable-functions-create-portal.md).
 

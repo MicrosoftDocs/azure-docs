@@ -5,9 +5,9 @@ services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
-ms.author: dseven
-author: dougseven
-ms.date: 02/15/2022
+ms.author: mikaelw
+author: mikaelweave
+ms.date: 05/03/2022
 ---
 
 # Tutorial: Azure Active Directory SMART on FHIR proxy

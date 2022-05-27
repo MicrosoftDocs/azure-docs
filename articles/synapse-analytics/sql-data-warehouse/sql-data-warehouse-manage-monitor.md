@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 11/15/2021
 ms.author: rortloff
-ms.reviewer: igorstan
+ms.reviewer: wiassaf
 ms.custom: synapse-analytics
 ---
 

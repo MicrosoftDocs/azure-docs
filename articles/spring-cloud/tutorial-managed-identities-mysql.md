@@ -1,19 +1,22 @@
 ---
-title:  "Tutorial: Managed identity to connect an Azure Database for MySQL to apps in Azure Spring Cloud"
-description: Set up managed identity to connect an Azure Database for MySQL to apps in Azure Spring Cloud
+title:  "Tutorial: Managed identity to connect an Azure Database for MySQL to apps in Azure Spring Apps"
+description: Set up managed identity to connect an Azure Database for MySQL to apps in Azure Spring Apps
 author: karlerickson
 ms.author: xiading
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/30/2022
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
-# Tutorial: Use a managed identity to connect an Azure Database for MySQL to an app in Azure Spring Cloud
+# Tutorial: Use a managed identity to connect an Azure Database for MySQL to an app in Azure Spring Apps
+
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ✔️ Java
 
-This article shows you how to create a managed identity for an app in Azure Spring Cloud. This article also shows you how to use the managed identity to access an Azure Database for MySQL with the  MySQL password stored in Key Vault.
+This article shows you how to create a managed identity for an app in Azure Spring Apps. This article also shows you how to use the managed identity to access an Azure Database for MySQL with the  MySQL password stored in Key Vault.
 
 The following video describes how to manage secrets using Azure Key Vault.
 
@@ -71,25 +74,25 @@ az mysql db create \
     --server-name <mysqlName>
 ```
 
-## Create an app and service in Azure Spring Cloud
+## Create an app and service in Azure Spring Apps
 
-After installing the corresponding extension, create an Azure Spring Cloud instance with the Azure CLI command [az spring-cloud create](/cli/azure/spring-cloud#az-spring-cloud-create).
+After installing the corresponding extension, create an Azure Spring Apps instance with the Azure CLI command [az spring create](/cli/azure/spring#az-spring-cloud-create).
 
 ```azurecli
-az extension add --name spring-cloud
-az spring-cloud create --name <myService> --group <myResourceGroup>
+az extension add --name spring
+az spring create --name <myService> --group <myResourceGroup>
 ```
 
 The following example creates an app named `springapp` with a system-assigned managed identity, as requested by the `--assign-identity` parameter.
 
 ```azurecli
-az spring-cloud app create \
+az spring app create \
    --name springapp 
    --service <myService>
    --group <myResourceGroup> \
    --assign-endpoint true \
    --assign-identity
-export SERVICE_IDENTITY=$(az spring-cloud app show --name springapp -s <myService> -g <myResourceGroup> | jq -r '.identity.principalId')
+export SERVICE_IDENTITY=$(az spring app show --name springapp -s <myService> -g <myResourceGroup> | jq -r '.identity.principalId')
 ```
 
 Make a note of the returned `url`, which will be in the format `https://<your-app-name>.azuremicroservices.io`. It will be used in the following step.
@@ -132,10 +135,10 @@ This [sample](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/m
     mvn clean package
     ```
 
-4. Now deploy the app to Azure with the Azure CLI command [az spring-cloud app deploy](/cli/azure/spring-cloud/app#az-spring-cloud-app-deploy).
+4. Now deploy the app to Azure with the Azure CLI command [az spring app deploy](/cli/azure/spring/app#az-spring-cloud-app-deploy).
 
     ```azurecli
-    az spring-cloud app deploy \
+    az spring app deploy \
        --name springapp \
        --service <myService> \
        --group <myResourceGroup> \

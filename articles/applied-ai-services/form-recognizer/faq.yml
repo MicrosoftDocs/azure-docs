@@ -7,7 +7,7 @@ metadata:
   ms.service: applied-ai-services
   ms.subservice: forms-recognizer
   ms.topic: faq
-  ms.date: 05/05/2022
+  ms.date: 05/23/2022
   ms.author: lajanuar
 
 title: Form Recognizer frequently asked questions
@@ -366,7 +366,7 @@ sections:
       - question: |
             How can I move my trained models from one environment (like beta) to another (like production)?
         answer: |
-            The Copy API enables this scenario by allowing you to copy custom models from one Form Recognizer account or into others, which can exist in any supported geographical region. Follow [this document](disaster-recovery.md) for detailed instructions.
+            The Copy API enables this scenario by allowing you to copy custom models from one Form Recognizer account or into others, which can exist in any supported geographical region. Follow [this document](disaster-recovery.md) for detailed instructions. The copy operation is limited to copying models within the specific cloud environment the model was trained in. For instance, copying models from the public cloud to the Azure Government clod isn't supported.
 
   - name: Storage account
     questions:
@@ -425,6 +425,12 @@ sections:
         answer: |
 
           Form Recognizer connected containers send billing information to Azure by using a Form Recognizer resource on your Azure account. Connected containers don't send customer data, such as the image or text that's being analyzed, to Microsoft. See the [Cognitive Services container FAQ](../../cognitive-services/containers/disconnected-container-faq.yml#how-does-billing-work) for an example of the information sent to Microsoft for billing.
+
+      - question: |
+           I received an "OutOfQuota" error message: "Container isn't in a valid state. Subscription validation failed with status 'OutOfQuota'. Api Key is out of quota".
+        answer: |
+
+          Form Recognizer connected containers send billing information to Azure by using a Form Recognizer resource on your Azure account. You could get this message if the containers can't communicate with the billing endpoint.
 
       - question: |
           Can I use local storage for the Form Recognizer Sample Labeling Tool (FOTT) container?

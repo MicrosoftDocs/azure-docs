@@ -177,6 +177,9 @@ The request body has some required fields:
 * `contents`: lists the properties, telemetry, and commands that make up your device. The capabilities may be defined in multiple interfaces.
 * `capabilityModel` : Every device template has a capability model. A relationship is established between each module capability model and a device model. A capability model implements one or more module interfaces.
 
+> [!TIP]
+> The device template JSON is not a standard DTDL document. The device template JSON includes IoT Central specific data such as cloud property definitions, customizations, and display units. You can use the device template JSON format to import and export device templates in IoT Central by using the REST API and the CLI.
+
 There are some optional fields you can use to add more details to the capability model, such as display name and description.
 
 Each entry in the list of interfaces in the implements section has a:

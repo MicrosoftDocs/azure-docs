@@ -14,7 +14,7 @@ ms.custom: template-concept
 
 This article introduces the key physical components of a private mobile network deployed through Azure Private 5G Core Preview. It also details the resources you'll use to manage the private mobile network through Azure.
 
-Each private mobile network contains one or more *sites*. A site is a physical enterprise location (for example, Contoso Corporation's Chicago Factory) that will provide coverage for 5G user equipment (UEs). The following diagram shows the main components of a single site.
+Each private mobile network contains one or more *sites*. A site is a physical enterprise location (for example, Contoso Corporation's Chicago Factory) that will provide coverage for user equipment (UEs). The following diagram shows the main components of a single site.
 
 :::image type="content" source="media/key-components-of-a-private-mobile-network/site-physical-components.png" alt-text="Diagram displaying the main components of a site in a private mobile network":::
 
@@ -22,7 +22,7 @@ Each private mobile network contains one or more *sites*. A site is a physical e
 
     When you add a site to your private mobile network, you'll create a *Kubernetes cluster* on the Azure Stack Edge device. This serves as the platform for the packet core instance.
 
-- Each packet core instance connects to a radio access network (RAN) to provide coverage for 5G UEs. You'll source your RAN from a third party.
+- Each packet core instance connects to a radio access network (RAN) to provide coverage for UEs. You'll source your RAN from a third party.
 
 ## Azure Private 5G Core resources
 

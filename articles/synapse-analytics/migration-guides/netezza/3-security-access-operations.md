@@ -1,26 +1,28 @@
 ---
 title: "Security, access, and operations for Netezza migrations"
-description: Learn about authentication, users, roles, permissions, monitoring, and auditing, and workload management in Azure Synapse and Netezza.
+description: Learn about authentication, users, roles, permissions, monitoring, and auditing, and workload management in Azure Synapse Analytics and Netezza.
 ms.service: synapse-analytics
-ms.subservice: sql
-ms.custom: 
-ms.devlang: 
+ms.subservice: sql-dw
+ms.custom:
+ms.devlang:
 ms.topic: conceptual
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-ms.reviewer: ajagadish
-ms.date: 05/21/2022
+author: ajagadish-24
+ms.author: ajagadish
+ms.reviewer: wiassaf
+ms.date: 05/24/2022
 ---
 
 # Security, access, and operations for Netezza migrations
 
+This article is part three of a seven part series that provides guidance on how to migrate from Netezza to Azure Synapse Analytics. This article provides best practices for security access operations.
+
 ## Security considerations
 
-This article discusses the methods of connection for existing legacy Teradata environments and how they can be migrated to Azure Synapse with minimal risk and user impact.
+This article discusses the methods of connection for existing legacy Netezza environments and how they can be migrated to Azure Synapse Analytics with minimal risk and user impact.
 
-It's assumed that there's a requirement to migrate the existing methods of connection and user/role/permission structure as-is. If this isn't the case, then use Azure utilities such as Azure portal to create and manage a new security regime.
+We assume there's a requirement to migrate the existing methods of connection and user, role, and permission structure as is. If this isn't the case, then you can use Azure utilities from the Azure portal to create and manage a new security regime.
 
-For more information on the [Azure Synapse security](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security#authorization) options see [Security whitepaper](/azure/synapse-analytics/guidance/security-white-paper-introduction).
+For more information on the [Azure Synapse security](../../sql-data-warehouse/sql-data-warehouse-overview-manage-security.md#authorization) options, see [Security whitepaper](../../guidance/security-white-paper-introduction.md).
 
 ### Connection and authentication
 
@@ -29,7 +31,7 @@ For more information on the [Azure Synapse security](/azure/synapse-analytics/sq
 
 #### Netezza authorization options
 
-The IBM® Netezza® system offers several authentication methods for Netezza database users:
+The IBM&reg; Netezza&reg; system offers several authentication methods for Netezza database users:
 
 - **Local authentication**: Netezza administrators define database users and their passwords by using the `CREATE USER` command or through Netezza administrative interfaces. In local authentication, use the Netezza system to manage database accounts and passwords, and to add and remove database users from the system. This method is the default authentication method.
 
@@ -45,7 +47,7 @@ Azure Synapse supports two basic options for connection and authorization:
 
 - **SQL authentication**: SQL authentication is via a database connection that includes a database identifier, user ID, and password plus other optional parameters. This is functionally equivalent to Netezza local connections.
 
-- **Azure Active Directory (AAD) authentication**: With Azure Active Directory authentication, you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage SQL Data Warehouse users and simplifies permission management. AAD can also support connections to LDAP and Kerberos services&mdash;for example, AAD can be used to connect to existing LDAP directories if these are to remain in place after migration of the database.
+- **Azure Active Directory (Azure AD) authentication**: With Azure Active Directory authentication, you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage SQL Data Warehouse users and simplifies permission management. Azure AD can also support connections to LDAP and Kerberos services&mdash;for example, Azure AD can be used to connect to existing LDAP directories if these are to remain in place after migration of the database.
 
 ### Users, roles, and permissions
 
@@ -72,13 +74,13 @@ See the following sections for more details.
 > [!TIP]
 > Migration of a data warehouse requires more than just tables, views, and SQL statements.
 
-The information about current users and groups in a Netezza system is held in system catalog views `_v_users` and `_v_groupusers`. Use the nzsql utility or tools such as the Netezza® Performance, NzAdmin, or the Netezza Utility scripts to list user privileges. For example, use the dpu and dpgu commands in nzsql to display users or groups with their permissions.
+The information about current users and groups in a Netezza system is held in system catalog views `_v_users` and `_v_groupusers`. Use the nzsql utility or tools such as the Netezza&reg; Performance, NzAdmin, or the Netezza Utility scripts to list user privileges. For example, use the `dpu` and `dpgu` commands in nzsql to display users or groups with their permissions.
 
 Use or edit the utility scripts `nz_get_users` and `nz_get_user_groups` to retrieve the same information in the required format.
 
-Query system catalog views directly (if the user has `SELECT` access to those views) to obtain current lists of users and roles defined within the system. See examples:
+Query system catalog views directly (if the user has `SELECT` access to those views) to obtain current lists of users and roles defined within the system. See examples to list users, groups, or users and their associated groups:
 
-```
+```sql
 -- List of users
 SELECT USERNAME FROM _V_USER;
 
@@ -104,7 +106,7 @@ In Netezza, the individual permissions are represented as individual bits within
 
 The simplest way to obtain a DDL script that contains the `GRANT` commands to replicate the current privileges for users and groups is to use the appropriate Netezza utility scripts:
 
-```
+```sql
 --List of group privileges
 nz_ddl_grant_group -usrobj dbname > output_file_dbname;
 
@@ -116,9 +118,9 @@ The output file can be modified to produce a script that is a series of `GRANT` 
 
 Netezza supports two classes of access rights,&mdash;Admin and Object. See the following table for a list of Netezza access rights and their equivalent in Azure Synapse.
 
-| Admin Privilege            | Description | ASDW Equivalent |
+| Admin Privilege            | Description | Azure Synapse Equivalent |
 |----------------------------|-------------|-----------------|
-| Backup                     | Allows user to create backups. The user can run backups. The user can run the command nzbackup. | \* |
+| Backup                     | Allows user to create backups. The user can run backups. The user can run the command `nzbackup`. | \* |
 | [Create] Aggregate         | Allows the user to create user-defined aggregates (UDAs). Permission to operate on existing UDAs is controlled by object privileges. | CREATE FUNCTION \*\*\* |
 | [Create] Database          | Allows the user to create databases. Permission to operate on existing databases is controlled by object privileges. | CREATE DATABASE |
 | [Create] External Table    | Allows the user to create external tables. Permission to operate on existing tables is controlled by object privileges. | CREATE TABLE |
@@ -141,7 +143,7 @@ Netezza supports two classes of access rights,&mdash;Admin and Object. See the f
 | Restore                    | Allows the user to restore the system. The user can run the nzrestore command. | \*\* |
 | Unfence                    | Allows the user to create or alter a user-defined function or aggregate to run in unfenced mode. | \* |
 
-| Object Privilege Abort     | Description | ASDW Equivalent |
+| Object Privilege Abort     | Description | Azure Synapse Equivalent |
 |----------------------------|-------------|-----------------|
 | Abort                      | Allows the user to abort sessions. Applies to groups and users. | KILL DATABASE CONNECTION |
 | Alter                      | Allows the user to modify object attributes. Applies to all objects. | ALTER |
@@ -166,7 +168,7 @@ Comments on the preceding table:
 
 \*\*\*\* These features are managed automatically by the system or via Azure portal in Azure Synapse&mdash;see the next section on Operational considerations.
 
-Refer to [Azure Synapse Analytics security permissions](/azure/synapse-analytics/guidance/security-white-paper-introduction).
+Refer to [Azure Synapse Analytics security permissions](../../guidance/security-white-paper-introduction.md).
 
 ## Operational considerations
 
@@ -183,11 +185,11 @@ Netezza administration tasks typically fall into two categories:
 
 - Database administration, which is managing user databases and their content, loading data, backing up data, restoring data, and controlling access to data and permissions.
 
-IBM® Netezza® offers several ways or interfaces that you can use to perform the various system and database management tasks:
+IBM&reg; Netezza&reg; offers several ways or interfaces that you can use to perform the various system and database management tasks:
 
-- Netezza commands (nz* commands) are installed in the /nz/kit/bin directory on the Netezza host. For many of the nz* commands, you must be able to sign into the Netezza system to access and run those commands. In most cases, users sign in as the default nz user account, but you can create other Linux user accounts on your system. Some commands require you to specify a database user account, password, and database to ensure that you've permission to do the task.
+- Netezza commands (nz* commands) are installed in the /nz/kit/bin directory on the Netezza host. For many of the nz* commands, you must be able to sign into the Netezza system to access and run those commands. In most cases, users sign in as the default nz user account, but you can create other Linux user accounts on your system. Some commands require you to specify a database user account, password, and database to ensure that you have permission to do the task.
 
-- The Netezza CLI client kits package a subset of the nz* commands that can be run from Windows and UNIX client systems. The client commands might also require you to specify a database user account, password, and database to ensure that you've database administrative and object permissions to perform the task.
+- The Netezza CLI client kits package a subset of the nz* commands that can be run from Windows and UNIX client systems. The client commands might also require you to specify a database user account, password, and database to ensure that you have database administrative and object permissions to perform the task.
 
 - The SQL commands support administration tasks and queries within a SQL database session. You can run the SQL commands from the Netezza nzsql command interpreter or through SQL APIs such as ODBC, JDBC, and the OLE DB Provider. You must have a database user account to run the SQL commands with appropriate permissions for the queries and tasks that you perform.
 
@@ -239,9 +241,10 @@ The portal also enables integration with other Azure monitoring services such as
 
 > [!TIP]
 > Low-level and system-wide metrics are automatically logged in Azure Synapse.
-Resource utilization statistics for the Azure Synapse are automatically logged within the system. The metrics include usage statistics for CPU, memory, cache, I/O and temporary workspace for each query as well as connectivity information&mdash;such as failed connection attempts.
 
-Azure Synapse provides a set of [Dynamic management views](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-monitor?msclkid=3e6eefbccfe211ec82d019ada29b1834) (DMVs). These views are useful when actively troubleshooting and identifying performance bottlenecks with your workload.
+Resource utilization statistics for Azure Synapse are automatically logged within the system. The metrics for each query include usage statistics for CPU, memory, cache, I/O, and temporary workspace, as well as connectivity information like failed connection attempts.
+
+Azure Synapse provides a set of [Dynamic management views](../../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?msclkid=3e6eefbccfe211ec82d019ada29b1834) (DMVs). These views are useful when actively troubleshooting and identifying performance bottlenecks with your workload.
 
 For more information, see [Azure Synapse operations and management options](/azure/sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance).
 
@@ -249,7 +252,7 @@ For more information, see [Azure Synapse operations and management options](/azu
 
 Netezza appliances are redundant, fault-tolerant systems and there are diverse options in a Netezza system to enable high availability and disaster recovery.
 
-Adding IBM® Netezza Replication Services for disaster recovery improves fault tolerance by extending redundancy across local and wide area networks.
+Adding IBM&reg; Netezza Replication Services for disaster recovery improves fault tolerance by extending redundancy across local and wide area networks.
 
 IBM Netezza Replication Services protects against data loss by synchronizing data on a primary system (the primary node) with data on one or more target nodes (subordinates). These nodes make up a replication set.
 
@@ -264,7 +267,7 @@ Distributed Replicated Block Device (DRBD) is a block device driver that mirrors
 > [!TIP]
 > Azure Synapse creates snapshots automatically to ensure fast recovery times.
 
-Azure Synapse uses database snapshots to provide high availability of the warehouse. A data warehouse snapshot creates a restore point that can be used to recover or copy a data warehouse to a previous state. Since Azure Synapse is a distributed system, a data warehouse snapshot consists of many files that are in Azure storage. Snapshots capture incremental changes from the data stored in your data warehouse.
+Azure Synapse uses database snapshots to provide high availability of the warehouse. A data warehouse snapshot creates a restore point that can be used to recover or copy a data warehouse to a previous state. Since Azure Synapse is a distributed system, a data warehouse snapshot consists of many files that are in Azure Storage. Snapshots capture incremental changes from the data stored in your data warehouse.
 
 > [!TIP]
 > Use user-defined snapshots to define a recovery point before key updates.
@@ -288,7 +291,7 @@ As well as the snapshots described previously, Azure Synapse also performs as st
 ### Workload management
 
 > [!TIP]
-> In a production data warehouse, there are typically mixed workloads which have different resource usage characteristics running concurrently.
+> In a production data warehouse, there are typically mixed workloads with different resource usage characteristics running concurrently.
 
 Netezza incorporates various features for managing workloads:
 
@@ -298,13 +301,17 @@ See [Resource classes for workload management](/azure/sql-data-warehouse/resourc
 
 This information can also be used for capacity planning, determining the resources required for additional users or application workload. This also applies to planning scale up/scale downs of compute resources for cost-effective support of 'peaky' workloads.
 
-### Scaling compute resources
+### Scale compute resources
 
 > [!TIP]
 > A major benefit of Azure is the ability to independently scale up and down compute resources on demand to handle peaky workloads cost-effectively.
 
-The architecture of Azure Synapse separates storage and compute, allowing each to scale independently. As a result, [compute resources can be scaled](/azure/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-portal) to meet performance demands independent of data storage. You can also pause and resume compute resources. A natural benefit of this architecture is that billing for compute and storage is separate. If a data warehouse isn't in use, save on compute costs by pausing compute.
+The architecture of Azure Synapse separates storage and compute, allowing each to scale independently. As a result, [compute resources can be scaled](../../sql-data-warehouse/quickstart-scale-compute-portal.md) to meet performance demands independent of data storage. You can also pause and resume compute resources. A natural benefit of this architecture is that billing for compute and storage is separate. If a data warehouse isn't in use, save on compute costs by pausing compute.
 
 Compute resources can be scaled up or scaled back by adjusting the data warehouse units setting for the data warehouse. Loading and query performance will increase linearly as you add more data warehouse units.
 
 Adding more compute nodes adds more compute power and ability to leverage more parallel processing. As the number of compute nodes increases, the number of distributions per compute node decreases, providing more compute power and parallel processing for queries. Similarly, decreasing data warehouse units reduces the number of compute nodes, which reduces the compute resources for queries.
+
+## Next steps
+
+To learn more about visualization and reporting, see the next article in this series: [Visualization and reporting for Netezza migrations](4-visualization-reporting.md).
