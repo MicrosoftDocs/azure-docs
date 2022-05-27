@@ -1355,7 +1355,7 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*converted-timestamp*> | String | The timestamp converted to the target time zone |
+| <*converted-timestamp*> | String | The timestamp converted to the target time zone without the timezone offset. |
 ||||
 
 *Example 1*
