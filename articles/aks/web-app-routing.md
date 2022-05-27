@@ -23,10 +23,9 @@ The Web Application Routing solution makes it easy to access applications that a
 The add-on deploys four components: an [nginx ingress controller][nginx], [Secrets Store CSI Driver][csi-driver], [Open Service Mesh (OSM)][osm], and [External-DNS][external-dns] controller.
 
 - **Nginx ingress Controller**: The ingress controller exposed to the internet.
-- **External-dns**: Watches for Kubernetes Ingress resources and creates DNS A records in the cluster-specific DNS zone.
+- **External-DNS controller**: Watches for Kubernetes Ingress resources and creates DNS A records in the cluster-specific DNS zone.
 - **CSI driver**: Connector used to communicate with keyvault to retrieve SSL certificates for ingress controller.
 - **OSM**: A lightweight, extensible, cloud native service mesh that allows users to uniformly manage, secure, and get out-of-the-box observability features for highly dynamic microservice environments.
-- **External-DNS controller**: Watches for Kubernetes Ingress resources and creates DNS A records in the cluster-specific DNS zone.
 
 ## Prerequisites
 
