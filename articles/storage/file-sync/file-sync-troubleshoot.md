@@ -150,6 +150,9 @@ To determine whether your user account role has the required permissions:
     * **Role assignment** should have **Read** and **Write** permissions.
     * **Role definition** should have **Read** and **Write** permissions.
 
+<a id="cloud-endpoint-mgmtinternalerror"></a>**Cloud endpoint creation fails, with this error: "MgmtInternalError"**  
+This error can occur if NTLM v2 authentication is disabled on the storage account. To check the Authentication methods allowed on the storage account, see [SMB security settings](../files/files-smb-protocol.md#smb-security-settings).
+
 ### Server endpoint creation and deletion errors
 
 <a id="-2134375898"></a>**Server endpoint creation fails, with this error: "MgmtServerJobFailed" (Error code: -2134375898 or 0x80c80226)**  
