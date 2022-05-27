@@ -75,6 +75,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "msdocs-storage-bind-function-service",
+      "url": "https://github.com/Azure-Samples/msdocs-storage-bind-function-service",
+      "branch": "main",
+      "branch_mapping": {}
+    },    
+    {
       "path_to_root": "azure_cli_scripts",
       "url": "https://github.com/Azure-Samples/azure-cli-samples",
       "branch": "master",
@@ -441,9 +447,15 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azureml-examples-march-cli-preview",
+      "path_to_root": "azureml-examples-sdk-preview",
       "url": "https://github.com/azure/azureml-examples",
-      "branch": "march-cli-preview",
+      "branch": "sdk-preview",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azureml-examples-online-endpoint-vnet",
+      "url": "https://github.com/azure/azureml-examples",
+      "branch": "rsethur/mvnet",
       "branch_mapping": {}
     },
     {

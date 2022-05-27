@@ -68,11 +68,11 @@ Use the following resources to learn how to use these capabilities in Defender f
 
 Videos    
 * [Defender for Cloud – Just-in-time VM Access](https://youtu.be/UOQb2FcdQnU)
-* [Defender for Cloud - Adaptive Application Controls](https://youtu.be/wWWekI1Y9ck)
+* [Defender for Cloud - Adaptive application controls](https://youtu.be/wWWekI1Y9ck)
 
 Articles    
 * [Manage virtual machine access using just-in-time](./just-in-time-access-usage.md)
-* [Adaptive Application Controls in Defender for Cloud](./adaptive-application-controls.md)
+* [Adaptive application controls in Defender for Cloud](./adaptive-application-controls.md)
 
 ## Hands-on activities
 

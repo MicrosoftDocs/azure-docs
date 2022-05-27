@@ -2,14 +2,14 @@
 title: Create, view, and share a custom report a custom report in Permissions Management
 description: How to create, view, and share a custom report in the Permissions Management.
 services: active-directory
-author: mtillman
-manager: karenh444
+author: kenwith
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: mtillman
+ms.author: kenwith
 ---
 
 # Create, view, and share a custom report

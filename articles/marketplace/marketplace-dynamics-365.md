@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 04/13/2022
+ms.date: 05/25/2022
 ---
 
 # Plan a Microsoft Dynamics 365 offer
@@ -15,11 +15,11 @@ This article explains the different options and features of a Dynamics 365 offer
 
 Before you start, create a commercial marketplace account in [Partner Center](./create-account.md) and ensure it is enrolled in the commercial marketplace program. Also, review the [publishing process and guidelines](/office/dev/store/submit-to-appsource-via-partner-center).
 
-## Licensing options
+## Listing options
 
-As you prepare to publish a new offer, you need to decide which licensing option to choose. This will determine what additional information you'll need to provide later as you create the offer in Partner Center.
+As you prepare to publish a new offer, you need to decide which listing option to choose. This will determine what additional information you'll need to provide later as you create the offer in Partner Center.
 
-These are the available licensing options for Dynamics 365 offer types:
+These are the available listing options for the _Dynamics 365 apps on Dataverse and Power Apps_ offer type:
 
 | Offer type | Listing option |
 | --- | --- |
@@ -31,12 +31,13 @@ These are the available licensing options for Dynamics 365 offer types:
 
 The following table describes the transaction process of each listing option.
 
-| Licensing option | Transaction process |
+| Listing option | Transaction process |
 | --- | --- |
+| Transact with license management | You can choose to sell through Microsoft and have Microsoft host transactions on your behalf. For more information about this option, see [ISV app license management](isv-app-license.md).<br>Currently available to the following offer type only:<ul><li>Dynamics 365 apps on Dataverse and Power Apps</li></ul> |
+| License management | Enables you to manage your ISV app licenses in Partner Center. For more information about this option, see [ISV app license management](isv-app-license.md).<br>Currently available to the following offer type only:<ul><li>Dynamics 365 apps on Dataverse and Power Apps</li></ul> |
 | Contact me | Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you've configured. For more information about configuring your CRM, see the **Customer leads** section of your offer type's **Offer setup** page. |
 | Free trial (listing) | Offer your customers a one-, three- or six-month free trial. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft. |
 | Get it now (free) | List your offer to customers for free. |
-| Get it now | Enables you to manage your ISV app licenses in Partner Center.<br>Currently available to the following offer type only:<ul><li>Dynamics 365 apps on Dataverse and Power Apps</li></ul><br>For more information about this option, see [ISV app license management](isv-app-license.md). |
 
 ## Test drive
 

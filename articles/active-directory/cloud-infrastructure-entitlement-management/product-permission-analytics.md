@@ -2,14 +2,14 @@
 title: Create and view permission analytics triggers in Permissions Management
 description: How to create and view permission analytics triggers in the Permission analytics tab in Permissions Management.
 services: active-directory
-author: mtillman
-manager: karenh444
+author: kenwith
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: mtillman
+ms.author: kenwith
 ---
 
 # Create and view permission analytics triggers

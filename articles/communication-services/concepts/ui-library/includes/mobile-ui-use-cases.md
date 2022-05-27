@@ -13,6 +13,7 @@ ms.service: azure-communication-services
 [!INCLUDE [Public Preview Notice](../../../includes/public-preview-include.md)]
 
 Mobile UI Library for iOS and Android supports calling use cases by using the **calling composite**.
+
 Composites enable developers to easily integrate a whole calling experience into their application with only a couple of lines of code; those composites take care of the entire lifecycle of the call from setup to the call ending.
 
 ## Calling
@@ -52,11 +53,11 @@ To enable Teams Interop, developers can use the calling composite, which will ta
 
 ## View shared content
 
-The Mobile UI Library provides the capability of the calling participants to view the shared content when other participants share their screens during the calling; also, the participant can zoom on the screen, making the pinching gestures over the screen to get a better look over the shared content.
+The Mobile UI Library provides the capability of the calling participants to view the shared content when other participants share their screens during the calling. Also, the participant can zoom on the screen, making the pinching gestures over the screen to get a better look over the shared content.
 
 ## Theming
 
-The UI Library Calling Composite for iOS and Android provides the capability for developers to update the theme of the all experience by passing a primary color. The Composite uses that primary color to provide appropriate theming across the experience.
+The UI Library Calling Composite for iOS and Android provides the capability for developers to create a custom theme of the all experience by passing a set of theming colors. [How to create your theme.](../../../how-tos/ui-library-sdk/theming.md)
 
 | Android                            | iOS                                     |
 | -------------------------------------------------------- | --------------------------------------------------------------- |
@@ -72,9 +73,11 @@ The calling composite offers to adapt to any screen size that would bring suppor
 
 ## Localization
 
-Localization is a key to making products that can be used across the world and by people who speak different languages.
+Localization is a key to making products that can be used across the world and by people who speak different languages. The Mobile UI Library now provides support for 13 languages: ***English, Spanish, French, German, Italian, Japanese, Korean, Dutch, Portuguese, Russian, Turkish and Chinese*** and RTL capabilities. [How to add localization to your app.](../../../how-tos/ui-library-sdk/localization.md)
 
-Localization is a key to making products that can be used across the world. The Mobile UI Library now provides support for 13 languages: ***English, Spanish, French, German, Italian, Japanese, Korean, Dutch, Portuguese, Russian, Turkish and Chinese*** and RTL capabilities.
+## Data Model Injection
+
+The Mobile UI Library gives the developers the ability to provide a more customized experience. At launch, developers can now inject an optional Local Data Options. This object can contain an image that represents the avatar to render, and a display name they can optionally display instead. None of this information will be sent to Azure Communication Services and will be only held locally in the Mobile UI library. [How to inject user data model.](../../../how-tos/ui-library-sdk/data-model.md)
 
 ## Recommended Architecture
 
@@ -83,7 +86,7 @@ trusted service that you manage. See [Quickstart: Create Access Tokens](../../..
 
 :::image type="content" source="../../media/mobile-ui/ui-library-architecture.png" alt-text="Recommended architecture diagram":::
 
-These client libraries also require the context for the call they will join. Similar to user access tokens, this context should be disseminated to clients via your own trusted service. The list below summarizes the initialization and resource management functions that you need to operationalize.
+These client libraries also require the context for the call they'll join. Similar to user access tokens, this context should be disseminated to clients via your own trusted service. The list below summarizes the initialization and resource management functions that you need to operationalize.
 
 | Contoso Responsibilities                                 | UI Library Responsibilities                                     |
 | -------------------------------------------------------- | --------------------------------------------------------------- |
