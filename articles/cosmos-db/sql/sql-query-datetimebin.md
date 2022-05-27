@@ -56,11 +56,11 @@ For more information on the ISO 8601 format, see [ISO_8601](https://en.wikipedia
 | Nanosecond   | "nanosecond", "ns"   | 
 
 *BinSize* (optional) 
-   Numeric value which specifies the size of bins. If not specified, the default value is one. 
+   Numeric value that specifies the size of bins. If not specified, the default value is one. 
 
 
 *BinAtDateTime* (optional) 
-   A UTC date and time ISO 8601 string value in the format `YYYY-MM-DDThh:mm:ss.fffffffZ` which specifies the start date to bin from. Default value is the Unix epoch, ‘1970-01-01T00:00:00.000000Z’. 
+   A UTC date and time ISO 8601 string value in the format `YYYY-MM-DDThh:mm:ss.fffffffZ` that specifies the start date to bin from. Default value is the Unix epoch, ‘1970-01-01T00:00:00.000000Z’. 
 
 
 ## Return types 
@@ -73,7 +73,7 @@ Returns the result of binning the *DateTime* value.
 DateTimeBin will return `Undefined` for the following reasons: 
 - The DateTimePart value specified is invalid 
 - The BinSize value is zero or negative 
-- The DateTime or BinAtDateTime is not a valid ISO 8601 DateTime or precedes the year 1601 (the Windows epoch) 
+- The DateTime or BinAtDateTime isn't a valid ISO 8601 DateTime or precedes the year 1601 (the Windows epoch) 
 
 
 ## Examples 
