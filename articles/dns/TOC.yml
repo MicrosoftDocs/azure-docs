@@ -189,6 +189,8 @@
     items:
     - name: Azure PowerShell
       href: /powershell/module/az.dnsresolver
+    - name: Azure CLI
+      href: /cli/azure/dns-resolver
     - name: .NET
       href: /dotnet/api/azure.resourcemanager.dnsresolver
     - name: Java
