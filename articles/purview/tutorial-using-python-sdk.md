@@ -30,7 +30,7 @@ For this tutorial, you'll need:
 *   An active Azure Subscription. [If you don't have one, you can create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 *   An Azure Active Directory tenant associated with your subscription.
 *   An Azure Storage account. If you don't already have one, you can [follow our quickstart guide to create one](../storage/common/storage-account-create.md).
-*   An Microsoft Purview account. If you don't already have one, you can [follow our quickstart guide to create one](create-catalog-portal.md).
+*   A Microsoft Purview account. If you don't already have one, you can [follow our quickstart guide to create one](create-catalog-portal.md).
 * A [service principal](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) with a [client secret](../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options).
 
 ## Give Microsoft Purview access to the Storage account
@@ -202,7 +202,7 @@ In this section, you'll register your Blob Storage.
     reference_name_purview = "<name of your Microsoft Purview account>"
     ```
 
-1. Provide the name of the collection where you'd like to register your blob storage. (It should be the same collection where you applied permissions earlier. If it is not, first apply permissions to this collection.) If it is the root collection, use the same name as your Microsoft Purview instance.
+1. Provide the name of the collection where you'd like to register your blob storage. (It should be the same collection where you applied permissions earlier. If it isn't, first apply permissions to this collection.) If it's the root collection, use the same name as your Microsoft Purview instance.
 
     ```python
     collection_name = "<name of your collection>"
@@ -221,7 +221,7 @@ In this section, you'll register your Blob Storage.
 	    return credentials
     ```
 
-1. All collections in the Microsoft Purview data map have a name and a friendly name. The friendly name is the one you see on the collection. For example: Sales. The name for all collections (except the root collection) are a six-character name assigned by the data map. Python needs this six-character name to reference any sub collections. To convert your "friendly name" automatically to the six-character collection name needed in your script, add this block of code:
+1. All collections in the Microsoft Purview data map have a name and a friendly name. The friendly name is the one you see on the collection. For example: Sales. The name for all collections (except the root collection) is a six-character name assigned by the data map. Python needs this six-character name to reference any sub collections. To convert your "friendly name" automatically to the six-character collection name needed in your script, add this block of code:
 
     ```python
     def get_admin_client():
@@ -546,7 +546,7 @@ Once a scan is complete, it's likely that assets have been discovered and even c
 
 Once the assets are ready, you can use the Microsoft Purview Catalog client to search the whole catalog.
 
-1. This time you need to import the **catalog** client instead of the scanning one. ALso include the HTTPResponse error and ClientSecretCredential.
+1. This time you need to import the **catalog** client instead of the scanning one. Also include the HTTPResponse error and ClientSecretCredential.
 
     ```python
     from azure.purview.catalog import PurviewCatalogClient
@@ -641,7 +641,7 @@ except HttpResponseError as e:
 
 In this section, you'll learn how to delete the data source you registered earlier. This operation is fairly simple, and is done with the scanning client.
 
-1. Import the **scanning** client. ALso include the HTTPResponse error and ClientSecretCredential.
+1. Import the **scanning** client. Also include the HTTPResponse error and ClientSecretCredential.
 
     ```python
     from azure.purview.scanning import PurviewScanningClient
