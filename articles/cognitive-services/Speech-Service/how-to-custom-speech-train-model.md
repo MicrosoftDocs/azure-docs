@@ -28,7 +28,7 @@ If you plan to train a model with audio data, use a Speech resource in a [region
 
 After you've uploaded [training datasets](./how-to-custom-speech-test-and-train.md), follow these instructions to start training your model:
 
-1. Sign in to the [Speech Studio](https://speech.microsoft.com/customspeech). 
+1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech). 
 1. Select **Custom Speech** > Your project name > **Train custom models**.
 1. Select **Train a new model**.
 1. On the **Select a baseline model** page, select a base model, and then select **Next**. If you aren't sure, select the most recent model from the top of the list. 

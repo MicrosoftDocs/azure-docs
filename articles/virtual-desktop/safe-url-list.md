@@ -3,7 +3,7 @@ title: Azure Virtual Desktop required URL list - Azure
 description: A list of URLs you must unblock to ensure your Azure Virtual Desktop deployment works as intended.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 05/12/2022
+ms.date: 05/26/2022
 ms.author: helohr
 manager: femila
 ---
@@ -79,6 +79,8 @@ The Azure virtual machines you create for Azure Virtual Desktop must have access
 |wvdportalstorageblob.blob.core.windows.net|443|Azure portal support|AzureCloud|
 | 169.254.169.254 | 80 | [Azure Instance Metadata service endpoint](../virtual-machines/windows/instance-metadata-service.md) | N/A |
 | 168.63.129.16 | 80 | [Session host health monitoring](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | N/A |
+| oneocsp.microsoft.com | 443 | Certificates | N/A |
+| microsoft.com | 443 | Certificates | N/A |
 
 A [Service Tag](../virtual-network/service-tags-overview.md) represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to network security rules. Service Tags can be used in both Network Security Group ([NSG](../virtual-network/network-security-groups-overview.md)) and [Azure Firewall](../firewall/service-tags.md) rules to restrict outbound network access. Service Tags can be also used in User Defined Route ([UDR](../virtual-network/virtual-networks-udr-overview.md#user-defined)) to customize traffic routing behavior. 
 
@@ -112,6 +114,7 @@ The Azure virtual machines you create for Azure Virtual Desktop must have access
 |wvdportalstorageblob.blob.core.usgovcloudapi.net|443|Azure portal support|AzureCloud|
 | 169.254.169.254 | 80 | [Azure Instance Metadata service endpoint](../virtual-machines/windows/instance-metadata-service.md) | N/A |
 | 168.63.129.16 | 80 | [Session host health monitoring](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | N/A |
+| ocsp.msocsp.com | 443 | Certificates | N/A |
 
 > [!IMPORTANT]
 > We are currently transitioning the URLs we use for Agent traffic. We still support the URLs below, however we encourage you to switch to ***.prod.warm.ingest.monitor.core.usgovcloudapi.net** as soon as possible.
