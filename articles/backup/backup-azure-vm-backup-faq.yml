@@ -140,9 +140,9 @@ sections:
         answer: |
           Yes, you can do this when *Transfer data to vault* phase is in progress.
 
-       - question: Does Azure Backup take backup of keys for ADE encrypted VMs and restore it along with the restored disk?
-         answer: |
-           Yes, Azure Backup takes backup of keys and secrets backup data. During restore, it doesn't restore the keys in the Key Vault.  However, it allows restoring the keys, if you have lost the encryption keys. For more information, see [Restore Key Vault key & secret for encrypted VM](backup-azure-restore-key-secret.md).
+      - question: Does Azure Backup take backup of keys for ADE encrypted VMs and restore it along with the restored disk?
+        answer: |
+          Yes, Azure Backup takes backup of keys and secrets backup data. During restore, it doesn't restore the keys in the Key Vault.  However, it allows restoring the keys, if you have lost the encryption keys. For more information, see [Restore Key Vault key & secret for encrypted VM](backup-azure-restore-key-secret.md).
 
   - name: Restore
     questions:
