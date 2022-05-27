@@ -94,6 +94,8 @@
     href: network-security.md
   - name: Disaster recovery
     href: video-indexer-disaster-recovery.md
+  - name: Insert or remove transcript lines
+    href: edit-transcript-lines-portal.md    
   - name: Customize content models
     items:
     - name: Animated characters

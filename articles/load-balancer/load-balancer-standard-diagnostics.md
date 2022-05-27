@@ -2,12 +2,12 @@
 title: Diagnostics with metrics, alerts, and resource health
 titleSuffix: Azure Load Balancer
 description: Use the available metrics, alerts, and resource health information to diagnose your load balancer.
-author: asudbring
+author: greg-lindsay
 ms.custom: seodec18
 ms.service: load-balancer
 ms.topic: article
 ms.date: 01/26/2022
-ms.author: allensu
+ms.author: greglin
 ---
 
 # Standard load balancer diagnostics with metrics, alerts, and resource health

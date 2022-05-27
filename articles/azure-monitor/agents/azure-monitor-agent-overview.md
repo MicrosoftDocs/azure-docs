@@ -4,16 +4,16 @@ description: Overview of the Azure Monitor agent, which collects monitoring data
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 3/31/2022
+ms.date: 5/19/2022
 ms.custom: references_regions
 ---
 
 # Azure Monitor agent overview
-The Azure Monitor agent (AMA) collects monitoring data from the guest operating system of Azure virtual machines and delivers it to Azure Monitor. This article provides an overview of the Azure Monitor agent and includes information on how to install it and how to configure data collection.  
+The Azure Monitor agent (AMA) collects monitoring data from the guest operating system of [supported infrastucture](#supported-resource-types) and delivers it to Azure Monitor. This article provides an overview of the Azure Monitor agent and includes information on how to install it and how to configure data collection.  
 Here's an **introductory video** explaining all about this new agent, including a quick demo of how to set things up using the Azure portal:  [ITOps Talk: Azure Monitor Agent](https://www.youtube.com/watch?v=f8bIrFU8tCs)
 
 ## Relationship to other agents
-Eventually, the Azure Monitor agent will replace the following legacy monitoring agents that are currently used by Azure Monitor to collect guest data from virtual machines ([view known gaps](../faq.yml)):
+Eventually, the Azure Monitor agent will replace the following legacy monitoring agents that are currently used by Azure Monitor.
 
 - [Log Analytics agent](./log-analytics-agent.md): Sends data to a Log Analytics workspace and supports VM insights and monitoring solutions.
 - [Telegraf agent](../essentials/collect-custom-metrics-linux-telegraf.md): Sends data to Azure Monitor Metrics (Linux only).  
@@ -66,7 +66,13 @@ The Azure Monitor agent can coexist (run side by side on the same machine) with 
 > When using both agents during evaluation or migration, you can use the **'Category'** column of the [Heartbeat](/azure/azure-monitor/reference/tables/Heartbeat) table in your Log Analytics workspace, and filter for 'Azure Monitor Agent'.
 
 ## Supported resource types
-Azure virtual machines, virtual machine scale sets, and Azure Arc-enabled servers are currently supported. Azure Kubernetes Service and other compute resource types aren't currently supported.
+
+| Resource type | Installation method | Additional information |
+|:---|:---|:---|
+| Virtual machines, scale sets | [Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) | Installs the agent using Azure extension framework |
+| On-premise servers (Arc-enabled servers) | [Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) (after installing [Arc agent](../../azure-arc/servers/deployment-options.md)) | Installs the agent using Azure extension framework, provided for on-premise by first installing [Arc agent](../../azure-arc/servers/deployment-options.md) |
+| Windows 10, 11 desktops, workstations | [Client installer (preview)](./azure-monitor-agent-windows-client.md) | Installs the agent using a Windows MSI installer |
+| Windows 10, 11 laptops | [Client installer (preview)](./azure-monitor-agent-windows-client.md) | Installs the agent using a Windows MSI installer. The installs works on laptops but the agent is **not optimized yet** for battery, network consumption |
 
 ## Supported regions
 Azure Monitor agent is available in all public regions that support Log Analytics, as well as the Azure Government and China clouds. Air-gapped clouds are not yet supported.
