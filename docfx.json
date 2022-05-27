@@ -241,6 +241,7 @@
         "articles/azure-monitor/*.md": "bwren",
         "articles/azure-monitor/insights/*.md": "bwren",
         "articles/azure-monitor/logs/*.md": "guywi-ms",
+        "articles/azure-monitor/profiler/*.md": "hhunter-ms",
         "articles/azure-monitor/visualize/**/*.md": "rboucher",
         "articles/azure-monitor/vm/*.md": "bwren",
         "articles/azure-portal/**/*.md": "JnHs",
