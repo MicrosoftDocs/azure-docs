@@ -2,11 +2,11 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/30/2020
+ms.date: 05/19/2022
 ms.author: glenga
 ---
 
-1. In **Solution Explorer**, right-click the project and select **Publish** and in **Target**, select **Azure** then **Next**.
+1. In **Solution Explorer**, right-click the project and select **Publish**. In **Target**, select **Azure** then **Next**.
 
 1. For the **Specific target**, choose **Azure Function App (Windows)**, which creates a function app that runs on Windows.
 
@@ -35,7 +35,7 @@ ms.author: glenga
 
 1. Select **Finish**, and on the Publish page, select **Publish** to deploy the package containing your project files to your new function app in Azure. 
 
-    After the deployment completes the root URL of the function app in Azure is shown in the **Publish** tab. 
+    After the deployment completes, the root URL of the function app in Azure is shown in the **Publish** tab. 
     
 1.  In the Publish tab, choose **Manage in Cloud Explorer**. This opens the new function app Azure resource in Cloud Explorer. 
     
