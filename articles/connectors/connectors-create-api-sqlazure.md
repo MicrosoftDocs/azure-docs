@@ -128,9 +128,11 @@ In Standard logic app workflows, only the SQL Server managed connector has trigg
 
 1. Find and select the [SQL Server managed connector trigger](/connectors/sql) that you want to use.
 
-   1. Under the designer search box, select **Azure**.
+   1. On the designer, select **Choose an operation**.
 
-   1. In the designer search box, enter **sql server**.
+   1. Under the **Choose an operation** search box, select **Azure**.
+
+   1. In the search box, enter **sql server**.
 
    1. From the triggers list, select the SQL trigger that you want. This example continues with the trigger named **When an item is created**.
 
@@ -182,7 +184,7 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
       Or, to add an action between existing steps, move your mouse over the connecting arrow. Select the plus sign (**+**) that appears, and then select **Add an action**.
 
-   1. Under the **Choose an operation** box, select **All**.
+   1. Under the **Choose an operation** search box, select **All**.
 
    1. In the search box, enter **sql server**.
 
