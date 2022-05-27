@@ -126,4 +126,5 @@ The following are known limitations for accounts that opt in to simplified compu
 ## Next steps
 
 - Learn more about [pools in virtual networks](batch-virtual-network.md).
-- Learn how to [create a pool pool with specified public IP addresses](create-pool-public-ip.md).
+- Learn how to [create a pool with specified public IP addresses](create-pool-public-ip.md).
+- Learn how to [create a pool without public IP addresses](batch-pool-no-public-ip-address-v2.md)

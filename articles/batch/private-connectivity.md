@@ -34,13 +34,13 @@ Batch account resource has two endpoints supported to access with private endpoi
 Use the following steps to create a private Batch account using the Azure portal:
 
 1. Go to Batch account in Azure portal.
-1. In **Settings**, select **Networking** and go to tab **Private Access**, then select **+ Private endpoint**.
+2. In **Settings**, select **Networking** and go to tab **Private Access**, then select **+ Private endpoint**.
    :::image type="content" source="media/private-connectivity/private-endpoint-connections.png" alt-text="Private endpoint connections":::
-1. In the **Basics** pane, enter or select the subscription, resource group, private endpoint resource name and region details, then select **Next: Resource**.
+3. In the **Basics** pane, enter or select the subscription, resource group, private endpoint resource name and region details, then select **Next: Resource**.
    :::image type="content" source="media/private-connectivity/create-private-endpoint-basics.png" alt-text="Create a private endpoint - Basics pane":::
-1. In the **Resource** pane, set the **Resource type** to **Microsoft.Batch/batchAccounts**. Select the Batch account you want to access, select the target sub-resource, then select **Next: Configuration**.
+4. In the **Resource** pane, set the **Resource type** to **Microsoft.Batch/batchAccounts**. Select the Batch account you want to access, select the target sub-resource, then select **Next: Configuration**.
    :::image type="content" source="media/private-connectivity/create-private-endpoint-resource.png" alt-text="Create a private endpoint - Resource pane":::
-1. In the **Configuration** pane, enter or select this information:
+5. In the **Configuration** pane, enter or select this information:
    - **Virtual network**: Select your virtual network.
    - **Subnet**: Select your subnet.
    - **Private IP configuration**: Select default "Dynamically allocate IP address".
