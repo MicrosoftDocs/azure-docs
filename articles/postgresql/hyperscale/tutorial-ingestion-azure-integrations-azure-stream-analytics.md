@@ -5,7 +5,7 @@ ms.author: sasriram
 author: saimicrosoft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
-ms.topic: how-to
+ms.topic: tutorial
 ms.date: 05/17/2022
 ---
 

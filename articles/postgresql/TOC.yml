@@ -626,7 +626,7 @@
       href: hyperscale/quickstart-run-queries.md
   - name: Tutorials
     items:
-      - name: Model and load data
+      - name: Model data
         items:
         - name: Shard data on worker nodes
           href: hyperscale/tutorial-shard.md
@@ -636,6 +636,10 @@
         - name: Design a real-time dashboard
           href: hyperscale/tutorial-design-database-realtime.md
           displayName: hyperscale, tutorial, real-time
+      - name: Ingest data
+        items:
+        - name: Azure Stream Analytics (ASA)
+          href: hyperscale/tutorial-ingestion-azure-integrations-azure-stream-analytics.md
       - name: Administer
         items:
         - name: Set up private access
@@ -783,12 +787,6 @@
         displayName: read-only, hyperscale
       - name: Useful diagnostic queries
         href: hyperscale/howto-useful-diagnostic-queries.md
-    - name: Ingestion
-      items:
-      - name: Azure integration
-        items:
-        - name: Azure Stream Analytics (ASA)
-          href: hyperscale/howto-ingestion-azure-integrations-azure-stream-analytics.md
   - name: Reference
     items:
       - name: PostgreSQL versions
