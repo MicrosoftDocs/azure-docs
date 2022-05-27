@@ -39,7 +39,15 @@ Use the OCR client library to read printed and handwritten text from a remote im
 
     ### Install the client library 
 
+    #### [Version 3.2](#tab/3-2)
     Once you've created a new project, install the client library by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Microsoft.Azure.CognitiveServices.Vision.ComputerVision`. Select version `7.0.0`, and then **Install**. 
+    
+    #### [Version 4.0](#tab/4-0)
+    
+    Once you've created a new project, install the client library by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Microsoft.Azure.CognitiveServices.Vision.ComputerVision`. Select version `x.x.x`, and then **Install**. 
+
+    ---
+
 
     #### [CLI](#tab/cli)
 
