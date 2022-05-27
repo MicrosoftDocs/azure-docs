@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: ajagadish-24
 ms.author: ajagadish
 ms.reviewer: wiassaf
-ms.date: 05/24/2022
+ms.date: 05/31/2022
 ---
 
 # Visualization and reporting for Netezza migrations
