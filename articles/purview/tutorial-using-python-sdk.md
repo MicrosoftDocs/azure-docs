@@ -179,7 +179,17 @@ Many of our scripts will start with these same steps, as we'll need these client
 
 In this section, you'll register your Blob Storage.
 
+1. Like we discussed in the previous section, first you'll import the clients you'll need to access your Microsoft Purview account. Also import the Azure error response package so you can troubleshoot, and the ClientSecretCredential, to gather your Azure credentials.
+
+    ```python
+    from azure.purview.administration.account import PurviewAccountClient
+    from azure.purview.scanning import PurviewScanningClient
+    from azure.core.exceptions import HttpResponseError
+    from azure.identity import ClientSecretCredential
+    ```
+
 1. Gather the resource ID for your storage account by following this guide: [get the resource ID for a storage account.](../storage/common/storage-account-get-info.md#get-the-resource-id-for-a-storage-account)
+
 1. Then, in your python file, define the following information to be able to register the Blob storage programmatically:
 
     ```python
@@ -196,12 +206,30 @@ In this section, you'll register your Blob Storage.
     collection_name = "<name of your collection>"
     ```
 
+1. Create a function to get the credentials to access your Microsoft Purview account:
+
+    ```python
+    client_id = "<your client id>" 
+    client_secret = "<your client secret>"
+    tenant_id = "<your tenant id>"
+
+
+    def get_credentials():
+	    credentials = ClientSecretCredential(client_id=client_id, client_secret=client_secret, tenant_id=tenant_id)
+	    return credentials
+    ```
+
 1. All collections in the Microsoft Purview data map have a name and a friendly name. The friendly name is the one you see on the collection. For example: Sales. The name for all collections (except the root collection) are a six-character name assigned by the data map. Python needs this six-character name to reference any sub collections. To convert your "friendly name" automatically to the six-character collection name needed in your script, add this block of code:
 
     ```python
+    def get_admin_client():
+	    credentials = get_credentials()
+	    client = PurviewAccountClient(endpoint=f"https://{reference_name_purview}.purview.azure.com/", credential=credentials, logging_enable=True)
+	    return client
+
     try:
       admin_client = get_admin_client()
-    except AzureError as e:
+    except ValueError as e:
         print(e)
 
     collection_list = client.collections.list_collections()
@@ -235,9 +263,14 @@ In this section, you'll register your Blob Storage.
 1.	Register the data source.
 
     ```python
+    def get_purview_client():
+	    credentials = get_credentials()
+	    client = PurviewScanningClient(endpoint=f"https://{reference_name_purview}.scan.purview.azure.com", credential=credentials, logging_enable=True)  
+	    return client
+
     try:
         client = get_purview_client()
-    except AzureError as e:
+    except ValueError as e:
         print(e)
 
     try:
@@ -256,13 +289,13 @@ In the following sections, you'll scan the data source you registered, and searc
 
 ```python
 from azure.purview.scanning import PurviewScanningClient
-from azure.purview.catalog import PurviewCatalogClient
 from azure.identity import ClientSecretCredential 
 from azure.core.exceptions import HttpResponseError
+from azure.purview.administration.account import PurviewAccountClient
 
 client_id = "<your client id>" 
-client_secret = "<your client secret>",
-tenant_id = "<your tenant id>",
+client_secret = "<your client secret>"
+tenant_id = "<your tenant id>"
 reference_name_purview = "<name of your Microsoft Purview account>"
 storage_name = "<name of your Storage Account>"
 storage_id = "<id of your Storage Account>"
@@ -279,11 +312,6 @@ def get_purview_client():
 	credentials = get_credentials()
 	client = PurviewScanningClient(endpoint=f"https://{reference_name_purview}.scan.purview.azure.com", credential=credentials, logging_enable=True)  
 	return client
-    
-def get_catalog_client():
-	credentials = get_credentials()
-	client = PurviewCatalogClient(endpoint=f"https://{reference_name_purview}.purview.azure.com/", credential=credentials, logging_enable=True)
-	return client
 
 def get_admin_client():
 	credentials = get_credentials()
@@ -292,7 +320,7 @@ def get_admin_client():
 
 try:
 	admin_client = get_admin_client()
-except AzureError as e:
+except ValueError as e:
         print(e)
 
 collection_list = admin_client.collections.list_collections()
@@ -319,7 +347,7 @@ body_input = {
 
 try:
 	client = get_purview_client()
-except AzureError as e:
+except ValueError as e:
         print(e)
 
 try:
@@ -327,26 +355,75 @@ try:
 	print(response)
 	print(f"Data source {ds_name} successfully created or updated")
 except HttpResponseError as e:
-        print(e)
+    print(e)
 ```
 
 ## Scan the data source
 
-Scanning a data source is done in three steps:
-1.    (Optional): Define a Scan rule
-1.    Create a scan definition
-1.    Trigger a scan run
+Scanning a data source can be done in two steps:
 
-In this part of the tutorial, you'll use the default scan rules for Blob Storage containers. However, you can easily create custom scan rules programmatically with the Microsoft Purview Scanning Client.
+1. Create a scan definition
+1. Trigger a scan run
+
+In this tutorial, you'll use the default scan rules for Blob Storage containers. However, you can also [create custom scan rules programmatically with the Microsoft Purview Scanning Client](/python/api/azure-purview-scanning/azure.purview.scanning.operations.scanrulesetsoperations).
 
 Now let's scan the data source you registered above.
 
-1. Add an import statement to generate [unique identifier](https://en.wikipedia.org/wiki/Universally_unique_identifier):
+1. Add an import statement to generate [unique identifier](https://en.wikipedia.org/wiki/Universally_unique_identifier), call the Microsoft Purview scanning client, the Microsoft Purview administration client, the Azure error response package to be able to troubleshoot, and the client secret credential to gather your Azure credentials.
+
     ```python
     import uuid
+    from azure.purview.scanning import PurviewScanningClient
+    from azure.purview.administration.account import PurviewAccountClient
+    from azure.core.exceptions import HttpResponseError
+    from azure.identity import ClientSecretCredential 
     ```
-    
-1.	First, create a scan definition:
+
+1. Create a scanning client using your credentials:
+
+    ```python
+    client_id = "<your client id>" 
+    client_secret = "<your client secret>"
+    tenant_id = "<your tenant id>"
+
+    def get_credentials():
+	    credentials = ClientSecretCredential(client_id=client_id, client_secret=client_secret, tenant_id=tenant_id)
+	    return credentials
+
+    def get_purview_client():
+	    credentials = get_credentials()
+	    client = PurviewScanningClient(endpoint=f"https://{reference_name_purview}.scan.purview.azure.com", credential=credentials, logging_enable=True)  
+	    return client
+
+    try:
+	    client = get_purview_client()
+    except ValueError as e:
+	    print(e)
+    ```
+
+1. Add the code to gather the internal name of your collection. (For more information, see the previous section.):
+
+    ```python
+    collection_name = "<name of the collection where you will be creating the scan>"
+
+    def get_admin_client():
+	    credentials = get_credentials()
+	    client = PurviewAccountClient(endpoint=f"https://{reference_name_purview}.purview.azure.com/", credential=credentials, logging_enable=True)
+	    return client
+
+    try:
+      admin_client = get_admin_client()
+    except ValueError as e:
+        print(e)
+
+    collection_list = client.collections.list_collections()
+     for collection in collection_list:
+      if collection["friendlyName"].lower() == collection_name.lower():
+          collection_name = collection["name"]
+    ```
+
+1. Then, create a scan definition:
+
     ```python
     ds_name = "<name of your registered data source>"
     scan_name = "<name of the scan you want to define>"
@@ -359,7 +436,7 @@ Now let's scan the data source you registered above.
                 "scanRulesetType": "System", #We use the default scan rule set 
                 "collection": 
                     {
-                        "referenceName": reference_name_purview, #The data source is registered in the root collection
+                        "referenceName": collection_name,
                         "type": "CollectionReference"
                     }
             }
@@ -384,6 +461,82 @@ Now let's scan the data source you registered above.
     except HttpResponseError as e:
         print(e)
     ```
+
+### Full code
+
+```python
+import uuid
+from azure.purview.scanning import PurviewScanningClient
+from azure.purview.administration.account import PurviewAccountClient
+from azure.identity import ClientSecretCredential
+
+ds_name = "<name of your registered data source>"
+scan_name = "<name of the scan you want to define>"
+reference_name_purview = "<name of your Microsoft Purview account>"
+client_id = "<your client id>" 
+client_secret = "<your client secret>"
+tenant_id = "<your tenant id>"
+collection_name = "<name of the collection where you will be creating the scan>"
+
+def get_credentials():
+	credentials = ClientSecretCredential(client_id=client_id, client_secret=client_secret, tenant_id=tenant_id)
+	return credentials
+
+def get_purview_client():
+	credentials = get_credentials()
+	client = PurviewScanningClient(endpoint=f"https://{reference_name_purview}.scan.purview.azure.com", credential=credentials, logging_enable=True)  
+	return client
+
+def get_admin_client():
+	credentials = get_credentials()
+	client = PurviewAccountClient(endpoint=f"https://{reference_name_purview}.purview.azure.com/", credential=credentials, logging_enable=True)
+	return client
+
+try:
+	admin_client = get_admin_client()
+except ValueError as e:
+        print(e)
+
+collection_list = admin_client.collections.list_collections()
+for collection in collection_list:
+	if collection["friendlyName"].lower() == collection_name.lower():
+		collection_name = collection["name"]
+
+
+try:
+	client = get_purview_client()
+except AzureError as e:
+	print(e)
+
+body_input = {
+	"kind":"AzureStorageMsi",
+	"properties": { 
+		"scanRulesetName": "AzureStorage", 
+		"scanRulesetType": "System",
+		"collection": {
+			"type": "CollectionReference",
+			"referenceName": collection_name
+		}
+	}
+}
+
+try:
+	response = client.scans.create_or_update(data_source_name=ds_name, scan_name=scan_name, body=body_input)
+	print(response)
+	print(f"Scan {scan_name} successfully created or updated")
+except HttpResponseError as e:
+	print(e)
+
+run_id = uuid.uuid4() #unique id of the new scan
+
+try:
+	response = client.scan_result.run_scan(data_source_name=ds_name, scan_name=scan_name, run_id=run_id)
+	print(response)
+	print(f"Scan {scan_name} successfully started")
+except HttpResponseError as e:
+	print(e)
+```
+
 ## Search catalog
 
 Once a scan is complete, it's likely that assets have been discovered and even classified. This process can take some time to complete after a scan. In this section, you use the Microsoft Purview Catalog client to search the whole catalog.
@@ -391,7 +544,7 @@ Once a scan is complete, it's likely that assets have been discovered and even c
     ```python
     try:
         client_catalog = get_catalog_client()
-    except AzureError as e:
+    except ValueError as e:
         print(e)  
     ```
 1.	Configure your search criteria and keywords in the input body: 
