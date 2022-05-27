@@ -431,7 +431,7 @@ properties:
             periodSeconds: 3
           - type: readiness
             tcpSocket:
-              - port: 8081
+              port: 8081
             initialDelaySeconds: 10
             periodSeconds: 3
           - type: startup

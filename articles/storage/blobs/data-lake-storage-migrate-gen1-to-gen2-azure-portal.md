@@ -17,7 +17,7 @@ On **Feb. 29, 2024** Azure Data Lake Storage Gen1 will be retired. For more info
 This article shows you how to simplify the migration by using the Azure portal. You can provide your consent in the Azure portal and then migrate your data and metadata (such as timestamps and ACLs) automatically from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2. For easier reading, this article uses the term *Gen1* to refer to Azure Data Lake Storage Gen1, and the term *Gen2* to refer to Azure Data Lake Storage Gen2.
 
 > [!NOTE]
-> Your account may not qualify for portal-based migration based on certain constraints. When the **Migrate data** button is not enabled in the Azure portal for your Gen1 account, if you have a support plan, you can [file a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). You can also get answers from community experts in [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-data-lake-storage.html).
+> Your account may not qualify for portal-based migration based on certain constraints. When the **Migrate data** button is not enabled in the Azure portal for your Gen1 account, if you have a support plan, you can [file a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). You can also get answers from community experts in [Microsoft Q&A](/answers/topics/azure-data-lake-storage.html).
 
 > [!WARNING]
 > Azure Data Lake Storage Gen2 doesn't support Azure Data Lake Analytics. If you're using Azure Data Lake Analytics, you'll need to migrate before proceeding. See [Migrate Azure Data Lake Analytics workloads](#migrate-azure-data-lake-analytics-workloads) for more information.
@@ -66,9 +66,9 @@ For Gen1, ensure that the [Owner](../../role-based-access-control/built-in-roles
 
 ## Migrate Azure Data Lake Analytics workloads
 
-Azure Data Lake Storage Gen2 doesn't support Azure Data Lake Analytics. Azure Data Lake Analytics [will be retired](https://azure.microsoft.com/updates/migrate-to-azure-synapse-analytics/) on February 29, 2024. If you attempt to use the Azure portal to migrate an Azure Data Lake Storage Gen1 account that is used for Azure Data Lake Analytics, it's possible that you'll break your Azure Data Lake Analytics workloads. You must first [migrate your Azure Data Lake Analytics workloads to Azure Synapse Analytics](/azure/data-lake-analytics/migrate-azure-data-lake-analytics-to-synapse) or another supported compute platform before attempting to migrate your Gen1 account.
+Azure Data Lake Storage Gen2 doesn't support Azure Data Lake Analytics. Azure Data Lake Analytics [will be retired](https://azure.microsoft.com/updates/migrate-to-azure-synapse-analytics/) on February 29, 2024. If you attempt to use the Azure portal to migrate an Azure Data Lake Storage Gen1 account that is used for Azure Data Lake Analytics, it's possible that you'll break your Azure Data Lake Analytics workloads. You must first [migrate your Azure Data Lake Analytics workloads to Azure Synapse Analytics](../../data-lake-analytics/migrate-azure-data-lake-analytics-to-synapse.md) or another supported compute platform before attempting to migrate your Gen1 account.
 
-For more information, see [Manage Azure Data Lake Analytics using the Azure portal](/azure/data-lake-analytics/data-lake-analytics-manage-use-portal).
+For more information, see [Manage Azure Data Lake Analytics using the Azure portal](../../data-lake-analytics/data-lake-analytics-manage-use-portal.md).
 
 ## Perform the migration
 
@@ -200,7 +200,7 @@ Post migration, if you chose the option that copies only data, then you will be 
 
 #### While providing consent I encountered the error message *Migration initiation failed*. What should I do next?
 
-Make sure all your Azure Data lake Analytics accounts are [migrated to Azure Synapse Analytics](/azure/data-lake-analytics/migrate-azure-data-lake-analytics-to-synapse) or another supported compute platform. Once Azure Data Lake Analytics accounts are migrated, retry the consent. If you see the issue further and you have a support plan, you can [file a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). You can also get answers from community experts in [Microsoft Q&A](https://docs.microsoft.com/answers/topics/azure-data-lake-storage.html).
+Make sure all your Azure Data lake Analytics accounts are [migrated to Azure Synapse Analytics](../../data-lake-analytics/migrate-azure-data-lake-analytics-to-synapse.md) or another supported compute platform. Once Azure Data Lake Analytics accounts are migrated, retry the consent. If you see the issue further and you have a support plan, you can [file a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). You can also get answers from community experts in [Microsoft Q&A](/answers/topics/azure-data-lake-storage.html).
 
 #### After the migration completes, can I go back to using the Gen1 account?
 
