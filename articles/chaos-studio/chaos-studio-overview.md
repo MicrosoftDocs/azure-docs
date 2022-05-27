@@ -1,18 +1,18 @@
 ---
-title: What is Azure Chaos Studio Preview?
+title: What is Azure Chaos Studio (Preview)?
 description: Measure, understand, and build resilience to incidents by using chaos engineering to inject faults and monitor how your application responds.
 services: chaos-studio
 author: johnkemnetz
 ms.topic: overview
-ms.date: 05/10/2022
+ms.date: 05/27/2022
 ms.author: johnkem
 ms.service: chaos-studio
 ms.custom: template-overview,ignite-fall-2021, kr2b-contr-experiment
 ---
 
-# What is Azure Chaos Studio Preview?
+# What is Azure Chaos Studio (Preview)?
 
-[Azure Chaos Studio](https://azure.microsoft.com/services/chaos-studio) is a managed service that uses chaos engineering to help you measure, understand, and improve your cloud application and service resilience. Chaos engineering injects real-world faults into your application to run controlled fault injection experiments.
+[Azure Chaos Studio](https://azure.microsoft.com/services/chaos-studio) is a managed service that uses chaos engineering to help you measure, understand, and improve your cloud application and service resilience. Chaos engineering is a methodology by which you inject real-world faults into your application to run controlled fault injection experiments.
 
 Resilience is the capability of a system to handle and recover from disruptions. Application disruptions can cause errors and failures that can adversely affect your business or mission. Whether you're developing, migrating, or operating Azure applications, it's important to validate and improve your application's resilience.
 
@@ -42,7 +42,7 @@ You can use Chaos Studio for the following common chaos engineering scenarios:
 - Build confidence in services built on cloud-native architectures.
 - Validate that live site tooling, observability data, and on-call processes still work in unexpected conditions.
 
-For many of these scenarios, you first build resilience using ad-hoc chaos experiments. Then, you continuously validate that new deployments won't regress resilience. Use chaos experiments as deployment gates in your continuous integration/continuous deployment (CI/CD) pipelines.
+For many of these scenarios, you first build resilience using ad-hoc chaos experiments. Then, you continuously validate that new deployments won't regress resilience, by running chaos experiments as deployment gates in your continuous integration/continuous deployment (CI/CD) pipelines.
 
 ## How Chaos Studio works
 
