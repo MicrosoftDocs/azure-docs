@@ -39,8 +39,6 @@ To use the Security Assertion Markup Language (SAML) based single sign-on (SSO) 
 
     <!--  ![Graphical user interface, text, application, email Description > automatically generated](media/image4.png){width="6.5in" > height="3.066666666666667in"} -->
 
-6. The setup of single sign-on is now complete.
-
 ## Next steps
 
 - [Quickstart: Create a new Dynatrace environment.](#create-new-dynatrace-environment)
