@@ -220,7 +220,7 @@ Installer file | Operating system (64-bit only)
 `Microsoft-ASR_UA_version_DEBIAN8-64_GA_date_release.tar.gz` | Debian 8
 `Microsoft-ASR_UA_version_DEBIAN9-64_GA_date_release.tar.gz` | Debian 9
 
-## Download latest mobility agent installer for SUSE 11 SP3, SUSE 11 SP4, RHEL 5, Debian 7, Oracle Linux 6 server
+## Download latest mobility agent installer for SUSE 11 SP3, SUSE 11 SP4, RHEL 5, Cent OS 5, Debian 7, Debian 8, Oracle Linux 6 and Ubuntu 14.04 server
 
 ### SUSE 11 SP3 or SUSE 11 SP4 server 
 
