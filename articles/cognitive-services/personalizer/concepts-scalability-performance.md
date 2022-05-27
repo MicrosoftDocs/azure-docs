@@ -2,8 +2,8 @@
 title: Scalability and Performance - Personalizer
 titleSuffix: Azure Cognitive Services
 description: "High-performance and high-traffic websites and applications have two main factors to consider with Personalizer for scalability and performance: latency and training throughput."
-author: jeffmend
-ms.author: jeffme
+author: jcodella
+ms.author: jacodel
 ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer

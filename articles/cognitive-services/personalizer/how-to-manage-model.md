@@ -1,8 +1,8 @@
 ---
 title: Manage model and learning settings - Personalizer
 description: The machine-learned model and learning settings can be exported for backup in your own source control system.
-author: jeffmend
-ms.author: jeffme
+author: jcodella
+ms.author: jacodel
 ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
