@@ -42,7 +42,7 @@ For more information about retry policies, settings, limits, and other options, 
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
-1. Based on the your [logic app type](logic-apps-overview.md#resource-environment-differences), open the trigger or action's **Settings**.
+1. Based on your [logic app type](logic-apps-overview.md#resource-environment-differences), open the trigger or action's **Settings**.
 
    * **Consumption**: On the action shape, open the ellipses menu (**...**), and select **Settings**.
 
@@ -99,7 +99,7 @@ For more information about retry policies, settings, limits, and other options, 
 
 If you don't specify a retry policy, the action uses the default policy. The default is actually an [exponential interval policy](#exponential-interval) that sends up to four retries at exponentially increasing intervals, which scales by 7.5 seconds. The interval is capped between 5 and 45 seconds.
 
-Though not explicitly defined in your action or trigger, here is how the default policy behaves in an example HTTP action:
+Though not explicitly defined in your action or trigger, the following example shows how the default policy behaves in an example HTTP action:
 
 ```json
 "HTTP": {
@@ -164,7 +164,7 @@ The exponential interval retry policy specifies that the trigger or action waits
 
 **Random variable ranges**
 
-The following table shows how Azure Logic Apps generates a uniform random variable for each retry by using a range that can vary up to and including the number of retries:
+The following table shows the general algorithm that Azure Logic Apps uses to generate a uniform random variable in the specified range for each retry. The specified range can be up to and including the number of retries.
 
 | Retry number | Minimum interval | Maximum interval |
 |--------------|------------------|------------------|
@@ -216,7 +216,7 @@ For example, to run the Office 365 Outlook **Send an email** action after the Ex
 
    ![Screenshot showing Consumption designer, current action, and default "run after" set to "is successful".](./media/logic-apps-exception-handling/default-run-after-status-consumption.png)
 
-1. Change the "run after" behavior to the status that you want. Make sure that you first select an option before you clear the default option. You have to have at least one option selected at all times.
+1. Change the "run after" behavior to the status that you want. Make sure that you first select an option before you clear the default option. You have to always have at least one option selected.
 
    The following example selects **has failed**.
 
@@ -246,7 +246,7 @@ For example, to run the Office 365 Outlook **Send an email** action after the Ex
 
    ![Screenshot showing Standard designer, current action, and default "run after" set to "is successful".](./media/logic-apps-exception-handling/change-run-after-status-standard.png)
 
-1. Change the "run after" behavior to the status that you want. Make sure that you first select an option before you clear the default option. You have to have at least one option selected at all times.
+1. Change the "run after" behavior to the status that you want. Make sure that you first select an option before you clear the default option. You have to always have at least one option selected.
 
    The following example selects **has failed**.
 
