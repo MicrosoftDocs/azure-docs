@@ -219,7 +219,7 @@ The following classes and interfaces handle some of the major features of the Az
 | [CallComposite](#create-call-composite)                            | Composite component that renders a call experience with participant gallery and controls.    |
 | [CallCompositeBuilder](#create-call-composite)                     | Builder to build CallComposite with options.                                                 |
 | [GroupCallOptions](#group-call)                                    | Passed in CallComposite launch to start group call.                                          |
-| [TeamsMeetingOptions](#teams-meeting)                              | Passed to CallComposite launch to join Teams meeting meeting.                                |
+| [TeamsMeetingOptions](#teams-meeting)                              | Passed to CallComposite launch to join Teams meeting.                                        |
 | [ThemeConfiguration](#apply-theme-configuration)                   | Injected as optional in CallCompositeBuilder to change primary color of composite.           |
 | [LocalizationConfiguration](#apply-localization-configuration)     | Injected as optional in CallCompositeBuilder to set language of composite.       |
 
