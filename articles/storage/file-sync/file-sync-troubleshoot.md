@@ -116,17 +116,8 @@ If a server is not listed under **Registered servers** for a Storage Sync Servic
 
 ### Cloud endpoint creation errors
 
-<a id="cloud-endpoint-using-share"></a>**Cloud endpoint creation fails, with this error: "The specified Azure FileShare is already in use by a different CloudEndpoint"**  
-This error occurs if the Azure file share is already in use by another cloud endpoint. 
-
-If you see this message and the Azure file share currently is not in use by a cloud endpoint, complete the following steps to clear the Azure File Sync metadata on the Azure file share:
-
-> [!Warning]  
-> Deleting the metadata on an Azure file share that is currently in use by a cloud endpoint causes Azure File Sync operations to fail. If you then use this file share for sync in a different sync group, data loss for files in the old sync group is almost certain.
-
-1. In the Azure portal, go to your Azure file share.  
-2. Right-click the Azure file share, and then select **Edit metadata**.
-3. Right-click **SyncService**, and then select **Delete**.
+<a id="cloud-endpoint-mgmtinternalerror"></a>**Cloud endpoint creation fails, with this error: "MgmtInternalError"**  
+This error can occur if the Azure File Sync service cannot access the storage account due to SMB security settings. To enable Azure File Sync to access the storage account, the SMB security settings on the storage account must allow **SMB 3.1.1** protocol version, **NTLM v2** authentication and **AES-128-GCM** encryption. To check the SMB security settings on the storage account, see [SMB security settings](../files/files-smb-protocol.md#smb-security-settings).
 
 <a id="cloud-endpoint-authfailed"></a>**Cloud endpoint creation fails, with this error: "AuthorizationFailed"**  
 This error occurs if your user account doesn't have sufficient rights to create a cloud endpoint. 
@@ -150,8 +141,17 @@ To determine whether your user account role has the required permissions:
     * **Role assignment** should have **Read** and **Write** permissions.
     * **Role definition** should have **Read** and **Write** permissions.
 
-<a id="cloud-endpoint-mgmtinternalerror"></a>**Cloud endpoint creation fails, with this error: "MgmtInternalError"**  
-This error can occur if the Azure File Sync service cannot access the storage account due to SMB security settings. To enable Azure File Sync to access the storage account, the SMB security settings on the storage account must allow **SMB 3.1.1** protocol version, **NTLM v2** authentication and **AES-128-GCM** encryption. To check the SMB security settings on the storage account, see [SMB security settings](../files/files-smb-protocol.md#smb-security-settings).
+<a id="cloud-endpoint-using-share"></a>**Cloud endpoint creation fails, with this error: "The specified Azure FileShare is already in use by a different CloudEndpoint"**  
+This error occurs if the Azure file share is already in use by another cloud endpoint. 
+
+If you see this message and the Azure file share currently is not in use by a cloud endpoint, complete the following steps to clear the Azure File Sync metadata on the Azure file share:
+
+> [!Warning]  
+> Deleting the metadata on an Azure file share that is currently in use by a cloud endpoint causes Azure File Sync operations to fail. If you then use this file share for sync in a different sync group, data loss for files in the old sync group is almost certain.
+
+1. In the Azure portal, go to your Azure file share.  
+2. Right-click the Azure file share, and then select **Edit metadata**.
+3. Right-click **SyncService**, and then select **Delete**.
 
 ### Server endpoint creation and deletion errors
 
