@@ -134,7 +134,7 @@ Select **Save**. Your machine learning *workflow* should look like this:
 Select **Submit**. Under **Experiment**, select **Create new**. Name the experiment, and then select **Submit**.
 
 >[!NOTE]
-> Your experiment's first run should take around 5 minutes. Subsequent runs are much quicker because the designer caches components that have been run to reduce latency.
+> Your experiment's first run should take around 5 minutes. Subsequent jobs are much quicker because the designer caches components that have been run to reduce latency.
 
 When the experiment finishes, you see this view:
 

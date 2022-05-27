@@ -77,7 +77,7 @@ For more information on workspaces, see [how to manage resources in VS Code](how
 
 ## Create a GPU cluster for training
 
-A compute target is the computing resource or environment where you run training jobs. For more information, see the [Azure Machine Learning compute targets documentation](./concept-compute-target.md).
+A compute target is the computing resource or environment where you job training jobs. For more information, see the [Azure Machine Learning compute targets documentation](./concept-compute-target.md).
 
 1. In the Azure Machine Learning view, expand your workspace node.
 1. Right-click the **Compute clusters** node inside your workspace's **Compute** node and select **Create Compute**
@@ -132,7 +132,7 @@ To submit the training job:
 1. Open the *job.yml* file.
 1. Right-click the file in the text editor and select **Azure ML: Execute YAML**.
 
-At this point, a request is sent to Azure to run your experiment on the selected compute target in your workspace. This process takes several minutes. The amount of time to run the training job is impacted by several factors like the compute type and training data size. To track the progress of your experiment, right-click the current run node and select **View Run in Azure portal**.
+At this point, a request is sent to Azure to run your experiment on the selected compute target in your workspace. This process takes several minutes. The amount of time to run the training job is impacted by several factors like the compute type and training data size. To track the progress of your experiment, right-click the current run node and select **View Job in Azure portal**.
 
 When the dialog requesting to open an external website appears, select **Open**.
 

@@ -21,7 +21,7 @@ In this tutorial, you:
 > [!div class="checklist"]
 > * Create an Azure Machine Learning compute cluster.
 > * Create a dataset.
-> * Create an automated machine learning run.
+> * Create an automated machine learning job.
 > * Deploy the best model to a real-time scoring endpoint.
 
 
@@ -82,9 +82,9 @@ To explore the data, select the dataset and then select **Explore**:
 
 The data has 10 baseline input variables, such as age, sex, body mass index, average blood pressure, and six blood serum measurements. It also has one target variable, named **Y**. This target variable is a quantitative measure of diabetes progression one year after the baseline.
 
-## Create an automated machine learning run
+## Create an automated machine learning job
 
-In [Azure Machine Learning Studio](https://ml.azure.com), in the menu on the left, select **Automated ML**. Then select **New Automated ML run**:
+In [Azure Machine Learning Studio](https://ml.azure.com), in the menu on the left, select **Automated ML**. Then select **New Automated ML job**:
 
 :::image type="content" source="media/tutorial-power-bi/create-new-run.png" alt-text="Screenshot showing how to create a new automated machine learning run.":::
 
@@ -92,7 +92,7 @@ Next, select the **diabetes** dataset you created earlier. Then select **Next**:
 
 :::image type="content" source="media/tutorial-power-bi/select-dataset.png" alt-text="Screenshot showing how to select a dataset.":::
  
-On the **Configure run** page:
+On the **Configure job** page:
 
 1. Under **Experiment name**, select **Create new**.
 1. Name the experiment.
