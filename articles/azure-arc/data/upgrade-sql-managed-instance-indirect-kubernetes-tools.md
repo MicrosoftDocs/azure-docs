@@ -31,25 +31,23 @@ You need an indirectly connected data controller with the `imageTag v1.0.0_2021-
 
 The Azure Arc Data Controller must be upgraded to the new version before the Managed Instance can be upgraded.
 
+The Managed Instance must be at the same version as the data controller before a data controller is upgraded.
+
 Currently, only one Managed Instance can be upgraded at a time.
 
 ## Upgrade the Managed Instance
 
-### General Purpose
-
-During a SQL Managed Instance General Purpose upgrade, the containers in the pod will be upgraded and will be reprovisioned. This will cause a short amount of downtime as the new pod is created. You will need to build resiliency into your application, such as connection retry logic, to ensure minimal disruption. Read [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview) for more information on architecting resiliency.
-
-### Business Critical 
+[!INCLUDE [upgrade-sql-managed-instance-gpandbc](upgrade-sql-managed-instance-gpandbc.md)]
 
 ### Upgrade
 
-Use a kubectl command to view the existing spec in yaml. 
+Use a kubectl command to view the existing spec in yaml.
 
 ```console
 kubectl --namespace <namespace> get sqlmi <sqlmi-name> --output yaml
 ```
 
-Run kubectl patch to update the desired version. 
+Run kubectl patch to update the desired version.
 
 ```console
 kubectl patch sqlmi <sqlmi-name> --namespace <namespace> --type merge --patch '{"spec": {"update": {"desiredVersion": "v1.1.0_2021-11-02"}}}'
@@ -57,7 +55,7 @@ kubectl patch sqlmi <sqlmi-name> --namespace <namespace> --type merge --patch '{
 
 ## Monitor
 
-You can monitor the progress of the upgrade with kubectl. 
+You can monitor the progress of the upgrade with kubectl.
 
 ### kubectl
 
