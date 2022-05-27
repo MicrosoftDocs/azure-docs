@@ -151,7 +151,7 @@ Evaluate the desired state, Pause or Resume, and the current status, Online, or 
 1. On the **Activities** tab, copy the code below into the **Expression**.
 
     ```HTTP
-    @concat(activity('CheckState').output.properties.status,'-',pipeline().parameters.PauseOrResume)
+    @concat(activity('CheckState').output.value[0].properties.status,'-',pipeline().parameters.PauseOrResume)
     ```
     
     Where Check State is the name of the preceding Web activity with output.properties.status defining the current status and pipeline().parameters.PauseOrResume indicates the desired state.

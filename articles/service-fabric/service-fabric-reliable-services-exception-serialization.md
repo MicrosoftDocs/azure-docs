@@ -7,9 +7,9 @@ ms.custom: devx-track-csharp
 ---
 # Remoting exception serialization overview
 
-BinaryFormatter-based serialization isn't secure, so don't use BinaryFormatter for data processing. For more information on the security implications, see [Deserialization risks in use of BinaryFormatter and related types](https://docs.microsoft.com/dotnet/standard/serialization/binaryformatter-security-guide).
+BinaryFormatter-based serialization isn't secure, so don't use BinaryFormatter for data processing. For more information on the security implications, see [Deserialization risks in the use of BinaryFormatter and related types](/dotnet/standard/serialization/binaryformatter-security-guide).
 
-Azure Service Fabric used BinaryFormatter for serializing exceptions. Starting with ServiceFabric v9.0, [data contract-based serialization](https://docs.microsoft.com/dotnet/api/system.runtime.serialization.datacontractserializer?view=net-6.0) for remoting exceptions is made available as an opt-in feature. We recommend that you opt for DataContract remoting exception serialization by following the steps in this article.
+Azure Service Fabric used BinaryFormatter for serializing exceptions. Starting with ServiceFabric v9.0, [data contract-based serialization](/dotnet/api/system.runtime.serialization.datacontractserializer?view=net-6.0) for remoting exceptions is available as an opt-in feature. We recommend that you opt for DataContract remoting exception serialization by following the steps in this article.
 
 Support for BinaryFormatter-based remoting exception serialization will be deprecated in the future.
 
@@ -403,7 +403,7 @@ The actual exception observed during the execution of the remoting call is passe
 >[!NOTE]
 >If the framework finds the convertor for the exception, the converted (actual) exception is wrapped inside `AggregateException` and is thrown at the remoting API (proxy). If the framework fails to find the convertor, then `ServiceException`, which contains all the details of the actual exception, is wrapped inside `AggregateException` and is thrown.
 
-### Upgrade an existing service to enable DataContract serialization for remoting exceptions
+### Upgrade an existing service to enable data contract serialization for remoting exceptions
 
 Existing services must follow the following order (*Service first*) to upgrade. Failure to follow this order could result in misbehavior in retry logic and exception handling.
 
