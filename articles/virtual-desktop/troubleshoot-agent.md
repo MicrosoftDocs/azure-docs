@@ -122,8 +122,8 @@ On your session host VM, go to **Event Viewer** > **Windows Logs** > **Applicati
 On your session host VM, go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3277 with **InstallationHealthCheckFailedException** in the description, this means the stack listener isn't working because the terminal server has toggled the registry key for the stack listener.
 
 To resolve this issue:
-1. Check to see if [the stack listener is working](#error-stack-listener-isnt-working-on-windows-10-2004-vm).
-1. If the stack listener isn't working, [manually uninstall and reinstall the stack component](#error-vms-are-stuck-in-unavailable-or-upgrading-state).
+1. Check to see if [the stack listener is working](#error-stack-listener-isnt-working-on-a-windows-10-2004-session-host-vm)
+1. If the stack listener isn't working, [manually uninstall and reinstall the stack component](#error-session-host-vms-are-stuck-in-unavailable-or-upgrading-state).
 
 ## Error: ENDPOINT_NOT_FOUND
 
@@ -138,7 +138,7 @@ To resolve this issue:
 
 1. Make sure the VM is powered on and hasn't been removed from the host pool.
 1. Make sure that the VM hasn't exceeded the max session limit.
-1. Make sure the [agent service is running](#error-the-rdagentbootloader-andor-remote-desktop-agent-loader-has-stopped-running) and the [stack listener is working](#error-stack-listener-isnt-working-on-windows-10-2004-vm).
+1. Make sure the [agent service is running](#error-the-rdagentbootloader-andor-remote-desktop-agent-loader-has-stopped-running) and the [stack listener is working](#error-stack-listener-isnt-working-on-a-windows-10-2004-session-host-vm).
 1. Make sure [the agent can connect to the broker](#error-agent-cannot-connect-to-broker-with-invalid_form).
 1. Make sure [your VM has a valid registration token](#error-invalid_registration_token).
 1. Make sure [the VM registration token hasn't expired](./faq.yml). 
@@ -207,9 +207,9 @@ To resolve this issue, make space on your disk by:
 
 On your session host VM, go to **Event Viewer** > **Windows Logs** > **Application**. If you see an event with ID 3389 with **MissingMethodException: Method not found** in the description, this means the Azure Virtual Desktop agent didn't update successfully and reverted to an earlier version. This may be because the version number of the .NET framework currently installed on your VMs is lower than 4.7.2. To resolve this issue, you need to upgrade the .NET to version 4.7.2 or later by following the installation instructions in the [.NET Framework documentation](https://support.microsoft.com/topic/microsoft-net-framework-4-7-2-offline-installer-for-windows-05a72734-2127-a15d-50cf-daf56d5faec2).
 
-## Error: VMs are stuck in Unavailable or Upgrading state
+## Error: Session host VMs are stuck in Unavailable or Upgrading state
 
-If the status listed for the session host or hosts in your host pool always says **Unavailable** or **Upgrading**, the agent or stack didn't install successfully. 
+If the status listed for session hosts in your host pool always says **Unavailable** or **Upgrading**, the agent or stack didn't install successfully. 
 
 To resolve this issue, first reinstall the side-by-side stack:
 
@@ -224,10 +224,11 @@ To resolve this issue, first reinstall the side-by-side stack:
 
 1. Go to **Control Panel** > **Programs** > **Programs and Features**, or on Windows 11 go to the **Settings App > Apps**.
 1. Uninstall the latest version of the **Remote Desktop Services SxS Network Stack** or the version listed in Registry Editor in **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations** under the value for  **ReverseConnectionListener**.
-1. Back at the PowerShell prompt, run the following command to add the file path of the latest installer available on your session host VM for the side-by-side stack to a variable:
+1. Back at the PowerShell prompt, run the following commands to add the file path of the latest installer available on your session host VM for the side-by-side stack to a variable and list its name:
 
    ```powershell
-   $sxsMsi = (Get-ChildItem '$env:SystemDrive\Program Files\Microsoft RDInfra\' | ? Name -like SxSStack*.msi | Sort-Object CreationTime -Descending | Select-Object -First 1).FullName
+   $sxsMsi = (Get-ChildItem "$env:SystemDrive\Program Files\Microsoft RDInfra\" | ? Name -like SxSStack*.msi | Sort-Object CreationTime -Descending | Select-Object -First 1).FullName
+   $sxsMsi
    ```
 
 1. Install the latest installer available on your session host VM for the side-by-side stack by running the following command:
@@ -318,7 +319,7 @@ When you remove the session host from the host pool, the session host is no long
 1. In the search bar, type *Azure Virtual Desktop* and select the matching service entry.
 1. Select **Host pools** and select the name of the host pool that your session host VM is in.
 1. Select **Session Hosts** to see the list of all session hosts in that host pool.
-1. Look at the list of session hosts and select the session host that you want to remove.
+1. Look at the list of session hosts and tick the box next to the session host that you want to remove.
 1. Select **Remove**.  
 
    > [!div class="mx-imgBorder"]
@@ -339,9 +340,9 @@ You must generate a new registration key that is used to re-register your sessio
 1. Enter the expiration date and then select **Ok**.  
 
   > [!NOTE]
-  > The expiration date can be no less than an hour and no longer than 27 days from its generation time and date. We recommend you set the expiration date to the 27 day maximum.
+  > The expiration date can be no less than an hour and no longer than 27 days from its generation time and date. Generate a registration key only for as long as you need.
 
-1. Copy the newly generated key to your clipboard. You'll need this key later.
+1. Copy the newly generated key to your clipboard or download the file. You'll need this key later.
 
 ### Step 4: Reinstall the agent and boot loader
 
@@ -355,8 +356,10 @@ By reinstalling the most updated version of the agent and boot loader, the side-
         1. [Azure Virtual Desktop Agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm)
         1. [Azure Virtual Desktop Agent Bootloader](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3)
 
-1. For each of the the agent and boot loader installers you downloaded, right-click each file and select **Properties**, then select **Unblock**, and finally select **Ok**.
-1. Run the agent installer.
+   > [!TIP]
+   > For each of the the agent and boot loader installers you downloaded, you may need to unblock them. Right-click each file and select **Properties**, then select **Unblock**, and finally select **OK**.
+
+1. Run the agent installer
 1. When the installer asks you for the registration token, paste the registration key from the from your clipboard.
 
    > [!div class="mx-imgBorder"]
