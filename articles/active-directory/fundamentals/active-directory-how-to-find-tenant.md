@@ -45,7 +45,7 @@ For more information, see this Azure PowerShell cmdlet reference for [Get-AzTena
 
 
 ## Find tenant ID with CLI
-If you want to use a command-line interface to find the tenant ID, you can do so with [Azure CLI](/cli/azure/install-azure-cli) or [Microsoft 365 CLI](https://pnp.github.io/cli-microsoft365/). 
+The [Azure CLI](/cli/azure/install-azure-cli) or [Microsoft 365 CLI](https://pnp.github.io/cli-microsoft365/) can be used to find the tenant ID.
 
 For Azure CLI, use one of the commands **az login**, **az account list**, or **az account tenant list** as shown in the following example. Notice the **tenantId** property for each of your subscriptions in the output from each command.
 
