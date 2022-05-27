@@ -14,24 +14,24 @@ ms.custom: template-how-to, event-tier1-build-2022
 
 # Enable transparent data encryption on Azure Arc-enabled SQL Managed Instance
 
-This article describes how to enable transparent data encryption on a database created in an Azure Arc-enabled SQL Managed Instance.
+This article describes how to enable transparent data encryption on a database created in an Azure Arc-enabled SQL Managed Instance. In this article, the term *managed instance* refers to a deployment of Azure Arc-enabled SQL Managed Instance.
 
 ## Prerequisites
 
-Before you proceed with this article, you must have an Azure Arc-enabled SQL Managed Instance resource created and have connected to it.
+Before you proceed with this article, you must have an Azure Arc-enabled SQL Managed Instance resource created and connect to it.
 
 - [An Azure Arc-enabled SQL Managed Instance created](./create-sql-managed-instance.md)
 - [Connect to Azure Arc-enabled SQL Managed Instance](./connect-managed-instance.md)
 
-## Turn on transparent data encryption on a database in Azure Arc-enabled SQL Managed Instance
+## Turn on transparent data encryption on a database in the managed instance
 
-Turning on transparent data encryption in Azure Arc-enabled SQL Managed Instance follows the same steps as SQL Server on-premises. Follow the steps described in [SQL Server's transparent data encryption guide](/sql/relational-databases/security/encryption/transparent-data-encryption#enable-tde).
+Turning on transparent data encryption in the managed instance follows the same steps as SQL Server on-premises. Follow the steps described in [SQL Server's transparent data encryption guide](/sql/relational-databases/security/encryption/transparent-data-encryption#enable-tde).
 
-After creating the necessary credentials, it's highly recommended to back up any newly created credentials.
+After you create the necessary credentials, back up any newly created credentials.
 
-## Back up a transparent data encryption credential from Azure Arc-enabled SQL Managed Instance
+## Back up a transparent data encryption credential
 
-When backing up from Azure Arc-enabled SQL Managed Instance, the credentials will be stored within the container. It isn't necessary to store the credentials on a persistent volume, but you may use the mount path for the data volume within the container if you'd like: `/var/opt/mssql/data`. Otherwise, the credentials will be stored in-memory in the container.  Below is an example of backing up a certificate from Azure Arc-enabled SQL Managed Instance.
+When you back up credentials from the managed instance, the credentials are stored within the container. To store credentials on a persistent volume, specify the mount path in the container. For example, `var/opt/mssql/data`. The following example backs up a certificate from the managed instance:
 
 > [!NOTE]
 > If the `kubectl cp` command is run from Windows, the command may fail when using absolute Windows paths. Use relative paths or the commands specified below.
@@ -61,6 +61,7 @@ When backing up from Azure Arc-enabled SQL Managed Instance, the credentials wil
 2. Copy the certificate from the container to your file system.
 
 ### [Windows](#tab/windows)
+
    ```console
    kubectl exec -n <namespace> -c arc-sqlmi <pod-name> -- cat <pod-certificate-path> > <local-certificate-path>
    ```
@@ -85,6 +86,7 @@ When backing up from Azure Arc-enabled SQL Managed Instance, the credentials wil
 ---
 
 3. Copy the private key from the container to your file system.
+
 ### [Windows](#tab/windows)
    ```console
     kubectl exec -n <namespace> -c arc-sqlmi <pod-name> -- cat <pod-private-key-path> > <local-private-key-path>
@@ -121,9 +123,9 @@ When backing up from Azure Arc-enabled SQL Managed Instance, the credentials wil
    kubectl exec -it --namespace arc-ns --container arc-sqlmi sql-0 -- bash -c "rm /var/opt/mssql/data/servercert.crt /var/opt/mssql/data/servercert.key"
    ```
 
-## Restore a transparent data encryption credential to Azure Arc-enabled SQL Managed Instance
+## Restore a transparent data encryption credential to a managed instance
 
-Similar to above, restore the credentials by copying them into the container and running the corresponding T-SQL afterwards.
+Similar to above, to restore the credentials, copy them into the container and run the corresponding T-SQL afterwards.
 
 > [!NOTE]
 > If the `kubectl cp` command is run from Windows, the command may fail when using absolute Windows paths. Use relative paths or the commands specified below.
