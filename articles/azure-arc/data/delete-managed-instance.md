@@ -1,6 +1,6 @@
 ---
 title: Delete an Azure Arc-enabled SQL Managed Instance
-description: Learn how to delete an Azure Arc-enabled SQL Managed Instance and then reclaim associated Kubernetes persistent volume claims (PVCs).
+description: Learn how to delete an Azure Arc-enabled SQL Managed Instance and optionally, reclaim associated Kubernetes persistent volume claims (PVCs).
 ms.custom: kr2b-contr-experiment
 services: azure-arc
 ms.service: azure-arc
@@ -14,8 +14,51 @@ ms.topic: how-to
 
 # Delete an Azure Arc-enabled SQL Managed Instance
 
-In this how-to guide, you will find and then delete an Azure Arc-enabled SQL Managed Instance. After deleting, you can reclaim any associated Kubernetes persistent volume claims (PVCs).
+In this how-to guide, you will find and then delete an Azure Arc-enabled SQL Managed Instance. After deleting, you can reclaim associated Kubernetes persistent volume claims (PVCs).
 
+1. Find existing Azure Arc-enabled SQL Managed Instances:
+
+```azurecli
+az sql mi-arc list --k8s-namespace <namespace> --use-k8s
+```
+
+Example output:
+
+```console
+Name    Replicas    ServerEndpoint    State
+------  ----------  ----------------  -------
+demo-mi 1/1         10.240.0.4:32023  Ready
+```
+
+1. Delete the SQL Managed Instance, run one of the commands:
+
+    1. Indirectly connected mode:
+    
+    ```azurecli
+az sql mi-arc delete -n <instance_name> --k8s-namespace <namespace> --use-k8s
+```
+
+Output should look something like this:
+
+```azurecli
+# az sql mi-arc delete -n demo-mi --k8s-namespace <namespace> --use-k8s
+Deleted demo-mi from namespace arc
+```
+
+    1. Directly connected mode:
+
+```azurecli
+az sql mi-arc delete -n <instance_name> -g <resource_group>
+```
+
+Output should look something like this:
+
+```azurecli
+# az sql mi-arc delete -n demo-mi -g my-rg
+Deleted demo-mi from namespace arc
+```
+
+1. Optional.
 
 ## Find existing Azure Arc-enabled SQL Managed Instances
 
