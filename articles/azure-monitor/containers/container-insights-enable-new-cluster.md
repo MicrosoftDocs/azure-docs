@@ -22,7 +22,7 @@ To enable monitoring of a new AKS cluster created with Azure CLI, follow the ste
 
 ## Enable using Terraform
 
-If you are [deploying a new AKS cluster using Terraform](/azure/developer/terraform/create-k8s-cluster-with-tf-and-aks), you specify the arguments required in the profile [to create a Log Analytics workspace](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_workspace) if you do not chose to specify an existing one. 
+If you are [deploying a new AKS cluster using Terraform](/azure/developer/terraform/create-k8s-cluster-with-tf-and-aks), you specify the arguments required in the profile [to create a Log Analytics workspace](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/log_analytics_workspace) if you do not choose to specify an existing one. 
 
 >[!NOTE]
 >If you choose to use Terraform, you must be running the Terraform Azure RM Provider version 1.17.0 or above.

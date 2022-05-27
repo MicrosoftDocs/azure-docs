@@ -23,8 +23,7 @@ You can also manually grant this role from the Azure portal by performing the fo
     For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md). 
 
 ## Container insights is enabled but not reporting any information
-
-If Container insights is successfully enabled and configured, but you cannot view status information or no results are returned from a log query, you diagnose the problem by following these steps:
+Use the following steps to  diagnose the problem if you cannot view status information or no results are returned from a log query:
 
 1. Check the status of the agent by running the command:
 
@@ -82,7 +81,7 @@ The table below summarizes known errors you may encounter while using Container 
 | Error messages  | Action |
 | ---- | --- |
 | Error Message `No data for selected filters`  | It may take some time to establish monitoring data flow for newly created clusters. Allow at least 10 to 15 minutes for data to appear for your cluster. |
-| Error Message `Error retrieving data` | While Azure Kubernetes Service cluster is setting up for health and performance monitoring, a connection is established between the cluster and Azure Log Analytics workspace. A Log Analytics workspace is used to store all monitoring data for your cluster. This error may occur when your Log Analytics workspace has been deleted. Check if the workspace was deleted and if it was, you will need to re-enable monitoring of your cluster with Container insights and specify an existing or create a new workspace. To re-enable, you will need to [disable](container-insights-optout.md) monitoring for the cluster and [enable](container-insights-enable-new-cluster.md) Container insights again. |
+| Error Message `Error retrieving data` | While Azure Kubernetes Service cluster is setting up for health and performance monitoring, a connection is established between the cluster and Azure Log Analytics workspace. A Log Analytics workspace is used to store all monitoring data for your cluster. This error may occur when your Log Analytics workspace has been deleted. Check if the workspace was deleted. If it was, you will need to re-enable monitoring of your cluster with Container insights and either specify an existing workspace or create a new one. To re-enable, you will need to [disable](container-insights-optout.md) monitoring for the cluster and [enable](container-insights-enable-new-cluster.md) Container insights again. |
 | `Error retrieving data` after adding Container insights through az aks cli | When enable monitoring using `az aks cli`, Container insights may not be properly deployed. Check whether the solution is deployed. To verify, go to your Log Analytics workspace and see if the solution is available by selecting **Solutions** from the pane on the left-hand side. To resolve this issue, you will need to redeploy the solution by following the instructions on [how to deploy Container insights](container-insights-onboard.md) |
 
 To help diagnose the problem, we have provided a [troubleshooting script](https://github.com/microsoft/Docker-Provider/tree/ci_dev/scripts/troubleshoot).
@@ -154,7 +153,7 @@ To view the non-Azure Kubernetes cluster in Container insights, Read access is r
         ```
 
 ## Installation of Azure Monitor Containers Extension fail with an error containing “manifests contain a resource that already exists” on Azure Arc Enabled Kubernetes cluster
-The error _manifests contain a resource that already exists_ indicates that resources of the Container Insights agent already exist on the Azure Arc Enabled Kubernetes cluster. This indicates that the container insights agent is already installed either through azuremonitor-containers HELM chart or Monitoring Addon if it is AKS Cluster which is connected Azure Arc. The solution to this issue, is to clean up the existing resources of container insights agent if it exists and then enable Azure Monitor Containers Extension.
+The error _manifests contain a resource that already exists_ indicates that resources of the Container Insights agent already exist on the Azure Arc Enabled Kubernetes cluster. This indicates that the container insights agent is already installed, either through azuremonitor-containers HELM chart or Monitoring Addon if it is AKS Cluster which is connected Azure Arc. The solution to this issue, is to clean up the existing resources of container insights agent if it exists and then enable Azure Monitor Containers Extension.
 
 ### For non-AKS clusters 
 1.	Against the K8s cluster which is connected to Azure Arc,  run below command to verify whether the azmon-containers-release-1  helm chart release exists or not:
@@ -166,14 +165,14 @@ The error _manifests contain a resource that already exists_ indicates that reso
     `helm del azmon-containers-release-1`
 
 ### For AKS clusters
-1.	Run below commands and look for omsagent addon profile to verify the AKS monitoring addon enabled or not:
+1.	Run the following commands and look for omsagent addon profile to verify whether the AKS monitoring addon is enabled:
 
     ```
     az  account set -s <clusterSubscriptionId>
     az aks show -g <clusterResourceGroup> -n <clusterName>
     ```
 
-2.	If there is omsagent addon profile config with log analytics workspace resource Id in the output of the above command indicates that, AKS Monitoring addon enabled and which needs to be disabled:
+2.	If the output includes an omsagent addon profile config with a log analytics workspace resource Id, this indicates that AKS Monitoring addon is enabled and needs to be disabled:
 
     `az aks disable-addons -a monitoring -g <clusterResourceGroup> -n <clusterName>`
 

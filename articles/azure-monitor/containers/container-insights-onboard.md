@@ -31,7 +31,7 @@ Container insights supports a [Log Analytics workspace](../logs/log-analytics-wo
 
 You can let the onboarding experience create a default workspace in the default resource group of the AKS cluster subscription. If you already have a workspace though, then you will most likely want to use that one. See [Designing your Azure Monitor Logs deployment](../logs/design-logs-deployment.md) for details.
 
-An AKS cluster can be attached to a Log Analytics workspace in a different Azure subscription in the same Azure AD Tenant. This cannot currently be done with the Azure Portal, but can be done with Azure CLI or Resource Manager template.
+An AKS cluster can be attached to a Log Analytics workspace in a different Azure subscription in the same Azure AD Tenant. This cannot currently be done with the Azure portal, but can be done with Azure CLI or Resource Manager template.
 
 
 **Permissions**
