@@ -24,8 +24,8 @@ In this document, you connect to a Hyperscale (Citus) database using a java appl
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free)
-* Create a Hyperscale (Citus) database using this link [Create Hyperscale (Citus) server group](https://docs.microsoft.com/en-us/azure/postgresql/hyperscale/quickstart-create-portal)
-*  A supported [Java Development Kit](https://docs.microsoft.com/en-us/azure/developer/java/fundamentals/java-support-on-azure), version 8 (included in Azure Cloud Shell).
+* Create a Hyperscale (Citus) database using this link [Create Hyperscale (Citus) server group](quickstart-create-portal.md)
+*  A supported [Java Development Kit](../../developer/java/fundamentals/java-support-on-azure), version 8 (included in Azure Cloud Shell).
 * The [Apache Maven](https://maven.apache.org/) build tool.
 
 ## Setup
@@ -123,7 +123,8 @@ CREATE INDEX idx_pharmacy_id ON public.pharmacy(pharmacy_id);
 ```
 
 ###  Super power of Distributed Tables
-Citus gives you [the super power  of distributing your table](https://docs.microsoft.com/azure/postgresql/hyperscale/overview#the-superpower-of-distributed-tables) across multiple nodes for scalability. Below command enables you to distribute your table. More on create_distributed_table and distribution column here.
+
+Citus gives you [the super power of distributing your table](overview.md#the-superpower-of-distributed-tables) across multiple nodes for scalability. Below command enables you to distribute a table. More on create_distributed_table and distribution column [here](howto-build-scalable-apps-concepts.md#distribution-column-also-known-as-shard-key).
 
 > [!TIP]
 >

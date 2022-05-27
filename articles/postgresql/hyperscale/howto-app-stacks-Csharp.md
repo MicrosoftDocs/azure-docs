@@ -51,7 +51,6 @@ Replace the following values:
 ```csharp
 using System;
 using Npgsql;
-
 namespace Driver
 {
     public class AzurePostgresCreate
@@ -63,34 +62,27 @@ namespace Driver
         private static string DBname = "citus";
         private static string Password = "<password>";
         private static string Port = "5432";
-
         static void Main(string[] args)
         {
             // Build connection string using parameters from portal
             //
             string connString =
                 String.Format(
-                    "Server={0};Username={1};Database={2};Port={3};Password={4};SSLMode=Prefer",
+                    "Server={0};Username={1};Database={2};Port={3};Password={4};SSLMode=Require",
                     Host,
                     User,
                     DBname,
                     Port,
                     Password);
-
-
             using (var conn = new NpgsqlConnection(connString))
-
             {
                 Console.Out.WriteLine("Opening connection");
                 conn.Open();
-
                 using (var command = new NpgsqlCommand("DROP TABLE IF EXISTS pharmacy;", conn))
                 {
                     command.ExecuteNonQuery();
                     Console.Out.WriteLine("Finished dropping table (if existed)");
-
                 }
-
                 using (var command = new NpgsqlCommand("CREATE TABLE pharmacy (pharmacy_id integer ,pharmacy_name text,city text,state text,zip_code integer);", conn))
                 {
                     command.ExecuteNonQuery();
@@ -112,7 +104,6 @@ namespace Driver
                     Console.Out.WriteLine(String.Format("Number of rows inserted={0}", nRows));
                 }
             }
-
             Console.WriteLine("Press RETURN to exit");
             Console.ReadLine();
         }
@@ -122,12 +113,57 @@ namespace Driver
 
 ## Step 2: Super power of Distributed Tables
 
-Citus gives you [the super power of distributing your table](overview#the-superpower-of-distributed-tables) across multiple nodes for scalability. Below command enables you to distribute a table. More on create_distributed_table and distribution column [here](howto-build-scalable-apps-concepts#distribution-column-also-known-as-shard-key).
+Citus gives you [the super power of distributing your table](overview.md#the-superpower-of-distributed-tables) across multiple nodes for scalability. Below command enables you to distribute a table. More on create_distributed_table and distribution column [here](howto-build-scalable-apps-concepts.md#distribution-column-also-known-as-shard-key).
 
 > [!TIP]
 >
 > Distributing your tables is optional if you are using single node citus (basic tier).
 >
+
+
+```csharp
+using System;
+using Npgsql;
+namespace Driver
+{
+    public class AzurePostgresCreate
+    {
+        // Obtain connection string information from the portal
+        //
+        private static string Host = "<host>";
+        private static string User = "citus";
+        private static string DBname = "citus";
+        private static string Password = "<password>";
+        private static string Port = "5432";
+        static void Main(string[] args)
+        {
+            // Build connection string using parameters from portal
+            //
+            string connString =
+                String.Format(
+                    "Server={0};Username={1};Database={2};Port={3};Password={4};SSLMode=Require",
+                    Host,
+                    User,
+                    DBname,
+                    Port,
+                    Password);
+            using (var conn = new NpgsqlConnection(connString))
+            {
+                Console.Out.WriteLine("Opening connection");
+                conn.Open();
+                using (var command = new NpgsqlCommand( "select create_distributed_table('pharmacy','pharmacy_id');", conn))
+                {
+                    command.ExecuteNonQuery();
+                    Console.Out.WriteLine("Finished distributing the table");
+                }
+             
+            }
+            Console.WriteLine("Press RETURN to exit");
+            Console.ReadLine();
+        }
+    }
+}
+```
 
 ## Step 3: Read data
 
@@ -141,7 +177,6 @@ Use the following code to connect and read the data using a SELECT SQL statement
 ```csharp
 using System;
 using Npgsql;
-
 namespace Driver
 {
     public class read
@@ -153,30 +188,24 @@ namespace Driver
         private static string DBname = "citus";
         private static string Password = "<password>";
         private static string Port = "5432";
-
         static void Main(string[] args)
         {
             // Build connection string using parameters from portal
             //
             string connString =
                 String.Format(
-                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4};SSLMode=Prefer",
+                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4};SSLMode=Require",
                     Host,
                     User,
                     DBname,
                     Port,
                     Password);
-
             using (var conn = new NpgsqlConnection(connString))
             {
-
                 Console.Out.WriteLine("Opening connection");
                 conn.Open();
-
-
                 using (var command = new NpgsqlCommand("SELECT * FROM pharmacy", conn))
                 {
-
                     var reader = command.ExecuteReader();
                     while (reader.Read())
                     {
@@ -194,7 +223,6 @@ namespace Driver
                     reader.Close();
                 }
             }
-
             Console.WriteLine("Press RETURN to exit");
             Console.ReadLine();
         }
@@ -209,7 +237,6 @@ Use the following code to connect and update the data using an UPDATE SQL statem
 ```csharp
 using System;
 using Npgsql;
-
 namespace Driver
 {
     public class AzurePostgresUpdate
@@ -221,26 +248,22 @@ namespace Driver
         private static string DBname = "citus";
         private static string Password = "<your-password>";
         private static string Port = "5432";
-
         static void Main(string[] args)
         {
             // Build connection string using parameters from portal
             //
             string connString =
                 String.Format(
-                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4};SSLMode=Prefer",
+                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4};SSLMode=Require",
                     Host,
                     User,
                     DBname,
                     Port,
                     Password);
-
             using (var conn = new NpgsqlConnection(connString))
             {
-
                 Console.Out.WriteLine("Opening connection");
                 conn.Open();
-
                 using (var command = new NpgsqlCommand("UPDATE pharmacy SET city = @q WHERE pharmacy_id = @n", conn))
                 {
                     command.Parameters.AddWithValue("n", 0);
@@ -249,7 +272,6 @@ namespace Driver
                     Console.Out.WriteLine(String.Format("Number of rows updated={0}", nRows));
                 }
             }
-
             Console.WriteLine("Press RETURN to exit");
             Console.ReadLine();
         }
@@ -264,7 +286,6 @@ Use the following code to connect and delete data using a DELETE SQL statement.
 ```csharp
 using System;
 using Npgsql;
-
 namespace Driver
 {
     public class AzurePostgresDelete
@@ -276,40 +297,34 @@ namespace Driver
         private static string DBname = "citus";
         private static string Password = "<your-password>";
         private static string Port = "5432";
-
         static void Main(string[] args)
         {
             // Build connection string using parameters from portal
             //
             string connString =
                 String.Format(
-                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4};SSLMode=Prefer",
+                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4};SSLMode=Require",
                     Host,
                     User,
                     DBname,
                     Port,
                     Password);
-
             using (var conn = new NpgsqlConnection(connString))
             {
                 Console.Out.WriteLine("Opening connection");
                 conn.Open();
-
                 using (var command = new NpgsqlCommand("DELETE FROM pharmacy WHERE pharmacy_id = @n", conn))
                 {
                     command.Parameters.AddWithValue("n", 0);
-
                     int nRows = command.ExecuteNonQuery();
                     Console.Out.WriteLine(String.Format("Number of rows deleted={0}", nRows));
                 }
             }
-
             Console.WriteLine("Press RETURN to exit");
             Console.ReadLine();
         }
     }
 }
-
 ```
 
 ## COPY command for super fast ingestion
@@ -321,8 +336,7 @@ The following code is an example for copying data from csv file to table.
 
 ```csharp
 using Npgsql;
-
-public class inmemory
+public class csvtotable
 {
     private static string Host = "<your-db-server-name>";
     private static string User = "citus";
@@ -333,12 +347,12 @@ public class inmemory
     static void Main(string[] args)
     {
         String sDestinationSchemaAndTableName = "pharmacy";
-        String sFromFilePath = "C:\\Users\\v-vkancharla\\Documents\\citus\\pharmacies.csv";
+        String sFromFilePath = "C:\\Users\\johndoe\\Documents\\citus\\pharmacies.csv";
         // Build connection string using parameters from portal
         
         string connString =
             String.Format(
-                "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4};SSLMode=Prefer",
+                "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4};SSLMode=Require",
                 Host,
                 User,
                 DBname,
@@ -347,38 +361,34 @@ public class inmemory
       
             NpgsqlConnection conn = new NpgsqlConnection(connString);
             NpgsqlCommand cmd = new NpgsqlCommand();
-
            
                 conn.Open();
                
             if (File.Exists(sFromFilePath))
             {
                 using (var writer = conn.BeginTextImport("COPY " + sDestinationSchemaAndTableName + " FROM STDIN WITH(FORMAT CSV, HEADER true,NULL ''); ")) 
-
             {
                     foreach (String sLine in File.ReadAllLines(sFromFilePath))
                     {
                         writer.WriteLine(sLine);
                     }
                 }
-
             Console.WriteLine("completed");
-
             }  
     }
 }
 ```
 
 ### COPY command to load data in-memory
+
 The following code is an example for copying in-memory data to a table.
 
 ```csharp
 using Npgsql;
 using NpgsqlTypes;
-
 namespace Driver
 {
-    public class Program
+    public class InMemory
     {
         private static string Host = "<host>";
         private static string User = "citus";
@@ -390,17 +400,15 @@ namespace Driver
         {
             string connString =
               String.Format(
-                  "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4};SSLMode=Prefer",
+                  "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4};SSLMode=Require",
                   Host,
                   User,
                   DBname,
                   Port,
                   Password);
-
             using (var conn = new NpgsqlConnection(connString))
                 {
                 conn.Open();
-
          var text = new dynamic[] {0, "Target","Sunnyvale", "California",94001};
                 using (var writer = conn.BeginBinaryImport("COPY pharmacy  FROM STDIN (FORMAT BINARY)"))
                 {
@@ -414,9 +422,7 @@ namespace Driver
                     }
                     writer.Complete();
                 }
-
             }
-
         }
         }
     }

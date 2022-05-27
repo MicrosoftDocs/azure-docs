@@ -98,7 +98,7 @@ Inserted 2 rows of data
 
 ## Step 2: Super power of Distributed Tables
 
-Citus gives you [the super power of distributing your table](overview#the-superpower-of-distributed-tables) across multiple nodes for scalability. Below command enables you to do distribute a table. More on create_distributed_table and distribution column [here](howto-build-scalable-apps-concepts#distribution-column-also-known-as-shard-key).
+Citus gives you [the super power of distributing your table](overview.md#the-superpower-of-distributed-tables) across multiple nodes for scalability. Below command enables you to distribute a table. More on create_distributed_table and distribution column [here](howto-build-scalable-apps-concepts.md#distribution-column-also-known-as-shard-key).
 
 > [!TIP]
 >
