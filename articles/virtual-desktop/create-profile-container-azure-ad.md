@@ -33,7 +33,7 @@ To store your FSLogix profiles on an Azure Files share:
 
 2- [Create an Azure Files share](../storage/files/storage-how-to-create-file-share.md#create-a-file-share) under your storage account to store your FSLogix profiles if you haven't already.
 
-3- [Enable Azure Active Directory Kerberos authentication on Azure Files](../storage/files/storage-files-identity-auth-azure-active-directory-enable) to enable access from Azure AD-joined VMs.
+3- [Enable Azure Active Directory Kerberos authentication on Azure Files](../storage/files/storage-files-identity-auth-azure-active-directory-enable.md) to enable access from Azure AD-joined VMs.
 
   - When configuring the directory and file level permissions, review the recommended list of permissions for FSLogix profiles at [Configure the storage permissions for profile containers](/fslogix/fslogix-storage-config-ht)
   - Without proper directory level permissions in place, a user can delete the user profile or access the personal information of a different user. It's important to make sure users have proper permissions to prevent accidental deletion from happening.
@@ -44,7 +44,7 @@ To access Azure file shares from an Azure AD-joined VM for FSLogix profiles, you
 
 1. Enable the Azure AD Kerberos functionality using one of the methods below. Once configured, restart the system for the changes to take effect.
 
-    - Policy CSP: [Kerberos/CloudKerberosTicketRetrievalEnabled](../../windows/client-management/mdm/policy-csp-kerberos#kerberos-cloudkerberosticketretrievalenabled)
+    - Policy CSP: [Kerberos/CloudKerberosTicketRetrievalEnabled](../../windows/client-management/mdm/policy-csp-kerberos#kerberos-cloudkerberosticketretrievalenabled.md)
     - Group policy: `Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon`
     - Registry value: `reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters /v CloudKerberosTicketRetrievalEnabled /t REG_DWORD /d 1`
 
