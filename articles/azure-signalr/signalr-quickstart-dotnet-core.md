@@ -28,7 +28,7 @@ Ready to start?
 > [Step by step build](#prerequisites)
 
 > [!div class="nextstepaction"]
-> [Play with chat demo](https://asrs-simplechat-live-demo.azurewebsites.net/)
+> [Try chat demo now](https://asrs-simplechat-live-demo.azurewebsites.net/)
 
 ## Prerequisites
 
