@@ -21,7 +21,7 @@ Our ISV partner network extends our solution capabilities to help you build seam
 To be considered into this sample documentation, submit your application request in the [Microsoft Application Network portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx). For any additional questions, send an email to [SaaSApplicationIntegrations@service.microsoft.com](mailto:SaaSApplicationIntegrations@service.microsoft.com).
 
 >[!NOTE]
->The [Azure Active Directory B2C community site on GitHub](https://github.com/azure-ad-b2c) also provides sample custom policies from the community.
+>The [Azure Active Directory B2C community site on GitHub](https://github.com/azure-ad-b2c/partner-integrations) also provides sample custom policies from the community.
 
 ## Identity verification and proofing
 
