@@ -52,7 +52,7 @@ The following table lists the values for a single workflow run:
 
 | Name | Multi-tenant | Single-tenant | Integration service environment | Notes |
 |------|--------------|---------------|---------------------------------|-------|
-| Run history retention in storage | 90 days | 90 days <br>(Default) | 366 days | The amount of time to keep a workflow's run history in storage after a run starts. <p><p>**Note**: If the workflow's run duration exceeds the retention limit, that run is removed from the run history in storage. If a run isn't immediately removed after reaching the retention limit, the run is removed within 7 days. <p><p>Whether a run completes or times out, run history retention is always calculated by using the run's start time and the current limit specified in the workflow setting, [**Run history retention in days**](#change-retention). No matter the previous limit, the current limit is always used for calculating retention. <p><p>For more information, review [Change duration and run history retention in storage](#change-retention). |
+| Run history retention in storage | 90 days | 90 days <br>(Default) | 366 days | The amount of time to keep a workflow's run history in storage after a run starts. <p><p>**Note**: If the workflow's run duration exceeds the retention limit, this run is removed from the run history in storage. If a run isn't immediately removed after reaching the retention limit, the run is removed within 7 days. <p><p>Whether a run completes or times out, run history retention is always calculated by using the run's start time and the current limit specified in the workflow setting, [**Run history retention in days**](#change-retention). No matter the previous limit, the current limit is always used for calculating retention. <p><p>For more information, review [Change duration and run history retention in storage](#change-retention). |
 | Run duration | 90 days | - Stateful workflow: 90 days <br>(Default) <p><p>- Stateless workflow: 5 min <br>(Default) | 366 days | The amount of time that a workflow can continue running before forcing a timeout. <p><p>The run duration is calculated by using a run's start time and the limit that's specified in the workflow setting, [**Run history retention in days**](#change-duration) at that start time. <p>**Important**: Make sure the run duration value is always less than or equal to the run history retention in storage value. Otherwise, run histories might be deleted before the associated jobs are complete. <p><p>For more information, review [Change run duration and history retention in storage](#change-duration). |
 | Recurrence interval | - Min: 1 sec <p><p>- Max: 500 days | - Min: 1 sec <p><p>- Max: 500 days | - Min: 1 sec <p><p>- Max: 500 days ||
 ||||||
@@ -250,6 +250,18 @@ For more information about your logic app resource definition, review [Overview:
 
 Azure Logic Apps supports write operations, including inserts and updates, through the on-premises data gateway. However, these operations have [limits on their payload size](/data-integration/gateway/service-gateway-onprem#considerations).
 
+<a name="retry-policy-limits"></a>
+
+## Retry policy limits
+
+The following table lists the retry policy limits for a trigger or action, based on whether you have a [Consumption or Standard logic app workflow](logic-apps-overview.md#resource-environment-differences).
+
+| Name | Consumption limit | Standard limit | Notes |
+|------|-------------------|----------------|-------|
+| Retry attempts | - Default: 4 attempts <br> - Max: 90 attempts | - Default: 4 attempts | To change the default limit in Consumption logic app workflows, use the [retry policy parameter](logic-apps-exception-handling.md#retry-policies). To change the default limit in Standard logic app workflows, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
+| Retry interval | None | Default: 7 sec | To change the default limit in Consumption logic app workflows, use the [retry policy parameter](logic-apps-exception-handling.md#retry-policies). <p><p>To change the default limit in Standard logic app workflows, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
+|||||
+
 <a name="variables-action-limits"></a>
 
 ## Variables action limits
@@ -303,18 +315,6 @@ By default, the HTTP action and APIConnection actions follow the [standard async
 | Expression evaluation limit | 131,072 characters | The `@concat()`, `@base64()`, `@string()` expressions can't be longer than this limit. |
 | Request URL character limit | 16,384 characters | |
 ||||
-
-<a name="retry-policy-limits"></a>
-
-### Retry policy
-
-| Name | Multi-tenant limit | Single-tenant limit | Notes |
-|------|--------------------|---------------------|-------|
-| Retry attempts | - Default: 4 attempts <br> - Max: 90 attempts | - Default: 4 attempts | To change the default limit in the multi-tenant service, use the [retry policy parameter](logic-apps-exception-handling.md#retry-policies). <p><p>To change the default limit in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
-| Retry interval | None | Default: 7 sec | To change the default limit in the multi-tenant service, use the [retry policy parameter](logic-apps-exception-handling.md#retry-policies). <p><p>To change the default limit in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
-| Retry max delay | Default: 1 day | Default: 1 hour | To change the default limit in the multi-tenant service, use the [retry policy parameter](logic-apps-exception-handling.md#retry-policies). <p><p>To change the default limit in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
-| Retry min delay | Default: 5 sec | Default: 5 sec | To change the default limit in the multi-tenant service, use the [retry policy parameter](logic-apps-exception-handling.md#retry-policies). <p><p>To change the default limit in the single-tenant service, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
-|||||
 
 <a name="authentication-limits"></a>
 
