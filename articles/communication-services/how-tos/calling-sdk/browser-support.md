@@ -46,4 +46,4 @@ The getEnvironmentInfo method asynchronously returns an object of type Environme
 
 A supported environment is a combination of an operating system, a browser, and the minimum version required for that browser.
 
-For more information about the environments currently supported by Azure Communication Services, see the [JavaScript Calling SDK support by OS and browser](../../concepts/voice-video-calling/calling-sdk-features#javascript-calling-sdk-support-by-os-and-browser) section.
+For more information about the environments currently supported by Azure Communication Services, see the [JavaScript Calling SDK support by OS and browser](../../../concepts/voice-video-calling/calling-sdk-features.md#javascript-calling-sdk-support-by-os-and-browser) section.
