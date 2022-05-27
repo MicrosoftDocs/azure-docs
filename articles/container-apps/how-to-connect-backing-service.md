@@ -11,7 +11,7 @@ ms.date: 05/24/2022
 
 # How to connect a Container Apps instance to a backing service
 
-Azure Container Apps now supports Service Connector. Service Connector is an Azure solution that helps you connect Azure compute services to backing services in just a few steps. Service Connector manages the configuration of the network settings and connection information between compute and target backing services, so you don't have to think about it. To view all supported target services, [learn more about Service Connector](../service-connector/overview.md).
+Azure Container Apps now supports Service Connector. Service Connector is an Azure solution that helps you connect Azure compute services to backing services in just a few steps. Service Connector manages the configuration of the network settings and connection information between compute and target backing services, so you don't have to think about it. To view all supported target services, [learn more about Service Connector](../service-connector/overview.md#what-services-are-supported-in-service-connector).
 
 In the guide below, learn how to connect your container app to a target service using the Azure portal or the CLI. In this article, we're connecting Container Apps to Azure Blob Storage.
 
