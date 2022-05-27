@@ -6,7 +6,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/15/2022
-ms.author: ginle
+ms.author: ranku
 ---
 
 # Configure export settings in Azure API for FHIR and set up a storage account

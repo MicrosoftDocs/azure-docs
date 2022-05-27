@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
-ms.date: 01/10/2022
+ms.date: 05/23/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021, mode-other
 ---
@@ -21,9 +21,14 @@ Use this article to quickly get the answers to common questions about conversati
 
 See the [quickstart](./quickstart.md) to quickly create your first project, or the [how-to article](./how-to/create-project.md) for more details. 
 
-## How do I connect conversation language projects to other service applications?
 
-See the [orchestration workflow documentation](../orchestration-workflow/overview.md) for more information.
+## Can I use more than one conversational language understanding project together?
+
+Yes, using orchestration workflow. See the [orchestration workflow documentation](../orchestration-workflow/overview.md) for more information.
+
+## What is the difference between LUIS and conversational language understanding?
+
+Conversational language understanding is the next generation of LUIS.
 
 ## Training is taking a long time, is this expected?
 
@@ -61,13 +66,33 @@ Yes, you can [import any LUIS application](./concepts/backwards-compatibility.md
 
 No, the service only supports JSON format. You can go to LUIS, import the `.LU` file and export it as a JSON file. 
 
+## Can I use conversational language understanding with custom question answering?
+
+Yes, you can use [orchestration workflow](../orchestration-workflow/overview.md) to orchestrate between different conversational language understanding and [question answering](../question-answering/overview.md) projects. Start by creating orchestration workflow projects, then  connect your conversational language understanding and custom question answering projects. To perform this action, make sure that your projects are under the same Language resource.
+
+## How do I handle out of scope or domain utterances that aren't relevant to my intents?
+
+Add any out of scope utterances to the [none intent](./concepts/none-intent.md).
+
 ## Is there any SDK support?
 
-Yes, only for predictions, and [samples are available](https://aka.ms/cluSampleCode). There is currently no authoring support for the SDK.
+Yes, only for predictions, and samples are available for [Python](https://aka.ms/sdk-samples-conversation-python) and [C#](https://aka.ms/sdk-sample-conversation-dot-net). There is currently no authoring support for the SDK.
+
+## What are the training modes?
+
+
+|Training mode  | Description | Language availability  | Pricing  |
+|---------|---------|---------|---------|
+|Standard training     | Faster training times for quicker model iteration.        | Can only train projects in English.        | Included in your [pricing tier](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/).        |
+|Advanced training     | Slower training times using fine-tuned neural network transformer models.        | Can train [multilingual projects](language-support.md#multi-lingual-option).         | May incur [additional charges](https://azure.microsoft.com/pricing/details/cognitive-services/language-service/).
+
+See [training modes](how-to/train-model.md#training-modes) for more information.
 
 ## Are there APIs for this feature?
 
-Yes, all the APIs [are available](https://aka.ms/clu-apis).
+Yes, all the APIs are available.
+* [Authoring APIs](https://aka.ms/clu-authoring-apis)
+* [Prediction API](https://aka.ms/clu-runtime-api)
 
 ## Next steps
 

@@ -2,11 +2,11 @@
 title: What's new for Azure Active Directory Verifiable Credentials (preview)
 description: Recent updates for Azure Active Directory Verifiable Credentials
 author: barclayn
-manager: karenhoran
-ms.service: active-directory
+manager: rkarlin
+ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: reference
-ms.date: 04/27/2022
+ms.date: 05/10/2022
 ms.custom: references_regions
 ms.author: barclayn
 
@@ -18,13 +18,18 @@ ms.author: barclayn
 
 This article lists the latest features, improvements, and changes in the Azure Active Directory (Azure AD) Verifiable Credentials service.
 
-## April
+## May 2022
+
+We are expanding our service to all Azure AD customers! Verifiable credentials are now available to everyone with an Azure AD subscription (Free and Premium). Existing tenants that configured the Verifiable Credentials service prior to May 4, 2022 must make a [small change](verifiable-credentials-faq.md#updating-the-vc-service-configuration) to avoid service disruptions.
+
+## April 2022
 
 Starting next month, we are rolling out exciting changes to the subscription requirements for the Verifiable Credentials service. Administrators must perform a small configuration change before **May 4, 2022** to avoid service disruptions. Follow [these steps](verifiable-credentials-faq.md?#updating-the-vc-service-configuration) to apply the required configuration changes.
 >[!IMPORTANT]
 > If changes are not applied before **May 4, 2022**, you will experience errors on issuance and presentation for your application or service using the Azure AD Verifiable Credentials Service. [Update service configuration instructions](verifiable-credentials-faq.md?#updating-the-vc-service-configuration).
 
 ## March 2022
+
 - Azure AD Verifiable Credentials customers can now change the [domain linked](how-to-dnsbind.md) to their DID easily from the Azure portal.
 - We made updates to Microsoft Authenticator that change the interaction between the Issuer of a verifiable credential and the user presenting the verifiable credential. This update forces all Verifiable Credentials to be reissued in Microsoft Authenticator for iOS. [More information](whats-new.md?#microsoft-authenticator-did-generation-update)
 
