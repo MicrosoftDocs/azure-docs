@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/24/2022
+ms.date: 05/27/2022
 ---
 
 # Create, schedule, and run recurring tasks and workflows with the Recurrence trigger in Azure Logic Apps
@@ -55,11 +55,13 @@ For differences between this trigger and the Sliding Window trigger or for more 
    ||||||
 
    > [!IMPORTANT]
-   > If you use the **Day** or **Week** frequency and specify a future date and time, make sure that you set up the recurrence in advance:
+   > If you use the **Day**, **Week**, or **Month** frequency and specify a future date and time, make sure that you set up the recurrence in advance:
    >
    > * **Day**: Set up the daily recurrence at least 24 hours in advance.
    >
    > * **Week**: Set up the weekly recurrence at least 7 days in advance.
+   >
+   > * **Month**: Set up the monthly recurrence at least one month in advance.
    >
    > Otherwise, the workflow might skip the first recurrence.
    >
