@@ -10,7 +10,7 @@ ms.date: 01/25/2021
 
 # Tutorial: Access data in Cosmos DB using Mongoose with Azure Static Web Apps
 
-[Mongoose](https://mongoosejs.com/) is the most popular ODM (Object Document Mapping) client for Node.js. Allowing you to design a data structure and enforce validation, Mongoose provides all the tooling necessary to interact with databases that support the Mongoose API. [Cosmos DB](../cosmos-db/mongodb-introduction.md) supports the necessary Mongoose APIs and is available as a back-end server option on Azure.
+[Mongoose](https://mongoosejs.com/) is the most popular ODM (Object Document Mapping) client for Node.js. Allowing you to design a data structure and enforce validation, Mongoose provides all the tooling necessary to interact with databases that support the MongoDB API. [Cosmos DB](../cosmos-db/mongodb-introduction.md) supports the necessary MongoDB APIs and is available as a back-end server option on Azure.
 
 In this tutorial, you learn how to:
 
@@ -76,10 +76,10 @@ This tutorial uses a GitHub template repository to help you create your applicat
     - Organization: Your GitHub account name
     - Repository: **aswa-mongoose-tutorial**
     - Branch: **main**
-    - Build presets: Choose **Custom**
-    - App location: **/public**
+    - Build presets: Choose **React**
+    - App location: **/**
     - Api location: **api**
-    - Output location: *leave blank*
+    - Output location: **build**
     :::image type="content" source="media/add-mongoose/azure-static-web-apps.png" alt-text="Completed Azure Static Web Apps form":::
 11. Click **Review and create**
 12. Click **Create**
@@ -99,10 +99,13 @@ In order to allow the web app to communicate with the database, the database con
 8. Click **aswa-mongoose-tutorial** to return to the website instance
 9. Under **Settings** click **Configuration**
 10. Click **Add** and create a new Application Setting with the following values
-    - Name: **CONNECTION_STRING**
-    - Value: Paste the connection string you copied earlier
+    - Name: **AZURE_COSMOS_CONNECTION_STRING**
+    - Value: \<Paste the connection string you copied earlier\>
 11. Click **OK**
-12. Click **Save**
+12. Click **Add** and create a new Application Setting with the following values for name of the database
+    - Name: **AZURE_COSMOS_DATABASE_NAME**
+    - Value: **todo**
+13. Click **Save**
 
 ## Navigate to your site
 
@@ -113,9 +116,10 @@ You can now explore the static web app.
     1. It will look similar to `https://calm-pond-05fcdb.azurestaticapps.net`
 1. Click **Please login to see your list of tasks**
 1. Click **Grant consent** to access the application
-1. Create a new task by typing in a title and clicking **Add task**
+1. Create a new lists by typing a name into the textbox labeled **create new list** and selecting **Save**
+1. Create a new task by typing in a title in the textbox labled **create new item** and selecting **Save**
 1. Confirm the task is displayed (it may take a moment)
-1. Mark the task as complete by **clicking the checkbox**
+1. Mark the task as complete by **selecting the check**; the task will be moved to the **Done items** section of the page
 1. **Refresh the page** to confirm a database is being used
 
 ## Clean up resources
