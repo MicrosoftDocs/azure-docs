@@ -587,7 +587,7 @@ Once the assets are ready, you can use the Microsoft Purview Catalog client to s
     }
     ```
 
-    Here you only specify keywords, but keep in mind [you can add many other fields to further specify your query](/python/api/azure-purview-catalog/azure.purview.catalog.operations.discoveryoperations?view=azure-python-preview#azure-purview-catalog-operations-discoveryoperations-query).
+    Here you only specify keywords, but keep in mind [you can add many other fields to further specify your query](/python/api/azure-purview-catalog/azure.purview.catalog.operations.discoveryoperations#azure-purview-catalog-operations-discoveryoperations-query).
 		
 1.	Search the catalog:
 
