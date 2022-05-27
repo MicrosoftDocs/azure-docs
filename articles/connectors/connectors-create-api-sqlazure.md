@@ -98,9 +98,9 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 1. Find and select the [SQL Server managed connector trigger](/connectors/sql) that you want to use.
 
-   1. Under the designer search box, select **All**.
+   1. On the designer, under the search box, select **All**.
 
-   1. In the designer search box, enter **sql server**.
+   1. In the search box, enter **sql server**.
 
    1. From the triggers list, select the SQL trigger that you want. This example continues with the trigger named **When an item is created**.
 
@@ -116,7 +116,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
    For example, to view the data in this row, you can add other actions that create a file that includes the fields from the returned row, and then send email alerts. To learn about other available actions for this connector, see the [connector's reference page](/connectors/sql/).
 
-1. On the designer toolbar, select **Save**.
+1. When you're done, save your workflow.
 
    Although this step automatically enables and publishes your logic app live in Azure, the only action that your logic app currently takes is to check your database based on your specified interval and frequency.
 
@@ -146,7 +146,7 @@ In Standard logic app workflows, only the SQL Server managed connector has trigg
 
    For example, to view the data in this row, you can add other actions that create a file that includes the fields from the returned row, and then send email alerts. To learn about other available actions for this connector, see the [connector's reference page](/connectors/sql/).
 
-1. On the designer toolbar, select **Save**.
+1. When you're done, save your workflow.
 
    Although this step automatically enables and publishes your logic app live in Azure, the only action that your logic app currently takes is to check your database based on your specified interval and frequency.
 
@@ -182,9 +182,9 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
       Or, to add an action between existing steps, move your mouse over the connecting arrow. Select the plus sign (**+**) that appears, and then select **Add an action**.
 
-   1. In the **Choose an operation** box, under the designer search box, select **All**.
+   1. Under the **Choose an operation** box, select **All**.
 
-   1. In the designer search box, enter **sql server**.
+   1. In the search box, enter **sql server**.
 
    1. From the actions list, select the SQL Server action that you want. This example uses the **Get row** action, which gets a single record.
 
@@ -200,7 +200,7 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
    This action returns only one row from the selected table, and nothing else. To view the data in this row, add other actions. For example, such actions might create a file, include the fields from the returned row, and store the file in a cloud storage account. To learn about other available actions for this connector, see the [connector's reference page](/connectors/sql/).
 
-1. When you're done, on the designer toolbar, select **Save**.
+1. When you're done, save your workflow.
 
 ### [Standard](#tab/standard)
 
@@ -208,11 +208,11 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
 1. Find and select the SQL Server connector action that you want to use.
 
-   1. Under the trigger or action where you want to add the SQL Server action, select **New step**.
+   1. Under the trigger or action where you want to add the SQL Server action, select the plus sign (**+**), and then select **Add an action**.
 
-      Or, to add an action between existing steps, move your mouse over the connecting arrow. Select the plus sign (**+**) that appears, and then select **Add an action**.
+      Or, to add an action between existing steps, select the plus sign (**+**) on the connecting arrow, and then select **Add an action**.
 
-   1. In the **Choose an operation** box, under the designer search box, select either of the following options:
+   1. Under the **Choose an operation** search box, select either of the following options:
 
       * **Built-in** when you want to use SQL Server built-in actions such as **Execute Query**
 
@@ -222,7 +222,7 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
         ![Screenshot showing the Azure portal, workflow designer for Standard logic app, and designer search box with "Azure" selected underneath.](./media/connectors-create-api-sqlazure/select-azure-category-standard.png)
 
-   1. In the designer search box, enter **sql server**.
+   1. In the search box, enter **sql server**.
 
    1. From the actions list, select the SQL Server action that you want.
 
@@ -248,7 +248,7 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
    This action returns only one row from the selected table, and nothing else. To view the data in this row, add other actions. For example, such actions might create a file, include the fields from the returned row, and store the file in a cloud storage account. To learn about other available actions for this connector, see the [connector's reference page](/connectors/sql/).
 
-1. When you're done, on the designer toolbar, select **Save**.
+1. When you're done, save your workflow.
 
 ---
 
@@ -427,7 +427,7 @@ When you call a stored procedure by using the SQL Server connector, the returned
    > If you still can't generate the schema, in the **Schema** box, 
    > manually enter the schema.
 
-1. Save your workflow.
+1. When you're done, save your workflow.
 
 1. To reference the JSON content properties, click inside the edit boxes where you want to reference those properties so that the dynamic content list appears. In the list, under the [**Parse JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) heading, select the data tokens for the JSON content properties that you want.
 
