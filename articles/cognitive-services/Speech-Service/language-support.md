@@ -808,13 +808,13 @@ Use the following table to determine supported styles and roles for each neural 
 
 Custom Neural Voice lets you create synthetic voices that are rich in speaking styles. You can create a unique brand voice in multiple languages and styles by using a small set of recording data.  
 
-Select the right locale that matches the training data you have to train a custom neural voice model. For example, if the recording data you have is spoken in English with a British accent, select `en-GB`.
+Select the right locale that matches your training data to train a custom neural voice model. For example, if the recording data is spoken in English with a British accent, select `en-GB`. 
 
 With the cross-lingual feature (preview), you can transfer your custom neural voice model to speak a second language. For example, with the `zh-CN` data, you can create a voice that speaks `en-AU` or any of the languages marked with "Yes" in the Cross-lingual column in the following table.  
 
-Custom Neural Voice Lite is a project type in public preview of Custom Neural Voice. With this type, you can demo and evaluate Custom Neural Voice before investing in professional recordings to create a higher-quality voice. In the following table, the languages marked with "Yes" in the Custom Neural Voice Lite column are supported by Custom Neural Voice Lite.
+There are two Custom Neural Voice (CNV) project types: CNV Pro and CNV Lite (preview). In the following table, all the languages are supported by CNV Pro, and the languages marked with "Yes" in the Custom Neural Voice Lite column are supported by CNV Lite. 
 
-| Language | Locale | Cross-lingual (preview) |Custom Neural Voice Lite|
+| Language | Locale | Cross-lingual (preview) |Custom Neural Voice Lite (preview)|
 |--|--|--|--|
 | Arabic (Egypt) | `ar-EG` | No |No|
 | Arabic (Saudi Arabia) | `ar-SA` | No |No|
