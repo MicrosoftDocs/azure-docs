@@ -5,6 +5,7 @@ author: seligj95
 ms.author: msangapu
 ms.topic: article
 ms.date: 8/26/2021
+ms.tool: terraform
 ms.custom: subject-terraform
 ---
 
