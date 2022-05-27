@@ -1,5 +1,5 @@
 ---
-title: "Transition from the Container Monitoring Solution to using Container Insights"
+title: Transition from the Container Monitoring Solution to using Container Insights
 ms.date: 1/18/2022
 ms.topic: article
 author: austonli

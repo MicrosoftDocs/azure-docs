@@ -23,7 +23,7 @@ To find the latest version of Azure IoT Edge, see [Azure IoT Edge releases](http
 
 ## Update the security daemon
 
-The IoT Edge security daemon is a native component that needs to be updated using the package manager on the IoT Edge device.
+The IoT Edge security daemon is a native component that needs to be updated using the package manager on the IoT Edge device. View the [Update the security daemon](how-to-update-iot-edge.md#update-the-security-daemon) tutorial for a walk-through on Linux-based devices.
 
 Check the version of the security daemon running on your device by using the command `iotedge version`. If you're using IoT Edge for Linux on Windows, you need to SSH into the Linux virtual machine to check the version.
 
