@@ -249,6 +249,7 @@ GET /admin/extensions/DurableTaskExtension/instances
     &createdTimeFrom={timestamp}
     &createdTimeTo={timestamp}
     &runtimeStatus={runtimeStatus1,runtimeStatus2,...}
+    &instanceIdPrefix={prefix}
     &showInput=[true|false]
     &top={integer}
 ```
@@ -263,6 +264,7 @@ GET /runtime/webhooks/durableTask/instances?
     &createdTimeFrom={timestamp}
     &createdTimeTo={timestamp}
     &runtimeStatus={runtimeStatus1,runtimeStatus2,...}
+    &instanceIdPrefix={prefix}
     &showInput=[true|false]
     &top={integer}
 ```
@@ -278,6 +280,7 @@ Request parameters for this API include the default set mentioned previously as 
 | **`createdTimeFrom`**   | Query string    | Optional parameter. When specified, filters the list of returned instances that were created at or after the given ISO8601 timestamp.|
 | **`createdTimeTo`**     | Query string    | Optional parameter. When specified, filters the list of returned instances that were created at or before the given ISO8601 timestamp.|
 | **`runtimeStatus`**     | Query string    | Optional parameter. When specified, filters the list of returned instances based on their runtime status. To see the list of possible runtime status values, see the [Querying instances](durable-functions-instance-management.md) article. |
+| **`instanceIdPrefix`**  | Query string    | Optional parameter. When specified, filters the list of returned instances to include only instances whose instance id starts with the specified prefix string.  Available starting with [version 2.7.2](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/2.7.2) of the extension. |
 | **`top`**               | Query string    | Optional parameter. When specified, limits the number of instances returned by the query. |
 
 ### Response

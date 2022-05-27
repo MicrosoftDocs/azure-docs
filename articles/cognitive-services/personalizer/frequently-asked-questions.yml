@@ -6,8 +6,8 @@ metadata:
   ms.subservice: personalizer
   ms.topic: faq
   ms.date: 03/14/2022
-  ms.author: jeffme
-  author: jeffmend
+  ms.author: jacodel
+  author: jcodella
   ms.manager: nitinme
 title: Personalizer frequently asked questions
 summary: This article contains answers to frequently asked troubleshooting questions about the Personalizer service.
