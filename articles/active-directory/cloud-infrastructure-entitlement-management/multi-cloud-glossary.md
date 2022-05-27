@@ -1,5 +1,5 @@
 ---
-title: Permissions Management Glossary
+title: Permissions Management glossary
 description:  Permissions Management glossary
 services: active-directory
 author: mtillman
