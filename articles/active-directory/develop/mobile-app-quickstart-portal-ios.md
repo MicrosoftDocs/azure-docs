@@ -26,7 +26,7 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 > 
 > We apologize for the inconvenience and appreciate your patience while we work to get this resolved.
 
-> [!div renderon="portal" class="sxs-lookup display-on-portal"]
+> [!div renderon="portal" id="display-on-portal" class="sxs-lookup"]
 > # Quickstart: Sign in users and call the Microsoft Graph API from an iOS or macOS app
 > 
 > In this quickstart, you download and run a code sample that demonstrates how a native iOS or macOS application can sign in users and get an access token to call the Microsoft Graph API.
@@ -47,16 +47,17 @@ ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "language
 > #### Step 1: Configure your application
 > For the code sample in this quickstart to work, add a **Redirect URI** compatible with the Auth broker.
 > 
-> <button id="makechanges" class="nextstepaction" class="configure-app-button"> Make this change for me </button>
+> <button id="makechanges" class="nextstepaction configure-app-button"> Make these changes for me </button>
 > 
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Already configured](media/quickstart-v2-ios/green-check.png) Your application is configured with these attributes
 > 
 > #### Step 2: Download the sample project
-> 
-> <a href='https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip'><button id="downloadsample" class="downloadsample_ios">Download the code sample for iOS</button></a>
-> 
-> <a href='https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2/archive/master.zip'><button id="downloadsample" class="downloadsample_ios">Download the code sample for macOS</button></a>
+> > [!div class="nextstepaction"]
+> > <button id="downloadsample_ios" class="download-sample-button">Download the code sample for iOS</button>
+>
+> >[!div class="nextstepaction"]
+> ><button id="downloadsample_macos" class="download-sample-button">Download the code sample for macOS</button>
 > 
 > #### Step 3: Install dependencies
 > 
