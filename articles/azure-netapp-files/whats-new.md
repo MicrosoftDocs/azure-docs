@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 04/19/2022
+ms.date: 05/25/2022
 ms.author: anfdocs
 ---
 
@@ -22,6 +22,17 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Disable showmount](disable-showmount.md) (Preview)
     By default, Azure NetApp Files enables showmount functionality to show NFS exported paths. The setting allows NFS clients tp use the `showmount -e` command to see a list of exports available on the Azure NetApp Files NFS-enabled storage endpoint. This functionality might cause security scanners to flag the Azure NetApp Files NFS service as having a vulnerability because these scanners often use showmount to see what is being returned. In those scenarios, you might want to disable showmount on Azure NetApp Files. This setting allows you to enable/disable showmount for your NFS-enabled storage endpoints.
+
+## May 2022
+
+* [LDAP signing](create-active-directory-connections.md#ldap-signing) now generally available (GA)   
+
+    The LDAP signing feature is now generally available. You no longer need to register the feature before using it.
+
+* [SMB Continuous Availability (CA) shares support for Citrix App Layering](enable-continuous-availability-existing-smb.md) (Preview)
+
+    [Citrix App Layering](https://docs.citrix.com/en-us/citrix-app-layering/4.html) radically reduces the time it takes to manage Windows applications and images. App Layering separates the management of your OS and apps from your infrastructure. You can install each app and OS patch once, update the associated templates, and redeploy your images. You can publish layered images as open standard virtual disks, usable in any environment. App Layering can be used to provide dynamic access application layer virtual disks stored on SMB shared networked storage, including Azure NetApp Files. To enhance App Layering resiliency to events of storage service maintenance, Azure NetApp Files has extended support for [SMB Transparent Failover via SMB Continuous Availability (CA) shares on Azure NetApp Files](azure-netapp-files-create-volumes-smb.md#continuous-availability) for App Layering virtual disks. For more information, see [Azure NetApp Files Azure Virtual Desktop Infrastructure solutions | Citrix](azure-netapp-files-solution-architectures.md#citrix).
+
 
 ## April 2022
 

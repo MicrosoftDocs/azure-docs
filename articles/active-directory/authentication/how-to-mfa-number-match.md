@@ -4,7 +4,7 @@ description: Learn how to use number matching in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 05/03/2022
+ms.date: 05/16/2022
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
@@ -83,6 +83,9 @@ To create the registry key that overrides push notifications:
 1. Restart the NPS Service. 
 
 ### Policy schema changes 
+
+>[!NOTE]
+>In Graph Explorer, ensure you've consented to the **Policy.Read.All** and **Policy.ReadWrite.AuthenticationMethod** permissions. 
 
 Identify your single target group for the schema configuration. Then use the following API endpoint to change the numberMatchingRequiredState property to **enabled**:
 
@@ -240,11 +243,10 @@ To enable number matching in the Azure AD portal, complete the following steps:
    ![Screenshot of enabling number match.](media/howto-authentication-passwordless-phone/enable-number-matching.png)
    
 >[!NOTE]
->[Least privilege role in Azure Active Directory - Multi-factor Authentication](https://docs.microsoft.com/azure/active-directory/roles/delegate-by-task#multi-factor-authentication)
+>[Least privilege role in Azure Active Directory - Multi-factor Authentication](../roles/delegate-by-task.md#multi-factor-authentication)
 
 Number matching is not supported for Apple Watch notifications. Apple Watch need to use their phone to approve notifications when number matching is enabled.
 
 ## Next steps
 
 [Authentication methods in Azure Active Directory - Microsoft Authenticator app](concept-authentication-authenticator-app.md)
-

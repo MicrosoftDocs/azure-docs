@@ -22,7 +22,7 @@ This quickstart shows how to access the Azure Cosmos DB [Table API](introduction
 
 The sample application is written in [Python3.6](https://www.python.org/downloads/), though the principles apply to all Python3.6+ applications. You can use [Visual Studio Code](https://code.visualstudio.com/) as an IDE.
 
-If you don't have an [Azure subscription](/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/dotnet) before you begin.
+If you don't have an [Azure subscription](../../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing), create a [free account](https://azure.microsoft.com/free/dotnet) before you begin.
 
 ## Sample application
 

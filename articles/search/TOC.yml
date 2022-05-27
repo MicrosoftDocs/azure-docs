@@ -180,12 +180,10 @@
       href: /security/benchmark/azure/baselines/cognitive-search-security-baseline?toc=/azure/search/TOC.json
 - name: How-to guides
   items:
-  - name: Service management
+  - name: Planning
     items:
     - name: Choose a tier
       href: search-sku-tier.md
-    - name: Create a service
-      href: search-create-service-portal.md
     - name: Service limits
       href: search-limits-quotas-capacity.md
     - name: Plan capacity
@@ -196,12 +194,18 @@
       href: search-performance-optimization.md
     - name: Multi-tenancy
       href: search-modeling-multitenant-saas-applications.md
+  - name: Service management
+    items:
+    - name: Create a service
+      href: search-create-service-portal.md
     - name: Manage in the portal
       href: search-manage.md
     - name: Manage with PowerShell
       href: search-manage-powershell.md
     - name: Manage with Azure CLI
       href: search-manage-azure-cli.md
+    - name: Manage with REST
+      href: search-manage-rest.md
     - name: Move service across regions
       href: search-howto-move-across-regions.md
   - name: Security
@@ -251,15 +255,11 @@
     - name: Handle concurrent updates
       href: search-howto-concurrency.md
     - name: Develop in .NET
-      items:
-      - name: Use Azure.Search.Documents
-        href: search-howto-dotnet-sdk.md
-    - name: Upgrade the SDK
-      items:
-      - name: .NET SDK 11.0
-        href: search-dotnet-sdk-migration-version-11.md
-      - name: .NET Management SDK
-        href: search-dotnet-mgmt-sdk-migration.md
+      href: search-howto-dotnet-sdk.md
+    - name: Upgrade to 11.0
+      href: search-dotnet-sdk-migration-version-11.md
+    - name: Upgrade the Management SDK
+      href: search-dotnet-mgmt-sdk-migration.md
     - name: Upgrade the REST API
       href: search-api-migration.md
   - name: Indexes
@@ -364,7 +364,7 @@
           href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
         - name: Azure SQL Server VMs
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
-      - name: Power Query data sources
+      - name: Power Query (preview - retired)
         href: search-how-to-index-power-query-data-sources.md
       - name: SharePoint in Microsoft 365
         href: search-howto-index-sharepoint-online.md
@@ -525,6 +525,8 @@
       href: ./policy-reference.md
     - name: Monitoring data reference
       href: monitor-azure-cognitive-search-data-reference.md
+  - name: Stopwords reference
+    href: reference-stopwords.md
   - name: OData language reference
     items:
     - name: Overview

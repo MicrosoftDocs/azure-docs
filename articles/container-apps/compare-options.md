@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: quickstart
 ms.date: 11/03/2021
 ms.author: jehollan
-ms.custom: ignite-fall-2021, mode-other
+ms.custom: ignite-fall-2021, mode-other, event-tier1-build-2022
 ---
 
 # Comparing Container Apps with other Azure container options
@@ -21,10 +21,6 @@ There are many options for teams to build and deploy cloud native and containeri
 - [Azure Red Hat OpenShift](#azure-red-hat-openshift)
 
 There's no perfect solution for every use case and every team. The following explanation provides general guidance and recommendations as a starting point to help find the best fit for your team and your requirements.
-
-> [!IMPORTANT]
-> Azure Container Apps is currently in public preview while these other options are generally available (GA).
-
 
 ## Container option comparisons
 

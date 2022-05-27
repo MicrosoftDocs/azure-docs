@@ -1,6 +1,6 @@
 ---
 title: Create an access review of an access package in Azure AD entitlement management
-description: Learn how to create an access review policy for entitlement management access packages in Azure Active Directory access reviews (Preview).
+description: Learn how to set up an access review in a policy for entitlement management access packages in Azure Active Directory.
 services: active-directory
 documentationCenter: ''
 author: ajburnle
@@ -17,7 +17,7 @@ ms.reviewer:
 ms.collection: M365-identity-device-management
 
 
-#Customer intent: As an administrator, I want to create an access review policy for my access packages so I can review the active assignments of my users to ensure everyone has the appropriate access.
+#Customer intent: As an administrator, I want to create an access review for my access packages so I can review the active assignments of my users to ensure everyone has the appropriate access.
 
 ---
 # Create an access review of an access package in Azure AD entitlement management

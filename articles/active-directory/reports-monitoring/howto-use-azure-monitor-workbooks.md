@@ -63,7 +63,7 @@ To use Monitor workbooks, you need:
 
 - A [Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md).
 
-- [Access](../../azure-monitor/logs/manage-access.md#manage-access-using-workspace-permissions) to the log analytics workspace
+- [Access](../../azure-monitor/logs/manage-access.md#azure-rbac) to the log analytics workspace
 - Following roles in Azure Active Directory (if you are accessing Log Analytics through Azure Active Directory portal)
     - Security administrator
     - Security reader
@@ -72,7 +72,7 @@ To use Monitor workbooks, you need:
 
 ## Roles
 
-To access workbooks in Azure Active Directory, you must have access to the underlying [Log Analytics](../../azure-monitor/logs/manage-access.md#manage-access-using-azure-permissions) workspace and be assigned to one of the following roles:
+To access workbooks in Azure Active Directory, you must have access to the underlying [Log Analytics workspace](../../azure-monitor/logs/manage-access.md#azure-rbac) and be assigned to one of the following roles:
 
 
 - Global Reader

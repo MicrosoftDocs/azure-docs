@@ -350,7 +350,9 @@ This section will show you how to configure a VM with FSLogix. You'll need to fo
 
 To configure FSLogix:
 
-1. [Update or install FSLogix](/fslogix/install-ht) on your session host, if needed.
+1. [Update or install FSLogix](/fslogix/install-ht) on your session host, if needed. 
+    > [!NOTE]
+    > If the session host is created using the Azure Virtual Desktop service, FSLogix should already be pre-installed.
 
 2. Follow the instructions in [Configure profile container registry settings](/fslogix/configure-profile-container-tutorial#configure-profile-container-registry-settings) to create the **Enabled** and **VHDLocations** registry values. Set the value of **VHDLocations** to `\\<Storage-account-name>.file.core.windows.net\<file-share-name>`.
 

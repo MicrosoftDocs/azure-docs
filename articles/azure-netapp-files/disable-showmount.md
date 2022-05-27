@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 05/12/2022
+ms.date: 05/27/2022
 ms.author: anfdocs
 ---
 # Disable showmount in Azure NetApp Files
