@@ -281,7 +281,7 @@ Follow these instructions in this section if one or more of the following scenar
 - The state of your session host VM is stuck as **Upgrading** or **Unavailable**.
 - Your stack listener isn't working and you're running on Windows 10 version 1809, 1903, or 1909.
 - You're receiving an **EXPIRED_REGISTRATION_TOKEN** error.
-- You're not seeing your sesion host VMs show up in the session hosts list.
+- You're not seeing your session host VMs show up in the session hosts list.
 - You don't see the **Remote Desktop Agent Loader** service in the Services console.
 - You don't see the **RdAgentBootLoader** component as a running process in Task Manager.
 - You're receiving a **Connection Broker couldn't validate the settings** error on custom image VMs.
@@ -298,7 +298,7 @@ Before reinstalling the agent, boot loader, and stack, you must uninstall any ex
    > When uninstalling **Remote Desktop Services SxS Network Stack**, you'll be prompted that *Remote Desktop Services* and *Remote Desktop Services UserMode Port Redirector* should be closed. If you're connected to the session host VM using RDP, select **Do not close applications** then select **OK**, otherwise your RDP connection will be closed.
    > 
    > [!div class="mx-imgBorder"]
-   > ![Prompt that Remote Desktop Services and Remote Desktop Services UserMode Port Redirector should be closed](media/uninstall-remote-desktop-services-sxs-network-stack.png)
+   > ![Screenshot showing prompt that Remote Desktop Services and Remote Desktop Services UserMode Port Redirector should be closed](media/uninstall-remote-desktop-services-sxs-network-stack.png)
 
    - Remote Desktop Agent Boot Loader
    - Remote Desktop Services Infrastructure Agent
