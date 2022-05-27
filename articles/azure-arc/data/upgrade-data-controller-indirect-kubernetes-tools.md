@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: grrlgeek
 ms.author: jeschult
 ms.reviewer: mikeray
-ms.date: 12/09/2021
+ms.date: 05/27/2022
 ms.topic: how-to
 ---
 
@@ -15,7 +15,7 @@ ms.topic: how-to
 
 This article explains how to upgrade an indirectly connected Azure Arc-enabled data controller with Kubernetes tools.
 
-During a data controller upgrade, portions of the data control plane such as Custom Resource Definitions (CRDs) and containers may be upgraded. An upgrade of the data controller will not cause downtime for the data services (SQL Managed Instance or PostgreSQL Hyperscale server).
+During a data controller upgrade, portions of the data control plane such as Custom Resource Definitions (CRDs) and containers may be upgraded. An upgrade of the data controller will not cause downtime for the data services (SQL Managed Instance or PostgreSQL server).
 
 In this article, you will apply a .yaml file to:
 
@@ -39,7 +39,7 @@ Prior to beginning the upgrade of the Azure Arc data controller, you will need:
 
 You need an indirectly connected data controller with the `imageTag: v1.0.0_2021-07-30` or greater.
 
-### Install tools
+## Install tools
 
 To upgrade the Azure Arc data controller using Kubernetes tools you need to have the Kubernetes tools installed.
 
@@ -66,7 +66,7 @@ Found 2 valid versions.  The current datacontroller version is <current-version>
 
 ## Create or download .yaml file
 
-To upgrade the data controller, you will apply a yaml file to the Kubernetes cluster. The example file for the upgrade is available in GitHub at <https://github.com/microsoft/azure_arc/tree/main/arc_data_services/upgrade/yaml>.
+To upgrade the data controller, you will apply a yaml file to the Kubernetes cluster. The example file for the upgrade is available in GitHub at <https://github.com/microsoft/azure_arc/blob/main/arc_data_services/upgrade/yaml/upgrade-indirect-k8s.yaml>.
 
 You can download the file - and other Azure Arc related demonstration files - by cloning the repository. For example:
 
@@ -79,6 +79,22 @@ For more information, see [Cloning a repository](https://docs.github.com/en/repo
 The following steps use files from the repository.
 
 In the yaml file, you will replace ```{{namespace}}``` with your namespace.
+
+## Upgrade data controller
+
+This section shows how to upgrade an indirectly connected data controller.
+
+> [!NOTE]
+> Some of the data services tiers and modes are generally available and some are in preview.
+> If you install GA and preview services on the same data controller, you can't upgrade in place.
+> To upgrade, delete all non-GA database instances. You can find the list of generally available 
+> and preview services in the [Release Notes](./release-notes.md).
+
+[!INCLUDE [upgrade-supported-path](upgrade-supported-path.md)]
+
+### Upgrade
+
+You will need to connect and authenticate to a Kubernetes cluster and have an existing Kubernetes context selected prior to beginning the upgrade of the Azure Arc data controller.
 
 ### Specify the service account
 
@@ -94,13 +110,13 @@ To specify the service account:
 
 ### Set the cluster roles
 
-A cluster role (`ClusterRole`) grants the service account permission to perform the upgrade. 
+A cluster role (`ClusterRole`) grants the service account permission to perform the upgrade.
 
-1. Describe the cluster role and rules in a .yaml file. The following example defines a cluster role for `arc:cr-upgrade-worker` and allows all API groups, resources, and verbs. 
+1. Describe the cluster role and rules in a .yaml file. The following example defines a cluster role for `arc:cr-upgrade-worker` and allows all API groups, resources, and verbs.
 
    :::code language="yaml" source="~/azure_arc_sample/arc_data_services/upgrade/yaml/upgrade-indirect-k8s.yaml" range="7-9":::
 
-1. Edit the file as needed. 
+1. Edit the file as needed.
 
 ### Set the cluster role binding
 
@@ -110,7 +126,7 @@ A cluster role binding (`ClusterRoleBinding`) links the service account and the 
 
    :::code language="yaml" source="~/azure_arc_sample/arc_data_services/upgrade/yaml/upgrade-indirect-k8s.yaml" range="20-21":::
 
-1. Edit the file as needed. 
+1. Edit the file as needed.
 
 ### Specify the job
 
@@ -121,6 +137,12 @@ A job creates a pod to execute the upgrade.
    :::code language="yaml" source="~/azure_arc_sample/arc_data_services/upgrade/yaml/upgrade-indirect-k8s.yaml" range="31-48":::
 
 1. Edit the file for your environment.
+
+### Upgrade the data controller
+
+Specify the image tag to upgrade the data controller to.
+
+   :::code language="yaml" source="~/azure_arc_sample/arc_data_services/upgrade/yaml/upgrade-indirect-k8s.yaml" range="50-56":::
 
 ### Apply the resources
 
