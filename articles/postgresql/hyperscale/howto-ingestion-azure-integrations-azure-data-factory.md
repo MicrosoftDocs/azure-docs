@@ -46,6 +46,40 @@ In Azure Data Factory, you can use the **Copy** activity to copy data among data
 
 5. Configure **Source**
 
+   1. Go to the Source tab. Select** + New **to create a source dataset.
+   2. In the **New Dataset** dialog box, select **Azure Blob Storage**, and then select **Continue**. 
+   3. Choose the format type of your data, and then select **Continue**.
+   4. Under the **Linked service** text box, select **+ New**.
+   5. Specify Linked Service name and select your storage account from the **Storage account name** list. Test connection
+   6. Next to **File path**, select **Browse** and select the desired file from BLOB storage.
+   7. Click **Ok** to save the configuration.
+
+![Configuring Source in of Azure Data Factory.](../media/howto-ingestion-azure-integrations-azure-data-factory/ADF_Configure_Source.png)
+
+6. Configure **Sink**
+
+    1. Go to the Sink tab. Select **+ New** to create a source dataset.
+    2. In the **New Dataset** dialog box, select **Azure Database for PostgreSQL**, and then select **Continue**.
+    3. Under the **Linked service** text box, select **+ New**. 
+    4. Specify Linked Service name and select your server group from the list for PostgreSQL server groups. Add connection details and test connection
+    > **_NOTE:_**  If your server group is not there in the drop down, use Enter manually option to add server details.
+    5. Select the table name where you want to ingest the data.
+    6. Specify **Write method** as COPY command.
+    7. Click **Ok** to save the configuration.
+
+![Configuring Sink in of Azure Data Factory.](../media/howto-ingestion-azure-integrations-azure-data-factory/ADF_Configure_Sink.png)
+
+7. From the toolbar above the canvas, select **Validate** to validate pipeline settings. Fix errors (if any), revalidate and ensure that the pipeline has been successfully validated.
+8. Select Debug from the toolbar execute the pipeline.
+![Debug and Execute in of Azure Data Factory.](../media/howto-ingestion-azure-integrations-azure-data-factory/ADF_Execute.png)
+9. Once the pipeline can run successfully, in the top toolbar, select **Publish all**. This action publishes entities (datasets, and pipelines) you created to Data Factory.
 
 
+---
+**Calling a Stored Procedure in ADF**
+
+In some specific scenarios, you might want to call a stored procedure/function to push aggregated data from staging table to summary table. As of today, ADF do not offer Stored Procedure activity for Azure Database for Postgres.But as a workaround we can use Lookup Activity with query to call a stored procedure as shown below:
+
+![Calling a procedure in Azure Data Factory.](../media/howto-ingestion-azure-integrations-azure-data-factory/ADF_Call_Procedure.png)
+---
 
