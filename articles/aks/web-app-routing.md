@@ -68,8 +68,6 @@ You can also enable Web Application Routing on an existing AKS cluster using the
 az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons web_application_routing 
 ```
 
-After the cluster is deployed or updated, use the [az aks show][az-aks-show] command to retrieve the DNS zone name.
-
 ## Connect to your AKS cluster
 
 To connect to the Kubernetes cluster from your local computer, you use [kubectl][kubectl], the Kubernetes command-line client.
