@@ -13,9 +13,9 @@ ms.topic: tutorial
 
 # Tutorial: Connect to a Microsoft Dev Box by using a Microsoft Remote Desktop app
 
-In this tutorial, you'll learn how to download a Remote Desktop App straight from the Your Dev Box card in the developer portal. 
+In this tutorial, you'll learn how to download a remote desktop app straight from the Your Dev Box card in the developer portal. 
 
-Remote Desktop apps let you use and control a dev box from almost any device. For your desktop or laptop, you can choose from Microsoft Remote Desktop for Windows and Microsoft Remote Desktop for Mac. You can also download a remote desktop app for your mobile device: Microsoft Remote Desktop for iOS or Microsoft Remote Desktop for Android.
+Remote desktop apps let you use and control a dev box from almost any device. For your desktop or laptop, you can choose from Microsoft Remote Desktop for Windows and Microsoft Remote Desktop for Mac. You can also download a remote desktop app for your mobile device: Microsoft Remote Desktop for iOS or Microsoft Remote Desktop for Android.
 
 Microsoft Remote Desktop apps provide workspaces which list the managed resources you can access, including your dev boxes. When you subscribe to a workspace, the resources become available on your local PC. In this tutorial you will subscribe to a workspace by specifying the workspace URL. You can then start your dev box from the workspace.
 
@@ -26,11 +26,11 @@ In this tutorial, you'll learn how to:
 > [!div class="checklist"]
 > * Download the Microsoft Remote Desktop app for your platform.
 > * Subscribe to a workspace.
-> * Use the Remote Desktop App to connect to a dev box.
+> * Use the remote desktop app to connect to a dev box.
 
 ## Remote Desktop App
 
-To download and install the Remote Desktop app, follow these steps:
+To download and install the remote desktop app, follow these steps:
 
 1. Sign in to the [developer portal](https://portal.fidalgo.azure.com).
 
