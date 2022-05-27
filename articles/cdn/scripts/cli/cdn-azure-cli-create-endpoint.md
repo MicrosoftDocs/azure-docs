@@ -7,8 +7,7 @@ manager: danielgi
 ms.date: 03/09/2021
 ms.topic: sample
 ms.service: azure-cdn
-ms.devlang: azurecli 
-ms.custom: devx-track-azurecli
+ms.tool: azure-cli
 ---
 
 # Create an Azure CDN profile and endpoint using the Azure CLI
