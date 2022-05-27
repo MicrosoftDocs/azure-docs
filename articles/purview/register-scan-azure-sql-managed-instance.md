@@ -131,13 +131,11 @@ You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-l
 
 1. Select **Azure SQL Managed Instance** and then **Continue**.
 
-    :::image type="content" source="media/register-scan-azure-sql-managed-instance/set-up-the-sql-data-source.png" alt-text="Set up the SQL data source":::
-
 1. Select **From Azure subscription**, select the appropriate subscription from the **Azure subscription** drop-down box and the appropriate server from the **Server name** drop-down box.
 
 1. Provide the **public endpoint fully qualified domain name** and **port number**. Then select **Register** to register the data source.
 
-    :::image type="content" source="media/register-scan-azure-sql-managed-instance/add-azure-sql-database-managed-instance.png" alt-text="Add Azure SQL Managed Instance":::
+    :::image type="content" source="media/register-scan-azure-sql-managed-instance/add-azure-sql-database-managed-instance.png" alt-text="Screenshot of register sources screen, with Name, subscription, server name, and endpoint filled out.":::
 
     For Example: `foobar.public.123.database.windows.net,3342`
 
@@ -157,19 +155,19 @@ To create and run a new scan, complete the following steps:
 
 1. Select the credential to connect to your data source.
 
-   :::image type="content" source="media/register-scan-azure-sql-managed-instance/set-up-scan-sql-mi.png" alt-text="Set up scan":::
+   :::image type="content" source="media/register-scan-azure-sql-managed-instance/set-up-scan-sql-mi.png" alt-text="Screenshot of new scan window, with the Purview MSI selected as the credential, but a service principal, or SQL authentication also available.":::
 
 1. You can scope your scan to specific tables by choosing the appropriate items in the list.
 
-   :::image type="content" source="media/register-scan-azure-sql-managed-instance/scope-your-scan.png" alt-text="Scope your scan":::
+   :::image type="content" source="media/register-scan-azure-sql-managed-instance/scope-your-scan.png" alt-text="Screenshot of the scope your scan window, with a subset of tables selected for scanning.":::
 
 1. Then select a scan rule set. You can choose between the system default, existing custom rule sets, or create a new rule set inline.
 
-   :::image type="content" source="media/register-scan-azure-sql-managed-instance/scan-rule-set.png" alt-text="Scan rule set":::
+   :::image type="content" source="media/register-scan-azure-sql-managed-instance/scan-rule-set.png" alt-text="Screenshot of scan rule set window, with the system default scan rule set selected.":::
 
 1. Choose your scan trigger. You can set up a schedule or run the scan once.
 
-   :::image type="content" source="media/register-scan-azure-sql-managed-instance/trigger-scan.png" alt-text="trigger":::
+   :::image type="content" source="media/register-scan-azure-sql-managed-instance/trigger-scan.png" alt-text="Screenshot of the set scan trigger window, with the recurring tab selected.":::
 
 1. Review your scan and select **Save and run**.
 
