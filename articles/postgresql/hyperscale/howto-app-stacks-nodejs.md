@@ -108,8 +108,7 @@ Citus gives you [the super power of distributing your table](overview#the-superp
 > Distributing your tables is optional if you are using single node citus (basic tier).
 >
 
-
-Use the following code to connect and read the data using a SELECT SQL statement. 
+Use the following code to connect to the database and distribute the table.
 
 ```javascript
 const pg = require('pg');
@@ -320,6 +319,13 @@ fileStream.pipe(stream);
 ```
 
 ### COPY command to load data in-memory
+
+Before running below code we should install [through2](https://www.npmjs.com/package/through2) for continue the pipe chaining.
+ To do so, run the node package manager (npm) for JavaScript from your command line.
+
+```dotnetcli
+npm install through2
+```
 
 The following code is an example for copying in-memory data to a table.
 
