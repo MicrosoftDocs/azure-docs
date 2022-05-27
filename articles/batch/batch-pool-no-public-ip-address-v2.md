@@ -49,8 +49,8 @@ To restrict access to these nodes and reduce the discoverability of these nodes 
 ## Current limitations
 
 1. Pools without public IP addresses must use Virtual Machine Configuration and not Cloud Services Configuration.
-1. [Custom endpoint configuration](https://docs.microsoft.com/en-us/azure/batch/pool-endpoint-configuration) to Batch compute nodes doesn't work with pools without public IP addresses.
-1. Because there are no public IP addresses, you can't [use your own specified public IP addresses](https://docs.microsoft.com/en-us/azure/batch/create-pool-public-ip) with this type of pool.
+1. [Custom endpoint configuration](pool-endpoint-configuration.md) to Batch compute nodes doesn't work with pools without public IP addresses.
+1. Because there are no public IP addresses, you can't [use your own specified public IP addresses](create-pool-public-ip.md) with this type of pool.
 
 ## Create a pool without public IP addresses in the Azure portal
 
@@ -63,11 +63,11 @@ To restrict access to these nodes and reduce the discoverability of these nodes 
 1. Select a virtual network and subnet you wish to use. This virtual network must be in the same location as the pool you are creating.
 1. In **IP address provisioning type**, select **NoPublicIPAddresses**.
 
-![Screenshot of the Add pool screen with NoPublicIPAddresses selected.](https://docs.microsoft.com/en-us/azure/batch/media/batch-pool-no-public-ip-address/create-pool-without-public-ip-address.png)
+![Screenshot of the Add pool screen with NoPublicIPAddresses selected.](./media/batch-pool-no-public-ip-address/create-pool-without-public-ip-address.png)
 
 ## Use the Batch REST API to create a pool without public IP addresses
 
-The example below shows how to use the [Azure Batch REST API](https://docs.microsoft.com/en-us/rest/api/batchservice/pool/add) to create a pool that uses public IP addresses.
+The example below shows how to use the [Batch Service REST API](/rest/api/batchservice/pool/add) to create a pool that uses public IP addresses.
 
 ### REST API URI
 
@@ -88,7 +88,7 @@ client-request-id: 00000000-0000-0000-0000-000000000000
                "offer": "UbuntuServer",
                "sku": "16.040-LTS"
           },
-     "nodeAgentSKUId": "batch.node.ubuntu 16.04"
+          "nodeAgentSKUId": "batch.node.ubuntu 16.04"
      }
      "networkConfiguration": {
           "subnetId": "/subscriptions/<your_subscription_id>/resourceGroups/<your_resource_group>/providers/Microsoft.Network/virtualNetworks/<your_vnet_name>/subnets/<your_subnet_name>",
@@ -106,11 +106,11 @@ client-request-id: 00000000-0000-0000-0000-000000000000
      "enableAutoScale": false,
      "enableInterNodeCommunication": true,
      "metadata": [
-    {
-      "name": "myproperty",
-      "value": "myvalue"
-    }
-       ]
+          {
+               "name": "myproperty",
+               "value": "myvalue"
+          }
+     ]
 }
 ```
 
@@ -125,7 +125,7 @@ Another way to provide outbound connectivity is to use a user-defined route (UDR
 
 ## Migration from No Public IP v1 pools
 
-For existing pools using the previous preview version of [Azure Batch No Public IP pool](batch-pool-no-public-ip-address.md), they can only be migrated if the pool was created in a [virtual network](batch-virtual-network.md). The pool can be migrated following the [opt-in process for simplified node communication](https://docs.microsoft.com/en-us/azure/batch/simplified-compute-node-communication):
+For existing pools using the previous preview version of [Azure Batch No Public IP pool](batch-pool-no-public-ip-address.md), they can only be migrated if the pool was created in a [virtual network](batch-virtual-network.md). The pool can be migrated following the [opt-in process for simplified node communication](simplified-compute-node-communication.md):
 
 - Opt in to use simplified node communication.
 - Create [private endpoint for Batch node management](private-connectivity.md) in the virtual network.
@@ -134,6 +134,6 @@ For existing pools using the previous preview version of [Azure Batch No Public 
 
 ## Next steps
 
-- Learn how to [use simplified compute node communication](https://docs.microsoft.com/en-us/azure/batch/simplified-compute-node-communication).
-- Learn more about [creating pools in a virtual network](https://docs.microsoft.com/en-us/azure/batch/batch-virtual-network).
-- Learn how to [use private endpoints with Batch accounts](/Features/PrivateLink/Guide/Use-private-endpoints-with-Azure-Batch-accounts).
+- Learn how to [use simplified compute node communication](simplified-compute-node-communication.md).
+- Learn more about [creating pools in a virtual network](batch-virtual-network.md).
+- Learn how to [use private endpoints with Batch accounts](private-connectivity.md).

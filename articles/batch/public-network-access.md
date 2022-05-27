@@ -17,10 +17,10 @@ Each endpoint supports a maximum of 200 IP network rules.
 
 Batch accounts have two public endpoints:
 
-- **Account endpoint**: this is the endpoint for [Batch service REST API](https://docs.microsoft.com/en-us/rest/api/batchservice/) (data plane), for example managing pools, compute nodes, jobs, tasks, etc.
+- **Account endpoint**: this is the endpoint for [Batch Service REST API](/rest/api/batchservice/) (data plane), for example managing pools, compute nodes, jobs, tasks, etc.
 - **Node management endpoint**: used by Batch pool nodes to access Batch node management service. This is only applicable when using [simplified compute node communication](simplified-compute-node-communication.md).
 
-You can check both endpoints in account properties when you query Batch account with [management REST API](https://docs.microsoft.com/en-us/rest/api/batchmanagement/batch-account/get). You can also check them in **Overview** for Batch account in Azure Portal:
+You can check both endpoints in account properties when you query Batch account with [Batch Management REST API](/rest/api/batchmanagement/batch-account/get). You can also check them in **Overview** for Batch account in Azure Portal:
 
    :::image type="content" source="media/public-access/public-endpoints.png" alt-text="Batch account endpoints":::
 

@@ -20,7 +20,7 @@ This article describes the steps to create a private endpoint to access Batch ac
 
 Batch account resource has two endpoints supported to access with private endpoints:
 
-- Account endpoint (sub-resource: **batchAccount**): this is the endpoint for [Batch service REST API](https://docs.microsoft.com/en-us/rest/api/batchservice/) (data plane), for example managing pools, compute nodes, jobs, tasks, etc.
+- Account endpoint (sub-resource: **batchAccount**): this is the endpoint for [Batch Service REST API](/rest/api/batchservice/) (data plane), for example managing pools, compute nodes, jobs, tasks, etc.
 
 - (**Preview**) Compute node management endpoint (sub-resource: **nodeManagement**): this is the endpoint for compute nodes in the Batch pool to access Batch compute node management service, so that they can be managed by Batch service.
 
@@ -83,7 +83,7 @@ When you're creating the private endpoint, you can integrate it with a [private 
 
 ## Migration with existing Batch account private endpoints
 
-With the introduction of new sub-resource `nodeManagement` of private endpoints for Batch node management endpoint, the default private DNS zone for Batch account is simplified from `privatelink.<region>.batch.azure.com` to `privatelink.batch.azure.com`. The existing private endpoints for sub-resource `batchAccount` will continue to work, no action is needed.
+With the introduction of new private endpoint sub-resource `nodeManagement` for Batch node management endpoint, the default private DNS zone for Batch account is simplified from `privatelink.<region>.batch.azure.com` to `privatelink.batch.azure.com`. The existing private endpoints for sub-resource `batchAccount` will continue to work, no action is needed.
 
 However, if you have existing `batchAccount` private endpoints created before, and also enabled with automatic private DNS integration, follow the steps below to work together with newly created private endpoints in the same virtual network:
 
@@ -108,7 +108,7 @@ For details on costs related to private endpoints, see [Azure Private Link prici
 When creating private endpoint with your Batch account, keep in mind the following:
 
 - Private endpoint resource with sub-resource **batchAccount** must be created in the same subscription as the Batch account.
-- Resource movement is not supported for private endpoints of Batch accounts.
+- Resource movement is not supported for private endpoints with Batch accounts.
 - If a Batch account resource is moved to different resource group or subscription, its private endpoints can still work, but the association to Batch account is broken. If you delete the private endpoint resource, its associated private endpoint connection will still exist in your Batch account. You can manually remove it from the Batch account.
 - To delete the private connection, you can either delete the private endpoint resource, or delete the private connection in Batch account which will set the related private endpoint resource to Disconnected state.
 - DNS records in the private DNS zone are not removed automatically when you delete a private endpoint connection from the Batch account. You must manually remove the DNS records before adding a new private endpoint linked to this private DNS zone. If you don't clean up the DNS records, unexpected access issues might happen.

@@ -60,7 +60,7 @@ To restrict access to these nodes and reduce the discoverability of these nodes 
 
 ## Use the Batch REST API to create a pool without public IP addresses
 
-The example below shows how to use the [Azure Batch REST API](/rest/api/batchservice/pool/add) to create a pool that uses public IP addresses.
+The example below shows how to use the [Batch Service REST API](/rest/api/batchservice/pool/add) to create a pool that uses public IP addresses.
 
 ### REST API URI
 
@@ -81,7 +81,7 @@ client-request-id: 00000000-0000-0000-0000-000000000000
                "offer": "UbuntuServer",
                "sku": "16.040-LTS"
           },
-     "nodeAgentSKUId": "batch.node.ubuntu 16.04"
+          "nodeAgentSKUId": "batch.node.ubuntu 16.04"
      }
      "networkConfiguration": {
           "subnetId": "/subscriptions/<your_subscription_id>/resourceGroups/<your_resource_group>/providers/Microsoft.Network/virtualNetworks/<your_vnet_name>/subnets/<your_subnet_name>",
@@ -99,11 +99,11 @@ client-request-id: 00000000-0000-0000-0000-000000000000
      "enableAutoScale": false,
      "enableInterNodeCommunication": true,
      "metadata": [
-    {
-      "name": "myproperty",
-      "value": "myvalue"
-    }
-       ]
+          {
+               "name": "myproperty",
+               "value": "myvalue"
+          }
+     ]
 }
 ```
 

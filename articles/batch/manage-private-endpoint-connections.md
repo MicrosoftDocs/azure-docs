@@ -23,7 +23,7 @@ You can manage private endpoint connections for your Batch account with followin
 
 ## Az PowerShell
 
-Examples using [Az PowerShell Networking module](https://docs.microsoft.com/en-us/powershell/module/az.network#networking):
+Examples using [Az PowerShell Networking module](/powershell/module/az.network#networking):
 
 ```PowerShell
 $accountResourceId = "/subscriptions/<subscription>/resourceGroups/<rg>/providers/Microsoft.Batch/batchAccounts/<account>"
@@ -47,7 +47,7 @@ Remove-AzPrivateEndpointConnection -ResourceId $pecResourceId
 
 ## Azure CLI
 
-Examples using Azure CLI ([az network private-endpoint](https://docs.microsoft.com/en-us/cli/azure/network/private-endpoint)):
+Examples using Azure CLI ([az network private-endpoint](/cli/azure/network/private-endpoint)):
 
 ```sh
 accountResourceId="/subscriptions/<subscription>/resourceGroups/<rg>/providers/Microsoft.Batch/batchAccounts/<account>"
