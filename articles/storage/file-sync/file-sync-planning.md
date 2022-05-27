@@ -203,7 +203,7 @@ We'll use an example to illustrate how to estimate the amount of free space woul
 In this case, Azure File Sync would need about 209,500,000 KiB (209.5 GiB) of space for this namespace. Add this amount to any additional free space that is desired in order to figure out how much free space is required for this disk.
 
 ### Failover Clustering
-1. Windows Server Failover Clustering is supported by Azure File Sync for the "File Server for general use" deployment option. 
+1. Windows Server Failover Clustering is supported by Azure File Sync for the "File Server for general use" deployment option. For more information on how to configure the "File Server for general use" role on a Failover Cluster, see [Deploying a two-node clustered file server](https://docs.microsoft.com/windows-server/failover-clustering/deploy-two-node-clustered-file-server).
 2. The only scenario supported by Azure File Sync is Windows Server Failover Cluster with Clustered Disks
 3. Failover Clustering is not supported on "Scale-Out File Server for application data" (SOFS) or on Clustered Shared Volumes (CSVs) or local disks.
 
