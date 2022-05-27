@@ -63,6 +63,7 @@ For `Android Studio (2020.*)` the `repositories` are in `settings.gradle` `depen
 If you are using old versions of `Android Studio (4.*)` then the `repositories` will be in project level `build.gradle` `allprojects{}`.  
 
 ```groovy
+// dependencyResolutionManagement
 repositories {
     ...
     mavenCentral()
@@ -420,7 +421,7 @@ To change the language of composite, create a `LocalizationConfiguration` with `
 ```kotlin
 import com.azure.android.communication.ui.calling.models.LocalizationConfiguration
 
-// LanguageCode.values() provides list of supported languages
+// CommunicationUISupportedLocale provides list of supported locale
 val callComposite: CallComposite =
             CallCompositeBuilder().localization(
                 LocalizationConfiguration(Locale(CommunicationUISupportedLocale.EN))
@@ -432,12 +433,17 @@ val callComposite: CallComposite =
 ```java
 import com.azure.android.communication.ui.calling.models.LocalizationConfiguration;
 
-// LanguageCode.values() provides list of supported languages
+// CommunicationUISupportedLocale provides list of supported locale
 CallComposite callComposite = 
     new CallCompositeBuilder()
-        .localization(new LocalizationConfiguration(new Locale(CommunicationUISupportedLocale.EN)))
+        .localization(new LocalizationConfiguration(CommunicationUISupportedLocale.EN))
         .build();
 ```
+
+-----
+### Additional Features
+
+The list of [use cases](../../../../concepts/ui-library/ui-library-use-cases.md) has detailed information of additional features.
 
 -----
 ### Add notifications into your mobile app
