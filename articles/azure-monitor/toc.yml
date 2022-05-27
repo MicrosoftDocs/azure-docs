@@ -1020,7 +1020,7 @@ items:
       - name: Upgrade Snapshot Debugger
         href: app/snapshot-debugger-upgrade.md
       - name: Configure BYOS (Bring Your Own Storage)
-        href: app/profiler-bring-your-own-storage.md
+        href: profiler/profiler-bring-your-own-storage.md
       - name: Snapshot Debugger troubleshooting
         displayName: troubleshoot, troubleshooting
         href: app/snapshot-debugger-troubleshoot.md
@@ -1151,33 +1151,33 @@ items:
     items:
     - name: Overview
       displayName: profiling, debugging, code performance, perf
-      href: app/profiler-overview.md
+      href: profiler/profiler-overview.md
     - name: Enable Profiler
       items:        
       - name: App Service
-        href: app/profiler.md
+        href: profiler/profiler.md
       - name: Azure Functions app
-        href: app/profiler-azure-functions.md
+        href: profiler/profiler-azure-functions.md
       - name: Cloud Service
-        href: app/profiler-cloudservice.md
+        href: profiler/profiler-cloudservice.md
       - name: Service Fabric Application
-        href: app/profiler-servicefabric.md
+        href: profiler/profiler-servicefabric.md
       - name: Azure VM
-        href: app/profiler-vm.md
+        href: profiler/profiler-vm.md
       - name: Linux App services (preview)
-        href: app/profiler-aspnetcore-linux.md
+        href: profiler/profiler-aspnetcore-linux.md
       - name: ASP.NET Core Container
-        href: app/profiler-containers.md
+        href: profiler/profiler-containers.md
     - name: Configure
       items:        
       - name: Configure Profiler
-        href: app/profiler-settings.md
+        href: profiler/profiler-settings.md
       - name: Configure BYOS (Bring Your Own Storage)
-        href: app/profiler-bring-your-own-storage.md
+        href: profiler/profiler-bring-your-own-storage.md
     - name: Track Requests
-      href: app/profiler-trackrequests.md
+      href: profiler/profiler-trackrequests.md
     - name: Troubleshooting
-      href: app/profiler-troubleshooting.md
+      href: profiler/profiler-troubleshooting.md
   - name: Change Analysis
     items:
     - name: Overview
