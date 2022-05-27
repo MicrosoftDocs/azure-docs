@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Monitor network communication using the Azure portal
+title: Tutorial - Monitor network communication using the Azure portal using VM scale set 
 description: In this tutorial, learn how to monitor network communication between two virtual machine scale sets with Azure Network Watcher's connection monitor capability.
 services: network-watcher
 documentationcenter: na
@@ -68,7 +68,6 @@ First, create a public Standard Load Balancer by using the portal. The name and 
 1. When you are done, select **Review + create** 
 1. After it passes validation, select **Create**. 
 
-![Create a load balancer](./media/virtual-machine-scale-sets-create-portal/load-balancer.png)
 
 ## Create virtual machine scale set
 
@@ -84,8 +83,7 @@ You can deploy a scale set with a Windows Server image or Linux image such as RH
    - A **Password** must be at least 12 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. For more information, see [username and password requirements](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
    - If you select a Linux OS disk image, you can instead choose **SSH public key**. Only provide your public key, such as *~/.ssh/id_rsa.pub*. You can use the Azure Cloud Shell from the portal to [create and use SSH keys](../virtual-machines/linux/mac-create-ssh-keys.md).
    
-    :::image type="content" source="./media/virtual-machine-scale-sets-create-portal/quick-create-scale-set.png" alt-text="Image shows create options for scale sets in the Azure portal.":::
-
+ 
 1. Select **Next** to move the the other pages. 
 1. Leave the defaults for the **Instance** and **Disks** pages.
 1. On the **Networking** page, under **Load balancing**, select **Yes** to put the scale set instances behind a load balancer. 
