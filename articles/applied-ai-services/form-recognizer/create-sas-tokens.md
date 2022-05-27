@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
-ms.date: 05/25/2022
+ms.date: 05/27/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -21,7 +21,7 @@ At a high level, here's how SAS tokens work:
 
 * If the storage service verifies that the SAS is valid, the request is authorized.
 
-* If the shared access signature is considered invalid, the request is declined with error code 403 (Forbidden).
+* If the SAS token is deemed invalid, the request is declined and the error code 403 (Forbidden) is returned.
 
 Azure Blob Storage offers three resource types:
 
@@ -29,9 +29,9 @@ Azure Blob Storage offers three resource types:
 * **Data storage containers** are located in storage accounts and organize sets of blobs.
 * **Blobs** are located in containers and store text and binary data such as files, text, and images.
 
-## When to use a shared access signature
+## When to use a SAS token
 
-* **Training custom models**. Your assembled set of training documents *must* be uploaded to an Azure Blob Storage container.
+* **Training custom models**. Your assembled set of training documents *must* be uploaded to an Azure Blob Storage container. You can opt to use a SAS token to grant access to your training documents.
 
 * **Using storage containers with public access**. You can opt to use a SAS token to grant limited access to your storage resources that have public read access.
 
@@ -41,7 +41,9 @@ Azure Blob Storage offers three resource types:
   >
   > * [Managed identity](managed-identities-secured-access.md) supports both privately and publicly accessible Azure Blob Storage accounts.
   >
-  > * Shared access signature grant permissions to storage resources, and should be protected in the same manner as an account key. Operations that use shared access signatures should be performed only over an HTTPS connection, and shared access signature URIs should only be distributed on a secure connection such as HTTPS.
+  > * SAS tokens grant permissions to storage resources, and should be protected in the same manner as an account key.
+  >
+  > * Operations that use SAS tokens should be performed only over an HTTPS connection, and SAS URIs should only be distributed on a secure connection such as HTTPS.
 
 ## Prerequisites
 
@@ -51,7 +53,7 @@ To get started, you'll need:
 
 * A [Form Recognizer](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource.
 
-* A **standard performance** [Azure Blob Storage account](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll create containers to store and organize your blob data within your storage account. If you don't know how to create an Azure storage account with a container, following these quickstarts:
+* A **standard performance** [Azure Blob Storage account](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll create containers to store and organize your blob data within your storage account. If you don't know how to create an Azure storage account with a storage container, follow these quickstarts:
 
   * [Create a storage account](../../storage/common/storage-account-create.md). When you create your storage account, select **Standard** performance in the **Instance details** > **Performance** field.
   * [Create a container](../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). When you create your container, set **Public access level** to **Container** (anonymous read access for containers and blobs) in the **New Container** window.
@@ -67,8 +69,7 @@ To get started, you'll need:
 
     :::image type="content" source="media/sas-tokens/container-upload-button.png" alt-text="Screenshot that shows the container Upload button in the Azure portal.":::
 
-   The **Upload blob** window appears.
-1. Select your files to upload.
+1. The **Upload blob** window will appear. Select your files to upload.
 
     :::image type="content" source="media/sas-tokens/upload-blob-window.png" alt-text="Screenshot that shows the Upload blob window in the Azure portal.":::
 
@@ -79,30 +80,37 @@ To get started, you'll need:
 
 The Azure portal is a web-based console that enables you to manage your Azure subscription and resources using a graphical user interface (GUI).
 
-1. Go to the [Azure portal](https://portal.azure.com/#home) and navigate as follows:  **Your storage account** → **containers** → **your container**
+1. Go to the [Azure portal](https://portal.azure.com/#home) and navigate as follows:
+
+    **Your storage account** → **containers** → **your container**.
 
 1. Select **Generate SAS** from the menu near the top of the page.
 
 1. Select **Signing method** → **User delegation key**.
 
-1. Define **Permissions** by selecting or clearing the appropriate checkbox. Make sure the **Read**, **Write**, **Delete**, and **List** permissions are selected.
+1. Define **Permissions** by selecting or clearing the appropriate checkbox.</br>
+   Make sure the **Read**, **Write**, **Delete**, and **List** permissions are selected.
 
     :::image type="content" source="media/sas-tokens/sas-permissions.png" alt-text="Screenshot that shows the SAS permission fields in the Azure portal.":::
 
     >[!IMPORTANT]
     >
-    > * If you receive a message similar to the following one, you'll need to assign access to the blob data in your storage account:
+    > * If you receive a message similar to the following one, you'll also need to assign access to the blob data in your storage account:
     >
     >     :::image type="content" source="media/sas-tokens/need-permissions.png" alt-text="Screenshot that shows the lack of permissions warning.":::
     >
      > * [Azure role-based access control](../../role-based-access-control/overview.md) (Azure RBAC) is the authorization system used to manage access to Azure resources. Azure RBAC helps you manage access and permissions for your Azure resources.
-    > * [Assign an Azure role for access to blob data](../../role-based-access-control/role-assignments-portal.md?tabs=current) shows you how to assign a role that allows for read, write, and delete permissions for your Azure storage container. For example, see [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor).
+    > * [Assign an Azure role for access to blob data](../../role-based-access-control/role-assignments-portal.md?tabs=current) to assign a role that allows for read, write, and delete permissions for your Azure storage container. *See* [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor).
 
-1. Specify the signed key **Start** and **Expiry** times. When you create a shared access signature (SAS), the default duration is 48 hours. After 48 hours, you'll need to create a new token. Consider setting a longer duration period for the time you'll be using your storage account Translator Service. The value for the expiry time is a maximum of seven days from the start of the shared access signature.
+1. Specify the signed key **Start** and **Expiry** times.
+
+    * When you create a SAS token, the default duration is 48 hours. After 48 hours, you'll need to create a new token.
+    * Consider setting a longer duration period for the time you'll be using your storage account for Form Recognizer Service operations.
+    * The value for the expiry time is a maximum of seven days from the creation of the SAS token.
 
 1. The **Allowed IP addresses** field is optional and specifies an IP address or a range of IP addresses from which to accept requests. If the request IP address doesn't match the IP address or address range specified on the SAS token, it won't be authorized.
 
-1. The **Allowed protocols** field is optional and specifies the protocol permitted for a request made with the shared access signature. The default value is HTTPS.
+1. The **Allowed protocols** field is optional and specifies the protocol permitted for a request made with the SAS token. The default value is HTTPS.
 
 1. Select **Generate SAS token and URL**.
 
@@ -125,7 +133,7 @@ Azure Storage Explorer is a free standalone app that enables you to easily manag
 1. Open the Azure Storage Explorer app on your local machine and navigate to your connected **Storage Accounts**.
 1. Expand the Storage Accounts node and select **Blob Containers**.
 1. Expand the Blob Containers node and right-click a storage **container** node to display the options menu.
-1. Select **Get Shared Access Signature...** from options menu.
+1. Select **Get Shared Access Signature** from options menu.
 1. In the **Shared Access Signature** window, make the following selections:
     * Select your **Access policy** (the default is none).
     * Specify the signed key **Start** and **Expiry** date and time. A short lifespan is recommended because, once generated, a SAS can't be revoked.
@@ -138,11 +146,11 @@ Azure Storage Explorer is a free standalone app that enables you to easily manag
 
 1. **Copy and paste the SAS URL and query string values in a secure location. They'll only be displayed once and can't be retrieved once the window is closed.**
 
-1. To use the SAS URL, append the qSAS token (URL) to the endpoint URL for your storage service.
+1. To use the SAS URL, append the SAS token (URL) to the endpoint URL for your storage service.
 
 ## Use your SAS URL to grant access
 
-The SAS URL includes a special set of [query parameters](s/rest/api/storageservices/create-user-delegation-sas#assign-permissions-with-rbac). Those parameters indicate how the resources may be accessed by the client.
+The SAS URL includes a special set of [query parameters](/rest/api/storageservices/create-user-delegation-sas#assign-permissions-with-rbac). Those parameters indicate how the resources may be accessed by the client.
 
 ### REST API
 

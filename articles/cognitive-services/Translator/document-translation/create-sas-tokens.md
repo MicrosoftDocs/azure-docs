@@ -5,7 +5,7 @@ ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 05/25/2022
+ms.date: 05/27/2022
 ---
 
 # Create SAS tokens for your storage containers
@@ -18,7 +18,7 @@ At a high level, here's how SAS tokens work:
 
 * If the storage service verifies that the SAS is valid, the request is authorized.
 
-* If the shared access signature is assessed invalid, the request is declined with error code 403 (Forbidden).
+* If the SAS token is deemed invalid, the request is declined and the error code 403 (Forbidden) is returned.
 
 Azure Blob Storage offers three resource types:
 
@@ -28,9 +28,9 @@ Azure Blob Storage offers three resource types:
 
 > [!IMPORTANT]
 >
-> * Shared access signature grant permissions to storage resources, and should be protected in the same manner as an account key.
+> * SAS tokens are used to grant permissions to storage resources, and should be protected in the same manner as an account key.
 >
-> * Operations that use shared access signatures should be performed only over an HTTPS connection, and shared access signature URIs should only be distributed on a secure connection such as HTTPS.
+> * Operations that use SAS tokens should be performed only over an HTTPS connection, and SAS URIs should only be distributed on a secure connection such as HTTPS.
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ To get started, you'll need the following resources:
 
 * A [Translator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) resource.
 
-* A **standard performance** [Azure Blob Storage account](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll create containers to store and organize your files within your storage account. If you don't know how to create an Azure storage account with a container, following these quickstarts:
+* A **standard performance** [Azure Blob Storage account](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll create containers to store and organize your files within your storage account. If you don't know how to create an Azure storage account with a storage container, follow these quickstarts:
 
   * [Create a storage account](../../../storage/common/storage-account-create.md). When you create your storage account, select **Standard** performance in the **Instance details** > **Performance** field.
   * [Create a container](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). When you create your container, set **Public access level** to **Container** (anonymous read access for containers and files) in the **New Container** window.
@@ -49,13 +49,11 @@ To get started, you'll need the following resources:
 
 <!-- markdownlint-disable MD024 -->
 
-Go to the [Azure portal](https://portal.azure.com/#home) and navigate to your container or file:
+Go to the [Azure portal](https://portal.azure.com/#home) and navigate to your container or a specific file as follows and continue with the steps below:
 
 | Create SAS for a container| Create SAS for a specific file|
 |-----|-----|
 **Your storage account** → **containers** → **your container** |**Your storage account** → **containers** → **your container**→ **your file** |
-
-Continue as follows:
 
 1. Right-click the container or file and select **Generate SAS** from the drop-down menu.
 
@@ -66,7 +64,11 @@ Continue as follows:
     * Your **source** container or file must have designated  **read** and **list** access.
     * Your **target** container or file must have designated  **write** and **list** access.
 
-1. Specify the signed key **Start** and **Expiry** times. When you create a shared access signature (SAS), the default duration is 48 hours. After 48 hours, you'll need to create a new token. Consider setting a longer duration period for the time you'll be using your storage account Translator Service. The value for the expiry time is a maximum of seven days from the start of the shared access signature.
+1. Specify the signed key **Start** and **Expiry** times.
+
+    * When you create a shared access signature (SAS), the default duration is 48 hours. After 48 hours, you'll need to create a new token.
+    * Consider setting a longer duration period for the time you'll be using your storage account for Translator Service operations.
+    * The value for the expiry time is a maximum of seven days from the creation of the SAS token.
 
 1. The **Allowed IP addresses** field is optional and specifies an IP address or a range of IP addresses from which to accept requests. If the request IP address doesn't match the IP address or address range specified on the SAS token, it won't be authorized.
 
@@ -78,15 +80,15 @@ Continue as follows:
 
 1. **Copy and paste the Blob SAS token and URL values in a secure location. They'll only be displayed once and cannot be retrieved once the window is closed.**
 
-1. To construct a SAS URL, append the SAS token (URI) to the URL for a storage service.
+1. To [construct a SAS URL](#use-your-sas-url-to-grant-access), append the SAS token (URI) to the URL for a storage service.
 
-## Create SAS tokens in Azure Storage Explorer
+## Create SAS tokens with Azure Storage Explorer
 
 Azure Storage Explorer is a free standalone app that enables you to easily manage your Azure cloud storage resources from your desktop.
 
 * You'll need the [**Azure Storage Explorer**](../../../vs-azure-tools-storage-manage-with-storage-explorer.md) app installed in your Windows, macOS, or Linux development environment.
 
-* After the Azure Storage Explorer app is installed, [connect it the storage account](../../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#connect-to-a-storage-account-or-service) you're using for Document Translation. Follow the steps below to create tokens for a storage container or specific blob file:
+* After the Azure Storage Explorer app is installed, [connect it to the storage account](../../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#connect-to-a-storage-account-or-service) you're using for Document Translation. Follow the steps below to create tokens for a storage container or specific blob file:
 
 ### [SAS tokens for storage containers](#tab/Containers)
 
@@ -103,8 +105,9 @@ Azure Storage Explorer is a free standalone app that enables you to easily manag
 
 1. A new window will appear with the **Container** name, **URI**, and **Query string** for your container.
 1. **Copy and paste the container, URI, and query string values in a secure location. They'll only be displayed once and can't be retrieved once the window is closed.**
+To [construct a SAS URL](#use-your-sas-url-to-grant-access), append the SAS token (URI) to the URL for a storage service.
 
-### [SAS tokens for blob file](#tab/blobs)
+### [SAS tokens for specific blob file](#tab/blobs)
 
 1. Open the Azure Storage Explorer app on your local machine and navigate to your connected **Storage Accounts**.
 1. Expand your storage node and select **Blob Containers**.
@@ -123,13 +126,13 @@ Azure Storage Explorer is a free standalone app that enables you to easily manag
 
 1. A new window will appear with the **Blob** name, **URI**, and **Query string** for your blob.
 1. **Copy and paste the blob, URI, and query string values in a secure location. They will only be displayed once and cannot be retrieved once the window is closed.**
-1. To construct a SAS URL, append the SAS token (URI) to the URL for a storage service.
+1. To [construct a SAS URL](#use-your-sas-url), append the SAS token (URI) to the URL for a storage service.
 
 ---
 
-### Use your SAS URL
+### Use your SAS URL to grant access
 
-* To use your SAS URL in REST API requests, use the SAS URL as your sourceURL and targetURL values (or append the SAS query string to your existing sourceURL and targetURL values):
+To include your SAS URL with REST API requests, use the SAS URL as your sourceURL and targetURL values (or append the SAS query string to your existing sourceURL and targetURL values):
 
 ```json
 {
@@ -156,14 +159,8 @@ Azure Storage Explorer is a free standalone app that enables you to easily manag
 
 That's it! You've learned how to create SAS tokens to authorize how clients access your data.
 
-## Learn more
-
-* [Create SAS tokens for blobs or containers programmatically](../../../storage/blobs/sas-service-create.md)
-* [Permissions for a directory, container, or blob](/rest/api/storageservices/create-service-sas#permissions-for-a-directory-container-or-blob)
-
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Get Started with Document Translation](get-started-with-document-translation.md)
->
 >
