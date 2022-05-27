@@ -5,7 +5,7 @@ author: runcai
 ms.author: runcai
 ms.reviewer: mimckitt
 ms.service: virtual-machines
-ms.subservice: vm-sizes-memory
+ms.subservice: sizes
 ms.topic: conceptual 
 ms.date: 11/15/2021
 

@@ -2,8 +2,8 @@
 title: Configure Basic Logs in Azure Monitor (Preview)
 description: Configure a table for Basic Logs in Azure Monitor.
 ms.topic: conceptual
+ms.custom: event-tier1-build-2022
 ms.date: 05/15/2022
-
 ---
 
 # Configure Basic Logs in Azure Monitor (Preview)
@@ -19,7 +19,7 @@ All tables in your Log Analytics are Analytics tables, by default. You can confi
 You can currently configure the following tables for Basic Logs:
 
 - All tables created with the [Data Collection Rule (DCR)-based custom logs API.](custom-logs-overview.md) 
--	[ContainerLog](/azure/azure-monitor/reference/tables/containerlog) and [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2), which [Container Insights](../containers/container-insights-overview.md) uses and which include verbose text-based log records.
+- [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2), which [Container Insights](../containers/container-insights-overview.md) uses and which include verbose text-based log records.
 - [AppTraces](/azure/azure-monitor/reference/tables/apptraces), which contains freeform log records for application traces in Application Insights.
 
 > [!NOTE]
@@ -45,12 +45,14 @@ PATCH https://management.azure.com/subscriptions/<subscriptionId>/resourcegroups
 
 **Example**
 
-This example configures the `ContainerLog` table for Basic Logs.
+This example configures the `ContainerLogV2` table for Basic Logs.
+
+Container Insights uses ContainerLog by default, to switch to using ContainerLogV2, please follow these [instructions](../containers/container-insights-logging-v2.md) before attempting to convert the table to Basic Logs.
 
 **Sample request**
 
 ```http
-PATCH https://management.azure.com/subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace/tables/ContainerLog?api-version=2021-12-01-preview
+PATCH https://management.azure.com/subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace/tables/ContainerLogV2?api-version=2021-12-01-preview
 ```
 
 Use this request body to change to Basic Logs:
@@ -90,7 +92,7 @@ Status code: 200
         "schema": {...}        
     },
     "id": "subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace",
-    "name": "ContainerLog"
+    "name": "ContainerLogV2"
 }
 ```
 
@@ -103,13 +105,13 @@ For example:
 - To set Basic Logs:
 
     ```azurecli
-    az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace --name ContainerLog  --plan Basic
+    az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace --name ContainerLogV2  --plan Basic
     ```
 
 - To set Analytics Logs:
 
     ```azurecli
-    az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace --name ContainerLog  --plan Analytics
+    az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace --name ContainerLogV2  --plan Analytics
     ```
    
 ---
@@ -151,7 +153,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{
 **Sample Request**
 
 ```http
-GET https://management.azure.com/subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace/tables/ContainerLog?api-version=2021-12-01-preview
+GET https://management.azure.com/subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace/tables/ContainerLogV2?api-version=2021-12-01-preview
 ```
 
 
@@ -170,7 +172,7 @@ Status code: 200
         "provisioningState": "Succeeded"        
     },
     "id": "subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace",
-    "name": "ContainerLog"
+    "name": "ContainerLogV2"
 }
 ```
 

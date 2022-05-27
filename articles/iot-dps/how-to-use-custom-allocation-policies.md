@@ -208,7 +208,7 @@ In this section, you create an Azure function that implements your custom alloca
         }
         else
         {
-            string[] hubs = data?.linkedHubs.ToObject<string[]>();
+            string[] hubs = data?.linkedHubs?.ToObject<string[]>();
 
             // Must have hubs selected on the enrollment
             if (hubs == null)

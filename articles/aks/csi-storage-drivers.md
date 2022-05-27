@@ -1,14 +1,14 @@
 ---
-title: Enable Container Storage Interface (CSI) drivers on Azure Kubernetes Service (AKS)
+title: Container Storage Interface (CSI) drivers in Azure Kubernetes Service (AKS)
 description: Learn how to enable the Container Storage Interface (CSI) drivers for Azure disks and Azure Files in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 05/06/2022
+ms.date: 05/23/2022
 author: palma21
 
 ---
 
-# Enable Container Storage Interface (CSI) drivers on Azure Kubernetes Service (AKS)
+# Container Storage Interface (CSI) drivers in Azure Kubernetes Service (AKS)
 
 The Container Storage Interface (CSI) is a standard for exposing arbitrary block and file storage systems to containerized workloads on Kubernetes. By adopting and using CSI, Azure Kubernetes Service (AKS) can write, deploy, and iterate plug-ins to expose new or improve existing storage systems in Kubernetes without having to touch the core Kubernetes code and wait for its release cycles.
 
@@ -21,6 +21,9 @@ The CSI storage driver support on AKS allows you to natively use:
 > Starting with Kubernetes version 1.21, AKS only uses CSI drivers by default and CSI migration is enabled. Existing in-tree persistent volumes will continue to function. However, internally Kubernetes hands control of all storage management operations (previously targeting in-tree drivers) to CSI drivers.
 >
 > *In-tree drivers* refers to the current storage drivers that are part of the core Kubernetes code opposed to the new CSI drivers, which are plug-ins.
+
+> [!NOTE]
+> Azure disk CSI driver v2 (preview) improves scalability and reduces pod failover latency. It uses shared disks to provision attachment replicas on multiple cluster nodes and integrates with the pod scheduler to ensure a node with an attachment replica is chosen on pod failover. Azure disk CSI driver v2 (preview) also provides the ability to fine tune performance. If you're interested in participating in the preview, submit a request: [https://aka.ms/DiskCSIv2Preview](https://aka.ms/DiskCSIv2Preview). This preview version is provided without a service level agreement, and you can occasionally expect breaking changes while in preview. The preview version isn't recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Migrate custom in-tree storage classes to CSI
 
@@ -61,7 +64,7 @@ parameters:
 ## Migrate in-tree persistent volumes
 
 > [!IMPORTANT]
-> If your in-tree persistent volume `reclaimPolicy` is set to **Delete**, you need to change its policy to **Retain** to persist your data.  This can be achieved using a [patch operation on the PV](https://kubernetes.io/docs/tasks/administer-cluster/change-pv-reclaim-policy/). For example:
+> If your in-tree persistent volume `reclaimPolicy` is set to **Delete**, you need to change its policy to **Retain** to persist your data. This can be achieved using a [patch operation on the PV](https://kubernetes.io/docs/tasks/administer-cluster/change-pv-reclaim-policy/). For example:
 >
 > ```console
 > $ kubectl patch pv pv-azuredisk --type merge --patch '{"spec": {"persistentVolumeReclaimPolicy": "Retain"}}'
@@ -93,7 +96,7 @@ If you have in-tree Azure File persistent volumes, get `secretName`, `shareName`
 
 <!-- LINKS - internal -->
 [azure-disk-volume]: azure-disk-volume.md
-[azure-disk-static-mount]: azure-disk-volume.md#mount-disk-as-volume
+[azure-disk-static-mount]: azure-disk-volume.md#mount-disk-as-a-volume
 [azure-file-static-mount]: azure-files-volume.md#mount-file-share-as-a-persistent-volume
 [azure-files-pvc]: azure-files-dynamic-pv.md
 [premium-storage]: ../virtual-machines/disks-types.md

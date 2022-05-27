@@ -3,7 +3,7 @@ title: Complex applications for Azure Active Directory Application Proxy
 description: Provides an understanding of complex application in Azure Active Directory Application Proxy, and how to configure one. 
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.workload: identity

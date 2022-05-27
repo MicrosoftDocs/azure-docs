@@ -2,14 +2,14 @@
 title: What's Permissions Management?
 description: An introduction to Permissions Management.
 services: active-directory
-author: mtillman
-manager: karenh444
+author: kenwith
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: overview
 ms.date: 04/20/2022
-ms.author: mtillman
+ms.author: kenwith
 ---
 
 # What's Permissions Management?

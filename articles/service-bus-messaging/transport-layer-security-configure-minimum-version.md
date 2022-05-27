@@ -68,7 +68,7 @@ To check the minimum required TLS version for your Service Bus namespace, you ca
 .\ARMClient.exe token <your-subscription-id>
 ```
 
-Once you have your bearer token, you can use the script below in combination with something like [Rest Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) to query the API.
+Once you have your bearer token, you can use the script below in combination with something like [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) to query the API.
 
 ```http
 @token = Bearer <Token received from ARMClient>

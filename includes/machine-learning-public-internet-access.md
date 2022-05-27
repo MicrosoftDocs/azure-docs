@@ -51,4 +51,4 @@ When using Azure Kubernetes Service (AKS) with Azure Machine Learning, allow the
 
 * General inbound/outbound requirements for AKS as described in the [Restrict egress traffic in Azure Kubernetes Service](../articles/aks/limit-egress-traffic.md) article.
 * __Outbound__ to mcr.microsoft.com.
-* When deploying a model to an AKS cluster, use the guidance in the [Deploy ML models to Azure Kubernetes Service](../articles/machine-learning/how-to-deploy-azure-kubernetes-service.md#connectivity) article.
+* When deploying a model to an AKS cluster, use the guidance in the [Deploy ML models to Azure Kubernetes Service](../articles/machine-learning/v1/how-to-deploy-azure-kubernetes-service.md#connectivity) article.

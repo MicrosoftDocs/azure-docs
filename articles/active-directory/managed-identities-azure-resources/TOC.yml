@@ -106,6 +106,8 @@
       href: howto-assign-access-cli.md
     - name: PowerShell
       href: howto-assign-access-powershell.md
+    - name: Using Azure Policy
+      href: how-to-assign-managed-identity-via-azure-policy.md
 
   - name: Manage user-assigned managed identities
     href: how-manage-user-assigned-managed-identities.md

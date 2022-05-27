@@ -95,10 +95,14 @@
       href: about-client-address-pools.md
     - name: About P2S global and hub-based profiles
       href: global-hub-profile.md
-  - name: Security baseline
-    href: /security/benchmark/azure/baselines/virtual-wan-security-baseline?toc=/azure/virtual-wan/TOC.json
+  - name: Virtual hub settings
+    href: hub-settings.md
+  - name: Gateway settings
+    href: gateway-settings.md
   - name: Secured virtual hubs
     href: ../firewall-manager/secured-virtual-hub.md?toc=%2fazure%2fvirtual-wan%2ftoc.json
+  - name: Security baseline
+    href: /security/benchmark/azure/baselines/virtual-wan-security-baseline?toc=/azure/virtual-wan/TOC.json
   - name: Pricing explained
     href: pricing-concepts.md
 - name: How-to guides
@@ -183,8 +187,6 @@
         href: howto-always-on-device-tunnel.md
     - name: Configure forced tunneling
       href: how-to-forced-tunnel.md
-    - name: Configure High Availability VPN client
-      href: high-availability-vpn-client.md
   - name: Routing
     items:
     - name: Configure virtual hub routing

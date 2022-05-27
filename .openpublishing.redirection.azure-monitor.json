@@ -66,6 +66,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/logs/design-logs-deployment.md",
+            "redirect_url": "/azure/azure-monitor/logs/workspace-design",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/app/apm-tables.md",
             "redirect_url": "/azure/azure-monitor/app/convert-classic-resource#workspace-based-resource-changes",
             "redirect_document_id": false
@@ -77,12 +82,42 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/alerts/itsmc-service-manager-script.md",
-            "redirect_url": "/azure/azure-monitor/alerts/itsmc-connections.md",
+            "redirect_url": "/azure/azure-monitor/alerts/itsmc-connections",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/alerts/itsmc-connections-scsm.md" ,
-            "redirect_url": "/azure/azure-monitor/alerts/itsmc-connections.md",
+            "redirect_url": "/azure/azure-monitor/alerts/itsmc-connections",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-azure-redhat-setup.md" ,
+            "redirect_url": "/azure/azure-monitor/containers/container-insights-transition-hybrid",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/containers/container-insights-azure-redhat4-setup.md" ,
+            "redirect_url": "/azure/azure-monitor/containers/container-insights-transition-hybrid",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-metric-overview.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/alert-types.md#metric-alerts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-managing-alert-instances.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-page.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-unified-log.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/alert-types.md#log-alerts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/activity-log-alerts.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/alert-types.md#activity-log-alerts",
             "redirect_document_id": false
         }
     ]
