@@ -148,10 +148,12 @@ First you need to authenticate to your Azure Active Directory. For this, you'll 
     ```
 
 1.	You also need to specify the name of your Microsoft Purview account:
+
     ```python
     reference_name_purview = "<name of your Microsoft Purview account>"
     ```
 1.	You can now instantiate the two clients:
+
     ```python
     def get_credentials():
         credentials = ClientSecretCredential(client_id=client_id, client_secret=client_secret, tenant_id=tenant_id)
@@ -451,6 +453,7 @@ Now let's scan the data source you registered above.
     ```
 
 1.	Now that the scan is defined you can trigger a scan run with a unique ID:
+
     ```python
     run_id = uuid.uuid4() #unique id of the new scan
 
@@ -539,15 +542,43 @@ except HttpResponseError as e:
 
 ## Search catalog
 
-Once a scan is complete, it's likely that assets have been discovered and even classified. This process can take some time to complete after a scan. In this section, you use the Microsoft Purview Catalog client to search the whole catalog.
-1. This time you need to instantiate the **catalog** client instead of the scanning one:
+Once a scan is complete, it's likely that assets have been discovered and even classified. This process can take some time to complete after a scan, so you may need to wait before running this next portion of code. Wait for your scan to show **completed**, and the assets to appear in the Microsoft Purview Data Catalog. 
+
+Once the assets are ready, you can use the Microsoft Purview Catalog client to search the whole catalog.
+
+1. This time you need to import the **catalog** client instead of the scanning one. ALso include the HTTPResponse error and ClientSecretCredential.
+
     ```python
+    from azure.purview.catalog import PurviewCatalogClient
+    from azure.identity import ClientSecretCredential 
+    from azure.core.exceptions import HttpResponseError
+    ```
+
+1. Create a function to get the credentials to access your Microsoft Purview account, and instantiate the catalog client.
+
+    ```python
+    client_id = "<your client id>" 
+    client_secret = "<your client secret>"
+    tenant_id = "<your tenant id>"
+    reference_name_purview = "<name of your Microsoft Purview account>"
+
+    def get_credentials():
+	    credentials = ClientSecretCredential(client_id=client_id, client_secret=client_secret, tenant_id=tenant_id)
+	    return credentials
+
+    def get_catalog_client():
+        credentials = get_credentials()
+        client = PurviewCatalogClient(endpoint=f"https://{reference_name_purview}.purview.azure.com/", credential=credentials, logging_enable=True)
+        return client
+
     try:
         client_catalog = get_catalog_client()
     except ValueError as e:
         print(e)  
     ```
-1.	Configure your search criteria and keywords in the input body: 
+
+1.	Configure your search criteria and keywords in the input body:
+
     ```python
     keywords = "keywords you want to search"
 
@@ -555,9 +586,11 @@ Once a scan is complete, it's likely that assets have been discovered and even c
         "keywords": keywords
     }
     ```
-    Here you only specify keywords, but keep in mind you can add many other fields to further specify your query.
+
+    Here you only specify keywords, but keep in mind [you can add many other fields to further specify your query](/python/api/azure-purview-catalog/azure.purview.catalog.operations.discoveryoperations?view=azure-python-preview#azure-purview-catalog-operations-discoveryoperations-query).
 		
 1.	Search the catalog:
+
     ```python
     try:
         response = client_catalog.discovery.query(search_request=body_input)
@@ -565,6 +598,44 @@ Once a scan is complete, it's likely that assets have been discovered and even c
     except HttpResponseError as e:
         print(e)
     ```
+
+### Full Code
+
+```python
+from azure.purview.catalog import PurviewCatalogClient
+from azure.identity import ClientSecretCredential 
+from azure.core.exceptions import HttpResponseError
+
+client_id = "<your client id>" 
+client_secret = "<your client secret>"
+tenant_id = "<your tenant id>"
+reference_name_purview = "<name of your Microsoft Purview account>"
+keywords = "<keywords you want to search for>"
+
+def get_credentials():
+	credentials = ClientSecretCredential(client_id=client_id, client_secret=client_secret, tenant_id=tenant_id)
+	return credentials
+
+def get_catalog_client():
+	credentials = get_credentials()
+	client = PurviewCatalogClient(endpoint=f"https://{reference_name_purview}.purview.azure.com/", credential=credentials, logging_enable=True)
+	return client
+
+body_input={
+	"keywords": keywords
+}
+
+try:
+	catalog_client = get_catalog_client()
+except ValueError as e:
+	print(e)
+
+try:
+	response = catalog_client.discovery.query(search_request=body_input)
+	print(response)
+except HttpResponseError as e:
+	print(e)
+```
 
 ## Delete a data source
 
