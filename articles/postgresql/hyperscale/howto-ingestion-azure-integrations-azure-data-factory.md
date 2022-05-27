@@ -42,7 +42,7 @@ In Azure Data Factory, you can use the **Copy** activity to copy data among data
 3. In the General panel under **Properties**, specify the name of pipeline. 
 4. In the **Activities** toolbox, expand the **Move and Transform** category, and drag and drop the **Copy Data** activity to the pipeline designer surface. Specify the activity name.
 
-![Orchestrate page of Azure Data Factory.](../media/howto-ingestion-azure-integrations-azure-data-factory/ADF_Pipeline_COPY.png)
+![Pipeline in Azure Data Factory.](../media/howto-ingestion-azure-integrations-azure-data-factory/ADF_Pipeline_COPY.png)
 
 5. Configure **Source**
 
