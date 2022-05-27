@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: storage
- author: roygara
+ author: khdownie
  ms.service: storage
  ms.topic: include
  ms.date: 05/06/2022
- ms.author: rogara
+ ms.author: kendownie
  ms.custom: include file, devx-track-azurecli, devx-track-azurepowershell
 ---
 

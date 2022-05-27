@@ -168,8 +168,7 @@ The Log Analytics workspace must exist in the following regions:
       West Central US  
       West Europe  
       West US  
-      West US 2  
-      West US 3  
+      West US 2   
    :::column-end:::
 :::row-end:::
 

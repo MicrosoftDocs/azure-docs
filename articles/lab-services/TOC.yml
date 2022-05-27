@@ -1,23 +1,31 @@
 - name: Azure Lab Services docs
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: About Lab Services
     href: lab-services-overview.md
   - name: What's New in Lab Services?
     href: lab-services-whats-new.md
 - name: Quickstarts
+  expanded: true
   items:
     - name: Create a lab plan (admin)
+      expanded: true
       items:
       - name: Azure portal
         href: quick-create-lab-plan-portal.md
+      - name: ARM template
+        href: quick-create-lab-plan-template.md
       - name: PowerShell
         href: quick-create-lab-plan-powershell.md
     - name: Create a lab (educator)
+      expanded: true
       items:
       - name: Azure Lab Services website
         href: quick-create-lab-portal.md
+      - name: ARM template
+        href: quick-create-lab-template.md
       - name: PowerShell
         href: quick-create-lab-powershell.md
 - name: Tutorials
@@ -30,7 +38,7 @@
     href: tutorial-connect-lab-virtual-machine.md
   - name: Track usage of a lab
     href: tutorial-track-usage.md
-  - name: Set up a lab account (deprecated)
+  - name: Set up a lab account
     href: tutorial-setup-lab-account.md
 - name: Concepts
   items:
@@ -227,9 +235,9 @@
         href: how-to-create-schedules-within-teams.md
       - name: Access a VM (student view)
         href: how-to-access-vm-for-students-within-teams.md
-  - name: Earlier releases (deprecated)
+  - name: Earlier releases
     items:
-    - name: Create & configure lab accounts (deprecated)
+    - name: Create & configure lab accounts
       items:
       - name: Create and manage labs
         href: how-to-manage-classroom-labs.md        
@@ -239,7 +247,7 @@
         href: how-to-configure-lab-accounts.md
       - name: Allow lab creator to pick lab location
         href: allow-lab-creator-pick-lab-location.md
-      - name: Create a lab with a shared resource (deprecated)
+      - name: Create a lab with a shared resource
         href: how-to-create-a-lab-with-shared-resource-1.md
       - name: Connect to a peer virtual network 
         href: how-to-connect-peer-virtual-network.md
@@ -255,7 +263,7 @@
       href: administrator-guide-1.md
     - name: Lab account creation guide
       href: account-setup-guide.md
-    - name: Az.LabServices PowerShell module (deprecated)
+    - name: Az.LabServices PowerShell module for lab accounts
       href: reference-powershell-module.md     
 - name: Reference
   items:

@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-speech-sdk-cli
 
 # Captioning with speech to text
 
-In this guide, you learn how to create captions with speech to text. This guide covers captioning for speech, but doesn't include speaker ID or sound effects such as bells ringing. Concepts include how to synchronize captions with your input audio, apply profanity filters, get partial results, apply customizations, and identify spoken languages for multilingual scenarios.
+In this guide, you learn how to create captions with speech to text. Concepts include how to synchronize captions with your input audio, apply profanity filters, get partial results, apply customizations, and identify spoken languages for multilingual scenarios. This guide covers captioning for speech, but doesn't include speaker ID or sound effects such as bells ringing. 
 
 Here are some common captioning scenarios:
 - Online courses and instructional videos
@@ -30,7 +30,7 @@ The following are aspects to consider when using captioning:
 * Consider output formats such as SRT (SubRip Text) and WebVTT (Web Video Text Tracks). These can be loaded onto most video players such as VLC, automatically adding the captions on to your video.
 
 > [!TIP]
-> Try the [Azure Video Indexer](/azure/azure-video-indexer/video-indexer-overview) as a demonstration of how you can get captions for videos that you upload. 
+> Try the [Azure Video Indexer](../../azure-video-indexer/video-indexer-overview.md) as a demonstration of how you can get captions for videos that you upload. 
 
 Captioning can accompany real time or pre-recorded speech. Whether you're showing captions in real time or with a recording, you can use the [Speech SDK](speech-sdk.md) or [Speech CLI](spx-overview.md) to recognize speech and get transcriptions. You can also use the [Batch transcription API](batch-transcription.md) for pre-recorded video. 
 

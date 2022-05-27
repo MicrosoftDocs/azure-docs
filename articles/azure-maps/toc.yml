@@ -70,6 +70,8 @@ items:
   items:
   - name: Authentication with Azure Maps
     href: azure-maps-authentication.md
+  - name: Authentication best practices
+    href: authentication-best-practices.md
   - name: Azure Maps Event Grid integration
     href: azure-maps-event-grid-integration.md
   - name: Choose the right pricing tier

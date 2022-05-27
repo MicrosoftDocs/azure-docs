@@ -1,9 +1,9 @@
 ---
-title: Azure Video Indexer (formerly Azure Video Analyzer for Media) release notes | Microsoft Docs
-description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Indexer (formerly Azure Video Analyzer for Media).
+title: Azure Video Indexer release notes | Microsoft Docs
+description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Indexer.
 ms.topic: article
 ms.custom: references_regions
-ms.date: 04/27/2022
+ms.date: 05/16/2022
 ms.author: juliako
 ---
 
@@ -11,7 +11,7 @@ ms.author: juliako
 
 >Get notified about when to revisit this page for updates by copying and pasting this URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` into your RSS feed reader.
 
-To stay up-to-date with the most recent Azure Video Indexer (formerly Azure Video Analyzer for Media) developments, this article provides you with information about:
+To stay up-to-date with the most recent Azure Video Indexer developments, this article provides you with information about:
 
 * [Important notice](#upcoming-critical-changes) about planned changes
 * The latest releases
@@ -41,7 +41,35 @@ In order to upload a video from a URL, change your code to send nu
 var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", null);
 ```
 
-## April 2022 release updates
+## May 2022 release updates
+
+### Line breaking in transcripts
+
+Improved line break logic to better split transcript into sentences. New editing capabilities are now available through the Azure Video Indexer portal, such as adding a new line and editing the line’s timestamp. For more information, see [Insert or remove transcript lines](edit-transcript-lines-portal.md).
+
+### Azure Monitor integration
+ 
+Azure Video Indexer now supports Diagnostics settings for Audit events. Logs of Audit events can now be exported through diagnostics settings to Azure Log Analytics, Storage, Event Hubs, or a third-party solution.
+
+The additions enable easier access to analyze the data, monitor resource operation, and create automatically flows to act on an event. For more information, see [Monitor Azure Video Indexer](monitor-video-indexer.md).
+
+### Video Insights improvements
+
+Object Character Reader (OCR) is improved by 60%. Face Detection is improved by 20%. Label accuracy is improved by 30% over a wide variety of videos. These improvements are available immediately in all regions and do not require any changes by the customer.
+
+### Service tag 
+
+Azure Video Indexer is now part of [Network Service Tags](network-security.md). Video Indexer often needs to access other Azure resources (for example, Storage). If you secure your inbound traffic to your resources with a Network Security Group you can now select Video Indexer as part of the built-in Service Tags. This will simplify security management as we populate the Service Tag with our public IPs.
+
+### Celebrity recognition toggle 
+
+You can now enable or disable the celebrity recognition model on the account level (on classic account only). To turn on or off the model, go to the account settings > and toggle on/off the model. Once you disable the model, Video Indexer insights will not include the output of celebrity model and will not run the celebrity model pipeline. 
+
+### Azure Video Indexer repository name 
+
+As of May 1st, our new updated repository of Azure Video Indexer widget was renamed. Use https://www.npmjs.com/package/@azure/video-indexer-widgets instead
+
+## April 2022 
 
 ### Renamed **Azure Video Analyzer for Media** back to **Azure Video Indexer**
 
@@ -154,7 +182,7 @@ Fixed bugs related to CSS, theming and accessibility:
 
 ### Automatic Scaling of Media Reserved Units
 
-Starting August 1st 2021, Azure Video Analyzer for Media (formerly Video Indexer) enabled [Media Reserved Units (MRUs)](/azure/azure/media-services/latest/concept-media-reserved-units) auto scaling by [Azure Media Services](/azure/azure/media-services/latest/media-services-overview), as a result you do not need to manage them through Azure Video Analyzer for Media. That will allow price optimization, for example price reduction in many cases, based on your business needs as it is being auto scaled.
+Starting August 1st 2021, Azure Video Indexer enabled [Media Reserved Units (MRUs)](/azure/azure/media-services/latest/concept-media-reserved-units) auto scaling by [Azure Media Services](/azure/azure/media-services/latest/media-services-overview), as a result you do not need to manage them through Azure Video Indexer. That will allow price optimization, for example price reduction in many cases, based on your business needs as it is being auto scaled.
 
 ## June 2021
 
@@ -239,7 +267,7 @@ You can now create an Azure Video Indexer paid account in the US North Central, 
 
 ### New source languages support for speech-to-text (STT), translation and search
 
-Azure Video Indexer now support STT, translation and search in Danish ('da-DK'), Norwegian('nb-NO'), Swedish('sv-SE'), Finnish('fi-FI'), Canadian French ('fr-CA'), Thai('th-TH'), Arabic ('ar-BH', 'ar-EG', 'ar-IQ', 'ar-JO', 'ar-KW', 'ar-LB', 'ar-OM', 'ar-QA', 'ar-S', and 'ar-SY'), and Turkish('tr-TR'). Those languages are available in both API and Azure Video Indexer website.
+Azure Video Indexer now supports STT, translation and search in Danish ('da-DK'), Norwegian('nb-NO'), Swedish('sv-SE'), Finnish('fi-FI'), Canadian French ('fr-CA'), Thai('th-TH'), Arabic ('ar-BH', 'ar-EG', 'ar-IQ', 'ar-JO', 'ar-KW', 'ar-LB', 'ar-OM', 'ar-QA', 'ar-S', and 'ar-SY'), and Turkish('tr-TR'). Those languages are available in both API and Azure Video Indexer website.
 
 ### Search by Topic in Azure Video Indexer Website
 
@@ -285,7 +313,7 @@ You can now create an Azure Video Indexer paid account in the India Central regi
 
 ### New Dark Mode for the Azure Video Indexer website experience
 
-The Azure Video Indexer website experiences is now available in dark mode.
+The Azure Video Indexer website experience is now available in dark mode.
 To enable the dark mode open the settings panel and toggle on the **Dark Mode** option.
 
 :::image type="content" source="./media/release-notes/dark-mode.png" alt-text="Dark mode setting":::
@@ -322,7 +350,7 @@ The Azure Video Indexer website experience is now supporting mobile devices. The
 
 ### Accessibility improvements and bug fixes
 
-As part of WCAG (Web Content Accessibility guidelines), the Azure Video Indexer website experiences is aligned with grade C, as part of Microsoft Accessibility standards. Several bugs and improvements related to keyboard navigation, programmatic access, and screen reader were solved.
+As part of WCAG (Web Content Accessibility guidelines), the Azure Video Indexer website experience is aligned with grade C, as part of Microsoft Accessibility standards. Several bugs and improvements related to keyboard navigation, programmatic access, and screen reader were solved.
 
 ## July 2020
 

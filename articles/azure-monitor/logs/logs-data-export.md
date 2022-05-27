@@ -35,7 +35,7 @@ Log Analytics workspace data export continuously exports data that is sent to yo
 ## Limitations
 
 - All tables will be supported in export, but currently limited to those specified in the [supported tables](#supported-tables) section.
-- The legacy custom log won’t be supported in export. The next generation of custom log available in preview early 2022 can be exported.
+- Legacy custom log using the [HTTP Data Collector API](./data-collector-api.md) won’t be supported in export, while data for [DCR based custom logs](./custom-logs-overview.md) can be exported. 
 - You can define up to 10 enabled rules in your workspace. More rules are allowed when disabled. 
 - Destinations must be in the same region as the Log Analytics workspace.
 - Storage Account must be unique across rules in workspace.

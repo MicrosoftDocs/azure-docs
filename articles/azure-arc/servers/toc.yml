@@ -69,6 +69,8 @@
          href: onboard-configuration-manager-custom-task.md 
        - name: Connect machines using group policy
          href: onboard-group-policy.md
+       - name: Connect machines using Ansible playbooks
+         href: onboard-ansible-playbooks.md
        - name: Connect machines from Automation Update Management
          href: onboard-update-management-machines.md
   - name: Migrate

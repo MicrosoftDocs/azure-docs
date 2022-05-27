@@ -1,15 +1,15 @@
 ---
-title: Create an Azure Video Indexer (formerly Azure Video Analyzer for Media) account connected to Azure
-description: Learn how to create an Azure Video Indexer (formerly Azure Video Analyzer for Media) account connected to Azure.
+title: Create an Azure Video Indexer account connected to Azure
+description: Learn how to create an Azure Video Indexer account connected to Azure.
 ms.topic: tutorial
-ms.date: 10/19/2021
+ms.date: 05/03/2022
 ms.author: itnorman
 ms.custom: ignite-fall-2021
 ---
 
 # Create an Azure Video Indexer account
 
-When creating an Azure Video Indexer (formerly Azure Video Analyzer for Media) account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you're not limited by the quota). With a free trial, Azure Video Indexer provides up to 600 minutes of free indexing to users and up to 2400 minutes of free indexing to users that subscribe to the Video Analyzer API on the [developer portal](https://aka.ms/avam-dev-portal). With the paid options, Azure Video Indexer offers two types of accounts: classic accounts(General Availability), and ARM-based accounts(Public Preview). Main difference between the two is account management platform. While classic accounts are built on the API Management, ARM-based accounts management is built on Azure, enables to apply access control to all services with role-based access control (Azure RBAC) natively.
+When creating an Azure Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you're not limited by the quota). With a free trial, Azure Video Indexer provides up to 600 minutes of free indexing to users and up to 2400 minutes of free indexing to users that subscribe to the Azure Video Indexer API on the [developer portal](https://aka.ms/avam-dev-portal). With the paid options, Azure Video Indexer offers two types of accounts: classic accounts(General Availability), and ARM-based accounts(Public Preview). Main difference between the two is account management platform. While classic accounts are built on the API Management, ARM-based accounts management is built on Azure, enables to apply access control to all services with role-based access control (Azure RBAC) natively.
 
 * You can create an Azure Video Indexer **classic** account through our [API](https://aka.ms/avam-dev-portal).
 * You can create an Azure Video Indexer **ARM-based** account through one of the following:
@@ -39,7 +39,7 @@ The article also covers [Linking an Azure Video Indexer account to Azure Governm
 
     This user should be an Azure AD user with a work or school account. Don't use a personal account, such as outlook.com, live.com, or hotmail.com.
 
-    ![all Azure AD users](./media/create-account/all-aad-users.png)
+    :::image type="content" alt-text="Screenshot that shows how to choose a user in your Azure A D domain." source="./media/create-account/all-aad-users.png":::
 
 ### Additional prerequisites for automatic flow
 
@@ -49,7 +49,7 @@ The article also covers [Linking an Azure Video Indexer account to Azure Governm
 
     This user should be a member in your Azure subscription with either an **Owner** role, or both **Contributor** and **User Access Administrator** roles. A user can be added twice, with two roles. Once with Contributor and once with user Access Administrator. For more information, see [View the access a user has to Azure resources](../role-based-access-control/check-access.md).
 
-    ![access control](./media/create-account/access-control-iam.png)
+    :::image type="content" alt-text="Screenshot that shows the access control settings." source="./media/create-account/access-control-iam.png":::
 
 ### Additional prerequisites for manual flow
 
@@ -59,7 +59,7 @@ The article also covers [Linking an Azure Video Indexer account to Azure Governm
 
     Search for **Microsoft.Media** and **Microsoft.EventGrid**. If not in the "Registered" state, click **Register**. It takes a couple of minutes to register.
 
-    ![EventGrid](./media/create-account/event-grid.png)
+    :::image type="content" alt-text="Screenshot that shows how to select an event grid subscription." source="./media/create-account/event-grid.png":::
 
 ## Connect to Azure manually (advanced option)
 
@@ -74,12 +74,11 @@ If the connection to Azure failed, you can attempt to troubleshoot the problem b
 
      Make sure the Media Services account was created with the classic APIs.
 
-    ![Media Services classic API](./media/create-account/enable-classic-api.png)
-
+    :::image type="content" alt-text="Screenshot that shows how to use the classic API." source="./media/create-account/enable-classic-api.png":::
 
     When creating a storage account for your Media Services account, select **StorageV2** for account kind and **Geo-redundant** (GRS) for replication fields.
 
-    ![New AMS account](./media/create-account/create-new-ams-account.png)
+    :::image type="content" alt-text="Screenshot that shows how to specify a storage account." source="./media/create-account/create-new-ams-account.png":::
 
     > [!NOTE]
     > Make sure to write down the Media Services resource and account names. You'll need them for the steps in the next section.
@@ -88,7 +87,7 @@ If the connection to Azure failed, you can attempt to troubleshoot the problem b
 
     In the new Media Services account, select **Streaming endpoints**. Then select the streaming endpoint and press start.
 
-    ![Streaming endpoints](./media/create-account/create-ams-account-se.png)
+    :::image type="content" alt-text="Screenshot that shows how to specify streaming endpoints." source="./media/create-account/create-ams-account-se.png":::
 4. For Azure Video Indexer to authenticate with Media Services API, an AD app needs to be created. The following steps guide you through the Azure AD authentication process described in [Get started with Azure AD authentication by using the Azure portal](/azure/azure/media-services/previous/media-services-portal-get-started-with-aad):
 
     1. In the new Media Services account, select **API access**.
@@ -134,8 +133,7 @@ To import your data, follow the steps:
    * If the account ID isn't showing, you can copy and paste the account ID from Azure portal or the account list, on the side blade in the Azure Video Indexer Portal.
  5. Click **Import content**
 
-![import](./media/create-account/import-steps.png)
-
+    :::image type="content" alt-text="Screenshot that shows how to import your data." source="./media/create-account/import-to-arm-account.png":::
 
 All media and content model customizations will be copied from the *trial* account into the new ARM-Based account.
 

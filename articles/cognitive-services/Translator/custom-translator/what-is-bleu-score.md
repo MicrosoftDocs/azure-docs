@@ -1,5 +1,5 @@
 ---
-title: What is a BLEU score? - Custom Translator
+title: "Legacy: What is a BLEU score? - Custom Translator"
 titleSuffix: Azure Cognitive Services
 description: BLEU is a measurement of the differences between machine translation and human-created reference translations of the same source sentence.
 author: laujan
@@ -23,19 +23,19 @@ The BLEU algorithm compares consecutive phrases of the automatic translation
 with the consecutive phrases it finds in the reference translation, and counts
 the number of matches, in a weighted fashion. These matches are position
 independent. A higher match degree indicates a higher degree of similarity with
-the reference translation, and higher score. Intelligibility and grammatical correctness are not taken into account.
+the reference translation, and higher score. Intelligibility and grammatical correctness aren't taken into account.
 
 ## How BLEU works?
 
-BLEU’s strength is that it correlates well with human judgment by averaging out
+The BLEU score's strength is that it correlates well with human judgment. BLEU averages out
 individual sentence judgment errors over a test corpus, rather than attempting
 to devise the exact human judgment for every sentence.
 
 A more extensive discussion of BLEU scores is [here](https://youtu.be/-UqDljMymMg).
 
-BLEU results depend strongly on the breadth of your domain, the consistency of
-the test data with the training and tuning data, and how much data you have
-available to train. If your models have been trained on a narrow domain, and
+BLEU results depend strongly on the breadth of your domain; consistency of
+test, training and tuning data; and how much data you have
+available for training. If your models have been trained on a narrow domain, and
 your training data is consistent with your test data, you can expect a high
 BLEU score.
 

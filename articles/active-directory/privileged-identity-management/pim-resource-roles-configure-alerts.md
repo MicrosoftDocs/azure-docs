@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/07/2021
+ms.date: 05/24/2022
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.custom: pim
@@ -31,11 +31,15 @@ Select an alert to see a report that lists the users or roles that triggered the
 
 ## Alerts
 
-| Alert | Severity | Trigger | Recommendation |
-| --- | --- | --- | --- |
-| **Too many owners assigned to a resource** |Medium |Too many users have the owner role. |Review the users in the list and reassign some to less privileged roles. |
-| **Too many permanent owners assigned to a resource** |Medium |Too many users are permanently assigned to a role. |Review the users in the list and re-assign some to require activation for role use. |
-| **Duplicate role created** |Medium |Multiple roles have the same criteria. |Use only one of these roles. |
+Alert | Severity | Trigger | Recommendation
+--- | --- | --- | ---
+**Too many owners assigned to a resource** |Medium |Too many users have the owner role. |Review the users in the list and reassign some to less privileged roles.
+**Too many permanent owners assigned to a resource** |Medium |Too many users are permanently assigned to a role. |Review the users in the list and re-assign some to require activation for role use.
+**Duplicate role created** |Medium |Multiple roles have the same criteria. |Use only one of these roles.
+**Roles are being assigned outside of Privileged Identity Management (Preview)** | High | A role is managed directly through the Azure IAM resource blade or the Azure Resource Manager API | Review the users in the list and remove them from privileged roles assigned outside of Privilege Identity Management. 
+
+> [!Note]
+> During the public preview of the **Roles are being assigned outside of Privileged Identity Management (Preview)** alert, Microsoft supports only permissions that are assigned at the subscription level. 
 
 ### Severity
 

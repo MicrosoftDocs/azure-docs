@@ -31,8 +31,27 @@ To simplify management and removal, we recommend you deploy Start/Stop VMs v2 (p
 > The naming format for the function app and storage account has changed. To guarantee global uniqueness, a random and unique string is now appended to the names of these resource.
 
 1. Open your browser and navigate to the Start/Stop VMs v2 [GitHub organization](https://github.com/microsoft/startstopv2-deployments/blob/main/README.md).
-1. Select the deployment option based on the Azure cloud environment your Azure VMs are created in. This will open the custom Azure Resource Manager deployment page in the Azure portal.
+1. Select the deployment option based on the Azure cloud environment your Azure VMs are created in.
 1. If prompted, sign in to the [Azure portal](https://portal.azure.com).
+1. Choose the appropriate **Plan** from the drop-down box. When choosing a Zone Redundant plan (**Start/StopV2-AZ**), you must create your deployment in one of the following regions:
+    + Australia East
+    + Brazil South
+    + Canada Central
+    + Central US
+    + East US
+    + East US 2
+    + France Central
+    + Germany West Central
+    + Japan East
+    + North Europe
+    + Southeast Asia
+    + UK South
+    + West Europe
+    + West US 2
+    + West US 3
+
+1. Select **Create**, which opens the custom Azure Resource Manager deployment page in the Azure portal.
+
 1. Enter the following values:
 
     |Name |Value |
