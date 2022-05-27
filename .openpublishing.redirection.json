@@ -639,6 +639,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/conversational-language-understanding/how-to/deploy-query-model.md",
+      "redirect_url": "/azure/cognitive-services/language-service/conversational-language-understanding/how-to/deploy-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/conversational-language-understanding/fail-over.md",
+      "redirect_url": "/azure/cognitive-services/language-service/conversational-language-understanding/how-to/fail-over",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/orchestration-workflow/deploy-query-model.md",
+      "redirect_url": "/azure/cognitive-services/language-service/orchestration-workflow/how-to/call-api",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/whats-new-docs.md",
       "redirect_url": "/azure/cognitive-services/what-are-cognitive-services",
       "redirect_document_id": false
@@ -2739,6 +2754,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/machine-learning/how-to-kubernetes-instance-type.md",
+      "redirect_url": "/azure/machine-learning/how-to-attach-kubernetes-anywhere",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/how-to-attach-arc-kubernetes.md",
+      "redirect_url": "/azure/machine-learning/how-to-attach-kubernetes-anywhere",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/machine-learning/reference-yaml-endpoint-managed-batch.md",
       "redirect_url": "/azure/machine-learning/reference-yaml-endpoint-batch.md",
       "redirect_document_id": false
@@ -2916,6 +2941,11 @@
     {
       "source_path_from_root": "/articles/api-management/api-management-product.md",
       "redirect_url": "/azure/api-management/api-management-howto-add-products",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/api-management/graphql-validation-policies.md",
+      "redirect_url": "/azure/api-management/graphql-policies",
       "redirect_document_id": false
     },
     {
@@ -7969,6 +7999,96 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/overview.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/quickstart.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/quickstart",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/service-limits.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/service-limits",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/language-support.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/language-support",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/glossary.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/glossary",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/faq.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/faq",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/fail-over.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/fail-over",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/tutorials/cognitive-search.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/tutorials/cognitive-search",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/how-to/call-api.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/how-to/call-api",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/how-to/create-project.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/how-to/create-project",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/how-to/deploy-model.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/how-to/deploy-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/how-to/design-schema.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/how-to/design-schema",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/how-to/improve-model.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/how-to/improve-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/how-to/tag-data.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/how-to/tag-data",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/how-to/train-model.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/how-to/train-model",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/how-to/view-model-evaluation.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/how-to/view-model-evaluation",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/concepts/data-formats.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/concepts/data-formats",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/custom-classification/concepts/evaluation.md",
+      "redirect_url": "/azure/cognitive-services/language-service/custom-text-classification/concepts/evaluation-metrics",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/language-service/concepts/migrate-from-text-analytics-v2.md",
       "redirect_url": "/azure/cognitive-services/language-service/concepts/migrate-language-service-latest",
       "redirect_document_id": true
@@ -8015,8 +8135,8 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/text-analytics/How-tos/extractive-summarization.md",
-      "redirect_url": "/azure/cognitive-services/language-service/text-summarization/overview",
-      "redirect_document_id": true
+      "redirect_url": "/azure/cognitive-services/language-service/document-summarization/overview",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/text-analytics/How-tos/text-analytics-how-to-install-containers.md",
@@ -13034,6 +13154,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-howto-openvpn-clients.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-cert-windows",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-vpn-client-cert-windows",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-vmware/public-ip-usage.md",
       "redirect_url": "/azure/azure-vmware/enable-public-internet-access",
       "redirect_document_id": false
@@ -17704,6 +17834,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-dps/tutorial-net-provision-device-to-hub.md",
+      "redirect_url": "/azure/iot-dps/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/tutorial-provision-device-to-hub.md",
+      "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/tutorial-set-up-cloud.md",
+      "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-dps/tutorial-set-up-device.md",
+      "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/security/fundamentals/iot-overview.md",
       "redirect_url": "/azure/iot-fundamentals/iot-security-architecture",
       "redirect_document_id": false
@@ -20459,6 +20609,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/machine-learning/concept-azure-machine-learning-architecture.md",
+      "redirect_url": "/azure/machine-learning/concept-azure-machine-learning-v2",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/machine-learning/service/how-to-build-deploy-image-similarity-models.md",
       "redirect_url": "/azure/machine-learning/overview-what-happened-to-workbench",
       "redirect_document_id": false
@@ -21008,6 +21163,7 @@
       "redirect_url": "/azure/machine-learning/tutorial-auto-train-models",
       "redirect_document_id": true
     },
+  
     {
       "source_path_from_root": "/articles/machine-learning/service/tutorial-data-prep.md",
       "redirect_url": "/azure/machine-learning/tutorial-auto-train-models",
@@ -21059,6 +21215,51 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/machine-learning/reference-azure-machine-learning-cli.md",
+      "redirect_url": "/azure/machine-learning/v1/reference-azure-machine-learning-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/reference-pipeline-yaml.md",
+      "redirect_url": "/azure/machine-learning/v1/reference-pipeline-yaml",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/how-to-create-register-datasets.md",
+      "redirect_url": "/azure/machine-learning/how-to-create-register-data-assets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/how-to-access-data.md",
+      "redirect_url": "/azure/machine-learning/how-to-datastore",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/how-to-deploy-azure-container-instance.md",
+      "redirect_url": "/azure/machine-learning/v1/how-to-deploy-azure-container-instance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/how-to-deploy-profile-model.md",
+      "redirect_url": "/azure/machine-learning/v1/how-to-deploy-profile-model",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/how-to-deploy-azure-kubernetes-service.md",
+      "redirect_url": "/azure/machine-learning/v1/how-to-deploy-azure-kubernetes-service",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/how-to-deploy-mlflow-models.md",
+      "redirect_url": "/azure/machine-learning/v1/how-to-deploy-mlflow-models",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/how-to-use-mlflow.md",
+      "redirect_url": "/azure/machine-learning/v1/how-to-use-mlflow",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/machine-learning/service/tutorial-pipeline-batch-scoring-classification.md",
       "redirect_url": "/azure/machine-learning/tutorial-pipeline-batch-scoring-classification",
       "redirect_document_id": true
@@ -21088,10 +21289,15 @@
       "redirect_url": "/azure/machine-learning/tutorial-train-models-with-aml",
       "redirect_document_id": true
     },
-    {
+   {
       "source_path_from_root": "/articles/machine-learning/tutorial-pipeline-batch-scoring-classification.md",
       "redirect_url": "/azure/machine-learning/tutorial-pipeline-python-sdk",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/machine-learning/how-to-attach-compute-targets.md",
+      "redirect_url": "/azure/machine-learning/v1/how-to-attach-compute-targets",
+      " redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cognitive-services/QnAMaker/reference-precise-answering.md",
@@ -26994,6 +27200,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/virtual-wan/high-availability-vpn-client.md",
+      "redirect_url": "/azure/virtual-wan/global-hub-profile",
+      "redirect_document_id": false
+    },  
+    {
       "source_path_from_root": "/articles/virtual-wan/virtual-wan-site-to-site-packet-capture.md",
       "redirect_url": "/azure/virtual-wan/packet-capture-site-to-site-powershell",
       "redirect_document_id": false
@@ -27206,6 +27417,11 @@
     {
       "source_path_from_root": "/articles/frontdoor/waf-overview.md",
       "redirect_url": "/azure/web-application-firewall/afds/afds-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/web-application-firewall/waf-cdn-create-portal.md",
+      "redirect_url": "/azure/web-application-firewall/cdn/cdn-overview",
       "redirect_document_id": false
     },
     {
@@ -42594,6 +42810,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/aks/spark-job.md",
+      "redirect_url": "/azure/aks/integrations#open-source-and-third-party-integrations",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-dps/quick-create-device-symmetric-key-csharp.md",
       "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
       "redirect_document_id": false
@@ -43052,6 +43273,46 @@
       "source_path_from_root": "/articles/cognitive-services/translator/custom-translator/terminology.md",
       "redirect_url": "/azure/cognitive-services/translator/custom-translator/key-terms",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/text-summarization/how-to/call-api.md",
+      "redirect_url": "/azure/cognitive-services/language-service/summarization/how-to/document-summarization",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/text-summarization/language-support.md",
+      "redirect_url": "/azure/cognitive-services/language-service/summarization/language-support",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/text-summarization/overview.md",
+      "redirect_url": "/azure/cognitive-services/language-service/summarization/overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/language-service/text-summarization/quickstart.md",
+      "redirect_url": "/azure/cognitive-services/language-service/summarization/quickstart",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md",
+      "redirect_url": "/azure/virtual-network/nat-gateway/quickstart-create-nat-gateway-portal",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-create-nat-gateway-powershell.md",
+      "redirect_url": "/azure/virtual-network/nat-gateway/quickstart-create-nat-gateway-powershell",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-create-nat-gateway-cli.md",
+      "redirect_url": "/azure/virtual-network/nat-gateway/quickstart-create-nat-gateway-cli",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/private-link/private-endpoint-static-ip-powershell.md",
+      "redirect_url": "/azure/private-link/create-private-endpoint-powershell",
+      "redirect_document_id": true
     }
   ]
 }

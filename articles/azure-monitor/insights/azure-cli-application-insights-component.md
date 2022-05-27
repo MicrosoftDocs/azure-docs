@@ -5,8 +5,7 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2012
-ms.custom: devx-track-azurecli
-
+ms.tool: azure-cli
 ---
 
 # Manage Application Insights components by using Azure CLI

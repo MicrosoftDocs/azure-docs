@@ -4,11 +4,11 @@ titleSuffix: Azure Active Directory Verifiable Credentials
 description: Learn how to start a presentation request in Verifiable Credentials
 documentationCenter: ''
 author: barclayn
-manager: karenhoran
-ms.service: active-directory
+manager: rkarlin
+ms.service: decentralized-identity
 ms.topic: reference
 ms.subservice: verifiable-credentials
-ms.date: 10/08/2021
+ms.date: 05/26/2022
 ms.author: barclayn
 
 #Customer intent: As an administrator, I am trying to learn the process of revoking verifiable credentials that I have issued.
@@ -208,7 +208,7 @@ The callback endpoint is called when a user scans the QR code, uses the deep lin
 | `code` |string |The code returned when the request was retrieved by the authenticator app. Possible values: <ul><li>`request_retrieved`: The user scanned the QR code or selected the link that starts the presentation flow.</li><li>`presentation_verified`: The verifiable credential validation completed successfully.</li></ul>    |
 | `state` |string| Returns the state value that you passed in the original payload.   |
 | `subject`|string | The verifiable credential user DID.|
-| `issuers`| array |Returns an array of verifiable credentials requested. For each verifiable credential, it provides: </li><li>The verifiable credential type.</li><li>The claims retrieved.</li><li>The verifiable credential issuer’s domain. </li><li>The verifiable credential issuer’s domain validation status. </li></ul> |
+| `issuers`| array |Returns an array of verifiable credentials requested. For each verifiable credential, it provides: </li><li>The verifiable credential type(s).</li><li>The issuer's DID</li><li>The claims retrieved.</li><li>The verifiable credential issuer’s domain. </li><li>The verifiable credential issuer’s domain validation status. </li></ul> |
 | `receipt`| string | Optional. The receipt contains the original payload sent from the wallet to the Verifiable Credentials service. The receipt should be used for troubleshooting/debugging only. The format in the receipt is not fix and can change based on the wallet and version used.|
 
 The following example demonstrates a callback payload when the authenticator app starts the presentation request:

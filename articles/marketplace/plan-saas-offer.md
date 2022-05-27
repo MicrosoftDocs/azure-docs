@@ -1,13 +1,13 @@
 ---
 title: Plan a SaaS offer for the Microsoft commercial marketplace - Azure Marketplace
-description: Plan for a new software as a service (SaaS) offer for listing or selling in Microsoft AppSource, Azure Marketplace, or through the Cloud Solution Provider (CSP) program using the commercial marketplace program in Microsoft Partner Center. 
+description: Plan a new software as a service (SaaS) offer for selling in Microsoft AppSource, Azure Marketplace, or through the Cloud Solution Provider (CSP) program using the commercial marketplace program in Microsoft Partner Center. 
 author: mingshen-ms 
 ms.author: mingshen
 ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/26/2021
+ms.date: 05/26/2022
 ---
 
 # Plan a SaaS offer for the commercial marketplace
@@ -105,16 +105,16 @@ When you publish a SaaS offer, it will be listed in Microsoft AppSource, Azure M
 If your SaaS offer is *both* an IT solution (Azure Marketplace) and a business solution (AppSource), select a category and a subcategory applicable to each online store. Offers published to both online stores should have a value proposition as an IT solution *and* a business solution.
 
 > [!IMPORTANT]
-> SaaS offers with [metered billing](partner-center-portal/saas-metered-billing.md) are available through Azure Marketplace and the Azure portal. SaaS offers with only private plans are available through the Azure portal and AppSource.
+> SaaS offers with [metered billing](partner-center-portal/saas-metered-billing.md) are available through Azure Marketplace and the Azure portal. SaaS offers with only private plans are only available through the Azure portal.
 
 | Metered billing | Public plan | Private plan | Available in: |
 |---|---|---|---|
 | Yes             | Yes         | No           | Azure Marketplace and Azure portal |
 | Yes             | Yes         | Yes          | Azure Marketplace and Azure portal* |
 | Yes             | No          | Yes          | Azure portal only |
-| No              | No          | Yes          | Azure portal and AppSource |
+| No              | No          | Yes          | Azure portal only |
 
-&#42; The private plan of the offer will only be available via the Azure portal and AppSource.
+&#42; The private plan of the offer will only be available via the Azure portal.
 
 For example, an offer with metered billing and a private plan only (no public plan), will be purchased by customers in the Azure portal. Learn more about [Private offers in Microsoft commercial marketplace](private-offers.md).
 
@@ -294,3 +294,15 @@ You can choose to opt into Microsoft-supported marketing and sales channels. Whe
 - [Plan a test SaaS offer](plan-saas-dev-test-offer.md)
 - [Offer listing best practices](gtm-offer-listing-best-practices.md)
 - [Create a SaaS offer](create-new-saas-offer.md)
+
+**Video tutorials**
+
+- [SaaS offer overview](https://go.microsoft.com/fwlink/?linkid=2196417)
+- [SaaS Offer Technical Overview](https://go.microsoft.com/fwlink/?linkid=2196315)
+- [Publishing a SaaS offer](https://go.microsoft.com/fwlink/?linkid=2196318)
+- [A SaaS Accelerator Hands-on Tour - The Basics](https://go.microsoft.com/fwlink/?linkid=2196164)
+- [SaaS Accelerator Architecture](https://go.microsoft.com/fwlink/?linkid=2196167)
+- [Installing the SaaS Accelerator With the Install Script](https://go.microsoft.com/fwlink/?linkid=2196326)
+- [Invoking Metered Billing with the SaaS Accelerator](https://go.microsoft.com/fwlink/?linkid=2196161)
+- [Configuring Email in the SaaS Accelerator](https://go.microsoft.com/fwlink/?linkid=2196165)
+- [Custom Landing Page Fields with the SaaS Accelerator](https://go.microsoft.com/fwlink/?linkid=2196166)

@@ -90,3 +90,11 @@ landingContent:
         links:
           - text: Monitor Azure Firewall logs and metrics
             url: tutorial-diagnostics.md
+
+# Card
+  - title: Review Azure Firewall architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Well-Architected review of Azure Firewall
+            url: /azure/architecture/framework/services/networking/azure-firewall
