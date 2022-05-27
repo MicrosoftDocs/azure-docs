@@ -52,7 +52,7 @@ Here are some of the metrics emitted by Azure Data Factory version 2.
 | Total entities count | Total number of entities | Count | Total | The total number of entities in the Azure Data Factory instance. |
 | Total factory size (GB unit) | Total size of entities | Gigabyte | Total | The total size of entities in the Azure Data Factory instance. |
 
-For service limits and quotas please see [quotas and limits](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-data-factory-limits).
+For service limits and quotas please see [quotas and limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-data-factory-limits).
 To access the metrics, complete the instructions in [Azure Monitor data platform](../azure-monitor/data-platform.md).
 
 > [!NOTE]

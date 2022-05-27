@@ -5,7 +5,7 @@ services: container-service
 author: jahabibi
 ms.topic: article
 ms.custom: event-tier1-build-2022
-ms.date: 05/13/2021
+ms.date: 05/24/2021
 ms.author: jahabibi
 ---
 
@@ -26,23 +26,42 @@ The KEDA add-on makes it even easier by deploying a managed KEDA installation, p
 
 ## Prerequisites
 
+> [!NOTE]
+> KEDA is currently only available in the `westcentralus` region.
+
 - An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
 - [Azure CLI installed](/cli/azure/install-azure-cli).
 
-## Deploy the KEDA add-on with Azure CLI
+### Register the `AKS-KedaPreview` feature flag
 
-The KEDA add-on can be enabled with the Azure CLI when deploying an AKS cluster.
-
-To do so, use the [az aks create][az-aks-create] command with the `--enable-keda` argument.
+To use the KEDA, you must enable the `AKS-KedaPreview` feature flag on your subscription. 
 
 ```azurecli
-az aks create --resource-group MyResourceGroup --name MyAKSCluster --enable-keda
+az feature register --name AKS-KedaPreview --namespace Microsoft.ContainerService
 ```
 
-Additionally, KEDA can be deployed to an existing cluster via the [az aks update][az aks update] command.
+You can check on the registration status by using the `az feature list` command:
 
-```azure cli
-az aks update --resource-group MyResourceGroup --name MyAKSCluster --enable-keda
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-KedaPreview')].{Name:name,State:properties.state}"
+```
+
+When ready, refresh the registration of the *Microsoft.ContainerService* resource provider by using the `az provider register` command:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+## Deploy the KEDA add-on with Azure Resource Manager (ARM) templates
+
+The KEDA add-on can be enabled by deploying an AKS cluster with an Azure Resource Manager template and specifying the `workloadAutoScalerProfile` field:
+
+```json
+    "workloadAutoScalerProfile": {
+        "keda": {
+            "enabled": true
+        }
+    }
 ```
 
 ## Connect to your AKS cluster
@@ -61,22 +80,71 @@ To configure `kubectl` to connect to your Kubernetes cluster, use the [az aks ge
 az aks get-credentials --resource-group MyResourceGroup --name MyAKSCluster
 ```
 
+## Example deployment
+
+The following snippet is a sample deployment that creates a cluster with KEDA enabled with a single node pool comprised of three `DS2_v5` nodes.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        {
+            "apiVersion": "2022-05-02-preview",
+            "dependsOn": [],
+            "type": "Microsoft.ContainerService/managedClusters",
+            "location": "westcentralus",
+            "name": "myAKSCluster",
+            "properties": {
+                "kubernetesVersion": "1.23.5",
+                "enableRBAC": true,
+                "dnsPrefix": "myAKSCluster",
+                "agentPoolProfiles": [
+                    {
+                        "name": "agentpool",
+                        "osDiskSizeGB": 200,
+                        "count": 3,
+                        "enableAutoScaling": false,
+                        "vmSize": "Standard_D2S_v5",
+                        "osType": "Linux",
+                        "storageProfile": "ManagedDisks",
+                        "type": "VirtualMachineScaleSets",
+                        "mode": "System",
+                        "maxPods": 110,
+                        "availabilityZones": [],
+                        "nodeTaints": [],
+                        "enableNodePublicIP": false
+                    }
+                ],
+                "networkProfile": {
+                    "loadBalancerSku": "standard",
+                    "networkPlugin": "kubenet"
+                },
+                "workloadAutoScalerProfile": {
+                    "keda": {
+                        "enabled": true
+                    }
+                }
+            },
+            "identity": {
+                "type": "SystemAssigned"
+            }
+        }
+    ]
+}
+```
+
 ## Use KEDA
+
 KEDA scaling will only work once a custom resource definition has been defined (CRD). To learn more about KEDA CRDs, follow the official [KEDA documentation][keda-scalers] to define your scaler.
 
 ## Clean Up
-To remove KEDA, utilize the `--disable-keda` flag.
-
-```azurecli
-az aks update --resource-group MyResourceGroup --name MyAKSCluster --disable-keda
-```
 
 To remove the resource group, and all related resources, use the [az group delete][az-group-delete] command:
 
 ```azurecli
 az group delete --name MyResourceGroup
 ```
-
 
 <!-- LINKS - internal -->
 [az-aks-create]: /cli/azure/aks#az-aks-create

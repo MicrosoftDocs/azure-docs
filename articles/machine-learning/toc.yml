@@ -199,14 +199,10 @@
           href: concept-plan-manage-cost.md
     - name: Work with data
       items: 
-        - name: Data access
+        - name: Datastores
+          href: concept-datastore.md
+        - name: Access data
           href: concept-data.md
-        - name: Data ingestion
-          href: concept-data-ingestion.md
-        - name: Data processing
-          href: concept-optimize-data-processing.md
-        - name: Studio network data access
-          href: concept-network-data-access.md
     - name: Collect data
       items:
         - name: Sourcing human data responsibly
@@ -316,9 +312,6 @@
               - name: Kubernetes cluster
                 displayName: Azure Arc, Kubernetes, on-premise, multi-cloud
                 href: how-to-attach-kubernetes-anywhere.md
-              - name: Azure Kubernetes Service
-                displayName: AKS, inference
-                href: how-to-create-attach-kubernetes.md
               - name: Use studio
                 displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
                 href: how-to-create-attach-compute-studio.md
@@ -368,69 +361,18 @@
           href: how-to-troubleshoot-environments.md
     - name: Work with data
       items: 
-        - name: Work with data SDK v2 (preview)
-          href: how-to-use-data.md
-        - name: Label data
-          items: 
-            - name: Set up image labeling
-              displayName: data, dataset
-              href: how-to-create-image-labeling-projects.md
-            - name: Set up text labeling
-              displayName: data, dataset
-              href: how-to-create-text-labeling-projects.md
-            - name: Label images and text
-              displayName: data, dataset, labeling
-              href: how-to-label-data.md
-            - name: Add users
-              displayName: data, dataset, labeling
-              href: how-to-add-users.md
-            - name: Outsource labeling tasks
-              href: how-to-outsource-data-labeling.md
-            - name: Create datasets with labels
-              displayName: data, labels, torchvision
-              href: how-to-use-labeled-dataset.md
-        - name: Get & prepare data
-          items: 
-            - name: Data ingestion with Azure Data Factory
-              displayName: data, ingestion, adf
-              href: how-to-data-ingest-adf.md
-            - name: Data preparation with Azure Synapse
-              displayName: data, data prep, spark, spark pool, cluster, spark cluster,dataset, datastore
-              href: how-to-data-prep-synapse-spark-pool.md
-            - name: DevOps for data ingestion
-              displayName: data, ingestion, devops
-              href: how-to-cicd-data-ingestion.md
-            - name: Import data in the designer
-              displayName: designer, data, import, dataset, datastore
-              href: how-to-designer-import-data.md
-        - name: Access data
-          items: 
-            - name: Connect to Azure storage with datastores (Python)
-              displayName: blob, get, fileshare, access, mount, download, data lake, datastore
-              href: how-to-access-data.md
-            - name: Identity-based data access to storage
-              displayName: blob, access, data lake, datastore, managed identity
-              href: how-to-identity-based-data-access.md
-            - name: Get data from storage with datasets (Python)
-              displayName: data, data set, register, access data
-              href: how-to-create-register-datasets.md
-            - name: Connect to data (UI)
-              displayName: blob, get, fileshare, access, mount, download, data lake, datastore, dataset, data set
-              href: how-to-connect-data-ui.md
-        - name: Manage & consume data
-          items:
-            - name: Read & write data (v2)
-              displayName: train
-              href: how-to-read-write-data-v2.md
-            
-        - name: Compliance
-          items: 
-            - name: Preserve data privacy
-              displayName: data,privacy,differential privacy
-              href: how-to-differential-privacy.md
-            - name: Export and delete data
-              displayName: GDPR
-              href: how-to-export-delete-data.md
+        - name: Create a datastore for data storage services
+          displayName: datastore, data storage
+          href: how-to-datastore.md
+        - name: Register a data asset
+          displayName: data, data asset
+          href: how-to-create-register-data-assets.md
+        - name: Reading & writing data
+          displayName: read and write data
+          href: how-to-read-write-data-v2.md
+        - name: Administrate data authentication
+          displayName: data authentication
+          href: how-to-administrate-data-authentication.md
     - name: Train models
       items: 
         - name: Train with the job creation UI
@@ -544,23 +486,14 @@
       items: 
         - name: Online endpoints (real-time)
           items: 
-            - name: Deploy an ML model with an online endpoint
+            - name: Deploy an ML model with an online endpoint (CLI)
               href: how-to-deploy-managed-online-endpoints.md
-            - name: Security
-              items:
-                - name: Authenticate to endpoints
-                  href: how-to-authenticate-online-endpoint.md
-                - name: Network isolation with managed online endpoints
-                  displayName: network, vnet, secure
-                  href: how-to-secure-online-endpoint.md
-                - name: Managed online endpoints VM SKU list
-                  href: reference-managed-online-endpoints-vm-sku-list.md
-            - name: Safe rollout for online endpoints
+            - name: Deploy an ML model with an online endpoint (SDK preview)
+              href: how-to-deploy-managed-online-endpoint-sdk-v2.md
+            - name: Safe rollout for online endpoints (CLI)
               href: how-to-safely-rollout-managed-endpoints.md
-            - name: Autoscale managed online endpoints
-              href: how-to-autoscale-endpoints.md
-            - name: Access Azure resources from online endpoints
-              href: how-to-access-resources-from-endpoints-managed-identities.md
+            - name: Safe rollout for online endpoints (SDK preview)
+              href: how-to-safely-rollout-managed-endpoints-sdk-v2.md
             - name: Deployment scenarios
               items: 
                 - name: Deploy a MLflow model with an online endpoint
@@ -575,7 +508,20 @@
                 - name: Use REST to deploy a model as an online endpoint
                   href: how-to-deploy-with-rest.md
                 - name: Deploy an AutoML model with an online endpoint
-                  href: how-to-deploy-automl-endpoint.md
+                  href: how-to-deploy-automl-endpoint.md            
+            - name: Security
+              items:
+                - name: Authenticate to endpoints
+                  href: how-to-authenticate-online-endpoint.md
+                - name: Network isolation with managed online endpoints
+                  displayName: network, vnet, secure
+                  href: how-to-secure-online-endpoint.md
+                - name: Access Azure resources from online endpoints
+                  href: how-to-access-resources-from-endpoints-managed-identities.md
+            - name: Autoscale managed online endpoints
+              href: how-to-autoscale-endpoints.md
+            - name: Managed online endpoints VM SKU list
+              href: reference-managed-online-endpoints-vm-sku-list.md
             - name: Viewing managed online endpoint costs
               href: how-to-view-online-endpoints-costs.md
             - name: Monitoring managed online endpoints
@@ -586,8 +532,10 @@
               href: how-to-troubleshoot-online-endpoints.md
         - name: Batch endpoints
           items: 
-            - name: Batch scoring with batch endpoints
+            - name: Batch scoring with batch endpoints (CLI)
               href: how-to-use-batch-endpoint.md
+            - name: Batch scoring with batch endpoints (SDK preview)
+              href: how-to-use-batch-endpoint-sdk-v2.md
             - name: Batch endpoints in studio
               href: how-to-use-batch-endpoints-studio.md
             - name: Use REST to deploy a model as a batch endpoint

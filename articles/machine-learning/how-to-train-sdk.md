@@ -8,7 +8,7 @@ ms.author: balapv
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 05/10/2022
+ms.date: 05/26/2022
 ms.topic: how-to
 ms.custom: sdkv2, event-tier1-build-2022
 ---
@@ -109,21 +109,8 @@ ml_client = MLClient(DefaultAzureCredential(), subscription_id, resource_group, 
 You'll create a compute called `cpu-cluster` for your job, with this code:
 
 
-[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/configuration.ipynb?name=create-cpu-compute)]
+[!notebook-python[] (~/azureml-examples-main/sdk/jobs/configuration.ipynb?name=create-cpu-compute)]
 
-```python
-from azure.ai.ml.entities import AmlCompute
-
-# specify aml compute name.
-cpu_compute_target = 'cpu-cluster'
-
-try:
-    ml_client.compute.get(cpu_compute_target)
-except Exception:
-    print('Creating a new cpu compute target...')
-    compute = AmlCompute(name=cpu_compute_target, size="STANDARD_D2_V2", min_instances=0, max_instances=4)
-    ml_client.compute.begin_create_or_update(compute)
-```
 
 ### 3. Environment to run the script
 
@@ -143,28 +130,10 @@ You'll use a curated environment provided by Azure ML for `lightgm` called `Azur
 
 To run this script, you'll use a `command`. The command will be run by submitting it as a `job` to Azure ML. 
 
-[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=create-command)]
+[!notebook-python[] (~/azureml-examples-main/sdk/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=create-command)]
 
-```python
-from azure.ai.ml import command, Input
-#define the command
-command_job=command(
-    code='./src',
-    inputs={'iris_csv':Input(type='uri_file', path='https://azuremlexamples.blob.core.windows.net/datasets/iris.csv')},
-    command = 'python main.py --iris-csv ${{inputs.iris_csv}}',
-    environment='AzureML-lightgbm-3.2-ubuntu18.04-py37-cpu@latest',
-    compute='cpu-cluster'
-)
-```
+[!notebook-python[] (~/azureml-examples-main/sdk/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=run-command)]
 
-[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=run-command)]
-
-```python
-# submit the command
-returned_job = ml_client.jobs.create_or_update(command_job)
-# get a URL for the status of the job
-returned_job.services["Studio"].endpoint
-```
 
 In the above, you configured:
 - `code` - path where the code to run the command is located
@@ -181,42 +150,15 @@ To perform a sweep, there needs to be input(s) against which the sweep needs to 
 
 Let us improve our model by sweeping on `learning_rate` and `boosting` inputs to the script. In the previous step, you used a specific value for these parameters, but now you'll use a range or  choice of values.
 
-[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=search-space)]
+[!notebook-python[] (~/azureml-examples-main/sdk/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=search-space)]
 
-```python
-# we will reuse the command_job created before. we call it as a function so that we can apply inputs
-# we do not apply the 'iris_csv' input again -- we will just use what was already defined earlier
-command_job_for_sweep = command_job(
-    learning_rate=Uniform(min_value=0.01, max_value=0.9),
-    boosting=Choice(values=["gbdt", "dart"]),
-)
-```
 
 Now that you've defined the parameters, run the sweep
 
-[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=configure-sweep)]
+[!notebook-python[] (~/azureml-examples-main/sdk/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=configure-sweep)]
 
-```python
-# apply the sweep parameter to obtain the sweep_job
-sweep_job = command_job_for_sweep.sweep(
-    compute='cpu-cluster',
-    sampling_algorithm='random',
-    primary_metric='test-multi_logloss',
-    goal='Minimize'
-)
+[!notebook-python[] (~/azureml-examples-main/sdk/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=run-sweep)]
 
-#define the limits for this sweep
-sweep_job.set_limits(max_total_trials=20, max_concurrent_trials=10, timeout=7200)
-```
-
-[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/single-step/lightgbm/iris/lightgbm-iris-sweep.ipynb?name=run-sweep)]
-
-```python
-# submit the sweep
-returned_sweep_job = ml_client.create_or_update(sweep_job)
-# get a URL for the status of the job
-returned_sweep_job.services["Studio"].endpoint
-```
 
 As seen above, the `sweep` function allows user to configure the following key aspects:
 

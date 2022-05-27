@@ -7,6 +7,8 @@ items:
     href: storage-blobs-overview.md
   - name: Compare core storage services
     href: ../common/storage-introduction.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - name: Blob Storage feature support
+    href: storage-feature-support-in-storage-accounts.md
   expanded: true
 - name: Blob storage
   items:
@@ -305,8 +307,6 @@ items:
       href: storage-blob-static-website.md
     - name: Upgrading to Data Lake Storage Gen2
       href: upgrade-to-data-lake-storage-gen2.md
-    - name: Blob Storage feature support
-      href: storage-feature-support-in-storage-accounts.md
   - name: How to
     items:
     - name: Configure Blob Storage
@@ -810,6 +810,8 @@ items:
     items:
     - name: Introduction to Data Lake Storage
       href: data-lake-storage-introduction.md
+    - name: Blob Storage feature support
+      href: storage-feature-support-in-storage-accounts.md
   - name: Tutorials
     items:
     - name: Use with Synapse SQL

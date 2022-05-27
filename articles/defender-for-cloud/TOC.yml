@@ -390,8 +390,32 @@
     href: https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/bg-p/MicrosoftDefenderCloudBlog
   - name: Microsoft Defender for Cloud on Stack Overflow
     href: https://stackoverflow.com/search?q=microsoft+defender+for+cloud
-  - name: MDfCinTheField YouTube videos
-    href: https://www.youtube.com/hashtag/mdfcinthefield
+  - name: Microsoft Defender for Cloud in the field
+    items:
+    - name: New AWS connector
+      href: episode-one.md
+    - name: Integrate with Azure Purview
+      href: episode-two.md
+    - name: Microsoft Defender for Containers
+      href: episode-three.md
+    - name: Security posture management improvements
+      href: episode-four.md
+    - name: Microsoft Defender for Servers
+      href: episode-five.md
+    - name: Lessons learned from the field
+      href: episode-six.md
+    - name: New GCP connector
+      href: episode-seven.md
+    - name: Microsoft Defender for IoT
+      href: episode-eight.md
+    - name: Microsoft Defender for Containers in a multi-cloud environment
+      href: episode-nine.md
+    - name: Protecting containers in GCP with Defender for Containers
+      href: episode-ten.md
+    - name: Threat landscape for containers
+      href: episode-eleven.md
+    - name: Enhanced workload protection features in Defender for Servers
+      href: episode-twelve.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/azure-defender/
   - name: Regional availability

@@ -47,7 +47,7 @@ dotnet build
 While still in the application directory, install the Azure Communication Services Email client library for .NET package by using the `dotnet add package` command.
 
 ```console
-dotnet add package Azure.Communication.Email --version 1.0.0
+dotnet add package Azure.Communication.Email --prerelease
 ```
 
 Open **Program.cs** and replace the existing code with the following
@@ -90,17 +90,17 @@ The following classes and interfaces handle some of the major features of the Az
 | EmailCustomHeader   | This class allows for the addition of a name and value pair for a custom header.                                                                     |
 | EmailMessage        | This class combines the sender, content, and recipients. Custom headers, attachments, and reply-to email addresses can optionally be added, as well. |
 | EmailRecipients     | This class holds lists of EmailAddress objects for recipients of the email message, including optional lists for CC & BCC recipients.                |
-| SendStatusResult | This class holds lists of status of the email message delivery .                                             |
+| SendStatusResult | This class holds lists of status of the email message delivery.                                             |
 
 ## Authenticate the client
 
- Open **Program.cs** in a text editor and replace the body of the `Main` method with code to initialize an `EmailClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage you resource's connection string](../../create-communication-resource.md#store-your-connection-string).
+ Open **Program.cs** in a text editor and replace the body of the `Main` method with code to initialize an `EmailClient` with your connection string. The code below retrieves the connection string for the resource from an environment variable named `COMMUNICATION_SERVICES_CONNECTION_STRING`. Learn how to [manage your resource's connection string](../../create-communication-resource.md#store-your-connection-string).
 
 ```csharp
 // This code demonstrates how to fetch your connection string
 // from an environment variable.
 string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERVICES_CONNECTION_STRING");
-
+EmailClient emailClient = new EmailClient(connectionString);
 ```
 ## Send an email message
 
@@ -109,20 +109,19 @@ To send an Email message, you need to
 - Add Recipients 
 - Construct your email message with your Sender information you get your MailFrom address from your verified domain.
 - Include your Email Content and Recipients and include attachments if any 
-- Calling the SendEmail method. Add this code to the end of `Main` method in **Program.cs**:
+- Calling the Send method. Add this code to the end of `Main` method in **Program.cs**:
 
 Replace with your domain details and modify the content, recipient details as required
 ```csharp
 
 //Replace with your domain and modify the content, recipient details as required
 
-EmailContent emailContent = new EmailContent();
-emailContent.Subject = "Welcome to Azure Communication Service Email.";
+EmailContent emailContent = new EmailContent("Welcome to Azure Communication Service Email APIs.");
 emailContent.PlainText = "This email meessage is sent from Azure Communication Service Email using .NET SDK.";
-List<EmailAddress> emailAddresses = new List<EmailAddress> { new EmailAddress("emailalias@emaildomain.com") { DisplayName = "Friendly Display Name" }};
+List<EmailAddress> emailAddresses = new List<EmailAddress> { new EmailAddress("emailalias@contoso.com") { DisplayName = "Friendly Display Name" }};
 EmailRecipients emailRecipients = new EmailRecipients(emailAddresses);
 EmailMessage emailMessage = new EmailMessage("donotreply@xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.azurecomm.net", emailContent, emailRecipients);
-var response = emailClient.Send(emailMessage, Guid.NewGuid(), DateTime.Now);
+SendEmailResult emailResult = emailClient.Send(emailMessage,CancellationToken.None);
 
 ```
 ## Getting MessageId to track email delivery
@@ -130,37 +129,25 @@ var response = emailClient.Send(emailMessage, Guid.NewGuid(), DateTime.Now);
 To track the status of email delivery, you need to get the MessageId back from response and track the status. If there's no MessageId retry the request.
 
 ```csharp
-string messageId = string.Empty;
-if (!response.IsError)
-{
-    if (!response.Headers.TryGetValue("x-ms-request-id", out messageId))
-    {
-        Console.WriteLine("MessageId not found");
-        return;
-    }
-    else
-    {
-        Console.WriteLine($"MessageId = {messageId}");
-    }
-}
+ Console.WriteLine($"MessageId = {emailResult.MessageId}");
 ```
 ## Getting status on email delivery
 To get the delivery status of email call GetMessageStatus API with MessageId
 ```csharp
 Response<SendStatusResult> messageStatus = null;
-messageStatus = emailClient.GetSendStatus(messageId);
+messageStatus = emailClient.GetSendStatus(emailResult.MessageId);
 Console.WriteLine($"MessageStatus = {messageStatus.Value.Status}");
 TimeSpan duration = TimeSpan.FromMinutes(3);
 long start = DateTime.Now.Ticks;
 do
 {
-    messageStatus = emailClient.GetSendStatus(messageId);
-    if (messageStatus.Value.Status != SendStatus.Queued )
+    messageStatus = emailClient.GetSendStatus(emailResult.MessageId);
+    if (messageStatus.Value.Status != SendStatus.Queued)
     {
         Console.WriteLine($"MessageStatus = {messageStatus.Value.Status}");
         break;
     }
-    Thread.Sleep(60000);
+    Thread.Sleep(10000);
     Console.WriteLine($"...");
 
 } while (DateTime.Now.Ticks - start < duration.Ticks);

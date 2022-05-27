@@ -6,7 +6,7 @@ ms.service: api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 05/17/2022
+ms.date: 05/19/2022
 ms.custom: event-tier1-build-2022
 ---
 
@@ -46,7 +46,7 @@ If you want to import a GraphQL schema and set up field resolvers using REST or 
     |----------------|-------|
     | **Display name** | The name by which your GraphQL API will be displayed. |
     | **Name** | Raw name of the GraphQL API. Automatically populates as you type the display name. |
-    | **GraphQL API endpoint** | The base URL with your GraphQL API endpoint name. <br /> For example: *`https://example.com/your-GraphQL-name`*. You can also use the common ["Star Wars" GraphQL endpoint](https://swapi-graphql.netlify.app/.netlify/functions/index) as a demo. |
+    | **GraphQL API endpoint** | The base URL with your GraphQL API endpoint name. <br /> For example: *`https://example.com/your-GraphQL-name`*. You can also use a common ["Star Wars" GraphQL endpoint](https://swapi-graphql.azure-api.net/graphql) as a demo. |
     | **Upload schema** | Optionally select to browse and upload your schema file to replace the schema retrieved from the GraphQL endpoint (if available).  |
     | **Description** | Add a description of your API. |
     | **URL scheme** | Select **HTTP**, **HTTPS**, or **Both**. Default selection: *Both*. |

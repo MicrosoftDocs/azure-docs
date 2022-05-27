@@ -325,7 +325,10 @@ Adjust sensitivity to achieve the desired confidence level in highlighted edges.
 
 ### Limitations of Intelligent View
 
-The Intelligent View works well for large distributed applications but sometimes it can take around one minute to load. File a support ticket if your map doesn't load or a timeout occurs.
+* Large distributed applications may take a minute to load Intelligent View.
+* Timeframes of up to seven days are supported.
+
+We would love to hear your feedback. ([Portal feedback](#portal-feedback))
 
 ## Troubleshooting
 
@@ -379,7 +382,10 @@ In a case where an edge is highlighted the explanation from the model should poi
 
 #### Intelligent View doesn't load
 
-If Intelligent View doesn't load, ensure that you've opted into the preview on Application Map.
+Follow these steps if Intelligent View doesn't load.
+
+1. Set the configured time frame to six days or less.
+1. The `Try preview` button must be selected to opt in.
 
 :::image type="content" source="media/app-map/intelligent-view-try-preview.png" alt-text="Screenshot of the Application Map user interface preview opt-in button." lightbox="media/app-map/intelligent-view-try-preview.png":::
 

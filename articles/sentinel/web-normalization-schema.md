@@ -87,7 +87,7 @@ The following filtering parameters are available:
 For example, to filter only Web sessions for a specified list of domain names, use:
 
 ```kql
-let torProxies=dynamic(["tor2web.org", "tor2web.com", "torlink.co",...]);
+let torProxies=dynamic(["tor2web.org", "tor2web.com", "torlink.co"]);
 _Im_WebSession (url_has_any = torProxies)
 ```
 

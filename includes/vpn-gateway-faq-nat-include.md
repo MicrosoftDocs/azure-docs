@@ -19,7 +19,7 @@ You can create up to 100 NAT rules (Ingress and Egress rules combined) on a VPN 
 
 ### Is NAT applied to all connections on a VPN gateway?
 
-NAT is applied to the connections with NAT rules. If a connection does not have a NAT rule, NAT will not take effect on that connection. On the same VPN gateway, you can have some connections with NAT, and other connections without NAT working together.
+NAT is applied to the connections with NAT rules. If a connection doesn't have a NAT rule, NAT won't take effect on that connection. On the same VPN gateway, you can have some connections with NAT, and other connections without NAT working together.
 
 ### What types of NAT is supported on Azure VPN gateways?
 
@@ -69,8 +69,8 @@ Yes, you can create multiple EgressSNAT rules for the same VNet address space, a
 
 ### Can I use the same IngressSNAT rule on different connections?
 
-Yes, this is typically used when the connections are for the same on-premises network to provide redundancy. You cannot use the same Ingress rule if the connections are for different on-premises networks.
+Yes, this is typically used when the connections are for the same on-premises network to provide redundancy. You can't use the same Ingress rule if the connections are for different on-premises networks.
 
 ### Do I need both Ingress and Egress rules on a NAT connection?
 
-You need both Ingress and Egress rules on the same connection when the on-premise network address space overlaps with the VNet address space. If the VNet address space is unique among all connected networks, you do not need the EgressSNAT rule on those connections. You can use the Ingress rules to avoid address overlap among the on-premises networks.
+You need both Ingress and Egress rules on the same connection when the on-premise network address space overlaps with the VNet address space. If the VNet address space is unique among all connected networks, you don't need the EgressSNAT rule on those connections. You can use the Ingress rules to avoid address overlap among the on-premises networks.

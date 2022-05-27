@@ -11,7 +11,7 @@ ms.date: 05/10/2022
 ms.author: aahi
 ---
 
-1. Go to your project settings page in [Language Studio](https://aka.ms/languageStudio).
+1. Go to your **project settings** page in [Language Studio](https://aka.ms/languageStudio).
 
 2. You can see project details.
 

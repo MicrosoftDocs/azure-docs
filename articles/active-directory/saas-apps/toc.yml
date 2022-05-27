@@ -2599,6 +2599,8 @@
         href: bldng-app-provisioning-tutorial.md        
       - name: Blink
         href: blink-provisioning-tutorial.md
+      - name: Blinq
+        href: blinq-provisioning-tutorial.md
       - name: BlogIn
         href: blogin-provisioning-tutorial.md
       - name: BlueJeans
@@ -3007,6 +3009,8 @@
         href: webroot-security-awareness-training-provisioning-tutorial.md
       - name: WEDO
         href: wedo-provisioning-tutorial.md
+      - name: Whimsical
+        href: whimsical-provisioning-tutorial.md
       - name: Workday to Active Directory
         href: workday-inbound-tutorial.md
       - name: Workday to Azure AD
