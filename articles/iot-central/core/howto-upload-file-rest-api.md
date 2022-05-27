@@ -54,7 +54,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 ```
 
-The request headers has the following fields:
+The request headers have the following fields:
 
 * `subscriptionId` : The ID of the target subscription.
 * `resourceGroupName`:  The name of the resource group in your subscription. The name is case insensitive.
@@ -313,7 +313,7 @@ To test this open your application and select the device you created. Select the
 
 Select the **Raw data** tab to verify the file upload status.
 
-:::image type="content" source="media/howto-upload-file-rest-api/raw-data.png" alt-text=" Verify file upload on UI" border="false":::
+:::image type="content" source="media/howto-upload-file-rest-api/raw-data.png" alt-text="Screenshot showing the U I of how to verify a file upload." border="false":::
 
 You can also make a [REST API](/rest/api/storageservices/list-blobs) call to verify the file upload status in the storage container.
 
