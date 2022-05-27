@@ -115,7 +115,7 @@ To view the non-Azure Kubernetes cluster in Container insights, Read access is r
     ``` azurecli
     az role assignment list --assignee "SP/UserassignedMSI for omsagent" --scope "/subscriptions/<subid>/resourcegroups/<RG>/providers/Microsoft.ContainerService/managedClusters/<clustername>" --role "Monitoring Metrics Publisher"
     ```
-    For clusters with MSI, the user assigned client id for omsagent changes every time monitoring is enabled and disabled, so the role assignment should exist on the current msi client id. 
+    For clusters with MSI, the user assigned client ID for omsagent changes every time monitoring is enabled and disabled, so the role assignment should exist on the current msi client ID. 
 
 3. For clusters with Azure Active Directory pod identity enabled and using MSI:
 
