@@ -54,7 +54,7 @@ To enable Profiler on Linux, walk through the [ASP.NET Core Azure Linux web apps
 
    :::image type="content" source="./media/profiler/enable-profiler.png" alt-text="Screenshot of enabling Profiler on your app.":::
 
-## Enable Profiler manually
+## Enable Profiler using app settings
 
 If your Application Insights resource is in a different subscription from your App Service, you'll need to enable Profiler manually by creating app settings for your Azure App Service. You can automate the creation of these settings using a template or other means. The settings needed to enable the profiler:
 
