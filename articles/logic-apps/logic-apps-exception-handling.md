@@ -38,7 +38,7 @@ By default, the retry policy is set to the **Default** type.
 
 For more information about retry policies, settings, limits, and other options, review [Retry policy limits](logic-apps-limits-and-config.md#retry-policy-limits).
 
-### View or change retry policy type in the Azure portal
+### Change retry policy type in the designer
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
@@ -50,7 +50,7 @@ For more information about retry policies, settings, limits, and other options, 
 
 1. If the trigger or action supports retry policies, under **Retry Policy**, select the policy type that you want.
 
-### Change retry policy in code view
+### Change retry policy type in the code view editor
 
 1. If necessary, confirm whether the trigger or action supports retry policies by completing the earlier steps in the designer.
 
@@ -127,7 +127,7 @@ To specify that the action or trigger doesn't retry failed requests, set the <*r
 
 <a name="fixed-interval"></a>
 
-### Fixed interval
+### Fixed interval retry policy
 
 To specify that the action or trigger waits the specified interval before sending the next request, set the <*retry-policy-type*> to `fixed`.
 
@@ -152,7 +152,7 @@ This retry policy attempts to get the latest news two more times after the first
 
 <a name="exponential-interval"></a>
 
-### Exponential interval
+### Exponential interval retry policy
 
 The exponential interval retry policy specifies that the trigger or action waits a random interval before sending the next request. This random interval is selected from an exponentially growing range. Optionally, you can override the default minimum and maximum intervals by specifying your own minimum and maximum intervals, based on whether you have a [Consumption or Standard logic app workflow](logic-apps-overview.md#resource-environment-differences).
 
@@ -164,7 +164,7 @@ The exponential interval retry policy specifies that the trigger or action waits
 
 **Random variable ranges**
 
-The following table shows the general algorithm that Azure Logic Apps uses to generate a uniform random variable in the specified range for each retry. The specified range can be up to and including the number of retries.
+For the exponential interval retry policy, the following table shows the general algorithm that Azure Logic Apps uses to generate a uniform random variable in the specified range for each retry. The specified range can be up to and including the number of retries.
 
 | Retry number | Minimum interval | Maximum interval |
 |--------------|------------------|------------------|
@@ -264,7 +264,7 @@ For example, to run the Office 365 Outlook **Send an email** action after the Ex
 
 ---
 
-### Change "run after" behavior in code view
+### Change "run after" behavior in the code view editor
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the code view editor.
 
