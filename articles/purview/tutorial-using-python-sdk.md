@@ -127,13 +127,13 @@ In this section, you learn how to instantiate:
 First you need to authenticate to your Azure Active Directory. For this, you'll use the [client secret you created](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret).
 
 
-1.	Start with required import statements:
+1.	Start with required import statements: our three clients, the credentials statement, and an Azure exceptions statement.
     ```python
     from azure.purview.scanning import PurviewScanningClient
     from azure.purview.catalog import PurviewCatalogClient
+    from azure.purview.administration.account import PurviewAccountClient
     from azure.identity import ClientSecretCredential 
     from azure.core.exceptions import HttpResponseError
-    from azure.purview.administration.account import PurviewAccountClient
     ```
 
 1.	Specify the following information in the code: 
@@ -152,7 +152,7 @@ First you need to authenticate to your Azure Active Directory. For this, you'll 
     ```python
     reference_name_purview = "<name of your Microsoft Purview account>"
     ```
-1.	You can now instantiate the two clients:
+1.	You can now instantiate the three clients:
 
     ```python
     def get_credentials():
@@ -181,7 +181,7 @@ Many of our scripts will start with these same steps, as we'll need these client
 
 In this section, you'll register your Blob Storage.
 
-1. Like we discussed in the previous section, first you'll import the clients you'll need to access your Microsoft Purview account. Also import the Azure error response package so you can troubleshoot, and the ClientSecretCredential, to gather your Azure credentials.
+1. Like we discussed in the previous section, first you'll import the clients you'll need to access your Microsoft Purview account. Also import the Azure error response package so you can troubleshoot, and the ClientSecretCredential to construct your Azure credentials.
 
     ```python
     from azure.purview.administration.account import PurviewAccountClient
@@ -208,7 +208,7 @@ In this section, you'll register your Blob Storage.
     collection_name = "<name of your collection>"
     ```
 
-1. Create a function to get the credentials to access your Microsoft Purview account:
+1. Create a function to construct the credentials to access your Microsoft Purview account:
 
     ```python
     client_id = "<your client id>" 
@@ -221,7 +221,11 @@ In this section, you'll register your Blob Storage.
 	    return credentials
     ```
 
-1. All collections in the Microsoft Purview data map have a name and a friendly name. The friendly name is the one you see on the collection. For example: Sales. The name for all collections (except the root collection) is a six-character name assigned by the data map. Python needs this six-character name to reference any sub collections. To convert your "friendly name" automatically to the six-character collection name needed in your script, add this block of code:
+1. All collections in the Microsoft Purview data map have a **friendly name** and a **name**. 
+    * The **friendly name** name is the one you see on the collection. For example: Sales. 
+    * The **name** for all collections (except the root collection) is a six-character name assigned by the data map. 
+    
+    Python needs this six-character name to reference any sub collections. To convert your **friendly name** automatically to the six-character collection name needed in your script, add this block of code:
 
     ```python
     def get_admin_client():
@@ -240,7 +244,7 @@ In this section, you'll register your Blob Storage.
           collection_name = collection["name"]
     ```
 
-1. For both clients and depending on the operations, you might need to also provide an input body. You'll need to provide an input body for data source registration:
+1. For both clients, and depending on the operations, you also need to provide an input body. To register a source, you'll need to provide an input body for data source registration:
 
     ```python
     ds_name = "<friendly name for your data source>"
@@ -259,10 +263,10 @@ In this section, you'll register your Blob Storage.
                 },
                 "dataUseGovernance": "Disabled"
             }
-        }    
+    }    
     ```
 
-1.	Register the data source.
+1. Now you can call your Microsoft Purview clients and register the data source.
 
     ```python
     def get_purview_client():
@@ -285,7 +289,7 @@ In this section, you'll register your Blob Storage.
 
     When the registration process succeeds, you can see an enriched body response from the client.
 
-In the following sections, you'll scan the data source you registered, and search the catalog. The code structure will be similar.  
+In the following sections, you'll scan the data source you registered and search the catalog. Each of these scripts will be very similarly structured to this registration script.
 
 ### Full code
 
@@ -403,7 +407,7 @@ Now let's scan the data source you registered above.
 	    print(e)
     ```
 
-1. Add the code to gather the internal name of your collection. (For more information, see the previous section.):
+1. Add the code to gather the internal name of your collection. (For more information, see the previous section):
 
     ```python
     collection_name = "<name of the collection where you will be creating the scan>"
@@ -414,7 +418,7 @@ Now let's scan the data source you registered above.
 	    return client
 
     try:
-      admin_client = get_admin_client()
+        admin_client = get_admin_client()
     except ValueError as e:
         print(e)
 
@@ -442,7 +446,7 @@ Now let's scan the data source you registered above.
                         "type": "CollectionReference"
                     }
             }
-        }
+    }
 
     try:
         response = client.scans.create_or_update(data_source_name=ds_name, scan_name=scan_name, body=body_input)
@@ -674,15 +678,15 @@ In this section, you'll learn how to delete the data source you registered earli
 
 1. Delete the data source:
 
-```python
-    ds_name = "<name of the registered data source you want to delete>"
-    try:
-        response = client_scanning.data_sources.delete(ds_name)
-        print(response)
-        print(f"Data source {ds_name} successfully deleted")
-    except HttpResponseError as e:
-        print(e)
-```
+    ```python
+        ds_name = "<name of the registered data source you want to delete>"
+        try:
+            response = client_scanning.data_sources.delete(ds_name)
+            print(response)
+            print(f"Data source {ds_name} successfully deleted")
+        except HttpResponseError as e:
+            print(e)
+    ```
 
 ### Full Code
 
