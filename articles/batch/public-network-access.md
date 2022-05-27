@@ -22,7 +22,7 @@ Batch accounts have two public endpoints:
 
 You can check both endpoints in account properties when you query Batch account with [Batch Management REST API](/rest/api/batchmanagement/batch-account/get). You can also check them in **Overview** for Batch account in Azure Portal:
 
-   :::image type="content" source="media/public-access/public-endpoints.png" alt-text="Batch account endpoints":::
+   :::image type="content" source="media/public-access/batch-account-endpoints.png" alt-text="Batch account endpoints":::
 
 You can configure public network access to Batch account endpoints with following options:
 
@@ -38,7 +38,7 @@ You can configure public network access to Batch account endpoints with followin
 1. Under access for each endpoint, enter a public IP address or address range in CIDR notation one by one.
 1. Select **Save**.
 
-   :::image type="content" source="media/public-access/public-endpoints.png" alt-text="Batch account endpoints":::
+   :::image type="content" source="media/public-access/configure-public-access.png" alt-text="Configure public access with Batch account":::
 
 > [!NOTE]
 > After adding a rule, it takes a few minutes for the rule to take effect.

@@ -7,7 +7,7 @@ ms.date: 05/26/2022
 
 # Manage private endpoint connections with Azure Batch accounts
 
-You can manage private endpoint connections for your Batch account with following operations:
+You can manage existing private endpoint connections for your Batch account with following operations:
 
 - Approve a pending connection
 - Reject a connection (either in pending or approved state)

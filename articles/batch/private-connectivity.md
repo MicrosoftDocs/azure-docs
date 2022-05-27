@@ -39,7 +39,7 @@ Use the following steps to create a private Batch account using the Azure portal
 3. In the **Basics** pane, enter or select the subscription, resource group, private endpoint resource name and region details, then select **Next: Resource**.
    :::image type="content" source="media/private-connectivity/create-private-endpoint-basics.png" alt-text="Create a private endpoint - Basics pane":::
 4. In the **Resource** pane, set the **Resource type** to **Microsoft.Batch/batchAccounts**. Select the Batch account you want to access, select the target sub-resource, then select **Next: Configuration**.
-   :::image type="content" source="media/private-connectivity/create-private-endpoint-resource.png" alt-text="Create a private endpoint - Resource pane":::
+   :::image type="content" source="media/private-connectivity/create-private-endpoint.png" alt-text="Create a private endpoint - Resource pane":::
 5. In the **Configuration** pane, enter or select this information:
    - **Virtual network**: Select your virtual network.
    - **Subnet**: Select your subnet.
@@ -91,13 +91,13 @@ However, if you have existing `batchAccount` private endpoints created before, a
 
 - If you want to create new private endpoint with private DNS integration in virtual network which has any existing `batchAccount` private endpoint with previous private DNS zone:
   - After the new private endpoint is created, the automatic private DNS integration should have DNS A record created in the new private DNS zone `privatelink.batch.azure.com` like below:
-    `myaccount.<region>     A  <IPv4 address>`
+    - `myaccount.<region>     A  <IPv4 address>`
 
   - Go to previous private DNS zone `privatelink.<region>.batch.azure.com`, and manually add DNS CNAME record like below:
-    `myaccount     CNAME => myaccount.<region>.privatelink.batch.azure.com`
+    - `myaccount     CNAME => myaccount.<region>.privatelink.batch.azure.com`
 
 > [!IMPORTANT]
-> This manual migration is only needed when you create a new private endpoint with private DNS integration in the same virtual network which has existing private endpoints.
+> This manual mitigation is only needed when you create a new private endpoint with private DNS integration in the same virtual network which has existing private endpoints.
 
 ## Pricing
 
@@ -116,7 +116,7 @@ When creating private endpoint with your Batch account, keep in mind the followi
 ## Next steps
 
 - Learn how to [create Batch pools in virtual networks](batch-virtual-network.md).
-- Learn how to [create Batch pools without public IP addresses](batch-pool-no-public-ip-address-v2.md)
+- Learn how to [create Batch pools without public IP addresses](batch-pool-no-public-ip-address-v2.md).
 - Learn how to [configure public network access for Batch accounts](public-network-access.md).
 - Learn how to [manage private endpoint connections for Batch accounts](manage-private-endpoint-connections.md).
 - Learn about [Azure Private Link](../private-link/private-link-overview.md).

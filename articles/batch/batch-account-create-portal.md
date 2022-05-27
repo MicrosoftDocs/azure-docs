@@ -43,6 +43,8 @@ For background about Batch accounts and scenarios, see [Batch service workflow a
 
 1. If desired, select **Networking** to configure [public network access](public-network-access.md) with your Batch account.
 
+    :::image type="content" source="media/batch-account-create-portal/batch-account-networking.png" alt-text="Screenshot of the networking options when creating a Batch account.":::
+
 1. Select **Review + create**, then select **Create** to create the account.
 
 ## View Batch account properties
