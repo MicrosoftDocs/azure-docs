@@ -81,7 +81,6 @@ ms.custom: H1Hack27Feb2017
 [planning-guide-9.1]:planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3
 [planning-guide-azure-premium-storage]:planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92
 
-[virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]:../../windows/sql/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md
 [virtual-machines-windows-portal-sql-alwayson-int-listener]:/azure/azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure
 
 [sap-ha-bc-virtual-env-hyperv-vmware-white-paper]:https://scn.sap.com/docs/DOC-44415
@@ -424,7 +423,7 @@ _**Figure 3:** Example of a high-availability SAP DBMS, with SQL Server AlwaysOn
 
 For more information about clustering SQL Server DBMS in Azure by using the Azure Resource Manager deployment model, see these articles:
 
-* [Configure an AlwaysOn availability group in Azure virtual machines manually by using Resource Manager][virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]
+* [Configure an AlwaysOn availability group in Azure virtual machines manually by using Resource Manager](/azure/azure-sql/virtual-machines/windows/availability-group-overview)
 
 * [Configure an Azure internal load balancer for an AlwaysOn availability group in Azure][virtual-machines-windows-portal-sql-alwayson-int-listener]
 
