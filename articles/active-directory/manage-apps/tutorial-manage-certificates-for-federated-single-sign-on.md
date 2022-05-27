@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05//2022
+ms.date: 05/27/2022
 ms.author: davidmu
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
