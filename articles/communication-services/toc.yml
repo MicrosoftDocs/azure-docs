@@ -155,7 +155,7 @@ items:
         href: concepts/telephony/emergency-calling-concept.md 
       - name: Direct routing infrastructure requirements
         href: concepts/telephony/direct-routing-infrastructure.md
-      - name: Pair Session Border Controllers
+      - name: Connect to existing telephony
         href: concepts/telephony/direct-routing-provisioning.md
       - name: Certified Session Border Controllers
         href: concepts/telephony/certified-session-border-controllers.md
@@ -377,9 +377,9 @@ items:
     - name: UI Library (JavaScript)
       href: /javascript/api/@azure/communication-react/?view=azure-node-latest
     - name: UI Library (iOS)
-      href: https://htmlpreview.github.io/?https://github.com/Azure/azure-sdk-for-ios/blob/communication/CommunicationUIJazzy/build/jazzy/AzureCommunicationUI/index.html
+      href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationUICalling/index.html
     - name: UI Library (Android)
-      href: https://azure.github.io/azure-sdk-for-android/azure-communication-mobileui/index.html
+      href: https://azure.github.io/azure-sdk-for-android/azure-communication-mobileui/com/azure/android/communication/ui/calling/package-summary.html
    
 - name: Resources
   items:

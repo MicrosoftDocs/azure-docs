@@ -17,7 +17,7 @@
         },
         {
             "source_path_from_root": "/articles/security-center/security-center-identity-access.md",
-            "redirect_url": "/articles/defender-for-cloud/multi-factor-authentication-enforcement",
+            "redirect_url": "/azure/defender-for-cloud/multi-factor-authentication-enforcement",
             "redirect_document_id": false
         },
         {

@@ -364,7 +364,7 @@
               href: limit-egress-traffic.md
             - name: Use a user defined route for egress
               href: egress-outboundtype.md
-            - name: Managed NAT Gateway (preview)
+            - name: Managed NAT Gateway
               href: nat-gateway.md              
         - name: Customize CoreDNS
           href: coredns-custom.md
@@ -386,11 +386,11 @@
           href: azure-netapp-files.md
         - name: Use Azure Ultra Disks
           href: use-ultra-disks.md
-    - name: CSI Storage Drivers
+    - name: CSI storage drivers
       items:
-        - name: Enable CSI Storage Drivers
+        - name: CSI storage driver overview
           href: csi-storage-drivers.md
-        - name: Azure Disk CSI drivers
+        - name: Azure disk CSI drivers
           href: azure-disk-csi.md
         - name: Azure Files CSI drivers
           href: azure-files-csi.md
@@ -467,6 +467,8 @@
           href: open-service-mesh-uninstall-add-on.md
     - name: Track releases and region availability
       href: release-tracker.md
+    - name: Use Web Application Routing (preview)
+      href: web-app-routing.md
     - name: Kubernetes Event-driven Autoscaler add-on (preview)
       href: keda.md
     - name: Use cluster extensions

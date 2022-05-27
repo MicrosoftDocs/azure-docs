@@ -77,7 +77,7 @@ Form Recognizer preview version supports several languages for the read model. *
 
 ### Text lines and words
 
-Read API extracts text from documents and images. It accepts PDFs and images of documents and handles printed and/or handwritten text, and supports mixed languages. Text is extracted as text lnes, words, bounding boxes, confidence scores, and style, whether handwritten or not, supported for Latin languages only.
+Read API extracts text from documents and images. It accepts PDFs and images of documents and handles printed and/or handwritten text, and supports mixed languages. Text is extracted as text lines, words, bounding boxes, confidence scores, and style, whether handwritten or not, supported for Latin languages only.
 
 ### Language detection
 

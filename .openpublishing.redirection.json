@@ -27420,6 +27420,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/web-application-firewall/waf-cdn-create-portal.md",
+      "redirect_url": "/azure/web-application-firewall/cdn/cdn-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/frontdoor/waf-faq.md",
       "redirect_url": "/azure/web-application-firewall/afds/waf-faq",
       "redirect_document_id": false
@@ -43308,11 +43313,6 @@
       "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-create-nat-gateway-cli.md",
       "redirect_url": "/azure/virtual-network/nat-gateway/quickstart-create-nat-gateway-cli",
       "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/aks/web-app-routing.md",
-      "redirect_url": "/azure/aks/intro-kubernetes",
-      "redirect_document_id":false
     },
     {
       "source_path_from_root": "/articles/private-link/private-endpoint-static-ip-powershell.md",

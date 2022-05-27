@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 05/24/2022
+ms.date: 05/25/2022
 ms.custom: references_regions, event-tier1-build-2022
 ---
 # Provision access by data owner for SQL Server on Azure Arc-enabled servers (preview)
@@ -22,9 +22,10 @@ This how-to guide describes how a data owner can delegate authoring policies in 
 - SQL server version 2022 CTP 2.0 or later
 - Complete process to onboard that SQL server with Azure Arc and enable Azure AD Authentication. [Follow this guide to learn how](https://aka.ms/sql-on-arc-AADauth).
 
-**Enforcement of policies is available only in the following regions for Microsoft Purview**
+**Enforcement of policies for this data source is available only in the following regions for Microsoft Purview**
 - East US
 - UK South
+- Australia East
 
 ## Security considerations
 - The Server admin can turn off the Microsoft Purview policy enforcement.
@@ -165,7 +166,7 @@ This section contains a reference of how actions in Microsoft Purview data polic
 
 ## Next steps
 Check blog, demo and related how-to guides
-* [Demo of access policy for Azure Storage](/video/media/8ce7c554-0d48-430f-8f63-edf94946947c/purview-policy-storage-dataowner-scenario_mid.mp4)
+* [Demo of access policy for Azure Storage](https://learn-video.azurefd.net/vod/player?id=caa25ad3-7927-4dcc-88dd-6b74bcae98a2)
 * [Concepts for Microsoft Purview data owner policies](./concept-data-owner-policies.md)
 * Blog: [Private preview: controlling access to Azure SQL at scale with policies in Purview](https://techcommunity.microsoft.com/t5/azure-sql-blog/private-preview-controlling-access-to-azure-sql-at-scale-with/ba-p/2945491)
 * [Enable Microsoft Purview data owner policies on all data sources in a subscription or a resource group](./how-to-data-owner-policies-resource-group.md)
