@@ -333,7 +333,7 @@ If you have multiple phrases to add, call `.addPhrase()` for each phrase to add 
 
 # [Custom speech-to-text](#tab/cstt)
 
-The custom speech-to-text container relies on a Custom Speech model. The custom model has to have been [trained](how-to-custom-speech-train-model.md) by using the [Speech Studio](https://speech.microsoft.com/customspeech).
+The custom speech-to-text container relies on a Custom Speech model. The custom model has to have been [trained](how-to-custom-speech-train-model.md) by using the [Speech Studio](https://aka.ms/speechstudio/customspeech).
 
 The custom speech **Model ID** is required to run the container. For more information about how to get the model ID, see [Custom Speech model lifecycle](how-to-custom-speech-model-and-endpoint-lifecycle.md).
 
