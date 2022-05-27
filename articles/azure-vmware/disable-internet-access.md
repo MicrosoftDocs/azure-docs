@@ -1,10 +1,10 @@
 ---
-title: Disable Internet access or enable a default route (Preview)
-description: This article explains how to disable Internet access for Azure VMware Solution and enable default route for Azure VMware Solution.
+title: Disable Internet access or enable a default route 
+description: This article explains how to disable internet access for Azure VMware Solution and enable default route for Azure VMware Solution.
 ms.topic: how-to
 ms.date: 05/12/2022
 ---
-# Disable Internet access or enable a default route (Preview) 
+# Disable internet access or enable a default route 
 In this article, you'll learn how to disable Internet access or enable a default route for your Azure VMware Solution private cloud. There are multiple ways to set up a default route. You can use a Virtual WAN hub, Network Virtual Appliance in a Virtual Network, or use a default route from on-premise. If you don't set up a default route, there will be no Internet access to your Azure VMware Solution private cloud. 
 
 With a default route setup, you can achieve the following tasks:
@@ -25,8 +25,10 @@ With a default route setup, you can achieve the following tasks:
 1. Select the **Don't connect or connect using default route from Azure** button and select **Save**.   
 If you don't have a default route from on-premises or from Azure, you have successfully disabled Internet connectivity to your Azure VMware Solution private cloud. 
 
-## Next Steps 
+## Next steps 
 
-[Internet connectivity design considerations (Preview)](concepts-design-public-internet-access.md)<br>
-[Enable Managed SNAT for Azure VMware Solution Workloads](enable-managed-snat-for-workloads.md)<br>
-[Enable Public IP to the NSX Edge for Azure VMware Solution](enable-public-ip-nsx-edge.md)<br>
+[Internet connectivity design considerations (Preview)](concepts-design-public-internet-access.md)
+
+[Enable Managed SNAT for Azure VMware Solution Workloads](enable-managed-snat-for-workloads.md)
+
+[Enable Public IP to the NSX Edge for Azure VMware Solution](enable-public-ip-nsx-edge.md)
