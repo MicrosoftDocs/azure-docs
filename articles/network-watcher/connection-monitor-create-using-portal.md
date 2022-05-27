@@ -18,6 +18,9 @@ ms.author: vinigam
 > [!IMPORTANT]
 > Starting 1 July 2021, you will not be able to add new tests in an existing workspace or enable a new workspace in Network Performance Monitor. You will also not be able to add new connection monitors in Connection Monitor (classic). You can continue to use the tests and connection monitors created prior to 1 July 2021. To minimize service disruption to your current workloads, [migrate your tests from Network Performance Monitor ](migrate-to-connection-monitor-from-network-performance-monitor.md) or  [migrate from Connection Monitor (classic)](migrate-to-connection-monitor-from-connection-monitor-classic.md) to the new Connection Monitor in Azure Network Watcher before 29 February 2024.
 
+> [!IMPORTANT]
+> Connection Monitor will now support end to end connectivity checks from and to *Azure Virtual Machine Scale Sets*, enabling faster performance monitoring and network troubleshooting across scale sets 
+
 Learn how to use Connection Monitor to monitor communication between your resources. This article describes how to create a monitor by using the Azure portal. Connection Monitor supports hybrid and Azure cloud deployments.
 
 
@@ -101,7 +104,7 @@ In the Azure portal, to create a test group in a connection monitor, you specify
 * **Disable test group**: You can select this check box to disable monitoring for all sources and destinations that the test group specifies. This selection is cleared by default.
 * **Name**: Name your test group.
 * **Sources**: You can specify both Azure VMs and on-premises machines as sources if agents are installed on them. To learn about installing an agent for your source, see [Install monitoring agents](./connection-monitor-overview.md#install-monitoring-agents).
-   * To choose Azure agents, select the **Azure endpoints** tab. Here you see only VMs that are bound to the region that you specified when you created the connection monitor. By default, VMs are grouped into the subscription that they belong to. These groups are collapsed. 
+   * To choose Azure agents, select the **Azure endpoints** tab. Here you see only VMs or VM scale sets that are bound to the region that you specified when you created the connection monitor. By default, VMs and VM Scale sets are grouped into the subscription that they belong to. These groups are collapsed. 
    
        You can drill down from the **Subscription** level to other levels in the hierarchy:
 
@@ -109,7 +112,7 @@ In the Azure portal, to create a test group in a connection monitor, you specify
 
       You can also change the **Group by** selector to start the tree from any other level. For example, if you group by virtual network, you see the VMs that have agents in the hierarchy **VNET** > **Subnet** > **VMs with agents**.
 
-       When you select a VNET, subnet, or single VM, the corresponding resource ID is set as the endpoint. By default, all VMs in the selected VNET or subnet that have the Azure Network Watcher extension participate in monitoring. To reduce the scope, either select specific subnets or agents or change the value of the scope property. 
+       When you select a VNET, subnet, a single VM or a VM scale set the corresponding resource ID is set as the endpoint. By default, all VMs in the selected VNET or subnet that have the Azure Network Watcher extension participate in monitoring. To reduce the scope, either select specific subnets or agents or change the value of the scope property. 
 
       :::image type="content" source="./media/connection-monitor-2-preview/add-azure-sources.png" alt-text="Screenshot that shows the Add Sources pane and the Azure endpoints tab in Connection Monitor.":::
 
