@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 # Define organizational policies for governing access to applications in your environment
 
 > [!div class="step-by-step"]
-> [« Govern access for applications in your environment](identity-governance-applications-prepare.md)
+> [« Govern access for applications](identity-governance-applications-prepare.md)
 > [Integrate an application with Azure AD »](identity-governance-applications-integrate.md)
  
 Once you have identified one or more applications for which access is to be governed from Azure AD, write down the organization's policies for determining which users should have access, and any other constraints that the system should provide.
@@ -29,11 +29,11 @@ Once you have identified one or more applications for which access is to be gove
 
 Organizations with compliance requirements or risk management plans will have sensitive or business-critical applications.  If this application is an existing application in your environment, you may already have documented the access policies for who 'should have access' to this application.  If not, you may need to consult with various stakeholders, such as compliance and risk management teams, to ensure that the policies being used to automate access decisions are appropriate for your scenario.
 
-1. **First, collect the roles and permissions that each application provides.**  Some applications may have only a single role, for example only "User". More complex applications may surface multiple roles to be managed through Azure AD.  These application roles typically make broad constraints on the access a user with that role would have within the app. For example, an application that has an administrator persona might have two roles, "User" and "Administrator".  Other applications may also rely upon group memberships or claims for finer-grained role checks, which can be provided to the application from Azure AD in provisioning or claims issued using federation SSO protocols.  Finally, there may be roles that don't surface in Azure AD - perhaps the application doesn't permit defining the administrators in Azure AD, instead relying upon its own authorization rules to identify administrators.
+* **Collect the roles and permissions that each application provides.**  Some applications may have only a single role, for example only "User". More complex applications may surface multiple roles to be managed through Azure AD.  These application roles typically make broad constraints on the access a user with that role would have within the app. For example, an application that has an administrator persona might have two roles, "User" and "Administrator".  Other applications may also rely upon group memberships or claims for finer-grained role checks, which can be provided to the application from Azure AD in provisioning or claims issued using federation SSO protocols.  Finally, there may be roles that don't surface in Azure AD - perhaps the application doesn't permit defining the administrators in Azure AD, instead relying upon its own authorization rules to identify administrators.
    > [!Note]
    > If you're using an application from the Azure AD application gallery that supports provisioning, then Azure AD may automatically update the application manifest with the application's roles automatically, once provisioning is configured.
 
-1. **Next, select the roles and groups that are to be governed in Azure AD.** Based on compliance and risk management requirements, organizations often prioritize those roles or groups which give privileged access or access to sensitive information.
+* **Select which roles and groups have membership that are to be governed in Azure AD.** Based on compliance and risk management requirements, organizations often prioritize those roles or groups which give privileged access or access to sensitive information.
 
 ## Define the organization's policy with prerequisites and other constraints for access to the application
 
@@ -63,6 +63,6 @@ As the organizational policy for who should have access is being reviewed by the
 ## Next steps
 
 > [!div class="step-by-step"]
-> [« Govern access for applications in your environment](identity-governance-applications-prepare.md)
+> [« Govern access for applications](identity-governance-applications-prepare.md)
 > [Integrate an application with Azure AD »](identity-governance-applications-integrate.md)
 

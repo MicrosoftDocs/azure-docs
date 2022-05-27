@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 # Govern access for applications in your environment
 
 > [!div class="step-by-step"]
-> [Define organizational policies for governing access to an application »](identity-governance-applications-define.md)
+> [Define governance policies »](identity-governance-applications-define.md)
 
 Azure Active Directory (Azure AD) Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility. Its features ensure that the right people have the right access to the right resources in your organization at the right time.
 
@@ -36,11 +36,11 @@ In addition to the application access governance scenario, identity governance a
 
 Azure AD identity governance can be integrated with many applications, using [standards](../fundamentals/auth-sync-overview.md) such as OpenID Connect, SAML, SCIM, SQL and LDAP.  Through these standards, Azure AD can be used with many popular SaaS applications, as well as on-premises applications, and applications that your organization has developed. Once your have prepared your Azure AD environment, as described in the section below, the three step plan covers how to connect an application to Azure AD and enable identity governance features to be used for that application.
 
-1. [Define your organizational policies for access to the application](identity-governance-applications-define.md)
+1. [Define your organization's policies for governing access to the application](identity-governance-applications-define.md)
 1. [Integrate the application with Azure AD](identity-governance-applications-integrate.md) to ensure only authorized users can access the application, and review user's existing access to the application to set a baseline of all users having been reviewed
-1. [Deploy those policies for automating access assignments](identity-governance-applications-deploy.md)
+1. [Deploy those policies](identity-governance-applications-deploy.md) for controlling single sign-on (SSO) and automating access assignments for that application
 
-## Prerequisite checks for your Azure AD environment
+## Prerequisites for Azure AD
 
 Before you begin the process of governing application access from Azure AD, you should check your Azure AD environment is appropriately configured.
 
@@ -49,7 +49,7 @@ Before you begin the process of governing application access from Azure AD, you 
    * Azure AD Premium P2
    * Enterprise Mobility + Security (EMS) E5 license
 
-   You will need to have at least as many licenses as the number of member (non-guest) users who have or can request access to the applications, approve, or review access to the applications.  With an appropriate license, you can then govern access to up to 1500 applications per user.
+   Your tenant will need to have at least as many licenses as the number of member (non-guest) users who have or can request access to the applications, approve, or review access to the applications.  With an appropriate license for those users, you can then govern access to up to 1500 applications per user.
 
 1. **If you will be governing guest's access to the application, link your Azure AD tenant to a subscription for MAU billing**. This step will be necessary prior to having a guest request or review their access. For more information, see [billing model for Azure AD External Identities](../external-identities/external-identities-pricing.md).
 
@@ -57,9 +57,9 @@ Before you begin the process of governing application access from Azure AD, you 
 
 1. **Make sure only authorized users are in the highly privileged administrative roles in your Azure AD tenant.** Administrators in the `Global Administrator`, `Identity Governance Administrator`, `User Administrator`, `Application Administrator`, `Cloud Application Administrator` and `Privileged Role Administrator` can make changes to users and their application role assignments.  If the memberships of those roles have not yet been recently reviewed, you'll need a user who is in the `Global Administrator` or `Privileged Role Administrator` to ensure that [access review of these directory roles](../privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review.md) are started.  You should also ensure that users in Azure roles in subscriptions that hold the Azure Monitor, Logic Apps and other resources needed for the operation of your Azure AD configuration have been reviewed.
 
-1. **Check your tenant has appropriate isolation.** If your organization is using Active Directory on-premises, and these AD domains are connected to Azure AD, then you will need to ensure that highly-privileged administrative operations for cloud-hosted services are isolated from on-premises accounts. Check that you have [configured your systems to protect your Microsoft 365 cloud environment from on-premises compromise](../fundamentals/protect-m365-from-on-premises-attacks.md).
+1. **Check your tenant has appropriate isolation.** If your organization is using Active Directory on-premises, and these AD domains are connected to Azure AD, then you'll need to ensure that highly-privileged administrative operations for cloud-hosted services are isolated from on-premises accounts. Check that you have [configured your systems to protect your Microsoft 365 cloud environment from on-premises compromise](../fundamentals/protect-m365-from-on-premises-attacks.md).
 
 ## Next steps
 
 > [!div class="step-by-step"]
-> [Define organizational policies for governing access to an application »](identity-governance-applications-define.md)
+> [Define governance policies »](identity-governance-applications-define.md)

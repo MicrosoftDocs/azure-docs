@@ -20,13 +20,13 @@ ms.collection: M365-identity-device-management
 # Integrating applications with Azure AD and establishing a baseline of reviewed access
 
 > [!div class="step-by-step"]
-> [« Define organizational policies for governing access to an application](identity-governance-applications-define.md)
-> [Deploy organizational policies for governing access to an application »](identity-governance-applications-deploy.md)
+> [« Define governance policies](identity-governance-applications-define.md)
+> [Deploy governance policies »](identity-governance-applications-deploy.md)
 
 
 Once you have established the policies for who should have access to your application, then you can [connect your application to Azure AD](../manage-apps/what-is-application-management.md) and then deploy the policies for governing access to them.
 
-Azure AD identity governance can be integrated with many applications, using [standards](../fundamentals/auth-sync-overview.md) such as OpenID Connect, SAML, SCIM, SQL and LDAP.  Through these standards, Azure AD can be used with many popular SaaS applications and on-premises applications, including applications which your organization has developed.  This deployment plan covers how to connect your application to Azure AD and enable identity governance features to be used for that application.
+Azure AD identity governance can be integrated with many applications, using [standards](../fundamentals/auth-sync-overview.md) such as OpenID Connect, SAML, SCIM, SQL and LDAP.  Through these standards, Azure AD can be used with many popular SaaS applications and on-premises applications, including applications that your organization has developed.  This deployment plan covers how to connect your application to Azure AD and enable identity governance features to be used for that application.
 
 In order for Azure AD identity governance to be used for an application, then the application must first be integrated with Azure AD. An application being integrated with Azure AD means one of two requirements must be met:
 
@@ -85,16 +85,16 @@ Next, if the application implements a provisioning protocol, then you should con
 
 1. If your application uses Microsoft Graph to query groups from Azure AD, then [consent](../develop/consent-framework.md) to the applications to have the appropriate permissions to read from your tenant.
 
-1. Set that access to the application is only permitted for users assigned to the application.  This will prevent users from inadvertently seeing the application in MyApps, and attempting to sign into the application, prior to Conditional Access policies being enabled.
+1. Set that access to the application is only permitted for users assigned to the application.  This setting will prevent users from inadvertently seeing the application in MyApps, and attempting to sign into the application, prior to Conditional Access policies being enabled.
 
 ## Perform an initial access review
 
 If this is a new application your organization hasn't used before, and therefore no one has pre-existing access, or if you have already been performing access reviews for this application, then skip to the [next section](identity-governance-applications-deploy.md).
 
-However, if the application already existed in your environment, then it is possible that users may have gotten access in the past through manual or out-of-band processes, and those users should now be reviewed to have confirmation that their access is still needed and appropriate going forward. We recommend performing an access review of the users who already have access to the application, before enabling policies for more users to be able to request access. This will set a baseline of all users having been reviewed at least once, to ensure that those users are authorized for continued access.
+However, if the application already existed in your environment, then it is possible that users may have gotten access in the past through manual or out-of-band processes, and those users should now be reviewed to have confirmation that their access is still needed and appropriate going forward. We recommend performing an access review of the users who already have access to the application, before enabling policies for more users to be able to request access. This review will set a baseline of all users having been reviewed at least once, to ensure that those users are authorized for continued access.
 
 1. Follow the steps in [Preparing for an access review of users' access to an application](access-reviews-application-preparation.md).
-1. If the application was not integrated for provisioning, then once the review is complete, you may need to manually update the application's internal database or directory to remove those users who were denied.
+1. If the application wasn't integrated for provisioning, then once the review is complete, you may need to manually update the application's internal database or directory to remove those users who were denied.
 1. Once the review has been completed and the application access updated, or if no users have access, then continue in the next steps to deploy conditional access and entitlement management policies for the application.
 
 Now that you have a baseline that ensures existing access has been reviewed, then you can deploy the organization's policies for ongoing access and any new access requests.
@@ -102,5 +102,5 @@ Now that you have a baseline that ensures existing access has been reviewed, the
 ## Next steps
 
 > [!div class="step-by-step"]
-> [« Define organizational policies for governing access to an application](identity-governance-applications-define.md)
-> [Deploy organizational policies for governing access to an application »](identity-governance-applications-deploy.md)
+> [« Define governance policies](identity-governance-applications-define.md)
+> [Deploy governance policies »](identity-governance-applications-deploy.md)
