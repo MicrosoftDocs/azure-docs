@@ -48,7 +48,7 @@ Document summarization supports the following features:
 This documentation contains the following article types:
 
 * [**Quickstarts**](quickstart.md?pivots=rest-api&tabs=conversation-summarization) are getting-started instructions to guide you through making requests to the service.
-* [**How-to guides**](how-to/document-summarization.md) contain instructions for using the service in more specific or customized ways.
+* [**How-to guides**](how-to/conversation-summarization.md) contain instructions for using the service in more specific or customized ways.
 
 Conversation summarization is a broad topic, consisting of several approaches to represent relevant information in text. The conversation summarization feature described in this documentation enables you to use abstractive text summarization to produce a summary of issues and resolutions in transcripts of web chats and service call transcripts between customer-service agents, and your customers. 
 

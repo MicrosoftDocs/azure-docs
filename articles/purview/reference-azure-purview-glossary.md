@@ -6,7 +6,7 @@ ms.author: daperlov
 ms.service: purview
 ms.custom: event-tier1-build-2022
 ms.topic: conceptual
-ms.date: 04/14/2022
+ms.date: 05/27/2022
 ---
 # Microsoft Purview product glossary
 
@@ -19,7 +19,7 @@ Information that is associated with data assets in Microsoft Purview, for exampl
 ## Approved
 The state given to any request that has been accepted as satisfactory by the designated individual or group who has authority to change the state of the request.
 ## Asset
-Any single object that is stored within a Microsoft Purview data catalog.
+Any single object that is stored within a Microsoft Purview Data Catalog.
 > [!NOTE]
 > A single object in the catalog could potentially represent many objects in storage, for example, a resource set is an asset but it's made up of many partition files in storage.
 ## Azure Information Protection
@@ -48,8 +48,8 @@ An individual who is associated with an entity in the data catalog.
 An operation that manages resources in your subscription, such as role-based access control and Azure policy, that are sent to the Azure Resource Manager end point. Control plane operations can also apply to resources outside of Azure across on-premises, multicloud, and SaaS sources.
 ## Credential
 A verification of identity or tool used in an access control system. Credentials can be used to authenticate an individual or group to grant access to a data asset.
-## Data catalog
-Microsoft Purview features that enable customers to view and manage the metadata for assets in your data estate.
+## Data Catalog
+A searchable inventory of assets and their associated metadata that allows users to find and curate data across a data estate. The Data Catalog also includes a business glossary where subject matter experts can provide terms and definitions to add a business context to an asset.
 ## Data curator
 A role that provides access to the data catalog to manage assets, configure custom classifications, set up glossary terms, and view insights. Data curators can create, read, modify, move, and delete assets. They can also apply annotations to assets.
 ## Data map
@@ -89,7 +89,7 @@ An asset that has been scanned, classified (when applicable), and added to the M
 ## Insight reader
 A role that provides read-only access to insights reports for collections where the insights reader also has the **Data reader** role.
 ## Data Estate Insights
-An area within Microsoft Purview where you can view reports that summarize information about your data.
+An area of the Microsoft Purview governance portal that provides up-to-date reports and actionable insights about the data estate.
 ## Integration runtime
 The compute infrastructure used to scan in a data source.
 ## Lineage
