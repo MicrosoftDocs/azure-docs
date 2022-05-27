@@ -36,9 +36,8 @@ You can configure public network access to Batch account endpoints with followin
 1. Under **Settings**, select **Networking**.
 1. On the **Public access** tab, select to allow public access from **Selected networks**.
 1. Under access for each endpoint, enter a public IP address or address range in CIDR notation one by one.
-1. Select **Save**.
-
    :::image type="content" source="media/public-access/configure-public-access.png" alt-text="Configure public access with Batch account":::
+1. Select **Save**.
 
 > [!NOTE]
 > After adding a rule, it takes a few minutes for the rule to take effect.

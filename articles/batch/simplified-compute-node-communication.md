@@ -120,11 +120,11 @@ After your request has been submitted, you will be notified once the account has
 The following are known limitations for accounts that opt in to simplified compute node communication:
 
 - Limited migration support for previously created pools without public IP addresses ([V1 preview](batch-pool-no-public-ip-address.md)). They can only be migrated if created in a [virtual network](batch-virtual-network.md), otherwise they won't use simplified compute node communication, even if the Batch account has opted in.
-- [Private Batch accounts](private-connectivity.md) can opt in to simplified compute node communication, but Batch pools created by these Batch accounts must have public IP addresses in order to use simplified compute node communication.
 - Cloud Service Configuration pools are currently not supported for simplified compute node communication and are generally deprecated. We recommend using Virtual Machine Configuration for your Batch pools. For more information, see [Migrate Batch pool configuration from Cloud Services to Virtual Machine](batch-pool-cloud-service-to-virtual-machine-configuration.md).
 
 ## Next steps
 
+- Learn how to [use private endpoints with Batch accounts](private-connectivity.md).
 - Learn more about [pools in virtual networks](batch-virtual-network.md).
 - Learn how to [create a pool with specified public IP addresses](create-pool-public-ip.md).
 - Learn how to [create a pool without public IP addresses](batch-pool-no-public-ip-address-v2.md).

@@ -42,9 +42,9 @@ To restrict access to these nodes and reduce the discoverability of these nodes 
 
 - **Outbound access for Batch node management**. A pool with no public IP addresses doesn't have internet outbound access enabled by default. To allow compute nodes to access the Batch node management service (see [Use simplified compute node communication](simplified-compute-node-communication.md)), you must:
 
-  - (**Recommended**) Use [private endpoint for compute node management](private-connectivity.md).
+  - (**Recommended**) Use `nodeManagement` [private endpoint with Batch accounts](private-connectivity.md).
 
-  - Alternatively, provide your own internet outbound access support (see [Outbound access to the internet](#Outbound-access-to-the-internet)).
+  - Alternatively, provide your own internet outbound access support (see [Outbound access to the internet](#outbound-access-to-the-internet)).
 
 ## Current limitations
 

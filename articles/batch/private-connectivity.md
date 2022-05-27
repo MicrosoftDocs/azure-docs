@@ -22,10 +22,9 @@ Batch account resource has two endpoints supported to access with private endpoi
 
 - Account endpoint (sub-resource: **batchAccount**): this is the endpoint for [Batch Service REST API](/rest/api/batchservice/) (data plane), for example managing pools, compute nodes, jobs, tasks, etc.
 
-- (**Preview**) Compute node management endpoint (sub-resource: **nodeManagement**): this is the endpoint for compute nodes in the Batch pool to access Batch compute node management service, so that they can be managed by Batch service.
+- (**Preview**) Node management endpoint (sub-resource: **nodeManagement**): used by Batch pool nodes to access Batch node management service. This is only applicable when using [simplified compute node communication](simplified-compute-node-communication.md).
 
 > [!IMPORTANT]
-> - Sub-resource **nodeManagement** is only applicable with Batch accounts using [simplified compute node communication](simplified-compute-node-communication.md).
 > - This preview sub-resource is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > - For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -44,8 +43,8 @@ Use the following steps to create a private Batch account using the Azure portal
    - **Virtual network**: Select your virtual network.
    - **Subnet**: Select your subnet.
    - **Private IP configuration**: Select default "Dynamically allocate IP address".
-   - **Integrate with private DNS zone**:	Select **Yes**. To connect privately with your private endpoint, you need a DNS record. We recommend that you integrate your private endpoint with a private DNS zone. You can also use your own DNS servers or create DNS records by using the host files on your virtual machines.
-   - **Private DNS Zone**:	Select `privatelink.batch.azure.com`. The private DNS zone is determined automatically. You can't change it by using the Azure portal.
+   - **Integrate with private DNS zone**: Select **Yes**. To connect privately with your private endpoint, you need a DNS record. We recommend that you integrate your private endpoint with a private DNS zone. You can also use your own DNS servers or create DNS records by using the host files on your virtual machines.
+   - **Private DNS Zone**: Select `privatelink.batch.azure.com`. The private DNS zone is determined automatically. You can't change it by using the Azure portal.
 
 > [!IMPORTANT]
 > If you have existing private endpoints created with previous private DNS zone `privatelink.<region>.batch.azure.com`, please follow [Migration with existing Batch account private endpoints](#migration-with-existing-batch-account-private-endpoints).
