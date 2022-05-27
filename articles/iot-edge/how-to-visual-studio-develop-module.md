@@ -84,7 +84,7 @@ This article assumes that you use a machine running Windows as your development 
 
     * Creating one in the [Azure portal](https://portal.azure.com/) is the quickest. From the Azure portal, go to your IoT Hub resource. Select **IoT Edge** from the menu on the left and then select **Add IoT Edge Device**.
 
-        :::image type="content" source="./media/how-to-visual-studio-develop-module/create-new-iot-edge-device.png" alt-text="Screenshot of how to add a new IoT Edge device":::
+        :::image type="content" source="./media/how-to-visual-studio-develop-module/create-new-iot-edge-device.png" alt-text="Screenshot of how to add a new I o T Edge device":::
     
        A new popup called **Create a device** will appear. Add a name to your device (known as the Device ID), then select **Save** in the lower left. 
     
@@ -143,7 +143,7 @@ The IoT Edge extension defaults to the latest stable version of the IoT Edge run
 
 1. In the Solution Explorer, right-click the name of your main project and select **Set IoT Edge runtime version**.
 
-   :::image type="content" source="./media/how-to-visual-studio-develop-module/set-iot-edge-runtime-version.png" alt-text="Screenshot of how to find and select the menu item named Set IoT Edge Runtime version.":::
+   :::image type="content" source="./media/how-to-visual-studio-develop-module/set-iot-edge-runtime-version.png" alt-text="Screenshot of how to find and select the menu item named 'Set I o T Edge Runtime version'.":::
 
 1. Use the drop-down menu to choose the runtime version that your IoT Edge devices are running, then select **OK** to save your changes. If no change was made, select **Cancel** to exit.
 
@@ -187,15 +187,15 @@ Typically, you'll want to test and debug each module before running it within an
 >[!TIP]
 >Depending on the type of IoT Edge module you are developing, you may need to enable the correct Docker container mode: either Linux or Windows. From the Docker Desktop menu, you can toggle between the two types of modes. Select **Switch to Windows containers** or select **Switch to Linux containers**. For this tutorial, we use Linux.
 >
->   :::image type="content" source="./media/how-to-visual-studio-develop-module/system-tray.png" alt-text="Screenshot of how to find and select the menu item named Switch to Windows containers.":::
+>:::image type="content" source="./media/how-to-visual-studio-develop-module/system-tray.png" alt-text="Screenshot of how to find and select the menu item named 'Switch to Windows containers'.":::
 
 1. In **Solution Explorer**, right-click the module project folder and select **Set as StartUp Project** from the menu.
 
-   ![Set Start-up Project](./media/how-to-visual-studio-develop-module/module-start-up-project.png)
+   :::image type="content" source="./media/how-to-visual-studio-develop-module/module-start-up-project.png" alt-text="Screenshot of how to set project as startup project.":::
 
 1. Press **F5** or click the run button in the toolbar to run the module. It may take 10&ndash;20 seconds the first time you do so. Be sure you don't have other Docker containers running that might bind the port you need for this project.
 
-   ![Run Module](./media/how-to-visual-studio-develop-module/run-module.png)
+   :::image type="content" source="./media/how-to-visual-studio-develop-module/run-module.png" alt-text="Screenshot of how to run a module.":::
 
 1. You should see a .NET Core console app window appear if the module has been initialized successfully.
 
@@ -234,7 +234,7 @@ After you're done developing a single module, you might want to run and debug an
 
 1. In **Solution Explorer**, add a second module to the solution by right-clicking the main project folder. On the menu, select **Add** > **New IoT Edge Module**.
 
-   :::image type="content" source="./media/how-to-visual-studio-develop-module/add-new-module.png" alt-text="Screenshot of the 'New IoT Edge Module' menu option." lightbox="./media/how-to-visual-studio-develop-module/add-new-module.png":::
+   :::image type="content" source="./media/how-to-visual-studio-develop-module/add-new-module.png" alt-text="Screenshot of how to add a 'New I o T Edge Module' from the menu." lightbox="./media/how-to-visual-studio-develop-module/add-new-module.png":::
 
 1. In the `Add module` window give your new module a name and replace the `localhost:5000` portion of the repository URL with your Azure Container Registry login server, like you did before.
 
@@ -310,7 +310,7 @@ In the quickstart article that you used to set up your IoT Edge device, you depl
 
 1. Right-click on your main project in Visual Studio Solution Explorer and choose **Generate Deployment for IoT Edge**. 
 
-   :::image type="content" source="./media/how-to-visual-studio-develop-module/generate-deployment.png" alt-text="Screenshot of location of the generate deployment menu item.":::
+   :::image type="content" source="./media/how-to-visual-studio-develop-module/generate-deployment.png" alt-text="Screenshot of location of the 'generate deployment' menu item.":::
 
 1. Go to your local Visual Studio main project folder and look in the `config` folder. The file path might look like this: `C:\Users\<YOUR-USER-NAME>\source\repos\<YOUR-IOT-EDGE-PROJECT-NAME>\config`. Here you'll find the generated deployment manifest such as `deployment.amd64.debug.json`.
 
@@ -337,7 +337,7 @@ In the quickstart article that you used to set up your IoT Edge device, you depl
    > [!IMPORTANT]
    > Once your IoT Edge device is deployed, it currently won't display correctly in the Azure portal with schema version 1.2 (version 1.1 will be fine). This is a known bug and will be fixed soon. However, this won't affect your device, as it's still connected in IoT Hub and can be communicated with at any time using the Azure CLI.
    >
-   >:::image type="content" source="./media/how-to-publish-subscribe/unsupported-1.2-schema.png" alt-text="Screenshot of Azure portal error on the IoT Edge device page.":::
+   >:::image type="content" source="./media/how-to-publish-subscribe/unsupported-1.2-schema.png" alt-text="Screenshot of Azure portal error on the I o T Edge device page.":::
 
 1. Now let's deploy our manifest with an Azure CLI command. Open the Visual Studio **Developer Command Prompt** and change to the **config** directory.
 
