@@ -50,7 +50,7 @@ Any container that is created in a serverless account is a serverless container.
 - Serverless containers can store a maximum of 50 GB of data and indexes.
 
 > [!NOTE]
-> Serverless containers up to 1 TB are currently in preview with Azure Cosmos DB. To try the new feature, register the *"Azure Cosmos DB Serverless 1 TB Container Preview"* [preview feature in your Azure subscription](/azure/azure-resource-manager/management/preview-features).
+> Serverless containers up to 1 TB are currently in preview with Azure Cosmos DB. To try the new feature, register the *"Azure Cosmos DB Serverless 1 TB Container Preview"* [preview feature in your Azure subscription](../azure-resource-manager/management/preview-features.md).
 
 ## Monitoring your consumption
 

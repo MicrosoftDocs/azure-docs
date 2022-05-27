@@ -262,7 +262,7 @@ This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release
 HDInsight added Dav4-series support in this release. Learn more about [Dav4-series here](../virtual-machines/dav4-dasv4-series.md).
 
 #### Kafka REST Proxy GA 
-Kafka REST Proxy enables you to interact with your Kafka cluster via a REST API over HTTPS. Kafka Rest Proxy is general available starting from this release. Learn more about [Kafka REST Proxy here](./kafka/rest-proxy.md).
+Kafka REST Proxy enables you to interact with your Kafka cluster via a REST API over HTTPS. Kafka REST Proxy is general available starting from this release. Learn more about [Kafka REST Proxy here](./kafka/rest-proxy.md).
 
 #### Moving to Azure virtual machine scale sets
 HDInsight now uses Azure virtual machines to provision the cluster. The service is gradually migrating to [Azure virtual machine scale sets](../virtual-machine-scale-sets/overview.md). The entire process may take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.

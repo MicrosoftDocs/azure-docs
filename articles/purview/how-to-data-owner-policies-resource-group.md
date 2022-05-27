@@ -74,4 +74,4 @@ Check blog, demo and related tutorials:
 
 * [Concepts for Microsoft Purview data owner policies](./concept-data-owner-policies.md)
 * [Blog: resource group-level governance can significantly reduce effort](https://techcommunity.microsoft.com/t5/azure-purview-blog/data-policy-features-resource-group-level-governance-can/ba-p/3096314)
-* [Video: Demo of data owner access policies for Azure Storage](https://www.youtube.com/watch?v=CFE8ltT19Ss)
+* [Video: Demo of data owner access policies for Azure Storage](https://learn-video.azurefd.net/vod/player?id=caa25ad3-7927-4dcc-88dd-6b74bcae98a2)

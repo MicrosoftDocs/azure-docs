@@ -419,13 +419,15 @@ The above sample value of `1800` sets a timeout of 30 minutes. To learn more, se
 
 ## WEBSITE\_CONTENTAZUREFILECONNECTIONSTRING
 
-Connection string for storage account where the function app code and configuration are stored in event-driven scaling plans running on Windows. For more information, see [Create a function app](functions-infrastructure-as-code.md?tabs=windows#create-a-function-app).
+Connection string for storage account where the function app code and configuration are stored in event-driven scaling plans. For more information, see [Create a function app](functions-infrastructure-as-code.md?tabs=windows#create-a-function-app).
 
 |Key|Sample value|
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|`DefaultEndpointsProtocol=https;AccountName=...`|
 
-Only used when deploying to a Windows or Linux Premium plan or to a Windows Consumption plan. Not supported for Linux Consumption plans or Windows or Linux Dedicated plans. Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
+This setting is used for Consumption and Premium plan apps on both Windows and Linux. It's not used for Dedicated plan apps, which aren't dynamically scaled by Functions. 
+
+Changing or removing this setting may cause your function app to not start. To learn more, see [this troubleshooting article](functions-recover-storage-account.md#storage-account-application-settings-were-deleted).
 
 ## WEBSITE\_CONTENTOVERVNET
 
