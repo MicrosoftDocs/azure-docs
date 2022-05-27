@@ -2,9 +2,10 @@
 author: alexwolfmsft
 ms.author: alexwolf
 ms.topic: include
-ms.date: 02/03/2022
+ms.date: 06/01/2022
 ---
 
-In the Azure portal:
-<br />
-Enter *coredb* in the Azure portal search bar. Select the matching item in the search results to navigate to the database overview page.
+Navigate to the App Service for your application.
+
+1) Enter the name of your App Service in the search box at the top of the screen.
+2) In the search results, select the App Service to navigate to it.

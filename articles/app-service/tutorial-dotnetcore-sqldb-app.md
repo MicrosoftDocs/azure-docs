@@ -96,7 +96,6 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 | [!INCLUDE [Create database step 1](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-sql-db-create-01.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-01-240px.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find Azure SQL in Azure." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-01.png"::: |
 | [!INCLUDE [Create database step 2](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-sql-db-create-02.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-02-240px.png" alt-text="A screenshot showing the create button on the SQL Servers page used to create a new database server." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-02.png"::: |
 | [!INCLUDE [Create database step 3](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-sql-db-create-03.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-03-240px.png" alt-text="A screenshot showing the form to fill out to create a SQL Server in Azure." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-03.png"::: |
-| [!INCLUDE [Create database step 4](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-sql-db-create-04.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-04-240px.png" alt-text="A screenshot showing the form used to allow other Azure services to connect to the database." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-04.png"::: |
 | [!INCLUDE [Create database step 5](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-sql-db-create-05.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-05-240px.png" alt-text="A screenshot showing how to use the search box to find the SQL databases item in Azure." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-05.png"::: |
 | [!INCLUDE [Create database step 6](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-sql-db-create-06.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-06-240px.png" alt-text="A screenshot showing the create button in on the SQL databases page." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-06.png"::: |
 | [!INCLUDE [Create database step 7](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-sql-db-create-07.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-07-240px.png" alt-text="A screenshot showing the form to fill out to create a new SQL database in Azure." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-create-sql-07.png"::: |
@@ -123,17 +122,6 @@ az sql db create \
     --resource-group msdocs-core-sql \
     --server <server-name> \
     --name coreDb
-```
-
-We also need to add the following firewall rule to our database server to allow other Azure resources to connect to it.
-
-```azurecli-interactive
-az sql server firewall-rule create \
-    --resource-group msdocs-core-sql \
-    --server <server-name> \
-    --name AzureAccess \
-    --start-ip-address 0.0.0.0 \
-    --end-ip-address 0.0.0.0
 ```
 
 ---
@@ -167,7 +155,7 @@ We're now ready to deploy our .NET app to the App Service.
 
 ## 5 - Connect the App to the Database
 
-Next, we must connect the App hosted in our App Service to our database using a Connection String.
+Next, we must connect the App hosted in our App Service to our database using a Connection String. You can use [Service Connector](../service-connector/overview.md) to create the connection. 
 
 ### [Azure portal](#tab/azure-portal)
 
@@ -179,31 +167,21 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow the steps to
 | [!INCLUDE [Connect Service step 2](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-connect-database-02.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-connect-sql-db-02-240px.png" alt-text="A screenshot showing how to get the connection string used to connect to the database from the Azure portal." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-connect-sql-db-02.png"::: |
 | [!INCLUDE [Connect Service step 3](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-connect-database-03.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-connect-sql-db-03-240px.png" alt-text="A screenshot showing how to use the search box to find the App Service instance for the app in the Azure portal." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-connect-sql-db-03.png"::: |
 | [!INCLUDE [Connect Service step 4](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-connect-database-04.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-connect-sql-db-04-240px.png" alt-text="A screenshot showing how to enter the connection string as an app setting for the web app in the Azure portal." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-connect-sql-db-04.png"::: |
+| [!INCLUDE [Connect Service step 5](<./includes/tutorial-dotnetcore-sqldb-app/azure-portal-connect-database-05.md>)] | :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-connect-sql-db-04-240px.png" alt-text="A screenshot showing how to enter the connection string as an app setting for the web app in the Azure portal." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-connect-sql-db-04.png"::: |
 
 ### [Azure CLI](#tab/azure-cli)
 
 Run Azure CLI commands in the [Azure Cloud Shell](https://shell.azure.com) or on a workstation with the [Azure CLI installed](/cli/azure/install-azure-cli).
 
-We can retrieve the Connection String for our database using the [az sql db show-connection-string](/cli/azure/sql/db#az-sql-db-show-connection-string) command. This command allows us to add the Connection String to our App Service configuration settings. Copy this Connection String value for later use.
+We can create SQL Database connection using the [az webapp connection create sql](/cli/azure/webapp/connection/create#az-webapp-connection-create-sql) command. This command allows us to add the Connection String to our App Service configuration settings and allow Azure services and resources to access this database server. You need to provide SQL Database admin username and password when you run this command to create the connection. Copy this Connection String value from the output for later use.
 
 ```azurecli-interactive
-az sql db show-connection-string \
-    --client ado.net \
-    --name coreDb \
-    --server <your-server-name>
-```
-
-Next, let's assign the Connection String to our App Service using the command below. `MyDbConnection` is the name of the Connection String in our appsettings.json file, which means it gets loaded by our app during startup.
-
-Replace the username and password in the connection string with your own before running the command.
-
-```azurecli-interactive
-az webapp config connection-string set \
-    -g msdocs-core-sql \
-    -n <your-app-name> \
-    -t SQLServer \
-    --settings MyDbConnection=<your-connection-string>
-
+az webapp connection create sql \
+    --resource-group msdocs-core-sql \
+    --name <your-app-service-name> \
+    --target-resource-group msdocs-core-sql \
+    --server <server-name> \
+    --database coreDB
 ```
 
 ---
@@ -234,14 +212,7 @@ az sql server firewall-rule create --resource-group msdocs-core-sql --server <yo
 Next, update the appsettings.json file in our local app code with the [Connection String of our Azure SQL Database](#5---connect-the-app-to-the-database). The update allows us to run migrations locally against our database hosted in Azure. Replace the username and password placeholders with the values you chose when creating your database.
 
 ```json
-"ConnectionStrings": {
-    "MyDbConnection": "Server=tcp:<your-server-name>.database.windows.net,1433;
-        Initial Catalog=coredb;
-        Persist Security Info=False;
-        User ID=<username>;Password=<password>;
-        Encrypt=True;
-        TrustServerCertificate=False;"
-  }
+"AZURE_SQL_CONNECTIONSTRING": "Data Source=<your-server-name>.database.windows.net,1433;Initial Catalog=coreDb;User ID=<username>;Password=<password>"
 ```
 
 Finally, run the following commands to install the necessary CLI tools for Entity Framework Core. Create an initial database migration file and apply those changes to update the database:
