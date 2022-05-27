@@ -44,6 +44,10 @@ items:
     href: tutorial-using-rest-apis.md
   - name: Use REST APIs for collections
     href: tutorial-metadata-policy-collections-apis.md
+  - name: Use the Python SDK
+    href: tutorial-using-python-sdk.md
+  - name: Integrate with Microsoft Sentinel
+    href: ../sentinel/purview-solution.md?toc=/azure/purview/toc.json&bc=/azure/purview/breadcrumb/toc.json
 - name: Concepts
   items:
   - name: Use the Microsoft Purview governance portal
@@ -166,7 +170,7 @@ items:
     - name: Azure SQL Database
       href: register-scan-azure-sql-database.md
       displayName: Register and scan Azure SQL DB
-    - name: Azure SQL Database Managed Instance
+    - name: Azure SQL Managed Instance
       href: register-scan-azure-sql-database-managed-instance.md
       displayName: Register and scan Azure SQL DB Managed Instance
     - name: Azure Dedicated SQL pool (formerly SQL DW)
