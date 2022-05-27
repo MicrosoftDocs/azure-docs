@@ -7,7 +7,7 @@ ms.subservice: flexible-server
 ms.topic: quickstart
 ms.custom: devx-track-terraform
 ms.author: tarcher
-ms.date: 5/26/2022
+ms.date: 5/27/2022
 ---
 
 # Quickstart: Use Terraform to create an Azure Database for MySQL - Flexible Server
@@ -23,12 +23,12 @@ Article tested with the following Terraform and Terraform provider versions:
 
 [!INCLUDE [About Azure Database for MySQL - Flexible Server](../includes/azure-database-for-mysql-flexible-server-abstract.md)]
 
-In this article, you learn how to deploy an Azure MySQL Flexible Server Database using Terraform.
+In this article, you learn how to deploy an Azure MySQL Flexible Server Database in a virtual network (VNet) using Terraform.
 
 > [!div class="checklist"]
 
 > * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
-> * Create an Azure virtual network (VNet) using [azurerm_virtual_network](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network)
+> * Create an Azure VNet using [azurerm_virtual_network](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network)
 > * Create an Azure subnet using [azurerm_subnet](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet)
 > * Define a private DNS zone within an Azure DNS using [azurerm_private_dns_zone](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_zone)
 > * Define a private DNS zone VNet link using using [azurerm_private_dns_zone_virtual_network_link](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_zone_virtual_network_link)
@@ -125,4 +125,4 @@ Get-AzMySqlFlexibleServerDatabase `
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about using Terraform in Azure](/azure/developer/terraform/index)
+> [Connect Azure Database for MySQL Flexible Server with private access](/azure/mysql/flexible-server/quickstart-create-connect-server-vnet)
