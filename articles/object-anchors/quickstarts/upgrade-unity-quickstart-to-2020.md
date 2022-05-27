@@ -28,7 +28,7 @@ You'll learn how to:
 To complete this quickstart, make sure you have:
 
 * All prerequisites from either the [Unity HoloLens](get-started-unity-hololens.md) or the [Unity HoloLens with MRTK](get-started-unity-hololens-mrtk.md) quickstarts
-* [Unity Hub with Unity 2020.3.8f1 or newer](https://unity3d.com/get-unity/download)
+* <a href="https://unity3d.com/get-unity/download" target="_blank">Unity Hub with Unity 2020.3.8f1 or newer</a>
 
 ## Open and upgrade the sample project
 
@@ -49,7 +49,7 @@ Follow the steps from either the [Unity HoloLens](get-started-unity-hololens.md)
 
 Once the upgrade process completes, **Unity Editor** opens.
 
-1. Follow the [Mixed Reality Feature Tool](/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool) documentation to set up the tool and learn how to use it.
+1. Follow the <a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">Mixed Reality Feature Tool</a> documentation to set up the tool and learn how to use it.
 
 1. Under **Platform Support**, install the **Mixed Reality OpenXR Plugin** feature package, version 1.0.0 or newer, into the Unity project folder.
 
@@ -69,7 +69,7 @@ Once the install process completes, Unity restarts automatically.
 
 ## Update configuration settings
 
-Back in **Unity Editor**, follow the [Configure OpenXR settings](/windows/mixed-reality/develop/unity/new-openxr-project-with-mrtk#configure-openxr-settings) documentation to set up the **XR Plugin Management** in your **Project Settings**. Then, follow the [Optimization](/windows/mixed-reality/develop/unity/new-openxr-project-with-mrtk#optimization) documentation to apply the recommended project settings for HoloLens 2.
+Back in **Unity Editor**, follow the <a href="/windows/mixed-reality/develop/unity/new-openxr-project-with-mrtk#configure-openxr-settings" target="_blank">Configuring XR Plugin Management for OpenXR</a> documentation to set up the **XR Plugin Management** in your **Project Settings**. Then, follow the <a href="/windows/mixed-reality/develop/unity/new-openxr-project-with-mrtk#optimization" target="_blank">Optimization</a> documentation to apply the recommended project settings for HoloLens 2.
 
 ## Update MRTK settings
 
@@ -83,7 +83,7 @@ If you're working with the `quickstarts/apps/unity/mrtk` project, follow the ste
 
    :::image type="content" source="./media/update-camera-profile.png" alt-text="Screenshot shows the Unity Editor with Camera and DefaultMixedRealityCameraProfile highlighted.":::
 
-1. Still in the **Inspector** pane, select **Input**, and expand the **Input Data Providers** dropdown list. Follow the [Configuring MRTK for the XR SDK pipeline](/windows/mixed-reality/mrtk-unity/configuration/getting-started-with-mrtk-and-xrsdk#configuring-mrtk-for-the-xr-sdk-pipeline) documentation to set up the proper input data providers: **OpenXRDeviceManager** and **WindowsMixedRealityDeviceManager**.
+1. Still in the **Inspector** pane, select **Input**, and expand the **Input Data Providers** dropdown list. Follow the <a href="/windows/mixed-reality/mrtk-unity/configuration/getting-started-with-mrtk-and-xrsdk#configuring-mrtk-for-the-xr-sdk-pipeline" target="_blank">Configuring MRTK for the XR SDK pipeline</a> documentation to set up the proper input data providers: **OpenXRDeviceManager** and **WindowsMixedRealityDeviceManager**.
 
    :::image type="content" source="./media/update-input-profile.png" alt-text="Screenshot shows the Unity Editor with Input and Input Data Providers highlighted.":::
 
