@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 04/13/2022
+ms.date: 05/09/2022
 ---
 
 # Create and manage a self-hosted integration runtime
@@ -60,7 +60,7 @@ To create and set up a self-hosted integration runtime, use the following proced
 
 ### Create a self-hosted integration runtime
 
-1. On the home page of the [Microsoft Purview Studio](https://web.purview.azure.com/resource/), select **Data Map** from the left navigation pane.
+1. On the home page of the [Microsoft Purview governance portal](https://web.purview.azure.com/resource/), select **Data Map** from the left navigation pane.
 
 2. Under **Sources and scanning** on the left pane, select **Integration runtimes**, and then select **+ New**.
 
@@ -125,7 +125,6 @@ Your self-hosted integration runtime machine needs to connect to several resourc
 * The Microsoft Purview services used to manage the self-hosted integration runtime.
 * The data sources you want to scan using the self-hosted integration runtime.
 * The managed Storage account and Event Hubs resource created by Microsoft Purview. Microsoft Purview uses these resources to ingest the results of the scan, among many other things, so the self-hosted integration runtime need to be able to connect with these resources.
-* The Azure Key Vault used to store credentials.
 
 There are two firewalls to consider:
 
@@ -140,7 +139,7 @@ Here are the domains and outbound ports that you need to allow at both **corpora
 | Domain names                  | Outbound ports | Description                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
 | `*.frontend.clouddatahub.net` | 443 | Required to connect to the Microsoft Purview service. Currently wildcard is required as there's no dedicated resource. |
-| `*.servicebus.windows.net` | 443            | Required for setting up scan on Microsoft Purview Studio. This endpoint is used for interactive authoring from UI, for example, test connection, browse folder list and table list to scope scan. Currently wildcard is required as there's no dedicated resource. |
+| `*.servicebus.windows.net` | 443            | Required for setting up scan in the Microsoft Purview governance portal. This endpoint is used for interactive authoring from UI, for example, test connection, browse folder list and table list to scope scan. Currently wildcard is required as there's no dedicated resource. |
 | `<purview_account>.purview.azure.com` | 443 | Required to connect to Microsoft Purview service. |
 | `<managed_storage_account>.blob.core.windows.net` | 443 | Required to connect to the Microsoft Purview managed Azure Blob storage account. |
 | `<managed_storage_account>.queue.core.windows.net` | 443 | Required to connect to the Microsoft Purview managed Azure Queue storage account. |
@@ -154,7 +153,6 @@ Depending on the sources you want to scan, you also need to allow other domains 
 
 | Domain names                  | Outbound ports | Description                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
-| `<your_key_vault_name>.vault.azure.net` | 443 | Required if any credentials are stored in Azure Key Vault. |
 | `<your_storage_account>.dfs.core.windows.net` | 443 | When scan Azure Data Lake Store Gen 2. |
 | `<your_storage_account>.blob.core.windows.net` | 443            | When scan Azure Blob storage. |
 | `<your_sql_server>.database.windows.net` | 1433           | When scan Azure SQL Database. |

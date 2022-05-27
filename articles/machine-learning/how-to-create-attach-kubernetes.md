@@ -6,14 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.custom: devx-track-azurecli, cliv1
+ms.custom: devx-track-azurecli, cliv1, sdkv1, event-tier1-build-2022
 ms.author: ssambare
 author:  shivanissambare
 ms.reviewer: larryfr
-ms.date: 11/05/2021
+ms.date: 04/21/2022
 ---
 
 # Create and attach an Azure Kubernetes Service cluster
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
 Azure Machine Learning can deploy trained machine learning models to Azure Kubernetes Service. However, you must first either __create__ an Azure Kubernetes Service (AKS) cluster from your Azure ML workspace, or __attach__ an existing AKS cluster. This article provides information on both creating and attaching a cluster.
 
@@ -21,7 +23,7 @@ Azure Machine Learning can deploy trained machine learning models to Azure Kuber
 
 - An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
-- The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
+- The [Azure CLI extension for Machine Learning service](v1/reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro), or the [Azure Machine Learning Visual Studio Code extension](how-to-setup-vs-code.md).
 
 - If you plan on using an Azure Virtual Network to secure communication between your Azure ML workspace and the AKS cluster, your workspace and its associated resources (storage, key vault, Azure Container Registry) must have private endpoints or service endpoints in the same VNET as AKS cluster's VNET. Please follow tutorial [create a secure workspace](./tutorial-create-secure-workspace.md) to add those private endpoints or service endpoints to your VNET.
 
@@ -158,6 +160,8 @@ The following example demonstrates how to create a new AKS cluster using the SDK
 
 # [Python](#tab/python)
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
 
@@ -225,12 +229,14 @@ If you already have AKS cluster in your Azure subscription, you can use it with 
 For more information on creating an AKS cluster using the Azure CLI or portal, see the following articles:
 
 * [Create an AKS cluster (CLI)](/cli/azure/aks?bc=%2fazure%2fbread%2ftoc.json&toc=%2fazure%2faks%2fTOC.json#az-aks-create)
-* [Create an AKS cluster (portal)](../aks/kubernetes-walkthrough-portal.md)
+* [Create an AKS cluster (portal)](../aks/learn/quick-kubernetes-deploy-portal.md)
 * [Create an AKS cluster (ARM Template on Azure Quickstart templates)](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aks-azml-targetcompute)
 
 The following example demonstrates how to attach an existing AKS cluster to your workspace:
 
 # [Python](#tab/python)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -290,6 +296,9 @@ For information on attaching an AKS cluster in the portal, see [Create compute t
 When you [create or attach an AKS cluster](how-to-create-attach-kubernetes.md), you can enable TLS termination with **[AksCompute.provisioning_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** and **[AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** configuration objects. Both methods return a configuration object that has an **enable_ssl** method, and you can use **enable_ssl** method to enable TLS.
 
 Following example shows how to enable TLS termination with automatic TLS certificate generation and configuration by using Microsoft certificate under the hood.
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 ```python
    from azureml.core.compute import AksCompute, ComputeTarget
    
@@ -310,6 +319,8 @@ Following example shows how to enable TLS termination with automatic TLS certifi
 
 ```
 Following example shows how to enable TLS termination with custom certificate and custom domain name. With custom domain and certificate, you must update your DNS record to point to the IP address of scoring endpoint, please see [Update your DNS](how-to-secure-web-service.md#update-your-dns)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
    from azureml.core.compute import AksCompute, ComputeTarget
@@ -335,6 +346,8 @@ When you create or attach an AKS cluster, you can configure the cluster to use a
 
 # [Create](#tab/akscreate)
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 To create an AKS cluster that uses an Internal Load Balancer, use the `load_balancer_type` and `load_balancer_subnet` parameters:
 
 ```python
@@ -356,6 +369,8 @@ aks_target.wait_for_completion(show_output = True)
 ```
 
 # [Attach](#tab/aksattach)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 To attach an AKS cluster and use an internal load balancer (no public IP for the cluster), use the `load_balancer_type` and `load_balancer_subnet` parameters:
 
@@ -394,9 +409,11 @@ aks_target.wait_for_completion(show_output = True)
 To detach a cluster from your workspace, use one of the following methods:
 
 > [!WARNING]
-> Using the Azure Machine Learning studio, SDK, or the Azure CLI extension for machine learning to detach an AKS cluster **does not delete the AKS cluster**. To delete the cluster, see [Use the Azure CLI with AKS](../aks/kubernetes-walkthrough.md#delete-the-cluster).
+> Using the Azure Machine Learning studio, SDK, or the Azure CLI extension for machine learning to detach an AKS cluster **does not delete the AKS cluster**. To delete the cluster, see [Use the Azure CLI with AKS](../aks/learn/quick-kubernetes-deploy-cli.md#delete-the-cluster).
 
 # [Python](#tab/python)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 aks_target.detach()
@@ -425,6 +442,8 @@ Updates to Azure Machine Learning components installed in an Azure Kubernetes Se
 
 You can apply these updates by detaching the cluster from the Azure Machine Learning workspace and reattaching the cluster to the workspace. 
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 ```python
 compute_target = ComputeTarget(workspace=ws, name=clusterWorkspaceName)
 compute_target.detach()
@@ -445,6 +464,8 @@ kubectl delete cm azuremlfeconfig
 ```
 
 If TLS is enabled in the cluster, you will need to supply the TLS/SSL certificate and private key when reattaching the cluster.
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 attach_config = AksCompute.attach_configuration(resource_group=resourceGroup, cluster_name=kubernetesClusterName)
@@ -505,4 +526,3 @@ To resolve this problem, create/attach the cluster by using the `load_balancer_t
 
 * [Use Azure RBAC for Kubernetes authorization](../aks/manage-azure-rbac.md)
 * [How and where to deploy a model](how-to-deploy-and-where.md)
-* [Deploy a model to an Azure Kubernetes Service cluster](how-to-deploy-azure-kubernetes-service.md)

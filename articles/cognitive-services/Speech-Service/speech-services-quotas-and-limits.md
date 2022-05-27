@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/24/2022
+ms.date: 04/22/2022
 ms.author: alexeyo
 ---
 
@@ -68,9 +68,9 @@ In the following tables, the parameters without the **Adjustable** row aren't ad
 
 | Quota | Free (F0)<sup>3</sup> | Standard (S0) |
 |--|--|--|
-| **Max number of transactions per second (TPS) per Speech service resource** |  |  |
-| Real-time API. Prebuilt neural voices and custom neural voices. | 20 per 60 seconds | 200<sup>4</sup> |
-| Adjustable | No<sup>4</sup> | Yes<sup>4</sup> |
+| **Max number of transactions per certain time period per Speech service resource** |  |  |
+| Real-time API. Prebuilt neural voices and custom neural voices. | 20 transactions per 60 seconds | 200 transactions per second (TPS) |
+| Adjustable | No<sup>4</sup> | Yes<sup>5</sup> |
 | **HTTP-specific quotas** |  |  |
 | Max audio length produced per request | 10 min | 10 min |
 | Max total number of distinct `<voice>` and `<audio>` tags in SSML | 50 | 50 |
@@ -166,7 +166,7 @@ How to get information for the base model:
 
 How to get information for the custom model:
 
-1. Go to the [Speech Studio](https://speech.microsoft.com/) portal.
+1. Go to the [Speech Studio](https://aka.ms/speechstudio/customspeech) portal.
 1. Sign in if necessary, and go to **Custom Speech**.
 1. Select your project, and go to **Deployment**.
 1. Select the required endpoint.
@@ -219,7 +219,7 @@ You aren't able to see the existing value of the concurrent request limit parame
 
 To create an increase request, you provide your deployment region and the custom endpoint ID. To get it, perform the following actions:
 
-1. Go to the [Speech Studio](https://speech.microsoft.com/) portal.
+1. Go to the [Speech Studio](https://aka.ms/speechstudio/customvoice) portal.
 1. Sign in if necessary, and go to **Custom Voice**.
 1. Select your project, and go to **Deployment**.
 1. Select the required endpoint.

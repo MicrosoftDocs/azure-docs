@@ -146,7 +146,7 @@ This SSML snippet illustrates how the `<mstts:express-as>` element is used to ch
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
        xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">
-    <voice name="en-US-AriaNeural">
+    <voice name="en-US-JennyNeural">
         <mstts:express-as style="cheerful">
             That'd be just amazing!
         </mstts:express-as>
@@ -169,9 +169,12 @@ The following table has descriptions of each supported style.
 |`style="disgruntled"`|Expresses a disdainful and complaining tone. Speech of this emotion displays displeasure and contempt.|
 |`style="embarrassed"`|Expresses an uncertain and hesitant tone when the speaker is feeling uncomfortable.|
 |`style="empathetic"`|Expresses a sense of caring and understanding.|
-|`style="envious"`|Express a tone of admiration when you desire something that someone else has.|
+|`style="envious"`|Expresses a tone of admiration when you desire something that someone else has.|
+|`style="excited"`|Expresses an upbeat and hopeful tone. It sounds like something great is happening and the speaker is really happy about that.|
 |`style="fearful"`|Expresses a scared and nervous tone, with higher pitch, higher vocal energy, and faster rate. The speaker is in a state of tension and unease.|
+|`style="friendly"`|Expresses a pleasant, inviting, and warm tone. It sounds sincere and caring.|
 |`style="gentle"`|Expresses a mild, polite, and pleasant tone, with lower pitch and vocal energy.|
+|`style="hopeful"`|Expresses a warm and yearning tone. It sounds like something good will happen to the speaker.|
 |`style="lyrical"`|Expresses emotions in a melodic and sentimental way.|
 |`style="narration-professional"`|Expresses a professional, objective tone for content reading.|
 |`style="narration-relaxed"`|Express a soothing and melodious tone for content reading.|
@@ -180,6 +183,10 @@ The following table has descriptions of each supported style.
 |`style="newscast-formal"`|Expresses a formal, confident, and authoritative tone for news delivery.|
 |`style="sad"`|Expresses a sorrowful tone.|
 |`style="serious"`|Expresses a strict and commanding tone. Speaker often sounds stiffer and much less relaxed with firm cadence.|
+|`style="shouting"`|Speaks like from a far distant or outside and to make self be clearly heard|
+|`style="whispering"`|Speaks very softly and make a quiet and gentle sound|
+|`style="terrified"`|Expresses a very scared tone, with faster pace and a shakier voice. It sounds like the speaker is in an unsteady and frantic status.|
+|`style="unfriendly"`|Expresses a cold and indifferent tone.|
 
 ### Style degree
 
@@ -577,7 +584,7 @@ After you've published your custom lexicon, you can reference it from your SSML.
 
 When you use this custom lexicon, "BTW" is read as "By the way." "Benigni" is read with the provided IPA "bɛˈniːnji."
 
-It's easy to make mistakes in the custom lexicon, so Microsoft provides a [validation tool for the custom lexicon](https://github.com/jiajzhan/Custom-Lexicon-Validation). It provides detailed error messages that help you find errors. Before you send SSML with the custom lexicon to the Speech service, check your custom lexicon with this tool.
+It's easy to make mistakes in the custom lexicon, so Microsoft provides a [validation tool for the custom lexicon](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomLexiconValidation). It provides detailed error messages that help you find errors. Before you send SSML with the custom lexicon to the Speech service, check your custom lexicon with this tool.
 
 **Limitations**
 
@@ -992,11 +999,12 @@ The Mathematical Markup Language (MathML) is an XML-compliant markup language th
 This SSML snippet demonstrates how the MathML elements are used to output synthesized speech. The text-to-speech output for this example is "a squared plus b squared equals c squared".
 
 ```xml
-<math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>a</mi><mn>2</mn></msup><mo>+</mo><msup><mi>b</mi><mn>2</mn></msup><mo>=</mo><msup><mi>c</mi><mn>2</mn></msup></math>
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="http://www.w3.org/2001/mstts" xml:lang="en-US"><voice name="en-US-JennyNeural"><math xmlns="http://www.w3.org/1998/Math/MathML"><msup><mi>a</mi><mn>2</mn></msup><mo>+</mo><msup><mi>b</mi><mn>2</mn></msup><mo>=</mo><msup><mi>c</mi><mn>2</mn></msup></math></voice></speak>
 ```
-The `xmlns` attribute in `<math xmlns="http://www.w3.org/1998/Math/MathML">` is optional. 
 
-All elements from the [MathML 2.0](https://www.w3.org/TR/MathML2/) and [MathML 3.0](https://www.w3.org/TR/MathML3/) specifications are supported, except the MathML 3.0 [Elementary Math](https://www.w3.org/TR/MathML3/chapter3.html#presm.elementary) elements. The `semantics`, `annotation`, and `annotation-xml` elements don't output speech, so they are ignored. 
+The `xmlns` attribute in `<math xmlns="http://www.w3.org/1998/Math/MathML">` is optional.
+
+All elements from the [MathML 2.0](https://www.w3.org/TR/MathML2/) and [MathML 3.0](https://www.w3.org/TR/MathML3/) specifications are supported, except the MathML 3.0 [Elementary Math](https://www.w3.org/TR/MathML3/chapter3.html#presm.elementary) elements. The `semantics`, `annotation`, and `annotation-xml` elements don't output speech, so they are ignored.
 
 > [!NOTE]
 > If an element is not recognized, it will be ignored, and the child elements within it will still be processed.

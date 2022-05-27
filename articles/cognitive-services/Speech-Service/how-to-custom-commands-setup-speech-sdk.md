@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.date: 06/18/2020
 ms.author: eur
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: cogserv-non-critical-speech, devx-track-csharp
 ---
 
 # Integrate with a client application using Speech SDK
@@ -30,7 +30,7 @@ A Custom Commands application is required to complete this article. If you haven
 You'll also need:
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) or higher. This guide is based on Visual Studio 2019.
-> * An Azure subscription key for Speech Services. [Get one for free](overview.md#try-the-speech-service-for-free) or create it on the [Azure portal](https://portal.azure.com)
+> * An Azure Cognitive Services Speech resource key and region: Create a Speech resource on the [Azure portal](https://portal.azure.com). For more information, see [Create a new Azure Cognitive Services resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md?tabs=speech#create-a-new-azure-cognitive-services-resource).
 > * [Enable your device for development](/windows/uwp/get-started/enable-your-device-for-development)
 
 ## Step 1: Publish Custom Commands application

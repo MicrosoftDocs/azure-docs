@@ -1,4 +1,5 @@
-- name: Azure IoT Hub Device Provisioning Service documentation 
+items:
+- name: Azure IoT Hub Device Provisioning Service documentation
   href: index.yml
 - name: Overview
   items:
@@ -7,7 +8,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Set up a DPS
+  - name: Set up DPS
     items:
     - name: Azure portal
       href: quick-setup-auto-provision.md
@@ -20,6 +21,8 @@
     href: quick-create-simulated-device-symm-key.md
   - name: Provision a simulated X.509 certificate device
     href: quick-create-simulated-device-x509.md
+  - name: Simulated TPM device attestation sample
+    href: quick-create-simulated-device-tpm.md
 - name: Tutorials
   items:
   - name: 1 - Provision sets of devices with enrollment groups
@@ -38,8 +41,6 @@
        href: how-to-provision-multitenant.md
 - name: Samples
   items:
-  - name: Simulated TPM device attestation sample
-    href: quick-create-simulated-device-tpm.md
   - name: Create device enrollments using DPS APIs
     items:
     - name: Group enrollment using X.509 Certificate Attestation
@@ -56,13 +57,21 @@
     href: concepts-x509-attestation.md
   - name: TPM attestation
     href: concepts-tpm-attestation.md
+  - name: Control access to DPS
+    items: 
+    - name: Overview
+      href: concepts-control-access-dps.md
+    - name: Control access to DPS with SAS
+      href: how-to-control-access.md
+    - name: Control access to DPS with Azure AD (preview)
+      href: concepts-control-access-dps-azure-ad.md
   - name: Roles and operations
     href: concepts-roles-operations.md  
   - name: Virtual networks support
     href: virtual-network-support.md
   - name: Reprovisioning
     href: concepts-device-reprovision.md  
-  - name: High availabilty and disaster recovery
+  - name: High availability and disaster recovery
     href: iot-dps-ha-dr.md
   - name: Understanding DPS IP addresses
     href: iot-dps-understand-ip-address.md
@@ -94,8 +103,6 @@
       href: how-to-revoke-device-access-portal.md 
     - name: Manage deprovisioning
       href: how-to-unprovision-devices.md      
-    - name: Control access to Provisioning Service APIs
-      href: how-to-control-access.md
     - name: Configure IP filtering
       href: iot-dps-ip-filtering.md
     - name: Managing public network access
@@ -122,22 +129,36 @@
       href: dps-faq.yml
 - name: Reference
   items:
+  - name: Libraries and SDKs
+    href: libraries-sdks.md
+  - name: Azure CLI
+    href: /cli/azure/azure-cli-reference-for-IoT
+  - name: Azure PowerShell
+    href: /powershell/module/az.deviceprovisioningservices
+  - name: .NET (Device)
+    href: /dotnet/api/microsoft.azure.devices.provisioning.client
+  - name: .NET (Service)
+    href: /dotnet/api/microsoft.azure.devices.provisioning.service
+  - name: Java (Device)
+    href: /java/api/com.microsoft.azure.sdk.iot.provisioning.device
+  - name: Java (Service)
+    href: /java/api/com.microsoft.azure.sdk.iot.provisioning.service
+  - name: Node.js (Device)
+    href: /javascript/api/overview/azure/iothubdeviceprovisioning
+  - name: Node.js (Service)
+    href: /javascript/api/overview/azure/iothubdeviceprovisioning
+  - name: Node.js (Management)
+    href: /javascript/api/overview/azure/iothubdeviceprovisioning
+  - name: Python (Device)
+    href: /python/api/azure-iot-device/azure.iot.device.aio.provisioningdeviceclient
+  - name: Python (Management)
+    href: /python/api/azure-mgmt-iothubprovisioningservices
+  - name: Azure IoT SDK for C API documentation
+    href: /azure/iot-hub/iot-c-sdk-ref
   - name: REST API
     href: /rest/api/iot-dps
   - name: Resource Manager template
     href: /azure/templates/microsoft.devices/deviceprovisioning-allversions
-  - name: Azure IoT SDK for C
-    href: https://github.com/Azure/azure-iot-sdk-c
-  - name: Azure IoT SDK for Python
-    href: https://github.com/Azure/azure-iot-sdk-python
-  - name: Azure IoT SDK for Node.js
-    href: https://github.com/Azure/azure-iot-sdk-node
-  - name: Azure IoT SDK for Java
-    href: https://github.com/Azure/azure-iot-sdk-java
-  - name: Azure IoT SDK for .NET
-    href: https://github.com/Azure/azure-iot-sdk-csharp
-  - name: Azure CLI
-    href: /cli/azure/azure-cli-reference-for-IoT
 - name: Resources
   items:
   - name: Support and help options
@@ -160,12 +181,6 @@
       href: ../time-series-insights/index.yml
   - name: IoT device developer
     href: ../iot-develop/index.yml
-  - name: Azure IoT SDKs
-    items:
-    - name: IoT Service SDKs
-      href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
-    - name: IoT Device SDKs
-      href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
   - name: Azure IoT samples
     items:
     - name: C# (.NET)

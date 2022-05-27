@@ -6,10 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-ms.custom: cliv2
+ms.custom: cliv2, event-tier1-build-2022
 
-author: mx-iao
-ms.author: minxia
+author: blackmist
+ms.author: larryfr
 ms.date: 03/31/2022
 ms.reviewer: nibaccam
 ---
@@ -22,7 +22,7 @@ Every Azure Machine Learning entity has a schematized YAML representation. You c
 
 This article provides an overview of core syntax concepts you will encounter while configuring these YAML files.
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 
 ## Referencing an Azure ML entity
 

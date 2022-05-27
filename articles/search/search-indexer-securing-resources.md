@@ -43,7 +43,7 @@ Your Azure resources could be protected using any number of the network isolatio
 | Resource | IP restriction | Private endpoint |
 | --- | --- | ---- |
 | Azure Storage for text-based indexing (blobs, ADLS Gen 2, files, tables) | Supported only if the storage account and search service are in different regions. | Supported |
-| Azure Storage for AI enrichment (caching, debug sessions, knowledge store) | Supported only if the storage account and search service are in different regions. | Unsupported |
+| Azure Storage for AI enrichment (caching, debug sessions, knowledge store) | Supported only if the storage account and search service are in different regions. | Supported |
 | Azure Cosmos DB - SQL API | Supported | Supported |
 | Azure Cosmos DB - MongoDB API | Supported | Unsupported |
 | Azure Cosmos DB - Gremlin API | Supported | Unsupported |
@@ -64,7 +64,7 @@ There are two options for supporting data access using the system identity:
 
 - Configure search to run as a [trusted service](search-indexer-howto-access-trusted-service-exception.md) and use the [trusted service exception](../storage/common/storage-network-security.md#trusted-access-based-on-a-managed-identity) in Azure Storage.
 
-- Configure a [resource instance rule (preview)](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances-preview) in Azure Storage that admits inbound requests from an Azure resource.
+- Configure a [resource instance rule](../storage/common/storage-network-security.md#grant-access-from-azure-resource-instances) in Azure Storage that admits inbound requests from an Azure resource.
 
 The above options depend on Azure Active Directory for authentication, which means that the connection must be made with an Azure AD login. Currently, only a Cognitive Search [system-assigned managed identity](search-howto-managed-identities-data-sources.md#create-a-system-managed-identity) is supported for same-region connections through a firewall.
 

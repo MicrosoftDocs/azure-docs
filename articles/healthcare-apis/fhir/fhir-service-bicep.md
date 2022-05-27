@@ -5,7 +5,7 @@ author: schaffererin
 ms.service: healthcare-apis
 ms.topic: tutorial
 ms.author: v-eschaffer
-ms.date: 04/25/2022
+ms.date: 05/27/2022
 ---
 
 # Deploy a FHIR service within Azure Health Data Services using Bicep
@@ -66,7 +66,7 @@ The Bicep file defines three Azure resources:
 
     ---
 
-    You'll need to replace **\<service-name\>** with the name of the service. You'll also need to replace **\<location\>** with the location of the Azure API for FHIR. Location options include:
+    Replace **\<service-name\>** with the name of the service. Replace **\<location\>** with the location of the Azure API for FHIR. Location options include:
 
     * australiaeast
     * eastus

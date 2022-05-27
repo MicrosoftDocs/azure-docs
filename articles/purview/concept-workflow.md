@@ -12,7 +12,7 @@ ms.custom: template-concept
 
 # Workflows in Microsoft Purview
 
-[!INCLUDE [Region Notice](./includes/workflow-regions.md)]
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 Workflows are automated, repeatable business processes that users can create within Microsoft Purview to validate and orchestrate CUD (create, update, delete) operations on their data entities. Enabling these processes allow organizations to track changes, enforce policy compliance, and ensure quality data across their data landscape.
 
@@ -31,7 +31,7 @@ Currently, there are two kinds of workflows:
 * **Data governance** - for data policy, access governance, and loss prevention. [Scoped](#workflow-scope) at the collection level.
 * **Data catalog** - to manage approvals for CUD (create, update, delete) operations for glossary terms. [Scoped](#workflow-scope) at the glossary level.
 
-These workflows can be built from pre-established [workflow templates](#workflow-templates) provided in the Microsoft Purview studio, but are fully customizable using the available workflow connectors.
+These workflows can be built from pre-established [workflow templates](#workflow-templates) provided in the Microsoft Purview governance portal, but are fully customizable using the available workflow connectors.
 
 
 ## Workflow templates

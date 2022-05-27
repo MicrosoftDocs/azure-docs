@@ -60,4 +60,4 @@ Lineage is a critical feature of the Microsoft Purview Data Catalog to support q
 
 * [Quickstart: Create a Microsoft Purview account in the Azure portal](create-catalog-portal.md)
 * [Quickstart: Create a Microsoft Purview account using Azure PowerShell/Azure CLI](create-catalog-powershell.md)
-* [Use the Microsoft Purview Studio](use-azure-purview-studio.md)
+* [Use the Microsoft Purview governance portal](use-azure-purview-studio.md)

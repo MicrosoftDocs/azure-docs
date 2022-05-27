@@ -215,6 +215,9 @@ A successful cluster creation using your own managed identities contains this us
 
 A Kubelet identity enables access to be granted to the existing identity prior to cluster creation. This feature enables scenarios such as connection to ACR with a pre-created managed identity.
 
+> [!WARNING]
+> Updating kubelet MI will upgrade Nodepool, which causes downtime for your AKS cluster as the nodes in the nodepools will be cordoned/drained and then reimaged.
+
 ### Prerequisites
 
 - You must have the Azure CLI, version 2.26.0 or later installed.
@@ -297,6 +300,57 @@ az aks create \
 ```
 
 A successful cluster creation using your own kubelet managed identity contains the following output:
+
+```output
+  "identity": {
+    "principalId": null,
+    "tenantId": null,
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+      "/subscriptions/<subscriptionid>/resourcegroups/resourcegroups/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity": {
+        "clientId": "<client-id>",
+        "principalId": "<principal-id>"
+      }
+    }
+  },
+  "identityProfile": {
+    "kubeletidentity": {
+      "clientId": "<client-id>",
+      "objectId": "<object-id>",
+      "resourceId": "/subscriptions/<subscriptionid>/resourcegroups/resourcegroups/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myKubeletIdentity"
+    }
+  },
+```
+
+### Update an existing cluster using kubelet identity (Preview)
+
+Update kubelet identity on an existing cluster with your existing identities. 
+
+#### Install the `aks-preview` Azure CLI
+
+You also need the *aks-preview* Azure CLI extension version 0.5.64 or later. Install the *aks-preview* Azure CLI extension by using the [az extension add][az-extension-add] command. Or install any available updates by using the [az extension update][az-extension-update] command.
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+#### Updating your cluster with kubelet identity (Preview)
+
+Now you can use the following command to update your cluster with your existing identities. Provide the control plane identity id via `assign-identity` and the kubelet managed identity via `assign-kubelet-identity`:
+
+```azurecli-interactive
+az aks update \
+    --resource-group myResourceGroup \
+    --name myManagedCluster \
+    --enable-managed-identity \
+    --assign-identity <identity-id> \
+    --assign-kubelet-identity <kubelet-identity-id>
+```
+
+A successful cluster update using your own kubelet managed identity contains the following output:
 
 ```output
   "identity": {

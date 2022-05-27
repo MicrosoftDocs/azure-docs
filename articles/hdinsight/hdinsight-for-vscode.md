@@ -3,7 +3,7 @@ title: Azure HDInsight for Visual Studio Code
 description: Learn how to use the Spark & Hive Tools (Azure HDInsight) for Visual Studio Code. Use the tools to create and submit queries and scripts.
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 10/20/2020
+ms.date: 05/27/2022
 ms.custom: devx-track-python
 ---
 
@@ -164,9 +164,9 @@ With Spark & Hive Tools for Visual Studio Code, you can submit interactive Hive 
 
    - **MESSAGES** panel: When you select a **Line** number, it jumps to the first line of the running script.
 
-## Submit interactive PySpark queries (Not supported Synapse PySpark interactive anymore)
+## Submit interactive PySpark queries
 
-Users can perform PySpark interactive in the following ways:
+Users can perform PySpark interactive in the following ways. Note here that Jupyter Extension version (ms-jupyter): v2022.1.1001614873 and Python Extension version (ms-python): v2021.12.1559732655, python 3.6.x and 3.7.x are only for HDInsight interactive PySpark queries.
 
 ### Using the PySpark interactive command in PY file
 Using the PySpark interactive command to submit the queries, follow these steps:

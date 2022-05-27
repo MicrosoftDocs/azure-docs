@@ -2,7 +2,7 @@
 title: Complete mode deletion
 description: Shows how resource types handle complete mode deletion in Azure Resource Manager templates.
 ms.topic: conceptual
-ms.date: 04/19/2022
+ms.date: 04/20/2022
 ---
 
 # Deletion of Azure resources for complete mode deployments
@@ -1249,8 +1249,6 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | servers / queryTexts | No |
 > | servers / recoverableServers | No |
 > | servers / resetQueryPerformanceInsightData | No |
-> | servers / start | No |
-> | servers / stop | No |
 > | servers / topQueryStatistics | No |
 > | servers / virtualNetworkRules | No |
 > | servers / waitStatistics | No |
@@ -1271,10 +1269,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | servers / queryTexts | No |
 > | servers / recoverableServers | No |
 > | servers / resetQueryPerformanceInsightData | No |
-> | servers / start | No |
-> | servers / stop | No |
 > | servers / topQueryStatistics | No |
-> | servers / upgrade | No |
 > | servers / virtualNetworkRules | No |
 > | servers / waitStatistics | No |
 
@@ -1460,6 +1455,8 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | ------------- | ----------- |
 > | domains | Yes |
 > | domains / topics | No |
+> | eventSubscriptions | No |
+> | extensionTopics | No |
 > | partnerConfigurations | Yes |
 > | partnerDestinations | Yes |
 > | partnerNamespaces | Yes |
@@ -1979,8 +1976,11 @@ The resources are listed by resource provider namespace. To match a resource pro
 > [!div class="mx-tableFixed"]
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
+> | applyUpdates | No |
+> | configurationAssignments | No |
 > | maintenanceConfigurations | Yes |
 > | publicMaintenanceConfigurations | No |
+> | updates | No |
 
 ## Microsoft.ManagedIdentity
 
@@ -2230,6 +2230,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | networkExperimentProfiles | Yes |
 > | networkIntentPolicies | Yes |
 > | networkInterfaces | Yes |
+> | networkManagerConnections | No |
 > | networkManagers | Yes |
 > | networkProfiles | Yes |
 > | networkSecurityGroups | Yes |
@@ -2567,26 +2568,13 @@ The resources are listed by resource provider namespace. To match a resource pro
 > [!div class="mx-tableFixed"]
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
-> | builtInTemplateSpecs | No |
-> | builtInTemplateSpecs / versions | No |
-> | bulkDelete | No |
-> | calculateTemplateHash | No |
 > | deployments | No |
 > | deploymentScripts | Yes |
 > | deploymentScripts / logs | No |
 > | deploymentStacks / snapshots | No |
 > | links | No |
-> | notifyResourceJobs | No |
-> | providers | No |
 > | resourceGroups | No |
-> | resources | No |
 > | subscriptions | No |
-> | subscriptions / providers | No |
-> | subscriptions / resourceGroups | No |
-> | subscriptions / resourcegroups / resources | No |
-> | subscriptions / resources | No |
-> | subscriptions / tagnames | No |
-> | subscriptions / tagNames / tagValues | No |
 > | tags | No |
 > | templateSpecs | Yes |
 > | templateSpecs / versions | Yes |
@@ -2854,9 +2842,7 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | managedInstances / metrics | No |
 > | managedInstances / recoverableDatabases | No |
 > | managedInstances / sqlAgent | No |
-> | managedInstances / start | No |
 > | managedInstances / startStopSchedules | No |
-> | managedInstances / stop | No |
 > | managedInstances / tdeCertificates | No |
 > | managedInstances / vulnerabilityAssessments | No |
 > | servers | Yes |

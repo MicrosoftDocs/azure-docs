@@ -8,8 +8,6 @@ author: bmansheim
 ---
 # Suppress alerts from Microsoft Defender for Cloud
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This page explains how you can use alerts suppression rules to suppress false positives or other unwanted security alerts from Defender for Cloud.
 
 ## Availability
@@ -47,7 +45,8 @@ There are a few ways you can create rules to suppress unwanted security alerts:
 - To suppress alerts at the management group level, use Azure Policy
 - To suppress alerts at the subscription level, you can use the Azure portal or the REST API as explained below
 
-Suppression rules can only dismiss alerts that have already been triggered on the selected subscriptions.
+> [!NOTE]
+> Suppression rules don't work retroactively - they'll only suppress alerts triggered _after_ the rule is created. Also, if a specific alert type has never been generated on a specific subscription, future alerts of that type won't be suppressed. For a rule to suppress an alert on a specific subscription, that alert type has to have been triggered at least once before the rule is created.
 
 To create a rule directly in the Azure portal:
 

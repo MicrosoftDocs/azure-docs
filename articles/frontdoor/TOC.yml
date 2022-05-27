@@ -23,6 +23,10 @@
   items:
   - name: Resource Manager Templates
     href: front-door-quickstart-template-samples.md
+  - name: Azure CLI
+    items:
+    - name: Deploy custom domain
+      href: scripts/custom-domain.md
 - name: Concepts
   items :
   - name: Front Door manager
@@ -173,6 +177,8 @@
       href: edge-locations-by-abbreviation.md
   - name: Azure CLI
     href: /cli/azure/afd
+  - name: Azure PowerShell
+    href: /powershell/module/az.cdn
   - name: REST API
     href: /rest/api/frontdoor
   - name: Python SDK

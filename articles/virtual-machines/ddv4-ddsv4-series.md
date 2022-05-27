@@ -1,12 +1,12 @@
 ---
 title: Ddv4 and Ddsv4-series 
 description: Specifications for the Dv4, Ddv4, Dsv4 and Ddsv4-series VMs.
-author: brbell
-ms.author: brbell
+author: andysports8
+ms.author: shuji
 ms.reviewer: mimckitt
 ms.custom: mimckitt
 ms.service: virtual-machines
-ms.subservice: vm-sizes-general
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 06/01/2020
 ---

@@ -350,7 +350,9 @@ This section will show you how to configure a VM with FSLogix. You'll need to fo
 
 To configure FSLogix:
 
-1. [Update or install FSLogix](/fslogix/install-ht) on your session host, if needed.
+1. [Update or install FSLogix](/fslogix/install-ht) on your session host, if needed. 
+    > [!NOTE]
+    > If the session host is created using the Azure Virtual Desktop service, FSLogix should already be pre-installed.
 
 2. Follow the instructions in [Configure profile container registry settings](/fslogix/configure-profile-container-tutorial#configure-profile-container-registry-settings) to create the **Enabled** and **VHDLocations** registry values. Set the value of **VHDLocations** to `\\<Storage-account-name>.file.core.windows.net\<file-share-name>`.
 
@@ -412,7 +414,11 @@ The service principal's password will expire every six months. To update the pas
     $azureAdTenantId = $azureAdTenantDetail.ObjectId
     $azureAdPrimaryDomain = ($azureAdTenantDetail.VerifiedDomains | Where-Object {$_._Default -eq $true}).Name
     $application = Get-AzureADApplication -Filter "DisplayName eq '$($storageAccountName)'" -ErrorAction Stop;
-    $servicePrincipal = Get-AzureADServicePrincipal | Where-Object {$_.AppId -eq $($application.AppId)}
+    $servicePrincipal = Get-AzureADServicePrincipal -Filter "AppId eq '$($application.AppId)'"
+    if ($servicePrincipal -eq $null) {
+      Write-Host "Could not find service principal corresponding to application with app id $($application.AppId)"
+      Write-Error -Message "Make sure that both service principal and application exist and are correctly configured" -ErrorAction Stop
+    }
     ```
 
 5. Set the password for the storage account's service principal by running the following cmdlets.

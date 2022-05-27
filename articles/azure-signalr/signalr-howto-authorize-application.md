@@ -72,13 +72,13 @@ The following steps describe how to assign a `SignalR App Server` role to a serv
 
 1. From the [Azure portal](https://portal.azure.com/), navigate to your SignalR resource.
 
-1. Select **Access Control (IAM)**.
+1. Select **Access control (IAM)**.
 
 1. Select **Add > Add role assignment**.
 
    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
-1. On the **Roles** tab, select **SignalR App Server**.
+1. On the **Role** tab, select **SignalR App Server**.
 
 1. On the **Members** tab, select **User, group, or service principal**, and then select **Select members**.
 

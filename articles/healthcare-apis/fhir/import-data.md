@@ -5,7 +5,7 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 04/20/2022
+ms.date: 04/22/2022
 ms.author: ranku
 ---
 
@@ -14,13 +14,14 @@ ms.author: ranku
 The bulk-import feature enables importing FHIR data to the FHIR server at high throughput using the $import operation. This feature is suitable for initial data load into the FHIR server.
 
 > [!NOTE]
-> You must have the **FHIR Data Contributor** role on the FHIR server to use $import.
+> You must have the **FHIR Data Importer** role on the FHIR server to use $import.
 
 ## Current limitations
 
 * Conditional references in resources aren't supported.
 * If multiple resources share the same resource ID, then only one of those resources will be imported at random and an error will be logged corresponding to the remaining resources sharing the ID.
 * The data to be imported must be in the same Tenant as that of the FHIR service.
+* Maximum number of files to be imported per operation is 1,000.
 
 ## Using $import operation
 
@@ -218,7 +219,7 @@ Below are some error codes you may encounter and the solutions to help you resol
 
 **Cause:** We use managed identity for source storage auth. This error may be caused by a missing or wrong role assignment.
 
-**Solution:** Assign _Storage Blob Data Contributor_ role to the FHIR server following [the RBAC guide.](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?tabs=current)
+**Solution:** Assign _Storage Blob Data Contributor_ role to the FHIR server following [the RBAC guide.](../../role-based-access-control/role-assignments-portal.md?tabs=current)
 
 ### 500 Internal Server Error
 
@@ -241,6 +242,14 @@ Below are some error codes you may encounter and the solutions to help you resol
 **Cause:** You've reached the storage limit of the FHIR service.
 
 **Solution:** Reduce the size of your data or consider Azure API for FHIR, which has a higher storage limit.
+
+## Bulk import - another option
+
+As illustrated in this article, $import is one way of doing bulk import. Another way is using an open-source solution, called [FHIR Bulk Loader](https://github.com/microsoft/fhir-loader). FHIR-Bulk Loader is an Azure Function App solution that provides the following capabilities for ingesting FHIR data:
+
+* Imports FHIR Bundles (compressed and non-compressed) and NDJSON files into a FHIR service
+* High Speed Parallel Event Grid that triggers from storage accounts or other event grid resources
+* Complete Auditing, Error logging and Retry for throttled transactions
 
 ## Next steps
 

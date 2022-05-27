@@ -2,14 +2,14 @@
 title: Frequently asked questions (FAQs) about CloudKnox Permissions Management 
 description: Frequently asked questions (FAQs) about CloudKnox Permissions Management.
 services: active-directory
-author: Yvonne-deQ
-manager: karenh444
+author: kenwith
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: faq
-ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.date: 04/20/2022
+ms.author: kenwith
 ---
 
 # Frequently asked questions (FAQs)
@@ -17,6 +17,9 @@ ms.author: v-ydequadros
 > [!IMPORTANT]
 > CloudKnox Permissions Management (CloudKnox) is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
+
+> [!NOTE] 
+> The CloudKnox Permissions Management (CloudKnox) PREVIEW is currently not available for tenants hosted in the European Union (EU).
 
 
 This article answers frequently asked questions (FAQs) about CloudKnox Permissions Management (CloudKnox).
@@ -45,6 +48,10 @@ No, CloudKnox is a hosted cloud offering.
 ## Can non-Azure customers use CloudKnox? 
 
 Yes, non-Azure customers can use our solution. CloudKnox is a multi-cloud solution so even customers who have no subscription to Azure can benefit from it.
+
+## Is CloudKnox available for tenants hosted in the European Union (EU)?
+
+No, the CloudKnox Permissions Management (CloudKnox) PREVIEW is currently not available for tenants hosted in the European Union (EU).
 
 ## If I’m already using Azure AD  Privileged Identity Management (PIM) for Azure, what value does CloudKnox provide?
 
@@ -109,9 +116,9 @@ Customers only need to track the evolution of their Permission Creep Index to mo
 ## Can customers generate permissions usage reports?
 
 Yes, CloudKnox has various types of system report available that capture specific data sets. These reports allow customers to:
-- Make timely decisions
-- Analyze usage trends and system/user performance
-- Identify high-risk areas
+- Make timely decisions.
+- Analyze usage trends and system/user performance.
+- Identify high-risk areas.
 
 For information about permissions usage reports, see [Generate and download the Permissions analytics report](cloudknox-product-permissions-analytics-reports.md).
 
