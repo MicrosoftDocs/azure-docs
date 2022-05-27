@@ -130,4 +130,4 @@ Profiler's files can be deleted when using WebDeploy to deploy changes to your w
 
 ## Next steps
 
-* [Working with Application Insights in Visual Studio](./visual-studio.md)
+* [Working with Application Insights in Visual Studio](../app/visual-studio.md)
