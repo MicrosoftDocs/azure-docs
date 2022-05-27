@@ -8,7 +8,7 @@ ms.custom: event-tier1-build-2022
 author: grrlgeek
 ms.author: jeschult
 ms.reviewer: mikeray
-ms.date: 05/21/2022
+ms.date: 05/27/2022
 ms.topic: how-to
 ---
 
@@ -25,9 +25,13 @@ Before you can proceed with the tasks in this article you need to install:
 - The [Azure CLI (az)](/cli/azure/install-azure-cli)
 - The [`arcdata` extension for Azure CLI](install-arcdata-extension.md)
 
+The `arcdata` extension version and the image version are related. Check that you have the correct `arcdata` extension version that corresponds to the image version you want to upgrade to in the [Version log](version-log.md).
+
 ## Limitations
 
-The Azure Arc Data Controller must be upgraded to the new version before the Managed Instance can be upgraded.
+The Azure Arc data controller must be upgraded to the new version before the Managed Instance can be upgraded.
+
+The Managed Instance must be at the same version as the data controller before a data controller is upgraded.
 
 Currently, only one Managed Instance can be upgraded at a time.
 
@@ -46,11 +50,7 @@ Preparing to upgrade sql sqlmi-1 in namespace arc to data controller version.
 ****Dry Run****1 instance(s) would be upgraded by this commandsqlmi-1 would be upgraded to <version-tag>.
 ```
 
-### General Purpose
-
-During a SQL Managed Instance General Purpose upgrade, the containers in the pod will be upgraded and will be reprovisioned. This will cause a short amount of downtime as the new pod is created. You will need to build resiliency into your application, such as connection retry logic, to ensure minimal disruption. Read [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview) for more information on architecting resiliency and [retry guidance for Azure Services](/azure/architecture/best-practices/retry-service-specific#sql-database-using-adonet).
-
-### Business Critical 
+[!INCLUDE [upgrade-sql-managed-instance-gpandbc](upgrade-sql-managed-instance-gpandbc.md)]
 
 ### Upgrade
 
