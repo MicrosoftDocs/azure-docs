@@ -108,11 +108,11 @@ To create an Azure storage account with the Azure portal, follow these steps:
 
 1. From the left portal menu, select **Storage accounts** to display a list of your storage accounts. If the portal menu isn't visible, click the menu button to toggle it on.
 
-    :::image type="content" source="media/storage-account-create/menu-expand-sml.png" alt-text="Image of the Azure Portal homepage showing the location of the Menu button near the top left corner of the browser" lightbox="media/storage-account-create/menu-expand-lrg.png":::
+    :::image type="content" source="media/storage-account-create/menu-expand-sml.png" alt-text="Image of the Azure Portal homepage showing the location of the Menu button near the top left corner of the browser." lightbox="media/storage-account-create/menu-expand-lrg.png":::
 
 1. On the **Storage accounts** page, select **Create**.
 
-    :::image type="content" source="media/storage-account-create/create-button-sml.png" alt-text="Image showing the location of the create button within the Azure Portal Storage Accounts page" lightbox="media/storage-account-create/create-button-lrg.png":::
+    :::image type="content" source="media/storage-account-create/create-button-sml.png" alt-text="Image showing the location of the create button within the Azure Portal Storage Accounts page." lightbox="media/storage-account-create/create-button-lrg.png":::
 
 Options for your new storage account are organized into tabs in the **Create a storage account** page. The following sections describe each of the tabs and their options.
 
@@ -133,7 +133,7 @@ The following table describes the fields on the **Basics** tab.
 
 The following image shows a standard configuration of the basic properties for a new storage account.
 
-:::image type="content" source="media/storage-account-create/create-account-basics-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Basics tab" lightbox="media/storage-account-create/create-account-basics-tab-lrg.png":::
+:::image type="content" source="media/storage-account-create/create-account-basics-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Basics tab." lightbox="media/storage-account-create/create-account-basics-tab-lrg.png":::
 
 ### Advanced tab
 
@@ -157,7 +157,7 @@ The following table describes the fields on the **Advanced** tab.
 
 The following image shows a standard configuration of the advanced properties for a new storage account.
 
-:::image type="content" source="media/storage-account-create/create-account-advanced-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Advanced tab" lightbox="media/storage-account-create/create-account-advanced-tab-lrg.png":::
+:::image type="content" source="media/storage-account-create/create-account-advanced-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Advanced tab." lightbox="media/storage-account-create/create-account-advanced-tab-lrg.png":::
 
 ### Networking tab
 
@@ -173,7 +173,7 @@ The following table describes the fields on the **Networking** tab.
 
 The following image shows a standard configuration of the networking properties for a new storage account.
 
-:::image type="content" source="media/storage-account-create/create-account-networking-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Networking tab" lightbox="media/storage-account-create/create-account-Networking-tab-lrg.png":::
+:::image type="content" source="media/storage-account-create/create-account-networking-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Networking tab." lightbox="media/storage-account-create/create-account-Networking-tab-lrg.png":::
 
 > [!IMPORTANT]
 > Azure DNS zone endpoints are currently in PREVIEW.
@@ -197,7 +197,7 @@ The following table describes the fields on the **Data protection** tab.
 
 The following image shows a standard configuration of the data protection properties for a new storage account.
 
-:::image type="content" source="media/storage-account-create/create-account-protection-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Data Protection tab" lightbox="media/storage-account-create/create-account-protection-tab-lrg.png":::
+:::image type="content" source="media/storage-account-create/create-account-protection-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Data Protection tab." lightbox="media/storage-account-create/create-account-protection-tab-lrg.png":::
 
 ### Encryption tab
 
@@ -213,7 +213,7 @@ On the **Encryption** tab, you can configure options that relate to how your dat
 
 The following image shows a standard configuration of the encryption properties for a new storage account.
 
-:::image type="content" source="media/storage-account-create/create-account-encryption-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Encryption tab" lightbox="media/storage-account-create/create-account-encryption-tab-lrg.png":::
+:::image type="content" source="media/storage-account-create/create-account-encryption-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Encryption tab." lightbox="media/storage-account-create/create-account-encryption-tab-lrg.png":::
 
 ### Tags tab
 
@@ -221,7 +221,7 @@ On the **Tags** tab, you can specify Resource Manager tags to help organize your
 
 The following image shows a standard configuration of the index tag properties for a new storage account.
 
-:::image type="content" source="media/storage-account-create/create-account-tags-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Tags tab" lightbox="media/storage-account-create/create-account-tags-tab-lrg.png":::
+:::image type="content" source="media/storage-account-create/create-account-tags-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Tags tab." lightbox="media/storage-account-create/create-account-tags-tab-lrg.png":::
 
 ### Review + create tab
 
@@ -231,7 +231,7 @@ If validation fails, then the portal indicates which settings need to be modifie
 
 The following image shows the **Review** tab data prior to the creation of a new storage account.
 
-:::image type="content" source="media/storage-account-create/create-account-review-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Review tab" lightbox="media/storage-account-create/create-account-review-tab-lrg.png":::
+:::image type="content" source="media/storage-account-create/create-account-review-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Review tab." lightbox="media/storage-account-create/create-account-review-tab-lrg.png":::
 
 # [PowerShell](#tab/azure-powershell)
 
