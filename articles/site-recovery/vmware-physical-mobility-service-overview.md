@@ -220,15 +220,15 @@ Installer file | Operating system (64-bit only)
 `Microsoft-ASR_UA_version_DEBIAN8-64_GA_date_release.tar.gz` | Debian 8
 `Microsoft-ASR_UA_version_DEBIAN9-64_GA_date_release.tar.gz` | Debian 9
 
-## Download latest mobility agent installer for SUSE 11 SP3, RHEL 5, Debian 7 server
+## Download latest mobility agent installer for SUSE 11 SP3, SUSE 11 SP4, RHEL 5, Debian 7, Oracle Linux 6 server
 
-### SUSE 11 SP3 server
+### SUSE 11 SP3 or SUSE 11 SP4 server 
 
-As a **prerequisite to update or protect SUSE Linux Enterprise Server 11 SP3 machines** from 9.36 version onwards:
+As a **prerequisite to update or protect SUSE Linux Enterprise Server 11 SP3 or SUSE 11 SP4 machines** from 9.36 version onwards:
 
 1. Ensure latest mobility agent installer is downloaded from Microsoft Download Center and placed in push installer repository on configuration server and all scale out process servers
-2. [Download](site-recovery-whats-new.md) the latest SUSE Linux Enterprise Server 11 SP3 agent installer.
-3. Navigate to Configuration server, copy the SUSE Linux Enterprise Server 11 SP3 agent installer on the path - INSTALL_DIR\home\svsystems\pushinstallsvc\repository
+2. [Download](site-recovery-whats-new.md) the latest SUSE Linux Enterprise Server 11 SP3 or SUSE 11 SP4 agent installer.
+3. Navigate to Configuration server, copy the SUSE Linux Enterprise Server 11 SP3 or SUSE 11 SP4 agent installer on the path - INSTALL_DIR\home\svsystems\pushinstallsvc\repository
 1. After copying the latest installer, restart InMage PushInstall service.
 1. Now, navigate to associated scale-out process servers, repeat step 3 and step 4.
 1. **For example**, if install path is  C:\Program Files (x86)\Microsoft Azure Site Recovery, then the above mentioned directories will be
@@ -246,17 +246,30 @@ As a **prerequisite to update or protect RHEL 5 machines** from 9.36 version onw
 1. **For example**, if install path is  C:\Program Files (x86)\Microsoft Azure Site Recovery, then the above mentioned directories will be
     1. C:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository
 
-## Debian 7 server
+## Debian 7 or Debian 8 server
 
-As a **prerequisite to update or protect Debian 7 machines** from 9.36 version onwards:
+As a **prerequisite to update or protect Debian 7 or Debian 8 machines** from 9.36 version onwards:
 
 1. Ensure latest mobility agent installer is downloaded from Microsoft Download Center and placed in push installer repository on configuration server and all scale out process servers
-2. [Download](site-recovery-whats-new.md) the latest Debian 7 agent installer.
-3. Navigate to Configuration server, copy the Debian 7 agent installer on the path - INSTALL_DIR\home\svsystems\pushinstallsvc\repository
+2. [Download](site-recovery-whats-new.md) the latest Debian 7 or Debian 8 agent installer.
+3. Navigate to Configuration server, copy the Debian 7 or Debian 8 agent installer on the path - INSTALL_DIR\home\svsystems\pushinstallsvc\repository
 1. After copying the latest installer, restart InMage PushInstall service.
 1. Now, navigate to associated scale-out process servers, repeat step 3 and step 4.
 1. **For example**, if install path is  C:\Program Files (x86)\Microsoft Azure Site Recovery, then the above mentioned directories will be
     1. C:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository
+
+### Ubuntu 14.04 server
+
+As a **prerequisite to update or protect Ubuntu 14.04 machines** from 9.42 version onwards:
+
+1. Ensure latest mobility agent installer is downloaded from Microsoft Download Center and placed in push installer repository on configuration server and all scale out process servers
+2. [Download](site-recovery-whats-new.md) the latest Ubuntu 14.04 agent installer.
+3. Navigate to Configuration server, copy the Ubuntu 14.04 agent installer on the path - INSTALL_DIR\home\svsystems\pushinstallsvc\repository
+1. After copying the latest installer, restart InMage PushInstall service.
+1. Now, navigate to associated scale-out process servers, repeat step 3 and step 4.
+1. **For example**, if install path is  C:\Program Files (x86)\Microsoft Azure Site Recovery, then the above mentioned directories will be
+    1. C:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository
+
 
 ## Install the Mobility service using UI (preview)
 
