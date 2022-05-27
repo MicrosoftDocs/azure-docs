@@ -11,9 +11,9 @@ ms.date: 05/12/2022
 
 # QuickStart: Get started with Dynatrace
 
-In this quickstart, you'll create a new instance of Dynatrace. You can either create a new Dynatrace environment or [link to an existing Dynatrace environment](dynatrace-link-to-existing.md#link-to-existing-dynatrace-environment).
+In this quickstart, you create a new instance of Dynatrace. You can either create a new Dynatrace environment or [link to an existing Dynatrace environment](dynatrace-link-to-existing.md#link-to-existing-dynatrace-environment).
 
-When using the integrated experience in Azure portal, the following entities are created and mapped for monitoring and billing purposes.
+When you use the integrated Dynatrace experience in Azure portal, the following entities are created and mapped for monitoring and billing purposes.
 
 **Dynatrace resource in Azure** - Using the Dynatrace resource, you can manage the Dynatrace environment in Azure. The resource is created in the Azure subscription and resource group that you select during the create or linking process.
 
@@ -46,10 +46,10 @@ Use the Azure portal to find Dynatrace for Azure application.
 The portal displays two options: one to create a new Dynatrace environment, and another to link Azure subscription to an existing Dynatrace environment.
 
 1. If you want to create a new Dynatrace environment, select **Create** action under the **Create a new Dynatrace environment** option
-    <!-- \$TODO -- Screenshot -- create / Link, highlight create -->
+    <!-- $TODO -- Screenshot -- create / Link, highlight create -->
 
 1. The portal displays the screen to create a Dynatrace resource.
-    <!-- \$TODO -- Screenshot -- create -- basics tab -->
+    <!-- $TODO -- Screenshot -- create -- basics tab -->
 
 1. Provide the following values:
 
