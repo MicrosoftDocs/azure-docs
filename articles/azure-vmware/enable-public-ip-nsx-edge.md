@@ -21,7 +21,7 @@ With this capability, you have the following features:
 
 ## Reference   architecture    
 The architecture shows Internet access to and from your Azure VMware Solution private cloud using a Public IP directly to the NSX Edge.
-:::image type="content" source="media/public-ip-usage/architecture-internet-access-avs-public-ip.png" alt-text="Diagram that shows architecture of Internet access to and from your Azure VMware Solution Private Cloud using a Public IP directly to the NSX Edge." border="false" lightbox="media/public-ip-usage/architecture-internet-access-avs-public-ip.png":::
+:::image type="content" source="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip.png" alt-text="Diagram that shows architecture of Internet access to and from your Azure VMware Solution Private Cloud using a Public IP directly to the NSX Edge." border="false" lightbox="media/public-ip-nsx-edge/architecture-internet-access-avs-public-ip.png":::
 
 ## Configure a Public IP in the Azure portal
 1. Log in to the Azure portal.
@@ -34,10 +34,10 @@ The architecture shows Internet access to and from your Azure VMware Solution pr
 >Before selecting a Public IP, ensure you understand the implications to your existing environment. For more information, see [Internet connectivity design considerations](concepts-design-public-internet-access.md)
     
 5.	Select **Public IP**.
-    :::image type="content" source="media/public-ip-usage/public-ip-internet-connectivity.png" alt-text="Diagram that shows how to select public IP to the NSX Edge":::
+    :::image type="content" source="media/public-ip-nsx-edge/public-ip-internet-connectivity.png" alt-text="Diagram that shows how to select public IP to the NSX Edge":::
 6.	Enter the **Public IP name** and select a subnet size from the **Address space** dropdown and select **Configure**.     
 7.	This Public IP should be configured within 20 minutes and will show the subnet.
-   :::image type="content" source="media/public-ip-usage/public-ip-subnet-internet-connectivity.png" alt-text="Diagram that shows Internet connectivity in Azure VMware Solution.":::
+   :::image type="content" source="media/public-ip-nsx-edge/public-ip-subnet-internet-connectivity.png" alt-text="Diagram that shows Internet connectivity in Azure VMware Solution.":::
 1. If you don't see the subnet, refresh the list. If the refresh fails, try the configuration again.
     
 9.	After configuring the Public IP, select the **Connect using the Public IP down to the NSX-T Edge** checkbox to disable all other Internet options. 
@@ -107,7 +107,7 @@ You can provide security protection for your network traffic in and out of the p
 1. Select **Match External Address** to apply firewall rules to the external address of a NAT rule.
 
 For example, the following rule is set to Match External Address, and this setting will allow SSH traffic inbound to the Public IP.
-    :::image type="content" source="media/public-ip-usage/gateway-specific-rules-match-external-connectivity.png" alt-text="Screenshot Internet connectivity inbound Public IP." lightbox="media/public-ip-usage/gateway-specific-rules-match-external-connectivity-expanded.png":::
+    :::image type="content" source="media/public-ip-nsx-edge/gateway-specific-rules-match-external-connectivity.png" alt-text="Screenshot Internet connectivity inbound Public IP." lightbox="media/public-ip-nsx-edge/gateway-specific-rules-match-external-connectivity-expanded.png":::
      
 If **Match Internal Address** was specified, the destination would be the internal or private IP address of the VM. 
 For more information on the NSX-T Gateway Firewall see the [NSX-T Gateway Firewall Administration Guide]( https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.1/administration/GUID-A52E1A6F-F27D-41D9-9493-E3A75EC35481.html)
