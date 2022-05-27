@@ -56,8 +56,7 @@ void CastRay(ApiHandle<RenderingSession> session)
     // trace a line from the origin into the +z direction, over 10 units of distance.
     RayCast rayCast;
     rayCast.StartPos = {0, 0, 0};
-    rayCast.EndPos = {0, 0, 1};
-    rayCast.MaxHits = 10;
+    rayCast.EndPos = {0, 0, 10};
 
     // only return the closest hit
     rayCast.HitCollection = HitCollectionPolicy::ClosestHit;

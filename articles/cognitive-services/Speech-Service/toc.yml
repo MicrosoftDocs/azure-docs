@@ -28,6 +28,15 @@ items:
     - name: Speech CLI quickstart
       displayName: cli basics, spx basics, spx help, spx quickstart, spx get started, get started, install
       href: spx-basics.md
+    - name: Configure the datastore
+      displayName: SPX configuration options, speech cli config, speech cli data store, data store, datastore, speech cli datastore, reference
+      href: spx-data-store-configuration.md
+    - name: Configure output options
+      displayName: reference
+      href: spx-output-options.md
+    - name: Run batch operations
+      displayName: spx batch, spx batch operations, speech batch, speech cli speech to text batch, speech cli tex to speech batch
+      href: spx-batch-operations.md
 - name: Speech SDK
   items:
   - name: Speech SDK overview
@@ -55,23 +64,33 @@ items:
       href: batch-transcription.md
     - name: Improve recognition with Custom Speech
       items:
-        - name: Custom Speech overview
+        - name: What is Custom Speech?
           href: custom-speech-overview.md
-        - name: Prepare data for Custom Speech
-          href: how-to-custom-speech-test-and-train.md
-        - name: Create human-labeled transcriptions
-          href: how-to-custom-speech-human-labeled-transcriptions.md
-        - name: Create phonetic pronunciation data
-          href: customize-pronunciation.md
-        - name: Upload data for Custom Speech
-          href: how-to-custom-speech-upload-data.md
-        - name: Inspect Custom Speech data
-          href: how-to-custom-speech-inspect-data.md
-        - name: Evaluate and improve Custom Speech accuracy
-          href: how-to-custom-speech-evaluate-data.md
-        - name: Train and deploy a Custom Speech model
-          href: how-to-custom-speech-train-model.md
-        - name: Model and Endpoint Lifecycle
+        - name: Create a Custom Speech model 
+          items:
+          - name: Choose a model
+            href: how-to-custom-speech-choose-model.md
+          - name: Upload training and testing datasets
+            href: how-to-custom-speech-upload-data.md
+          - name: Test recognition quality
+            href: how-to-custom-speech-inspect-data.md
+          - name: Test model quantitatively
+            href: how-to-custom-speech-evaluate-data.md
+          - name: Train a model
+            href: how-to-custom-speech-train-model.md
+          - name: Deploy a model
+            href: how-to-custom-speech-deploy-model.md
+        - name: Custom Speech datasets
+          items:
+          - name: Training and testing datasets
+            href: how-to-custom-speech-test-and-train.md
+          - name: Human-labeled transcripts with audio
+            href: how-to-custom-speech-human-labeled-transcriptions.md
+          - name: Structured text phonetic pronunciation
+            href: customize-pronunciation.md
+          - name: Online transcription editor
+            href: how-to-custom-speech-transcription-editor.md
+        - name: Custom Speech model lifecycle
           href: how-to-custom-speech-model-and-endpoint-lifecycle.md
         - name: CI/CD for Custom Speech
           href: how-to-custom-speech-continuous-integration-continuous-deployment.md
@@ -168,8 +187,12 @@ items:
       href: keyword-recognition-guidelines.md
 - name: Scenario deep-dives
   items:
-    - name: Captioning with speech to text
-      href: captioning-concepts.md
+    - name: Captioning
+      items:
+      - name: Captioning with speech to text
+        href: captioning-concepts.md
+      - name: Captioning quickstart
+        href: captioning-quickstart.md
     - name: Handle call center scenarios
       items:
       - name: Telephony data
@@ -328,7 +351,6 @@ items:
           href: speech-container-howto-on-premises.md
         - name: Speech containers on Azure container instances
           displayName: 'ACI,azure container instances,container instances,containers'
-          maintainContext: true
           href: ../containers/azure-container-instance-recipe.md
         - name: Use containers in disconnected environments
           href: ../containers/disconnected-containers.md
@@ -336,7 +358,6 @@ items:
           href: speech-container-faq.yml
         - name: Cognitive Services containers documentation
           href: ../containers/index.yml
-          maintainContext: true
     - name: Migration
       items:
         - name: Neural voice migration
@@ -372,15 +393,6 @@ items:
     - name: Release notes
       href: releasenotes.md
       displayName: reference 
-    - name: CLI reference
-      displayName: SPX, command line
-      items:
-        - name: Speech CLI configuration options
-          displayName: SPX configuration options, speech cli config, speech cli data store, data store, datastore, speech cli datastore, reference
-          href: spx-data-store-configuration.md
-        - name: Speech CLI batch operations
-          displayName: spx batch, spx batch operations, speech batch, speech cli speech to text batch, speech cli tex to speech batch
-          href: spx-batch-operations.md
     - name: SDK reference
       items:
         - name: C++

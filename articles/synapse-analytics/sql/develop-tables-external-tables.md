@@ -260,6 +260,9 @@ Specifies the row number that is read first and applies to all files. Setting th
 USE_TYPE_DEFAULT = { TRUE | **FALSE** } -
 Specifies how to handle missing values in delimited text files when retrieving data from the text file.
 
+> [!NOTE]
+> Please note that USE_TYPE_DEFAULT=true is not supported for FORMAT_TYPE = DELIMITEDTEXT, PARSER_VERSION = '2.0'.
+
 TRUE -
 If you're retrieving data from the text file, store each missing value by using the default value's data type for the corresponding column in the external table definition. For example, replace a missing value with:
 

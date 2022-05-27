@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/25/2020
+ms.date: 05/06/2022
 ms.author: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform.
@@ -20,7 +20,7 @@ ms.custom: aaddev
 
 You've built your client application object. Now, you'll use it to acquire a token to call a web API. In ASP.NET or ASP.NET Core, calling a web API is done in the controller:
 
-- Get a token for the web API by using the token cache. To get this token, you call the MSAL `AcquireTokenSilent` method (or the equivalent in Microsoft.Identity.Web).
+- Get a token for the web API by using the token cache. To get this token, you call the Microsoft Authentication Library (MSAL) `AcquireTokenSilent` method (or the equivalent in Microsoft.Identity.Web).
 - Call the protected API, passing the access token to it as a parameter.
 
 # [ASP.NET Core](#tab/aspnetcore)

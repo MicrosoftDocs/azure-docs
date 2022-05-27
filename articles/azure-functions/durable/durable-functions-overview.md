@@ -3,7 +3,7 @@ title: Durable Functions Overview - Azure
 description: Introduction to the Durable Functions extension for Azure Functions.
 author: cgillum
 ms.topic: overview
-ms.date: 05/05/2022
+ms.date: 05/24/2022
 ms.author: cgillum
 ms.reviewer: azfuncdf
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
@@ -15,15 +15,15 @@ ms.reviewer: azfuncdf
 
 ## <a name="language-support"></a>Supported languages
 
-Durable Functions works with all Azure Functions programming languages but may have different minimum requirements for each language. The following table shows the minimum supported app configurations:
+Durable Functions is designed to work with all Azure Functions programming languages but may have different minimum requirements for each language. The following table shows the minimum supported app configurations:
 
-| Language stack | Functions runtime versions | Language worker versions | Extension bundles versions |
+| Language stack | Azure Functions Runtime versions | Language worker version | Minimum bundles version |
 | - | - | - | - |
-| .NET / C# / F# | Functions 1.0+ | [In-process](../functions-dotnet-class-library.md) <br/> [.NET Isolated worker](../dotnet-isolated-process-guide.md) (preview) | n/a |
+| .NET / C# / F# | Functions 1.0+ | In-process (GA) <br/> Out-of-process ([preview](https://github.com/microsoft/durabletask-dotnet#usage-with-azure-functions)) | n/a |
 | JavaScript/TypeScript | Functions 2.0+ | Node 8+ | 2.x bundles |
 | Python | Functions 2.0+ | Python 3.7+ | 2.x bundles |
 | PowerShell | Functions 3.0+ | PowerShell 7+ | 2.x bundles |
-| Java (preview) | Functions 3.0+ | Java 11+ | 4.x bundles |
+| Java (preview) | Functions 3.0+ | Java 8+ | 4.x bundles |
 
 Like Azure Functions, there are templates to help you develop Durable Functions using [Visual Studio 2019](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md), and the [Azure portal](durable-functions-create-portal.md).
 
@@ -830,6 +830,10 @@ main = df.Entity.create(entity_function)
 
 Durable entities are currently not supported in PowerShell.
 
+# [Java](#tab/java)
+
+Durable entities are currently not supported in Java.
+
 ---
 
 Clients can enqueue *operations* for (also known as "signaling") an entity function using the [entity client binding](durable-functions-bindings.md#entity-client).
@@ -922,8 +926,8 @@ In these quickstarts, you locally create and test a "hello world" durable functi
 
 Durable Functions is developed in collaboration with Microsoft Research. As a result, the Durable Functions team actively produces research papers and artifacts; these include:
 
-* [Durable Functions: Semantics for Stateful Serverless](https://www.microsoft.com/en-us/research/uploads/prod/2021/10/DF-Semantics-Final.pdf) _(OOPSLA'21)_
-* [Serverless Workflows with Durable Functions and Netherite](https://arxiv.org/pdf/2103.00033.pdf) _(pre-print)_
+* [Durable Functions: Semantics for Stateful Serverless](https://www.microsoft.com/research/uploads/prod/2021/10/DF-Semantics-Final.pdf) *(OOPSLA'21)*
+* [Serverless Workflows with Durable Functions and Netherite](https://arxiv.org/pdf/2103.00033.pdf) *(pre-print)*
 
 ## Learn more
 

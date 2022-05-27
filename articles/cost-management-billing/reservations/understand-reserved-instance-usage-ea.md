@@ -85,10 +85,10 @@ If you're an EA admin, you can download the CSV file that contains new usage dat
 In the Azure portal, navigate to [Cost management + billing](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts).
 
 1. Select the billing account.
-2. Click **Usage + charges**.
-3. Click **Download**.  
+2. Select **Usage + charges**.
+3. Select **Download**.  
 ![Example showing where to Download the CSV usage data file in the Azure portal](./media/understand-reserved-instance-usage-ea/portal-download-csv.png)
-4. In **Download Usage + Charges** , under **Usage Details Version 2** , select **All Charges (usage and purchases)** and then click download. Repeat for **Amortized charges (usage and purchases)**.
+4. In **Download Usage + Charges** , under **Usage Details Version 2** , select **All Charges (usage and purchases)** and then select download. Repeat for **Amortized charges (usage and purchases)**.
 
 ## Download usage for your Microsoft Customer Agreement
 
@@ -100,7 +100,7 @@ To view and download usage data for a billing profile, you must be a billing pro
 2. Select a billing profile.
 3. Select **Invoices**.
 4. In the invoice grid, find the row of the invoice corresponding to the usage you want to download.
-5. Click on the ellipsis (`...`) at the end of the row.
+5. Select the ellipsis (`...`) at the end of the row.
 6. In the download context menu, select **Azure usage and charges**.
 
 ## Common cost and usage tasks

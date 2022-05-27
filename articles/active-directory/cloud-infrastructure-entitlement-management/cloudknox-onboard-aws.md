@@ -2,14 +2,14 @@
 title:  Onboard an Amazon Web Services (AWS) account on CloudKnox Permissions Management
 description: How to onboard an Amazon Web Services (AWS) account on CloudKnox Permissions Management.
 services: active-directory
-author: Yvonne-deQ
-manager: karenh444
+author: kenwith
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 04/20/2022
-ms.author: v-ydequadros
+ms.author: kenwith
 ---
 
 # Onboard an Amazon Web Services (AWS) account

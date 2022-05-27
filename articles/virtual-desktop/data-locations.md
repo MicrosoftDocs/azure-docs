@@ -45,6 +45,7 @@ We currently support storing the aforementioned data in the following locations:
 - Europe (EU)
 - United Kingdom (UK)
 - Canada (CA)
+- Japan (JP) (Public Preview)
 
 In addition we aggregate service-generated from all locations where the service infrastructure is, then send it to the US geography. The data sent to the US region includes scrubbed data, but not customer data.
 

@@ -52,17 +52,6 @@ This is the simplest query that we can write. It just returns all the records in
 
 You can see that we do have results. The number of records that the query has returned appears in the lower-right corner. 
 
-## Filter query results
-
-Let's add a filter to the query to reduce the number of records that are returned. Select the **Filter** tab on the left pane. This tab shows columns in the query results that you can use to filter the results. The top values in those columns are displayed with the number of records that have that value. Select **200** under **ResultCode**, and then select **Apply & Run**. 
-
-:::image type="content" source="media/log-analytics-tutorial/query-filter-pane.png" alt-text="Screenshot that shows the query filter pane." lightbox="media/log-analytics-tutorial/query-filter-pane.png":::
-
-A **where** statement is added to the query with the value that you selected. The results now include only records with that value, so you can see that the record count is reduced.
-
-:::image type="content" source="media/log-analytics-tutorial/query-filter.png" alt-text="Screenshot that shows a filter being applied to the query." lightbox="media/log-analytics-tutorial/query-filter.png":::
-
-
 ### Time range
 
 All queries return records generated within a set time range. By default, the query returns records generated in the last 24 hours. 
