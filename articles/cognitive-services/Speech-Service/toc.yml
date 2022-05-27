@@ -200,6 +200,14 @@ items:
         href: call-center-transcription.md
       - name: Ingestion Client
         href: ingestion-client.md
+    - name: Pronunciation Assessment
+      items:
+        - name: Pronunciation Assessment quickstart
+          href: how-to-pronunciation-assessment.md
+        - name: Use Pronunciation Assessment
+          href: use-pronunciation-assessment.md
+        - name: Pronunciation Assessment tool
+          href: how-to-use-pronunciation-assessment-tool.md
     - name: Conversation transcription
       items:
         - name: Conversation Transcription overview
@@ -284,8 +292,6 @@ items:
   items:
     - name: Language identification
       href: language-identification.md
-    - name: Use Pronunciation Assessment
-      href: how-to-pronunciation-assessment.md
     - name: Audio configuration
       items:
       - name: How to use the audio input stream

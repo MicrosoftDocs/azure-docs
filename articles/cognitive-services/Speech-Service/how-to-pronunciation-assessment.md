@@ -7,7 +7,7 @@ author: yulin-li
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: how-to
+ms.topic: quickstart
 ms.date: 01/23/2022
 ms.author: yulili
 ms.devlang: cpp, csharp, java, javascript, objective-c, python
@@ -15,11 +15,21 @@ ms.custom: references_regions
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
 ---
 
-# Pronunciation assessment
+# Quickstart: Pronunciation Assessment
 
-Pronunciation assessment evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. With pronunciation assessment, language learners can practice, get instant feedback, and improve their pronunciation so that they can speak and present with confidence. Educators can use the capability to evaluate pronunciation of multiple speakers in real time. Pronunciation Assessment is announced generally available in US English, while [other languages](language-support.md#pronunciation-assessment) are available in preview. 
+
+Get started with Pronunciation Assessment by using the speech SDK to evaluate speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio.
+
+With pronunciation assessment, language learners can practice, get instant feedback, and improve their pronunciation so that they can speak and present with confidence. Educators can use the capability to evaluate pronunciation of multiple speakers in real time. Pronunciation Assessment is announced generally available in US English, while [other languages](language-support.md#pronunciation-assessment) are available in preview. 
 
 In this article, you'll learn how to set up `PronunciationAssessmentConfig` and retrieve the `PronunciationAssessmentResult` using the speech SDK.
+
+## Prerequisites
+
+> [!div class="checklist"]
+> * If you're new to Azure, [create an Azure account](https://azure.microsoft.com/free/cognitive-services/).
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices"  title="Create a Speech resource"  target="_blank">Create a Speech resource</a> in the Azure portal.
+> * Get the resource key and region. After your Speech resource is deployed, select **Go to resource** to view and manage keys. For more information about Cognitive Services resources, see [Get the keys for your resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource). 
 
 ## Pronunciation assessment with the Speech SDK
 
@@ -159,18 +169,6 @@ double pronunciationScore = pronunciationAssessmentResult.pronunciationScore;
 
 ::: zone-end
 
-## Configuration parameters
-
-This table lists the configuration parameters for pronunciation assessment.
-
-| Parameter | Description | Required? |
-|-----------|-------------|---------------------|
-| `ReferenceText` | The text that the pronunciation will be evaluated against. | Required |
-| `GradingSystem` | The point system for score calibration. The `FivePoint` system gives a 0-5 floating point score, and `HundredMark` gives a 0-100 floating point score. Default: `FivePoint`. | Optional |
-| `Granularity` | The evaluation granularity. Accepted values are `Phoneme`, which shows the score on the full text, word and phoneme level, `Syllable`, which shows the score on the full text, word and syllable level, `Word`, which shows the score on the full text and word level, `FullText`, which shows the score on the full text level only. Default: `Phoneme`. | Optional |
-| `EnableMiscue` | Enables miscue calculation when the pronounced words are compared to the reference text. If this value is `True`, the `ErrorType` result value can be set to `Omission` or `Insertion` based on the comparison. Accepted values are `False` and `True`. Default: `False`. | Optional |
-| `ScenarioId` | A GUID indicating a customized point system. | Optional |
-
 ## Result parameters
 
 This table lists the result parameters of pronunciation assessment.
@@ -283,6 +281,10 @@ A typical pronunciation assessment result in JSON:
 ```
 
 ## Next steps
+
+* Learn more about pronunciation assessment [features](use-pronunciation-assessment.md)
+
+* Try out [pronunciation assessment tool through Speech Studio](how-to-use-pronunciation-assessment-tool.md)
 
 * Learn more about released [use cases](https://techcommunity.microsoft.com/t5/azure-ai-blog/speech-service-update-pronunciation-assessment-is-generally/ba-p/2505501)
 
