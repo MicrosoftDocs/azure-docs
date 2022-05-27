@@ -29,7 +29,7 @@ In this section, we'll walk through creating a simple LDAP server on a Virtual M
 
 1. Give your server a DNS name:
 
-   :::image type="content" source="./media/ldap/dns.jpg" alt-text="Create dns name for ldap server" lightbox="./media/ldap/dns.jpg" border="true":::
+   :::image type="content" source="./media/ldap/dns.jpg" alt-text="Screenshot of dns name in portal." lightbox="./media/ldap/dns.jpg" border="true":::
 
 1. Install Docker on the virtual machine. We recommend [this](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04) tutorial.
 
@@ -77,7 +77,7 @@ In this section, we'll walk through creating a simple LDAP server on a Virtual M
     ```shell
     openssl x509 -in certs/ldap.crt -text
     ```
-   :::image type="content" source="./media/ldap/dns-verify.jpg" alt-text="Verofy dns name in ldap cert" lightbox="./media/ldap/dns-verify.jpg" border="true":::
+   :::image type="content" source="./media/ldap/dns-verify.jpg" alt-text="Screenshot of output from command to verify certificate." lightbox="./media/ldap/dns-verify.jpg" border="true":::
 
 1. Copy the `ldap.crt` file to [clouddrive](../cloud-shell/persisting-shell-storage.md) in Azure CLI for use later. 
 
