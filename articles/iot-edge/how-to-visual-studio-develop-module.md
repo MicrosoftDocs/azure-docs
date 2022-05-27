@@ -121,8 +121,8 @@ In all, we're going to build three projects in our solution. The main module tha
 
    ![Add Application and Module](./media/how-to-visual-studio-develop-csharp-module/add-module.png)
 
-    > [!NOTE]
-    >If you have an existing IoT Edge project, you can still change the repository URL by opening the **module.json** file. The repository URL is located in the 'repository' property of the JSON file.
+   > [!NOTE]
+   >If you have an existing IoT Edge project, you can still change the repository URL by opening the **module.json** file. The repository URL is located in the 'repository' property of the JSON file.
 
 Now you have an IoT Edge project and an IoT Edge module in your Visual Studio solution.
 
