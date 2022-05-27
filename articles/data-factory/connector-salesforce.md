@@ -35,7 +35,7 @@ Specifically, this Salesforce connector supports:
 - Salesforce Developer, Professional, Enterprise, or Unlimited editions.
 - Copying data from and to Salesforce production, sandbox, and custom domain.
 
-The Salesforce connector is built on top of the Salesforce REST/Bulk API. When copying data from Salesforce, the connector automatically chooses between REST and Bulk APIs based on the data size – when the result set is large, Bulk API is used for better performance; You can explicitly set the API version used to read/write data via [`apiVersion` property](#linked-service-properties) in linked service. Currently, this connector uses Bulk API v1.0 to write data.
+The Salesforce connector is built on top of the Salesforce REST/Bulk API. When copying data from Salesforce, the connector automatically chooses between REST and Bulk APIs based on the data size – when the result set is large, Bulk API is used for better performance; You can explicitly set the API version used to read/write data via [`apiVersion` property](#linked-service-properties) in linked service. When copying data to Salesforce, the connector uses BULK API v1.
 
 >[!NOTE]
 >The connector no longer sets default version for Salesforce API. For backward compatibility, if a default API version was set before, it keeps working. The default value is 45.0 for source, and 40.0 for sink.
