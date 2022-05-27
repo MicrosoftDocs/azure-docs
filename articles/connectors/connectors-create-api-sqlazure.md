@@ -30,13 +30,13 @@ The SQL Server connector supports the following SQL editions:
 
 ## Connector technical reference
 
-The SQL Server connector has different versions, based on [logic app type](../logic-apps/logic-apps-overview.md#resource-environment-differences).
+The SQL Server connector has different versions, based on [logic app type and host environment](../logic-apps/logic-apps-overview.md#resource-environment-differences).
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
-| **Consumption** | Multi-tenant Azure Logic Apps | [Managed connector](managed.md) only. For more information, review the [SQL Server managed connector operations](/connectors/sql), which are generated from the Swagger description. |
-| **Consumption** | Integration service environment (ISE) | [Managed connector](managed.md) and as an ISE-versioned connector that's designed to run in an ISE. For more information, review the [SQL Server managed connector operations](/connectors/sql), which are generated from the Swagger description. |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | [Managed connector](managed.md) and [built-in connector](built-in.md) that's based on the [service provider model](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in version differs in the following ways: <br><br>- The built-in version has no triggers. <br>- The built-in version currently has one operation: **Execute Query** <br><br>For the managed version, review the [SQL Server managed connector operations](/connectors/sql/), which are generated from the Swagger description. |
+| **Consumption** | Multi-tenant Azure Logic Apps | [Managed connector - Standard class](managed.md). For more information, review the [SQL Server managed connector reference](/connectors/sql). |
+| **Consumption** | Integration service environment (ISE) | [Managed connector - Standard class](managed.md) and ISE version. For more information, review the [SQL Server managed connector reference](/connectors/sql). |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | [Managed connector - Standard class](managed.md) and [built-in connector](built-in.md), which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). <br><br>The built-in version differs in the following ways: <br><br>- The built-in version has no triggers. <br><br>- The built-in version has a single **Execute Query** action. The action can directly connect to Azure virtual networks without the on-premises data gateway. <br><br>For the managed version, review the [SQL Server managed connector reference](/connectors/sql/). |
 ||||
 
 ## Prerequisites
