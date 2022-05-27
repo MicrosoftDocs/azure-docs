@@ -1,6 +1,6 @@
 ---
 title: Azure CLI Script Example - Create Batch account - Batch service | Microsoft Docs
-description: Learn how to create a Batch account in Batch service mode with this Azure CLI script example. This also script shows how to query or update various properties of the account.
+description: Learn how to create a Batch account in Batch service mode with this Azure CLI script example. This script also shows how to query or update various properties of the account.
 ms.topic: sample
 ms.date: 05/24/2022
 ms.custom: devx-track-azurecli, seo-azure-cli
