@@ -600,7 +600,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | communicationservices | Yes | Yes | No |
+> | communicationservices | Yes | Yes <br/><br/> Note that resources with attached phone numbers cannot be moved to subscriptions in different data locations, nor subscriptions that do not support having phone numbers. | No |
 
 ## Microsoft.Compute
 
