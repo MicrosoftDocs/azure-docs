@@ -1,16 +1,16 @@
 ---
-title: Resource group and subscription access provisioning by data owner
+title: Resource group and subscription access provisioning by data owner (preview)
 description: Step-by-step guide showing how a data owner can create access policies to resource groups or subscriptions.
 author: inward-eye
 ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 05/10/2022
+ms.date: 05/27/2022
 ms.custom: event-tier1-build-2022
 ---
 
-# Resource group and subscription access provisioning by data owner (preview)
+# Resource group and subscription access provisioning by data owner (Preview)
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 [Access policies](concept-data-owner-policies.md) allow you to manage access from Microsoft Purview to data sources that have been registered for *Data Use Management*.
