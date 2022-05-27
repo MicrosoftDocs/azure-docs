@@ -114,6 +114,8 @@
       href: enable-public-ip-nsx-edge.md
     - name: Disable Internet access or enable a default route
       href: disable-internet-access.md
+    - name: Enable public internet access
+      href: enable-public-internet-access.md
   - name: Configure networking
     items:
     - name: Configure DHCP server or relay
@@ -130,8 +132,6 @@
       href: configure-port-mirroring-azure-vmware-solution.md
     - name: Configure a site-to-site VPN in vWAN
       href: configure-site-to-site-vpn-gateway.md
-    - name: Enable public internet access
-      href: enable-public-internet-access.md
     - name: HCX Mobility Optimized Networking (MON) guidance 
       href: vmware-hcx-mon-guidance.md
   - name: Configure storage policies
