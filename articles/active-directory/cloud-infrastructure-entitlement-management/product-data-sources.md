@@ -1,6 +1,6 @@
 ---
-title: View and configure settings for data collection from your authorization system in Entra Permissions Management
-description: How to view and configure settings for collecting data from your authorization system in Entra Permissions Management.
+title: View and configure settings for data collection from your authorization system in Permissions Management
+description: How to view and configure settings for collecting data from your authorization system in Permissions Management.
 services: active-directory
 author: mtillman
 manager: karenh444
@@ -15,15 +15,15 @@ ms.author: mtillman
 # View and configure settings for data collection
 
 > [!IMPORTANT]
-> Entra Permissions Management (Entra) is currently in PREVIEW.
+> Microsoft Entra Permissions Management is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 
-You can use the **Data Collectors** dashboard in Entra Permissions Management (Entra) to view and configure settings for collecting data from your authorization systems. It also provides information about the status of the data collection.
+You can use the **Data Collectors** dashboard in Permissions Management to view and configure settings for collecting data from your authorization systems. It also provides information about the status of the data collection.
 
 ## Access and view data sources
 
-1. To access your data sources, in the Entra home page, select **Settings** (the gear icon). Then select the **Data Collectors** tab.
+1. To access your data sources, in the Permissions Management home page, select **Settings** (the gear icon). Then select the **Data Collectors** tab.
 
 1. On the **Data Collectors** dashboard, select your authorization system type:
 
@@ -62,7 +62,7 @@ You can use the **Data Collectors** dashboard in Entra Permissions Management (E
 1. Select the ellipses **(...)** at the end of the row in the table.
 1. Select **Edit Configuration**.
 
-    The **Entra Onboarding - Summary** box displays.
+    The **Permissions Management Onboarding - Summary** box displays.
 
 1. Select **Edit** (the pencil icon) for each field you want to change.
 1. Select **Verify now & save**.
@@ -76,7 +76,7 @@ You can use the **Data Collectors** dashboard in Entra Permissions Management (E
 1. Select the ellipses **(...)** at the end of the row in the table.
 1. Select **Delete Configuration**.
 
-    The **Entra Onboarding - Summary** box displays.
+    The **Permissions Management Onboarding - Summary** box displays.
 1. Select **Delete**.
 1. Check your email for a one time password (OTP) code, and enter it in **Enter OTP**.
 

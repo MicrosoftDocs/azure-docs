@@ -1,6 +1,6 @@
 ---
-title: View analytic information about access keys in Entra Permissions Management
-description: How to view  analytic information about access keys in Entra Permissions Management.
+title: View analytic information about access keys in Permissions Management
+description: How to view  analytic information about access keys in Permissions Management.
 services: active-directory
 author: mtillman
 manager: karenh444
@@ -15,10 +15,10 @@ ms.author: mtillman
 # View analytic information about access keys
 
 > [!IMPORTANT]
-> Entra Permissions Management (Entra) is currently in PREVIEW.
+> Microsoft Entra Permissions Management is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-The **Analytics** dashboard in Entra Permissions Management (Entra) provides details about identities, resources, and tasks that you can use make informed decisions about granting permissions, and reducing risk on unused permissions.
+The **Analytics** dashboard in Permissions Management provides details about identities, resources, and tasks that you can use make informed decisions about granting permissions, and reducing risk on unused permissions.
 
 - **Users**: Tracks assigned permissions and usage of various identities.
 - **Groups**: Tracks assigned permissions and usage of the group and the group members.

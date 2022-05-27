@@ -1,6 +1,6 @@
 ---
-title: Create and view permission analytics triggers in Entra Permissions Management
-description: How to create and view permission analytics triggers in the Permission analytics tab in Entra Permissions Management.
+title: Create and view permission analytics triggers in Permissions Management
+description: How to create and view permission analytics triggers in the Permission analytics tab in Permissions Management.
 services: active-directory
 author: mtillman
 manager: karenh444
@@ -15,14 +15,14 @@ ms.author: mtillman
 # Create and view permission analytics triggers
 
 > [!IMPORTANT]
-> Entra Permissions Management (Entra) is currently in PREVIEW.
+> Microsoft Entra Permissions Management is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-This article describes how you can create and view permission analytics triggers in Entra Permissions Management (Entra).
+This article describes how you can create and view permission analytics triggers in Permissions Management.
 
 ## View permission analytics triggers
 
-1. In the Entra home page, select **Activity triggers** (the bell icon).
+1. In the Permissions Management home page, select **Activity triggers** (the bell icon).
 1. Select **Permission Analytics**, and then select the **Alerts** subtab.
 
     The **Alerts** subtab displays the following information:
@@ -54,7 +54,7 @@ This article describes how you can create and view permission analytics triggers
 
 ## Create a permission analytics trigger
 
-1. In the Entra home page, select **Activity triggers** (the bell icon).
+1. In the Permissions Management home page, select **Activity triggers** (the bell icon).
 1. Select **Permission Analytics**, select the **Alerts** subtab, and then select **Create Permission Analytics Trigger**.
 1. In the **Alert Name** box,  enter a name for the alert.
 1. Select the **Authorization System**.
@@ -71,7 +71,7 @@ This article describes how you can create and view permission analytics triggers
 
 ## View permission analytics alert triggers
 
-1. In the Entra home page, select **Activity triggers** (the bell icon).
+1. In the Permissions Management home page, select **Activity triggers** (the bell icon).
 1. Select **Permission Analytics**, and then select the **Alert Triggers** subtab.
 
     The **Alert triggers** subtab displays the following information:

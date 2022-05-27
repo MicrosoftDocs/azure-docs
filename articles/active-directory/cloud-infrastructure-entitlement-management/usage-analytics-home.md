@@ -1,6 +1,6 @@
 ---
-title: View analytic information with the Analytics dashboard in Entra Permissions Management
-description: How to use the Analytics dashboard in Entra Permissions Management to view details about users, groups, active resources, active tasks, access keys, and serverless functions.
+title: View analytic information with the Analytics dashboard in Permissions Management
+description: How to use the Analytics dashboard in Permissions Management to view details about users, groups, active resources, active tasks, access keys, and serverless functions.
 services: active-directory
 author: mtillman
 manager: karenh444
@@ -15,14 +15,14 @@ ms.author: mtillman
 # View analytic information with the Analytics dashboard
 
 > [!IMPORTANT]
-> Entra Permissions Management (Entra) is currently in PREVIEW.
+> Microsoft Entra Permissions Management is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-This article provides a brief overview of the Analytics dashboard in Entra Permissions Management (Entra), and the type of analytic information it provides for Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP).
+This article provides a brief overview of the Analytics dashboard in Permissions Management, and the type of analytic information it provides for Amazon Web Services (AWS), Microsoft Azure, or Google Cloud Platform (GCP).
 
 ## Display the Analytics dashboard
 
-- From the Entra home page, select the **Analytics** tab.
+- From the Permissions Management home page, select the **Analytics** tab.
 
     The **Analytics** dashboard displays detailed information about:
 

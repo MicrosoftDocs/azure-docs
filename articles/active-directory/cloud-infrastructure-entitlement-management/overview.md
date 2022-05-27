@@ -1,6 +1,6 @@
 ---
-title: What's Entra Permissions Management?
-description: An introduction to Entra Permissions Management.
+title: What's Permissions Management?
+description: An introduction to Permissions Management.
 services: active-directory
 author: mtillman
 manager: karenh444
@@ -12,21 +12,21 @@ ms.date: 04/20/2022
 ms.author: mtillman
 ---
 
-# What's Entra Permissions Management?
+# What's Permissions Management?
 
 
 > [!IMPORTANT]
-> Entra Permissions Management (Entra) is currently in PREVIEW.
+> Microsoft Entra Permissions Management is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
 > [!NOTE]
-> The Entra Permissions Management (Entra) PREVIEW is currently not available for tenants hosted in the European Union (EU).
+> The Permissions Management PREVIEW is currently not available for tenants hosted in the European Union (EU).
 
 ## Overview
 
-Entra Permissions Management (Entra) is a cloud infrastructure entitlement management (CIEM) solution that provides comprehensive visibility into permissions assigned to all identities. For example, over-privileged workload and user identities, actions, and resources across multi-cloud infrastructures in Microsoft Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
+Permissions Management is a cloud infrastructure entitlement management (CIEM) solution that provides comprehensive visibility into permissions assigned to all identities. For example, over-privileged workload and user identities, actions, and resources across multi-cloud infrastructures in Microsoft Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
 
-Entra  detects, automatically right-sizes, and continuously monitors unused and excessive permissions.
+Permissions Management  detects, automatically right-sizes, and continuously monitors unused and excessive permissions.
 
 Organizations have to consider permissions management as a central piece of their Zero Trust security to implement least privilege access across their entire infrastructure:
 
@@ -39,7 +39,7 @@ Organizations have to consider permissions management as a central piece of thei
 
 ## Key use cases
 
-Entra  allows customers to address three key use cases: *discover*, *remediate*, and *monitor*.
+Permissions Management  allows customers to address three key use cases: *discover*, *remediate*, and *monitor*.
 
 ### Discover
 
@@ -64,7 +64,7 @@ Customers can detect anomalous activities with machine language-powered (ML-powe
 - ML-powered anomaly detections.
 - Context-rich forensic reports around identities, actions, and resources to support rapid investigation and remediation.
 
-Entra  deepens Zero Trust security strategies by augmenting the least privilege access principle, allowing customers to:
+Permissions Management  deepens Zero Trust security strategies by augmenting the least privilege access principle, allowing customers to:
 
 - Get comprehensive visibility: Discover which identity is doing what, where, and when.
 - Automate least privilege access: Use access analytics to ensure identities have the right permissions, at the right time.
@@ -74,5 +74,5 @@ Entra  deepens Zero Trust security strategies by augmenting the least privilege 
 
 ## Next steps
 
-- For information on how to onboard Entra for your organization, see [Enable Entra in your organization](onboard-enable-tenant.md).
-- For a list of frequently asked questions (FAQs) about Entra, see [FAQs](faqs.md).
+- For information on how to onboard Permissions Management for your organization, see [Enable Permissions Management in your organization](onboard-enable-tenant.md).
+- For a list of frequently asked questions (FAQs) about Permissions Management, see [FAQs](faqs.md).

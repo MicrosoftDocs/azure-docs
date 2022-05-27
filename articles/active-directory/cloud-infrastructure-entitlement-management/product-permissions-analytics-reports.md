@@ -1,6 +1,6 @@
 ---
-title: Generate and download the Permissions analytics report in Entra Permissions Management
-description: How to generate and download the Permissions analytics report in Entra Permissions Management.
+title: Generate and download the Permissions analytics report in Permissions Management
+description: How to generate and download the Permissions analytics report in Permissions Management.
 services: active-directory
 author: mtillman
 manager: karenh444
@@ -15,17 +15,17 @@ ms.author: mtillman
 # Generate and download the Permissions analytics report
 
 > [!IMPORTANT]
-> Entra Permissions Management (Entra) is currently in PREVIEW.
+> Microsoft Entra Permissions Management is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-This article describes how to generate and download the **Permissions analytics report** in Entra Permissions Management (Entra).
+This article describes how to generate and download the **Permissions analytics report** in Permissions Management.
 
 > [!NOTE]
 > This topic applies only to Amazon Web Services (AWS) users.
 
 ## Generate the Permissions analytics report
 
-1. In the Entra home page, select the **Reports** tab, and then select the **Systems Reports** subtab.
+1. In the Permissions Management home page, select the **Reports** tab, and then select the **Systems Reports** subtab.
 
     The **Systems Reports** subtab displays a list of reports the **Reports** table.
 1. Find **Permissions Analytics Report** in the list, and to download the report, select the down arrow to the right of the report name, or from the ellipses **(...)** menu, select **Download**.

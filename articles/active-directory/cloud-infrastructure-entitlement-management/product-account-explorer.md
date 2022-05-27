@@ -1,6 +1,6 @@
 ---
-title: The Entra Permissions Management - View roles and identities that can access account information from an external account
-description: How to view information about identities that can access accounts from an external account in Entra Permissions Management.
+title: View roles and identities that can access account information from an external account
+description: How to view information about identities that can access accounts from an external account in Permissions Management.
 services: active-directory
 manager: karenh444
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.author: mtillman
 # View roles and identities that can access account information from an external account
 
 > [!IMPORTANT]
-> Entra Permissions Management (Entra) is currently in PREVIEW.
+> Microsoft Entra Permissions Management is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-You can view information about users, groups, and resources that can access account information from an external account in Entra Permissions Management (Entra).
+You can view information about users, groups, and resources that can access account information from an external account in Permissions Management.
 
 ## Display information about users, groups, or tasks
 
-1. In Entra, select the **Usage analytics** tab, and then, from the dropdown, select one of the following:
+1. In Permissions Management, select the **Usage analytics** tab, and then, from the dropdown, select one of the following:
 
    - **Users**
    - **Group**
@@ -53,7 +53,7 @@ To export the data in comma-separated values (CSV) file format, select **Export*
 1. To view all the identities from various accounts that can assume this role, select the down arrow to the left of the role name.
 1. To view a graph of all the identities that can access the specified account and through which role(s), select the role name.
 
-   If Entra is monitoring the external account, it lists specific identities from the accounts that can assume this role. Otherwise, it lists the identities declared in the **Trusted entity** section.
+   If Permissions Management is monitoring the external account, it lists specific identities from the accounts that can assume this role. Otherwise, it lists the identities declared in the **Trusted entity** section.
 
    **Connecting roles**: Lists the following roles for each account:
       - *Direct roles* that are trusted by the account role.
@@ -62,7 +62,7 @@ To export the data in comma-separated values (CSV) file format, select **Export*
 1. To view all the roles from that account that are used to access the specified account, select the down arrow to the left of the account name.
 1. To view the trusted identities declared by the role, select the down arrow to the left of the role name.
 
-   The trusted identities for the role are listed only if the account is being monitored by Entra.
+   The trusted identities for the role are listed only if the account is being monitored by Permissions Management.
 
 1. To view the role definition, select the "eye" icon to the right of the role name.
 

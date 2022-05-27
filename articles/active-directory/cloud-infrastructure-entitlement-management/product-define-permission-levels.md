@@ -1,6 +1,6 @@
 ---
-title: Define and manage users, roles, and access levels in Entra Permissions Management
-description: How to define and manage users, roles, and access levels in Entra Permissions Management User management dashboard.
+title: Define and manage users, roles, and access levels in Permissions Management
+description: How to define and manage users, roles, and access levels in Permissions Management User management dashboard.
 services: active-directory
 author: mtillman
 manager: karenh444
@@ -15,14 +15,14 @@ ms.author: mtillman
 # Define and manage users, roles, and access levels
 
 > [!IMPORTANT]
-> Entra Permissions Management (Entra) is currently in PREVIEW.
+> Microsoft Entra Permissions Management is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-In Entra Permissions Management (Entra), a key component of the  interface is the User management dashboard. This topic describes how system administrators can define and manage users, their roles, and their access levels in the system.
+In Permissions Management, a key component of the interface is the User management dashboard. This topic describes how system administrators can define and manage users, their roles, and their access levels in the system.
 
 ## The User management dashboard
 
-The Entra User management dashboard provides a high-level overview of:
+The Permissions Management User management dashboard provides a high-level overview of:
 
 - Registered and invited users.
 - Permissions allowed for each user within a given system.
@@ -33,13 +33,13 @@ It also provides the functionality to invite or delete a user, edit, view, and c
 
 ## Manage users for customers without SAML integration
 
-Follow this process to invite users if the customer hasn't enabled SAML integration with the Entra application.
+Follow this process to invite users if the customer hasn't enabled SAML integration with the Permissions Management application.
 
-### Invite a user to Entra
+### Invite a user to Permissions Management
 
-Inviting a user to Entra adds the user to the system and allows system administrators to assign permissions to those users. Follow the steps below to invite a user to Entra.
+Inviting a user to Permissions Management adds the user to the system and allows system administrators to assign permissions to those users. Follow the steps below to invite a user to Permissions Management.
 
-1. To invite a user to Entra, select the down caret icon next to the **User** icon on the right of the screen, and then select **User Management**.
+1. To invite a user to Permissions Management, select the down caret icon next to the **User** icon on the right of the screen, and then select **User Management**.
 2. From the **Users** tab, select **Invite User**.
 3. From the **Set User Permission** window, in the **User** text box, enter the user's email address.
 4. Under **Permission**, select the applicable option.
@@ -92,11 +92,11 @@ Inviting a user to Entra adds the user to the system and allows system administr
 
 ## Manage users for customers with SAML integration
 
-Follow this process to invite users if the customer has enabled SAML integration with the Entra application.
+Follow this process to invite users if the customer has enabled SAML integration with the Permissions Management application.
 
-### Create a permission in Entra
+### Create a permission in Permissions Management
 
-Creating a permission directly in Entra allows system administrators to assign permissions to specific users. The following steps help you to create a permission.
+Creating a permission directly in Permissions Management allows system administrators to assign permissions to specific users. The following steps help you to create a permission.
 
 - On the right side of the screen, select the down caret icon next to **User**, and then select **User management**.
 
@@ -150,7 +150,7 @@ Creating a permission directly in Entra allows system administrators to assign p
 
        The following message displays in green at the top of the screen:
  **New User Has Been Created Successfully**.
-    5. The new user receives an email invitation to log in to Entra.
+    5. The new user receives an email invitation to log in to Permissions Management.
 
 ### The Pending tab
 
@@ -165,7 +165,7 @@ Creating a permission directly in Entra allows system administrators to assign p
     - **Delete**: System administrators can delete a permission
     - **Reinvite**: System administrator can reinvite the permission if the user didn't receive the email invite
 
-       When a user registers with Entra, they move from the **Pending** tab to the **Registered** tab.
+       When a user registers with Permissions Management, they move from the **Pending** tab to the **Registered** tab.
 
 ### The Registered tab
 
@@ -176,7 +176,7 @@ Creating a permission directly in Entra allows system administrators to assign p
         - The **Permissions** column lists each authorization system, and each type of permission.
 
           If a user has all permissions for all authorization systems,  **Admin for All Authorization Types** display across all columns. If a user only has some permissions, numbers display in each column they have permissions for. For example, if the number "3" is listed in the **Viewer** column, the user has viewer permission for three accounts within that authorization system.
-             - The **Joined On** column records when the user registered for Entra.
+             - The **Joined On** column records when the user registered for Permissions Management.
              - The **Recent Activity** column displays the date when a user last performed an activity.
              - The **Search** button allows a system administrator to search for a user by name and all users who match the criteria displays.
              - The **Filters** option allows a system administrator to filter by specific details. When the filter option is selected, the **Authorization System** box displays.

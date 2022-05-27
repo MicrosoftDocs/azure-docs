@@ -1,6 +1,6 @@
 ---
-title: Set and view configuration settings in Entra Permissions Management
-description: How to view the Entra Permissions Management API integration settings and create service accounts and roles.
+title: Set and view configuration settings in Permissions Management
+description: How to view the Permissions Management API integration settings and create service accounts and roles.
 services: active-directory
 author: mtillman
 manager: karenh444
@@ -15,10 +15,10 @@ ms.author: mtillman
 # Set and view configuration settings
 
 > [!IMPORTANT]
-> Entra Permissions Management is currently in PREVIEW.
+> Microsoft Entra Permissions Management is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-This topic describes how to view configuration settings, create and delete a service account, and create a role in Entra Permissions Management.
+This topic describes how to view configuration settings, create and delete a service account, and create a role in Permissions Management.
 
 ## View configuration settings
 
@@ -30,7 +30,7 @@ The **Integrations** dashboard displays the authorization systems available to y
 
 1. Select an authorization system tile to view the following integration information:
 
-    1. To find out more about the Entra Permissions Management API, select **Entra Permissions Management API**, and then select documentation.
+    1. To find out more about the Permissions Management API, select **Permissions Management API**, and then select documentation.
         <!---Add Link: [documentation](https://developer.cloudknox.io/)--->
 
     1. To view information about service accounts, select **Integration**:

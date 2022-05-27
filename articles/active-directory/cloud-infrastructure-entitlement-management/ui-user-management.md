@@ -1,6 +1,6 @@
 ---
-title: Manage users and groups with the User management dashboard in Entra Permissions Management
-description: How to manage users and groups in the User management dashboard in Entra Permissions Management.
+title: Manage users and groups with the User management dashboard in Permissions Management
+description: How to manage users and groups in the User management dashboard in Permissions Management.
 services: active-directory
 author: mtillman
 manager: karenh444
@@ -15,14 +15,14 @@ ms.author: mtillman
 # Manage users and groups with the User management dashboard
 
 > [!IMPORTANT]
-> Entra Permissions Management (Entra) is currently in PREVIEW.
+> Microsoft Entra Permissions Management is currently in PREVIEW.
 > Some information relates to a prerelease product that may be substantially modified before it's released. Microsoft makes no warranties, express or implied, with respect to the information provided here.
 
-This article describes how to use the Entra Permissions Management (Entra) **User management** dashboard to view and manage users and groups.
+This article describes how to use the Permissions Management **User management** dashboard to view and manage users and groups.
 
 **To display the User management dashboard**:
 
-- In the upper right of the Entra home page, select **User** (your initials) in the upper right of the screen, and then select **User management.**
+- In the upper right of the Permissions Management home page, select **User** (your initials) in the upper right of the screen, and then select **User management.**
 
     The **User Management** dashboard has two tabs:
 
