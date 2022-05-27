@@ -1,8 +1,6 @@
 ---
 title: Profile Azure Containers with Application Insights Profiler
 description: Enable Application Insights Profiler for Azure Containers.
-ms.author: hannahhunter
-author: hhunter-ms
 ms.contributor: charles.weininger
 ms.topic: conceptual
 ms.date: 05/26/2022
@@ -22,7 +20,7 @@ In this article, you'll learn the various ways you can:
 
 ## Pre-requisites
 
-- [An Application Insights resource](./create-new-resource.md). Make note of the instrumentation key.
+- [An Application Insights resource](../app/create-new-resource.md). Make note of the instrumentation key.
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) to build docker images.
 - [.NET 6 SDK](https://dotnet.microsoft.com/download/dotnet/6.0) installed.
 

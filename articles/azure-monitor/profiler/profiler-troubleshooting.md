@@ -116,7 +116,7 @@ You can use the Kudu management site for App Service to get the base url of this
  It will end like this: `https://<kudu-url>/DiagnosticServices`
 
 It will display a Status Page similar like the below:
-![Diagnostic Services Status Page](./media/diagnostic-services-site-extension/status-page.png)
+![Diagnostic Services Status Page](../app/media/diagnostic-services-site-extension/status-page.png)
     
 ### Manual installation
 

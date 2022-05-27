@@ -18,7 +18,7 @@ Application Insights Profiler is installed with the Azure Diagnostics extension.
 ## Enable Profiler for Azure Cloud Services
 1. Check to make sure that you're using [.NET Framework 4.6.1](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or newer. If you are using OS family 4, you'll need to install .NET Framework 4.6.1 or newer with a [startup task](../../cloud-services/cloud-services-dotnet-install-dotnet.md). OS Family 5 includes a compatible version of .NET Framework by default. 
 
-1. Add [Application Insights SDK to Azure Cloud Services](./cloudservices.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
+1. Add [Application Insights SDK to Azure Cloud Services](../app/cloudservices.md?toc=%2fazure%2fazure-monitor%2ftoc.json).
 
     **The bug in the profiler that ships in the WAD for Cloud Services has been fixed.** The latest version of WAD (1.12.2.0) for Cloud Services works with all recent versions of the App Insights SDK. Cloud Service hosts will upgrade WAD automatically, but it isn't immediate. To force an upgrade, you can redeploy your service or reboot the node.
 
