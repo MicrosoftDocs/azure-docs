@@ -4,7 +4,7 @@ description: Learn how Azure Functions can help build robust serverless apps.
 author: craigshoemaker
 ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
-ms.date: 04/29/2022
+ms.date: 05/27/2022
 ms.author: cshoe
 ms.custom: contperf-fy21q2, devdivchpfy22
 ---
