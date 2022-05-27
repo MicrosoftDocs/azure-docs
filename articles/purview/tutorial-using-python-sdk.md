@@ -41,21 +41,20 @@ Before being able to scan the content of the Storage account, you need to give M
 1. Select Access Control (IAM). 
 1. Select the Add button and select **Add role assignment**.
 
-    :::image type="content" source="media/tutorial-using-python-sdk/add-role-assignment-storage.png" alt-text="The Access Control menu of the Storage Account with the add button selected and then add role assignment selected."::: 
+    :::image type="content" source="media/tutorial-using-python-sdk/add-role-assignment-storage.png" alt-text="Screenshot of the Access Control menu in the Storage Account with the add button selected and then add role assignment selected."::: 
 
 1. In the next window, search for the **Storage blob Reader** role and select it:
 
-    :::image type="content" source="media/tutorial-using-python-sdk/storage-blob-reader-role.png" alt-text="Add role assignment reader with Storage Blob Data Reader selected from the list of available roles."::: 
+    :::image type="content" source="media/tutorial-using-python-sdk/storage-blob-reader-role.png" alt-text="Screenshot of the add role assignment menu, with Storage Blob Data Reader selected from the list of available roles."::: 
 
 1. Then go on the **Members** tab and select **Select members**:
 
-    :::image type="content" source="media/tutorial-using-python-sdk/select-members-blob-reader-role.png" alt-text="Add role assignment menu with the + Select members button selected."::: 
+    :::image type="content" source="media/tutorial-using-python-sdk/select-members-blob-reader-role.png" alt-text="Screenshot of the add role assignment menu with the + Select members button selected."::: 
 
 1. A new pane appears on the right. Search and select the name of your existing Microsoft Purview instance.
 1. You can then select **Review + Assign**. 
 
 Microsoft Purview now has the required reading right to scan your Blob Storage. 
-
 
 ## Grant your application the access to your Microsoft Purview account
 
@@ -65,14 +64,14 @@ Microsoft Purview now has the required reading right to scan your Blob Storage.
     * Name
     * Client ID (or Application ID)
     * Tenant ID (or Directory ID)
-        :::image type="content" source="media/tutorial-using-python-sdk/app-registration-info.png" alt-text="Service principal with the Client ID and Tenant ID highlighted.":::
+        :::image type="content" source="media/tutorial-using-python-sdk/app-registration-info.png" alt-text="Screenshot of the service principal page in the Azure portal with the Client ID and Tenant ID highlighted.":::
     * [Client secret](../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options)
-        :::image type="content" source="media/tutorial-using-python-sdk/get-service-principal-secret.png" alt-text="Service principal, with the Certificates & secrets tab selected, showing the available client certificates and secrets.":::
+        :::image type="content" source="media/tutorial-using-python-sdk/get-service-principal-secret.png" alt-text="Screenshot of the service principal page in the Azure portal, with the Certificates & secrets tab selected, showing the available client certificates and secrets.":::
 
 1. You now need to give the relevant Microsoft Purview roles to your service principal. To do so, access your Microsoft Purview instance. Select **Open Microsoft Purview governance portal** or open [the Microsoft Purview's governance portal directly](https://web.purview.azure.com/) and choose the instance that you deployed.
 
 1. Inside the Microsoft Purview governance portal, select **Data map**, then **Collections**:
-    :::image type="content" source="media/tutorial-using-python-sdk/purview-collections.png" alt-text="The data map tab is selected, then the collections tab is selected.":::
+    :::image type="content" source="media/tutorial-using-python-sdk/purview-collections.png" alt-text="Screenshot of the Microsoft Purview governance portal left menu. The data map tab is selected, then the collections tab is selected.":::
 
 1. Select the collection you want to work with, and go on the **Role assignments** tab. Add the service principal in the following roles:
     * Collection admins
@@ -82,7 +81,7 @@ Microsoft Purview now has the required reading right to scan your Blob Storage.
     
 For to each role, select the **Edit role assignments** button and select the role you want to add the service principal to. Or select the **Add** button next to each role, and add the service principal by searching its name or Client ID as shown below:  
 
-:::image type="content" source="media/tutorial-using-python-sdk/add-role-purview.png" alt-text="The add user button is select next to the Collection admins tab. The add or remove collection admins pane is shown, with a search for the service principal in the text box."::: 
+:::image type="content" source="media/tutorial-using-python-sdk/add-role-purview.png" alt-text="Screenshot of the Role assignments menu under a collection in the Microsoft Purview governance portal. The add user button is select next to the Collection admins tab. The add or remove collection admins pane is shown, with a search for the service principal in the text box."::: 
 
 ## Install the Python packages
 
