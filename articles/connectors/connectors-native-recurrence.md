@@ -55,7 +55,7 @@ For differences between this trigger and the Sliding Window trigger or for more 
    ||||||
 
    > [!IMPORTANT]
-   > If you use the **Day**, **Week**, or **Month** frequency and specify a future date and time, make sure that you set up the recurrence in advance:
+   > If you use the **Day**, **Week**, or **Month** frequency, and you specify a future date and time, make sure that you set up the recurrence in advance:
    >
    > * **Day**: Set up the daily recurrence at least 24 hours in advance.
    >
