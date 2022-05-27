@@ -397,7 +397,7 @@ You can test the subpartitioning feature using the latest version of the local e
 .\CosmosDB.Emulator.exe /EnablePreview
 ```
 
-For more information, see [Azure Cosmos DB emulator](/azure/cosmos-db/local-emulator). 
+For more information, see [Azure Cosmos DB emulator](./local-emulator.md). 
 
 ## Limitations and known issues
 

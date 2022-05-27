@@ -74,8 +74,6 @@ These snippets use `uri_file` and `uri_folder`.
 >
 > If you wanted to pass in just an individual file rather than the entire folder you can use the `uri_file` type.
 
-For a complete example, see the [working_with_uris.ipynb notebook](https://github.com/azure/azureml-previews/sdk/docs/working_with_uris.ipynb).
-
 Below are some common data access patterns that you can use in your *control-plane* code to submit a job to Azure Machine Learning:
 
 ### Use data with a training job
