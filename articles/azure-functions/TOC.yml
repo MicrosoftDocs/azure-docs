@@ -52,6 +52,9 @@
             href: create-first-function-cli-python.md
           - name: TypeScript
             href: create-first-function-cli-typescript.md
+        - name: Bicep
+          displayName: ARM, Resource Manager, Template
+          href: functions-create-first-function-bicep.md
         - name: ARM template
           displayName: Resource Manager
           href: functions-create-first-function-resource-manager.md

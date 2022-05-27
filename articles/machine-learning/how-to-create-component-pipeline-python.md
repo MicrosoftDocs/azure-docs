@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
-ms.date: 05/10/2022
+ms.date: 05/26/2022
 ms.custom: devx-track-python, sdkv2, event-tier1-build-2022
 ---
 
@@ -59,7 +59,7 @@ This article is based on the [image_classification_keras_minist_convnet.ipynb](h
 
 Import all the Azure Machine Learning required libraries that you'll need for this article:
 
-[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=required-library)]
+[!notebook-python[] (~/azureml-examples-main/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=required-library)]
 
 ## Prepare input data for your pipeline job
 
@@ -69,7 +69,7 @@ Fashion-MNIST is a dataset of fashion images divided into 10 classes. Each image
 
 To define the input data of a job that references the Web-based data, run:
 
-[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=define-input)]
+[!notebook-python[] (~/azureml-examples-main/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=define-input)]
 
 By defining an `Input`, you create a reference to the data source location. The data remains in its existing location, so no extra storage cost is incurred.
 
@@ -103,7 +103,7 @@ If you're following along with the example in the [AzureML Examples repo](https:
 
 By using command_component() function as a decorator, you can easily define the component's interface, metadata and code to execute from a python function. Each decorated Python function will be transformed into a single static specification (YAML) that the pipeline service can process.
 
-:::code language="python" source="~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/prep/prep_component.py":::
+:::code language="python" source="~/azureml-examples-main/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/prep/prep_component.py":::
 
 The code above define a component with display name `Prep Data` using `@command_component` decorator:
 
@@ -127,13 +127,13 @@ Following is what a component looks like in the studio UI.
 
 You'll need to modify the runtime environment in which your component runs.
 
-:::code language="python" source="~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/prep/prep_component.py" range="5-10":::
+:::code language="python" source="~/azureml-examples-main/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/prep/prep_component.py" range="5-10":::
 
 The above code creates an object of `Environment` class, which represents the runtime environment in which the component runs.
 
 The `conda.yaml` file contains all packages used for the component like following:
 
-:::code language="python" source="~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/prep/conda.yaml":::
+:::code language="python" source="~/azureml-examples-main/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/prep/conda.yaml":::
 
 
 Now, you've prepared all source files for the `Prep Data` component.
@@ -159,7 +159,7 @@ The `train.py` file contains a normal python function, which performs the traini
 
 After defining the training function successfully, you can use @command_component in Azure Machine Learning SDK v2 to wrap your function as a component, which can be used in AML pipelines.
 
-:::code language="python" source="~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/train/train_component.py":::
+:::code language="python" source="~/azureml-examples-main/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/train/train_component.py":::
 
 The code above define a component with display name `Train Image Classification Keras` using `@command_component`:
 
@@ -169,7 +169,7 @@ The code above define a component with display name `Train Image Classification 
 
 The train-model component has a slightly more complex configuration than the prep-data component. The `conda.yaml` is like following:
 
-:::code language="yaml" source="~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/train/conda.yaml":::
+:::code language="yaml" source="~/azureml-examples-main/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/train/conda.yaml":::
 
 Now, you've prepared all source files for the `Train Image Classification Keras` component.
 
@@ -187,7 +187,7 @@ If you're following along with the example in the [AzureML Examples repo](https:
 
 The `score.py` file contains a normal python function, which performs the training model logic.
 
-:::code language="python" source="~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/score/score.py":::
+:::code language="python" source="~/azureml-examples-main/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/score/score.py":::
 
 
 The code in score.py takes three command-line arguments: `input_data`, `input_model` and `output_result`. The program score the input model using input data and then output the scoring result.
@@ -200,7 +200,7 @@ In this section, you'll learn to create a component specification in the valid Y
 - Interface: inputs and outputs
 - Command, code, & environment: The command, code, and environment used to run the component
 
-:::code language="python" source="~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/score/score.yaml":::
+:::code language="python" source="~/azureml-examples-main/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/score/score.yaml":::
 
 * `name` is the unique identifier of the component. Its display name is `Score Image Classification Keras`. 
 * This component has two inputs and one output. 
@@ -220,17 +220,17 @@ For prep-data component and train-model component defined by python function, yo
 
 In the following code, you import `prepare_data_component()` and `keras_train_component()` function from the `prep_component.py` file under `prep` folder and `train_component` file under `train` folder respectively.
 
-[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=load-from-dsl-component)]
+[!notebook-python[] (~/azureml-examples-main/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=load-from-dsl-component)]
 
 For score component defined by yaml, you can use `load_component()` function to load.
 
-[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=load-from-yaml)]
+[!notebook-python[] (~/azureml-examples-main/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=load-from-yaml)]
 
 ## Build your pipeline
 
 Now that you've created and loaded all components and input data to build the pipeline. You can compose them into a pipeline:
 
-[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=build-pipeline)]
+[!notebook-python[] (~/azureml-examples-main/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=build-pipeline)]
 
 The pipeline has a default compute `cpu_compute_target`, which means if you don't specify compute for a specific node, that node will run on the default compute.
 
@@ -261,13 +261,13 @@ We'll use `DefaultAzureCredential` to get access to workspace. `DefaultAzureCred
 Reference for more available credentials if it doesn't work for you: [configure credential example](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb), [azure-identity reference doc](/python/api/azure-identity/azure.identity?view=azure-python&preserve-view=true ).
 
 
-[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=credential)]
+[!notebook-python[] (~/azureml-examples-main/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=credential)]
 
 #### Get a handle to a workspace with compute
 
 Create a `MLClient` object to manage Azure Machine Learning services.
 
-[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=workspace)]
+[!notebook-python[] (~/azureml-examples-main/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=workspace)]
 
 > [!IMPORTANT]
 > This code snippet expects the workspace configuration json file to be saved in the current directory or its parent. For more information on creating a workspace, see [Create and manage Azure Machine Learning workspaces](how-to-manage-workspace.md). For more information on saving the configuration to file, see [Create a workspace configuration file](how-to-configure-environment.md#workspace).
@@ -276,7 +276,7 @@ Create a `MLClient` object to manage Azure Machine Learning services.
 
 Now you've get a handle to your workspace, you can submit your pipeline job.
 
-[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=submit-pipeline)]
+[!notebook-python[] (~/azureml-examples-main/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=submit-pipeline)]
 
 
 The code above submit this image classification pipeline job to experiment called `pipeline_samples`. It will auto create the experiment if not exists. The `pipeline_input_data` uses `fashion_ds`.
@@ -291,7 +291,7 @@ The call to `submit` the `Experiment` completes quickly, and produces output sim
 
 You can monitor the pipeline run by opening the link or you can block until it completes by running:
 
-[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=stream-pipeline)]
+[!notebook-python[] (~/azureml-examples-main/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=stream-pipeline)]
 
 > [!IMPORTANT]
 > The first pipeline run takes roughly *15 minutes*. All dependencies must be downloaded, a Docker image is created, and the Python environment is provisioned and created. Running the pipeline again takes significantly less time because those resources are reused instead of created. However, total run time for the pipeline depends on the workload of your scripts and the processes that are running in each pipeline step.
@@ -308,7 +308,7 @@ You can check the logs and outputs of each component by right clicking the compo
 
 In the previous section, you have built a pipeline using three components to E2E complete an image classification task. You can also register components to your workspace so that they can be shared and resued within the workspace. Following is an example to register prep-data component.
 
-[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=register-component)]
+[!notebook-python[] (~/azureml-examples-main/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=register-component)]
 
 Using `ml_client.components.get()`, you can get a registered component by name and version. Using `ml_client.compoennts.create_or_update()`, you can register a component previously loaded from python function or yaml.
 

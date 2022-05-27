@@ -26,7 +26,7 @@ The first step in creating a voice assistant is to decide what you want it to do
 | If you want... | Consider using... | Examples |
 |-------------------|------------------|----------------|
 |Open-ended conversation with robust skills integration and full deployment control | Azure Bot Service bot with [Direct Line Speech](direct-line-speech.md) channel | <ul><li>"I need to go to Seattle"</li><li>"What kind of pizza can I order?"</li></ul>
-|Voice-command or simple task-oriented conversations with simplified authoring and hosting | [Custom Commands](custom-commands.md) | <ul><li>"Turn on the overhead light"</li><li>"Make it 5 degrees warmer"</li><li>More examples at [Speech Studio](https://speech.microsoft.com/customcommands)</li></ul>
+|Voice-command or simple task-oriented conversations with simplified authoring and hosting | [Custom Commands](custom-commands.md) | <ul><li>"Turn on the overhead light"</li><li>"Make it 5 degrees warmer"</li><li>More examples at [Speech Studio](https://aka.ms/speechstudio/customcommands)</li></ul>
 
 If you aren't yet sure what you want your assistant to do, we recommend [Direct Line Speech](direct-line-speech.md) as the best option. It offers integration with a rich set of tools and authoring aids, such as the [Virtual Assistant solution and enterprise template](/azure/bot-service/bot-builder-enterprise-template-overview) and the [QnA Maker service](../qnamaker/overview/overview.md), to build on common patterns and use your existing knowledge sources.
 
