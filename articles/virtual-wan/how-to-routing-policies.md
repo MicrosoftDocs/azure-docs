@@ -36,7 +36,7 @@ While Private Traffic  includes both branch and Virtual Network address prefixes
 
 * **Internet Traffic Routing Policy**:  When an Internet Traffic Routing Policy is configured on a Virtual WAN hub, all branch (User VPN (Point-to-site VPN), Site-to-site VPN, and ExpressRoute) and Virtual Network connections to that Virtual WAN Hub will forward Internet-bound traffic to the Azure Firewall resource, Third-Party Security provider or **Network Virtual Appliance** specified as part of the Routing Policy.
 
-In other words, when Traffic Routing Policy is configured on a Virtual WAN hub, the Virtual WAN will propagate a **default** route to all spokes and Gateways. In the case of a **Network Virtual Appliance** this routes will be learned and propagated through BGP via the vWAN Route Service and learned by the BGP speakers inside the **Network Virtual Appliance**
+    In other words, when Traffic Routing Policy is configured on a Virtual WAN hub, the Virtual WAN will propagate a **default** route to all spokes and Gateways. In the case of a **Network Virtual Appliance** this routes will be learned and propagated through BGP via the vWAN Route Service and learned by the BGP speakers inside the **Network Virtual Appliance**
  
 * **Private Traffic Routing Policy**: When a Private Traffic Routing Policy is configured on a Virtual WAN hub, **all** branch and Virtual Network traffic in and out of the Virtual WAN Hub including inter-hub traffic will be forwarded to the Next Hop Azure Firewall resource or Network Virtual Appliance resource that was specified in the Private Traffic Routing Policy. 
 
@@ -83,7 +83,7 @@ In other words, when Traffic Routing Policy is configured on a Virtual WAN hub, 
 10. Repeat steps 2-8 for other Secured Virtual WAN hubs that you want to configure Routing policies for.
 11. At this point, you are ready to send test traffic. Please make sure your Firewall Policies are configured appropriately to allow/deny traffic based on your desired security configurations. 
 
-## <a name="nva"></a> Configure routing policies (through Virtual WAN portal)
+## <a name="nva"></a> Configure routing policies for Network Virtual Appliances (through Virtual WAN portal)
 
 >[!NOTE]
 > The only Network Virtual Appliance deployed in the Virtual WAN hub compatible with routing intent and routing policies are listed in the [Partners section](about-nva-hub.md) as dual-role connectivity and Next-Generation Firewall solution providers.
