@@ -4,7 +4,7 @@ description: Plan for a deployment with Azure File Sync, a service that allows y
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/05/2022
+ms.date: 05/27/2022
 ms.author: kendownie
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurepowershell
@@ -203,7 +203,7 @@ We'll use an example to illustrate how to estimate the amount of free space woul
 In this case, Azure File Sync would need about 209,500,000 KiB (209.5 GiB) of space for this namespace. Add this amount to any additional free space that is desired in order to figure out how much free space is required for this disk.
 
 ### Failover Clustering
-1. Windows Server Failover Clustering is supported by Azure File Sync for the "File Server for general use" deployment option. 
+1. Windows Server Failover Clustering is supported by Azure File Sync for the "File Server for general use" deployment option. For more information on how to configure the "File Server for general use" role on a Failover Cluster, see [Deploying a two-node clustered file server](https://docs.microsoft.com/windows-server/failover-clustering/deploy-two-node-clustered-file-server).
 2. The only scenario supported by Azure File Sync is Windows Server Failover Cluster with Clustered Disks
 3. Failover Clustering is not supported on "Scale-Out File Server for application data" (SOFS) or on Clustered Shared Volumes (CSVs) or local disks.
 
@@ -377,14 +377,11 @@ If cloud tiering is enabled, solutions that directly back up the server endpoint
 
 If you prefer to use an on-premises backup solution, backups should be performed on a server in the sync group that has cloud tiering disabled. When performing a restore, use the volume-level or file-level restore options. Files restored using the file-level restore option will be synced to all endpoints in the sync group and existing files will be replaced with the version restored from backup.  Volume-level restores will not replace newer file versions in the Azure file share or other server endpoints.
 
-> [!WARNING]
-> If you need to use Robocopy /B with an Azure File Sync agent running on either source or target server, please upgrade to Azure File Sync agent version v12.0 or above. Using Robocopy /B with agent versions less than v12.0 will lead to the corruption of tiered files during the copy.
-
 > [!Note]  
 > Bare-metal (BMR) restore can cause unexpected results and is not currently supported.
 
 > [!Note]  
-> With Version 9 of the Azure File Sync agent, VSS snapshots (including Previous Versions tab) are now supported on volumes which have cloud tiering enabled. However, you must enable previous version compatibility through PowerShell. [Learn how](file-sync-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service).
+> VSS snapshots (including Previous Versions tab) are supported on volumes which have cloud tiering enabled. However, you must enable previous version compatibility through PowerShell. [Learn how](file-sync-deployment-guide.md#self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service).
 
 ## Data Classification
 If you have data classification software installed, enabling cloud tiering may result in increased cost for two reasons:

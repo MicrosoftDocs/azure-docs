@@ -64,7 +64,7 @@ az feature show --name AzureArcForAVS --namespace Microsoft.AVS
 
 Use the following steps to guide you through the process to onboard in Arc for Azure VMware Solution (Preview).
 
-1. Sign into the jumpbox VM and extract the contents from the compressed file from the following [location](https://github.com/Azure/ArcOnAVS/releases/tag/v2.0.0). The extracted file contains the scripts to install the preview software.
+1. Sign into the jumpbox VM and extract the contents from the compressed file from the following [location](https://github.com/Azure/ArcOnAVS/releases/latest). The extracted file contains the scripts to install the preview software.
 1. Open the 'config_avs.json' file and populate all the variables.
 
     **Config JSON**

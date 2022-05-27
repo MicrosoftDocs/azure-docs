@@ -18,7 +18,7 @@ This article is part six of a seven part series that provides guidance on how to
 
 ## Data warehouse migration tools
 
-By migrating your existing data warehouse to Azure Synapse, you benefit from:
+By migrating your existing data warehouse to Azure Synapse Analytics, you benefit from:
 
 - A globally secure, scalable, low-cost, cloud-native, pay-as-you-use analytical database.
 
@@ -76,7 +76,7 @@ You can develop simple or comprehensive ETL and ELT processes without coding or 
 
 You can use Data Factory to implement and manage a hybrid environment that includes on-premises, cloud, streaming and SaaS data&mdash;for example, from applications like Salesforce&mdash;in a secure and consistent way.
 
-A new capability in Data Factory is wrangling data flows. This opens up Data Factory to business users who want to visually discover, explore, and prepare data at scale without writing code. This capability, similar to Microsoft Excel Power Query or Microsoft Power BI Dataflows, offers self-service data preparation. Business users can prepare and integrate data through a spreadsheet style user interface with drop-down transform options.
+A new capability in Data Factory is wrangling data flows. This opens up Data Factory to business users who want to visually discover, explore, and prepare data at scale without writing code. This capability, similar to Microsoft Excel Power Query or Microsoft Power BI dataflows, offers self-service data preparation. Business users can prepare and integrate data through a spreadsheet-style user interface with drop-down transform options.
 
 Azure Data Factory is the recommended approach for implementing data integration and ETL/ELT processes for an Azure Synapse environment, especially if existing legacy processes need to be refactored.
 
@@ -87,7 +87,7 @@ Azure Data Factory is the recommended approach for implementing data integration
 
 #### Azure ExpressRoute
 
-Azure ExpressRoute creates private connections between Azure data centers and infrastructure on your premises or in a collocation environment. ExpressRoute connections don't go over the public Internet, and they offer more reliability, faster speeds, and lower latencies than typical internet connections. In some cases, by using ExpressRoute connections to transfer data between on-premises systems and Azure, you gain significant cost benefits.
+Azure ExpressRoute creates private connections between Azure data centers and infrastructure on your premises or in a collocation environment. ExpressRoute connections don't go over the internet, and they offer more reliability, faster speeds, and lower latencies than typical internet connections. In some cases, by using ExpressRoute connections to transfer data between on-premises systems and Azure, you gain significant cost benefits.
 
 #### AzCopy
 
@@ -112,7 +112,7 @@ The [COPY](/sql/t-sql/statements/copy-into-transact-sql) statement provides the 
 
 PolyBase provides the fastest and most scalable method of loading bulk data into Azure Synapse. PolyBase leverages the MPP architecture to use parallel loading, to give the fastest throughput, and can read data from flat files in Azure Blob Storage or directly from external data sources and other relational databases via connectors.
 
-PolyBase can also directly read from files compressed with gzip&mdash;this reduces the physical volume of data moved during the load process. PolyBase supports popular data formats such as delimited text, ORC and Parquet.
+PolyBase can also directly read from files compressed with gzip&mdash;this reduces the physical volume of data moved during the load process. PolyBase supports popular data formats such as delimited text, ORC, and Parquet.
 
 > [!TIP]
 > Invoke PolyBase from Azure Data Factory as part of a migration pipeline.
