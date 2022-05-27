@@ -84,7 +84,7 @@
       displayName: compute node, application package, scaling, schedule, os, configuration
       href: nodes-and-pools.md
     - name: Jobs and tasks
-      displayName: Batch job, start task, environment 
+      displayName: Batch job, start task, environment
       href: jobs-and-tasks.md
     - name: Files and directories
       displayName: Batch file, working directory
@@ -113,8 +113,12 @@
       href: batch-management-dotnet.md
     - name: Get cost analysis and set budgets
       href: budget.md
+    - name: Configure public network access with Batch accounts
+      href: public-network-access.md
     - name: Use private endpoints with Batch accounts
       href: private-connectivity.md
+    - name: Manage private endpoint connections with Batch accounts
+      href: manage-private-endpoint-connections.md
     - name: Configure customer-managed keys
       href: batch-customer-managed-key.md
     - name: Move between regions
@@ -170,6 +174,9 @@
     - name: Create a pool without public IP addresses
       displayName: private
       href: batch-pool-no-public-ip-address.md
+    - name: Create a pool without public IP addresses (V2)
+      displayName: private
+      href: batch-pool-no-public-ip-address-v2.md
     - name: Create a pool with ephemeral OS disk nodes
       href: create-pool-ephemeral-os-disk.md
     - name: Use extensions with pools
@@ -253,7 +260,7 @@
     href: batch-js-get-started.md
   - name: Run workloads
     items:
-    - name: MPI 
+    - name: MPI
       displayName: multi-instance, message passing interface
       href: batch-mpi.md
     - name: Container workloads

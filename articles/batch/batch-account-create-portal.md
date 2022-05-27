@@ -39,7 +39,9 @@ For background about Batch accounts and scenarios, see [Batch service workflow a
 
     :::image type="content" source="media/batch-account-create-portal/storage_account.png" alt-text="Screenshot of the options when creating a storage account.":::
 
-1. If desired, select **Advanced** to specify **Identity type**, **Public network access** or **Pool allocation mode**. For most scenarios, the default options are fine.
+1. If desired, select **Advanced** to specify **Identity type**, **Pool allocation mode** or **Authentication mode**. For most scenarios, the default options are fine.
+
+1. If desired, select **Networking** to configure [public network access](public-network-access.md) with your Batch account.
 
 1. Select **Review + create**, then select **Create** to create the account.
 
@@ -127,7 +129,7 @@ Make sure to set the following parameters based on your Batch pool's configurati
 For example:
 
 ```powershell
-Get-AzMarketplaceTerms -Publisher 'microsoft-azure-batch' -Product 'ubuntu-server-container' -Name '20-04-lts' | Set-AzMarketplaceTerms -Accept 
+Get-AzMarketplaceTerms -Publisher 'microsoft-azure-batch' -Product 'ubuntu-server-container' -Name '20-04-lts' | Set-AzMarketplaceTerms -Accept
 ```
 
 
