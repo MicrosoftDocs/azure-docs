@@ -35,16 +35,6 @@ Use the Image Analysis client library for C# to analyze an image for content tag
 
 1. Create a new C# application.
 
-    #### [Visual Studio IDE](#tab/visual-studio)
-
-    Using Visual Studio, create a new .NET Core application. 
-
-    ### Install the client library 
-
-    Once you've created a new project, install the client library by right-clicking on the project solution in the **Solution Explorer** and selecting **Manage NuGet Packages**. In the package manager that opens select **Browse**, check **Include prerelease**, and search for `Microsoft.Azure.CognitiveServices.Vision.ComputerVision`. Select version `7.0.0`, and then **Install**. 
-
-    #### [CLI](#tab/cli)
-
     In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name `computer-vision-quickstart`. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*.
 
     ```console
@@ -71,11 +61,18 @@ Use the Image Analysis client library for C# to analyze an image for content tag
 
     Within the application directory, install the Computer Vision client library for .NET with the following command:
 
+    #### [Version 3.2](#tab/3-2)
     ```console
     dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 7.0.0
     ```
 
+    #### [Version 4.0](#tab/4-0)
+    ```console
+    dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version x.x.x
+    ```
+
     ---
+
 
 1. Find the key and endpoint.
 
@@ -83,7 +80,11 @@ Use the Image Analysis client library for C# to analyze an image for content tag
 
 1. From the project directory, open the *Program.cs* file in your preferred editor or IDE. Paste in the following code:
 
+    #### [Version 3.2](#tab/3-2)
    [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ImageAnalysisQuickstart-single.cs?name=snippet_single)]
+    #### [Version 4.0](#tab/4-0)
+    (TBD new code)
+    ---
 
 1. Paste your key and endpoint into the code where indicated. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
 
@@ -92,19 +93,11 @@ Use the Image Analysis client library for C# to analyze an image for content tag
 
 1. Run the application
 
-   #### [Visual Studio IDE](#tab/visual-studio)
-
-   Run the application by clicking the **Debug** button at the top of the IDE window.
-
-   #### [CLI](#tab/cli)
-
    Run the application from your application directory with the `dotnet run` command.
 
    ```dotnet
    dotnet run
    ```
-
-   ---
 
 ## Output
 
