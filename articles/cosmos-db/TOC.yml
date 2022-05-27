@@ -386,6 +386,9 @@
                     - name: DateTimeAdd
                       displayName: DateTimeAdd, date time add, timestamp, date and time functions, datetime
                       href: sql/sql-query-datetimeadd.md
+                    - name: DateTimeBin
+                      displayName: DateTimeBin, date time bin, date and time functions, datetime
+                      href: sql/sql-query-datetimebin.md
                     - name: DateTimeDiff
                       displayName: DateTimeDiff, date time diff, date and time functions, datetime
                       href: sql/sql-query-datetimediff.md
