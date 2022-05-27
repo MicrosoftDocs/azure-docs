@@ -19,9 +19,9 @@ ms.custom: kr2b-contr-experiment
 
 | Composite | Use Cases |
 | :-------- | :-------- |
-| [CallComposite](../../../quickstarts/ui-library/get-started-composites.md)  | Calling experience that allows users to start or join a call. Inside the experience, users can configure their devices, participate in the call with video, and see other participants, including those ones with video turned on. For Teams Interop, lobby functionality in included so that users can wait to be admitted. |
+| [CallComposite](../../../quickstarts/ui-library/get-started-composites.md)  | Calling experience that allows users to start or join a call. Inside the experience, users can configure their devices, participate in the call with video, and see other participants, including those ones with video turned on. For Teams interoperability, `CallComposite` includes lobby functionality so that users can wait to be admitted. |
 
-## Scenarios
+## Composites scenarios
 
 ### Joining a video/audio call
 
@@ -29,7 +29,7 @@ Users can join a call using the *Teams meeting URL* or they can set up an Azure 
 
 ### Pre-call experience
 
-As a participant of the calls, you can provide a name and set up a default configuration for audio and video devices. Then you're ready to jump into the call.
+As a participant of the call, you can provide a name and set up a default configuration for audio and video devices. Then you're ready to jump into the call.
 
 :::image type="content" source="../../media/mobile-ui/teams-meet.png" alt-text="Screenshot shows the pre-meeting experience, a page with a message for the participant.":::
 
@@ -43,24 +43,24 @@ The calling experience provides all these capabilities in one composite componen
 
 ### Quality and security
 
-Mobile Composites are initialized using [Azure Communication Services access tokens](../../../quickstarts/access-tokens.md).
+Mobile composites are initialized using [Azure Communication Services access tokens](../../../quickstarts/access-tokens.md).
 
 ### More details
 
 If you need more details about mobile composites, see [use cases](../ui-library-use-cases.md).
 
-## What UI Artifact is Best for my Project?
+## What UI artifact is best for my project?
 
 These requirements help you choose the right client library:
 
-- **How much customization do you desire?** Azure Communication core client libraries don't have a UX and are designed so you can build whatever UX you want. UI Library components provide UI assets at the cost of reduced customization.
+- **How much customization do you desire?** Azure Communication Services core client libraries don't have a UX and are designed so you can build whatever UX you want. UI Library components provide UI assets at the cost of reduced customization.
 
 - **What platforms are you targeting?** Different platforms have different capabilities.
 
 
 Here are some key trade-offs:
 
-| Client library / SDK  | Implementation Complexity | Customization Ability | Calling | [Teams interoperability](../../teams-interop.md) |
+| Client library / SDK  | Implementation complexity | Customization ability | Calling | [Teams interoperability](../../teams-interop.md) |
 | :-------------------- | :-----------------------: | :-------------------: | :-----: | :----------------------------------------------: |
 | Composite Components  | Low                       | Low                   | ✔      |  ✔  |
 | [Core client libraries](../../voice-video-calling/calling-sdk-features.md#detailed-capabilities) | High | High | ✔    | ✔      |
