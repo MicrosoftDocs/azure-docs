@@ -25,7 +25,7 @@ Learn more about the [key concepts for Azure Load Testing](./concept-load-testin
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- Azure RBAC role with permission to create and manage resources in the subscription, such as [Contributor](/azure/role-based-access-control/built-in-roles#contributor) or [Owner](/azure/role-based-access-control/built-in-roles#owner) 
+- Azure RBAC role with permission to create and manage resources in the subscription, such as [Contributor](../role-based-access-control/built-in-roles.md#contributor) or [Owner](../role-based-access-control/built-in-roles.md#owner) 
 
 ## <a name="create_resource"></a> Create an Azure Load Testing resource
 

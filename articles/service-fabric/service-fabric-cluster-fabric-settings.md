@@ -60,8 +60,8 @@ The following is a list of Fabric settings that you can customize, organized by 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
 |DeployedState |wstring, default is L"Disabled" |Static |2-stage removal of CSS. |
-|EnableSecretMonitoring|bool, default is FALSE |Static |Must be enabled to use Managed KeyVaultReferences. Default may become true in the future. For more information, see [KeyVaultReference support for Azure-deployed Service Fabric Applications](https://docs.microsoft.com/azure/service-fabric/service-fabric-keyvault-references)|
-|SecretMonitoringInterval|TimeSpan, default is Common::TimeSpan::FromMinutes(15) |Static |The rate at which Service Fabric will poll Key Vault for changes when using Managed KeyVaultReferences. This rate is a best effort, and changes in Key Vault may be reflected in the cluster earlier or later than the interval. For more information, see [KeyVaultReference support for Azure-deployed Service Fabric Applications](https://docs.microsoft.com/azure/service-fabric/service-fabric-keyvault-references) |
+|EnableSecretMonitoring|bool, default is FALSE |Static |Must be enabled to use Managed KeyVaultReferences. Default may become true in the future. For more information, see [KeyVaultReference support for Azure-deployed Service Fabric Applications](./service-fabric-keyvault-references.md)|
+|SecretMonitoringInterval|TimeSpan, default is Common::TimeSpan::FromMinutes(15) |Static |The rate at which Service Fabric will poll Key Vault for changes when using Managed KeyVaultReferences. This rate is a best effort, and changes in Key Vault may be reflected in the cluster earlier or later than the interval. For more information, see [KeyVaultReference support for Azure-deployed Service Fabric Applications](./service-fabric-keyvault-references.md) |
 
 |UpdateEncryptionCertificateTimeout |TimeSpan, default is Common::TimeSpan::MaxValue |Static |Specify timespan in seconds. The default has changed to TimeSpan::MaxValue; but overrides are still respected. May be deprecated in the future. |
 
@@ -659,7 +659,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |ReplicationBatchSize|uint, default is 1|Static|Specifies the number of operations to be sent between primary and secondary replicas. If zero the primary sends one record per operation to the secondary. Otherwise the primary replica aggregates log records until the config value is reached.  This will reduce network traffic.|
 
 ## Replication
-<i> **Warning Note** : Changing Replication/TranscationalReplicator settings at cluster level changes settings for all stateful services include system services. This is generally not recommended. See this document [Configure Azure Service Fabric Reliable Services - Azure Service Fabric | Microsoft Docs](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-configuration) to configure services at app level.</i>
+<i> **Warning Note** : Changing Replication/TranscationalReplicator settings at cluster level changes settings for all stateful services include system services. This is generally not recommended. See this document [Configure Azure Service Fabric Reliable Services - Azure Service Fabric | Microsoft Docs](./service-fabric-reliable-services-configuration.md) to configure services at app level.</i>
 
 
 | **Parameter** | **Allowed Values** | **Upgrade Policy**| **Guidance or Short Description** |
@@ -932,7 +932,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |Level |Int, default is 4 | Dynamic |Trace etw level can take values 1, 2, 3, 4. To be supported you must keep the trace level at 4 |
 
 ## TransactionalReplicator
-<i> **Warning Note** : Changing Replication/TranscationalReplicator settings at cluster level changes settings for all stateful services include system services. This is generally not recommended. See this document [Configure Azure Service Fabric Reliable Services - Azure Service Fabric | Microsoft Docs](https://docs.microsoft.com/azure/service-fabric/service-fabric-reliable-services-configuration) to configure services at app level.</i>
+<i> **Warning Note** : Changing Replication/TranscationalReplicator settings at cluster level changes settings for all stateful services include system services. This is generally not recommended. See this document [Configure Azure Service Fabric Reliable Services - Azure Service Fabric | Microsoft Docs](./service-fabric-reliable-services-configuration.md) to configure services at app level.</i>
 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |

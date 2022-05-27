@@ -142,6 +142,8 @@
         href: flexible-server/tutorial-deploy-springboot-on-aks-vnet.md
       - name: Connect with private web app
         href: flexible-server/tutorial-webapp-server-vnet.md
+      - name: Integrate with Service Connector
+        href: ../service-connector/how-to-integrate-mysql.md
       - name: Database deployment
         items:
         - name: GitHub Actions

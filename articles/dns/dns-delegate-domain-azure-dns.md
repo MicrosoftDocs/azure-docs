@@ -44,10 +44,10 @@ In this example, we'll reference the parent domain a `contoso.net`.
 
     | **Setting** | **Value** | **Details** |
     |--|--|--|
-    | **Resource group**    | ContosoRG | Create a resource group. The resource group name must be unique within the subscription that you selected. The location of the resource group doesn't affect the DNS zone. The DNS zone location is always "global," and isn't shown. |
+    | **Resource group**    | *ContosoRG* | Create a resource group. The resource group name must be unique within the subscription that you selected. The location of the resource group doesn't affect the DNS zone. The DNS zone location is always "global," and isn't shown. |
     | **This zone is a child of an existing zone already hosted in Azure DNS**        | leave unchecked | Leave this box unchecked since the DNS zone is **not** a [child zone](./tutorial-public-dns-zones-child.md). |
-    | **Name**              | `contoso.net` | Field for your parent zone name      |
-    | **Resource group location**          | East US | This field is based on the location selected as part of Resource group creation  |
+    | **Name**              | *contoso.net* | Enter your parent DNS zone name      |
+    | **Resource group location**          | *East US* | This field is based on the location selected as part of Resource group creation  |
     
 1. Select **Create**.
 
