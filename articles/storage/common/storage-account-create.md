@@ -173,7 +173,7 @@ The following table describes the fields on the **Networking** tab.
 
 The following image shows a standard configuration of the networking properties for a new storage account.
 
-:::image type="content" source="media/storage-account-create/create-account-networking-tab.png" alt-text="Screenshot showing a standard configuration for a new storage account - Networking tab":::
+:::image type="content" source="media/storage-account-create/create-account-networking-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Networking tab" lightbox="media/storage-account-create/create-account-Networking-tab-lrg.png":::
 
 > [!IMPORTANT]
 > Azure DNS zone endpoints are currently in PREVIEW.
