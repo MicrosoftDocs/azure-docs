@@ -48,7 +48,7 @@ Modifying the parameter `replicate_wild_ignore_table` used to create replication
 
 - The source server version must be at least MySQL version 5.7.
 - Our recommendation is to have the same version for source and replica server versions. For example, both must be MySQL version 5.7 or both must be MySQL version 8.0.
-- Our recommendation is to have a primary key in each table. If we have table without primary key, you might face slowness in replication. For primary keys of tables you can use [invisible column](https://dev.mysql.com/doc/refman/8.0/en/invisible-columns.html) if your MySQL version is greater than 8.0.23.
+- Our recommendation is to have a primary key in each table. If we have table without primary key, you might face slowness in replication. To create primary keys for tables you can use [invisible column](https://dev.mysql.com/doc/refman/8.0/en/invisible-columns.html) if your MySQL version is greater than 8.0.23.
 - The source server should use the MySQL InnoDB engine.
 - User must have permissions to configure binary logging and create new users on the source server.
 - Binary log files on the source server shouldn't be purged before the replica applies those changes. If the source is Azure Database for MySQL refer how to configure binlog_expire_logs_seconds for [Flexible server](./concepts-server-parameters.md#binlog_expire_logs_seconds) or [Single server](../concepts-server-parameters.md#binlog_expire_logs_seconds)
