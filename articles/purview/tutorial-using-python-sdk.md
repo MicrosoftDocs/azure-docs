@@ -64,13 +64,16 @@ Microsoft Purview now has the required reading right to scan your Blob Storage.
     * Name
     * Client ID (or Application ID)
     * Tenant ID (or Directory ID)
+
         :::image type="content" source="media/tutorial-using-python-sdk/app-registration-info.png" alt-text="Screenshot of the service principal page in the Azure portal with the Client ID and Tenant ID highlighted.":::
     * [Client secret](../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options)
+
         :::image type="content" source="media/tutorial-using-python-sdk/get-service-principal-secret.png" alt-text="Screenshot of the service principal page in the Azure portal, with the Certificates & secrets tab selected, showing the available client certificates and secrets.":::
 
 1. You now need to give the relevant Microsoft Purview roles to your service principal. To do so, access your Microsoft Purview instance. Select **Open Microsoft Purview governance portal** or open [the Microsoft Purview's governance portal directly](https://web.purview.azure.com/) and choose the instance that you deployed.
 
 1. Inside the Microsoft Purview governance portal, select **Data map**, then **Collections**:
+
     :::image type="content" source="media/tutorial-using-python-sdk/purview-collections.png" alt-text="Screenshot of the Microsoft Purview governance portal left menu. The data map tab is selected, then the collections tab is selected.":::
 
 1. Select the collection you want to work with, and go on the **Role assignments** tab. Add the service principal in the following roles:
@@ -79,9 +82,9 @@ Microsoft Purview now has the required reading right to scan your Blob Storage.
     * Data curators
     * Data readers
     
-For to each role, select the **Edit role assignments** button and select the role you want to add the service principal to. Or select the **Add** button next to each role, and add the service principal by searching its name or Client ID as shown below:  
+1. For each role, select the **Edit role assignments** button and select the role you want to add the service principal to. Or select the **Add** button next to each role, and add the service principal by searching its name or Client ID as shown below:  
 
-:::image type="content" source="media/tutorial-using-python-sdk/add-role-purview.png" alt-text="Screenshot of the Role assignments menu under a collection in the Microsoft Purview governance portal. The add user button is select next to the Collection admins tab. The add or remove collection admins pane is shown, with a search for the service principal in the text box."::: 
+    :::image type="content" source="media/tutorial-using-python-sdk/add-role-purview.png" alt-text="Screenshot of the Role assignments menu under a collection in the Microsoft Purview governance portal. The add user button is select next to the Collection admins tab. The add or remove collection admins pane is shown, with a search for the service principal in the text box."::: 
 
 ## Install the Python packages
 
@@ -106,7 +109,7 @@ For to each role, select the **Edit role assignments** button and select the rol
     ```bash
     pip install azure-purview-account
     ```
-1.	Install the Azure core package:
+1.	Install the Azure Core package:
     ```bash
     pip install azure-core
     ```
@@ -286,7 +289,7 @@ In this section, you'll register your Blob Storage.
         print(e)
     ```
 
-    When the registration process succeeds, you can see an enriched body response from the client.
+When the registration process succeeds, you can see an enriched body response from the client.
 
 In the following sections, you'll scan the data source you registered and search the catalog. Each of these scripts will be very similarly structured to this registration script.
 
@@ -602,7 +605,7 @@ Once the assets are ready, you can use the Microsoft Purview Catalog client to s
         print(e)
     ```
 
-### Full Code
+### Full code
 
 ```python
 from azure.purview.catalog import PurviewCatalogClient
@@ -687,7 +690,7 @@ In this section, you'll learn how to delete the data source you registered earli
             print(e)
     ```
 
-### Full Code
+### Full code
 
 ```python
 from azure.purview.scanning import PurviewScanningClient
