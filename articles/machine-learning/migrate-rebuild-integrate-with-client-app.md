@@ -1,10 +1,11 @@
 ---
-title: 'ML Studio (classic): Migrate to Azure Machine Learning - Consume pipeline endpoints'
-description: Integrate pipeline endpoints with client applications in Azure Machine Learning.
+title: 'Migrate to Azure Machine Learning - Consume pipeline endpoints'
+description: Learn how to integrate pipeline endpoints with client applications in Azure Machine Learning as part of migrating from Machine Learning Studio (classic).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
 ms.topic: how-to
+ms.custom: kr2b-contr-experiment
 
 author: xiaoharper
 ms.author: zhanxia
@@ -17,7 +18,7 @@ ms.date: 03/08/2021
 
 In this article, you learn how to integrate client applications with Azure Machine Learning endpoints. For more information on writing application code, see [Consume an Azure Machine Learning endpoint](how-to-consume-web-service.md).
 
-This article is part of the Studio (classic) to Azure Machine Learning migration series. For more information on migrating to Azure Machine Learning, see [the migration overview article](migrate-overview.md).
+This article is part of the ML Studio (classic) to Azure Machine Learning migration series. For more information on migrating to Azure Machine Learning, see [the migration overview article](migrate-overview.md).
 
 ## Prerequisites
 
