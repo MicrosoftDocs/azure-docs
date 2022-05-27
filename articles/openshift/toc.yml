@@ -59,9 +59,9 @@
         - name: Update pull secret for an Azure Red Hat OpenShift cluster
           href: howto-add-update-pull-secret.md
         - name: Rotate service principal credentials for an Azure Red Hat OpenShift cluster
-        - name: Enable FIPs on a cluster
-          href: howto-enable-fips.md
           href: howto-service-principal-credential-rotation.md
+        - name: Enable FIPs on a cluster
+          href: howto-enable-fips-openshift.md
     - name: Back up and restore
       items:
         - name: Create a backup of a cluster application with Velero
