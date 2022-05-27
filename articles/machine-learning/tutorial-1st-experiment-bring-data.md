@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Upload data and train a model"
 titleSuffix: Azure Machine Learning
-description: How to upload and use your own data in a remote training run. This is part 3 of a three-part getting-started series.
+description: How to upload and use your own data in a remote training job. This is part 3 of a three-part getting-started series.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -278,7 +278,7 @@ This code will print a URL to the experiment in the Azure Machine Learning studi
 
 ### <a name="inspect-log"></a> Inspect the log file
 
-In the studio, go to the experiment run (by selecting the previous URL output) followed by **Outputs + logs**. Select the `std_log.txt` file. Scroll down through the log file until you see the following output:
+In the studio, go to the experiment job (by selecting the previous URL output) followed by **Outputs + logs**. Select the `std_log.txt` file. Scroll down through the log file until you see the following output:
 
 ```txt
 Processing 'input'.
@@ -300,7 +300,7 @@ Processing dataset FileDataset
 Mounting input to /tmp/tmp9kituvp3.
 Mounted input to /tmp/tmp9kituvp3 as folder.
 Exit __enter__ of DatasetContextManager
-Entering Run History Context Manager.
+Entering Job History Context Manager.
 Current directory:  /mnt/batch/tasks/shared/LS_root/jobs/dsvm-aml/azureml/tutorial-session-3_1600171983_763c5381/mounts/workspaceblobstore/azureml/tutorial-session-3_1600171983_763c5381
 Preparing to call script [ train.py ] with arguments: ['--data_path', '$input', '--learning_rate', '0.003', '--momentum', '0.92']
 After variable expansion, calling script [ train.py ] with arguments: ['--data_path', '/tmp/tmp9kituvp3', '--learning_rate', '0.003', '--momentum', '0.92']
@@ -320,7 +320,7 @@ Notice:
 
 ## Clean up resources
 
-If you plan to continue now to another tutorial, or to start your own training runs, skip to [Next steps](#next-steps).
+If you plan to continue now to another tutorial, or to start your own training jobs, skip to [Next steps](#next-steps).
 
 ### Stop compute instance
 
@@ -342,7 +342,7 @@ You can also keep the resource group but delete a single workspace. Display the 
 
 In this tutorial, we saw how to upload data to Azure by using `Datastore`. The datastore served as cloud storage for your workspace, giving you a persistent and flexible place to keep your data.
 
-You saw how to modify your training script to accept a data path via the command line. By using `Dataset`, you were able to mount a directory to the remote run.
+You saw how to modify your training script to accept a data path via the command line. By using `Dataset`, you were able to mount a directory to the remote job.
 
 Now that you have a model, learn:
 

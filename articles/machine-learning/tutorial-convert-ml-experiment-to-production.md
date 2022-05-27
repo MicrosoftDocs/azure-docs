@@ -432,7 +432,7 @@ if __name__ == '__main__':
 `train.py` can now be invoked from a terminal by running `python train.py`.
 The functions from `train.py` can also be called from other files.
 
-The `train_aml.py` file found in the `diabetes_regression/training` directory in the MLOpsPython repository calls the functions defined in `train.py` in the context of an Azure Machine Learning experiment run. The functions can also be called in unit tests, covered later in this guide.
+The `train_aml.py` file found in the `diabetes_regression/training` directory in the MLOpsPython repository calls the functions defined in `train.py` in the context of an Azure Machine Learning experiment job. The functions can also be called in unit tests, covered later in this guide.
 
 ### Create Python file for the Diabetes Ridge Regression Scoring notebook
 
@@ -525,5 +525,5 @@ def test_train_model():
 Now that you understand how to convert from an experiment to production code, see the following links for more information and next steps:
 
 + [MLOpsPython](https://github.com/microsoft/MLOpsPython/blob/master/docs/custom_model.md): Build a CI/CD pipeline to train, evaluate and deploy your own model using Azure Pipelines and Azure Machine Learning
-+ [Monitor Azure ML experiment runs and metrics](./how-to-log-view-metrics.md)
++ [Monitor Azure ML experiment jobs and metrics](./how-to-log-view-metrics.md)
 + [Monitor and collect data from ML web service endpoints](./how-to-enable-app-insights.md)
