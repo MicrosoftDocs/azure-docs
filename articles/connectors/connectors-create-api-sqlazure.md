@@ -70,7 +70,7 @@ The SQL Server connector has different versions, based on [logic app type](../lo
 
 <a name="multi-tenant-or-ise"></a>
 
-* To connect to an on-premises SQL server, the following extra requirements apply based on whether you have a Consumption logic app workflow, either in multi-tenant Azure Logic Apps or an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), or if you have a Standard logic app workflow in [single-tenant Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md).
+* To connect to an on-premises SQL server, the following extra requirements apply, based on whether you have a Consumption or Standard logic app workflow.
 
   * Consumption logic app workflow
 
@@ -106,7 +106,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
       ![Screenshot showing the Azure portal, Consumption logic app workflow designer, search box with "sql server", and "When an item is created" trigger selected.](./media/connectors-create-api-sqlazure/select-sql-server-trigger-consumption.png)
 
-1. If you're connecting to your SQL database for the first time, you're prompted to [create your SQL database connection now](#create-connection). After you create this connection, you can continue with the next step.
+1. If the designer prompts you for connection information, [create your SQL database connection now](#create-connection). After you create this connection, you can continue with the next step.
 
 1. In the trigger, specify the interval and frequency for how often the trigger checks the table.
 
@@ -136,7 +136,7 @@ In Standard logic app workflows, only the SQL Server managed connector has trigg
 
       ![Screenshot showing Azure portal, Standard logic app workflow designer, search box with "sql server", and "When an item is created" trigger selected.](./media/connectors-create-api-sqlazure/select-sql-server-trigger-standard.png)
 
-1. If you're connecting to your SQL database for the first time, you're prompted to [create your SQL database connection now](#create-connection). After you create this connection, you can continue with the next step.
+1. If the designer prompts you for connection information, [create your SQL database connection now](#create-connection). After you create this connection, you can continue with the next step.
 
 1. In the trigger, specify the interval and frequency for how often the trigger checks the table.
 
@@ -190,7 +190,7 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
       ![Screenshot showing the Azure portal, workflow designer for Consumption logic app, the search box with "sql server", and "Get row" selected in the "Actions" list.](./media/connectors-create-api-sqlazure/select-sql-get-row-action-consumption.png)
 
-1. If you're connecting to your SQL database for the first time, you're prompted to [create your SQL database connection now](#create-connection). After you create this connection, you can continue with the next step.
+1. If the designer prompts you for connection information, [create your SQL database connection now](#create-connection). After you create this connection, you can continue with the next step.
 
 1. If you haven't already provided the SQL server name and database name, provide those values. Otherwise, from the **Table name** list, select the table that you want to use.  In the **Row id** property, enter the ID for the record that you want.
 
@@ -198,7 +198,7 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
    ![Screenshot showing Consumption workflow designer and the "Get row" action with the example "Table name" property value and empty row ID.](./media/connectors-create-api-sqlazure/specify-table-row-id-consumption.png)
 
-   This action returns only one row from the selected table, and nothing else. To view the data in this row, add other actions, for example, those that create a file that includes the fields from the returned row, and store that file in a cloud storage account. To learn about other available actions for this connector, see the [connector's reference page](/connectors/sql/).
+   This action returns only one row from the selected table, and nothing else. To view the data in this row, add other actions. For example, such actions might create a file, include the fields from the returned row, and store the file in a cloud storage account. To learn about other available actions for this connector, see the [connector's reference page](/connectors/sql/).
 
 1. When you're done, on the designer toolbar, select **Save**.
 
@@ -238,7 +238,7 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
         ![Screenshot showing the designer search box with "sql server" and "Azure" selected underneath with the "Get row" action selected in the "Actions" list.](./media/connectors-create-api-sqlazure/select-sql-get-row-action-standard.png)
 
-1. If you're connecting to your SQL database for the first time, you're prompted to [create your SQL database connection now](#create-connection). After you create this connection, you can continue with the next step.
+1. If the designer prompts you for connection information, [create your SQL database connection now](#create-connection). After you create this connection, you can continue with the next step.
 
 1. If you haven't already provided the SQL server name and database name, provide those values. Otherwise, from the **Table name** list, select the table that you want to use.  In the **Row id** property, enter the ID for the record that you want.
 
@@ -246,7 +246,7 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
    ![Screenshot showing Standard workflow designer and "Get row" action with the example "Table name" property value and empty row ID.](./media/connectors-create-api-sqlazure/specify-table-row-id-standard.png)
 
-   This action returns only one row from the selected table, and nothing else. To view the data in this row, add other actions, for example, those that create a file that includes the fields from the returned row, and store that file in a cloud storage account. To learn about other available actions for this connector, see the [connector's reference page](/connectors/sql/).
+   This action returns only one row from the selected table, and nothing else. To view the data in this row, add other actions. For example, such actions might create a file, include the fields from the returned row, and store the file in a cloud storage account. To learn about other available actions for this connector, see the [connector's reference page](/connectors/sql/).
 
 1. When you're done, on the designer toolbar, select **Save**.
 
@@ -269,7 +269,7 @@ After you provide this information, continue with these steps:
 
 To access a SQL Managed Instance without using the on-premises data gateway or integration service environment, you have to [set up the public endpoint on the SQL Managed Instance](/azure/azure-sql/managed-instance/public-endpoint-configure). The public endpoint uses port 3342, so make sure that you specify this port number when you create the connection from your logic app.
 
-The first time that you add either a [SQL Server trigger](#add-sql-trigger) or [SQL Server action](#add-sql-action), and you haven't previously created a connection to your database, you're prompted to complete these steps:
+When you add a [SQL Server trigger](#add-sql-trigger) or [SQL Server action](#add-sql-action) without a previously created and active database connection, complete the following steps:
 
 1. For **Connection name**, provide a name to use for your connection.
 
@@ -329,7 +329,7 @@ The first time that you add either a [SQL Server trigger](#add-sql-trigger) or [
 
 ### Connect to on-premises SQL Server
 
-The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL action](#add-sql-action), and you haven't previously created a connection to your database, you're prompted to complete these steps:
+When you add a [SQL Server trigger](#add-sql-trigger) or [SQL Server action](#add-sql-action) without a previously created and active database connection, complete the following steps:
 
 1. For connections to your on-premises SQL server that require the on-premises data gateway, make sure that you've [completed these prerequisites](#multi-tenant-or-ise).
 
@@ -381,7 +381,7 @@ The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL act
 
 ## Handle bulk data
 
-Sometimes, you have to work with result sets so large that the connector doesn't return all the results at the same time, or you want better control over the size and structure for your result sets. The following lists includes some ways that you can handle such large result sets:
+Sometimes, you work with result sets so large that the connector doesn't return all the results at the same time. Or, you want better control over the size and structure for your result sets. The following list includes some ways that you can handle such large result sets:
 
 * To help you manage results as smaller sets, turn on *pagination*. For more information, see [Get bulk data, records, and items by using pagination](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md). For more information, see [SQL Pagination for bulk data transfer with Logic Apps](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx).
 
@@ -437,7 +437,7 @@ When you call a stored procedure by using the SQL Server connector, the returned
 
 ### Connection problems
 
-Connection problems can commonly happen, so to troubleshoot and resolve these kinds of issues, review [Solving connectivity errors to SQL Server](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server). The following lists provides some examples:
+Connection problems can commonly happen, so to troubleshoot and resolve these kinds of issues, review [Solving connectivity errors to SQL Server](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server). The following list provides some examples:
 
 * **A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.**
 
