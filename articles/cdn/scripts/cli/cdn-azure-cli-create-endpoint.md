@@ -7,6 +7,7 @@ manager: danielgi
 ms.date: 03/09/2021
 ms.topic: sample
 ms.service: azure-cdn
+ms.devlang: azurecli
 ms.tool: azure-cli
 ---
 
