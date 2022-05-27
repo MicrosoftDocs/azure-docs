@@ -36,4 +36,4 @@ The architecture shows Internet access to and from your Azure VMware Solution pr
 
 [Enable Public IP to the NSX Edge for Azure VMware Solution (Preview)](enable-public-ip-nsx-edge.md)
 
-[Disable Internet access or enable a default route (Preview)](disable-internet-access.md)
+[Disable Internet access or enable a default route](disable-internet-access.md)
