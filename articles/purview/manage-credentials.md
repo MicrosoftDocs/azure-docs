@@ -42,7 +42,7 @@ If you're using the Microsoft Purview system-assigned managed identity (SAMI) to
 - [Azure Data Lake Storage Gen1](register-scan-adls-gen1.md#authentication-for-a-scan)
 - [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md#authentication-for-a-scan)
 - [Azure SQL Database](register-scan-azure-sql-database.md)
-- [Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md#authentication-for-registration)
+- [Azure SQL Managed Instance](register-scan-azure-sql-managed-instance.md#authentication-for-registration)
 - [Azure Synapse Workspace](register-scan-synapse-workspace.md#authentication-for-registration)
 - [Azure Synapse dedicated SQL pools (formerly SQL DW)](register-scan-azure-synapse-analytics.md#authentication-for-registration)
 
@@ -204,7 +204,7 @@ The following steps will show you how to create a UAMI for Microsoft Purview to 
 * [Azure Data Lake Gen 1](register-scan-adls-gen1.md) 
 * [Azure Data Lake Gen 2](register-scan-adls-gen2.md) 
 * [Azure SQL Database](register-scan-azure-sql-database.md) 
-* [Azure SQL Database Managed Instance](register-scan-azure-sql-database-managed-instance.md)	 
+* [Azure SQL Managed Instance](register-scan-azure-sql-managed-instance.md)	 
 * [Azure SQL Dedicated SQL pools](register-scan-azure-synapse-analytics.md) 
 * [Azure Blob Storage](register-scan-azure-blob-storage-source.md) 
 

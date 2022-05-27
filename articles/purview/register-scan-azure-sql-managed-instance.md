@@ -1,6 +1,6 @@
 ---
-title: 'Connect to and manage Azure SQL Database Managed Instance'
-description: This guide describes how to connect to Azure SQL Database Managed Instance in Microsoft Purview, and use Microsoft Purview's features to scan and manage your Azure SQL Database Managed Instance source.
+title: 'Connect to and manage Azure SQL Managed Instance'
+description: This guide describes how to connect to Azure SQL Managed Instance in Microsoft Purview, and use Microsoft Purview's features to scan and manage your Azure SQL Managed Instance source.
 author: hophanms
 ms.author: hophan
 ms.service: purview
@@ -10,9 +10,9 @@ ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Connect to and manage an Azure SQL Database Managed Instance in Microsoft Purview
+# Connect to and manage an Azure SQL Managed Instance in Microsoft Purview
 
-This article outlines how to register and Azure SQL Database Managed Instance, as well as how to authenticate and interact with the Azure SQL Database Managed Instance in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md)
+This article outlines how to register and Azure SQL Managed Instance, as well as how to authenticate and interact with the Azure SQL Managed Instance in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md)
 
 ## Supported capabilities
 
@@ -33,12 +33,12 @@ This article outlines how to register and Azure SQL Database Managed Instance, a
 * [Configure public endpoint in Azure SQL Managed Instance](/azure/azure-sql/managed-instance/public-endpoint-configure)
 
     > [!Note]
-    > We now support scanning Azure SQL Database Managed Instances over the private connection using Microsoft Purview ingestion private endpoints and a self-hosted integration runtime VM.
+    > We now support scanning Azure SQL Managed Instances over the private connection using Microsoft Purview ingestion private endpoints and a self-hosted integration runtime VM.
     > For more information related to prerequisites, see [Connect to your Microsoft Purview and scan data sources privately and securely](./catalog-private-link-end-to-end.md)
 
 ## Register
 
-This section describes how to register an Azure SQL Database Managed Instance in Microsoft Purview using the [Microsoft Purview governance portal](https://web.purview.azure.com/).
+This section describes how to register an Azure SQL Managed Instance in Microsoft Purview using the [Microsoft Purview governance portal](https://web.purview.azure.com/).
 
 ### Authentication for registration
 
@@ -66,12 +66,12 @@ For user-assigned managed identity (preview):
 1. The object (principal) ID is displayed in the overview essential section.
 
 Either managed identity will need permission to get metadata for the database, schemas and tables, and to query the tables for classification.
-- Create an Azure AD user in Azure SQL Database Managed Instance by following the prerequisites and tutorial on [Create contained users mapped to Azure AD identities](/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities)
+- Create an Azure AD user in Azure SQL Managed Instance by following the prerequisites and tutorial on [Create contained users mapped to Azure AD identities](/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities)
 - Assign `db_datareader` permission to the identity.
 
 #### Service Principal to register
 
-There are several steps to allow Microsoft Purview to use service principal to scan your Azure SQL Database Managed Instance.
+There are several steps to allow Microsoft Purview to use service principal to scan your Azure SQL Managed Instance.
 
 #### Create or use an existing service principal
 
@@ -91,7 +91,7 @@ If you have to create a new Service Principal, follow these steps:
 
 The service principal must have permission to get metadata for the database, schemas, and tables. It must also be able to query the tables to sample for classification.
 - [Configure and manage Azure AD authentication with Azure SQL](/azure/azure-sql/database/authentication-aad-configure)
-- Create an Azure AD user in Azure SQL Database Managed Instance by following the prerequisites and tutorial on [Create contained users mapped to Azure AD identities](/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities)
+- Create an Azure AD user in Azure SQL Managed Instance by following the prerequisites and tutorial on [Create contained users mapped to Azure AD identities](/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#create-contained-users-mapped-to-azure-ad-identities)
 - Assign `db_datareader` permission to the identity.
 
 #### Add service principal to key vault and Microsoft Purview's credential
@@ -112,11 +112,11 @@ It is required to get the service principal's application ID and secret:
 > [!Note]
 > Only the server-level principal login (created by the provisioning process) or members of the `loginmanager` database role in the master database can create new logins. It takes about **15 minutes** after granting permission, the Microsoft Purview account should have the appropriate permissions to be able to scan the resource(s).
 
-You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) to create a login for Azure SQL Database Managed Instance if you don't have this login available. You will need **username** and **password** for the next steps.
+You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) to create a login for Azure SQL Managed Instance if you don't have this login available. You will need **username** and **password** for the next steps.
 
 1. Navigate to your key vault in the Azure portal
 1. Select **Settings > Secrets**
-1. Select **+ Generate/Import** and enter the **Name** and **Value** as the *password* from your Azure SQL Database Managed Instance
+1. Select **+ Generate/Import** and enter the **Name** and **Value** as the *password* from your Azure SQL Managed Instance
 1. Select **Create** to complete
 1. If your key vault is not connected to Microsoft Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account)
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the **username** and **password** to set up your scan.
@@ -129,21 +129,21 @@ You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-l
 
 1. Select **Register**
 
-1. Select **Azure SQL Database Managed Instance** and then **Continue**.
+1. Select **Azure SQL Managed Instance** and then **Continue**.
 
-    :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/set-up-the-sql-data-source.png" alt-text="Set up the SQL data source":::
+    :::image type="content" source="media/register-scan-azure-sql-managed-instance/set-up-the-sql-data-source.png" alt-text="Set up the SQL data source":::
 
 1. Select **From Azure subscription**, select the appropriate subscription from the **Azure subscription** drop-down box and the appropriate server from the **Server name** drop-down box.
 
 1. Provide the **public endpoint fully qualified domain name** and **port number**. Then select **Register** to register the data source.
 
-    :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/add-azure-sql-database-managed-instance.png" alt-text="Add Azure SQL Database Managed Instance":::
+    :::image type="content" source="media/register-scan-azure-sql-managed-instance/add-azure-sql-database-managed-instance.png" alt-text="Add Azure SQL Managed Instance":::
 
     For Example: `foobar.public.123.database.windows.net,3342`
 
 ## Scan
 
-Follow the steps below to scan an Azure SQL Database Managed Instance to automatically identify assets and classify your data. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md)
+Follow the steps below to scan an Azure SQL Managed Instance to automatically identify assets and classify your data. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md)
 
 ### Create and run scan
 
@@ -151,25 +151,25 @@ To create and run a new scan, complete the following steps:
 
 1. Select the **Data Map** tab on the left pane in the Microsoft Purview governance portal.
 
-1. Select the Azure SQL Database Managed Instance source that you registered.
+1. Select the Azure SQL Managed Instance source that you registered.
 
 1. Select **New scan**
 
 1. Select the credential to connect to your data source.
 
-   :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/set-up-scan-sql-mi.png" alt-text="Set up scan":::
+   :::image type="content" source="media/register-scan-azure-sql-managed-instance/set-up-scan-sql-mi.png" alt-text="Set up scan":::
 
 1. You can scope your scan to specific tables by choosing the appropriate items in the list.
 
-   :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/scope-your-scan.png" alt-text="Scope your scan":::
+   :::image type="content" source="media/register-scan-azure-sql-managed-instance/scope-your-scan.png" alt-text="Scope your scan":::
 
 1. Then select a scan rule set. You can choose between the system default, existing custom rule sets, or create a new rule set inline.
 
-   :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/scan-rule-set.png" alt-text="Scan rule set":::
+   :::image type="content" source="media/register-scan-azure-sql-managed-instance/scan-rule-set.png" alt-text="Scan rule set":::
 
 1. Choose your scan trigger. You can set up a schedule or run the scan once.
 
-   :::image type="content" source="media/register-scan-azure-sql-database-managed-instance/trigger-scan.png" alt-text="trigger":::
+   :::image type="content" source="media/register-scan-azure-sql-managed-instance/trigger-scan.png" alt-text="trigger":::
 
 1. Review your scan and select **Save and run**.
 

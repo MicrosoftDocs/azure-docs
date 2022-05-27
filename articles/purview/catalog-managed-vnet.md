@@ -43,7 +43,7 @@ Currently, the following data sources are supported to have a managed private en
 - Azure Blob Storage 
 - Azure Data Lake Storage Gen 2 
 - Azure SQL Database 
-- Azure SQL Database Managed Instance
+- Azure SQL Managed Instance
 - Azure Cosmos DB
 - Azure Synapse Analytics
 - Azure Files

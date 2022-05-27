@@ -27,7 +27,7 @@ The integration supports data sources in Azure and AWS; sensitive data discovere
 - [Azure Files](./register-scan-azure-files-storage-source.md)
 - [Azure Database for MySQL](./register-scan-azure-mysql-database.md)
 - [Azure Database for PostgreSQL](./register-scan-azure-postgresql.md)
-- [Azure SQL Managed Instance](./register-scan-azure-sql-database-managed-instance.md)
+- [Azure SQL Managed Instance](./register-scan-azure-sql-managed-instance.md)
 - [Azure Dedicated SQL pool (formerly SQL DW)](./register-scan-azure-synapse-analytics.md)
 - [Azure SQL Database](./register-scan-azure-sql-database.md)
 - [Azure Synapse Analytics (Workspace)](./register-scan-synapse-workspace.md)
