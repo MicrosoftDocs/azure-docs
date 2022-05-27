@@ -4,7 +4,7 @@ description: Simplify complex reporting with predefined and custom parameterized
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/12/2020
+ms.date: 05/27/2022
 
 ---
 
@@ -47,23 +47,19 @@ VM insights includes the following workbooks. You can use these workbooks or use
 
 A workbook is made up of sections consisting of independently editable charts, tables, text, and input controls. To better understand workbooks, let's start by opening a template and walk through creating a custom workbook. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Go to the **Monitor** menu in the Azure portal.
 
-2. Select **Virtual Machines**.
+2. Select a virtual machine.
 
-3. From the list, select a VM.
+3. On the VM insights page, select **Performance** or **Maps** tab and then select **View Workbooks** from the link on the page. From the drop-down list, select **Go to Gallery**.
 
-4. On the VM page, in the **Monitoring** section, select **Insights**.
-
-5. On the VM insights page, select **Performance** or **Maps** tab and then select **View Workbooks** from the link on the page. From the drop-down list, select **Go to Gallery**.
-
-    ![Screenshot of workbook drop-down list](media/vminsights-workbooks/workbook-dropdown-gallery-01.png)
+    :::image type="content" source="media/vminsights-workbooks/workbook-dropdown-gallery-01.png" lightbox="media/vminsights-workbooks/workbook-dropdown-gallery-01.png" alt-text="Screenshot of workbook drop-down list":::
 
     This launches the workbook gallery with a number of prebuilt workbooks to help you get started.
 
 7. Create a new workbook by selecting **New**.
 
-    ![Screenshot of workbook gallery](media/vminsights-workbooks/workbook-gallery-01.png)
+:::image type="content" source="media/vminsights-workbooks/workbook-gallery-01.png" lightbox="media/vminsights-workbooks/workbook-gallery-01.png" alt-text="Screenshot of workbook gallery":::
 
 ## Editing workbook sections
 
