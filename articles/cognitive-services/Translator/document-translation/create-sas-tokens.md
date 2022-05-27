@@ -10,7 +10,7 @@ ms.date: 05/25/2022
 
 # Create SAS tokens for your storage containers
 
-In this article, you'll learn how to create user delegation, shared access signature (SAS) tokens, using Azure Storage Explorer or the Azure portal. User delegation SAS tokens are secured with Azure AD credentials. SAS tokens provide secure, delegated access to resources in your Azure storage account.
+In this article, you'll learn how to create user delegation, shared access signature (SAS) tokens, using the Azure portal or Azure Storage Explorer. User delegation SAS tokens are secured with Azure AD credentials. SAS tokens provide secure, delegated access to resources in your Azure storage account.
 
 At a high level, here's how SAS tokens work:
 
@@ -49,8 +49,6 @@ To get started, you'll need the following resources:
 
 <!-- markdownlint-disable MD024 -->
 
-### Create your tokens
-
 Go to the [Azure portal](https://portal.azure.com/#home) and navigate to your container or file:
 
 | Create SAS for a container| Create SAS for a specific file|
@@ -82,15 +80,13 @@ Continue as follows:
 
 1. To construct a SAS URL, append the SAS token (URI) to the URL for a storage service.
 
-## Azure Storage Explorer
+## Create SAS tokens in Azure Storage Explorer
 
 Azure Storage Explorer is a free standalone app that enables you to easily manage your Azure cloud storage resources from your desktop.
 
 * You'll need the [**Azure Storage Explorer**](../../../vs-azure-tools-storage-manage-with-storage-explorer.md) app installed in your Windows, macOS, or Linux development environment.
 
-* After the Azure Storage Explorer app is installed, [connect it the storage account](../../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#connect-to-a-storage-account-or-service) you're using for Document Translation.
-
-### Create your tokens
+* After the Azure Storage Explorer app is installed, [connect it the storage account](../../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#connect-to-a-storage-account-or-service) you're using for Document Translation. Follow the steps below to create tokens for a storage container or specific blob file:
 
 ### [SAS tokens for storage containers](#tab/Containers)
 
@@ -107,27 +103,8 @@ Azure Storage Explorer is a free standalone app that enables you to easily manag
 
 1. A new window will appear with the **Container** name, **URI**, and **Query string** for your container.
 1. **Copy and paste the container, URI, and query string values in a secure location. They'll only be displayed once and can't be retrieved once the window is closed.**
-1. To use your SAS URL in REST API requests, use the SAS URL as your sourceURL and targetURL values (or append the SAS query string to your existing sourceURL and targetURL values):
 
-```json
-{
-    "inputs": [
-        {
-            "source": {
-                "sourceUrl": "https://my.blob.core.windows.net/source-en?sv=2019-12-12&st=2021-03-05T17%3A45%3A25Z&se=2021-03-13T17%3A45%3A00Z&sr=c&sp=rl&sig=SDRPMjE4nfrH3csmKLILkT%2Fv3e0Q6SWpssuuQl1NmfM%3D"
-            },
-            "targets": [
-                {
-                    "targetUrl": "https://my.blob.core.windows.net/target-fr?sv=2019-12-12&st=2021-03-05T17%3A49%3A02Z&se=2021-03-13T17%3A49%3A00Z&sr=c&sp=wdl&sig=Sq%2BYdNbhgbq4hLT0o1UUOsTnQJFU590sWYo4BOhhQhs%3D",
-                    "language": "fr"
-                }
-            ]
-        }
-    ]
-}
-```
-
-### [SAS tokens for blobs](#tab/blobs)
+### [SAS tokens for blob file](#tab/blobs)
 
 1. Open the Azure Storage Explorer app on your local machine and navigate to your connected **Storage Accounts**.
 1. Expand your storage node and select **Blob Containers**.
@@ -150,26 +127,9 @@ Azure Storage Explorer is a free standalone app that enables you to easily manag
 
 ---
 
-## Azure portal
+### Use your SAS URL
 
-<!-- markdownlint-disable MD024 -->
-### Prerequisites
-
-To get started, you'll need:
-
-* An active [**Azure account**](https://azure.microsoft.com/free/cognitive-services/).  If you don't have one, you can [**create a free account**](https://azure.microsoft.com/free/).
-* A [**Translator**](https://portal.azure.com/#create/Microsoft) service resource (**not** a Cognitive Services multi-service resource.  *See* [Create a new Azure  resource](../../cognitive-services-apis-create-account.md#create-a-new-azure-cognitive-services-resource).
-* An [**Azure Blob Storage account**](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You'll create containers to store and organize your blob data within your storage account.
-
-### Create your tokens
-
-Go to the [Azure portal](https://portal.azure.com/#home) and navigate as follows:
-
- **Your storage account** → **containers** → **your container** → **your blob**
-
-1. A new window will appear with the **Blob** name, **URI**, and **Query string** for your file.
-1. **Copy and paste the SAS URL and query string values in a secure location. They will only be displayed once and cannot be retrieved once the window is closed.**
-1. To use your SAS URL in REST API requests, use the SAS URL as your sourceURL and targetURL values (or append the SAS query string to your existing sourceURL and targetURL values):
+* To use your SAS URL in REST API requests, use the SAS URL as your sourceURL and targetURL values (or append the SAS query string to your existing sourceURL and targetURL values):
 
 ```json
 {
@@ -193,24 +153,6 @@ Go to the [Azure portal](https://portal.azure.com/#home) and navigate as follows
     ]
 }
 ```
-
-1. Select **Signing method** → **User delegation key**.
-
-1. Define **Permissions** by checking and/or clearing the appropriate check box.
-
-1. Specify the signed key **Start** and **Expiry** times.
-
-1. The **Allowed IP addresses** field is optional and specifies an IP address or a range of IP addresses from which to accept requests. If the request IP address doesn't match the IP address or address range specified on the SAS token, it won't be authorized.
-
-1. The **Allowed protocols** field is optional and specifies the protocol permitted for a request made with the SAS. The default value is HTTPS.
-
-1. Review then select **Generate SAS token and URL**.
-
-1. The **Blob SAS token** query string and **Blob SAS URL** will be displayed in the lower area of window.
-
-1. **Copy and paste the Blob SAS token and URL values in a secure location. They'll only be displayed once and cannot be retrieved once the window is closed.**
-
-1. To construct a SAS URL, append the SAS token (URI) to the URL for a storage service.
 
 That's it! You've learned how to create SAS tokens to authorize how clients access your data.
 
