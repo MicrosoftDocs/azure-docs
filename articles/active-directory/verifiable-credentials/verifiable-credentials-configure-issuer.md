@@ -1,13 +1,13 @@
 ---
 title: Tutorial - Issue Azure AD Verifiable Credentials from an application (preview)
 description: In this tutorial, you learn how to issue verifiable credentials by using a sample app.
-ms.service: active-directory
+ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 author: barclayn
-manager: karenhoran
+manager: rkarlin
 ms.author: barclayn
 ms.topic: tutorial
-ms.date: 10/08/2021
+ms.date: 05/03/2022
 # Customer intent: As an enterprise, we want to enable customers to manage information about themselves by using verifiable credentials.
 
 ---
@@ -206,7 +206,7 @@ Now that you have a new credential, you're going to gather some information abou
 The sample application is available in .NET, and the code is maintained in a GitHub repository. Download the sample code from [GitHub](https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet), or clone the repository to your local machine:
 
 
-```bash
+```
 git clone https://github.com/Azure-Samples/active-directory-verifiable-credentials-dotnet.git
 ```
 
@@ -277,15 +277,15 @@ The following JSON demonstrates a complete *appsettings.json* file:
 
 Now you're ready to issue your first verified credential expert card by running the sample application.
 
-1. From Visual Studio Code, run the *Verifiable_credentials_DotNet* project. Or, from the command shell, run the following commands:
+1. From Visual Studio Code, run the *Verifiable_credentials_DotNet* project. Or, from your operating system's command line, run:
 
-    ```bash
+    ```
     cd active-directory-verifiable-credentials-dotnet/1-asp-net-core-api-idtokenhint  dotnet build "AspNetCoreVerifiableCredentials.csproj" -c Debug -o .\\bin\\Debug\\netcoreapp3.  dotnet run
     ```
 
-1. In another terminal, run the following command. This command runs [ngrok](https://ngrok.com/) to set up a URL on 3000, and make it publicly available on the internet.
+1. In another command prompt window, run the following command. This command runs [ngrok](https://ngrok.com/) to set up a URL on 5000, and make it publicly available on the internet.
 
-    ```bash
+    ```
     ngrok http 5000
     ```
 

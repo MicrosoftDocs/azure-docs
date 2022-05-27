@@ -18,15 +18,35 @@ To provide resiliency and distributed availability, at least three separate avai
 
 This article provides a brief overview about considerations for using availability zones in Azure Logic Apps and how to enable this capability for your Consumption logic app.
 
+> [!NOTE]
+> 
+> Standard logic apps that use [App Service Environment v3 (ASE v3)](../app-service/environment/overview-zone-redundancy.md)
+> support zone redundancy with availability zones, but only for built-in operations. Currently, support is unavailable 
+> for Azure (managed) connectors.
+
 ## Considerations
 
 During preview, the following considerations apply:
 
 * The following list includes the Azure regions where you can currently enable availability zones with the list expanding as available:  
 
-  - Brazil South
-  - Canada Central
-  - France Central
+  * Australia East
+  * Brazil South
+  * Canada Central
+  * Central India
+  * Central US
+  * East Asia
+  * East US
+  * East US 2
+  * France Central
+  * Germany West Central
+  * Japan East
+  * Korea Central
+  * Norway East
+  * South Central US
+  * UK South
+  * West Europe
+  * West US 3
 
 * Azure Logic Apps currently supports the option to enable availability zones *only for new Consumption logic app workflows* that run in multi-tenant Azure Logic Apps.
 

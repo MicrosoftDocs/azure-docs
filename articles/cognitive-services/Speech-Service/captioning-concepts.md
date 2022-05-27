@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/12/2022
 ms.author: eur
-zone_pivot_groups: programming-languages-speech-sdk
+zone_pivot_groups: programming-languages-speech-sdk-cli
 ---
 
 # Captioning with speech to text
 
-In this guide, you learn how to create captions with speech to text. This guide covers captioning for speech, but doesn't include speaker ID or sound effects such as bells ringing. Concepts include how to synchronize captions with your input audio, apply profanity filters, get partial results, apply customizations, and identify spoken languages for multilingual scenarios.
+In this guide, you learn how to create captions with speech to text. Concepts include how to synchronize captions with your input audio, apply profanity filters, get partial results, apply customizations, and identify spoken languages for multilingual scenarios. This guide covers captioning for speech, but doesn't include speaker ID or sound effects such as bells ringing. 
 
 Here are some common captioning scenarios:
 - Online courses and instructional videos
@@ -27,12 +27,37 @@ The following are aspects to consider when using captioning:
 * Center captions horizontally on the screen, in a large and prominent font. 
 * Consider whether to use partial results, when to start displaying captions, and how many words to show at a time. 
 * Learn about captioning protocols such as [SMPTE-TT](https://ieeexplore.ieee.org/document/7291854). 
-* Consider output formats such as SRT (SubRip Subtitle) and WebVTT (Web Video Text Tracks). These can be loaded onto most video players such as VLC, automatically adding the captions on to your video.
+* Consider output formats such as SRT (SubRip Text) and WebVTT (Web Video Text Tracks). These can be loaded onto most video players such as VLC, automatically adding the captions on to your video.
 
 > [!TIP]
-> Try the [Azure Video Indexer](/azure/azure-video-indexer/video-indexer-overview) as a demonstration of how you can get captions for videos that you upload. 
+> Try the [Azure Video Indexer](../../azure-video-indexer/video-indexer-overview.md) as a demonstration of how you can get captions for videos that you upload. 
 
-Captioning can accompany real time or pre-recorded speech. Whether you're showing captions in real time or with a recording, you can use the [Speech SDK](speech-sdk.md) to recognize speech and get transcriptions. You can also use the [Batch transcription API](batch-transcription.md) for pre-recorded video. 
+Captioning can accompany real time or pre-recorded speech. Whether you're showing captions in real time or with a recording, you can use the [Speech SDK](speech-sdk.md) or [Speech CLI](spx-overview.md) to recognize speech and get transcriptions. You can also use the [Batch transcription API](batch-transcription.md) for pre-recorded video. 
+
+## Caption output format
+
+The Speech service supports output formats such as SRT (SubRip Text) and WebVTT (Web Video Text Tracks). These can be loaded onto most video players such as VLC, automatically adding the captions on to your video.
+
+The [SRT](https://docs.fileformat.com/video/srt/) (SubRip Text) timespan output format is `hh:mm:ss,fff`. 
+
+```srt
+1
+00:00:00,180 --> 00:00:03,230
+Welcome to applied Mathematics course 201.
+```
+
+The [WebVTT](https://www.w3.org/TR/webvtt1/#introduction) (Web Video Text Tracks) timespan output format is `hh:mm:ss,fff`. 
+
+```
+WEBVTT
+
+00:00:00.180 --> 00:00:03.230
+Welcome to applied Mathematics course 201.
+{
+  "ResultId": "8e89437b4b9349088a933f8db4ccc263",
+  "Duration": "00:00:03.0500000"
+}
+```
 
 ## Input audio to the Speech service
 
@@ -52,7 +77,7 @@ For more information, see [Get speech recognition results](get-speech-recognitio
 
 ## Get partial results
 
-Consider when to start displaying captions, and how many words to show at a time. Speech recognition results are subject to change while an utterance is still being recognized. Partial partial results are returned with each `Recognizing` event. As each word is processed, the Speech service re-evaluates an utterance in the new context and again returns the best result. The new result isn't guaranteed to be the same as the previous result. The complete and final transcription of an utterance is returned with the `Recognized` event.
+Consider when to start displaying captions, and how many words to show at a time. Speech recognition results are subject to change while an utterance is still being recognized. Partial results are returned with each `Recognizing` event. As each word is processed, the Speech service re-evaluates an utterance in the new context and again returns the best result. The new result isn't guaranteed to be the same as the previous result. The complete and final transcription of an utterance is returned with the `Recognized` event.
 
 > [!NOTE]
 > Punctuation of partial results is not available. 
@@ -61,7 +86,7 @@ For captioning of prerecorded speech or wherever latency isn't a concern, you co
 
 Real time captioning presents tradeoffs with respect to latency versus accuracy. You could show the text from each `Recognizing` event as soon as possible. However, if you can accept some latency, you can improve the accuracy of the caption by displaying the text from the `Recognized` event. There's also some middle ground, which is referred to as "stable partial results". 
 
-You can request that the Speech service return fewer `Recognizing` events that are more accurate. This is done by setting the `SpeechServiceResponse_StablePartialResultThreshold` property to a value between `0` and `2147483647`. The value that you set is the number of times a word has to be recognized before the Speech service returns a `Recognizing` event. For example, if you set the `SpeechServiceResponse_StablePartialResultThreshold` value to `5`, the Speech service will affirm recognition of a word at least five times before returning the partial results to you with a `Recognizing` event.
+You can request that the Speech service return fewer `Recognizing` events that are more accurate. This is done by setting the `SpeechServiceResponse_StablePartialResultThreshold` property to a value between `0` and `2147483647`. The value that you set is the number of times a word has to be recognized before the Speech service returns a `Recognizing` event. For example, if you set the `SpeechServiceResponse_StablePartialResultThreshold` property value to `5`, the Speech service will affirm recognition of a word at least five times before returning the partial results to you with a `Recognizing` event.
 
 ::: zone pivot="programming-language-csharp"
 ```csharp
@@ -101,6 +126,11 @@ self.speechConfig!.setPropertyTo(5, by: SPXPropertyId.speechServiceResponseStabl
 ::: zone pivot="programming-language-python"
 ```python
 speech_config.set_property(property_id = speechsdk.PropertyId.SpeechServiceResponse_StablePartialResultThreshold, value = 5)
+```
+::: zone-end
+::: zone pivot="programming-language-cli"
+```console
+spx recognize --file caption.this.mp4 --format any --property SpeechServiceResponse_StablePartialResultThreshold=5 --output vtt file - --output srt file -
 ```
 ::: zone-end
 
@@ -183,6 +213,11 @@ self.speechConfig!.setProfanityOptionTo(SPXSpeechConfigProfanityOption_Profanity
 speech_config.set_profanity(speechsdk.ProfanityOption.Removed)
 ```
 ::: zone-end
+::: zone pivot="programming-language-cli"
+```console
+spx recognize --file caption.this.mp4 --format any --profanity masked --output vtt file - --output srt file -
+```
+::: zone-end
 
 Profanity filter is applied to the result `Text` and `MaskedNormalizedForm` properties. Profanity filter isn't applied to the result `LexicalForm` and `NormalizedForm` properties. Neither is the filter applied to the word level results.
 
@@ -204,5 +239,5 @@ There are some situations where [training a custom model](custom-speech-overview
 
 ## Next steps
 
-* [Get started with speech to text](get-started-speech-to-text.md)
+* [Captioning quickstart](captioning-quickstart.md)
 * [Get speech recognition results](get-speech-recognition-results.md)

@@ -111,7 +111,7 @@ additionalContent:
             - text: What is Azure Virtual Network NAT?
               url: ../virtual-network/nat-gateway/nat-overview.md
             - text: Create and configure NAT gateway resource
-              url: ../virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md
+              url: ../virtual-network/nat-gateway/quickstart-create-nat-gateway-portal.md
             - text: See more
               url: ../virtual-network/nat-gateway/index.yml
 

@@ -106,14 +106,14 @@ Defender for Cloud recommends **Endpoint protection health issues should be reso
 
 Defender for Cloud recommends **Endpoint protection should be installed on your machines** when any of the following checks aren't met:
 
-- File **/opt/isec/ens/threatprevention/bin/isecav** exists
-- **"/opt/isec/ens/threatprevention/bin/isecav --version"** output is: **McAfee name = McAfee Endpoint Security for Linux Threat Prevention and McAfee version >= 10**
+- File **/opt/McAfee/ens/tp/bin/mfetpcli** exists
+- **"/opt/McAfee/ens/tp/bin/mfetpcli --version"** output is: **McAfee name = McAfee Endpoint Security for Linux Threat Prevention and McAfee version >= 10**
 
 Defender for Cloud recommends **Endpoint protection health issues should be resolved on your machines** when any of the following checks aren't met:
 
-- **"/opt/isec/ens/threatprevention/bin/isecav --listtask"** returns **Quick scan, Full scan** and both of the scans <= 7 days
-- **"/opt/isec/ens/threatprevention/bin/isecav --listtask"** returns **DAT and engine Update time** and both of them <= 7 days
-- **"/opt/isec/ens/threatprevention/bin/isecav --getoasconfig --summary"** returns **On Access Scan** status
+- **"/opt/McAfee/ens/tp/bin/mfetpcli --listtask"** returns **Quick scan, Full scan** and both of the scans <= 7 days
+- **"/opt/McAfee/ens/tp/bin/mfetpcli --listtask"** returns **DAT and engine Update time** and both of them <= 7 days
+- **"/opt/McAfee/ens/tp/bin/mfetpcli --getoasconfig --summary"** returns **On Access Scan** status
 
 ## Sophos Antivirus for Linux 
 

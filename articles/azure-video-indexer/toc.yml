@@ -16,7 +16,7 @@
 - name: Tutorials
   items:
   - name: Create a new ARM account (Preview)
-    href: create-video-analyzer-for-media-account.md
+    href: create-account-portal.md
   - name: Create a new account
     href: connect-to-azure.md
   - name: Use Azure Video Indexer API
@@ -31,6 +31,8 @@
   items:
   - name: Azure Video Indexer samples
     href: https://github.com/Azure-Samples/media-services-video-indexer
+  - name: Azure Video Indexer widgets 
+    href: https://www.npmjs.com/package/@azure/video-indexer-widgets
 - name: Concepts
   items:
   - name: Overview
@@ -92,6 +94,8 @@
     href: network-security.md
   - name: Disaster recovery
     href: video-indexer-disaster-recovery.md
+  - name: Insert or remove transcript lines
+    href: edit-transcript-lines-portal.md    
   - name: Customize content models
     items:
     - name: Animated characters
@@ -114,12 +118,16 @@
         href: customize-language-model-with-website.md
       - name: using the API
         href: customize-language-model-with-api.md
+  - name: Monitor Video Indexer
+    href: monitor-video-indexer.md
 - name: Reference
   items:
   - name: Azure Video Indexer API
     href: https://api-portal.videoindexer.ai/
   - name: Azure Video Indexer ARM REST API
     href: /rest/api/videoindexer/accounts?branch=videoindex
+  - name: Monitor Video Indexer data reference
+    href: monitor-video-indexer-data-reference.md
 - name: Resources
   items:
   - name: Azure Roadmap

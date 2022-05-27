@@ -231,11 +231,11 @@ az sql server firewall-rule create --resource-group msdocs-core-sql --server <yo
 
 ---
 
-Next, update the appsettings.json file in our local app code with the Connection String of our Azure SQL Database. The update allows us to run migrations locally against our database hosted in Azure. Replace the username and password placeholders with the values you chose when creating your database.
+Next, update the appsettings.json file in our local app code with the [Connection String of our Azure SQL Database](#5---connect-the-app-to-the-database). The update allows us to run migrations locally against our database hosted in Azure. Replace the username and password placeholders with the values you chose when creating your database.
 
 ```json
 "ConnectionStrings": {
-    "MyDbConnection": "Server=tcp:coredbserver456.database.windows.net,1433;
+    "MyDbConnection": "Server=tcp:<your-server-name>.database.windows.net,1433;
         Initial Catalog=coredb;
         Persist Security Info=False;
         User ID=<username>;Password=<password>;

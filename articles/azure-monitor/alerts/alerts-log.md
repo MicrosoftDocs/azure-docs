@@ -1,24 +1,117 @@
 ---
-title: Create, view, and manage log alert rules Using Azure Monitor | Microsoft Docs
-description: Use Azure Monitor to create, view, and manage log alert rules
+title: Create Azure Monitor log alert rules and manage alert instances | Microsoft Docs
+description: Create Azure Monitor log alert rules and manage your alert instances.
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 2/23/2022
+ms.date: 05/23/2022
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.reviewer: yanivlavi
 ---
-# Create, view, and manage log alerts using Azure Monitor
+# Create Azure Monitor log alert rules and manage alert instances 
 
-This article shows you how to create and manage log alerts. Azure Monitor log alerts allow users to use a [Log Analytics](../logs/log-analytics-tutorial.md) query to evaluate resource logs at a set frequency and fire an alert based on the results. Rules can trigger one or more actions using [Action Groups](./action-groups.md). [Learn more about functionality and terminology of log alerts](./alerts-unified-log.md).
+This article shows you how to create log alert rules and manage your alert instances. Azure Monitor log alerts allow users to use a [Log Analytics](../logs/log-analytics-tutorial.md) query to evaluate resource logs at a set frequency and fire an alert based on the results. Rules can trigger one or more actions using [alert processing rules](alerts-action-rules.md) and [action groups](./action-groups.md). Learn the concepts behind log alerts [here](alerts-types.md#log-alerts).
 
- Alert rules are defined by three components:
+When an alert is triggered by an alert rule, 
 - Target: A specific Azure resource to monitor.
 - Criteria: Logic to evaluate. If met, the alert fires.  
 - Action: Notifications or automation - email, SMS, webhook, and so on.
 You can also [create log alert rules using Azure Resource Manager templates](../alerts/alerts-log-create-templates.md).
 ## Create a new log alert rule in the Azure portal
+
+1. In the [portal](https://portal.azure.com/), select the relevant resource. We recommend monitoring at scale by using a subscription or resource group.
+1. In the Resource menu, select **Logs**.
+1. Write a query that will find the log events for which you want to create an alert. You can use the [alert query examples article](../logs/queries.md) to understand what you can discover or [get started on writing your own query](../logs/log-analytics-tutorial.md). Also, [learn how to create optimized alert queries](alerts-log-query.md).
+1. From the top command bar, Select **+ New Alert rule**.
+
+   :::image type="content" source="media/alerts-log/alerts-create-new-alert-rule.png" alt-text="Create new alert rule." lightbox="media/alerts-log/alerts-create-new-alert-rule-expanded.png":::  
+
+1. The **Condition** tab opens, populated with your log query.
+   
+   By default, the rule counts the number of results in the last 5 minutes.
+   
+   If the system detects summarized query results, the rule is automatically updated with that information.
+ 
+    :::image type="content" source="media/alerts-log/alerts-logs-conditions-tab.png" alt-text="Conditions Tab.":::
+
+1. In the **Measurement** section, select values for these fields:
+   
+    |Field  |Description  |
+    |---------|---------|
+    |Measure|Log alerts can measure two different things, which can be used for different monitoring scenarios:<br> **Table rows**: The number of rows returned can be used to work with events such as Windows event logs, syslog, application exceptions. <br>**Calculation of a numeric column**: Calculations based on any numeric column can be used to include any number of resources. For example, CPU percentage.      |
+    |Aggregation type| The calculation performed on multiple records to aggregate them to one numeric value using the aggregation granularity. For example: Total, Average, Minimum, or Maximum.    |
+    |Aggregation granularity| The interval for aggregating multiple records to one numeric value.|
+ 
+    :::image type="content" source="media/alerts-log/alerts-log-measurements.png" alt-text="Measurements.":::
+
+1. (Optional) In the **Split by dimensions** section, you can create resource-centric alerts at scale for a subscription or resource group. Splitting by dimensions groups combinations of numerical or string columns to monitor for the same condition on multiple Azure resources.
+
+   If you select more than one dimension value, each time series that results from the combination triggers its own alert and is charged separately. The alert payload includes the combination that triggered the alert.
+
+   You can select up to six more splittings for any number or text columns types.
+   
+   You can also decide **not** to split when you want a condition applied to multiple resources in the scope. For example, if you want to fire an alert if at least five machines in the resource group scope have CPU usage over 80%.  
+
+   Select values for these fields:
+
+    |Field  |Description  |
+    |---------|---------|
+    |Dimension name|Dimensions can be either number or string columns. Dimensions are used to monitor specific time series and provide context to a fired alert.<br>Splitting on the Azure Resource ID column makes the specified resource into the alert target. If an Resource ID column is detected, it is selected automatically and changes the context of the fired alert to the record's resource.  |
+    |Operator|The operator used on the dimension name and value.  |
+    |Dimension values|The dimension values are based on data from the last 48 hours. Select **Add custom value** to add custom dimension values.  |
+
+   :::image type="content" source="media/alerts-log/alerts-create-log-rule-dimensions.png" alt-text="Screenshot of the splitting by dimensions section of a new log alert rule.":::
+    
+1. In the **Alert logic** section, select values for these fields:
+
+   |Field  |Description  |
+   |---------|---------|
+   |Operator| The query results are transformed into a number. In this field, select the operator to use to compare the number against the threshold.|
+   |Threshold value| A number value for the threshold. |
+   |Frequency of evaluation|The interval in which the query is run. Can be set from a minute to a day. | 
+
+    :::image type="content" source="media/alerts-log/alerts-create-log-rule-logic.png" alt-text="Screenshot of alert logic section of a new log alert rule.":::
+
+1. (Optional) In the **Advanced options** section, you can specify the number of failures and the alert evaluation period required to trigger an alert. For example, if you set the **Aggregation granularity** to 5 minutes, you can specify that you only want to trigger an alert if there were three failures (15 minutes) in the last hour. This setting is defined by your application business policy. 
+   
+   Select values for these fields under **Number of violations to trigger the alert**:
+    
+   |Field  |Description  |
+   |---------|---------|
+   |Number of violations|The number of violations that have to occur to trigger the alert.|
+   |Evaluation period|The amount of time within which those violations have to occur. |
+   |Override query time range| Enter a value for this field if the alert evaluation period is different than the query time range.| 
+
+   :::image type="content" source="media/alerts-log/alerts-rule-preview-advanced-options.png" alt-text="Screenshot of the advanced options section of a new log alert rule.":::
+
+1. The **Preview** chart shows query evaluations results over time. You can change the chart period or select different time series that resulted from unique alert splitting by dimensions.
+
+    :::image type="content" source="media/alerts-log/alerts-create-alert-rule-preview.png" alt-text="Screenshot of a preview of a new alert rule.":::
+
+1. From this point on, you can select the **Review + create** button at any time. 
+1. In the **Actions** tab, select or create the required [action groups](./action-groups.md).
+
+    :::image type="content" source="media/alerts-log/alerts-rule-actions-tab.png" alt-text="Actions tab.":::
+
+1. In the **Details** tab, define the **Project details** and the **Alert rule details**.
+1. (Optional) In the **Advanced options** section, you can set several options, including whether to **Enable upon creation**, or to **Mute actions** for a period of time after the alert rule fires.
+    
+    :::image type="content" source="media/alerts-log/alerts-rule-details-tab.png" alt-text="Details tab.":::
+
+    > [!NOTE]
+    > If you, or your administrator assigned the Azure Policy **Azure Log Search Alerts over Log Analytics workspaces should use customer-managed keys**, you must select **Check workspace linked storage** option in **Advanced options**, or the rule creation will fail as it will not meet the policy requirements.
+
+1. In the **Tags** tab, set any required tags on the alert rule resource.
+
+    :::image type="content" source="media/alerts-log/alerts-rule-tags-tab.png" alt-text="Tags tab.":::
+
+1. In the **Review + create** tab, a validation will run and inform you of any issues.
+1. When validation passes and you have reviewed the settings, select the **Create** button.    
+    
+    :::image type="content" source="media/alerts-log/alerts-rule-review-create.png" alt-text="Review and create tab.":::
+
 > [!NOTE]
-> This article describes creating alert rules using the new alert rule wizard. 
+> This section above describes creating alert rules using the new alert rule wizard. 
 > The new alert rule experience is a little different than the old experience. Please note these changes:
 > - Previously, search results were included in the payloads of the triggered alert and its associated notifications. This was a limited and error prone solution. To get detailed context information about the alert so that you can decide on the appropriate action :
 >   - The recommended best practice it to use [Dimensions](alerts-unified-log.md#split-by-alert-dimensions). Dimensions provide the column value that fired the alert, giving you context for why the alert fired and how to fix the issue.
@@ -30,63 +123,6 @@ You can also [create log alert rules using Azure Resource Manager templates](../
 > - The new alert rule wizard does not support customization of the email subject.
 >     - Customers often use the custom email subject to indicate the resource on which the alert fired, instead of using the Log Analytics workspace. Use the [new API](alerts-unified-log.md#split-by-alert-dimensions) to trigger an alert of the desired resource using the resource id column.
 >     - For more advanced customizations, use Logic Apps.
-
-
-1. In the [portal](https://portal.azure.com/), select the relevant resource. We recommend monitoring at scale by using a subscription or resource group for the alert rule.
-1. In the Resource menu, select **Logs**.
-1. Write a query that will find the log events for which you want to create an alert. You can use the [alert query examples article](../logs/queries.md) to understand what you can discover or [get started on writing your own query](../logs/log-analytics-tutorial.md). Also, [learn how to create optimized alert queries](alerts-log-query.md).
-1. From the top command bar, Select **+ New Alert rule**.
-
-   :::image type="content" source="media/alerts-log/alerts-create-new-alert-rule.png" alt-text="Create new alert rule.":::
-
-1. The **Condition** tab opens, populated with your log query.
- 
-    :::image type="content" source="media/alerts-log/alerts-logs-conditions-tab.png" alt-text="Conditions Tab.":::
-
-1. In the **Measurement** section, select values for the [**Measure**](./alerts-unified-log.md#measure), [**Aggregation type**](./alerts-unified-log.md#aggregation-type), and [**Aggregation granularity**](./alerts-unified-log.md#aggregation-granularity) fields.
-    - By default, the rule counts the number of results in the last 5 minutes.
-    - If the system detects summarized query results, the rule is automatically updated to capture that.
-    
-    :::image type="content" source="media/alerts-log/alerts-log-measurements.png" alt-text="Measurements.":::
-
-1. (Optional) In the **Split by dimensions** section, select [alert splitting by dimensions](./alerts-unified-log.md#split-by-alert-dimensions): 
-    - If detected, The **Resource ID column** is selected automatically and changes the context of the fired alert to the record's resource. 
-    - Clear the **Resource ID column**  to fire alerts on multiple resources in subscriptions or resource groups. For example, you can create a query that checks if 80% of the resource group's virtual machines are experiencing high CPU usage.
-    - You can use the dimensions table to select up to six more splittings for any number or text columns types.
-    - Alerts are fired individually for each unique splitting combination. The alert payload includes the combination that triggered the alert.    
-1. In the **Alert logic** section, set the **Alert logic**: [**Operator**, **Threshold Value**](./alerts-unified-log.md#threshold-and-operator), and [**Frequency**](./alerts-unified-log.md#frequency).   
-
-    :::image type="content" source="media/alerts-log/alerts-rule-preview-agg-params-and-splitting.png" alt-text="Preview alert rule parameters.":::
-
-1. (Optional) In the **Advanced options** section, set the [**Number of violations to trigger the alert**](./alerts-unified-log.md#number-of-violations-to-trigger-alert).
-    
-    :::image type="content" source="media/alerts-log/alerts-rule-preview-advanced-options.png" alt-text="Advanced options.":::
-
-1. The **Preview** chart shows query evaluations results over time. You can change the chart period or select different time series that resulted from unique alert splitting by dimensions.
-
-    :::image type="content" source="media/alerts-log/alerts-create-alert-rule-preview.png" alt-text="Alert rule preview.":::
-
-1. From this point on, you can select the **Review + create** button at any time. 
-1. In the **Actions** tab, select or create the required [action groups](./action-groups.md).
-
-    :::image type="content" source="media/alerts-log/alerts-rule-actions-tab.png" alt-text="Actions tab.":::
-
-1. In the **Details** tab, define the **Project details** and the **Alert rule details**.
-1. (Optional) In the **Advanced options** section, you can set several options, including whether to **Enable upon creation**, or to [**Mute actions**](./alerts-unified-log.md#state-and-resolving-alerts) for a period after the alert rule fires.
-    
-    :::image type="content" source="media/alerts-log/alerts-rule-details-tab.png" alt-text="Details tab.":::
-
-> [!NOTE]
-> If you, or your administrator assigned the Azure Policy **Azure Log Search Alerts over Log Analytics workspaces should use customer-managed keys**, you must select **Check workspace linked storage** option in **Advanced options**, or the rule creation will fail as it will not meet the policy requirements.
-
-1. In the **Tags** tab, set any required tags on the alert rule resource.
-
-    :::image type="content" source="media/alerts-log/alerts-rule-tags-tab.png" alt-text="Tags tab.":::
-
-1. In the **Review + create** tab, a validation will run and inform you of any issues.
-1. When validation passes and you have reviewed the settings, select the **Create** button.    
-    
-    :::image type="content" source="media/alerts-log/alerts-rule-review-create.png" alt-text="Review and create tab.":::
 
 ## Enable recommended out-of-the-box alert rules in the Azure portal (preview)
 > [!NOTE]
@@ -165,7 +201,7 @@ az deployment group create \
 On success for creation, 201 is returned. On success for update, 200 is returned.
 ## Next steps
 
-* Learn about [log alerts](./alerts-unified-log.md).
+* Learn about [Log alerts](alerts-types.md#log-alerts).
 * Create log alerts using [Azure Resource Manager Templates](./alerts-log-create-templates.md).
 * Understand [webhook actions for log alerts](./alerts-log-webhook.md).
 * Learn more about [log queries](../logs/log-query-overview.md).

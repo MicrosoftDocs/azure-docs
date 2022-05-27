@@ -4,7 +4,7 @@ description: Specifications for the NDm A100 v4-series VMs.
 author: sherrywangms
 ms.author: sherrywang
 ms.service: virtual-machines
-ms.subservice: vm-sizes-gpu
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 10/26/2021
 

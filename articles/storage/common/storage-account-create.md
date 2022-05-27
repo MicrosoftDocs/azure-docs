@@ -7,9 +7,9 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/27/2022
+ms.date: 05/18/2022
 ms.author: tamram
-ms.subservice: common 
+ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -18,8 +18,6 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 An Azure storage account contains all of your Azure Storage data objects: blobs, files, queues, and tables. The storage account provides a unique namespace for your Azure Storage data that is accessible from anywhere in the world over HTTP or HTTPS. For more information about Azure storage accounts, see [Storage account overview](storage-account-overview.md).
 
 In this how-to article, you learn to create a storage account using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](/powershell/azure/), [Azure CLI](/cli/azure), or an [Azure Resource Manager template](../../azure-resource-manager/management/overview.md).
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Prerequisites
 
@@ -54,6 +52,10 @@ The button launches an interactive shell that you can use to run the steps outli
 
 You can also install and use the Azure CLI locally. If you plan to use Azure CLI locally, make sure you have installed the latest version of the Azure CLI. See [Install the Azure CLI](/cli/azure/install-azure-cli).
 
+# [Bicep](#tab/bicep)
+
+None.
+
 # [Template](#tab/template)
 
 None.
@@ -83,6 +85,10 @@ To log into your local installation of the CLI, run the [az login](/cli/azure/re
 ```azurecli-interactive
 az login
 ```
+
+# [Bicep](#tab/bicep)
+
+N/A
 
 # [Template](#tab/template)
 
@@ -210,7 +216,7 @@ On the **Tags** tab, you can specify Resource Manager tags to help organize your
 
 The following image shows a standard configuration of the index tag properties for a new storage account.
 
-:::image type="content" source="media/storage-account-create/create-account-basics-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Tags tab" lightbox="media/storage-account-create/create-account-tags-tab-lrg.png":::
+:::image type="content" source="media/storage-account-create/create-account-tags-tab-sml.png" alt-text="Screenshot showing a standard configuration for a new storage account - Tags tab" lightbox="media/storage-account-create/create-account-tags-tab-lrg.png":::
 
 ### Review + create tab
 
@@ -303,6 +309,36 @@ The following table shows which values to use for the `sku` and `kind` parameter
 | Legacy standard general-purpose v1 | LRS / GRS / RA-GRS | Storage | Standard_LRS / Standard_GRS / Standard_RAGRS | No |
 | Legacy blob storage | LRS / GRS / RA-GRS | BlobStorage | Standard_LRS / Standard_GRS / Standard_RAGRS | No |
 
+# [Bicep](#tab/bicep)
+
+You can use either Azure PowerShell or Azure CLI to deploy a Bicep file to create a storage account. The Bicep file used in this how-to article is from [Azure Resource Manager quickstart templates](https://azure.microsoft.com/resources/templates/storage-account-create/). Bicep currently doesn't support deploying a remote file.  Download and save [the Bicep file](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/main.bicep) to your local computer, and then run the scripts.
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+
+New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "main.bicep"
+```
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+echo "Enter the location (i.e. centralus):" &&
+read location &&
+az group create --name $resourceGroupName --location "$location" &&
+az deployment group create --resource-group $resourceGroupName --template-file "main.bicep"
+```
+
+> [!NOTE]
+> This Bicep file serves only as an example. There are many storage account settings that aren't configured as part of this Bicep file. For example, if you want to use [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), you would modify this Bicep file by setting the `isHnsEnabled` property of the `StorageAccountPropertiesCreateParameters` object to `true`.
+
+To learn how to modify this Bicep file or create new ones, see:
+
+- [Azure Resource Manager documentation](../../azure-resource-manager/index.yml).
+- [Storage account template reference](/azure/templates/microsoft.storage/allversions).
+- [Additional storage account template samples](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage).
+
 # [Template](#tab/template)
 
 You can use either Azure PowerShell or Azure CLI to deploy a Resource Manager template to create a storage account. The template used in this how-to article is from [Azure Resource Manager quickstart templates](https://azure.microsoft.com/resources/templates/storage-account-create/). To run the scripts, select **Try it** to open the Azure Cloud Shell. To paste the script, right-click the shell, and then select **Paste**.
@@ -362,6 +398,24 @@ To delete the storage account, use the [az storage account delete](/cli/azure/st
 
 ```azurecli-interactive
 az storage account delete --name <storage-account> --resource-group <resource-group>
+```
+
+# [Bicep](#tab/bicep)
+
+To delete the storage account, use either Azure PowerShell or Azure CLI.
+
+```azurepowershell-interactive
+$storageResourceGroupName = Read-Host -Prompt "Enter the resource group name"
+$storageAccountName = Read-Host -Prompt "Enter the storage account name"
+Remove-AzStorageAccount -Name $storageAccountName -ResourceGroupName $storageResourceGroupName
+```
+
+```azurecli-interactive
+echo "Enter the resource group name:" &&
+read resourceGroupName &&
+echo "Enter the storage account name:" &&
+read storageAccountName &&
+az storage account delete --name storageAccountName --resource-group resourceGroupName
 ```
 
 # [Template](#tab/template)

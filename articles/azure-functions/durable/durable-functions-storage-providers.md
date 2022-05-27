@@ -31,6 +31,7 @@ The key benefits of the Azure Storage provider include:
 * Lowest-cost serverless billing model - Azure Storage has a consumption-based pricing model based entirely on usage ([more information](durable-functions-billing.md#azure-storage-transactions)).
 * Best tooling support - Azure Storage offers cross-platform local emulation and integrates with Visual Studio, Visual Studio Code, and the Azure Functions Core Tools.
 * Most mature - Azure Storage was the original and most battle-tested storage backend for Durable Functions.
+* Preview support for using identity instead of secrets for connecting to the storage provider.
 
 The source code for the DTFx components of the Azure Storage storage provider can be found in the [Azure/durabletask](https://github.com/Azure/durabletask/tree/main/src/DurableTask.AzureStorage) GitHub repo.
 
@@ -79,6 +80,33 @@ If no storage provider is explicitly configured in host.json, the Azure Storage 
 ### Configuring the Azure storage provider
 
 The Azure Storage provider is the default storage provider and doesn't require any explicit configuration, NuGet package references, or extension bundle references. You can find the full set of **host.json** configuration options [here](durable-functions-bindings.md#hostjson-settings), under the `extensions/durableTask/storageProvider` path.
+
+#### Connections
+
+The `connectionName` property in host.json is a reference to environment configuration which specifies how the app should connect to Azure Storage. It may specify:
+
+- The name of an application setting containing a connection string. To obtain a connection string, follow the steps shown at [Manage storage account access keys](../../storage/common/storage-account-keys-manage.md).
+- The name of a shared prefix for multiple application settings, together defining an [identity-based connection](#identity-based-connections-preview).
+
+If the configured value is both an exact match for a single setting and a prefix match for other settings, the exact match is used. If no value is specified in host.json, the default value is "AzureWebJobsStorage".
+
+##### Identity-based connections (preview)
+
+If you are using [version 2.7.0 or higher of the extension](https://github.com/Azure/azure-functions-durable-extension/releases/tag/v2.7.0) and the Azure storage provider, instead of using a connection string with a secret, you can have the app use an [Azure Active Directory identity](../../active-directory/fundamentals/active-directory-whatis.md). To do this, you would define settings under a common prefix which maps to the `connectionName` property in the trigger and binding configuration.
+
+To use an identity-based connection for Durable Functions, configure the following app settings:
+
+|Property | Environment variable template                       | Description                                | Example value                                        |
+|-|-----------------------------------------------------|--------------------------------------------|------------------------------------------------|
+| Blob service URI | `<CONNECTION_NAME_PREFIX>__blobServiceUri`| The data plane URI of the blob service of the storage account, using the HTTPS scheme. | https://<storage_account_name>.blob.core.windows.net |
+| Queue service URI | `<CONNECTION_NAME_PREFIX>__queueServiceUri` | The data plane URI of the queue service of the storage account, using the HTTPS scheme. | https://<storage_account_name>.queue.core.windows.net |
+| Table service URI | `<CONNECTION_NAME_PREFIX>__tableServiceUri` | The data plane URI of a table service of the storage account, using the HTTPS scheme. | https://<storage_account_name>.table.core.windows.net |
+
+Additional properties may be set to customize the connection. See [Common properties for identity-based connections](../functions-reference.md#common-properties-for-identity-based-connections).
+
+[!INCLUDE [functions-identity-based-connections-configuration](../../../includes/functions-identity-based-connections-configuration.md)]
+
+[!INCLUDE [functions-durable-permissions](../../../includes/functions-durable-permissions.md)]
 
 ### Configuring the Netherite storage provider
 
@@ -150,6 +178,7 @@ There are many significant tradeoffs between the various supported storage provi
 | Support for [extension bundles](../functions-bindings-register.md#extension-bundles) (recommended for non-.NET apps) | ✅ Fully supported | ❌ Not supported | ❌ Not supported |
 | Price-performance configurable? | ❌ No | ✅ Yes (Event Hubs TUs and CUs) | ✅ Yes (SQL vCPUs) |
 | Disconnected environment support | ❌ Azure connectivity required | ❌ Azure connectivity required | ✅ Fully supported |
+| Identity-based connections | ✅ Yes (preview) |❌ No | ❌ No |
 
 ## Next steps
 
