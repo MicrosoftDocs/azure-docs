@@ -60,11 +60,13 @@ To get started, you'll need:
 
 ## Upload your documents
 
-1. Go to the [Azure portal](https://portal.azure.com/#home). Select **Your storage account** → **Data storage** → **Containers**.
+1. Go to the [Azure portal](https://portal.azure.com/#home).
+    * Select **Your storage account** → **Data storage** → **Containers**.
 
    :::image type="content" source="media/sas-tokens/data-storage-menu.png" alt-text="Screenshot that shows the Data storage menu in the Azure portal.":::
 
 1. Select a container from the list.
+
 1. Select **Upload** from the menu at the top of the page.
 
     :::image type="content" source="media/sas-tokens/container-upload-button.png" alt-text="Screenshot that shows the container Upload button in the Azure portal.":::
@@ -82,14 +84,15 @@ The Azure portal is a web-based console that enables you to manage your Azure su
 
 1. Go to the [Azure portal](https://portal.azure.com/#home) and navigate as follows:
 
-    **Your storage account** → **containers** → **your container**.
+    * **Your storage account** → **containers** → **your container**.
 
 1. Select **Generate SAS** from the menu near the top of the page.
 
 1. Select **Signing method** → **User delegation key**.
 
 1. Define **Permissions** by selecting or clearing the appropriate checkbox.</br>
-   Make sure the **Read**, **Write**, **Delete**, and **List** permissions are selected.
+
+   * Make sure the **Read**, **Write**, **Delete**, and **List** permissions are selected.
 
     :::image type="content" source="media/sas-tokens/sas-permissions.png" alt-text="Screenshot that shows the SAS permission fields in the Azure portal.":::
 
@@ -117,6 +120,8 @@ The Azure portal is a web-based console that enables you to manage your Azure su
 1. The **Blob SAS token** query string and **Blob SAS URL** appear in the lower area of the window. To use the Blob SAS token, append it to a storage service URI.
 
 1. Copy and paste the **Blob SAS token** and **Blob SAS URL** values in a secure location. They're displayed only once and can't be retrieved after the window is closed.
+
+1. To [construct a SAS URL](#use-your-sas-url-to-grant-access), append the SAS token (URI) to the URL for a storage service.
 
 ## Use Azure Storage Explorer
 
@@ -146,7 +151,7 @@ Azure Storage Explorer is a free standalone app that enables you to easily manag
 
 1. **Copy and paste the SAS URL and query string values in a secure location. They'll only be displayed once and can't be retrieved once the window is closed.**
 
-1. To use the SAS URL, append the SAS token (URL) to the endpoint URL for your storage service.
+1. To [construct a SAS URL](#use-your-sas-url-to-grant-access), append the SAS token (URI) to the URL for a storage service.
 
 ## Use your SAS URL to grant access
 

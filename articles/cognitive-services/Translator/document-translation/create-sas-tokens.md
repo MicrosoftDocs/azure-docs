@@ -51,8 +51,8 @@ To get started, you'll need the following resources:
 
 Go to the [Azure portal](https://portal.azure.com/#home) and navigate to your container or a specific file as follows and continue with the steps below:
 
-| Create SAS for a container| Create SAS for a specific file|
-|-----|-----|
+| Create SAS token for a container| Create SAS token for a specific file|
+|:-----:|:-----:|
 **Your storage account** → **containers** → **your container** |**Your storage account** → **containers** → **your container**→ **your file** |
 
 1. Right-click the container or file and select **Generate SAS** from the drop-down menu.
@@ -62,6 +62,7 @@ Go to the [Azure portal](https://portal.azure.com/#home) and navigate to your co
 1. Define **Permissions** by checking and/or clearing the appropriate check box:
 
     * Your **source** container or file must have designated  **read** and **list** access.
+
     * Your **target** container or file must have designated  **write** and **list** access.
 
 1. Specify the signed key **Start** and **Expiry** times.
@@ -105,7 +106,7 @@ Azure Storage Explorer is a free standalone app that enables you to easily manag
 
 1. A new window will appear with the **Container** name, **URI**, and **Query string** for your container.
 1. **Copy and paste the container, URI, and query string values in a secure location. They'll only be displayed once and can't be retrieved once the window is closed.**
-To [construct a SAS URL](#use-your-sas-url-to-grant-access), append the SAS token (URI) to the URL for a storage service.
+1. To [construct a SAS URL](#use-your-sas-url-to-grant-access), append the SAS token (URI) to the URL for a storage service.
 
 ### [SAS tokens for specific blob file](#tab/blobs)
 
@@ -132,7 +133,15 @@ To [construct a SAS URL](#use-your-sas-url-to-grant-access), append the SAS toke
 
 ### Use your SAS URL to grant access
 
-To include your SAS URL with REST API requests, use the SAS URL as your sourceURL and targetURL values (or append the SAS query string to your existing sourceURL and targetURL values):
+The SAS URL includes a special set of [query parameters](/rest/api/storageservices/create-user-delegation-sas#assign-permissions-with-rbac). Those parameters indicate how the resources may be accessed by the client.
+
+You can include your SAS URL with REST API requests in two ways:
+
+* Use the **SAS URL** as your sourceURL and targetURL values.
+
+* Append the **SAS query string** to your existing sourceURL and targetURL values.
+
+Here is a sample REST API request:
 
 ```json
 {
