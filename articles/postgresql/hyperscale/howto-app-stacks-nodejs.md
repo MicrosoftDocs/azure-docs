@@ -59,7 +59,6 @@ Replace the following values:
 
 ```javascript
 const pg = require('pg');
-
 const config = {
     host: '<host>',
     // Do not hard code your username and password.
@@ -70,9 +69,7 @@ const config = {
     port: 5432,
     ssl: true
 };
-
 const client = new pg.Client(config);
-
 client.connect(err => {
     if (err) throw err;
     else {
@@ -80,7 +77,6 @@ client.connect(err => {
      
     }
 });
-
 function queryDatabase() {
     const query = `
         DROP TABLE IF EXISTS pharmacy;
@@ -89,7 +85,6 @@ function queryDatabase() {
         INSERT INTO pharmacy (pharmacy_id,pharmacy_name,city,state,zip_code) VALUES (1,'CVS','San Francisco','California',94002);
         CREATE INDEX idx_pharmacy_id ON pharmacy(pharmacy_id);
     `;
-
          client
         .query(query)
         .then(() => {
@@ -101,7 +96,6 @@ function queryDatabase() {
             console.log('Finished execution, exiting now');
             process.exit();
         });
-
 }
 ```
 
@@ -119,7 +113,6 @@ Use the following code to connect and read the data using a SELECT SQL statement
 
 ```javascript
 const pg = require('pg');
-
 const config = {
     host: '<your-db-server-name>.postgres.database.azure.com',
     // Do not hard code your username and password.
@@ -130,9 +123,7 @@ const config = {
     port: 5432,
     ssl: true
 };
-
 const client = new pg.Client(config);
-
 client.connect(err => {
     if (err) throw err;
     else {
@@ -140,12 +131,10 @@ client.connect(err => {
      
     }
 });
-
 function queryDatabase() {
     const query = `
         select create_distributed_table('pharmacy','pharmacy_id');
     `;
-
     client
     .query(query)
     .then(() => {
@@ -157,15 +146,15 @@ function queryDatabase() {
         console.log('Finished execution, exiting now');
         process.exit();
     });
-
 }
 ```
 
 ## Read data
+
 Use the following code to connect and read the data using a SELECT SQL statement.
+
 ```javascript
 const pg = require('pg');
-
 const config = {
     host: '<your-db-server-name>.postgres.database.azure.com',
     // Do not hard code your username and password.
@@ -176,28 +165,21 @@ const config = {
     port: 5432,
     ssl: true
 };
-
 const client = new pg.Client(config);
-
 client.connect(err => {
     if (err) throw err;
     else { queryDatabase(); }
 });
-
 function queryDatabase() {
   
     console.log(`Running query to PostgreSQL server: ${config.host}`);
-
     const query = 'SELECT * FROM pharmacy';
-
     client.query(query)
         .then(res => {
             const rows = res.rows;
-
             rows.map(row => {
                 console.log(`Read: ${JSON.stringify(row)}`);
             });
-
             process.exit();
         })
         .catch(err => {
@@ -205,6 +187,7 @@ function queryDatabase() {
         });
 }
 ```
+
 ## Update data
 
 Use the following code to connect and read the data using a UPDATE SQL statement. 
@@ -221,22 +204,18 @@ const config = {
     port: 5432,
     ssl: true
 };
-
 const client = new pg.Client(config);
-
 client.connect(err => {
     if (err) throw err;
     else {
         queryDatabase();
     }
 });
-
 function queryDatabase() {
     const query = `
         UPDATE pharmacy SET city = 'guntur' 
           WHERE pharmacy_id = 1 ; 
     `;
-
     client
         .query(query)
         .then(result => {
@@ -266,9 +245,7 @@ const config = {
     port: 5432,
     ssl: true
 };
-
 const client = new pg.Client(config);
-
 client.connect(err => {
     if (err) {
         throw err;
@@ -276,12 +253,10 @@ client.connect(err => {
         queryDatabase();
     }
 });
-
 function queryDatabase() {
     const query = `
     DELETE FROM pharmacy WHERE pharmacy_name = 'Target';
     `;
-
     client
         .query(query)
         .then(result => {
@@ -302,6 +277,7 @@ COPY command can yield [tremendous throughput](https://www.citusdata.com/blog/20
 ### COPY command to load data from a file
 
 The following code is an example for copying data from csv file to table.
+
 ```javascript
 // Import required modules
 const pg = require('pg');
@@ -309,7 +285,6 @@ const fs = require('fs')
 const path = require('path')
 const { Pool, Client} = require('pg')
 const copyFrom = require('pg-copy-streams').from
-
 const config = {
     host: '<your-db-server-name>.postgres.database.azure.com',
     // Do not hard code your username and password.
@@ -331,7 +306,6 @@ var stream = client.query(copyFrom(`COPY pharmacy FROM  STDIN WITH (
     NULL ''
   );`))
 var fileStream = fs.createReadStream(inputFile)
-
 fileStream.on('error', (error) =>{
     console.log(`Error in reading file: ${error}`)
 })
@@ -355,7 +329,6 @@ var pg = require('pg');
 var copyFrom = require('pg-copy-streams').from;
 const { Pool, Client} = require('pg')
 var Readable = require('stream').Readable;
-
 const config = {
   user: 'citus',     
   password: '<your-password>',
@@ -363,17 +336,13 @@ const config = {
   port: 5432,
   ssl: true
 };
-
 const client = new pg.Client(config);
 client.connect()
 var sqlcopysyntax = 'COPY pharmacy FROM STDIN ';
-var sqlcopysyntax = 'COPY pharmacy FROM STDIN ';
 var stream = client.query(copyFrom(sqlcopysyntax));
    
-var interndataset = [
-    ['0','Target','Sunnyvale','California','94001'],
-    ['1','CVS','San Francisco','California','94002'],
-  ]; 
+var interndataset = [['0','Target','Sunnyvale','California','94001'],
+                ['1','CVS','San Francisco','California','94002']]; 
  
 var started = false;
 var internmap = through2.obj(function(arr, enc, cb) {
@@ -382,13 +351,11 @@ var internmap = through2.obj(function(arr, enc, cb) {
           console.log(rowText);
           cb(null, rowText);
 })
-
 interndataset.forEach(function(r) {
           internmap.write(r);
 })
       
 internmap.end();
-
 internmap.pipe(stream);
 console.log("inserted successfully");
 ```
