@@ -112,6 +112,16 @@ items:
         href: https://aka.ms/ct-authoring-apis
       - name: Runtime prediction API
         href: https://aka.ms/ct-runtime-api
+    - name: SDK samples
+      items:
+      - name: Java
+        href: https://aka.ms/sdk-samples-java
+      - name: JavaScript
+        href: https://aka.ms/sdk-samples-java-script
+      - name: C#
+        href:  https://aka.ms/sdk-samples-dot-net
+      - name: Python
+        href:  https://aka.ms/sdk-samples-python
 - name: Custom named entity recognition (NER)
   items:
   - name: Overview
@@ -188,6 +198,16 @@ items:
         href: https://aka.ms/ct-authoring-apis
       - name: Runtime prediction API
         href: https://aka.ms/ct-runtime-api
+      - name: SDK samples
+        items:
+        - name: Java
+          href: https://aka.ms/sdk-samples-java
+        - name: JavaScript
+          href: https://aka.ms/sdk-samples-java-script
+        - name: C#
+          href:  https://aka.ms/sdk-samples-dot-net
+        - name: Python
+          href:  https://aka.ms/sdk-samples-python
 - name: Conversational language understanding
   items:
   - name: Overview
@@ -254,6 +274,11 @@ items:
         href: https://aka.ms/clu-authoring-apis
       - name: Runtime prediction API
         href: https://aka.ms/clu-runtime-api
+        items:
+        - name: C#
+          href:  https://aka.ms/sdk-sample-conversation-dot-net
+        - name: Python
+          href:   https://aka.ms/sdk-samples-conversation-python
 - name: Entity linking
   items:
   - name: Overview
@@ -535,18 +560,18 @@ items:
         href: orchestration-workflow/concepts/evaluation-metrics.md
       - name: Back up and recover your models
         href: orchestration-workflow/concepts/fail-over.md
-      - name: Data formats
-        href: orchestration-workflow/concepts/data-formats.md
       - name: None intent
         href: orchestration-workflow/concepts/none-intent.md
-      - name: Enterprise readiness
-        items: 
-        - name: Virtual networks
-          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/language-service/context/context
-        - name: Cognitive Services security
-          href: ../cognitive-services-security.md?context=/azure/cognitive-services/language-service/context/context
-        - name: Encryption of data at rest
-          href: concepts/encryption-data-at-rest.md
+      - name: Data formats
+        href: orchestration-workflow/concepts/data-formats.md
+  - name: Enterprise readiness
+    items: 
+    - name: Virtual networks
+      href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/language-service/context/context
+    - name: Cognitive Services security
+      href: ../cognitive-services-security.md?context=/azure/cognitive-services/language-service/context/context
+    - name: Encryption of data at rest
+      href: concepts/encryption-data-at-rest.md
   - name: Tutorials
     items:
       - name: Connect conversational language understanding and custom question answering
@@ -563,6 +588,11 @@ items:
         href: https://aka.ms/clu-authoring-apis
       - name: Runtime prediction API
         href: https://aka.ms/clu-runtime-api
+        items:
+        - name: C#
+          href:  https://aka.ms/sdk-sample-conversation-dot-net
+        - name: Python
+          href:   https://aka.ms/sdk-samples-conversation-python
 - name: Personally Identifying Information (PII) detection
   items:
   - name: Overview

@@ -72,10 +72,10 @@ Datastores currently support storing connection information to the storage servi
 
 | Storage&nbsp;type | Authentication&nbsp;type | [Azure&nbsp;Machine&nbsp;Learning studio](https://ml.azure.com/) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; Python SDK](/python/api/overview/azure/ml/intro) |  [Azure&nbsp;Machine&nbsp;Learning CLI](reference-azure-machine-learning-cli.md) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; REST API](/rest/api/azureml/) | VS Code
 ---|---|---|---|---|---|---
-[Azure&nbsp;Blob&nbsp;Storage](/azure/storage/blobs/storage-blobs-overview)| Account key <br> SAS token | ✓ | ✓ | ✓ |✓ |✓
-[Azure&nbsp;File&nbsp;Share](/azure/storage/files/storage-files-introduction)| Account key <br> SAS token | ✓ | ✓ | ✓ |✓|✓
-[Azure&nbsp;Data Lake&nbsp;Storage Gen&nbsp;1](/azure/data-lake-store/)| Service principal| ✓ | ✓ | ✓ |✓|
-[Azure&nbsp;Data Lake&nbsp;Storage Gen&nbsp;2](/azure/storage/blobs/data-lake-storage-introduction)| Service principal| ✓ | ✓ | ✓ |✓|
+[Azure&nbsp;Blob&nbsp;Storage](../../storage/blobs/storage-blobs-overview.md)| Account key <br> SAS token | ✓ | ✓ | ✓ |✓ |✓
+[Azure&nbsp;File&nbsp;Share](../../storage/files/storage-files-introduction.md)| Account key <br> SAS token | ✓ | ✓ | ✓ |✓|✓
+[Azure&nbsp;Data Lake&nbsp;Storage Gen&nbsp;1](../../data-lake-store/index.yml)| Service principal| ✓ | ✓ | ✓ |✓|
+[Azure&nbsp;Data Lake&nbsp;Storage Gen&nbsp;2](../../storage/blobs/data-lake-storage-introduction.md)| Service principal| ✓ | ✓ | ✓ |✓|
 [Azure&nbsp;SQL&nbsp;Database](/azure/azure-sql/database/sql-database-paas-overview)| SQL authentication <br>Service principal| ✓ | ✓ | ✓ |✓|
 [Azure&nbsp;PostgreSQL](/azure/postgresql/overview) | SQL authentication| ✓ | ✓ | ✓ |✓|
 [Azure&nbsp;Database&nbsp;for&nbsp;MySQL](/azure/mysql/overview) | SQL authentication|  | ✓* | ✓* |✓*|
@@ -87,9 +87,9 @@ Datastores currently support storing connection information to the storage servi
 
 ### Storage guidance
 
-We recommend creating a datastore for an [Azure Blob container](/azure/storage/blobs/storage-blobs-introduction). Both standard and premium storage are available for blobs. Although premium storage is more expensive, its faster throughput speeds might improve the speed of your training runs, particularly if you train against a large dataset. For information about the cost of storage accounts, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service).
+We recommend creating a datastore for an [Azure Blob container](../../storage/blobs/storage-blobs-introduction.md). Both standard and premium storage are available for blobs. Although premium storage is more expensive, its faster throughput speeds might improve the speed of your training runs, particularly if you train against a large dataset. For information about the cost of storage accounts, see the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service).
 
-[Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction) is built on top of Azure Blob storage and designed for enterprise big data analytics. A fundamental part of Data Lake Storage Gen2 is the addition of a [hierarchical namespace](/azure/storage/blobs/data-lake-storage-namespace) to Blob storage. The hierarchical namespace organizes objects/files into a hierarchy of directories for efficient data access.
+[Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md) is built on top of Azure Blob storage and designed for enterprise big data analytics. A fundamental part of Data Lake Storage Gen2 is the addition of a [hierarchical namespace](../../storage/blobs/data-lake-storage-namespace.md) to Blob storage. The hierarchical namespace organizes objects/files into a hierarchy of directories for efficient data access.
 
 ## Storage access and permissions
 
@@ -100,7 +100,7 @@ To ensure you securely connect to your Azure storage service, Azure Machine Lear
 
 ### Virtual network 
 
-Azure Machine Learning requires extra configuration steps to communicate with a storage account that is behind a firewall or within a virtual network. If your storage account is behind a firewall, you can [add your client's IP address to an allowlist](/azure/storage/common/storage-network-security#managing-ip-network-rules) via the Azure portal.
+Azure Machine Learning requires extra configuration steps to communicate with a storage account that is behind a firewall or within a virtual network. If your storage account is behind a firewall, you can [add your client's IP address to an allowlist](../../storage/common/storage-network-security.md#managing-ip-network-rules) via the Azure portal.
 
 Azure Machine Learning can receive requests from clients outside of the virtual network. To ensure that the entity requesting data from the service is safe and to enable data being displayed in your workspace, [use a private endpoint with your workspace](../how-to-configure-private-link.md).
 
@@ -137,7 +137,7 @@ You can find account key, SAS token, and service principal information on your [
 
 ### Permissions
 
-For Azure blob container and Azure Data Lake Gen 2 storage, make sure your authentication credentials have **Storage Blob Data Reader** access. Learn more about [Storage Blob Data Reader](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). An account SAS token defaults to no permissions. 
+For Azure blob container and Azure Data Lake Gen 2 storage, make sure your authentication credentials have **Storage Blob Data Reader** access. Learn more about [Storage Blob Data Reader](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader). An account SAS token defaults to no permissions. 
 * For data **read access**, your authentication credentials must have a minimum of list and read permissions for containers and objects. 
 
 * For data **write access**, write and add permissions also are required.
@@ -158,7 +158,7 @@ Within this section are examples for how to create and register a datastore via 
 
 If you prefer a low code experience, see [Connect to data with Azure Machine Learning studio](../how-to-connect-data-ui.md).
 >[!IMPORTANT]
-> If you unregister and re-register a datastore with the same name, and it fails, the Azure Key Vault for your workspace may not have soft-delete enabled. By default, soft-delete is enabled for the key vault instance created by your workspace, but it may not be enabled if you used an existing key vault or have a workspace created prior to October 2020. For information on how to enable soft-delete, see [Turn on Soft Delete for an existing key vault](/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault).
+> If you unregister and re-register a datastore with the same name, and it fails, the Azure Key Vault for your workspace may not have soft-delete enabled. By default, soft-delete is enabled for the key vault instance created by your workspace, but it may not be enabled if you used an existing key vault or have a workspace created prior to October 2020. For information on how to enable soft-delete, see [Turn on Soft Delete for an existing key vault](../../key-vault/general/soft-delete-change.md#turn-on-soft-delete-for-an-existing-key-vault).
 
 
 > [!NOTE]
@@ -204,9 +204,9 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
 
 ### Azure Data Lake Storage Generation 2
 
-For an Azure Data Lake Storage Generation 2 (ADLS Gen 2) datastore, use [register_azure_data_lake_gen2()](/python/api/azureml-core/azureml.core.datastore.datastore#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) to register a credential datastore connected to an Azure DataLake Gen 2 storage with [service principal permissions](/azure/active-directory/develop/howto-create-service-principal-portal).  
+For an Azure Data Lake Storage Generation 2 (ADLS Gen 2) datastore, use [register_azure_data_lake_gen2()](/python/api/azureml-core/azureml.core.datastore.datastore#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) to register a credential datastore connected to an Azure DataLake Gen 2 storage with [service principal permissions](../../active-directory/develop/howto-create-service-principal-portal.md).  
 
-In order to utilize your service principal, you need to [register your application](/azure/active-directory/develop/app-objects-and-service-principals) and grant the service principal data access via either Azure role-based access control (Azure RBAC) or access control lists (ACL). Learn more about [access control set up for ADLS Gen 2](/azure/storage/blobs/data-lake-storage-access-control-model). 
+In order to utilize your service principal, you need to [register your application](../../active-directory/develop/app-objects-and-service-principals.md) and grant the service principal data access via either Azure role-based access control (Azure RBAC) or access control lists (ACL). Learn more about [access control set up for ADLS Gen 2](../../storage/blobs/data-lake-storage-access-control-model.md). 
 
 The following code creates and registers the `adlsgen2_datastore_name` datastore to the `ws` workspace. This datastore accesses the file system `test` in the `account_name` storage account, by using the provided service principal credentials. 
 Review the [storage access & permissions](#storage-access-and-permissions) section for guidance on virtual network scenarios, and where to find required authentication credentials. 

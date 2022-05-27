@@ -30,7 +30,7 @@ The following are aspects to consider when using captioning:
 * Consider output formats such as SRT (SubRip Text) and WebVTT (Web Video Text Tracks). These can be loaded onto most video players such as VLC, automatically adding the captions on to your video.
 
 > [!TIP]
-> Try the [Azure Video Indexer](/azure/azure-video-indexer/video-indexer-overview) as a demonstration of how you can get captions for videos that you upload. 
+> Try the [Azure Video Indexer](../../azure-video-indexer/video-indexer-overview.md) as a demonstration of how you can get captions for videos that you upload. 
 
 Captioning can accompany real time or pre-recorded speech. Whether you're showing captions in real time or with a recording, you can use the [Speech SDK](speech-sdk.md) or [Speech CLI](spx-overview.md) to recognize speech and get transcriptions. You can also use the [Batch transcription API](batch-transcription.md) for pre-recorded video. 
 

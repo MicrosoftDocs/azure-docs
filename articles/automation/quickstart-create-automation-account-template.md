@@ -35,7 +35,7 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
 
 * Review [workspace mappings](how-to/region-mappings.md) to specify the supported regions inline or in a parameter file. Only certain regions are supported for linking a Log Analytics workspace and an Automation account in your subscription.
 
-* If you're new to Azure Monitor Logs and haven't deployed a workspace already, review the [workspace design guidance](../azure-monitor/logs/design-logs-deployment.md). This document will help you learn about access control, and help you understand the recommended design implementation strategies for your organization.
+* If you're new to Azure Monitor Logs and haven't deployed a workspace already, review the [workspace design guidance](../azure-monitor/logs/workspace-design.md). This document will help you learn about access control, and help you understand the recommended design implementation strategies for your organization.
 
 ## Review the template
 

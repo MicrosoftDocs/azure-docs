@@ -142,21 +142,6 @@ items:
     - name: Logs
       displayName: Azure Monitor Logs, Logs, Log Analytics, log query, log queries, query, queries
       href: logs/data-platform-logs.md
-  - name: Workspaces
-    items:
-    - name: Overview
-      href: logs/log-analytics-workspace-overview.md
-    - name: Design a workspace deployment
-      href: logs/design-logs-deployment.md
-    - name: Design for service providers
-      href: logs/service-providers.md
-    - name: Dedicated clusters
-      href: logs/logs-dedicated-clusters.md
-    - name: Availability zones
-      href: logs/availability-zones.md
-    - name: Log data ingestion time
-      displayName: latency
-      href: logs/data-ingestion-time.md
   - name: Usage and cost
     items:
     - name: View and estimate charges
@@ -173,8 +158,6 @@ items:
       href: roles-permissions-security.md
     - name: Log data
       href: logs/data-security.md
-    - name: Azure AD Authentication for Logs
-      href: logs/azure-ad-authentication-logs.md
     - name: Customer-managed keys
       href: logs/customer-managed-keys.md
     - name: Private Link networking
@@ -294,6 +277,8 @@ items:
           href: logs/daily-cap.md
         - name: Configure Basic Logs
           href: logs/basic-logs-configure.md
+        - name: Use Azure AD authentication
+          href: logs/azure-ad-authentication-logs.md
       - name: Archive and restore
         items:
         - name: Set retention and archive policy
@@ -302,12 +287,23 @@ items:
           href: logs/search-jobs.md
         - name: Restore logs
           href: logs/restore.md
+      - name: Design
+        items:
+        - name: Design a workspace architecture
+          href: logs/workspace-design.md
+        - name: Dedicated clusters
+          href: logs/logs-dedicated-clusters.md
+        - name: Availability zones
+          href: logs/availability-zones.md
       - name: Monitor
         items:
         - name: Monitor a workspace
           href: logs/monitor-workspace.md
         - name: Analyze usage and cost
           href: logs/analyze-usage.md
+        - name: Log data ingestion time
+          displayName: latency
+          href: logs/data-ingestion-time.md
       - name: Move and delete
         items:
         - name: Move a workspace

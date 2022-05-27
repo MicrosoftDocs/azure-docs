@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: include
 ms.workload: identity
-ms.date: 03/04/2022
+ms.date: 05/19/2022
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, mode-api
 #Customer intent: As an application developer, I want to learn how my Windows Presentation Foundation (WPF) application can get an access token and call an API that's protected by the Microsoft identity platform.
@@ -134,7 +134,7 @@ Some situations require forcing users interact with the Microsoft identity platf
 - When two factor authentication is required
 
 ```csharp
-authResult = await App.PublicClientApp.AcquireTokenInteractive(_scopes)
+authResult = await app.AcquireTokenInteractive(_scopes)
                                       .ExecuteAsync();
 ```
 
@@ -147,9 +147,9 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(_scopes)
 You don't want to require the user to validate their credentials every time they need to access a resource. Most of the time you want token acquisitions and renewal without any user interaction. You can use the `AcquireTokenSilent` method to obtain tokens to access protected resources after the initial `AcquireTokenInteractive` method:
 
 ```csharp
-var accounts = await App.PublicClientApp.GetAccountsAsync();
+var accounts = await app.GetAccountsAsync();
 var firstAccount = accounts.FirstOrDefault();
-authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
+authResult = await app.AcquireTokenSilent(scopes, firstAccount)
                                       .ExecuteAsync();
 ```
 
