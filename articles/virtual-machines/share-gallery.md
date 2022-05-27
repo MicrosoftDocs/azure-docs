@@ -104,10 +104,7 @@ Share with a subscription or tenant using direct sharing.
 1. Type **Azure Compute Gallery** in the search box and select **Azure Compute Gallery** in the results.
 1. In the **Azure Compute Gallery** page, click **Add**.
 1. On the **Create Azure Compute Gallery** page, select the correct subscription.
-1. In **Resource group**, select **Create new** and type *myGalleryRG* for the name.
-1. In **Name**, type *myGallery* for the name of the gallery.
-1. Leave the default for **Region**.
-1. You can type a short description of the gallery, like *My gallery for testing*.
+1. Complete all of the details on the page.
 1. At the bottom of the page, select **Next: Sharing method**.
     :::image type="content" source="media/create-gallery/create-gallery.png" alt-text="Screenshot showing where to select to go on to sharing methods.":::
 1. On the **Sharing** tab, select **xxxxxxxxx**.
@@ -118,58 +115,72 @@ Share with a subscription or tenant using direct sharing.
 1. After validation passes, select **Create**.
 1. When the deployment is finished, select **Go to resource**.
 
-To see the public name of your gallery, select **Sharing** in the left menu.
-
-When you are ready to make the gallery public:
-
-1. On the page for the gallery, select **Sharing** from the left menu.
-1. Select **Share** from the top of the page.
-   :::image type="content" source="media/create-gallery/share.png" alt-text="Screenshot showing the Share button for sharing your gallery to the community.":::
-1. When you are done, select **Save**.
 
 ### [CLI](#tab/clidirect)
 
-Create a gallery for subscription / tenant-level sharing 
+To create a gallery that can be shared to a subscription or tenant using direct sharing, you need to create the gallery with the `--permissions` parameter set to `groups`.
 
-az sig create --gallery-name $galleryName --permissions groups --resource-group $rgSource  
-
+```azurecli-interactive
+az sig create \
+   --gallery-name myGallery \
+   --permissions groups \
+   --resource-group myResourceGroup  
+```
  
 
-Share gallery to subscription and/or tenant 
+To shared the to a subscription or tenant, use [az sig share add](/cli/azure/sig#az-sig-share-add) 
 
-az sig share add --subscription-ids $sub1 $sub2 --tenant-ids $tenant1 $tenant2 --gallery-name $galleryName --resource-group $rgSource 
-
+```azurecli-interactive
+sub=<subscription-id>
+tenant=<tenant-id>
+gallery=<gallery-name>
+rg=<resource-group-name>
+az sig share add \
+   --subscription-ids $sub \
+   --tenant-ids $tenant \
+   --gallery-name $gallery \
+   --resource-group $rg
+```
  
 
-Remove access for a subscription / tenant 
+Remove access for a subscription or tenant using [az sig share remove](/cli/azure/sig#az-sig-share-remove).
 
-az sig share remove --subscription-ids $sub1 $sub2 --tenant-ids $tenant1 $tenant2 --gallery-name $galleryName --resource-group $rgSource 
+```azurecli-interactive
+sub=<subscription-id>
+tenant=<tenant-id>
+gallery=<gallery-name>
+rg=<resource-group-name>
 
+az sig share remove \
+   --subscription-ids $sub \
+   --tenant-ids $tenant \
+   --gallery-name $gallery \
+   --resource-group $rg
+```
  
 
-Reset (clear everything in sharingProfile)  
+Use [az sig share reset](/cli/azure/sig#az-sig-share-reset) to clear everything in sharingProfile.
 
-az sig share reset --gallery-name $galleryName -g $rgSource 
-
+```azurecli-interactive
+gallery=<gallery-name>
+rg=<resource-group-name>
+az sig share reset --gallery-name $gallery -g $rg
+```
  
 
-List Galleries shared with subscription 
+List Galleries shared with your subscription.
 
+```azurecli-interactive
 az sig list-shared --location $region 
-
+```
  
 
-List Galleries shared with tenant 
+List Galleries shared with a tenant.
 
+```azurecli-interactive
+region=<location>
 az sig list-shared --location $region --shared-to tenant 
-
- 
-
-Get uniqueId, permissions, and permitted groups for a Gallery (available only to image owner) 
-
-Note: The --select=permissions flag will be deprecated in Public Preview and replaced with a new command 
-
-az sig show --gallery-name $galleryName --resource-group $rgSource --select=permissions 
+```
 
  
 
@@ -246,9 +257,9 @@ Update-AzGallery -ResourceGroupName $rgSource -Name $galleryName -Shar
 
  
 
-List Galleries shared with subscription 
+List Galleries shared with subscription
 
-Get-AzGallery -Location $region 
+Get-AzGallery -Location $region
 
  
 
