@@ -96,7 +96,7 @@ The issues are divided into three types. Refer to the following tables to check 
 
 **Auto-rejected**
 
-Data with these errors will not be used for training. Imported data with errors will be ignored, so you don't need to delete them. You can resubmit the corrected data for training.  
+Data with these errors won't be used for training. Imported data with errors will be ignored, so you don't need to delete them. You can resubmit the corrected data for training.  
 
 | Category | Name | Description |
 | --------- | ----------- | --------------------------- |
@@ -147,17 +147,19 @@ Unresolved errors listed in the next table affect the quality of training, but d
 
 After you validate your data files, you can use them to build your Custom Neural Voice model.
 
-1. On the **Train model** tab, select **Train model** to create a voice model with the data you've uploaded.
+1. On the **Train model** tab, select **Train a new model** to create a voice model with the data you've uploaded.
 
-1. Select the neural training method for your model and target language. By default, your voice model is trained in the same language of your training data. You can also select to create a secondary language for your voice model. For more information, see [language support for Custom Neural Voice](language-support.md#custom-neural-voice). Also see information about [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) for neural training.
+2. Select the neural training method for your model and target language. 
 
-1. Choose the data you want to use for training, and specify a speaker file.
+    By default, your voice model is trained in the same language of your training data. You can also select to create a secondary language for your voice model. For more information, see [language support for Custom Neural Voice](language-support.md#custom-neural-voice). Also see information about [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) for neural training.
+
+3. Choose the data you want to use for training, and specify a speaker file.
 
    >[!NOTE]
    >- To create a custom neural voice, select at least 300 utterances.
    >- To train a neural voice, you must specify a voice talent profile. This profile must provide the audio consent file of the voice talent, acknowledging to use his or her speech data to train a custom neural voice model. Custom Neural Voice is available with limited access. Make sure you understand the [responsible AI requirements](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) and [apply the access](https://aka.ms/customneural).
 
-1. Choose your test script. Each training generates 100 sample audio files automatically, to help you test the model with a default script. You can also provide your own test script. The test script must exclude the filenames (the ID of each utterance). Otherwise, these IDs are spoken. Here's an example of how the utterances are organized in one .txt file:
+4. Choose your test script. Each training generates 100 sample audio files automatically, to help you test the model with a default script. You can also provide your own test script including at most 100 utterances. The test script must exclude the filenames (the ID of each utterance). Otherwise, these IDs are spoken. Here's an example of how the utterances are organized in one .txt file:
 
    ```
    This is the waistline, and it's falling.
@@ -180,18 +182,25 @@ After you validate your data files, you can use them to build your Custom Neural
    > [!NOTE]
    > Duplicate audio names will be removed from the training. Make sure the data you select don't contain the same audio names across multiple .zip files.
 
-   The **Train model** table displays a new entry that corresponds to this newly created model. The table also displays the status: processing, succeeded, or failed. The status reflects the process of converting your data to a voice model, as shown in this table:
+   The **Train model** table displays a new entry that corresponds to this newly created model. 
+
+   When the model is training, you can select **Cancel training** to cancel your voice model. You're not charged for this canceled training.
+
+   :::image type="content" source="media/custom-voice/cnv-cancel-training.png" alt-text="Screenshot of canceling training":::
+
+   The table displays the status: processing, succeeded, failed, and canceled. The status reflects the process of converting your data to a voice model, as shown in this table:
 
    | State | Meaning |
    | ----- | ------- |
    | Processing | Your voice model is being created. |
    | Succeeded	| Your voice model has been created and can be deployed. |
    | Failed | Your voice model has failed in training. The cause of the failure might be, for example, unseen data problems or network issues. |
+   | Canceled | The training for your voice model was canceled. |
 
    Training duration varies depending on how much data you're training. It takes about 40 compute hours on average to train a custom neural voice. 
 
    > [!NOTE]
-   > Standard subscription (S0) users can train three voices simultaneously. If you reach the limit, wait until at least one of your voice models finishes training, and then try again. 
+   > Standard subscription (S0) users can train four voices simultaneously. If you reach the limit, wait until at least one of your voice models finishes training, and then try again. 
 
 1. After you finish training the model successfully, you can review the model details.
 
@@ -204,10 +213,36 @@ The quality of the voice depends on many factors, such as:
 - The accuracy of the transcript file.
 - How well the recorded voice in the training data matches the personality of the designed voice for your intended use case.
 
+### Rename your model
+
+If you want to rename the model you built, you can select **Clone model** to create a clone of the model with a new name in the current project.
+
+:::image type="content" source="media/custom-voice/cnv-clone-model.png" alt-text="Screenshot of cloning model":::
+
+Enter the new name on the **Clone voice model** window, then click **Submit**. The text 'Neural' will be automatically added as a suffix to your new model name.
+
+:::image type="content" source="media/custom-voice/cnv-clone-model-rename.png" alt-text="Screenshot of renaming model":::
+
+### Test your voice model
+
+After you've trained your voice model, you can test the model on the model details page. Select **DefaultTests** under **Testing** to listen to the sample audios. The default test samples include 100 sample audios generated automatically during training to help you test the model. In addition to these 100 audios provided by default, your own test script (at most 100 utterances) provided during training are also added to **DefaultTests** set. You're not charged for the testing with **DefaultTests**.
+
+:::image type="content" source="media/custom-voice/cnv-model-default-test.png" alt-text="Screenshot of default tests":::
+
+If you want to upload your own test scripts to further test your model, select **Add test scripts** to upload your own test script.
+
+:::image type="content" source="media/custom-voice/cnv-model-add-testscripts.png" alt-text="Screenshot of adding test scripts":::
+
+Before uploading test script, check the [test script requirements](#train-your-custom-neural-voice-model). You'll be charged for the additional testing with the batch synthesis based on the number of billable characters. See [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+
+On **Add test scripts** window, click **Browse for a file** to select your own script, then select **Add** to upload it.
+
+:::image type="content" source="media/custom-voice/cnv-model-upload-testscripts.png" alt-text="Screenshot of uploading test script":::
+
 For more information, [learn more about the capabilities and limits of this feature, and the best practice to improve your model quality](/legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext). 
 
 > [!NOTE]
-> Custom Neural Voice training is only available in the three regions: East US, Southeast Asia, and UK South. But you can easily copy a neural voice model from the three regions to other regions. For more information, see the [regions for Custom Neural Voice](regions.md#text-to-speech).
+> Custom Neural Voice training is only available in some regions. But you can easily copy a neural voice model from these regions to other regions. For more information, see the [regions for Custom Neural Voice](regions.md#text-to-speech).
 
 ## Next steps
 
