@@ -40,7 +40,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 **Product capability:** Platform  
 
  
-Azure Service Health will soon support service outage notifications to Tenant Admins for Azure Active Directory issues in the near future. These outages will also appear on the Azure AD admin portal overview page with appropriate links to Azure Service Health. Outage events will be able to be seen by built-in Tenant Administrator Roles. We will continue to send outage notifications to subscriptions within a tenant for a period of transition. More information will be available when this capability is released expected in June 2022.
+Azure Service Health will soon support service outage notifications to Tenant Admins for Azure Active Directory issues in the near future. These outages will also appear on the Azure AD admin portal overview page with appropriate links to Azure Service Health. Outage events will be able to be seen by built-in Tenant Administrator Roles. We will continue to send outage notifications to subscriptions within a tenant for a period of transition. More information will be available when this capability is released. The expected release is for June 2022.
  
 ---
 
