@@ -64,7 +64,7 @@ Once the install process completes, Unity will restart automatically.
 
 ## Update configuration settings
 
-Back in **Unity Editor**, follow the <a href="/windows/mixed-reality/develop/unity/xr-project-setup#configuring-xr-plugin-management-for-openxr" target="_blank">Configuring XR Plugin Management for OpenXR</a> documentation to set up the **XR Plugin Management** in your **Project Settings**. Then, follow the <a href="/windows/mixed-reality/develop/unity/xr-project-setup#optimization" target="_blank">Optimization</a> documentation to apply the recommended project settings for HoloLens 2.
+Back in **Unity Editor**, follow the <a href="/windows/mixed-reality/develop/unity/new-openxr-project-with-mrtk" target="_blank">Configuring XR Plugin Management for OpenXR</a> documentation to set up the **XR Plugin Management** in your **Project Settings**. Then, follow the <a href="/windows/mixed-reality/develop/unity/new-openxr-project-with-mrtk" target="_blank">Optimization</a> documentation to apply the recommended project settings for HoloLens 2.
 
 ## Update MRTK settings
 
