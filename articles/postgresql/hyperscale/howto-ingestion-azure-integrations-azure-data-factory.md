@@ -78,7 +78,7 @@ In Azure Data Factory, you can use the **Copy** activity to copy data among data
 ---
 **Calling a Stored Procedure in ADF**
 
-In some specific scenarios, you might want to call a stored procedure/function to push aggregated data from staging table to summary table. As of today, ADF do not offer Stored Procedure activity for Azure Database for Postgres.But as a workaround we can use Lookup Activity with query to call a stored procedure as shown below:
+In some specific scenarios, you might want to call a stored procedure/function to push aggregated data from staging table to summary table. As of today, ADF do not offer Stored Procedure activity for Azure Database for Postgres, but as a workaround we can use Lookup Activity with query to call a stored procedure as shown below:
 
 ![Calling a procedure in Azure Data Factory.](../media/howto-ingestion-azure-integrations-azure-data-factory/ADF_Call_Procedure.png)
 ---
