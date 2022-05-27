@@ -1,5 +1,5 @@
 ---
-title: Use direct voice routing to connect existing telephony 
+title: Use direct routing to connect existing telephony service
 description: Learn how to add a Session Border Controller and configure voice routing for Azure Communication Services direct routing.
 author: boris-bazilevskiy
 manager: nmurav
