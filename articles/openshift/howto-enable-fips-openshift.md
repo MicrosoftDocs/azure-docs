@@ -22,8 +22,8 @@ Starting with Release 4.10, you can deploy an Azure Red Hat OpenShift cluster in
  
 You can install an Azure Red Hat OpenShift cluster that uses FIPS Validated / Modules in Process cryptographic libraries on the x86_64 architecture.
 
- [!NOTE]
- If you're using Azure File storage, you can't enable FIPS mode.
+[!NOTE]
+If you're using Azure File storage, you can't enable FIPS mode.
 
 ## To enable FIPS on your Azure Red Hat OpenShift cluster
 
