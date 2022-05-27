@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Upgrade Quickstart HoloLens app to Unity 2020'
-description: In this quickstart, you learn how to upgrade Quickstart HoloLens app to Unity 2020 build a HoloLens Unity app using Object Anchors.
+description: In this quickstart, you learn how to upgrade a Unity HoloLens app that uses Azure Object Anchors from Unity 2019 to Unity 2020.
 author: RamonArguelles
 manager: virivera
 ms.author: rgarcia
@@ -14,10 +14,7 @@ ms.custom:
 
 # Quickstart: Upgrade Quickstart app to Unity 2020
 
-In this quickstart, you upgrade a Unity HoloLens app that uses [Azure Object Anchors](../overview.md) from
-Unity 2019 to Unity 2020. Azure Object Anchors is a managed cloud service that converts 3D assets into AI models
-that enable object-aware mixed reality experiences for the HoloLens. When you're finished, you'll have a HoloLens
-app built with Unity that can detect objects in the physical world.
+In this quickstart, you upgrade a Unity HoloLens app that uses [Azure Object Anchors](../overview.md) from Unity 2019 to Unity 2020. Azure Object Anchors is a managed cloud service that converts 3D assets into AI models that enable object-aware mixed reality experiences for the HoloLens. When you finish, you'll have a HoloLens app built with Unity that can detect objects in the physical world.
 
 You'll learn how to:
 
@@ -42,11 +39,11 @@ Follow the steps from either the [Unity HoloLens](get-started-unity-hololens.md)
 1. Under the **Target Platform** column, select **Universal Windows Platform**.
 1. Select the **Project Name** column and open the sample in Unity.
 
-:::image type="content" source="./media/upgrade-unity-2020.png" alt-text="Screenshot shows a Unity page with Unity Version, Target Platform and ADD highlighted.":::
+   :::image type="content" source="./media/upgrade-unity-2020.png" alt-text="Screenshot shows a Unity page with Unity Version, Target Platform and ADD highlighted.":::
 
-You'll see a dialog asking for confirmation to upgrade your project. Select the **Confirm** button.
+   You'll see a dialog asking for confirmation to upgrade your project. Select the **Confirm** button.
 
-:::image type="content" source="./media/confirm-unity-upgrade.png" alt-text="Screenshot shows a dialog confirming the upgrade with Confirm selected.":::
+   :::image type="content" source="./media/confirm-unity-upgrade.png" alt-text="Screenshot shows a dialog confirming the upgrade with Confirm selected.":::
 
 ## Upgrade package dependencies
 
@@ -76,19 +73,19 @@ Back in **Unity Editor**, follow the [Configure OpenXR settings](/windows/mixed-
 
 ## Update MRTK settings
 
-If you're working with the `quickstarts/apps/unity/mrtk` project, follow the steps below to adjust MRTK. Otherwise, skip to [Build, deploy and run the app](#build-deploy-and-run-the-app).
+If you're working with the `quickstarts/apps/unity/mrtk` project, follow the steps below to adjust MRTK. Otherwise, skip to [Build, deploy, and run the app](#build-deploy-and-run-the-app).
 
-1. In **Unity Editor**, navigate to `Assets/MixedReality.AzureObjectAnchors/Scenes`, and open **AOASampleScene**. Under the **Hierarchy** pane, select the **MixedRealityToolkit** object.
+1. In **Unity Editor**, navigate to `Assets/MixedReality.AzureObjectAnchors/Scenes`, and open **AOASampleScene**. Under the **Hierarchy** pane, select **MixedRealityToolkit**.
 
    :::image type="content" source="./media/open-sample-scene.png" alt-text="Screenshot shows the Unity Editor with the MixedRealityToolkit highlighted.":::
 
-1. Under the **Inspector** pane, select the **Camera** button, and change the profile from  **ObsoleteXRSDKCameraProfile** to **DefaultMixedRealityCameraProfile**.
+1. Under the **Inspector** pane, select **Camera**, and change the profile from  **ObsoleteXRSDKCameraProfile** to **DefaultMixedRealityCameraProfile**.
 
    :::image type="content" source="./media/update-camera-profile.png" alt-text="Screenshot shows the Unity Editor with Camera and DefaultMixedRealityCameraProfile highlighted.":::
 
-1. Still in the **Inspector** pane, select **Input**, and expand the **Input Data Providers** dropdown list. Follow the [Configuring MRTK for the XR SDK pipeline](/windows/mixed-reality/mrtk-unity/configuration/getting-started-with-mrtk-and-xrsdk#configuring-mrtk-for-the-xr-sdk-pipeline) documentation to set up the proper input data providers (**OpenXRDeviceManager** and **WindowsMixedRealityDeviceManager**).
+1. Still in the **Inspector** pane, select **Input**, and expand the **Input Data Providers** dropdown list. Follow the [Configuring MRTK for the XR SDK pipeline](/windows/mixed-reality/mrtk-unity/configuration/getting-started-with-mrtk-and-xrsdk#configuring-mrtk-for-the-xr-sdk-pipeline) documentation to set up the proper input data providers: **OpenXRDeviceManager** and **WindowsMixedRealityDeviceManager**.
 
-1. :::image type="content" source="./media/update-input-profile.png" alt-text="Screenshot shows the Unity Editor with Input and Input Data Providers highlighted.":::
+   :::image type="content" source="./media/update-input-profile.png" alt-text="Screenshot shows the Unity Editor with Input and Input Data Providers highlighted.":::
 
 ## Build, deploy, and run the app
 
