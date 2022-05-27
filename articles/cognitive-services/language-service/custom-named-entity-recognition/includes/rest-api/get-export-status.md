@@ -22,8 +22,7 @@ Use the following **GET** request to get the status of exporting your project as
 |`{ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | The name of your project. This value is case-sensitive.   | `myProject` |
 |`{JOB-ID}`     | The ID for locating your model's training status. This is in the `location` header value you received in the previous step.  | `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxx` |
-|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest version released. Learn more about other available [API versions](../../../concepts/model-lifecycle.md#api-versions)  | `2022-03-01-preview` |
-
+|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest version released. See [Model lifecycle](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data) to learn more about other available API versions.  | `2022-05-01` |
 
 ### Headers
 
@@ -39,9 +38,9 @@ Use the following header to authenticate your request.
 {
   "resultUrl": "{RESULT-URL}",
   "jobId": "string",
-      "createdDateTime": "2021-10-19T23:24:41.572Z",
-      "lastUpdatedDateTime": "2021-10-19T23:24:41.572Z",
-      "expirationDateTime": "2021-10-19T23:24:41.572Z",
+  "createdDateTime": "2021-10-19T23:24:41.572Z",
+  "lastUpdatedDateTime": "2021-10-19T23:24:41.572Z",
+  "expirationDateTime": "2021-10-19T23:24:41.572Z",
   "status": "unknown",
   "errors": [
     {

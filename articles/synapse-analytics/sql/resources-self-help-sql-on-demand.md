@@ -643,7 +643,7 @@ Confirm the storage account accessed is using the Archive access tier.
 
 The Archive access tier is an offline tier. While a blob is in the Archive access tier, it can't be read or modified.
 
-To read or download a blob in the Archive tier, rehydrate it to an online tier. See [Archive access tier](/azure/storage/blobs/access-tiers-overview#archive-access-tier).
+To read or download a blob in the Archive tier, rehydrate it to an online tier. See [Archive access tier](../../storage/blobs/access-tiers-overview.md#archive-access-tier).
 
 ### [0x80070057](#tab/x80070057)
 

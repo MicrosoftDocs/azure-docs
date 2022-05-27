@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: ssalgadodev
-ms.date: 04/15/2022
+ms.date: 05/26/2022
 ms.custom: devx-track-python, devplatv2, sdkv2, cliv2, event-tier1-build-2022
 #Customer intent: As an experienced Python developer, I need to read in my data to make it available to a remote compute to train my machine learning models.
 ---
@@ -331,7 +331,7 @@ The following YAML file demonstrates how to use the output data from one compone
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-:::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/pipelines-with-components/basics/3b_pipeline_with_data/pipeline.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/3b_pipeline_with_data/pipeline.yml":::
 
 ## Python SDK v2 (preview)
 
@@ -341,7 +341,7 @@ The following example defines a pipeline containing three nodes and moves data b
 * `train_node` that trains a CNN model with Keras using the training data, `mnist_train.csv` .
 * `score_node` that scores the model using test data, `mnist_test.csv`.
 
-[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=build-pipeline)]
+[!notebook-python[] (~/azureml-examples-main/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=build-pipeline)]
 
 ## Next steps
 * [Install and set up Python SDK v2 (preview)](https://aka.ms/sdk-v2-install)

@@ -82,7 +82,7 @@ For example, insert the policy fragment named *ForwardContext* in the inbound po
 ```
 
 > [!TIP]
-> To see the content of an included fragment displayed in the policy definition, select **Recalculate effective policy** in the policy editor.
+> To see the content of an included fragment displayed in the policy definition, select **Calculate effective policy** in the policy editor.
 
 ## Manage policy fragments
 
