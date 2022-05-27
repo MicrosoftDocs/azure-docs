@@ -4,8 +4,8 @@ titleSuffix: Azure Active Directory Verifiable Credentials
 description: Learn how to issue a verifiable credential that you've issued.
 documentationCenter: ''
 author: barclayn
-manager: karenhoran
-ms.service: active-directory
+manager: rkarlin
+ms.service: decentralized-identity
 ms.topic: reference
 ms.subservice: verifiable-credentials
 ms.date: 10/08/2021
