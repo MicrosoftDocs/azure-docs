@@ -4,7 +4,7 @@ description: Plan for a deployment with Azure File Sync, a service that allows y
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/05/2022
+ms.date: 05/27/2022
 ms.author: kendownie
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurepowershell
