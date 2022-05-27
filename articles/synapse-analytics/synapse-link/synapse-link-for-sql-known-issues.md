@@ -79,7 +79,7 @@ This is the list of known limitations for Azure Synapse Link for SQL.
 * When enabling Azure Synapse Link for SQL on your Azure SQL Database, you should ensure that aggressive log truncation is disabled.
 
 ### SQL Server 2022 only
-* When creating SQL Server linked service, choose SQL Authentication, Windows Authentication or Azure AD Authentication.
+* When creating SQL Server linked service, choose SQL Authentication.
 * Azure Synapse Link for SQL works with SQL Server on Linux, but HA scenarios with Linux Pacemaker aren't supported. Shelf hosted IR cannot be installed on Linux environment.
 * Azure Synapse Link for SQL can't be enabled on databases that are transactional replication publishers or distributors.
 * If the SAS key of landing zone expires and gets rotated during the snapshot process, the new key won't get picked up. The snapshot will fail and restart automatically with the new key.
