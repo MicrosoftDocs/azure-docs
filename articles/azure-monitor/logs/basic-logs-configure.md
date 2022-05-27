@@ -45,12 +45,14 @@ PATCH https://management.azure.com/subscriptions/<subscriptionId>/resourcegroups
 
 **Example**
 
-This example configures the `ContainerLog` table for Basic Logs.
+This example configures the `ContainerLogV2` table for Basic Logs.
+
+Container Insights uses ContainerLog by default, to switch to using ContainerLogV2, please follow these [instructions](../containers/container-insights-logging-v2.md) before attempting to convert the table to Basic Logs.
 
 **Sample request**
 
 ```http
-PATCH https://management.azure.com/subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace/tables/ContainerLog?api-version=2021-12-01-preview
+PATCH https://management.azure.com/subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace/tables/ContainerLogV2?api-version=2021-12-01-preview
 ```
 
 Use this request body to change to Basic Logs:
@@ -90,7 +92,7 @@ Status code: 200
         "schema": {...}        
     },
     "id": "subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace",
-    "name": "ContainerLog"
+    "name": "ContainerLogV2"
 }
 ```
 
@@ -103,13 +105,13 @@ For example:
 - To set Basic Logs:
 
     ```azurecli
-    az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace --name ContainerLog  --plan Basic
+    az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace --name ContainerLogV2  --plan Basic
     ```
 
 - To set Analytics Logs:
 
     ```azurecli
-    az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace --name ContainerLog  --plan Analytics
+    az monitor log-analytics workspace table update --subscription ContosoSID --resource-group ContosoRG  --workspace-name ContosoWorkspace --name ContainerLogV2  --plan Analytics
     ```
    
 ---
@@ -151,7 +153,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{
 **Sample Request**
 
 ```http
-GET https://management.azure.com/subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace/tables/ContainerLog?api-version=2021-12-01-preview
+GET https://management.azure.com/subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace/tables/ContainerLogV2?api-version=2021-12-01-preview
 ```
 
 
@@ -170,7 +172,7 @@ Status code: 200
         "provisioningState": "Succeeded"        
     },
     "id": "subscriptions/ContosoSID/resourcegroups/ContosoRG/providers/Microsoft.OperationalInsights/workspaces/ContosoWorkspace",
-    "name": "ContainerLog"
+    "name": "ContainerLogV2"
 }
 ```
 

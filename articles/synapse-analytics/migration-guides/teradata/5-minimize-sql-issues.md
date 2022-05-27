@@ -1,6 +1,6 @@
 ---
 title: "Minimize SQL issues for Teradata migrations"
-description: Learn how to minimize the risk of SQL issues when migrating from Teradata to Azure Synapse. 
+description: Learn how to minimize the risk of SQL issues when migrating from Teradata to Azure Synapse Analytics. 
 ms.service: synapse-analytics
 ms.subservice: sql-dw
 ms.custom:
@@ -25,16 +25,16 @@ This article is part five of a seven part series that provides guidance on how t
 
 In 1984, Teradata initially released their database product. It introduced massively parallel processing (MPP) techniques to enable data processing at a scale more efficiently than the existing mainframe technologies available at the time. Since then, the product has evolved and has many installations among large financial institutions, telecommunications, and retail companies. The original implementation used proprietary hardware and was channel attached to mainframes&mdash;typically IBM or IBM-compatible processors.
 
-While more recent announcements have included network connectivity and the availability of Teradata technology stack in the cloud (including Azure), most existing installations are on premises, so many users are considering migrating some or all their Teradata data to Azure Synapse to gain the benefits of a move to a modern cloud environment.
+While more recent announcements have included network connectivity and the availability of the Teradata technology stack in the cloud (including Azure), most existing installations are on premises, so many users are considering migrating some or all their Teradata data to Azure Synapse Analytics to gain the benefits of a move to a modern cloud environment.
 
 > [!TIP]
 > Many existing Teradata installations are data warehouses using a dimensional data model.
 
 Teradata technology is often used to implement a data warehouse, supporting complex analytic queries on large data volumes using SQL. Dimensional data models&mdash;star or snowflake schemas&mdash;are common, as is the implementation of data marts for individual departments.
 
-This combination of SQL and dimensional data models simplifies migration to Azure Synapse, since the basic concepts and SQL skills are transferable. The recommended approach is to migrate the existing data model as-is to reduce risk and time taken. Even if the eventual intention is to make changes to the data model (for example, moving to a Data Vault model), perform an initial as-is migration and then make changes within the Azure cloud environment, leveraging the performance, elastic scalability, and cost advantages there.
+This combination of SQL and dimensional data models simplifies migration to Azure Synapse, since the basic concepts and SQL skills are transferable. The recommended approach is to migrate the existing data model as-is to reduce risk and time taken. Even if the eventual intention is to make changes to the data model (for example, moving to a data vault model), perform an initial as-is migration and then make changes within the Azure cloud environment, leveraging the performance, elastic scalability, and cost advantages there.
 
-While the SQL language has been standardized, individual vendors have in some cases implemented proprietary extensions. This document highlights potential SQL differences you may encounter while migrating from a legacy Teradata environment, and to provide workarounds.
+While the SQL language has been standardized, individual vendors have in some cases implemented proprietary extensions. This document highlights potential SQL differences you may encounter while migrating from a legacy Teradata environment, and provides workarounds.
 
 ### Use an Azure VM Teradata instance as part of a migration
 
@@ -45,15 +45,15 @@ Leverage the Azure environment when running a migration from an on-premises Tera
 
 With this approach, standard Teradata utilities such as Teradata Parallel Data Transporter (or third-party data replication tools such as Attunity Replicate) can be used to efficiently move the subset of Teradata tables that are to be migrated onto the VM instance, and then all migration tasks can take place within the Azure environment. This approach has several benefits:
 
-- After the initial replication of data, the source system isn't impacted by the migration tasks
+- After the initial replication of data, the source system isn't impacted by the migration tasks.
 
-- The familiar Teradata interfaces, tools and utilities are available within the Azure environment
+- The familiar Teradata interfaces, tools, and utilities are available within the Azure environment.
 
-- Once in the Azure environment there are no potential issues with network bandwidth availability between the on-premises source system and the cloud target system
+- Once in the Azure environment there are no potential issues with network bandwidth availability between the on-premises source system and the cloud target system.
 
-- Tools such as Azure Data Factory can efficiently call utilities such as Teradata Parallel Transporter to migrate data quickly and easily
+- Tools such as Azure Data Factory can efficiently call utilities such as Teradata Parallel Transporter to migrate data quickly and easily.
 
-- The migration process is orchestrated and controlled entirely within the Azure environment
+- The migration process is orchestrated and controlled entirely within the Azure environment.
 
 ### Use Azure Data Factory to implement a metadata-driven migration
 
@@ -64,7 +64,7 @@ Automate and orchestrate the migration process by making use of the capabilities
 
 Azure Data Factory is a cloud-based data integration service that allows creation of data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. Using Data Factory, you can create and schedule data-driven workflows&mdash;called pipelines&mdash;that can ingest data from disparate data stores. It can process and transform data by using compute services such as Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics, and Azure Machine Learning.
 
-By creating metadata to list the data tables to be migrated and their location, you can use the Data Factory facilities to manage and automate parts of the migration process. You can also use [Synapse pipelines](../../get-started-pipelines.md?msclkid=8f3e7e96cfed11eca432022bc07c18de).
+By creating metadata to list the data tables to be migrated and their location, you can use the Data Factory facilities to manage and automate parts of the migration process. You can also use [Azure Synapse Pipelines](../../get-started-pipelines.md?msclkid=8f3e7e96cfed11eca432022bc07c18de).
 
 ## SQL DDL differences between Teradata and Azure Synapse
 
@@ -84,18 +84,18 @@ The following sections discuss Teradata-specific options to consider during a mi
 
 When migrating tables between different technologies, only the raw data and its descriptive metadata gets physically moved between the two environments. Other database elements from the source system, such as indexes and log files, aren't directly migrated as these may not be needed or may be implemented differently within the new target environment. For example, there's no equivalent of the `MULTISET` option within Teradata's `CREATE TABLE` syntax.
 
-It's important to understand where performance optimizations&mdash;such as indexes&mdash;were used in the source environment. This indicates where performance optimization can be added in the new target environment. For example, if a NUSI has been created in the source Teradata environment, this might indicate that a non-clustered index should be created in the migrated Azure Synapse. Other native performance optimization techniques, such as table replication, may be more applicable than a straight 'like for like' index creation.
+It's important to understand where performance optimizations&mdash;such as indexes&mdash;were used in the source environment. This indicates where performance optimization can be added in the new target environment. For example, if a non-unique secondary index (NUSI) has been created in the source Teradata environment, this might indicate that a non-clustered index should be created in the migrated Azure Synapse. Other native performance optimization techniques, such as table replication, may be more applicable than a straight 'like for like' index creation.
 
 ### Unsupported Teradata table types
 
 > [!TIP]
 > Standard tables within Azure Synapse can support migrated Teradata time series and temporal tables.
 
-Teradata includes support for special table types for time series and temporal data. The syntax and some of the functions for these table types isn't directly supported within Azure Synapse, but the data can be migrated into a standard table with appropriate data types and indexing or partitioning on the date/time column.
+Teradata includes support for special table types for time series and temporal data. The syntax and some of the functions for these table types aren't directly supported within Azure Synapse, but the data can be migrated into a standard table with appropriate data types and indexing or partitioning on the date/time column.
 
 Teradata implements the temporal query functionality via query rewriting to add additional filters within a temporal query to limit the applicable date range. If this functionality is currently in use within the source Teradata environment and is to be migrated, then this additional filtering will need to be added into the relevant temporal queries.
 
-The Azure environment also includes specific features for complex analytics on time&mdash;series data at scale called [time series insights](https://azure.microsoft.com/services/time-series-insights/)&mdash;this is aimed at IoT data analysis applications and may be more appropriate for this use-case.
+The Azure environment also includes specific features for complex analytics on time-series data at scale called [time series insights](https://azure.microsoft.com/services/time-series-insights/)&mdash;this is aimed at IoT data analysis applications and may be more appropriate for this use-case.
 
 ### Teradata data type mapping
 
@@ -111,43 +111,43 @@ Most Teradata data types have a direct equivalent in Azure Synapse. This table s
 | AN | ARRAY | Not supported in Azure Synapse |
 | AT | TIME | TIME |
 | BF | BYTE | BINARY |
-| BO | BLOB | BLOB data type isn\'t directly supported but can be replaced with BINARY |
+| BO | BLOB | BLOB data type isn't directly supported but can be replaced with BINARY. |
 | BV | VARBYTE | BINARY |
 | CF | VARCHAR | CHAR |
-| CO | CLOB | CLOB data type isn\'t directly supported but can be replaced with VARCHAR |
+| CO | CLOB | CLOB data type isn't directly supported but can be replaced with VARCHAR. |
 | CV | VARCHAR | VARCHAR |
 | D  | DECIMAL | DECIMAL |
 | DA | DATE | DATE |
-| DH | INTERVAL DAY TO HOUR | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
-| DM | INTERVAL DAY TO MINUTE | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
-| DS | INTERVAL DAY TO SECOND | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
-| DT | DATASET | DATASET data type is supported in Azure Synapse |
-| DY | INTERVAL DAY | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
+| DH | INTERVAL DAY TO HOUR | INTERVAL data types aren't supported in Azure Synapse, but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD). |
+| DM | INTERVAL DAY TO MINUTE | INTERVAL data types aren't supported in Azure Synapse, but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD). |
+| DS | INTERVAL DAY TO SECOND | INTERVAL data types aren't supported in Azure Synapse, but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD). |
+| DT | DATASET | DATASET data type is supported in Azure Synapse. |
+| DY | INTERVAL DAY | INTERVAL data types aren't supported in Azure Synapse, but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD). |
 | F  | FLOAT | FLOAT |
-| HM | INTERVAL HOUR TO MINUTE | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
-| HR | INTERVAL HOUR | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
-| HS | INTERVAL HOUR TO SECOND | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
+| HM | INTERVAL HOUR TO MINUTE | INTERVAL data types aren't supported in Azure Synapse, but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD). |
+| HR | INTERVAL HOUR | INTERVAL data types aren't supported in Azure Synapse, but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD). |
+| HS | INTERVAL HOUR TO SECOND | INTERVAL data types aren't supported in Azure Synapse, but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD). |
 | I1 | BYTEINT | TINYINT |
 | I2 | SMALLINT | SMALLINT |
 | I8 | BIGINT | BIGINT |
 | I  | INTEGER | INT |
-| JN | JSON | JSON data type isn't currently directly supported within Azure Synapse, but JSON data can be stored in a VARCHAR field |
-| MI | INTERVAL MINUTE | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
-| MO | INTERVAL MONTH | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
-| MS | INTERVAL MINUTE TO SECOND | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
+| JN | JSON | JSON data type isn't currently directly supported within Azure Synapse, but JSON data can be stored in a VARCHAR field. |
+| MI | INTERVAL MINUTE | INTERVAL data types aren't supported in Azure Synapse, but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD). |
+| MO | INTERVAL MONTH | INTERVAL data types aren't supported in Azure Synapse, but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD). |
+| MS | INTERVAL MINUTE TO SECOND | INTERVAL data types aren't supported in Azure Synapse, but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD). |
 | N  | NUMBER | NUMERIC |
 | PD | PERIOD(DATE) | Can be converted to VARCHAR or split into two separate dates |
-| PM | PERIOD (TIMESTAMP WITH TIME ZONE) | Can be converted to VARCHAR or split into two separate timestamps (DATETIMEOFFSET). |
-| PS | PERIOD(TIMESTAMP) | Can be converted to VARCHAR or split into two separate timestamps (DATETIMEOFFSET). |
-| PT | PERIOD(TIME) | Can be converted to VARCHAR or split into two separate times. |
-| PZ | PERIOD (TIME WITH TIME ZONE) | Can be converted to VARCHAR or split into two separate times but WITH TIME ZONE isn\'t supported for TIME. |
-| SC | INTERVAL SECOND | INTERVAL data types aren\'t supported in Azure Synapse, but date calculations can be done with the date comparison  functions (for example, DATEDIFF and DATEADD) |
+| PM | PERIOD (TIMESTAMP WITH TIME ZONE) | Can be converted to VARCHAR or split into two separate timestamps (DATETIMEOFFSET) |
+| PS | PERIOD(TIMESTAMP) | Can be converted to VARCHAR or split into two separate timestamps (DATETIMEOFFSET) |
+| PT | PERIOD(TIME) | Can be converted to VARCHAR or split into two separate times |
+| PZ | PERIOD (TIME WITH TIME ZONE) | Can be converted to VARCHAR or split into two separate times but WITH TIME ZONE isn't supported for TIME |
+| SC | INTERVAL SECOND | INTERVAL data types aren't supported in Azure Synapse, but date calculations can be done with the date comparison  functions (for example, DATEDIFF and DATEADD). |
 | SZ | TIMESTAMP WITH  TIME ZONE | DATETIMEOFFSET |
 | TS | TIMESTAMP | DATETIME or DATETIME2 |
-| TZ | TIME WITH TIME ZONE | TIME WITH TIME ZONE isn\'t supported because TIME is stored using \"wall clock\" time only without a time zone offset |
-| XM | XML | XML data type isn't currently directly supported within Azure Synapse, but XML data can be stored in a VARCHAR field |
-| YM | INTERVAL YEAR TO MONTH | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
-| YR | INTERVAL YEAR | INTERVAL data types aren\'t supported in Azure Synapse. but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD) |
+| TZ | TIME WITH TIME ZONE | TIME WITH TIME ZONE isn't supported because TIME is stored using \"wall clock\" time only without a time zone offset. |
+| XM | XML | XML data type isn't currently directly supported within Azure Synapse, but XML data can be stored in a VARCHAR field. |
+| YM | INTERVAL YEAR TO MONTH | INTERVAL data types aren't supported in Azure Synapse, but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD). |
+| YR | INTERVAL YEAR | INTERVAL data types aren't supported in Azure Synapse, but date calculations can be done with the date comparison functions (for example, DATEDIFF and DATEADD). |
 
 Use the metadata from the Teradata catalog tables to determine whether any of these data types are to be migrated and allow for this in the migration plan. For example, use a SQL query like this one to find any occurrences of unsupported data types that need attention.
 
@@ -203,7 +203,7 @@ Edit existing Teradata `CREATE TABLE` and `CREATE VIEW` scripts to create the eq
 
 However, all the information that specifies the current definitions of tables and views within the existing Teradata environment is maintained within system catalog tables. This is the best source of this information as it's guaranteed to be up to date and complete. Be aware that user-maintained documentation may not be in sync with the current table definitions.
 
-Access this information via views onto the catalog such as `DBC.ColumnsV` and generate the equivalent `CREATE TABLE DDL` statements for the equivalent tables in Azure Synapse.
+Access this information via views onto the catalog such as `DBC.ColumnsV` and generate the equivalent `CREATE TABLE` DDL statements for the equivalent tables in Azure Synapse.
 
 > [!TIP]
 > Third-party tools and services can automate data mapping tasks.
@@ -217,15 +217,15 @@ There are [Microsoft partners](../../partner/data-integration.md) who offer tool
 > [!TIP]
 > SQL DML commands `SELECT`, `INSERT` and `UPDATE` have standard core elements but may also implement different syntax options.
 
-The ANSI SQL standard defines the basic syntax for DML commands such as `SELECT`, `INSERT`, `UPDATE` and `DELETE`. Both Teradata and Azure Synapse use these commands, but in some cases there are implementation differences.
+The ANSI SQL standard defines the basic syntax for DML commands such as `SELECT`, `INSERT`, `UPDATE`, and `DELETE`. Both Teradata and Azure Synapse use these commands, but in some cases there are implementation differences.
 
 The following sections discuss the Teradata-specific DML commands that you should consider during a migration to Azure Synapse.
 
 ### SQL DML syntax differences
 
-Be aware of these differences in SQL Data Manipulation Language (DML) syntax between Teradata SQL and Azure Synapse when migrating:
+There are a few differences in SQL DML syntax between Teradata SQL and Azure Synapse (T-SQL) that you should be aware of during migration:
 
-- `QUALIFY`&mdash;Teradata supports the `QUALIFY` operator. For example:
+- `QUALIFY`: Teradata supports the `QUALIFY` operator. For example:
 
   ```sql
   SELECT col1
@@ -244,11 +244,11 @@ Be aware of these differences in SQL Data Manipulation Language (DML) syntax bet
   ) WHERE rn = 1;
   ```
 
-- Date Arithmetic&mdash;Azure Synapse has operators such as `DATEADD` and `DATEDIFF` which can be used on `DATE` or `DATETIME` fields. Teradata supports direct subtraction on dates such as `SELECT DATE1&mdash;DATE2 FROM...`.
+- Date arithmetic: Azure Synapse has operators such as `DATEADD` and `DATEDIFF` which can be used on `DATE` or `DATETIME` fields. Teradata supports direct subtraction on dates such as `SELECT DATE1 - DATE2 FROM...`
 
-- In Group by ordinal, explicitly provide the T-SQL column name.
+- In `GROUP BY` ordinal, explicitly provide the T-SQL column name.
 
-- `LIKE ANY`&mdash;Teradata supports `LIKE ANY` syntax such as:
+- `LIKE ANY`: Teradata supports `LIKE ANY` syntax such as:
 
   ```sql
   SELECT * FROM CUSTOMER
@@ -293,7 +293,7 @@ See the following sections for more information on each of these elements.
 
 #### Functions
 
-As with most database products, Teradata supports system functions and user-defined functions within the SQL implementation. When migrating to another database platform such as Azure Synapse, common system functions are available and can be migrated without change. Some system functions may have slightly different syntax, but the required changes can be automated. System functions where there's no equivalent, such arbitrary user-defined functions, may need to be recoded using the languages available in the target environment. Azure Synapse uses the popular Transact-SQL language to implement user-defined functions.
+As with most database products, Teradata supports system functions and user-defined functions within the SQL implementation. When migrating to another database platform such as Azure Synapse, common system functions are available and can be migrated without change. Some system functions may have slightly different syntax, but the required changes can be automated. System functions where there's no equivalent, such as arbitrary user-defined functions, may need to be recoded using the languages available in the target environment. Azure Synapse uses the popular Transact-SQL language to implement user-defined functions.
 
 #### Stored procedures
 
@@ -307,7 +307,7 @@ Azure Synapse doesn't support the creation of triggers, but you can implement th
 
 #### Sequences
 
-Azure Synapse sequences are handled in a similar way to Teradata, using [Identity to create surrogate keys](../../sql-data-warehouse/sql-data-warehouse-tables-identity.md) or [managed identity](../../../data-factory/data-factory-service-identity.md?tabs=data-factory).
+Azure Synapse sequences are handled in a similar way to Teradata, using [identity to create surrogate keys](../../sql-data-warehouse/sql-data-warehouse-tables-identity.md) or [managed identity](../../../data-factory/data-factory-service-identity.md?tabs=data-factory).
 
 #### Teradata to T-SQL mapping
 
@@ -357,11 +357,11 @@ This table shows the Teradata to T-SQL compliant with Azure Synapse SQL data typ
 
 ## Summary
 
-Typical existing legacy Teradata installations are implemented in a way that makes migration to Azure Synapse easy. They use SQL for analytical queries on large data volumes, and are in some form of dimensional data model. These factors make it a good candidate for migration to Azure Synapse.
+Typical existing legacy Teradata installations are implemented in a way that makes migration to Azure Synapse easy. They use SQL for analytical queries on large data volumes, and are in some form of dimensional data model. These factors make them good candidates for migration to Azure Synapse.
 
 To minimize the task of migrating the actual SQL code, follow these recommendations:
 
-- Initial migration of the data warehouse should be as-is to minimize risk and time taken, even if the eventual final environment will incorporate a different data model such as Data Vault.
+- Initial migration of the data warehouse should be as-is to minimize risk and time taken, even if the eventual final environment will incorporate a different data model such as data vault.
 
 - Consider using a Teradata instance in an Azure VM as a stepping stone as part of the migration process.
 
