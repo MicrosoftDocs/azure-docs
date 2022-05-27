@@ -64,7 +64,7 @@ The option that you select depends on the following factors:
 - There are scale limits on how many Public IPs can be allocated to a Network Virtual Appliance running in native Azure or provisioned on Azure Firewall.  The Public IP to NSX edge option allows for much higher allocations (1000s versus 100s).
 - Use a Public IP to the NSX for a localized exit to the Internet from each private cloud in its local region. Using multiple Azure VMware Solution private clouds in several Azure regions that need to communicate with each other and the Internet, it can be challenging to match an Azure VMware Solution private cloud with a security service in Azure. The difficulty is due to the way a default route from Azure works.
 
-### Next Steps
+## Next Steps
  
 [Enable Managed SNAT for Azure VMware Solution Workloads](enable-managed-snat-for-workloads.md)
 

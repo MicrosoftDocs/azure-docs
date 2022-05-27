@@ -1,5 +1,5 @@
 ---
-title: Disable Internet access or enable a default route 
+title: Disable internet access or enable a default route 
 description: This article explains how to disable internet access for Azure VMware Solution and enable default route for Azure VMware Solution.
 ms.topic: how-to
 ms.date: 05/12/2022
