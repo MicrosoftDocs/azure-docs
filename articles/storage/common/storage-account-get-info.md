@@ -106,7 +106,7 @@ To get the service endpoints for a storage account in the Azure portal, follow t
 1. In the **Settings** section, locate the **Endpoints** setting.
 1. On the **Endpoints** page, you'll see the service endpoint for each Azure Storage service, as well as the resource ID.
 
-    :::image type="content" source="media/storage-account-get-info/service-endpoints-portal.png" alt-text="Screenshot showing how to retrieve service endpoints for a storage account.":::
+    :::image type="content" source="media/storage-account-get-info/service-endpoints-portal-sml.png" alt-text="Screenshot showing how to retrieve service endpoints for a storage account." lightbox="media/storage-account-get-info/service-endpoints-portal-lrg.png":::
 
 If the storage account is geo-replicated, the secondary endpoints will also appear on this page.
 
