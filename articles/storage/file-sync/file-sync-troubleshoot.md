@@ -151,7 +151,7 @@ To determine whether your user account role has the required permissions:
     * **Role definition** should have **Read** and **Write** permissions.
 
 <a id="cloud-endpoint-mgmtinternalerror"></a>**Cloud endpoint creation fails, with this error: "MgmtInternalError"**  
-This error can occur if NTLM v2 authentication is disabled on the storage account. To check the Authentication methods allowed on the storage account, see [SMB security settings](../files/files-smb-protocol.md#smb-security-settings).
+This error can occur if the Azure File Sync service cannot access the storage account due to SMB security settings. To enable Azure File Sync to access the storage account, the SMB security settings on the storage account must allow **SMB 3.1.1** protocol version, **NTLM v2** authentication and **AES-128-GCM** encryption. To check the SMB security settings on the storage account, see [SMB security settings](../files/files-smb-protocol.md#smb-security-settings).
 
 ### Server endpoint creation and deletion errors
 
