@@ -5,7 +5,7 @@ author: raliouat
 ms.author: raoufaliouat
 ms.service: purview
 ms.topic: tutorial
-ms.date: 05/20/2022
+ms.date: 05/27/2022
 
 # Customer intent: I can use the scanning and catalog Python SDKs to perform CRUD operations on data sources and scans, trigger scans and also to search the catalog.
 ---
