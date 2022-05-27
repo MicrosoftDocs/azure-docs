@@ -115,8 +115,25 @@ Before we begin, it's assumed that you already have Azure IOT Hub provisioned an
      > So, inbuilt query option with stream analytics is helpful in pre-processing/transforming the data before it gets ingested into the DB.
 
 8. **Start the Stream Analytics Job and Verify Output**
-   ![Diagram of querying data ingested into Citus](../media/howto-hyperscale-ingestion/06-ASA-postgres-query.png)
 
    * Return to the job overview page and select Start.
    * Under **Start job**, select **Now**, for the Job output start time field. Then, select **Start** to start your job.
    * After few minutes, you can query the Hyperscale (Citus) database to verify the data loaded. The job will take some time to start at the first time, but once triggered it will continue to run as the data arrives.
+
+     ```
+     citus=> SELECT * FROM public.device_data LIMIT 10;
+
+      counter | connectiondeviceid |            correlationid             | connectiondevicegenerationid |         enqueuedtime
+     ---------+--------------------+--------------------------------------+------------------------------+------------------------------
+            2 | sim000001          | 7745c600-5663-44bc-a70b-3e249f6fc302 | 637842405470327268           | 2022-05-25T18:24:03.4600000Z
+            4 | sim000001          | 389abfde-5bec-445c-a387-18c0ed7af227 | 637842405470327268           | 2022-05-25T18:24:05.4600000Z
+            6 | sim000001          | 3932ce3a-4616-470d-967f-903c45f71d0f | 637842405470327268           | 2022-05-25T18:24:07.4600000Z
+            8 | sim000001          | 4bd8ecb0-7ee1-4238-b034-4e03cb50f11a | 637842405470327268           | 2022-05-25T18:24:09.4600000Z
+           10 | sim000001          | 26cebc68-934e-4e26-80db-e07ade3775c0 | 637842405470327268           | 2022-05-25T18:24:11.4600000Z
+           12 | sim000001          | 067af85c-a01c-4da0-b208-e4d31a24a9db | 637842405470327268           | 2022-05-25T18:24:13.4600000Z
+           14 | sim000001          | 740e5002-4bb9-4547-8796-9d130f73532d | 637842405470327268           | 2022-05-25T18:24:15.4600000Z
+           16 | sim000001          | 343ed04f-0cc0-4189-b04a-68e300637f0e | 637842405470327268           | 2022-05-25T18:24:17.4610000Z
+           18 | sim000001          | 54157941-2405-407d-9da6-f142fc8825bb | 637842405470327268           | 2022-05-25T18:24:19.4610000Z
+           20 | sim000001          | 219488e5-c48a-4f04-93f6-12c11ed00a30 | 637842405470327268           | 2022-05-25T18:24:21.4610000Z
+     (10 rows)
+     ```
