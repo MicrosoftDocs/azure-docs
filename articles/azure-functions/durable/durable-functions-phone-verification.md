@@ -95,7 +95,7 @@ The **E4_SendSmsChallenge** function uses the Twilio binding to send the SMS mes
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs?range=72-89)]
 
 > [!NOTE]
-> You will need to install the `Microsoft.Azure.WebJobs.Extensions.Twilio` Nuget package to run the sample code.
+> You will need to install the `Microsoft.Azure.WebJobs.Extensions.Twilio` Nuget package to run the sample code. Do not install the `Twilio` nuget package because you will get version problem which will lead to build errors. 
 
 # [JavaScript](#tab/javascript)
 
