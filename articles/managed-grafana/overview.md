@@ -32,6 +32,10 @@ Managed Grafana uses Azure Active Directory (Azure AD)’s centralized identity 
 
 You can create dashboards instantaneously by importing existing charts directly from the Azure portal or by using prebuilt dashboards.
 
+## What features of Grafana are supported?
+
+In this documentation, you will find multiple features from Grafana. If you don't see a feature mentioned in this documentation, it means that this feature is not supported.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
