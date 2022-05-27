@@ -34,9 +34,9 @@ You can view the following information in Entra:
 - The [**Analytics** dashboard](usage-analytics-home.md) provides a snapshot of permission metrics within the last 90 days.
 
 
-## Components of the Permissions ManagementDashboard
+## Components of the Permissions Management Dashboard
 
-The Permissions Management**Dashboard** displays the following information:
+The Permissions Management **Dashboard** displays the following information:
 
 - **Authorization system types**: A dropdown list of authorization system types you can access: AWS, Azure, and GCP.
 
@@ -54,7 +54,7 @@ The Permissions Management**Dashboard** displays the following information:
     - To download the list, select the down arrow in the upper right of the list box.
 
         The following message displays: **We'll email you a link to download the file.**
-        - Check your email for the message from the Permissions ManagementCustomer Success Team. The email contains a link to the **PCI history** report in Microsoft Excel format.
+        - Check your email for the message from the Permissions Management Customer Success Team. The email contains a link to the **PCI history** report in Microsoft Excel format.
         - The email also includes a link to the **Reports** dashboard, where you can configure how and when you want to receive reports automatically.
     - To view all the PCI changes, select **View all**.
 
