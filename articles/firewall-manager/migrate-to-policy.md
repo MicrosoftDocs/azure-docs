@@ -26,8 +26,9 @@ Modify the following script to migrate your firewall configuration.
 
 ```azurepowershell
 #Input params to be modified as needed
-$FirewallResourceGroup = "AzFWMigrateRG"
+$FirewallResourceGroup = "AzFirewallRG"
 $FirewallName = "azfw"
+$FirewallPolicyResourceGroup = "AzPolicyRG"
 $FirewallPolicyName = "fwpolicy"
 $FirewallPolicyLocation = "WestEurope"
 
@@ -55,7 +56,14 @@ Function GetApplicationRuleCmd
 	
 	$cmd = "New-AzFirewallPolicyApplicationRule"
 	$cmd = $cmd + " -Name " + $ApplicationRule.Name
-	$cmd = $cmd + " -SourceAddress " + $ApplicationRule.SourceAddresses
+  
+  	if ($ApplicationRule.SourceAddresses){
+    		$ApplicationRule.SourceAddresses = $ApplicationRule.SourceAddresses -join ","
+	  	$cmd = $cmd + " -SourceAddress " + $ApplicationRule.SourceAddresses
+  	}elseif ($ApplicationRule.SourceIpGroups){
+    		$ApplicationRule.SourceIpGroups = $ApplicationRule.SourceIpGroups -join ","
+    		$cmd = $cmd + " -SourceIpGroup " + $ApplicationRule.SourceIpGroups
+  	}
 	
 	if ($ApplicationRule.Description) {
 		$cmd = $cmd + " -Description " + $ApplicationRule.Description
@@ -72,14 +80,14 @@ Function GetApplicationRuleCmd
 	return $cmd
 }
 
-If(!(Get-AzResourceGroup -Name $FirewallResourceGroup))
+If(!(Get-AzResourceGroup -Name $FirewallPolicyResourceGroup)) 
 {
-    New-AzResourceGroup -Name $FirewallResourceGroup -Location $FirewallPolicyLocation
+    New-AzResourceGroup -Name $FirewallPolicyResourceGroup -Location $FirewallPolicyLocation
 }
 
 $azfw = Get-AzFirewall -Name $FirewallName -ResourceGroupName $FirewallResourceGroup
 Write-Host "creating empty firewall policy"
-$fwp = New-AzFirewallPolicy -Name $FirewallPolicyName -ResourceGroupName $FirewallResourceGroup -Location $FirewallPolicyLocation -ThreatIntelMode $azfw.ThreatIntelMode
+$fwp = New-AzFirewallPolicy -Name $FirewallPolicyName -ResourceGroupName $FirewallPolicyResourceGroup -Location $FirewallPolicyLocation -ThreatIntelMode $azfw.ThreatIntelMode
 Write-Host $fwp.Name "created"
 Write-Host "creating " $azfw.ApplicationRuleCollections.Count " application rule collections"
 
