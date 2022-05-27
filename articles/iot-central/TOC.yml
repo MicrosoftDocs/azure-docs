@@ -125,6 +125,8 @@
   items:
     - name: Create an application
       href: core/howto-create-iot-central-application.md
+    - name: Integrate IoT Central into a DevOps pipeline
+      href: core/howto-integrate-iotc-with-devops.md
     - name: Build and connect devices
       items:
         - name: Set up a device template
