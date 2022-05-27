@@ -10,12 +10,12 @@ ms.author: azfuncdf
 
 In addition to calling activity functions, orchestrator functions can call other orchestrator functions. For example, you can build a larger orchestration out of a library of smaller orchestrator functions. Or you can run multiple instances of an orchestrator function in parallel.
 
-An orchestrator function can call another orchestrator function using the `CallSubOrchestratorAsync` or the `CallSubOrchestratorWithRetryAsync` methods in .NET, the `callSubOrchestrator` or `callSubOrchestratorWithRetry` methods in JavaScript, and the `call_sub_orchestrator` or `call_sub_orchestrator_with_retry` methods in Python. The [Error Handling & Compensation](durable-functions-error-handling.md#automatic-retry-on-failure) article has more information on automatic retry.
+An orchestrator function can call another orchestrator function using the *"call-sub-orchestrator"* API. The [Error Handling & Compensation](durable-functions-error-handling.md#automatic-retry-on-failure) article has more information on automatic retry.
 
 Sub-orchestrator functions behave just like activity functions from the caller's perspective. They can return a value, throw an exception, and can be awaited by the parent orchestrator function. 
 
 > [!NOTE]
-> Sub-orchestrations are currently supported in .NET, JavaScript, Python, and Java.
+> Sub-orchestrations are not yet supported in PowerShell.
 
 ## Example
 
@@ -109,7 +109,7 @@ public String deviceProvisioningOrchestration(
 
 ---
 
-This orchestrator function can be used as-is for one-off device provisioning or it can be part of a larger orchestration. In the latter case, the parent orchestrator function can schedule instances of `DeviceProvisioningOrchestration` using the `CallSubOrchestratorAsync` (.NET), `callSubOrchestrator` (JavaScript), or `call_sub_orchestrator` (Python) API.
+This orchestrator function can be used as-is for one-off device provisioning or it can be part of a larger orchestration. In the latter case, the parent orchestrator function can schedule instances of `DeviceProvisioningOrchestration` using the *"call-sub-orchestrator"* API.
 
 Here is an example that shows how to run multiple orchestrator functions in parallel.
 

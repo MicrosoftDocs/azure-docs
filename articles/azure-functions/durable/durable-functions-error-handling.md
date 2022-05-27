@@ -314,7 +314,7 @@ RetryHandler retryHandler = retryCtx -> {
     return retryCtx.getLastAttemptNumber() < 3;
 };
 
-TaskOptions options = TaskOptions.fromRetryHandler(retryHandler);
+TaskOptions options = new TaskOptions(retryHandler);
 try {
     ctx.callActivity("FlakeyActivity", null, options).await();
 } catch (TaskFailedException ex) {

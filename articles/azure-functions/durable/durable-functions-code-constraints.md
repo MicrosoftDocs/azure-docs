@@ -86,7 +86,7 @@ Duration totalTime  = Duration.between(startTime, ctx.getCurrentInstant());
 
 #### GUIDs and UUIDs
 
-APIs that return a random GUID or UUID are nondeterministic because the generated value is different for each replay. Depending on which language you use, a built-in API for generating deterministic GUIDs may be available. Otherwise, use an activity function to return a randomly generated GUID or UUID.
+APIs that return a random GUID or UUID are nondeterministic because the generated value is different for each replay. Depending on which language you use, a built-in API for generating deterministic GUIDs or UUIDs may be available. Otherwise, use an activity function to return a randomly generated GUID or UUID.
 
 # [C#](#tab/csharp)
 

@@ -14,7 +14,7 @@ The [Durable Functions](durable-functions-overview.md) extension introduces thre
 
 The orchestration trigger enables you to author [durable orchestrator functions](durable-functions-types-features-overview.md#orchestrator-functions). This trigger executes when a new orchestration instance is scheduled and when an existing orchestration instance receives an event. Examples of events that can trigger orchestrator functions include durable timer expirations, activity function responses, and events raised by external clients.
 
-When you author functions in .NET, the orchestration trigger is configured using the [OrchestrationTriggerAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.orchestrationtriggerattribute) .NET attribute.
+When you author functions in .NET, the orchestration trigger is configured using the [OrchestrationTriggerAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.orchestrationtriggerattribute) .NET attribute. For Java, the `@DurableOrchestrationTrigger` annotation is used.
 
 When you write orchestrator functions in scripting languages, like JavaScript, Python, or PowerShell, the orchestration trigger is defined by the following JSON object in the `bindings` array of the *function.json* file:
 
@@ -194,7 +194,7 @@ public String helloWorldOrchestration(
 
 The activity trigger enables you to author functions that are called by orchestrator functions, known as [activity functions](durable-functions-types-features-overview.md#activity-functions).
 
-If you're authoring functions in .NET, the activity trigger is configured using the [ActivityTriggerAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.activitytriggerattribute) .NET attribute.
+If you're authoring functions in .NET, the activity trigger is configured using the [ActivityTriggerAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.activitytriggerattribute) .NET attribute. For Java, the `@DurableActivityTrigger` annotation is used.
 
 If you're using JavaScript, Python, or PowerShell, the activity trigger is defined by the following JSON object in the `bindings` array of *function.json*:
 
@@ -333,7 +333,7 @@ The orchestration client binding enables you to write functions that interact wi
 * Send events to them while they're running.
 * Purge instance history.
 
-If you're using .NET, you can bind to the orchestration client by using the [DurableClientAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.durableclientattribute) attribute ([OrchestrationClientAttribute](/dotnet/api/microsoft.azure.webjobs.orchestrationclientattribute?view=azure-dotnet-legacy&preserve-view=true) in Durable Functions v1.x).
+If you're using .NET, you can bind to the orchestration client by using the [DurableClientAttribute](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.durableclientattribute) attribute ([OrchestrationClientAttribute](/dotnet/api/microsoft.azure.webjobs.orchestrationclientattribute?view=azure-dotnet-legacy&preserve-view=true) in Durable Functions v1.x). For Java, use the `@DurableClientInput` annotation.
 
 If you're using scripting languages, like JavaScript, Python, or PowerShell, the durable client trigger is defined by the following JSON object in the `bindings` array of *function.json*:
 
@@ -355,7 +355,7 @@ If you're using scripting languages, like JavaScript, Python, or PowerShell, the
 
 ### Client usage
 
-In .NET functions, you typically bind to [IDurableClient](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableclient) ([DurableOrchestrationClient](/dotnet/api/microsoft.azure.webjobs.durableorchestrationclient?view=azure-dotnet-legacy&preserve-view=true) in Durable Functions v1.x), which gives you full access to all orchestration client APIs supported by Durable Functions. In other languages, you must use the language-specific SDK to get access to a client object.
+In .NET functions, you typically bind to [IDurableClient](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableclient) ([DurableOrchestrationClient](/dotnet/api/microsoft.azure.webjobs.durableorchestrationclient?view=azure-dotnet-legacy&preserve-view=true) in Durable Functions v1.x), which gives you full access to all orchestration client APIs supported by Durable Functions. For Java, you bind to the `DurableClientContext` class. In other languages, you must use the language-specific SDK to get access to a client object.
 
 Here's an example queue-triggered function that starts a "HelloWorld" orchestration.
 
@@ -505,6 +505,9 @@ If you're using JavaScript, Python, or PowerShell, the entity trigger is defined
 }
 ```
 
+> [!NOTE]
+> Entity triggers are not yet supported in Java.
+
 By default, the name of an entity is the name of the function.
 
 ### Trigger behavior
@@ -540,6 +543,9 @@ If you're using scripting languages (like C# scripting, JavaScript, or Python) f
     "direction": "in"
 }
 ```
+
+> [!NOTE]
+> Entity clients are not yet supported in Java.
 
 * `taskHub` - Used in scenarios where multiple function apps share the same storage account but need to be isolated from each other. If not specified, the default value from `host.json` is used. This value must match the value used by the target entity functions.
 * `connectionName` - The name of an app setting that contains a storage account connection string. The storage account represented by this connection string must be the same one used by the target entity functions. If not specified, the default storage account connection string for the function app is used.

@@ -321,7 +321,7 @@ func durable get-history --id 0ab8c55a66644d68a3a8b220b12d209c
 
 ## Query all instances
 
-You can use the [ListInstancesAsync](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationclient.listinstancesasync) (.NET), [getStatusAll](/javascript/api/durable-functions/durableorchestrationclient#durable-functions-durableorchestrationclient-getstatusall) (JavaScript), or `get_status_all` (Python) method to query the statuses of all orchestration instances in your [task hub](durable-functions-task-hubs.md). This method returns a list of objects that represent the orchestration instances matching the query parameters.
+You can use APIs in your language SDK to query the statuses of all orchestration instances in your [task hub](durable-functions-task-hubs.md). This *"list-instances"* or *"get-status"* API returns a list of objects that represent the orchestration instances matching the query parameters.
 
 # [C#](#tab/csharp)
 

@@ -64,7 +64,7 @@ To update the extension bundle version in your project, open host.json and updat
 
 #### Java (preview)
 
-Durable Functions 2.x is available starting in version 4.x of the [Azure Functions extension bundle](../functions-bindings-register.md#extension-bundles). You must be using the Azure Functions 3.0 host or greater to execute Java functions.
+Durable Functions 2.x is available starting in version 4.x of the [Azure Functions extension bundle](../functions-bindings-register.md#extension-bundles). You must use the Azure Functions 3.0 runtime or greater to execute Java functions.
 
 To update the extension bundle version in your project, open host.json and update the `extensionBundle` section to use version 4.x (`[4.*, 5.0.0)`). Because Java support is currently in preview, you must also use the `Microsoft.Azure.Functions.ExtensionBundle.Preview` bundle, which is different from product-ready bundles.
 

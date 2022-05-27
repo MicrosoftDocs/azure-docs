@@ -57,15 +57,15 @@ The event-sourcing behavior of the Durable Task Framework is closely coupled wit
 # [C#](#tab/csharp)
 
 ```csharp
-[FunctionName("E1_HelloSequence")]
+[FunctionName("HelloCities")]
 public static async Task<List<string>> Run(
     [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     var outputs = new List<string>();
 
-    outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "Tokyo"));
-    outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "Seattle"));
-    outputs.Add(await context.CallActivityAsync<string>("E1_SayHello", "London"));
+    outputs.Add(await context.CallActivityAsync<string>("SayHello", "Tokyo"));
+    outputs.Add(await context.CallActivityAsync<string>("SayHello", "Seattle"));
+    outputs.Add(await context.CallActivityAsync<string>("SayHello", "London"));
 
     // returns ["Hello Tokyo!", "Hello Seattle!", "Hello London!"]
     return outputs;
@@ -79,9 +79,9 @@ const df = require("durable-functions");
 
 module.exports = df.orchestrator(function*(context) {
     const output = [];
-    output.push(yield context.df.callActivity("E1_SayHello", "Tokyo"));
-    output.push(yield context.df.callActivity("E1_SayHello", "Seattle"));
-    output.push(yield context.df.callActivity("E1_SayHello", "London"));
+    output.push(yield context.df.callActivity("SayHello", "Tokyo"));
+    output.push(yield context.df.callActivity("SayHello", "Seattle"));
+    output.push(yield context.df.callActivity("SayHello", "London"));
 
     // returns ["Hello Tokyo!", "Hello Seattle!", "Hello London!"]
     return output;
@@ -153,17 +153,17 @@ Upon completion, the history of the function shown earlier looks something like 
 
 | PartitionKey (InstanceId)                     | EventType             | Timestamp               | Input | Name             | Result                                                    | Status |
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
-| eaee885b | ExecutionStarted      | 2021-05-05T18:45:28.852Z | null  | E1_HelloSequence |                                                           |                     |
+| eaee885b | ExecutionStarted      | 2021-05-05T18:45:28.852Z | null  | HelloCities      |                                                           |                     |
 | eaee885b | OrchestratorStarted   | 2021-05-05T18:45:32.362Z |       |                  |                                                           |                     |
-| eaee885b | TaskScheduled         | 2021-05-05T18:45:32.670Z |       | E1_SayHello      |                                                           |                     |
+| eaee885b | TaskScheduled         | 2021-05-05T18:45:32.670Z |       | SayHello         |                                                           |                     |
 | eaee885b | OrchestratorCompleted | 2021-05-05T18:45:32.670Z |       |                  |                                                           |                     |
 | eaee885b | TaskCompleted         | 2021-05-05T18:45:34.201Z |       |                  | """Hello Tokyo!"""                                        |                     |
 | eaee885b | OrchestratorStarted   | 2021-05-05T18:45:34.232Z |       |                  |                                                           |                     |
-| eaee885b | TaskScheduled         | 2021-05-05T18:45:34.435Z |       | E1_SayHello      |                                                           |                     |
+| eaee885b | TaskScheduled         | 2021-05-05T18:45:34.435Z |       | SayHello         |                                                           |                     |
 | eaee885b | OrchestratorCompleted | 2021-05-05T18:45:34.435Z |       |                  |                                                           |                     |
 | eaee885b | TaskCompleted         | 2021-05-05T18:45:34.763Z |       |                  | """Hello Seattle!"""                                      |                     |
 | eaee885b | OrchestratorStarted   | 2021-05-05T18:45:34.857Z |       |                  |                                                           |                     |
-| eaee885b | TaskScheduled         | 2021-05-05T18:45:34.857Z |       | E1_SayHello      |                                                           |                     |
+| eaee885b | TaskScheduled         | 2021-05-05T18:45:34.857Z |       | SayHello         |                                                           |                     |
 | eaee885b | OrchestratorCompleted | 2021-05-05T18:45:34.857Z |       |                  |                                                           |                     |
 | eaee885b | TaskCompleted         | 2021-05-05T18:45:34.919Z |       |                  | """Hello London!"""                                       |                     |
 | eaee885b | OrchestratorStarted   | 2021-05-05T18:45:35.032Z |       |                  |                                                           |                     |
@@ -196,7 +196,7 @@ For more information and for examples, see the [Sub-orchestrations](durable-func
 
 ### Durable timers
 
-Orchestrations can schedule *durable timers* to implement delays or to set up timeout handling on async actions. Use durable timers in orchestrator functions instead of `Thread.Sleep` and `Task.Delay` (C#), or `setTimeout()` and `setInterval()` (JavaScript), or `time.sleep()` (Python).
+Orchestrations can schedule *durable timers* to implement delays or to set up timeout handling on async actions. Use durable timers in orchestrator functions instead of language-native "sleep" APIs.
 
 For more information and for examples, see the [Durable timers](durable-functions-timers.md) article.
 
