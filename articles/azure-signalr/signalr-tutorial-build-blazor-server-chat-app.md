@@ -25,7 +25,7 @@ Ready to start?
 > [Step by step build](#prerequisites)
 
 > [!div class="nextstepaction"]
-> [Play with Blazor demo](https://asrs-blazorchat-live-demo.azurewebsites.net/chatroom)
+> [Try Blazor demo now](https://asrs-blazorchat-live-demo.azurewebsites.net/chatroom)
 
 ## Prerequisites
 
