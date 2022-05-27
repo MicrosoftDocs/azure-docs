@@ -228,7 +228,7 @@ main = df.Orchestrator.create(orchestrator_function)
 param($Context)
 
 $retryOptions = New-DurableRetryOptions `
-                    -FirstRetryInterval (New-Timespan -Seconds 5) `
+                    -FirstRetryInterval (New-TimeSpan -Seconds 5) `
                     -MaxNumberOfAttempts 3
 
 Invoke-DurableActivity -FunctionName 'FlakyFunction' -RetryOptions $retryOptions
@@ -237,17 +237,17 @@ Invoke-DurableActivity -FunctionName 'FlakyFunction' -RetryOptions $retryOptions
 # [Java](#tab/java)
 
 ```java
-    @FunctionName("TimerOrchestratorWithRetry")
-    public String timerOrchestratorWithRetry(
-        @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-            return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-                final int maxAttempts = 3;
-                final Duration firstRetryInterval = Duration.ofSeconds(5);
-                RetryPolicy policy = RetryPolicy.newBuilder(maxAttempts, firstRetryInterval).build();
-                ctx.callActivity("FlakeyFunction", null, TaskOptions.fromRetryPolicy(policy)).await();
-                // ...
-            });
-    }
+@FunctionName("TimerOrchestratorWithRetry")
+public String timerOrchestratorWithRetry(
+    @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
+        return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
+            final int maxAttempts = 3;
+            final Duration firstRetryInterval = Duration.ofSeconds(5);
+            RetryPolicy policy = new RetryPolicy(maxAttempts, firstRetryInterval);
+            ctx.callActivity("FlakeyFunction", null, new TaskOptions(policy)).await();
+            // ...
+        });
+}
 ```
 
 ---

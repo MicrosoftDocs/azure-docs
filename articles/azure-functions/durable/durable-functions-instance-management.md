@@ -3,9 +3,9 @@ title: Manage instances in Durable Functions - Azure
 description: Learn how to manage instances in the Durable Functions extension for Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 05/11/2021
+ms.date: 05/25/2022
 ms.author: azfuncdf
-ms.devlang: csharp, javascript, python
+ms.devlang: csharp, java, javascript, python
 #Customer intent: As a developer, I want to understand the options provided for managing my Durable Functions orchestration instances, so I can keep my orchestrations running efficiently and make improvements.
 ---
 
@@ -15,7 +15,7 @@ Orchestrations in Durable Functions are long-running stateful functions that can
 
 ## Start instances
 
-The `StartNewAsync` (.NET), `startNew` (JavaScript), or `start_new` (Python) method on the [orchestration client binding](durable-functions-bindings.md#orchestration-client) starts a new orchestration instance. Internally, this method writes a message via the [Durable Functions storage provider](durable-functions-storage-providers.md) and then returns. This message asynchronously triggers the start of an [orchestration function](durable-functions-types-features-overview.md#orchestrator-functions) with the specified name.
+The *start-new* (or *schedule-new*) method on the [orchestration client binding](durable-functions-bindings.md#orchestration-client) starts a new orchestration instance. Internally, this method writes a message via the [Durable Functions storage provider](durable-functions-storage-providers.md) and then returns. This message asynchronously triggers the start of an [orchestration function](durable-functions-types-features-overview.md#orchestrator-functions) with the specified name.
 
 The parameters for starting a new orchestration instance are as follows:
 
@@ -49,7 +49,7 @@ public static async Task Run(
 
 <a name="javascript-function-json"></a>Unless otherwise specified, the examples on this page use the HTTP trigger with the following function.json.
 
-**function.json**
+**`function.json`**
 
 ```json
 {
@@ -78,7 +78,7 @@ public static async Task Run(
 > [!NOTE]
 > This example targets Durable Functions version 2.x. In version 1.x, use `orchestrationClient` instead of `durableClient`.
 
-**index.js**
+**`index.js`**
 
 ```javascript
 const df = require("durable-functions");
@@ -93,9 +93,9 @@ module.exports = async function(context, input) {
 
 # [Python](#tab/python)
 
-<a name="javascript-function-json"></a>Unless otherwise specified, the examples on this page use the HTTP trigger with the following function.json.
+<a name="python-function-json"></a>Unless otherwise specified, the examples on this page use the HTTP trigger with the following function.json.
 
-**function.json**
+**`function.json`**
 
 ```json
 {
@@ -126,7 +126,7 @@ module.exports = async function(context, input) {
 > [!NOTE]
 > This example targets Durable Functions version 2.x. In version 1.x, use `orchestrationClient` instead of `durableClient`.
 
-**__init__.py**
+**`__init__.py`**
 
 ```python
 import logging
@@ -139,6 +139,27 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
     instance_id = await client.start_new('HelloWorld', None, None)
     logging.log(f"Started orchestration with ID = ${instance_id}.")
 
+```
+
+# [Java](#tab/java)
+
+```java
+@FunctionName("HelloWorldQueueTrigger")
+public void helloWorldQueueTrigger(
+        @QueueTrigger(name = "input", queueName = "start-queue", connection = "Storage") String input,
+        @DurableClientInput(name = "durableContext") DurableClientContext durableContext,
+        final ExecutionContext context) {
+    DurableTaskClient client = durableContext.getClient();        
+    String instanceID = client.scheduleNewOrchestrationInstance("HelloWorld");
+    context.getLogger().info("Scheduled orchestration with ID = " + instanceID);
+}
+```
+
+If you want to wait for the orchestrator to start before returning from your function, you can also use the `waitForInstanceStart()` method.
+
+```java
+// wait up to 30 seconds for the scheduled orchestration to enter the "Running" state
+client.waitForInstanceStart(instanceID, Duration.ofSeconds(30));
 ```
 
 ---
@@ -169,7 +190,7 @@ func durable start-new --function-name HelloWorld --input @counter-data.json --t
 
 After starting new orchestration instances, you'll most likely need to query their runtime status to learn whether they are running, have completed, or have failed.
 
-The `GetStatusAsync` (.NET), `getStatus` (JavaScript), or the `get_status` (Python) method on the [orchestration client binding](durable-functions-bindings.md#orchestration-client) queries the status of an orchestration instance.
+The *get-status* method on the [orchestration client binding](durable-functions-bindings.md#orchestration-client) queries the status of an orchestration instance.
 
 It takes an `instanceId` (required), `showHistory` (optional), `showHistoryOutput` (optional), and `showInput` (optional) as parameters.
 
@@ -196,9 +217,9 @@ The method returns an object with the following properties:
 * **History**: The execution history of the orchestration. This field is only populated if `showHistory` is set to `true`.
 
 > [!NOTE]
-> An orchestrator is not marked as `Completed` until all of its scheduled tasks have finished _and_ the orchestrator has returned. In other words, it is not sufficient for an orchestrator to reach its `return` statement for it to be marked as `Completed`. This is particularly relevant for cases where `WhenAny` is used; those orchestrators often `return` before all the scheduled tasks have executed.
+> An orchestrator is not marked as `Completed` until all of its scheduled tasks have finished *and* the orchestrator has returned. In other words, it is not sufficient for an orchestrator to reach its `return` statement for it to be marked as `Completed`. This is particularly relevant for cases where `WhenAny` is used; those orchestrators often `return` before all the scheduled tasks have executed.
 
-This method returns `null` (.NET), `undefined` (JavaScript), or `None` (Python) if the instance doesn't exist.
+This method returns `null` (.NET and Java), `undefined` (JavaScript), or `None` (Python) if the instance doesn't exist.
 
 # [C#](#tab/csharp)
 
@@ -244,6 +265,25 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
     status = await client.get_status(instance_id)
     # do something based on the current status
     # example: if (existing_instance.runtime_status is df.OrchestrationRuntimeStatus.Running) { ...
+```
+
+# [Java](#tab/java)
+
+```java
+@FunctionName("GetStatus")
+public void getStatus(
+        @QueueTrigger(name = "instanceID", queueName = "check-status-queue", connection = "Storage") String instanceID,
+        @DurableClientInput(name = "durableContext") DurableClientContext durableContext,
+        final ExecutionContext context) {
+    DurableTaskClient client = durableContext.getClient();        
+    OrchestrationMetadata metadata = client.getInstanceMetadata(instanceID, false);
+    if (metadata != null) {
+        OrchestrationRuntimeStatus status = metadata.getRuntimeStatus();
+        switch (status) {
+            // do something based on the current status
+        }
+    }
+}
 ```
 
 ---
@@ -325,6 +365,8 @@ module.exports = async function(context, req) {
 };
 ```
 
+See [Start instances](#javascript-function-json) for the function.json configuration.
+
 # [Python](#tab/python)
 
 ```python
@@ -343,8 +385,21 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
         logging.log(json.dumps(instance))
 ```
 
-See [Start instances](#javascript-function-json) for the function.json configuration.
+See [Start instances](#python-function-json) for the function.json configuration.
 
+# [Java](#tab/java)
+
+```java
+@FunctionName("GetAllStatus")
+public String getAllStatus(
+        @HttpTrigger(name = "req", methods = {HttpMethod.GET}) HttpRequestMessage<?> req,
+        @DurableClientInput(name = "durableContext") DurableClientContext durableContext) {
+    DurableTaskClient client = durableContext.getClient();
+    OrchestrationStatusQuery noFilter = new OrchestrationStatusQuery();
+    OrchestrationStatusQueryResult result = client.queryInstances(noFilter);
+    return "Found " + result.getOrchestrationState().size() + " orchestrations.";
+}
+```
 ---
 
 ### Azure Functions Core Tools
@@ -368,8 +423,6 @@ func durable get-instances
 ## Query instances with filters
 
 What if you don't really need all the information that a standard instance query can provide? For example, what if you're just looking for the orchestration creation time, or the orchestration runtime status? You can narrow your query by applying filters.
-
-Use the [ListInstancesAsync](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationclient.listinstancesasync) (.NET) or [getStatusBy](/javascript/api/durable-functions/durableorchestrationclient#durable-functions-durableorchestrationclient-getstatusby) (JavaScript) method to get a list of orchestration instances that match a set of predefined filters.
 
 # [C#](#tab/csharp)
 
@@ -456,6 +509,23 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
         logging.log(json.dumps(instance))
 ```
 
+# [Java](#tab/java)
+
+```java
+@FunctionName("GetRunningInstances")
+public String getRunningInstances(
+        @HttpTrigger(name = "req", methods = {HttpMethod.GET}) HttpRequestMessage<?> req,
+        @DurableClientInput(name = "durableContext") DurableClientContext durableContext) {
+    DurableTaskClient client = durableContext.getClient();
+    OrchestrationStatusQuery filter = new OrchestrationStatusQuery()
+        .setRuntimeStatusList(List.of(OrchestrationRuntimeStatus.PENDING, OrchestrationRuntimeStatus.RUNNING))
+        .setCreatedTimeFrom(Instant.now().minus(Duration.ofDays(7)))
+        .setCreatedTimeTo(Instant.now().minus(Duration.ofDays(1)));
+    OrchestrationStatusQueryResult result = client.queryInstances(filter);
+    return "Found " + result.getOrchestrationState().size() + " orchestrations.";
+}
+```
+
 ---
 
 ### Azure Functions Core Tools
@@ -485,7 +555,7 @@ func durable get-instances --created-after 2021-03-10T13:57:31Z --created-before
 
 If you have an orchestration instance that is taking too long to run, or you just need to stop it before it completes for any reason, you can terminate it.
 
-You can use the `TerminateAsync` (.NET), `terminate` (JavaScript), or the `terminate` (Python) method of the [orchestration client binding](durable-functions-bindings.md#orchestration-client) to terminate instances. The two parameters are an `instanceId` and a `reason` string, which are written to logs and to the instance status.
+The two parameters for the terminate API are an *instance ID* and a *reason* string, which are written to logs and to the instance status.
 
 # [C#](#tab/csharp)
 
@@ -531,6 +601,19 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
     return client.terminate(instance_id, reason)
 ```
 
+# [Java](#tab/java)
+
+```java
+@FunctionName("TerminateInstance")
+public void terminateInstance(
+        @HttpTrigger(name = "req", methods = {HttpMethod.POST}) HttpRequestMessage<String> req,
+        @DurableClientInput(name = "durableContext") DurableClientContext durableContext) {
+    String instanceID = req.getBody();
+    String reason = "Found a bug";
+    durableContext.getClient().terminate(instanceID, reason);
+}
+```
+
 ---
 
 A terminated instance will eventually transition into the `Terminated` state. However, this transition will not happen immediately. Rather, the terminate operation will be queued in the task hub along with other operations for that instance. You can use the [instance query](#query-instances) APIs to know when a terminated instance has actually reached the `Terminated` state.
@@ -562,13 +645,13 @@ func durable terminate --id 0ab8c55a66644d68a3a8b220b12d209c --reason "Found a b
 
 In some scenarios, orchestrator functions need to wait and listen for external events. Examples scenarios where this is useful include the [monitoring](durable-functions-overview.md#monitoring) and [human interaction](durable-functions-overview.md#human) scenarios.
 
-You can send event notifications to running instances by using the `RaiseEventAsync` (.NET), `raiseEvent` (JavaScript), or `raise_event` (Python) method of the [orchestration client](durable-functions-bindings.md#orchestration-client). Instances that can handle these events are those that are awaiting a call to `WaitForExternalEvent` (.NET), yielding to a `waitForExternalEvent` (JavaScript) task, or yielding a `wait_for_external_event` (Python) task.
+You can send event notifications to running instances by using the *raise event* API of the [orchestration client](durable-functions-bindings.md#orchestration-client). Orchestrations can listen and respond to these events using the *wait for external event* orchestrator API.
 
-The parameters to `RaiseEventAsync` (.NET) and `raiseEvent` (JavaScript) are as follows:
+The parameters for *raise event* are as follows:
 
-* **InstanceId**: The unique ID of the instance.
-* **EventName**: The name of the event to send.
-* **EventData**: A JSON-serializable payload to send to the instance.
+* *Instance ID*: The unique ID of the instance.
+* *Event name*: The name of the event to send.
+* *Event data*: A JSON-serializable payload to send to the instance.
 
 # [C#](#tab/csharp)
 
@@ -614,6 +697,20 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
     return client.raise_event(instance_id, 'MyEvent', event_data)
 ```
 
+# [Java](#tab/java)
+
+```java
+@FunctionName("RaiseEvent")
+public void raiseEvent(
+        @HttpTrigger(name = "req", methods = {HttpMethod.POST}) HttpRequestMessage<String> req,
+        @DurableClientInput(name = "durableContext") DurableClientContext durableContext) {
+    String instanceID = req.getBody();
+    String eventName = "MyEvent";
+    int[] eventData = { 1, 2, 3 };
+    durableContext.getClient().raiseEvent(instanceID, eventName, eventData);
+}
+```
+
 ---
 
 > [!NOTE]
@@ -646,7 +743,7 @@ func durable raise-event --id 1234567 --event-name MyOtherEvent --event-data 3
 
 In long-running orchestrations, you may want to wait and get the results of an orchestration. In these cases, it's also useful to be able to define a timeout period on the orchestration. If the timeout is exceeded, the state of the orchestration should be returned instead of the results.
 
-The `WaitForCompletionOrCreateCheckStatusResponseAsync` (.NET), the `waitForCompletionOrCreateCheckStatusResponse` (JavaScript), or the `wait_for_completion_or_create_check_status_response` (Python) method can be used to get the actual output from an orchestration instance synchronously. By default, these methods use a default value of 10 seconds for `timeout`, and 1 second for `retryInterval`.  
+The *"wait for completion or create check status response"* API can be used to get the actual output from an orchestration instance synchronously. By default, this method have a default timeout of 10 seconds and a polling interval of 1 second.
 
 Here is an example HTTP-trigger function that demonstrates how to use this API:
 
@@ -693,6 +790,41 @@ def get_time_in_seconds(req: func.HttpRequest, query_parameter_name: str):
     return query_value if query_value != None else 1000
 ```
 
+# [Java](#tab/java)
+
+Java doesn't currently have a single method for this scenario. However, it can be implemented using a few extra lines of code.
+
+<!-- Tracking issue: https://github.com/microsoft/durabletask-java/issues/64 -->
+
+```java
+@FunctionName("HttpStartAndWait")
+public HttpResponseMessage httpStartAndWait(
+        @HttpTrigger(name = "req", route = "orchestrators/{functionName}/wait", methods = {HttpMethod.POST}) HttpRequestMessage<?> req,
+        @DurableClientInput(name = "durableContext") DurableClientContext durableContext,
+        @BindingName("functionName") String functionName,
+        final ExecutionContext context) {
+
+    DurableTaskClient client = durableContext.getClient();
+    String instanceId = client.scheduleNewOrchestrationInstance(functionName);
+    context.getLogger().info("Created new Java orchestration with instance ID = " + instanceId);
+    try {
+        String timeoutString = req.getQueryParameters().get("timeout");
+        Integer timeoutInSeconds = Integer.parseInt(timeoutString);
+        OrchestrationMetadata orchestration = client.waitForInstanceStart(
+                instanceId,
+                Duration.ofSeconds(timeoutInSeconds),
+                true /* getInputsAndOutputs */);
+        return req.createResponseBuilder(HttpStatus.OK)
+                .body(orchestration.getSerializedOutput())
+                .header("Content-Type", "application/json")
+                .build();
+    } catch (Exception timeoutEx) {
+        // timeout expired - return a 202 response
+        return durableContext.createCheckStatusResponse(req, instanceId);
+    }
+}
+```
+
 ---
 
 Call the function with the following line. Use 2 seconds for the timeout and 0.5 seconds for the retry interval:
@@ -700,6 +832,9 @@ Call the function with the following line. Use 2 seconds for the timeout and 0.5
 ```bash
 curl -X POST "http://localhost:7071/orchestrators/E1_HelloSequence/wait?timeout=2&retryInterval=0.5"
 ```
+
+> [!NOTE]
+> The above cURL command assumes you have an orchestrator function named `E1_HelloSequence` in your project. Because of how the HTTP trigger function is written, you can replace it with the name of any orchestrator function in your project.
 
 Depending on the time required to get the response from the orchestration instance, there are two cases:
 
@@ -741,11 +876,11 @@ Transfer-Encoding: chunked
 
 ## Retrieve HTTP management webhook URLs
 
-You can use an external system to monitor or to raise events to an orchestration. External systems can communicate with Durable Functions through the webhook URLs that are part of the default response described in [HTTP API URL discovery](durable-functions-http-features.md#http-api-url-discovery). The webhook URLs can alternatively be accessed programmatically using the [orchestration client binding](durable-functions-bindings.md#orchestration-client). The `CreateHttpManagementPayload` (.NET) or the `createHttpManagementPayload` (JavaScript) methods can be used to get a serializable object that contains these webhook URLs.
+You can use an external system to monitor or to raise events to an orchestration. External systems can communicate with Durable Functions through the webhook URLs that are part of the default response described in [HTTP API URL discovery](durable-functions-http-features.md#http-api-url-discovery). The webhook URLs can alternatively be accessed programmatically using the [orchestration client binding](durable-functions-bindings.md#orchestration-client). Specifically, the *create HTTP management payload* API can be used to get a serializable object that contains these webhook URLs.
 
-The `CreateHttpManagementPayload` (.NET) and `createHttpManagementPayload` (JavaScript) methods have one parameter:
+The *create HTTP management payload* API has one parameter:
 
-* **instanceId**: The unique ID of the instance.
+* *Instance ID*: The unique ID of the instance.
 
 The methods return an object with the following string properties:
 
@@ -815,6 +950,14 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.co
         payload: payload
     })
 ```
+
+# [Java](#tab/java)
+
+<!-- Tracking issue: https://github.com/microsoft/durabletask-java/issues/63 -->
+
+> [!NOTE]
+> This feature is currently not supported in Java.
+
 ---
 
 ## Rewind instances (preview)
@@ -878,6 +1021,26 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
     return client.rewind(instance_id, reason)
 ``` -->
 
+# [Java](#tab/java)
+
+> [!NOTE]
+> This feature is currently not supported in Java.
+
+<!--
+Tracking issue: https://github.com/microsoft/durabletask-java/issues/65
+
+```java
+@FunctionName("Rewind")
+public void rewind(
+        @HttpTrigger(name = "req", methods = {HttpMethod.POST}) HttpRequestMessage<String> req,
+        @DurableClientInput(name = "durableContext") DurableClientContext durableContext) {
+    String instanceID = req.getBody();
+    String reason = "Failed due to external configuration issue";
+    durableContext.getClient().rewind(instanceID, reason);
+}
+```
+-->
+
 ---
 
 ### Azure Functions Core Tools
@@ -900,9 +1063,9 @@ func durable rewind --id 0ab8c55a66644d68a3a8b220b12d209c --reason "Orchestrator
 
 ## Purge instance history
 
-To remove all the data associated with an orchestration, you can purge the instance history. For example, you might want to delete any Azure Table rows and large message blobs associated with a completed instance. To do so, use the `PurgeInstanceHistoryAsync` (.NET), `purgeInstanceHistory` (JavaScript), or `purge_instance_history` (Python) method of the [orchestration client](durable-functions-bindings.md#orchestration-client) object.
+To remove all the data associated with an orchestration, you can purge the instance history. For example, you might want to delete any storage resources associated with a completed instance. To do so, use the *purge instance* API defined by the [orchestration client](durable-functions-bindings.md#orchestration-client).
 
-This method has two overloads. The first overload purges history by the ID of the orchestration instance:
+This first example shows how to purge a single orchestration instance.
 
 # [C#](#tab/csharp)
 
@@ -939,6 +1102,27 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
     client = df.DurableOrchestrationClient(starter)
 
     return client.purge_instance_history(instance_id)
+```
+
+# [Java](#tab/java)
+
+```java
+@FunctionName("PurgeInstance")
+public HttpResponseMessage purgeInstance(
+        @HttpTrigger(name = "req", methods = {HttpMethod.POST}, route = "purge/{instanceID}") HttpRequestMessage<?> req,
+        @DurableClientInput(name = "durableContext") DurableClientContext durableContext,
+        @BindingName("instanceID") String instanceID) {
+    PurgeResult result = durableContext.getClient().purgeInstance(instanceID);
+    if (result.getDeletedInstanceCount() == 0) {
+        return req.createResponseBuilder(HttpStatus.NOT_FOUND)
+                .body("No completed instance with ID '" + instanceID + "' was found!")
+                .build();
+    } else {
+        return req.createResponseBuilder(HttpStatus.OK)
+                .body("Successfully purged data for " + instanceID)
+                .build();
+    }
+}
 ```
 
 ---
@@ -1024,6 +1208,24 @@ async def main(req: func.HttpRequest, starter: str, instance_id: str) -> func.Ht
 
     return client.purge_instance_history_by(created_time_from, created_time_to, runtime_statuses)
 ```
+
+# [Java](#tab/java)
+
+```java
+@FunctionName("PurgeInstances")
+public void purgeInstances(
+        @TimerTrigger(name = "purgeTimer", schedule = "0 0 12 * * *") String timerInfo,
+        @DurableClientInput(name = "durableContext") DurableClientContext durableContext,
+        ExecutionContext context) {
+    PurgeInstanceCriteria criteria = new PurgeInstanceCriteria()
+            .setCreatedTimeFrom(Instant.now().minus(Duration.ofDays(60)))
+            .setCreatedTimeTo(Instant.now().minus(Duration.ofDays(30)))
+            .setRuntimeStatusList(List.of(OrchestrationRuntimeStatus.COMPLETED));
+    PurgeResult result = durableContext.getClient().purgeInstances(criteria);
+    context.getLogger().info(String.format("Purged %d instance(s)", result.getDeletedInstanceCount()));
+}
+```
+
 ---
 
 > [!NOTE]
