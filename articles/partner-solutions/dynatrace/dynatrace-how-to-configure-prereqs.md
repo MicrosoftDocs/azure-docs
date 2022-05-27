@@ -15,7 +15,7 @@ This article describes the pre-requisites that must be completed before you crea
 
 ## Access control
 
-To setup the Azure Dynatrace integration, you must have **owner** or **contributor** access on the Azure subscription. [Confirm that you have the appropriate access](https://docs.microsoft.com/en-us/azure/role-based-access-control/check-access) before starting the setup.
+To setup the Azure Dynatrace integration, you must have **owner** or **contributor** access on the Azure subscription. [Confirm that you have the appropriate access](/azure/role-based-access-control/check-access) before starting the setup.
 
 ## Add enterprise application
 
@@ -25,20 +25,19 @@ To use the Security Assertion Markup Language (SAML) based single sign-on (SSO) 
 
 2. Under **Add from the gallery**, type in `Dynatrace`. Select the search result then click **Add**.
 
-   <!--  ![Graphical user interface, application Description automatically > generated](media/image1.png){width="6.5in" > height="3.5770833333333334in"} -->
+    :::image type="content" source="media/dynatrace-how-to-configure-prereqs/dynatrace-gallery.png" alt-text="Screenshot of the Dynatrace service in the Marketplace gallery.":::
 
 3. Once the app is created, go to properties from the side panel, and set the **User assignment required?** to **No**, then select Save.
 
-    <!-- ![Graphical user interface, application Description automatically generated](media/image2.png){width="6.5in" height="3.5506944444444444in"} -->
+    :::image type="content" source="media/dynatrace-how-to-configure-prereqs/dynatrace-properties.png" alt-text="Screenshot of the Dynatrace service properties.":::
 
 4. Go to **Single sign-on** from the side panel. Then select **SAML**.
-
-    <!--  ![Graphical user interface, application Description automatically > generated](media/image3.png){width="6.5in" > height="3.5416666666666665in"} -->
+    :::image type="content" source="media/dynatrace-how-to-configure-prereqs/dynatrace-saml-sign-on.png" alt-text="Screenshot of the Dynatrace S A M L settings.":::
 
 5. Select **Yes** when prompted to **Save single sign-on settings**.
 
-    <!--  ![Graphical user interface, text, application, email Description > automatically generated](media/image4.png){width="6.5in" > height="3.066666666666667in"} -->
+    :::image type="content" source="media/dynatrace-how-to-configure-prereqs/dynatrace-single-sign-on.png" alt-text="Screenshot of the Dynatrace single sign-on settings.":::
 
 ## Next steps
 
-- [Quickstart: Create a new Dynatrace environment.](#create-new-dynatrace-environment)
+- [Quickstart: Create a new Dynatrace environment.](dynatrace-create.md)
