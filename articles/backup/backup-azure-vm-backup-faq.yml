@@ -4,7 +4,7 @@ metadata:
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
   ms.topic: faq
   ms.service: backup
-  ms.date: 05/06/2022
+  ms.date: 05/27/2022
   author: v-amallick
   ms.author: v-amallick
 
@@ -140,6 +140,10 @@ sections:
         answer: |
           Yes, you can do this when *Transfer data to vault* phase is in progress.
 
+       - question: Does Azure Backup take backup of keys for ADE encrypted VMs and restore it along with the restored disk?
+         answer: |
+           Yes, Azure Backup takes backup of keys and secrets backup data. During restore, it doesn't restore the keys in the Key Vault.  However, it allows restoring the keys, if you have lost the encryption keys. For more information, see [Restore Key Vault key & secret for encrypted VM](backup-azure-restore-key-secret.md).
+
   - name: Restore
     questions:
       - question: How do I decide whether to restore disks only or a full VM?
@@ -216,6 +220,10 @@ sections:
       - question: Can I delete JSON template and VHD files after the restore process is complete?
         answer: |
           Yes, you can delete these files once the restoration process is complete. By default, Azure Backup retains these files for future use.
+
+      - question: How do I run restore operation for Cross Region Restore (CRR) of ADE encrypted VMs?
+        answer: |
+          In the case of CRR, the keys won't be preset in the target region. Therefore, you need to [restore the keys and secrets using the restored file](backup-azure-restore-key-secret.md). Then, you need to create the VM using the restored disk.
 
   - name: Manage VM backups
     questions:
@@ -304,6 +312,10 @@ sections:
       - question: Why does the error VMMarketplaceInvalidInputmessage appear?
         answer: |
           This error appears when you try to start a VM after creating an Azure VM from a non-Marketplace image or swap the OS disk of a VM with a non-Marketplace image, and then the VM deployment fails. To resolve this issue, remove the plan information from the VM.
+
+      - question: How do we manage key rotations? How to ensure which key is used during backup and if it’s present to be used with the restored VM?
+        answer: |
+          Azure Backup takes backup of secret data and KEK backup data of the key version that's used during backup and restores the same during the restore process. ADE supports booting the VM with old version keys even if newer versions are available in Key Vault.
 
 
 
