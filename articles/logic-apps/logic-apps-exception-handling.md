@@ -18,7 +18,9 @@ The way that any integration architecture appropriately handles downtime or issu
 
 ## Retry policies
 
-For the most basic exception and error handling, you can use the *retry policy* where supported on a trigger or action, such as the [HTTP action](logic-apps-workflow-actions-triggers.md#http-trigger). If the trigger or action's original request times out or fails, resulting in a 408, 429, or 5xx response, the retry policy specifies that the trigger or action resend the request per policy settings.
+For the most basic exception and error handling, you can use the *retry policy* when supported on a trigger or action, such as the [HTTP action](logic-apps-workflow-actions-triggers.md#http-trigger). If the trigger or action's original request times out or fails, resulting in a 408, 429, or 5xx response, the retry policy specifies that the trigger or action resend the request per policy settings.
+
+### Retry policy types
 
 By default, the retry policy is set to the **Default** type.
 
@@ -30,36 +32,38 @@ By default, the retry policy is set to the **Default** type.
 | **Fixed Interval**  | This policy waits the specified interval before sending the next request. For more information, review the [Fixed Interval](#fixed-interval) policy type. |
 |||
 
-### View or change retry policy type in the Azure portal
-
-1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
-
-1. On the trigger or action, open that trigger or action's **Settings**.
-
-1. If the trigger or action supports retry policies, under **Retry Policy**, select the policy type that you want.
-
 <a name="retry-policy-limits"></a>
 
 ### Retry policy limits
 
-The following table describes retry policy limits, based on whether you have a [Consumption or Standard logic app workflow](logic-apps-overview.md#resource-environment-differences).
+For more information about retry policies, settings, limits, and other options, review [Retry policy limits](logic-apps-limits-and-config.md#retry-policy-limits).
 
-| Name | Consumption limit | Standard limit | Notes |
-|------|-------------------|----------------|-------|
-| Retry attempts | - Default: 4 attempts <br> - Max: 90 attempts | - Default: 4 attempts | To change the default limit in Consumption logic app workflows, use the [retry policy parameter](logic-apps-exception-handling.md#retry-policies). To change the default limit in Standard logic app workflows, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
-| Retry interval | None | Default: 7 sec | To change the default limit Consumption logic app workflows, use the [retry policy parameter](logic-apps-exception-handling.md#retry-policies). <p><p>To change the default limit in Standard logic app workflows, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
+### View or change retry policy type in the Azure portal
+
+1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
+
+1. Based on the your [logic app type](logic-apps-overview.md#resource-environment-differences), open the trigger or action's **Settings**.
+
+   * **Consumption**: On the action shape, open the ellipses menu (**...**), and select **Settings**.
+
+   * **Standard**: On the designer, select the action. On the details pane, select **Settings**.
+
+1. If the trigger or action supports retry policies, under **Retry Policy**, select the policy type that you want.
 
 ### Change retry policy in code view
 
-If you're working in code view, you can manually update the trigger or action definition by adding the `retryPolicy` JSON object to the `inputs` object for that trigger or action. Without the `retryPolicy` object, the trigger or action uses the `default` retry policy.
+1. If necessary, confirm whether the trigger or action supports retry policies by completing the earlier steps in the designer.
 
-```json
-"<action-name>": {
-   "type": "<action-type>",
+1. Open your logic app workflow in the code view editor.
+
+1. In the trigger or action definition, add the `retryPolicy` JSON object to that trigger or action's `inputs` object. Otherwise, if no `retryPolicy` object exists, the trigger or action uses the `default` retry policy.
+
+   ```json
    "inputs": {
       <...>,
       "retryPolicy": {
          "type": "<retry-policy-type>",
+         // The following properties apply to specific retry policies.
          "count": <retry-attempts>,
          "interval": "<retry-interval>",
          "maximumInterval": "<maximum-interval>",
@@ -68,31 +72,30 @@ If you're working in code view, you can manually update the trigger or action de
       <...>
    },
    "runAfter": {}
-}
-```
+   ```
 
-*Required*
+   *Required*
 
-| Property | Value | Type | Description |
-|----------|-------|------|-------------|
-| `type` | <*retry-policy-type*> | String | The retry policy type to use: `default`, `none`, `fixed`, or `exponential` |
-| `count` | <*retry-attempts*> | Integer | For `fixed` and `exponential` policy types, the number of retry attempts, which is a value from 1 - 90. For more information, review [Fixed Interval](#fixed-interval) and [Exponential Interval](#exponential-interval). |
-| `interval`| <*retry-interval*> | String | For `fixed` and `exponential` policy types, the retry interval value in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). For the `exponential` policy, you can also specify [optional maximum and minimum intervals](#optional-max-min-intervals). For more information, review [Fixed Interval](#fixed-interval) and [Exponential Interval](#exponential-interval). <br><br>**Consumption**: 5 seconds (`PT5S`) to 1 day (`P1D`). <br>**Standard**: For stateful workflows, 5 seconds (`PT5S`) to 1 day (`P1D`). For stateless workflows, 1 second (`PT1S`) to 1 minute (`PT1M`). |
-|||||
+   | Property | Value | Type | Description |
+   |----------|-------|------|-------------|
+   | `type` | <*retry-policy-type*> | String | The retry policy type to use: `default`, `none`, `fixed`, or `exponential` |
+   | `count` | <*retry-attempts*> | Integer | For `fixed` and `exponential` policy types, the number of retry attempts, which is a value from 1 - 90. For more information, review [Fixed Interval](#fixed-interval) and [Exponential Interval](#exponential-interval). |
+   | `interval`| <*retry-interval*> | String | For `fixed` and `exponential` policy types, the retry interval value in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). For the `exponential` policy, you can also specify [optional maximum and minimum intervals](#optional-max-min-intervals). For more information, review [Fixed Interval](#fixed-interval) and [Exponential Interval](#exponential-interval). <br><br>**Consumption**: 5 seconds (`PT5S`) to 1 day (`P1D`). <br>**Standard**: For stateful workflows, 5 seconds (`PT5S`) to 1 day (`P1D`). For stateless workflows, 1 second (`PT1S`) to 1 minute (`PT1M`). |
+   |||||
 
-<a name="optional-max-min-intervals"></a>
+   <a name="optional-max-min-intervals"></a>
 
-*Optional*
+   *Optional*
 
-| Property | Value | Type | Description |
-|----------|-------|------|-------------|
-| `maximumInterval` | <*maximum-interval*> | String | For the `exponential` policy, the largest interval for the randomly selected interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). The default value is 1 day (`P1D`). For more information, review [Exponential Interval](#exponential-interval). |
-| `minimumInterval` | <*minimum-interval*> | String | For the `exponential` policy, the smallest interval for the randomly selected interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). The default value is 5 seconds (`PT5S`). For more information, review [Exponential Interval](#exponential-interval). |
-|||||
+   | Property | Value | Type | Description |
+   |----------|-------|------|-------------|
+   | `maximumInterval` | <*maximum-interval*> | String | For the `exponential` policy, the largest interval for the randomly selected interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). The default value is 1 day (`P1D`). For more information, review [Exponential Interval](#exponential-interval). |
+   | `minimumInterval` | <*minimum-interval*> | String | For the `exponential` policy, the smallest interval for the randomly selected interval in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). The default value is 5 seconds (`PT5S`). For more information, review [Exponential Interval](#exponential-interval). |
+   |||||
 
-<a name="default-retry"></a>
+<a name="default"></a>
 
-#### Default
+#### Default retry policy
 
 If you don't specify a retry policy, the action uses the default policy. The default is actually an [exponential interval policy](#exponential-interval) that sends up to four retries at exponentially increasing intervals, which scales by 7.5 seconds. The interval is capped between 5 and 45 seconds.
 
@@ -116,9 +119,13 @@ Though not explicitly defined in your action or trigger, here is how the default
 }
 ```
 
-### None
+<a name="none"></a>
+
+### None -  No retry policy
 
 To specify that the action or trigger doesn't retry failed requests, set the <*retry-policy-type*> to `none`.
+
+<a name="fixed-interval"></a>
 
 ### Fixed interval
 
@@ -170,63 +177,96 @@ The following table shows how Azure Logic Apps generates a uniform random variab
 
 <a name="control-run-after-behavior"></a>
 
-## Change the "run after" behavior
+## Manage the "run after" behavior
 
-When you add actions in the workflow designer, you implicitly declare the order to use for running those actions. After an action finishes running, that action is marked with a status such as `Succeeded`, `Failed`, `Skipped`, or `TimedOut`. In each action definition, the `runAfter` property specifies the predecessor action that must first finish and the statuses permitted for that predecessor before the successor action can run. By default, an action that you add in the designer runs only after the predecessor completes with `Succeeded` status.
+When you add actions in the workflow designer, you implicitly declare the order to use for running those actions. After an action finishes running, that action is marked with a status such as **Succeeded**, **Failed**, **Skipped**, or **TimedOut**. By default, an action that you add in the designer runs only after the predecessor completes with **Succeeded** status. In an action's underlying definition, the `runAfter` property specifies that the predecessor action that must first finish and the statuses permitted for that predecessor before the successor action can run.
 
-When an action throws an unhandled error or exception, the action is marked `Failed`, and any successor action is marked `Skipped`. If this behavior happens for an action that has parallel branches, the Azure Logic Apps engine follows the other branches to determine their completion statuses. For example, if a branch ends with a `Skipped` action, that branch's completion status is based on that skipped action's predecessor status. After the logic app run completes, the engine determines the entire run's status by evaluating all the branch statuses. If any branch ends in failure, the entire logic app run is marked `Failed`.
+When an action throws an unhandled error or exception, the action is marked **Failed**, and any successor action is marked **Skipped**. If this behavior happens for an action that has parallel branches, the Azure Logic Apps engine follows the other branches to determine their completion statuses. For example, if a branch ends with a **Skipped** action, that branch's completion status is based on that skipped action's predecessor status. After the workflow run completes, the engine determines the entire run's status by evaluating all the branch statuses. If any branch ends in failure, the entire workflow run is marked **Failed**.
 
 ![Conceptual diagram with examples that show how run statuses are evaluated.](./media/logic-apps-exception-handling/status-evaluation-for-parallel-branches.png)
 
-To make sure that an action can still run despite its predecessor's status, [customize an action's "run after" behavior](#customize-run-after) to handle the predecessor's unsuccessful statuses.
+To make sure that an action can still run despite its predecessor's status, you can change an action's "run after" behavior to handle the predecessor's unsuccessful statuses. That way, the action runs when the predecessor's status is **Succeeded**, **Failed**, **Skipped**, **TimedOut**, or all these statuses.
 
-<a name="customize-run-after"></a>
+For example, to run the Office 365 Outlook **Send an email** action after the Excel Online **Add a row into a table** predecessor action is marked **Failed**, rather than **Succeeded**, change the "run after" behavior using either the designer or code view editor.
 
-### Change "run after" behavior
+> [!NOTE]
+>
+> In the designer, the "run after" setting doesn't apply to the action that immediately 
+> follows the trigger as the trigger must run successfully before the first action can run.
 
-You can edit an action's "run after" behavior so that the action runs when the predecessor's status is either `Succeeded`, `Failed`, `Skipped`, `TimedOut`, or any of these statuses. For example, to send an email after the Excel Online `Add_a_row_into_a_table` predecessor action is marked `Failed`, rather than `Succeeded`, change the "run after" behavior by using either the designer or code view editor.
+<a name="change-run-after-designer"></a>
 
-#### Designer
+### Change "run after" behavior in the designer
 
-##### [Consumption](#tab/consumption)
+### [Consumption](#tab/consumption)
 
-1. On the action shape, select the ellipses (**...**) button, and then select **Configure run after**.
+1. In the [Azure portal](https://portal.azure.com), open the logic app workflow in the designer.
 
-   ![Screenshot showing the Azure portal and an action with the ellipses button and "Configure run after" selected.](./media/logic-apps-exception-handling/configure-run-after-property-setting.png)
+1. On the action shape, open the ellipses menu (**...**), and select **Configure run after**.
 
-   The action shape expands and shows the default status that's required for the predecessor action, which is **Add a row into a table** in the following example:
+   ![Screenshot showing Consumption workflow designer and current action with ellipses and "Configure run after" selected.](./media/logic-apps-exception-handling/configure-run-after-consumption.png)
 
-   ![Screenshot showing the default "run after" behavior for an action.](./media/logic-apps-exception-handling/change-run-after-property-status.png)
+   The action shape expands and shows the predecessor action for the currently selected action.
 
-1. Change the "run after" behavior to the status that you want, which is **has failed** in this example:
+   ![Screenshot showing Consumption workflow designer, current action, and "run after" status for predecessor action.](./media/logic-apps-exception-handling/predecessor-action-consumption.png)
 
-   ![Screenshot showing the "run after" behavior changed to "has failed".](./media/logic-apps-exception-handling/run-after-property-status-set-to-failed.png)
+1. Expand the predecessor action node to view all the "run after" statuses.
 
-1. To specify that the action runs whether the predecessor action is marked as `Failed`, `Skipped` or `TimedOut`, select the other statuses:
+   By default, the "run after" status is set to **is successful**. So, the predecessor action must run successfully before the currently selected action can run.
 
-   ![Screenshot showing the "run after" behavior changed to multiple statuses.](./media/logic-apps-exception-handling/run-after-property-multiple-statuses.png)
+   ![Screenshot showing Consumption designer, current action, and default "run after" set to "is successful".](./media/logic-apps-exception-handling/default-run-after-status-consumption.png)
 
-##### [Standard](#tab/standard)
+1. Change the "run after" behavior to the status that you want. Make sure that you first select an option before you clear the default option. You have to have at least one option selected at all times.
 
-1. On the action shape, select the ellipses (**...**) button, and then select **Configure run after**.
+   The following example selects **has failed**.
 
-   ![Screenshot showing the Azure portal and an action with the ellipses button and "Configure run after" selected.](./media/logic-apps-exception-handling/configure-run-after-property-setting.png)
+   ![Screenshot showing Consumption designer, current action, and "run after" set to "has failed".](./media/logic-apps-exception-handling/failed-run-after-status-consumption.png)
 
-   The action shape expands and shows the default status that's required for the predecessor action, which is **Add a row into a table** in the following example:
+1. To specify that the current action runs whether the predecessor action is marked as **Failed**, **Skipped**, or **TimedOut**, select the other statuses.
 
-   ![Screenshot showing the default "run after" behavior for an action.](./media/logic-apps-exception-handling/change-run-after-property-status.png)
+   ![Screenshot showing Consumption designer, current action, and multiple "run after" statuses selected.](./media/logic-apps-exception-handling/run-after-multiple-statuses-consumption.png)
 
-1. Change the "run after" behavior to the status that you want, which is **has failed** in this example:
+1. When you're ready, select **Done**.
 
-   ![Screenshot showing the "run after" behavior changed to "has failed".](./media/logic-apps-exception-handling/run-after-property-status-set-to-failed.png)
+### [Standard](#tab/standard)
 
-1. To specify that the action runs whether the predecessor action is marked as `Failed`, `Skipped` or `TimedOut`, select the other statuses:
+1. In the [Azure portal](https://portal.azure.com), open the logic app workflow in the designer.
 
-   ![Screenshot showing the "run after" behavior changed to multiple statuses.](./media/logic-apps-exception-handling/run-after-property-multiple-statuses.png)
+1. On the designer, select the action shape. On the details pane, select **Run After**.
+
+   ![Screenshot showing Standard workflow designer and current action details pane with "Run After" selected.](./media/logic-apps-exception-handling/configure-run-after-standard.png)
+
+   The **Run After** pane shows the predecessor action for the currently selected action.
+
+   ![Screenshot showing Standard designer, current action, and "run after" status for predecessor action.](./media/logic-apps-exception-handling/predecessor-action-standard.png)
+
+1. Expand the predecessor action node to view all the "run after" statuses.
+
+   By default, the "run after" status is set to **is successful**. So, the predecessor action must run successfully before the currently selected action can run.
+
+   ![Screenshot showing Standard designer, current action, and default "run after" set to "is successful".](./media/logic-apps-exception-handling/change-run-after-status-standard.png)
+
+1. Change the "run after" behavior to the status that you want. Make sure that you first select an option before you clear the default option. You have to have at least one option selected at all times.
+
+   The following example selects **has failed**.
+
+   ![Screenshot showing Standard designer, current action, and "run after" set to "has failed".](./media/logic-apps-exception-handling/failed-run-after-status-standard.png)
+
+1. To specify that the current action runs whether the predecessor action is marked as **Failed**, **Skipped**, or **TimedOut**, select the other statuses.
+
+   ![Screenshot showing Standard designer, current action, and multiple "run after" statuses selected.](./media/logic-apps-exception-handling/run-after-multiple-statuses-standard.png)
+
+1. To require that more than one predecessor action runs, each with their own "run after" statuses, expand the **Select actions** list. Select the predecessor actions that you want, and specify their required "run after" statuses.
+
+   ![Screenshot showing Standard designer, current action, and multiple predecessor actions available.](./media/logic-apps-exception-handling/multiple-predecessor-actions-standard.png)
+
+1. When you're ready, select **Done**.
 
 ---
 
-#### Code view
+### Change "run after" behavior in code view
+
+1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the code view editor.
 
 1. In the action's JSON definition, edit the `runAfter` property, which has the following syntax:
 
@@ -250,7 +290,7 @@ You can edit an action's "run after" behavior so that the action runs when the p
    "Send_an_email_(V2)": {
       "inputs": {
          "body": {
-            "Body": "<p>Failed to&nbsp;add row to &nbsp;@{body('Add_a_row_into_a_table')?['Terms']}</p>",,
+            "Body": "<p>Failed to add row to table: @{body('Add_a_row_into_a_table')?['Terms']}</p>",
             "Subject": "Add row to table failed: @{body('Add_a_row_into_a_table')?['Terms']}",
             "To": "Sophia.Owen@fabrikam.com"
          },
@@ -285,13 +325,13 @@ You can edit an action's "run after" behavior so that the action runs when the p
 
 ## Evaluate actions with scopes and their results
 
-Similar to running steps after individual actions with the `runAfter` property, you can group actions together inside a [scope](logic-apps-control-flow-run-steps-group-scopes.md). You can use scopes when you want to logically group actions together, assess the scope's aggregate status, and perform actions based on that status. After all the actions in a scope finish running, the scope itself gets its own status.
+Similar to running steps after individual actions with the "run after" setting, you can group actions together inside a [scope](logic-apps-control-flow-run-steps-group-scopes.md). You can use scopes when you want to logically group actions together, assess the scope's aggregate status, and perform actions based on that status. After all the actions in a scope finish running, the scope itself gets its own status.
 
-To check a scope's status, you can use the same criteria that you use to check a logic app's run status, such as `Succeeded`, `Failed`, and so on.
+To check a scope's status, you can use the same criteria that you use to check a workflow run status, such as **Succeeded**, **Failed**, and so on.
 
-By default, when all the scope's actions succeed, the scope's status is marked `Succeeded`. If the final action in a scope results as `Failed` or `Aborted`, the scope's status is marked `Failed`.
+By default, when all the scope's actions succeed, the scope's status is marked **Succeeded**. If the final action in a scope is marked **Failed** or **Aborted**, the scope's status is marked **Failed**.
 
-To catch exceptions in a `Failed` scope and run actions that handle those errors, you can use the `runAfter` property for that `Failed` scope. That way, if *any* actions in the scope fail, and you use the `runAfter` property for that scope, you can create a single action to catch failures.
+To catch exceptions in a **Failed** scope and run actions that handle those errors, you can use the "run after" setting that **Failed** scope. That way, if *any* actions in the scope fail, and you use the "run after" setting for that scope, you can create a single action to catch failures.
 
 For limits on scopes, see [Limits and config](logic-apps-limits-and-config.md).
 
@@ -306,9 +346,9 @@ Although catching failures from a scope is useful, you might also want more cont
 > The `result()` function returns the results *only* from the top-level actions 
 > and not from deeper nested actions such as switch or condition actions.
 
-To get context about the actions that failed in a scope, you can use the `@result()` expression with the scope's name and the `runAfter` property. To filter down the returned array to actions that have `Failed` status, you can add the [**Filter Array** action](logic-apps-perform-data-operations.md#filter-array-action). To run an action for a returned failed action, take the returned filtered array and use a [**For each** loop](logic-apps-control-flow-loops.md).
+To get context about the actions that failed in a scope, you can use the `@result()` expression with the scope's name and the "run after" setting. To filter down the returned array to actions that have **Failed** status, you can add the [**Filter Array** action](logic-apps-perform-data-operations.md#filter-array-action). To run an action for a returned failed action, take the returned filtered array and use a [**For each** loop](logic-apps-control-flow-loops.md).
 
-Here's an example, followed by a detailed explanation, that sends an HTTP POST request with the response body for any actions that failed within the scope action named "My_Scope":
+The following JSON example sends an HTTP POST request with the response body for any actions that failed within the scope action named **My_Scope**. A detailed explanation follows the example.
 
 ```json
 "Filter_array": {
@@ -349,11 +389,11 @@ Here's an example, followed by a detailed explanation, that sends an HTTP POST r
 }
 ```
 
-The following detailed walkthrough describes what happens in this example:
+The following steps describe what happens in this example:
 
-1. To get the result from all actions inside "My_Scope", the **Filter Array** action uses this filter expression: `@result('My_Scope')`
+1. To get the result from all actions inside **My_Scope**, the **Filter Array** action uses this filter expression: `@result('My_Scope')`
 
-1. The condition for **Filter Array** is any `@result()` item that has a status equal to `Failed`. This condition filters the array that has all the action results from "My_Scope" down to an array with only the failed action results.
+1. The condition for **Filter Array** is any `@result()` item that has a status equal to `Failed`. This condition filters the array that has all the action results from **My_Scope** down to an array with only the failed action results.
 
 1. Perform a `For_each` loop action on the *filtered array* outputs. This step performs an action for each failed action result that was previously filtered.
 

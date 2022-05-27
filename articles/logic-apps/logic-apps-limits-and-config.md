@@ -250,6 +250,18 @@ For more information about your logic app resource definition, review [Overview:
 
 Azure Logic Apps supports write operations, including inserts and updates, through the on-premises data gateway. However, these operations have [limits on their payload size](/data-integration/gateway/service-gateway-onprem#considerations).
 
+<a name="retry-policy-limits"></a>
+
+## Retry policy limits
+
+The following table lists the retry policy limits for a trigger or action, based on whether you have a [Consumption or Standard logic app workflow](logic-apps-overview.md#resource-environment-differences).
+
+| Name | Consumption limit | Standard limit | Notes |
+|------|-------------------|----------------|-------|
+| Retry attempts | - Default: 4 attempts <br> - Max: 90 attempts | - Default: 4 attempts | To change the default limit in Consumption logic app workflows, use the [retry policy parameter](logic-apps-exception-handling.md#retry-policies). To change the default limit in Standard logic app workflows, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
+| Retry interval | None | Default: 7 sec | To change the default limit in Consumption logic app workflows, use the [retry policy parameter](logic-apps-exception-handling.md#retry-policies). <p><p>To change the default limit in Standard logic app workflows, review [Edit host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md). |
+|||||
+
 <a name="variables-action-limits"></a>
 
 ## Variables action limits
@@ -303,12 +315,6 @@ By default, the HTTP action and APIConnection actions follow the [standard async
 | Expression evaluation limit | 131,072 characters | The `@concat()`, `@base64()`, `@string()` expressions can't be longer than this limit. |
 | Request URL character limit | 16,384 characters | |
 ||||
-
-<a name="retry-policy-limits"></a>
-
-### Retry policy
-
-For more information about retry policies, settings, limits, and other options, review [Retry policies](logic-apps-exception-handling.md#retry-policy-limits).
 
 <a name="authentication-limits"></a>
 
