@@ -1,0 +1,55 @@
+### YamlMime:Landing
+
+title: Dynatrace integration with Azure
+summary: Uses Dynatrace to Dynatrace stuff.
+
+metadata:
+  title: Dynatrace with Azure documentation
+  description: Dynatrace integrates with Azure to offer 
+  ms.service: partner-services
+  ms.topic: landing-page
+  ms.collection: na
+  author: flang-msft
+  ms.author: franlanglois
+  ms.date: 05/12/2022
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  # Card (optional)
+  - title: About Dynatrace with Azure
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Dynatrace integration with Azure?
+            url: dynatrace-overview.md
+      - linkListType: how-to-guide
+        links:
+          - text: Manage the Dynatrace integration with Azure
+            url: dynatrace-manage.md
+
+  # Card
+  - title: Create Dynatrace resource
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Get started with Dynatrace
+            url: dynatrace-create.md
+          - text: Get started with Dynatrace
+            url: dynatrace-link-to-existing.md
+      - linkListType: how-to-guide
+        links:
+          - text: Troubleshooting Dynatrace with Azure
+            url: dynatrace-troubleshoot.md
+
+  # Card
+  - title: Explore reference content
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure CLI
+            url: /cli/azure/Dynatrace
+          - text: Azure PowerShell
+            url: /powershell/module/az.Dynatrace/#Dynatrace
+          - text: REST API
+            url: /rest/api/Dynatrace

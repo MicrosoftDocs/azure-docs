@@ -1,0 +1,27 @@
+- name: Dynatrace Azure Integration Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Dynatrace?
+    href: dynatrace-overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create Dynatrace resource
+    href: dynatrace-create.md
+  - name: Link to existing Dynatrace resource
+    href: dynatrace-link-to-existing.md
+- name: How to
+  items:
+  - name: Manage integration
+    href: dynatrace-manage.md
+  - name: Troubleshoot
+    href: dynatrace-troubleshoot.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/Dynatrace
+  - name: Azure PowerShell
+    href: /powershell/module/az.Dynatrace/#Dynatrace
+  - name: REST API
+    href: /rest/api/Dynatrace
