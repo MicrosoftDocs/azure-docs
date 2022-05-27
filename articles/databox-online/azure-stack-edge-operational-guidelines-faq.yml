@@ -40,7 +40,7 @@ sections:
           Who manages regular updates to enhance and improve the Azure Stack Edge platform?
         answer: |
           Microsoft releases periodic updates for firmware, BIOS, drivers, Kubernetes service, and other software-related updates. Software patches may be made available by Microsoft to address vulnerabilities and bug fixes, etc. When updates are available, you initiate installation at a time that's convenient for you.
-          For more information about updates for your device, see [Update your Azure Stack Edge Pro GPU](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-install-update?tabs=version-2106-and-later).
+          For more information about updates for your device, see [Update your Azure Stack Edge Pro GPU](./azure-stack-edge-gpu-install-update.md?tabs=version-2106-and-later).
 
       - question: |
           Who fixes software issues on my applications that run on Azure Stack Edge? 
@@ -62,7 +62,7 @@ sections:
             - Send a field support person to address the issue, or 
             - Replace the device. For more information, see the frequently asked questions section on the [Azure Stack Edge pricing page](https://azure.microsoft.com/pricing/details/azure-stack/edge/).
           - If you have a software issue with your Kubernetes service that you can't fix yourself, or if you have a virtual machine management question that is not already documented, the Microsoft support team will consult with you to triage the issue and debug it remotely.
-          - To address software issues in the Azure Stack Edge platform or services that run on it, Microsoft may work with you directly to provide a fix or workaround, or they might provide a fix available via a software update. For more information about software updates for your device, see [Update your Azure Stack Edge Pro GPU](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-install-update?tabs=version-2106-and-later).
+          - To address software issues in the Azure Stack Edge platform or services that run on it, Microsoft may work with you directly to provide a fix or workaround, or they might provide a fix available via a software update. For more information about software updates for your device, see [Update your Azure Stack Edge Pro GPU](./azure-stack-edge-gpu-install-update.md?tabs=version-2106-and-later).
 
 additionalContent: |
 

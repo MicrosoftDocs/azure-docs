@@ -21,7 +21,7 @@ This article explains how to deploy Spring Boot applications in Azure Spring App
 ## Prerequisites
 
 * A container image containing the application.
-* The image is pushed to an image registry. For more information, see [Azure Container Registry](/azure/container-instances/container-instances-tutorial-prepare-acr).
+* The image is pushed to an image registry. For more information, see [Azure Container Registry](../container-instances/container-instances-tutorial-prepare-acr.md).
 
 > [!NOTE]
 > The web application must listen on port `1025` for Standard tier and on port `8080` for Enterprise tier. The way to change the port depends on the framework of the application. For example, specify `SERVER_PORT=1025` for Spring Boot applications or `ASPNETCORE_URLS=http://+:1025/` for ASP.Net Core applications. The probe can be disabled for applications that do not listen on any port.
@@ -173,7 +173,7 @@ When your application is restarted or scaled out, the latest image will always b
 
 ### Avoid not being able to connect to the container registry in a VNet
 
-If you deployed the instance to a VNet, make sure you allow the network traffic to your container registry in the NSG or Azure Firewall (if used). For more information, see [Customer responsibilities for running in VNet](/azure/spring-cloud/vnet-customer-responsibilities) to add the needed security rules.
+If you deployed the instance to a VNet, make sure you allow the network traffic to your container registry in the NSG or Azure Firewall (if used). For more information, see [Customer responsibilities for running in VNet](./vnet-customer-responsibilities.md) to add the needed security rules.
 
 ### Install an APM into the image manually
 
@@ -266,4 +266,4 @@ az spring app deployment create \
 
 ## Next steps
 
-* [How to capture dumps](/azure/spring-cloud/how-to-capture-dumps)
+* [How to capture dumps](./how-to-capture-dumps.md)
