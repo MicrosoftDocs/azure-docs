@@ -28,13 +28,13 @@ Azure subscriptions have a trust relationship with Azure Active Directory (Azure
 
 1. Select **Properties**.
 
-1. Then, scroll down to the **Tenant ID** field. Your tenant ID will be in the box.
+1. Scroll down to the **Tenant ID** field. Your tenant ID will be in the box.
 
 :::image type="content" source="media/active-directory-how-to-find-tenant/portal-tenant-id.png" alt-text="Azure Active Directory - Properties - Tenant ID - Tenant ID field":::
 
 ## Find tenant ID with PowerShell
 
-You can also find the tenant programmatically. To find the tenant ID with Azure PowerShell, use the cmdlet `Get-AzTenant`.
+To find the tenant ID with Azure PowerShell, use the cmdlet `Get-AzTenant`.
 
 ```azurepowershell-interactive
 Connect-AzAccount
