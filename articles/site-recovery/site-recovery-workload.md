@@ -33,19 +33,19 @@ Site Recovery contributes to application-level protection and recovery as follow
 
 Site Recovery can replicate any app running on a supported machine. We've partnered with product teams to do additional testing for the apps specified in the following table.
 
-| **Workload** |**Replicate Azure VMs to Azure** |**Replicate Hyper-V VMs to a secondary site** | **Replicate Hyper-V VMs to Azure** | **Replicate VMware VMs to a secondary site** | **Replicate VMware VMs to Azure** |
+| **Workload** |**Replicate Azure VMs to Azure** |**Replicate Hyper-V VMs to a secondary site** | **Replicate Hyper-V VMs to Azure** | **Replicate VMware VMs to Azure**  ||
 | --- | --- | --- | --- | --- |---|
-| Active Directory, DNS |Yes |Yes |Yes |Yes |Yes|
-| Web apps (IIS, SQL) |Yes |Yes |Yes |Yes |Yes|
-| System Center Operations Manager |Yes |Yes |Yes |Yes |Yes|
-| SharePoint |Yes |Yes |Yes |Yes |Yes|
-| SAP<br/><br/>Replicate SAP site to Azure for non-cluster |Yes (tested by Microsoft) |Yes (tested by Microsoft) |Yes (tested by Microsoft) |Yes (tested by Microsoft) |Yes (tested by Microsoft)|
-| Exchange (non-DAG) |Yes |Yes |Yes |Yes |Yes|
-| Remote Desktop/VDI |Yes |Yes |Yes |Yes |Yes|
-| Linux (operating system and apps) |Yes (tested by Microsoft) |Yes (tested by Microsoft) |Yes (tested by Microsoft) |Yes (tested by Microsoft) |Yes (tested by Microsoft)|
-| Dynamics AX |Yes |Yes |Yes |Yes |Yes|
-| Windows File Server |Yes |Yes |Yes |Yes |Yes|
-| Citrix XenApp and XenDesktop |No|N/A |No |N/A |No |
+| Active Directory, DNS |Yes |Yes |Yes |Yes|
+| Web apps (IIS, SQL) |Yes |Yes |Yes |Yes|
+| System Center Operations Manager |Yes |Yes |Yes |Yes|
+| SharePoint |Yes |Yes |Yes |Yes|
+| SAP<br/><br/>Replicate SAP site to Azure for non-cluster |Yes (tested by Microsoft) |Yes (tested by Microsoft) |Yes (tested by Microsoft) |Yes (tested by Microsoft)|
+| Exchange (non-DAG) |Yes |Yes |Yes |Yes|
+| Remote Desktop/VDI |Yes |Yes |Yes |Yes|
+| Linux (operating system and apps) |Yes (tested by Microsoft) |Yes (tested by Microsoft) |Yes (tested by Microsoft) |Yes (tested by Microsoft)|
+| Dynamics AX |Yes |Yes |Yes |Yes|
+| Windows File Server |Yes |Yes |Yes |Yes|
+| Citrix XenApp and XenDesktop |No|N/A |No |No |
 
 ## Replicate Active Directory and DNS
 
