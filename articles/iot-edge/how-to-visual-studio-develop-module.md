@@ -22,7 +22,7 @@ The **Azure IoT Edge Tools for Visual Studio** extension provides the following 
 * Deploy your IoT Edge solution to an IoT Edge device via Azure IoT Hub.
 * Manage IoT Edge devices and modules with the UI.
 
-Visual Studio 2022 provides support for modules written in C and C#. The supported device architectures are Windows X64 and Linux X64 or ARM32, while ARM64 is in preview. For more information about supported operating systems, languages, and architectures, see [Language and architecture support](module-development.md#language-and-architecture-support).
+Visual Studio 2022 provides support for modules written in C and C#. The supported device architectures are Windows x64 and Linux x64 or ARM32, while ARM64 is in preview. For more information about supported operating systems, languages, and architectures, see [Language and architecture support](module-development.md#language-and-architecture-support).
   
 ## Prerequisites
 
@@ -331,8 +331,13 @@ In the quickstart article that you used to set up your IoT Edge device, you depl
           }
         }
      ```
-    > [!TIP]
-    > The deployment template for Visual Studio 2022 requires the 1.2 schema version. If you need it to be 1.1 or 1.0, wait until after the deployment is generated (do not change it in `deployment.debug.template.json`). Generating a deployment will create a 1.2 schema by default. However, you can manually change `deployment.amd64.debug.json`, the generated manifest, if needed before deploying it to Azure.
+   > [!TIP]
+   > The deployment template for Visual Studio 2022 requires the 1.2 schema version. If you need it to be 1.1 or 1.0, wait until after the deployment is generated (do not change it in `deployment.debug.template.json`). Generating a deployment will create a 1.2 schema by default. However, you can manually change `deployment.amd64.debug.json`, the generated manifest, if needed before deploying it to Azure.
+
+   > [!IMPORTANT]
+   > Once your IoT Edge device is deployed, it currently won't display correctly in the Azure portal with schema version 1.2 (version 1.1 will be fine). This is a known bug and will be fixed soon. However, this won't affect your device, as it's still connected in IoT Hub and can be communicated with at any time using the Azure CLI.
+   >
+   >:::image type="content" source="./media/how-to-publish-subscribe/unsupported-1.2-schema.png" alt-text="Screenshot of Azure portal error on the IoT Edge device page.":::
 
 1. Now let's deploy our manifest with an Azure CLI command. Open the Visual Studio **Developer Command Prompt** and change to the **config** directory.
 
@@ -373,11 +378,9 @@ You should see a list of your modules running on your device or virtual machine.
    myIotEdgeModule2            running          Up 2 hours       myregistry.azurecr.io/myiotedgemodule2:0.0.1-amd64.debug
 ```
 
-<!-- ## View generated data
+## View generated data
 
-1. To monitor the D2C message for a specific IoT Edge device, select it in your IoT hub in **Cloud Explorer** and then click **Start Monitoring Built-in Event Endpoint** in the **Action** window.
-
-1. To stop monitoring data, select **Stop Monitoring Built-in Event Endpoint** in the **Action** window. -->
+To monitor the device-to-cloud (D2C) messages for a specific IoT Edge device, review the [Tutorial: Monitor IoT Edge devices](tutorial-monitor-with-workbooks.md) to get started.
 
 ## Next steps
 
