@@ -23,7 +23,7 @@ Currently, the following features are available to be used asynchronously:
 * Key phrase extraction
 * Language detection
 * Named Entity Recognition (NER)
-* Personally Identifiable Information (PII) detection
+* Customer content detection
 * Sentiment analysis and opinion mining
 * Text Analytics for health
 
