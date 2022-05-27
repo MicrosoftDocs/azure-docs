@@ -24,13 +24,6 @@ The IoT Central REST API lets you:
 * Get the file upload storage account configuration
 * Delete the file upload storage configuration
 
-To use the Azure Storage REST API, you need a bearer token for the `management.azure.com` resource. To get a bearer token, you can use the Azure CLI:
-
-```azurecli
-az account get-access-token --resource https://management.azure.com
-```
-
-
 Every IoT Central REST API call requires an authorization header. To learn more, see [How to authenticate and authorize IoT Central REST API calls](howto-authorize-rest-api.md).
 
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
@@ -47,6 +40,12 @@ To test the file upload, install the following prerequisites in your local devel
 ## Add a file upload storage account configuration
 
 ### Create a storage account
+
+To use the Azure Storage REST API, you need a bearer token for the `management.azure.com` resource. To get a bearer token, you can use the Azure CLI:
+
+```azurecli
+az account get-access-token --resource https://management.azure.com
+```
 
 If you don't have a storage account for your blobs, you can use the following request to create one in your subscription:
 
@@ -320,4 +319,4 @@ You can also make a [REST API](/rest/api/storageservices/list-blobs) call to ver
 
 ## Next steps
 
-Now that you've learned how to manage device templates with the REST API, a suggested next step is to [How to create device templates from IoT Central GUI.](howto-set-up-template.md#create-a-device-template)
+Now that you've learned how to configure file uploads with the REST API, a suggested next step is to [How to create device templates from IoT Central GUI.](howto-set-up-template.md#create-a-device-template)
