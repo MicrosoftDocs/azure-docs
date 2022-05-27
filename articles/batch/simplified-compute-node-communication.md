@@ -1,6 +1,6 @@
 ---
-title: Use simplified compute node communication 
-description: Learn how the Azure Batch service is simplifying the way Batch pool infrastructure is managed and how to opt in or out of the . 
+title: Use simplified compute node communication
+description: Learn how the Azure Batch service is simplifying the way Batch pool infrastructure is managed and how to opt in or out of the .
 ms.topic: how-to
 ms.date: 10/21/2021
 ---
@@ -38,7 +38,7 @@ With the new model, Batch pools in accounts that use simplified compute node com
 - Outbound:
   - Destination port 443 over TCP to BatchNodeManagement.*region*
 
-Outbound requirements for a Batch account can be discovered using the [List Outbound Network Dependencies Endpoints API](/rest/api/batchmanagement/batch-account/list-outbound-network-dependencies-endpoints). This API will report the base set of dependencies, depending upon the Batch account pool communication model. User-specific workloads may need additional rules such as opening traffic to other Azure resources (such as Azure Storage for Application Packages, Azure Container Registry, etc.) or endpoints like the Microsoft package repository for virtual file system mounting functionality.  
+Outbound requirements for a Batch account can be discovered using the [List Outbound Network Dependencies Endpoints API](/rest/api/batchmanagement/batch-account/list-outbound-network-dependencies-endpoints). This API will report the base set of dependencies, depending upon the Batch account pool communication model. User-specific workloads may need additional rules such as opening traffic to other Azure resources (such as Azure Storage for Application Packages, Azure Container Registry, etc.) or endpoints like the Microsoft package repository for virtual file system mounting functionality.
 
 ## Benefits of the new model
 
@@ -119,8 +119,7 @@ After your request has been submitted, you will be notified once the account has
 
 The following are known limitations for accounts that opt in to simplified compute node communication:
 
-- [Creating pools without public IP addresses](batch-pool-no-public-ip-address.md) isn't currently supported for accounts which have opted in.
-- Previously created pools without public IP addresses won't use simplified compute node communication, even if the Batch account has opted in.
+- Limited migration support for previously created pools without public IP addresses ([V1 preview](batch-pool-no-public-ip-address.md)). They can only be migrated if created in a [virtual network](batch-virtual-network.md), otherwise they won't use simplified compute node communication, even if the Batch account has opted in.
 - [Private Batch accounts](private-connectivity.md) can opt in to simplified compute node communication, but Batch pools created by these Batch accounts must have public IP addresses in order to use simplified compute node communication.
 - Cloud Service Configuration pools are currently not supported for simplified compute node communication and are generally deprecated. We recommend using Virtual Machine Configuration for your Batch pools. For more information, see [Migrate Batch pool configuration from Cloud Services to Virtual Machine](batch-pool-cloud-service-to-virtual-machine-configuration.md).
 

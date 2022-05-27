@@ -78,4 +78,4 @@ Request body
 
 - Learn about the [Batch service workflow and primary resources](batch-service-workflow-features.md) such as pools, nodes, jobs, and tasks.
 - Learn about [creating a pool in a subnet of an Azure virtual network](batch-virtual-network.md).
-- Learn about [creating an Azure Batch pool without public IP addresses](./batch-pool-no-public-ip-address.md).
+- Learn about [creating an Azure Batch pool without public IP addresses](./batch-pool-no-public-ip-address-v2.md).

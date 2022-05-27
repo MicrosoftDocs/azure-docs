@@ -116,7 +116,7 @@ When creating private endpoint with your Batch account, keep in mind the followi
 ## Next steps
 
 - Learn how to [create Batch pools in virtual networks](batch-virtual-network.md).
-- Learn how to [create Batch pools without public IP addresses](batch-pool-no-public-ip-address.md)
+- Learn how to [create Batch pools without public IP addresses](batch-pool-no-public-ip-address-v2.md)
 - Learn how to [configure public network access for Batch accounts](public-network-access.md).
 - Learn how to [manage private endpoint connections for Batch accounts](manage-private-endpoint-connections.md).
 - Learn about [Azure Private Link](../private-link/private-link-overview.md).
