@@ -19,6 +19,9 @@ Use this article to learn about the languages currently supported by CLU feature
 
 ## Multi-lingual option
 
+> [!TIP]
+> See [How to train a model](how-to/train-model.md#training-modes) for information on which training mode you should use for multilingual projects. 
+
 With conversational language understanding, you can train a model in one language and use to predict intents and entities from utterances in another language. This feature is powerful because it helps save time and effort. Instead of building separate projects for every language, you can handle multi-lingual dataset in one project. Your dataset doesn't have to be entirely in the same language but you should enable the multi-lingual option for your project while creating or later in project settings. If you notice your model performing poorly in certain languages during the evaluation process, consider adding more data in these languages to your training set.
 
 You can train your project entirely with English utterances, and query it in: French, German, Mandarin, Japanese, Korean, and others. Conversational language understanding makes it easy for you to scale your projects to multiple languages by using multilingual technology to train your models.

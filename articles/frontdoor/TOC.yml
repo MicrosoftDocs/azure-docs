@@ -177,6 +177,8 @@
       href: edge-locations-by-abbreviation.md
   - name: Azure CLI
     href: /cli/azure/afd
+  - name: Azure PowerShell
+    href: /powershell/module/az.cdn
   - name: REST API
     href: /rest/api/frontdoor
   - name: Python SDK

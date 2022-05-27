@@ -89,7 +89,7 @@ To see the models that have been uploaded and how they relate to each other, sel
 
 Next, create a new storage account and a container in the storage account. 3D Scenes Studio will use this storage container to store your 3D file and configuration information. 
 
-You'll also set up read and write permissions to the storage account. In order to set these backing resources up quickly, this section uses the [Azure Cloud Shell](/azure/cloud-shell/overview).
+You'll also set up read and write permissions to the storage account. In order to set these backing resources up quickly, this section uses the [Azure Cloud Shell](../cloud-shell/overview.md).
 
 1. Navigate to the [Cloud Shell](https://shell.azure.com) in your browser.
 

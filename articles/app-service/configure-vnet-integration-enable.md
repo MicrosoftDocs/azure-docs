@@ -6,6 +6,7 @@ author: madsd
 ms.author: madsd
 ms.topic: how-to
 ms.date: 10/20/2021
+ms.tool: azure-cli, azure-powershell
 ---
 
 # Enable virtual network integration in Azure App Service
