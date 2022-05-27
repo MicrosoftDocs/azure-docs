@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 12/03/2021
+ms.date: 05/27/2022
 ms.author: aahi
 ---
 
@@ -18,7 +18,8 @@ The Language service enables you to send API requests asynchronously, using eith
 
 Currently, the following features are available to be used asynchronously:
 * Entity linking
-* Extractive summarization
+* Document summarization
+* Conversation summarization
 * Key phrase extraction
 * Language detection
 * Named Entity Recognition (NER)
