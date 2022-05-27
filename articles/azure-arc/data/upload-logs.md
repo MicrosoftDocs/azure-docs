@@ -149,11 +149,11 @@ echo $WORKSPACE_SHARED_KEY
 
 With the environment variables set, you can upload logs to the log workspace. 
 
-## Configure automatic upload of logs to Azure Log Analytics Workspace in direct mode using ```az``` CLI
+## Configure automatic upload of logs to Azure Log Analytics Workspace in direct mode using `az` CLI
 
-In the **direct** connected mode, Logs upload can only be setup in **automatic** mode. This automatic upload of metrics can be setup either during deployment or post deployment of Azure Arc data controller.
+In the **direct** connected mode, Logs upload can only be set up in **automatic** mode. This automatic upload of metrics can be set up either during deployment or post deployment of Azure Arc data controller.
 
-### **Enable** automatic upload of logs to Azure Log Analytics Workspace
+### Enable automatic upload of logs to Azure Log Analytics Workspace
 
 If the automatic upload of logs was disabled during Azure Arc data controller deployment, run the below command to enable automatic upload of logs.
 
@@ -163,7 +163,7 @@ az arcdata dc update --name <name of datacontroller> --resource-group <resource 
 az arcdata dc update --name arcdc --resource-group <myresourcegroup> --auto-upload-logs true
 ```
 
-### **Disable** automatic upload of logs to Azure Log Analytics Workspace
+### Enable automatic upload of logs to Azure Log Analytics Workspace
 
 If the automatic upload of logs was enabled during Azure Arc data controller deployment, run the below command to disable automatic upload of logs.
 ```
@@ -172,14 +172,14 @@ az arcdata dc update --name <name of datacontroller> --resource-group <resource 
 az arcdata dc update --name arcdc --resource-group <myresourcegroup> --auto-upload-logs false
 ```
 
-## Configure automatic upload of logs to Azure Log Analytics Workspace in **direct** mode using ```kubectl``` CLI
+## Configure automatic upload of logs to Azure Log Analytics Workspace in **direct** mode using `kubectl` CLI
 
-### **Enable** automatic upload of logs to Azure Log Analytics Workspace
+### Enable automatic upload of logs to Azure Log Analytics Workspace
 
 To configure automatic upload of logs using ```kubectl```:
 
-- ensure the Log Analytics Workspace is created as descibed in the earlier section
-- create a kubernetes secret for the Log Analytics workspace using the ```WorkspaceID``` and ```SharedAccessKey``` as follows:
+- ensure the Log Analytics Workspace is created as described in the earlier section
+- create a Kubernetes secret for the Log Analytics workspace using the ```WorkspaceID``` and `SharedAccessKey` as follows:
 
 ```
 apiVersion: v1
@@ -193,29 +193,31 @@ metadata:
 type: Opaque
 ```
 
-- Run the ```kubectl apply -f <myLogAnalyticssecret.yaml> --namespace <mynamespace> ``` to create the secret
-- Run the following ```kubectl edit``` command, to open the settings in a yaml file in the default editor
+- To create the secret, run:
 
-```
-kubectl edit datacontroller <DC name> --name <namespace>
-```
+   ```console
+   kubectl apply -f <myLogAnalyticssecret.yaml> --namespace <mynamespace>
+   ```
+
+- To open the settings as a yaml file in the default editor, run:
+
+   ```console
+   kubectl edit datacontroller <DC name> --name <namespace>
+   ```
 
 - update the autoUploadLogs property to ```"true"```, and save the file
 
 
 
-### **Disable** automatic upload of logs to Azure Log Analytics Workspace
+### Enable automatic upload of logs to Azure Log Analytics Workspace
 
-To disable automatic upload of logs,
-- Run the following ```kubectl edit``` command, to open the settings in a yaml file in the default editor
+To disable automatic upload of logs, run:
 
-```
+```console
 kubectl edit datacontroller <DC name> --name <namespace>
 ```
 
-- update the autoUploadLogs property to ```"false"```, and save the file
-
-
+- update the autoUploadLogs property to `"false"`, and save the file
 
 ## Upload logs to Azure Monitor in **indirect** mode
 
@@ -255,7 +257,7 @@ Once your logs are uploaded, you should be able to query them using the log quer
 
 If you want to upload metrics and logs on a scheduled basis, you can create a script and run it on a timer every few minutes. Below is an example of automating the uploads using a Linux shell script.
 
-In your favorite text/code editor, add the following script to the file and save as a script executable file such as .sh (Linux/Mac) or .cmd, .bat, .ps1.
+In your favorite text/code editor, add the following script to the file and save as a script executable file - such as .sh for Linux/Mac, or .cmd, .bat, or .ps1 for Windows.
 
 ```azurecli
 az arcdata dc export --type logs --path logs.json --force --k8s-namespace arc
