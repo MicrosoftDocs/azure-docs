@@ -2,7 +2,7 @@
 title: Bindings for Durable Functions - Azure
 description: How to use triggers and bindings for the Durable Functions extension for Azure Functions.
 ms.topic: conceptual
-ms.date: 02/08/2022
+ms.date: 05/27/2022
 ms.author: azfuncdf
 ---
 
@@ -55,7 +55,7 @@ The orchestration trigger binding supports both inputs and outputs. Here are som
 
 ### Trigger sample
 
-The following example code shows what the simplest "Hello World" orchestrator function might look like:
+The following example code shows what the simplest "Hello World" orchestrator function might look like. Note that this example orchestrator doesn't actually orchestrate anything.
 
 # [C#](#tab/csharp)
 
@@ -64,7 +64,6 @@ The following example code shows what the simplest "Hello World" orchestrator fu
 public static string Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     string name = context.GetInput<string>();
-    // ... do some work ...
     return $"Hello {name}!";
 }
 ```
@@ -79,7 +78,6 @@ const df = require("durable-functions");
 
 module.exports = df.orchestrator(function*(context) {
     const name = context.df.getInput();
-    // ... do some work ...
     return `Hello ${name}!`;
 });
 ```
@@ -94,7 +92,6 @@ import azure.durable_functions as df
 
 def orchestrator_function(context: df.DurableOrchestrationContext):
     input = context.get_input()
-    # Do some work
     return f"Hello {input['name']}!"
 
 main = df.Orchestrator.create(orchestrator_function)
@@ -106,10 +103,19 @@ main = df.Orchestrator.create(orchestrator_function)
 param($Context)
 
 $input = $Context.Input
+$input
+```
 
-# Do some work
+# [Java](#tab/java)
 
-$output
+```java
+@FunctionName("HelloWorldOrchestration")
+public String helloWorldOrchestration(
+        @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
+    return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
+        return String.format("Hello %s!", ctx.getInput(String.class));
+    });
+}
 ```
 ---
 
@@ -166,6 +172,20 @@ $name = $Context.Input.Name
 $output = Invoke-DurableActivity -FunctionName 'SayHello' -Input $name
 
 $output
+```
+
+# [Java](#tab/java)
+
+```java
+@FunctionName("HelloWorld")
+public String helloWorldOrchestration(
+        @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
+    return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
+        String input = ctx.getInput(String.class);
+        String result = ctx.callActivity("SayHello", input, String.class).await();
+        return result;
+    });
+}
 ```
 
 ---
@@ -262,6 +282,16 @@ param($name)
 
 "Hello $name!"
 ```
+
+# [Java](#tab/java)
+
+```java
+@FunctionName("SayHello")
+public String sayHello(@DurableActivityTrigger(name = "name") String name) {
+    return String.format("Hello %s!", name);
+}
+```
+
 ---
 
 ### Using input and output bindings
@@ -378,7 +408,7 @@ module.exports = async function (context) {
 
 # [Python](#tab/python)
 
-**function.json**
+**`function.json`**
 ```json
 {
   "bindings": [
@@ -397,7 +427,7 @@ module.exports = async function (context) {
 }
 ```
 
-**__init__.py**
+**`__init__.py`**
 ```python
 import json
 import azure.functions as func
@@ -435,6 +465,18 @@ async def main(msg: func.QueueMessage, starter: str) -> None:
 param([string] $input, $TriggerMetadata)
 
 $InstanceId = Start-DurableOrchestration -FunctionName $FunctionName -Input $input
+```
+
+# [Java](#tab/java)
+
+```java
+@FunctionName("QueueStart")
+public void queueStart(
+        @QueueTrigger(name = "input", queueName = "durable-function-trigger", connection = "Storage") String input,
+        @DurableClientInput(name = "durableContext") DurableClientContext durableContext) {
+    // Orchestration input comes from the queue message content.
+    durableContext.getClient().scheduleNewOrchestrationInstance("HelloWorld", input);
+}
 ```
 
 ---
