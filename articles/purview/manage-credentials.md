@@ -22,7 +22,7 @@ This article describes how you can create credentials in Microsoft Purview. Thes
 
 A credential is authentication information that Microsoft Purview can use to authenticate to your registered data sources. A credential object can be created for various types of authentication scenarios, such as Basic Authentication requiring username/password. Credential capture specific information required to authenticate, based on the chosen type of authentication method. Credentials use your existing Azure Key Vaults secrets for retrieving sensitive authentication information during the Credential creation process.
 
-In Microsoft Purview, there are few options to use as authentication method to scan data sources such as the following options. Learn from each [data source article](azure-purview-connector-overview.md) for the its supported authentication.
+In Microsoft Purview, there are few options to use as authentication method to scan data sources such as the following options. Learn from each [data source article](azure-purview-connector-overview.md) for its supported authentication.
 
 - [Microsoft Purview system-assigned managed identity](#use-microsoft-purview-system-assigned-managed-identity-to-set-up-scans)
 - [User-assigned managed identity](#create-a-user-assigned-managed-identity) (preview)

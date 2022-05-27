@@ -28,7 +28,7 @@ This article outlines how to register and Azure SQL Managed Instance, as well as
 
 * An active [Microsoft Purview account](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
+* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Microsoft Purview governance portal. See our [Microsoft Purview Permissions page](catalog-permissions.md) for details.
 
 * [Configure public endpoint in Azure SQL Managed Instance](/azure/azure-sql/managed-instance/public-endpoint-configure)
 
@@ -50,7 +50,7 @@ If you need to create new authentication, you need to [authorize database access
 
 #### System or user assigned managed identity to register
 
-You can use either your Microsoft Purview system-assigned managed identity (SAMI), or a [user-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity) (UAMI) to authenticate. Both options allow you to assign authentication directly to Microsoft Purview, like you would for any other user, group, or service principal. The Microsoft Purview system-assigned managed identity is created automatically when the account is created and has the same name as your Microsoft Purview account. A user-assigned managed identity is a resource that can be created independently. To create one you can follow our [user-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity).
+You can use either your Microsoft Purview system-assigned managed identity (SAMI), or a [user-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity) (UAMI) to authenticate. Both options allow you to assign authentication directly to Microsoft Purview, like you would for any other user, group, or service principal. The Microsoft Purview system-assigned managed identity is created automatically when the account is created and has the same name as your Microsoft Purview account. A user-assigned managed identity is a resource that can be created independently. To create one, you can follow our [user-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity).
 
 You can find your managed identity Object ID in the Azure portal by following these steps:
 
@@ -75,7 +75,7 @@ There are several steps to allow Microsoft Purview to use service principal to s
 
 #### Create or use an existing service principal
 
-To use a service principal, you can use an existing one or create a new one. If you are going to use an existing service principal, skip to the next step.
+To use a service principal, you can use an existing one or create a new one. If you're going to use an existing service principal, skip to the next step.
 If you have to create a new Service Principal, follow these steps:
 
  1. Navigate to the [Azure portal](https://portal.azure.com).
@@ -96,7 +96,7 @@ The service principal must have permission to get metadata for the database, sch
 
 #### Add service principal to key vault and Microsoft Purview's credential
 
-It is required to get the service principal's application ID and secret:
+It's required to get the service principal's application ID and secret:
 
 1. Navigate to your Service Principal in the [Azure portal](https://portal.azure.com)
 1. Copy the values the **Application (client) ID** from **Overview** and **Client secret** from **Certificates & secrets**.
@@ -104,7 +104,7 @@ It is required to get the service principal's application ID and secret:
 1. Select **Settings > Secrets**
 1. Select **+ Generate/Import** and enter the **Name** of your choice and **Value** as the **Client secret** from your Service Principal
 1. Select **Create** to complete
-1. If your key vault is not connected to Microsoft Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account)
+1. If your key vault isn't connected to Microsoft Purview yet, you'll need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account)
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the Service Principal to set up your scan.
 
 #### SQL authentication to register
@@ -112,13 +112,13 @@ It is required to get the service principal's application ID and secret:
 > [!Note]
 > Only the server-level principal login (created by the provisioning process) or members of the `loginmanager` database role in the master database can create new logins. It takes about **15 minutes** after granting permission, the Microsoft Purview account should have the appropriate permissions to be able to scan the resource(s).
 
-You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) to create a login for Azure SQL Managed Instance if you don't have this login available. You will need **username** and **password** for the next steps.
+You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) to create a login for Azure SQL Managed Instance if you don't have this login available. You'll need **username** and **password** for the next steps.
 
 1. Navigate to your key vault in the Azure portal
 1. Select **Settings > Secrets**
 1. Select **+ Generate/Import** and enter the **Name** and **Value** as the *password* from your Azure SQL Managed Instance
 1. Select **Create** to complete
-1. If your key vault is not connected to Microsoft Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account)
+1. If your key vault isn't connected to Microsoft Purview yet, you'll need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account)
 1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the **username** and **password** to set up your scan.
 
 ### Steps to register
@@ -177,7 +177,7 @@ To create and run a new scan, complete the following steps:
 
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Microsoft Purview and your data.
+Now that you've registered your source, follow the below guides to learn more about Microsoft Purview and your data.
 
 - [Data Estate Insights in Microsoft Purview](concept-insights.md)
 - [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
