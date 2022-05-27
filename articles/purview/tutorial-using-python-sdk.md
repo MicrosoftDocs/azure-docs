@@ -639,16 +639,85 @@ except HttpResponseError as e:
 
 ## Delete a data source
 
-In this section, you'll learn how to delete the data source you registered earlier. This operation is fairly simple, and is done with the scanning client:
+In this section, you'll learn how to delete the data source you registered earlier. This operation is fairly simple, and is done with the scanning client.
+
+1. Import the **scanning** client. ALso include the HTTPResponse error and ClientSecretCredential.
+
+    ```python
+    from azure.purview.scanning import PurviewScanningClient
+    from azure.identity import ClientSecretCredential 
+    from azure.core.exceptions import HttpResponseError
+    ```
+
+1. Create a function to get the credentials to access your Microsoft Purview account, and instantiate the scanning client.
+
+    ```python
+    client_id = "<your client id>" 
+    client_secret = "<your client secret>"
+    tenant_id = "<your tenant id>"
+    reference_name_purview = "<name of your Microsoft Purview account>"
+
+    def get_credentials():
+	    credentials = ClientSecretCredential(client_id=client_id, client_secret=client_secret, tenant_id=tenant_id)
+	    return credentials
+
+    def get_scanning_client():
+        credentials = get_credentials()
+        PurviewScanningClient(endpoint=f"https://{reference_name_purview}.scan.purview.azure.com", credential=credentials, logging_enable=True) 
+        return client
+
+    try:
+        client_scanning = get_scanning_client()
+    except ValueError as e:
+        print(e)  
+    ```
+
+1. Delete the data source:
 
 ```python
     ds_name = "<name of the registered data source you want to delete>"
     try:
-        response = client.data_sources.delete(ds_name)
+        response = client_scanning.data_sources.delete(ds_name)
         print(response)
         print(f"Data source {ds_name} successfully deleted")
     except HttpResponseError as e:
         print(e)
+```
+
+### Full Code
+
+```python
+from azure.purview.scanning import PurviewScanningClient
+from azure.identity import ClientSecretCredential 
+from azure.core.exceptions import HttpResponseError
+
+
+client_id = "<your client id>" 
+client_secret = "<your client secret>"
+tenant_id = "<your tenant id>"
+reference_name_purview = "<name of your Microsoft Purview account>"
+ds_name = "<name of the registered data source you want to delete>"
+
+def get_credentials():
+	credentials = ClientSecretCredential(client_id=client_id, client_secret=client_secret, tenant_id=tenant_id)
+	return credentials
+
+def get_scanning_client():
+	credentials = get_credentials()
+	client = PurviewScanningClient(endpoint=f"https://{reference_name_purview}.scan.purview.azure.com", credential=credentials, logging_enable=True) 
+	return client
+
+try:
+	client_scanning = get_scanning_client()
+except ValueError as e:
+	print(e)  
+
+try:
+	response = client_scanning.data_sources.delete(ds_name)
+	print(response)
+	print(f"Data source {ds_name} successfully deleted")
+except HttpResponseError as e:
+	print(e)
 ```
 
 ## Next steps
