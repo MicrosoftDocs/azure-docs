@@ -62,7 +62,6 @@ The following is a list of Fabric settings that you can customize, organized by 
 |DeployedState |wstring, default is L"Disabled" |Static |2-stage removal of CSS. |
 |EnableSecretMonitoring|bool, default is FALSE |Static |Must be enabled to use Managed KeyVaultReferences. Default may become true in the future. For more information, see [KeyVaultReference support for Azure-deployed Service Fabric Applications](./service-fabric-keyvault-references.md)|
 |SecretMonitoringInterval|TimeSpan, default is Common::TimeSpan::FromMinutes(15) |Static |The rate at which Service Fabric will poll Key Vault for changes when using Managed KeyVaultReferences. This rate is a best effort, and changes in Key Vault may be reflected in the cluster earlier or later than the interval. For more information, see [KeyVaultReference support for Azure-deployed Service Fabric Applications](./service-fabric-keyvault-references.md) |
-
 |UpdateEncryptionCertificateTimeout |TimeSpan, default is Common::TimeSpan::MaxValue |Static |Specify timespan in seconds. The default has changed to TimeSpan::MaxValue; but overrides are still respected. May be deprecated in the future. |
 
 ## CentralSecretService/Replication
@@ -606,7 +605,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |MoveExistingReplicaForPlacement | Bool, default is true |Dynamic|Setting which determines if to move existing replica during placement. |
 |MovementPerPartitionThrottleCountingInterval | Time in seconds, default is 600 |Static| Specify timespan in seconds. Indicate the length of the past interval for which to track replica movements for each partition (used along with MovementPerPartitionThrottleThreshold). |
 |MovementPerPartitionThrottleThreshold | Uint, default is 50 |Dynamic| No balancing-related movement will occur for a partition if the number of balancing related movements for replicas of that partition has reached or exceeded MovementPerFailoverUnitThrottleThreshold in the past interval indicated by MovementPerPartitionThrottleCountingInterval. |
-|MoveParentToFixAffinityViolation | Bool, default is true |Dynamic| Setting which determines if parent replicas can be moved to fix affinity constraints.|
+|MoveParentToFixAffinityViolation | Bool, default is false |Dynamic| Setting which determines if parent replicas can be moved to fix affinity constraints.|
 |NodeTaggingEnabled | Bool, default is false |Dynamic| If true; NodeTagging feature will be enabled. |
 |NodeTaggingConstraintPriority | Int, default is 0 |Dynamic| Configurable priority of node tagging. |
 |PartiallyPlaceServices | Bool, default is true |Dynamic| Determines if all service replicas in cluster will be placed "all or nothing" given limited suitable nodes for them.|
