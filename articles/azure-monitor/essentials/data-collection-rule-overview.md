@@ -7,7 +7,7 @@ ms.date: 04/26/2022
 ---
 
 # Data collection rules in Azure Monitor
-[Data Collection Rules (DCRs)](../essentials/data-collection-rule-overview.md) allow you to define the way that data coming into Azure Monitor should be handled. Depending on the type of workflow, DCRs may specify where data should be sent and may filter or transform data before it's stored in Azure Monitor Logs. Some data collection rules will be created and managed by Azure Monitor, while you may create others to customize data collection for your particular requirements. This article describes DCRs including their contents and structure and how you can create and work with them.
+[Data Collection Rules (DCRs)](../essentials/data-collection-rule-overview.md) define the way that data coming into Azure Monitor should be handled. Depending on the type of workflow, DCRs may specify where data should be sent and may filter or transform data before it's stored in Azure Monitor Logs. Some data collection rules will be created and managed by Azure Monitor, while you may create others to customize data collection for your particular requirements. This article describes DCRs including their contents and structure and how you can create and work with them.
 
 ## Types of data collection rules
 There are currently two types of data collection rule in Azure Monitor:

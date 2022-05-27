@@ -133,15 +133,6 @@ items:
     href: continuous-monitoring.md
   - name: Data sources
     href: agents/data-sources.md
-  - name: Data platform
-    items:
-    - name: Overview
-      href: data-platform.md
-    - name: Metrics
-      href: essentials/data-platform-metrics.md
-    - name: Logs
-      displayName: Azure Monitor Logs, Logs, Log Analytics, log query, log queries, query, queries
-      href: logs/data-platform-logs.md
   - name: Usage and cost
     items:
     - name: View and estimate charges

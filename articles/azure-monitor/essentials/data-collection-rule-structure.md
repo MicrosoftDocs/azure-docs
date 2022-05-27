@@ -15,7 +15,8 @@ ms.date: 02/22/2022
 
 
 ## Custom logs
-A DCR for  [custom logs](../logs/custom-logs-overview.md) contains the following sections:
+A DCR for  [custom logs](../logs/custom-logs-overview.md) contains the sections below. For a sample, see [Sample data collection rule - custom logs](logs/data-collection-rule-sample-custom-logs.md).
+
 ### streamDeclarations
 This section contains the declaration of all the different types of data that will be sent via the HTTP endpoint directly into Log Analytics. Each stream is an object whose key represents the stream name (Must begin with *Custom-*) and whose value is the full list of top-level properties that the JSON data that will be sent will contain. Note that the shape of the data you send to the endpoint doesn't need to match that of the destination table. Rather, the output of the transform that is applied on top of the input data needs to match the destination shape. The possible data types that can be assigned to the properties are `string`, `int`, `long`, `real`, `boolean`, `dynamic`, and `datetime`. 
 
@@ -30,9 +31,9 @@ This section ties the other sections together. Defines the following for each st
 - `outputStream` section, which describes which table in the workspace specified under the `destination` property the data will be ingested into. The value of the outputStream will have the `Microsoft-[tableName]` shape when data is being ingested into a standard Log Analytics table, or `Custom-[tableName]` when ingesting data into a custom-created table. Only one destination is allowed per stream.
 
 ## Azure Monitor agent
- A DCR for [Azure Monitor agent](../agents/data-collection-rule-azure-monitor-agent.md) contains the following sections:
+ A DCR for [Azure Monitor agent](../agents/data-collection-rule-azure-monitor-agent.md) contains the sections below. For a sample, see [Sample data collection rule - agent](logs/data-collection-rule-sample-agents.md).
 
-### Data sources
+### dataSources
 Unique source of monitoring data with its own format and method of exposing its data. Examples of a data source include Windows event log, performance counters, and syslog. Each data source matches a particular data source type as described below. 
 
 Each data source has a data source type. Each type defines a unique set of properties that must be specified for each data source. The data source types currently available are shown in the following table.
@@ -48,10 +49,10 @@ Each data source has a data source type. Each type defines a unique set of prope
 ### Streams 
 Unique handle that describes a set of data sources that will be transformed and schematized as one type. Each data source requires one or more streams, and one stream may be used by multiple data sources. All data sources in a stream share a common schema. Use multiple streams for example, when you want to send a particular data source to multiple tables in the same Log Analytics workspace.
 
-### Destinations
+### destinations
 Set of destinations where the data should be sent. Examples include Log Analytics workspace and Azure Monitor Metrics. Multiple destinations are allowed for multi-homing scenario.
 
-### Data flows 
+### dataFlows 
 Definition of which streams should be sent to which destinations.
 
 
