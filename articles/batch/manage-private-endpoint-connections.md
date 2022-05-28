@@ -1,23 +1,23 @@
 ---
 title: Manage private endpoint connections with Azure Batch accounts
-description: Learn how to manage private endpoint connections with Azure Batch accounts, including list, approve, reject and delete.
+description: Learn how to manage private endpoint connections with Azure Batch accounts, including list, approve, reject and remove.
 ms.topic: how-to
 ms.date: 05/26/2022
 ---
 
 # Manage private endpoint connections with Azure Batch accounts
 
-You can manage existing private endpoint connections for your Batch account with following operations:
+You can query and manage all existing private endpoint connections for your Batch account. Supported management operations include:
 
-- Approve a pending connection
-- Reject a connection (either in pending or approved state)
-- Delete a connection, which will delete the connection from Batch account and mark the associated private endpoint resource as Disconnected state
+- Approve a pending connection.
+- Reject a connection (either in pending or approved state).
+- Remove a connection, which will remove the connection from Batch account and mark the associated private endpoint resource as Disconnected state.
 
 ## Azure Portal
 
 1. Go to your Batch account in Azure portal.
 1. In **Settings**, select **Networking** and go to tab **Private Access**.
-1. Select the private connection, then perform the Approve/Reject/Delete operation.
+1. Select the private connection, then perform the Approve/Reject/Remove operation.
 
    :::image type="content" source="media/private-connectivity/manage-private-connections.png" alt-text="Manage private endpoint connections":::
 
@@ -41,7 +41,7 @@ Approve-AzPrivateEndpointConnection -Description "Approved!" -ResourceId $pecRes
 # Reject connection
 Deny-AzPrivateEndpointConnection -Description "Rejected!" -ResourceId $pecResourceId
 
-# Delete connection
+# Remove connection
 Remove-AzPrivateEndpointConnection -ResourceId $pecResourceId
 ```
 
@@ -65,6 +65,6 @@ az network private-endpoint-connection approve --description "Approved!" --id $p
 # Reject connection
 az network private-endpoint-connection reject --description "Rejected!" --id $pecResourceId
 
-# Delete connection
+# Remove connection
 az network private-endpoint-connection delete --id $pecResourceId
 ```
