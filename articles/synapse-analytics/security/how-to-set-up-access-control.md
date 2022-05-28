@@ -7,7 +7,7 @@ ms.service: synapse-analytics
 ms.topic: how-to 
 ms.subservice: security 
 ms.date: 5/23/2022
-ms.author: talk2rick
+ms.author: xurick
 ms.reviewer: sngun, wiassaf
 ms.custom: kr2b-contr-experiment
 ---
