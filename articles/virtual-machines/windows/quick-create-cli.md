@@ -46,7 +46,7 @@ Using the example below, you will be prompted to enter a password at the command
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
-    --image Win2019Datacenter \
+    --image Win2022AzureEditionCore \
     --public-ip-sku Standard \
     --admin-username azureuser 
 ```
