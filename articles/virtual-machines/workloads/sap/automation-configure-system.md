@@ -13,9 +13,9 @@ ms.service: virtual-machines-sap
 
 Configuration for the [SAP deployment automation framework on Azure](automation-deployment-framework.md)] happens through parameters files. You provide information about your SAP system properties in a tfvars file, which the automation framework uses for deployment.
 
-The automation supports both creating resources (greenfield deployment) or using existing resources (brownfield deployment).
+The automation supports both creating resources (green field deployment) or using existing resources (brownfield deployment).
 
-For the greenfield scenario, the automation defines default names for resources, however some resource names may be defined in the tfvars file.
+For the green field scenario, the automation defines default names for resources, however some resource names may be defined in the tfvars file.
 For the brownfield scenario, the Azure resource identifiers for the resources must be specified.
 
 
@@ -86,24 +86,25 @@ The database tier defines the infrastructure for the database tier, supported da
 
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                          | Description                                                                              | Type         | Notes              |
-> | --------------------------------  | -----------------------------------------------------------------------------------------| -----------  | ------------------ |
-> | `database_sid`                    | Defines the database SID                                                                 | Required     |                    |
-> | `database_platform`               | Defines the database backend                                                             | Required     |                    |
-> | `database_high_availability`      | Defines if the database tier is deployed highly available                                | Optional     | See [High availability configuration](automation-configure-system.md#high-availability-configuration) |
-> | `database_server_count`           | Defines the number of database servers                                                   | Optional     | Default value is 1 |
-> | `database_vm_zones`               | Defines the Availability Zones                                                           | Optional	    |                    |
-> | `database_size`                   | Defines the database sizing information                                                  | Required     | See [Custom Sizing](automation-configure-extra-disks.md) |
-> | `db_disk_sizes_filename`          | Defines the custom database sizing                                                       | Optional     | See [Custom Sizing](automation-configure-extra-disks.md) |
-> | `database_vm_use_DHCP`            | Controls if Azure subnet provided IP addresses should be used (dynamic) true             | Optional     |                    |
-> | `database_vm_db_nic_ips`          | Defines the static IP addresses for the database servers (database subnet)               | Optional     |                    |
-> | `database_vm_admin_nic_ips`       | Defines the static IP addresses for the database servers (admin subnet)                  | Optional     |                    |
-> | `database_vm_image`	              | Defines the Virtual machine image to use, see below                                      | Optional	    |                    |
-> | `database_vm_authentication_type` | Defines the authentication type for the database virtual machines (key/password)         | Optional	    |                    |
-> | `database_no_avset`               | Controls if the database virtual machines are deployed without availability sets         | Optional	    | default is false   |
-> | `database_no_ppg`                 | Controls if the database servers will not be placed in a proximity placement group       | Optional	    | default is false   |
-> | `database_vm_avset_arm_ids`       | Defines the existing availability sets Azure resource IDs                                | Optional	    | Primarily used together with ANF pinning|
-> | `hana_dual_nics`                  | Controls if the HANA database servers will have dual network interfaces                  | Optional	    | default is true   |
+> | Variable                           | Description                                                                         | Type         | Notes              |
+> | ---------------------------------- | ----------------------------------------------------------------------------------- | -----------  | ------------------ |
+> | `database_sid`                     | Defines the database SID.                                                           | Required     |                    |
+> | `database_platform`                | Defines the database backend.                                                       | Supported values are `HANA`, `DB2`, `ORACLE`, `ASE`, `SQLSERVER`, `NONE` |
+> | `database_high_availability`       | Defines if the database tier is deployed highly available.                          | Optional     | See [High availability configuration](automation-configure-system.md#high-availability-configuration) |
+> | `database_server_count`            | Defines the number of database servers.                                             | Optional     | Default value is 1 |
+> | `database_vm_zones`                | Defines the Availability Zones for the database servers.                            | Optional	    |                    |
+> | `database_size`                    | Defines the database sizing information.                                            | Required     | See [Custom Sizing](automation-configure-extra-disks.md) |
+> | `db_disk_sizes_filename`           | Defines the custom database sizing.                                                 | Optional     | See [Custom Sizing](automation-configure-extra-disks.md) |
+> | `database_vm_use_DHCP`             | Controls if Azure subnet provided IP addresses should be used.                      | Optional     |                    |
+> | `database_vm_db_nic_ips`           | Defines the IP addresses for the database servers (database subnet).                | Optional     |                    |
+> | `database_vm_db_nic_secondary_ips` | Defines the secondary IP addresses for the database servers (database subnet).      | Optional     |                    |
+> | `database_vm_admin_nic_ips`        | Defines the IP addresses for the database servers (admin subnet).                   | Optional     |                    |
+> | `database_vm_image`	               | Defines the Virtual machine image to use, see below.                                | Optional	    |                    |
+> | `database_vm_authentication_type`  | Defines the authentication type (key/password).                                     | Optional	    |                    |
+> | `database_no_avset`                | Controls if the database virtual machines are deployed without availability sets.   | Optional	    | default is false   |
+> | `database_no_ppg`                  | Controls if the database servers will not be placed in a proximity placement group. | Optional	    | default is false   |
+> | `database_vm_avset_arm_ids`        | Defines the existing availability sets Azure resource IDs.                          | Optional	    | Primarily used together with ANF pinning|
+> | `hana_dual_nics`                   | Controls if the HANA database servers will have dual network interfaces.            | Optional	    | default is true   |
 
 The Virtual Machine and the operating system image is defined using the following structure:
 
@@ -140,58 +141,61 @@ The application tier defines the infrastructure for the application tier, which 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                               | Description                                                          | Type      | Notes  |
 > | -------------------------------------- | -------------------------------------------------------------------- | ----------| ------ |
-> | `scs_server_count`	                   | Defines the number of scs servers                                    | Required	|        |
-> | `scs_high_availability`	               | Defines if the Central Services is highly available                  | Optional	| See [High availability configuration](automation-configure-system.md#high-availability-configuration) |
-> | `scs_instance_number`	                 | The instance number of SCS                                           | Optional  |        |
-> | `ers_instance_number`	                 | The instance number of ERS                                           | Optional	|        |
-> | `scs_server_sku`	                     | Defines the Virtual machine SKU to use                               | Optional  |        |
-> | `scs_server_image`	                   | Defines the Virtual machine image to use                             | Required  |        |
-> | `scs_server_zones`	                   | Defines the availability zones to which the scs servers are deployed | Optional  |        |
-> | `scs_server_app_nic_ips`               | List of IP addresses for the scs server (app subnet)                 | Optional  | Ignored if `app_tier_use_DHCP` is used |
-> | `scs_server_app_admin_nic_ips`         | List of IP addresses for the scs server (admin subnet)               | Optional  | Ignored if `app_tier_use_DHCP` is used |
-> | `scs_server_loadbalancer_ips`          | List of IP addresses for the scs load balancer (app subnet)          | Optional  | Ignored if `app_tier_use_DHCP` is used |
-> | `scs_server_no_ppg`                    | Controls scs server proximity placement group                        | Optional  |         |
-> | `scs_server_no_avset`	                 | Controls scs server availability set placement                       | Optional  |         |
-> | `scs_server_tags`	                     | Defines a list of tags to be applied to the scs servers              | Optional  |         |
+> | `scs_server_count`	                   | Defines the number of SCS servers.                                   | Required	|        |
+> | `scs_high_availability`	               | Defines if the Central Services is highly available.                 | Optional	| See [High availability configuration](automation-configure-system.md#high-availability-configuration) |
+> | `scs_instance_number`	                 | The instance number of SCS.                                          | Optional  |        |
+> | `ers_instance_number`	                 | The instance number of ERS.                                          | Optional	|        |
+> | `scs_server_sku`	                     | Defines the Virtual machine SKU to use.                              | Optional  |        |
+> | `scs_server_image`	                   | Defines the Virtual machine image to use.                            | Required  |        |
+> | `scs_server_zones`	                   | Defines the availability zones of the SCS servers.                   | Optional  |        |
+> | `scs_server_app_nic_ips`               | List of IP addresses for the SCS servers (app subnet).               | Optional  |  |
+> | `scs_server_app_nic_secondary_ips[]`   | List of secondary IP addresses for the SCS servers (app subnet).     | Optional   |  |
+> | `scs_server_app_admin_nic_ips`         | List of IP addresses for the SCS servers (admin subnet).             | Optional  |  |
+> | `scs_server_loadbalancer_ips`          | List of IP addresses for the scs load balancer (app subnet).         | Optional  |  |
+> | `scs_server_no_ppg`                    | Controls SCS server proximity placement group.                       | Optional  |         |
+> | `scs_server_no_avset`	                 | Controls SCS server availability set placement.                      | Optional  |         |
+> | `scs_server_tags`	                     | Defines a list of tags to be applied to the SCS servers.             | Optional  |         |
 
 ### Application server parameters
 
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                               | Description                                                                  | Type       | Notes  |
-> | -------------------------------------- | ---------------------------------------------------------------------------- | -----------| ------ |
-> | `application_server_count`	           | Defines the number of application servers                                    | Required	 | |
-> | `application_server_sku`	             | Defines the Virtual machine SKU to use                                       | Optional   | |
-> | `application_server_image`	           | Defines the Virtual machine image to use                                     | Required   | |
-> | `application_server_zones`	           | Defines the availability zones to which the application servers are deployed | Optional   | |
-> | `application_server_app_nic_ips[]`     | List of IP addresses for the application server (app subnet)                 | Optional   | Ignored if `app_tier_use_DHCP` is used |
-> | `application_server_app_admin_nic_ips` | List of IP addresses for the application server (admin subnet)               | Optional   | Ignored if `app_tier_use_DHCP` is used |
-> | `application_server_no_ppg`            | Controls application server proximity placement group                        | Optional   | |
-> | `application_server_no_avset`	         | Controls application server availability set placement                       | Optional   | |
-> | `application_server_tags`	             | Defines a list of tags to be applied to the application servers              | Optional   | |
+> | Variable                                  | Description                                                                  | Type       | Notes  |
+> | ----------------------------------------- | ---------------------------------------------------------------------------- | -----------| ------ |
+> | `application_server_count`	              | Defines the number of application servers.                                   | Required	 | |
+> | `application_server_sku`	                | Defines the Virtual machine SKU to use.                                      | Optional   | |
+> | `application_server_image`	              | Defines the Virtual machine image to use.                                    | Required   | |
+> | `application_server_zones`	              | Defines the availability zones to which the application servers are deployed. | Optional   | |
+> | `application_server_app_nic_ips[]`        | List of IP addresses for the application servers (app subnet).                 | Optional   | |
+> | `application_server_nic_secondary_ips[]`  | List of secondary IP addresses for the application servers (app subnet).                 | Optional   |  |
+> | `application_server_app_admin_nic_ips`    | List of IP addresses for the application server (admin subnet).               | Optional   |  |
+> | `application_server_no_ppg`               | Controls application server proximity placement group.                        | Optional   | |
+> | `application_server_no_avset`             | Controls application server availability set placement.                       | Optional   | |
+> | `application_server_tags`	                | Defines a list of tags to be applied to the application servers.              | Optional   | |
 
 ### Web dispatcher parameters
 
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                                | Description                                                              | Type      | Notes  |
-> | --------------------------------------- | ------------------------------------------------------------------------ | --------- | ------ |
-> | `webdispatcher_server_count`	          | Defines the number of web dispatcher servers                             | Required  |        |
-> | `webdispatcher_server_sku`	            | Defines the Virtual machine SKU to use                                   | Optional  |        |
-> | `webdispatcher_server_image`	          | Defines the Virtual machine image to use                                 | Optional  |        |
-> | `webdispatcher_server_zones`	          | Defines the availability zones to which the web dispatchers are deployed | Optional  |        |
-> | `webdispatcher_server_app_nic_ips[]`    | List of IP addresses for the web dispatcher server (app subnet)          | Optional  | Ignored if `app_tier_use_DHCP` is used |
-> | `webdispatcher_server_app_admin_nic_ips`| List of IP addresses for the web dispatcher server (admin subnet)        | Optional  | Ignored if `app_tier_use_DHCP` is used |
-> | `webdispatcher_server_no_ppg`           | Controls web proximity placement group placement                         | Optional  | |
-> | `webdispatcher_server_no_avset`	        | Defines web dispatcher availability set placement                        | Optional  | |
-> | `webdispatcher_server_tags`	            | Defines a list of tags to be applied to the web dispatcher servers       | Optional  | |
+> | Variable                                   | Description                                                                    | Type      | Notes  |
+> | ------------------------------------------ | ------------------------------------------------------------------------------ | --------- | ------ |
+> | `webdispatcher_server_count`	             | Defines the number of web dispatcher servers.                                  | Required  |        |
+> | `webdispatcher_server_sku`	               | Defines the Virtual machine SKU to use.                                        | Optional  |        |
+> | `webdispatcher_server_image`	             | Defines the Virtual machine image to use.                                      | Optional  |        |
+> | `webdispatcher_server_zones`	             | Defines the availability zones to which the web dispatchers are deployed.      | Optional  |        |
+> | `webdispatcher_server_app_nic_ips[]`       | List of IP addresses for the web dispatcher server (app/web subnet).           | Optional  |  |
+> | `webdispatcher_server_nic_secondary_ips[]` | List of secondary IP addresses for the web dispatcher server (app/web subnet). | Optional  |  |
+> | `webdispatcher_server_app_admin_nic_ips`   | List of IP addresses for the web dispatcher server (admin subnet).             | Optional  |  |
+> | `webdispatcher_server_no_ppg`              | Controls web proximity placement group placement.                              | Optional  | |
+> | `webdispatcher_server_no_avset`	           | Defines web dispatcher availability set placement.                             | Optional  | |
+> | `webdispatcher_server_tags`	               | Defines a list of tags to be applied to the web dispatcher servers.            | Optional  | |
 
 ## Network parameters
 
 If the subnets are not deployed using the workload zone deployment, they can be added in the system's tfvars file.
 
-The automation framework can either deploy the virtual network and the subnets for new environment deployments (greenfield) or using an existing virtual network and existing subnets for existing environment deployments (brownfield).
- - For the greenfield scenario, the virtual network address space and the subnet address prefixes must be specified
+The automation framework can either deploy the virtual network and the subnets (green field deployment) or using an existing virtual network and existing subnets (brown field deployments).
+ - For the green field scenario, the virtual network address space and the subnet address prefixes must be specified
  - For the brownfield scenario, the Azure resource identifier for the virtual network and the subnets must be specified
 
 Ensure that the virtual network address space is large enough to host all the resources.
@@ -303,14 +307,30 @@ By default the SAP System deployment uses the credentials from the SAP Workload 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                           | Description                                                            | Type         | Notes  |
 > | ---------------------------------- | -----------------------------------------------------------------------| -----------  | ------ |
-> | `ANF_use_for_HANA_data`            | Create Azure NetApp Files volume for HANA data                         | Optional     |        |
-> | `ANF_use_existing_data_volume`     | Use existing Azure NetApp Files volume for HANA data                   | Optional     | Use for pre-created volumes       |
-> | `ANF_data_volume_name`             | Azure NetApp Files volume name for HANA data                           | Optional     |        |
-> | `ANF_HANA_data_volume_size`        | Azure NetApp Files volume size in GB for HANA data                     | Optional     | default size 256      |
-> | `ANF_use_for_HANA_log`             | Create Azure NetApp Files volume for HANA data                         | Optional     |        |
-> | `ANF_use_existing_log_volume`      | Use existing Azure NetApp Files volume for HANA data                   | Optional     | Use for pre-created volumes       |
-> | `ANF_log_volume_name`              | Azure NetApp Files volume name for HANA data                           | Optional     |        |
-> | `ANF_HANA_log_volume_size`         | Azure NetApp Files volume size in GB for HANA data                     | Optional     | default size 128      |
+> | `ANF_use_for_HANA_data`            | Create Azure NetApp Files volume for HANA data.                        | Optional     |        |
+> | `ANF_use_existing_data_volume`     | Use existing Azure NetApp Files volume for HANA data.                  | Optional     | Use for pre-created volumes       |
+> | `ANF_data_volume_name`             | Azure NetApp Files volume name for HANA data.                          | Optional     |        |
+> | `ANF_HANA_data_volume_size`        | Azure NetApp Files volume size in GB for HANA data.                    | Optional     | default size 256      |
+> |                                    |                                                                        |              |        |
+> | `ANF_use_for_HANA_log`             | Create Azure NetApp Files volume for HANA log.                         | Optional     |        |
+> | `ANF_use_existing_log_volume`      | Use existing Azure NetApp Files volume for HANA log.                   | Optional     | Use for pre-created volumes       |
+> | `ANF_log_volume_name`              | Azure NetApp Files volume name for HANA log.                           | Optional     |        |
+> | `ANF_HANA_log_volume_size`         | Azure NetApp Files volume size in GB for HANA log.                     | Optional     | default size 128      |
+> |                                    |                                                                        |              |        |
+> | `ANF_use_for_HANA_shared`          | Create Azure NetApp Files volume for HANA shared.                      | Optional     |        |
+> | `ANF_use_existing_shared_volume`   | Use existing Azure NetApp Files volume for HANA shared.                | Optional     | Use for pre-created volumes       |
+> | `ANF_shared_volume_name`           | Azure NetApp Files volume name for HANA shared.                        | Optional     |        |
+> | `ANF_HANA_shared_volume_size`      | Azure NetApp Files volume size in GB for HANA shared.                  | Optional     | default size 128      |
+> |                                    |                                                                        |              |        |
+> | `ANF_use_for_sapmnt`               | Create Azure NetApp Files volume for sapmnt     .                      | Optional     |        |
+> | `ANF_use_existing_sapmnt_volume`   | Use existing Azure NetApp Files volume for sapmnt.                     | Optional     | Use for pre-created volumes       |
+> | `ANF_sapmnt_volume_name`           | Azure NetApp Files volume name for sapmnt.                             | Optional     |        |
+> | `ANF_sapmnt_volume_size`           | Azure NetApp Files volume size in GB for sapmnt.                       | Optional     | default size 128      |
+> |                                    |                                                                        |              |        |
+> | `ANF_use_for_usrsap`               | Create Azure NetApp Files volume for usrsap     .                      | Optional     |        |
+> | `ANF_use_existing_usrsap_volume`   | Use existing Azure NetApp Files volume for usrsap.                     | Optional     | Use for pre-created volumes       |
+> | `ANF_usrsap_volume_name`           | Azure NetApp Files volume name for usrsap.                             | Optional     |        |
+> | `ANF_usrsap_volume_size`           | Azure NetApp Files volume size in GB for usrsap.                       | Optional     | default size 128      |
 
 
 ## Oracle parameters

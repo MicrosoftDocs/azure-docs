@@ -54,30 +54,41 @@ The table below contains the networking parameters.
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                         | Description                                                          | Type      | Notes  |
 > | -------------------------------- | -------------------------------------------------------------------- | --------- | ------ |
-> | `network_name`                   | The name of the network                                              | Optional  |        |       
-> | `network_logical_name`           | The logical name of the network, for eaxmple 'SAP01'                 | Required  | Used for resource naming        |       
-> | `network_arm_id`                 | The Azure resource identifier for the virtual network                | Optional  | For existing environment deployments |
-> | `network_address_space`          | The address range for the virtual network                            | Mandatory | For new environment deployments   |
-> | `admin_subnet_name`              | The name of the `admin` subnet                                       | Optional  |         |
-> | `admin_subnet_address_prefix`    | The address range for the `admin` subnet                             | Mandatory | For new environment deployments  |
-> | `admin_subnet_arm_id`	         | The Azure resource identifier for the `admin` subnet                 | Mandatory | For existing environment deployments |
-> | `admin_subnet_nsg_name`          | The name of the `admin`Network Security Group name                  | Optional	|         |
-> | `admin_subnet_nsg_arm_id`        | The Azure resource identifier for the `admin` Network Security Group | Mandatory | For existing environment deployments |
-> | `db_subnet_name`                 | The name of the `db` subnet                                          | Optional  |         |
-> | `db_subnet_address_prefix`       | The address range for the `db`  subnet                                | Mandatory | For new environment deployments  |
-> | `db_subnet_arm_id`	             | The Azure resource identifier for the `db` subnet                    | Mandatory | For existing environment deployments |
-> | `db_subnet_nsg_name`             | The name of the `db` Network Security Group name                     | Optional	|          |
+> | `network_name`                   | The name of the network.                                              | Optional  |        |       
+> | `network_logical_name`           | The logical name of the network, for eaxmple 'SAP01'                 | Required  | Used for resource naming.        |       
+> | `network_arm_id`                 | The Azure resource identifier for the virtual network.                | Optional  | For existing environment deployments |
+> | `network_address_space`          | The address range for the virtual network.                            | Mandatory | For new environment deployments   |
+> | `admin_subnet_name`              | The name of the `admin` subnet.                                       | Optional  |         |
+> | `admin_subnet_address_prefix`    | The address range for the `admin` subnet.                             | Mandatory | For new environment deployments  |
+> | `admin_subnet_arm_id`	         | The Azure resource identifier for the `admin` subnet.                 | Mandatory | For existing environment deployments |
+> | `admin_subnet_nsg_name`          | The name of the `admin`Network Security Group name.                  | Optional	|         |
+> | `admin_subnet_nsg_arm_id`        | The Azure resource identifier for the `admin` Network Security Group. | Mandatory | For existing environment deployments |
+> | `db_subnet_name`                 | The name of the `db` subnet.                                          | Optional  |         |
+> | `db_subnet_address_prefix`       | The address range for the `db` subnet.                                | Mandatory | For new environment deployments  |
+> | `db_subnet_arm_id`	             | The Azure resource identifier for the `db` subnet.                   | Mandatory | For existing environment deployments |
+> | `db_subnet_nsg_name`             | The name of the `db` Network Security Group name.                    | Optional	|          |
 > | `db_subnet_nsg_arm_id`           | The Azure resource identifier for the `db` Network Security Group    | Mandatory | For existing environment deployments |
-> | `app_subnet_name`                | The name of the `app` subnet                                         | Optional  |          |
-> | `app_subnet_address_prefix`      | The address range for the `app` subnet                               | Mandatory | For new environment deployments  |
-> | `app_subnet_arm_id`	             | The Azure resource identifier for the `app` subnet                   | Mandatory | For existing environment deployments |
-> | `app_subnet_nsg_name`            | The name of the `app` Network Security Group name                    | Optional	|          |
-> | `app_subnet_nsg_arm_id`          | The Azure resource identifier for the `app` Network Security Group   | Mandatory | For existing environment deployments |
-> | `web_subnet_name`                | The name of the `web` subnet                                         | Optional  |          |
-> | `web_subnet_address_prefix`      | The address range for the `web` subnet                               | Mandatory | For new environment deployments  |
-> | `web_subnet_arm_id`	             | The Azure resource identifier for the `web` subnet                   | Mandatory | For existing environment deployments |
-> | `web_subnet_nsg_name`            | The name of the `web` Network Security Group name                    | Optional	|          |
+> | `app_subnet_name`                | The name of the `app` subnet.                                        | Optional  |          |
+> | `app_subnet_address_prefix`      | The address range for the `app` subnet.                              | Mandatory | For new environment deployments  |
+> | `app_subnet_arm_id`	             | The Azure resource identifier for the `app` subnet.                  | Mandatory | For existing environment deployments |
+> | `app_subnet_nsg_name`            | The name of the `app` Network Security Group name.                   | Optional	|          |
+> | `app_subnet_nsg_arm_id`          | The Azure resource identifier for the `app` Network Security Group.  | Mandatory | For existing environment deployments |
+> | `web_subnet_name`                | The name of the `web` subnet.                                        | Optional  |          |
+> | `web_subnet_address_prefix`      | The address range for the `web` subnet.                              | Mandatory | For new environment deployments  |
+> | `web_subnet_arm_id`	             | The Azure resource identifier for the `web` subnet.                  | Mandatory | For existing environment deployments |
+> | `web_subnet_nsg_name`            | The name of the `web` Network Security Group name.                   | Optional	|          |
 > | `web_subnet_nsg_arm_id`          | The Azure resource identifier for the `web` Network Security Group   | Mandatory | For existing environment deployments |
+
+
+The table below contains the networking parameters if Azure NetApp Files are used.
+
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                         | Description                                                          | Type      | Notes  |
+> | -------------------------------- | -------------------------------------------------------------------- | --------- | ------ |
+> | `anf_subnet_name`                | The name of the ANF subnet.                                          | Optional     | |
+> | `anf_subnet_arm_id`              | The Azure resource identifier for the `ANF` subnet.                  | Required     | When using existing subnets |
+> | `anf_subnet_address_prefix`      | The address range for the `ANF` subnet.                              | Required     | When using ANFFor new deployments  |
 
 
 **Minimum required network definition**
@@ -151,18 +162,46 @@ The table below defines the parameters used for defining the Key Vault informati
 > | `install_storage_account_id`       | Azure resource identifier for the 'install' storage account.           | Optional     | For existing environment deployments |
 > | `transport_storage_account_id`     | Azure resource identifier for the 'transport' storage account.         | Optional     | For existing environment deployments |
 
+**Minimum required Azure Files NFS definition**
+
+```terraform
+NFS_provider              = "AFS"
+use_private_endpoint      = true
+
+```
+
+
 ### Azure NetApp Files Support
 
 > [!div class="mx-tdCol2BreakAll "]
-> | Variable                           | Description                                                            | Type         | Notes  |
-> | ---------------------------------- | -----------------------------------------------------------------------| -----------  | ------ |
-> | `ANF_account_arm_id`               | Azure resource identifier for the Azure NetApp Files Account           | Optional     | For existing environment deployments |
-> | `ANF_account_name`                 | Name for the Azure NetApp Files Account                                | Optional     | |
-> | `ANF_service_level`                | Service level for the Azure NetApp Files Capacity Pool                 | Optional     | |
-> | `ANF_pool_size`                    | The size (in GB) of the Azure NetApp Files Capacity Pool               | Optional     | |
-> | `anf_subnet_name`                  | The name of the ANF subnet                                             | Optional     | |
-> | `anf_subnet_arm_id`                | The Azure resource identifier for the `ANF` subnet                     | Required     | When using existing subnets |
-> | `anf_subnet_address_prefix`        | The address range for the `ANF` subnet                                 | Required     | For new deployments  |
+> | Variable                             | Description                                                            | Type         | Notes  |
+> | ------------------------------------ | -----------------------------------------------------------------------| -----------  | ------ |
+> | `ANF_account_arm_id`                 | Azure resource identifier for the Azure NetApp Files Account.          | Optional     | For existing environment deployments |
+> | `ANF_account_name`                   | Name for the Azure NetApp Files Account.                               | Optional     | |
+> | `ANF_service_level`                  | Service level for the Azure NetApp Files Capacity Pool.                | Optional     | |
+> | `ANF_use_existing_pool`              | Use existing the Azure NetApp Files Capacity Pool.                     | Optional     | |
+> | `ANF_pool_size`                      | The size (in GB) of the Azure NetApp Files Capacity Pool.              | Optional     | |
+> | `ANF_pool_name`                      | The name of the Azure NetApp Files Capacity Pool.                      | Optional     | |
+> |                                      |                                                                        |              | |
+> | `ANF_use_existing_transport_volume`  | Defines if an existing transport volume is used.                       | Optional     | |
+> | `ANF_transport_volume_name`          | Defines the transport volume name.                                     | Optional     | |
+> | `ANF_transport_volume_size`          | Defines the size of the transport volume in GB.                        | Optional     | |
+> | `ANF_transport_volume_throughput`    | Defines the throughput of the transport volume.                        | Optional     | |
+> |                                      |                                                                        |              | |
+> | `ANF_use_existing_install_volume`  | Defines if an existing install volume is used.                           | Optional     | |
+> | `ANF_install_volume_name`          | Defines the install volume name.                                         | Optional     | |
+> | `ANF_install_volume_size`          | Defines the size of the install volume in GB.                            | Optional     | |
+> | `ANF_install_volume_throughput`    | Defines the throughput of the install volume.                            | Optional     | |
+
+
+**Minimum required ANF definition**
+
+```terraform
+NFS_provider              = "ANF"
+anf_subnet_address_prefix = "10.110.64.0/27"
+ANF_service_level         = "Ultra"
+
+```
 
 ## ISCSI Parameters
 
@@ -170,9 +209,9 @@ The table below defines the parameters used for defining the Key Vault informati
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                         | Description                                                               | Type      | Notes                                  |
 > | -------------------------------- | ------------------------------------------------------------------------- | --------- | -------------------------------------- |
-> | `iscsi_subnet_name`              | The name of the `iscsi` subnet                                            | Optional  |                                        |
-> | `iscsi_subnet_address_prefix`    | The address range for the `iscsi` subnet                                  | Mandatory | For new environment deployments        |
-> | `iscsi_subnet_arm_id`	         | The Azure resource identifier for the `iscsi` subnet                      | Mandatory | For existing environment deployments   |
+> | `iscsi_subnet_name`              | The name of the `iscsi` subnet.                                           | Optional  |                                        |
+> | `iscsi_subnet_address_prefix`    | The address range for the `iscsi` subnet.                                 | Mandatory | For new environment deployments        |
+> | `iscsi_subnet_arm_id`	         | The Azure resource identifier for the `iscsi` subnet.                     | Mandatory | For existing environment deployments   |
 > | `iscsi_subnet_nsg_name`          |  The name of the `iscsi` Network Security Group name                      | Optional  |                                        |
 > | `iscsi_subnet_nsg_arm_id`        | The Azure resource identifier for the `iscsi` Network Security Group      | Mandatory | For existing environment deployments   |
 > | `iscsi_count`                    | The number of iSCSI Virtual Machines                                      | Optional  |                                        |   
