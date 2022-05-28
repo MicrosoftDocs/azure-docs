@@ -133,7 +133,7 @@ The following list shows the supported browsers that you can use for the Azure V
 
 You're ready to get started with Azure Video Indexer. For more information, see the following articles:
 
-- [Pricing]( https://azure.microsoft.com/pricing/details/video-indexer/)
+- [Pricing](https://azure.microsoft.com/pricing/details/video-indexer/)
 - [Get started with the Azure Video Indexer website](video-indexer-get-started.md).
 - [Process content with Azure Video Indexer REST API](video-indexer-use-apis.md).
 - [Embed visual widgets in your application](video-indexer-embed-widgets.md).
