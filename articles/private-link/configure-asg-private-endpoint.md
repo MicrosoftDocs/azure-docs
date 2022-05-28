@@ -88,6 +88,8 @@ An ASG can be associated with a private endpoint when it's created. The followin
     | **Application security group** |   |
     | Application security group | Select **myASG**. |
 
+    :::image type="content" source="./media/configure-asg-private-endpoint/asg-new-endpoint.png" alt-text="Screenshot of ASG selection when creating a new private endpoint.":::
+
 9. Select **Next: DNS** at the bottom of the page.
 
 10. Select **Next: Tags** at the bottom of the page.
@@ -166,6 +168,8 @@ An ASG can be associated with an existing private endpoint. The following proced
 4. In **myPrivateEndpoint**, in **Settings**, select **Application security groups**.
 
 5. In **Application security groups**, select **myASG** in the pull-down box.
+
+    :::image type="content" source="./media/configure-asg-private-endpoint/asg-existing-endpoint.png" alt-text="Screenshot of ASG selection when associating with an existing private endpoint.":::
 
 6. Select **Save**.
 
