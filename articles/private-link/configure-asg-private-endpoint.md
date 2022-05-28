@@ -125,7 +125,7 @@ $pe = @{
     Location = 'eastus'
     Subnet = $vnet.Subnets[0]
     PrivateLinkServiceConnection = $privateEndpointConnection
-    ApplicationSecurityGroup = $asg.Id
+    ApplicationSecurityGroup = $asg
 }
 New-AzPrivateEndpoint @pe
 ```
@@ -139,7 +139,7 @@ id=$(az webapp list \
     --output tsv)
 
 az network private-endpoint create \
-    --connection-name myConnection
+    --connection-name myConnection \
     --name myPrivateEndpoint \
     --private-connection-resource-id $id \
     --resource-group myResourceGroup \
@@ -181,7 +181,6 @@ PowerShell commands to associate an ASG with an existing private endpoint are cu
 
 ```azurecli-interactive
 id=$(az network asg list \
-    --resource-group myResourceGroup \
     --query '[].[id]' \
     --output tsv)
 
