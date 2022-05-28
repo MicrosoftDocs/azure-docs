@@ -38,27 +38,29 @@ See the [input container/file formats](/azure/media-services/latest/encode-media
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/video-indexer-get-started/video-indexer-upload.png" alt-text="Upload":::
-1. Once your video has been uploaded, Azure Video Indexer starts indexing and analyzing the video. You see the progress.
+1. Once your video has been uploaded, Azure Video Indexer starts indexing and analyzing the video. As a result a JSON output with insights is produced. 
+
+    You see the progress.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Progress of the upload":::
+    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Progress of the upload"::: 
+
+    The produced JSON output contains  `Insights` and `SummarizedInsights` elements. We highly recommend using `Insights` and not using `SummarizedInsights` (which is present for backward compatibility). 
 1. Once Azure Video Indexer is done analyzing, you'll get an email with a link to your video and a short description of what was found in your video. For example: people, spoken and written words, topics, and named entities.
 1. You can later find your video in the library list and perform different operations. For example: search, reindex, edit.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/video-indexer-get-started/uploaded.png" alt-text="Uploaded the upload":::
 
+After you upload and index a video, you can continue using [Azure Video Indexer website](video-indexer-view-edit.md) or [Azure Video Indexer Developer Portal](video-indexer-use-apis.md) to see the insights of the video (see [Examine the Azure Video Indexer output](video-indexer-output-json-v2.md)).
+
+For more details, see [Upload and index videos](upload-index-videos.md).
+
+To start using the APIs, see [use APIs](video-indexer-use-apis.md)
+
 ## Supported browsers
 
 For more information, see [supported browsers](video-indexer-overview.md#supported-browsers).
-
-## See also
-
-See [Upload and index videos](upload-index-videos.md) for more details.
-
-After you upload and index a video, you can start using [Azure Video Indexer website](video-indexer-view-edit.md) or [Azure Video Indexer Developer Portal](video-indexer-use-apis.md) to see the insights of the video.
-
-[Start using APIs](video-indexer-use-apis.md)
 
 ## Next steps
 

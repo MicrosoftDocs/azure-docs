@@ -21,7 +21,7 @@ To get your project details, submit a **GET** request using the following URL an
 |---------|---------|---------|
 |`{ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.  | `myProject` |
-|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest released [model version](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data).  | `2022-03-01-preview` |
+|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest released [model version](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data).  | `2022-05-01` |
 
 ### Headers
 
@@ -37,20 +37,16 @@ Once you send the request, you will get the following response.
 
 ```json
 {
-  "createdDateTime": "{CREATED-TIME}",
-  "lastModifiedDateTime": "{CREATED-TIME}",
-  "lastTrainedDateTime": "{CREATED-TIME}",
-  "lastDeployedDateTime": "{CREATED-TIME}",
-  "projectKind": "conversation",
-  "settings": {
-    "confidenceThreshold": 0
-  },
+  "createdDateTime": "2022-04-18T13:53:03Z",
+  "lastModifiedDateTime": "2022-04-18T13:53:03Z",
+  "lastTrainedDateTime": "2022-04-18T14:14:28Z",
+  "lastDeployedDateTime": "2022-04-18T14:49:01Z",
+  "projectKind": "Conversation",
   "projectName": "{PROJECT-NAME}",
   "multilingual": true,
-  "description": "string",
+  "description": "This is a sample conversation project.",
   "language": "{LANGUAGE-CODE}"
 }
-
 ```
 
-Once you send your API request, you will receive a `202` response indicating success and JSON response body with your project details.
+Once you send your API request, you will receive a `200` response indicating success and JSON response body with your project details.

@@ -5,7 +5,7 @@ services: azure-video-analyzer
 author: Juliako
 manager: femila
 ms.topic: article
-ms.date: 11/16/2020
+ms.date: 05/19/2022
 ms.author: juliako
 ---
 
@@ -13,11 +13,13 @@ ms.author: juliako
 
 When a video is indexed, Azure Video Indexer produces the JSON content that contains details of the specified video insights. The insights include transcripts, optical character recognition elements (OCRs), faces, topics, blocks, and similar details. Each insight type includes instances of time ranges that show when the insight appears in the video. 
 
-You can visually examine the video's summarized insights by pressing the **Play** button on the video on the [Azure Video Indexer](https://www.videoindexer.ai/) website. 
+The produced JSON output contains `Insights` and `SummarizedInsights` elements. We highly recommend using `Insights` and not using `SummarizedInsights` (which is present for backward compatibility). 
 
-You can also use the Get Video Index API. If the response status is `OK`, you get a detailed JSON output as the response content.
+To visually examine the video's insights, press the **Play** button on the video on the [Azure Video Indexer](https://www.videoindexer.ai/) website. 
 
 ![Screenshot of the Insights tab in Azure Video Indexer.](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
+
+When indexing with an API and the response status is OK, you get a detailed JSON output as the response content. When calling the [Get Video Index](https://api-portal.videoindexer.ai/api-details#api=Operations&operation=Get-Video-Index) API, we recommend passing `&includeSummarizedInsights=false` to save time and reduce response length. 
 
 This article examines the Azure Video Indexer output (JSON content). For information about what features and insights are available to you, see [Azure Video Indexer insights](video-indexer-overview.md#video-insights).
 
@@ -168,7 +170,7 @@ A face might have an ID, a name, a thumbnail, other metadata, and a list of its 
 |`transcript`|The [transcript](#transcript) insight.|
 |`ocr`|The [OCR](#ocr) insight.|
 |`keywords`|The [keywords](#keywords) insight.|
-|`blocks`|Might contain one or more [blocks](#blocks).|
+|`transcripts`|Might contain one or more [transcript](#transcript).|
 |`faces/animatedCharacters`|The [faces/animatedCharacters](#facesanimatedcharacters) insight.|
 |`labels`|The [labels](#labels) insight.|
 |`shots`|The [shots](#shots) insight.|
@@ -201,13 +203,6 @@ Example:
   "textualContentModeration": ...
 }
 ```
-
-#### blocks
-
-Attribute | Description
----|---
-`id`|The ID of the block.|
-`instances`|A list of time ranges for this block.|
 
 #### transcript
 
@@ -664,7 +659,7 @@ Sentiments are aggregated by their `sentimentType` field (`Positive`, `Neutral`,
 
 #### visualContentModeration
 
-The `visualContentModeration` block contains time ranges that Azure Video Indexer found to potentially have adult content. If `visualContentModeration` is empty, no adult content was identified.
+The `visualContentModeration` transcript contains time ranges that Azure Video Indexer found to potentially have adult content. If `visualContentModeration` is empty, no adult content was identified.
 
 Videos that contain adult or racy content might be available for private view only. Users have the option to submit a request for a human review of the content. In that case, the `IsAdult` attribute will contain the result of the human review.
 

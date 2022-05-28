@@ -27,7 +27,7 @@ Before you start using custom text classification, you will need:
 
 Before you start using custom text classification, you will need an Azure Language resource. It is recommended to create your Language resource and connect a storage account to it in the Azure portal. Creating a resource in the Azure portal lets you create an Azure storage account at the same time, with all of the required permissions pre-configured. You can also read further in the article to learn how to use a pre-existing resource, and configure it to work with custom text classification.
 
-You also will need an Azure storage account where you will upload your `.txt` files that will be used to train a model to classify text.
+You also will need an Azure storage account where you will upload your `.txt` documents that will be used to train a model to classify text.
 
 > [!NOTE]
 >  * You need to have an **owner** role assigned on the resource group to create a Language resource.

@@ -23,7 +23,7 @@ You can test the accuracy of your custom model by creating a test. A test requir
 
 Follow these steps to create a test:
 
-1. Sign in to the [Speech Studio](https://speech.microsoft.com/customspeech).
+1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech).
 1. Select **Custom Speech** > Your project name > **Test models**.
 1. Select **Create new test**.
 1. Select **Evaluate accuracy** > **Next**. 
