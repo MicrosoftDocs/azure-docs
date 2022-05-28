@@ -182,9 +182,26 @@ The pipelines use a custom task to run Ansible. The custom task can be installed
 
 The pipelines use a custom task to perform cleanup activities post deployment. The custom task can be installed from [Post Build Cleanup](https://marketplace.visualstudio.com/items?itemName=mspremier.PostBuildCleanup). Install it to your Azure DevOps organization before running the pipelines.
 
+
+## Preparations for Self hosted agent    
+
+
+1. Create an Agent Pool by navigating to the Organizational Settings and selecting _Agent Pools_ from the Pipelines section. Click the _Add Pool_ button and choose Self-hosted as the pool type. Name the pool to align with the workload zone environment, for example `DEV-WEEU-POOL`. Ensure _Grant access permission to all pipelines_ is selected and create the pool using the _Create_ button.
+
+1. Sign in with the user account you plan to use in your Azure DevOps organization (https://dev.azure.com).
+
+1. From your home page, open your user settings, and then select _Personal access tokens_.
+
+   :::image type="content" source="./media/automation-devops/automation-select-personal-access-tokens.jpg" alt-text="Diagram showing the creation of the Personal Access Token (PAT).":::
+
+1. Create a personal access token. Ensure that _Read & manage_ is selected for _Agent Pools_ and _Read & write_ is selected for _Code_. Write down the created token value.
+
+   :::image type="content" source="./media/automation-devops/automation-new-pat.png" alt-text="Diagram showing the attributes of the Personal Access Token (PAT).":::
+
 ## Variable definitions
 
 The deployment pipelines are configured to use a set of predefined parameter values. In Azure DevOps the variables are defined using variable groups.
+
 
 ### Common variables
 
@@ -198,7 +215,9 @@ Create a new variable group 'SDAF-General' using the Library page in the Pipelin
 | Deployment_Configuration_Path      | WORKSPACES                              | For testing the sample configuration use 'samples/WORKSPACES' instead of WORKSPACES.                    |
 | Branch                             | main                                    |                                                                  |
 | S-Username                         | `<SAP Support user account name>`       |                                                                  |
-| S-Password                         | `<SAP Support user password>`           | Change variable type to secret by clicking the lock icon        |
+| S-Password                         | `<SAP Support user password>`           | Change variable type to secret by clicking the lock icon.        |
+| `PAT`                              | `<Personal Access Token>`               | Use the Personal Token defined in the previous step.             |
+| `POOL`                             | `<Agent Pool name>`                     | Use the Agent pool defined in the previous step.                 |
 | `advice.detachedHead`              | false                                   |                                                                  |
 | `skipComponentGovernanceDetection` | true                                    |                                                                  |
 | `tf_version`                       | 1.1.7                                   | The Terraform version to use, see [Terraform download](https://www.terraform.io/downloads)                                            |
@@ -214,18 +233,18 @@ As each environment may have different deployment credentials you'll need to cre
 
 Create a new variable group 'SDAF-MGMT' for the control plane environment using the Library page in the Pipelines section. Add the following variables:
 
-| Variable              | Value                                           | Notes                                                    |
-| --------------------- | ----------------------------------------------- | -------------------------------------------------------- |
-| Agent                 | 'Azure Pipelines' or the name of the agent pool | Note, this pool will be created in a later step.         |
-| ARM_CLIENT_ID         | Enter the Service principal application id.     |                                                          |
-| ARM_CLIENT_SECRET     | Enter the Service principal password.           | Change variable type to secret by clicking the lock icon |
-| ARM_SUBSCRIPTION_ID   | Enter the target subscription id.               |                                                          |
-| ARM_TENANT_ID         | Enter the Tenant id for the service principal.  |                                                          |
-| AZURE_CONNECTION_NAME | Previously created connection name              |                                                          |
-| sap_fqdn              | SAP Fully Qualified Domain Name, for example sap.contoso.net | Only needed if Private DNS isn't used.                                           |
-| FENCING_SPN_ID        | Enter the service principal application id for the fencing agent.     | Required for highly available deployments                                                         |
-| FENCING_SPN_PWD       | Enter the service principal password for the fencing agent.     | Required for highly available deployments                                                         |
-| FENCING_SPN_TENANT    | Enter the service principal tenant id for the fencing agent.     | Required for highly available deployments                                                         |
+| Variable              | Value                                                              | Notes                                                    |
+| --------------------- | ------------------------------------------------------------------ | -------------------------------------------------------- |
+| Agent                 | 'Azure Pipelines' or the name of the agent pool                    | Note, this pool will be created in a later step.         |
+| ARM_CLIENT_ID         | Enter the Service principal application id.                        |                                                          |
+| ARM_CLIENT_SECRET     | Enter the Service principal password.                              | Change variable type to secret by clicking the lock icon |
+| ARM_SUBSCRIPTION_ID   | Enter the target subscription id.                                  |                                                          |
+| ARM_TENANT_ID         | Enter the Tenant id for the service principal.                     |                                                          |
+| AZURE_CONNECTION_NAME | Previously created connection name.                                |                                                          |
+| sap_fqdn              | SAP Fully Qualified Domain Name, for example sap.contoso.net.      | Only needed if Private DNS isn't used.                   |
+| FENCING_SPN_ID        | Enter the service principal application id for the fencing agent.  | Required for highly available deployments.               |
+| FENCING_SPN_PWD       | Enter the service principal password for the fencing agent.        | Required for highly available deployments.               |
+| FENCING_SPN_TENANT    | Enter the service principal tenant id for the fencing agent.       | Required for highly available deployments.               |
 
 Save the variables.
 
@@ -257,21 +276,6 @@ Enter a Service connection name, for instance 'Connection to MGMT subscription' 
 
 You must use the Deployer as a [self-hosted agent for Azure DevOps](/azure/devops/pipelines/agents/v2-linux) to perform the Ansible configuration activities. As a one-time step, you must register the Deployer as a self-hosted agent.
 
-### Prerequisites
-
-1. Connect to your Azure DevOps instance Sign-in to [Azure DevOps](https://dev.azure.com). Navigate to the Project you want to connect to and note the URL to the Azure DevOps project.
-
-1. Create an Agent Pool by navigating to the Organizational Settings and selecting _Agent Pools_ from the Pipelines section. Click the _Add Pool_ button and choose Self-hosted as the pool type. Name the pool to align with the workload zone environment, for example `DEV-WEEU-POOL`. Ensure _Grant access permission to all pipelines_ is selected and create the pool using the _Create_ button.
-
-1. Sign in with the user account you plan to use in your Azure DevOps organization (https://dev.azure.com).
-
-1. From your home page, open your user settings, and then select _Personal access tokens_.
-
-   :::image type="content" source="./media/automation-devops/automation-select-personal-access-tokens.jpg" alt-text="Diagram showing the creation of the Personal Access Token (PAT).":::
-
-1. Create a personal access token. Ensure that _Read & manage_ is selected for _Agent Pools_ and _Read & write_ is selected for _Code_. Write down the created token value.
-
-   :::image type="content" source="./media/automation-devops/automation-new-pat.png" alt-text="Diagram showing the attributes of the Personal Access Token (PAT).":::
 
 ## Deploy the Control Plane
 
