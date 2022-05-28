@@ -68,7 +68,7 @@ It will take a few minutes for your VM to be deployed. When the deployment is fi
 
 ## Install NGINX
 
-To see your VM in action, install the NGINX web server. From your SSH session, update your package sources and then install the latest NGINX package.
+To see your VM in action, install the NGINX web server.
 
 ```azurepowershell-interactive
 Invoke-AzVMRunCommand -ResourceGroupName 'myResourceGroup' -Name 'vmname' -CommandId 'RunShellScript' -ScriptString 'sudo apt-get update && sudo apt-get install -y nginx'
