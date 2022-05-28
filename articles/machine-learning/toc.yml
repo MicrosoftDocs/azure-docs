@@ -197,14 +197,10 @@
         - name: Plan and manage costs
           displayName: low priority VM
           href: concept-plan-manage-cost.md
-    - name: Work with data
+    - name: Work with Data
       items: 
-        - name: Datastores
-          href: concept-datastore.md
         - name: Access data
           href: concept-data.md
-    - name: Collect data
-      items:
         - name: Sourcing human data responsibly
           href: concept-sourcing-human-data.md
     - name: Security
@@ -361,7 +357,7 @@
           href: how-to-troubleshoot-environments.md
     - name: Work with data
       items: 
-        - name: Create a datastore for data storage services
+        - name: Create a datastore
           displayName: datastore, data storage
           href: how-to-datastore.md
         - name: Register a data asset
@@ -370,7 +366,7 @@
         - name: Reading & writing data
           displayName: read and write data
           href: how-to-read-write-data-v2.md
-        - name: Administrate data authentication
+        - name: Data Administration Guide
           displayName: data authentication
           href: how-to-administrate-data-authentication.md
     - name: Train models
