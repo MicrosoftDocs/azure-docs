@@ -31,9 +31,8 @@ To open the Cloud Shell, just select **Try it** from the upper right corner of a
 Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed:
 
 ```azurepowershell-interactive
-New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
+New-AzResourceGroup -Name 'myResourceGroup' -Location 'EastUS'
 ```
-
 
 ## Create a virtual machine
 
@@ -45,10 +44,10 @@ In this example, you create a VM named *myVM*, in *East US*, using the *Standard
 
 ```azurepowershell-interactive
 New-AzVm `
-    -ResourceGroupName "myResourceGroup" `
-    -Name "myVM" `
-    -Location "East US" `
-    -Image UbuntuLTS `
+    -ResourceGroupName 'myResourceGroup' `
+    -Name 'myVM' `
+    -Location 'East US' `
+    -Image Debian `
     -size Standard_B2s `
     -PublicIpAddressName myPubIP `
     -OpenPorts 80,22 `
@@ -63,41 +62,19 @@ Private key is saved to /home/user/.ssh/1234567891
 Public key is saved to /home/user/.ssh/1234567891.pub
 ```
 
-Make a note of the path to your private key to use later.
+Make a note of the path to your private key.
 
 It will take a few minutes for your VM to be deployed. When the deployment is finished, move on to the next section.
-
-
-## Connect to the VM
-
-You need to change the permission on the SSH key using `chmod`. Replace *~/.ssh/1234567891* in the following example with the private key name and path from the earlier output.
-
-```azurepowershell-interactive
-chmod 600 ~/.ssh/1234567891
-```
-
-Create an SSH connection with the VM using the public IP address. To see the public IP address of the VM, use the [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) cmdlet:
-
-```azurepowershell-interactive
-Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
-```
-
-Using the same shell you used to create your SSH key pair, paste the the following command into the shell to create an SSH session. Replace *~/.ssh/1234567891* in the following example with the private key name and path from the earlier output. Replace *10.111.12.123* with the IP address of your VM and *azureuser* with the name you provided when you created the VM.
-
-```bash
-ssh -i ~/.ssh/1234567891 azureuser@10.111.12.123
-```
 
 ## Install NGINX
 
 To see your VM in action, install the NGINX web server. From your SSH session, update your package sources and then install the latest NGINX package.
 
-```bash
-sudo apt-get -y update
-sudo apt-get -y install nginx
+```azurepowershell-interactive
+Invoke-AzVMRunCommand -ResourceGroupName 'myResourceGroup' -Name 'vmname' -CommandId 'RunShellScript' -ScriptString 'sudo apt-get update && sudo apt-get install -y nginx'
 ```
 
-When done, type `exit` to leave the SSH session.
+The `-ScriptString' parameter requires version `4.27.0` or later of the 'Az.Compute` module.
 
 
 ## View the web server in action
@@ -111,7 +88,7 @@ Use a web browser of your choice to view the default NGINX welcome page. Enter t
 When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet to remove the resource group, VM, and all related resources:
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name "myResourceGroup"
+Remove-AzResourceGroup -Name 'myResourceGroup'
 ```
 
 ## Next steps
