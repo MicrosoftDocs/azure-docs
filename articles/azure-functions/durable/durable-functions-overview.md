@@ -26,9 +26,6 @@ Durable Functions is designed to work with all Azure Functions programming langu
 | PowerShell | Functions 3.0+ | PowerShell 7+ | 2.x bundles |
 | Java (coming soon) | Functions 3.0+ | Java 8+ | 4.x bundles |
 
-Durable Functions has a goal of supporting all [Azure Functions languages](../supported-languages.md). See the [Durable Functions issues list](https://github.com/Azure/azure-functions-durable-extension/issues) for the latest status of work to support additional languages.
-
-To access the latest features and updates, use the latest versions of the Durable Functions extension and language-specific Durable Functions libraries. Learn more about [Durable Functions versions](durable-functions-versions.md).
 Like Azure Functions, there are templates to help you develop Durable Functions using [Visual Studio 2019](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md), and the [Azure portal](durable-functions-create-portal.md).
 
 ## Application patterns
