@@ -4,7 +4,7 @@ description: Use the cache priming feature to populate or preload cache contents
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 05/26/2022
+ms.date: 05/27/2022
 ms.author: v-erinkelly
 ---
 
@@ -211,19 +211,19 @@ To delete a priming job, select it in the list and use the delete control at the
 
 ## Azure REST APIs
 
-You can use these REST API endpoints to create an HPC Cache priming job. These are part of the `2021-10-01-preview` version of the REST API, so make sure you use that string in the *api_version* term.
+You can use these REST API endpoints to create and manage HPC Cache priming jobs. These are part of the `2022-05-01` version of the REST API, so make sure you use that string in the *api_version* term.
 
-***xxx update api version throughout xxx***
+Read the [Azure REST API reference](/rest/api/azure/) to learn how to use these tools.
 
-Read the [Azure REST API reference](/rest/api/azure/) to learn how to use this interface.
+### Add a new priming job
 
-### Add a priming job
+The `startPrimingJob` interface creates and queues a priming job. The job starts automatically when resources are available.
 
 ```rest
 
 URL: POST
 
-     https://MY-ARM-HOST/subscriptions/MY-SUBSCRIPTION-ID/resourceGroups/MY-RESOURCE-GROUP-NAME/providers/Microsoft.StorageCache/caches/MY-CACHE-NAME/addPrimingJob?api-version=2021-10-01-preview
+     https://MY-ARM-HOST/subscriptions/MY-SUBSCRIPTION-ID/resourceGroups/MY-RESOURCE-GROUP-NAME/providers/Microsoft.StorageCache/caches/MY-CACHE-NAME/startPrimingJob?api-version=2022-05-01
 
      BODY:
      {
@@ -235,14 +235,20 @@ URL: POST
 
 For the `primingManifestUrl` value, pass the file’s SAS URL or other HTTPS URL that is accessible to the cache. Read [Upload the priming manifest file](#upload-the-priming-manifest-file) to learn more.
 
-### Remove a priming job
+### Stop a priming job
+
+The `stopPrimingJob` interface cancels a job (if it is running) and removes it from the job list.
 
 ```rest
 
 URL: POST 
-     https://MY-ARM-HOST/subscriptions/MY-SUBSCRIPTION-ID/resourceGroups/MY-RESOURCE-GROUP-NAME/providers/Microsoft.StorageCache/caches/MY-CACHE-NAME/removePrimingJob/MY-JOB-ID-TO-REMOVE?api-version=2021-10-01-preview
+     https://MY-ARM-HOST/subscriptions/MY-SUBSCRIPTION-ID/resourceGroups/MY-RESOURCE-GROUP-NAME/providers/Microsoft.StorageCache/caches/MY-CACHE-NAME/stopPrimingJob?api-version=2022-05-01
 
 BODY:
+     {
+         "primingJobId": "MY-JOB-ID-TO-REMOVE"
+     }
+
 ```
 
 ### Get priming jobs
@@ -254,11 +260,13 @@ Priming job names and IDs are returned, along with other information.
 ```rest
 
 URL: GET 
-     https://MY-ARM-HOST/subscriptions/MY-SUBSCRIPTION-ID/resourceGroups/MY-RESOURCE-GROUP-NAME/providers/Microsoft.StorageCache/caches/MY-CACHE-NAME?api-version=2021-10-01-preview
+     https://MY-ARM-HOST/subscriptions/MY-SUBSCRIPTION-ID/resourceGroups/MY-RESOURCE-GROUP-NAME/providers/Microsoft.StorageCache/caches/MY-CACHE-NAME?api-version=2022-05-01
 
 BODY:
 
 ```
+
+***[ ?? should we add pause/resume APIs here too? ??]***
 
 ## Frequently asked questions
 

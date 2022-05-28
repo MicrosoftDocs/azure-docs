@@ -159,7 +159,7 @@ The **State** value affects which management options you can use. Here's a short
 
 ## Allocate cache storage
 
-xxx to come xxx
+<!-- xxx to come xxx -->
 
 ![Screenshot of the storage targets page in the Azure portal.](media/storage-target-allocation.png)
 
