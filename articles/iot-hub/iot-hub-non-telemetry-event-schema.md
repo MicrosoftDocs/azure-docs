@@ -46,9 +46,9 @@ The following application properties are set by IoT Hub on each event.
 | Property | Type |Description |
 | -------- | ---- | ---------- |
 | deviceId | string | The unique identifier of the device. This case-sensitive string can be up to 128 characters long, and supports ASCII 7-bit alphanumeric characters plus the following special characters: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
-| hubName | string | The name of the IoT Hub. |
+| hubName | string | The name of the IoT hub. |
 | iothub-message-schema | string | The message schema associated with the event category; for example, "deviceLifecycleNotification". |
-| moduleId | string | The unique identifier of the module. This property is output only for module lifecycle and twin events. This case-sensitive string can be up to 128 characters long, and supports ASCII 7-bit alphanumeric characters plus the following special characters: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
+| moduleId | string | The unique identifier of the module. This property is output only for module lifecycle and twin change events. This case-sensitive string can be up to 128 characters long, and supports ASCII 7-bit alphanumeric characters plus the following special characters: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 | operationTimestamp | string | The ISO8601 timestamp of the operation. |
 | opType | string | The identifier for the operation that generated the event. For example, "createDeviceIdentity". |
 
@@ -60,7 +60,7 @@ The following annotations are stamped by IoT Hub on each event.
 | -------- | ---- | ----------- |
 | iothub-connection-device-id | string | The unique identifier of the device. This case-sensitive string can be up to 128 characters long, and supports ASCII 7-bit alphanumeric characters plus the following special characters: `- : . + % _ # * ? ! ( ) , = @ ; $ '`.  |
 | iothub-connection-module-id | string | The unique identifier of the module. This property is output only for module life cycle and twin events. This case-sensitive string can be up to 128 characters long, and supports ASCII 7-bit alphanumeric characters plus the following special characters: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
-| iothub-enqueuedtime | integer | Description needed. 1653677358153 |
+| iothub-enqueuedtime | number | Description needed. 1653677358153 |
 | iothub-message-source | string | A value corresponding the the event categories that identifies the message source; for example, "deviceLifecycleEvents". |
 | x-opt-sequence-number  | number | Description needed. |
 | x-opt-offset | string | Description needed. |
@@ -70,20 +70,20 @@ The following annotations are stamped by IoT Hub on each event.
 
 Device lifecycle events are emitted whenever a device or module is created or deleted from the identity registry.
 
-The following table shows how application property values are set for device lifecycle events:  
+**Application properties**: The following table shows how application property values are set for device lifecycle events:  
 
 | Property | Value |
 | ---- | ----------- |
-| iothub-message-schema | Always set to: "deviceLifecycleNotification". |
-| opType | Can be one of the following values, "createDeviceIdentity", "deleteDeviceIdentity", "createModuleIdentity", or "deleteModuleIdentity". |
+| iothub-message-schema | "deviceLifecycleNotification". |
+| opType | One of the following values: "createDeviceIdentity", "deleteDeviceIdentity", "createModuleIdentity", or "deleteModuleIdentity". |
 
-The following table shows how annotations are set for device lifecycle events:
+**Annotations**: The following table shows how annotations are set for device lifecycle events:
 
 | Property | Value |
 | ---- | ----------- |
 | iothub-message-source |  "deviceLifecycleEvents". |
 
-The message payload represents the twin of the target device or module identity.
+**Payload**: The message payload contains the device ID, the etag property, and version properties  the twin of the target device or module identity.
 
 ### Example
 
