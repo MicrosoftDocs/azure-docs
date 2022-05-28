@@ -131,8 +131,6 @@ items:
   items:
   - name: Continuous monitoring
     href: continuous-monitoring.md
-  - name: Data sources
-    href: agents/data-sources.md
   - name: Usage and cost
     items:
     - name: View and estimate charges
@@ -436,6 +434,8 @@ items:
     - name: Overview
       displayName: Data collection, Data platform
       href: data-platform.md
+    - name: Data sources
+      href: agents/data-sources.md
     - name: Data collection rules
       items:
       - name: Overview
@@ -446,24 +446,6 @@ items:
         href: essentials/data-collection-rule-structure.md
     - name: Data collection endpoints
       href: essentials/data-collection-endpoint-overview.md
-    - name: Custom logs
-      items:
-      - name: Overview
-        href: logs/custom-logs-overview.md
-      - name: Tutorial (portal)
-        href: logs/tutorial-custom-logs.md
-      - name: Tutorial (API)
-        href: logs/tutorial-custom-logs-api.md
-      - name: Migrate from Data Collector API
-        href: logs/custom-logs-migrate.md
-      - name: Data collector API
-        items:
-        - name: Overview
-          href: logs/data-collector-api.md
-        - name: Log Analytics Data collector API
-          href: logs/data-collector-api.md
-        - name: Log Analytics Data Collector API Pipeline example
-          href: logs/create-pipeline-datacollector-api.md
     - name: Transformations
       items:
       - name: Transformations
@@ -1348,6 +1330,24 @@ items:
       href: insights/resource-group-insights.md
     - name: Troubleshoot insights
       href: insights/troubleshoot-workbooks.md
+  - name: Custom logs
+    items:
+    - name: Overview
+      href: logs/custom-logs-overview.md
+    - name: Tutorial (portal)
+      href: logs/tutorial-custom-logs.md
+    - name: Tutorial (API)
+      href: logs/tutorial-custom-logs-api.md
+    - name: Migrate from Data Collector API
+      href: logs/custom-logs-migrate.md
+    - name: Data collector API
+      items:
+      - name: Overview
+        href: logs/data-collector-api.md
+      - name: Log Analytics Data collector API
+        href: logs/data-collector-api.md
+      - name: Log Analytics Data Collector API Pipeline example
+        href: logs/create-pipeline-datacollector-api.md
   - name: Workbooks
     items:
     - name: Overview
