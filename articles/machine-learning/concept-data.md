@@ -66,7 +66,7 @@ URIs are mapped to the filesystem on the compute target, hence using URIs is lik
 
 ### Example usage
 
-#### [URI File](#tab/uri-file-example)
+# [URI File](#tab/uri-file-example)
 
 The following Python code reads a CSV file and prints the first 10 records:
 
@@ -106,7 +106,7 @@ Then execute using the CLI:
 az ml job create --file hello-data-uri-file.yml
 ```
 
-#### [URI Folder](#tab/uri-folder-example)
+# [URI Folder](#tab/uri-folder-example)
 
 The following Python code reads a folder container several CSV files and prints the first 10 records:
 
@@ -145,12 +145,13 @@ Then execute using the CLI:
 ```azurecli
 az ml job create --file hello-data-uri-file.yml
 ```
+
 ## Share and version Data assets
 
 Azure Machine Learning allows you to create and version data assets in a workspace so that other members of your team can easily consume the data asset by using a name/version. For example:
 
 
-### [Create Data Asset](#tab/cli-data-create-example)
+# [Create Data Asset](#tab/cli-data-create-example)
 To create a data asset, firstly define a data specification in a YAML file:
 
 ```yml
@@ -168,7 +169,7 @@ Then in the CLI, create the data asset:
 az ml data create --file cloud-folder-https-example.yml
 ```
 
-### [Consume Data Asset](#tab/cli-data-consume-example)
+# [Consume Data Asset](#tab/cli-data-consume-example)
 
 To consume the registered data in a job, define your job specification in a YAML file:
 
