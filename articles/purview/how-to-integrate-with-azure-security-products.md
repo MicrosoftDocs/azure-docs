@@ -15,7 +15,7 @@ This document explains the steps required for connecting a Microsoft Purview acc
 
 Microsoft Purview provides rich insights into the sensitivity of your data. This makes it valuable to security teams using Microsoft Defender for Cloud to manage the organization’s security posture and protect against threats to their workloads. Data resources remain a popular target for malicious actors, making it crucial for security teams to identify, prioritize, and secure sensitive data resources across their cloud environments. The integration with Microsoft Purview expands visibility into the data layer, enabling security teams to prioritize resources that contain sensitive data.
 
-To take advantage of this [enrichment in Microsoft Defender for Cloud](../security-center/information-protection.md), no additional steps are needed in Microsoft Purview. Start exploring the security enrichments with Microsoft Defender for Cloud's [Inventory page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/25) where you can see the list of data sources with classifications and sensitivity labels.
+To take advantage of this [enrichment in Microsoft Defender for Cloud](../security-center/information-protection.md), no more steps are needed in Microsoft Purview. Start exploring the security enrichments with Microsoft Defender for Cloud's [Inventory page](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/25) where you can see the list of data sources with classifications and sensitivity labels.
 
 ### Supported data sources
 The integration supports data sources in Azure and AWS; sensitive data discovered in these resources is shared with Microsoft Defender for Cloud:
@@ -27,7 +27,7 @@ The integration supports data sources in Azure and AWS; sensitive data discovere
 - [Azure Files](./register-scan-azure-files-storage-source.md)
 - [Azure Database for MySQL](./register-scan-azure-mysql-database.md)
 - [Azure Database for PostgreSQL](./register-scan-azure-postgresql.md)
-- [Azure SQL Managed Instance](./register-scan-azure-sql-database-managed-instance.md)
+- [Azure SQL Managed Instance](./register-scan-azure-sql-managed-instance.md)
 - [Azure Dedicated SQL pool (formerly SQL DW)](./register-scan-azure-synapse-analytics.md)
 - [Azure SQL Database](./register-scan-azure-sql-database.md)
 - [Azure Synapse Analytics (Workspace)](./register-scan-synapse-workspace.md)

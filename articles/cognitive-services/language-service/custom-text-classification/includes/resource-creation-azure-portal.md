@@ -32,7 +32,7 @@ ms.custom: language-service-custom-classification, event-tier1-build-2022
     |Location | Learn more about [supported regions](../service-limits.md#regional-availability).      |
     |Pricing tier     | Learn more about [supported pricing tiers](../service-limits.md#pricing-tiers).        |
 
-7. In the **Custom text classification & custom named entity recognition** section, select an existing storage account or select **Create a new storage account**. Note that these values are to help you get started, and not necessarily the [storage account values](/azure/storage/common/storage-account-overview) you’ll want to use in production environments. To avoid latency during building your project connect to storage accounts in the same region as your Language resource.
+7. In the **Custom text classification & custom named entity recognition** section, select an existing storage account or select **Create a new storage account**. Note that these values are to help you get started, and not necessarily the [storage account values](../../../../storage/common/storage-account-overview.md) you’ll want to use in production environments. To avoid latency during building your project connect to storage accounts in the same region as your Language resource.
 
     |Storage account value  |Recommended value  |
     |---------|---------|

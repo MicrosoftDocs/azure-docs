@@ -70,7 +70,7 @@ The Azure Monitor agent can coexist (run side by side on the same machine) with 
 | Resource type | Installation method | Additional information |
 |:---|:---|:---|
 | Virtual machines, scale sets | [Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) | Installs the agent using Azure extension framework |
-| On-premise servers (Arc-enabled servers) | [Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) (after installing [Arc agent](/azure/azure-arc/servers/deployment-options)) | Installs the agent using Azure extension framework, provided for on-premise by first installing [Arc agent](/azure/azure-arc/servers/deployment-options) |
+| On-premise servers (Arc-enabled servers) | [Virtual machine extension](./azure-monitor-agent-manage.md#virtual-machine-extension-details) (after installing [Arc agent](../../azure-arc/servers/deployment-options.md)) | Installs the agent using Azure extension framework, provided for on-premise by first installing [Arc agent](../../azure-arc/servers/deployment-options.md) |
 | Windows 10, 11 desktops, workstations | [Client installer (preview)](./azure-monitor-agent-windows-client.md) | Installs the agent using a Windows MSI installer |
 | Windows 10, 11 laptops | [Client installer (preview)](./azure-monitor-agent-windows-client.md) | Installs the agent using a Windows MSI installer. The installs works on laptops but the agent is **not optimized yet** for battery, network consumption |
 
