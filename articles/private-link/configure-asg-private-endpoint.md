@@ -170,6 +170,10 @@ An ASG can be associated with an existing private endpoint. The following proced
 
 6. Select **Save**.
 
+# [**PowerShell**](#tab/portal)
+
+PowerShell commands to associate an ASG with an existing private endpoint are currently unavailable.
+
 # [**CLI**](#tab/cli)
 
 ```azurecli-interactive
