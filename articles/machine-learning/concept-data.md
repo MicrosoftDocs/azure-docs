@@ -146,6 +146,8 @@ Then execute using the CLI:
 az ml job create --file hello-data-uri-file.yml
 ```
 
+---
+
 ## Share and version Data assets
 
 Azure Machine Learning allows you to create and version data assets in a workspace so that other members of your team can easily consume the data asset by using a name/version. For example:
@@ -166,7 +168,7 @@ path: https://<storage_name>.blob.core.windows.net/<container_name>/path
 Then in the CLI, create the data asset:
 
 ```azurecli
-az ml data create --file cloud-folder-https-example.yml
+az ml data create --file cloud-folder-https-example.yml --version 1
 ```
 
 # [Consume Data Asset](#tab/cli-data-consume-example)
@@ -190,8 +192,10 @@ compute: azureml:cpu-cluster
 Next, use the CLI to create your job:
 
 ```azurecli
-az ml job create --file hello-data-uri-file.yml
+az ml job create --file hello-data-uri-file.yml 
 ```
+
+---
 
 ## Define schema for tabular data with `mltable`
 Azure Machine Learning provides a capability for you to define schema for tabular data so that it can be easily materialized into a Pandas/Dask/Spark dataframe. `mltable` makes it easier when you're sharing tabular data assets with team members because they don't need to worry about parsing the data into a dataframe.
