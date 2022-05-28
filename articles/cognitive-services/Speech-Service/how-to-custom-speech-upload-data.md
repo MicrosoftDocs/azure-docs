@@ -20,7 +20,7 @@ You need audio or text data for testing the accuracy of Microsoft speech recogni
 
 To upload your own datasets in Speech Studio, follow these steps:
 
-1. Sign in to the [Speech Studio](https://speech.microsoft.com/customspeech). 
+1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech). 
 1. Select **Custom Speech** > Your project name > **Speech datasets** > **Upload data**.
 1. Select the **Training data** or **Testing data** tab.
 1. Select a dataset type, and then select **Next**.

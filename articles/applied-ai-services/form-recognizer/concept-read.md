@@ -15,7 +15,7 @@ ms.custom: ignite-fall-2021
 
 # Form Recognizer read model
 
-The Form Recognizer v3.0 preview includes the new Read OCR model. Form Recognizer Read builds on the success of COmputer Vision Read and optimizes even more for analyzing documents, including new document formats in the future. It extracts printed and handwritten text from documents and images and can handle mixed languages in the documents and text line. The read model can detect lines, words, locations, and additionally detect languages. It is the foundational technology powering the text extraction in Form Recognizer Layout, prebuilt, general document, and custom models.
+The Form Recognizer v3.0 preview includes the new Read OCR model. Form Recognizer Read builds on the success of Computer Vision Read and optimizes even more for analyzing documents, including new document formats in the future. It extracts printed and handwritten text from documents and images and can handle mixed languages in the documents and text line. The read model can detect lines, words, locations, and additionally detect languages. It is the foundational technology powering the text extraction in Form Recognizer Layout, prebuilt, general document, and custom models.
 
 ## Development options
 
@@ -77,7 +77,7 @@ Form Recognizer preview version supports several languages for the read model. *
 
 ### Text lines and words
 
-Read API extracts text from documents and images. It accepts PDFs and images of documents and handles printed and/or handwritten text, and supports mixed languages. Text is extracted as text lnes, words, bounding boxes, confidence scores, and style, whether handwritten or not, supported for Latin languages only.
+Read API extracts text from documents and images. It accepts PDFs and images of documents and handles printed and/or handwritten text, and supports mixed languages. Text is extracted as text lines, words, bounding boxes, confidence scores, and style, whether handwritten or not, supported for Latin languages only.
 
 ### Language detection
 
