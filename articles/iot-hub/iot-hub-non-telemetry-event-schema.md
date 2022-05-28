@@ -5,9 +5,11 @@ author: kgremban
 ms.author: kgremban  
 ms.topic: conceptual
 ms.date: 05/27/2022
+ms.service: iot-hub
+services: iot-hub
 ---
 
-# Azure IoT Hub as an Event Grid source
+# Azure IoT Hub non-telemetry event schemas
 
 This article provides the properties and schema for non-telemetry events emitted by Azure IoT Hub. Non-telemetry events are different from device-to-cloud and cloud-to-device messages in that they are emitted directly by IoT Hub in response to specific kinds of changes on your devices. For example, lifecycle changes like a device or module being created or deleted, or connection state changes like device connects and disconnects. To observe non-telemetry events, you must have an appropriate message route configured. To learn more about IoT Hub message routing, see [IoT Hub message routing](iot-hub-devguide-messages-d2c.md).
 
@@ -439,15 +441,3 @@ For **Device Created** and **Device Deleted** IoT Hub events, the data object co
 | `desired` | object | A portion of the properties that can be written only by the application back-end, and read by the device. | 
 | `reported` | object | A portion of the properties that can be written only by the device, and read by the application back-end. |
 | `lastUpdated` | string | The ISO8601 timestamp of the last device twin property update. | 
-
-## Tutorials and how-tos
-|Title  |Description  |
-|---------|---------|
-| [Send email notifications about Azure IoT Hub events using Logic Apps](publish-iot-hub-events-to-logic-apps.md) | A logic app sends a notification email every time a device is added to your IoT Hub. |
-| [React to IoT Hub events by using Event Grid to trigger actions](../iot-hub/iot-hub-event-grid.md) | Overview of integrating IoT Hub with Event Grid. |
-| [Order device connected and device disconnected events](../iot-hub/iot-hub-how-to-order-connection-state-events.md) | Shows how to order device connection state events. |
-
-## Next steps
-
-* For an introduction to Azure Event Grid, see [What is Event Grid?](overview.md)
-* To learn about how IoT Hub and Event Grid work together, see [React to IoT Hub events by using Event Grid to trigger actions](../iot-hub/iot-hub-event-grid.md).
