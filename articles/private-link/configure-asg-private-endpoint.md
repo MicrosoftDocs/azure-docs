@@ -164,25 +164,32 @@ An ASG can be associated with an existing private endpoint. The following proced
 
 3. In **Private endpoints**, select **myPrivateEndpoint**.
 
-4. 
+4. In **myPrivateEndpoint**, in **Settings**, select **Application security groups**.
+
+5. In **Application security groups**, select **myASG** in the pull-down box.
+
+6. Select **Save**.
 
 # [**CLI**](#tab/cli)
 
+```azurecli-interactive
+id=$(az network asg list \
+    --resource-group myResourceGroup \
+    --query '[].[id]' \
+    --output tsv)
 
-
-
-
+az network private-endpoint asg add \
+    --endpoint-name myPrivateEndpoint \
+    --resource-group myResourceGroup \
+    --asg-id $id
+```
 
 ---
 
-
-
 ## Next steps
-<!-- Add a context sentence for the following links -->
-- [Write how-to guides](contribute-how-to-write-howto.md)
-- [Links](links-how-to.md)
 
-<!--
-Remove all the comments in this template before you sign-off or merge to the 
-main branch.
--->
+For more information about Azure Private Link, see
+
+- [What is Azure Private Link?](private-link-overview.md)
+
+
