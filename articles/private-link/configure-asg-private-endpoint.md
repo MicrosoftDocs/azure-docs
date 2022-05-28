@@ -147,8 +147,6 @@ az network private-endpoint create \
     --vnet-name myVNet    
 ```
 
----
-
 ## Associate an ASG with an existing private endpoint
 
 An ASG can be associated with an existing private endpoint. The following procedures demonstrate how to associate an ASG with an existing private endpoint.
@@ -187,8 +185,6 @@ az network private-endpoint asg add \
     --resource-group myResourceGroup \
     --asg-id $id
 ```
-
----
 
 ## Next steps
 
