@@ -71,20 +71,20 @@ Note your own `publicIpAddress` in the output from your VM. This address is used
 
 [!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
 
-## Open port 80 for web traffic
-
-By default, only SSH connections are opened when you create a Linux VM in Azure. Use [az vm open-port](/cli/azure/vm) to open TCP port 80 for use with the NGINX web server:
-
-```azurecli-interactive
-az vm open-port --port 80 --resource-group myResourceGroup --name myVM
-```
-
 ## Install web server
 
 To see your VM in action, install the NGINX web server. Update your package sources and then install the latest NGINX package.
 
 ```azurecli-interactive
 az vm run-command invoke -g MyResourceGroup -n MyVm --command-id RunShellScript --scripts "sudo apt-get update && sudo apt-get install -y nginx"
+```
+
+## Open port 80 for web traffic
+
+By default, only SSH connections are opened when you create a Linux VM in Azure. Use [az vm open-port](/cli/azure/vm) to open TCP port 80 for use with the NGINX web server:
+
+```azurecli-interactive
+az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
 
 ## View the web server in action
