@@ -25,7 +25,7 @@ Before you begin this walkthrough, read the [Azure Synapse access control overvi
 ## Access control mechanisms
 
 > [!NOTE]
-> The approach in this guide is to create security groups. When you assign roles to these security groups, you only need to manage memberships within those groups to control access to the workspace.
+> The approach in this guide is to create security groups. When you assign roles to these security groups, you only need to manage memberships within those groups to control access to workspaces.
 
 To secure a Synapse workspace, you'll configure the following items:
 
@@ -33,7 +33,7 @@ To secure a Synapse workspace, you'll configure the following items:
 - **Azure roles**, to control who can create and manage SQL pools, Apache Spark pools and Integration runtimes, and access ADLS Gen2 storage.
 - **Synapse roles**, to control access to published code artifacts, use of Apache Spark compute resources and integration runtimes.
 - **SQL permissions**, to control administrative and data plane access to SQL pools.
-- **Git permissions**, to control who can access code artifacts in source control if you configure Git-support for the workspace.
+- **Git permissions**, to control who can access code artifacts in source control if you configure Git-support for workspaces.
 
 ## Steps to secure a Synapse workspace
 
@@ -49,7 +49,7 @@ This document uses standard names to simplify instructions. Replace them with na
 ## STEP 1: Set up security groups
 
 >[!Note]
->During the preview, you were encouraged to create security groups and to map them to Azure Synapse **Synapse SQL Administrator** and **Synapse Apache Spark Administrator** roles.  With the introduction of new finer-grained Synapse RBAC roles and scopes, you are now encouraged to use newer options to control access to your workspace. This provide greater configuration flexibility and recognition that developers often use a mix of SQL and Spark to create analytics applications. So developers may need access to individual resources rather than an entire workspace. [Learn more](./synapse-workspace-synapse-rbac.md) about Synapse RBAC.
+>During the preview, you were encouraged to create security groups and to map them to Azure Synapse **Synapse SQL Administrator** and **Synapse Apache Spark Administrator** roles.  With the introduction of new finer-grained Synapse RBAC roles and scopes, you are now encouraged to use newer options to control access to your workspace. They give you greater configuration flexibility and they acknowledge that developers often use a mix of SQL and Spark to create analytics applications. So developers may need access to individual resources rather than an entire workspace. [Learn more](./synapse-workspace-synapse-rbac.md) about Synapse RBAC.
 
 Create the following security groups for your workspace:
 
@@ -72,7 +72,7 @@ These five groups are sufficient for a basic setup. Later, you can add security 
 >- Learn how to add a security group from another security group in [Add or remove a group from another group using Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-membership-azure-portal.md).
 
 >[!Tip]
->Individual Synapse users can use Azure Active Directory in the Azure portal to view their group memberships to determine which roles they've been granted.
+>Individual Synapse users can use Azure Active Directory in the Azure portal to view their group memberships. This allows them to determine which roles they've been granted.
 
 ## STEP 2: Prepare your ADLS Gen2 storage account
 
