@@ -1,5 +1,5 @@
 ---
-title: Configure an Application Security Group with a private endpoint
+title: Configure an application security group with a private endpoint
 titleSuffix: Azure Private Link
 description: Learn how to create a private endpoint with an Application Security Group or apply an ASG to an existing private endpoint.
 author: asudbring
@@ -10,55 +10,172 @@ ms.date: 05/25/2022
 ms.custom: template-how-to
 ---
 
-# Configure an Application Security Group (ASG) with a private endpoint
+# Configure an application security group (ASG) with a private endpoint
 
-<!-- 2. Introductory paragraph 
-Required. Lead with a light intro that describes, in customer-friendly language, 
-what the customer will learn, or do, or accomplish. Answer the fundamental “why 
-would I want to do this?” question. Keep it short.
--->
-
-[Add your introductory paragraph]
-
-<!-- 3. Prerequisites 
-Optional. If you need prerequisites, make them your first H2 in a how-to guide. 
-Use clear and unambiguous language and use a list format.
--->
+Azure Private endpoints support application security Groups for network security. Private endpoints can be associated with an existing ASG in your current infrastructure along side virtual machines and other network resources.
 
 ## Prerequisites
 
-- <!-- prerequisite 1 -->
-- <!-- prerequisite 2 -->
-- <!-- prerequisite n -->
-<!-- remove this section if prerequisites are not needed -->
+- An Azure account with an active subscription. If you don't already have an Azure account, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-<!-- 4. H2s 
-Required. A how-to article explains how to do a task. The bulk of each H2 should be 
-a procedure.
--->
+- An Azure web app with a *PremiumV2-tier* or higher app service plan, deployed in your Azure subscription.  
 
-## [Section 1 heading]
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+    - For more information and an example, see [Quickstart: Create an ASP.NET Core web app in Azure](../app-service/quickstart-dotnetcore.md). 
+    
+    - The example webapp in this article is named **myWebApp1979**. Replace the example with your webapp name.
 
-## [Section 2 heading]
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+- An existing Application Security Group in your subscription. For more information about ASGs, see [Application security groups](../virtual-network/application-security-groups.md).
+    
+    - The example ASG used in this article is named **myASG**. Replace the example with your application security group.
 
-## [Section n heading]
-<!-- Introduction paragraph -->
-1. <!-- Step 1 -->
-1. <!-- Step 2 -->
-1. <!-- Step n -->
+- An existing Azure Virtual Network and subnet in your subscription. For more information about creating a virtual network, see [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md).
 
-<!-- 5. Next steps
-Required. Provide at least one next step and no more than three. Include some 
-context so the customer can determine why they would click the link.
--->
+    - The example virtual network used in this article is named **myVNet**. Replace the example with your virtual network.
+    
+- The latest version of the Azure CLI, installed.
+
+   Check your version of the Azure CLI in a terminal or command window by running `az --version`. For the latest version, see the most recent [release notes](/cli/azure/release-notes-azure-cli?tabs=azure-cli).
+  
+   If you don't have the latest version of the Azure CLI, update it by following the [installation guide for your operating system or platform](/cli/azure/install-azure-cli).
+
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. To find the installed version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install the Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure. 
+
+## Create private endpoint with an ASG
+
+An ASG can be associated with a private endpoint when it's created. The following procedures demonstrate how to associate an ASG with a private endpoint when it's created.
+
+# [**Portal**](#tab/portal)
+
+1. Sign-in to the [Azure portal](https://portal.azure.com).
+
+2. In the search box at the top of the portal, enter **Private endpoint**. Select **Private endpoints** in the search results.
+
+3. Select **+ Create** in **Private endpoints**.
+
+4. In the **Basics** tab of **Create a private endpoint**, enter or select the following information.
+
+    | Value | Setting |
+    | ----- | ------- |
+    | **Project details** |   |
+    | Subscription | Select your subscription. |
+    | Resource group | Select your resource group. </br> In this example, it's **myResourceGroup**. |
+    | **Instance details** |   |
+    | Name | Enter **myPrivateEndpoint**. |
+    | Region | Select **East US**. |
+
+5. Select **Next: Resource** at the bottom of the page.
+
+6. In the **Resource** tab, enter or select the following information.
+
+    | Value | Setting |
+    | ----- | ------- |
+    | Connection method | Select **Connect to an Azure resource in my directory.** |
+    | Subscription | Select your subscription |
+    | Resource type | Select **Microsoft.Web/sites**. |
+    | Resource | Select **mywebapp1979**. |
+    | Target sub-resource | Select **sites**. |
+
+7. Select **Next: Virtual Network** at the bottom of the page.
+
+8. In the **Virtual Network** tab, enter or select the following information.
+
+    | Value | Setting |
+    | ----- | ------- |
+    | **Networking** |   |
+    | Virtual network | Select **myVNet**. |
+    | Subnet | Select your subnet. </br> In this example, it's **myVNet/myBackendSubnet(10.0.0.0/24)**. |
+    | Enable network policies for all private endpoints in this subnet. | Leave the default of checked. |
+    | **Application security group** |   |
+    | Application security group | Select **myASG**. |
+
+9. Select **Next: DNS** at the bottom of the page.
+
+10. Select **Next: Tags** at the bottom of the page.
+
+11. Select **Next: Review + create**.
+
+12. Select **Create**.
+
+# [**PowerShell**](#tab/powershell)
+
+```azurepowershell-interactive
+## Place the previously created webapp into a variable. ##
+$webapp = Get-AzWebApp -ResourceGroupName myResourceGroup -Name myWebApp1979
+
+## Create the private endpoint connection. ## 
+$pec = @{
+    Name = 'myConnection'
+    PrivateLinkServiceId = $webapp.ID
+    GroupID = 'sites'
+}
+$privateEndpointConnection = New-AzPrivateLinkServiceConnection @pec
+
+## Place the virtual network you created previously into a variable. ##
+$vnet = Get-AzVirtualNetwork -ResourceGroupName 'myResourceGroup' -Name 'myVNet'
+
+## Place teh application security group you created previously into a variable. ##
+$asg = Get-AzApplicationSecurityGroup -ResourceGroupName 'myResourceGroup' -Name 'myASG'
+
+## Create the private endpoint. ##
+$pe = @{
+    ResourceGroupName = 'myResourceGroup'
+    Name = 'myPrivateEndpoint'
+    Location = 'eastus'
+    Subnet = $vnet.Subnets[0]
+    PrivateLinkServiceConnection = $privateEndpointConnection
+    ApplicationSecurityGroup = $asg.Id
+}
+New-AzPrivateEndpoint @pe
+```
+
+# [**CLI**](#tab/cli)
+
+```azurecli-interactive
+id=$(az webapp list \
+    --resource-group myResourceGroup \
+    --query '[].[id]' \
+    --output tsv)
+
+az network private-endpoint create \
+    --connection-name myConnection
+    --name myPrivateEndpoint \
+    --private-connection-resource-id $id \
+    --resource-group myResourceGroup \
+    --subnet myBackendSubnet \
+    --asg myASG \
+    --group-id sites \
+    --vnet-name myVNet    
+```
+
+---
+
+## Associate an ASG with an existing private endpoint
+
+An ASG can be associated with an existing private endpoint. The following procedures demonstrate how to associate an ASG with an existing private endpoint.
+
+> [!IMPORTANT]
+> You must have a previously deployed private endpoint to proceed with the steps in this section. The example endpoint used in this section is named **myPrivateEndpoint**. Replace the example with your private endpoint.
+
+# [**Portal**](#tab/portal)
+
+1. Sign-in to the [Azure portal](https://portal.azure.com).
+
+2. In the search box at the top of the portal, enter **Private endpoint**. Select **Private endpoints** in the search results.
+
+3. In **Private endpoints**, select **myPrivateEndpoint**.
+
+4. 
+
+# [**CLI**](#tab/cli)
+
+
+
+
+
+
+---
+
+
 
 ## Next steps
 <!-- Add a context sentence for the following links -->
