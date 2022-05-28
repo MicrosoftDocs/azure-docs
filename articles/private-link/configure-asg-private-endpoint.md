@@ -73,7 +73,7 @@ An ASG can be associated with a private endpoint when it's created. The followin
     | Subscription | Select your subscription |
     | Resource type | Select **Microsoft.Web/sites**. |
     | Resource | Select **mywebapp1979**. |
-    | Target sub-resource | Select **sites**. |
+    | Target subresource | Select **sites**. |
 
 7. Select **Next: Virtual Network** at the bottom of the page.
 
@@ -192,7 +192,7 @@ az network private-endpoint asg add \
 
 ## Next steps
 
-For more information about Azure Private Link, see
+For more information about Azure Private Link, see:
 
 - [What is Azure Private Link?](private-link-overview.md)
 
