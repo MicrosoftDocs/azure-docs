@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
-ms.date: 05/16/2022
+ms.date: 05/28/2022
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40, has-adal-ref
@@ -369,7 +369,7 @@ Next, also inside the `ViewController` class, replace the `viewDidLoad()` method
 
 ### Initialize MSAL
 
-Add the following `initMSAL` method to the `ViewController` class:
+To the `ViewController` class, add the `initMSAL` method:
 
 ```swift
     func initMSAL() throws {
@@ -387,7 +387,7 @@ Add the following `initMSAL` method to the `ViewController` class:
     }
 ```
 
-Add the following after `initMSAL` method to the `ViewController` class.
+Still in the `ViewController` class and after the `initMSAL` method, add the `initWebViewParams` method:
 
 ### iOS code:
 
@@ -405,7 +405,7 @@ func initWebViewParams() {
     }
 ```
 
-### For iOS only, handle the sign-in callback
+### Handle the sign-in callback (iOS only)
 
 Open the _AppDelegate.swift_ file. To handle the callback after sign-in, add `MSALPublicClientApplication.handleMSALResponse` to the `appDelegate` class like this:
 
