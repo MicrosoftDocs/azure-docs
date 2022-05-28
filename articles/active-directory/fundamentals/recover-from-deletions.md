@@ -21,7 +21,7 @@ This article addresses recovering from soft and hard deletions in your Azure Act
 
 ## Monitor for deletions
 
-The [Azure AD Audit log](../reports-monitoring/concept-audit-logs.md) contains information on all delete operations performed in your tenant. Export these logs to a security information and event management (SIEM) tool such as [Microsoft Sentinel](../../sentinel/overview.md).
+The [Azure AD Audit log](../reports-monitoring/concept-audit-logs.md) contains information on all delete operations performed in your tenant. Export these logs to a security information and event management tool such as [Microsoft Sentinel](../../sentinel/overview.md).
 
 You can also use Microsoft Graph to audit changes and build a custom solution to monitor differences over time. For more information on how to find deleted items by using Microsoft Graph, see [List deleted items - Microsoft Graph v1.0](/graph/api/directory-deleteditems-list?tabs=http).
 
@@ -29,7 +29,7 @@ You can also use Microsoft Graph to audit changes and build a custom solution to
 
 The Audit log always records a "Delete \<object\>" event when an object in the tenant is removed from an active state by either a soft or hard deletion.
 
-[![Screenshot that shows an audit log with deletions.](./media/recoverability/delete-audit-log.png)](./media/recoverability/delete-audit-log.png#lightbox)
+[![Screenshot that shows an Audit log with deletions.](./media/recoverability/delete-audit-log.png)](./media/recoverability/delete-audit-log.png#lightbox)
 
 A delete event for applications, users, and Microsoft 365 Groups is a soft delete. For any other object type, it's a hard delete. Track the occurrence of hard-delete events by comparing "Delete \<object\>" events with the type of object that was deleted. Note the events that don't support soft delete. Also note "Hard Delete \<object\>" events.
 
@@ -44,7 +44,7 @@ A delete event for applications, users, and Microsoft 365 Groups is a soft delet
 | All other objects| Delete "objectType"| Hard deleted |
 
 > [!NOTE]
-> The audit log doesn't distinguish the group type of a deleted group. Only Microsoft 365 Groups are soft deleted. If you see a Delete group entry, it might be the soft delete of a Microsoft 365 Group or the hard delete of another type of group.
+> The Audit log doesn't distinguish the group type of a deleted group. Only Microsoft 365 Groups are soft deleted. If you see a Delete group entry, it might be the soft delete of a Microsoft 365 Group or the hard delete of another type of group.
 >
 >*It's important that your documentation of your known good state includes the group type for each group in your organization*. To learn more about documenting your known good state, see [Recoverability best practices](recoverability-overview.md).
 
@@ -93,9 +93,9 @@ The most frequent scenarios for application deletion are:
 
 | Object type| Important properties maintained |
 | - | - |
-| Users (which includes external users)| *All properties maintained*, which includes ObjectID, group memberships, roles, licenses, and application assignments. |
-| Microsoft 365 Groups| *All properties maintained*, which includes ObjectID, group memberships, licenses, and application assignments. |
-| Application registration| *All properties maintained.* (See more information following this table.) |
+| Users (which includes external users)| *All properties are maintained*, which includes ObjectID, group memberships, roles, licenses, and application assignments. |
+| Microsoft 365 Groups| *All properties are maintained*, which includes ObjectID, group memberships, licenses, and application assignments. |
+| Application registration| *All properties are maintained.* (See more information following this table.) |
 
 When you delete an application, the application registration by default enters the soft-delete state. To understand the relationship between application registrations and service principals, see [Apps and service principals in Azure AD - Microsoft identity platform](../develop/app-objects-and-service-principals.md).
 
@@ -105,18 +105,18 @@ You can restore soft-deleted items in the Azure portal or with Microsoft Graph.
 
 ### Users
 
-You can see soft-deleted users in the Azure portal on the **Users – Deleted users** page.
+You can see soft-deleted users in the Azure portal on the **Users | Deleted users** page.
 
 ![Screenshot that shows restoring users in the Azure portal.](media/recoverability/deletion-restore-user.png)
 
 For more information on how to restore users, see the following documentation:
 
-* See [Restore or permanently remove recently deleted user](active-directory-users-restore.md) for restoring in the Azure portal.
-* See [Restore deleted item – Microsoft Graph v1.0](/graph/api/directory-deleteditems-restore?tabs=http) for restoring with Microsoft Graph.
+* To restore from the Azure portal, see [Restore or permanently remove recently deleted user](active-directory-users-restore.md).
+* To restore by using Microsoft Graph, see [Restore deleted item – Microsoft Graph v1.0](/graph/api/directory-deleteditems-restore?tabs=http).
 
 ### Groups
 
-You can see soft-deleted Microsoft 365 Groups in the Azure portal on the **Groups – Deleted groups** screen.
+You can see soft-deleted Microsoft 365 Groups in the Azure portal on the **Groups | Deleted groups** page.
 
 ![Screenshot that shows restoring groups in the Azure portal.](media/recoverability/deletion-restore-groups.png)
 
@@ -129,7 +129,7 @@ For more information on how to restore soft-deleted Microsoft 365 Groups, see th
 
 Applications have two objects, the application registration and the service principle. For more information on the differences between the registration and the service principal, see [Apps and service principals in Azure AD.](/develop/app-objects-and-service-principals.md)
 
-To restore an application from the Azure portal, select **App registrations** and then select **Deleted applications**. Select the application registration to restore, and then select **Restore app registration**.
+To restore an application from the Azure portal, select **App registrations** > **Deleted applications**. Select the application registration to restore, and then select **Restore app registration**.
 
 [![Screenshot that shows the app registration restore process in the azure portal.](./media/recoverability/deletion-restore-application.png)](./media/recoverability/deletion-restore-application.png#lightbox)
 
@@ -142,7 +142,7 @@ A hard deletion is the permanent removal of an object from your Azure AD tenant.
 * Application registration
 
 > [!IMPORTANT]
-> All other item types are hard deleted. When an item is hard deleted, it can't be restored. It must be re-created. Neither administrators nor Microsoft can restore hard-deleted items. It's important to prepare for this situation by ensuring that you have processes and documentation to minimize potential disruption from a hard delete.
+> All other item types are hard deleted. When an item is hard deleted, it can't be restored. It must be re-created. Neither administrators nor Microsoft can restore hard-deleted items. Prepare for this situation by ensuring that you have processes and documentation to minimize potential disruption from a hard delete.
 >
 > For information on how to prepare for and document current states, see [Recoverability best practices](recoverability-overview.md).
 

@@ -23,7 +23,7 @@ Configuration settings in Azure Active Directory (Azure AD) can affect any resou
 
 Configurations are any changes in Azure AD that alter the behavior or capabilities of an Azure AD service or feature. For example, when you configure a Conditional Access policy, you alter who can access the targeted applications and under what circumstances.
 
-It's important to understand the configuration items that are important to your organization. The following configurations have a high impact on your security posture.
+You need to understand the configuration items that are important to your organization. The following configurations have a high impact on your security posture.
 
 ### Tenant-wide configurations
 
@@ -39,7 +39,7 @@ It's important to understand the configuration items that are important to your 
   * Trigger Conditional Access policies like multifactor authentication.
 
 * **Allowed authentication methods**: Global administrators set the authentication methods allowed for the tenant.
-* **Self-service options**: Global administrators set self-service options like self-service-password reset and create Office 365 groups at the tenant level.
+* **Self-service options**: Global administrators set self-service options like self-service password reset and create Office 365 groups at the tenant level.
 
 The implementation of some tenant-wide configurations can be scoped, provided they aren't overridden by global administration policies. For example:
 
