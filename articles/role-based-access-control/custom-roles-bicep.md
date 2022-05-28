@@ -88,7 +88,7 @@ Get-AzRoleDefinition "Custom Role - RG Reader"
 
 Similar to creating a custom role, you can update an existing custom role using Bicep. To update a custom role, you need to specify the role you want to update.
 
-Here are the changes you would need to make to the previous Bicep file to update the custom role:
+Here are the changes you would need to make to the previous Bicep file to update the name of the custom role:
 
 - Include the role ID as a parameter.
 
@@ -100,31 +100,42 @@ Here are the changes you would need to make to the previous Bicep file to update
 
     ```
 
-- Add the role ID as a parameter. Remove the variable named roleDefName.
+- Remove the roleDefName variable. You'll get a warning if you have a parameter and variable with the same name.
 
-    ```bicep
-    ...
-    resource roleDef 'Microsoft.Authorization/roleDefinitions@2018-07-01' = {
-        name: roleDefName
-        properties : {
-        ...
-    ```
-
-Then, use Azure CLI or Azure PowerShell to deploy the updated Bicep file.
+To deploy the updated Bicep file, you need to specify the roleDefName. Use Azure CLI or Azure PowerShell to get the name.
 
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
-az deployment sub create --location eastus --name customrole --template-file main.bicep --parameters actions='("Microsoft.Resources/subscriptions/resourceGroups/read", "Microsoft.Resources/subscriptions/read")' roleDefName="name-id" roleName="Custom Role - RG Reader updated"
+az role definition list --name "Custom Role - RG Reader"
 ```
 
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-New-AzSubscriptionDeployment -Location eastus -Name customrole -TemplateFile ./main.bicep -actions $actions -roleDefName "name-id" -roleName "Custom Role - RG Reader updated"
+Get-AzRoleDefinition -Name "Custom Role - RG Reader"
 ```
 
 ---
+
+Then, use Azure CLI or Azure PowerShell to deploy the updated Bicep file, replacing **<\name-id\>** with the roleDefName.
+
+# [CLI](#tab/CLI)
+
+```azurecli-interactive
+az deployment sub create --location eastus --name customrole --template-file main.bicep --parameters actions='("Microsoft.Resources/subscriptions/resourceGroups/read", "Microsoft.Resources/subscriptions/read")' roleDefName="name-id" roleName="Custom Role - RG Reader"
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell-interactive
+New-AzSubscriptionDeployment -Location eastus -Name customrole -TemplateFile ./main.bicep -actions $actions -roleDefName "name-id" -roleName "Custom Role - RG Reader"
+```
+
+---
+
+> [!NOTE]
+> It may take several minutes for the updated role definition to be propagated.
 
 ## Clean up resources
 
@@ -141,9 +152,6 @@ az role definition delete --name "Custom Role - RG Reader"
 ```azurepowershell-interactive
 Remove-AzRoleDefinition -Name "Custom Role - RG Reader"
 ```
-
-> [!NOTE]
-> If you ran the update command, you need to instead pass "Custom Role - RG Reader updated".
 
 ---
 
