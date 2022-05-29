@@ -59,27 +59,33 @@ cp -Rp sap-automation/samples/WORKSPACES WORKSPACES
 
 ```
 
+Run the following command to deploy the control plane:
+
 ```bash
-cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
 
 az logout
 az login
-export DEPLOYMENT_REPO_PATH=~/Azure_SAP_Automated_Deployment/sap-automation
-export  ARM_SUBSCRIPTION_ID=<subscriptionID>
-export       subscriptionID=<subscriptionID>
-export               spn_id=<appID>
-export           spn_secret=<password>
-export            tenant_id=<tenant>
-export          region_code=WEEU
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
 
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                                                                            \
-        --deployer_parameter_file DEPLOYER/MGMT-${region_code}-DEP00-INFRASTRUCTURE/MGMT-${region_code}-DEP00-INFRASTRUCTURE.tfvars \
-        --library_parameter_file LIBRARY/MGMT-${region_code}-SAP_LIBRARY/MGMT-${region_code}-SAP_LIBRARY.tfvars                     \
-        --subscription $subscriptionID                                                                                              \
-        --spn_id "${spn_id}"                                                                                                        \
-        --spn_secret "${spn_secret}"                                                                                                \
-        --tenant_id "${tenant_id}"
-```
+    export subscriptionId="<subscriptionId>"
+    export         spn_id="<appId>"
+    export     spn_secret="<password>"
+    export      tenant_id="<tenantId>"
+    export       env_code="MGMT"
+    export    region_code="<region_code>"
+
+    export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
+    export ARM_SUBSCRIPTION_ID="${subscriptionId}"
+
+    ${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                                                                                       \
+        --deployer_parameter_file DEPLOYER/${env_code}-${region_code}-DEP00-INFRASTRUCTURE/${env_code}-${region_code}-DEP00-INFRASTRUCTURE.tfvars  \
+        --library_parameter_file LIBRARY/${env_code}-${region_code}-SAP_LIBRARY/${env_code}-${region_code}-SAP_LIBRARY.tfvars                      \
+        --subscription "${subscriptionId}"                                                                                                         \
+        --spn_id "${spn_id}"                                                                                                                       \
+        --spn_secret "${spn_secret}"                                                                                                               \
+        --tenant_id "${tenant_id}"                                                                                                                 \
+        --auto-approve
+    ```
 
 # [Windows](#tab/windows)
 
