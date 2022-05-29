@@ -21,10 +21,10 @@ With automation rules, you can:
 
 ## Identify SOAR use cases
 
-Here’s what you need to think about when migrating SOAR use cases from your original SIEM.
+Here’s what you need to think about when migrating SOAR use cases from Splunk.
 - **Use case quality**. Choose good use cases for automation. Use cases should be based on procedures that are clearly defined, with minimal variation, and a very low false-positive rate. Automation should work with efficient use cases.
-- **Manual intervention**. Automated response can have wide ranging effects and high impact automations should have human input to confirm actions before they’re taken.
-- **Binary criteria**. To increase response success, decision points within an automated workflow should be as limited as possible, with binary criteria.  This educes the need for human intervention as, and enhances outcome predictability.
+- **Manual intervention**. Automated response can have wide ranging effects and high impact automations should have human input to confirm high impact actions before they’re taken.
+- **Binary criteria**. To increase response success, decision points within an automated workflow should be as limited as possible, with binary criteria. This reduces the need for human intervention, and enhances outcome predictability.
 - **Accurate alerts or data**. Response actions are dependent on the accuracy of signals such as alerts. Alerts and enrichment sources should be reliable. Microsoft Sentinel resources such as watchlists and reliable threat intelligence can enhance reliability.
 - **Analyst role**. While automation where possible is great, reserve more complex tasks for analysts, and provide them with the opportunity for input into workflows that require validation. In short, response automation should augment and extend analyst capabilities. 
 
@@ -34,13 +34,13 @@ This section shows how key SOAR concepts in Splunk translate to Microsoft Sentin
 
 :::image type="content" source="media/migration-splunk-automation/splunk-sentinel-soar-workflow.png" alt-text="Diagram displaying the Splunk and Microsoft Sentinel SOAR workflows." lightbox="media/migration-splunk-automation/splunk-sentinel-soar-workflow.png":::
 
-|Splunk  |Microsoft Sentinel |
+|Step (in diagram) |Splunk  |Microsoft Sentinel |
 |---------|---------|
-|Ingest events into main indexer.     |Ingest events into the Log Analytics workspace.     |
-|Ingest containers.     |Tag incidents using the [custom details feature](surface-custom-details-in-alerts.md).   |
-|Ingest cases. |Microsoft Sentinel can automatically group incidents according to user-defined criteria, such as shared entities or severity. These alerts then generate incidents.  |
-|Ingest playbooks. |Azure Logic Apps uses several connectors to orchestrate activities across Microsoft Sentinel, Azure, third party and hybrid cloud environments. |
-|Ingest workbooks. |Microsoft Sentinel executes playbooks either in isolation or as part of an ordered automation rule. You can also execute playbooks manually against alerts or incidents, according to a predefined Security Operations Center (SOC) procedure. |
+|1 |Ingest events into main index.     |Ingest events into the Log Analytics workspace.     |
+|2 |Create containers.     |Tag incidents using the [custom details feature](surface-custom-details-in-alerts.md).   |
+|3 |Create cases. |Microsoft Sentinel can automatically group incidents according to user-defined criteria, such as shared entities or severity. These alerts then generate incidents.  |
+|4 |Create playbooks. |Azure Logic Apps uses several connectors to orchestrate activities across Microsoft Sentinel, Azure, third party and hybrid cloud environments. |
+|4 |Create workbooks. |Microsoft Sentinel executes playbooks either in isolation or as part of an ordered automation rule. You can also execute playbooks manually against alerts or incidents, according to a predefined Security Operations Center (SOC) procedure. |
 
 ## Map SOAR components 
 

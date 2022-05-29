@@ -21,10 +21,10 @@ With automation rules, you can:
 
 ## Identify SOAR use cases
 
-Here’s what you need to think about when migrating SOAR use cases from your original SIEM.
+Here’s what you need to think about when migrating SOAR use cases from ArcSight.
 - **Use case quality**. Choose good use cases for automation. Use cases should be based on procedures that are clearly defined, with minimal variation, and a very low false-positive rate. Automation should work with efficient use cases.
-- **Manual intervention**. Automated response can have wide ranging effects and high impact automations should have human input to confirm actions before they’re taken.
-- **Binary criteria**. To increase response success, decision points within an automated workflow should be as limited as possible, with binary criteria.  This educes the need for human intervention as, and enhances outcome predictability.
+- **Manual intervention**. Automated response can have wide ranging effects and high impact automations should have human input to confirm high impact actions before they’re taken.
+- **Binary criteria**. To increase response success, decision points within an automated workflow should be as limited as possible, with binary criteria. This reduces the need for human intervention, and enhances outcome predictability.
 - **Accurate alerts or data**. Response actions are dependent on the accuracy of signals such as alerts. Alerts and enrichment sources should be reliable. Microsoft Sentinel resources such as watchlists and reliable threat intelligence can enhance reliability.
 - **Analyst role**. While automation where possible is great, reserve more complex tasks for analysts, and provide them with the opportunity for input into workflows that require validation. In short, response automation should augment and extend analyst capabilities. 
 
@@ -34,13 +34,13 @@ This section shows how key SOAR concepts in ArcSight translate to Microsoft Sent
 
 :::image type="content" source="media/migration-arcsight-automation/arcsight-sentinel-soar-workflow.png" alt-text="Diagram displaying the ArcSight and Microsoft Sentinel SOAR workflows." lightbox="media/migration-arcsight-automation/arcsight-sentinel-soar-workflow.png":::
 
-|ArcSight  |Microsoft Sentinel |
-|---------|---------|
-|Ingest events into Enterprise Security Manager (ESM) trigger correlation events.     |Ingest events into the Log Analytics workspace.     |
-|Automatically filter alerts for case creation.     |Use [analytics rules](detect-threats-built-in#use-built-in-analytics-rules.md) to trigger alerts. Enrich alerts using the [custom details feature](surface-custom-details-in-alerts.md).   |
-|Classify incidents |Use [automation rules](automate-incident-handling-with-automation-rules.md). With automation rules, Microsoft Sentinel treats incidents according to the analytics rule that triggered the incident, and the incident properties that match defined criteria. |
-|Consolidate incidents |You can consolidate several alerts to a single incident according to properties such as matching entities, alert details, or creation timeframe, using the alert grouping feature. |
-|Dispatch incidents |Assign incidents to specific analysts using [an integration](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/automate-incident-assignment-with-shifts-for-teams/ba-p/2297549) between Microsoft Teams, Azure Logic Apps, and Microsoft Sentinel automation rules. |
+|Step (in diagram) |ArcSight  |Microsoft Sentinel |
+|---------|---------|---------|
+|1 |Ingest events into Enterprise Security Manager (ESM) and trigger correlation events.     |Ingest events into the Log Analytics workspace.     |
+|2 |Automatically filter alerts for case creation.     |Use [analytics rules](detect-threats-built-in#use-built-in-analytics-rules.md) to trigger alerts. Enrich alerts using the [custom details feature](surface-custom-details-in-alerts.md) to create dynamic incident names.   |
+|3 |Classify cases |Use [automation rules](automate-incident-handling-with-automation-rules.md). With automation rules, Microsoft Sentinel treats incidents according to the analytics rule that triggered the incident, and the incident properties that match defined criteria. |
+|4 |Consolidate cases |You can consolidate several alerts to a single incident according to properties such as matching entities, alert details, or creation timeframe, using the alert grouping feature. |
+|5 |Dispatch cases |Assign incidents to specific analysts using [an integration](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/automate-incident-assignment-with-shifts-for-teams/ba-p/2297549) between Microsoft Teams, Azure Logic Apps, and Microsoft Sentinel automation rules. |
 
 ## Map SOAR components 
 
@@ -55,15 +55,6 @@ Review which Microsoft Sentinel or Azure Logic Apps features map to the main Arc
 |Workflow playbooks     |Playbooks automatically initiated by Microsoft Sentinel [alert or incident triggers](playbook-triggers-actions.md)         |
 |Marketplace     |• [Automation > Templates tab](use-playbook-templates.md)<br>• [Content hub catalog](sentinel-solutions-catalog.md)<br>• [GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Block-OnPremADUser) |
 
-## SOAR post migration best practices
-
-Here are best practices you should take into account after your SOAR migration:
-
-- After you migrate your playbooks, test the playbooks extensively to ensure that the migrated actions work as expected.
-- Periodically review your automations to explore ways to further simplify or enhance your SOAR. Microsoft Sentinel constantly adds new connectors and actions that can help you to further simplify or increase the effectiveness of your current response implementations.
-- Monitor the performance of your playbooks using the [Playbooks health monitoring workbook](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/what-s-new-monitoring-your-logic-apps-playbooks-in-azure/ba-p/1873211).
-- Use managed identities and service principals to authenticate against various Azure services within your Logic Apps, store the secrets in Azure Key Vault, and obscure the flow execution output. we also recommend that you  [monitor the activities of these service principals](https://techcommunity.microsoft.com/t5/azure-sentinel/non-interactive-logins-minimizing-the-blind-spot/ba-p/2287932).
-
 ## Operationalize playbooks and automation rules in Microsoft Sentinel
 
 While most of the playbooks that you use with Microsoft Sentinel are available in either the [Automation > Templates tab](use-playbook-templates.md), the [Content hub catalog](sentinel-solutions-catalog.md), or [GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Block-OnPremADUser), in some cases, you might need to create playbooks from scratch or from existing templates.
@@ -76,3 +67,12 @@ Use these resources for cases where you need to build your own playbooks either 
 - [Tutorial: Use playbooks with automation rules in Azure Sentinel](tutorial-respond-threats-playbook.md)
 - [How to use Azure Sentinel for Incident Response, Orchestration and Automation](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/how-to-use-azure-sentinel-for-incident-response-orchestration/ba-p/2242397)
 - [Adaptive Cards to enhance incident response in Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/using-microsoft-teams-adaptive-cards-to-enhance-incident/ba-p/3330941)
+
+## SOAR post migration best practices
+
+Here are best practices you should take into account after your SOAR migration:
+
+- After you migrate your playbooks, test the playbooks extensively to ensure that the migrated actions work as expected.
+- Periodically review your automations to explore ways to further simplify or enhance your SOAR. Microsoft Sentinel constantly adds new connectors and actions that can help you to further simplify or increase the effectiveness of your current response implementations.
+- Monitor the performance of your playbooks using the [Playbooks health monitoring workbook](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/what-s-new-monitoring-your-logic-apps-playbooks-in-azure/ba-p/1873211).
+- Use managed identities and service principals to authenticate against various Azure services within your Logic Apps, store the secrets in Azure Key Vault, and obscure the flow execution output. we also recommend that you  [monitor the activities of these service principals](https://techcommunity.microsoft.com/t5/azure-sentinel/non-interactive-logins-minimizing-the-blind-spot/ba-p/2287932).
