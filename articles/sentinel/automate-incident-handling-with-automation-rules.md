@@ -167,6 +167,22 @@ You can add expiration dates for your automation rules. There may be cases other
 
 You can automatically add free-text tags to incidents to group or classify them according to any criteria of your choosing.
 
+## Use cases added by update trigger
+
+Now that changes made to incidents can trigger automation rules, more scenarios are open to automation. 
+
+### Extend automation when incident evolves
+
+You can use the update trigger to apply many of the above use cases to incidents as their investigation progresses and analysts add alerts, comments, and tags. Control alert grouping in incidents.
+
+### Update orchestration and notification
+
+Notify your various teams and other personnel when changes are made to incidents, so they won't miss any critical updates. Escalate incidents by assigning them to new owners and informing the new owners of their assignments. Control when and how incidents are reopened.
+
+### Maintain synchronization with external systems
+
+If you've used playbooks to create tickets in external systems when incidents are created, you can use an update-trigger automation rule to call a playbook that will update those tickets.
+
 ## Automation rules execution
 
 Automation rules are run sequentially, according to the order you determine. Each automation rule is executed after the previous one has finished its run. Within an automation rule, all actions are run sequentially in the order in which they are defined.
@@ -178,7 +194,6 @@ Playbook actions within an automation rule may be treated differently under some
 | Less than a second | Immediately after playbook is completed |
 | Less than two minutes | Up to two minutes after playbook began running,<br>but no more than 10 seconds after the playbook is completed |
 | More than two minutes | Two minutes after playbook began running,<br>regardless of whether or not it was completed |
-|
 
 ### Permissions for automation rules to run playbooks
 
