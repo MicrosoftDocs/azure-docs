@@ -110,10 +110,10 @@ cp -R sap-automation/samples/WORKSPACES WORKSPACES
 ```bash
 
 export subscriptionID="<subscriptionID>"
-export spn_id="<appID>"
-export spn_secret="<password>"
-export tenant_id="<tenant>"
-export region_code="WEEU"
+export         spn_id="<appID>"
+export     spn_secret="<password>"
+export      tenant_id="<tenant>"
+export    region_code="WEEU"
 export storageaccount="<storageaccount>"
 export keyvault="<keyvault>"
 
@@ -172,7 +172,21 @@ New-SAPWorkloadZone -Parameterfile DEV-$region_code-SAP01-INFRASTRUCTURE.tfvars
 > Replace `<storageaccount>` with the name of the storage account containing the Terraform state files
 > Replace `<statefile_subscription>` with the subscription ID for the storage account containing the Terraform state files
 
+# [Azure DevOps](#tab/devops)
+
+Open (https://dev.azure.com) and go to your Azure DevOps Services project.
+
+> [!NOTE]
+> Ensure that the 'Deployment_Configuration_Path' variable in the 'SDAF-General' variable group is set to the folder that contains your configuration files, for this example you can use 'samples/WORKSPACES'.
+
+The deployment will use the configuration defined in the Terraform variable file located in the 'samples/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE' folder. 
+
+Run the pipeline by selecting the _Deploy workload zone_ pipeline from the Pipelines section. Enter the workload zone configuration name and the deployer environment name. Use 'DEV-WEEU-SAP01-INFRASTRUCTURE' as the Workload zone configuration name and 'MGMT' as the Deployer Environment Name.
+
+You can track the progress in the Azure DevOps Services portal. Once the deployment is complete, you can see the Workload Zone details in the _Extensions_ tab.
+
 ---
+
 
 > [!TIP]
 > If the scripts fail to run, it can sometimes help to clear the local cache files by removing `~/.sap_deployment_automation/` and `~/.terraform.d/` directories before running the scripts again.

@@ -322,12 +322,12 @@ By default the SAP System deployment uses the credentials from the SAP Workload 
 > | `ANF_shared_volume_name`           | Azure NetApp Files volume name for HANA shared.                        | Optional     |        |
 > | `ANF_HANA_shared_volume_size`      | Azure NetApp Files volume size in GB for HANA shared.                  | Optional     | default size 128      |
 > |                                    |                                                                        |              |        |
-> | `ANF_use_for_sapmnt`               | Create Azure NetApp Files volume for sapmnt     .                      | Optional     |        |
+> | `ANF_use_for_sapmnt`               | Create Azure NetApp Files volume for sapmnt.                           | Optional     |        |
 > | `ANF_use_existing_sapmnt_volume`   | Use existing Azure NetApp Files volume for sapmnt.                     | Optional     | Use for pre-created volumes       |
 > | `ANF_sapmnt_volume_name`           | Azure NetApp Files volume name for sapmnt.                             | Optional     |        |
 > | `ANF_sapmnt_volume_size`           | Azure NetApp Files volume size in GB for sapmnt.                       | Optional     | default size 128      |
 > |                                    |                                                                        |              |        |
-> | `ANF_use_for_usrsap`               | Create Azure NetApp Files volume for usrsap     .                      | Optional     |        |
+> | `ANF_use_for_usrsap`               | Create Azure NetApp Files volume for usrsap.                           | Optional     |        |
 > | `ANF_use_existing_usrsap_volume`   | Use existing Azure NetApp Files volume for usrsap.                     | Optional     | Use for pre-created volumes       |
 > | `ANF_usrsap_volume_name`           | Azure NetApp Files volume name for usrsap.                             | Optional     |        |
 > | `ANF_usrsap_volume_size`           | Azure NetApp Files volume size in GB for usrsap.                       | Optional     | default size 128      |

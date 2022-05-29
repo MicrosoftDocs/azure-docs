@@ -21,7 +21,6 @@ The control plane deployment for the [SAP deployment automation framework on Azu
 
 The SAP Deployment Frameworks uses Service Principals when doing the deployments. You can create the Service Principal for the Control Plane deployment using the following steps using an account with permissions to create Service Principals:
 
-
 ```azurecli
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscriptionID>" --name="<environment>-Deployment-Account"
   
@@ -108,13 +107,31 @@ cd C:\Azure_SAP_Automated_Deployment\WORKSPACES
 
 New-SAPAutomationRegion -DeployerParameterfile .\DEPLOYER\MGMT-WEEU-DEP00-INFRASTRUCTURE\MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars  -LibraryParameterfile .\LIBRARY\MGMT-WEEU-SAP_LIBRARY\MGMT-WEEU-SAP_LIBRARY.tfvars -Subscription $subscription -SPN_id $appId -SPN_password $spn_secret -Tenant_id $tenant_id
 ```
----
+
 
 
 > [!NOTE]
 > Be sure to replace the sample value `<subscriptionID>` with your subscription ID.
 > Replace the `<appID>`, `<password>`, `<tenant>` values with the output values of the SPN creation
 
+# [Azure DevOps](#tab/devops)
+
+Open (https://dev.azure.com) and and go to your Azure DevOps project.
+
+> [!NOTE]
+> Ensure that the 'Deployment_Configuration_Path' variable in the 'SDAF-General' variable group is set to the folder that contains your configuration files, for this example you can use 'samples/WORKSPACES'.
+
+The deployment will use the configuration defined in the Terraform variable files located in the 'samples/WORKSPACES/DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE' and 'samples/WORKSPACES/LIBRARY/MGMT-WEEU-SAP_LIBRARY' folders. 
+
+Run the pipeline by selecting the _Deploy control plane_ pipeline from the Pipelines section. Enter the configuration names for the deployer and the SAP library. Use 'MGMT-WEEU-DEP00-INFRASTRUCTURE' as the Deployer configuration name and 'MGMT-WEEU-SAP_LIBRARY' as the SAP Library configuration name.
+
+:::image type="content" source="media/automation-devops/automation-run-pipeline.png" alt-text="Picture showing the DevOps tutorial run pipeline dialog":::
+
+You can track the progress in the Azure DevOps portal. Once the deployment is complete, you can see the Control Plane details in the _Extensions_ tab.
+
+ :::image type="content" source="media/automation-devops/automation-run-pipeline-control-plane.png" alt-text="Picture showing the DevOps tutorial run pipeline results":::
+
+---
 
 ### Manually configure the deployer using Azure Bastion
 
@@ -154,9 +171,7 @@ cd sap-automation/deploy/scripts
 
 The script will install Terraform and Ansible and configure the deployer.
 
-### Manually configure the deployer (deployments without public IP)
-
-If you deploy the deployer without a public IP Terraform isn't able to configure the deployer Virtual Machine as it will not be able to connect to it. 
+### Manually configure the deployer
 
 > [!NOTE] 
 >You need to connect to the deployer virtual Machine from a computer that is able to reach the Azure Virtual Network
