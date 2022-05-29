@@ -94,7 +94,7 @@ This procedure describes how to add Defender for IoT to an Azure subscription. I
 1. Select **Next**.
 
 1. **Implementation services**. Select to add implementation services for this deployment. Implementation services are deployed remotely by an expert consultant.
-    - If you select **Yes**, fill in the site and contact details as requested, and you will be contacted regarding this service.
+    If you select **Yes**, enter the site and contact details as requested, and you will be contacted by our implementation service team.
 
 1. Select **Next**.
 
