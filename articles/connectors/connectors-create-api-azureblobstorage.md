@@ -111,7 +111,7 @@ To add a Blob trigger to a logic app workflow in single-tenant Azure Logic Apps,
 
       | Task | Path syntax |
       |------|-------------|
-      | Check the root folder and its nested sunfolders for a newly added blob. | **<*container-name*>** |
+      | Check the root folder and its nested subfolders for a newly added blob. | **<*container-name*>** |
       | Check the root folder for changes to a specific blob. | **<*container-name*>/<*blob-name*>.<*blob-extension*>** |
       | Check the root folder for changes to any blobs with the same extension, for example, **.txt**. | **<*container-name*>/{name}.txt** <br><br>**Important**: Make sure that you use **{name}** as a literal. |
       | Check the root folder for changes to any blobs with names starting with a specific string, for example, **Sample-**. | **<*container-name*>/Sample-{name}** <br><br>**Important**: Make sure that you use **{name}** as a literal. |
