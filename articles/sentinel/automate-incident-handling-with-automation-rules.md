@@ -49,88 +49,51 @@ The following table shows the different possible ways that incidents can be crea
 
 ### Conditions
 
-Complex sets of conditions can be defined to govern when actions (see below) should run. These conditions include the event that triggers the rule (incident created or updated), the states or values of the incident's properties and [entity properties](entities-reference.md), and sometimes the analytics rule that generated the incident as well.
+Complex sets of conditions can be defined to govern when actions (see below) should run. These conditions include the event that triggers the rule (incident created or updated), the states or values of the incident's properties and [entity properties](entities-reference.md), and the analytics rule or rules that generated the incident as well.
 
-When an automation rule is triggered, it checks the triggering incident against the conditions defined in the rule. The conditions are evaluated according to their state at the moment the evaluation occurs. Since a single incident creation or update event could trigger several automation rules, the **order** in which they run (see below) makes a difference in determining the outcome of the conditions' evaluation. The **actions** defined in the rule will run only if all the conditions are satisfied.
-
-Here's a summary of the types of conditions that can be defined in a rule, and how they are evaluated depending on the trigger:
+When an automation rule is triggered, it checks the triggering incident against the conditions defined in the rule. The property-based conditions are evaluated according to **the current state** of the property at the moment the evaluation occurs, or according to **changes in the state** of the property (see below for details). Since a single incident creation or update event could trigger several automation rules, the **order** in which they run (see below) makes a difference in determining the outcome of the conditions' evaluation. The **actions** defined in the rule will run only if all the conditions are satisfied.
 
 #### Incident creation trigger
 
-The following conditions evaluate to `true` if the property being evaluated has the specified value.
+For rules defined using the trigger **When an incident is created**, you can define conditions that check the **current state** of the values of a given list of incident properties, using one or more of the following operators:
 
-This is the case regardless of whether the incident *was created* with the property having the value, or if the property *was assigned* the value by another automation rule that ran when the incident was created. 
+| Property | Operator | Value types |
+| -------- | -------- | ----------- |
+| - Title<br>- Description<br>- Tag<br>- All entity properties | - Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with | \<free text> |
+| - Severity<br>- Status<br>- Incident provider | - Equals/Does not equal | \<single selection><br>(radio button)|
+| - Tactics<br>- Alert product names | - Contains/Does not contain | \<multiple selections><br>(check boxes)
 
-- `{property}` "Equals"/"Does not equal" `{value}`
-- `{property}` "Contains"/"Does not contain" `{value}`
-- `{property}` "Starts with"/"Does not start with" `{value}`
-- `{property}` "Ends with"/"Does not end with" `{value}`
+The **current state** in this context refers to the moment the condition is evaluated - that is, the moment the automation rule runs. If more than one automation rule is defined to run in response to the creation of this incident, then changes made to the incident by an earlier-run automation rule are considered the current state for later-run rules. So consider the following sequence as an example:
 
+- Incident is created with *low* severity and triggers two automation rules to run.
+- Rule 1 runs.
+    - A condition in Rule 1 is satisfied (say, an IP address in the incident matches a known bad actor).
+    - Rule 1's actions run and change the severity to *high*.
+- Rule 2 runs.
+    - A condition in Rule 2 evaluates the severity of the incident as *high*, meeting the condition's criteria.
+    - Rule 2's actions are executed as a result.
 
+#### Incident update trigger
 
+The conditions evaluated in rules defined using the trigger **When an incident is updated** include all of those listed for the incident creation trigger. But the update trigger includes more properties that can be evaluated.
 
+More to the point, the update trigger also checks **state changes** in the values of incident properties as well as their current state. A **state change** condition would be satisfied if:
 
+- An incident property's value was **changed** (regardless of the actual value before or after).
+- An incident property's value was **changed from** the value defined in the condition.
+- An incident property's value was **changed to** the value defined in the condition.
+- An incident property's value was **added** to (this applies to properties with a list of values).
 
+Here are the conditions that can be defined:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-```json
-{
-"conditions":[
-    {
-        "conditionType": "PropertyChanged",
-        "conditionProperties": {
-            "propertyName": "IncidentSeverity",
-            "state": "changedFrom",
-            "operator": "Equals",
-            "propertyValues":
-	    ["Low","Medium"]
-            }
-        },
-    {
-        "conditionType": "PropertyChanged",
-        "conditionProperties": {
-            "propertyName": "IncidentSeverity",
-            "state": "changedTo",
-            "operator": "Equals",
-            "propertyValues": 
-	   ["Medium","High"]
-                }
-            }
-        ]
-    }
-
-```
+| Property | Operator | Value types |
+| -------- | -------- | ----------- |
+| - Title<br>- Description<br>- Tag<br>- All entity properties | - Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with | \<free text> |
+| - Severity<br>- Status<br>- Incident provider<br>- *Updated by* | - Equals/Does not equal | \<single selection><br>(radio button)|
+| - *Owner* | - Changed | - |
+| - Severity<br>- Status | - Changed<br>- Changed from<br>- Changed to | - <br>\<single selection><br>(radio button)|
+| - Tactics<br>- Alert product names | - Contains/Does not contain | \<multiple selections><br>(check boxes)
+| - Tag<br>- Tactics<br>- *Alerts*<br>- *Comments* | - Added | - |
 
 ### Actions
 
