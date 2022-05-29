@@ -21,7 +21,7 @@ You are billed based on the number of committed devices associated with each sub
 
 The billing cycle for Microsoft Defender for IoT follows a calendar month. Changes you make to committed devices during the  month are implemented one hour after confirming your update and are reflected in your monthly bill. Removal of Defender for IoT from a subscription also takes effect one hour after removal.
 
-Your enterprise may have more than one paying entity. If so, you can onboard, edit or remove a plan for more than one subscription.
+Your enterprise may have more than one paying entity. If so, you can onboard, edit, or remove a plan for more than one subscription.
 
 Before you add a plan or services, we recommend that you have a sense of how many devices you would like your subscriptions to cover. If you're working with OT networks, see [Best practices for planning your OT network monitoring](plan-network-monitoring.md).
 
