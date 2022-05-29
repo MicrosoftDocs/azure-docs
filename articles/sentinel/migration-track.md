@@ -184,3 +184,16 @@ Learn about [data lifecycle management](../azure-monitor/logs/data-retention-arc
 To assist with the deployment and migration process, the workbook includes tips that explain how to use the different tabs, and links to relevant resources. The tips are based on Microsoft Sentinel migration documentation and are relevant to your current SIEM. To enable tips and instructions, in the **Microsoft Sentinel Deployment and Migration** workbook, on the top right, set **MigrationTips** and **Instruction** to **Yes**. 
 
 :::image type="content" source="media/migration-track/migration-track-tips.png" alt-text="Screenshot of the Microsoft Sentinel Deployment Tracker migration tips and instructions." lightbox="media/migration-track/migration-track-tips.png":::
+
+## Next steps
+
+In this article, you learned how to track your migration with the **Microsoft Sentinel Deployment and Migration** workbook. 
+
+> [!div class="nextstepaction"]
+> [Migrate ArcSight detection rules](migration-arcsight-detection-rules.md)
+
+> [!div class="nextstepaction"]
+> [Migrate Splunk detection rules](migration-splunk-detection-rules.md)
+
+> [!div class="nextstepaction"]
+> [Migrate QRadar detection rules](migration-qradar-detection-rules.md)
