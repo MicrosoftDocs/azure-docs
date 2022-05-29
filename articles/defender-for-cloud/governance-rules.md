@@ -1,69 +1,93 @@
 ---
-title: Verb action for Azure Machine Learning in 59 chars or less. Include the name Azure Machine Learning. Test title here https://moz.com/learn/seo/title-tag  (EXAMPLE - Deploying web services in Python with Azure Machine Learning)
-description: Learn how to do this and that using customer words in Azure Machine Learning. This string describes the article in 115 to 145 characters. Use SEO kind of action verbs here. This info is displayed on the search page inline with the article date stamp. If your intro para describes your article's intent, you can use it here edited for length.
+title: Driving your organization to remediate security issues with recommendation governance
+description: Learn how to assign owners and due dates to security recommendations and create rules to automatically assign owners and due dates
 services: defender-for-cloud
 author: bmansheim
 ms.author: benmansheim
 ms.service: defender-for-cloud
 ms.topic: how-to
-ms.date: 05/18/2022
+ms.date: 05/29/2022
 ---
-# This H1 is the title of the article. It appears in search, appears at the top of article, second greatest impact on search, 100 chars or less
+# Drive your organization to remediate security recommendations with governance
 
-Guidance here: https://review.docs.microsoft.com/help/contribute/contribute-how-to-write-seo-basics?branch=master
+Security teams are responsible for improving the security posture of their organizations but they don't have the resources to actually implement security recommendations. [Assigning owners with due dates](#manually-assigning-owners-and-due-dates-for-recommendation-remediation) and [defining governance rules](#defining-governance-rules-to-automatically-set-the-owner-and-due-date-of-recommendations-preview) create transparency and accountability so you can drive the process of improving the security posture in your organization.
 
+Weekly email notifications update resource owners on the recommendations they are responsible for and, if their manager is found in the organizational Azure Active Directory(AAD), the owner's manager receives an email showing any overdue recommendations.
 
-1st paragraph	provides the primary intent of the article in 1 or 2 short sentences. 
+After you assign owners and due dates, you can track how many recommendations are overdue in your security posture and recommendations.
 
-## Prerequisites
-To step through this how-to guide, you need:
-- [A machine learning account](template-howto.md)
+## Manually assigning owners and due dates for recommendation remediation
 
-## Section here H2 
-Paragraph here. 
-**This phrase is bold.**
-*This phrase is italics.*
+For every resource affected by a recommendation, you can assign an owner and a due date so that you know who needs to implement the security changes to improve your security posture and when they are expected to do it by. You can also apply a grace period so that the resources that are given a due date do not impact your secure score unless they become overdue.
 
-This is a [hyperlink to an article](./template-concepts.md)
+To manually assign owners and due dates to recommendations:
 
-This is an image:
+1. Go to the list of recommendations:
+    - In the Defender for Cloud overview, select **Security posture** and then select **View recommendations** for the environment that you want to improve.
+    - Go to **Recommendations** in the Defender for Cloud menu.
+1. In the list of recommendations, use the **Potential score increase** to identify the security control that contains recommendations that will increase your secure score.
+    - You can also use the search box and filters above the list of recommendations to find specific recommendations.
+1. Select a recommendation to see the affected resources.
+1. For any resource that does not have an owner or due date, select the resources and select **Assign owner**.
+1. Enter the email address of the owner that needs to make the changes that remediate the recommendation for those resources.
+1. Select the date by which to remediate the recommendation for the resources.
+1. You can select **Apply grace period** to keep the resource from impacting the secure score until it is overdue.
+1. Select **Save**.
 
-![This is an image description](media/overview-what-is-azure-ml/aml-concepts.png)
-Note that images need to be stored in the media folder with a subdirectory matching the name of the article and then the filename.
+The recommendation is now shown as assigned and on time.
 
-## Section here H2
-This table has headings:
+## Defining governance rules to automatically set the owner and due date of recommendations (Preview)
 
-|Column1  |Column2  |Column3  |
-|---------|---------|---------|
-|Row1|Value 1|Value A|
-|Row2|Value 2|Value B|
-|Row3|Value 3|Value C|
+For each subscription, you can define rules that assign an owner and set the due date for resources in the specified recommendations. You can either identify recommendations by severity or by name. Many governance rules can apply to the same resources, so the higher priority rule is the one that takes precedence.
 
-## Section here H2
-This is a numbered list:
+The due date set for the recommendation to be remediated is based on a timeframe 7, 14, 30, 90 days). Resources that are already identified as affected by the recommendation are given a due date that is the specified number of days from the date that the rule is defined. Resources that are found after the rule is defined are given a due date from the date they are found. You can apply a grace period so that the resources that are given a due date do not impact your secure score unless they become overdue.
 
-1. First item
+You can also set the owner of the resources that are affected by the specified recommendations. In organizations that use resource tags to associate resources with an owner, you can specify the tag key and the governance rule reads the name of the resource owner from the tag.
 
-   This paragraph is indented to be the same spacing as the first numbered item.
+By default, email notifications are sent to the resource owners weekly to provide a list of the on time and overdue tasks. If the owner's manager is found in the organizational Azure Active Directory(AAD), the owner's manager receives an email showing any overdue recommendations by default.
 
-2. Second item
-   - this sentence is a bullet
-   - this sentence is another bullet
+To define a governance rule that assigns an owner and due date:
 
-3. Third item
+1. In the **Environment settings**, select the subscription that you want to define the rule for.
+1. In **Governance rules (preview)**, select **Add rule**.
+1. Enter a name for the rule.
+1. Set a priority for the rule. You can see the priority for the existing rules in the list of governance rules.
+1. Select the recommendations that the rule applies to, either:
+    1. **By severity** - The rule assigns the owner and due date to any recommendation in the subscription that doesn't already have them assigned.
+    1. **By name** - Select the specific recommendations that the rule applies to.
+1. Set the owner to assign to the recommendations:
+    - **By resource tag** - Enter the resource tag on your resources that defines the resource owner.
+    - **By email address** - Enter the email address of the owner to assign to the recommendations.
+1. Set the remediation timeframe, which is the time from when the resources is identified to require remediation to the time that the remediation is due.
+    For example, if the rule identifies the resource on Jan 1 and the remediation timeframe is 14 days, Jan 15 is the due date.
+1. If you don't want the resources to affect your secure score until they are overdue, select **Apply grace period**.
+1. If you don't want either the owner or the owner's manager to receive weekly emails, clear the notification options.
+1. Select **Create**.
 
-4. Forth item
+Any recommendations that match the definition of the governance rule and don't already have an owner or due date are now assigned an owner and due date.
 
-5. Fifth item
+## Reviewing governance status for each rule (Preview)
 
-## This list is bulleted list:
-- Item 1
-- Item 2
-- Item 3
-  - Subitem 1
-  - Subitem 2
+After you define governance rules, you'll want to review the progress that the owners are making in remediating the recommendations. The governance report lets you select subscriptions that have governance rules and, for each rule and owner, shows you how many recommendations are completed, on time, overdue, or unassigned.
 
+To review the status of the recommendations in a rule:
+
+1. In the **Environment settings**, select the subscription that you want to define the rule for.
+1. In **Governance rules (preview)**, select **Governance report (preview)**.
+
+    :::image type="content" source="{source}" alt-text="{alt-text}":::
+
+1. Select the subscriptions that you want to review.
+1. Select the rules that you want to see details about.
+
+You can see the list of owners and recommendations for the selected rules, and their status.
+
+To see the list of recommendations for each owner:
+
+1. Select **Security posture**.
+1. Select the **Owner (preview)** tab to see the list of owners and the number of overdue recommendations for each owner.
+1. Hover over the (i) in the overdue recommendations to see the breakdown of overdue recommendations by severity.
+1. Select **View recommendations** to go to the list of recommendations associated with the owner.
 
 ## Next steps
 
