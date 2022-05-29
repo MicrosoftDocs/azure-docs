@@ -105,7 +105,7 @@ This procedure describes how to add Defender for IoT to an Azure subscription. I
 
 Your subscription is shown in the **Plans and pricing** grid. For example:
 
-:::image type="content" source="media/getting-started/pricing.png" alt-text="Screenshot of the Plans and pricing page in Defender for IoT." lightbox="media/getting-started/pricing.png"::::::
+:::image type="content" source="media/getting-started/pricing.png" alt-text="Screenshot of the Plans and pricing page in Defender for IoT." lightbox="media/getting-started/pricing.png":::
 
 For more information, see [Manage your subscriptions](how-to-manage-subscriptions.md).
 
