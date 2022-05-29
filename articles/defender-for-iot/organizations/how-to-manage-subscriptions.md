@@ -98,7 +98,7 @@ You may need to make changes to your Defender for IoT plans, such as to update t
 **To edit a plan:**
 1. In the Azure portal, go to **Defender for IoT** > **Plans and pricing**.
 
-1. On the subscription row, select the three dots (**...**) on the row.
+1. On the subscription row, select the options menu (**...**) at the right.
 
 1. Select **Edit plan**.
 
