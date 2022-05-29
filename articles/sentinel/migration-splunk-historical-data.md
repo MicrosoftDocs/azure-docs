@@ -12,7 +12,7 @@ ms.custom: ignite-fall-2021
 
 This article describes how to export your historical data from Splunk. After you complete the steps in this article, you can [select a target platform](migration-ingestion-target-platform.md) to host the exported data, and then [select an ingestion tool](migration-ingestion-tool.md) to migrate the data.
 
-:::image type="content" source="media/migration-export-ingest/export-data.png" alt-text="Diagram illustrating steps involved in export and ingestion." lightbox="media/migration-export-ingest/export-data.png":::
+:::image type="content" source="media/migration-export-ingest/export-data.png" alt-text="Diagram illustrating steps involved in export and ingestion.":::
 
 You can export data from Splunk in several ways. Your selection of an export method depends on the data volumes involved and your level of interactivity. For example, exporting a single, on-demand search via Splunk Web might be appropriate for a low-volume export. Alternatively, if you want to set up a higher-volume, scheduled export, the SDK and REST options work best. 
 
@@ -26,14 +26,14 @@ This CLI example searches for events from the `_internal` index that occur durin
 
 This CLI command exports data recorded between 23:59 and 01:00 on September 14, 2021 to a CSV file: 
 
-```bash
+```
 splunk search "index=_internal earliest=09/14/2021:23:59:00 latest=09/16/2021:01:00:00 " -output csv > c:/data.csv  
 ```
 ## dump example
 
 This `dump` command exports all events from the `bigdata` index to the `YYYYmmdd/HH/host` location under the `$SPLUNK_HOME/var/run/splunk/dispatch/<sid>/dump/` directory on a local disk. The command uses `MyExport` as the prefix for export filenames, and outputs the results to a CSV file. The command partitions the exported data using the `eval` function before the `dump` command.
 
-```bash
+```
 index=bigdata | eval _dstpath=strftime(_time, "%Y%m%d/%H") + "/" + host | dump basefilename=MyExport format=csv 
 ```
 
