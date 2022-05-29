@@ -109,7 +109,7 @@ You may need to make changes to your Defender for IoT plans, such as to update t
 
 1. Select **Next**.
 
-1. **Review & purchase**. Review your selections, and **accept the terms and conditions**. 
+1. On the **Review & purchase** pane, review your selections, and then accept the terms and conditions. 
 
 1. Select **Save**.
 
