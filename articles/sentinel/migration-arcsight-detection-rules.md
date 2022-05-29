@@ -225,7 +225,7 @@ Order the filters by starting with the `where` statement that filters out the mo
 
 Here is a sample ArcSight rule that defines a condition against a set of base events, using the `Matching Event` statement.
 
-:::image type="content" source="media/migration-arcsight-detection-rules/rule-5-sample.png" alt-text="Diagram illustrating a sample correlation rule (matching)." lightbox="media/migration-arcsight-detection-rules/rule-5-sample.png":::
+:::image type="content" source="media/migration-arcsight-detection-rules/rule-5-sample.png" alt-text="Diagram illustrating a sample correlation rule (matching).":::
 
 ### Correlation (matching) example: KQL
 
@@ -250,7 +250,7 @@ Best practices:
 
 Here is a sample ArcSight rule that defines a condition against a set of base events, using the `Matching Event` statement, and uses the `Wait time` filter condition.
 
-:::image type="content" source="media/migration-arcsight-detection-rules/rule-6-sample.png" alt-text="Diagram illustrating a sample correlation rule (time window)." lightbox="media/migration-arcsight-detection-rules/rule-6-sample.png":::
+:::image type="content" source="media/migration-arcsight-detection-rules/rule-6-sample.png" alt-text="Diagram illustrating a sample correlation rule (time window).":::
 
 ### Correlation (time window) example: KQL
 
@@ -292,7 +292,7 @@ event2_UPN=UserPrincipalName,
 
 Here is a sample ArcSight rule with aggregation settings: three matches within ten minutes.
 
-:::image type="content" source="media/migration-arcsight-detection-rules/rule-7-sample.png" alt-text="Diagram illustrating a sample aggregation rule." lightbox="media/migration-arcsight-detection-rules/rule-7-sample.png":::
+:::image type="content" source="media/migration-arcsight-detection-rules/rule-7-sample.png" alt-text="Diagram illustrating a sample aggregation rule.":::
 
 ### Aggregation example example: KQL
 
@@ -302,3 +302,10 @@ SecurityEvent
 SubjectDomainName
 | where Count >3
 ```
+
+## Next steps
+
+In this article, you learned how to map your migration rules from ArcSight to Microsoft Sentinel. 
+
+> [!div class="nextstepaction"]
+> [Migrate your SOAR automation](migration-arcsight-automation.md)

@@ -189,11 +189,6 @@ To assist with the deployment and migration process, the workbook includes tips 
 
 In this article, you learned how to track your migration with the **Microsoft Sentinel Deployment and Migration** workbook. 
 
-> [!div class="nextstepaction"]
-> [Migrate ArcSight detection rules](migration-arcsight-detection-rules.md)
-
-> [!div class="nextstepaction"]
-> [Migrate Splunk detection rules](migration-splunk-detection-rules.md)
-
-> [!div class="nextstepaction"]
-> [Migrate QRadar detection rules](migration-qradar-detection-rules.md)
+- [Migrate ArcSight detection rules](migration-arcsight-detection-rules.md) 
+- [Migrate Splunk detection rules](migration-splunk-detection-rules.md)
+- [Migrate QRadar detection rules](migration-qradar-detection-rules.md)
