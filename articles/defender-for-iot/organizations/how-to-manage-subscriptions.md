@@ -146,7 +146,7 @@ Business considerations may require that you apply Defender for IoT to a differe
 
 1. Remove your plans from the current subscription, see [Remove Defender for IoT from a subscription](#remove-defender-for-iot-from-a-subscription)
 1. Onboard Defender for IoT to the new subscription, see [Onboard Defender for IoT to a subscription](#onboard-defender-for-iot-to-a-subscription)
-1. For an on-premises management console: Upload a new activation file, see [Upload an activation file](how-to-manage-the-on-premises-management-console.md#upload-an-activation-file).
+1. For an on-premises management console, [upload a new activation file](how-to-manage-the-on-premises-management-console.md#upload-an-activation-file).
 
 ## Next steps
 
