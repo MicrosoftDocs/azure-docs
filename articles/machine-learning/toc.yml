@@ -363,7 +363,7 @@
         - name: Create a data asset
           displayName: data, data asset
           href: how-to-create-register-data-assets.md
-        - name: Reading & writing data
+        - name: Reading & writing data in jobs
           displayName: read and write data
           href: how-to-read-write-data-v2.md
         - name: Data Administration Guide

@@ -193,7 +193,7 @@ transformations:
 > [!NOTE]
 > The MLTable artifact (MLTable file *and* data) is *self-contained* and all that is needed is stored in that one folder; regardless of whether that folder is stored on your local drive or in your cloud store or on a public http server. You should **not** specify *absolute paths* in the MLTable file.
 
-Below shows you how to register an `mltable` as an asset. The `path` can be any of the supported path formats outlined above.
+Below shows you how to create an `mltable` data asset. The `path` can be any of the supported path formats outlined above.
 
 
 # [CLI](#tab/CLI)
