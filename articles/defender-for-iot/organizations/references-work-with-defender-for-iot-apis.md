@@ -7,7 +7,7 @@ ms.topic: reference
 
 # Defender for IoT sensor and management console APIs
 
-Defender for IoT APIs are governed by [Microsoft API License and Terms of use](/legal/microsoft-apis/terms-of-use).
+Defender for IoT APIs is governed by [Microsoft API License and Terms of use](/legal/microsoft-apis/terms-of-use).
 
 Use an external REST API to access the data discovered by sensors and management consoles and perform actions with that data.
 
