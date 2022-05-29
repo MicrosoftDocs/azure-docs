@@ -93,7 +93,7 @@ If the actual number of devices exceeds the number of committed devices on your 
 
 ## Edit plans in a subscription
 
-You may need to make changes to your plans, for example: update the number of committed devices or committed sites, change your plan commitment, or remove the OT or Enterprise IoT plan from your subscription. 
+You may need to make changes to your Defender for IoT plans, such as to update the number of committed devices or committed sites, change your plan commitment, or remove the OT or Enterprise IoT plan from your subscription. 
 
 **To edit a plan:**
 1. In the Azure portal, go to **Defender for IoT** > **Plans and pricing**.
