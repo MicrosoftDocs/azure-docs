@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Manage your subscriptions
 
-Your Defender for IoT deployment is managed through your Microsoft Defender for IoT account subscriptions. You can onboard, edit, and remove Defender for IoT from your subscriptions in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
+Your Defender for IoT deployment is managed through your Microsoft Defender for IoT subscriptions. You can onboard, edit, and remove Defender for IoT from your subscriptions in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 
 For each subscription, you will be asked to define the number of *committed devices*. Committed devices are the approximate number of devices that will be monitored in your enterprise. 
 
@@ -21,13 +21,13 @@ You are billed based on the number of committed devices associated with each sub
 
 The billing cycle for Microsoft Defender for IoT follows a calendar month. Changes you make to committed devices during the  month are implemented one hour after confirming your update and are reflected in your monthly bill. Removal of Defender for IoT from a subscription also takes effect one hour after removal.
 
-Your enterprise may have more than one paying entity. If so, you can onboard, edit or remove a plan for more than one subscription.
+Your enterprise may have more than one paying entity. If so, you can onboard, edit, or remove a plan for more than one subscription.
 
-Before you add a plan or services, you should have a sense of how many devices you would like your subscriptions to cover.
+Before you add a plan or services, we recommend that you have a sense of how many devices you would like your subscriptions to cover. If you're working with OT networks, see [Best practices for planning your OT network monitoring](plan-network-monitoring.md).
 
-Users can also work with a trial subscription, which supports monitoring a limited number of devices for 30 days. See the [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/) for information on committed device prices.
+Users can also work with a trial subscription, which supports monitoring a limited number of devices for 30 days. For more information, see the [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/).
 
-## Requirements
+## Prerequisites
 
 Before you onboard a subscription, verify that:
 
@@ -87,29 +87,29 @@ If you would like to evaluate Defender for IoT, you can use a trial subscription
 
 ## Committed devices overage
 
-You may need to add more devices for monitoring after your initial onboarding and commitment.  More devices may require monitoring if, for example, you're increasing existing site coverage, discovered more devices than expected or there are network changes such as adding switches.
+You may need to add more devices for monitoring after your initial onboarding and commitment.  For example, you may have more devices that require monitoring if you're increasing existing site coverage, have discovered more devices than expected, or there are network changes such as adding switches.
 
 If the actual number of devices exceeds the number of committed devices on your plan, you will see a warning on the **Plans and pricing** page, and will need to adjust the number of committed devices on your plan accordingly. 
 
 ## Edit plans in a subscription
 
-You may need to make changes to your plans, for example: update the number of committed devices or committed sites, change your plan commitment, or remove the OT or Enterprise IoT plan from your subscription. 
+You may need to make changes to your Defender for IoT plans, such as to update the number of committed devices or committed sites, change your plan commitment, or remove the OT or Enterprise IoT plan from your subscription. 
 
 **To edit a plan:**
 1. In the Azure portal, go to **Defender for IoT** > **Plans and pricing**.
 
-1. On the subscription row, select the three dots (**...**) on the row.
+1. On the subscription row, select the options menu (**...**) at the right.
 
 1. Select **Edit plan**.
 
 1. Make your changes as needed: 
    - Update the number of committed devices
    - Update the number of sites (OT only)
-   - Remove OT or EIoT from the subscription - use the toggle button to toggle off the plan you want to remove.
+   - Remove OT or EIoT from the subscription by toggling off the plan you want to remove
 
 1. Select **Next**.
 
-1. **Review & purchase**. Review your selections, and **accept the terms and conditions**. 
+1. On the **Review & purchase** pane, review your selections, and then accept the terms and conditions. 
 
 1. Select **Save**.
 
@@ -117,7 +117,7 @@ Changes to your plan will take effect one hour after confirming the change. Bill
 
 > [!NOTE]
 > **For an on-premises management console:**
- After any changes are made, you will need to upload a new activation file to your on-premises management console. The activation file reflects the new number of committed devices. See [Upload an activation file](how-to-manage-the-on-premises-management-console.md#upload-an-activation-file).
+ After any changes are made, you will need to upload a new activation file to your on-premises management console. The activation file reflects the new number of committed devices. For more information, see [Upload an activation file](how-to-manage-the-on-premises-management-console.md#upload-an-activation-file).
 
 
 ## Remove Defender for IoT from a subscription
@@ -140,11 +140,13 @@ Remove all sensors that are associated with the subscription prior to removing D
 
 ## Apply Defender for IoT to a different subscription
 
-Business considerations may require that you apply Defender for IoT to a different subscription than the one currently being used. If you need to switch to a new subscription, you will need to: 
+Business considerations may require that you apply Defender for IoT to a different subscription than the one currently being used. 
 
-1. Remove your plans from the current subscription, see [Remove Defender for IoT from a subscription](#remove-defender-for-iot-from-a-subscription)
+**To switch to a new subscription**: 
+
+1. [Remove your plans from the current subscription](#remove-defender-for-iot-from-a-subscription).
 1. Onboard Defender for IoT to the new subscription, see [Onboard Defender for IoT to a subscription](#onboard-defender-for-iot-to-a-subscription)
-1. For an on-premises management console: Upload a new activation file, see [Upload an activation file](how-to-manage-the-on-premises-management-console.md#upload-an-activation-file).
+1. For an on-premises management console, [upload a new activation file](how-to-manage-the-on-premises-management-console.md#upload-an-activation-file).
 
 ## Next steps
 

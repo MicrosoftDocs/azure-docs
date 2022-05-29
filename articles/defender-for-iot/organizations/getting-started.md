@@ -93,8 +93,8 @@ This procedure describes how to add Defender for IoT to an Azure subscription. I
 
 1. Select **Next**.
 
-1. **Implementation services**. Choose if you would like to add implementation services for this deployment. Implementation Services will be deployed remotely by an expert consultant.
-    - If you select **Yes**, fill in the site and contact details as requested, and you will be contacted regarding this service.
+1. **Implementation services**. Select to add implementation services for this deployment. Implementation services are deployed remotely by an expert consultant.
+    If you select **Yes**, enter the site and contact details as requested, and you will be contacted by our implementation service team.
 
 1. Select **Next**.
 
@@ -105,7 +105,7 @@ This procedure describes how to add Defender for IoT to an Azure subscription. I
 
 Your subscription is shown in the **Plans and pricing** grid. For example:
 
-:::image type="content" source="media/getting-started/pricing.png" alt-text="Screenshot of the Plans and pricing page in Defender for IoT." lightbox="media/getting-started/pricing.png"::::::
+:::image type="content" source="media/getting-started/pricing.png" alt-text="Screenshot of the Plans and pricing page in Defender for IoT." lightbox="media/getting-started/pricing.png":::
 
 For more information, see [Manage your subscriptions](how-to-manage-subscriptions.md).
 

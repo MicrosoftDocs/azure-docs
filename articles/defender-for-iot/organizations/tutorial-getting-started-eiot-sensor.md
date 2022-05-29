@@ -207,7 +207,7 @@ The installation will now finish.
 
 ## Configure the integration with Defender for Endpoint
 
-You can view your Enterprise IoT devices in both Defender for IoT and in Defender for Endpoint. 
+After you've set up your sensor and enabled the integration with Defender for Endpoint, you'll be able to view your Enterprise IoT devices in both Defender for IoT and in Defender for Endpoint. 
 Alerts, vulnerabilities, and recommendations for Enterprise IoT devices are currently visible only in Defender for Endpoint.
 For more information, see [Enable Microsoft Defender for IoT integration](/microsoft-365/security/defender-endpoint/enable-microsoft-defender-for-iot-integration).
 
