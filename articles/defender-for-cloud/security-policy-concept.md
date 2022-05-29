@@ -69,40 +69,41 @@ Security recommendations contain details that help you understand its significan
 
 :::image type="content" source="./media/review-security-recommendations/recommendation-details-page.png" alt-text="Screenshot of the recommendation details page." lightbox="./media/review-security-recommendations/recommendation-details-page-expanded.png":::
 
-    1. For supported recommendations, the top toolbar shows any or all of the following buttons:
-        - **Enforce** and **Deny** (see [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md)).
-        - **View policy definition** to go directly to the Azure Policy entry for the underlying policy.
-        - **Open query** - All recommendations have the option to view the detailed information about the affected resources using Azure Resource Graph Explorer.
-    1. **Severity indicator**
-    1. **Freshness interval**
-    1. **Count of exempted resources** if exemptions exist for a recommendation, this shows the number of resources that have been exempted with a link to view the specific resources.
-    1. **Mapping to MITRE ATT&CK ® tactics and techniques** if a recommendation has defined tactics and techniques, select the icon for links to the relevant pages on MITRE's site. This applies only to Azure scored recommendations.
+1. For supported recommendations, the top toolbar shows any or all of the following buttons:
+    - **Enforce** and **Deny** (see [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md)).
+    - **View policy definition** to go directly to the Azure Policy entry for the underlying policy.
+    - **Open query** - All recommendations have the option to view the detailed information about the affected resources using Azure Resource Graph Explorer.
+1. **Severity indicator**
+1. **Freshness interval**
+1. **Count of exempted resources** if exemptions exist for a recommendation, this shows the number of resources that have been exempted with a link to view the specific resources.
+1. **Mapping to MITRE ATT&CK ® tactics and techniques** if a recommendation has defined tactics and techniques, select the icon for links to the relevant pages on MITRE's site. This applies only to Azure scored recommendations.
 
-        :::image type="content" source="media/review-security-recommendations/tactics-window.png" alt-text="Screenshot of the MITRE tactics mapping for a recommendation.":::
+    :::image type="content" source="media/review-security-recommendations/tactics-window.png" alt-text="Screenshot of the MITRE tactics mapping for a recommendation.":::
 
-    1. **Description** - A short description of the security issue.
-    1. When relevant, the details page also includes a table of **related recommendations**:
+1. **Description** - A short description of the security issue.
+1. When relevant, the details page also includes a table of **related recommendations**:
 
-        The relationship types are:
+    The relationship types are:
 
-        - **Prerequisite** - A recommendation that must be completed before the selected recommendation
-        - **Alternative** - A different recommendation, which provides another way of achieving the goals of the selected recommendation
-        - **Dependent** - A recommendation for which the selected recommendation is a prerequisite
+    - **Prerequisite** - A recommendation that must be completed before the selected recommendation
+    - **Alternative** - A different recommendation, which provides another way of achieving the goals of the selected recommendation
+    - **Dependent** - A recommendation for which the selected recommendation is a prerequisite
 
-        For each related recommendation, the number of unhealthy resources is shown in the "Affected resources" column.
+    For each related recommendation, the number of unhealthy resources is shown in the "Affected resources" column.
 
-        > [!TIP]
-        > If a related recommendation is grayed out, its dependency isn't yet completed and so isn't available.
+    > [!TIP]
+    > If a related recommendation is grayed out, its dependency isn't yet completed and so isn't available.
 
-    1. **Remediation steps** - A description of the manual steps required to remediate the security issue on the affected resources. For recommendations with the **Fix** option**, you can select**View remediation logic** before applying the suggested fix to your resources.
+1. **Remediation steps** - A description of the manual steps required to remediate the security issue on the affected resources. For recommendations with the **Fix** option**, you can select**View remediation logic** before applying the suggested fix to your resources.
 
-    1. **Affected resources** - Your resources are grouped into tabs:
-        - **Healthy resources** – Relevant resources, which either aren't impacted or on which you've already  remediated the issue.
-        - **Unhealthy resources** – Resources that are still impacted by the identified issue.
-        - **Not applicable resources** – Resources for which the recommendation can't give a definitive answer. The not applicable tab also includes reasons for each resource.
+1. **Affected resources** - Your resources are grouped into tabs:
+    - **Healthy resources** – Relevant resources, which either aren't impacted or on which you've already  remediated the issue.
+    - **Unhealthy resources** – Resources that are still impacted by the identified issue.
+    - **Not applicable resources** – Resources for which the recommendation can't give a definitive answer. The not applicable tab also includes reasons for each resource.
 
-            :::image type="content" source="./media/review-security-recommendations/recommendations-not-applicable-reasons.png" alt-text="Not applicable resources with reasons.":::
-    1. Action buttons to remediate the recommendation or trigger a logic app.
+    :::image type="content" source="./media/review-security-recommendations/recommendations-not-applicable-reasons.png" alt-text="Not applicable resources with reasons.":::
+
+1. Action buttons to remediate the recommendation or trigger a logic app.
 
 ## Viewing the relationship between a recommendation and a policy
 
