@@ -11,14 +11,9 @@ ms.date: 05/03/2022
 
 A security operations center (SOC) is a centralized function within an organization that integrates people, processes, and technology. A SOC implements the organization's overall cybersecurity framework, and acts as the central point of collaboration in the organizational efforts to monitor, alert, prevent, detect, analyze, and respond to cybersecurity incidents. SOC teams, usually led by a SOC manager, may include incident responders, SOC analysts at levels 1, 2, and 3, threat hunters, and incident response managers.
 
-SOC teams: 
-- Are responsible for many organizational assets, including personnel data, business systems, intellectual and brand integrity.
-- Use telemetry from across the organization's IT infrastructure, including networks, devices, applications, behaviors, appliances, and information stores.
-- Co-relate and analyze the data, to determine how to manage the data and which actions to take. 
+SOC teams use telemetry from across the organization's IT infrastructure, including networks, devices, applications, behaviors, appliances, and information stores. SOC teams then co-relate and analyze the data, to determine how to manage the data and which actions to take. 
 
-To successfully migrate to Microsoft Sentinel, you need to update not only the technology the SOC uses, but also the SOC tasks and processes. 
-
-This article describes how to update your SOC and analyst processes as part of your migration to Microsoft Sentinel. 
+To successfully migrate to Microsoft Sentinel, you need to update not only the technology the SOC uses, but also the SOC tasks and processes. This article describes how to update your SOC and analyst processes as part of your migration to Microsoft Sentinel. 
 
 ## Update analyst workflow 
 
@@ -68,7 +63,7 @@ Use these features and capabilities to expedite triage:
 
 - For quick filtering, in the **Incidents** page, [search for incidents](investigate-cases#search-for-incidents.md) associated to a specific entity. This is a much faster method than filtering by the entity column in legacy SIEM incident queues. 
 - For faster triage, use the **[Alert details](customize-alert-details.md)** screen to include key incident information in the incident name and description, such as the related user name, IP address, or host. For example, an incident could be dynamically renamed to `Ransomware activity detected in DC01`, where `DC01` is a critical asset, dynamically identified via the customizable alert properties.  
-- For accurate and accessible data, in the **Incidents page**, select an incident and select **Events** under **Evidence** to view specific events that triggered the incident. The event data is visible as the output of the query associated with the analytics rule, rather than the raw event. This allows the rule migration engineer to ensure that the analyst gets the correct data.
+- For deeper analysis, in the **Incidents page**, select an incident and select **Events** under **Evidence** to view specific events that triggered the incident. The event data is visible as the output of the query associated with the analytics rule, rather than the raw event. This allows the rule migration engineer to ensure that the analyst gets the correct data.
 - For detailed entity information, in the **Incidents page**, select an incident and select an entity name under **Entities** to view the entity's directory information, timeline, and insights. Learn how to [map entities](map-data-fields-to-entities.md).
 - To link to relevant workbooks, select **Incident preview**. You can customize the workbook to display additional information about the incident, or associated entities and custom fields.
 
@@ -118,6 +113,4 @@ Use this table to compare the main concepts of your legacy SIEM to Microsoft Sen
 |  | Jupyter Notebooks | Jupyter Notebooks | Microsoft Sentinel Notebooks |
 | Dashboards | Dashboards | Dashboards | Workbooks |
 | Correlation rules | Building blocks | Correlation rules | Analytics rules |
-| Automation Bit (Python or JavaScript-based) |  | Python | Custom code embedded in function app (Learn about [Supported languages in Azure Functions](../azure-functions/supported-languages.md), PowerShell |
-| Workflow playbook canvas |  | Visual Playbook Editor | Logic App Designer |
-|Pipeline     |Offences tab         |Incident Review         |**Incident** page         |
+|Incident queue |Offences tab |Incident review |**Incident** page |
