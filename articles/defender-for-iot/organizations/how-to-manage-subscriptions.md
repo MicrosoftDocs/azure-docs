@@ -140,7 +140,9 @@ Remove all sensors that are associated with the subscription prior to removing D
 
 ## Apply Defender for IoT to a different subscription
 
-Business considerations may require that you apply Defender for IoT to a different subscription than the one currently being used. If you need to switch to a new subscription, you will need to: 
+Business considerations may require that you apply Defender for IoT to a different subscription than the one currently being used. 
+
+**To switch to a new subscription**: 
 
 1. Remove your plans from the current subscription, see [Remove Defender for IoT from a subscription](#remove-defender-for-iot-from-a-subscription)
 1. Onboard Defender for IoT to the new subscription, see [Onboard Defender for IoT to a subscription](#onboard-defender-for-iot-to-a-subscription)
