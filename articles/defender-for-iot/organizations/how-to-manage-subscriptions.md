@@ -27,7 +27,7 @@ Before you add a plan or services, we recommend that you have a sense of how man
 
 Users can also work with a trial subscription, which supports monitoring a limited number of devices for 30 days. For more information, see the [Microsoft Defender for IoT pricing page](https://azure.microsoft.com/pricing/details/iot-defender/).
 
-## Requirements
+## Prerequisites
 
 Before you onboard a subscription, verify that:
 
