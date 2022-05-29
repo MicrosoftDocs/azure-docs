@@ -105,7 +105,7 @@ You may need to make changes to your Defender for IoT plans, such as to update t
 1. Make your changes as needed: 
    - Update the number of committed devices
    - Update the number of sites (OT only)
-   - Remove OT or EIoT from the subscription - use the toggle button to toggle off the plan you want to remove.
+   - Remove OT or EIoT from the subscription by toggling off the plan you want to remove
 
 1. Select **Next**.
 
