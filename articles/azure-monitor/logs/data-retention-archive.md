@@ -147,7 +147,7 @@ To view the retention and archive duration for a table in the Azure portal, from
 
 The **Tables (preview)** screen shows the interactive retention and archive period for all of the tables in the workspace.
 
-:::image type="content" source="media/data-retention-configure/log-analytics-view-table-retention-archive.png" lightbox="media/media/data-retention-configure/log-analytics-view-table-retention-archive.png" alt-text="Screenshot showing the Manage table button for one of the tables in a workspace."::: 
+:::image type="content" source="media/data-retention-configure/log-analytics-view-table-retention-archive.png" lightbox="media/data-retention-configure/log-analytics-view-table-retention-archive.png" alt-text="Screenshot showing the Manage table button for one of the tables in a workspace."::: 
 
 
 # [API](#tab/api-2)
