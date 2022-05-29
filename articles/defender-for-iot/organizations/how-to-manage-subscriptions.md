@@ -87,7 +87,7 @@ If you would like to evaluate Defender for IoT, you can use a trial subscription
 
 ## Committed devices overage
 
-You may need to add more devices for monitoring after your initial onboarding and commitment.  More devices may require monitoring if, for example, you're increasing existing site coverage, discovered more devices than expected or there are network changes such as adding switches.
+You may need to add more devices for monitoring after your initial onboarding and commitment.  For example, you may have more devices that require monitoring if you're increasing existing site coverage, have discovered more devices than expected, or there are network changes such as adding switches.
 
 If the actual number of devices exceeds the number of committed devices on your plan, you will see a warning on the **Plans and pricing** page, and will need to adjust the number of committed devices on your plan accordingly. 
 
