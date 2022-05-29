@@ -119,7 +119,6 @@ Yes. When you enable [Microsoft Defender for Servers](defender-for-servers-intro
 
 No you will not be charged twice.
 
->
 
 ### If a Log Analytics agent reports to multiple workspaces, is the 500 MB free data ingestion available on all of them?
 
