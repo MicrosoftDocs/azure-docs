@@ -19,7 +19,7 @@ All tables in your Log Analytics are Analytics tables, by default. You can confi
 You can currently configure the following tables for Basic Logs:
 
 - All tables created with the [Data Collection Rule (DCR)-based custom logs API.](custom-logs-overview.md) 
--	[ContainerLog](/azure/azure-monitor/reference/tables/containerlog) and [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2), which [Container Insights](../containers/container-insights-overview.md) uses and which include verbose text-based log records.
+- [ContainerLog](/azure/azure-monitor/reference/tables/containerlog) and [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2), which [Container Insights](../containers/container-insights-overview.md) uses and which include verbose text-based log records.
 - [AppTraces](/azure/azure-monitor/reference/tables/apptraces), which contains freeform log records for application traces in Application Insights.
 
 > [!NOTE]
@@ -144,12 +144,12 @@ Alternatively:
 1. Open the **Tables** tab, which lists all tables in the workspace. 
 
     Basic Logs tables have a unique icon: 
-    
-    ![Screenshot of the Basic Logs table icon in the table list.](./media/basic-logs-configure/table-icon.png#lightbox)
 
-    You can also hover over a table name for the table information view, which indicates whether the table is configured as Basic Logs:
+    :::image type="content" source="media/basic-logs-configure/table-icon.png" lightbox="media/basic-logs-configure/table-icon.png" alt-text="Screenshot of the Basic Logs table icon in the table list."::: 
     
-    ![Screenshot of the Basic Logs table indicator in the table details.](./media/basic-logs-configure/table-info.png#lightbox)
+    You can also hover over a table name for the table information view, which indicates whether the table is configured as Basic Logs:
+
+    :::image type="content" source="media/basic-logs-configure/table-info.png" lightbox="media/basic-logs-configure/table-info.png" alt-text="Screenshot of the Basic Logs table indicator in the table details."::: 
 
 # [API](#tab/api-2)
 
