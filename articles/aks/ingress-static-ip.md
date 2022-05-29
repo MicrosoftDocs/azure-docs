@@ -334,8 +334,10 @@ helm install cert-manager jetstack/cert-manager `
   --set image.tag=$CertManagerTag `
   --set webhook.image.repository=$AcrUrl/$CertManagerImageWebhook `
   --set webhook.image.tag=$CertManagerTag `
+  --set webhook.nodeSelector."kubernetes\.io/os"=linux `
   --set cainjector.image.repository=$AcrUrl/$CertManagerImageCaInjector `
-  --set cainjector.image.tag=$CertManagerTag
+  --set cainjector.image.tag=$CertManagerTag  
+  --set cainjector.nodeSelector."kubernetes\.io/os"=linux `
 ```
 
 ---
