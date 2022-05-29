@@ -2,7 +2,7 @@
 title: Security recommendations in Microsoft Defender for Cloud
 description: This document walks you through how recommendations in Microsoft Defender for Cloud help you protect your Azure resources and stay in compliance with security policies.
 ms.topic: conceptual
-ms.date: 04/03/2022
+ms.date: 05/29/2022
 ---
 # Review your security recommendations
 
