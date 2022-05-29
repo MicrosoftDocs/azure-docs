@@ -2,7 +2,7 @@
 title: Understand the enhanced security features of Microsoft Defender for Cloud 
 description: Learn about the benefits of enabling enhanced security in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 05/24/2022
+ms.date: 05/29/2022
 ms.custom: references_regions
 ---
 
@@ -102,6 +102,8 @@ No. When you enable [Microsoft Defender for Servers](defender-for-servers-introd
 ### If I enable Defender for Clouds Servers plan on the Subscription level, do I need to enable it on the workspace level?
 
 When you enable the Servers plan on the subscription level, Defender for Cloud will enable your default workspace(s) automatically. 
+
+:::image type="content" source="media/enhanced-security-features-overview/connect-workspace.png" alt-text="Screenshot showing how to auto provision defender for cloud to manage your workspaces.":::
 
 However, if you're using a custom workspace in place of the default workspace, you'll need to enable the Servers plan on all of your custom workspaces that do not have it enabled. 
 
