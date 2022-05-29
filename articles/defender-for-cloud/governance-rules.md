@@ -90,5 +90,3 @@ To see the list of recommendations for each owner:
 1. Select **View recommendations** to go to the list of recommendations associated with the owner.
 
 ## Next steps
-
-For information about machine learning, see [Another article](template-howto.md)
