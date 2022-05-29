@@ -24,7 +24,7 @@ This quickstart assumes a basic understanding of Kubernetes concepts. For more i
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-- If you are unfamiliar with using the Bash environment in Azure Cloud Shell, review [Overview of Azure Cloud Shell](../../cloud-shell/overview.md).
+- If you are unfamiliar with the Azure Cloud Shell, review [Overview of Azure Cloud Shell](../../cloud-shell/overview.md).
 
 - The identity you are using to create your cluster has the appropriate minimum permissions. For more details on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../concepts-identity.md).
 
@@ -85,14 +85,26 @@ To manage a Kubernetes cluster, use the Kubernetes command-line client, [kubectl
     > [!NOTE]
     > To perform these operations in a local shell installation:
     >
-    > 1. Verify Azure CLI is installed.
-    > 2. Connect to Azure via the `az login` command.
+    > 1. Verify Azure CLI or Azure PowerShell is installed.
+    > 2. Connect to Azure via the `az login` or `Connect-AzAccount` command.
+
+# [Azure CLI](#tab/azure-cli)
 
 2. Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. The following command downloads credentials and configures the Kubernetes CLI to use them.
 
-    ```azurecli
+    ```azurecli-interactive
     az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
     ```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+2. Configure `kubectl` to connect to your Kubernetes cluster using the [Import-AzAksCredential][import-azakscredential] cmdlet. The following command downloads credentials and configures the Kubernetes CLI to use them.
+
+    ```azurepowershell-interactive
+    Import-AzAksCredential -ResourceGroupName myResourceGroup -Name myAKSCluster
+    ```
+    
+---
 
 3. Verify the connection to your cluster using `kubectl get` to return a list of the cluster nodes.
 
@@ -261,14 +273,24 @@ To see the Azure Vote app in action, open a web browser to the external IP addre
 
 ## Delete cluster
 
-To avoid Azure charges, if you don't plan on going through the tutorials that follow, clean up your unnecessary resources. Select the **Delete** button on the AKS cluster dashboard. You can also use the [az aks delete][az-aks-delete] command in the Cloud Shell:
+To avoid Azure charges, if you don't plan on going through the tutorials that follow, clean up your unnecessary resources. Select the **Delete** button on the AKS cluster dashboard. You can also use the [az group delete][az-group-delete] command or the [Remove-AzResourceGroup][remove-azresourcegroup] cmdlet to remove the resource group, container service, and all related resources.
 
-```azurecli
-az aks delete --resource-group myResourceGroup --name myAKSCluster --yes --no-wait
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az group delete --name myResourceGroup --yes --no-wait
 ```
 
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name myResourceGroup
+```
+
+---
+
 > [!NOTE]
-> When you delete the cluster, system-assigned managed identity is managed by the platform and does not require removal.
+> The AKS cluster was created with system-assigned managed identity (default identity option used in this quickstart), the identity is managed by the platform and does not require removal.
 
 ## Next steps
 
@@ -289,6 +311,9 @@ To learn more about AKS by walking through a complete example, including buildin
 <!-- LINKS - internal -->
 [kubernetes-concepts]: ../concepts-clusters-workloads.md
 [az-aks-get-credentials]: /cli/azure/aks#az_aks_get_credentials
+[import-azakscredential]: /powershell/module/az.aks/import-azakscredential
+[az-group-delete]: /cli/azure/group#az-group-delete
+[remove-azresourcegroup]: /powershell/module/az.resources/remove-azresourcegroup
 [az-aks-delete]: /cli/azure/aks#az_aks_delete
 [aks-monitor]: ../azure-monitor/containers/container-insights-overview.md
 [aks-network]: ../concepts-network.md
