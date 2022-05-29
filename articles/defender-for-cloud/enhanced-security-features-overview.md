@@ -101,7 +101,7 @@ No. When you enable [Microsoft Defender for Servers](defender-for-servers-introd
 
 ### If I enable Defender for Clouds Servers plan on the Subscription level, do I need to enable it on the workspace level?
 
-When you enable the Servers plan on the subscription level, Defender for Cloud will enable your default workspace(s) automatically. 
+When you enable the Servers plan on the subscription level, Defender for Cloud will enable the Servers plan on your default workspace(s) automatically when auto-provisioning is enabled. This can be accomplished on the Auto provisioning page by selecting **Connect Azure VMs to the default workspace(s) created by Defender for Cloud** option and selecting **Apply**.
 
 However, if you're using a custom workspace in place of the default workspace, you'll need to enable the Servers plan on all of your custom workspaces that do not have it enabled. 
 
