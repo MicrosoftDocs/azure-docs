@@ -153,7 +153,7 @@ The **iothub-connection-auth-method** property contains a JSON serialized object
 
 ```json
 {
-  "scope": "{ hub | device }",
+  "scope": "{ hub | device | module }",
   "type": "{ symkey | sas | x509 }",
   "issuer": "iothub"
 }
