@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Manage your subscriptions
 
-Your Defender for IoT deployment is managed through your Microsoft Defender for IoT account subscriptions. You can onboard, edit, and remove Defender for IoT from your subscriptions in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
+Your Defender for IoT deployment is managed through your Microsoft Defender for IoT subscriptions. You can onboard, edit, and remove Defender for IoT from your subscriptions in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 
 For each subscription, you will be asked to define the number of *committed devices*. Committed devices are the approximate number of devices that will be monitored in your enterprise. 
 
