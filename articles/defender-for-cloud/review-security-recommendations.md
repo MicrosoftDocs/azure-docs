@@ -32,23 +32,32 @@ The list of recommendations shows the **Potential score increase** that you can 
 
 When you [remediate](implement-security-recommendations.md) all of the recommendations in the security control, your secure score increases by the percentage points listed for the control.
 
-## Manage the recommendations that are assigned to you
+## Manage the owner and ETA of recommendations that are assigned to you
 
 Security teams can assign a recommendation to a specific person and assign a due date to drive your organization towards increased security. If you have recommendations assigned to you, you are accountable to remediate the resources affected by the recommendations to help your organization be compliant with the security policy.
 
-Recommendations are listed as **On-time** until their due date is passed, when they are changed to **Overdue**. Before the recommendation is overdue, the recommendation does not impact the secure score. The security team can also apply a grace period during which overdue recommendations continue to not impact the secure score.
+Recommendations are listed as **On time** until their due date is passed, when they are changed to **Overdue**. Before the recommendation is overdue, the recommendation does not impact the secure score. The security team can also apply a grace period during which overdue recommendations continue to not impact the secure score.
 
-To help you plan your work and report on progress, you can set an ETA for the recommendation to show when you plan to have the recommendation resolved by.
+To help you plan your work and report on progress, you can set an ETA for the specific resources to show when you plan to have the recommendation resolved by for those resources. You can also change the owner of the recommendation for specific resources so that the person with access to remediate the recommendation is shown as the owner.
 
-**To manage recommendations that are assigned to you**:
+**To change the owner of resources and set the ETA for remediation of recommendations that are assigned to you**:
 
 1. In the filters for list of recommendations, select **Show my items only**.
 
-    - The status column indicates the recommendations that are on-time, overdue, or completed.
+    - The status column indicates the recommendations that are on time, overdue, or completed.
     - The insights column indicates the recommendations that are overdue but in a grace period, so they currently do not impact your secure score.
 
-1. Select an on-time or overdue recommendation.
-1. 
+1. Select an on time or overdue recommendation.
+1. For the resources that are assigned to you, set the owner of the resource:
+   1. Select the resources that are owned by another person, and select **Change owner and set ETA**.
+   1. Select **Change owner**, enter the email address of the owner of the resource, and select **Save**.
+    The owner of the resource gets a weekly email listing the recommendations that they are assigned to.
+1. For resources that you own, set an ETA for remediation:
+    1. Select resources that you plan to remediate by the same date, and select **Change owner and set ETA**.
+    1. Select **Change ETA** and set the date by which you plan to remediate the recommendation for those resources.
+    1. Enter a justification for the remediation by that date, and select **Save**.
+
+The due date for the recommendation does not change, but the security team can see that you plan to update the resources by the specified ETA date.
 
 ## Review recommendation data in Azure Resource Graph Explorer (ARG)
 
