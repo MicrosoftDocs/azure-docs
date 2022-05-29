@@ -55,7 +55,7 @@ To set the retention and archive duration for a table in the Azure portal:
 
 1. Configure the retention and archive duration in **Data retention settings** section of the table configuration screen.
 
-    :::image type="content" source="media/data-retention-configure/log-analytics-configure-table-retention-archive.png" lightbox="media/data-retention-configure/log-analytics-configure-table-retention-archive.png" alt-text="Screenshot showing the data retention settings on the table configuration screen"::: 
+    :::image type="content" source="media/data-retention-configure/log-analytics-configure-table-retention-archive.png" lightbox="media/data-retention-configure/log-analytics-configure-table-retention-archive.png" alt-text="Screenshot showing the data retention settings on the table configuration screen."::: 
 
 # [API](#tab/api-1)
 
