@@ -117,7 +117,7 @@ Changes to your plan will take effect one hour after confirming the change. Bill
 
 > [!NOTE]
 > **For an on-premises management console:**
- After any changes are made, you will need to upload a new activation file to your on-premises management console. The activation file reflects the new number of committed devices. See [Upload an activation file](how-to-manage-the-on-premises-management-console.md#upload-an-activation-file).
+ After any changes are made, you will need to upload a new activation file to your on-premises management console. The activation file reflects the new number of committed devices. For more information, see [Upload an activation file](how-to-manage-the-on-premises-management-console.md#upload-an-activation-file).
 
 
 ## Remove Defender for IoT from a subscription
