@@ -42,6 +42,8 @@ To configure a table for Basic Logs or Analytics Logs in the Azure portal:
 
 1. From the **Table plan** dropdown on the table configuration screen, select **Basic** or **Analytics**.
 
+    The **Table plan** dropdown is enabled only for [tables that support Basic Logs](#which-tables-support-basic-logs).
+
     :::image type="content" source="media/basic-logs-configure/log-analytics-configure-table-plan.png" lightbox="media/basic-logs-configure/log-analytics-configure-table-plan.png" alt-text="Screenshot showing the Table plan dropdown on the table configuration screen."::: 
 
 1. Select **Save**.
