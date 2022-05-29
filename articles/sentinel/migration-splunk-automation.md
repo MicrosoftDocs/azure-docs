@@ -88,4 +88,4 @@ Here are best practices you should take into account after your SOAR migration:
 In this article, you learned how to map your SOAR automation from Splunk to Microsoft Sentinel. 
 
 > [!div class="nextstepaction"]
-> [Export your historical data](migration-arcsight-splunk-data.md)
+> [Export your historical data](migration-splunk-historical-data.md)

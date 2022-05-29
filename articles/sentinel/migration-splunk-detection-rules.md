@@ -60,7 +60,7 @@ Use these samples to compare and map rules from Splunk to Microsoft Sentinel in 
 |`top/rare`	     |Displays the most or least common values of a field.	   |[top](/azure/data-explorer/kusto/query/topoperator)         |`T | top 5 by Name desc nulls last` | 
 |`transaction`     |Groups search results into transactions.<br><br>[SPL example](#transaction-command-spl-example)         |Example: [row_window_session](/azure/data-explorer/kusto/query/row-window-session-function)       |[KQL example](#transaction-command-kql-example) |
 |`eventstats`     |Generates summary statistics from fields in your events and saves those statistics in a new field.<br><br>[SPL example](#eventstats-command-spl-example)         |Examples:<br>• [join](/azure/data-explorer/kusto/query/joinoperator?pivots=azuredataexplorer)<br>• [make_list](/azure/data-explorer/kusto/query/makelist-aggfunction)<br>• [mv-expand](/azure/data-explorer/kusto/query/mvexpandoperator)         |[KQL example](#eventstats-command-kql-example) |
-|`streamstats`     |Find the cumulative sum of a field.<br><br>SPL example:<br>`... | streamstats sum(bytes) as bytes _ total \| timechart`	         |[row_cumsum](https://docs.microsoft.com/azure/data-explorer/kusto/query/rowcumsumfunction)         |`...\| serialize cs=row_cumsum(bytes)` |
+|`streamstats`     |Find the cumulative sum of a field.<br><br>SPL example:<br>`... | streamstats sum(bytes) as bytes _ total \| timechart`	         |[row_cumsum](/azure/data-explorer/kusto/query/rowcumsumfunction)         |`...\| serialize cs=row_cumsum(bytes)` |
 |`anomalydetection`     |Find anomalies in the specified field.<br><br>[SPL example](#anomalydetection-command-spl-example)         |[series_decompose_anomalies()](/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction)         |[KQL example](#anomalydetection-command-kql-example) |
 |`where`     |Filters search results using `eval` expressions. Used to compare two different fields.	|[where](/azure/data-explorer/kusto/query/whereoperator)         |`T | where fruit=="apple"`         |
 
@@ -177,7 +177,7 @@ series_decompose_anomalies(Trend)
 |SPL command  |Description  |SPL example  |KQL command  |KQL example |
 |---------|---------|---------|---------|---------|
 |`abs(X)`     |Returns the absolute value of X.         |`abs(number)`         |[abs()](/azure/data-explorer/kusto/query/abs-function)         |`abs(X)` |
-|`case(X,"Y",…)`     |Takes pairs of `X` and `Y` arguments, where the `X` arguments are boolean expressions. When evaluated to `TRUE`, the arguments return the corresponding `Y` argument.         |[SPL example](#casex"y"-spl-example)     |[case](/azure/data-explorer/kusto/query/casefunction)         |[KQL example](#casex"y"-kql-example) |
+|`case(X,"Y",…)`     |Takes pairs of `X` and `Y` arguments, where the `X` arguments are boolean expressions. When evaluated to `TRUE`, the arguments return the corresponding `Y` argument.         |[SPL example](#casexy-spl-example)     |[case](/azure/data-explorer/kusto/query/casefunction)         |[KQL example](#casexy-kql-example) |
 |`ceil(X)`	     |Ceiling of a number X.         |`ceil(1.9)`         |[ceiling()](/azure/data-explorer/kusto/query/ceilingfunction)         |`ceiling(1.9)` |
 |`cidrmatch("X",Y)`     |Identifies IP addresses that belong to a particular subnet.         |`cidrmatch`<br>`("123.132.32.0/25",ip)`         |• [ipv4_is_match()](/azure/data-explorer/kusto/query/ipv4-is-matchfunction)<br>• [ipv6_is_match()](/azure/data-explorer/kusto/query/ipv6-is-matchfunction)         |`ipv4_is_match('192.168.1.1', '192.168.1.255')`<br>`== false` |
 |`coalesce(X,…)`	     |Returns the first value that is not null.        |`coalesce(null(), "Returned val", null())`	         |[coalesce()](/azure/data-explorer/kusto/query/coalescefunction)         |`coalesce(tolong("not a number"),`<br> `tolong("42"), 33) == 42` |
@@ -209,7 +209,7 @@ series_decompose_anomalies(Trend)
 |`relative_ time(X,Y)`    |Given an epoch time time `X` and relative time specifier `Y`, returns the epoch time value of `Y` applied to `X`.	         |`relative_time(now(),"-1d@d")`	         |[unix time](/azure/data-explorer/kusto/query/datetime-timespan-arithmetic#example-unix-time)         |[KQL example](#relative-timexy-kql-example) |
 |`replace(X,Y,Z)` |Returns a string formed by substituting string `Z` for every occurrence of regular expression string `Y` in string `X`. |Returns date with the month and day numbers switched.<br>For example, for the `4/30/2015` input, the output is `30/4/2009`:<br><br>`replace(date, "^(\d{1,2})/ (\d{1,2})/", "\2/\1/")`	|[replace()](/azure/data-explorer/kusto/query/replacefunction)	|[KQL example](#replacexyz-kql-example) |
 |`round(X,Y)` |Returns `X` rounded to the amount of decimal places specified by `Y`. The default is to round to an integer. |`round(3.5)` |[round](/azure/data-explorer/kusto/query/roundfunction) |`round(3.5)` |
-|`rtrim(X,Y)` |Returns `X` with the characters of `Y` trimmed from the right side. If `Y` is not specified, spaces and tabs are trimmed. |`rtrim(" ZZZZabcZZ ", " Z")` |[trim_end()](https://docs.microsoft.com/azure/data-explorer/kusto/query/trimendfunction) |`trim_end(@"[ Z]+",A)` |
+|`rtrim(X,Y)` |Returns `X` with the characters of `Y` trimmed from the right side. If `Y` is not specified, spaces and tabs are trimmed. |`rtrim(" ZZZZabcZZ ", " Z")` |[trim_end()](/azure/data-explorer/kusto/query/trimendfunction) |`trim_end(@"[ Z]+",A)` |
 |`searchmatch(X)` |Returns `TRUE` if the event matches the search string `X`. |`searchmatch("foo AND bar")` |[iif()](/azure/data-explorer/kusto/query/iiffunction) |`iif(field has "X","Yes","No")` |
 | `split(X,"Y")` |Returns `X` as a multi-valued field, split by delimiter `Y`. |`split(address, ";")` |[split()](/azure/data-explorer/kusto/query/splitfunction) |`split(address, ";")` |
 |`sqrt(X)` |Returns the square root of `X`. |`sqrt(9)` |[sqrt()](/azure/data-explorer/kusto/query/sqrtfunction) |`sqrt(9)` |
@@ -253,7 +253,7 @@ T | mv-apply Metric to typeof(real) on
  top 2 by Metric desc
 )
 ```
-#### relative_ time(X,Y) KQL example
+#### relative time(X,Y) KQL example
 
 ```kusto
 let toUnixTime = (dt:datetime)
