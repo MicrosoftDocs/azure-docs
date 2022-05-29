@@ -145,9 +145,9 @@ az monitor log-analytics workspace table update --subscription ContosoSID --reso
 
 To view the retention and archive duration for a table in the Azure portal, from the **Log Analytics workspaces** menu, select **Tables (preview)**.
 
-The **Tables (preview)** shows the interactive retention and archive period for all of the tables in the workspace.
+The **Tables (preview)** screen shows the interactive retention and archive period for all of the tables in the workspace.
 
-:::image type="content" source="media/basic-logs-configure/log-analytics-view-table-retention-archive.png" lightbox="media/basic-logs-configure/log-analytics-table-configuration.png" alt-text="Screenshot showing the Manage table button for one of the tables in a workspace."::: 
+:::image type="content" source="media/data-retention-configure/log-analytics-view-table-retention-archive.png" lightbox="media/media/data-retention-configure/log-analytics-view-table-retention-archive.png" alt-text="Screenshot showing the Manage table button for one of the tables in a workspace."::: 
 
 
 # [API](#tab/api-2)
