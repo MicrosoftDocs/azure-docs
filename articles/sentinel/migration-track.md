@@ -5,7 +5,6 @@ author: limwainstein
 ms.author: lwainstein
 ms.topic: how-to
 ms.date: 05/03/2022
-ms.custom: ignite-fall-2021
 ---
 
 # Track your Microsoft Sentinel migration with a workbook
@@ -60,11 +59,11 @@ Your team might update or complete tasks during the deployment process. To addre
 
 ## View deployment status
 
-To quickly view the deployment progress, select **Deployment** and locate the **Summary of progress**. This area displays the deployment status, including the following information:
+To quickly view the deployment progress, in the **Microsoft Sentinel Deployment and Migration** workbook, select **Deployment** and locate the **Summary of progress**. This area displays the deployment status, including the following information:
 
 - Tables reporting data
 - Number of tables reporting data
-- Number of log reports and which table is reported
+- Number of reported logs and which tables report the log data
 - Number of enabled rules vs. undeployed rules
 - Recommended workbooks deployed
 - Total number of workbooks deployed
@@ -72,7 +71,7 @@ To quickly view the deployment progress, select **Deployment** and locate the **
 
 ## Deploy and monitor data connectors
 
-To monitor deployed resources and deploy new connectors, select **Data Connectors > Monitor**. The **Monitor** view lists:
+To monitor deployed resources and deploy new connectors, in the **Microsoft Sentinel Deployment and Migration** workbook, select **Data Connectors > Monitor**. The **Monitor** view lists:
 - Current ingestion trends
 - Tables ingesting data
 - How much data each table is reporting
@@ -94,7 +93,7 @@ To configure a connector:
 
 ## Deploy and monitor analytics and incidents
 
-Once the data is reported in the workspace, you can now configure and monitor analytics rules. Select **Analytics** to view all deployed rule templates and lists, including which rules are currently in use as well as how often the rules generate incidents. 
+Once the data is reported in the workspace, you can now configure and monitor analytics rules. In the **Microsoft Sentinel Deployment and Migration** workbook, select **Analytics** to view all deployed rule templates and lists. This view indicates which rules are currently in use and how often the rules generate incidents. 
 
 :::image type="content" source="media/migration-track/migration-track-analytics.png" alt-text="Screenshot of the Microsoft Sentinel Deployment Tracker Analytics tab." lightbox="media/migration-track/migration-track-analytics.png":::
 
@@ -108,19 +107,22 @@ Once the desired analytics rules are deployed and the Defender product connector
 
 ## Deploy and utilize workbooks
 
-To visualize information regarding the data ingestion and detections that Microsoft Sentinel performs, select **Workbook**. Similar to the **Data Connectors** tab, you can by use the available views to view monitoring and configuration information. Select **Monitor** to view a list of all workbooks in the environment and how many are deployed. 
+To visualize information regarding the data ingestion and detections that Microsoft Sentinel performs, in the **Microsoft Sentinel Deployment and Migration** workbook, select **Workbooks**. Similar to the **Data Connectors** tab, you can by use the available views to view monitoring and configuration information. 
 
-When you select a workbook, you can open and view the workbook directly within the **Deployment and Migration** workbook.
+Here are some useful tasks you can perform in the **Workbooks** tab: 
 
-:::image type="content" source="media/migration-track/migration-track-workbook.png" alt-text="Screenshot of the Microsoft Sentinel Deployment Tracker Workbook tab Monitor view." lightbox="media/migration-track/migration-track-workbook.png":::
+- To view a list of all workbooks in the environment and how many are deployed, select **Monitor**.
+- To view a specific workbook within the **Microsoft Sentinel Deployment and Migration** workbook, select a workbook and then select **Open Selected Workbook**.
 
-If you have not yet deployed workbooks, select **Configure** to view a list of commonly used and recommended workbooks. If a workbook is not listed, select **Go to Workbook Gallery** or **Go to Content Hub** to deploy the relevant workbook. 
+    :::image type="content" source="media/migration-track/migration-track-workbook.png" alt-text="Screenshot of the Microsoft Sentinel Deployment Tracker Workbook tab Monitor view." lightbox="media/migration-track/migration-track-workbook.png":::
 
-:::image type="content" source="media/migration-track/migration-track-view-workbooks.png" alt-text="Screenshot of the Microsoft Sentinel Deployment Tracker Workbook tab workbook view." lightbox="media/migration-track/migration-track-view-workbooks.png":::
+- If you have not yet deployed workbooks, select **Configure** to view a list of commonly used and recommended workbooks. If a workbook is not listed, select **Go to Workbook Gallery** or **Go to Content Hub** to deploy the relevant workbook. 
+
+    :::image type="content" source="media/migration-track/migration-track-view-workbooks.png" alt-text="Screenshot of the Microsoft Sentinel Deployment Tracker Workbook tab workbook view." lightbox="media/migration-track/migration-track-view-workbooks.png":::
 
 ## Deploy and monitor playbooks and automation rules
 
-Once data ingestion, detections, and visualizations are configured, you can now look into automation. Select **Automation** to view deployed playbooks, and to see which playbooks are currently connected to an automation rule. If automation rules exist, the workbook highlights the following information regarding the automation rule:
+Once you configure data ingestion, detections, and visualizations, you can now look into automation. in the **Microsoft Sentinel Deployment and Migration** workbook, select **Automation** to view deployed playbooks, and to see which playbooks are currently connected to an automation rule. If automation rules exist, the workbook highlights the following information regarding the automation rule:
 - Name
 - Status
 - Action or actions of the rule
@@ -135,7 +137,7 @@ Learn about Microsoft Sentinel SOAR capabilities [for playbooks](automate-respon
 
 ## Deploy and monitor UEBA
 
-Because data reporting and detections happen at the entity level, it is essential to monitor entity behavior and trends. To enable the UEBA feature within Microsoft Sentinel, select **UEBA**. Here you can customize the entity timelines for entity pages, and view which entity related tables are populated with data. 
+Because data reporting and detections happen at the entity level, it is essential to monitor entity behavior and trends. To enable the UEBA feature within Microsoft Sentinel, in the **Microsoft Sentinel Deployment and Migration** workbook, select **UEBA**. Here you can customize the entity timelines for entity pages, and view which entity related tables are populated with data. 
 
 :::image type="content" source="media/migration-track/migration-track-ueba.png" alt-text="Screenshot of the Microsoft Sentinel Deployment Tracker UEBA tab." lightbox="media/migration-track/migration-track-ueba.png":::
 
@@ -148,16 +150,15 @@ To enable UEBA:
 After you enable UEBA, you can monitor and ensure that Microsoft Sentinel is generating UEBA data. 
 
 To customize the timeline:
-1.	Select **Customize Entity Timeline** above the list of tables.
-2.	Create a custom item, or select one of the out-of-the-box templates.
-3.	Complete the wizard for the item.
-4.	Select **Create**.
+1. Select **Customize Entity Timeline** above the list of tables.
+1. Create a custom item, or select one of the out-of-the-box templates.
+1. To deploy the template and complete the wizard, select **Create**.
 
 Learn more about [UEBA](identify-threats-with-entity-behavior-analytics.md) or learn how to [customize the timeline](customize-entity-activities).
 
 ## Configure and manage the data lifecycle
 
-When you deploy or migrate to Microsoft Sentinel, it's essential to manage the usage and lifecycle of the incoming logs. To assist with this, the **Data Management** section of the workbook allows you to configure table retention and archival.
+When you deploy or migrate to Microsoft Sentinel, it's essential to manage the usage and lifecycle of the incoming logs. To assist with this, in the **Microsoft Sentinel Deployment and Migration** workbook, select **Data Management** to view and configure table retention and archival.
 
 :::image type="content" source="media/migration-track/migration-track-data-management.png" alt-text="Screenshot of the Microsoft Sentinel Deployment Tracker Data Management tab." lightbox="media/migration-track/migration-track-data-management":::
 
@@ -178,12 +179,12 @@ To modify the existing retention policy for tables, select **Default Retention T
  
 The **ArchiveRetention** value is calculated by subtracting the **TotalRetention** value from the **InteractiveRetention** value. If you need to adjust the workspace retention, the change does not impact tables that include configured archives and data is not lost. If you edit the **InteractiveRetention** value and the **TotalRetention** value does not change, Azure Log Analytics adjusts the archive retention to compensate the change.
 
-If you prefer to make changes in the UI, open the relevant blade.
+If you prefer to make changes in the UI, select **Update Retention in UI** to open the relevant blade.
 
 Learn about [data lifecycle management](../azure-monitor/logs/data-retention-archive.md). 
 
 ## Enable migration tips and instructions
 
-To assist with the deployment and migration process, the workbook includes tips that explain how to use the different tabs and links to relevant resources. The tips are based on Microsoft Sentinel migration documentation and are relevant to your current SIEM. To enable tips and instructions, on the top right, set **MigrationTips** and **Instruction** to **Yes**. 
+To assist with the deployment and migration process, the workbook includes tips that explain how to use the different tabs and links to relevant resources. The tips are based on Microsoft Sentinel migration documentation and are relevant to your current SIEM. To enable tips and instructions, in the **Microsoft Sentinel Deployment and Migration** workbook, select **Automation**, and on the top right, set **MigrationTips** and **Instruction** to **Yes**. 
 
 :::image type="content" source="media/migration-track/migration-track-tips.png" alt-text="Screenshot of the Microsoft Sentinel Deployment Tracker Data Management tab." lightbox="media/migration-track/migration-track-tips":::
