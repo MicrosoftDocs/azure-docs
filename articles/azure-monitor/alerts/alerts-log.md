@@ -17,7 +17,7 @@ You create an alert rule by combining:
  - The signal or telemetry from the resource
  - Conditions
 
-And then defining these elements in the resulting alert:
+And then defining these elements of the triggered alert:
  - Alert processing rules
  - Action groups
 
