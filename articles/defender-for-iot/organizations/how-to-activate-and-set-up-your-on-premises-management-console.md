@@ -26,9 +26,9 @@ If you forgot your password, select the **Recover Password** option. See [Passwo
 
 ## Activate the on-premises management console
 
-After you sign in for the first time, you need to activate the on-premises management console by getting and uploading an activation file.
+After you sign in for the first time, you need to activate the on-premises management console by getting and uploading an activation file. 
 
-To activate the on-premises management console:
+**To activate the on-premises management console**:
 
 1. Sign in to the on-premises management console.
 
@@ -61,13 +61,20 @@ After initial activation, the number of monitored devices might exceed the numbe
 
 If this warning appears, you need to upload a [new activation file](#activate-the-on-premises-management-console).
 
-### Activate an expired license (versions under 10.0)
+### Activation expirations
+
+After you've activated an on-premises management console, connected sensors remain activated as follows:
+
+- **Cloud-connected sensors** have no expiration date. However, some sensor version updates may require a new activation file.
+- **Locally-managed sensors** expire after one year, after which you must apply a new activation file. After a sensor's activation file has expired, the sensor will continue to monitor your network, but you'll see a warning message when signing in to the sensor.
+
+### Activate expired licenses from versions earlier than 10.0
 
 For users with versions prior to 10.0, your license might expire and the following alert will appear:
 
 :::image type="content" source="media/how-to-activate-and-set-up-your-on-premises-management-console/activation-popup.png" alt-text="Screenshot that shows the License has expired alert.":::
 
-To activate your license:
+**To activate your license**:
 
 1. Open a case with [support](https://portal.azure.com/?passwordRecovery=true&Microsoft_Azure_IoT_Defender=canary#create/Microsoft.Support).
 
