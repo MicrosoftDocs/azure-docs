@@ -68,8 +68,8 @@ You can also use the client libraries provided by the Azure SDK to send requests
     
     |Language  |Package version  |
     |---------|---------|
-    |.NET     | [5.2.0-beta.3](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.2.0-beta.3)        |
-    |Python     | [5.2.0b4](https://pypi.org/project/azure-ai-textanalytics/5.2.0b4/)         |
+    |.NET     | [1.0.0-beta.3 ](https://www.nuget.org/packages/Azure.AI.Language.Conversations/1.0.0-beta.3)        |
+    |Python     | [1.1.0b1](https://pypi.org/project/azure-ai-language-conversations/)         |
     
 4. After you've installed the client library, use the following samples on GitHub to start calling the API.
     
