@@ -42,8 +42,8 @@ landingContent:
             url: release-notes.md
           - text: Important upcoming changes
             url: upcoming-changes.md
-          - text: Connect AWS accounts with environment settings
-            url: quickstart-onboard-aws.md
+          - text: Deploy Microsoft Defender for Endpoint with Defender for Servers Plan 1
+            url: defender-for-servers-introduction.md
           - text: Threat and vulnerability management vulnerability assessment
             url: deploy-vulnerability-assessment-tvm.md
 
