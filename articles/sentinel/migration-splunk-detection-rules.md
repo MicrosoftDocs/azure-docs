@@ -14,35 +14,37 @@ This article describes how to identify, compare, and migrate your Splunk detecti
 
 ## Identify rules
 
-Mapping detection rules from your SIEM to map to Microsoft Sentinel rules is critical. 
-- Understand Microsoft Sentinel rules. Azure Sentinel has four built-in rule types:
-    - Alert grouping: Reduces alert fatigue by grouping up to 150 alerts within a given timeframe, using three [alert grouping](https://techcommunity.microsoft.com/t5/azure-sentinel/what-s-new-reduce-alert-noise-with-incident-settings-and-alert/ba-p/1187940) options: matching entities, alerts triggered by the scheduled rule, and matches of specific entities.
-    - Entity mapping: Enables your SecOps engineers to define entities to be tracked during the investigation. [Entity mapping](map-data-fields-to-entities.md) also makes it possible for analysts to take advantage of the intuitive [investigation graph](tutorial-investigate-cases.md) to reduce time and effort.
-    - Evidence summary: Surfaces events, alerts, and bookmarks associated with a particular incident within the preview pane. Entities and tactics also show up in the incident pane—providing a snapshot of essential details and enabling faster triage.
-    - KQL: The request is sent to a Log Analytics database and is stated in plain text, using a data-flow model that makes the syntax easy to read, author, and automate. Because several other Microsoft services also store data in [Azure Log](../azure-monitor/logs/log-analytics-tutorial.md) Analytics or [Azure Data Explorer](https://azure.microsoft.com/en-us/services/data-explorer/), this reduces the learning curve needed to query or correlate.
+It's critical to identify and map detection rules from Splunk to Microsoft Sentinel rules. Review these considerations as you identify your current rules. 
+- [Understand Microsoft Sentinel rule types](detect-threats-built-in.md##view-built-in-detections). 
 - Check you understand rule terminology using the diagram below.
 - Don’t migrate all rules without consideration. Focus on quality, not quantity.
-- Leverage existing functionality, and check whether Microsoft Sentinel’s [built-in analytics rules](detect-threats-built-in.md) might address your current use cases. Because Microsoft Sentinel uses machine learning analytics to produce high-fidelity and actionable incidents, it’s likely that some of your existing detections won’t be required anymore.
+- Leverage existing functionality, and check whether Microsoft Sentinel’s [built-in analytics rules](https://github.com/Azure/Azure-Sentinel/tree/master/Detections) might address your current use cases. Because Microsoft Sentinel uses machine learning analytics to produce high-fidelity and actionable incidents, it’s likely that some of your existing detections won’t be required anymore.
 - Confirm connected data sources and review your data connection methods. Revisit data collection conversations to ensure data depth and breadth across the use cases you plan to detect.
 - Explore community resources such as [SOC Prime Threat Detection Marketplace](https://my.socprime.com/tdm/) to check whether  your rules are available.
 - Consider whether an online query converter such as Uncoder.io conversion tool might work for your rules? 
-- If rules aren’t available or can’t be converted, they need to be created manually, using a KQL query. Review the [Splunk to Kusto Query Language map](../data-explorer/kusto/query/splunk-cheat-sheet.md).
+- If rules aren’t available or can’t be converted, they need to be created manually, using a KQL query. Review the [rules mapping](#map-and-compare-rule-samples) to create new queries. 
+
+Learn more about [best practices for migrating detection rules](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/best-practices-for-migrating-detection-rules-from-arcsight/ba-p/2216417).
 
 ## Compare rule terminology
 
-This diagram helps you to clarify the concept of a rule in Microsoft Sentinel compared to other SIEMs.
+This table helps you to clarify the concept of a rule in Microsoft Sentinel compared to Splunk.
 
-:::image type="content" source="media/migration-arcsight-detection-rules/compare-rule-terminology.png" alt-text="Diagram comparing Microsoft Sentinel rule terminology with other SIEMs." lightbox="media/migration-arcsight-detection-rules/compare-rule-terminology.png":::
+| |Splunk |Microsoft Sentinel |
+|---------|---------|---------|
+|Rule type |• Scheduled<br>• Real-time |• Scheduled query<br>• Fusion<br>• Microsoft Security<br>• Machine Learning (ML) Behavior Analytics |
+|Criteria |Define in SPL |Define in KQL |
+|Trigger condition |• Number of results<br>• Number of hosts<br>• Number of sources<br>• Custom |Threshold: Number of query results |
+|Action |• Add to triggered alerts<br>• Log Event<br>• Output results to lookup<br>• And more |• Create alert or incident<br>• Integrates with Logic Apps |
 
-## Migrate rules
+## Map and compare rule samples
 
-Use these samples to migrate rules from Splunk to Microsoft Sentinel in various scenarios.
+Use these samples to compare and map rules from Splunk to Microsoft Sentinel in various scenarios.
 
 #### Common search commands
 
-
-|SPL command  |Description  |SPL example  |KQL operator |KQL example  |
-|---------|---------|---------|---------|---------|
+|SPL command  |Description  |KQL operator |KQL example  |
+|---------|---------|---------|---------|
 |`chart/ timechart`	     |Returns results in a tabular output for time-series charting. |     |[render operator](https://docs.microsoft.com/azure/data-explorer/kusto/query/renderoperator?pivots=azuredataexplorer) |`… \| render timechart`   |
 |`dedup`     |Removes subsequent results that match a specified criterion.	|         |• [distinct](https://docs.microsoft.com/azure/data-explorer/kusto/query/distinctoperator)<br>• [summarize](https://docs.microsoft.com/azure/data-explorer/kusto/query/summarizeoperator)     |`… \| summarize by Computer, EventID`          |
 |`eval`   |Calculates an expression. Learn about [common eval commands](https://github.com/Azure/Azure-Sentinel/blob/master/Tools/RuleMigration/SPL%20to%20KQL.md#common-eval-commands).   |    |[extend](https://docs.microsoft.com/azure/data-explorer/kusto/query/extendoperator)    |`T \| extend duration = endTime - startTime`         |
@@ -57,15 +59,15 @@ Use these samples to migrate rules from Splunk to Microsoft Sentinel in various 
 |`mstats`     |Similar to stats, used on metrics instead of events.	        |    |[summarize](https://docs.microsoft.com/azure/data-explorer/kusto/query/summarizeoperator)          |`T`<br>`\| summarize count() by price_range=bin(price, 10.0)` |
 |`table`     |Specifies which fields to keep in the result set, and retains data in tabular format.	|    |[project](https://docs.microsoft.com/azure/data-explorer/kusto/query/projectoperator)         |`T \| project columnA, columnB`         |
 |`top/rare`	     |Displays the most or least common values of a field.	         |    |[top](https://docs.microsoft.com/azure/data-explorer/kusto/query/topoperator)         |`T \| top 5 by Name desc nulls last` | 
-|`transaction`     |Groups search results into transactions.         |[SPL example](#transaction-command-spl-example)         |Example: [row_window_session](https://docs.microsoft.com/azure/data-explorer/kusto/query/row-window-session-function)       |[KQL example](#transaction-command-kql-example) |
-|`eventstats`     |Generates summary statistics from fields in your events and saves those statistics in a new field.	         |[SPL example](#eventstats-command-spl-example)         |Examples:<br>• [join](https://docs.microsoft.com/azure/data-explorer/kusto/query/joinoperator?pivots=azuredataexplorer)<br>• [make_list](https://docs.microsoft.com/azure/data-explorer/kusto/query/makelist-aggfunction)<br>• [mv-expand](https://docs.microsoft.com/azure/data-explorer/kusto/query/mvexpandoperator)         |[KQL example](#eventstats-command-kql-example) |
-|`streamstats`     |Find the cumulative sum of a field.	         |`... \| streamstats sum(bytes) as bytes _ total \| timechart`	         |[row_cumsum](https://docs.microsoft.com/azure/data-explorer/kusto/query/rowcumsumfunction)         |`...\| serialize cs=row_cumsum(bytes)` |
-|`anomalydetection`     |Find anomalies in the specified field.	         |[SPL example](#anomalydetection-command-spl-example)         |[series_decompose_anomalies()](https://docs.microsoft.com/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction)         |[KQL example](#anomalydetection-command-kql-example) |
+|`transaction`     |Groups search results into transactions.<br><br>[SPL example](#transaction-command-spl-example)         |Example: [row_window_session](https://docs.microsoft.com/azure/data-explorer/kusto/query/row-window-session-function)       |[KQL example](#transaction-command-kql-example) |
+|`eventstats`     |Generates summary statistics from fields in your events and saves those statistics in a new field.<br><br>[SPL example](#eventstats-command-spl-example)         |Examples:<br>• [join](https://docs.microsoft.com/azure/data-explorer/kusto/query/joinoperator?pivots=azuredataexplorer)<br>• [make_list](https://docs.microsoft.com/azure/data-explorer/kusto/query/makelist-aggfunction)<br>• [mv-expand](https://docs.microsoft.com/azure/data-explorer/kusto/query/mvexpandoperator)         |[KQL example](#eventstats-command-kql-example) |
+|`streamstats`     |Find the cumulative sum of a field.<br><br>SPL example:<br>`... \| streamstats sum(bytes) as bytes _ total \| timechart`	         |[row_cumsum](https://docs.microsoft.com/azure/data-explorer/kusto/query/rowcumsumfunction)         |`...\| serialize cs=row_cumsum(bytes)` |
+|`anomalydetection`     |Find anomalies in the specified field.<br><br>[SPL example](#anomalydetection-command-spl-example)         |[series_decompose_anomalies()](https://docs.microsoft.com/azure/data-explorer/kusto/query/series-decompose-anomaliesfunction)         |[KQL example](#anomalydetection-command-kql-example) |
 |`where`     |Filters search results using `eval` expressions. Used to compare two different fields.	         |    |[where](https://docs.microsoft.com/azure/data-explorer/kusto/query/whereoperator)         |`T \| where fruit=="apple"`         |
 
 ##### transaction command: SPL example
 
-```bash
+```spl
 sourcetype=MyLogTable type=Event
 | transaction ActivityId startswith="Start" endswith="Stop"
 | Rename timestamp as StartTime
@@ -95,14 +97,14 @@ Timestamp, 1h, 5m, ID != prev(ID))
 
 ##### eventstats command: SPL example
 
-```bash
+```spl
 … | bin span=1m _time
 |stats count AS count_i by _time, category
-| eventstats sum(count_i) as count_total by _time	
+| eventstats sum(count_i) as count_total by _time
 ```
 ##### eventstats command: KQL example
 
-###### Example with join statement
+Here is an example with the `join` statement:
 
 ```kusto
 let binSize = 1h;
@@ -116,7 +118,7 @@ detail
 | join kind=leftouter (summary) on tbin 
 | project-away tbin1
 ```
-###### Example with make_list statement
+Here is an example with the `make_list` statement:
 
 ```kusto
 let binSize = 1m;
@@ -128,9 +130,9 @@ groupBin =bin(TimeGenerated, binSize)
 sum(TotalEvents) by groupBin
 | mvexpand list_EventID, list_TotalEvents
 ```
-#### anomalydetection command: SPL example
+##### anomalydetection command: SPL example
 
-```bash
+```spl
 sourcetype=nasdaq earliest=-10y
 | anomalydetection Close _ Price
 ```
@@ -149,7 +151,7 @@ LineFit)=series_fit_line(Trend)
 | extend (anomalies,score) = 
 series_decompose_anomalies(Trend)
 ```
-## Common eval commands
+#### Common eval commands
 
 |SPL command  |Description  |SPL example  |KQL command  |KQL example |
 |---------|---------|---------|---------|---------|
@@ -198,7 +200,7 @@ series_decompose_anomalies(Trend)
 |`typeof(X)` |Returns a string representation of the field type. |`typeof(12)` |[gettype()](https://docs.microsoft.com/azure/data-explorer/kusto/query/gettypefunction) |`gettype(12)` |
 |`urldecode(X)` |Returns the URL `X` decoded. |`urldecode("http%3A%2F%2Fwww.`<br>`splunk.com%2Fdownload%3Fr%3D`<br>`header")` |[url_decode](https://docs.microsoft.com/azure/data-explorer/kusto/query/urldecodefunction) |`url_decode('https%3a%2f%2fwww.bing.com%2f')` |
 
-## Common stats commands
+#### Common stats commands
 
 |SPL command  |Description  |KQL command  |KQL example  |
 |---------|---------|---------|---------|
