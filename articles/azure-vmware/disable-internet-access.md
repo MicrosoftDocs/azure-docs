@@ -15,7 +15,7 @@ With a default route setup, you can achieve the following tasks:
  
 - Enable Internet access by generating a default route from Azure Firewall or third-party Network Virtual Appliance. 
 ## Prerequisites      
-- If Internet access is required, a default route must be advertised from a Azure Firewall, Network Virtual Appliance or Virtual WAN Hub. 
+- If Internet access is required, a default route must be advertised from an Azure Firewall, Network Virtual Appliance or Virtual WAN Hub. 
 - Azure VMware Solution private cloud.
 ## Disable Internet access or enable a default route in the Azure portal
 1. Log in to the Azure portal.
