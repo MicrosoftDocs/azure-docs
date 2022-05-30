@@ -12,7 +12,7 @@ ms.date: 05/29/2022
 
 Security teams are responsible for improving the security posture of their organizations but they don't have the resources to actually implement security recommendations. [Assigning owners with due dates](#manually-assigning-owners-and-due-dates-for-recommendation-remediation) and [defining governance rules](#defining-governance-rules-to-automatically-set-the-owner-and-due-date-of-recommendations-preview) create transparency and accountability so you can drive the process of improving the security posture in your organization.
 
-Weekly email notifications update resource owners on the recommendations they're responsible for and, if their manager is found in the organizational Azure Active Directory(AAD), the owner's manager receives an email showing any overdue recommendations.
+Weekly email notifications update resource owners on the recommendations they're responsible for and, if their manager is found in the organizational Azure Active Directory (Azure AD), the owner's manager receives an email showing any overdue recommendations.
 
 After you assign owners and due dates, you can track how many recommendations are overdue in your security posture and recommendations.
 
@@ -60,7 +60,7 @@ The due date set for the recommendation to be remediated is based on a timeframe
 
 You can also set the owner of the resources that are affected by the specified recommendations. In organizations that use resource tags to associate resources with an owner, you can specify the tag key and the governance rule reads the name of the resource owner from the tag.
 
-By default, email notifications are sent to the resource owners weekly to provide a list of the on time and overdue tasks. If the owner's manager is found in the organizational Azure Active Directory(AAD), the owner's manager receives an email showing any overdue recommendations by default.
+By default, email notifications are sent to the resource owners weekly to provide a list of the on time and overdue tasks. If the owner's manager is found in the organizational Azure Active Directory (Azure AD), the owner's manager receives an email showing any overdue recommendations by default.
 
 To define a governance rule that assigns an owner and due date:
 
@@ -105,7 +105,7 @@ To see the list of recommendations for each owner:
 
     - Hover over the (i) in the overdue recommendations to see the breakdown of overdue recommendations by severity.
 
-    - If the owner email address is found in the organizational Azure Active Directory (AAD), you'll see the full name and picture of the owner.
+    - If the owner email address is found in the organizational Azure Active Directory (Azure AD), you'll see the full name and picture of the owner.
 
 1. Select **View recommendations** to go to the list of recommendations associated with the owner.
 
