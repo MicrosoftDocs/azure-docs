@@ -42,7 +42,7 @@
       href: add-service-principal.md 
     - name: Configure Customer-Managed Keys
       href: customer-managed-keys.md  
-    - name: Enable LDAP Authentication
+    - name: Enable LDAP authentication
       href: ldap.md        
     - name: Monitor Managed Instance
       href: monitor-clusters.md   
