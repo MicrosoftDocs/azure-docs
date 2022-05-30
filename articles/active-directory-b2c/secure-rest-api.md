@@ -460,8 +460,12 @@ Add the validation technical profile reference to the sign up technical profile,
 
 
 For example:
-    ```
-   <ValidationTechnicalProfile ReferenceId="REST-AcquireAccessToken" />
+    ```XML
+    <ValidationTechnicalProfiles>
+       ....
+       <ValidationTechnicalProfile ReferenceId="REST-AcquireAccessToken" />
+       ....
+    </ValidationTechnicalProfiles>
     ```
     
 
