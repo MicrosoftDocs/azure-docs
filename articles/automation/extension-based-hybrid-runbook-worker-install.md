@@ -164,10 +164,10 @@ To create a hybrid worker group in the Azure portal, follow these steps:
 
 1. From the **Basics** tab, in the **Name** text box, enter a name for your Hybrid worker group.
 
-1. For the **Use run as credential** option:
+1. For the **Use Hybrid Worker Credentials** option:
 
-   - If you select **No**, the hybrid extension will be installed using the local system account.
-   - If you select **Yes**, then from the drop-down list, select the credential asset.
+   - If you select **Default**, the hybrid extension will be installed using the local system account.
+   - If you select **Custom**, then from the drop-down list, select the credential asset.
 
 1. Select **Next** to advance to the **Hybrid workers** tab. You can select Azure virtual machines or Azure Arc-enabled servers to be added to this Hybrid worker group. If you don't select any machines, an empty Hybrid worker group will be created. You can still add machines later.
 
