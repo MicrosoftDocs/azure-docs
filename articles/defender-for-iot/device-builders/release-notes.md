@@ -68,7 +68,7 @@ Listed below are the support, breaking change policies for Defender for IoT, and
 
 - **[System information collector](concept-event-aggregation.md#system-information-trigger-based-collector)** - The system information collector gatherers information related to the device’s operating system and hardware details.
 
-- **[Event aggregation](concept-event-aggregation.md#how-does-event-aggregation-work)** - The Defender for IoT agent aggregates events such as process, login, network events that reduce the number of messages sent and costs, all while maintaining your device's security.  
+- **[Event aggregation](concept-event-aggregation.md#event-aggregation-for-process-and-network-collectors)** - The Defender for IoT agent aggregates events such as process, login, network events that reduce the number of messages sent and costs, all while maintaining your device's security.  
 
 - **[Twin configuration](concept-micro-agent-configuration.md)** - The micro agent's behavior is configured by a set of module twin properties. (e.g event sending frequency and Aggregation mode). You can configure the micro agent to best suit your needs.
 
