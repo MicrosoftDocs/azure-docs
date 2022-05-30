@@ -2719,6 +2719,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/aks/keda.md",
+      "redirect_url": "/azure/aks/keda-about",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/analysis-services/analysis-services-create-model-portal.md",
       "redirect_url": "/azure/analysis-services/analysis-services-overview",
       "redirect_document_id": false
