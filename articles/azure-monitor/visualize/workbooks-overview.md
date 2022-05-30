@@ -32,21 +32,19 @@ Here is a video walkthrough on creating workbooks.
 ## Getting started
 
 You can access Workbooks in a few ways:
-- In the [Azure portal](https://portal.azure.com), click on **Monitor**, then select **Workbooks**.
+- In the [Azure portal](https://portal.azure.com), click on **Monitor**, and then select **Workbooks** from the menu bar on the left.
 
-   :::image type="content" source="./media/workbooks-overview/workbooks.png" alt-text="Screenshot of Workbooks button highlighted in a red box." border="false":::
+   :::image type="content" source="./media/workbooks-overview/workbooks-menu.png" alt-text="Screenshot of Workbooks icon in the menu.":::
 
-- Open workbooks from the Workbooks tile under your Log Analytics workspace.
+- From a **Log Analytics workspace** page, select the **Workbooks** icon at the top of the page.
 
-   ![Workbooks navigation](media/view-designer-conversion-overview/workbooks-nav.png)
+  :::image type="content" source="media/workbooks-overview/workbooks-log-analytics-icon.png" alt-text="Screenshot of Workbooks icon on Log analytics workspace page.":::
+   
 
 ## The Gallery
-The gallery opens listing all the saved workbooks and templates for your workspace.
+The gallery opens listing all the saved workbooks and templates for your workspace, allowing you to easily to organize, sort, and manage workbooks of all types.
 
-![Workbooks gallery](media/view-designer-conversion-overview/workbooks-gallery.png)
-
-The gallery makes it convenient to organize, sort, and manage workbooks of all types.
-
+:::image type="content" source="media/workbooks-overview/workbooks-gallery.png" alt-text="Screenshot of Workbooks gallery.":::
 #### Gallery tabs
 
 There are four tabs in the gallery to help organize workbook types.
@@ -57,8 +55,6 @@ There are four tabs in the gallery to help organize workbook types.
 | Workbooks | Shows the list of all the available workbooks that you created or are shared with you. |
 | Public Templates | Shows the list of all the available ready to use, get started functional workbook templates published by Microsoft. Grouped by category. |
 | My Templates | Shows the list of all the available deployed workbook templates that you created or are shared with you. Grouped by category. |
-
-:::image type="content" source="./media/workbooks-overview/gallery-all-tab.png" alt-text="Screenshot of the gallery on the all tab." lightbox="media/workbooks-overview/gallery-all-tab.png":::
 
 ## Data sources
 
