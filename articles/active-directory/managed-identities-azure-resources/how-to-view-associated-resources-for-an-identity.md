@@ -39,7 +39,7 @@ Being able to quickly see which Azure resources are associated with a user-assig
 - In the left-hand menu, select the **Associated Resources** link
 - A list of the Azure resources associated with the managed identity will be displayed
 
-:::image type="content" source="media/how-to-view-associated-resources-for-an-identity/associated-resources-list.png" alt-text="List of associated resources for a user-assigned managed identity.":::
+:::image type="content" source="media/how-to-view-associated-resources-for-an-identity/associated-resources-list-cropped.png" alt-text="List of associated resources for a user-assigned managed identity.":::
 
 Select the resource name to be brought to its summary page.
 
