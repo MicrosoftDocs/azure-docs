@@ -32,7 +32,7 @@ Here’s what you need to think about when migrating SOAR use cases from IBM Sec
 
 This section shows how key SOAR concepts in IBM Security QRadar SOAR translate to Microsoft Sentinel components, and provides general guidelines for how to migrate each step or component in the SOAR workflow.
 
-:::image type="content" source="media/migration-qradar-automation/qradar-sentinel-soar-workflow-new.png" alt-text="Diagram displaying the QRadar and Microsoft Sentinel SOAR workflows." lightbox="media/migration-qradar-automation/qradar-sentinel-soar-workflow-new.png":::
+:::image type="content" source="media/migration-qradar-automation/qradar-sentinel-soar-workflow.png" alt-text="Diagram displaying the QRadar and Microsoft Sentinel SOAR workflows." lightbox="media/migration-qradar-automation/qradar-sentinel-soar-workflow.png":::
 
 |Step (in diagram) |IBM Security QRadar SOAR  |Microsoft Sentinel |
 |---------|---------|---------|
