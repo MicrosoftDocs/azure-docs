@@ -18,9 +18,9 @@ ms.author: barclayn
 ms.collection: M365-identity-device-management
 ---
 
-# View associated Azure resources for a user-assigned managed identity
+# View associated Azure resources for a user-assigned managed identity (Preview)
 
-This article will explain how to view the Azure resources that are associated with a user-assigned managed identity.
+This article will explain how to view the Azure resources that are associated with a user-assigned managed identity. This feature is available in public preview.
 
 ## Prerequisites
 
@@ -75,29 +75,27 @@ POST https://management.azure.com/subscriptions/aab111d1-1111-43e2-8d11-3bfc47ab
 
 Below is a sample response from the REST API:
 ```
-HTTP 200 OK 
-{ 
-        "totalCount": 2, 
-        "value": [ 
-          { 
-            "id":"/subscriptions/{subId}/resourceGroups/testrg/providers/Microsoft.CognitiveServices/accounts/test1", 
-            "name": "test1", 
-            "type": "microsoft.cognitiveservices/accounts", 
-            "resourceGroup": "testrg", 
-            "subscriptionId": "{subId}", 
-            "subscriptionDisplayName": "TestSubscription" 
-          }, 
-          { 
-            "id":"/subscriptions/{subId}/resourceGroups/testrg/providers/Microsoft.CognitiveServices/accounts/test2", 
-            "name": "test2", 
-            "type": "microsoft.cognitiveservices/accounts", 
-            "resourceGroup": "testrg", 
-            "subscriptionId": "{subId}", 
-            "subscriptionDisplayName": "TestSubscription" 
-          } 
-        ] 
-      }, 
-      "nextLink": "https://management.azure.com/subscriptions/{subId}/resourceGroups/testrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testid?skiptoken=ew0KICAiJGlkIjogIjEiLA0KICAiTWF4Um93cyI6IDIsDQogICJSb3dzVG9Ta2lwIjogMiwNCiAgIkt1c3RvQ2x1c3RlclVybCI6ICJodHRwczovL2FybXRvcG9sb2d5Lmt1c3RvLndpbmRvd3MubmV0Ig0KfQ%253d%253d&api-version=2021
+{
+	"totalCount": 2,
+	"value": [{
+			"id": "/subscriptions/{subId}/resourceGroups/testrg/providers/Microsoft.CognitiveServices/accounts/test1",
+			"name": "test1",
+			"type": "microsoft.cognitiveservices/accounts",
+			"resourceGroup": "testrg",
+			"subscriptionId": "{subId}",
+			"subscriptionDisplayName": "TestSubscription"
+		},
+		{
+			"id": "/subscriptions/{subId}/resourceGroups/testrg/providers/Microsoft.CognitiveServices/accounts/test2",
+			"name": "test2",
+			"type": "microsoft.cognitiveservices/accounts",
+			"resourceGroup": "testrg",
+			"subscriptionId": "{subId}",
+			"subscriptionDisplayName": "TestSubscription"
+		}
+	],
+	"nextLink": "https://management.azure.com/subscriptions/{subId}/resourceGroups/testrg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/testid?skiptoken=ew0KICAiJGlkIjogIjEiLA0KICAiTWF4Um93cyI6IDIsDQogICJSb3dzVG9Ta2lwIjogMiwNCiAgIkt1c3RvQ2x1c3RlclVybCI6ICJodHRwczovL2FybXRvcG9sb2d5Lmt1c3RvLndpbmRvd3MubmV0Ig0KfQ%253d%253d&api-version=2021"
+}
 
 ```
 
@@ -164,7 +162,7 @@ Invoke-AzRestMethod -Path "/subscriptions/XXX-XXX-XXX-XXX/resourceGroups/test-rg
 > All resources associated with an identity will be returned, regardless of the user's permissions. The user only needs to have access to read the managed identity. This means that more resources may be visible than the user can see elsewhere in the portal. This is to provide full visibility of the identity's usage. If the user doesn't have access to an associated resource, an error will be displayed if they try to access it from the list.
 
 ## Delete a user-assigned managed identity
-When you start to delete a user-assigned managed identity in the portal, you'll see a list of associated resources. This list allows you to see which resources will be affected by deleting the identity. You'll be asked to confirm your decision.
+When you start to delete a user-assigned managed identity in the portal, you'll see a list of up to 10 of the identity's associated resources, with the full count at the top of the screen. This list allows you to see which resources will be affected by deleting the identity. You'll be asked to confirm your decision.
 
 :::image type="content" source="media/how-to-view-associated-resources-for-an-identity/associated-resources-delete.png" alt-text="Delete confirmation for a user-assigned managed identity.":::
 
