@@ -9,13 +9,13 @@ ms.date: 02/03/2022
 ms.author: halkazwini
 ---
 
+# Injecting routes to Azure VMware Solution with Azure Route Server
+
 [Azure VMware Solution](../azure-vmware/introduction.md) is an Azure service where native VMware vSphere workloads run and communicate with other Azure services. This communication happens over ExpressRoute, and Azure Route Server can be used to modify the default behavior of Azure VMware Solution networking. The most frequent patterns for injecting routing information in Azure VMware Solution are either advertising a default route to attract Internet traffic to Azure, or advertising routes to achieve communications to on-premises networks when Global Reach is not available.
 
-# Injecting a default route to Azure VMware Solution
+## Injecting a default route to Azure VMware Solution
 
 Certain deployments require to inspect all egress traffic from AVS towards Internet. While it is possible creating Network Virtual Appliances (NVAs) in AVS, some times those appliances already exist in Azure, and they can be leveraged as well to inspect Internet traffic from AVS. In this case, a default route can be injected from the NVA in Azure to attract traffic from AVS and inspect it before sending it out to the public Internet.
-
-## Topology
 
 The following diagram describes a basic hub and spoke topology connected to an AVS cloud and to an on-premises network through ExpressRoute. The diagram shows how the default route (`0.0.0.0/0`) is originated by the NVA in Azure, and propagated by Azure Route Server to Azure VMware Solution through ExpressRoute.
 
@@ -26,7 +26,7 @@ The following diagram describes a basic hub and spoke topology connected to an A
 
 Communication between Azure VMware Solution and the on-premises network will typically happen over ExpressRoute Global Reach, as described in [Peer on-premises environments to Azure VMware Solution](../azure-vmware/tutorial-expressroute-global-reach-private-cloud.md).
 
-# Communication between Azure VMware Solution and the on-premises network via NVA
+## Communication between Azure VMware Solution and the on-premises network via an NVA
 
 Similar designs can be used to interconnect AVS and on-premises networks sending traffic through an NVA in Azure. There are two main scenarios for this pattern:
 
