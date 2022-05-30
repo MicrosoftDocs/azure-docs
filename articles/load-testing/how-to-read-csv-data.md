@@ -159,7 +159,7 @@ To configure your load test to split input CSV files:
 
 1. Open your YAML test configuration file in Visual Studio Code or your editor of choice.
 
-1. Add the `options.splitCsv` setting and set its value to **True**.
+1. Add the `splitAllCSVs` setting and set its value to **True**.
 
     ```yaml
     testName: MyTest
@@ -168,8 +168,7 @@ To configure your load test to split input CSV files:
     engineInstances: 1
     configurationFiles:
       - customers.csv
-    options:
-      - splitCsv: True
+    splitAllCSVs: True
     ```
 
 1. Save the YAML configuration file and commit it to your source control repository.

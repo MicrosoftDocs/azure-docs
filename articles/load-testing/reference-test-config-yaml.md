@@ -33,8 +33,7 @@ A test configuration uses the following keys:
 | `failureCriteria` | object |  | Criteria that indicate failure of the test. Each criterion is in the form of:<BR>`[Aggregate_function] ([client_metric]) > [value]`<BR><BR>- `[Aggregate function] ([client_metric])` is either `avg(response_time_ms)` or `percentage(error).`<BR>- `value` is an integer number. |
 | `properties` | object |  | List of properties to configure the load test. |
 | `properties.userPropertyFile` | string |  | File to use as an Apache JMeter [user properties file](https://jmeter.apache.org/usermanual/test_plan.html#properties). The file will be uploaded to the Azure Load Testing resource alongside the JMeter test script and other configuration files. If the file is in a subfolder on your local machine, use a path relative to the location of the test script. |
-| `options` | object |  | List of load test options. |
-| `options.splitCsv` | boolean | False | Split the input CSV files evenly across all test engine instances. For more information, see [Read a CSV file in load tests](./how-to-read-csv-data.md#split-csv-input-data-across-test-engines). |
+| `splitAllCSVs` | boolean | False | Split the input CSV files evenly across all test engine instances. For more information, see [Read a CSV file in load tests](./how-to-read-csv-data.md#split-csv-input-data-across-test-engines). |
 | `secrets` | object |  | List of secrets that the Apache JMeter script references. |
 | `secrets.name` | string |  | Name of the secret. This name should match the secret name that you use in the Apache JMeter script. |
 | `secrets.value` | string |  | URI for the Azure Key Vault secret. |
