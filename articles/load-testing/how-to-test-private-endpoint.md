@@ -121,7 +121,7 @@ You can attach load test engines to an Azure Virtual Network for a new load test
     :::image type="content" source="media/how-to-test-private-endpoint/create-new-test-load-vnet.png" alt-text="Screenshot that shows the 'Load' tab for creating a test.":::
 
     > [!IMPORTANT]
-    > When you deploy Azure Load Testing in a virtual network, you'll incur additional charges for generated traffic. For more information, see the [Virtual Network pricing information](https://azure.microsoft.com/pricing/details/virtual-network).
+    > When you deploy Azure Load Testing in a virtual network, you'll incur additional charges. Azure Load Testing deploys an [Azure Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/) and a [Public IP address](https://azure.microsoft.com/pricing/details/ip-addresses/) in your subscription and there might be a cost for generated traffic. For more information, see the [Virtual Network pricing information](https://azure.microsoft.com/pricing/details/virtual-network).
         
 1. Select **Review + create**. Review all settings, and then select **Create** to create the load test.
 
