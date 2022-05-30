@@ -273,7 +273,7 @@ using Microsoft.Data.SqlClient;
 
 AccessToken accessToken = await new DefaultAzureCredential().GetTokenAsync(new TokenRequestContext(new string[] { "https://database.windows.net//.default" }));                        
 
-using SqlConnection connection = new SqlConnection("Server=<DB Server>; Database=<DB Name>;")
+using var connection = new SqlConnection("Server=<DB Server>; Database=<DB Name>;")
 {
     AccessToken = accessToken.Token
 };
