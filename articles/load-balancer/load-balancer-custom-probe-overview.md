@@ -1,11 +1,11 @@
 ---
 title: Azure Load Balancer health probes
 description: Learn about the different types of health probes and configuration for Azure Load Balancer
-author: asudbring
+author: greg-lindsay
 ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 02/10/2022
-ms.author: allensu
+ms.author: greglin
 ---
 
 # Azure Load Balancer health probes
@@ -206,5 +206,6 @@ Azure Monitor logs aren't available for both public and internal Basic Load Bala
 ## Next steps
 
 - Learn more about [Standard Load Balancer](./load-balancer-overview.md)
+- Learn [how to manage health probes](../load-balancer/manage-probes-how-to.md)
 - [Get started creating a public load balancer in Resource Manager by using PowerShell](quickstart-load-balancer-standard-public-powershell.md)
 - [REST API for health probes](/rest/api/load-balancer/loadbalancerprobes/)

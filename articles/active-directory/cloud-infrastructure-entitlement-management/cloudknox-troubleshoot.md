@@ -2,14 +2,14 @@
 title: Troubleshoot issues with CloudKnox Permissions Management 
 description: Troubleshoot issues with CloudKnox Permissions Management
 services: active-directory
-author: mtillman
-manager: karenh444
+author: kenwith
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 02/23/2022
-ms.author: mtillman
+ms.author: kenwith
 ---
 
 # Troubleshoot issues with CloudKnox Permissions Management

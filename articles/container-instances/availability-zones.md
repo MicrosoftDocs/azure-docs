@@ -8,7 +8,7 @@ ms.custom: devx-track-js, devx-track-azurecli
 
 # Deploy an Azure Container Instances (ACI) container group in an availability zone (preview)
 
-An [availability zone][availability-zone-overview] is a physically separate zone in an Azure region. You can use availability zones to protect your containerized applications from an unlikely failure or loss of an entire data center. Three types of Azure services support availability zones: *zonal*, *zone-redundant*, and *always-available* services. You can learn more about these types of services and how they promote resiliency in the [Highly available services section of Azure services that support availability zones](/azure/availability-zones/az-region#highly-available-services).
+An [availability zone][availability-zone-overview] is a physically separate zone in an Azure region. You can use availability zones to protect your containerized applications from an unlikely failure or loss of an entire data center. Three types of Azure services support availability zones: *zonal*, *zone-redundant*, and *always-available* services. You can learn more about these types of services and how they promote resiliency in the [Highly available services section of Azure services that support availability zones](../availability-zones/az-region.md#highly-available-services).
 
 Azure Container Instances (ACI) supports *zonal* container group deployments, meaning the instance is pinned to a specific, self-selected availability zone. The availability zone is specified at the container group level. Containers within a container group can't have unique availability zones. To change your container group's availability zone, you must delete the container group and create another container group with the new availability zone.
 

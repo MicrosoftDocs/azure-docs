@@ -2,14 +2,14 @@
 title: Generate, view, and apply rule recommendations in the Autopilot dashboard in CloudKnox Permissions Management 
 description: How to generate, view, and apply rule recommendations in the Autopilot dashboard in CloudKnox Permissions Management.
 services: active-directory
-author: mtillman
-manager: karenh444
+author: kenwith
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: mtillman
+ms.author: kenwith
 ---
 
 # Generate, view, and apply rule recommendations in the Autopilot dashboard

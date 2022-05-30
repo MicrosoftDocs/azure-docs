@@ -39,6 +39,9 @@ Microsoft Defender for SQL includes two Microsoft Defender plans that extend Mic
 
 When you enable either of these plans, all supported resources that exist within the subscription are protected. Future resources created on the same subscription will also be protected. 
 
+> [!NOTE]
+> Microsoft Defender for SQL database currently works for read-write replicas only.
+
 ## What are the benefits of Microsoft Defender for SQL?
 
 These two plans include functionality for identifying and mitigating potential database vulnerabilities and detecting anomalous activities that could indicate threats to your databases.

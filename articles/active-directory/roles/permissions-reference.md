@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 04/03/2022
+ms.date: 05/20/2022
 ms.author: rolyon
 ms.reviewer: abhijeetsinha
 ms.custom: generated, it-pro, fasttrack-edit
@@ -782,7 +782,6 @@ Users in this role can read and update basic information of users, groups, and s
 > | microsoft.directory/servicePrincipals/synchronizationCredentials/manage | Manage application provisioning secrets and credentials |
 > | microsoft.directory/servicePrincipals/synchronizationJobs/manage | Start, restart, and pause application provisioning syncronization jobs |
 > | microsoft.directory/servicePrincipals/synchronizationSchema/manage | Create and manage application provisioning syncronization jobs and schema |
-> | microsoft.directory/servicePrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Grant a service principal direct access to a group's data |
 > | microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Update service principal role assignments |
 > | microsoft.directory/users/assignLicense | Manage user licenses |
 > | microsoft.directory/users/create | Add users |
@@ -963,21 +962,7 @@ Users with this role have access to all administrative features in Azure Active 
 > | microsoft.directory/passwordHashSync/allProperties/allTasks | Manage all aspects of Password Hash Synchronization (PHS) in Azure AD |
 > | microsoft.directory/policies/allProperties/allTasks | Create and delete policies, and read and update all properties |
 > | microsoft.directory/conditionalAccessPolicies/allProperties/allTasks | Manage all properties of conditional access policies |
-> | microsoft.directory/crossTenantAccessPolicy/standard/read | Read basic properties of cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/allowedCloudEndpoints/update | Update allowed cloud endpoints of cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/basic/update | Update basic settings of cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/default/standard/read | Read basic properties of the default cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/default/b2bCollaboration/update | Update Azure AD B2B collaboration settings of the default cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/default/b2bDirectConnect/update | Update Azure AD B2B direct connect settings of the default cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/default/crossCloudMeetings/update | Update cross-cloud Teams meeting settings of the default cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/default/tenantRestrictions/update | Update tenant restrictions of the default cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/partners/create | Create cross-tenant access policy for partners |
-> | microsoft.directory/crossTenantAccessPolicy/partners/delete | Delete cross-tenant access policy for partners |
-> | microsoft.directory/crossTenantAccessPolicy/partners/standard/read | Read basic properties of cross-tenant access policy for partners |
-> | microsoft.directory/crossTenantAccessPolicy/partners/b2bCollaboration/update | Update Azure AD B2B collaboration settings of cross-tenant access policy for partners |
-> | microsoft.directory/crossTenantAccessPolicy/partners/b2bDirectConnect/update | Update Azure AD B2B direct connect settings of cross-tenant access policy for partners |
-> | microsoft.directory/crossTenantAccessPolicy/partners/crossCloudMeetings/update | Update cross-cloud Teams meeting settings of cross-tenant access policy for partners |
-> | microsoft.directory/crossTenantAccessPolicy/partners/tenantRestrictions/update | Update tenant restrictions of cross-tenant access policy for partners |
+> | microsoft.directory/crossTenantAccessPolicies/allProperties/allTasks | Manage all aspects of cross-tenant access policies |
 > | microsoft.directory/privilegedIdentityManagement/allProperties/read | Read all resources in Privileged Identity Management |
 > | microsoft.directory/provisioningLogs/allProperties/read | Read all properties of provisioning logs |
 > | microsoft.directory/roleAssignments/allProperties/allTasks | Create and delete role assignments, and read and update all role assignment properties |
@@ -989,7 +974,6 @@ Users with this role have access to all administrative features in Azure Active 
 > | microsoft.directory/serviceAction/getAvailableExtentionProperties | Can perform the getAvailableExtentionProperties service action |
 > | microsoft.directory/servicePrincipals/allProperties/allTasks | Create and delete service principals, and read and update all properties |
 > | microsoft.directory/servicePrincipals/managePermissionGrantsForAll.microsoft-company-admin | Grant consent for any permission to any application |
-> | microsoft.directory/servicePrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Grant a service principal direct access to a group's data |
 > | microsoft.directory/servicePrincipals/synchronization/standard/read | Read provisioning settings associated with your service principal |
 > | microsoft.directory/signInReports/allProperties/read | Read all properties on sign-in reports, including privileged properties |
 > | microsoft.directory/subscribedSkus/allProperties/allTasks | Buy and manage subscriptions and delete subscriptions |
@@ -1011,6 +995,7 @@ Users with this role have access to all administrative features in Azure Active 
 > | microsoft.directory/verifiableCredentials/configuration/delete | Delete configuration required to create and manage verifiable credentials and delete all of its verifiable credentials |
 > | microsoft.directory/verifiableCredentials/configuration/allProperties/read | Read configuration required to create and manage verifiable credentials |
 > | microsoft.directory/verifiableCredentials/configuration/allProperties/update | Update configuration required to create and manage verifiable credentials |
+> | microsoft.directory/lifecycleManagement/workflows/allProperties/allTasks | Manage all aspects of lifecycle management workflows and tasks in Azure AD |
 > | microsoft.azure.advancedThreatProtection/allEntities/allTasks | Manage all aspects of Azure Advanced Threat Protection |
 > | microsoft.azure.informationProtection/allEntities/allTasks | Manage all aspects of Azure Information Protection |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health |
@@ -1104,9 +1089,7 @@ Users in this role can read settings and administrative information across Micro
 > | microsoft.directory/permissionGrantPolicies/standard/read | Read standard properties of permission grant policies |
 > | microsoft.directory/policies/allProperties/read | Read all properties of policies |
 > | microsoft.directory/conditionalAccessPolicies/allProperties/read | Read all properties of conditional access policies |
-> | microsoft.directory/crossTenantAccessPolicy/standard/read | Read basic properties of cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/default/standard/read | Read basic properties of the default cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/partners/standard/read | Read basic properties of cross-tenant access policy for partners |
+> | microsoft.directory/crossTenantAccessPolicies/allProperties/read | Read all properties of cross-tenant access policies |
 > | microsoft.directory/deviceManagementPolicies/standard/read | Read standard properties on device management application policies |
 > | microsoft.directory/deviceRegistrationPolicy/standard/read | Read standard properties on device registration policies |
 > | microsoft.directory/privilegedIdentityManagement/allProperties/read | Read all resources in Privileged Identity Management |
@@ -1124,6 +1107,7 @@ Users in this role can read settings and administrative information across Micro
 > | microsoft.directory/verifiableCredentials/configuration/contracts/cards/allProperties/read | Read a verifiable credential card |
 > | microsoft.directory/verifiableCredentials/configuration/contracts/allProperties/read | Read a verifiable credential contract |
 > | microsoft.directory/verifiableCredentials/configuration/allProperties/read | Read configuration required to create and manage verifiable credentials |
+> | microsoft.directory/lifecycleManagement/workflows/allProperties/read | Read all properties of lifecycle management workflows and tasks in Azure AD |
 > | microsoft.cloudPC/allEntities/allProperties/read | Read all aspects of Windows 365 |
 > | microsoft.commerce.billing/allEntities/read | Read all resources of Office 365 billing |
 > | microsoft.edge/allEntities/allProperties/read | Read all aspects of Microsoft Edge |
@@ -1165,7 +1149,6 @@ Users in this role can create/manage groups and its settings like naming and exp
 > | microsoft.directory/groups/owners/update | Update owners of Security groups and Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groups/settings/update | Update settings of groups |
 > | microsoft.directory/groups/visibility/update | Update the visibility property of Security groups and Microsoft 365 groups, excluding role-assignable groups |
-> | microsoft.directory/servicePrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Grant a service principal direct access to a group's data |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Service Health in the Microsoft 365 admin center |
@@ -1818,26 +1801,17 @@ Azure Advanced Threat Protection | Monitor and respond to suspicious security ac
 > | microsoft.directory/auditLogs/allProperties/read | Read all properties on audit logs, including privileged properties |
 > | microsoft.directory/authorizationPolicy/standard/read | Read standard properties of authorization policy |
 > | microsoft.directory/bitlockerKeys/key/read | Read bitlocker metadata and key on devices |
-> | microsoft.directory/crossTenantAccessPolicy/standard/read | Read basic properties of cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/allowedCloudEndpoints/update | Update allowed cloud endpoints of cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/basic/update | Update basic settings of cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/default/standard/read | Read basic properties of the default cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/default/b2bCollaboration/update | Update Azure AD B2B collaboration settings of the default cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/default/b2bDirectConnect/update | Update Azure AD B2B direct connect settings of the default cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/default/crossCloudMeetings/update | Update cross-cloud Teams meeting settings of the default cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/default/tenantRestrictions/update | Update tenant restrictions of the default cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/partners/create | Create cross-tenant access policy for partners |
-> | microsoft.directory/crossTenantAccessPolicy/partners/delete | Delete cross-tenant access policy for partners |
-> | microsoft.directory/crossTenantAccessPolicy/partners/standard/read | Read basic properties of cross-tenant access policy for partners |
-> | microsoft.directory/crossTenantAccessPolicy/partners/b2bCollaboration/update | Update Azure AD B2B collaboration settings of cross-tenant access policy for partners |
-> | microsoft.directory/crossTenantAccessPolicy/partners/b2bDirectConnect/update | Update Azure AD B2B direct connect settings of cross-tenant access policy for partners |
-> | microsoft.directory/crossTenantAccessPolicy/partners/crossCloudMeetings/update | Update cross-cloud Teams meeting settings of cross-tenant access policy for partners |
-> | microsoft.directory/crossTenantAccessPolicy/partners/tenantRestrictions/update | Update tenant restrictions of cross-tenant access policy for partners |
+> | microsoft.directory/crossTenantAccessPolicies/create | Create cross-tenant access policies |
+> | microsoft.directory/crossTenantAccessPolicies/delete | Delete cross-tenant access policies |
+> | microsoft.directory/crossTenantAccessPolicies/standard/read | Read basic properties of cross-tenant access policies |
+> | microsoft.directory/crossTenantAccessPolicies/owners/read | Read owners of cross-tenant access policies |
+> | microsoft.directory/crossTenantAccessPolicies/policyAppliedTo/read | Read the policyAppliedTo property of cross-tenant access policies |
+> | microsoft.directory/crossTenantAccessPolicies/basic/update | Update basic properties of cross-tenant access policies |
+> | microsoft.directory/crossTenantAccessPolicies/owners/update | Update owners of cross-tenant access policies |
+> | microsoft.directory/crossTenantAccessPolicies/tenantDefault/update | Update the default tenant for cross-tenant access policies |
 > | microsoft.directory/entitlementManagement/allProperties/read | Read all properties in Azure AD entitlement management |
-> | microsoft.directory/hybridAuthenticationPolicy/allProperties/allTasks | Manage hybrid authentication policy in Azure AD |
 > | microsoft.directory/identityProtection/allProperties/read | Read all resources in Azure AD Identity Protection |
 > | microsoft.directory/identityProtection/allProperties/update | Update all resources in Azure AD Identity Protection |
-> | microsoft.directory/passwordHashSync/allProperties/allTasks | Manage all aspects of Password Hash Synchronization (PHS) in Azure AD |
 > | microsoft.directory/policies/create | Create policies in Azure AD |
 > | microsoft.directory/policies/delete | Delete policies in Azure AD |
 > | microsoft.directory/policies/basic/update | Update basic properties on policies |
@@ -2017,7 +1991,6 @@ Users in this role can manage all aspects of the Microsoft Teams workload via th
 > | microsoft.directory/groups.unified/basic/update | Update basic properties on Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groups.unified/members/update | Update members of Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groups.unified/owners/update | Update owners of Microsoft 365 groups, excluding role-assignable groups |
-> | microsoft.directory/servicePrincipals/managePermissionGrantsForGroup.microsoft-all-application-permissions | Grant a service principal direct access to a group's data |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets |
 > | microsoft.office365.network/performance/allProperties/read | Read all network performance properties in the Microsoft 365 admin center |
@@ -2027,21 +2000,6 @@ Users in this role can manage all aspects of the Microsoft Teams workload via th
 > | microsoft.office365.usageReports/allEntities/allProperties/read | Read Office 365 usage reports |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
 > | microsoft.teams/allEntities/allProperties/allTasks | Manage all resources in Teams |
-> | microsoft.directory/crossTenantAccessPolicy/standard/read | Read basic properties of cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/allowedCloudEndpoints/update | Update allowed cloud endpoints of cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/basic/update | Update basic settings of cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/default/standard/read | Read basic properties of the default cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/default/b2bCollaboration/update | Update Azure AD B2B collaboration settings of the default cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/default/b2bDirectConnect/update | Update Azure AD B2B direct connect settings of the default cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/default/crossCloudMeetings/update | Update cross-cloud Teams meeting settings of the default cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/default/tenantRestrictions/update | Update tenant restrictions of the default cross-tenant access policy |
-> | microsoft.directory/crossTenantAccessPolicy/partners/create | Create cross-tenant access policy for partners |
-> | microsoft.directory/crossTenantAccessPolicy/partners/delete | Delete cross-tenant access policy for partners |
-> | microsoft.directory/crossTenantAccessPolicy/partners/standard/read | Read basic properties of cross-tenant access policy for partners |
-> | microsoft.directory/crossTenantAccessPolicy/partners/b2bCollaboration/update | Update Azure AD B2B collaboration settings of cross-tenant access policy for partners |
-> | microsoft.directory/crossTenantAccessPolicy/partners/b2bDirectConnect/update | Update Azure AD B2B direct connect settings of cross-tenant access policy for partners |
-> | microsoft.directory/crossTenantAccessPolicy/partners/crossCloudMeetings/update | Update cross-cloud Teams meeting settings of cross-tenant access policy for partners |
-> | microsoft.directory/crossTenantAccessPolicy/partners/tenantRestrictions/update | Update tenant restrictions of cross-tenant access policy for partners |
 
 ## Teams Communications Administrator
 

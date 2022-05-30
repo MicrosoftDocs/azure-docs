@@ -77,6 +77,11 @@ https://login.microsoftonline.com/<issuer>/oauth2/v2.0/token
 
 # NOTE: These are examples. Endpoint URI format may vary based on application type,
 #       sign-in audience, and Azure cloud instance (global or national cloud).
+
+#       The {issuer} value in the path of the request can be used to control who can sign into the application. 
+#       The allowed values are **common** for both Microsoft accounts and work or school accounts, 
+#       **organizations** for work or school accounts only, **consumers** for Microsoft accounts only, 
+#       and **tenant identifiers** such as the tenant ID or domain name.
 ```
 
 To find the endpoints for an application you've registered, in the [Azure portal](https://portal.azure.com) navigate to:
