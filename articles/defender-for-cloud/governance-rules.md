@@ -12,13 +12,13 @@ ms.date: 05/29/2022
 
 Security teams are responsible for improving the security posture of their organizations but they don't have the resources to actually implement security recommendations. [Assigning owners with due dates](#manually-assigning-owners-and-due-dates-for-recommendation-remediation) and [defining governance rules](#defining-governance-rules-to-automatically-set-the-owner-and-due-date-of-recommendations-preview) create transparency and accountability so you can drive the process of improving the security posture in your organization.
 
-Weekly email notifications update resource owners on the recommendations they are responsible for and, if their manager is found in the organizational Azure Active Directory(AAD), the owner's manager receives an email showing any overdue recommendations.
+Weekly email notifications update resource owners on the recommendations they're responsible for and, if their manager is found in the organizational Azure Active Directory(AAD), the owner's manager receives an email showing any overdue recommendations.
 
 After you assign owners and due dates, you can track how many recommendations are overdue in your security posture and recommendations.
 
 ## Manually assigning owners and due dates for recommendation remediation
 
-For every resource affected by a recommendation, you can assign an owner and a due date so that you know who needs to implement the security changes to improve your security posture and when they are expected to do it by. You can also apply a grace period so that the resources that are given a due date do not impact your secure score unless they become overdue.
+For every resource affected by a recommendation, you can assign an owner and a due date so that you know who needs to implement the security changes to improve your security posture and when they're expected to do it by. You can also apply a grace period so that the resources that are given a due date don't impact your secure score unless they become overdue.
 
 To manually assign owners and due dates to recommendations:
 
@@ -28,10 +28,10 @@ To manually assign owners and due dates to recommendations:
 1. In the list of recommendations, use the **Potential score increase** to identify the security control that contains recommendations that will increase your secure score.
     - You can also use the search box and filters above the list of recommendations to find specific recommendations.
 1. Select a recommendation to see the affected resources.
-1. For any resource that does not have an owner or due date, select the resources and select **Assign owner**.
+1. For any resource that doesn't have an owner or due date, select the resources and select **Assign owner**.
 1. Enter the email address of the owner that needs to make the changes that remediate the recommendation for those resources.
 1. Select the date by which to remediate the recommendation for the resources.
-1. You can select **Apply grace period** to keep the resource from impacting the secure score until it is overdue.
+1. You can select **Apply grace period** to keep the resource from impacting the secure score until it's overdue.
 1. Select **Save**.
 
 The recommendation is now shown as assigned and on time.
@@ -56,7 +56,7 @@ You can then review the progress of the tasks by subscription, recommendation, o
 
 When you define governance rules, you can either identify recommendations by severity or by name. Many governance rules can apply to the same resources, so the higher priority rule is the one that takes precedence.
 
-The due date set for the recommendation to be remediated is based on a timeframe 7, 14, 30, 90 days). Resources that are already identified as affected by the recommendation are given a due date that is the specified number of days from the date that the rule is defined. Resources that are found after the rule is defined are given a due date from the date they are found. You can apply a grace period so that the resources that are given a due date do not impact your secure score unless they become overdue.
+The due date set for the recommendation to be remediated is based on a timeframe 7, 14, 30, 90 days). Resources that are already identified as affected by the recommendation are given a due date that is the specified number of days from the date that the rule is defined. Resources that are found after the rule is defined are given a due date from the date they're found. You can apply a grace period so that the resources that are given a due date don't impact your secure score unless they become overdue.
 
 You can also set the owner of the resources that are affected by the specified recommendations. In organizations that use resource tags to associate resources with an owner, you can specify the tag key and the governance rule reads the name of the resource owner from the tag.
 
@@ -76,7 +76,7 @@ To define a governance rule that assigns an owner and due date:
     - **By email address** - Enter the email address of the owner to assign to the recommendations.
 1. Set the remediation timeframe, which is the time from when the resources is identified to require remediation to the time that the remediation is due.
     For example, if the rule identifies the resource on Jan 1 and the remediation timeframe is 14 days, Jan 15 is the due date.
-1. If you don't want the resources to affect your secure score until they are overdue, select **Apply grace period**.
+1. If you don't want the resources to affect your secure score until they're overdue, select **Apply grace period**.
 1. If you don't want either the owner or the owner's manager to receive weekly emails, clear the notification options.
 1. Select **Create**.
 
