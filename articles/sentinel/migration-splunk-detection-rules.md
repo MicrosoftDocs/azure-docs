@@ -224,7 +224,7 @@ series_decompose_anomalies(Trend)
 
 #### case(X,"Y",…) SPL example
 
-```spl
+```SPL
 case(error == 404, "Not found",
 error == 500,"Internal Server Error",
 error == 200, "OK")
@@ -321,7 +321,7 @@ Returns a field value of `X` as a string.
 
 This example returns:
 
-```spl
+```SPL
 foo=615 and foo2=00:10:15:
 
 … | eval foo=615 | eval foo2 = tostring(
@@ -329,10 +329,8 @@ foo, "duration")
 ```
 #### urldecode(X) SPL example
 
-```spl
-urldecode("http%3A%2F%2Fwww.
-splunk.com%2Fdownload%3Fr%3D
-header")
+```SPL
+urldecode("http%3A%2F%2Fwww.splunk.com%2Fdownload%3Fr%3Dheader")
 ```
 ### Common stats commands KQL example
 

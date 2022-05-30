@@ -42,12 +42,12 @@ Use these samples to compare and map rules from QRadar to Microsoft Sentinel in 
 
 |Rule  |Syntax |Sample detection rule (QRadar)  |Sample KQL query  |Resources  |
 |---------|---------|---------|---------|---------|
-|Common property tests     |[QRadar syntax](#common-property-tests-syntax) |• [Regular expression example](#common-property-tests-regular-expression-example-qradar)<br>• [AQL filter query example](#common-property-tests-aql-filter-query-example-qradar)<br>• [equals/not equals example](#common-property-tests-equalsnot-equals-example-qradar)      |• [Regular expression example](#common-property-tests-regular-expression-example-kql)<br>• [AQL filter query example](#common-property-tests-aql-filter-query-example-kql)<br>• [equals/not equals example](#common-property-tests-equalsnot-equals-example-kql)       |• Regular expression: [matches regex](https://docs.microsoft.com/azure/data-explorer/kusto/query/re2)<br>• AQL filter query: [string operators](https://docs.microsoft.com/azure/data-explorer/kusto/query/datatypes-string-operators#operators-on-strings)<br>• equals/not equals: [String operators](https://docs.microsoft.com/azure/data-explorer/kusto/query/datatypes-string-operators#operators-on-strings)   | 
-|Date/time tests     |[QRadar syntax](#datetime-tests-syntax) |• [Selected day of the month example](#datetime-tests-selected-day-of-the-month-example-qradar)<br>• [Selected day of the week example](#datetime-tests-selected-day-of-the-week-example-qradar)<br>• [after/before/at example](#datetime-tests-afterbeforeat-example-qradar)      |• [Selected day of the month example](#datetime-tests-selected-day-of-the-month-example-kql)<br>• [Selected day of the week example](#datetime-tests-selected-day-of-the-week-example-kql)<br>• [after/before/at example](#datetime-tests-afterbeforeat-example-kql)   |• [Date and time operators](https://docs.microsoft.com/azure/data-explorer/kusto/query/samples?pivots=azuremonitor#date-and-time-operations)<br>• Selected day of the month: [dayofmonth()](https://docs.microsoft.com/azure/data-explorer/kusto/query/dayofmonthfunction)<br>• Selected day of the week: [dayofweek()](https://docs.microsoft.com/azure/data-explorer/kusto/query/dayofweekfunction)<br>• after/before/at: [format_datetime()](https://docs.microsoft.com/azure/data-explorer/kusto/query/format-datetimefunction)   | 
-|Event property tests     |[QRadar syntax](#event-property-tests-syntax) |• [IP protocol example](#event-property-tests-ip-protocol-example-qradar)<br>• [Event Payload string example](#event-property-tests-event-payload-string-example-qradar)<br>     |• [IP protocol example](#event-property-tests-ip-protocol-example-kql)<br>• [Event Payload string example](#event-property-tests-event-payload-string-example-kql)<br>   |• IP protocol: [String operators](https://docs.microsoft.com/azure/data-explorer/kusto/query/datatypes-string-operators#operators-on-strings)<br>• Event Payload string: [has](https://docs.microsoft.com/azure/data-explorer/kusto/query/datatypes-string-operators)   | 
-|Functions: counters    |[QRadar syntax](#functions-counters-syntax) |[Event property and time example](#counters-event-property-and-time-example-qradar)    |[Event property and time example](#counters-event-property-and-time-example-kql)   |[summarize](https://docs.microsoft.com/azure/data-explorer/kusto/query/summarizeoperator)   | 
-|Functions: negative conditions |[QRadar syntax](#functions-negative-conditions-syntax) |[Negative conditions example](#negative-conditions-example-qradar) |[Negative conditions example](#negative-conditions-example-kql) |• [join()](https://docs.microsoft.com/azure/data-explorer/kusto/query/joinoperator?pivots=azuredataexplorer)<br>• [String operators](https://docs.microsoft.com/azure/data-explorer/kusto/query/datatypes-string-operators#operators-on-strings)<br>• [Numerical operators](https://docs.microsoft.com/azure/data-explorer/kusto/query/numoperators)] |
-|Functions: simple |[QRadar syntax](#functions-simple-conditions-syntax) |[Simple conditions example](#simple-conditions-example-qradar) |[Simple conditions example](#simple-conditions-example-kql) |[or](https://docs.microsoft.com/azure/data-explorer/kusto/query/logicaloperators) |
+|Common property tests     |[QRadar syntax](#common-property-tests-syntax) |• [Regular expression example](#common-property-tests-regular-expression-example-qradar)<br>• [AQL filter query example](#common-property-tests-aql-filter-query-example-qradar)<br>• [equals/not equals example](#common-property-tests-equalsnot-equals-example-qradar)      |• [Regular expression example](#common-property-tests-regular-expression-example-kql)<br>• [AQL filter query example](#common-property-tests-aql-filter-query-example-kql)<br>• [equals/not equals example](#common-property-tests-equalsnot-equals-example-kql)       |• Regular expression: [matches regex](/azure/data-explorer/kusto/query/re2)<br>• AQL filter query: [string operators](/azure/data-explorer/kusto/query/datatypes-string-operators#operators-on-strings)<br>• equals/not equals: [String operators](/azure/data-explorer/kusto/query/datatypes-string-operators#operators-on-strings)   | 
+|Date/time tests     |[QRadar syntax](#datetime-tests-syntax) |• [Selected day of the month example](#datetime-tests-selected-day-of-the-month-example-qradar)<br>• [Selected day of the week example](#datetime-tests-selected-day-of-the-week-example-qradar)<br>• [after/before/at example](#datetime-tests-afterbeforeat-example-qradar)      |• [Selected day of the month example](#datetime-tests-selected-day-of-the-month-example-kql)<br>• [Selected day of the week example](#datetime-tests-selected-day-of-the-week-example-kql)<br>• [after/before/at example](#datetime-tests-afterbeforeat-example-kql)   |• [Date and time operators](/azure/data-explorer/kusto/query/samples?pivots=azuremonitor#date-and-time-operations)<br>• Selected day of the month: [dayofmonth()](/azure/data-explorer/kusto/query/dayofmonthfunction)<br>• Selected day of the week: [dayofweek()](/azure/data-explorer/kusto/query/dayofweekfunction)<br>• after/before/at: [format_datetime()](/azure/data-explorer/kusto/query/format-datetimefunction)   | 
+|Event property tests     |[QRadar syntax](#event-property-tests-syntax) |• [IP protocol example](#event-property-tests-ip-protocol-example-qradar)<br>• [Event Payload string example](#event-property-tests-event-payload-string-example-qradar)<br>     |• [IP protocol example](#event-property-tests-ip-protocol-example-kql)<br>• [Event Payload string example](#event-property-tests-event-payload-string-example-kql)<br>   |• IP protocol: [String operators](/azure/data-explorer/kusto/query/datatypes-string-operators#operators-on-strings)<br>• Event Payload string: [has](/azure/data-explorer/kusto/query/datatypes-string-operators)   | 
+|Functions: counters    |[QRadar syntax](#functions-counters-syntax) |[Event property and time example](#counters-event-property-and-time-example-qradar)    |[Event property and time example](#counters-event-property-and-time-example-kql)   |[summarize](/azure/data-explorer/kusto/query/summarizeoperator)   | 
+|Functions: negative conditions |[QRadar syntax](#functions-negative-conditions-syntax) |[Negative conditions example](#negative-conditions-example-qradar) |[Negative conditions example](#negative-conditions-example-kql) |• [join()](/azure/data-explorer/kusto/query/joinoperator?pivots=azuredataexplorer)<br>• [String operators](/azure/data-explorer/kusto/query/datatypes-string-operators#operators-on-strings)<br>• [Numerical operators](/azure/data-explorer/kusto/query/numoperators) |
+|Functions: simple |[QRadar syntax](#functions-simple-conditions-syntax) |[Simple conditions example](#simple-conditions-example-qradar) |[Simple conditions example](#simple-conditions-example-kql) |[or](/azure/data-explorer/kusto/query/logicaloperators) |
 |IP/port tests |[QRadar syntax](#ipport-tests-syntax) |• [Source port example](#ipport-tests-source-port-example-qradar)<br>• [Source IP example](#ipport-tests-source-ip-example-qradar) |• [Source port example](#ipport-tests-source-port-example-kql)<br>• [Source IP example](#ipport-tests-source-ip-example-kql) | |
 |Log source tests |[QRadar syntax](#log-source-tests-syntax) |[Log source example](#log-source-example-qradar) |[Log source example](#log-source-example-kql) | |
 
@@ -55,7 +55,7 @@ Use these samples to compare and map rules from QRadar to Microsoft Sentinel in 
 
 Here is the QRadar syntax for a common property tests rule.
 
-:::image type="content" source="media/migration-qradar-detection-rules/rule-1-syntax.png" alt-text="Diagram illustrating a common property test rule syntax." lightbox="media/migration-qradar-detection-rules/rule-1-syntax.png":::
+:::image type="content" source="media/migration-qradar-detection-rules/rule-1-syntax.png" alt-text="Diagram illustrating a common property test rule syntax.":::
 
 ### Common property tests: Regular expression example (QRadar)
 
@@ -66,7 +66,7 @@ when any of <these properties> match <this regular expression>
 ```
 Here is the sample rule in QRadar.
 
-:::image type="content" source="media/migration-qradar-detection-rules/rule-1-sample.png" alt-text="Diagram illustrating a common property test rule that uses a regular expression." lightbox="media/migration-qradar-detection-rules/rule-1-sample.png":::
+:::image type="content" source="media/migration-qradar-detection-rules/rule-1-sample.png" alt-text="Diagram illustrating a common property test rule that uses a regular expression.":::
 
 ### Common property tests: Regular expression example (KQL)
 
@@ -85,7 +85,7 @@ when the event matches <this> AQL filter query
 ```
 Here is the sample rule in QRadar.
 
-:::image type="content" source="media/migration-qradar-detection-rules/rule-1-sample-aql.png" alt-text="Diagram illustrating a common property test rule that uses an AQL filter query." lightbox="media/migration-qradar-detection-rules/rule-1-sample-aql.png":::
+:::image type="content" source="media/migration-qradar-detection-rules/rule-1-sample-aql.png" alt-text="Diagram illustrating a common property test rule that uses an AQL filter query.":::
 
 ### Common property tests: AQL filter query example (KQL)
 
@@ -104,7 +104,7 @@ and when <this property> <equals/not equals> <this property>
 ```
 Here is the sample rule in QRadar.
 
-:::image type="content" source="media/migration-qradar-detection-rules/rule-1-sample-equals.png" alt-text="Diagram illustrating a common property test rule that uses equals/not equals." lightbox="media/migration-qradar-detection-rules/rule-1-sample-equals.png":::
+:::image type="content" source="media/migration-qradar-detection-rules/rule-1-sample-equals.png" alt-text="Diagram illustrating a common property test rule that uses equals/not equals.":::
 
 ### Common property tests: equals/not equals example (KQL)
 
@@ -118,7 +118,7 @@ CommonSecurityLog
 
 Here is the QRadar syntax for a date/time tests rule.
 
-:::image type="content" source="media/migration-qradar-detection-rules/rule-2-syntax.png" alt-text="Diagram illustrating a date/time tests rule syntax." lightbox="media/migration-qradar-detection-rules/rule-2-syntax.png":::
+:::image type="content" source="media/migration-qradar-detection-rules/rule-2-syntax.png" alt-text="Diagram illustrating a date/time tests rule syntax.":::
 
 ### Date/time tests: Selected day of the month example (QRadar)
 
@@ -129,7 +129,7 @@ and when the event(s) occur <on/after/before> the <selected> day of the month
 ```
 Here is the sample rule in QRadar.
 
-:::image type="content" source="media/migration-qradar-detection-rules/rule-2-sample-selected-day.png" alt-text="Diagram illustrating a date/time tests rule that uses a selected day." lightbox="media/migration-qradar-detection-rules/rule-2-sample-selected-day.png":::
+:::image type="content" source="media/migration-qradar-detection-rules/rule-2-sample-selected-day.png" alt-text="Diagram illustrating a date/time tests rule that uses a selected day.":::
 
 ### Date/time tests: Selected day of the month example (KQL)
 
@@ -148,7 +148,7 @@ and when the event(s) occur on any of <these days of the week{Monday, Tuesday, W
 ```
 Here is the sample rule in QRadar.
 
-:::image type="content" source="media/migration-qradar-detection-rules/rule-2-sample-selected-day-week.png" alt-text="Diagram illustrating a date/time tests rule that uses a selected day of the week." lightbox="media/migration-qradar-detection-rules/rule-2-sample-selected-day-week.png":::
+:::image type="content" source="media/migration-qradar-detection-rules/rule-2-sample-selected-day-week.png" alt-text="Diagram illustrating a date/time tests rule that uses a selected day of the week.":::
 
 ### Date/time tests: Selected day of the week example (KQL)
 
@@ -167,7 +167,7 @@ and when the event(s) occur <after/before/at> <this time{12.00AM, 12.05AM, ...11
 ```
 Here is the sample rule in QRadar.
 
-:::image type="content" source="media/migration-qradar-detection-rules/rule-2-sample-after-before-at.png" alt-text="Diagram illustrating a date/time tests rule that uses the after/before/at operator." lightbox="media/migration-qradar-detection-rules/rule-2-sample-after-before-at.png":::
+:::image type="content" source="media/migration-qradar-detection-rules/rule-2-sample-after-before-at.png" alt-text="Diagram illustrating a date/time tests rule that uses the after/before/at operator.":::
 
 ### Date/time tests: after/before/at example (KQL)
 
@@ -183,7 +183,7 @@ SecurityEvent
 
 Here is the QRadar syntax for an event property tests rule.
 
-:::image type="content" source="media/migration-qradar-detection-rules/rule-3-syntax.png" alt-text="Diagram illustrating an event property tests rule syntax." lightbox="media/migration-qradar-detection-rules/rule-3-syntax.png":::
+:::image type="content" source="media/migration-qradar-detection-rules/rule-3-syntax.png" alt-text="Diagram illustrating an event property tests rule syntax.":::
 
 ### Event property tests: IP protocol example (QRadar)
 
@@ -194,7 +194,7 @@ and when the IP protocol is one of the following <protocols>
 ```
 Here is the sample rule in QRadar.
 
-:::image type="content" source="media/migration-qradar-detection-rules/rule-3-sample-protocol.png" alt-text="Diagram illustrating an event property tests rule that uses an IP protocol." lightbox="media/migration-qradar-detection-rules/rule-3-sample-protocol.png":::
+:::image type="content" source="media/migration-qradar-detection-rules/rule-3-sample-protocol.png" alt-text="Diagram illustrating an event property tests rule that uses an IP protocol.":::
 
 ### Event property tests: IP protocol example (KQL)
 
@@ -211,7 +211,7 @@ and when the Event Payload contains <this string>
 ```
 Here is the sample rule in QRadar.
 
-:::image type="content" source="media/migration-qradar-detection-rules/rule-3-sample-protocol.png" alt-text="Diagram illustrating an event property tests rule that uses an Event Payload string." lightbox="media/migration-qradar-detection-rules/rule-3-sample-protocol.png":::
+:::image type="content" source="media/migration-qradar-detection-rules/rule-3-sample-payload.png" alt-text="Diagram illustrating an event property tests rule that uses an Event Payload string.":::
 
 ### Event property tests: Event Payload string example (KQL)
 
@@ -227,7 +227,7 @@ To optimize performance, avoid using the `search` command if you already know th
 
 Here is the QRadar syntax for a functions rule that uses counters.
 
-:::image type="content" source="media/migration-qradar-detection-rules/rule-4-syntax.png" alt-text="Diagram illustrating the syntax of a functions rule that uses counters." lightbox="media/migration-qradar-detection-rules/rule-4-syntax.png":::
+:::image type="content" source="media/migration-qradar-detection-rules/rule-4-syntax.png" alt-text="Diagram illustrating the syntax of a functions rule that uses counters.":::
 
 ### Counters: Event property and time example (QRadar)
 
@@ -238,7 +238,7 @@ and when at least <this many> events are seen with the same <event properties> i
 ```
 Here is the sample rule in QRadar.
 
-:::image type="content" source="media/migration-qradar-detection-rules/rule-4-sample-event-property.png" alt-text="Diagram illustrating a functions rule that uses event properties." lightbox="media/migration-qradar-detection-rules/rule-4-sample-event-property.png":::
+:::image type="content" source="media/migration-qradar-detection-rules/rule-4-sample-event-property.png" alt-text="Diagram illustrating a functions rule that uses event properties.":::
 
 ### Counters: Event property and time example (KQL)
 
@@ -251,7 +251,7 @@ CommonSecurityLog
 
 Here is the QRadar syntax for a functions rule that uses negative conditions.
 
-:::image type="content" source="media/migration-qradar-detection-rules/rule-5-syntax.png" alt-text="Diagram illustrating the syntax of a functions rule that uses negative conditions." lightbox="media/migration-qradar-detection-rules/rule-5-syntax.png":::
+:::image type="content" source="media/migration-qradar-detection-rules/rule-5-syntax.png" alt-text="Diagram illustrating the syntax of a functions rule that uses negative conditions.":::
 
 ### Negative conditions example (QRadar)
 
@@ -262,13 +262,13 @@ and when none of <these rules> match in <this many> <minutes> after <these rules
 ```
 Here are two defined rules in QRadar. The negative conditions will be based on these rules.
 
-:::image type="content" source="media/migration-qradar-detection-rules/rule-5-sample-1.png" alt-text="Diagram illustrating an event property tests rule to be used for a negative conditions rule." lightbox="media/migration-qradar-detection-rules/rule-5-sample-1.png":::
+:::image type="content" source="media/migration-qradar-detection-rules/rule-5-sample-1.png" alt-text="Diagram illustrating an event property tests rule to be used for a negative conditions rule.":::
 
-:::image type="content" source="media/migration-qradar-detection-rules/rule-5-sample-2.png" alt-text="Diagram illustrating a common property tests rule to be used for a negative conditions rule." lightbox="media/migration-qradar-detection-rules/rule-5-sample-2.png":::
+:::image type="content" source="media/migration-qradar-detection-rules/rule-5-sample-2.png" alt-text="Diagram illustrating a common property tests rule to be used for a negative conditions rule.":::
 
 Here is a sample of the negative conditions rule based on the rules above.
 
-:::image type="content" source="media/migration-qradar-detection-rules/rule-5-sample-3.png" alt-text="Diagram illustrating a functions rule with negative conditions." lightbox="media/migration-qradar-detection-rules/rule-5-sample-3.png":::
+:::image type="content" source="media/migration-qradar-detection-rules/rule-5-sample-3.png" alt-text="Diagram illustrating a functions rule with negative conditions.":::
 
 ### Negative conditions example (KQL)
 
@@ -290,7 +290,7 @@ Test2
 
 Here is the QRadar syntax for a functions rule that uses simple conditions.
 
-:::image type="content" source="media/migration-qradar-detection-rules/rule-6-syntax.png" alt-text="Diagram illustrating the syntax of a functions rule that uses simple conditions." lightbox="media/migration-qradar-detection-rules/rule-6-syntax.png":::
+:::image type="content" source="media/migration-qradar-detection-rules/rule-6-syntax.png" alt-text="Diagram illustrating the syntax of a functions rule that uses simple conditions.":::
 
 ### Simple conditions example (QRadar)
 
@@ -301,7 +301,7 @@ and when an event matches <any|all> of the following <rules>
 ```
 Here is the sample rule in QRadar.
 
-:::image type="content" source="media/migration-qradar-detection-rules/rule-6-sample-1.png" alt-text="Diagram illustrating a functions rule with simple conditions." lightbox="media/migration-qradar-detection-rules/rule-6-sample-1.png":::
+:::image type="content" source="media/migration-qradar-detection-rules/rule-6-sample-1.png" alt-text="Diagram illustrating a functions rule with simple conditions.":::
 
 ### Simple conditions example (KQL)
 
@@ -313,7 +313,7 @@ CommonSecurityLog
 
 Here is the QRadar syntax for an IP/port tests rule.
 
-:::image type="content" source="media/migration-qradar-detection-rules/rule-7-syntax.png" alt-text="Diagram illustrating the syntax of an IP/port tests rule." lightbox="media/migration-qradar-detection-rules/rule-7-syntax.png":::
+:::image type="content" source="media/migration-qradar-detection-rules/rule-7-syntax.png" alt-text="Diagram illustrating the syntax of an IP/port tests rule.":::
 
 ### IP/port tests: Source port example (QRadar)
 
@@ -324,7 +324,7 @@ and when the source port is one of the following <ports>
 ```
 Here is the sample rule in QRadar.
 
-:::image type="content" source="media/migration-qradar-detection-rules/rule-7-sample-1-port.png" alt-text="Diagram illustrating a rule that specifies a source port." lightbox="media/migration-qradar-detection-rules/rule-7-sample-1-port.png":::
+:::image type="content" source="media/migration-qradar-detection-rules/rule-7-sample-1-port.png" alt-text="Diagram illustrating a rule that specifies a source port.":::
 
 ### IP/port tests: Source port example (KQL)
 
@@ -341,7 +341,7 @@ and when the source IP is one of the following <IP addresses>
 ```
 Here is the sample rule in QRadar.
 
-:::image type="content" source="media/migration-qradar-detection-rules/rule-7-sample-2-ip.png" alt-text="Diagram illustrating a rule that specifies a source IP address." lightbox="media/migration-qradar-detection-rules/rule-7-sample-2-ip.png":::
+:::image type="content" source="media/migration-qradar-detection-rules/rule-7-sample-2-ip.png" alt-text="Diagram illustrating a rule that specifies a source IP address.":::
 
 ### IP/port tests: Source IP example (KQL)
 
@@ -353,7 +353,7 @@ CommonSecurityLog
 
 Here is the QRadar syntax for a log source tests rule.
 
-:::image type="content" source="media/migration-qradar-detection-rules/rule-8-syntax.png" alt-text="Diagram illustrating the syntax of a log source tests rule." lightbox="media/migration-qradar-detection-rules/rule-8-syntax.png":::
+:::image type="content" source="media/migration-qradar-detection-rules/rule-8-syntax.png" alt-text="Diagram illustrating the syntax of a log source tests rule.":::
 
 #### Log source example (QRadar)
 
@@ -364,7 +364,7 @@ and when the event(s) were detected by one or more of these <log source types>
 ```
 Here is the sample rule in QRadar.
 
-:::image type="content" source="media/migration-qradar-detection-rules/rule-8-sample-1.png" alt-text="Diagram illustrating a rule that specifies log sources." lightbox="media/migration-qradar-detection-rules/rule-8-sample-1.png":::
+:::image type="content" source="media/migration-qradar-detection-rules/rule-8-sample-1.png" alt-text="Diagram illustrating a rule that specifies log sources.":::
 
 #### Log source example (KQL)
 
@@ -372,3 +372,9 @@ Here is the sample rule in QRadar.
 OfficeActivity
 | where OfficeWorkload == "Exchange"
 ```
+## Next steps
+
+In this article, you learned how to map your migration rules from QRadar to Microsoft Sentinel. 
+
+> [!div class="nextstepaction"]
+> [Migrate your SOAR automation](migration-qradar-automation.md)

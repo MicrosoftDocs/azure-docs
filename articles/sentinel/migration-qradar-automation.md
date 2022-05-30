@@ -14,7 +14,7 @@ Microsoft Sentinel provides Security Orchestration, Automation, and Response (SO
 Automation rules simplify complex workflows for your incident orchestration processes, and allow you to centrally manage your incident handling automation. 
 
 With automation rules, you can: 
-- Perform simple automation tasks without necessarily using playbooks. For example, you can assign, tag, incidents, change status, and close incidents. 
+- Perform simple automation tasks without necessarily using playbooks. For example, you can assign, tag incidents, change status, and close incidents. 
 - Automate responses for multiple analytics rules at once. 
 - Control the order of actions that are executed. 
 - Run playbooks for those cases where more complex automation tasks are necessary. 
@@ -47,10 +47,10 @@ Review which Microsoft Sentinel or Azure Logic Apps features map to the main QRa
 
 |QRadar  |Microsoft Sentinel/Azure Logic Apps  |
 |---------|---------|
-|Rules |[Analytics rules](detect-threats-built-in#use-built-in-analytics-rules.md) attached to playbooks or automation rules |
+|Rules |[Analytics rules](detect-threats-built-in.md#use-built-in-analytics-rules) attached to playbooks or automation rules |
 |Gateway |[Condition control](../logic-apps/logic-apps-control-flow-conditional-statement.md) |
 |Scripts |[Inline code](../logic-apps/logic-apps-add-run-inline-code.md) |
-|Custom action processers |[Custom API calls](../logic-apps/logic-apps-create-api-app.md) in Azure Logic Apps or third party connectors. |
+|Custom action processers |[Custom API calls](../logic-apps/logic-apps-create-api-app.md) in Azure Logic Apps or third party connectors |
 |Functions |[Azure Function connector](../logic-apps/logic-apps-azure-functions.md) |
 |Message destinations |[Azure Logic Apps with Azure Service Bus](../connectors/connectors-create-api-servicebus.md) |
 |IBM X-Force Exchange |• [Automation > Templates tab](use-playbook-templates.md)<br>• [Content hub catalog](sentinel-solutions-catalog.md)<br>• [GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Block-OnPremADUser) |

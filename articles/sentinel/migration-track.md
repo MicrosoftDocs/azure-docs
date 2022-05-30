@@ -84,8 +84,7 @@ To configure a data connector:
 1. Select the **Configure** view. 
 1. Select the button with the name of the connector you want to configure. 
 1. Configure the connector in the connector status screen that opens. If you cannot find a connector you need, select the connector name to open the connector gallery or solution gallery. 
-
-:::image type="content" source="media/migration-track/migration-track-configure-data-connectors.png" alt-text="Screenshot of the workbook's Configure view." lightbox="media/migration-track/migration-track-configure-data-connectors.png":::
+    :::image type="content" source="media/migration-track/migration-track-configure-data-connectors.png" alt-text="Screenshot of the workbook's Configure view.":::
 
 ## Deploy and monitor analytics and incidents
 
@@ -114,7 +113,7 @@ Here are some useful tasks you can perform in the **Workbooks** tab:
 
 - If you have not yet deployed workbooks, select **Configure** to view a list of commonly used and recommended workbooks. If a workbook is not listed, select **Go to Workbook Gallery** or **Go to Content Hub** to deploy the relevant workbook. 
 
-    :::image type="content" source="media/migration-track/migration-track-view-workbooks.png" alt-text="Screenshot of viewing a workbook from the Workbook tab." lightbox="media/migration-track/migration-track-view-workbooks.png":::
+    :::image type="content" source="media/migration-track/migration-track-view-workbooks.png" alt-text="Screenshot of viewing a workbook from the Workbook tab.":::
 
 ## Deploy and monitor playbooks and automation rules
 
@@ -135,7 +134,7 @@ Learn about Microsoft Sentinel SOAR capabilities [for playbooks](automate-respon
 
 Because data reporting and detections happen at the entity level, it is essential to monitor entity behavior and trends. To enable the UEBA feature within Microsoft Sentinel, in the **Microsoft Sentinel Deployment and Migration** workbook, select **UEBA**. Here you can customize the entity timelines for entity pages, and view which entity related tables are populated with data. 
 
-:::image type="content" source="media/migration-track/migration-track-ueba.png" alt-text="Screenshot of the workbook's UEBA tab." lightbox="media/migration-track/migration-track-ueba.png":::
+:::image type="content" source="media/migration-track/migration-track-ueba.png" alt-text="Screenshot of the workbook's UEBA tab.":::
 
 To enable UEBA: 
 1. Select **Enable UEBA** above the list of tables.
