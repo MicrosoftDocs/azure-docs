@@ -30,15 +30,15 @@ You can then review the progress of the tasks by subscription, recommendation, o
 |Required roles and permissions:|Azure - **Contributor**, **Security Admin**, or **Owner** on the subscription<br>AWS, GCP – **Contributor**, **Security Admin**, or **Owner** on the connector|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts|
 
-### Defining governance rules to automatically set the owner and due date of recommendations (Preview)
+### Defining governance rules to automatically set the owner and due date of recommendations
 
 When you define governance rules, you can either identify recommendations by severity or by name. Many governance rules can apply to the same resources, so the rule with the lower priority value takes precedence.
 
-The due date set for the recommendation to be remediated is based on a timeframe 7, 14, 30, 90 days). Resources that are already identified as affected by the recommendation are given a due date that is the specified number of days from the date that the rule is defined. Resources that are found after the rule is defined are given a due date from the date they're found. You can apply a grace period so that the resources that are given a due date don't impact your secure score unless they become overdue.
+The due date set for the recommendation to be remediated is based on a timeframe of 7, 14, 30, or 90 days from when the recommendation is found by the rule. For example, if the rule identifies the resource on March 1st and the remediation timeframe is 14 days, March 15th is the due date. You can apply a grace period so that the resources that are given a due date don't impact your secure score until they're overdue.
 
 You can also set the owner of the resources that are affected by the specified recommendations. In organizations that use resource tags to associate resources with an owner, you can specify the tag key and the governance rule reads the name of the resource owner from the tag.
 
-By default, email notifications are sent to the resource owners weekly to provide a list of the on time and overdue tasks. If the owner's manager is found in the organizational Azure Active Directory (Azure AD), the owner's manager receives an email showing any overdue recommendations by default.
+By default, email notifications are sent to the resource owners weekly to provide a list of the on time and overdue tasks. If an email for the owner's manager is found in the organizational Azure Active Directory (Azure AD), the owner's manager receives a weekly email showing any overdue recommendations by default.
 
 To define a governance rule that assigns an owner and due date:
 
@@ -53,16 +53,23 @@ To define a governance rule that assigns an owner and due date:
     - **By resource tag** - Enter the resource tag on your resources that defines the resource owner.
     - **By email address** - Enter the email address of the owner to assign to the recommendations.
 1. Set the remediation timeframe, which is the time from when the resources are identified to require remediation to the time that the remediation is due.
-    For example, if the rule identifies the resource on March 1st and the remediation timeframe is 14 days, March 15th is the due date.
 1. If you don't want the resources to affect your secure score until they're overdue, select **Apply grace period**.
 1. If you don't want either the owner or the owner's manager to receive weekly emails, clear the notification options.
 1. Select **Create**.
 
-Any recommendations that match the definition of the governance rule and don't already have an owner or due date are now assigned an owner and due date.
+You can choose to assign an owner and due date to existing recommendations that match the definition of the governance rule and don't already have an owner or due date, or overwrite the owner and due date of existing recommendations.
 
-### Reviewing governance status for each rule (Preview)
+### Tracking the status of recommendations for further action
 
-After you define governance rules, you'll want to review the progress that the owners are making in remediating the recommendations. The governance report lets you select subscriptions that have governance rules and, for each rule and owner, shows you how many recommendations are completed, on time, overdue, or unassigned.
+After you define governance rules, you'll want to review the progress that the owners are making in remediating the recommendations.
+
+You can track the assigned and overdue recommendations in:
+
+- The security posture
+- The list of recommendations
+- The governance report in the governance rules settings
+
+The governance report lets you select subscriptions that have governance rules and, for each rule and owner, shows you how many recommendations are completed, on time, overdue, or unassigned.
 
 To review the status of the recommendations in a rule:
 
@@ -108,3 +115,7 @@ To manually assign owners and due dates to recommendations:
 The recommendation is now shown as assigned and on time.
 
 ## Next steps
+
+In this article, you learned how to set up a process for assigning owners and due dates to tasks so that owners are accountable for taking steps to improve your security posture.
+
+Check out how owners can [set ETAs for tasks](review-sec) so that they can manage their progress.
