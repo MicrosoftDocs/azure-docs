@@ -17,7 +17,7 @@ For more information, see [Onboard sensors to Defender for IoT in the Azure port
 
 ## Sensor management options from the Azure portal
 
-Sensors that you've on-boarded to Defender for IoT are listed on the Defender for IoT **Sites and sensors** page. Select a sensor in the grid to drill down to more options and details on the sensor details page, or do any of the following:
+Sensors that you've on-boarded to Defender for IoT are listed on the Defender for IoT **Sites and sensors** page. From the **Sites and sensors** page, do any of the following:
 
 |Task  |Steps  |
 |---------|---------|
@@ -25,14 +25,11 @@ Sensors that you've on-boarded to Defender for IoT are listed on the Defender fo
 | **Push threat intelligence updates** | Select your sensor in the grid > **Push Threat Intelligence update**. For more information, see [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md). |
 |**Prepare an OT sensor to update to software version 22.x or higher**     | Select your sensor in the grid > **Prepare to update to 22.X**. For more information, see: <br><br>-[Reactivate a sensor for upgrades to version 22.x from a legacy version](how-to-manage-sensors-on-the-cloud.md#reactivate-an-ot-sensor-for-upgrades-to-version-22x-from-a-legacy-version)<br>-  [Update Defender for IoT OT monitoring software](update-ot-software.md#download-and-apply-a-new-activation-file)   |
 |**Export sensor data**     |Select **Export** at the top of the page.  A CSV file is downloaded with details about all sensors listed.       |
-|**Download an activation file**     |   Either from the **...** options menu at the right of a sensor row, or from a sensor details page, select **Download activation file**. For more information, see [Reactivate a sensor](#reactivate-a-sensor).      |
-|**Edit a sensor zone**    | Either from the **...** options menu at the right of a sensor row, or from a sensor details page, select **Edit**.  From the **Zone** menu, select a zone, or **Create new zone**. Select **Submit** to save your changes.     |
-|**Edit automatic threat intelligence updates**     | Either from the **...** options menu at the right of a sensor row, or from a sensor details page, select **Edit**. Toggle the **Automatic Threat Intelligence Updates (Preview)** option on or off as needed. Select **Submit** to save your changes.       |
-|**Delete a sensor**     |  Delete sensors only if you're no longer working with them. Either from the **...** options menu at the right of a sensor row, or from a sensor details page, select **Delete sensor**.      |
+|**Download an activation file**     |   From the **...** options menu at the right of a sensor row. For more information, see [Reactivate a sensor](#reactivate-a-sensor).      |
+|**Edit a sensor zone**    | From the **...** options menu at the right of a sensor row, select **Edit**.  From the **Zone** menu, select a zone, or **Create new zone**. Select **Submit** to save your changes.     |
+|**Edit automatic threat intelligence updates**     | From the **...** options menu at the right of a sensor row, select **Edit**. Toggle the **Automatic Threat Intelligence Updates (Preview)** option on or off as needed. Select **Submit** to save your changes.       |
+|**Delete a sensor**     |  Delete sensors only if you're no longer working with them.  From the **...** options menu at the right of a sensor row, select **Delete sensor**.      |
 
-A sensor details page provides basic information about the sensor and sensor settings, and also provides options for sensor management, such as downloading activation files, or deleting a sensor. For example:
-
-:::image type="content" source="media/release-notes/sensor-overview.png" alt-text="Screenshot of a sensor overview page.":::
 
 ## Define and view OT sensor settings (Public preview)
 
@@ -46,7 +43,7 @@ This procedure describes how to define sensor settings from the Azure portal and
 
 **To configure and apply a sensor setting**:
 
-1. In Defender for IoT on the Azure portal, select **Sites and sensors**. To apply settings to multiple sensors, select **Sensor settings (Preview)**. To start from a single sensor, navigate to and select your sensor. Then, on the sensor details page, select **Sensor settings (Preview)**.
+1. In Defender for IoT on the Azure portal, select **Sites and sensors**. To apply settings to multiple sensors, select **Sensor settings (Preview)**.
 
 1. Select **Add** and use the wizard to define values for your setting.
 
@@ -64,10 +61,6 @@ This procedure describes how to define sensor settings from the Azure portal and
 1. When you're finished, select **Review and create** to create your setting and apply it as configured. If your new setting replaces an existing setting, a :::image type="icon" source="media/how-to-manage-individual-sensors/warning-icon.png" border="false"::: warning is shown to indicate the existing setting.
 
 After you've created sensor settings, they're listed on the **Sites and sensors** > **Sensor settings** page, by setting type. Each setting shows a card with the setting name and value, and any sites, zones and sensors where the setting is applied.
-
-Settings applied to specific sensors are also listed on the sensor details page. Select the link to the setting name to modify any values or applied sensors.
-
-:::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sensor-settings-details.png" alt-text="Screenshot of a sensor setting on a sensor details page.":::
 
 ### Sensor setting reference
 

@@ -91,10 +91,6 @@ For sensor versions 22.2.x and higher, you can configure sensor settings directl
 
 On the **Sites and sensors** page, select **Sensor settings (Preview)** to create and apply settings across one or more cloud-connected sensors in your network.
 
-We've also added a sensor details page, where you drill down to a specific sensor from the Azure portal. On the **Sites and sensors** page, select a specific sensor name. The sensor details page lists basic sensor data and any sensor settings applied. For example:
-
-:::image type="content" source="media/release-notes/sensor-overview.png" alt-text="Screenshot of a sensor Overview page.":::
-
 For more information, see [Define and view OT sensor settings (Public preview)](how-to-manage-sensors-on-the-cloud.md#define-and-view-ot-sensor-settings-public-preview).
 
 ### Bi-directional alert synch between sensors and the Azure portal (Public preview)
