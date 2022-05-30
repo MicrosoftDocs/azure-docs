@@ -29,7 +29,8 @@ The automation framework can be used to deploy the following SAP architectures:
 
 ### Standalone
 
-In the Standalone architecture all the SAP roles are installed on a single server. 
+In the Standalone architecture, all the SAP roles are installed on a single server. 
+
 
 To configure this topology, define the database tier values and set `enable_app_tier_deployment` to false.
 
@@ -40,7 +41,7 @@ To configure this topology, define the database tier values and define `scs_serv
 
 ### High Availability
 
-The Distributed (Highly Available) deployment is similar to the Distributed architecture but either the database or SAP Central Services are both highly available using two virtual machines each with Pacemaker clusters.
+The Distributed (Highly Available) deployment is similar to the Distributed architecture. In this deployment, the database and/or SAP Central Services can both be configured using a highly available configuration using two virtual machines each with Pacemaker clusters.
 
 To configure this topology, define the database tier values and set `database_high_availability` to true. Set `scs_server_count = 1` and `scs_high_availability` = true and 
 `application_server_count` >= 1
@@ -192,7 +193,7 @@ The application tier defines the infrastructure for the application tier, which 
 
 ## Network parameters
 
-If the subnets are not deployed using the workload zone deployment, they can be added in the system's tfvars file.
+If the subnets aren't deployed using the workload zone deployment, they can be added in the system's tfvars file.
 
 The automation framework can either deploy the virtual network and the subnets (green field deployment) or using an existing virtual network and existing subnets (brown field deployments).
  - For the green field scenario, the virtual network address space and the subnet address prefixes must be specified
@@ -335,7 +336,9 @@ By default the SAP System deployment uses the credentials from the SAP Workload 
 
 ## Oracle parameters
 
-When deploying Oracle based systems these parameters need to be updated in the sap-parameters.yaml file.
+> [!NOTE]
+> These parameters need to be updated in the sap-parameters.yaml file when deploying Oracle based systems.
+
 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                           | Description                                                            | Type         | Notes  |

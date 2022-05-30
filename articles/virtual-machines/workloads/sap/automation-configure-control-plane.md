@@ -19,7 +19,7 @@ The control plane for the [SAP deployment automation framework on Azure](automat
 
 ## Deployer
 
-The [deployer](automation-deployment-framework.md#deployment-components) is the execution engine of the [SAP automation framework](automation-deployment-framework.md). It is a pre-configured virtual machine (VM) that is used for executing Terraform and Ansible commands. 
+The [deployer](automation-deployment-framework.md#deployment-components) is the execution engine of the [SAP automation framework](automation-deployment-framework.md). It's a pre-configured virtual machine (VM) that is used for executing Terraform and Ansible commands. 
 
 The configuration of the deployer is performed in a Terraform tfvars variable file.
 
@@ -159,21 +159,29 @@ The table below defines the parameters used for defining the Key Vault informati
 
 ### Example parameters file for deployer (required parameters only)
 
-```bash
+```terraform
 # The environment value is a mandatory field, it is used for partitioning the environments, for example (PROD and NP)
 environment="MGMT"
+
 # The location/region value is a mandatory field, it is used to control where the resources are deployed
 location="westeurope"
 
 # management_network_address_space is the address space for management virtual network
 management_network_address_space="10.10.20.0/25"
+
 # management_subnet_address_prefix is the address prefix for the management subnet
 management_subnet_address_prefix="10.10.20.64/28"
+
 # management_firewall_subnet_address_prefix is the address prefix for the firewall subnet
 management_firewall_subnet_address_prefix="10.10.20.0/26"
 
+# management_bastion_subnet_address_prefix is a mandatory parameter if bastion is deployed and if the subnets are not defined in the workload or if existing subnets are not used
+management_bastion_subnet_address_prefix = "10.10.20.128/26"
+
 deployer_enable_public_ip=false
+
 firewall_deployment=true
+
 bastion_deployment=true
 ```
 
@@ -253,15 +261,19 @@ The table below contains the parameters that define the resource group and the r
 
 ### Example parameters file for sap library (required parameters only)
 
-```bash
+```terraform
 # The environment value is a mandatory field, it is used for partitioning the environments, for example (PROD and NP)
 environment="MGMT"
+
 # The location/region value is a mandatory field, it is used to control where the resources are deployed
 location="westeurope"
+
 # The deployer_environment value is a mandatory field, it is used for identifying the deployer
 deployer_environment="MGMT"
+
 # The deployer_location value is a mandatory field, it is used for identifying the deployer
 deployer_location="westeurope"
+
 # The deployer_vnet value is a mandatory field, it is used for identifying the deployer
 deployer_vnet="DEP00"
 

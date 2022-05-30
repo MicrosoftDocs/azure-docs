@@ -141,3 +141,8 @@ The following diagram shows the relationships between SAP systems, workload zone
 
 > [!div class="nextstepaction"]
 > [Get started with the deployment automation framework](automation-get-started.md)
+> [Configuring Azure DevOps for the automation framwework](automation-configure-devops.md)
+> [Configuring the control plane](automation-configure-control-plane.md)
+> [Configuring the workload zone](automation-configure-workload-zone.md)
+> [Configuring the SAP System](automation-configure-system.md)
+

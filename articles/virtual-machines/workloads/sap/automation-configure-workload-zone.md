@@ -54,7 +54,7 @@ The table below contains the parameters that define the resource group.
 
 ## Network Parameters
 
-The automation framework supports both creating the virtual network and the subnets For green field deployments. (Green field) or using an existing virtual network and existing subnets For brown field deployments. (Brown field) or a combination of For green field deployments.  and For brown field deployments..
+The automation framework supports both creating the virtual network and the subnets For green field deployments. (Green field) or using an existing virtual network and existing subnets For brown field deployments. (Brown field) or a combination of For green field deployments.  and For brown field deployments.
  - For the green field scenario, the virtual network address space and the subnet address prefixes must be specified 
  - For the brown field scenario, the Azure resource identifier for the virtual network and the subnets must be specified
 
@@ -143,7 +143,6 @@ automation_username = "azureadm"
 
 ## Key Vault Parameters
 
-
 The table below defines the parameters used for defining the Key Vault information
 
 > [!div class="mx-tdCol2BreakAll "]
@@ -153,7 +152,7 @@ The table below defines the parameters used for defining the Key Vault informati
 > | `spn_keyvault_id`                  | Azure resource identifier for the deployment credentials (SPNs) key vault | Optional	   | 
 
 
-## DNS
+## Private DNS
 
 
 > [!div class="mx-tdCol2BreakAll "]
