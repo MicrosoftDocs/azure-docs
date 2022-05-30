@@ -22,7 +22,7 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
 **Look for**
 
 - Which hosts, subnets, virtual networks, and virtual machine scale set are sending or receiving the most traffic, traversing maximum malicious traffic and blocking significant flows?
-    - Check comparative chart for hosts, subnet, virtual network, and virtual machine scale set. Understanding which hosts, subnets, virtual networks and virtual machine scale set are sending or receiving the most traffic can help you identify the hosts that are processing the most traffic, and whether the traffic distribution is done properly.
+    - Check comparative chart for hosts, subnet, virtual network, and virtual machine scale set. Understanding, which hosts, subnets, virtual networks and virtual machine scale set are sending or receiving the most traffic can help you identify the hosts that are processing the most traffic, and whether the traffic distribution is done properly.
     - You can evaluate if the volume of traffic is appropriate for a host. Is the volume of traffic normal behavior, or does it merit further investigation?
 - How much inbound/outbound traffic is there?
     -   Is the host expected to receive more inbound traffic than outbound, or vice-versa?
@@ -37,7 +37,7 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
 
     The following image shows time trending for the top five talking hosts and the flow-related details (allowed – inbound/outbound and denied - inbound/outbound flows) for a host:
 
-	Select **See more** under **Details of top 5 talking IPs** as shown in the following image to get insights about all the hosts:
+	Select **See more** under **Details of top 5 talking IPs'** as shown in the following image to get insights about all the hosts:
 
     ![Screenshot of top five most-talking host trends.](media/traffic-analytics/top-five-most-talking-host-trend.png)
 	
@@ -108,7 +108,7 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
 
     ![Screenshot of flow details for traffic distribution in log search.](./media/traffic-analytics/flow-details-for-traffic-distribution-in-log-search.png)
 	
-- The **More Insight** blade of a Azure region also shows the total traffic remaining inside that region (i.e. source and destination in same region). It further gives insights about traffic exchanged between availability zones of a datacenter 
+- The **More Insight** blade of an Azure region also shows the total traffic remaining inside that region (that is, source and destination in same region). It further gives insights about traffic exchanged between availability zones of a datacenter 
 
 	![Screenshot of Inter Zone and Intra region traffic.](./media/traffic-analytics/inter-zone-and-intra-region-traffic.png)
 
@@ -125,10 +125,10 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
     ![Screenshot of dashboard showcasing virtual network distribution.](./media/traffic-analytics/dashboard-showcasing-virtual-network-distribution.png)
 
 - The Virtual Network Topology shows the top ribbon for selection of parameters like a virtual network's (Inter virtual network Connections/Active/Inactive), External Connections, Active Flows, and Malicious flows of the virtual network.
-- You can filter the Virtual Network Topology based on subscriptions, workspaces, resource groups and time interval. Additional filters that help you understand the flow are:
+- You can filter the Virtual Network Topology based on subscriptions, workspaces, resource groups and time interval. Extra filters that help you understand the flow are:
   Flow Type (InterVNet, IntraVNET, and so on), Flow Direction (Inbound, Outbound), Flow Status (Allowed, Blocked), VNETs (Targeted and Connected), Connection Type (Peering or Gateway - P2S and S2S), and NSG. Use these filters to focus on VNets that you want to examine in detail.
 - You can zoom-in and zoom-out while viewing Virtual Network Topology using mouse scroll wheel. Left-click and moving the mouse lets you drag the topology in desired direction. You can also use keyboard shortcuts to achieve these actions: A (to drag left), D (to drag right), W (to drag up), S (to drag down), + (to zoom in), - (to zoom out), R (to zoom reset).
-- The Virtual Network Topology shows the traffic distribution to a virtual network with regard to flows (Allowed/Blocked/Inbound/Outbound/Benign/Malicious), application protocol, and network security groups, for example:
+- The Virtual Network Topology shows the traffic distribution to a virtual network  to flows (Allowed/Blocked/Inbound/Outbound/Benign/Malicious), application protocol, and network security groups, for example:
 
     ![Screenshot of virtual network topology showcasing traffic distribution and flow details.](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)
     
@@ -143,7 +143,7 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
     - If rogue networks are conversing with a subnet, you are able to correct it by configuring NSG rules to block the rogue networks.
 - The Subnets Topology shows the top ribbon for selection of parameters such as Active/Inactive subnet, External Connections, Active Flows, and Malicious flows of the subnet.
 - You can zoom-in and zoom-out while viewing Virtual Network Topology using mouse scroll wheel. Left-click and moving the mouse lets you drag the topology in desired direction. You can also use keyboard shortcuts to achieve these actions: A (to drag left), D (to drag right), W (to drag up), S (to drag down), + (to zoom in), - (to zoom out), R (to zoom reset).
-- The Subnet Topology shows the traffic distribution to a virtual network with regard to flows (Allowed/Blocked/Inbound/Outbound/Benign/Malicious), application protocol, and NSGs, for example:
+- The Subnet Topology shows the traffic distribution to a virtual network regarding flows (Allowed/Blocked/Inbound/Outbound/Benign/Malicious), application protocol, and NSGs, for example:
 
     ![Screenshot of subnet topology showcasing traffic distribution a virtual network subnet with regards to flows.](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-virtual-subnet-with-regards-to-flows.png)
 
@@ -154,7 +154,7 @@ Traffic distribution per Application gateway & Load Balancer, topology, top sour
  - Knowing which subnet is conversing to which Application gateway or Load Balancer. If you observe unexpected conversations, you can correct your configuration.
  - If rogue networks are conversing with an Application gateway or Load Balancer, you are able to correct it by configuring NSG rules to block the rogue networks. 
 
-    ![Screenshot shows a subnet topology with traffic distribution to an application gateway subnet with regard to flows.](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
+    ![Screenshot shows a subnet topology with traffic distribution to an application gateway subnet regarding flows.](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
 
 ## View ports and virtual machines receiving traffic from the internet
 
@@ -173,13 +173,13 @@ Do you have malicious traffic in your environment? Where is it originating from?
 
 ![Screenshot of malicious traffic flows detail in log search.](./media/traffic-analytics/malicious-traffic-flows-detail-in-log-search.png)
 
-## View information about public IPs interacting with your deployment
+## View information about public IPs' interacting with your deployment
 
 **Look for**
 
-- Which public IPs are conversing with my network? What is the WHOIS data and geographic location of all public IPs?
-- Which malicious IPs are sending traffic to my deployments? What is the threat type and threat description for malicious IPs?
-	- The Public IP Information section, gives a summary of all types of public IPs present in your network traffic. 
+- Which public IPs' are conversing with my network? What is the WHOIS data and geographic location of all public IPs'?
+- Which malicious IPs' are sending traffic to my deployments? What is the threat type and threat description for malicious IPs'?
+	- The Public IP Information section, gives a summary of all types of public IPs' present in your network traffic. 
 	  Select the public IP type of interest to view details. This [schema document](./traffic-analytics-schema.md#public-ip-details-schema) defines the data fields presented.
 	  
 	  :::image type="content" source="./media/traffic-analytics/public-ip-information.png" alt-text="Screenshot that displays the public I P information." lightbox="./media/traffic-analytics/public-ip-information.png":::
