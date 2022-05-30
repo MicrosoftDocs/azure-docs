@@ -422,7 +422,7 @@ Set-MsolUser -UserPrincipalName username@contoso.com -StrongAuthenticationRequir
 If you haven't deployed Windows Hello for Business and if that isn't an option for now, you can exclude MFA requirement by configuring Conditional Access policy that excludes "**Azure Windows VM Sign-In**" app from the list of cloud apps that require MFA. To learn more about Windows Hello for Business, see [Windows Hello for Business Overview](/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
 > [!NOTE]
-> Windows Hello for Business PIN authentication with RDP has been supported by Windows 10 for several versions, however support for Biometric authentication with RDP was added in Windows 10 version 1809. Using Windows Hello for Business authentication during RDP is only available for deployments that use cert trust model and currently not available for key trust model.
+> Windows Hello for Business PIN authentication with RDP has been supported by Windows 10 for several versions, however support for Biometric authentication with RDP was added in Windows 10 version 1809. Using Windows Hello for Business authentication during RDP is only available for deployments that use cert trust model in the past, but currently available not only cert trust model but also key trust model.
  
 Share your feedback about this feature or report issues using it on the [Azure AD feedback forum](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789).
 
