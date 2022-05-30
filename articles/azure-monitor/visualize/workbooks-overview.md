@@ -1,16 +1,26 @@
 ---
-title: Azure Monitor Workbooks Overview
+title: Azure Workbooks Overview
 description: Learn how workbooks provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal.
 services: azure-monitor
-
-ms.tgt_pltfrm: ibiza
+author: AbbyMSFT
+ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 07/23/2020
+ms.date: 05/30/2022
+ms.reviewer: gardnerjr 
 ---
 
-# Azure Monitor Workbooks
+# Azure Workbooks
 
-Workbooks provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal. They allow you to tap into multiple data sources from across Azure, and combine them into unified interactive experiences.
+Workbooks provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal. They allow you to tap into multiple data sources from across Azure, and combine them into unified interactive experiences. Workbooks let you combine multiple kinds of visualizations and analyses, making them great for free-form exploration.
+
+Workbooks combine text, [log queries](/azure/data-explorer/kusto/query/), metrics, and parameters into rich interactive reports. Team members with the same access to Azure resources are also able to edit workbooks.
+
+Workbooks are helpful for scenarios such as:
+
+- 	Exploring the usage of your virtual machine when you don't know the metrics of interest in advance: CPU utilization, disk space, memory, network dependencies, etc.
+-	Explaining to your team how a recently provisioned VM is performing, by showing metrics for key counters and other log events.
+-	Sharing the results of a resizing experiment of your VM with other members of your team. You can explain the goals for the experiment with text, then show each usage metric and analytics queries used to evaluate the experiment, along with clear call-outs for whether each metric was above or below target.
+-	Reporting the impact of an outage on the usage of your VM, combining data, text explanation, and a discussion of next steps to prevent outages in the future.
 
 Here is a video walkthrough on creating workbooks.
 
@@ -19,11 +29,31 @@ Here is a video walkthrough on creating workbooks.
 > [!NOTE]
 > Legacy and private workbooks have been removed. Use the the [workbook retrieval tool](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Documentation/LegacyAI/DeprecatedWorkbookRetrievalTool.md) to retrieve the contents of your old workbook.
 
+## Getting started
+
+You can access Workbooks in a few ways:
+- In the [Azure portal](https://portal.azure.com), click on **Monitor**, then select **Workbooks**.
+
+:::image type="content" source="./media/workbooks-overview/workbooks.png" alt-text="Screenshot of Workbooks button highlighted in a red box." border="false":::
+## How to start using workbooks
+Open workbooks from the Workbooks tile under your Log Analytics workspace.
+
+![Workbooks navigation](media/view-designer-conversion-overview/workbooks-nav.png)
+
+Once selected, a gallery will be displayed listing out all the saved workbooks and templates for your workspace.
+
+![Workbooks gallery](media/view-designer-conversion-overview/workbooks-gallery.png)
+
+To start a new workbook, you may select the **Empty** template under **Quick start**, or the **New** icon in the top navigation bar. To view templates or return to saved workbooks, select the item from the gallery or search for the name in the search bar.
+
+To save a workbook, you will need to save the report with a specific title, subscription, resource group, and location.
+The workbook will autofill to the same settings as the LA workspace, with the same subscription, resource group, however, users may change these report settings. Workbooks are shared resources that require write access to the parent resource group to be saved.
+
 ## Data sources
 
-Workbooks can query data from multiple sources within Azure. Authors of workbooks can transform this data to provide insights into the availability, performance, usage, and overall health of the underlying components. For instance, analyzing performance logs from virtual machines to identify high CPU or low memory instances and displaying the results as a grid in an interactive report.
-  
-But the real power of workbooks is the ability to combine data from disparate sources within a single report. This allows for the creation of composite resource views or joins across resources enabling richer data and insights that would otherwise be impossible.
+Workbooks can query data from multiple Azure sources. You can transform this data to provide insights into the availability, performance, usage, and overall health of the underlying components. For example:
+- You can analyze performance logs from virtual machines to identify high CPU or low memory instances and display the results as a grid in an interactive report.
+- You can combine data from several different sources within a single report. This allows you to create composite resource views or joins across resources enabling richer data and insights that would otherwise be impossible.
 
 Workbooks are currently compatible with the following data sources:
 
@@ -51,24 +81,7 @@ Workbooks provide a rich set of capabilities for visualizing your data. For deta
 
 :::image type="content" source="./media/workbooks-overview/visualizations.png" alt-text="Example of workbook visualizations." border="false" lightbox="./media/workbooks-overview/visualizations.png":::
 
-### Pinning Visualizations
 
-Text, query, and metrics steps in a workbook can be pinned by using the pin button on those items while the workbook is in pin mode, or if the workbook author has enabled settings for that element to make the pin icon visible.
-
-To access pin mode, select **Edit** to enter editing mode, and select the blue pin icon in the top bar. An individual pin icon will then appear above each corresponding workbook part's *Edit* box on the right-hand side of your screen.
-
-:::image type="content" source="./media/workbooks-overview/pin-experience.png" alt-text="Screenshot of the pin experience." border="false":::
-
-> [!NOTE]
-> The state of the workbook is saved at the time of the pin, and pinned workbooks on a dashboard will not update if the underlying workbook is modified. In order to update a pinned workbook part, you will need to delete and re-pin that part.
-
-## Getting started
-
-To explore the workbooks experience, first navigate to the Azure Monitor service. This can be done by typing **Monitor** into the search box in the Azure portal.
-
-Then select **Workbooks**.
-
-:::image type="content" source="./media/workbooks-overview/workbooks.png" alt-text="Screenshot of Workbooks button highlighted in a red box." border="false":::
 
 ### Gallery
 
