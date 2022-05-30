@@ -550,7 +550,7 @@ sections:
       - question:  |
           How to resolve if the Agent pool creation fails due to timeout issues?
         answer: |
-          Set up the correct [firewalls rules](/azure/container-registry/tasks-agent-pools#add-firewall-rules) to the existing network security groups or user-defined routes. After the setup, wait a few minutes for the firewall rules to apply.
+          Set up the correct [firewalls rules](./tasks-agent-pools.md#add-firewall-rules) to the existing network security groups or user-defined routes. After the setup, wait a few minutes for the firewall rules to apply.
 
 additionalContent: |
 

@@ -973,6 +973,8 @@ items:
         href: ../data-factory/connector-amazon-simple-storage-service.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Amazon S3 Compatible Storage
         href: ../data-factory/connector-amazon-s3-compatible-storage.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+      - name: Asana
+        href: ../data-factory/connector-asana.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Avro format
         href: ../data-factory/format-avro.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Azure Blob Storage
