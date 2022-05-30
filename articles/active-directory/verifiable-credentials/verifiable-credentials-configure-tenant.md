@@ -42,7 +42,7 @@ See a [video walkthrough](https://www.youtube.com/watch?v=8jqjHjQo-3c) going ove
 [Azure Key Vault](../../key-vault/general/basic-concepts.md) is a cloud service that enables the secure storage and access of secrets and keys. Your Verifiable
 Credentials service stores public and private keys in Azure Key Vault. These keys are used to sign and verify credentials.
 
-If you don't have an instance of Azure Key Vault, follow these steps to create a key vault by using the Azure portal.
+If you don't have an instance of Azure Key Vault, follow [these steps](../../key-vault/general/quick-create-portal) to create a key vault by using the Azure portal.
 
 >[!NOTE]
 >By default, the account that creates the key vault is the only one with access. The Verifiable Credentials service needs access to the key vault. You must configure the key vault with an access policy that allows the account used during configuration to create and delete keys. The account used during configuration also requires permission to sign to create the domain binding for Verifiable Credentials. If you use the same account while testing, modify the default policy to grant the account sign permission, in addition to the default permissions granted to vault creators.
