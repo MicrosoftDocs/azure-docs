@@ -178,7 +178,7 @@ string secretValue = secret.Value;
 
 #### [Java](#tab/java)
 _pom.xml_
-```
+```xml
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-security-keyvault-secrets</artifactId>
