@@ -24,7 +24,7 @@ Apache Yarn application cache may have consumed all available disk space. Your S
 
 1. Use Ambari UI to determine which node is running out of disk space.
 
-1. Determine which folder in the troubling node contributes to most of the disk space. SSH to the node first, then run `df` to list disk usage for all mounts. Usually it's `/mnt`,  that is a temp disk used by OSS. You can enter into a folder, then type `sudo du -hs` to show summarized file sizes under a folder. If you see a folder similar to `/mnt/resource/hadoop/yarn/local/usercache/livy/appcache/application_1537280705629_0007`, this output means the application is still running. This output could be due to RDD persistence or intermediate shuffle files.
+1. Determine which folder in the troubling node contributes to most of the disk space. SSH to the node first, then run `df` to list disk usage for all mounts. Usually it's `/mnt` that is a temp disk used by OSS. You can enter into a folder, then type `sudo du -hs` to show summarized file sizes under a folder. If you see a folder similar to `/mnt/resource/hadoop/yarn/local/usercache/livy/appcache/application_1537280705629_0007`, this output means the application is still running. This output could be due to RDD persistence or intermediate shuffle files.
 
 1. To mitigate the issue, kill the application, which will release disk space used by that application.
 
