@@ -4,7 +4,7 @@ description: Integrations with Kubernetes Event-driven Autoscaling (KEDA) on Azu
 services: container-service
 author: tomkerkhove
 ms.topic: article
-ms.date: 05/24/2021
+ms.date: 05/24/2022
 ms.author: tomkerkhove
 ---
 

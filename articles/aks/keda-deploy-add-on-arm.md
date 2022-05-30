@@ -4,7 +4,7 @@ description: Use an ARM template to deploy the Kubernetes Event-driven Autoscali
 services: container-service
 author: jahabibi
 ms.topic: article
-ms.date: 05/24/2021
+ms.date: 05/24/2022
 ms.author: jahabibi
 ---
 
