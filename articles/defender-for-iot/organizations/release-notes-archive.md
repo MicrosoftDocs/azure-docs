@@ -132,8 +132,8 @@ After initial activation, the number of devices detected on the network might ex
 
 #### Plans and pricing page options
 
-Plans and pricing page lets you onboard new subscriptions to Microsoft Defender for IoT and define committed devices in your network.  
-Additionally, the Plans and pricing page now lets you manage existing subscriptions associated with a sensor and update device commitment.
+Pricing page lets you onboard new subscriptions to Microsoft Defender for IoT and define committed devices in your network.  
+Additionally, the pricing page now lets you manage existing subscriptions associated with a sensor and update device commitment.
 
 #### View and manage onboarded sensors
 
