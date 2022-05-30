@@ -282,7 +282,7 @@ while(dr.HasRows)
 {
     rowValue = dr.GetValue(0).ToString();
 }
-connection.Close();	
+dr.Close();	
 ```
 
 #### [Java](#tab/java)
