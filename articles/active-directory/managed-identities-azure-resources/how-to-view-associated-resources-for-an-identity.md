@@ -103,7 +103,7 @@ HTTP 200 OK
 
 ### Command Line Interface
 To view the associated resources for a user-assigned managed identity, run the following command:
-```cli
+```azurecli
 az identity list-resources --resource-group <ResourceGroupName> --name <ManagedIdentityName>
 ```
 
