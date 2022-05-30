@@ -30,14 +30,15 @@ Learn how to read and write data for your jobs with the Azure Machine Learning P
 
 ## Supported Paths in Jobs
 
-When you provide a data input/output to a Job, you'll need to specify the path that points to it's location. Azure Machine Learning jobs supports:
+When you provide a data input/output to a Job, you'll need to specify a `path` parameter that points to the data location. Below is a table that shows the different data locations supported in Azure Machine Learning and examples for the `path` parameter:
 
-- a local path
-- Public http(s) location
-- Blob Storage URI (for example: `https://<account_name>.blob.core.windows.net/<container_name>/path`)
-- ADLS gen2 URI (for example: `abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>/<file>`)
-- An Azure Machine Learning Datastore URI (for example: `azureml://datastores/<data_store_name>/<path>`)
-- An Azure Machine Learning Data Asset (for example: `azureml:<data_asset_name>:<version>`)
+
+|Location  | Examples  |
+|---------|---------|
+|A path on your local computer     | `./home/username/data/my_data`         |
+|A path on a public http(s) server    |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    |
+|A path on Azure Storage     |   `https://<account_name>.blob.core.windows.net/<container_name>/path` <br> `abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>`    |
+|A path on a Datastore   |   `azureml://datastores/<data_store_name>/paths/<path>`      |
 
 ## Supported Modes
 
