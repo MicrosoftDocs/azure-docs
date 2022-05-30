@@ -149,7 +149,7 @@ Create a file named **fetch.js** in the root of your project and add the followi
 
 ## Add views for displaying data
 
-1. In the *views/* folder, update the *index.hbs* file by replacing the existing code with the following:
+1. In the *views* folder, update the *index.hbs* file by replacing the existing code with the following:
 
 :::code language="hbs" source="~/ms-identity-node/App/views/index.hbs":::
 
