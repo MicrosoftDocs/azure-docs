@@ -71,7 +71,7 @@ Use these features and capabilities to expedite triage:
 
 Use the investigation graph to deeply investigate incidents. From the **Incidents** page, select an incident and select **Investigate** to view the [investigation graph](investigate-cases.md#use-the-investigation-graph-to-deep-dive).
 
-:::image type="content" source="media/migration-soc-processes/analyst-workflow-investigation-graph.png" alt-text="Screenshot of the investigation graph." lightbox="media/migration-soc-processes/analyst-workflow-investigation-graph":::
+:::image type="content" source="media/migration-soc-processes/analyst-workflow-investigation-graph.png" alt-text="Screenshot of the investigation graph." lightbox="media/migration-soc-processes/analyst-workflow-investigation-graph.png":::
 
 With the investigation graph, you can:
 - Understand the scope and identify the root cause of potential security threats by correlating relevant data with any involved entity. 
@@ -92,7 +92,7 @@ Use Microsoft Sentinel automated response capabilities to respond to complex thr
 
 Use one of the following options to access playbooks:
 - The [Automation > Playbook templates tab](use-playbook-templates.md)
-- The Microsoft Sentinel [Content hub](sentinel-solutions-deploy) 
+- The Microsoft Sentinel [Content hub](sentinel-solutions-deploy.md) 
 - The Microsoft Sentinel [GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks)  
 
 These sources include a wide range of security-oriented playbooks to cover a substantial portion of use cases of varying complexity. To streamline your work with playbooks, use the templates under **Automation > Playbook templates**. Templates allow you to easily deploy playbooks into the Microsoft Sentinel instance, and then modify the playbooks to suit your organization's needs.

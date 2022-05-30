@@ -24,7 +24,7 @@ Consider the pros and cons for each approach when deciding which one to use.
 > [!NOTE]
 > Many organizations avoid running multiple on-premises analytics solutions because of cost and complexity.
 >
-> Microsoft Sentinel provides [pay-as-you-go pricing](billing.md) and flexible infrastructure, giving SOC teams time to adapt to the change. Deploy and test your content at a pace that works best for your organization.
+> Microsoft Sentinel provides [pay-as-you-go pricing](billing.md) and flexible infrastructure, giving SOC teams time to adapt to the change. Deploy and test your content at a pace that works best for your organization, and learn about how to [fully migrate to Microsoft Sentinel](migration-overview.md).
 >
 ### Short-term approach
 
