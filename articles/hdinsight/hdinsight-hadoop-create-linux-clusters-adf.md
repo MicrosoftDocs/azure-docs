@@ -44,7 +44,7 @@ This section uses an Azure PowerShell script to create the storage account and c
 2. Creates an Azure resource group.
 3. Creates an Azure Storage account.
 4. Creates a Blob container in the storage account
-5. Copies the sample HiveQL script (**partitionweblogs.hql**) the Blob container. The script is available at [https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql](https://hditutorialdata.blob.core.windows.net/adfhiveactivity/script/partitionweblogs.hql). The sample script is already available in another public Blob container. The PowerShell script below makes a copy of these files into the Azure Storage account it creates.
+5. Copies the sample HiveQL script (**partitionweblogs.hql**) the Blob container. The sample script is already available in another public Blob container. The PowerShell script below makes a copy of these files into the Azure Storage account it creates.
 
 ### Create storage account and copy files
 
