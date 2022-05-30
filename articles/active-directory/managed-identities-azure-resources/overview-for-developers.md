@@ -216,7 +216,7 @@ KeyVaultSecret retrievedSecret = secretClient.getSecret(secretName);
 
 ### Accessing a Blob in Azure Storage
 
-#### [.NET core](#tab/netcore)
+#### [.NET](#tab/netcore)
 
 ```csharp
 var credentialOptions = new DefaultAzureCredentialOptions { ManagedIdentityClientId = "<Client ID of User-assigned identity>" };
