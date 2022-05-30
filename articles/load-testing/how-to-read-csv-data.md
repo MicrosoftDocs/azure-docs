@@ -150,9 +150,10 @@ To configure your load test to split input CSV files:
 ::: zone pivot="experience-azp"
 
 1. Go to the **Test plan** page for your load test.
-1. Select **Split CSV input**
+1. Select **Split CSV evenly between Test engines**.
 
-    <!-- TODO: add screenshot -->
+    :::image type="content" source="media/how-to-read-csv-data/configure-test-split-csv.png" alt-text="Screenshot that shows the checkbox to enable splitting input CSV files when configuring a test in the Azure portal.":::
+
 1. Select **Apply** to confirm the configuration changes.
 
     The next time you run the test, Azure Load Testing splits and processes the CSV file evenly across the test engines.

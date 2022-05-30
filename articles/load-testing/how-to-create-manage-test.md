@@ -77,7 +77,7 @@ The test plan contains all files that are needed for running your load test. At 
 
     :::image type="content" source="media/how-to-create-manage-test/test-plan-upload-files.png" alt-text="Screenshot that shows the test plan page for creating a test in the Azure portal, highlighting the upload functionality.":::
 
-1. Optionally, upload a zip archive instead of uploading the individual data and configuration files.
+<!-- 1. Optionally, upload a zip archive instead of uploading the individual data and configuration files.
 
     Azure Load Testing will unpack the zip archive on the test engine(s) when provisioning the test.
     
@@ -87,7 +87,7 @@ The test plan contains all files that are needed for running your load test. At 
     > The maximum upload size for a zip archive is 50 MB.
 
     :::image type="content" source="media/how-to-create-manage-test/test-plan-upload-zip.png" alt-text="Screenshot that shows the test plan page for creating a test in the Azure portal, highlighting an uploaded zip archive.":::
-
+ -->
 If you've previously created a quick test, you can edit the test plan at any time. You can add files to the test plan, or download and edit the generated JMeter script. Download a file by selecting the file name in the list.
 
 ### Split CSV input data across test engines
@@ -103,9 +103,9 @@ If you have multiple CSV files, each file will be split evenly.
 To configure your load test:
 
 1. Go to the **Test plan** page for your load test.
-1. Select **Split CSV input**
+1. Select **Split CSV evenly between Test engines**.
 
-    <!-- TODO: add screenshot -->
+    :::image type="content" source="media/how-to-create-manage-test/configure-test-split-csv.png" alt-text="Screenshot that shows the checkbox to enable splitting input CSV files when configuring a test in the Azure portal.":::
 
 ## Parameters
 
