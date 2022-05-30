@@ -1734,7 +1734,7 @@ Follow the instructions to obtain the credentials.
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
 | **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
 | **Kusto function alias:** | TrendMicroDeepSecurity |
-| **Kusto function URL** | `https://aka.ms/TrendMicroDeepSecurityFunction` |
+| **Kusto function URL** | https://aka.ms/TrendMicroDeepSecurityFunction |
 | **Vendor documentation/<br>installation instructions** | [Forward Deep Security events to a Syslog or SIEM server](https://aka.ms/Sentinel-trendMicro-connectorInstructions) |
 | **Supported by** | [Trend Micro](https://success.trendmicro.com/technical-support) |
 
