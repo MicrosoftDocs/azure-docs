@@ -59,7 +59,7 @@ Learn how [JIT protects your AWS EC2 instances](just-in-time-access-overview.md#
 The Defender profile (preview) is required for Defender for Containers to provide the runtime protections and collects signals from nodes. You can now use the Azure CLI to [add and remove the Defender profile](defender-for-containers-enable.md?tabs=k8s-deploy-cli%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Ck8s-remove-cli&pivots=defender-for-container-aks#use-azure-cli-to-deploy-the-defender-extension) for an AKS cluster.
 
 > [!NOTE]
-> This option is included in [Azure CLI 3.7 and above]([https://docs.microsoft.com/cli/azure/update-azure-cli](/cli/azure/update-azure-cli)).
+> This option is included in [Azure CLI 3.7 and above](https://docs.microsoft.com/cli/azure/update-azure-cli).
 
 ## April 2022
 
