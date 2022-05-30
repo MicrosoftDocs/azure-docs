@@ -90,27 +90,29 @@ For networking and security, evaluate the following points.
 
 Use the following checklists of possible requirements to guide your assessment.
 
-- **Data protection**
+- Data protection
     - In-transit encryption
     - Encryption at rest (default keys or customer-managed keys)
     - Data discovery and classification
-- **Access control**
+- Access control
     - Object-level security
     - Row-level security
     - Column-level security
     - Dynamic data masking
-- **Authentication**
+- Authentication
     - SQL login
     - Azure Active Directory (Azure AD)
     - Multi-factor authentication (MFA)
-- **Network security**
+- Network security
     - Virtual networks
     - Firewall
     - Azure ExpressRoute
-- **Threat protection**
+- Threat protection
     - Threat detection
     - Auditing
     - Vulnerability assessment
+
+For more information, see the [Azure Synapse Analytics security white paper](security-white-paper-introduction.md).
 
 ### Azure environment
 
