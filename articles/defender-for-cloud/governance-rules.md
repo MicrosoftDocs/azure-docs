@@ -12,7 +12,7 @@ ms.date: 05/29/2022
 
 Security teams are responsible for improving the security posture of their organizations but they don't have the resources to actually implement security recommendations. [Assigning owners with due dates](#manually-assigning-owners-and-due-dates-for-recommendation-remediation) and [defining governance rules](#defining-governance-rules-to-automatically-set-the-owner-and-due-date-of-recommendations-preview) create transparency and accountability so you can drive the process of improving the security posture in your organization.
 
-Weekly email notifications update resource owners on the recommendations they're responsible for and, if their manager is found in the organizational Azure Active Directory (Azure AD), the owner's manager receives an email showing any overdue recommendations.
+Weekly email notifications update resource owners on the recommendations they're responsible for. If the owner's manager is listed in the organizational Azure Active Directory (Azure AD), their manager receives an email that shows any overdue recommendations.
 
 After you assign owners and due dates, you can track how many recommendations are overdue in your security posture and recommendations.
 
@@ -74,8 +74,8 @@ To define a governance rule that assigns an owner and due date:
 1. Set the owner to assign to the recommendations:
     - **By resource tag** - Enter the resource tag on your resources that defines the resource owner.
     - **By email address** - Enter the email address of the owner to assign to the recommendations.
-1. Set the remediation timeframe, which is the time from when the resources is identified to require remediation to the time that the remediation is due.
-    For example, if the rule identifies the resource on Jan 1 and the remediation timeframe is 14 days, Jan 15 is the due date.
+1. Set the remediation timeframe, which is the time from when the resources are identified to require remediation to the time that the remediation is due.
+    For example, if the rule identifies the resource on March 1st and the remediation timeframe is 14 days, March 15th is the due date.
 1. If you don't want the resources to affect your secure score until they're overdue, select **Apply grace period**.
 1. If you don't want either the owner or the owner's manager to receive weekly emails, clear the notification options.
 1. Select **Create**.
