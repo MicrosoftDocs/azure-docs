@@ -101,6 +101,58 @@ HTTP 200 OK
 
 ```
 
+### Command Line Interface
+To view the associated resources for a user-assigned managed identity, run the following command:
+```cli
+az identity list-resources --resource-group <ResourceGroupName> --name <ManagedIdentityName>
+```
+
+The response will look like this:
+```json
+[
+  {
+    "id": "/subscriptions/XXXX-XXXX-XXXX-XXXX-XXXfc47ab8130/resourceGroups/ProductionServices/providers/Microsoft.Compute/virtualMachines/linux-prod-1-US",
+    "name": "linux-prod-1-US",
+    "resourceGroup": "productionservices",
+    "subscriptionDisplayName": "Visual Studio Enterprise Subscription",
+    "subscriptionId": "XXXX-XXXX-XXXX-XXXX-XXXfc47ab8130",
+    "type": "microsoft.compute/virtualmachines"
+  },
+  {
+    "id": "/subscriptions/XXXX-XXXX-XXXX-XXXX-XXXfc47ab8130/resourceGroups/ProductionServices/providers/Microsoft.Web/sites/prodStatusCheck-US",
+    "name": "prodStatusCheck-US",
+    "resourceGroup": "productionservices",
+    "subscriptionDisplayName": "Visual Studio Enterprise Subscription",
+    "subscriptionId": "XXXX-XXXX-XXXX-XXXX-XXXfc47ab8130",
+    "type": "microsoft.web/sites"
+  },
+  {
+    "id": "/subscriptions/XXXX-XXXX-XXXX-XXXX-XXXfc47ab8130/resourceGroups/ProductionServices/providers/Microsoft.Web/sites/salesApp-US-1",
+    "name": "salesApp-US-1",
+    "resourceGroup": "productionservices",
+    "subscriptionDisplayName": "Visual Studio Enterprise Subscription",
+    "subscriptionId": "XXXX-XXXX-XXXX-XXXX-XXXfc47ab8130",
+    "type": "microsoft.web/sites"
+  },
+  {
+    "id": "/subscriptions/XXXX-XXXX-XXXX-XXXX-XXXfc47ab8130/resourceGroups/ProductionServices/providers/Microsoft.Web/sites/salesPortal-us-2",
+    "name": "salesPortal-us-2",
+    "resourceGroup": "productionservices",
+    "subscriptionDisplayName": "Visual Studio Enterprise Subscription",
+    "subscriptionId": "XXXX-XXXX-XXXX-XXXX-XXXfc47ab8130",
+    "type": "microsoft.web/sites"
+  },
+  {
+    "id": "/subscriptions/XXXX-XXXX-XXXX-XXXX-XXXfc47ab8130/resourceGroups/vmss/providers/Microsoft.Compute/virtualMachineScaleSets/vmsstest",
+    "name": "vmsstest",
+    "resourceGroup": "vmss",
+    "subscriptionDisplayName": "Visual Studio Enterprise Subscription",
+    "subscriptionId": "XXXX-XXXX-XXXX-XXXX-XXXfc47ab8130",
+    "type": "microsoft.compute/virtualmachinescalesets"
+  }
+]
+```
+
 ### REST API using PowerShell
 There is no specific PowerShell command for returning the associated resources of a managed identity, but you can use the REST API in PowerShell by using the following commandlet:
 
@@ -124,7 +176,7 @@ This confirmation process is only available in the portal. To view an identity's
  - This is limited to tenants with fewer than 5,000 subscriptions. An error will be displayed if the tenant has greater than 5,000 subscriptions.
  - The list of associated resources will display the resource type, not display name.
  - Azure Policy assignments appear in the list, but their name is not displayed correctly.
- - This functionality isn't yet available through the Azure CLI or PowerShell.
+ - This functionality isn't yet available through PowerShell.
 
 ## Next steps
 
