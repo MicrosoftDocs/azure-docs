@@ -36,9 +36,25 @@ To manually assign owners and due dates to recommendations:
 
 The recommendation is now shown as assigned and on time.
 
-## Defining governance rules to automatically set the owner and due date of recommendations (Preview)
+## Building a process for improving security with governance rules
 
-For each subscription, you can define rules that assign an owner and set the due date for resources in the specified recommendations. You can either identify recommendations by severity or by name. Many governance rules can apply to the same resources, so the higher priority rule is the one that takes precedence.
+To make sure your organization is systematically improving its security posture, you can define rules that assign an owner and set the due date for resources in the specified recommendations. That way resource owners have a clear set of tasks and deadlines for remediating recommendations.
+
+You can then review the progress of the tasks by subscription, recommendation, or owner so you can follow up with tasks that need more attention.
+
+### Availability
+
+|Aspect|Details|
+|----|:----|
+|Release state:|Preview.<br>[!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]|
+|Pricing:|Free|
+|Supported environments:|Microsoft Azure, Amazon AWS, Google GCP|
+|Required roles and permissions:|Azure - **Contributor**, **Security Admin**, or **Owner** on the subscription<br>AWS, GCP – **Contributor**, **Security Admin**, or **Owner** on the connector|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts|
+
+### Defining governance rules to automatically set the owner and due date of recommendations (Preview)
+
+When you define governance rules, you can either identify recommendations by severity or by name. Many governance rules can apply to the same resources, so the higher priority rule is the one that takes precedence.
 
 The due date set for the recommendation to be remediated is based on a timeframe 7, 14, 30, 90 days). Resources that are already identified as affected by the recommendation are given a due date that is the specified number of days from the date that the rule is defined. Resources that are found after the rule is defined are given a due date from the date they are found. You can apply a grace period so that the resources that are given a due date do not impact your secure score unless they become overdue.
 
@@ -66,7 +82,7 @@ To define a governance rule that assigns an owner and due date:
 
 Any recommendations that match the definition of the governance rule and don't already have an owner or due date are now assigned an owner and due date.
 
-## Reviewing governance status for each rule (Preview)
+### Reviewing governance status for each rule (Preview)
 
 After you define governance rules, you'll want to review the progress that the owners are making in remediating the recommendations. The governance report lets you select subscriptions that have governance rules and, for each rule and owner, shows you how many recommendations are completed, on time, overdue, or unassigned.
 
