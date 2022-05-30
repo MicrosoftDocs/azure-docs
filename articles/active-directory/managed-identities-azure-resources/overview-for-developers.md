@@ -271,7 +271,10 @@ BlobServiceClient blobStorageClient = new BlobServiceClientBuilder()
 using Azure.Identity;
 using Microsoft.Data.SqlClient;
 
-AccessToken accessToken = await new DefaultAzureCredential().GetTokenAsync(new TokenRequestContext(new string[] { "https://database.windows.net//.default" }));                        
+// code omitted for brevity
+
+AccessToken accessToken = await new DefaultAzureCredential().GetTokenAsync(
+    new TokenRequestContext(new string[] { "https://database.windows.net//.default" }));                        
 
 using var connection = new SqlConnection("Server=<DB Server>; Database=<DB Name>;")
 {
