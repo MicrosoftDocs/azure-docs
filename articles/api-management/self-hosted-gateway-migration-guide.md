@@ -8,7 +8,7 @@ author: tomkerkhove
 ms.service: api-management
 ms.topic: article
 ms.date: 03/08/2022
-ms.author: danlep
+ms.author: tomkerkhove
 ---
 
 # Self-hosted gateway migration guide
@@ -78,6 +78,12 @@ securityContext:
   runAsUser: 1001
   readOnlyRootFilesystem: false
 ```
+
+## Known limitations
+
+Here is a list of known limitations for the self-hosted gateway v2:
+
+- Configuration API v2 does not support custom domain names
 
 ## Next steps
 
