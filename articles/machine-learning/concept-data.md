@@ -201,12 +201,12 @@ az ml job create --file hello-data-uri-file.yml
 ---
 
 ## Define schema for tabular data with `mltable`
-Azure Machine Learning provides a capability for you to define schema for tabular data so that it can be materialized into a Pandas/Dask/Spark dataframe. `mltable` makes it easier when you're sharing tabular data assets with team members because the consumers of the asset don't need to write code that parses the data into a dataframe.
+`mltable` is a way to abstract the schema definition for tabular data so that it is easier for consumers of the data to materialize the table into a Pandas/Dask/Spark dataframe.
 
 > [!TIP]
 > The ideal scenarios to use `mltable` are:
 > - the schema of your data is complex and/or changes frequently
-> - you need to extract a subset of data
+> - you only need a subset of data (for example: a sample of rows or files, specific columns, etc)
 > - AutoML jobs requiring tabular data
 >
 > If your scenario does not fit the above then it is likely that URIs are a more suitable type.
@@ -217,15 +217,15 @@ Imagine a scenario where you have many text files in a folder:
 
 ```text
 ├── my_data
-│   ├── file1.csv
-│   ├── file1_use_this.csv
-│   ├── file2.csv
-│   ├── file2_use_this.csv
+│   ├── file1.txt
+│   ├── file1_use_this.txt
+│   ├── file2.txt
+│   ├── file2_use_this.txt
 .
 .
 .
-│   ├── file1000.csv
-│   ├── file1000_use_this.csv
+│   ├── file1000.txt
+│   ├── file1000_use_this.txt
 ```
 
 Each text file has the following structure:
@@ -253,11 +253,18 @@ Some interesting features of this data are:
 You could materialize the above text files into a dataframe using Pandas and a URI:
 
 ```python
-import pandas as pd
 import glob
 import datetime
+import os
+import argparse
+import pandas as pd
 
-files = glob.glob("./my_data/*_use_this.csv")
+parser = argparse.ArgumentParser()
+parser.add_argument("--input_folder", type=str)
+args = parser.parse_args()
+
+path = os.path.join(args.input_folder, "*_use_this.csv")
+files = glob.glob(path)
 
 # create empty list
 dfl = []
@@ -289,7 +296,7 @@ df = pd.concat(dfl)
 df.index_columns("store_location")
 ```
 
-However, it will be the responsibility of the *consumer* of the data asset to parse the schema into a dataframe. In the scenario defined above, that means the consumers of the data will need to independently ascertain the Python code to materialize the data into a dataframe. 
+However, it will be the responsibility of the *consumer* of the data asset to parse the schema into a dataframe. In the scenario defined above, that means the consumers will need to independently ascertain the Python code to materialize the data into a dataframe. 
 
 Passing responsibility to the consumer of the data asset will cause problems when:
 
@@ -308,7 +315,7 @@ Under the above two conditions, `mltable` can help because it enables the creato
 .
 ```
 
-The MLTable file has the following definition that articulates how the data should be processed into a dataframe:
+The MLTable file has the following definition that specifies how the data should be processed into a dataframe:
 
 ```yaml
 type: mltable
@@ -338,15 +345,7 @@ The consumers can read the data into dataframe using three lines of Python code:
 import mltable
 
 tbl = mltable.load("./my_data")
-
-# materialize the table into pandas
-pdf = tbl.to_pandas_dataframe()
-
-# or Spark!
-sdf = tbl.to_spark_dataframe()
-
-# or Dask!
-ddf = tbl.to_dask_dataframe()
+df = tbl.to_pandas_dataframe()
 ```
 
 > [!NOTE]
