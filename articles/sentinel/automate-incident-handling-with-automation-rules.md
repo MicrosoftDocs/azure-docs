@@ -36,9 +36,13 @@ In short, automation rules streamline the use of automation in Microsoft Sentine
 
 Automation rules are made up of several components:
 
+- **[Triggers](#triggers)** that define what kind of incident event will cause the rule to run, subject to...
+- **[Conditions](#conditions)** that will determine the exact circumstances under which the rule will run and perform...
+- **[Actions](#actions)** to change the incident in some way or call a [playbook](automate-responses-with-playbooks.md).
+
 ### Triggers
 
-Automation rules are triggered **when an incident is created or updated** (the update trigger is now in **Preview**). To review – incidents are created from alerts by analytics rules, of which there are several types, as explained in [Detect threats with built-in analytics rules in Microsoft Sentinel](detect-threats-built-in.md).
+Automation rules are triggered **when an incident is created or updated** (the update trigger is now in **Preview**). Recall that incidents are created from alerts by analytics rules, of which there are several types, as explained in [Detect threats with built-in analytics rules in Microsoft Sentinel](detect-threats-built-in.md).
 
 The following table shows the different possible ways that incidents can be created or updated that will cause an automation rule to run.
 
@@ -49,7 +53,7 @@ The following table shows the different possible ways that incidents can be crea
 
 ### Conditions
 
-Complex sets of conditions can be defined to govern when actions (see below) should run. These conditions include the event that triggers the rule (incident created or updated), the states or values of the incident's properties and [entity properties](entities-reference.md), and the analytics rule or rules that generated the incident as well.
+Complex sets of conditions can be defined to govern when actions (see below) should run. These conditions include the event that triggers the rule (incident created or updated), the states or values of the incident's properties and [entity properties](entities-reference.md), and also the analytics rule or rules that generated the incident.
 
 When an automation rule is triggered, it checks the triggering incident against the conditions defined in the rule. The property-based conditions are evaluated according to **the current state** of the property at the moment the evaluation occurs, or according to **changes in the state** of the property (see below for details). Since a single incident creation or update event could trigger several automation rules, the **order** in which they run (see below) makes a difference in determining the outcome of the conditions' evaluation. The **actions** defined in the rule will run only if all the conditions are satisfied.
 
@@ -94,6 +98,28 @@ Here are the conditions that can be defined:
 | - Severity<br>- Status | - Changed<br>- Changed from<br>- Changed to | - <br>\<single selection><br>(radio button)|
 | - Tactics<br>- Alert product names | - Contains/Does not contain | \<multiple selections><br>(check boxes)
 | - Tag<br>- Tactics<br>- *Alerts*<br>- *Comments* | - Added | - |
+
+> [!NOTE]
+> An automation rule based on the update trigger can run on an incident that was updated by another automation rule based on the incident creation trigger that ran on the incident.
+>
+> Also, if an incident is updated by an automation rule that ran on the incident's creation, the incident can be evaluated by both a subsequent incident-creation automation rule and an incident-update automation rule, which will both run if the incident satisfies the rules' conditions.
+>
+> So, to continue our earlier example:
+>
+> - Incident is created with *low* severity and triggers three automation rules to run based on the incident creation trigger.
+> - Rule 1 runs.
+>     - A condition in Rule 1 is satisfied (say, an IP address in the incident matches a known bad actor).
+>     - Rule 1's actions run and change the severity to *high*.
+> - Rule 2 runs.
+>     - A condition in Rule 2 evaluates the severity of the incident as *high*, meeting the condition's criteria.
+>     - Rule 2's actions are executed as a result, applying a tag to the incident.
+> - Rule 3 has a condition that evaluates the contents of an incident's tags.
+> - At the same time, an update-trigger automation rule is triggered and evaluates if any tags were added to the incident.
+> - Rule 3 will run first if the tag matches the condition.
+> - Then the update-trigger rule will run since a tag was added.
+> 
+> If an incident triggers both create and update automation rules, the create-trigger rules will run first, according to their **[Order](#order)** numbers, and then the update-trigger rules will run, depending on *their* **Order** numbers.
+
 
 ### Actions
 
