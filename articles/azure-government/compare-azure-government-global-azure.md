@@ -26,6 +26,14 @@ Azure Government services operate the same way as the corresponding services in 
 > This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [**Introducing the new Azure PowerShell Az module**](/powershell/azure/new-azureps-module-az). For Az module installation instructions, see [**Install the Azure Az PowerShell module**](/powershell/azure/install-az-ps).
 
 You can use AzureCLI or PowerShell to obtain Azure Government endpoints for services you provisioned:
+> [!NOTE]
+> To configure SDK so that by default it picks Azure Government you need to override the configuration file. <br />
+>  **Windows**  <br />
+>  `mkdir .azure && echo -e "[cloud]\nname = AzureUSGovernment\n" > .azure/config` <br />
+> **Linux** <br />
+> `mkdir ~/.azure` <br />
+> `touch ~/.azure/config` <br />
+> `echo -n "[cloud]\nname = AzureUSGovernment\n">~/.azure/config` 
 
 - Use **Azure CLI** to run the [az cloud show](/cli/azure/cloud#az-cloud-show) command and provide `AzureUSGovernment` as the name of the target cloud environment. For example,
 
