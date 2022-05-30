@@ -85,7 +85,7 @@ ExpressWebApp/
 
 ## Install the auth library
 
-Locate the root of your project directory in a terminal and install the MSAL Node package via NPM.
+Locate the root of your project directory in a terminal and install the MSAL Node package via npm.
 
 ```console
     npm install --save @azure/msal-node
@@ -93,7 +93,7 @@ Locate the root of your project directory in a terminal and install the MSAL Nod
 
 ## Install other dependencies
 
-The web app sample in this tutorial uses the [express-session](https://www.npmjs.com/package/express-session) package for session management, [dotenv](https://www.npmjs.com/package/dotenv) package for reading environment parameters during development, and [axios](https://www.npmjs.com/package/axios) for making network calls to the Microsoft Graph API. Install these via NPM:
+The web app sample in this tutorial uses the [express-session](https://www.npmjs.com/package/express-session) package for session management, [dotenv](https://www.npmjs.com/package/dotenv) package for reading environment parameters during development, and [axios](https://www.npmjs.com/package/axios) for making network calls to the Microsoft Graph API. Install these via npm:
 
 ```console
     npm install --save express-session dotenv axios
