@@ -102,7 +102,11 @@ To see the list of recommendations for each owner:
 
 1. Select **Security posture**.
 1. Select the **Owner (preview)** tab to see the list of owners and the number of overdue recommendations for each owner.
-1. Hover over the (i) in the overdue recommendations to see the breakdown of overdue recommendations by severity.
+
+    - Hover over the (i) in the overdue recommendations to see the breakdown of overdue recommendations by severity.
+
+    - If the owner email address is found in the organizational Azure Active Directory (AAD), you'll see the full name and picture of the owner.
+
 1. Select **View recommendations** to go to the list of recommendations associated with the owner.
 
 ## Next steps
