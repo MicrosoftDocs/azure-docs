@@ -87,26 +87,15 @@ View scanning data from active discovery scans from your sensor console only. Fo
 
 ### Sensor management from the Azure portal (public preview)
 
-For sensor versions 22.2.x and higher, you can configure sensor settings and monitor sensor health directly from the **Sites and sensors** page on the Azure portal.
+For sensor versions 22.2.x and higher, you can configure sensor settings directly from the **Sites and sensors** page on the Azure portal.
 
-On the **Sites and sensors** page:
+On the **Sites and sensors** page, select **Sensor settings (Preview)** to create and apply settings across one or more cloud-connected sensors in your network.
 
-- **To create and apply settings** across one or more cloud-connected sensors in your network, select **Sensor settings (Preview)**.
-
-- **To monitor sensor health**, use the new sensor health widgets and table column data
-
-We've also added a sensor details page, where you drill down to a specific sensor from the Azure portal. On the **Sites and sensors** page, select a specific sensor name. The sensor details page lists basic sensor data, sensor health, and any sensor settings applied. For example:
+We've also added a sensor details page, where you drill down to a specific sensor from the Azure portal. On the **Sites and sensors** page, select a specific sensor name. The sensor details page lists basic sensor data and any sensor settings applied. For example:
 
 :::image type="content" source="media/release-notes/sensor-overview.png" alt-text="Screenshot of a sensor Overview page.":::
 
-For more information, see:
-
-- [Define and view OT sensor settings (Public preview)](how-to-manage-sensors-on-the-cloud.md#define-and-view-ot-sensor-settings-public-preview)
-- [Understand sensor health (Public preview)](how-to-manage-sensors-on-the-cloud.md#understand-sensor-health-public-preview)
-- [Update your sensors from the Azure portal](update-ot-software.md#update-your-sensors)
-
-> [!NOTE]
-> When updating to version 22.2.x, make sure to update your firewall rules to support remote sensor upgrades from the Azure portal. For more information, see [Sensor access to Azure portal](how-to-set-up-your-network.md#sensor-access-to-azure-portal).
+For more information, see [Define and view OT sensor settings (Public preview)](how-to-manage-sensors-on-the-cloud.md#define-and-view-ot-sensor-settings-public-preview).
 
 ### Bi-directional alert synch between sensors and the Azure portal (Public preview)
 
@@ -225,18 +214,12 @@ For more information, see [Manage your device inventory from the Azure portal](h
 
 **Sensor version**: 22.1.3
 
-- [Sensor health from the Azure portal](#sensor-health-from-the-azure-portal)
 - [Use Azure Monitor workbooks with Microsoft Defender for IoT](#use-azure-monitor-workbooks-with-microsoft-defender-for-iot-public-preview)
 - [IoT OT Threat Monitoring with Defender for IoT solution GA](#iot-ot-threat-monitoring-with-defender-for-iot-solution-ga)
 - [Edit and delete devices from the Azure portal](#edit-and-delete-devices-from-the-azure-portal-public-preview)
 - [Key state alert updates](#key-state-alert-updates-public-preview)
 - [Sign out of a CLI session](#sign-out-of-a-cli-session)
 
-### Sensor health from the Azure portal
-
-Sensor health features in the Azure portal are supported started with sensor version 22.1.3.
-
-For more information, see [Sensor management from the Azure portal (public preview)](#sensor-management-from-the-azure-portal-public-preview).
 
 ### Use Azure Monitor workbooks with Microsoft Defender for IoT (Public preview)
 

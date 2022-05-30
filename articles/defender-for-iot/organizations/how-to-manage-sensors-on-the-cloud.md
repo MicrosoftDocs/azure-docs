@@ -29,9 +29,8 @@ Sensors that you've on-boarded to Defender for IoT are listed on the Defender fo
 |**Edit a sensor zone**    | Either from the **...** options menu at the right of a sensor row, or from a sensor details page, select **Edit**.  From the **Zone** menu, select a zone, or **Create new zone**. Select **Submit** to save your changes.     |
 |**Edit automatic threat intelligence updates**     | Either from the **...** options menu at the right of a sensor row, or from a sensor details page, select **Edit**. Toggle the **Automatic Threat Intelligence Updates (Preview)** option on or off as needed. Select **Submit** to save your changes.       |
 |**Delete a sensor**     |  Delete sensors only if you're no longer working with them. Either from the **...** options menu at the right of a sensor row, or from a sensor details page, select **Delete sensor**.      |
-|**Monitor sensor health**     | Use the health widget above the grid to understand your overall system health, and the **Sensor health** column data to view health messages for specific sensors. Select a sensor to view more sensor health details on the sensor details **Overview** page.        |
 
-A sensor details page provides basic information about the sensor, sensor health, and sensor settings, and also provides options for sensor management, such as downloading activation files, or deleting a sensor. For example:
+A sensor details page provides basic information about the sensor and sensor settings, and also provides options for sensor management, such as downloading activation files, or deleting a sensor. For example:
 
 :::image type="content" source="media/release-notes/sensor-overview.png" alt-text="Screenshot of a sensor overview page.":::
 
@@ -142,38 +141,6 @@ Make sure that you've started with the relevant updates steps for this update. F
 > [!NOTE]
 > After upgrading to version 22.1.x, the new upgrade log can be found at the following path, accessed via SSH and the *cyberx_host* user: `/opt/sensor/logs/legacy-upgrade.log`.
 >
-
-## Understand sensor health (Public preview)
-
-This procedure describes how to view sensor health data from the Azure portal. Sensor health includes data such as whether traffic is stable, the sensor is overloaded, notifications about sensor software versions, and more.
-
-**To view overall sensor health**:
-
-1. From Defender for IoT in the Azure portal, select **Sites and sensors** and then check the overall health score in the widget above the grid. For example:
-
-    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sensor-health-widget.png" alt-text="Screenshot of the sensor health widget.":::
-
-1. To check on specific sensors, filter the sensors shown by sensor health, and select one or more sensor health issues to verify.
-
-1. Expand the filtered sites and sensors now displayed in the grid, and use the **Sensor health** column to learn more at a high level.
-
-1. To drill down further and understand recommended actions, select a sensor name to open the sensor details page.
-
-1. On the sensor details **Overview** page, expand the **Health** section and any messages listed there to learn more. The **Recommendation** column on the right lists recommended actions for handling the health issue.
-
-    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sensor-health-recommendation.png" alt-text="Screenshot of a sensor health recommendation.":::
-
-### Sensor health issues
-
-Defender for IoT will indicate a sensor health issue for any of the following scenarios:
-
-- Sensor traffic to Azure isn't stable
-- Sensor fails regular sanity tests
-- No traffic detected by the sensor
-- Sensor software version is no longer supported
-- A [remote sensor upgrade from the Azure portal](update-ot-software.md#update-your-sensors) fails
-
-For more information, see our [Sensor health message reference](sensor-health-messages.md).
 
 ## Upload a diagnostics log for support (Public preview)
 
