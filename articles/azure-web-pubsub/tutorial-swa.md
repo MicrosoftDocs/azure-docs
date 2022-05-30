@@ -1,0 +1,200 @@
+---
+title: Tutorial - Create a serverless chat app using Azure Web PubSub service and Azure Static Web App service
+description: A tutorial to walk through how to use Azure Web PubSub service and Azure Static Web App to build a serverless chat application.
+author: JialinXin
+ms.author: jixin
+ms.service: azure-web-pubsub
+ms.topic: tutorial 
+ms.date: 06/01/2022
+---
+
+# Tutorial: Create a serverless chat app using Azure Web PubSub service and Azure Static Web App service
+
+The Azure Web PubSub service helps you build real-time messaging web applications using WebSockets. Azure Static Web App convenients you automatically builds and deploys full stack web apps to Azure from a code repository. In this tutorial, you learn how to use Azure Web PubSub service and Azure Static Web App to build a serverless application with real-time messaging under chatroom scenario. 
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Build a serverless chat app
+> * Work with Web PubSub function input and output bindings
+> * Work with Static Web App
+
+## Prerequisites
+
+* [GitHub](https://github.com/) account
+* [Azure](https://portal.azure.com/) account
+* [Azure CLI](/cli/azure) (version 2.29.0 or higher) or [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart) to manage Azure resources
+
+## Create a repository
+
+This article uses a GitHub template repository to make it easy for you to get started. The template features a starter app used to deploy using Azure Static Web Apps.
+
+1. Navigate to the following template to create a new repository under your repo:
+    1. [https://github.com/Azure/awps-swa-sample/generate](https://github.com/login?return_to=/Azure/awps-swa-sample/generate)
+1. Name your repository **my-awps-swa-app**
+
+Select <kbd>**Create repository from template**</kbd>
+
+## Create a Web PubSub resource
+
+1. Sign in to the Azure CLI by using the following command.
+
+    ```azurecli
+    az login
+    ```
+
+1. Create a resource group.
+
+    ```azurecli
+    az group create \
+      --name my-awps-swa-group \
+      --location "eastus2"
+    ```
+
+1. Create a Web PubSub resource.
+
+    ```azurecli
+    az webpubsub create \
+      --name my-awps-swa \
+      --resource-group my-awps-swa-group \
+      --location "eastus2" \
+      --sku Free_F1
+    ```
+
+1. Get the key for later use.
+
+    ```azurecli
+    az webpubsub key show \
+      --name my-awps-swa \
+      --resource-group my-awps-swa-group
+    ```
+
+    ```bash
+    AWPS_ACCESS_KEY=<YOUR_AWPS_ACCESS_KEY>
+    ```
+    Replace the placeholder `<YOUR_AWPS_ACCESS_KEY>` from previous result `primaryConnectionString`.
+
+## Create a static web app
+
+Now that the repository is created, you can create a static web app from the Azure CLI.
+
+1. Create a variable to hold your GitHub user name.
+
+    ```bash
+    GITHUB_USER_NAME=<YOUR_GITHUB_USER_NAME>
+    ```
+
+    Replace the placeholder `<YOUR_GITHUB_USER_NAME>` with your GitHub user name.
+
+1. Create a new static web app from your repository.
+
+    ```azurecli
+    az staticwebapp create \
+        --name my-awps-swa-app \
+        --resource-group my-awps-swa-group \
+        --source https://github.com/$GITHUB_USER_NAME/my-awps-swa-app \
+        --location "eastus2" \
+        --branch main \
+        --app-location "src" \
+        --api-location "api" \
+        --login-with-github
+    ```
+> [!IMPORTANT]
+    > The URL passed to the `--source` parameter must not include the `.git` suffix.
+
+    As you execute this command, the CLI starts GitHub interactive login experience. Look for a line in your console that resembles the following message.
+
+    > Please navigate to `https://github.com/login/device` and enter the user code 329B-3945 to activate and retrieve your GitHub personal access token.
+
+1. Navigate to **https://github.com/login/device**.
+
+1. Enter the user code as displayed your console's message.
+
+1. Select the **Continue** button.
+
+1. Select the **Authorize AzureAppServiceCLI** button.
+
+1. Configure static web app settings.
+
+    ```azurecli
+    az staticwebapp appsettings set \
+      -n my-awps-swa-app \
+      --setting-names WebPubSubConnectionString=$AWPS_ACCESS_KEY WebPubSubHub=sample_swa
+    ```
+
+## View the website
+
+There are two aspects to deploying a static app. The first operation creates the underlying Azure resources that make up your app. The second is a GitHub Actions workflow that builds and publishes your application.
+
+Before you can navigate to your new static site, the deployment build must first finish running.
+
+1. Return to your console window and run the following command to list the URLs associated with your app.
+
+    ```azurecli
+    az staticwebapp show \
+      --name  my-awps-swa-app \
+      --query "repositoryUrl"
+    ```
+
+    The output of this command returns the URL to your GitHub repository.
+
+1. Copy the **repository URL** and paste it into the browser.
+
+1. Select the **Actions** tab.
+
+    At this point, Azure is creating the resources to support your static web app. Wait until the icon next to the running workflow turns into a check mark with green background (:::image type="icon" source="media/get-started-cli/checkmark-green-circle.png" border="false":::). This operation may take a few minutes to complete.
+
+    Once the success icon appears, the workflow is complete and you can return back to your console window.
+
+1. Run the following command to query for your website's URL.
+
+    ```azurecli
+    az staticwebapp show \
+      --name my-awps-swa-app \
+      --query "defaultHostname"
+    ```
+
+    Copy the URL to a command.
+
+    ```bash
+    STATIC_WEB_APP=<YOUR_STATIC_WEB_APP>
+    ```
+
+## Configure the Web PubSub event handler
+
+At this point, you're able to view the chatroom home page. However, there's last step to make your function api work, which is to configure the 
+
+1. Run command to configure Web PubSub service events.
+
+    ```azurecli
+    az webpubsub hub create 
+      -n "my-awps-swa" \
+      -g "my-awps-swa-group" \
+      --hub-name "sample_swa" \
+      --event-handler url-template="<YOUR_STATIC_WEB_APP>" user-event-pattern="*" \
+      --event-handler url-template="<YOUR_STATIC_WEB_APP>" system-event="connect"
+    ```
+
+Now you're ready to play with your website **<YOUR_STATIC_WEB_APP>**. Copy it to browser and click continue to start chatting with your friends.
+
+## Clean up resources
+
+If you're not going to continue to use this application, you can delete the resource group and the static web app by running the following command:
+
+```azurecli
+az group delete \
+  --name my-awps-swa-group
+```
+
+## Next steps
+
+In this quickstart, you learned how to run a serverless chat application. Now, you could start to build your own application. 
+
+> [!div class="nextstepaction"]
+> [Tutorial: Create a simple chatroom with Azure Web PubSub](https://azure.github.io/azure-webpubsub/getting-started/create-a-chat-app/js-handle-events)
+
+> [!div class="nextstepaction"]
+> [Azure Web PubSub bindings for Azure Functions](https://azure.github.io/azure-webpubsub/references/functions-bindings)
+
+> [!div class="nextstepaction"]
+> [Explore more Azure Web PubSub samples](https://github.com/Azure/azure-webpubsub/tree/main/samples)
