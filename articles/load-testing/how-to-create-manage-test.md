@@ -6,7 +6,7 @@ services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
 author: ntrogh
-ms.date: 05/20/2022
+ms.date: 05/30/2022
 ms.topic: how-to
 ---
 <!-- Intent: As a user I want to configure the test plan for a load test, so that I can successfully run a load test -->
@@ -92,11 +92,9 @@ If you've previously created a quick test, you can edit the test plan at any tim
 
 ### Split CSV input data across test engines
 
-If you're using CSV data in your JMeter script, you can process the input data in parallel across multiple test engines. Azure Load Testing enables you to configure a test to split the data evenly across all engine instances. 
+By default, Azure Load Testing copies and processes your input files unmodified across all test engine instances. Azure Load Testing enables you to split the CSV input data evenly across all engine instances. You don't have to make any modifications to the JMX test script.
 
 For example, if you have a large customer CSV input file, and the load test runs on 10 parallel test engines, then each instance will process 1/10th of the customers.
-
-Azure Load Testing will automatically split and process the data across all test engines. You don't have to make any modifications to the JMX test script. 
 
 If you have multiple CSV files, each file will be split evenly.
 

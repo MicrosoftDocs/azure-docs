@@ -1,7 +1,7 @@
 ---
 title: Read CSV data in an Apache JMeter load test
 titleSuffix: Azure Load Testing
-description: Learn how to read external data from a CSV file in Apache JMeter and Azure Load Testing.
+description: Learn how to read external data from a CSV file in Apache JMeter with Azure Load Testing.
 services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
@@ -12,13 +12,11 @@ ms.custom: template-how-to
 zone_pivot_groups: load-testing-config
 ---
 
-# Read data from a CSV file in JMeter and Azure Load Testing Preview
+# Read data from a CSV file in JMeter with Azure Load Testing Preview
 
-In this article, you'll learn how to read data from a comma-separated value (CSV) file in JMeter and Azure Load Testing Preview.
+In this article, you'll learn how to read data from a comma-separated value (CSV) file in JMeter with Azure Load Testing Preview. You can use the JMeter [CSV Data Set Config element](https://jmeter.apache.org/usermanual/component_reference.html#CSV_Data_Set_Config) in your test script.
 
-You can make an Apache JMeter test script configurable by reading data from an external CSV file. For example, you might invoke an API for each entry in a customers CSV file. You can use the [CSV Data Set Config element](https://jmeter.apache.org/usermanual/component_reference.html#CSV_Data_Set_Config) in JMeter.
-
-To use external files in your JMeter script with Azure Load Testing, you upload the JMX file and all additional files to your load test.
+Use data from an external CSV file to make your JMeter test script configurable. For example, you might invoke an API for each entry in a customers CSV file.
 
 In this article, you learn how to:
 
@@ -45,7 +43,7 @@ Azure Load Testing uploads the JMX file and all related files in a single folder
 
 To edit your JMeter script by using the Apache JMeter GUI:
 
-  1. Select the CSV Data Set Config element in your test plan.
+  1. Select the **CSV Data Set Config** element in your test plan.
 
   1. Update the **Filename** information and remove any file path reference.
 
@@ -79,7 +77,7 @@ To edit your JMeter script by using Visual Studio Code or your editor of prefere
 
 ## Add a CSV file to your load test
 
-To reference an external file in your JMeter script, you have to upload this file to your load test. Azure Load Testing copies all files to a single folder on each of the test engines instances.
+When you reference an external file in your JMeter script, upload this file to your load test. When the load starts, Azure Load Testing copies all files to a single folder on each of the test engines instances.
 
 ::: zone pivot="experience-azp"
 
@@ -137,11 +135,9 @@ To add a CSV file to your load test:
 
 ## Split CSV input data across test engines
 
-Optionally, you can process the input data in parallel across multiple test engines. Azure Load Testing enables you to split the CSV data evenly across all engine instances.
+By default, Azure Load Testing copies and processes your input files unmodified across all test engine instances. Azure Load Testing enables you to split the CSV input data evenly across all engine instances. You don't have to make any modifications to the JMX test script.
 
 For example, if you have a large customer CSV input file, and the load test runs on 10 parallel test engines, then each instance will process 1/10th of the customers.
-
-Azure Load Testing will automatically split and process the data across all test engines. You don't have to make any modifications to the JMX test script. 
 
 If you have multiple CSV files, each file will be split evenly.
 
