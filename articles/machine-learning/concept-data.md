@@ -1,7 +1,7 @@
 ---
 title: Data access
 titleSuffix: Azure Machine Learning
-description: Learn how to connect to your data storage on Azure with Azure Machine Learning.
+description: Learn how to access and process data in Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
@@ -59,124 +59,102 @@ Azure Machine Learning distinguishes two types of URIs:
 
 Data type | Description | Examples
 ---|------|---
-`uri_file` | Refers to a specific file | `https://<account_name>.blob.core.windows.net/<container_name>/path/file.csv`<br> `azureml://datastores/<datastore_name>/path/file.csv` <br> `abfss://<file_system>@<account_name>.dfs.core.windows.net/path/file.csv`
-`uri_folder`| Refers to a specific folder | `https://<account_name>.blob.core.windows.net/<container_name>/path`<br> `azureml://datastores/<datastore_name>/path` <br> `abfss://<file_system>@<account_name>.dfs.core.windows.net/path/`
+`uri_file` | Refers to a specific **file** location | `https://<account_name>.blob.core.windows.net/<container_name>/<folder>/<file>`<br> `azureml://datastores/<datastore_name>/paths/<folder>/<file>` <br> `abfss://<file_system>@<account_name>.dfs.core.windows.net/<folder>/<file>`
+`uri_folder`| Refers to a specific **folder** location | `https://<account_name>.blob.core.windows.net/<container_name>/<folder>`<br> `azureml://datastores/<datastore_name>/paths/<folder>` <br> `abfss://<file_system>@<account_name>.dfs.core.windows.net/<folder>/`
 
 URIs are mapped to the filesystem on the compute target, hence using URIs is like using files or folders in the command that consumes/produces them.
 
-### Example usage
+### Examples
 
 # [URI File](#tab/uri-file-example)
 
-The following Python code reads a CSV file and prints the first 10 records:
-
-```python
-# src/hello_data.py
-import argparse
-import pandas as pd
-
-parser = argparse.ArgumentParser()
-parser.add_argument("--file_path")
-args = parser.parse_args()
-
-df = pd.read_csv(args.file_path)
-print(df.head(10))
-```
-
-To execute this Python code in the cloud, you define a YAML specification file for the job (updating the blob account name, container name, and file path):
+Below is an example of a job specification that shows how to access a file from a public blob store. In this example, the job executes the Linux `ls` command.
 
 ```yml
 # hello-data-uri-file.yml
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 command: |
-  python hello_data.py --file_path ${{inputs.my_csv_file}}
-code: src
+  ls ${{inputs.my_csv_file}}
+
 inputs:
   my_csv_file:
     type: uri_file
-    path: https://<account_name>.blob.core.windows.net/<container_name>/path/file.csv
-    mode: ro_mount
+    path: https://azuremlexamples.blob.core.windows.net/datasets/titanic.csv
 environment: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest
 compute: azureml:cpu-cluster
 ```
 
-Then create a job using the CLI:
+Create the job using the CLI:
 
 ```azurecli
 az ml job create --file hello-data-uri-file.yml
 ```
+
+When the job has completed the user logs will show the standard output of the Linux command `ls ${{inputs.my_csv_file}}`:
+
+:::image type="content" source="media/concept-data/uri_file.png" alt-text="URI File Output":::
+
+Notice that the file has been mapped to the filesystem on the compute target and `${{inputs.my_csv_file}}` resolves to that location. 
 
 # [URI Folder](#tab/uri-folder-example)
 
-The following Python code gets a CSV file from a folder and prints the first 10 records:
-
-```python
-# src/hello_data.py
-import argparse
-import os
-import pandas as pd
-
-parser = argparse.ArgumentParser()
-parser.add_argument("--folder_path")
-args = parser.parse_args()
-
-file_path = os.path.join(args.folder_path, "MY_FILE.csv")
-
-df = pd.read_csv(file_path)
-print(df.head(10))
-```
-
-To execute this Python code in the cloud, you define a YAML specification file for the job (updating the blob account name, container name, and file path):
+In the case where you want to map a **folder** to the filesystem of the compute target, you define the `uri_folder` type in your job specification file:
 
 ```yml
-# hello-data-uri-file.yml
+# hello-data-uri-folder.yml
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 command: |
-  python hello_data.py --folder_path ${{inputs.my_csv_folder}}
-code: src
+  ls ${{inputs.sampledata}}
 inputs:
-  my_csv_folder:
+  sampledata:
     type: uri_folder
-    path: https://<account_name>.blob.core.windows.net/<container_name>/path
-    mode: ro_mount
+    path: https://<account_name>.blob.core.windows.net/<container_name>/<folder>
 environment: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest
 compute: azureml:cpu-cluster
 ```
 
-Then execute using the CLI:
+Create the job using the CLI:
 
 ```azurecli
-az ml job create --file hello-data-uri-file.yml
+az ml job create --file hello-data-uri-folder.yml
 ```
+
+When the job has completed the user logs will show the standard output of the Linux command `ls ${{inputs.sampledata}}`:
+
+:::image type="content" source="media/concept-data/uri_folder.png" alt-text="URI Folder Output":::
+
+Notice that the folder has been mapped to the filesystem on the compute target (you can see all the files in the folder), and `${{inputs.sampledata}}` resolves to the folder location. 
 
 ---
 
 ## Share and version Data assets
 
-Azure Machine Learning allows you to create and version data assets in a workspace so that other members of your team can easily consume the data asset by using a name/version. For example:
+Azure Machine Learning allows you to create and version data assets in a workspace so that other members of your team can easily consume the data asset by using a name/version.
+
+### Example Usage
 
 
 # [Create Data Asset](#tab/cli-data-create-example)
 To create a data asset, firstly define a data specification in a YAML file that provides a name, type and path for the data:
 
 ```yml
-# cloud-folder-https-example.yml
+# data-example.yml
 $schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
-name: cloud-folder-example
-description: Dataset created from folder in cloud using https URL.
-type: uri_folder
+name: <name>
+description: <description>
+type: <type> # uri_file, uri_folder, mltable
 path: https://<storage_name>.blob.core.windows.net/<container_name>/path
 ```
 
 Then in the CLI, create the data asset:
 
 ```azurecli
-az ml data create --file cloud-folder-https-example.yml --version 1
+az ml data create --file data-example.yml --version 1
 ```
 
 # [Consume Data Asset](#tab/cli-data-consume-example)
 
-To consume the registered data in a job, define your job specification in a YAML file the path to be `azureml:<NAME_OF_DATA_ASSET>:<VERSION>`, for example:
+To consume a data asset in a job, define your job specification in a YAML file the path to be `azureml:<NAME_OF_DATA_ASSET>:<VERSION>`, for example:
 
 ```yml
 # hello-data-uri-file.yml
@@ -186,10 +164,10 @@ command: |
 code: src
 inputs:
   sampledata:
-    type: uri_folder
-    path: azureml:cloud-folder-example@latest
-environment: azureml:AzureML-sklearn-1.0-ubuntu20.04-py38-cpu@latest
-compute: azureml:cpu-cluster
+    type: <type> # uri_file, uri_folder, mltable
+    path: azureml:<data_name>@latest
+environment: azureml:<environment_name>@latest
+compute: azureml:<compute_name>
 ```
 
 Next, use the CLI to create your job:
@@ -284,7 +262,7 @@ for f in files:
         path=f,
         delimiter=" ",
         header=0,
-        usecols=["store_location", "zip", "date", "amount", "x", "y", "z"],
+        usecols=["store_location", "zip_code", "date", "amount", "x", "y", "z"],
         dtype=col_types,
         encoding='ascii'
     )
@@ -308,8 +286,8 @@ Under the above two conditions, `mltable` can help because it enables the creato
 ```text
 ├── my_data
 │   ├── MLTable
-│   ├── file1.csv
-│   ├── file1_use_this.csv
+│   ├── file1.txt
+│   ├── file1_use_this.txt
 .
 .
 .
@@ -331,7 +309,7 @@ transforms:
         encoding: ascii
         header: all_files_have_same_headers
         delimiter: " "
-    - keep_columns: ["store_location", "zip", "date", "amount", "x", "y", "z"]
+    - keep_columns: ["store_location", "zip_code", "date", "amount", "x", "y", "z"]
     - convert_column_types:
         - columns: ["x", "y", "z"]
           to_type: boolean
@@ -347,9 +325,6 @@ import mltable
 tbl = mltable.load("./my_data")
 df = tbl.to_pandas_dataframe()
 ```
-
-> [!NOTE]
-> You need to install the `mltable` library using `pip install mltable`.
 
 If the schema of the data changes, then it can be updated in a single place (the MLTable file) rather than having to make code changes in multiple places.
 

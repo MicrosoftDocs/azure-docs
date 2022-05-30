@@ -357,17 +357,17 @@
           href: how-to-troubleshoot-environments.md
     - name: Work with data
       items: 
-        - name: Create a datastore
+        - name: Create Datastores
           displayName: datastore, data storage
           href: how-to-datastore.md
-        - name: Create a data asset
+        - name: Create Data assets
           displayName: data, data asset
           href: how-to-create-register-data-assets.md
-        - name: Reading & writing data in jobs
-          displayName: read and write data
+        - name: Read & write data in jobs
+          displayName: Read & write data in jobs
           href: how-to-read-write-data-v2.md
-        - name: Data Administration Guide
-          displayName: data authentication
+        - name: Data Administration
+          displayName: Data Administration
           href: how-to-administrate-data-authentication.md
     - name: Train models
       items: 

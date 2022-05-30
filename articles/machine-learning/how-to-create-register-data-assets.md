@@ -1,7 +1,7 @@
 ---
-title: Create Azure Machine Learning data assets
+title: Create Data Assets
 titleSuffix: Azure Machine Learning
-description: Learn how to create Azure Machine Learning data assets to access your data for machine learning experiment runs.
+description: Learn how to create Azure Machine Learning data assets.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
@@ -16,7 +16,7 @@ ms.date: 05/24/2022
 
 ---
 
-# Create Azure Machine Learning data assets
+# Create Data Assets
 
 > [!div class="op_single_selector" title1="Select the version of Azure Machine Learning SDK you are using:"]
 > * [v1](./v1/how-to-create-register-datasets.md)
@@ -27,13 +27,13 @@ ms.date: 05/24/2022
 
 In this article, you learn how to create a Data asset in Azure Machine Learning. By creating a Data asset, you create a *reference* to the data source location, along with a copy of its metadata. Because the data remains in its existing location, you incur no extra storage cost, and don't risk the integrity of your data sources. You can create Data from Datastores, Azure Storage, public URLs, and local files.
 
-With Azure Machine Learning Data assets, you can:
+The benefits of creating Data assets are:
 
-* Easy share data with other members of the team without needing to remember file locations.
+* You can **share and reuse data** with other members of the team such that they do not need to remember file locations.
 
-* Seamlessly access data during model training without worrying about connection strings or data paths.
+* You can **seamlessly access data** during model training (on any supported compute type) without worrying about connection strings or data paths.
 
-* Can refer to the Data by short Entity name in Azure ML
+* You can **version** the data.
 
 
 ## Prerequisites
@@ -48,13 +48,16 @@ To create and work with Data assets, you need:
 
 ## Supported Paths
 
-When you register a data asset in Azure Machine Learning, you'll need to specify a path that points to it's location. Azure Machine Learning supports:
+When you create a data asset in Azure Machine Learning, you'll need to specify a `path` parameter that points to it's location. Below is a table that shows the different data locations supported in Azure Machine Learning and examples for the `path` parameter:
 
-- a local path
-- Public http(s) location
-- Blob Storage URI (for example: `https://<account_name>.blob.core.windows.net/<container_name>/path`)
-- ADLS gen2 URI (for example: `abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>/<file>`)
-- An Azure Machine Learning Datastore URI (for example: `azureml://datastores/<data_store_name>/<path>`)
+
+|Location  | Examples  |
+|---------|---------|
+|A path on your local computer     | `./home/username/data/my_data`         |
+|A path on a public http(s) server    |  `https://raw.githubusercontent.com/pandas-dev/pandas/main/doc/data/titanic.csv`    |
+|A path on Azure Storage     |   `https://<account_name>.blob.core.windows.net/<container_name>/path` <br> `abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>`    |
+|A path on a Datastore   |   `azureml://datastores/<data_store_name>/paths/<path>`      |
+
 
 > [!NOTE]
 > When you register a local path as a data asset, it will be automatically uploaded to the default Azure Machine Learning datastore in the cloud.
@@ -69,13 +72,17 @@ Create a `YAML` file (`<file-name>.yml`):
 
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
+
+# Supported paths include:
+# local: './<path>'
+# blob:  'https://<account_name>.blob.core.windows.net/<container_name>/<path>'
+# ADLS gen2: 'abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>/'
+# Datastore: 'azureml://datastores/<data_store_name>/paths/<path>'
 type: uri_folder
 name: <name_of_data>
 description: <description goes here>
 path: <path>
 ```
-
-`path` can be any of the [Supported Paths](#supported-paths) outlined above.
 
 Next, create the data asset using the CLI:
 
@@ -91,12 +98,13 @@ You can create a data asset in Azure Machine Learning using the following Python
 from azure.ai.ml.entities import Data
 from azure.ai.ml.constants import AssetTypes
 
-my_path = '<path>'
 # Supported paths include:
 # local: './<path>'
 # blob:  'https://<account_name>.blob.core.windows.net/<container_name>/<path>'
 # ADLS gen2: 'abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>/'
-# Azure ML datastore: 'azureml://datastores/<data_store_name>/<path>'
+# Datastore: 'azureml://datastores/<data_store_name>/paths/<path>'
+
+my_path = '<path>'
 
 my_data = Data(
     path=my_path,
@@ -135,19 +143,19 @@ path: <uri>
 from azure.ai.ml.entities import Data
 from azure.ai.ml.constants import AssetTypes
 
-my_path = '<path>/<file>'
 # Supported paths include:
 # local: './<path>/<file>'
 # blob:  'https://<account_name>.blob.core.windows.net/<container_name>/<path>/<file>'
 # ADLS gen2: 'abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>/<file>'
-# Azure ML datastore: 'azureml://datastores/<data_store_name>/<path>/<file>'
+# Datastore: 'azureml://datastores/<data_store_name>/paths/<path>/<file>'
+my_path = '<path>'
 
 my_data = Data(
     path=my_path,
     type=AssetTypes.URI_FILE,
-    description="description here",
-    name="a_name",
-    version='1'
+    description="<description>",
+    name="<name>",
+    version="<version>"
 )
 
 ml_client.data.create_or_update(my_data)
@@ -188,7 +196,7 @@ transformations:
 > .
 > │   ├── file_n.txt
 > ```
-> The **MLTable *artifact*** (consisting of the MLTable file *and* underlying data) is *self-contained* and all that is needed is stored in that one folder (`my_data`); regardless of whether that folder is stored on your local drive or in your cloud store or on a public http server. You should **not** specify *absolute paths* in the MLTable file.
+> Co-locating the MLTable with the data ensures a **self-contained *artifact*** where all that is needed is stored in that one folder (`my_data`); regardless of whether that folder is stored on your local drive or in your cloud store or on a public http server. You should **not** specify *absolute paths* in the MLTable file.
 
 In your Python code, you materialize the MLTable artifact into a Pandas dataframe using:
 
@@ -219,7 +227,7 @@ $schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
 # local: './<path>'
 # blob:  'https://<account_name>.blob.core.windows.net/<container_name>/<path>'
 # ADLS gen2: 'abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>/'
-# Azure ML datastore: 'azureml://datastores/<data_store_name>/<path>'
+# Datastore: 'azureml://datastores/<data_store_name>/paths/<path>'
 
 type: mltable
 name: <name_of_data>
@@ -249,7 +257,7 @@ from azure.ai.ml.constants import AssetTypes
 # local: './<path>'
 # blob:  'https://<account_name>.blob.core.windows.net/<container_name>/<path>'
 # ADLS gen2: 'abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>/'
-# Azure ML datastore: 'azureml://datastores/<data_store_name>/<path>'
+# Datastore: 'azureml://datastores/<data_store_name>/paths/<path>'
 
 my_path = '<path>'
 

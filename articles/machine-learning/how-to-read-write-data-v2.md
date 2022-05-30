@@ -1,7 +1,7 @@
 ---
-title: Read and write data 
+title: Read and Write Data in Jobs
 titleSuffix: Azure Machine Learning
-description: Learn how to read and write data for consumption in Azure Machine Learning training jobs.
+description: Learn how to read and write data in Azure Machine Learning training jobs.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
@@ -14,11 +14,11 @@ ms.custom: devx-track-python, devplatv2, sdkv2, cliv2, event-tier1-build-2022
 #Customer intent: As an experienced Python developer, I need to read in my data to make it available to a remote compute to train my machine learning models.
 ---
 
-# Reading and Writing Data in Jobs
+# Read and Write Data in Jobs
 [!INCLUDE [sdk v2](../../includes/machine-learning-sdk-v2.md)]
 [!INCLUDE [CLI v2](../../includes/machine-learning-CLI-v2.md)]
 
-Learn how to read and write data for your training jobs with the Azure Machine Learning Python SDK v2(preview) and the Azure Machine Learning CLI extension v2. 
+Learn how to read and write data for your jobs with the Azure Machine Learning Python SDK v2(preview) and the Azure Machine Learning CLI extension v2. 
  
 ## Prerequisites
 
@@ -56,7 +56,7 @@ Type | Input/Output | `upload` | `download` | `ro_mount` | `rw_mount` | `direct`
 > `eval_download` and `eval_mount` are unique to `mltable`. Whilst `ro_mount` is the default mode for MLTable, there are scenarios where an MLTable can yield files that are not necessarily co-located with the MLTable file in storage. Alternatively, an `mltable` can subset or shuffle the data that resides in the storage. That view is only visible if the MLTable file is actually evaluated by the engine. These modes will provide that view of the files.
 
 
-## Reading data with job inputs
+## Read data with job inputs
 
 # [CLI](#tab/CLI)
 
@@ -136,8 +136,8 @@ returned_job.services["Studio"].endpoint
 
 ---
 
-### Reading V1 Data assets in jobs
-V2 is *backwards* compatible with V1 data assets. This section outlines how you can read V1 `FileDataset` and `TabularDataset` data entities in a V2 job.
+### Read V1 Data assets in jobs
+This section outlines how you can read V1 `FileDataset` and `TabularDataset` data entities in a V2 job.
 
 #### Read a `FileDataset`
 
@@ -272,7 +272,7 @@ returned_job.services["Studio"].endpoint
 
 ---
 
-## Writing data with job outputs
+## Write data with job outputs
 
 You can read and write data from your job into your cloud-based storage. The [Modes](#modes) section showed that only job *outputs* can write data.
 
@@ -366,7 +366,7 @@ The following YAML file demonstrates how to use the output data from one compone
 
 :::code language="yaml" source="~/azureml-examples-main/CLI/jobs/pipelines-with-components/basics/3b_pipeline_with_data/pipeline.yml":::
 
-## Python SDK v2 (preview)
+### Python SDK v2 (preview)
 
 The following example defines a pipeline containing three nodes and moves data between each node.
 
