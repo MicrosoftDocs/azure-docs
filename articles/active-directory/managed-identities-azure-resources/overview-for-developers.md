@@ -150,7 +150,7 @@ Read more about the Azure Identity client libraries below:
 
 ### Accessing a secret stored in Azure Key Vault
 
-#### [.NET core](#tab/netcore)
+#### [.NET](#tab/netcore)
 
 ```csharp
 using Azure.Identity;
