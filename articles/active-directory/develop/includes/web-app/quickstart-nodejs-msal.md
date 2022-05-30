@@ -37,7 +37,7 @@ This quickstart uses the Microsoft Authentication Library for Node.js (MSAL Node
 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="../../media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 1. Under **Manage**, select **App registrations** > **New registration**.
 1. Enter a **Name** for your application. Users of your app might see this name, and you can change it later.
-1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
+1. Under **Supported account types**, select **Accounts in this organizational directory only**.
 1. Set the **Redirect URI** value to `http://localhost:3000/auth/redirect`.
 1. Select **Register**.
 1. On the app **Overview** page, note the **Application (client) ID** value for later use.
@@ -51,7 +51,7 @@ To run the project with a web server by using Node.js, [download the core projec
 
 #### Step 3: Configure your Node app
 
-Extract the project, open the *ms-identity-node-main* folder, and then open the *.env* file under the **App** folder. Replace the values above as follows:
+Extract the project, open the *ms-identity-node-main* folder, and then open the *.env* file under the *App* folder. Replace the values above as follows:
 
 | Variable  |  Description | Example(s) |
 |-----------|--------------|------------|

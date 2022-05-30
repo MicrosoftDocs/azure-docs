@@ -39,7 +39,7 @@ First, complete the steps in [Register an application with the Microsoft identit
 Use the following settings for your app registration:
 
 - Name: `ExpressWebApp` (suggested)
-- Supported account types: **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**
+- Supported account types: **Accounts in this organizational directory only**
 - Platform type: **Web**
 - Redirect URI: `http://localhost:3000/auth/redirect`
 - Client secret: `*********` (record this value for use in a later step - it's shown only once)
@@ -96,7 +96,7 @@ Locate the root of your project directory in a terminal and install the MSAL Nod
 The web app sample in this tutorial uses the [express-session](https://www.npmjs.com/package/express-session) package for session management, [dotenv](https://www.npmjs.com/package/dotenv) package for reading environment parameters during development, and [axios](https://www.npmjs.com/package/axios) for making network calls to the Microsoft Graph API. Install these via NPM:
 
 ```console
-    npm install express-session dotenv axios
+    npm install --save express-session dotenv axios
 ```
 
 ## Add app registration details
@@ -163,7 +163,7 @@ Create a file named **fetch.js** in the root of your project and add the followi
 
 ## Register routers and add state management
 
-In the *app.js* file in the root of the project folder, register the routes you have created earlier and add session support for tracking authentication state using **express-session** package. Replace the existing code there with the following:
+In the *app.js* file in the root of the project folder, register the routes you have created earlier and add session support for tracking authentication state using the **express-session** package. Replace the existing code there with the following:
 
 :::code language="js" source="~/ms-identity-node/App/app.js":::
 
