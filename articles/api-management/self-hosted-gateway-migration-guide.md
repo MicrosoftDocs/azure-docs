@@ -17,15 +17,15 @@ This article explains how to migrate existing self-hosted gateway deployments to
 
 ## What's new?
 
-As we strive to make it easier for customers to deploy our self-hosted gateway, we have **introduced a new configuration API** that removes the dependency on Azure Storage, unless you are using [API inspector](api-management-howto-api-inspector.md) or quotas.
+As we strive to make it easier for customers to deploy our self-hosted gateway, we've **introduced a new configuration API** that removes the dependency on Azure Storage, unless you're using [API inspector](api-management-howto-api-inspector.md) or quotas.
 
-This allows customers to more easily adopt, deploy and operate our self-hosted gateway in their existing infrastructure.
+The new configuration API allows customers to more easily adopt, deploy and operate our self-hosted gateway in their existing infrastructure.
 
 We have [introduced new container image tags](how-to-self-hosted-gateway-on-kubernetes-in-production.md#container-image-tag) to let customers choose the best way to try our gateway and deploy it in production.
 
-To help customers run our gateway in production we have extended [our production guidance](how-to-self-hosted-gateway-on-kubernetes-in-production.md) to cover how to autoscale the gateway, and deploy it for high availability in your Kubernetes cluster.
+To help customers run our gateway in production we've extended [our production guidance](how-to-self-hosted-gateway-on-kubernetes-in-production.md) to cover how to autoscale the gateway, and deploy it for high availability in your Kubernetes cluster.
 
-Learn more about the connectivity of our gateway, our new infrastructure requirements, and what happens in case of connectivity loss in [this article](self-hosted-gateway-overview.md#connectivity-to-azure).
+Learn more about the connectivity of our gateway, our new infrastructure requirements, and what happens if connectivity is lost in [this article](self-hosted-gateway-overview.md#connectivity-to-azure).
 
 ## Prerequisites
 
@@ -66,9 +66,7 @@ Customer must use the new Configuration API v2 by changing their deployment scri
 
 ### Meet minimal security requirements
 
-During startup, the self-hosted gateway will prepare the CA certificates that will be used.
-
-Because of that, the gateway container needs to run with at least user ID 1001 and cannot use read-only file system.
+During startup, the self-hosted gateway will prepare the CA certificates that will be used. This requires the gateway container to run with at least user ID 1001 and can't use read-only file system.
 
 When configuring a security context for the container in Kubernetes, the following are required at minimum:
 
@@ -81,7 +79,7 @@ securityContext:
 
 However, as of `2.0.4` the self-hosted gateway is able to run as non-root in Kubernetes allowing customers to run the gateway more securely.
 
-Here is an example of the security context for the self-hosted gateway:
+Here's an example of the security context for the self-hosted gateway:
 ```yml
 securityContext:
   allowPrivilegeEscalation: false
@@ -99,9 +97,9 @@ securityContext:
 
 ## Known limitations
 
-Here is a list of known limitations for the self-hosted gateway v2:
+Here's a list of known limitations for the self-hosted gateway v2:
 
-- Configuration API v2 does not support custom domain names
+- Configuration API v2 doesn't support custom domain names
 
 ## Next steps
 
