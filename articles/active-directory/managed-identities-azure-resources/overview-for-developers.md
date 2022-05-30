@@ -240,7 +240,7 @@ if (blobClient1.Exists())
 
 #### [Java](#tab/java)
 _pom.xml_
-```
+```xml
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-storage-blob</artifactId>
