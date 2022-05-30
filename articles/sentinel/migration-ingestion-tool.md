@@ -101,7 +101,7 @@ Azure Data Box offers three different SKUs, depending on the amount of data to m
 - [Data Box](../databox/data-box-overview.md)
 - [Data Box Heavy](../databox/data-box-heavy-overview.md)
 
-After you complete the migration, the data is available in a storage account under one of your Azure subscriptions. You can then use [AzCopy](#azcopy), [LightIngest](#lightingest), or [ADF](#azure-data-factory-adf-or-azure-synapse) to ingest data from the storage account. 
+After you complete the migration, the data is available in a storage account under one of your Azure subscriptions. You can then use [AzCopy](#azcopy), [LightIngest](#lightingest), or [ADF](#azure-data-factory-or-azure-synapse) to ingest data from the storage account. 
 
 ## SIEM data migration accelerator
 

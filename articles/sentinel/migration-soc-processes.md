@@ -37,25 +37,25 @@ The next sections map both the terminology and analyst workflow to specific Micr
 
 Use the Microsoft Sentinel **Incidents** page to assign incidents. The **Incidents** page includes an incident preview, and a detailed view for single incidents. 
 
-:::image type="content" source="media/migration-analyst-workflow/analyst-workflow-incidents.png" alt-text="Screenshot of Incidents page." lightbox="media/migration-analyst-workflow/analyst-workflow-incidents.png":::
+:::image type="content" source="media/migration-soc-processes/analyst-workflow-incidents.png" alt-text="Screenshot of Incidents page." lightbox="media/migration-soc-processes/analyst-workflow-incidents.png":::
 
 To assign an incident:
 - **Manually**. Set the **Owner** field to the relevant user name. 
 - **Automatically**. [Use a custom solution based on Microsoft Teams and Logic Apps](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/automate-incident-assignment-with-shifts-for-teams/ba-p/2297549), [or an automation rule](automate-incident-handling-with-automation-rules.md).
 
-:::image type="content" source="media/migration-analyst-workflow/analyst-workflow-assign-incidents.png" alt-text="Screenshot of assigning an owner in the Incidents page." lightbox="media/migration-analyst-workflow/analyst-workflow-assign-incidents.png":::
+:::image type="content" source="media/migration-soc-processes/analyst-workflow-assign-incidents.png" alt-text="Screenshot of assigning an owner in the Incidents page." lightbox="media/migration-soc-processes/analyst-workflow-assign-incidents.png":::
 
 #### Triage
 
 To conduct a triage exercise in Microsoft Sentinel, you can start with a variety of Microsoft Sentinel features, depending on your level of expertise and the nature of the incident under investigation. As a typical starting point, select **View full details** in the **Incident** page. You can now examine the alerts that comprise the incident, review bookmarks, select entities to drill down further into specific entities, or add comments.
 
-:::image type="content" source="media/migration-analyst-workflow/analyst-workflow-incident-details.png" alt-text="Screenshot of viewing incident details in the Incidents page." lightbox="media/migration-analyst-workflow/analyst-workflow-incidents.png":::
+:::image type="content" source="media/migration-soc-processes/analyst-workflow-incident-details.png" alt-text="Screenshot of viewing incident details in the Incidents page." lightbox="media/migration-soc-processes/analyst-workflow-incidents.png":::
 
 Here are additional actions to continue your incident review:
 - Select **Investigation** for a visual representation of the relationships between the incidents and the relevant entities. 
 - Leverage a [Jupyter notebook](notebooks.md) to perform an in-depth triage exercise for a particular entity. You can use the **Incident triage** notebook for this exercise.
 
-:::image type="content" source="media/migration-analyst-workflow/analyst-workflow-incident-triage-notebook.png" alt-text="Screenshot of Incident triage notebook." lightbox="media/migration-analyst-workflow/analyst-workflow-incident-triage-notebook.png":::
+:::image type="content" source="media/migration-soc-processes/analyst-workflow-incident-triage-notebook.png" alt-text="Screenshot of Incident triage notebook." lightbox="media/migration-soc-processes/analyst-workflow-incident-triage-notebook.png":::
 
 ##### Expedite triage
 
@@ -71,7 +71,7 @@ Use these features and capabilities to expedite triage:
 
 Use the investigation graph to deeply investigate incidents. From the **Incidents** page, select an incident and select **Investigate** to view the [investigation graph](investigate-cases.md#use-the-investigation-graph-to-deep-dive).
 
-:::image type="content" source="media/migration-analyst-workflow/analyst-workflow-investigation-graph.png" alt-text="Screenshot of the investigation graph." lightbox="media/migration-analyst-workflow/analyst-workflow-investigation-graph":::
+:::image type="content" source="media/migration-soc-processes/analyst-workflow-investigation-graph.png" alt-text="Screenshot of the investigation graph." lightbox="media/migration-soc-processes/analyst-workflow-investigation-graph":::
 
 With the investigation graph, you can:
 - Understand the scope and identify the root cause of potential security threats by correlating relevant data with any involved entity. 
@@ -82,13 +82,13 @@ With the investigation graph, you can:
 
 From the investigation graph, you can also open workbooks to further support your investigation efforts. Microsoft Sentinel includes several workbook templates that you can customize to suit your specific use case. 
 
-:::image type="content" source="media/migration-analyst-workflow/analyst-workflow-investigation-workbooks.png" alt-text="Screenshot of a workbook opened from the investigation graph." lightbox="media/migration-analyst-workflow/analyst-workflow-investigation-workbooks.png":::
+:::image type="content" source="media/migration-soc-processes/analyst-workflow-investigation-workbooks.png" alt-text="Screenshot of a workbook opened from the investigation graph." lightbox="media/migration-soc-processes/analyst-workflow-investigation-workbooks.png":::
 
 #### Respond
 
 Use Microsoft Sentinel automated response capabilities to respond to complex threats and reduce alert fatigue. Microsoft Sentinel provides automated response using [Logic Apps playbooks and automation rules](automate-responses-with-playbooks.md). 
 
-:::image type="content" source="media/migration-analyst-workflow/analyst-workflow-playbooks.png" alt-text="Screenshot of Playbook templates tab in Automation blade." lightbox="media/migration-analyst-workflow/analyst-workflow-playbooks.png":::
+:::image type="content" source="media/migration-soc-processes/analyst-workflow-playbooks.png" alt-text="Screenshot of Playbook templates tab in Automation blade." lightbox="media/migration-soc-processes/analyst-workflow-playbooks.png":::
 
 Use one of the following options to access playbooks:
 - The [Automation > Playbook templates tab](use-playbook-templates.md)

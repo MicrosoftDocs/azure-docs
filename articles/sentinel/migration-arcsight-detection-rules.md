@@ -12,12 +12,15 @@ ms.custom: ignite-fall-2021
 
 This article describes how to identify, compare, and migrate your ArcSight detection rules to Microsoft Sentinel analytics rules.
 
-## Identify rules
+## Identify and migrate rules
 
-It's critical to identify and map detection rules from ArcSight to Microsoft Sentinel rules. Review these considerations as you identify your current rules. 
-- [Understand Microsoft Sentinel rule types](detect-threats-built-in.md#view-built-in-detections). 
-- Check that you understand rule terminology using the [table below](#compare-rule-terminology).
-- Don’t migrate all rules without consideration. Focus on quality, not quantity.
+Microsoft Sentinel uses machine learning analytics to create high-fidelity and actionable incidents, and some of your existing detections may be redundant in Microsoft Sentinel. Therefore, do not migrate all of your detection and analytics rules blindly. Review these considerations as you identify your existing detection rules.
+
+- Make sure to select use cases that justify rule migration, considering business priority and efficiency.
+- Check that you [understand Microsoft Sentinel rule types](detect-threats-built-in.md#view-built-in-detections). 
+- Check that you understand the [rule terminology](#compare-rule-terminology).
+- Review any rules that haven't triggered any alerts in the past 6-12 months, and determine whether they're still relevant.
+- Eliminate low-level threats or alerts that you routinely ignore.
 - Leverage existing functionality, and check whether Microsoft Sentinel’s [built-in analytics rules](https://github.com/Azure/Azure-Sentinel/tree/master/Detections) might address your current use cases. Because Microsoft Sentinel uses machine learning analytics to produce high-fidelity and actionable incidents, it’s likely that some of your existing detections won’t be required anymore.
 - Confirm connected data sources and review your data connection methods. Revisit data collection conversations to ensure data depth and breadth across the use cases you plan to detect.
 - Explore community resources such as the [SOC Prime Threat Detection Marketplace](https://my.socprime.com/tdm/) to check whether  your rules are available.
@@ -25,6 +28,56 @@ It's critical to identify and map detection rules from ArcSight to Microsoft Sen
 - If rules aren’t available or can’t be converted, they need to be created manually, using a KQL query. Review the [rules mapping](#map-and-compare-rule-samples) to create new queries. 
 
 Learn more about [best practices for migrating detection rules](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/best-practices-for-migrating-detection-rules-from-arcsight/ba-p/2216417).
+
+**To migrate your analytics rules to Microsoft Sentinel**:
+
+1. Verify that your have a testing system in place for each rule you want to migrate.
+
+    1. **Prepare a validation process** for your migrated rules, including full test scenarios and scripts.
+
+    1. **Ensure that your team has useful resources** to test your migrated rules.
+
+    1. **Confirm that you have any required data sources connected,** and review your data connection methods.
+
+1. Verify whether your detections are available as built-in templates in Microsoft Sentinel:
+
+    - **If the built-in rules are sufficient**, use built-in rule templates to create rules for your own workspace.
+
+        In Microsoft Sentinel, go to the **Configuration > Analytics > Rule templates** tab, and create and update each relevant analytics rule.
+
+        For more information, see [Detect threats out-of-the-box](detect-threats-built-in.md).
+
+    - **If you have detections that aren't covered by Microsoft Sentinel's built-in rules**, try an online query converter, such as [Uncoder.io](https://uncoder.io/) to convert your queries to KQL.
+
+        Identify the trigger condition and rule action, and then construct and review your KQL query.
+
+    - **If neither the built-in rules nor an online rule converter is sufficient**, you'll need to create the rule manually. In such cases, use the following steps to start creating your rule:
+
+        1. **Identify the data sources you want to use in your rule**. You'll want to create a mapping table between data sources and data tables in Microsoft Sentinel to identify the tables you want to query.
+
+        1. **Identify any attributes, fields, or entities** in your data that you want to use in your rules.
+
+        1. **Identify your rule criteria and logic**. At this stage, you may want to use rule templates as samples for how to construct your KQL queries.
+
+            Consider filters, correlation rules, active lists, reference sets, watchlists, detection anomalies, aggregations, and so on. You might use references provided by your legacy SIEM to understand how to best map your query syntax.
+
+            For example, see:
+
+            - [Sample rule mapping between ArcSight/QRadar and Microsoft Sentinel](https://github.com/Azure/Azure-Sentinel/blob/master/Tools/RuleMigration/Rule%20Logic%20Mappings.md)
+            - [SPL to KQL mapping samples](https://github.com/Azure/Azure-Sentinel/blob/master/Tools/RuleMigration/Rule%20Logic%20Mappings.md) 
+
+        1. **Identify the trigger condition and rule action, and then construct and review your KQL query**. When reviewing your query, consider KQL optimization guidance resources.
+
+1. Test the rule with each of your relevant use cases. If it doesn't provided expected results, you may want to review the KQL and test it again.
+
+1. When you're satisfied, you can consider the rule migrated. Create a playbook for your rule action as needed. For more information, see [Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md).
+
+Learn more about analytics rules.
+
+- [**Create custom analytics rules to detect threats**](detect-threats-custom.md). Use [alert grouping](detect-threats-custom.md#alert-grouping) to reduce alert fatigue by grouping alerts that occur within a given timeframe.
+- [**Map data fields to entities in Microsoft Sentinel**](map-data-fields-to-entities.md) to enable SOC engineers to define entities as part of the evidence to track during an investigation. Entity mapping also makes it possible for SOC analysts to take advantage of an intuitive [investigation graph (investigate-cases.md#use-the-investigation-graph-to-deep-dive) that can help reduce time and effort.
+- [**Investigate incidents with UEBA data**](investigate-with-ueba.md), as an example of how to use evidence to surface events, alerts, and any bookmarks associated with a particular incident in the incident preview pane.
+- [**Kusto Query Language (KQL)**](/azure/data-explorer/kusto/query/), which you can use to send read-only requests to your [Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md) database to process data and return results. KQL is also used across other Microsoft services, such as [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender) and [Application Insights](../azure-monitor/app/app-insights-overview.md).
 
 ## Compare rule terminology
 
