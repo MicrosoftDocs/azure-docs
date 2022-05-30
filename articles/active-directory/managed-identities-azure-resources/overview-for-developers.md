@@ -279,7 +279,7 @@ cmd.Connection = connection;
 SqlDataReader dr = cmd.ExecuteReader();
 while(dr.HasRows)
 {
-    rowValue = dr.GetValue(0).ToString();
+    Console.WriteLine(dr.GetValue(0).ToString());
 }
 dr.Close();	
 ```
