@@ -6,7 +6,7 @@ ms.author: v-petermyers
 ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 05/23/2022
+ms.date: 05/31/2022
 ---
 
 # Synapse implementation success methodology: Evaluate workspace design
@@ -17,7 +17,7 @@ Synapse workspace is a unified graphical user experience that stitches together 
 
 ## Synapse workspace design review
 
-Identify whether your solution design involves one Synapse workspace or more than one workspace. Determine the drivers of this design. While there might be different reasons, in most of the cases, the reason for multiple workspaces is either security segregation or billing segregation. When determining the number of workspaces and database boundaries, keep in mind that there's a limit of 20 workspaces per subscription.
+Identify whether your solution design involves one Synapse workspace or multiple workspaces. Determine the drivers of this design. While there might be different reasons, in most cases the reason for multiple workspaces is either security segregation or billing segregation. When determining the number of workspaces and database boundaries, keep in mind that there's a limit of 20 workspaces per subscription.
 
 Identify which elements or services within each workspace need to be shared and with which resources. Resources can include data lakes, integration runtimes (IRs), metadata or configurations, and code. Determine why this particular design was chosen in terms of potential synergies. Ask yourself whether these synergies justify the extra cost and management overhead.
 
@@ -27,18 +27,18 @@ We recommended that the data lake (if part of your solution) be properly tiered.
 
 ## Security design review
 
-Review the security design for the workspace and compare it with the information you gathered during the assessment. Ensure all of the requirements are met, and all of the constraints have been taken into account. For ease of management, we recommended that users be organized into groups with appropriate permissions profiling: you can simplify access control by using security groups that align with roles. Network administrators can add or remove users from appropriate security groups to manage access.
+Review the security design for the workspace and compare it with the information you gathered during the assessment. Ensure all of the requirements are met, and all of the constraints have been taken into account. For ease of management, we recommended that users be organized into groups with appropriate permissions profiling: you can simplify access control by using security groups that align with roles. That way, network administrators can add or remove users from appropriate security groups to manage access.
 
 Serverless SQL pools and Apache Spark tables store their data in an Azure Data Lake Gen2 (ADLS Gen2) container that's associated with the workspace. User-installed Apache Spark libraries are also managed in this same storage account. To enable these use cases, both users and the workspace managed service identity (MSI) must be added to the **Storage Blob Data Contributor** role of the ADLS Gen2 storage container. Verify this requirement against your security requirements.
 
 Dedicated SQL pools provide a rich set of security features to encrypt and mask sensitive data. Both dedicated and serverless SQL pools enable the full surface area of SQL Server permissions including built-in roles, user-defined roles, SQL authentication, and Azure Active Directory (Azure AD) authentication. Review the security design for your solution's dedicated SQL pool and serverless SQL pool access and data.
 
-Review the security plan for your data lake and all the ADLS Gen2 storage (and others) that will form part of your Azure Synapse Analytics solution. ADLS Gen2 storage isn't itself a compute engine and so it doesn't have a built-in ability to selectively mask data attributes. You can apply ADLS Gen2 permissions at the storage account or container level using role-based access control (RBAC) and/or at the folder or file level using access control lists (ACLs). Review the design carefully and avoid unnecessary complexity.
+Review the security plan for your data lake and all the ADLS Gen2 storage accounts (and others) that will form part of your Azure Synapse Analytics solution. ADLS Gen2 storage isn't itself a compute engine and so it doesn't have a built-in ability to selectively mask data attributes. You can apply ADLS Gen2 permissions at the storage account or container level by using role-based access control (RBAC) and/or at the folder or file level by using access control lists (ACLs). Review the design carefully and strive to avoid unnecessary complexity.
 
-Here are some points to consider for the security design:
+Here are some points to consider for the security design.
 
-- Make sure Azure AD set up requirements is included in the design.
-- Check for cross-tenant scenarios. Such issues may arise because some data is in another Azure tenant, or it needs to move to another tenant, or it needs to be accessed by users from another tenant. Ensure these scenarios are addressed in the design.
+- Make sure Azure AD set up requirements are included in the design.
+- Check for cross-tenant scenarios. Such issues may arise because some data is in another Azure tenant, or it needs to move to another tenant, or it needs to be accessed by users from another tenant. Ensure these scenarios are considered in your design.
 - What are the roles for each workspace? How will they use the workspace?
 - How is the security designed within the workspace?
     - Who can view all scripts, notebooks, and pipelines?
@@ -53,10 +53,10 @@ Here are some points to consider for the security design:
 
 ## Networking design review
 
-Here are some points to consider for the network design:
+Here are some points to consider for the network design.
 
 - Is connectivity designed between all the resources?
-- What is the networking mechanism to be used (ExpressRoute, public Internet or private endpoints)?
+- What is the networking mechanism to be used (Azure ExpressRoute, public Internet, or private endpoints)?
 - Do you need to be able to securely connect to Synapse Studio?
 - Has data exfiltration been taken into consideration?
 - Do you need to connect to on-premises data sources?
@@ -65,13 +65,13 @@ Here are some points to consider for the network design:
 - Has integration with the private DNS zones been taken into consideration?
 - Do you need to be able to browse the data lake from within Synapse Studio or simply query data in the data lake with serverless SQL or PolyBase?
 
-Finally, identify all of your data consumers and verify that their connectivity is accounted for in the design. Check that network and security outposts allow your service to access required on-premises sources and that its authentication protocols and mechanisms are supported. In some scenarios, you might need to have more than one self-hosted IR or data gateway for SaaS solutions, like Power BI.
+Finally, identify all of your data consumers and verify that their connectivity is accounted for in the design. Check that network and security outposts allow your service to access required on-premises sources and that its authentication protocols and mechanisms are supported. In some scenarios, you might need to have more than one self-hosted IR or data gateway for SaaS solutions, like Microsoft Power BI.
 
 ## Monitoring design review
 
 Review the design of the monitoring of the Azure Synapse components to ensure they meet the requirements and expectations identified during the assessment. Verify that monitoring of resources and data access has been designed, and that it identifies each monitoring requirement. A robust monitoring solution should be put in place as part of the first deployment to production. That way, failures can be identified, diagnosed, and addressed in a timely manner. Aside from the base infrastructure and pipeline runs, data should also be monitored. Depending on the Azure Synapse components in use, identify the monitoring requirements for each component. For example, if Spark pools form part of the solution, monitor the malformed record store. 
 
-Here are some points to consider for the monitoring design:
+Here are some points to consider for the monitoring design.
 
 - Who can monitor each resource type (pipelines, pools, and others)?
 - How long do database activity logs need to be retained?
@@ -83,7 +83,7 @@ Here are some points to consider for the monitoring design:
 
 By default, a Synapse workspace applies changes directly to the Synapse service by using the built-in publish functionality. You can enable source control integration, which provides many advantages. Advantages include better collaboration, versioning, approvals, and release pipelines to promote changes through to development, test, and production environments. Azure Synapse allows a single source control repository per workspace, which can be either Azure DevOps Git or GitHub.
 
-Here are some points to consider for the source control design:
+Here are some points to consider for the source control design.
 
 - If using Azure DevOps Git, is the Synapse workspace and its repository in the same tenant?
 - Who will be able to access source control?
@@ -93,7 +93,7 @@ Here are some points to consider for the source control design:
 - Will an approval process be used for merging and for release pipelines?
 
 > [!NOTE]
-> The design of the development environment is of critical importance to the success of your project. If a development environment has been designed, it will be evaluated in a [separate step of this methodology](implementation-success-evaluate-solution-development-environment-design.md).
+> The design of the development environment is of critical importance to the success of your project. If a development environment has been designed, it will be evaluated in a [separate stage of this methodology](implementation-success-evaluate-solution-development-environment-design.md).
 
 ## Next steps
 

@@ -6,18 +6,18 @@ ms.author: v-petermyers
 ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 05/23/2022
+ms.date: 05/31/2022
 ---
 
 # Synapse implementation success methodology: Perform monitoring review
 
 [!INCLUDE [implementation-success-context](includes/implementation-success-context.md)]
 
-Monitoring is a key part of the operationalization of any Azure solution. This article provides guidance on reviewing and configuring the monitoring of your Azure Synapse environment. Key to this activity is the identification of what needs to be monitored and who needs to review the monitoring results.
+Monitoring is a key part of the operationalization of any Azure solution. This article provides guidance on reviewing and configuring the monitoring of your Azure Synapse Analytics environment. Key to this activity is the identification of what needs to be monitored and who needs to review the monitoring results.
 
-Using your solution requirements and other data collected during assessment and solution development, build a list of important behaviors and activities that need to be monitored in your production environment. As you build this list, identify the groups of user that will need access to monitoring information and build the procedures they can follow to respond to monitoring results.
+Using your solution requirements and other data collected during the [assessment stage](implementation-success-assess-environment.md) and [solution development](implementation-success-evaluate-solution-development-environment-design.md), build a list of important behaviors and activities that need to be monitored in your production environment. As you build this list, identify the groups of users that will need access to monitoring information and build the procedures they can follow to respond to monitoring results.
 
-Use [Azure Monitor](/azure/azure-monitor/overview) to provide base-level infrastructure metrics, alerts, and logs for most Azure services. Azure diagnostic logs are emitted by a resource and provide rich, frequent data about the operation of that resource. Azure Synapse Analytics can write diagnostic logs in Azure Monitor.
+You can use [Azure Monitor](/azure/azure-monitor/overview) to provide base-level infrastructure metrics, alerts, and logs for most Azure services. Azure diagnostic logs are emitted by a resource to provide rich, frequent data about the operation of that resource. Azure Synapse can write diagnostic logs in Azure Monitor.
 
 For more information, see [Use Azure Monitor with your Azure Synapse Analytics workspace](../monitoring/how-to-monitor-using-azure-monitor.md).
 
@@ -31,13 +31,13 @@ You can monitor a dedicated SQL pool by using Azure Monitor, altering, dynamic m
 
 ## Monitor serverless SQL pools
 
-You can monitor a serverless SQL pool by [monitoring your SQL requests](../monitoring/how-to-monitor-sql-requests.md) in Synapse Studio. It allows you to keep an eye on the status of running requests and review details of historical requests.
+You can monitor a serverless SQL pool by [monitoring your SQL requests](../monitoring/how-to-monitor-sql-requests.md) in Synapse Studio. That way, you can keep an eye on the status of running requests and review details of historical requests.
 
 ## Monitor Spark pools
 
-You can [monitor your Apache Spark applications](../monitoring/apache-spark-applications.md) in Synapse Studio. It allows you to keep an eye on the latest status, issues, and progress.
+You can [monitor your Apache Spark applications](../monitoring/apache-spark-applications.md) in Synapse Studio. That way, you can keep an eye on the latest status, issues, and progress.
 
-You can  enable the Synapse Studio connector that's built in to Log Analytics. You can then collect and send Apache Spark application metrics and logs to your Log Analytics workspace. You can also use an Azure Monitor workbook to visualize the metrics and logs. For more information, see [Monitor Apache Spark applications with Azure Log Analytics](../spark/apache-spark-azure-log-analytics.md).
+You can enable the Synapse Studio connector that's built in to Log Analytics. You can then collect and send Apache Spark application metrics and logs to your Log Analytics workspace. You can also use an Azure Monitor workbook to visualize the metrics and logs. For more information, see [Monitor Apache Spark applications with Azure Log Analytics](../spark/apache-spark-azure-log-analytics.md).
 
 ## Monitor pipelines
 

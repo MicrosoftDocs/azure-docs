@@ -6,14 +6,14 @@ ms.author: v-petermyers
 ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 02/28/2022
+ms.date: 05/31/2022
 ---
 
 # Azure Synapse implementation success by design
 
-The *Azure Synapse implementation success by design* series of articles is designed to help you deliver a successful implementation of Azure Synapse Analytics. It describes a methodology to complement your solution implementation project. It includes suggested checks at strategic points during your project that can help assure a successful implementation. The methodology shouldn't replace or change your chosen project management methodology (Scrum, Agile, or waterfall); it suggests validations that can improve the success of your project deployment to a production environment.
+The *Azure Synapse implementation success by design* series of articles is designed to help you deliver a successful implementation of Azure Synapse Analytics. It describes a methodology to complement your solution implementation project. It includes suggested checks at strategic points during your project that can help assure a successful implementation. It's important to understand that the methodology shouldn't replace or change your chosen project management methodology (Scrum, Agile, or waterfall). Rather, it suggests validations that can improve the success of your project deployment to a production environment.
 
-[Azure Synapse](../overview-what-is.md) is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems. Azure Synapse brings together the best of SQL technologies used in enterprise data warehousing, Spark technologies used for big data, pipelines for data integration and ETL/ELT, and deep integration with other Azure services such as Power BI, Azure Cosmos DB, and Azure Machine Learning.
+[Azure Synapse](../overview-what-is.md) is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems. It brings together the best of SQL technologies used in enterprise data warehousing, Spark technologies used for big data, pipelines for data integration and ETL/ELT, and deep integration with other Azure services, such as Power BI, Azure Cosmos DB, and Azure Machine Learning.
 
 :::image type="content" source="media/implementation-success-overview/azure-synapse-analytics-architecture.png" alt-text="Image shows the Azure Synapse Analytics in terms of data lake, analytics runtimes, and Synapse Studio.":::
 
@@ -24,7 +24,7 @@ The methodology uses a strategic checkpoint approach to assess and monitor the p
 - Successful deployment to production.
 - Smooth operation and monitoring once in production.
 
-The checkpoints are invoked at four milestones during the lifecycle of your project:
+The checkpoints are invoked at four milestones during the project:
 
 1. [Project planning](#project-planning-checkpoint)
 1. [Solution development](#solution-development-checkpoint)
@@ -33,46 +33,45 @@ The checkpoints are invoked at four milestones during the lifecycle of your proj
 
 ### Project planning checkpoint
 
-The project planning checkpoint includes the solution evaluation, project plan evaluation, the solution development environment design evaluation, and the team skill set evaluation.
+The project planning checkpoint includes the solution evaluation, project plan evaluation, the solution development environment design evaluation, and the team skill sets evaluation.
 
 #### Solution evaluation
 
-You'll need to evaluation your entire solution with a focus on how it intends to use Azure Synapse. An assessment involves gathering data that will identify the required components of Azure Synapse, the interfaces each will have with other products, a review of the data sources, the data consumers, the roles, and use cases. This assessment will also gather data about the existing environment including detailed specifications from existing data warehouses, big data environments, and integration and data consumption tooling. The assessment will identify which Azure Synapse components will be implemented and therefore which evaluations and check points should be made throughout the implementation effort. This assessment will also provide additional information to validate the design and implementation against requirements, constraints, and assumptions.
+Evaluate your entire solution with a focus on how it intends to use Azure Synapse. An assessment involves gathering data that will identify the required components of Azure Synapse, the interfaces each will have with other products, a review of the data sources, the data consumers, the roles, and use cases. This assessment will also gather data about the existing environment including detailed specifications from existing data warehouses, big data environments, and integration and data consumption tooling. The assessment will identify which Azure Synapse components will be implemented and therefore which evaluations and checkpoints should be made throughout the implementation effort. This assessment will also provide additional information to validate the design and implementation against requirements, constraints, and assumptions.
 
 Here's a list of tasks you should complete.
 
 1. [Assess](implementation-success-assess-environment.md) your environment to help evaluate the solution design.
-1. Make informed technology decisions to implement Azure Synapse Analytics.
-1. Identify the Azure Synapse Analytics solution components to implement:
-  - [Evaluate the workspace design](implementation-success-evaluate-workspace-design.md).
-  - [Evaluate the data integration design](implementation-success-evaluate-data-integration-design.md).
-  - [Evaluate the dedicated SQL pool design](implementation-success-evaluate-dedicated-sql-pool-design.md).
-  - [Evaluate the serverless SQL pool design](implementation-success-evaluate-serverless-sql-pool-design.md).
-  - [Evaluate the Spark pool design](implementation-success-evaluate-spark-pool-design.md).
+1. Make informed technology decisions to implement Azure Synapse and identify the solution components to implement.
+1. [Evaluate the workspace design](implementation-success-evaluate-workspace-design.md).
+1. [Evaluate the data integration design](implementation-success-evaluate-data-integration-design.md).
+1. [Evaluate the dedicated SQL pool design](implementation-success-evaluate-dedicated-sql-pool-design.md).
+1. [Evaluate the serverless SQL pool design](implementation-success-evaluate-serverless-sql-pool-design.md).
+1. [Evaluate the Spark pool design](implementation-success-evaluate-spark-pool-design.md).
 1. Review the results of each evaluation and respond accordingly.
 
 #### Project plan evaluation
 
-Evaluate the project plan as it relates to the Azure Synapse requirements that need to be developed. This evaluation isn't about producing a project plan. Rather, the evaluation is about identify any steps that could lead to blockers or that could impact on the project timeline. Once evaluated, you may need to make adjustments to the project plan.
+Evaluate the project plan as it relates to the Azure Synapse requirements that need to be developed. This evaluation isn't about producing a project plan. Rather, the evaluation is about identifying any steps that could lead to blockers or that could impact on the project timeline. Once evaluated, you may need to make adjustments to the project plan.
 
 Here's a list of tasks you should complete.
 
 1. [Evaluate the project plan](implementation-success-evaluate-project-plan.md).
-1. Evaluate project planning specific to the Azure Synapse components being implemented.
+1. Evaluate project planning specific to the Azure Synapse components you plan to implement.
 1. Review the results of each evaluation and respond accordingly.
 
 #### Solution development environment design evaluation
 
-Evaluate the environment that's to be used to develop the solution. Establish separate development, test, and production environments. Also, setting up automated deployment and source code control is essential to a successful and smooth solution development.
+Evaluate the environment that's to be used to develop the solution. Establish separate development, test, and production environments. Also, it's important to understand that setting up automated deployment and source code control is essential to a successful and smooth development effort.
 
 Here's a list of tasks you should complete.
 
 1. [Evaluate the solution development environment design](implementation-success-evaluate-solution-development-environment-design.md).
 1. Review the results of each evaluation and respond accordingly.
 
-#### Team skill set evaluation
+#### Team skill sets evaluation
 
-Evaluate the project team with a focus on their skill level and readiness to implement the Azure Synapse solution. The success of the project depends on having the correct skill sets and experience. Many different skill sets are required to implement an Azure Synapse solution. Ensure you take time to identify gaps and secure suitable resources that have the required skill sets (or arrange for them to complete training). This evaluation is critical at this stage of your project. A lack of the proper skills can impact on both the timeline and the overall success of the project.
+Evaluate the project team with a focus on their skill level and readiness to implement the Azure Synapse solution. The success of the project depends on having the correct skill sets and experience. Many different skill sets are required to implement an Azure Synapse solution, so ensure you identify gaps and secure suitable resources that have the required skill sets (or arrange for them to complete training). This evaluation is critical at this stage of your project because a lack of the proper skills can impact on both the timeline and the overall success of the project.
 
 Here's a list of tasks you should complete.
 
@@ -86,7 +85,7 @@ The solution development checkpoint includes periodic quality checks and additio
 
 #### Periodic quality checks
 
-During solution development, you should make periodic checks to validate that the solution is being developed according to recommended practices. Check that the project use cases will be satisfied, and that enterprise requirements are being met. For the purposes of this methodology, these checks are called *periodic quality checks*.
+During solution development, you should make periodic checks to validate that the solution is being developed according to recommended practices. Check that the project use cases will be satisfied and that enterprise requirements are being met. For the purposes of this methodology, these checks are called *periodic quality checks*.
 
 Implement the following quality checks:
 

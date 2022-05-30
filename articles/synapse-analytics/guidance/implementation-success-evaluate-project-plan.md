@@ -6,30 +6,30 @@ ms.author: v-petermyers
 ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 05/23/2022
+ms.date: 05/31/2022
 ---
 
 # Synapse implementation success methodology: Evaluate project plan
 
 [!INCLUDE [implementation-success-context](includes/implementation-success-context.md)]
 
-In the lifecycle of the project, the most important and extensive planning is done *before implementation*. This article describes how to conduct a high-level review of your project plan. The aim is to ensure it contains critical artifacts and information to deliver a successful solution. It includes checklists of items that should be completed and approved before the project starts.
+In the lifecycle of the project, the most important and extensive planning is done *before implementation*. This article describes how to conduct a high-level review of your project plan. The aim is to ensure it contains critical artifacts and information to deliver a successful solution. It includes checklists of items that you should complete and approve before the project starts.
 
-A detailed review should follow the high-level project plan review. The detailed review should focus on the specific Azure Synapse components identified during the [assessment phase](implementation-success-assess-environment.md).
+A detailed review should follow the high-level project plan review. The detailed review should focus on the specific Azure Synapse components identified during the [assessment stage](implementation-success-assess-environment.md).
 
 ## Evaluate the project plan
 
-Work through the following two high-level checklists, taking care to verify that each task aligns with the information gathered during the [assessment phase](implementation-success-assess-environment.md).
+Work through the following two high-level checklists, taking care to verify that each task aligns with the information gathered during the [assessment stage](implementation-success-assess-environment.md).
 
-First, ensure that your project plan defines:
+First, ensure that your project plan defines the following points.
 
 > [!div class="checklist"]
-> - **The core resource team:** Assemble a group of key people that can have expertise crucial to the project.
+> - **The core resource team:** Assemble a group of key people that have expertise crucial to the project.
 > - **Scope:** Document how the project scope will be defined, verified, measured, and how the work breakdown will be defined and assigned.
 > - **Schedule:** Define the time duration required to complete the project.
 > - **Cost:** Estimate costs for internal and external resources, including infrastructure, hardware, and software.
 
-Second, having defined and assigned the work breakdown, prepare the following artifacts:
+Second, having defined and assigned the work breakdown, prepare the following artifacts.
 
 > [!div class="checklist"]
 > - **Migration plan:** Document the plan to migrate from your current system to Azure Synapse. Incorporate tasks for executing the migration within the project plan scope and schedule.
@@ -41,13 +41,13 @@ Second, having defined and assigned the work breakdown, prepare the following ar
 
 Once the high-level project plan review is complete and approved, the next step is to drill down into each component of the project plan.
 
-Identify the project plan components that address each aspect of Azure Synapse as it's intended for use in your solution. Also validate that the project plan accounts for all of the effort and resources required to develop, test, deploy, and operate your solution by evaluating:
+Identify the project plan components that address each aspect of Azure Synapse as it's intended for use in your solution. Also, validate that the project plan accounts for all the effort and resources required to develop, test, deploy, and operate your solution by evaluating:
 
-- The workspace project plan
-- The data integration project plan
-- The dedicated SQL pool project plan
-- The serverless SQL pool project plan
-- The Spark pool project plan
+- The workspace project plan.
+- The data integration project plan.
+- The dedicated SQL pool project plan.
+- The serverless SQL pool project plan.
+- The Spark pool project plan.
 
 ## Next steps
 
