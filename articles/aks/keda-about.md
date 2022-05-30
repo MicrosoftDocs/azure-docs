@@ -25,7 +25,7 @@ The KEDA add-on makes it even easier by deploying a managed KEDA installation, p
 - **KEDA operator** allows end-users to scale workloads in/out from 0 to N instances with support for Kubernetes Deployments, Jobs, StatefulSets or any custom resource that defines `/scale` subresource.
 - **Metrics server** exposes external metrics to Horizontal Pod Autoscaler (HPA) in Kubernetes for autoscaling purposes such as messages in a Kafka topic, or number of events in an Azure event hub. Due to upstream limitations, KEDA must be the only installed metric adapter.
 
-![Diagram that shows the architecture of KEDA and how it extends Kubernetes instead of re-inventing the wheel](./media/keda/architecture.png)
+![Diagram that shows the architecture of K E D A and how it extends Kubernetes instead of re-inventing the wheel.](./media/keda/architecture.png)
 
 Learn more about how KEDA works in the [official KEDA documentation][keda-architecture].
 
