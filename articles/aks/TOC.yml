@@ -472,7 +472,7 @@
         - name: About Kubernetes Event-driven Autoscaler (KEDA)
           href: keda-about.md
         - name: Use ARM template
-          href: keda-deploy-addon-arm.md
+          href: keda-deploy-add-on-arm.md
         - name: Kubernetes Event-driven Autoscaler (KEDA) integrations
           href: keda-integrations.md
     - name: Use Web Application Routing (preview)
