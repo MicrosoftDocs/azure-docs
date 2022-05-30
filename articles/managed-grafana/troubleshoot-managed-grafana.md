@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting Azure Managed Grafana
-description: Azure Data Explorer data source cannot fetch data
+title: Troubleshoot Azure Managed Grafana
+description: Troubleshoot issues for Azure Managed Grafana
 author: maud-lv
 ms.author: malev
 ms.topic: troubleshooting
@@ -8,15 +8,15 @@ ms.service: managed-grafana
 ms.date: 05/30/2022
 ---
 
-# Troubleshooting Azure Managed Grafana issues
+# Troubleshoot Azure Managed Grafana issues
 
-This article guides you to troubleshoot Azure Monitor configuration errors that might occur when you set up Azure Managed Grafana instances, and suggests ways to resolve them.
+This article guides you to troubleshoot errors that might occur when you set up Azure Managed Grafana instances, and suggests ways to resolve them.
 
 ## Error: Azure Monitor data source cannot fetch data
 
-Every Grafana instance comes pre-configured with an Azure Monitor data source. The customer tries the pre-provisioned dashboards and finds that the Azure Monitor data source cannot fetch data.
+Every Grafana instance comes pre-configured with an Azure Monitor data source. The user tries the pre-provisioned dashboards and finds that the Azure Monitor data source cannot fetch data.
 
-## Solution: audit your Monitor Data settings
+### Solution: audit your Monitor Data settings
 
 1. Find a pre-provisioned dashboard by opening your Managed Grafana endpoint and selecting **Dashboards** > **Browse**. Then select one of your Dashboards, for example **Azure Monitor** > **Azure App monitoring - Application Insights**.
 1. Make sure the dropdowns near the top are populated with a subscription, resource group and resource name. In the screenshot example below, the **Resource** dropdown is set to null. In this case, select a resource name. You may need to select another resource group that contains a type of resource the dashboard was designed for. In this example, you need to pick a resource group that has an Application Insights resource.
@@ -41,7 +41,7 @@ Every Grafana instance comes pre-configured with an Azure Monitor data source. T
       1. In the left menu, under **Settings**, select **Identity**.
       1. Select **Status**: **On** and click **Save**
 
-      :::image type="content" source="media/troubleshooting-managed-identity.png" alt-text="Screenshot of the Azure platform: Turn on system-assigned managed identity":::
+      :::image type="content" source="media/troubleshooting-managed-identity.png" alt-text="Screenshot of the Azure platform: Turn on system-assigned managed identity" lightbox="media/troubleshooting-managed-identity-expanded.png":::
 
    1. Check if the managed identity has the Monitoring Reader role role assigned to the Managed Grafana instance. If not, add it manually from the Azure portal:
       1. Open your Managed Grafana instance in the Azure portal.
