@@ -168,7 +168,10 @@ var options = new SecretClientOptions
          }
     };
 
-var client = new SecretClient(new Uri("https://<your-unique-key-vault-name>.vault.azure.net/"), new DefaultAzureCredential(), options);
+var client = new SecretClient(
+    new Uri("https://<your-unique-key-vault-name>.vault.azure.net/"),
+    new DefaultAzureCredential(),
+    options);
 KeyVaultSecret secret = client.GetSecret("<my secret>");
 string secretValue = secret.Value;
 ```
