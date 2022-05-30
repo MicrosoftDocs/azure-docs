@@ -10,7 +10,7 @@ ms.author: tomkerkhove
 
 # Integrations with Kubernetes Event-driven Autoscaling (KEDA) on Azure Kubernetes Service (AKS) (Preview)
 
-The Kubernetes Event-driven Autoscaling (KEDA) add-on integrates with features provided by Azure as well as open source projects.
+The Kubernetes Event-driven Autoscaling (KEDA) add-on integrates with features provided by Azure and open source projects.
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -25,7 +25,7 @@ To learn about the available metrics, we recommend reading the [KEDA documentati
 
 ## Scalers for Azure services
 
-KEDA can integrate with a variety of tools and services through the [a rich catalog of 50+ KEDA scalers][keda-scalers] including leading cloud platforms (such as Azure) and open-source technologies (such as Redis and Kafka).
+KEDA can integrate with various tools and services through [a rich catalog of 50+ KEDA scalers][keda-scalers]. It supports leading cloud platforms (such as Azure) and open-source technologies such as Redis and Kafka.
 
 It leverages the following scalers for Azure services:
 
@@ -41,14 +41,14 @@ It leverages the following scalers for Azure services:
 
 Next to the built-in scalers, you can install external scalers yourself to autoscale on other Azure services:
 
-- [Azure Cosmos DB (Changefeed)](https://github.com/kedacore/external-scaler-azure-cosmos-db)
+- [Azure Cosmos DB (Change feed)](https://github.com/kedacore/external-scaler-azure-cosmos-db)
 
-However, these external scalers are not supported as part of the add-on and rely on community support.
+However, these external scalers aren't supported as part of the add-on and rely on community support.
 
 ## Next steps
 
 * [Enable the KEDA add-on with an ARM template][keda-arm]
-* [Autoscale a .NET Core worker processing Azure Service Bus Queue messages][keda-sample]
+* [Autoscale a .NET Core worker processing Azure Service Bus Queue message][keda-sample]
 
 <!-- LINKS - internal -->
 [aks-support-policy]: support-policies.md
