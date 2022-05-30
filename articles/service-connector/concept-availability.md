@@ -9,7 +9,7 @@ ms.date: 05/24/2022
 #Customer intent: As an Azure developer, I want to understand the availability of my connection created with Service Connector.
 ---
 
-# High Availability for Service Connector 
+# High Availability for Service Connector
 
 Service Connector supports Azure availability zones to help you achieve resiliency and reliability for your business-critical workloads. The goal of the high availability architecture in Service Connector is to guarantee that your service connections are up and running at least 99.9% of time, so that you don't have to worry about the effects of potential maintenance operations and outages. Service Connector is designed to provide high availability support for all types of applications you're running on Azure.
 
@@ -17,10 +17,9 @@ Users can distribute Azure compute services across availability zones in many re
 
 ## Zone redundancy in Service Connector
 
-Service Connector is an Azure extension resource provider. It extends Azure App Service, Azure Spring Apps and Azure Container Apps. When you create a new service connection in one of these compute services with Service Connector, there's a connection resource provisioned as part of your top-level parent compute service. 
+Service Connector is an Azure extension resource provider. It extends Azure App Service, Azure Spring Apps and Azure Container Apps. When you create a new service connection in one of these compute services with Service Connector, there's a connection resource provisioned as part of your top-level parent compute service.
 
-To enable zone redundancy for your connection, you must enable zone redundancy for your compute service. Once the compute service has been configured with zone redundancy, your service connections will also automatically become zone-redundant. For example, if you have an app service with zone redundancy enabled, the platform automatically spreads your app service instances across three zones in the selected region. When you create a service connection in this app service with Service Connector, the service connection resource is also automatically created in the three corresponding zones in the selected region. Traffic is routed to all of your available connection resources. When a zone goes down, the platform detects the lost instances, automatically attempts to find new replacement instances, and spreads the traffic as needed. 
-
+To enable zone redundancy for your connection, you must enable zone redundancy for your compute service. Once the compute service has been configured with zone redundancy, your service connections will also automatically become zone-redundant. For example, if you have an app service with zone redundancy enabled, the platform automatically spreads your app service instances across three zones in the selected region. When you create a service connection in this app service with Service Connector, the service connection resource is also automatically created in the three corresponding zones in the selected region. Traffic is routed to all of your available connection resources. When a zone goes down, the platform detects the lost instances, automatically attempts to find new replacement instances, and spreads the traffic as needed.
 
 > [!NOTE]
 > To create, update, validate and list service connections, Service Connector calls APIs from a compute service and a target service. As Service Connector relies on the responses from both the compute service and the target service, requests to Service Connector in a zone-down scenario may not succeed if the target service can't be reached. This limitation applies to App Service, Container Apps and Spring Apps.
@@ -31,13 +30,14 @@ Follow the instructions below to create a zone-redundant Service Connection in A
 
 ### [Azure CLI](#tab/azure-cli)
 
-To enable zone redundancy for a service connection using the Azure CLI, you must first create a zone-redundant app service. 
+To enable zone redundancy for a service connection using the Azure CLI, you must first create a zone-redundant app service.
 
-1. Create an App Service plan and include a `--zone-redundant` parameter. Optionally include the `--number-of-workers` parameter to specify capacity. Learn more details in [How to deploy a zone-redundant App Service](../app-service/environment/overview-zone-redundancy.md). 
+1. Create an App Service plan and include a `--zone-redundant` parameter. Optionally include the `--number-of-workers` parameter to specify capacity. Learn more details in [How to deploy a zone-redundant App Service](../app-service/environment/overview-zone-redundancy.md).
 
     ```azurecli
     az appservice plan create --resource-group MyResourceGroup --name MyPlan --zone-redundant --number-of-workers 6
     ```
+
 1. Create an application in App Service and a connection to your Blob Storage account or another target service of your choice.
 
     ```azurecli
@@ -69,13 +69,13 @@ As you enabled zone redundancy for your App Service, the service connection is a
 
 Disaster recovery is the process of restoring application functionality after a catastrophic loss.
 
-In the cloud, we acknowledge upfront that failures will certainly happen. Instead of trying to prevent failures altogether, the goal is to minimize the effects of a single failing component. If there's a disaster, Service Connector will fail over to the paired region. Customers don’t need to do anything if the outage is decided/declared by the Service Connector team. 
+In the cloud, we acknowledge upfront that failures will certainly happen. Instead of trying to prevent failures altogether, the goal is to minimize the effects of a single failing component. If there's a disaster, Service Connector will fail over to the paired region. Customers don’t need to do anything if the outage is decided/declared by the Service Connector team.
 
-We'll use the terms RTO (Recovery Time Objective), to indicate the time between the beginning of an outage impacting Service Connector and the recovery to full availability. We'll use RPO (Recovery Point Objective), to indicate the time between the last operation correctly restored and the time of the start of the outage affecting Service Connector. Expected and maximum RPO is 24 hours and RTO is 24 hours. 
+We'll use the terms RTO (Recovery Time Objective), to indicate the time between the beginning of an outage impacting Service Connector and the recovery to full availability. We'll use RPO (Recovery Point Objective), to indicate the time between the last operation correctly restored and the time of the start of the outage affecting Service Connector. Expected and maximum RPO is 24 hours and RTO is 24 hours.
 
 Operations against Service Connector may fail during the disaster time, before the failover happens. Once the failover is completed, data will be restored and the customer isn't required to take any action.
 
-Service connector handles business continuity and disaster recovery (BCRD) for storage and compute. The platform strives to have as minimal of an impact as possible in case of issues in storage/compute, in any region. Service Connector also follows General Data Protection Regulation (GDPR) requirements. The data layer design prioritizes availability over latency in the event of a disaster – meaning that if a region goes down, Service Connector will attempt to serve the end-user request from its paired region.
+Service connector handles business continuity and disaster recovery (BCRD) for storage and compute. The platform strives to have as minimal of an impact as possible in case of issues in storage/compute, in any region. Service Connector also follows GDPR requirements. The data layer design prioritizes availability over latency in the event of a disaster – meaning that if a region goes down, Service Connector will attempt to serve the end-user request from its paired region.
 
 During the failover action, Service Connector handles the DNS remapping to the available regions. All data and action from customer view serves as usual after failover.
 Service Connector will change its DNS in about one hour. Performing a manual failover would take more time. As Service Connector is a resource provider built on top of other Azure services, the actual time depends on the failover time of the underlying services.
@@ -95,12 +95,13 @@ Service Connector currently supports the following region pairs. In the event of
 
 ## Cross-region failover
 
-Microsoft is responsible for handling cross-region failovers. Service Connector runs health checks every 10 minutes and regional failovers are detected and handled in the Service Connector backend. The failover process doesn’t require any changes in the customer’s applications or compute service configurations. Service Connector runs Active-Active with auto-failover. After a disaster recovery, customers can use the full functionalities provided by Service Connector.
+Microsoft is responsible for handling cross-region failovers. Service Connector runs health checks every 10 minutes and regional failovers are detected and handled in the Service Connector backend. The failover process doesn’t require any changes in the customer’s applications or compute service configurations. Service Connector uses an active-passive cluster configuration with automatic failover. After a disaster recovery, customers can use the full functionalities provided by Service Connector.
 
 The health check that runs every 10 minutes simulates user behavior by creating, validating, and updating connections to target services in each of the compute services supported by Service Connector. Microsoft will start to analyze and launch a Service Connector failover if we meet any of the following conditions:
--	The service health check fails three times in a row
--	Service Connector’s dependent services declare an outage
--	Customers report a region outage
+
+- The service health check fails three times in a row
+- Service Connector’s dependent services declare an outage
+- Customers report a region outage
 
 Requests to service connections are impacted during a failover. Once the failover is complete, service connection data is restored. You can check the [Azure status page](https://status.azure.com/en-us/status) to check the status of all Azure services.
 
