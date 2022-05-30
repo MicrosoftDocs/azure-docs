@@ -33,12 +33,14 @@ You can also [create log alert rules using Azure Resource Manager templates](../
    - Resource type
    - Resource location
    - Search
+   
    You can see the alert rule types for the selected resource at the bottom right of the pane. 
    :::image type="content" source="media/alerts-create-new-alert-rule/alerts-select-resource.png" alt-text="Screenshot showing select resource pane for creating new alert rule."::: 
 
 1. Select **Done**.
 1. Select **Next: Condition>** at the bottom of the page or select the **Conditions** tab at the top of the page.
 1. Select the signals to use for the alert rule in the **Select a signal** pane:
+
     |Field  |Description  |
     |---------|---------|
     |Signal type|The types of alert rule that can be used for this resource type: Metric, Log, or Activity Log. For more information about the alert rule types, see [this article](alerts-types.md).   |
