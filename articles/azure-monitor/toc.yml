@@ -1364,8 +1364,8 @@ items:
       href: visualize/workbooks-common-tasks.md
     - name: Integrate Workbooks with Azure features
       items:
-        -name: Overview
-         href: visualize/workbooks-integrate-azure.md
+        - name: Overview
+          href: visualize/workbooks-integrate-azure.md
     - name: Visualizations
       items:
       - name: Text
