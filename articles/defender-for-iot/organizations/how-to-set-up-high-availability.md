@@ -141,11 +141,57 @@ Perform the high availability update in the following order. Make sure each step
 
 **To update with high availability**:
 
-1. Update the primary on-premises management console.
+1. Disconnect the high availability from both the primary and secondary appliances:
 
-1. Update the secondary on-premises management console.
+    **On the primary:**
 
-1. Update the sensors.
+    1. List the currently connected appliance using the following command:
+
+    ```bash
+    cyberx-management-trusted-hosts-list
+    ```
+
+    2. Find the domain associated with the secondary, and copy it. As shown below:
+
+    :::image type="content" source="media/how-to-set-up-high-availability/update-high-availability-domain.jpg" alt-text="Find the domain associated with the secondary appliance":::
+
+    3. Remove the secondary domain from the trusted hosts list using the following command:
+    
+    ```bash
+    sudo cyberx-management-trusted-hosts-remove -d [Secondary domain]
+    ```
+    
+    4. Run the following command on the primary to verify that the certificate is installed properly:
+    
+    ```bash
+    sudo cyberx-management-trusted-hosts-apply
+    ```
+    
+    **On the secondary:**
+    
+    1. List the currently connected appliance using the following command:
+
+    ```bash
+    cyberx-management-trusted-hosts-list
+    ```
+    2. Find the domain associated with the primary, and copy it. 
+
+    3. Remove the primary <!--original text said secondary, I think it's a mistake--> domain from the trusted hosts list using the command:
+    
+    ```bash
+    sudo cyberx-management-trusted-hosts-remove -d [Primary domain]
+    ```
+    
+    4. Run the following command on the secondary to verify that the certificate is installed properly:
+    
+    ```bash
+    sudo cyberx-management-trusted-hosts-apply
+    ```
+
+1. Update both the primary and secondary appliances to the new version. <!--do we have an xref to instructions for this?--> 
+
+1. Set up the high availability <!--say again? or from the beginning? or something to indicate repeating the initial setup--> on both the primary and secondary appliances, as described [here](#create-the-primary-and-secondary-pair).
+
 
 ## Next steps
 
