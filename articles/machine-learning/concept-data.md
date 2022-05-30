@@ -241,7 +241,7 @@ London 20/04/2022 XX358YY 156 true true true blah blah
 
 Some interesting features of this data are:
 
-- the data of interest is only in files that have the following suffix: `_use_this.csv` and other file names that don't match should be ignored.
+- the data of interest is only in files that have the following suffix: `_use_this.txt` and other file names that don't match should be ignored.
 - The date should be represented as a date and not a string.
 - The x, y, z columns are booleans, not strings.
 - The store location is an index that is useful for generating subsets of data.
@@ -263,7 +263,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--input_folder", type=str)
 args = parser.parse_args()
 
-path = os.path.join(args.input_folder, "*_use_this.csv")
+path = os.path.join(args.input_folder, "*_use_this.txt")
 files = glob.glob(path)
 
 # create empty list
@@ -321,7 +321,7 @@ The MLTable file has the following definition that specifies how the data should
 type: mltable
 
 paths:
-    - search_pattern: ./*_use_this.csv
+    - search_pattern: ./*_use_this.txt
 
 traits:
     - index_columns: store_location
