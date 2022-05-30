@@ -157,6 +157,8 @@ using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 using Azure.Core;
 
+// code omitted for brevity
+
 var options = new SecretClientOptions
     {
         Retry =
