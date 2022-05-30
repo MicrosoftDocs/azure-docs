@@ -37,7 +37,7 @@ Security teams can assign a recommendation to a specific person and assign a due
 
 Recommendations are listed as **On time** until their due date is passed, when they are changed to **Overdue**. Before the recommendation is overdue, the recommendation does not impact the secure score. The security team can also apply a grace period during which overdue recommendations continue to not impact the secure score.
 
-To help you plan your work and report on progress, you can set an ETA for the specific resources to show when you plan to have the recommendation resolved by for those resources. You can also change the owner of the recommendation for specific resources so that the person with access to remediate the recommendation is shown as the owner.
+To help you plan your work and report on progress, you can set an ETA for the specific resources to show when you plan to have the recommendation resolved by for those resources. You can also change the owner of the recommendation for specific resources so that the person responsible for remediation is assigned to the resource.
 
 To change the owner of resources and set the ETA for remediation of recommendations that are assigned to you:
 
