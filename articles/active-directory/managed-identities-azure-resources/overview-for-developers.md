@@ -277,7 +277,6 @@ await connection.OpenAsync();
 SqlCommand cmd = new SqlCommand("select top 1 ColumnName from TableName");
 cmd.Connection = connection;
 SqlDataReader dr = cmd.ExecuteReader();
-var rowValue = "";
 while(dr.HasRows)
 {
     rowValue = dr.GetValue(0).ToString();
