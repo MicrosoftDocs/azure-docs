@@ -2,7 +2,7 @@
 title: Understand the enhanced security features of Microsoft Defender for Cloud 
 description: Learn about the benefits of enabling enhanced security in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 05/29/2022
+ms.date: 05/30/2022
 ms.custom: references_regions
 ---
 
@@ -120,7 +120,6 @@ Yes. When you enable [Microsoft Defender for Servers](defender-for-servers-intro
 ### If a Log Analytics agent reports to multiple workspaces, will I be charged twice?
 
 No you will not be charged twice.
-
 
 ### If a Log Analytics agent reports to multiple workspaces, is the 500 MB free data ingestion available on all of them?
 
