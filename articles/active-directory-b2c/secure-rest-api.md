@@ -459,7 +459,7 @@ Add the validation technical profile reference to the sign up technical profile,
 
 
 
-For example
+For example:
     ```
    <ValidationTechnicalProfile ReferenceId="REST-AcquireAccessToken" />
     ```
