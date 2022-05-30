@@ -19,7 +19,7 @@ The Kubernetes Event-driven Autoscaling (KEDA) add-on integrates with features p
 
 ## Observe your autoscaling with Kubernetes events
 
-KEDA automatically emits events to the Kubernetes events allowing customers to operate their application autoscaling.
+KEDA automatically emits Kubernetes events allowing customers to operate their application autoscaling.
 
 To learn about the available metrics, we recommend reading the [KEDA documentation][keda-event-docs].
 
@@ -45,12 +45,19 @@ Next to the built-in scalers, you can install external scalers yourself to autos
 
 However, these external scalers are not supported as part of the add-on and rely on community support.
 
+## Next steps
+
+* [Enable the KEDA add-on with an ARM template][keda-arm]
+* [Autoscale a .NET Core worker processing Azure Service Bus Queue messages][keda-sample]
+
 <!-- LINKS - internal -->
 [aks-support-policy]: support-policies.md
 [azure-monitor]: ../azure-monitor/overview.md
 [azure-monitor-container-insights]: ../azure-monitor/containers/container-insights-onboard.md
+[keda-arm]: keda-deploy-add-on-arm.md
 
 <!-- LINKS - external -->
 [keda-scalers]: https://keda.sh/docs/scalers/
 [keda-metrics]: https://keda.sh/docs/latest/operate/prometheus/
 [keda-event-docs]: https://keda.sh/docs/latest/operate/kubernetes-events/
+[keda-sample]: https://github.com/kedacore/sample-dotnet-worker-servicebus-queue

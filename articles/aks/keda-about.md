@@ -67,7 +67,7 @@ For general KEDA questions, we recommend [visiting the FAQ overview][keda-faq].
 
 <!-- LINKS - internal -->
 [keda-azure-cli]: keda-deploy-addon-az-cli.md
-[keda-arm]: keda-deploy-addon-arm.md
+[keda-arm]: keda-deploy-add-on-arm.md
 
 <!-- LINKS - external -->
 [keda]: https://keda.sh/
