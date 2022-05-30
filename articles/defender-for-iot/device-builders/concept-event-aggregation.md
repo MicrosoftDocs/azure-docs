@@ -15,15 +15,12 @@ To reduce the number of messages, and costs while maintaining your device's secu
 
 - Network ConnectionCreate
 
+See [event aggregation for process and network collectors](#event-aggregation-for-process-and-network-collectors) for more information. 
+
+
 Event-based collectors are collectors that are triggered based on corresponding activity from within the device. For example, ``a process was started in the device``.
 
 Triggered based collectors are collectors that are triggered in a scheduled manner based on the customer's configurations.
-
-## How does event aggregation work?
-
-Defender for IoT agents aggregate events for the interval period, or time window. Once the interval period has passed, the agent sends the aggregated events to the Azure cloud for further analysis. The aggregated events are stored in memory until being sent to the Azure cloud.
-
-The agent collects identical events to the ones that are already stored in memory. This collection causes the agent to increase the hit count of this specific event to reduce the memory footprint of the agent. When the aggregation time window passes, the agent sends the hit count of each type of event that occurred. Event aggregation is simply the aggregation of the hit counts of each collected type of event.
 
 ## Process events (event based)
 
@@ -93,7 +90,7 @@ The following data is collected:
 | **remote_address** | The source of connection, either a remote IP address in IPv6 or IPv4 format, or `127.0.0.1/0.0.0.0` to indicate local connection. |
 
 
-## System information (trigger based collector))
+## System information (trigger based collector)
 
 The data collected for each event is:
 
@@ -145,6 +142,15 @@ The data collected on each package includes:
 |**Version**     |  The package version       |
 |**Vendor**     |    The package's vendor, which is the **Maintainer** field in deb packages     |
 |     |         |
+
+
+## Event aggregation for process and network collectors
+
+How event aggregation works for the [Process events](#process-events-event-based) and [Network Connection events](#network-connection-events-event-based-collector): 
+
+Defender for IoT agents aggregate events for the interval period, or time window. Once the interval period has passed, the agent sends the aggregated events to the Azure cloud for further analysis. The aggregated events are stored in memory until being sent to the Azure cloud.
+
+The agent collects identical events to the ones that are already stored in memory. This collection causes the agent to increase the hit count of this specific event to reduce the memory footprint of the agent. When the aggregation time window passes, the agent sends the hit count of each type of event that occurred. Event aggregation is simply the aggregation of the hit counts of each collected type of event.
 
 
 ## Next steps
