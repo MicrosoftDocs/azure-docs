@@ -25,7 +25,7 @@ Azure Managed Instance for Apache Cassandra allows you to run `nodetool` and `ss
 
 
 
-## How to run a nodetool command
+## How to run a `nodetool` command
 Azure Managed Instance for Apache Cassandra provides the following Azure CLI command to run DBA commands:
 
 ```azurecli-interactive
@@ -56,7 +56,7 @@ Both will return a json of the following form:
     }
 ```
 
-## How to run an sstable command
+## How to run an `sstable` command
 
 The `sstable` commands require read/write access to the cassandra data directory and the cassandra database to be stopped. To accommodate this, two extra parameters `--cassandra-stop-start true` and  `--readwrite true` need to be given:
 
@@ -72,7 +72,7 @@ The `sstable` commands require read/write access to the cassandra data directory
     }
 ```
 
-## List of supported sstable commands
+## List of supported `sstable` commands
 
 For more information on each command, see https://cassandra.apache.org/doc/latest/cassandra/tools/sstable/index.html
 
@@ -86,7 +86,7 @@ For more information on each command, see https://cassandra.apache.org/doc/lates
 * `sstableofflinerelevel`
 * `sstableexpiredblockers`
 
-## List of supported nodetool commands
+## List of supported `nodetool` commands
 
 For more information on each command, see https://cassandra.apache.org/doc/latest/cassandra/tools/nodetool/nodetool.html
 
