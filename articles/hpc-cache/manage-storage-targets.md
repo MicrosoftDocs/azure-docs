@@ -4,7 +4,7 @@ description: How to suspend, remove, force delete, and flush Azure HPC Cache sto
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 05/19/2022
+ms.date: 05/29/2022
 ms.author: v-erinkelly
 ---
 
@@ -159,9 +159,21 @@ The **State** value affects which management options you can use. Here's a short
 
 ## Allocate cache storage
 
-<!-- xxx to come xxx -->
+Optionally, you can configure the amount of cache storage that can be used by each storage target. This feature lets you plan ahead so that space is available to store a particular storage system's files.
 
-![Screenshot of the storage targets page in the Azure portal.](media/storage-target-allocation.png)
+If you do not customize the storage allocation, each storage target receives an equal share of the available cache space.
+
+Click the **Allocate storage** button to customize the cache allocation.
+
+![Screenshot of the storage targets page in the Azure portal. The mouse pointer is over the 'Allocate storage' button.](media/allocate-storage-button.png)
+
+On the **Allocate storage** blade, enter the percentage of cache space you want to assign to each storage target. The storage allocations must total 100%.
+
+Remember that some cache space is used for overhead, so the total amount of space available for cached files is not exactly the same as the capacity you chose when you created your HPC Cache.
+
+![Screenshot of the 'Allocate storage' panel at the right side of the storage targets list. Text fields next to each storage target name allow you to enter a new percent value for each target. The screenshot has target 'blob01' set to 75% and target 'blob02' set to 50%. The total is calculated underneath as 125% and an error message explains that the total must be 100%. The Save button is inactive; the Discard button is active.](media/allocate-storage-blade.png)
+
+Click **Save** to complete the allocation.
 
 ## Next steps
 

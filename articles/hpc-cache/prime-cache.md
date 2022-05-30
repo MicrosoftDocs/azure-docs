@@ -4,7 +4,7 @@ description: Use the cache priming feature to populate or preload cache contents
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 05/27/2022
+ms.date: 05/29/2022
 ms.author: v-erinkelly
 ---
 
@@ -180,8 +180,8 @@ The cache accesses the manifest file once when the priming job starts. The SAS U
 
 Use the Azure portal to create a priming job. View your Azure HPC Cache in the portal and select the **Prime cache** page under the **Settings** heading.
 
-![screenshot of the Priming page in the portal, with several completed jobs.](media/priming-preview.png)
-<!-- to do: screenshot with 'preview' on GUI heading, screenshot with more diverse jobs and statuses -->
+![screenshot of the Priming page in the portal, with several completed jobs.](media/prime-overview.png)
+<!-- to do: screenshot with more diverse jobs and statuses -->
 
 Click the **Add priming job** text at the top of the table to define a new job.
 
@@ -204,6 +204,10 @@ Priming jobs are listed in the **Prime cache** page in the Azure portal.
 This page shows each job's name, its state, its current status, and summary statistics about the priming progress. The summary in the **Details** column updates periodically as the job progresses. The **Status** field is populated when a priming job starts; this field also gives basic error information like **Invalid manifest** if a problem occurs.
 
 Before a priming job starts, it has the state **Queued**. Its **Status** and **Details** fields are empty.
+
+While a job is running, the column **Percentage complete** shows an estimate of the 
+
+![Screenshot of populated cache priming job table.](media/prime-percent-complete.png)
 
 Click the **...** section at the right of the table to pause or resume a priming job.
 
@@ -266,7 +270,7 @@ BODY:
 
 ```
 
-***[ ?? should we add pause/resume APIs here too? ??]***
+<!-- ***[ ?? should we add pause/resume APIs here too? ??]*** -->
 
 ## Frequently asked questions
 
