@@ -26,10 +26,6 @@ landingContent:
         links:
           - text: Protect your AWS virtual machines with Defender for Servers
             url: https://docs.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/hybrid/
-      - linkListType: overview
-        links:
-          - text: Protect your AWS virtual machines with Defender for Servers
-            url: ../cloud-adoption-framework-pr/docs/scenarios/hybrid/index.md
 
   # Card
   - title: Defend Amazon AWS resources
