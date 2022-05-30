@@ -466,7 +466,7 @@ You will only see the storage types that you actually have defined resources for
 | **Log Analytics table(s)** | [Syslog](/azure/azure-monitor/reference/tables/syslog) |
 | **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
 | **Kusto function alias:** | CGFWFirewallActivity |
-| **Kusto function URL:** | `https://aka.ms/Sentinel-barracudacloudfirewall-function` |
+| **Kusto function URL:** | https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/Barracuda%20CloudGen%20Firewall/Parsers/CGFWFirewallActivity |
 | **Vendor documentation/<br>installation instructions** | https://aka.ms/Sentinel-barracudacloudfirewall-connector |
 | **Supported by** | [Barracuda](https://www.barracuda.com/support) |
 
@@ -1244,7 +1244,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
 | **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
 | **Kusto function alias:** | Morphisec |
-| **Kusto function URL** | `https://aka.ms/Sentinel-Morphiescutpp-parser` |
+| **Kusto function URL** | https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Morphisec/Parsers/Morphisec/Morphisec |
 | **Supported by** | [Morphisec](https://support.morphisec.com/support/home) |
 
 
@@ -1340,7 +1340,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
 | **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
 | **Kusto function alias:** | incident_lookup |
-| **Kusto function URL** | `https://aka.ms/Sentinel-Onapsis-parser` |
+| **Kusto function URL** | https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/Onapsis%20Platform/Parsers/OnapsisLookup.txt |
 | **Supported by** | [Onapsis](https://onapsis.force.com/s/login/) |
 
 
