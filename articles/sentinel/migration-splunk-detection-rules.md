@@ -184,13 +184,13 @@ series_decompose_anomalies(Trend)
 |`cos(X)` |Calculates the cosine of X. |`n=cos(0)` |[cos()](/azure/data-explorer/kusto/query/cosfunction) |`cos(X)` |
 |`exact(X)`	     |Evaluates an expression X using double precision floating point arithmetic.         |`exact(3.14*num)`         |[todecimal()](/azure/data-explorer/kusto/query/todecimalfunction)         |`todecimal(3.14*2)` |
 |`exp(X)`    |Returns eX.         |`exp(3)`         |[exp()](/azure/data-explorer/kusto/query/exp-function)         |`exp(3)` |
-|`if(X,Y,Z)`     |If `X` evaluates to `TRUE`, the result is the second argument `Y`. If `X` evaluates to `FALSE`, the result evaluates to the third argument `Z`.         |`if(error==200,`<br> `"OK", "Error")`         |[iif()](/azure/data-explorer/kusto/query/iiffunction)         |`iif(floor(Timestamp, 1d)==floor(now(), 1d),`<br>`"today", "anotherday")` |
+|`if(X,Y,Z)`     |If `X` evaluates to `TRUE`, the result is the second argument `Y`. If `X` evaluates to `FALSE`, the result evaluates to the third argument `Z`.         |`if(error==200,`<br> `"OK", "Error")`         |[iif()](/azure/data-explorer/kusto/query/iiffunction)         |[KQL example](#ifxyz-kql-example) |
 |`isbool(X)`	     |Returns `TRUE` if `X` is boolean.	         |`isbool(field)`         |• [iif()](/azure/data-explorer/kusto/query/iiffunction)<br>• [gettype](/azure/data-explorer/kusto/query/gettypefunction)    |`iif(gettype(X) =="bool","TRUE","FALSE")` |
-|`isint(X)`     |Returns `TRUE` if `X` is an integer.	         |`isint(field)`         |• [iif()](/azure/data-explorer/kusto/query/iiffunction)<br>• [gettype](/azure/data-explorer/kusto/query/gettypefunction)         |`iif(gettype(X) =="long","TRUE","FALSE")` |
+|`isint(X)`     |Returns `TRUE` if `X` is an integer.	         |`isint(field)`         |• [iif()](/azure/data-explorer/kusto/query/iiffunction)<br>• [gettype](/azure/data-explorer/kusto/query/gettypefunction)         |[KQL example](#isintx-kql-example) |
 |`isnull(X)`	     |Returns `TRUE` if `X` is null.	         |`isnull(field)`	 |[isnull()](/azure/data-explorer/kusto/query/isnullfunction)         |`isnull(field)` |
-|`isstr(X)`    |Returns `TRUE` if `X` is a string.	        |`isstr(field)`         |• [iif()](/azure/data-explorer/kusto/query/iiffunction)<br>• [gettype](/azure/data-explorer/kusto/query/gettypefunction)    |`iif(gettype(X) =="string","TRUE","FALSE")` |
+|`isstr(X)`    |Returns `TRUE` if `X` is a string.	        |`isstr(field)`         |• [iif()](/azure/data-explorer/kusto/query/iiffunction)<br>• [gettype](/azure/data-explorer/kusto/query/gettypefunction)    |[KQL example](#isstrx-kql-example) |
 |`len(X)`	     |This function returns the character length of a string `X`.	         |`len(field)`	         |[strlen()](/azure/data-explorer/kusto/query/strlenfunction)         |`strlen(field)` |
-|`like(X,"y")`     |Returns `TRUE` if and only if `X` is like the SQLite pattern in `Y`.       |`like(field, "addr%")`         |• [has](/azure/data-explorer/kusto/query/has-anyoperator)<br>• [contains](/azure/data-explorer/kusto/query/datatypes-string-operators)<br>• [startswith](/azure/data-explorer/kusto/query/datatypes-string-operators)<br>• [matches regex](/azure/data-explorer/kusto/query/re2)	 |`… | where field has "addr"`<br><br>`… | where field contains "addr"`<br><br>`… | where field startswith "addr"`<br><br>`… | where field matches regex "^addr.*"` |
+|`like(X,"y")`     |Returns `TRUE` if and only if `X` is like the SQLite pattern in `Y`.       |`like(field, "addr%")`         |• [has](/azure/data-explorer/kusto/query/has-anyoperator)<br>• [contains](/azure/data-explorer/kusto/query/datatypes-string-operators)<br>• [startswith](/azure/data-explorer/kusto/query/datatypes-string-operators)<br>• [matches regex](/azure/data-explorer/kusto/query/re2)	 |[KQL example](#likexy-example) |
 |`log(X,Y)`     |Returns the log of the first argument `X` using the second argument `Y` as the base. The default value of `Y` is `10`.       |`log(number,2)`         |• [log](/azure/data-explorer/kusto/query/log-function)<br>• [log2](/azure/data-explorer/kusto/query/log2-function)<br>• [log10](/azure/data-explorer/kusto/query/log10-function)         |`log(X)`<br><br>`log2(X)`<br><br>`log10(X)` |
 |`lower(X)`	     |Returns the lowercase value of `X`.	         |`lower(username)`         |[tolower](/azure/data-explorer/kusto/query/tolowerfunction)         |`tolower(username)` |
 |`ltrim(X,Y)`     |Returns `X` with the characters in parameter `Y` trimmed from the left side. The default output of `Y` is spaces and tabs.	         |`ltrim(" ZZZabcZZ ", " Z")`	         |[trim_start()](/azure/data-explorer/kusto/query/trimstartfunction)         |`trim_start(“ ZZZabcZZ”,” ZZZ”)` |
@@ -201,7 +201,7 @@ series_decompose_anomalies(Trend)
 |`mvcount(X)`     |Returns the number (total) of `X` values.	  |`mvcount(multifield)`         |[dcount](/azure/data-explorer/kusto/query/dcount-aggfunction)         |`…| summarize dcount(X) by Y` |
 |`mvfilter(X)`     |Filters a multi-valued field based on the boolean `X` expression.	         |`mvfilter(match(email, "net$"))`         |[mv-apply](/azure/data-explorer/kusto/query/mv-applyoperator)         |[KQL example](#mvfilterx-kql-example) |
 |`mvindex(X,Y,Z)`     |Returns a subset of the multi-valued `X` argument from a start position (zero-based) `Y` to `Z` (optional).	         |`mvindex( multifield, 2)`	         |[array_slice](/azure/data-explorer/kusto/query/arrayslicefunction)         |`array_slice(arr, 1, 2)` |
-|`mvjoin(X,Y)`     |Given a multi-valued field `X` and string delimiter `Y`, and joins the individual values of `X` using `Y`.		         |`mvjoin(address, ";")`         |[strcat_array](/azure/data-explorer/kusto/query/strcat-arrayfunction)         |`strcat_array(dynamic([1, 2, 3]), "->")` |
+|`mvjoin(X,Y)`     |Given a multi-valued field `X` and string delimiter `Y`, and joins the individual values of `X` using `Y`.		         |`mvjoin(address, ";")`         |[strcat_array](/azure/data-explorer/kusto/query/strcat-arrayfunction)         |[KQL example](#mvjoinxy-kql-example) |
 |`now()`     |Returns the current time, represented in Unix time.         |`now()`         |[now()](/azure/data-explorer/kusto/query/nowfunction)         |`now()`<br><br>`now(-2d)` |
 |`null()`     |Does not accept arguments and returns `NULL`.	         |`null()`         |[null](/azure/data-explorer/kusto/query/scalar-data-types/null-values?pivots=azuredataexplorer)         |`null`
 |`nullif(X,Y)`	     |Includes two arguments, `X` and `Y`, and returns `X` if the arguments are different. Otherwise, returns `NULL`. |`nullif(fieldA, fieldB)`         |[iif](/azure/data-explorer/kusto/query/iiffunction)         |`iif(fieldA==fieldB, null, fieldA)` |
@@ -216,11 +216,11 @@ series_decompose_anomalies(Trend)
 |`strftime(X,Y)` |Returns the epoch time value `X` rendered using the format specified by `Y`. |`strftime(_time, "%H:%M")` |[format_datetime()](/azure/data-explorer/kusto/query/format-datetimefunction) |`format_datetime(time,'HH:mm')` |
 | `strptime(X,Y)` |Given a time represented by a string `X`, returns value parsed from format `Y`. |`strptime(timeStr, "%H:%M")` |[format_datetime()](/azure/data-explorer/kusto/query/format-datetimefunction) |[KQL example](#strptimexy-kql-example) |
 |`substr(X,Y,Z)` |Returns a substring field `X` from start position (1-based) `Y` for `Z` (optional) characters. |`substr("string", 1, 3)` |[substring()](/azure/data-explorer/kusto/query/substringfunction) |`substring("string", 0, 3)` |
-|`time()` |Returns the wall-clock time with microsecond resolution.	 |`time()` |[format_datetime()](/azure/data-explorer/kusto/query/format-datetimefunction) |`format_datetime(datetime(2015-12-14 02:03:04),`<br>`'h:m:s')` |
+|`time()` |Returns the wall-clock time with microsecond resolution.	 |`time()` |[format_datetime()](/azure/data-explorer/kusto/query/format-datetimefunction) |[KQL example](#time-kql-example) |
 |`tonumber(X,Y)` |Converts input string `X` to a number, where `Y` (optional, default value is `10`) defines the base of the number to convert to. |`tonumber("0A4",16)` |[toint()](/azure/data-explorer/kusto/query/tointfunction) |`toint("123")` |	
 |`tostring(X,Y)` |[Description](#tostringxy) |[SPL example](#tostringxy-spl-example) |[tostring()](/azure/data-explorer/kusto/query/tostringfunction) |`tostring(123)` |
 |`typeof(X)` |Returns a string representation of the field type. |`typeof(12)` |[gettype()](/azure/data-explorer/kusto/query/gettypefunction) |`gettype(12)` |
-|`urldecode(X)` |Returns the URL `X` decoded. |[SPL example](#urldecodex-spl-example) |[url_decode](/azure/data-explorer/kusto/query/urldecodefunction) |`url_decode('https%3a%2f%2fwww.bing.com%2f')` |
+|`urldecode(X)` |Returns the URL `X` decoded. |[SPL example](#urldecodex-spl-example) |[url_decode](/azure/data-explorer/kusto/query/urldecodefunction) |[KQL example](#urldecodex-spl-example) |
 
 #### case(X,"Y",…) SPL example
 
@@ -235,6 +235,33 @@ error == 200, "OK")
 T
 | extend Message = case(error == 404, "Not found", 
 error == 500,"Internal Server Error", "OK") 
+```
+#### if(X,Y,Z) KQL example
+
+```kusto
+iif(floor(Timestamp, 1d)==floor(now(), 1d), 
+"today", "anotherday")
+```
+#### isint(X) KQL example
+
+```kusto
+iif(gettype(X) =="long","TRUE","FALSE")
+```
+#### isstr(X) KQL example
+
+```kusto
+iif(gettype(X) =="string","TRUE","FALSE")
+```
+#### like(X,"y") example
+
+```kusto
+… | where field has "addr"
+
+… | where field contains "addr"
+
+… | where field startswith "addr"
+
+… | where field matches regex "^addr.*"
 ```
 #### min(X,…) KQL example
 
@@ -252,6 +279,11 @@ T | mv-apply Metric to typeof(real) on
 (
  top 2 by Metric desc
 )
+```
+#### mvjoin(X,Y) KQL example
+
+```kusto
+strcat_array(dynamic([1, 2, 3]), "->")
 ```
 #### relative time(X,Y) KQL example
 
@@ -271,6 +303,12 @@ replace( @'^(\d{1,2})/(\d{1,2})/', @'\2/\1/',date)
 ```kusto
 format_datetime(datetime('2017-08-16 11:25:10'),
 'HH:mm')
+```
+#### time() KQL example
+
+```kusto
+format_datetime(datetime(2015-12-14 02:03:04),
+'h:m:s')
 ```
 #### tostring(X,Y)
 
