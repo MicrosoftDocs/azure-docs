@@ -34,20 +34,31 @@ Here is a video walkthrough on creating workbooks.
 You can access Workbooks in a few ways:
 - In the [Azure portal](https://portal.azure.com), click on **Monitor**, then select **Workbooks**.
 
-:::image type="content" source="./media/workbooks-overview/workbooks.png" alt-text="Screenshot of Workbooks button highlighted in a red box." border="false":::
-## How to start using workbooks
-Open workbooks from the Workbooks tile under your Log Analytics workspace.
+   :::image type="content" source="./media/workbooks-overview/workbooks.png" alt-text="Screenshot of Workbooks button highlighted in a red box." border="false":::
 
-![Workbooks navigation](media/view-designer-conversion-overview/workbooks-nav.png)
+- Open workbooks from the Workbooks tile under your Log Analytics workspace.
 
-Once selected, a gallery will be displayed listing out all the saved workbooks and templates for your workspace.
+   ![Workbooks navigation](media/view-designer-conversion-overview/workbooks-nav.png)
+
+## The Gallery
+The gallery opens listing all the saved workbooks and templates for your workspace.
 
 ![Workbooks gallery](media/view-designer-conversion-overview/workbooks-gallery.png)
 
-To start a new workbook, you may select the **Empty** template under **Quick start**, or the **New** icon in the top navigation bar. To view templates or return to saved workbooks, select the item from the gallery or search for the name in the search bar.
+The gallery makes it convenient to organize, sort, and manage workbooks of all types.
 
-To save a workbook, you will need to save the report with a specific title, subscription, resource group, and location.
-The workbook will autofill to the same settings as the LA workspace, with the same subscription, resource group, however, users may change these report settings. Workbooks are shared resources that require write access to the parent resource group to be saved.
+#### Gallery tabs
+
+There are four tabs in the gallery to help organize workbook types.
+
+| Tab              | Description                                       |
+|------------------|---------------------------------------------------|
+| All | Shows the top four items for each type - workbooks, public templates, and my templates. Workbooks are sorted by modified date so you will see the most recent eight modified workbooks.|
+| Workbooks | Shows the list of all the available workbooks that you created or are shared with you. |
+| Public Templates | Shows the list of all the available ready to use, get started functional workbook templates published by Microsoft. Grouped by category. |
+| My Templates | Shows the list of all the available deployed workbook templates that you created or are shared with you. Grouped by category. |
+
+:::image type="content" source="./media/workbooks-overview/gallery-all-tab.png" alt-text="Screenshot of the gallery on the all tab." lightbox="media/workbooks-overview/gallery-all-tab.png":::
 
 ## Data sources
 
@@ -81,28 +92,9 @@ Workbooks provide a rich set of capabilities for visualizing your data. For deta
 
 :::image type="content" source="./media/workbooks-overview/visualizations.png" alt-text="Example of workbook visualizations." border="false" lightbox="./media/workbooks-overview/visualizations.png":::
 
-
-
-### Gallery
-
-The gallery makes it convenient to organize, sort, and manage workbooks of all types.
-
-:::image type="content" source="./media/workbooks-overview/gallery-all-tab.png" alt-text="Screenshot of the gallery on the all tab." lightbox="media/workbooks-overview/gallery-all-tab.png":::
-
-#### Gallery tabs
-
-There are four tabs in the gallery to help organize workbook types.
-
-| Tab              | Description                                       |
-|------------------|---------------------------------------------------|
-| All | Shows the top four items for each type - workbooks, public templates, and my templates. Workbooks are sorted by modified date so you will see the most recent eight modified workbooks.|
-| Workbooks | Shows the list of all the available workbooks that you created or are shared with you. |
-| Public Templates | Shows the list of all the available ready to use, get started functional workbook templates published by Microsoft. Grouped by category. |
-| My Templates | Shows the list of all the available deployed workbook templates that you created or are shared with you. Grouped by category. |
-
 #### Features
 
-* In each tab, there is a grid with info on the workbooks. It includes description, last modified date, tags, subscription, resource group, region, and shared state. You can also sort the workbooks by this information.
+* In each tab, there is a grid with info on the workbooks. It includes the description, last modified date, tags, subscription, resource group, region, and shared state. You can also sort the workbooks by this information.
 * Filter by resource group, subscriptions, workbook/template name, or template category.
 * Select multiple workbooks to delete or bulk delete.
 * Each Workbook has a context menu (ellipsis/three dots at the end), selecting it will open a list of quick actions.
@@ -110,41 +102,7 @@ There are four tabs in the gallery to help organize workbook types.
     * Delete or rename workbook.
     * Pin workbook to dashboard.
 
-### Workbooks versus workbook templates
 
-You can see a _workbook_ in green and a number of _workbook templates_ in purple. Templates serve as curated reports that are designed for flexible reuse by multiple users and teams. Opening a template creates a transient workbook populated with the content of the template.
-
-You can adjust the template-based workbook's parameters and perform analysis without fear of breaking the future reporting experience for colleagues. If you open a template, make some adjustments, and then select the save icon you will be saving the template as a workbook which would then show in green leaving the original template untouched.
-
-Under the hood, templates also differ from saved workbooks. Saving a workbook creates an associated Azure Resource Manager resource, whereas the transient workbook created when just opening a template has no unique resource associated with it. To learn more about how access control is managed in workbooks consult the [workbooks access control article](../visualize/workbooks-access-control.md).
-
-### Exploring a workbook template
-
-Select **Application Failure Analysis** to see one of the default application workbook templates.
-
-:::image type="content" source="./media/workbooks-overview/failure-analysis.png" alt-text="Screenshot of application failure analysis template." border="false" lightbox="./media/workbooks-overview/failure-analysis.png":::
-
-As stated previously, opening the template creates a temporary workbook for you to be able to interact with. By default, the workbook opens in reading mode which displays only the information for the intended analysis experience that was created by the original template author.
-
-In the case of this particular workbook, the experience is interactive. You can adjust the subscription, targeted apps, and the time range of the data you want to display. Once you have made those selections the grid of HTTP Requests is also interactive whereby selecting an individual row will change what data is rendered in the two charts at the bottom of the report.
-
-### Editing mode
-
-To understand how this workbook template is put together you need to swap to editing mode by selecting **Edit**.
-
-:::image type="content" source="./media/workbooks-overview/edit.png" alt-text="Screenshot of edit button in workbooks." border="false" :::
-
-Once you have switched to editing mode you will notice a number of **Edit** boxes appear to the right corresponding with each individual aspect of your workbook.
-
-:::image type="content" source="./media/workbooks-overview/edit-mode.png" alt-text="Screenshot of Edit button." border="false" lightbox="./media/workbooks-overview/edit-mode.png":::
-
-If we select the edit button immediately under the grid of request data we can see that this part of our workbook consists of a Kusto query against data from an Application Insights resource.
-
-:::image type="content" source="./media/workbooks-overview/kusto.png" alt-text="Screenshot of underlying Kusto query." border="false" lightbox="./media/workbooks-overview/kusto.png":::
-
-Selecting the other **Edit** buttons on the right will reveal a number of the core components that make up workbooks like markdown-based [text boxes](../visualize/workbooks-text-visualizations.md), [parameter selection](../visualize/workbooks-parameters.md) UI elements, and other [chart/visualization types](#visualizations).
-
-Exploring the pre-built templates in edit-mode and then modifying them to fit your needs and save your own custom workbook is an excellent way to start to learn about what is possible with Azure Monitor workbooks.
 
 ## Dashboard time ranges
 
@@ -157,9 +115,6 @@ If a pinned step has an explicitly set time range (does not use a time range par
 > [!NOTE]
 > Queries using the *merge* data source are not currently supported when pinning to dashboards.
 
-## Sharing workbook templates
-
-Once you start creating your own workbook templates you might want to share it with the wider community. To learn more, and to explore other templates that aren't part of the default Azure Monitor gallery view visit our [GitHub repository](https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/README.md). To browse existing workbooks, visit the [Workbook library](https://github.com/microsoft/Application-Insights-Workbooks/tree/master/Workbooks) on GitHub.
 
 
 ## Next step
