@@ -265,7 +265,7 @@ BlobServiceClient blobStorageClient = new BlobServiceClientBuilder()
 
 ### Accessing Azure SQL Database
 
-#### [.NET core](#tab/netcore)
+#### [.NET](#tab/netcore)
 
 ```csharp
 using Azure.Identity;
