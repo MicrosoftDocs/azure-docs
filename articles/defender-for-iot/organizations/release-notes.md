@@ -87,19 +87,13 @@ View scanning data from active discovery scans from your sensor console only. Fo
 
 ### Sensor management from the Azure portal (public preview)
 
-For sensor versions 22.2.x and higher, you can configure sensor settings, upgrade your sensor software, and monitor sensor health directly from the **Sites and sensors** page on the Azure portal.
+For sensor versions 22.2.x and higher, you can configure sensor settings and monitor sensor health directly from the **Sites and sensors** page on the Azure portal.
 
 On the **Sites and sensors** page:
 
 - **To create and apply settings** across one or more cloud-connected sensors in your network, select **Sensor settings (Preview)**.
 
 - **To monitor sensor health**, use the new sensor health widgets and table column data
-
-- **To update sensor software**, select a connected sensor with an older software version, and then select **Update (Preview)**. Updates from the Azure portal are supported only when you are upgrading *from* version 22.2.0 or higher.
-
-The following image highlights the new sensor management options now available from the **Sites and sensors** page in the Azure portal:
-
-:::image type="content" source="media/release-notes/cloud-management.png" alt-text="Screenshot highlighting the new cloud management features in the Azure portal.":::
 
 We've also added a sensor details page, where you drill down to a specific sensor from the Azure portal. On the **Sites and sensors** page, select a specific sensor name. The sensor details page lists basic sensor data, sensor health, and any sensor settings applied. For example:
 
