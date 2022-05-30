@@ -1,13 +1,13 @@
 ---
 title: Create Azure Monitor alert rules 
-description: Learn how to use Azure portal to create a new alert rule.
+description: Learn how to create a new alert rule.
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.topic: conceptual
 ms.date: 2/23/2022
 ms.reviewer: harelbr
 ---
-# Create, view, and manage metric alerts using Azure Monitor
+# Create a new alert rule
 
 This article shows you how to create alert rules and manage your alert instances. Rules can trigger one or more actions using [alert processing rules](alerts-action-rules.md) and [action groups](./action-groups.md). Learn the concepts behind alerts[here](alerts-overview).
 
@@ -15,7 +15,8 @@ You create an alert rule by combining:
  - The resource(s) to be monitored.
  - The signal or telemetry from the resource
  - Conditions
-And then defining these elements in the resulting alert:
+
+And then defining these elements for the resulting alert:
  - Alert processing rules
  - Action groups
 
