@@ -57,8 +57,7 @@ configurationFiles:
 failureCriteria:
   - avg(response_time_ms) > 300
   - percentage(error) > 50
-options:
-  - splitCsv: False
+splitAllCSVs: True
 env:
   - name: my-variable
     value: my-value
