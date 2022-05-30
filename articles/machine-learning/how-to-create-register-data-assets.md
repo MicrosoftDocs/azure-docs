@@ -60,7 +60,7 @@ When you create a data asset in Azure Machine Learning, you'll need to specify a
 
 
 > [!NOTE]
-> When you register a local path as a data asset, it will be automatically uploaded to the default Azure Machine Learning datastore in the cloud.
+> When you create a data asset from a local path, it will be automatically uploaded to the default Azure Machine Learning datastore in the cloud.
 
 ## Create a Folder Data Asset
 
@@ -74,10 +74,10 @@ Create a `YAML` file (`<file-name>.yml`):
 $schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
 
 # Supported paths include:
-# local: './<path>'
-# blob:  'https://<account_name>.blob.core.windows.net/<container_name>/<path>'
-# ADLS gen2: 'abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>/'
-# Datastore: 'azureml://datastores/<data_store_name>/paths/<path>'
+# local: ./<path>
+# blob:  https://<account_name>.blob.core.windows.net/<container_name>/<path>
+# ADLS gen2: abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>/
+# Datastore: azureml://datastores/<data_store_name>/paths/<path>
 type: uri_folder
 name: <name_of_data>
 description: <description goes here>
@@ -126,8 +126,16 @@ Below shows you how to create a *specific file* as a data asset:
 # [CLI](#tab/CLI)
 
 Sample `YAML` file `<file-name>.yml` for data in local path is as below:
+
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
+
+# Supported paths include:
+# local: ./<path>/<file>
+# blob:  https://<account_name>.blob.core.windows.net/<container_name>/<path>/<file>
+# ADLS gen2: abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>/<file>
+# Datastore: azureml://datastores/<data_store_name>/paths/<path>/<file>
+
 type: uri_file
 name: <name>
 description: <description>
@@ -224,10 +232,10 @@ $schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
 
 # path must point to **folder** containing MLTable artifact (MLTable file + data
 # Supported paths include:
-# local: './<path>'
-# blob:  'https://<account_name>.blob.core.windows.net/<container_name>/<path>'
-# ADLS gen2: 'abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>/'
-# Datastore: 'azureml://datastores/<data_store_name>/paths/<path>'
+# local: ./<path>
+# blob:  https://<account_name>.blob.core.windows.net/<container_name>/<path>
+# ADLS gen2: abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>/
+# Datastore: azureml://datastores/<data_store_name>/paths/<path>
 
 type: mltable
 name: <name_of_data>
