@@ -17,9 +17,9 @@ This tutorial describes how to automate performance regression testing with Azur
 
 You'll set up a GitHub Actions CI/CD workflow to deploy a sample Node.js application on Azure and trigger a load test using the [Azure Load Testing action](https://github.com/marketplace/actions/azure-load-testing).
 
-You'll then define test failure criteria to ensure the application meets your goals. When a criterion is not met, the CI/CD pipeline will fail. For more information, see [Define load test failure criteria](./how-to-define-test-criteria.md).
+You'll then define test failure criteria to ensure the application meets your goals. When a criterion isn't met, the CI/CD pipeline will fail. For more information, see [Define load test failure criteria](./how-to-define-test-criteria.md).
 
-Finally, you'll make the load test configurable by passing parameters from the CI/CD pipeline to the JMeter script. For example, you could provide use a GitHub secret to pass an authentication token the script. For more information, see [Parameterize load tests with secrets and environment variables](./how-to-parameterize-load-tests.md).
+Finally, you'll make the load test configurable by passing parameters from the CI/CD pipeline to the JMeter script. For example, you could use a GitHub secret to pass an authentication token the script. For more information, see [Parameterize load tests with secrets and environment variables](./how-to-parameterize-load-tests.md).
 
 If you're using Azure Pipelines for your CI/CD workflows, see the corresponding [Azure Pipelines tutorial](./tutorial-cicd-azure-pipelines.md).
 
@@ -72,7 +72,7 @@ First, you'll create an Azure Active Directory [service principal](../active-dir
     > [!NOTE]
     > Azure Login supports multiple ways to authenticate with Azure. For other authentication options, see the [Azure and GitHub integration site](/azure/developer/github).
 
-    The output is the role assignment credentials that provide access to your resource. The command should output a JSON object similar to this.
+    The output is the role assignment credentials that provide access to your resource. The command outputs a JSON object similar to the following snippet.
 
     ```json
     {
@@ -111,7 +111,7 @@ You now have a service principal that the necessary permissions to create and ru
 
 ### Configure the GitHub secret
 
-Next, add a GitHub secret **AZURE_CREDENTIALS** to your repository to store the the service principal you created earlier. You'll pass this GitHub secret to the Azure Login action to authenticate with Azure.
+Next, add a GitHub secret **AZURE_CREDENTIALS** to your repository to store the service principal you created earlier. You'll pass this GitHub secret to the Azure Login action to authenticate with Azure.
 
 1. In [GitHub](https://github.com), browse to your forked repository, select **Settings** > **Secrets** > **New repository secret**.
 
@@ -150,7 +150,7 @@ You've now authorized your GitHub Actions workflow to access your Azure Load Tes
 
 In this section, you'll set up a GitHub Actions workflow that triggers the load test by using the [Azure Load Testing Action](https://github.com/marketplace/actions/azure-load-testing).
 
-The follow code snippet shows an example of how to trigger a load test using the `azure/load-testing` action:
+The following code snippet shows an example of how to trigger a load test using the `azure/load-testing` action:
 
 ```yml
 - name: 'Azure Load Testing'
