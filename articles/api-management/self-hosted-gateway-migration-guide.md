@@ -79,6 +79,24 @@ securityContext:
   readOnlyRootFilesystem: false
 ```
 
+However, as of `2.0.4` the self-hosted gateway is able to run as non-root in Kubernetes allowing customers to run the gateway securely.
+
+Here is an example of the security context for the self-hosted gateway:
+```yml
+securityContext:
+  allowPrivilegeEscalation: false
+  runAsNonRoot: true
+  runAsUser: 1001       # This is a built-in user, but you can use any user ie 1000 as well
+  runAsGroup: 2000      # This is just an example
+  privileged: false
+  capabilities:
+    drop:
+    - all
+```
+
+> [!WARNING]
+> Running the self-hosted gateway with read-only filesystem (`readOnlyRootFilesystem: true`) is not supported.
+
 ## Known limitations
 
 Here is a list of known limitations for the self-hosted gateway v2:
