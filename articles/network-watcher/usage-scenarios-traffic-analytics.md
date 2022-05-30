@@ -205,7 +205,7 @@ Do you have malicious traffic in your environment? Where is it originating from?
   - Identify which NSG/NSG rules are allowing/blocking significant network traffic
   - Select top filters for granular inspection of an NSG or NSG rules
 
-    ![Screenshot showcasing time trending for N S G rule hits and top NSG rules.](./media/traffic-analytics/showcasing-time-trending-for-nsg-rule-hits-and-top-nsg-rules.png)
+    ![Screenshot showcasing time trending for N S G rule hits and top N S G rules.](./media/traffic-analytics/showcasing-time-trending-for-nsg-rule-hits-and-top-nsg-rules.png)
 
     ![Screenshot of top N S G rules statistics details in log search.](./media/traffic-analytics/top-nsg-rules-statistics-details-in-log-search.png)
     

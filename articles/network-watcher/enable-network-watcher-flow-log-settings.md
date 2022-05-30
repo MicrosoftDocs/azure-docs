@@ -63,7 +63,7 @@ Select the following options, as shown in the picture:
 
 8. Select **Save**.
 
-    ![Selection of storage account, Log Analytics workspace, and Traffic Analytics enablement.](./media/traffic-analytics/ta-customprocessinginterval.png)
+    ![Screenshot showing selection of storage account, Log Analytics workspace, and Traffic Analytics enablement.](./media/traffic-analytics/ta-customprocessinginterval.png)
 
 Repeat the previous steps for any other NSGs for which you wish to enable traffic analytics for. Data from flow logs is sent to the workspace, so ensure that the local laws and regulations in your country/region permit data storage in the region where the workspace exists. If you have set different processing intervals for different NSGs, data will be collected at different intervals. For example, You can choose to enable processing interval of 10 mins for critical VNETs and 1 hour for noncritical VNETs.
 
