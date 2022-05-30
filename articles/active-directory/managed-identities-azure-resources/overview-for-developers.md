@@ -219,7 +219,10 @@ KeyVaultSecret retrievedSecret = secretClient.getSecret(secretName);
 #### [.NET](#tab/netcore)
 
 ```csharp
-var credentialOptions = new DefaultAzureCredentialOptions { ManagedIdentityClientId = "<Client ID of User-assigned identity>" };
+var credentialOptions = new DefaultAzureCredentialOptions
+{
+    ManagedIdentityClientId = "<Client ID of User-assigned identity>"
+};
 var msiCredential = new DefaultAzureCredential(credentialOptions);                        
 
 var blobServiceClient1 = new BlobServiceClient(new Uri("<URI of Storage account>"), msiCredential);
