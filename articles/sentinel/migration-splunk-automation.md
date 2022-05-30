@@ -32,7 +32,7 @@ Here’s what you need to think about when migrating SOAR use cases from Splunk.
 
 This section shows how key SOAR concepts in Splunk translate to Microsoft Sentinel components, and provides general guidelines for how to migrate each step or component in the SOAR workflow.
 
-:::image type="content" source="media/migration-splunk-automation/splunk-sentinel-soar-workflow.png" alt-text="Diagram displaying the Splunk and Microsoft Sentinel SOAR workflows." lightbox="media/migration-splunk-automation/splunk-sentinel-soar-workflow.png":::
+:::image type="content" source="media/migration-splunk-automation/splunk-sentinel-soar-workflow-new.png" alt-text="Diagram displaying the Splunk and Microsoft Sentinel SOAR workflows." lightbox="media/migration-splunk-automation/splunk-sentinel-soar-workflow-new.png":::
 
 |Step (in diagram) |Splunk  |Microsoft Sentinel |
 |---------|---------|
