@@ -28,7 +28,7 @@ You may need to review programming activity:
 
   - After a planned update to controllers
 
-  - When a process or machine is not working correctly (to see who carried out the last update and when)
+  - When a process or machine isn't working correctly (to see who carried out the last update and when)
 
    :::image type="content" source="media/how-to-work-with-maps/differences.png" alt-text="Screenshot of a Programming Change Log":::
 
@@ -40,7 +40,7 @@ Other options let you:
 
 ## About authorized versus unauthorized programming events 
 
-Unauthorized programming events are carried out by devices that have not been learned or manually defined as programming devices. Authorized programming events are carried out by devices that were resolved or manually defined as programming devices.
+Unauthorized programming events are carried out by devices that haven't been learned or manually defined as programming devices. Authorized programming events are carried out by devices that were resolved or manually defined as programming devices.
 
 The Programming Analysis window displays both authorized and unauthorized programming events.
 
