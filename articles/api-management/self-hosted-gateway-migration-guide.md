@@ -79,7 +79,7 @@ securityContext:
   readOnlyRootFilesystem: false
 ```
 
-However, as of `2.0.4` the self-hosted gateway is able to run as non-root in Kubernetes allowing customers to run the gateway securely.
+However, as of `2.0.4` the self-hosted gateway is able to run as non-root in Kubernetes allowing customers to run the gateway more securely.
 
 Here is an example of the security context for the self-hosted gateway:
 ```yml
