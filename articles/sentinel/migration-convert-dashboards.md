@@ -10,7 +10,7 @@ ms.custom: ignite-fall-2021
 
 # Convert dashboards to Azure Workbooks 
 
-Dashboards in your existing SIEM will convert to [Azure Monitor Workbooks](monitor-your-data#use-built-in-workbooks.md), the Microsoft Sentinel adoption of Azure Monitor Workbooks, which provides versatility in creating custom dashboards.
+Dashboards in your existing SIEM will convert to [Azure Monitor Workbooks](monitor-your-data.md#use-built-in-workbooks), the Microsoft Sentinel adoption of Azure Monitor Workbooks, which provides versatility in creating custom dashboards.
 
 This article describes how to review, plan, and convert your current workbooks to Azure Monitor Workbooks.
 
@@ -18,7 +18,7 @@ This article describes how to review, plan, and convert your current workbooks t
 
  Consider the following when designing your migration.
 
-- **Discover dashboards**. Gather information about your dashboards, including design, parameters, data sources, and other details. Identity the purpose or usage of each dashboard.
+- **Discover dashboards**. Gather information about your dashboards, including design, parameters, data sources, and other details. Identify the purpose or usage of each dashboard.
 - **Select**. Don’t migrate all dashboards without consideration. Focus on dashboards that are critical and used regularly.
 - **Consider permissions**. Consider who are the target users for workbooks. Microsoft Sentinel uses Azure Workbooks, and [access is controlled](../azure-monitor/visualize/workbooks-access-control.md) using Azure Role Based Access Control (RBAC). To create dashboards outside Azure, for example for business execs without Azure access, using a reporting tool such as PowerBI.
 
@@ -26,19 +26,17 @@ This article describes how to review, plan, and convert your current workbooks t
 
 After reviewing your dashboards, do the following to prepare for your dashboard migration:
 
-1.	Review all of the visualizations in each dashboard. The dashboards in your current SIEM might contain several charts or panels. It is crucial to review the content of your short-listed dashboards to eliminate any unwanted visualizations or data.
-2.	Capture the dashboard design and interactivity.
-3.	Identify any design elements that are important to your users. For example, the layout of the dashboard, the arrangement of the charts or even the font size or color of the graphs.
-4.	Capture any interactivity such as drilldown, filtering, and others that you need to carry over to Azure Monitor Workbooks. We will also discuss parameters and user inputs in the next step.
-5.	Identify required parameters or user inputs. In most cases, you need to define parameters for users to perform search, filtering, or scoping the results (for example, date range, account name and others). Hence, it is crucial to capture the details around parameters. Below are some of the key points to help you with collecting the parameter requirements:
-    - **Parameter type**: This represents the type of parameter for users to perform selection or input. For example. date range, text, and others.
-    - **Parameter style**: Defines how the parameters are represented, such as dropdown, text box, or others.
-    - **Value format**: The expected value format, for example, time, string, integer, and more.
-    - **Additional properties**: Such as the default value, allow multi-select, conditional visibility, and more.
+- Review all of the visualizations in each dashboard. The dashboards in your current SIEM might contain several charts or panels. It is crucial to review the content of your short-listed dashboards to eliminate any unwanted visualizations or data.
+- Capture the dashboard design and interactivity.
+- Identify any design elements that are important to your users. For example, the layout of the dashboard, the arrangement of the charts or even the font size or color of the graphs.
+- Capture any interactivity such as drilldown, filtering, and others that you need to carry over to Azure Monitor Workbooks. We will also discuss parameters and user inputs in the next step.
+- Identify required parameters or user inputs. In most cases, you need to define parameters for users to perform search, filtering, or scoping the results (for example, date range, account name and others). Hence, it is crucial to capture the details around parameters. Here are some of the key points to help you with collecting the parameter requirements:
+    - The type of parameter for users to perform selection or input. For example, date range, text, or others.
+    - How the parameters are represented, such as drop-down, text box, or others.
+    - The expected value format, for example, time, string, integer, or others.
+    - Additional properties, such as the default value, allow multi-select, conditional visibility, or others.
 
-## Convert dashboards to Azure Monitor workbooks
-
-By the time you arrive at this stage, you should have identified a list of third-party dashboards to migrate and gathered the relevant details as described above.
+## Convert dashboards
 
 Perform the following tasks in Azure Workbook and Microsoft Sentinel to convert your dashboard.
 
@@ -54,7 +52,7 @@ In this step, you mainly work with KQL to visualize your data. You can construct
 
 Learn how to optimize KQL queries:
 - [KQL query best practices](/azure/data-explorer/kusto/query/best-practices)
-- [Optimize queries in Azure Monitor Logs](/azure/azure-monitor/log-query/query-optimization)
+- [Optimize queries in Azure Monitor Logs](../azure-monitor/logs/query-optimization.md)
 - [Optimizing KQL performance (webinar)](https://youtu.be/jN1Cz0JcLYU) 
 
 #### 3. Create or update the workbook
@@ -78,14 +76,21 @@ Workbooks provide a rich set of capabilities for visualizing your data. Review t
 
 - [Text](../azure-monitor/visualize/workbooks-text-visualizations.md)
 - [Charts](../azure-monitor/visualize/workbooks-chart-visualizations.md)
-- [Grids](../azure/azure-monitor/visualize/workbooks-grid-visualizations.md)
-- [Tiles](../azure/azure-monitor/visualize/workbooks-tile-visualizations.md)
-- [Trees](../azure/azure-monitor/visualize/workbooks-tree-visualizations.md)
-- [Graphs](../azure/azure-monitor/visualize/workbooks-graph-visualizations.md)
-- [Map](../azure/azure-monitor/visualize/workbooks-map-visualizations.md)
-- [Honey comb](/azure/azure-monitor/visualize/workbooks-honey-comb.md)
-- [Composite bar](/en-us/azure/azure-monitor/visualize/workbooks-composite-bar.md)
+- [Grids](../azure-monitor/visualize/workbooks-grid-visualizations.md)
+- [Tiles](../azure-monitor/visualize/workbooks-tile-visualizations.md)
+- [Trees](../azure-monitor/visualize/workbooks-tree-visualizations.md)
+- [Graphs](../azure-monitor/visualize/workbooks-graph-visualizations.md)
+- [Map](../azure-monitor/visualize/workbooks-map-visualizations.md)
+- [Honey comb](../azure-monitor/visualize/workbooks-honey-comb.md)
+- [Composite bar](../azure-monitor/visualize/workbooks-composite-bar.md)
 
 #### 6.	Preview and save the workbook
 
-Once you have saved your workbook, specify the parameters, if any exist, and validate the results. You can also try the [auto refresh](tutorial-monitor-your-data#refresh-your-workbook-data.md) or the print feature to [save as a PDF](tutorial-monitor-your-data#print-a-workbook-or-save-as-pdf.md).
+Once you have saved your workbook, specify the parameters, if any exist, and validate the results. You can also try the [auto refresh](tutorial-monitor-your-data.md#refresh-your-workbook-data) or the print feature to [save as a PDF](monitor-your-data.md#print-a-workbook-or-save-as-pdf).
+
+## Next steps
+
+In this article, you learned how to convert your dashboards to Azure workbooks. 
+
+> [!div class="nextstepaction"]
+> [Update SOC processes](migration-soc-processes.md)
