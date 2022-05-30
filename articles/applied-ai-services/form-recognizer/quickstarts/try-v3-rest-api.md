@@ -31,7 +31,7 @@ To learn more about Form Recognizer features and development options, visit our 
 
 **Document Analysis**
 
-* 🆕 Read—Analyze and extract printed and handwritten text lines, words, locations, and detected languages.  
+* 🆕 Read—Analyze and extract printed (typeface) and handwritten text lines, words, locations, and detected languages.  
 * 🆕General document—Analyze and extract text, tables, structure, key-value pairs, and named entities.
 * Layout—Analyze and extract tables, lines, words, and selection marks from documents, without the need to train a model.
 
