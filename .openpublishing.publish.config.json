@@ -894,9 +894,7 @@
       "path_to_root": "ms-identity-node",
       "url": "https://github.com/Azure-Samples/ms-identity-node",
       "branch": "main",
-      "branch_mapping": {
-        "main": "update-sample"
-      }
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {
