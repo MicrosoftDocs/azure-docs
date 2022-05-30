@@ -455,7 +455,9 @@ The following XML snippet is an example of a RESTful technical profile configure
 </ClaimsProvider>
 ```
 
-Add the validation technical profile reference to the sign-up technical profile, which calls the REST-AcquireAccessToken. The new validation technical profile will be added to the top of the <ValidationTechnicalProfiles> collection defined in the base policy. This behavior means that only after successful validation, Azure AD B2C moves on to create the account in the directory.
+Add the validation technical profile reference to the sign up technical profile, which calls the `REST-AcquireAccessToken`.  This behavior means that Azure AD B2C moves on to create the account in the directory only after successful validation.
+
+
 
 For example
     ```
