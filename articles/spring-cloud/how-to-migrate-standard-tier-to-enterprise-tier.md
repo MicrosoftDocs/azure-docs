@@ -1,16 +1,19 @@
 ---
-title: How to migrate an Azure Spring Cloud Basic or Standard tier instance to Enterprise tier
-titleSuffix: Azure Spring Cloud Enterprise tier
-description: How to migrate an Azure Spring Cloud Basic or Standard tier instance to Enterprise tier
+title: How to migrate an Azure Spring Apps Basic or Standard tier instance to Enterprise tier
+titleSuffix: Azure Spring Apps Enterprise tier
+description: How to migrate an Azure Spring Apps Basic or Standard tier instance to Enterprise tier
 author: karlerickson
 ms.author: xiading
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/09/2022
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
-# Migrate an Azure Spring Cloud Basic or Standard tier instance to Enterprise tier
+# Migrate an Azure Spring Apps Basic or Standard tier instance to Enterprise tier
+
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
@@ -18,7 +21,7 @@ This article shows you how to migrate an existing application in Basic or Standa
 
 ## Prerequisites
 
-- An already provisioned Azure Spring Cloud Enterprise tier service instance with Spring Cloud Gateway for Tanzu enabled. For more information, see [Quickstart: Provision an Azure Spring Cloud service instance using Enterprise tier](./quickstart-provision-service-instance-enterprise.md). However, you won't need to change any code in your applications.
+- An already provisioned Azure Spring Apps Enterprise tier service instance with Spring Cloud Gateway for Tanzu enabled. For more information, see [Quickstart: Provision an Azure Spring Apps service instance using Enterprise tier](./quickstart-provision-service-instance-enterprise.md). However, you won't need to change any code in your applications.
 - [Azure CLI version 2.0.67 or later](/cli/azure/install-azure-cli).
 
 ## Using Application Configuration Service for configuration
@@ -122,7 +125,7 @@ Use the following steps to create and configure an application using Spring Clou
 
 ### Create an app for Spring Cloud Gateway to route traffic to
 
-1. Create an app which Spring Cloud Gateway for Tanzu will route traffic to by following the instructions in [Quickstart: Build and deploy apps to Azure Spring Cloud using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
+1. Create an app which Spring Cloud Gateway for Tanzu will route traffic to by following the instructions in [Quickstart: Build and deploy apps to Azure Spring Apps using the Enterprise tier](quickstart-deploy-apps-enterprise.md).
 
 1. Assign a public endpoint to the gateway to access it.
 
@@ -218,4 +221,4 @@ For more information, see [Use Spring Cloud Gateway for Tanzu](./how-to-use-ente
 
 ## Next steps
 
-- [Azure Spring Cloud](index.yml)
+- [Azure Spring Apps](index.yml)

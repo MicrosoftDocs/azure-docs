@@ -4,7 +4,7 @@ description: Learn how to use a .NET isolated process to run your C# functions i
 
 ms.service: azure-functions
 ms.topic: conceptual 
-ms.date: 05/12/2022
+ms.date: 05/24/2022
 ms.custom: template-concept 
 recommendations: false
 #Customer intent: As a developer, I need to know how to create functions that run in an isolated process so that I can run my function code on current (not LTS) releases of .NET.
@@ -260,7 +260,7 @@ This section describes the current state of the functional and behavioral differ
 | Output binding types |  `IAsyncCollector`, [DocumentClient], [BrokeredMessage], and other client-specific types | Simple types, JSON serializable types, and arrays. |
 | Multiple output bindings | Supported | [Supported](#multiple-output-bindings) |
 | HTTP trigger | [HttpRequest]/[ObjectResult] | [HttpRequestData]/[HttpResponseData] |
-| Durable Functions | [Supported](durable/durable-functions-overview.md) | Not supported | 
+| Durable Functions | [Supported](durable/durable-functions-overview.md) | [Supported (public preview)](https://github.com/microsoft/durabletask-dotnet#usage-with-azure-functions) | 
 | Imperative bindings | [Supported](functions-dotnet-class-library.md#binding-at-runtime) | Not supported |
 | function.json artifact | Generated | Not generated |
 | Configuration | [host.json](functions-host-json.md) | [host.json](functions-host-json.md) and custom initialization |

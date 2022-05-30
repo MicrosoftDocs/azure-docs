@@ -26,7 +26,7 @@ To learn more about SFTP support for Azure Blob Storage, see [SSH File Transfer 
 
 ## Prerequisites
 
-- A standard general-purpose v2 or premium block blob storage account. You can also enable SFTP as create the account. For more information on these types of storage accounts, see [Storage account overview](../common/storage-account-overview.md).
+- A standard general-purpose v2 or premium block blob storage account. You can also enable SFTP as you create the account. For more information on these types of storage accounts, see [Storage account overview](../common/storage-account-overview.md).
 
 - The hierarchical namespace feature of the account must be enabled. To enable the hierarchical namespace feature, see [Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities](upgrade-to-data-lake-storage-gen2-how-to.md).
 

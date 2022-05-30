@@ -1,6 +1,6 @@
 ---
-title: Upload and index videos with Azure Video Indexer (formerly Azure Video Analyzer for Media)
-description: Learn two methods for uploading and indexing videos by using Azure Video Indexer (formerly Azure Video Analyzer for Media).
+title: Upload and index videos with Azure Video Indexer
+description: Learn two methods for uploading and indexing videos by using Azure Video Indexer.
 ms.topic: article
 ms.date: 11/15/2021
 ms.custom: ignite-fall-2021
@@ -8,7 +8,7 @@ ms.custom: ignite-fall-2021
 
 # Upload and index your videos
 
-This article shows how to upload and index videos by using the Azure Video Indexer (formerly Azure Video Analyzer for Media) website and the Upload Video API.
+This article shows how to upload and index videos by using the Azure Video Indexer website and the Upload Video API.
 
 When you're creating an Azure Video Indexer account, you choose between:
 
@@ -17,15 +17,17 @@ When you're creating an Azure Video Indexer account, you choose between:
 
 For more information about account types, see [Media Services pricing](https://azure.microsoft.com/pricing/details/azure/media-services/).
 
+After you upload and index a video, you can use [Azure Video Indexer website](video-indexer-view-edit.md) or [Azure Video Indexer Developer Portal](video-indexer-use-apis.md) to see the insights of the video (see [Examine the Azure Video Indexer output](video-indexer-output-json-v2.md)).
+
 When you're uploading videos by using the API, you have the following options:
 
 * Upload your video from a URL (preferred).
 * Send the video file as a byte array in the request body.
-* Use existing an Azure Media Services asset by providing the [asset ID](/azure/azure/media-services/latest/assets-concept). This option is supported in paid accounts only.
+* Use existing an Azure Media Services asset by providing the [asset ID](/azure/media-services/latest/assets-concept). This option is supported in paid accounts only.
 
 ## Supported file formats
 
-For a list of file formats that you can use with Azure Video Indexer, see [Standard Encoder formats and codecs](/azure/azure/media-services/latest/encode-media-encoder-standard-formats-reference).
+For a list of file formats that you can use with Azure Video Indexer, see [Standard Encoder formats and codecs](/azure/media-services/latest/encode-media-encoder-standard-formats-reference).
 
 ## Storage of video files
 
@@ -106,7 +108,7 @@ When you're using the [Upload Video](https://api-portal.videoindexer.ai/api-deta
 After the indexing and encoding jobs are done, the video is published so you can also stream your video. The streaming endpoint from which you want to stream the video must be in the **Running** state.
 
 For `SingleBitrate`, the standard encoder cost will apply for the output. If the video height is greater than or equal to 720, Azure Video Indexer encodes it as 1280 x 720. Otherwise, it's encoded as 640 x 468.
-The default setting is [content-aware encoding](/azure/azure/media-services/latest/encode-content-aware-concept).
+The default setting is [content-aware encoding](/azure/media-services/latest/encode-content-aware-concept).
 
 If you only want to index your video and not encode it, set `streamingPreset` to `NoStreaming`.
 

@@ -39,20 +39,32 @@ This article shows how to create a managed identity in the Azure portal. You can
 
 ### Create an Azure Blob Storage destination
 
-If you don't have an existing Azure storage account to export to, follow these steps:
+If you don't have an existing Azure storage account to export to, run the following script in the Azure Cloud Shell bash environment. The script creates a resource group, Azure Storage account, and blob container. It then prints the connection string to use when you configure the data export in IoT Central:
 
-1. Create a [new storage account in the Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You can learn more about creating new [Azure Blob Storage accounts](../../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Data Lake Storage v2 storage accounts](../../storage/common/storage-account-create.md). Data export can only write data to storage accounts that support block blobs. The following list shows the known compatible storage account types:
+```azurecli-interactive
+# Replace the storage account name with your own unique value
+SA=yourstorageaccount$RANDOM
+CN=exportdata
+RG=centralexportresources
+LOCATION=eastus
 
-    |Performance Tier|Account Type|
-    |-|-|
-    |Standard|General Purpose V2|
-    |Standard|General Purpose V1|
-    |Standard|Blob storage|
-    |Premium|Block Blob storage|
+az group create -n $RG --location $LOCATION
+az storage account create --name $SA --resource-group $RG --location $LOCATION --sku Standard_LRS
+az storage container create --account-name $SA --resource-group $RG --name $CN
 
-1. To create a container in your storage account, go to your storage account. Under **Blob Service**, select **Browse Blobs**. Select **+ Container** at the top to create a new container.
+CS=$(az storage account show-connection-string --resource-group $RG --name $SA --query "connectionString" --output tsv)
 
-1. Generate a connection string for your storage account by going to **Settings > Access keys**. Copy one of the two connection strings.
+echo "Storage connection string: $CS"
+```
+
+You can learn more about creating new [Azure Blob Storage accounts](../../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Data Lake Storage v2 storage accounts](../../storage/common/storage-account-create.md). Data export can only write data to storage accounts that support block blobs. The following table shows the known compatible storage account types:
+
+|Performance Tier|Account Type|
+|-|-|
+|Standard|General Purpose V2|
+|Standard|General Purpose V1|
+|Standard|Blob storage|
+|Premium|Block Blob storage|
 
 To create the Blob Storage destination in IoT Central on the **Data export** page:
 
@@ -70,31 +82,45 @@ To create the Blob Storage destination in IoT Central on the **Data export** pag
 
 ### Create an Azure Blob Storage destination
 
-If you don't have an existing Azure storage account to export to, follow these steps:
+If you don't have an existing Azure storage account to export to, run the following script in the Azure Cloud Shell bash environment. The script creates a resource group, Azure Storage account, and blob container. The script then enables the managed identity for your IoT Central application and assigns the role it needs to access your storage account:
 
-1. Create a [new storage account in the Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You can learn more about creating new [Azure Blob Storage accounts](../../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Data Lake Storage v2 storage accounts](../../storage/common/storage-account-create.md). Data export can only write data to storage accounts that support block blobs. The following list shows the known compatible storage account types:
+```azurecli-interactive
+# Replace the storage account name with your own unique value.
+SA=yourstorageaccount$RANDOM
 
-    |Performance Tier|Account Type|
-    |-|-|
-    |Standard|General Purpose V2|
-    |Standard|General Purpose V1|
-    |Standard|Blob storage|
-    |Premium|Block Blob storage|
+# Replace the IoT Central app name with the name of your
+# IoT Central application.
+CA=your-iot-central-app
 
-1. To create a container in your storage account, go to your storage account. Under **Blob Service**, select **Browse Blobs**. Select **+ Container** at the top to create a new container.
+CN=exportdata
+RG=centralexportresources
+LOCATION=eastus
 
-[!INCLUDE [iot-central-managed-identity](../../../includes/iot-central-managed-identity.md)]
+az group create -n $RG --location $LOCATION
+SAID=$(az storage account create --name $SA --resource-group $RG --location $LOCATION --sku Standard_LRS --query "id" --output tsv)
+az storage container create --account-name $SA --resource-group $RG --name $CN
 
-To configure the permissions:
+# This assumes your IoT Central application is in the 
+# default `IOTC` resource group.
+az iot central app identity assign --name $CA --resource-group IOTC --system-assigned
+PI=$(az iot central app identity show --name $CA --resource-group IOTC --query "principalId" --output tsv)
 
-1. On the **Add role assignment** page, select the subscription you want to use and **Storage** as the scope. Then select your storage account as the resource.
+az role assignment create --assignee $PI --role "Storage Blob Data Contributor" --scope $SAID
 
-1. Select **Storage Blob Data Contributor** as the **Role**.
+az role assignment list --assignee $PI --all -o table
 
-1. Select **Save**. The managed identity for your IoT Central application is now configured.
+echo "Endpoint URI: https://$SA.blob.core.windows.net/"
+echo "Container: $CN"
+```
 
-    > [!TIP]
-    > This role assignment isn't visible in the list on the **Azure role assignments** page.
+You can learn more about creating new [Azure Blob Storage accounts](../../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Data Lake Storage v2 storage accounts](../../storage/common/storage-account-create.md). Data export can only write data to storage accounts that support block blobs. The following table shows the known compatible storage account types:
+
+|Performance Tier|Account Type|
+|-|-|
+|Standard|General Purpose V2|
+|Standard|General Purpose V1|
+|Standard|Blob storage|
+|Premium|Block Blob storage|
 
 To further secure your blob container and only allow access from trusted services with managed identities, see [Export data to a secure destination on an Azure Virtual Network](howto-connect-secure-vnet.md).
 

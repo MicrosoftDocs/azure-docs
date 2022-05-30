@@ -234,7 +234,7 @@ When you create a key vault, it is automatically tied to the default Azure Activ
 - Use [az sql server ad-admin list](/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) and the [az graph](/cli/azure/graph) extension to see if you are using Azure SQL databases with Azure AD authentication integration enabled. For more information, see [Configure and manage Azure Active Directory authentication with SQL](/azure/azure-sql/database/authentication-aad-configure).
 
     ```azurecli
-    az sql server ad-admin list --ids $(az graph query -q 'resources | where type == "microsoft.sql/servers" | project id' -o tsv | cut -f1)
+    az sql server ad-admin list --ids $(az graph query -q "resources | where type == 'microsoft.sql/servers' | project id" -o tsv | cut -f1)
     ```
 
 ### List ACLs
