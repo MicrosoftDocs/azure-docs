@@ -254,10 +254,9 @@ When link your own storage (BYOS) to workspace, the service stores *saved-search
 * You need to have "write" permissions on your workspace and Storage Account.
 * Make sure to create your Storage Account in the same region as your Log Analytics workspace is located.
 * The *saves searches* in storage is considered as service artifacts and their format may change.
-* Existing *saves searches* are removed from your workspace. Copy and any *saves searches* that you need before the configuration. You can view your *saved-searches* using  [PowerShell](/powershell/module/az.operationalinsights/get-azoperationalinsightssavedsearch).
-* Query history isn't supported and you won't be able to see queries that you ran.
+* Existing *saves searches* are removed from your workspace. Copy any *saves searches* that you need before this configuration. You can view your *saved-searches* using  [PowerShell](/powershell/module/az.operationalinsights/get-azoperationalinsightssavedsearch).
+* Query 'history' and 'pin to dashboard' aren't supported when linking Storage Account for queries.
 * You can link a single Storage Account to a workspace, which can be used for both *saved-searches* and *log alerts* queries.
-* Pin to dashboard isn't supported.
 * Fired log alerts will not contains search results or alert query. You can use [alert dimensions](../alerts/alerts-unified-log.md#split-by-alert-dimensions) to get context in the fired alerts.
 
 **Configure BYOS for saved-searches queries**
@@ -472,4 +471,4 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
 ## Next steps
 
 - Learn about [Log Analytics dedicated cluster billing](cost-logs.md#dedicated-clusters)
-- Learn about [proper design of Log Analytics workspaces](./design-logs-deployment.md)
+- Learn about [proper design of Log Analytics workspaces](./workspace-design.md)

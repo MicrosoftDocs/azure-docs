@@ -5,7 +5,7 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: charles.weininger
 ms.topic: conceptual
-ms.date: 04/26/2022
+ms.date: 05/26/2022
 ms.reviewer: mbullwin
 ---
 
@@ -30,7 +30,7 @@ Profiler works with .NET applications deployed on the following Azure services. 
 | [Azure Container Instances for Windows](profiler-containers.md) | No | Yes | No |
 | [Azure Container Instances for Linux](profiler-containers.md) | No | Yes | No |
 | Kubernetes | No | Yes | No |
-| Azure Functions | No | No | No |
+| Azure Functions | Yes | Yes | No |
 | Azure Spring Cloud | N/A | No | No |
 | [Azure Service Fabric](profiler-servicefabric.md) | Yes | Yes | No |
 
@@ -165,7 +165,7 @@ For these metrics, you can get a value of greater than 100% by consuming multipl
 
 ## Limitations
 
-The default data retention period is five days. The maximum data ingested per day is 10 GB.
+The default data retention period is five days. 
 
 There are no charges for using the Profiler service. To use it, your web app must be hosted in the basic tier of the Web Apps feature of Azure App Service, at minimum.
 

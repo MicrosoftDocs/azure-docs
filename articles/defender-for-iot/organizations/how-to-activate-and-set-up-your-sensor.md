@@ -265,7 +265,7 @@ System messages provide general information about your sensor that may require y
 
 For more information, see:
 
-- [Threat intelligence research and packages ](how-to-work-with-threat-intelligence-packages.md)
+- [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md)
 
 - [Onboard a sensor](tutorial-onboarding.md#onboard-and-activate-the-virtual-sensor)
 

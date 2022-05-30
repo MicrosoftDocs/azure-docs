@@ -3,7 +3,7 @@ title: Azure Virtual Desktop required URL list - Azure
 description: A list of URLs you must unblock to ensure your Azure Virtual Desktop deployment works as intended.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 02/11/2022
+ms.date: 05/26/2022
 ms.author: helohr
 manager: femila
 ---
@@ -66,6 +66,7 @@ To use the Required URL Check tool:
 You'll need to make sure that the Azure virtual machines you create for Azure Virtual Desktop have access to the URLs in one of the following sections based on which cloud you're using.
 
 ### Azure public cloud
+
 The Azure virtual machines you create for Azure Virtual Desktop must have access to the following URLs in the Azure public cloud:
 
 |Address|Outbound TCP port|Purpose|Service Tag|
@@ -78,6 +79,8 @@ The Azure virtual machines you create for Azure Virtual Desktop must have access
 |wvdportalstorageblob.blob.core.windows.net|443|Azure portal support|AzureCloud|
 | 169.254.169.254 | 80 | [Azure Instance Metadata service endpoint](../virtual-machines/windows/instance-metadata-service.md) | N/A |
 | 168.63.129.16 | 80 | [Session host health monitoring](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | N/A |
+| oneocsp.microsoft.com | 443 | Certificates | N/A |
+| microsoft.com | 443 | Certificates | N/A |
 
 A [Service Tag](../virtual-network/service-tags-overview.md) represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to network security rules. Service Tags can be used in both Network Security Group ([NSG](../virtual-network/network-security-groups-overview.md)) and [Azure Firewall](../firewall/service-tags.md) rules to restrict outbound network access. Service Tags can be also used in User Defined Route ([UDR](../virtual-network/virtual-networks-udr-overview.md#user-defined)) to customize traffic routing behavior. 
 
@@ -87,16 +90,16 @@ A [Service Tag](../virtual-network/service-tags-overview.md) represents a group 
 >We recommend you use FQDN tags or service tags instead of URLs to prevent service issues. The listed URLs and tags only correspond to Azure Virtual Desktop sites and resources. They don't include URLs for other services like Azure Active Directory.
 
 > [!IMPORTANT]
-> The following entries have been deprecated and replaced by ***.prod.warm.ingest.monitor.core.windows.net** in the table above. Please update any existing entries.
+> We are currently transitioning the URLs we use for Agent traffic. We still support the URLs below, however we encourage you to switch to ***.prod.warm.ingest.monitor.core.windows.net** as soon as possible.
 > 
 > |Address|Outbound TCP port|Purpose|Service Tag|
 > |---|---|---|---|
-> |gcs.prod.monitoring.core.windows.net|443|Agent traffic (deprecated)|AzureCloud|
-> |production.diagnostics.monitoring.core.windows.net|443|Agent traffic (deprecated)|AzureCloud|
-> |*xt.blob.core.windows.net|443|Agent traffic (deprecated)|AzureCloud|
-> |*eh.servicebus.windows.net|443|Agent traffic (deprecated)|AzureCloud|
-> |*xt.table.core.windows.net|443|Agent traffic (deprecated)|AzureCloud|
-> |*xt.queue.core.windows.net|443|Agent traffic (deprecated)|AzureCloud|
+> |gcs.prod.monitoring.core.windows.net|443|Agent traffic|AzureCloud|
+> |production.diagnostics.monitoring.core.windows.net|443|Agent traffic|AzureCloud|
+> |*xt.blob.core.windows.net|443|Agent traffic|AzureCloud|
+> |*eh.servicebus.windows.net|443|Agent traffic|AzureCloud|
+> |*xt.table.core.windows.net|443|Agent traffic|AzureCloud|
+> |*xt.queue.core.windows.net|443|Agent traffic|AzureCloud|
 
 ### Azure Government cloud
 
@@ -111,18 +114,19 @@ The Azure virtual machines you create for Azure Virtual Desktop must have access
 |wvdportalstorageblob.blob.core.usgovcloudapi.net|443|Azure portal support|AzureCloud|
 | 169.254.169.254 | 80 | [Azure Instance Metadata service endpoint](../virtual-machines/windows/instance-metadata-service.md) | N/A |
 | 168.63.129.16 | 80 | [Session host health monitoring](../virtual-network/network-security-groups-overview.md#azure-platform-considerations) | N/A |
+| ocsp.msocsp.com | 443 | Certificates | N/A |
 
 > [!IMPORTANT]
-> The following entries have been deprecated and replaced by ***.prod.warm.ingest.monitor.core.usgovcloudapi.net** in the table above. Please update any existing entries.
+> We are currently transitioning the URLs we use for Agent traffic. We still support the URLs below, however we encourage you to switch to ***.prod.warm.ingest.monitor.core.usgovcloudapi.net** as soon as possible.
 > 
 > |Address|Outbound TCP port|Purpose|Service Tag|
 > |---|---|---|---|
-> |gcs.monitoring.core.usgovcloudapi.net|443|Agent traffic (deprecated)|AzureCloud|
-> |monitoring.core.usgovcloudapi.net|443|Agent traffic (deprecated)|AzureCloud|
-> |fairfax.warmpath.usgovcloudapi.net|443|Agent traffic (deprecated)|AzureCloud|
-> |*xt.blob.core.usgovcloudapi.net|443|Agent traffic (deprecated)|AzureCloud|
-> |*.servicebus.usgovcloudapi.net|443|Agent traffic (deprecated)|AzureCloud|
-> |*xt.table.core.usgovcloudapi.net|443|Agent traffic (deprecated)|AzureCloud|
+> |gcs.monitoring.core.usgovcloudapi.net|443|Agent traffic|AzureCloud|
+> |monitoring.core.usgovcloudapi.net|443|Agent traffic|AzureCloud|
+> |fairfax.warmpath.usgovcloudapi.net|443|Agent traffic|AzureCloud|
+> |*xt.blob.core.usgovcloudapi.net|443|Agent traffic|AzureCloud|
+> |*.servicebus.usgovcloudapi.net|443|Agent traffic|AzureCloud|
+> |*xt.table.core.usgovcloudapi.net|443|Agent traffic|AzureCloud|
 
 The following table lists optional URLs that your Azure virtual machines can have access to:
 

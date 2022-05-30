@@ -223,6 +223,9 @@ Create a new variable group 'SDAF-MGMT' for the control plane environment using 
 | ARM_TENANT_ID         | Enter the Tenant id for the service principal.  |                                                          |
 | AZURE_CONNECTION_NAME | Previously created connection name              |                                                          |
 | sap_fqdn              | SAP Fully Qualified Domain Name, for example sap.contoso.net | Only needed if Private DNS isn't used.                                           |
+| FENCING_SPN_ID        | Enter the service principal application id for the fencing agent.     | Required for highly available deployments                                                         |
+| FENCING_SPN_PWD       | Enter the service principal password for the fencing agent.     | Required for highly available deployments                                                         |
+| FENCING_SPN_TENANT    | Enter the service principal tenant id for the fencing agent.     | Required for highly available deployments                                                         |
 
 Save the variables.
 

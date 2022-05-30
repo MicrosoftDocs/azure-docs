@@ -11,7 +11,7 @@ ms.reviewer: larryfr
 ms.date: 10/21/2021
 ms.topic: how-to
 ms.devlang: csharp, golang, java, python
-ms.custom: "devx-track-python, devx-track-csharp, cliv1"
+ms.custom: devx-track-python, devx-track-csharp, cliv1, sdkv1, event-tier1-build-2022
 #Customer intent: As a developer, I need to understand how to create a client application that consumes the web service of a deployed ML model.
 ---
 
@@ -46,6 +46,8 @@ The [azureml.core.Webservice](/python/api/azureml-core/azureml.core.webservice%2
 There are a several ways to retrieve this information for deployed web services:
 
 # [Python](#tab/python)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 * When you deploy a model, a `Webservice` object is returned with information about the service:
 
@@ -156,7 +158,7 @@ token, refresh_by = service.get_token()
 print(token)
 ```
 
-If you have the [Azure CLI and the machine learning extension](reference-azure-machine-learning-cli.md), you can use the following command to get a token:
+If you have the [Azure CLI and the machine learning extension](v1/reference-azure-machine-learning-cli.md), you can use the following command to get a token:
 
 [!INCLUDE [cli v1](../../includes/machine-learning-cli-v1.md)]
 
