@@ -19,7 +19,7 @@ Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Term
 
 The Defender for IoT architecture uses on-premises sensors and management servers. This section describes the servicing information and timelines for the available on-premises software versions.
 
-- Each General Availability (GA) version of the Defender for IoT sensor and on-premises management console software is supported for nine months after release. Fixes and new functionality are applied to each new version and are not applied to older versions.
+- Each General Availability (GA) version of the Defender for IoT sensor and on-premises management console software is supported for nine months after release. Fixes and new functionality are applied to each new version and aren't applied to older versions.
 
 - Software update packages include new functionality and security patches. Urgent, high-risk security updates are applied in minor versions that may be released throughout the quarter.
 
