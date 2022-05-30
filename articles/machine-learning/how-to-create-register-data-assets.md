@@ -44,7 +44,7 @@ To create and work with Data assets, you need:
 
 * An [Azure Machine Learning workspace](how-to-manage-workspace.md).
 
-* The [Azure Machine Learning CLI/SDK installed](how-to-configure-cli.md) and MLTable package installed.
+* The [Azure Machine Learning CLI/SDK installed](how-to-configure-cli.md) and MLTable package installed (`pip install mltable`).
 
 ## Supported Paths
 
@@ -59,9 +59,9 @@ When you register a data asset in Azure Machine Learning, you'll need to specify
 > [!NOTE]
 > When you register a local path as a data asset, it will be automatically uploaded to the default Azure Machine Learning datastore in the cloud.
 
-## Register a Folder as a Data Asset
+## Create a Folder Data Asset
 
-Below shows you how to register a *folder* as an asset:
+Below shows you how to create a *folder* as an asset:
 
 # [CLI](#tab/CLI)
 
@@ -75,7 +75,7 @@ description: <description goes here>
 path: <path>
 ```
 
-`path` can be any of the supported path formats outlined above.
+`path` can be any of the [Supported Paths](#supported-paths) outlined above.
 
 Next, create the data asset using the CLI:
 
@@ -111,9 +111,9 @@ ml_client.data.create_or_update(my_data)
 
 ---
 
-## Register a File as a Data Asset
+## Create a File Data Asset
 
-Below shows you how to register a *specific file* as a data asset:
+Below shows you how to create a *specific file* as a data asset:
 
 # [CLI](#tab/CLI)
 
@@ -155,14 +155,28 @@ ml_client.data.create_or_update(my_data)
 
 ---
    
-## Register an `mltable` as a Data Asset
+## Create an `mltable` Data Asset
+
+`mltable` is a way to abstract the schema definition for tabular data to make it easier to share data assets (more details on `mltable` can be found in [Define schema for tabular data with `mltable`](concept-data.md#define-schema-for-tabular-data-with-mltable)). 
+
+In this section, we show you how to create a data asset when the type is an `mltable`.
 
 ### The MLTable file
 
-The MLTable file is a specification that tells the `mltable` engine how to materialize the data into an in-memory object (Pandas/Dask/Spark). 
+The MLTable file is a file that provides the specification of the data's schema so that the `mltable` *engine* can materialize the data into an in-memory object (Pandas/Dask/Spark). An *example* MLTable file is provided below:
 
+```yml
+type: mltable
 
-> [!TIP]
+paths:
+  - pattern: ./*.txt
+transformations:
+  - read_delimited:
+      delimiter: ,
+      encoding: ascii
+      header: all_files_same_headers
+```
+> [!IMPORTANT]
 > We recommend co-locating the MLTable file with the underlying data in storage. For example:
 > 
 > ```Text
@@ -174,24 +188,21 @@ The MLTable file is a specification that tells the `mltable` engine how to mater
 > .
 > │   ├── file_n.txt
 > ```
+> The **MLTable *artifact*** (consisting of the MLTable file *and* underlying data) is *self-contained* and all that is needed is stored in that one folder (`my_data`); regardless of whether that folder is stored on your local drive or in your cloud store or on a public http server. You should **not** specify *absolute paths* in the MLTable file.
 
-Below is an *example* MLTable file that specifies how the engine should process the data into a table:
+In your Python code, you materialize the MLTable artifact into a Pandas dataframe using:
 
-```yml
-# MLTable
-type: mltable
+```python
+import mltable
 
-paths:
-  - pattern: ./*.txt
-transformations:
-  - read_delimited:
-      delimiter: ,
-      encoding: ascii
-      header: all_files_same_headers
+tbl = mltable.load(uri="./my_data")
+df = tbl.to_pandas_dataframe()
 ```
 
+The `uri` parameter in `mltable.load()` should be a valid path to a local or cloud **folder** which contains a valid MLTable file.
+
 > [!NOTE]
-> The MLTable artifact (MLTable file *and* data) is *self-contained* and all that is needed is stored in that one folder; regardless of whether that folder is stored on your local drive or in your cloud store or on a public http server. You should **not** specify *absolute paths* in the MLTable file.
+> You will need the `mltable` library installed in your Environment (`pip install mltable`).
 
 Below shows you how to create an `mltable` data asset. The `path` can be any of the supported path formats outlined above.
 
@@ -202,6 +213,14 @@ Create a `YAML` file (`<file-name>.yml`):
 
 ```yaml
 $schema: https://azuremlschemas.azureedge.net/latest/data.schema.json
+
+# path must point to **folder** containing MLTable artifact (MLTable file + data
+# Supported paths include:
+# local: './<path>'
+# blob:  'https://<account_name>.blob.core.windows.net/<container_name>/<path>'
+# ADLS gen2: 'abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>/'
+# Azure ML datastore: 'azureml://datastores/<data_store_name>/<path>'
+
 type: mltable
 name: <name_of_data>
 description: <description goes here>
@@ -209,7 +228,7 @@ path: <path>
 ```
 
 > [!NOTE]
->  The path points to the *folder* containing the valid MLTable file.
+>  The path points to the **folder** containing the MLTable artifact.
 
 Next, create the data asset using the CLI:
 
@@ -225,12 +244,14 @@ You can create a data asset in Azure Machine Learning using the following Python
 from azure.ai.ml.entities import Data
 from azure.ai.ml.constants import AssetTypes
 
-my_path = '<path>'
+# my_path must point to folder containing MLTable artifact (MLTable file + data
 # Supported paths include:
 # local: './<path>'
 # blob:  'https://<account_name>.blob.core.windows.net/<container_name>/<path>'
 # ADLS gen2: 'abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>/'
 # Azure ML datastore: 'azureml://datastores/<data_store_name>/<path>'
+
+my_path = '<path>'
 
 my_data = Data(
     path=my_path,
@@ -244,7 +265,7 @@ ml_client.data.create_or_update(my_data)
 ```
 
 > [!NOTE]
->  The path points to the *folder* containing the valid MLTable file.
+> The path points to the **folder** containing the MLTable artifact.
 
 ---
 
