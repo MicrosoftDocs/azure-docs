@@ -280,10 +280,8 @@ using var connection = new SqlConnection("Server=<DB Server>; Database=<DB Name>
 {
     AccessToken = accessToken.Token
 };
+var cmd = new SqlCommand("select top 1 ColumnName from TableName", connection);
 await connection.OpenAsync();
-
-SqlCommand cmd = new SqlCommand("select top 1 ColumnName from TableName");
-cmd.Connection = connection;
 SqlDataReader dr = cmd.ExecuteReader();
 while(dr.Read())
 {
