@@ -70,9 +70,9 @@ Create a job specification YAML file (`<file-name>.yml`). Specify in the `inputs
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 
 # Possible Paths for Data:
-# Blob: https://<account_name>.blob.core.windows.net/<container_name>/<path>/<file>
-# Datastore: "azureml://datastores/<path>/<file>"
-# Data Asset: "azureml:<my_data>:<version>"
+# Blob: https://<account_name>.blob.core.windows.net/<container_name>/<folder>/<file>
+# Datastore: azureml://datastores/paths/<folder>/<file>
+# Data Asset: azureml:<my_data>:<version>
 
 command: |
   ls ${{inputs.my_data}}
@@ -113,9 +113,9 @@ ml_client = MLClient.from_config()
 # AssetTypes.MLTABLE
 
 # Possible Paths for Data:
-# Blob: https://<account_name>.blob.core.windows.net/<container_name>/<path>/<file>
-# Datastore: "azureml://datastores/<path>/<file>"
-# Data Asset: "azureml:<my_data>:<version>"
+# Blob: https://<account_name>.blob.core.windows.net/<container_name>/<folder>/<file>
+# Datastore: azureml://datastores/paths/<folder>/<file>
+# Data Asset: azureml:<my_data>:<version>
 
 my_job_inputs = {
     "input_data": Input(type=AssetTypes.URI_FOLDER, path="<path>")
@@ -285,9 +285,9 @@ Create a job specification YAML file (`<file-name>.yml`), with the `outputs` sec
 $schema: https://azuremlschemas.azureedge.net/latest/CommandJob.schema.json
 
 # Possible Paths for Data:
-# Blob: https://<account_name>.blob.core.windows.net/<container_name>/<path>/<file>
-# Datastore: "azureml://datastores/<path>/<file>"
-# Data Asset: "azureml:<my_data>:<version>"
+# Blob: https://<account_name>.blob.core.windows.net/<container_name>/<folder>/<file>
+# Datastore: azureml://datastores/paths/<folder>/<file>
+# Data Asset: azureml:<my_data>:<version>
 
 code: src
 command: >-
@@ -326,9 +326,9 @@ from azure.ai.ml.constants import AssetTypes
 # AssetTypes.MLTABLE
 
 # Possible Paths for Data:
-# Blob: https://<account_name>.blob.core.windows.net/<container_name>/<path>/<file>
-# Datastore: "azureml://datastores/<path>/<file>"
-# Data Asset: "azureml:<my_data>:<version>"
+# Blob: https://<account_name>.blob.core.windows.net/<container_name>/<folder>/<file>
+# Datastore: azureml://datastores/paths/<folder>/<file>
+# Data Asset: azureml:<my_data>:<version>
 
 my_job_inputs = {
     "raw_data": Input(type=AssetTypes.URI_FOLDER, path="<path>")
