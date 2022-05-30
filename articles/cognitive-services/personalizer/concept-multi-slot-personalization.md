@@ -2,8 +2,8 @@
 title: Multi-slot personalization
 description: Learn where and when to use single-slot and multi-slot personalization with the Personalizer Rank and Reward APIs.
 services: cognitive-services
-author: jeffmend
-ms.author: jeffme
+author: jcodella
+ms.author: jacodel
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer

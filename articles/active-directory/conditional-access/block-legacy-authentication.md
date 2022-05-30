@@ -85,7 +85,7 @@ For more information about these authentication protocols and services, see [Sig
 
 Before you can block legacy authentication in your directory, you need to first understand if your users have apps that use legacy authentication and how it affects your overall directory. Azure AD sign-in logs can be used to understand if you're using legacy authentication.
 
-1. Navigate to the **Azure portal** > **Azure Active Directory** > **Sign-ins**.
+1. Navigate to the **Azure portal** > **Azure Active Directory** > **Sign-in logs**.
 1. Add the Client App column if it isn't shown by clicking on **Columns** > **Client App**.
 1. **Add filters** > **Client App** > select all of the legacy authentication protocols. Select outside the filtering dialog box to apply your selections and close the dialog box.
 1. If you've activated the [new sign-in activity reports preview](../reports-monitoring/concept-all-sign-ins.md), repeat the above steps also on the **User sign-ins (non-interactive)** tab.

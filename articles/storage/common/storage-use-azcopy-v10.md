@@ -128,8 +128,6 @@ The following table lists all AzCopy v10 commands. Each command links to a refer
 |[azcopy jobs remove](storage-ref-azcopy-jobs-remove.md?toc=/azure/storage/blobs/toc.json)|Remove all files associated with the given job ID.|
 |[azcopy jobs resume](storage-ref-azcopy-jobs-resume.md?toc=/azure/storage/blobs/toc.json)|Resumes the existing job with the given job ID.|
 |[azcopy jobs show](storage-ref-azcopy-jobs-show.md?toc=/azure/storage/blobs/toc.json)|Shows detailed information for the given job ID.|
-|[azcopy load](storage-ref-azcopy-load.md)|Subcommands related to transferring data in specific formats.|
-|[azcopy load clfs](storage-ref-azcopy-load-avere-cloud-file-system.md?toc=/azure/storage/blobs/toc.json)|Transfers local data into a Container and stores it in Microsoft's Avere Cloud FileSystem (CLFS) format.|
 |[azcopy list](storage-ref-azcopy-list.md?toc=/azure/storage/blobs/toc.json)|Lists the entities in a given resource.|
 |[azcopy login](storage-ref-azcopy-login.md?toc=/azure/storage/blobs/toc.json)|Logs in to Azure Active Directory to access Azure Storage resources.|
 |[azcopy logout](storage-ref-azcopy-logout.md?toc=/azure/storage/blobs/toc.json)|Logs the user out and terminates access to Azure Storage resources.|
