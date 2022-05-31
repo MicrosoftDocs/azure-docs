@@ -4,6 +4,8 @@ description: Learn how to determine which Azure regions have the weekly AKS rele
 services: container-service
 ms.topic: overview
 ms.date: 05/24/2022
+ms.author: nickoman
+author: nickomang
 
 ms.custom: mvc
 ---
