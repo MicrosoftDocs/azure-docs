@@ -4,7 +4,7 @@ description: Use the cache priming feature to populate or preload cache contents
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 05/29/2022
+ms.date: 05/31/2022
 ms.author: v-erinkelly
 ---
 
@@ -180,8 +180,7 @@ The cache accesses the manifest file once when the priming job starts. The SAS U
 
 Use the Azure portal to create a priming job. View your Azure HPC Cache in the portal and select the **Prime cache** page under the **Settings** heading.
 
-![screenshot of the Priming page in the portal, with several completed jobs.](media/prime-overview.png)
-<!-- to do: screenshot with more diverse jobs and statuses -->
+![screenshot of the Priming page in the portal, with several jobs in various states.](media/prime-overview.png)
 
 Click the **Add priming job** text at the top of the table to define a new job.
 
@@ -199,19 +198,17 @@ If you can’t find the manifest file, your cache might not be able to access th
 
 Priming jobs are listed in the **Prime cache** page in the Azure portal.
 
-![screenshot of the priming jobs list in the portal, with jobs in various states (running, paused, and success). The cursor has clicked the ... symbol at the right side of one job's row, and a context menu shows options to pause or resume.](media/prime-cache-list.png)
+This page shows each job's name, its state, its current status, and summary statistics about the priming progress. The summary in the **Details** column updates periodically as the job progresses. The **Job status** field is populated when a priming job starts; this field also gives basic error information like **Invalid manifest** if a problem occurs.
 
-This page shows each job's name, its state, its current status, and summary statistics about the priming progress. The summary in the **Details** column updates periodically as the job progresses. The **Status** field is populated when a priming job starts; this field also gives basic error information like **Invalid manifest** if a problem occurs.
+While a job is running, the **Percentage complete** column shows an estimate of the progress.
 
-Before a priming job starts, it has the state **Queued**. Its **Status** and **Details** fields are empty.
+Before a priming job starts, it has the state **Queued**. Its **Job status**, **Percentage complete**, and **Details** fields are empty.
 
-While a job is running, the column **Percentage complete** shows an estimate of the 
+![screenshot of the priming jobs list in the portal, with jobs in various states (running, paused, and success). The cursor has clicked the ... symbol at the right side of one job's row, and a context menu shows options to pause or resume.](media/prime-cache-context.png)
 
-![Screenshot of populated cache priming job table.](media/prime-percent-complete.png)
+Click the **...** section at the right of the table to pause or resume a priming job. (It might take a few minutes for the status to update.)
 
-Click the **...** section at the right of the table to pause or resume a priming job.
-
-To delete a priming job, select it in the list and use the delete control at the top of the table.
+To delete a priming job, select it in the list and use the **Stop** control at the top of the table. You can use the **Stop** control to delete a job in any state.
 
 ## Azure REST APIs
 
@@ -241,7 +238,7 @@ For the `primingManifestUrl` value, pass the file’s SAS URL or other HTTPS URL
 
 ### Stop a priming job
 
-The `stopPrimingJob` interface cancels a job (if it is running) and removes it from the job list.
+The `stopPrimingJob` interface cancels a job (if it is running) and removes it from the job list. Use this interface to delete a priming job in any state.
 
 ```rest
 
@@ -270,7 +267,37 @@ BODY:
 
 ```
 
-<!-- ***[ ?? should we add pause/resume APIs here too? ??]*** -->
+### Pause a priming job
+
+The `pausePrimingJob` interface suspends a running job.
+
+```rest
+
+URL: POST 
+     https://MY-ARM-HOST/subscriptions/MY-SUBSCRIPTION-ID/resourceGroups/MY-RESOURCE-GROUP-NAME/providers/Microsoft.StorageCache/caches/MY-CACHE-NAME/pausePrimingJob?api-version=2022-05-01
+
+BODY:
+     {
+         "primingJobId": "MY-JOB-ID-TO-PAUSE"
+     }
+
+```
+
+### Resume a priming job
+
+Use the `resumePrimingJob` interface to reactivate a suspended priming job.
+
+```rest
+
+URL: POST 
+     https://MY-ARM-HOST/subscriptions/MY-SUBSCRIPTION-ID/resourceGroups/MY-RESOURCE-GROUP-NAME/providers/Microsoft.StorageCache/caches/MY-CACHE-NAME/resumePrimingJob?api-version=2022-05-01
+
+BODY:
+     {
+         "primingJobId": "MY-JOB-ID-TO-RESUME"
+     }
+
+```
 
 ## Frequently asked questions
 
@@ -282,7 +309,7 @@ BODY:
 
 * How long does a failed or completed priming job stay in the list?
 
-  Priming jobs persist in the list until you delete them. On the portal **Prime cache** page, check the checkbox next to the job and select the **Delete** control at the top of the list.
+  Priming jobs persist in the list until you delete them. On the portal **Prime cache** page, check the checkbox next to the job and select the **Stop** control at the top of the list to delete the job.
 
 * What happens if the content I’m pre-loading is larger than my cache storage?
 
