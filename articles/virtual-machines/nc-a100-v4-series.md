@@ -4,7 +4,7 @@ description: Specifications for the NC A100 v4-series Azure VMs. These VMs inclu
 author: sherrywangms
 ms.author: sherrywang
 ms.service: virtual-machines
-ms.subservice: vm-sizes-gpu
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 03/01/2022
 
