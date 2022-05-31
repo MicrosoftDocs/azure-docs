@@ -40,6 +40,10 @@ items:
           href: storage-quickstart-blobs-java.md
         - name: Java (v8 SDK)
           href: storage-quickstart-blobs-java-legacy.md
+       - name: Spring
+        items:
+        - name: Spring Boot (v4 SDK)
+          href: https://docs.microsoft.com/en-us/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage
       - name: Python
         items:
         - name: Python (v12 SDK)
