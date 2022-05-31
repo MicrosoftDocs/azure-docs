@@ -42,6 +42,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 | Version | Date released | End support date |
 |--|--|--|
 | 22.2.3 | 06/2022 | 3/2023 |
+| 22.1.5 | 06/2022 | 10/2023 |
 | 22.1.4 | 04/2022 | 10/2022 |
 | 22.1.3 | 03/2022 | 10/2022 |
 | 22.1.1 | 02/2022 | 10/2022 |
@@ -88,7 +89,7 @@ For more information, see [Define and view OT sensor settings (Public preview)](
 
 ### Bi-directional alert synch between sensors and the Azure portal (Public preview)
 
-For sensors updated to version 22.2.1, alert statuses and learn statuses are now fully synchronized between the sensor console and the Azure portal. For example, this means that you can close an alert on the Azure portal or the sensor console, and the alert status is updated in both locations.
+For sensors updated to version 22.2.3, alert statuses and learn statuses are now fully synchronized between the sensor console and the Azure portal. For example, this means that you can close an alert on the Azure portal or the sensor console, and the alert status is updated in both locations.
 
 *Learn* an alert from either the Azure portal or the sensor console to ensure that it's not triggered again the next time the same network traffic is detected.
 
