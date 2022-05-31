@@ -12,7 +12,7 @@ ms.custom: references_regions
 > This replaces the previous preview version of [Azure Batch pool without public IP addresses](batch-pool-no-public-ip-address.md). This new version requires [using simplified compute node communication](simplified-compute-node-communication.md).
 
 > [!IMPORTANT]
-> - Support for pools without public IP addresses in Azure Batch is currently in public preview for selected regions.
+> - Support for pools without public IP addresses in Azure Batch is currently in public preview for [selected regions](simplified-compute-node-communication.md#supported-regions).
 > - This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > - For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 

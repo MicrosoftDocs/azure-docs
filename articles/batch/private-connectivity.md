@@ -30,7 +30,7 @@ Batch account resource has two endpoints supported to access with private endpoi
 
 ## Azure portal
 
-Use the following steps to create a private Batch account using the Azure portal:
+Use the following steps to create a private endpoint with your Batch account using the Azure portal:
 
 1. Go to your Batch account in the Azure portal.
 2. In **Settings**, select **Networking** and go to the tab **Private Access**. Then, select **+ Private endpoint**.
@@ -64,7 +64,7 @@ After the private endpoint is provisioned, you can access the Batch account from
 - Private endpoint for **nodeManagement**: Batch pool's compute nodes can connect to and be managed by Batch node management service.
 
 > [!IMPORTANT]
-> If public network access is disabled with Batch account, performing account operations (for example pools, jobs) outside of the virtual network where the private endpoint is provisioned will result in an "AuthorizationFailure" message for Batch account in the Azure Portal.
+> If [public network access](public-network-access.md) is disabled with Batch account, performing account operations (for example pools, jobs) outside of the virtual network where the private endpoint is provisioned will result in an "AuthorizationFailure" message for Batch account in the Azure Portal.
 
 To view the IP addresses for the private endpoint from the Azure portal:
 
