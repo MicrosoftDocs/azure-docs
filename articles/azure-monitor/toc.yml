@@ -653,6 +653,8 @@ items:
     items:
     - name: Create a new alert rule
       href: alerts/alerts-create-new-alert-rule.md
+    - name: View and manage alert instances
+      href: alerts/alerts-managing-alert-instances.md
     - name: Metric alert rules
       items:
       - name: Manage metric alerts
@@ -722,10 +724,6 @@ items:
         href: alerts/alerts-common-schema-integrations.md
       - name: Implement a Logic App action
         href: alerts/action-groups-logic-app.md
-    - name: Alert user interface
-      items:
-      - name: View and manage alert instances
-        href: alerts/alerts-managing-alert-instances.md
     - name: Troubleshoot alerts
       href: alerts/alerts-troubleshoot.md
     - name: Alerts and region moves
