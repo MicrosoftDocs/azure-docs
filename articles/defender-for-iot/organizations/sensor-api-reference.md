@@ -171,6 +171,7 @@ curl -k -d '{"username": "<USER_NAME>","password": "<CURRENT_PASSWORD>","new_pas
 ```rest
 curl -k -d '{"username": "myUser","password": "1234@abcd","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/api/external/authentication/set_password
 ```
+
 ---
 
 ## set_password_by_admin (Update a user password by admin)
@@ -260,6 +261,7 @@ curl -k -d '{"admin_username":"<ADMIN_USERNAME>","admin_password":"<ADMIN_PASSWO
 ```rest
 curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/api/external/authentication/set_password_by_admin
 ```
+
 ---
 
 ## connections (Retrieve device connection information)
@@ -592,15 +594,11 @@ Use this API to request a list of all the alerts that the Defender for IoT senso
 |**toTime**     |  Get alerts created only before at a given time, in milliseconds and UTC format.        | `/api/v1/alerts?toTime=<epoch>`        |
 |**type**     |  Get alerts of a specific type only. Supported values: <br>- `unexpected new devices` <br>- `disconnections`       |  `/api/v1/alerts?type=disconnections`       |
 
-# [Response](#tab/-alerts-response)
+# [Response](#tab/alerts-response)
 
 **Type**: JSON
 
-#### Response content
-
-Array of JSON objects that represent alerts.
-
-#### Alert fields
+**Alert fields**:
 
 | Name | Type | Nullable | List of values |
 |--|--|--|--|
@@ -617,92 +615,103 @@ Array of JSON objects that represent alerts.
 | **remediationSteps** | String | Yes | Remediation steps described in alert |
 | **additionalInformation** | Additional information object | Yes | - |
 
-Note that /api/v2/ is needed for the following information:
+> [!NOTE]
+> The **/api/v2/** is required to return values for `sourceDeviceAddress`, `destinationDeviceAddress`, and `remediationSteps`.
 
-- sourceDeviceAddress
-- destinationDeviceAddress
-- remediationSteps
-
-#### Additional information fields
+**Additional information fields**:
 
 | Name | Type | Nullable | List of values |
 |--|--|--|--|
 | **description** | String | No | - |
 | **information** | JSON array | No | String |
 
-#### Response example
+**Response example**
 
 ```rest
 [
 
     {
-    
+
         "engine": "Policy Violation",
-        
+
         "severity": "Major",
-        
+
         "title": "Internet Access Detected",
-        
+
         "additionalinformation": {
-        
+
             "information": [
-            
+
                 "170.60.50.201 over port BACnet (47808)"
-            
+
             ],
-            
+
             "description": "External Addresses"
-        
+
         },
-    
+
         "sourceDevice": null,
-        
+
         "destinationDevice": null,
-        
+
         "time": 1509881077000,
-        
+
         "message": "Device 192.168.0.13 tried to access an external IP address which is an address in the Internet and is not allowed by policy. It is recommended to notify the security officer of the incident.",
-        
+
         "id": 1
-    
+
     },
-    
+
     {
-    
+
         "engine": "Protocol Violation",
-        
+
         "severity": "Major",
-        
+
         "title": "Illegal MODBUS Operation (Exception Raised by Master)",
-        
+
         "sourceDevice": 3,
-        
+
         "destinationDevice": 4,
-        
+
         "time": 1505651605000,
-        
+
         "message": "A MODBUS master 192.168.110.131 attempted to initiate an illegal operation.\nThe operation is considered to be illegal since it incorporated function code \#129 which should not be used by a master.\nIt is recommended to notify the security officer of the incident.",
-        
+
         "id": 2,
-        
+
         "additionalInformation": null,
-    
+
     }
 
 ]
 
 ```
+# [Curl command](#tab-alerts-curl)
 
-### Curl command
+**Type**: GET
 
-> [!div class="mx-tdBreakAll"]
-> | Type | APIs | Example |
-> |--|--|--|
-> | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/alerts?state=&fromTime=&toTime=&type='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/api/v1/alerts?state=unhandled&fromTime=1594550986000&toTime=1594550986001&type=disconnections'` |
+**API**:
 
-### Retrieve timeline events - /api/v1/events
+
+
+```rest
+curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/alerts?state=&fromTime=&toTime=&type='
+```
+
+```rest
+curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/api/v1/alerts?state=unhandled&fromTime=1594550986000&toTime=1594550986001&type=disconnections'
+```
+
+---
+
+## events (Retrieve timeline events)
 
 Use this API to request a list of events reported to the event timeline.
+
+**Method**:
+
+**URL**:  `/api/v1/events`
 
 #### Method
 
