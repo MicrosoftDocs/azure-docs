@@ -321,7 +321,7 @@ Keep the Git Bash prompt open. You'll need it later in this quickstart.
 
 ::: zone pivot="programming-language-csharp"
 
-The C# sample code is set up to use X.509 certificates that are stored in a password-protected PKCS12 formatted file (`certificate.pfx`). You'll still need the PEM formatted public key certificate file (`device-cert.pem`) that you just created, to create an individual enrollment entry later in this quickstart.
+The C# sample code is set up to use X.509 certificates that are stored in a password-protected PKCS12 formatted file (`certificate.pfx`). You'll still need the PEM formatted public key certificate file (`device-cert.pem`) that you just created to create an individual enrollment entry later in this quickstart.
 
 1. To generate the PKCS12 formatted file expected by the sample, enter the following command:
 
