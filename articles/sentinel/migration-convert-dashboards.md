@@ -16,25 +16,25 @@ This article describes how to review, plan, and convert your current workbooks t
 
 ## Review dashboards in your current SIEM
 
- Consider the following when designing your migration.
+ Review these considerations when designing your migration.
 
 - **Discover dashboards**. Gather information about your dashboards, including design, parameters, data sources, and other details. Identify the purpose or usage of each dashboard.
 - **Select**. Don’t migrate all dashboards without consideration. Focus on dashboards that are critical and used regularly.
-- **Consider permissions**. Consider who are the target users for workbooks. Microsoft Sentinel uses Azure Workbooks, and [access is controlled](../azure-monitor/visualize/workbooks-access-control.md) using Azure Role Based Access Control (RBAC). To create dashboards outside Azure, for example for business execs without Azure access, using a reporting tool such as PowerBI.
+- **Consider permissions**. Consider who are the target users for workbooks. Microsoft Sentinel uses Azure Workbooks, and [access is controlled](../azure-monitor/visualize/workbooks-access-control.md) using Azure Role Based Access Control (RBAC). To create dashboards outside Azure, for example for business execs without Azure access, using a reporting tool such as Power BI.
 
 ## Prepare for the dashboard conversion
 
 After reviewing your dashboards, do the following to prepare for your dashboard migration:
 
-- Review all of the visualizations in each dashboard. The dashboards in your current SIEM might contain several charts or panels. It is crucial to review the content of your short-listed dashboards to eliminate any unwanted visualizations or data.
+- Review all of the visualizations in each dashboard. The dashboards in your current SIEM might contain several charts or panels. It's crucial to review the content of your short-listed dashboards to eliminate any unwanted visualizations or data.
 - Capture the dashboard design and interactivity.
 - Identify any design elements that are important to your users. For example, the layout of the dashboard, the arrangement of the charts or even the font size or color of the graphs.
-- Capture any interactivity such as drilldown, filtering, and others that you need to carry over to Azure Monitor Workbooks. We will also discuss parameters and user inputs in the next step.
-- Identify required parameters or user inputs. In most cases, you need to define parameters for users to perform search, filtering, or scoping the results (for example, date range, account name and others). Hence, it is crucial to capture the details around parameters. Here are some of the key points to help you with collecting the parameter requirements:
+- Capture any interactivity such as drilldown, filtering, and others that you need to carry over to Azure Monitor Workbooks. We'll also discuss parameters and user inputs in the next step.
+- Identify required parameters or user inputs. In most cases, you need to define parameters for users to perform search, filtering, or scoping the results (for example, date range, account name and others). Hence, it's crucial to capture the details around parameters. Here are some of the key points to help you with collecting the parameter requirements:
     - The type of parameter for users to perform selection or input. For example, date range, text, or others.
     - How the parameters are represented, such as drop-down, text box, or others.
     - The expected value format, for example, time, string, integer, or others.
-    - Additional properties, such as the default value, allow multi-select, conditional visibility, or others.
+    - Other properties, such as the default value, allow multi-select, conditional visibility, or others.
 
 ## Convert dashboards
 
@@ -42,7 +42,7 @@ Perform the following tasks in Azure Workbook and Microsoft Sentinel to convert 
 
 #### 1. Identify data sources
 
-Azure Monitor workbooks are [compatible with a large number of data sources](../azure-monitor/visualize/workbooks-data-sources.md). In most cases, use the Azure Monitor Logs data source and leverage Kusto Query Language (KQL) queries to visualize the underlying logs in your Microsoft Sentinel workspace.
+Azure Monitor workbooks are [compatible with a large number of data sources](../azure-monitor/visualize/workbooks-data-sources.md). In most cases, use the Azure Monitor Logs data source and use Kusto Query Language (KQL) queries to visualize the underlying logs in your Microsoft Sentinel workspace.
 
 #### 2. Construct or review KQL queries
 
@@ -64,9 +64,9 @@ Learn how to optimize KQL queries:
 
 #### 4. Create or update workbook parameters or user inputs
 
-By the time you arrive at this stage, you should have [identified the required parameters](#prepare-for-the-dashboard-conversion). With parameters, you can to collect input from the consumers and reference the input in other parts of the workbook. This input is typically used to scope the result set, to set the correct visualization, and allows you to build interactive reports and experiences.
+By the time you arrive at this stage, you should have [identified the required parameters](#prepare-for-the-dashboard-conversion). With parameters, you can collect input from the consumers and reference the input in other parts of the workbook. This input is typically used to scope the result set, to set the correct visualization, and allows you to build interactive reports and experiences.
 
-Workbooks allow you to control how your parameter controls are presented to consumers, for example, you select whether the controls are presented as a text box vs. drop down, single- vs. multi-select, and use values from text, JSON, KQL, or Azure Resource Graph, and more.
+Workbooks allow you to control how your parameter controls are presented to consumers. For example, you select whether the controls are presented as a text box vs. drop down, or single- vs. multi-select. You can also select which values to use, from text, JSON, KQL, or Azure Resource Graph, and more.
 
 Review the [supported workbook parameters](../azure-monitor/visualize/workbooks-parameters.md). You can reference these parameter values in other parts of workbooks either via bindings or value expansions.
 
@@ -86,7 +86,7 @@ Workbooks provide a rich set of capabilities for visualizing your data. Review t
 
 #### 6.	Preview and save the workbook
 
-Once you have saved your workbook, specify the parameters, if any exist, and validate the results. You can also try the [auto refresh](tutorial-monitor-your-data.md#refresh-your-workbook-data) or the print feature to [save as a PDF](monitor-your-data.md#print-a-workbook-or-save-as-pdf).
+Once you've saved your workbook, specify the parameters, if any exist, and validate the results. You can also try the [auto refresh](tutorial-monitor-your-data.md#refresh-your-workbook-data) or the print feature to [save as a PDF](monitor-your-data.md#print-a-workbook-or-save-as-pdf).
 
 ## Next steps
 

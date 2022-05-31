@@ -158,7 +158,7 @@
     - name: Plan and design your migration
       items:
       - name: Plan your migration
-        href: migration-overview.md      
+        href: migration.md      
       - name: Track migration with a workbook
         href: migration-track.md                
     - name: Migrate from ArcSight      
@@ -196,7 +196,7 @@
     - name: Convert dashboards to workbooks
       href: migration-convert-dashboards.md
     - name: Update SOC processes      
-      href: migration-soc-processes.md
+      href: migration-security-operations-center-processes.md
   - name: Deploy side-by-side
     href: deploy-side-by-side.md
   - name: Understand MITRE ATT&CK coverage

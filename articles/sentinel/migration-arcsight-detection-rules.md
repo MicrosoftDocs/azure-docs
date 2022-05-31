@@ -14,7 +14,7 @@ This article describes how to identify, compare, and migrate your ArcSight detec
 
 ## Identify and migrate rules
 
-Microsoft Sentinel uses machine learning analytics to create high-fidelity and actionable incidents, and some of your existing detections may be redundant in Microsoft Sentinel. Therefore, do not migrate all of your detection and analytics rules blindly. Review these considerations as you identify your existing detection rules.
+Microsoft Sentinel uses machine learning analytics to create high-fidelity and actionable incidents, and some of your existing detections may be redundant in Microsoft Sentinel. Therefore, don't migrate all of your detection and analytics rules blindly. Review these considerations as you identify your existing detection rules.
 
 - Make sure to select use cases that justify rule migration, considering business priority and efficiency.
 - Check that you [understand Microsoft Sentinel rule types](detect-threats-built-in.md#view-built-in-detections). 
@@ -31,7 +31,7 @@ Learn more about [best practices for migrating detection rules](https://techcomm
 
 **To migrate your analytics rules to Microsoft Sentinel**:
 
-1. Verify that your have a testing system in place for each rule you want to migrate.
+1. Verify that you have a testing system in place for each rule you want to migrate.
 
     1. **Prepare a validation process** for your migrated rules, including full test scenarios and scripts.
 
@@ -63,7 +63,7 @@ Learn more about [best practices for migrating detection rules](https://techcomm
 
         1. **Identify the trigger condition and rule action, and then construct and review your KQL query**. When reviewing your query, consider KQL optimization guidance resources.
 
-1. Test the rule with each of your relevant use cases. If it doesn't provided expected results, you may want to review the KQL and test it again.
+1. Test the rule with each of your relevant use cases. If it doesn't provide expected results, you may want to review the KQL and test it again.
 
 1. When you're satisfied, you can consider the rule migrated. Create a playbook for your rule action as needed. For more information, see [Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md).
 
@@ -100,13 +100,13 @@ Use these samples to compare and map rules from ArcSight to Microsoft Sentinel i
 
 ### Filter (AND) example: ArcSight
 
-Here is a sample filter rule with `AND` conditions in ArcSight.
+Here's a sample filter rule with `AND` conditions in ArcSight.
 
 :::image type="content" source="media/migration-arcsight-detection-rules/rule-1-sample.png" alt-text="Diagram illustrating a sample filter rule." lightbox="media/migration-arcsight-detection-rules/rule-1-sample.png":::
 
 ### Filter (AND) example: KQL
 
-Here is the filter rule with `AND` conditions in KQL.  
+Here's the filter rule with `AND` conditions in KQL.  
 
 ```kusto
 SecurityEvent
@@ -118,12 +118,12 @@ Because this rule assumes that the Windows Security Events are collected via Mic
 
 Consider these best practices:
 - To optimize your queries, avoid case-insensitive operators when possible: `=~`.
-- Use `==` if the value is not case-sensitive.
+- Use `==` if the value isn't case-sensitive.
 - Order the filters by starting with the `where` statement, which filters out the most data.
 
 ### Filter (OR) example: ArcSight
 
-Here is a sample filter rule with `OR` conditions in ArcSight.
+Here's a sample filter rule with `OR` conditions in ArcSight.
 
 :::image type="content" source="media/migration-arcsight-detection-rules/rule-2-sample.png" alt-text="Diagram illustrating a sample filter rule (or).":::
 
@@ -150,11 +150,11 @@ While both options are identical in performance, we recommend the first option, 
 
 ### Nested filter example: ArcSight
 
-Here is a sample nested filter rule in ArcSight.
+Here's a sample nested filter rule in ArcSight.
 
 :::image type="content" source="media/migration-arcsight-detection-rules/rule-3-sample-1.png" alt-text="Diagram illustrating a sample nested filter rule.":::
 
-Here is a rule for the `/All Filters/Soc Filters/Exclude Valid Users` filter.
+Here's a rule for the `/All Filters/Soc Filters/Exclude Valid Users` filter.
 
 :::image type="content" source="media/migration-arcsight-detection-rules/rule-3-sample-2.png" alt-text="Diagram illustrating an Exclude Valid Users filter.":::
 
@@ -241,12 +241,12 @@ events
 $left.SubjectUserName == $right.SubjectUserName
 ```
 Considerations:
-- We recommend that you use use a direct filter with a `where` statement (first option) due to its simplicity. For optimized performance, avoid using `join` (fourth option).
-- To optimize your queries, avoid the `=~` and `!~` case-insensitive operators when possible. Use the `==` and `!=` operators if the value is not case-sensitive.
+- We recommend that you use a direct filter with a `where` statement (first option) due to its simplicity. For optimized performance, avoid using `join` (fourth option).
+- To optimize your queries, avoid the `=~` and `!~` case-insensitive operators when possible. Use the `==` and `!=` operators if the value isn't case-sensitive.
 
 ### Active list (lookup) example: ArcSight
 
-Here is an active list (lookup) rule in ArcSight.
+Here's an active list (lookup) rule in ArcSight.
 
 :::image type="content" source="media/migration-arcsight-detection-rules/rule-4-sample.png" alt-text="Diagram illustrating a sample active list rule (lookup).":::
 
@@ -271,7 +271,7 @@ Order the filters by starting with the `where` statement that filters out the mo
 
 ### Correlation (matching) example: ArcSight
 
-Here is a sample ArcSight rule that defines a condition against a set of base events, using the `Matching Event` statement.
+Here's a sample ArcSight rule that defines a condition against a set of base events, using the `Matching Event` statement.
 
 :::image type="content" source="media/migration-arcsight-detection-rules/rule-5-sample.png" alt-text="Diagram illustrating a sample correlation rule (matching).":::
 
@@ -292,11 +292,11 @@ on $left.TargetUserName==$right.TargetUserName
 ```
 Best practices:
 - To optimize your query, ensure that the smaller table is on the left side of the `join` function. 
-- If the left side of the table is relatively small (up to 100K records), add `hint.strategy=broadcast` for better performance.
+- If the left side of the table is relatively small (up to 100 K records), add `hint.strategy=broadcast` for better performance.
 
 ### Correlation (time window) example: ArcSight
 
-Here is a sample ArcSight rule that defines a condition against a set of base events, using the `Matching Event` statement, and uses the `Wait time` filter condition.
+Here's a sample ArcSight rule that defines a condition against a set of base events, using the `Matching Event` statement, and uses the `Wait time` filter condition.
 
 :::image type="content" source="media/migration-arcsight-detection-rules/rule-6-sample.png" alt-text="Diagram illustrating a sample correlation rule (time window).":::
 
@@ -336,13 +336,13 @@ event2_UPN=UserPrincipalName,
  AccountUsedToRemove,event1_Host,event2_Host, 
  event1_UPN,event2_UPN
 ```
-### Aggregation example example: ArcSight
+### Aggregation example: ArcSight
 
-Here is a sample ArcSight rule with aggregation settings: three matches within ten minutes.
+Here's a sample ArcSight rule with aggregation settings: three matches within 10 minutes.
 
 :::image type="content" source="media/migration-arcsight-detection-rules/rule-7-sample.png" alt-text="Diagram illustrating a sample aggregation rule.":::
 
-### Aggregation example example: KQL
+### Aggregation example: KQL
 
 ```kusto
 SecurityEvent

@@ -3,7 +3,7 @@ title: Deploy Microsoft Sentinel side-by-side to an existing SIEM.
 description: Learn how to deploy Microsoft Sentinel side-by-side to an existing SIEM.
 author: limwainstein
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 05/30/2022
 ms.author: lwainstein
 ---
 
@@ -17,7 +17,7 @@ This article describes how to deploy Microsoft Sentinel in a side-by-side config
 
 Use a side-by-side architecture either as a short-term, transitional phase that leads to a completely cloud-hosted SIEM, or as a medium- to long-term operational model, depending on the SIEM needs of your organization.
 
-For example, while the recommended architecture is to use a side-by-side architecture just long enough to complete a migration to Microsoft Sentinel, your organization may want stay with your side-by-side configuration for longer, such as if you aren't ready to move away from your legacy SIEM. Typically, organizations who use a long-term, side-by-side configuration use Microsoft Sentinel to analyze only their cloud data.
+For example, while the recommended architecture is to use a side-by-side architecture just long enough to complete a migration to Microsoft Sentinel, your organization may want to stay with your side-by-side configuration for longer, such as if you aren't ready to move away from your legacy SIEM. Typically, organizations who use a long-term, side-by-side configuration use Microsoft Sentinel to analyze only their cloud data.
 
 Consider the pros and cons for each approach when deciding which one to use.
 
@@ -28,47 +28,15 @@ Consider the pros and cons for each approach when deciding which one to use.
 >
 ### Short-term approach
 
-:::row:::
-   :::column span="":::
-      **Pros**
-
-        - Gives SOC staff time to adapt to new processes as you deploy workloads and analytics.
-
-        - Gains deep correlation across all data sources for hunting scenarios.
-
-        - Eliminates having to do analytics between SIEMs, create forwarding rules, and close investigations in two places.
-
-        - Enables your SOC team to quickly downgrade legacy SIEM solutions, eliminating infrastructure and licensing costs.
-   :::column-end:::
-   :::column span="":::
-      **Cons**
-
-        - Can require a steep learning curve for SOC staff.
-   :::column-end:::
-:::row-end:::
+|**Pros**  |**Cons**  |
+|---------|---------|
+|• Gives SOC staff time to adapt to new processes as you deploy workloads and analytics.<br><br>• Gains deep correlation across all data sources for hunting scenarios.<br><br>• Eliminates having to do analytics between SIEMs, create forwarding rules, and close investigations in two places.<br><br>• Enables your SOC team to quickly downgrade legacy SIEM solutions, eliminating infrastructure and licensing costs.     |• Can require a steep learning curve for SOC staff.         |
 
 ### Medium- to long-term approach
 
-:::row:::
-   :::column span="":::
-      **Pros**
-
-        - Lets you use key Microsoft Sentinel benefits, like AI, ML, and investigation capabilities, without moving completely away from your legacy SIEM.
-
-        - Saves money compared to your legacy SIEM, by analyzing cloud or Microsoft data in Microsoft Sentinel.
-   :::column-end:::
-   :::column span="":::
-      **Cons**
-
-        - Increases complexity by separating analytics across different databases.
-
-        - Splits case management and investigations for multi-environment incidents.
-
-        - Incurs greater staff and infrastructure costs.
-
-        - Requires SOC staff to be knowledgeable about two different SIEM solutions.
-   :::column-end:::
-:::row-end:::
+|**Pros**  |**Cons**  |
+|---------|---------|
+|• Lets you use key Microsoft Sentinel benefits, like AI, ML, and investigation capabilities, without moving completely away from your legacy SIEM.<br><br>• Saves money compared to your legacy SIEM, by analyzing cloud or Microsoft data in Microsoft Sentinel. |• Increases complexity by separating analytics across different databases.<br><br>• Splits case management and investigations for multi-environment incidents.<br><br>• Incurs greater staff and infrastructure costs.<br><br>• Requires SOC staff to be knowledgeable about two different SIEM solutions.         |
 
 ### Send alerts from a legacy SIEM to Microsoft Sentinel (Recommended)
 

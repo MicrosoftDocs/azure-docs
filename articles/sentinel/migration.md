@@ -30,7 +30,7 @@ In this guide, you learn how to migrate your legacy SIEM to Microsoft Sentinel. 
 
 ## What is Microsoft Sentinel?
 
-Microsoft Sentinel is a scalable, cloud-native, security information and event management (SIEM) and security orchestration, automation, and response (SOAR) solution. Microsoft Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for attack detection, threat visibility, proactive hunting, and threat response. Learn more about [Microsoft Sentinel](overview.md).
+Microsoft Sentinel is a scalable, cloud-native, security information and event management (SIEM) and security orchestration, automation, and response (SOAR) solution. Microsoft Sentinel delivers intelligent security analytics and threat intelligence across the enterprise. Microsoft Sentinel provides a single solution for attack detection, threat visibility, proactive hunting, and threat response. Learn more about [Microsoft Sentinel](overview.md).
 
 ## Why migrate from a legacy SIEM?
 
@@ -38,7 +38,7 @@ SOC teams face a set of challenges when managing a legacy SIEM:
 
 - **Slow response to threats**. Legacy SIEMs use correlation rules, which are difficult to maintain and ineffective for identifying emerging threats. In addition, SOC analysts are faced with large amounts of false positives, many alerts from many different security components, and increasingly high volumes of logs. Analyzing this data slows down SOC teams in their efforts to respond to critical threats in the environment.
 - **Scaling challenges**. As data ingestion rates grow, SOC teams are challenged with scaling their SIEM. Instead of focusing on protecting the organization, SOC teams must invest in infrastructure setup and maintenance, and are bound by storage or query limits.  
-- **Manual analysis and response**. SOC teams need highly skilled analysts to manually process large amounts of alerts. Teams become overworked and new analysts are hard to find.
+- **Manual analysis and response**. SOC teams need highly skilled analysts to manually process large amounts of alerts. SOC teams are overworked and new analysts are hard to find.
 - **Complex and inefficient management**. SOC teams typically oversee orchestration and infrastructure, manage connections between the SIEM and various data sources, and perform updates and patches. These tasks are often at the expense of critical triage and analysis.
 
 A cloud-native SIEM addresses these challenges. Microsoft Sentinel collects data automatically and at scale, detects unknown threats, investigates threats with artificial intelligence, and responds to incidents rapidly with built-in automation.
@@ -49,9 +49,9 @@ During the planning phase, you identify your existing SIEM components, your exis
 
 This diagram describes the high-level phases that a typical migration includes. Each phase includes clear goals, key activities, and specified outcomes and deliverables. 
 
-The phases in this diagram are a guideline for how to complete a typical migration procedure. An actual migration may not include some phases or may include additional phases. Rather than reviewing the full set of phases, [the articles in this guide](#migration-steps) review specific tasks and steps that are especially important to a Microsoft Sentinel migration.
+The phases in this diagram are a guideline for how to complete a typical migration procedure. An actual migration may not include some phases or may include more phases. Rather than reviewing the full set of phases, [the articles in this guide](#migration-steps) review specific tasks and steps that are especially important to a Microsoft Sentinel migration.
 
-:::image type="content" source="media/migration-overview/migration-phases.png" alt-text="Diagram of the Microsoft Sentinel migration phases." lightbox="media/migration-overview/migration-phases.png":::
+:::image type="content" source="media/migration-overview/migration-phases.png" alt-text="Diagram of the Microsoft Sentinel migration phases." lightbox="media/migration-overview/migration-phases.png" border="false":::
 
 ### Considerations
 
@@ -60,9 +60,9 @@ Review these key considerations for each phase.
 |Phase  |Consideration  |
 |---------|---------|
 |Discover     |[Identify use cases](#identify-use-cases) and [migration priorities](#identify-your-migration-priorities) as part of this phase.        |
-|Design     |Define a detailed design and architecture for your Microsoft Sentinel implementation. You will use this information to get approval from the relevant stakeholders before you start the implementation phase.         |
+|Design     |Define a detailed design and architecture for your Microsoft Sentinel implementation. You'll use this information to get approval from the relevant stakeholders before you start the implementation phase.         |
 |Implement     |As you implement Microsoft Sentinel components according to the design phase, and before you convert your entire infrastructure, consider whether you can use Microsoft Sentinel out-of-the-box content instead of migrating all components. You can begin using Microsoft Sentinel gradually, starting with a minimum viable product (MVP) for several use cases. As you add more use cases, you can use this Microsoft Sentinel instance as a user acceptance testing (UAT) environment to validate the use cases.         |
-|Operationalize     |You [migrate your content and SOC processes](migration-soc-processes.md) to ensure that the existing analyst experience is not disrupted.         |
+|Operationalize     |You [migrate your content and SOC processes](migration-soc-processes.md) to ensure that the existing analyst experience isn't disrupted.         |
 
 #### Identify your migration priorities
 
@@ -71,8 +71,8 @@ Use these questions to pin down your migration priorities:
 - Who are your stakeholders in the migration? SIEM migration is likely to touch many areas of your business.
 - What drives your priorities? For example, greatest business risk, compliance requirements, business priorities, and so on.
 - What is your migration scale and timeline? What factors affect your dates and deadlines. Are you migrating an entire legacy system?
-- Do you have the skills you need? Are you security staff trained and ready for the migration?
-- Are there any specific blockers in your organization? Are they issues that specifically affect migration planning and scheduling, such as staffing and training requirements, license dates, hard stops, specific business needs, and so on?
+- Do you have the skills you need? Are your security staff trained and ready for the migration?
+- Are there any specific blockers in your organization? Do any issues affect migration planning and scheduling? For example, issues such as staffing and training requirements, license dates, hard stops, specific business needs, and so on.
 
 Before you begin migration, identify key use cases, detection rules, data, and automation in your current SIEM. Approach your migration as a gradual process. Be intentional and thoughtful about what you migrate first, what you deprioritize, and what doesn’t actually need to be migrated. Your team might have an overwhelming number of detections and use cases running in your current SIEM. Before beginning migration, decide which ones are actively useful to your business.
 
@@ -85,7 +85,7 @@ When planning the discover phase, use the following guidance to identify your us
 - What use cases are effective? A good starting place is to look at which detections have produced results within the last year (false positive versus positive rate). 
 - What are the business priorities that affect use case migration? What are the biggest risks to your business? What type of issues put your business most at risk?
 - Prioritize by use case characteristics.
-    - Consider setting lower and higher priorities. We recommend to focus on detections that would enforce 90 percent true positive on alert feeds, while use cases that cause a high false positive might be a lower priority for your business.
+    - Consider setting lower and higher priorities. We recommend that you focus on detections that would enforce 90 percent true positive on alert feeds, while use cases that cause a high false positive might be a lower priority for your business.
     - Select use cases that justify rule migration in terms of business priority and efficacy:
         - Review rules that haven’t triggered any alerts in the last 6 to 12 months.
         - Eliminate low-level threats or alerts you routinely ignore.

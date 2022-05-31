@@ -13,14 +13,14 @@ This article describes how to identify, compare, and migrate your Splunk detecti
 
 ## Identify and migrate rules
 
-Microsoft Sentinel uses machine learning analytics to create high-fidelity and actionable incidents, and some of your existing detections may be redundant in Microsoft Sentinel. Therefore, do not migrate all of your detection and analytics rules blindly. Review these considerations as you identify your existing detection rules.
+Microsoft Sentinel uses machine learning analytics to create high-fidelity and actionable incidents, and some of your existing detections may be redundant in Microsoft Sentinel. Therefore, don't migrate all of your detection and analytics rules blindly. Review these considerations as you identify your existing detection rules.
 
 - Make sure to select use cases that justify rule migration, considering business priority and efficiency.
 - Check that you [understand Microsoft Sentinel rule types](detect-threats-built-in.md#view-built-in-detections). 
 - Check that you understand the [rule terminology](#compare-rule-terminology).
 - Review any rules that haven't triggered any alerts in the past 6-12 months, and determine whether they're still relevant.
 - Eliminate low-level threats or alerts that you routinely ignore.
-- Leverage existing functionality, and check whether Microsoft Sentinel’s [built-in analytics rules](https://github.com/Azure/Azure-Sentinel/tree/master/Detections) might address your current use cases. Because Microsoft Sentinel uses machine learning analytics to produce high-fidelity and actionable incidents, it’s likely that some of your existing detections won’t be required anymore.
+- Use existing functionality, and check whether Microsoft Sentinel’s [built-in analytics rules](https://github.com/Azure/Azure-Sentinel/tree/master/Detections) might address your current use cases. Because Microsoft Sentinel uses machine learning analytics to produce high-fidelity and actionable incidents, it’s likely that some of your existing detections won’t be required anymore.
 - Confirm connected data sources and review your data connection methods. Revisit data collection conversations to ensure data depth and breadth across the use cases you plan to detect.
 - Explore community resources such as the [SOC Prime Threat Detection Marketplace](https://my.socprime.com/tdm/) to check whether  your rules are available.
 - Consider whether an online query converter such as Uncoder.io might work for your rules. 
@@ -30,7 +30,7 @@ Learn more about [best practices for migrating detection rules](https://techcomm
 
 **To migrate your analytics rules to Microsoft Sentinel**:
 
-1. Verify that your have a testing system in place for each rule you want to migrate.
+1. Verify that you have a testing system in place for each rule you want to migrate.
 
     1. **Prepare a validation process** for your migrated rules, including full test scenarios and scripts.
 
@@ -62,7 +62,7 @@ Learn more about [best practices for migrating detection rules](https://techcomm
 
         1. **Identify the trigger condition and rule action, and then construct and review your KQL query**. When reviewing your query, consider KQL optimization guidance resources.
 
-1. Test the rule with each of your relevant use cases. If it doesn't provided expected results, you may want to review the KQL and test it again.
+1. Test the rule with each of your relevant use cases. If it doesn't provide expected results, you may want to review the KQL and test it again.
 
 1. When you're satisfied, you can consider the rule migrated. Create a playbook for your rule action as needed. For more information, see [Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md).
 
@@ -173,7 +173,7 @@ Timestamp, 1h, 5m, ID != prev(ID))
 ```
 #### eventstats command: KQL example
 
-Here is an example with the `join` statement:
+Here's an example with the `join` statement:
 
 ```kusto
 let binSize = 1h;
@@ -187,7 +187,7 @@ detail
 | join kind=leftouter (summary) on tbin 
 | project-away tbin1
 ```
-Here is an example with the `make_list` statement:
+Here's an example with the `make_list` statement:
 
 ```kusto
 let binSize = 1m;
@@ -228,7 +228,7 @@ series_decompose_anomalies(Trend)
 |`case(X,"Y",…)`     |Takes pairs of `X` and `Y` arguments, where the `X` arguments are boolean expressions. When evaluated to `TRUE`, the arguments return the corresponding `Y` argument.         |[SPL example](#casexy-spl-example)     |[case](/azure/data-explorer/kusto/query/casefunction)         |[KQL example](#casexy-kql-example) |
 |`ceil(X)`	     |Ceiling of a number X.         |`ceil(1.9)`         |[ceiling()](/azure/data-explorer/kusto/query/ceilingfunction)         |`ceiling(1.9)` |
 |`cidrmatch("X",Y)`     |Identifies IP addresses that belong to a particular subnet.         |`cidrmatch`<br>`("123.132.32.0/25",ip)`         |• [ipv4_is_match()](/azure/data-explorer/kusto/query/ipv4-is-matchfunction)<br>• [ipv6_is_match()](/azure/data-explorer/kusto/query/ipv6-is-matchfunction)         |`ipv4_is_match('192.168.1.1', '192.168.1.255')`<br>`== false` |
-|`coalesce(X,…)`	     |Returns the first value that is not null.        |`coalesce(null(), "Returned val", null())`	         |[coalesce()](/azure/data-explorer/kusto/query/coalescefunction)         |`coalesce(tolong("not a number"),`<br> `tolong("42"), 33) == 42` |
+|`coalesce(X,…)`	     |Returns the first value that isn't null.        |`coalesce(null(), "Returned val", null())`	         |[coalesce()](/azure/data-explorer/kusto/query/coalescefunction)         |`coalesce(tolong("not a number"),`<br> `tolong("42"), 33) == 42` |
 |`cos(X)` |Calculates the cosine of X. |`n=cos(0)` |[cos()](/azure/data-explorer/kusto/query/cosfunction) |`cos(X)` |
 |`exact(X)`	     |Evaluates an expression X using double precision floating point arithmetic.         |`exact(3.14*num)`         |[todecimal()](/azure/data-explorer/kusto/query/todecimalfunction)         |`todecimal(3.14*2)` |
 |`exp(X)`    |Returns eX.         |`exp(3)`         |[exp()](/azure/data-explorer/kusto/query/exp-function)         |`exp(3)` |
@@ -251,19 +251,19 @@ series_decompose_anomalies(Trend)
 |`mvindex(X,Y,Z)`     |Returns a subset of the multi-valued `X` argument from a start position (zero-based) `Y` to `Z` (optional).	         |`mvindex( multifield, 2)`	         |[array_slice](/azure/data-explorer/kusto/query/arrayslicefunction)         |`array_slice(arr, 1, 2)` |
 |`mvjoin(X,Y)`     |Given a multi-valued field `X` and string delimiter `Y`, and joins the individual values of `X` using `Y`.		         |`mvjoin(address, ";")`         |[strcat_array](/azure/data-explorer/kusto/query/strcat-arrayfunction)         |[KQL example](#mvjoinxy-kql-example) |
 |`now()`     |Returns the current time, represented in Unix time.         |`now()`         |[now()](/azure/data-explorer/kusto/query/nowfunction)         |`now()`<br><br>`now(-2d)` |
-|`null()`     |Does not accept arguments and returns `NULL`.	         |`null()`         |[null](/azure/data-explorer/kusto/query/scalar-data-types/null-values?pivots=azuredataexplorer)         |`null`
+|`null()`     |Doesn't accept arguments and returns `NULL`.	         |`null()`         |[null](/azure/data-explorer/kusto/query/scalar-data-types/null-values?pivots=azuredataexplorer)         |`null`
 |`nullif(X,Y)`	     |Includes two arguments, `X` and `Y`, and returns `X` if the arguments are different. Otherwise, returns `NULL`. |`nullif(fieldA, fieldB)`         |[iif](/azure/data-explorer/kusto/query/iiffunction)         |`iif(fieldA==fieldB, null, fieldA)` |
 |`random()`     |Returns a pseudo-random number between `0` to `2147483647`.         |`random()`         |[rand()](/azure/data-explorer/kusto/query/randfunction)         |`rand()` |
-|`relative_ time(X,Y)`    |Given an epoch time time `X` and relative time specifier `Y`, returns the epoch time value of `Y` applied to `X`.	         |`relative_time(now(),"-1d@d")`	         |[unix time](/azure/data-explorer/kusto/query/datetime-timespan-arithmetic#example-unix-time)         |[KQL example](#relative-timexy-kql-example) |
+|`relative_ time(X,Y)`    |Given an epoch time `X` and relative time specifier `Y`, returns the epoch time value of `Y` applied to `X`.	         |`relative_time(now(),"-1d@d")`	         |[unix time](/azure/data-explorer/kusto/query/datetime-timespan-arithmetic#example-unix-time)         |[KQL example](#relative-timexy-kql-example) |
 |`replace(X,Y,Z)` |Returns a string formed by substituting string `Z` for every occurrence of regular expression string `Y` in string `X`. |Returns date with the month and day numbers switched.<br>For example, for the `4/30/2015` input, the output is `30/4/2009`:<br><br>`replace(date, "^(\d{1,2})/ (\d{1,2})/", "\2/\1/")`	|[replace()](/azure/data-explorer/kusto/query/replacefunction)	|[KQL example](#replacexyz-kql-example) |
-|`round(X,Y)` |Returns `X` rounded to the amount of decimal places specified by `Y`. The default is to round to an integer. |`round(3.5)` |[round](/azure/data-explorer/kusto/query/roundfunction) |`round(3.5)` |
-|`rtrim(X,Y)` |Returns `X` with the characters of `Y` trimmed from the right side. If `Y` is not specified, spaces and tabs are trimmed. |`rtrim(" ZZZZabcZZ ", " Z")` |[trim_end()](/azure/data-explorer/kusto/query/trimendfunction) |`trim_end(@"[ Z]+",A)` |
+|`round(X,Y)` |Returns `X` rounded to the number of decimal places specified by `Y`. The default is to round to an integer. |`round(3.5)` |[round](/azure/data-explorer/kusto/query/roundfunction) |`round(3.5)` |
+|`rtrim(X,Y)` |Returns `X` with the characters of `Y` trimmed from the right side. If `Y` isn't specified, spaces and tabs are trimmed. |`rtrim(" ZZZZabcZZ ", " Z")` |[trim_end()](/azure/data-explorer/kusto/query/trimendfunction) |`trim_end(@"[ Z]+",A)` |
 |`searchmatch(X)` |Returns `TRUE` if the event matches the search string `X`. |`searchmatch("foo AND bar")` |[iif()](/azure/data-explorer/kusto/query/iiffunction) |`iif(field has "X","Yes","No")` |
 | `split(X,"Y")` |Returns `X` as a multi-valued field, split by delimiter `Y`. |`split(address, ";")` |[split()](/azure/data-explorer/kusto/query/splitfunction) |`split(address, ";")` |
 |`sqrt(X)` |Returns the square root of `X`. |`sqrt(9)` |[sqrt()](/azure/data-explorer/kusto/query/sqrtfunction) |`sqrt(9)` |
 |`strftime(X,Y)` |Returns the epoch time value `X` rendered using the format specified by `Y`. |`strftime(_time, "%H:%M")` |[format_datetime()](/azure/data-explorer/kusto/query/format-datetimefunction) |`format_datetime(time,'HH:mm')` |
 | `strptime(X,Y)` |Given a time represented by a string `X`, returns value parsed from format `Y`. |`strptime(timeStr, "%H:%M")` |[format_datetime()](/azure/data-explorer/kusto/query/format-datetimefunction) |[KQL example](#strptimexy-kql-example) |
-|`substr(X,Y,Z)` |Returns a substring field `X` from start position (1-based) `Y` for `Z` (optional) characters. |`substr("string", 1, 3)` |[substring()](/azure/data-explorer/kusto/query/substringfunction) |`substring("string", 0, 3)` |
+|`substr(X,Y,Z)` |Returns a substring field `X` from start position (one-based) `Y` for `Z` (optional) characters. |`substr("string", 1, 3)` |[substring()](/azure/data-explorer/kusto/query/substringfunction) |`substring("string", 0, 3)` |
 |`time()` |Returns the wall-clock time with microsecond resolution.	 |`time()` |[format_datetime()](/azure/data-explorer/kusto/query/format-datetimefunction) |[KQL example](#time-kql-example) |
 |`tonumber(X,Y)` |Converts input string `X` to a number, where `Y` (optional, default value is `10`) defines the base of the number to convert to. |`tonumber("0A4",16)` |[toint()](/azure/data-explorer/kusto/query/tointfunction) |`toint("123")` |	
 |`tostring(X,Y)` |[Description](#tostringxy) |[SPL example](#tostringxy-spl-example) |[tostring()](/azure/data-explorer/kusto/query/tostringfunction) |`tostring(123)` |

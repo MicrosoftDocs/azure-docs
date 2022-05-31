@@ -1,6 +1,6 @@
 ---
 title: Track your Microsoft Sentinel migration with a workbook | Microsoft Docs
-description: Learn how to track your migration with a workbook, how to customize and manage the workbook, and how to use the workbook tabs to manage data connectors, analytics, incidents, playbooks, automation rules, UEBA, and data.
+description: Learn how to track your migration with a workbook, how to customize and manage the workbook, and how to use the workbook tabs for useful Microsoft Sentinel actions.
 author: limwainstein
 ms.author: lwainstein
 ms.topic: how-to
@@ -17,9 +17,9 @@ The workbook helps you to:
 - Deploy and monitor analytics rules and incidents
 - Deploy and utilize workbooks
 - Deploy and perform automation
-- Deploy and customize user and entity behavioral analytics (UEBA)
+- Deploy and customize user and entity behavioral analytics (U E B A)
 
-This article describes how to track your migration with the **Microsoft Sentinel Deployment and Migration** workbook, how to customize and manage the workbook, and how to use the workbook tabs to deploy and monitor data connectors, analytics, incidents, playbooks, automation rules, UEBA, and data management. Learn more about how to use [Azure Monitor workbooks](monitor-your-data.md) in Microsoft Sentinel.
+This article describes how to track your migration with the **Microsoft Sentinel Deployment and Migration** workbook, how to customize and manage the workbook, and how to use the workbook tabs to deploy and monitor data connectors, analytics, incidents, playbooks, automation rules, U E B A, and data management. Learn more about how to use [Azure Monitor workbooks](monitor-your-data.md) in Microsoft Sentinel.
 
 ## Deploy the workbook content 
 
@@ -39,14 +39,14 @@ This article describes how to track your migration with the **Microsoft Sentinel
 
 ## Update the watchlist with deployment and migration actions
 
-This step is crucial to the tracking setup process. If you skip this step, the workbook will not reflect the items for tracking.
+This step is crucial to the tracking setup process. If you skip this step, the workbook won't reflect the items for tracking.
 
 To update the watchlist with deployment and migration actions:
 
 1. In the Azure portal, select Microsoft Sentinel and then select **Watchlist**.
 1. Locate the watchlist with the **Deployment** alias. 
 1. Select the watchlist, and then select **Update watchlist > edit watchlist items** on the bottom right. 
-    :::image type="content" source="media/migration-track/migration-track-update-watchlist.png" alt-text="Screenshot of updating watchlist items." lightbox="media/migration-track/migration-track-update-watchlist.png":::
+    :::image type="content" source="media/migration-track/migration-track-update-watchlist.png" alt-text="Screenshot of updating watchlist items with deployment and migration actions." lightbox="media/migration-track/migration-track-update-watchlist.png":::
 1. Provide the information for the actions needed for the deployment and migration, and select **Save**.  
 
 You can now view the watchlist within the migration tracker workbook. Learn how to [manage watchlists](watchlists-manage.md).  
@@ -83,7 +83,7 @@ To monitor deployed resources and deploy new connectors, in the **Microsoft Sent
 To configure a data connector: 
 1. Select the **Configure** view. 
 1. Select the button with the name of the connector you want to configure. 
-1. Configure the connector in the connector status screen that opens. If you cannot find a connector you need, select the connector name to open the connector gallery or solution gallery. 
+1. Configure the connector in the connector status screen that opens. If you can't find a connector you need, select the connector name to open the connector gallery or solution gallery. 
     :::image type="content" source="media/migration-track/migration-track-configure-data-connectors.png" alt-text="Screenshot of the workbook's Configure view.":::
 
 ## Deploy and monitor analytics and incidents
@@ -111,7 +111,7 @@ Here are some useful tasks you can perform in the **Workbooks** tab:
 
     :::image type="content" source="media/migration-track/migration-track-workbook.png" alt-text="Screenshot of selecting a workbook in the Workbook tab." lightbox="media/migration-track/migration-track-workbook.png":::
 
-- If you have not yet deployed workbooks, select **Configure** to view a list of commonly used and recommended workbooks. If a workbook is not listed, select **Go to Workbook Gallery** or **Go to Content Hub** to deploy the relevant workbook. 
+- If you haven't yet deployed workbooks, select **Configure** to view a list of commonly used and recommended workbooks. If a workbook isn't listed, select **Go to Workbook Gallery** or **Go to Content Hub** to deploy the relevant workbook. 
 
     :::image type="content" source="media/migration-track/migration-track-view-workbooks.png" alt-text="Screenshot of viewing a workbook from the Workbook tab.":::
 
@@ -130,26 +130,26 @@ Learn about Microsoft Sentinel SOAR capabilities [for playbooks](automate-respon
 
 :::image type="content" source="media/migration-track/migration-track-automation.png" alt-text="Screenshot of the workbook's Automation tab." lightbox="media/migration-track/migration-track-automation.png":::
 
-## Deploy and monitor UEBA
+## Deploy and monitor U E B A
 
-Because data reporting and detections happen at the entity level, it is essential to monitor entity behavior and trends. To enable the UEBA feature within Microsoft Sentinel, in the **Microsoft Sentinel Deployment and Migration** workbook, select **UEBA**. Here you can customize the entity timelines for entity pages, and view which entity related tables are populated with data. 
+Because data reporting and detections happen at the entity level, it's essential to monitor entity behavior and trends. To enable the U E B A feature within Microsoft Sentinel, in the **Microsoft Sentinel Deployment and Migration** workbook, select **UEBA**. Here you can customize the entity timelines for entity pages, and view which entity related tables are populated with data. 
 
-:::image type="content" source="media/migration-track/migration-track-ueba.png" alt-text="Screenshot of the workbook's UEBA tab.":::
+:::image type="content" source="media/migration-track/migration-track-ueba.png" alt-text="Screenshot of the workbook's U E B A tab."::: 
 
-To enable UEBA: 
+To enable U E B A: 
 1. Select **Enable UEBA** above the list of tables.
-1. To enable UEBA, select **On**.
+1. To enable U E B A, select **On**.
 1. Select the data sources you want to use to generate insights.
 1. Select **Apply**.
 
-After you enable UEBA, you can monitor and ensure that Microsoft Sentinel is generating UEBA data. 
+After you enable U E B A, you can monitor and ensure that Microsoft Sentinel is generating U E B A data. 
 
 To customize the timeline:
 1. Select **Customize Entity Timeline** above the list of tables.
 1. Create a custom item, or select one of the out-of-the-box templates.
 1. To deploy the template and complete the wizard, select **Create**.
 
-Learn more about [UEBA](identify-threats-with-entity-behavior-analytics.md) or learn how to [customize the timeline](customize-entity-activities.md).
+Learn more about [U E B A](identify-threats-with-entity-behavior-analytics.md) or learn how to [customize the timeline](customize-entity-activities.md).
 
 ## Configure and manage the data lifecycle
 
@@ -172,7 +172,7 @@ To modify the existing retention policy for tables:
     - Total number of days the data will live in the environment
 1. Edit the **TotalRetention** value to set a new total number of days that the data should exist within the environment. 
  
-The **ArchiveRetention** value is calculated by subtracting the **TotalRetention** value from the **InteractiveRetention** value. If you need to adjust the workspace retention, the change does not impact tables that include configured archives and data is not lost. If you edit the **InteractiveRetention** value and the **TotalRetention** value does not change, Azure Log Analytics adjusts the archive retention to compensate the change.
+The **ArchiveRetention** value is calculated by subtracting the **TotalRetention** value from the **InteractiveRetention** value. If you need to adjust the workspace retention, the change doesn't impact tables that include configured archives and data isn't lost. If you edit the **InteractiveRetention** value and the **TotalRetention** value doesn't change, Azure Log Analytics adjusts the archive retention to compensate the change.
 
 If you prefer to make changes in the UI, select **Update Retention in UI** to open the relevant blade.
 

@@ -1,5 +1,5 @@
 ---
-title: Export historical data from ArcSight | Microsoft Docs
+title: Microsoft Sentinel migration: Export ArcSight data to target platform  | Microsoft Docs
 description: Learn how to export your historical data from ArcSight.
 author: limwainstein
 ms.author: lwainstein
@@ -11,7 +11,7 @@ ms.date: 05/03/2022
 
 This article describes how to export your historical data from ArcSight. After you complete the steps in this article, you can [select a target platform](migration-ingestion-target-platform.md) to host the exported data, and then [select an ingestion tool](migration-ingestion-tool.md) to migrate the data.
 
-:::image type="content" source="media/migration-export-ingest/export-data.png" alt-text="Diagram illustrating steps involved in export and ingestion.":::
+:::image type="content" source="media/migration-export-ingest/export-data.png" alt-text="Diagram illustrating steps involved in export and ingestion." border="false":::
 
 You can export data from ArcSight in several ways. Your selection of an export method depends on the data volumes and the deployed ArcSight environment. You can export the logs to a local folder on the ArcSight server or to another server accessible by ArcSight. 
 
@@ -35,7 +35,7 @@ To export data using the Event Data Transfer tool:
     ```
 ## lacat utility 
 
-Use the lacat utility to export data from ArcSight Logger. This is a simple utility that exports CEF records from a Logger archive file. lacat prints the records to `stdout` by design, which allows you to redirect the records to a file, or to pipe the file for further manipulation with options such as `grep` or `awk`. 
+Use the lacat utility to export data from ArcSight Logger. lacat exports CEF records from a Logger archive file, and prints the records to `stdout`. You can redirect the records to a file, or pipe the file for further manipulation with options such as `grep` or `awk`. 
 
 To export data with the lacat utility:
 

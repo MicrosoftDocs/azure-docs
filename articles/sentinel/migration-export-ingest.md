@@ -9,7 +9,7 @@ ms.date: 05/03/2022
 
 # Ingest historical data into your target platform
 
-After you [select a target platform](migration-ingestion-target-platform.md) for your historical data and [a tool to transfer your data](migration-ingestion-tool.md), and the historical data is stored in a staging location, you can start to ingest the data into the target platform. 
+In previous articles, you [selected a target platform](migration-ingestion-target-platform.md) for your historical data. You also selected [a tool to transfer your data](migration-ingestion-tool.md) and stored the historical data in a staging location. You can now start to ingest the data into the target platform. 
 
 This article describes how to ingest your historical data into your selected target platform.
 
@@ -19,7 +19,7 @@ In general, SIEMs can export or dump data to a file in your local file system, s
 
 This diagram shows the high-level export and ingestion process.  
 
-:::image type="content" source="media/migration-export-ingest/export-data.png" alt-text="Diagram illustrating steps involved in export and ingestion." lightbox="media/migration-export-ingest/export-data.png":::
+:::image type="content" source="media/migration-export-ingest/export-data.png" alt-text="Diagram illustrating steps involved in export and ingestion." lightbox="media/migration-export-ingest/export-data.png" border="false":::
 
 To export data from your current SIEM, see one of the following sections:
 - [Export data from ArcSight](migration-arcsight-historical-data.md)
@@ -60,7 +60,7 @@ To ingest your historical data into Microsoft Sentinel Basic Logs (option 2 in t
 
 To ingest your historical data into Azure Blob Storage (option 3 in the [diagram above](#export-data-from-the-legacy-siem)): 
 
-1. [Install and configure AzCopy](../storage/common/storage-use-azcopy-v10.md) on the same system where the logs are exported, or install AzCopy on another system that has access to the exported logs.  
+1. [Install and configure AzCopy](../storage/common/storage-use-azcopy-v10.md) on the system to which you exported the logs. Alternatively, install AzCopy on another system that has access to the exported logs.  
 1. [Create an Azure Blob Storage account](../storage/common/storage-account-create.md) and copy the authorized [Azure Active Directory](../storage/common/storage-use-azcopy-v10.md#option-1-use-azure-active-directory) credentials or [Shared Access Signature](../storage/common/storage-use-azcopy-v10.md#option-2-use-a-sas-token) token.   
 1. [Run AzCopy](../storage/common/storage-use-azcopy-v10.md#run-azcopy) with the folder path that includes the exported logs as the source, and the Azure Blob Storage connection string as the output.
 

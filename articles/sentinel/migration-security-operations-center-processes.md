@@ -1,5 +1,5 @@
 ---
-title: Update SOC processes | Microsoft Docs
+title: Microsoft Sentinel migration: Update SOC and analyst processes | Microsoft Docs
 description: Learn how to update your SOC and analyst processes as part of your migration to Microsoft Sentinel.
 author: limwainstein
 ms.author: lwainstein
@@ -9,7 +9,7 @@ ms.date: 05/03/2022
 
 # Update SOC processes
 
-A security operations center (SOC) is a centralized function within an organization that integrates people, processes, and technology. A SOC implements the organization's overall cybersecurity framework, and acts as the central point of collaboration in the organizational efforts to monitor, alert, prevent, detect, analyze, and respond to cybersecurity incidents. SOC teams, usually led by a SOC manager, may include incident responders, SOC analysts at levels 1, 2, and 3, threat hunters, and incident response managers.
+A security operations center (SOC) is a centralized function within an organization that integrates people, processes, and technology. A SOC implements the organization's overall cybersecurity framework. The SOC collaborates the organizational efforts to monitor, alert, prevent, detect, analyze, and respond to cybersecurity incidents. SOC teams, led by a SOC manager, may include incident responders, SOC analysts at levels 1, 2, and 3, threat hunters, and incident response managers.
 
 SOC teams use telemetry from across the organization's IT infrastructure, including networks, devices, applications, behaviors, appliances, and information stores. The teams then co-relate and analyze the data, to determine how to manage the data and which actions to take. 
 
@@ -37,7 +37,7 @@ The next sections map both the terminology and analyst workflow to specific Micr
 
 Use the Microsoft Sentinel **Incidents** page to assign incidents. The **Incidents** page includes an incident preview, and a detailed view for single incidents. 
 
-:::image type="content" source="media/migration-soc-processes/analyst-workflow-incidents.png" alt-text="Screenshot of Incidents page." lightbox="media/migration-soc-processes/analyst-workflow-incidents.png":::
+:::image type="content" source="media/migration-soc-processes/analyst-workflow-incidents.png" alt-text="Screenshot of Microsoft Sentinel Incidents page." lightbox="media/migration-soc-processes/analyst-workflow-incidents.png":::
 
 To assign an incident:
 - **Manually**. Set the **Owner** field to the relevant user name. 
@@ -47,23 +47,23 @@ To assign an incident:
 
 #### Triage
 
-To conduct a triage exercise in Microsoft Sentinel, you can start with a variety of Microsoft Sentinel features, depending on your level of expertise and the nature of the incident under investigation. As a typical starting point, select **View full details** in the **Incident** page. You can now examine the alerts that comprise the incident, review bookmarks, select entities to drill down further into specific entities, or add comments.
+To conduct a triage exercise in Microsoft Sentinel, you can start with various Microsoft Sentinel features, depending on your level of expertise and the nature of the incident under investigation. As a typical starting point, select **View full details** in the **Incident** page. You can now examine the alerts that comprise the incident, review bookmarks, select entities to drill down further into specific entities, or add comments.
 
 :::image type="content" source="media/migration-soc-processes/analyst-workflow-incident-details.png" alt-text="Screenshot of viewing incident details in the Incidents page." lightbox="media/migration-soc-processes/analyst-workflow-incidents.png":::
 
-Here are additional actions to continue your incident review:
+Here are suggested actions to continue your incident review:
 - Select **Investigation** for a visual representation of the relationships between the incidents and the relevant entities. 
-- Leverage a [Jupyter notebook](notebooks.md) to perform an in-depth triage exercise for a particular entity. You can use the **Incident triage** notebook for this exercise.
+- Use a [Jupyter notebook](notebooks.md) to perform an in-depth triage exercise for a particular entity. You can use the **Incident triage** notebook for this exercise.
 
-:::image type="content" source="media/migration-soc-processes/analyst-workflow-incident-triage-notebook.png" alt-text="Screenshot of Incident triage notebook." lightbox="media/migration-soc-processes/analyst-workflow-incident-triage-notebook.png":::
+:::image type="content" source="media/migration-soc-processes/analyst-workflow-incident-triage-notebook.png" alt-text="Screenshot of Incident triage notebook, including detailed steps in TOC." lightbox="media/migration-soc-processes/analyst-workflow-incident-triage-notebook.png":::
 
 ##### Expedite triage
 
 Use these features and capabilities to expedite triage:
 
-- For quick filtering, in the **Incidents** page, [search for incidents](investigate-cases.md#search-for-incidents) associated to a specific entity. This is a much faster method than filtering by the entity column in legacy SIEM incident queues. 
+- For quick filtering, in the **Incidents** page, [search for incidents](investigate-cases.md#search-for-incidents) associated to a specific entity. Filtering by entity in the **Incidents** page is faster than filtering by the entity column in legacy SIEM incident queues. 
 - For faster triage, use the **[Alert details](customize-alert-details.md)** screen to include key incident information in the incident name and description, such as the related user name, IP address, or host. For example, an incident could be dynamically renamed to `Ransomware activity detected in DC01`, where `DC01` is a critical asset, dynamically identified via the customizable alert properties.  
-- For deeper analysis, in the **Incidents page**, select an incident and select **Events** under **Evidence** to view specific events that triggered the incident. The event data is visible as the output of the query associated with the analytics rule, rather than the raw event. This allows the rule migration engineer to ensure that the analyst gets the correct data.
+- For deeper analysis, in the **Incidents page**, select an incident and select **Events** under **Evidence** to view specific events that triggered the incident. The event data is visible as the output of the query associated with the analytics rule, rather than the raw event. The rule migration engineer can use this output to ensure that the analyst gets the correct data.
 - For detailed entity information, in the **Incidents page**, select an incident and select an entity name under **Entities** to view the entity's directory information, timeline, and insights. Learn how to [map entities](map-data-fields-to-entities.md).
 - To link to relevant workbooks, select **Incident preview**. You can customize the workbook to display additional information about the incident, or associated entities and custom fields.
 

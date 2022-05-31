@@ -1,5 +1,5 @@
 ---
-title: Export historical data from QRadar | Microsoft Docs
+title: Microsoft Sentinel migration: Export QRadar data to target platform | Microsoft Docs
 description: Learn how to export your historical data from QRadar.
 author: limwainstein
 ms.author: lwainstein
@@ -12,7 +12,7 @@ ms.custom: ignite-fall-2021
 
 This article describes how to export your historical data from QRadar. After you complete the steps in this article, you can [select a target platform](migration-ingestion-target-platform.md) to host the exported data, and then [select an ingestion tool](migration-ingestion-tool.md) to migrate the data.
 
-:::image type="content" source="media/migration-export-ingest/export-data.png" alt-text="Diagram illustrating steps involved in export and ingestion." lightbox="media/migration-export-ingest/export-data.png":::
+:::image type="content" source="media/migration-export-ingest/export-data.png" alt-text="Diagram illustrating steps involved in export and ingestion." lightbox="media/migration-export-ingest/export-data.png" border="false":::
 
 Follow the steps in these sections to export your historical data using [QRadar forwarding destination](https://www.ibm.com/docs/en/qsip/7.5?topic=administration-forward-data-other-systems).
 

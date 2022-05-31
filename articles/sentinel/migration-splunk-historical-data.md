@@ -1,5 +1,5 @@
 ---
-title: Export historical data from Splunk | Microsoft Docs
+title: Microsoft Sentinel migration: Export ArcSight data to target platform | Microsoft Docs
 description: Learn how to export your historical data from Splunk.
 author: limwainstein
 ms.author: lwainstein
@@ -12,7 +12,7 @@ ms.custom: ignite-fall-2021
 
 This article describes how to export your historical data from Splunk. After you complete the steps in this article, you can [select a target platform](migration-ingestion-target-platform.md) to host the exported data, and then [select an ingestion tool](migration-ingestion-tool.md) to migrate the data.
 
-:::image type="content" source="media/migration-export-ingest/export-data.png" alt-text="Diagram illustrating steps involved in export and ingestion.":::
+:::image type="content" source="media/migration-export-ingest/export-data.png" alt-text="Diagram illustrating steps involved in export and ingestion." border="false":::
 
 You can export data from Splunk in several ways. Your selection of an export method depends on the data volumes involved and your level of interactivity. For example, exporting a single, on-demand search via Splunk Web might be appropriate for a low-volume export. Alternatively, if you want to set up a higher-volume, scheduled export, the SDK and REST options work best. 
 
