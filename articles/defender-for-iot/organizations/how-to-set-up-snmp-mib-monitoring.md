@@ -35,7 +35,7 @@ Note that:
 
 ## Prerequisites for AES and 3-DES Encryption Support for SNMP Version 3
 - The network management station (NMS) must support Simple Network Management Protocol (SNMP) Version 3 to be able to use this feature.
-- It is important to understand the SNMP architecture and the terminology of the architecture to understand the security model used and how the security model interacts with the other subsystems in the architecture.
+- It's important to understand the SNMP architecture and the terminology of the architecture to understand the security model used and how the security model interacts with the other subsystems in the architecture.
 - Before you begin configuring SNMP monitoring, you need to open the port UDP 161 in the firewall.
 
 
