@@ -942,6 +942,8 @@ items:
             href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
 - name: Concepts
   items:
+  - name: Data limits
+    href: concepts/data-limits.md
   - name: Multilingual and emoji support
     href: concepts/multilingual-emoji-support.md
   - name: Migrate from LUIS, QnA Maker, and Text Analytics

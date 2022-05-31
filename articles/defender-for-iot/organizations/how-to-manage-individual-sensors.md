@@ -27,7 +27,7 @@ You can continue to work with Defender for IoT features even if the activation f
 
 ### About activation files for cloud-connected sensors
 
-Sensors that are cloud connected are not limited by time periods for their activation file. The activation file for cloud-connected sensors is used to ensure the connection to Defender for IoT.
+Sensors that are cloud connected aren't limited by time periods for their activation file. The activation file for cloud-connected sensors is used to ensure the connection to Defender for IoT.
 
 ### Upload new activation files
 
@@ -65,9 +65,9 @@ You might need to upload a new activation file for an onboarded sensor when:
 
 ### Troubleshoot activation file upload
 
-You'll receive an error message if the activation file could not be uploaded. The following events might have occurred:
+You'll receive an error message if the activation file couldn't be uploaded. The following events might have occurred:
 
-- **For locally connected sensors**: The activation file is not valid. If the file is not valid, go to [Defender for IoT in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started). On the **Sensor Management** page, select the sensor with the invalid file, and download a new activation file.
+- **For locally connected sensors**: The activation file isn't valid. If the file isn't valid, go to [Defender for IoT in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started). On the **Sensor Management** page, select the sensor with the invalid file, and download a new activation file.
 
 - **For cloud-connected sensors**: The sensor can't connect to the internet. Check the sensor's network configuration. If your sensor needs to connect through a web proxy to access the internet, verify that your proxy server is configured correctly on the **Sensor Network Configuration** screen. Verify that \*.azure-devices.net:443 is allowed in the firewall and/or proxy. If wildcards are not supported or you want more control, the FQDN for your specific endpoint (either a sensor, or for legacy connections, an IoT hub) should be opened in your firewall and/or proxy. For more information, see [Reference - IoT Hub endpoints](../../iot-hub/iot-hub-devguide-endpoints.md).
 
