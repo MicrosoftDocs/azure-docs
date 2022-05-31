@@ -26,10 +26,10 @@ To use 3D Scenes Studio, you'll need the following resources:
 * An Azure Digital Twins instance. For instructions, see [Set up an instance and authentication](how-to-set-up-instance-cli.md).
     * Obtain *Azure Digital Twins Data Owner* or *Azure Digital Twins Data Reader* access to the instance. For instructions, see [Set up user access permissions](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
     * Take note of the *host name* of your instance to use later.
-* An Azure storage account. For instructions, see [Create a storage account](/azure/storage/common/storage-account-create?tabs=azure-portal).
-* A private container in the storage account. For instructions, see [Create a container](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container).
+* An Azure storage account. For instructions, see [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal).
+* A private container in the storage account. For instructions, see [Create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).
     * Take note of the *URL* of your storage container to use later.
-* *Storage Blob Data Owner* or *Storage Blob Data Contributor* access to your storage resources. You can grant required roles at either the storage account level or the container level. For instructions and more information about permissions to Azure storage, see [Assign an Azure role](/azure/storage/blobs/assign-azure-role-data-access?tabs=portal#assign-an-azure-role).
+* *Storage Blob Data Owner* or *Storage Blob Data Contributor* access to your storage resources. You can grant required roles at either the storage account level or the container level. For instructions and more information about permissions to Azure storage, see [Assign an Azure role](../storage/blobs/assign-azure-role-data-access.md?tabs=portal#assign-an-azure-role).
 
 You should also configure [CORS](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) for your storage account, so that 3D Scenes Studio will be able to access your storage container. You can use the following [Azure CLI](/cli/azure/what-is-azure-cli) command to set the minimum required methods, origins, and headers. The command contains one placeholder for the name of your storage account.
 

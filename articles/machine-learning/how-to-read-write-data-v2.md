@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: ssalgadodev
-ms.date: 04/15/2022
+ms.date: 05/26/2022
 ms.custom: devx-track-python, devplatv2, sdkv2, cliv2, event-tier1-build-2022
 #Customer intent: As an experienced Python developer, I need to read in my data to make it available to a remote compute to train my machine learning models.
 ---
@@ -44,8 +44,8 @@ ml_client = MLClient(InteractiveBrowserCredential(), subscription_id, resource_g
 
 ## Read local data in a job
 
-You can use data from your current working directory in a training job with the JobInput class. 
-The JobInput class allows you to define data inputs from a specific file, `uri_file` or a folder location, `uri_folder`. In the JobInput object, you specify the `path` of where your data is located; the path can be a local path or a cloud path. Azure Machine Learning supports `https://`, `abfss://`, `wasbs://` and `azureml://` URIs. 
+You can use data from your current working directory in a training job with the Input class. 
+The Input class allows you to define data inputs from a specific file, `uri_file` or a folder location, `uri_folder`. In the Input object, you specify the `path` of where your data is located; the path can be a local path or a cloud path. Azure Machine Learning supports `https://`, `abfss://`, `wasbs://` and `azureml://` URIs. 
 
 > [!IMPORTANT] 
 > If the path is local, but your compute is defined to be in the cloud, Azure Machine Learning will automatically upload the data to cloud storage for you.
@@ -54,17 +54,18 @@ The JobInput class allows you to define data inputs from a specific file, `uri_f
 # [Python-SDK](#tab/Python-SDK)
 ```python
 
-from azure.ai.ml.entities import Data, UriReference, JobInput, CommandJob
-from azure.ai.ml._constants import AssetTypes
+from azure.ai.ml import Input, command
+from azure.ai.ml.entities import Data
+from azure.ai.ml.constants import AssetTypes
 
 my_job_inputs = {
-    "input_data": JobInput(
+    "input_data": Input(
         path='./sample_data', # change to be your local directory
         type=AssetTypes.URI_FOLDER
     )
 }
 
-job = CommandJob(
+job = command(
     code="./src", # local path where the code is stored
     command='python train.py --input_folder ${{inputs.input_data}}',
     inputs=my_job_inputs,
@@ -114,17 +115,18 @@ The following code shows how to read in uri_folder type data from Azure Data Lak
 
 ```python
 
-from azure.ai.ml.entities import Data, UriReference, JobInput, CommandJob
-from azure.ai.ml._constants import AssetTypes
+from azure.ai.ml import Input, command
+from azure.ai.ml.entities import Data
+from azure.ai.ml.constants import AssetTypes
 
 my_job_inputs = {
-    "input_data": JobInput(
+    "input_data": Input(
         path='abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>', # Blob: 'https://<account_name>.blob.core.windows.net/<container_name>/path'
         type=AssetTypes.URI_FOLDER
     )
 }
 
-job = CommandJob(
+job = command(
     code="./src", # local path where the code is stored
     command='python train.py --input_folder ${{inputs.input_data}}',
     inputs=my_job_inputs,
@@ -164,7 +166,7 @@ compute: azureml:cpu-cluster
 
 You can read and write data from your job into your cloud-based storage. 
 
-The JobInput defaults the mode - how the input will be exposed during job runtime - to InputOutputModes.RO_MOUNT (read-only mount). Put another way, Azure Machine Learning will mount the file or folder to the compute and set the file/folder to read-only. By design, you can't write to JobInputs only JobOutputs. The data is automatically uploaded to cloud storage.
+The Input defaults the mode - how the input will be exposed during job runtime - to InputOutputModes.RO_MOUNT (read-only mount). Put another way, Azure Machine Learning will mount the file or folder to the compute and set the file/folder to read-only. By design, you can't write to JobInputs only JobOutputs. The data is automatically uploaded to cloud storage.
 
 Matrix of possible types and modes for job inputs and outputs:
 
@@ -185,11 +187,12 @@ As you can see from the table, `eval_download` and `eval_mount` are unique to `m
 # [Python-SDK](#tab/Python-SDK)
 
 ```python
-from azure.ai.ml.entities import Data, UriReference, JobInput, CommandJob, JobOutput
-from azure.ai.ml._constants import AssetTypes
+from azure.ai.ml import Input, command
+from azure.ai.ml.entities import Data, JobOutput
+from azure.ai.ml.constants import AssetTypes
 
 my_job_inputs = {
-    "input_data": JobInput(
+    "input_data": Input(
         path='abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>',
         type=AssetTypes.URI_FOLDER
     )
@@ -202,7 +205,7 @@ my_job_outputs = {
     )
 }
 
-job = CommandJob(
+job = command(
     code="./src", #local path where the code is stored
     command='python pre-process.py --input_folder ${{inputs.input_data}} --output_folder ${{outputs.output_folder}}',
     inputs=my_job_inputs,
@@ -255,7 +258,7 @@ The following example demonstrates versioning of sample data, and shows how to r
 ```python
 
 from azure.ai.ml.entities import Data
-from azure.ai.ml._constants import AssetTypes
+from azure.ai.ml.constants import AssetTypes
 
 my_data = Data(
     path="./sample_data/titanic.csv",
@@ -272,7 +275,7 @@ To register data that is in a cloud location, you can specify the path with any 
 
 ```python
 from azure.ai.ml.entities import Data
-from azure.ai.ml._constants import AssetTypes
+from azure.ai.ml.constants import AssetTypes
 
 my_path = 'abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>' # adls gen2
 
@@ -295,19 +298,20 @@ The following example demonstrates how to consume `version` 1 of the registered 
 
 ```python
 
-from azure.ai.ml.entities import Data, UriReference, JobInput, CommandJob
-from azure.ai.ml._constants import AssetTypes
+from azure.ai.ml import Input, command
+from azure.ai.ml.entities import Data
+from azure.ai.ml.constants import AssetTypes
 
 registered_data_asset = ml_client.data.get(name='titanic', version='1')
 
 my_job_inputs = {
-    "input_data": JobInput(
+    "input_data": Input(
         type=AssetTypes.URI_FOLDER,
         path=registered_data_asset.id
     )
 }
 
-job = CommandJob(
+job = command(
     code="./src", 
     command='python read_data_asset.py --input_folder ${{inputs.input_data}}',
     inputs=my_job_inputs,
@@ -331,7 +335,7 @@ The following YAML file demonstrates how to use the output data from one compone
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
 
-:::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/pipelines-with-components/basics/3b_pipeline_with_data/pipeline.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/pipelines-with-components/basics/3b_pipeline_with_data/pipeline.yml":::
 
 ## Python SDK v2 (preview)
 
@@ -341,7 +345,7 @@ The following example defines a pipeline containing three nodes and moves data b
 * `train_node` that trains a CNN model with Keras using the training data, `mnist_train.csv` .
 * `score_node` that scores the model using test data, `mnist_test.csv`.
 
-[!notebook-python[] (~/azureml-examples-sdk-preview/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=build-pipeline)]
+[!notebook-python[] (~/azureml-examples-main/sdk/jobs/pipelines/2e_image_classification_keras_minist_convnet/image_classification_keras_minist_convnet.ipynb?name=build-pipeline)]
 
 ## Next steps
 * [Install and set up Python SDK v2 (preview)](https://aka.ms/sdk-v2-install)
