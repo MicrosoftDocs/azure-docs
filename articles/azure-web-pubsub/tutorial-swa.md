@@ -10,7 +10,7 @@ ms.date: 06/01/2022
 
 # Tutorial: Create a serverless chat app using Azure Web PubSub service and Azure Static Web App service
 
-The Azure Web PubSub service helps you build real-time messaging web applications using WebSockets. And with Azure Static Web App, you can automatically builds and deploys full stack web apps to Azure from a code repository conveniently. In this tutorial, you learn how to use Azure Web PubSub service and Azure Static Web App to build a serverless real-time messaging application under chat room scenario.  
+The Azure Web PubSub service helps you build real-time messaging web applications using WebSockets. And with Azure Static Web App, you can automatically build and deploy full stack web apps to Azure from a code repository conveniently. In this tutorial, you learn how to use Azure Web PubSub service and Azure Static Web App to build a serverless real-time messaging application under chat room scenario.  
 
 In this tutorial, you learn how to:
 
@@ -142,7 +142,7 @@ Before you can navigate to your new static site, the deployment build must first
 
 1. Select the **Actions** tab.
 
-    At this point, Azure is creating the resources to support your static web app. Wait until the icon next to the running workflow turns into a check mark with green background :white_check_mark: . This operation may take a few minutes to complete.
+    At this point, Azure is creating the resources to support your static web app. Wait until the icon next to the running workflow turns into a check mark with green background ✅. This operation may take a few minutes to complete.
 
     Once the success icon appears, the workflow is complete and you can return back to your console window.
 
