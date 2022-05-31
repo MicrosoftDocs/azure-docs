@@ -18,7 +18,7 @@ Azure Lab Services does provide a couple of areas that allow you to use your own
 
 Below is the basic architecture of a lab.  The lab account is hosted in your subscription. The student VMs, along with the resources needed to support the VMs are hosted in a subscription owned by Azure Lab Services. Let’s talk about what is in Azure Lab Service's subscriptions in more detail.
 
-![labs basic architecture](./media/classroom-labs-fundamentals/labservices-basic-architecture.png)
+:::image type="content" source="./media/classroom-labs-fundamentals-1/labservices-basic-architecture.png" alt-text="Architecture diagram of labs using lab accounts in Azure Lab Services.":::
 
 ## Hosted Resources
 
