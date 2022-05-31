@@ -95,7 +95,6 @@ This update, will rename two recommendations, and revise their descriptions. The
  |----|----|----|
  |**First recommendation**| - | - |
  |Assessment key | e52064aa-6853-e252-a11e-dffc675689c2 | No change| 
-
  | Name | [Deprecated accounts with owner permissions should be removed from your subscription](https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e52064aa-6853-e252-a11e-dffc675689c2) |Subscriptions should be purged of accounts that are blocked in Active Directory and have owner permissions.| 
  |Description| User accounts that have been blocked from signing in, should be removed from your subscriptions.|These accounts can be targets for attackers looking to find ways to access your data without being noticed. <br> Learn more about securing the identity perimeter in [Azure Identity Management and access control security best practices](../security/fundamentals/identity-management-best-practices.md).| 
  |Related policy|[Deprecated accounts with owner permissions should be removed from your subscription](https://ms.portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2febb62a0c-3560-49e1-89ed-27e074e9f8ad) | Subscriptions should be purged of accounts that are blocked in Active Directory and have owner permissions.| 
