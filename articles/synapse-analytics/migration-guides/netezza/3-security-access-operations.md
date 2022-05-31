@@ -299,7 +299,7 @@ In Azure Synapse, resource classes are pre-determined resource limits that gover
 
 See [Resource classes for workload management](/azure/sql-data-warehouse/resource-classes-for-workload-management) for detailed information.
 
-This information can also be used for capacity planning, determining the resources required for additional users or application workload. This also applies to planning scale up/scale downs of compute resources for cost-effective support of "peaky" workloads.
+This information can also be used for capacity planning, determining the resources required for additional users or application workload. This also applies to planning scale up/scale downs of compute resources for cost-effective support of "spiky" workloads, such as workloads with temporary, intense bursts of activity surrounded by periods of infrequent activity.
 
 ### Scale compute resources
 
