@@ -223,5 +223,5 @@ The IPs used by Application Insights Profiler are included in the Azure Monitor 
 
 
 [profiler-search-telemetry]:./media/profiler-troubleshooting/Profiler-Search-Telemetry.png
-[profiler-webjob]:./media/profiler-troubleshooting/Profiler-webjob.png
-[profiler-webjob-log]:./media/profiler-troubleshooting/Profiler-webjob-log.png
+[profiler-webjob]:./media/profiler-troubleshooting/profiler-web-job.png
+[profiler-webjob-log]:./media/profiler-troubleshooting/profiler-web-job-log.png

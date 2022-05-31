@@ -43,7 +43,7 @@ From your Functions app overview page in the Azure portal:
 
 1. In the **Application settings** tab, verify the `APPINSIGHTS_INSTRUMENTATIONKEY` setting is included in the settings list.
 
-   :::image type="content" source="./media/profiler-azure-functions/appinsights-key.png" alt-text="Screenshot showing the App Insights Instrumentation Key setting in the list.":::
+   :::image type="content" source="./media/profiler-azure-functions/app-insights-key.png" alt-text="Screenshot showing the App Insights Instrumentation Key setting in the list.":::
 
 1. Select **New application setting**.
 

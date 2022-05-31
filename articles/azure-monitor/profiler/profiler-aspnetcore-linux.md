@@ -79,7 +79,7 @@ The following instructions apply to all Windows, Linux, and Mac development envi
 
 1. Create the web app environment by using App Service on Linux:
 
-    :::image type="content" source="./media/profiler-aspnetcore-linux/create-linux-appservice.png" alt-text="Create the Linux web app":::
+    :::image type="content" source="./media/profiler-aspnetcore-linux/create-linux-app-service.png" alt-text="Create the Linux web app":::
 
 2. Create the deployment credentials:
 
