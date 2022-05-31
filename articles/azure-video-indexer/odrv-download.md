@@ -91,7 +91,7 @@ Use this parameter to define an AI bundle that you want to apply on your audio o
 
 Azure Video Indexer covers up to two tracks of audio. If the file has more audio tracks, they're treated as one track. If you want to index the tracks separately, you need to extract the relevant audio file and index it as `AudioOnly`.
 
-Price depends on the selected indexing option. For more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/azure/media-services/).
+Price depends on the selected indexing option. For more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/).
 
 #### priority
 
