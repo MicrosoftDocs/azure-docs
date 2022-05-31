@@ -246,6 +246,8 @@
       href: methods-for-removing-user-access.md
   - name: Resources
     items:
+        - name: Video learning
+        - href: app-management-videos.md
         - name: Support and help options for developers
           href: ../develop/developer-support-help-options.md?context=%2fazure%2factive-directory%2fmanage-apps%2fcontext%2fmanage-apps-context
         - name: Azure feedback forum
