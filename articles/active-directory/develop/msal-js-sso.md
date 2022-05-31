@@ -48,7 +48,7 @@ MSAL.js offers the `ssoSilent` method to sign-in the user and obtain tokens with
 
 ### With user hint
 
-If you already have the user's sign-in information, you can pass this into the `ssoSilent` method to improve performance and ensure that the authorization server will look for the correct account session. You can pass one of the following into the request object to successfully obtain the token silently.
+To improve performance and ensure that the authorization server will look for the correct account session. You can pass one of the following options in the request object of the `ssoSilent` method to obtain the token silently.
 
 - Session ID `sid` (which can be retrieved from `idTokenClaims` of an `account` object)
 - `login_hint` (which can be retrieved from the `account` object username property or the `upn` claim in the ID token)
