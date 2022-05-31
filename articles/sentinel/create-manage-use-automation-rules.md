@@ -68,7 +68,7 @@ From the **Trigger** drop-down, select **When incident is created** or **When in
 
 ### Add conditions
 
-Add any other conditions you want this automation rule's activation to depend on. Select **+ Add condition** and choose conditions from the drop-down list. The list of conditions is populated by incident property and entity identifier fields.
+Add any other conditions you want this automation rule's activation to depend on. Select **+ Add condition** and choose conditions from the drop-down list. The list of conditions is populated by incident property and [entity property](entities-reference.md) fields.
 
 1. Select a property from the first drop-down box on the left. You can begin typing any part of a property name in the search box to dynamically filter the list, so you can find what you're looking for quickly.
     :::image type="content" source="media/create-manage-use-automation-rules/filter-list.png" alt-text="Screenshot of typing in a search box to filter the list of choices.":::
@@ -78,48 +78,29 @@ Add any other conditions you want this automation rule's activation to depend on
 
     The list of operators you can choose from varies according to the selected trigger and property. Here's a summary of what's available:
 
-    #### Create trigger
+    #### Conditions available with the create trigger
 
     | Property | Operator set |
     | -------- | -------- |
-    | - Title<br>- Description<br>- Tag<br>- All entity properties | - Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with |
+    | - Title<br>- Description<br>- Tag<br>- All listed entity properties | - Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with |
     | - Severity<br>- Status<br>- Incident provider | - Equals/Does not equal |
     | - Tactics<br>- Alert product names | - Contains/Does not contain |
 
-    #### Update trigger
+    #### Conditions available with the update trigger
 
     | Property | Operator set |
     | -------- | -------- |
-    | - Title<br>- Description<br>- Tag<br>- All entity properties | - Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with |
+    | - Title<br>- Description<br>- Tag<br>- All listed entity properties | - Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with |
     | - Tag (in addition to above)<br>- Alerts<br>- Comments | - Added |
     | - Severity<br>- Status | - Equals/Does not equal<br>- Changed<br>- Changed from<br>- Changed to |
+    | - Owner | - Changed |
     | - Incident provider<br>- Updated by | - Equals/Does not equal |
     | - Tactics | - Contains/Does not contain<br>- Added |
     | - Alert product names | - Contains/Does not contain |
-    | - Owner | - Changed |
-
-
-
-    #### Other way to present both triggers together
-
-    | Operator set | Available with<br>under Create trigger | Available with<br>under Update trigger |
-    | ------------ | -------------- | -------------- |
-    | - Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with | - Title<br>- Description<br>- Tag<br>- All entity properties | - Title<br>- Description<br>- Tag<br>- All entity properties |
-    | - Equals/Does not equal | - Severity<br>- Status<br>- Incident provider | - Severity<br>- Status<br>- Incident provider<br>- Updated by |
-    | - Contains/Does not contain | - Tactics<br>- Alert product names | - Tactics<br>- Alert product names |
-    | - Changed<br>- Changed from<br>- Changed to | | - Severity<br>- Status |
-    | - Changed | | - Owner |
-    | - Added | | - Tactics<br>- Tags<br>- Alerts<br>- Comments |
-
-
-
-
-
-
 
 1. Enter a value in the text box on the right. Depending on the property you chose, this might be a drop-down list from which you would select the values you choose. You might also be able to add several values by selecting the icon to the right of the text box (highlighted by the red arrow below).
-    :::image type="content" source="media/create-manage-use-automation-rules/add-values-to-condition.png" alt-text="Screenshot of adding values to your condition in automation rules.":::
 
+    :::image type="content" source="media/create-manage-use-automation-rules/add-values-to-condition.png" alt-text="Screenshot of adding values to your condition in automation rules.":::
 
 ### Add actions
 

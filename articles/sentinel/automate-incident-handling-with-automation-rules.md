@@ -75,6 +75,17 @@ The **current state** in this context refers to the moment the condition is eval
 
 The conditions evaluated in rules defined using the trigger **When an incident is updated** include all of those listed for the incident creation trigger. But the update trigger includes more properties that can be evaluated.
 
+One of these properties is **Updated by**. This property lets you track the type of source that made the change in the incident. You can create a condition evaluating whether the incident was updated by one of the following:
+
+- an application
+- a user
+- an alert grouping (that added alerts to the incident)
+- a playbook
+- an automation rule
+- Microsoft 365 Defender
+
+Using this condition, for example, you can instruct this automation rule to run on any change made to an incident, except if it was made by another automation rule.
+
 More to the point, the update trigger also uses other operators that check **state changes** in the values of incident properties as well as their current state. A **state change** condition would be satisfied if:
 
 An incident property's value was
@@ -223,42 +234,33 @@ In the specific case of a Managed Security Service Provider (MSSP), where a serv
 
 ## Creating and managing automation rules
 
-You can create and manage automation rules from different points in the Microsoft Sentinel experience, depending on your particular need and use case.
+You can [create and manage automation rules](create-manage-use-automation-rules.md) from different points in the Microsoft Sentinel experience, depending on your particular need and use case.
 
 - **Automation blade**
 
-    Automation rules can be centrally managed in the new **Automation** blade (which replaces the **Playbooks** blade), under the **Automation rules** tab. (You can also now manage playbooks in this blade, under the **Playbooks** tab.) From there, you can create new automation rules and edit the existing ones. You can also drag automation rules to change the order of execution, and enable or disable them.
+    Automation rules can be centrally managed in the **Automation** blade, under the **Automation rules** tab. From there, you can create new automation rules and edit the existing ones. You can also drag automation rules to change the order of execution, and enable or disable them.
 
     In the **Automation** blade, you see all the rules that are defined on the workspace, along with their status (Enabled/Disabled) and which analytics rules they are applied to.
 
-    When you need an automation rule that will apply to many analytics rules, create it directly in the **Automation** blade. From the top menu, click **Create** and **Add new rule**, which opens the **Create new automation rule** panel. From here you have complete flexibility in configuring the rule: you can apply it to any analytics rules (including future ones) and define the widest range of conditions and actions.
+    When you need an automation rule that will apply to many analytics rules, create it directly in the **Automation** blade.
 
 - **Analytics rule wizard**
 
-    In the **Automated response** tab of the analytics rule wizard, you can see, manage, and create automation rules that apply to the particular analytics rule being created or edited in the wizard.
+    In the **Automated response** tab of the analytics rule wizard, under **Incident automation**, you can view, edit, and create automation rules that apply to the particular analytics rule being created or edited in the wizard.
 
-    When you click **Create** and one of the rule types (**Scheduled query rule** or **Microsoft incident creation rule**) from the top menu in the **Analytics** blade, or if you select an existing analytics rule and click **Edit**, you'll open the rule wizard. When you select the **Automated response** tab, you will see a section called **Incident automation**, under which the automation rules that currently apply to this rule will be displayed. You can select an existing automation rule to edit, or click **Add new** to create a new one.
-
-    You'll notice that when you create the automation rule from here, the **Create new automation rule** panel shows the **analytics rule** condition as unavailable, because this rule is already set to apply only to the analytics rule you're editing in the wizard. All the other configuration options are still available to you.
+    You'll notice that when you create an automation rule from here, the **Create new automation rule** panel shows the **analytics rule** condition as unavailable, because this rule is already set to apply only to the analytics rule you're editing in the wizard. All the other configuration options are still available to you.
 
 - **Incidents blade**
 
-    You can also create an automation rule from the **Incidents** blade, in order to respond to a single, recurring incident. This is useful when creating a [suppression rule](#incident-suppression) for automatically closing "noisy" incidents. Select an incident from the queue and click **Create automation rule** from the top menu.
+    You can also create an automation rule from the **Incidents** blade, in order to respond to a single, recurring incident. This is useful when creating a [suppression rule](#incident-suppression) for [automatically closing "noisy" incidents](false-positives.md).
 
-    You'll notice that the **Create new automation rule** panel has populated all the fields with values from the incident. It names the rule the same name as the incident, applies it to the analytics rule that generated the incident, and uses all the available entities in the incident as conditions of the rule. It also suggests a suppression (closing) action by default, and suggests an expiration date for the rule. You can add or remove conditions and actions, and change the expiration date, as you wish.
+    You'll notice that when you create an automation rule from here, the **Create new automation rule** panel has populated all the fields with values from the incident. It names the rule the same name as the incident, applies it to the analytics rule that generated the incident, and uses all the available entities in the incident as conditions of the rule. It also suggests a suppression (closing) action by default, and suggests an expiration date for the rule. You can add or remove conditions and actions, and change the expiration date, as you wish.
 
-## Auditing automation rule activity
-
-You may be interested in knowing what happened to a given incident, and what a certain automation rule may or may not have done to it. You have a full record of incident chronicles available to you in the *SecurityIncident* table in the **Logs** blade. Use the following query to see all your automation rule activity:
-
-```kusto
-SecurityIncident
-| where ModifiedBy contains "Automation"
-```
 
 ## Next steps
 
-In this document, you learned how to use automation rules to manage your Microsoft Sentinel incidents queue and implement some basic incident-handling automation.
+In this document, you learned about how automation rules can help you to manage your Microsoft Sentinel incidents queue and implement some basic incident-handling automation.
 
+- [Create and use Microsoft Sentinel automation rules to manage incidents](create-manage-use-automation-rules.md).
 - To learn more about advanced automation options, see [Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md).
-- For help in implementing automation rules and playbooks, see [Tutorial: Use playbooks to automate threat responses in Microsoft Sentinel](tutorial-respond-threats-playbook.md).
+- For help in implementing playbooks, see [Tutorial: Use playbooks to automate threat responses in Microsoft Sentinel](tutorial-respond-threats-playbook.md).
