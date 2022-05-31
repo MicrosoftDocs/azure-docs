@@ -447,9 +447,9 @@ curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/
 
 Use this API to request a list of all known CVEs discovered on devices in the network.
 
-**Method**: GET
-
 **URL**:  /api/v1/devices/cves
+
+**Method**: GET
 
 # [Request](#tab/cves-request)
 
@@ -578,9 +578,9 @@ curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/a
 
 Use this API to request a list of all the alerts that the Defender for IoT sensor has detected.
 
-**Method**:
-
 **URL**: `/api/v1/alerts`
+
+**Method**: GET
 
 # [Request](#tab/alerts-request)
 
@@ -709,9 +709,9 @@ curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/
 
 Use this API to request a list of events reported to the event timeline.
 
-**Method**: GET
-
 **URL**:  `/api/v1/events`
+
+**Method**: GET
 
 # [Request](#tab/events-request)
 
