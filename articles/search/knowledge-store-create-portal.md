@@ -139,8 +139,6 @@ In this wizard step, configure an indexer that will pull together the data sourc
 
 In the **Overview** page, open the **Indexers** tab in the middle of the page, and then select **hotels-reviews-idxr**. Within a minute or two, status should progress from "In progress" to "Success" with zero errors and warnings.
 
-<a name='view-kstore"></a>
-
 ## Check tables in Azure portal
 
 1. In the Azure portal, [open the Storage account](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) used to create the knowledge store.
