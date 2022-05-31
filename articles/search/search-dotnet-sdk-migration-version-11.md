@@ -35,6 +35,8 @@ The benefits of upgrading are summarized as follows:
 
 + Consistency with other Azure client libraries. **Azure.Search.Documents** takes a dependency on [Azure.Core](/dotnet/api/azure.core) and [System.Text.Json](/dotnet/api/system.text.json), and follows conventional approaches for common tasks such as client connections and authorization.
 
+**Microsoft.Azure.Search** is officially retired. If you're using an old version, we recommend upgrading to the next higher version, repeating the process in succession until you reach version 11 and **Azure.Search.Documents**. An incremental upgrade strategy makes it easier to find and fix blocking issues. See [Previous version docs](https://docs.microsoft.com/previous-versions/azure/search/) for guidance.
+
 ## Package comparison
 
 Version 11 consolidates and simplifies package management so that there are fewer to manage.
