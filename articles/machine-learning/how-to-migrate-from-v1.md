@@ -15,7 +15,7 @@ ms.custom: devx-track-azurecli, devplatv2
 
 # How to migrate from v1 to v2
 
-Azure Machine Learning's v2 REST APIs, Azure CLI extension, and Python SDK (preview) introduce consistency and a set of new features to accelerator the production machine learning lifecycle. In this article, we will overview migrating from v1 to v2 with best practices and recommendations to help you decide on v1, v2, or both.
+Azure Machine Learning's v2 REST APIs, Azure CLI extension, and Python SDK (preview) introduce consistency and a set of new features to accelerator the production machine learning lifecycle. In this article, we'll overview migrating from v1 to v2 with best practices and recommendations to help you decide on v1, v2, or both.
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ Note that new features in Azure ML will only be launched in v2, such as managed 
 
 A key paradigm with v2 is serializing machine learning entities as YAML files for source control with `git`, enabling better GitOps approaches than were possible with v1. For instance, you could enforce policy by which only a service principal used in CI/CD pipelines can create/update/delete some or all entities, ensuring changes go through a governed `git` process like pull requests with required reviewers. Since the files in source control are YAML, they're easy to diff and track changes over time. You and your team may consider shifting to this paradigm as you migrate to v2.
 
-You can obtain a YAML representation of any entity with the CLI via `az ml * show --output yaml`. Note that these will have system-generated properties, which can be ignored or deleted.
+You can obtain a YAML representation of any entity with the CLI via `az ml * show --output yaml`. Note that this output will have system-generated properties, which can be ignored or deleted.
 
 ## How do I migrate to v2?
 
@@ -124,9 +124,9 @@ We recommend migrating the code for creating environments to v2.
 
 ### Azure setup
 
-Azure generally recommends Azure Resource Manager templates (often via Bicep for ease of use) for creating resources. This is a good approach for using Azure ML as well.
+Azure generally recommends Azure Resource Manager templates (often via Bicep for ease of use) for creating resources. The same is a good approach for using Azure ML as well.
 
-If your team is only using Azure ML, you may consider provisioning the workspace and any other resources via YAML and CLI instead.
+If your team is only using Azure ML, you may consider provisioning the workspace and any other resources via YAML  files and CLI instead.
 
 ### Prototyping models
 
