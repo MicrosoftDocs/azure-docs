@@ -151,6 +151,7 @@ Use your discretion in assigning the elevated permissions corresponding to the f
 - HKLM\software\Microsoft\HybridRunbookWorkerV2 (full access) </br>
 - HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\SystemCertificates\Disallowed (full access) </br>
 - HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\PnpLockdownFiles (full access) </br>
+
 **Folders**
 - C:\ProgramData\AzureConnectedMachineAgent\Tokens (read) </br>
 - C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\0.1.0.18\HybridWorkerPackage\HybridWorkerAgent (full access)
