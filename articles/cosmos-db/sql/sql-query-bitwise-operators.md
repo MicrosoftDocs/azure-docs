@@ -56,7 +56,7 @@ SELECT
 ```
 
 > [!IMPORTANT]
-> In this example, the values on the left and right side of the operands are base-10 numeric integer values.
+> In this example, the values on the left and right side of the operands are 32-bit integer values.
 
 ## Next steps
 
