@@ -92,6 +92,7 @@ The new release will bring the following capabilities:
 This update, will rename two recommendations, and revise their descriptions. The assessment keys will remain unchanged.
 
  | Property | Current value | New update's change | 
+
  |:----|:----|:----|:----|:----|
  |**First recommendation**| - | - | |
  |Assessment key | e52064aa-6853-e252-a11e-dffc675689c2 | No change | 
