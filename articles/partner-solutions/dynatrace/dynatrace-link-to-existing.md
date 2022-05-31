@@ -35,12 +35,14 @@ Use the Azure portal to find Dynatrace.
 2. If you've visited the Marketplace in a recent session, select the icon from the available options. Otherwise, search for Marketplace.
 
     <!-- $TODO: Marketplace in recent Azure services screenshot -->
+    :::image type="content" source="media/dynatrace-link-to-existing/dynatrace-search-marketplace.png" alt-text="Screenshot showing a search for Dynatrace in Marketplace.":::
 
 3. In the Marketplace, search for Dynatrace.
 
 4. In the plan overview screen, select **Setup + subscribe**.
 
-    <!-- $TODO: Dynatrace offer screenshot. -->
+    <!-- $TODO: Dynatrace offer screenshot. 
+    I do not see this-->
 
 ## Link to existing Dynatrace environment
 
@@ -49,10 +51,12 @@ The portal displays two options: one to create a new Dynatrace environment, and 
 1. If you're linking the Azure subscription to an existing Dynatrace environment, select **Create** under the **Link Azure subscription to an existing Dynatrace environment** option**.**
 
     <!-- $TODO: Create versus link options, created under link highlighted. -->
+    :::image type="content" source="media/dynatrace-link-to-existing/dynatrace-create-new-link-existing.png" alt-text="":::
 
 1. The process creates a new Dynatrace resource in Azure and links it to an existing Dynatrace environment hosted on Azure. The portal displays a form to create the Dynatrace resource.
 
     <!-- $TODO: Link -- Basics tab. -->
+:::image type="content" source="media/dynatrace-link-to-existing/dynatrace-create-new-link-existing.png" alt-text="Screeshot showing highlight around link azure subscription to an existing dynatrace environment.":::
 
 1. Provide the following values.
 
@@ -72,6 +76,8 @@ The portal displays two options: one to create a new Dynatrace environment, and 
 ## Configure metrics and logs
 
 When linking an existing Dynatrace environment, you can set up automatic log forwarding for two types of logs:
+
+:::image type="content" source="media/dynatrace-link-to-existing/dynatrace-metrics-and-logs.png" alt-text="Screenshot showing options for metrics and logs.":::
 
 - **Subscription activity logs** - These logs provide insight into the operations on your resources at the [control plane](/azure/azure-resource-manager/management/control-plane-and-data-plane). Updates on service-health events are also included. Use the activity log to determine the what, who, and when for any write operations (PUT, POST, DELETE). There\'s a single activity log for each Azure subscription.
 - **Azure resource logs** - These logs provide insight into operations that were taken on an Azure resource at the [data plane](/azure/azure-resource-manager/management/control-plane-and-data-plane). For example, getting a secret from a Key Vault is a data plane operation. Or, making a request to a database is also a data plane operation. The content of resource logs varies by the Azure service and resource type.
@@ -102,12 +108,14 @@ If you're linking the Dynatrace resource to an existing Dynatrace environment, y
 You can specify tags for the new Dynatrace resource. Provide name and value pairs for the tags to apply to the Dynatrace resource.
 
 <!-- $TODO: Screenshot tags -->
+:::image type="content" source="media/dynatrace-link-to-existing/dynatrace-custom-tags.png" alt-text="Screenshot showing list of tags for a Dynatrace resource.":::
 
 When you've finished adding tags, select **Next: Review+Create.**
 
 Review your selections and the terms of use. After validation completes, select **Create.**
 
 <!-- $TODO: Screenshot review+create -->
+:::image type="content" source="media/dynatrace-link-to-existing/dynatrace-review-and-create.png" alt-text="Screenshot showing form to review and create a link to a Dynatrace environment.":::
 
 Azure deploys the Dynatrace resource. When the process completes, select "Go to resource" to see the Dynatrace resource.
 
