@@ -205,14 +205,16 @@ $virtualNetworkLink2 = Get-AzDnsForwardingRulesetVirtualNetworkLink -DnsForwardi
 $virtualNetworkLink2.ToJsonString()
 ```
 
-## Create a forwarding rule
+## Create forwarding rules
 
 Create a forwarding rule for a ruleset to one or more target DNS servers. You must specify the fully qualified domain name (FQDN) with a trailing dot. The **New-AzDnsResolverTargetDnsServerObject** cmdlet sets the default port as 53, but you can also specify a unique port. 
 
 ```Azure PowerShell
-$targetDNS1 = New-AzDnsResolverTargetDnsServerObject -IPAddress 11.0.1.4 -Port 53 
-$targetDNS2 = New-AzDnsResolverTargetDnsServerObject -IPAddress 11.0.1.5 -Port 53 
-$forwardingrule = New-AzDnsForwardingRulesetForwardingRule -ResourceGroupName myresourcegroup -DnsForwardingRulesetName myruleset -Name "contosocom" -DomainName "contoso.com." -ForwardingRuleState "Enabled" -TargetDnsServer @($targetDNS1,$targetDNS2)
+$targetDNS1 = New-AzDnsResolverTargetDnsServerObject -IPAddress 192.168.1.2 -Port 53 
+$targetDNS2 = New-AzDnsResolverTargetDnsServerObject -IPAddress 192.168.1.3 -Port 53
+$targetDNS3 = New-AzDnsResolverTargetDnsServerObject -IPAddress 10.5.5.5 -Port 53
+$forwardingrule = New-AzDnsForwardingRulesetForwardingRule -ResourceGroupName myresourcegroup -DnsForwardingRulesetName myruleset -Name "internal" -DomainName "internal.contoso.com." -ForwardingRuleState "Enabled" -TargetDnsServer @($targetDNS1,$targetDNS2)
+$forwardingrule = New-AzDnsForwardingRulesetForwardingRule -ResourceGroupName myresourcegroup -DnsForwardingRulesetName myruleset -Name "wildcard" -DomainName "." -ForwardingRuleState "Enabled" -TargetDnsServer $targetDNS3
 ```
 
 ## Test the private resolver
