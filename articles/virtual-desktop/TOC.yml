@@ -187,7 +187,7 @@
     items:
       - name: Create a host pool using PowerShell or the Azure CLI
         href: create-host-pools-powershell.md
-      - name: Deploy an Azure AD joined session host
+      - name: Deploy an Azure AD-joined session host
         href: deploy-azure-ad-joined-vm.md
       - name: Deploy a Windows 7 virtual machine
         href: deploy-windows-7-virtual-machine.md
@@ -285,7 +285,7 @@
           href: app-attach-msixmgr.md
   - name: Use Microsoft Teams
     href: teams-on-avd.md
-  - name: Set up Azure AD multifactor authentication
+  - name: Enforce Azure AD MFA
     href: set-up-mfa.md
   - name: Configure AD FS single sign-on
     href: configure-adfs-sso.md
