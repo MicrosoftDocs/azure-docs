@@ -122,7 +122,7 @@ A key question when migrating your existing reports and dashboards to Azure Syna
 
 These factors are discussed in more detail later in this article.
 
-Whatever the decision is, it must involve the business, since they produce the reports and dashboards, and consume the insights these artifacts provide in support of the decisions that are made around your business. That said, if most reports and dashboards can be migrated seamlessly, with minimal effort, and offer up like-for-like results, simply by pointing your BI tool(s) at Azure Synapse, instead of your legacy data warehouse system, then everyone benefits. Therefore, if it's that straightforward and there's no reliance on legacy system proprietary SQL extensions, then there's no doubt that the ease of migration option breeds confidence.
+Whatever the decision is, it must involve the business, since they produce the reports and dashboards, and consume the insights these artifacts provide in support of the decisions that are made around your business. That said, if most reports and dashboards can be migrated seamlessly, with minimal effort, and offer up like-for-like results, simply by pointing your BI tool(s) at Azure Synapse, instead of your legacy data warehouse system, then everyone benefits.
 
 ### Migrate reports based on usage
 
