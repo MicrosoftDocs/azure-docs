@@ -114,9 +114,9 @@ Follow the next steps to use a managed identity for Azure resources on a Hybrid 
 For instance, a runbook with `Get-AzVM` can return all the VMs in the subscription with no call to `Connect-AzAccount`, and the user would be able to access Azure resources without having to authenticate within that runbook. You can disable context autosave in Azure PowerShell, as detailed [here](/powershell/azure/context-persistence?view=azps-7.3.2#save-azure-contexts-across-powershell-sessions).
 
 
-### Use runbook authentication with Run As account
+### Use runbook authentication with Hybrid Worker Credentials
 
-Instead of having your runbook provide its own authentication to local resources, you can specify a Run As account for a Hybrid Runbook Worker group. To specify a Run As account, you must define a [credential asset](./shared-resources/credentials.md) that has access to local resources. These resources include certificate stores and all runbooks run under these credentials on a Hybrid Runbook Worker in the group.
+Instead of having your runbook provide its own authentication to local resources, you can specify Hybrid Worker Credentials for a Hybrid Runbook Worker group. To specify a Hybrid Worker Credentials, you must define a [credential asset](./shared-resources/credentials.md) that has access to local resources. These resources include certificate stores and all runbooks run under these credentials on a Hybrid Runbook Worker in the group.
 
 - The user name for the credential must be in one of the following formats:
 
@@ -126,16 +126,32 @@ Instead of having your runbook provide its own authentication to local resources
 
 - To use the PowerShell runbook **Export-RunAsCertificateToHybridWorker**, you need to install the Az modules for Azure Automation on the local machine.
 
-#### Use a credential asset to specify a Run As account
+#### Use a credential asset for a Hybrid Runbook Worker group
 
-Use the following procedure to specify a Run As account for a Hybrid Runbook Worker group:
+By default, the Hybrid jobs run under the context of System account. However, to run Hybrid jobs under a diffferent credential asset, follow the steps:
 
 1. Create a [credential asset](./shared-resources/credentials.md) with access to local resources.
 1. Open the Automation account in the Azure portal.
 1. Select **Hybrid Worker Groups**, and then select the specific group.
-1. Select **All settings**, followed by **Hybrid worker group settings**.
-1. Change the value of **Run As** from **Default** to **Custom**.
+1. Select **Settings**  and change the value of **Hybrid Worker credentials** from **Default** to **Custom**.
 1. Select the credential and click **Save**.
+
+For a successful job execution, ensure that you provide the following permissions. The jobs might get suspended if the required permissions are not assigned for Custom users.
+
+ **Registry path** | **Permission**
+  --- | ---
+  HKLM\SYSTEM\CurrentControlSet\Services\EventLog  | read
+  HKLM\SYSTEM\CurrentControlSet\Services\WinSock2\Parameters | full access
+  HKLM\SOFTWARE\Microsoft\Wbem\CIMOM | full access
+  HKLM\Software\Policies\Microsoft\SystemCertificates\Root | full access
+  HKLM\Software\Microsoft\SystemCertificates | full access
+  HKLM\Software\Microsoft\EnterpriseCertificates | full access
+  HKLM\software\Microsoft\HybridRunbookWorker | full access
+  HKLM\software\Microsoft\HybridRunbookWorkerV2 | full access
+  HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\SystemCertificates\Disallowed | full access
+  HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\PnpLockdownFiles | full access
+  Folder C:\ProgramData\AzureConnectedMachineAgent\Tokens | read
+  Folder C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\0.1.0.18\HybridWorkerPackage\HybridWorkerAgent | full access
 
 ## <a name="runas-script"></a>Install Run As account certificate
 

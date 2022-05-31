@@ -2,9 +2,9 @@
 title: Python developer reference for Azure Functions
 description: Understand how to develop functions with Python
 ms.topic: article
-ms.date: 05/19/2022
+ms.date: 05/25/2022
 ms.devlang: python
-ms.custom: devdivchpfy22
+ms.custom: devx-track-python, devdivchpfy22
 ---
 
 # Azure Functions Python developer guide
@@ -15,7 +15,7 @@ As a Python developer, you may also be interested in one of the following articl
 
 | Getting started | Concepts| Scenarios/Samples |
 |--|--|--|
-| <ul><li>[Python function using Visual Studio Code](./create-first-function-vs-code-python.md)</li><li>[Python function with terminal/command prompt](./create-first-function-cli-python.md)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li></ul> | <ul><li>[Image classification with PyTorch](machine-learning-pytorch.md)</li><li>[Azure automation sample](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Machine learning with TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Browse Python samples](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
+| <ul><li>[Python function using Visual Studio Code](./create-first-function-vs-code-python.md)</li><li>[Python function with terminal/command prompt](./create-first-function-cli-python.md)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp;considerations](functions-best-practices.md)</li></ul> | <ul><li>[Image classification with PyTorch](machine-learning-pytorch.md)</li><li>[Azure Automation sample](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Machine learning with TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Browse Python samples](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
 
 > [!NOTE]
 > While you can [develop your Python based Azure Functions locally on Windows](create-first-function-vs-code-python.md#run-the-function-locally), Python is only supported on a Linux based hosting plan when running in Azure. See the list of supported [operating system/runtime](functions-scale.md#operating-systemruntime) combinations.
@@ -345,7 +345,7 @@ Likewise, you can set the `status_code` and `headers` for the response message i
 
 ## Web frameworks
 
-You can apply WSGI and ASGI-compatible frameworks such as Flask and FastAPI with your HTTP-triggered Python functions. This section shows how to modify your functions to support these frameworks.
+You can use WSGI and ASGI-compatible frameworks such as Flask and FastAPI with your HTTP-triggered Python functions. This section shows how to modify your functions to support these frameworks.
 
 First, the function.json file must be updated to include a `route` in the HTTP trigger, as shown in the following example:
 
@@ -538,9 +538,9 @@ The runtime uses the available Python version, when you run it locally.
 
 To set a Python function app to a specific language version, you  need to specify the language and the version of the language in `LinuxFxVersion` field in site config. For example, to change Python app to use Python 3.8, set `linuxFxVersion` to `python|3.8`.
 
-To learn more about Azure Functions runtime support policy, refer [article](./language-support-policy.md).
+To learn more about Azure Functions runtime support policy, refer to this [article](./language-support-policy.md)
 
-To see the full list of supported Python versions functions apps, refer [article](./supported-languages.md).
+To see the full list of supported Python versions functions apps, refer to this [article](./supported-languages.md)
 
 # [Azure CLI](#tab/azurecli-linux)
 
