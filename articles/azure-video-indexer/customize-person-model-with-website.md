@@ -34,7 +34,7 @@ You can use the Azure Video Indexer website to edit faces that were detected in 
 ## Create a new Person model
 
 1. Select the **+ Add model** button on the right.
-1. Enter the name of the model. You can now add new people and faces to the new Person model.
+1. Enter the name of the model and select the check button to save the new model created. You can now add new people and faces to the new Person model.
 1. Select the list menu button and choose **+ Add person**.
 
     > [!div class="mx-imgBorder"]
