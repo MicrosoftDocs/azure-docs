@@ -79,7 +79,9 @@ npm start
 
 You should see application's UI with a **Sign in** button.
 
-## About the code
+## More information
+
+## How the sample works
 
 Below, some of the important aspects of the sample application are discussed.
 
@@ -92,124 +94,6 @@ You can install MSAL Node by running the following npm command.
 ```console
 npm install @azure/msal-node --save
 ```
-
-### MSAL initialization
-
-You can add the reference for MSAL Node by adding the following code:
-
-```javascript
-const { PublicClientApplication } = require('@azure/msal-node');
-```
-
-Then, initialize MSAL using the following code:
-
-```javascript
-const MSAL_CONFIG = {
-    auth: {
-        clientId: "Enter_the_Application_Id_Here",
-        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Id_Here",
-    },
-};
-
-const pca = new PublicClientApplication(MSAL_CONFIG);
-```
-
-> | Where: |Description |
-> |---------|---------|
-> | `clientId` | Is the **Application (client) ID** for the application registered in the Azure portal. You can find this value in the app's **Overview** page in the Azure portal. |
-> | `authority`    | The STS endpoint for user to authenticate. Usually `https://login.microsoftonline.com/{tenant}` for public cloud, where {tenant} is the name of your tenant or your tenant Id.|
-
-### Requesting tokens
-
-In the first leg of authorization code flow with PKCE, prepare and send an authorization code request with the appropriate parameters. Then, in the second leg of the flow, listen for the authorization code response. Once the code is obtained, exchange it to obtain a token.
-
-```javascript
-// The redirect URI you setup during app registration with a custom file protocol "msal"
-const redirectUri = "msal://redirect";
-
-const cryptoProvider = new CryptoProvider();
-
-const pkceCodes = {
-    challengeMethod: "S256", // Use SHA256 Algorithm
-    verifier: "", // Generate a code verifier for the Auth Code Request first
-    challenge: "" // Generate a code challenge from the previously generated code verifier
-};
-
-/**
- * Starts an interactive token request
- * @param {object} authWindow: Electron window object
- * @param {object} tokenRequest: token request object with scopes
- */
-async function getTokenInteractive(authWindow, tokenRequest) {
-
-    /**
-     * Proof Key for Code Exchange (PKCE) Setup
-     *
-     * MSAL enables PKCE in the Authorization Code Grant Flow by including the codeChallenge and codeChallengeMethod
-     * parameters in the request passed into getAuthCodeUrl() API, as well as the codeVerifier parameter in the
-     * second leg (acquireTokenByCode() API).
-     */
-
-    const {verifier, challenge} = await cryptoProvider.generatePkceCodes();
-
-    pkceCodes.verifier = verifier;
-    pkceCodes.challenge = challenge;
-
-    const authCodeUrlParams = {
-        redirectUri: redirectUri
-        scopes: tokenRequest.scopes,
-        codeChallenge: pkceCodes.challenge, // PKCE Code Challenge
-        codeChallengeMethod: pkceCodes.challengeMethod // PKCE Code Challenge Method
-    };
-
-    const authCodeUrl = await pca.getAuthCodeUrl(authCodeUrlParams);
-
-    // register the custom file protocol in redirect URI
-    protocol.registerFileProtocol(redirectUri.split(":")[0], (req, callback) => {
-        const requestUrl = url.parse(req.url, true);
-        callback(path.normalize(`${__dirname}/${requestUrl.path}`));
-    });
-
-    const authCode = await listenForAuthCode(authCodeUrl, authWindow); // see below
-
-    const authResponse = await pca.acquireTokenByCode({
-        redirectUri: redirectUri,
-        scopes: tokenRequest.scopes,
-        code: authCode,
-        codeVerifier: pkceCodes.verifier // PKCE Code Verifier
-    });
-
-    return authResponse;
-}
-
-/**
- * Listens for auth code response from Azure AD
- * @param {string} navigateUrl: URL where auth code response is parsed
- * @param {object} authWindow: Electron window object
- */
-async function listenForAuthCode(navigateUrl, authWindow) {
-
-    authWindow.loadURL(navigateUrl);
-
-    return new Promise((resolve, reject) => {
-        authWindow.webContents.on('will-redirect', (event, responseUrl) => {
-            try {
-                const parsedUrl = new URL(responseUrl);
-                const authCode = parsedUrl.searchParams.get('code');
-                resolve(authCode);
-            } catch (err) {
-                reject(err);
-            }
-        });
-    });
-}
-```
-
-> |Where:| Description |
-> |---------|---------|
-> | `authWindow` | Current Electron window in process. |
-> | `tokenRequest` | Contains the scopes being requested, such as `"User.Read"` for Microsoft Graph or `"api://<Application ID>/access_as_user"` for custom web APIs. |
-
 ## Next steps
 
 To learn more about Electron desktop app development with MSAL Node, see the tutorial:
