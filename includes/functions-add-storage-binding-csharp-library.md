@@ -27,7 +27,7 @@ Open the *HttpExample.cs* project file and add the following `MultiResponse` cla
 
 :::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-isolated/HttpExample.cs" range="33-38":::
 
-The `MultiResponse` class allows you to write to both a storage queue named `outqueue` and an HTTP success message. Because the `QueueOutput` attribute is applied to a string array, multiple messages could be sent to the queue.
+The `MultiResponse` class lets you to write to both a storage queue named `outqueue` and an HTTP success message. Because the `QueueOutput` attribute is applied to a string array, multiple messages could be sent to the queue.
 
 The connection string for the Storage account is set by the `Connection` property. In this case, you could omit `Connection` because you're already using the default storage account.
 
