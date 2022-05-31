@@ -390,6 +390,16 @@ sections:
   - name: Form Recognizer Studio
     questions:
       - question: |
+          What permission do I need to access Form Recognizer Studio?
+        answer: |
+
+          You need to have an active [Azure account](https://azure.microsoft.com/free/cognitive-services/) and subscription (at least Reader role) to access Form Recognizer Studio.
+          
+          - For document analysis and prebuilt models, you need to have access (Contributor role) to at least one [Form Recognizer](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to enter the analyze page. On the model analyze page, you can then change to use endpoint/key to access other resource if needed.
+          
+          - For custom models, you can use endpoint/key of a [Form Recognizer](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to create a project, and access to at least one blob storage account.
+
+      - question: |
           I have multiple pages in a document. Why are there only two pages analyzed in Form Recognizer Studio?
         answer: |
 
