@@ -19,17 +19,17 @@ Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Term
 
 The Defender for IoT architecture uses on-premises sensors and management servers. This section describes the servicing information and timelines for the available on-premises software versions.
 
-- Each General Availability (GA) version of the Defender for IoT sensor and on-premises management console software is supported for nine months after its first minor release date, not including hotfix releases. Release versions have the following syntax:
+- **Each General Availability (GA) version of the Defender for IoT sensor and on-premises management console software** is supported for nine months after its first minor release date, not including hotfix releases.
 
-    **<Major><Minor><Hotfix>**
+    Release versions have the following syntax: **[Major][Minor][Hotfix]**
 
-    Therefore, for example, all 22.1.x versions, including all hotfix versions, are supported for nine months after the first 22.1.x release, which was 22.1.1 in February 2022.
+    Therefore, for example, all **22.1.x** versions, including all hotfix versions, are supported for nine months after the first **22.1.x** release.
 
     Fixes and new functionality are applied to each new version and are not applied to older versions.
 
-- Software update packages include new functionality and security patches. Urgent, high-risk security updates are applied in minor versions that may be released throughout the quarter.
+- **Software update packages include new functionality and security patches**. Urgent, high-risk security updates are applied in minor versions that may be released throughout the quarter.
 
-- Features available from the Azure portal that are dependent on a specific sensor version are only available for sensors that have the required version installed, or higher.
+- **Features available from the Azure portal that are dependent on a specific sensor version** are only available for sensors that have the required version installed, or higher.
 
 For more information, see the [Microsoft Security Development Lifecycle practices](https://www.microsoft.com/en-us/securityengineering/sdl/), which describes Microsoft's SDK practices, including training, compliance, threat modeling, design requirements, tools such as Microsoft Component Governance, pen testing, and more.
 
