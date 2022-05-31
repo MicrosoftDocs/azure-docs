@@ -103,7 +103,7 @@ You'll need a form document. You can use our [sample form document](https://raw.
 
 ## Data extraction
 
-The layout model extracts table structures, selection marks, printed and handwritten text, and bounding box coordinates from your documents.
+The layout model extracts table structures, selection marks, typeface and handwritten text, and bounding box coordinates from your documents.
 
 ### Tables and table headers
 
@@ -119,7 +119,7 @@ Layout API also extracts selection marks from documents. Extracted selection mar
 
 ### Text lines and words
 
-The layout model extracts text from documents and images with multiple text angles and colors. It accepts photos of documents, faxes, printed and/or handwritten (English only) text, and mixed modes. Printed and handwritten text is extracted from lines and words. The service then returns bounding box coordinates, confidence scores, and style (handwritten or other). All the text information is included in the `readResults` section of the JSON output.
+The layout model extracts text from documents and images with multiple text angles and colors. It accepts photos of documents, faxes, printed and/or handwritten (English only) text, and mixed modes. Typeface and handwritten text is extracted from lines and words. The service then returns bounding box coordinates, confidence scores, and style (handwritten or other). All the text information is included in the `readResults` section of the JSON output.
 
 :::image type="content" source="./media/layout-text-extraction.png" alt-text="Layout text extraction output":::
 
