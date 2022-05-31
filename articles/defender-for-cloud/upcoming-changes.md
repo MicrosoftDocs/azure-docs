@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 05/10/2022
+ms.date: 05/31/2022
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -19,15 +19,15 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change | Estimated date for change |
 |--|--|
-| [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions) | May 2022 |
-| [Key Vault recommendations changed to "audit"](#key-vault-recommendations-changed-to-audit) | May 2022 |
+| [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions) | June 2022 |
+| [Key Vault recommendations changed to "audit"](#key-vault-recommendations-changed-to-audit) | June 2022 |
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | June 2022 |
 | [Deprecating three VM alerts](#deprecating-three-vm-alerts) | June 2022|
 | [Deprecating the "API App should only be accessible over HTTPS" policy](#deprecating-the-api-app-should-only-be-accessible-over-https-policy)|June 2022| 
 
 ### Changes to recommendations for managing endpoint protection solutions
 
-**Estimated date for change:** May 2022
+**Estimated date for change:** June 2022
 
 In August 2021, we added two new **preview** recommendations to deploy and maintain the endpoint protection solutions on your machines. For full details, [see the release note](release-notes-archive.md#two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview).
 
@@ -46,6 +46,8 @@ Learn more:
 - [How these recommendations assess the status of your deployed solutions](endpoint-protection-recommendations-technical.md)
 
 ### Key Vault recommendations changed to "audit"
+
+**Estimated date for change:** June 2022
 
 The Key Vault recommendations listed here are currently disabled so that they don't impact your secure score. We will change their effect to "audit".
 

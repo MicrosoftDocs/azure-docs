@@ -20,7 +20,7 @@ Microsoft Defender for IoT provides comprehensive protocol support. In addition 
 - Secure proprietary information by developing on-site as an external plugin. 
 - Localize text for alerts, events, and protocol parameters.
 
-This unique solution for developing protocols as plugins, does not require dedicated developer teams or version releases in order to support a new protocol. Developers, partners, and customers can securely develop protocols and share insights and knowledge using Horizon. 
+This unique solution for developing protocols as plugins, doesn't require dedicated developer teams or version releases in order to support a new protocol. Developers, partners, and customers can securely develop protocols and share insights and knowledge using Horizon. 
 
 ## Do I have to purchase hardware appliances from Microsoft partners?
 Microsoft Defender for IoT sensor runs on specific hardware specs as described in the [Hardware Specifications Guide](./how-to-identify-required-appliances.md), customers can purchase certified hardware from Microsoft partners or use the supplied bill of materials  (BOM) and purchase it on their own. 
@@ -28,7 +28,7 @@ Microsoft Defender for IoT sensor runs on specific hardware specs as described i
 Certified hardware has been tested in our labs for driver stability, packet drops and network sizing.
 
 
-## Regulation does not allow us to connect our system to the Internet. Can we still utilize Defender for IoT?
+## Regulation doesn't allow us to connect our system to the Internet. Can we still utilize Defender for IoT?
 
 Yes you can! The Microsoft Defender for IoT platform on-premises solution is deployed as a physical or virtual sensor appliance that passively ingests network traffic (via SPAN, RSPAN, or TAP) to analyze, discover, and continuously monitor IT, OT, and IoT networks. For larger enterprises, multiple sensors can aggregate their data to an on-premises management console.
 
