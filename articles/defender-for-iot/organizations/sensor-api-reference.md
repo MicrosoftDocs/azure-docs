@@ -1539,34 +1539,33 @@ curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/a
 ---
 ## Retrieve alert PCAP
 
-**URL**: /api/v2/alerts/pcap
-
 Use this API to retrieve a PCAP file related to an alert.
 
 This endpoint does not use a regular access token for authorization. Instead, it requires a special token created by the `/external/v2/alerts/pcap` API endpoint on the CM.
 
-### Request
+**URL**: /api/v2/alerts/pcap
 
-- **GET**
+**Method**: GET
 
-#### Query Parameters
+# [Request](#tab/pcap-request)
 
-- id: Xsense Alert ID  
-Example:  
-`/api/v2/alerts/pcap/<id>`
+**Query parameters**:
 
-### Response
+|Parameter name  |Description  |Example  |
+|---------|---------|---------|
+|**id**     |   The Xsense Alert ID      |   `/api/v2/alerts/pcap/<id>      |
 
-- **JSON**
 
-#### Response content
+# [Response](#tab/pcap-response)
+
+**Type**: JSON
+
+One of the following messages:
 
 - **Success**: Binary file containing PCAP data
 - **Failure**: JSON object that contains error message
 
-#### Response example
-
-#### Error
+**Response example**: Error
 
 ```json
 {
@@ -1574,11 +1573,21 @@ Example:
 }
 ```
 
-### Curl command
+# [Curl command](#tab/pcap-curl)
 
-|Type|APIs|Example|
-|-|-|-|
-|GET|`curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v2/alerts/pcap/<ID>'`|`curl -k -H "Authorization: d2791f58-2a88-34fd-ae5c-2651fe30a63c" 'https://10.1.0.2/api/v2/alerts/pcap/1'`|
+**Type**: GET
+
+**APIs**:
+
+```rest
+curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v2/alerts/pcap/<ID>'
+```
+
+**Example**:
+
+```
+curl -k -H "Authorization: d2791f58-2a88-34fd-ae5c-2651fe30a63c" 'https://10.1.0.2/api/v2/alerts/pcap/1'
+```
 
 ## Next steps
 
