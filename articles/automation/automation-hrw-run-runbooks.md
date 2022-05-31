@@ -133,22 +133,23 @@ By default, the Hybrid jobs run under the context of System account. However, to
 1. Create a [credential asset](./shared-resources/credentials.md) with access to local resources.
 1. Open the Automation account in the Azure portal.
 1. Select **Hybrid Worker Groups**, and then select the specific group.
-1. Select **Settings**  and change the value of **Hybrid Worker credentials** from **Default** to **Custom**.
+1. Select **Settings**.
+1. Change the value of **Hybrid Worker credentials** from **Default** to **Custom**.
 1. Select the credential and click **Save**.
 1. Jobs might get suspended in case following permissions are not assigned for Custom users. Use your discretion while assigning below mentioned elevated permissions. The registry keys are:
  
-  HKLM\SYSTEM\CurrentControlSet\Services\EventLog (read)
-  HKLM\SYSTEM\CurrentControlSet\Services\WinSock2\Parameters (full access)
-  HKLM\SOFTWARE\Microsoft\Wbem\CIMOM (full access)
-  HKLM\Software\Policies\Microsoft\SystemCertificates\Root (full access)
-  HKLM\Software\Microsoft\SystemCertificates (full access)
-  HKLM\Software\Microsoft\EnterpriseCertificates (full access)
-  HKLM\software\Microsoft\HybridRunbookWorker (full access)
-  HKLM\software\Microsoft\HybridRunbookWorkerV2 (full access)
-  HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\SystemCertificates\Disallowed (full access)
-  HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\PnpLockdownFiles (full access)
-  Folder C:\ProgramData\AzureConnectedMachineAgent\Tokens (read)
-  Folder C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\0.1.0.18\HybridWorkerPackage\HybridWorkerAgent (full access)
+    HKLM\SYSTEM\CurrentControlSet\Services\EventLog (read) </br>
+    HKLM\SYSTEM\CurrentControlSet\Services\WinSock2\Parameters (full access) </br>
+    HKLM\SOFTWARE\Microsoft\Wbem\CIMOM (full access) </br>
+    HKLM\Software\Policies\Microsoft\SystemCertificates\Root (full access) </br>
+    HKLM\Software\Microsoft\SystemCertificates (full access) </br>
+    HKLM\Software\Microsoft\EnterpriseCertificates (full access) </br>
+    HKLM\software\Microsoft\HybridRunbookWorker (full access) </br>
+    HKLM\software\Microsoft\HybridRunbookWorkerV2 (full access) </br>
+    HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\SystemCertificates\Disallowed (full access) </br>
+    HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\PnpLockdownFiles (full access) </br>
+    Folder C:\ProgramData\AzureConnectedMachineAgent\Tokens (read) </br>
+    Folder C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows\0.1.0.18\HybridWorkerPackage\HybridWorkerAgent (full access) </br>
 
 ## <a name="runas-script"></a>Install Run As account certificate
 
