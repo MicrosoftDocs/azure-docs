@@ -5,7 +5,7 @@ ms.date: 05/25/2022
 ms.topic: reference
 ---
 
-## OT monitoring sensor APIs
+# OT monitoring sensor APIs
 
 ## Version reference
 
@@ -99,7 +99,7 @@ Use this API to let users change their own passwords. All Defender for IoT user 
 
 **Method**: POST
 
-# [Request](#tab/set_password-request)
+# [Request](#tab/set-password-request)
 
 **Type**: JSON
 
@@ -127,7 +127,7 @@ request:
 | **password** | String | No |
 | **new_password** | String | No |
 
-# [Response](#tab/set_password-response)
+# [Response](#tab/set-password-response)
 
 
 **Type**: JSON
@@ -156,7 +156,7 @@ response:
 }
 ```
 
-# [Curl command](#tab/set_password-curl)
+# [Curl command](#tab/set-password-curl)
 
 **Type**: POST
 
@@ -182,7 +182,7 @@ Use this API to let system administrators change passwords for specified users. 
 
 **Method**: POST
 
-# [Request](#tab-set_password_by_admin-request)
+# [Request](#tab-set-password-by-admin-request)
 
 **Type**: JSON
 
@@ -211,7 +211,7 @@ request:
 | **username** | String | No |
 | **new_password** | String | No |
 
-# [Response](#tab-set_password_by_admin-response)
+# [Response](#tab-set-password-by-admin-response)
 
 **Type**: JSON
 
@@ -245,7 +245,7 @@ response:
 }
 
 ```
-# [Curl command](#tab-set_password_by_admin-curl)
+# [Curl command](#tab-set-password-by-admin-curl)
 
 
 **Type**: POST
@@ -826,34 +826,24 @@ curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/events?min
 
 ```rest
 curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/api/v1/events?minutesTimeFrame=20&type=DEVICE_CONNECTION_CREATED'`
-
+```
 ---
 
-## Retrieve vulnerability information
-
-**URL**: /api/v1/reports/vulnerabilities/devices
+## devices (Retrieve vulnerability information)
 
 Use this API to request vulnerability assessment results for each device.
 
-### Request
+**URL**: /api/v1/reports/vulnerabilities/
 
 **Method**: GET
 
-### Response
+# [Response](#tab/devices-response)
 
 **Type**: JSON
 
 Array of JSON objects that represent assessed devices.
 
-The device object contains:
-
-- General data
-
-- Assessment score
-
-- Vulnerabilities
-
-#### Device fields
+**Device fields**:
 
 | Name | Type | Nullable | List of values |
 |--|--|--|--|
@@ -867,7 +857,7 @@ The device object contains:
 | **operatingSystem** | Operating system object | Yes | - |
 | **vulnerabilities** | Vulnerabilities object | Yes | - |
 
-#### Operating system fields
+**Operating system fields**:
 
 | Name | Type | Nullable | List of values |
 |--|--|--|--|
@@ -876,7 +866,7 @@ The device object contains:
 | **Version** | String | Yes | - |
 | **latestVersion** | String | Yes | - |
 
-#### Vulnerabilities fields
+**Vulnerabilities fields**:
 
 | Name | Type | Nullable | List of values |
 |--|--|--|--|
@@ -892,7 +882,7 @@ The device object contains:
 | **malwareIndicationsDetected** | Boolean | No | True or false |
 | **weakAuthentication** | JSON array | Yes | Detected applications that are using weak authentication |
 
-#### Password fields
+**Password fields**:
 
 | Name | Type | Nullable | List of values |
 |--|--|--|--|
@@ -900,7 +890,7 @@ The device object contains:
 | **protocol** | String | No | - |
 | **strength** | String | No | Very weak, Weak, Medium, or Strong |
 
-#### Remote access fields
+**Remote access fields**:
 
 | Name | Type | Nullable | List of values |
 |--|--|--|--|
@@ -909,7 +899,7 @@ The device object contains:
 | **client** | String | No | IP address |
 | **clientSoftware** | String | No | SSH, VNC, Remote desktop, or Team viewer |
 
-#### Open port fields
+**Open port fields**
 
 | Name | Type | Nullable | List of values |
 |--|--|--|--|
@@ -918,7 +908,7 @@ The device object contains:
 | **protocol** | String | Yes | - |
 | **isConflictingWithFirewall** | Boolean | No | True or false |
 
-#### CVE fields
+**CVE fields**
 
 | Name | Type | Nullable | List of values |
 |--|--|--|--|
@@ -926,7 +916,7 @@ The device object contains:
 | **score** | Numeric | No | Double |
 | **description** | String | No | - |
 
-#### Response example
+**Response example**:
 
 ```rest
 [
@@ -1076,97 +1066,100 @@ The device object contains:
 ]
 ```
 
-### Curl command
+# [Curl command](#tab/devices-curl)
 
-| Type | APIs | Example |
-|--|--|--|
-| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/reports/vulnerabilities/devices` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/reports/vulnerabilities/devices` |
+**Type**: GET
 
-## Retrieve security vulnerabilities
+**API**:
 
-**URL**: /api/v1/reports/vulnerabilities/security
+```rest
+curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/reports/vulnerabilities/devices
+```
+
+**Example**:
+
+```
+curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/reports/vulnerabilities/devices
+```
+
+---
+## security (Retrieve security vulnerabilities)
 
 Use this API to request results of a general vulnerability assessment. This assessment provides insight into your system's security level.
 
 This assessment is based on general network and system information and not on a specific device evaluation.
 
-#### Method
+**URL**: /api/v1/reports/vulnerabilities/security
 
-- **GET**
+**Method**: GET
 
-#### Response type
+# [Response](#tab/security-response)
 
-- **JSON**
-
-#### Response content
+**Type**: JSON
 
 JSON object that represents assessed results. Each key can be nullable. Otherwise, it will contain a JSON object with non-nullable keys.
 
-#### Result fields
+**unauthorizedDevices fields**
 
-- **Keys**
+| Field name | Type | List of values |
+| ---------- | ---- | -------------- |
+| **address** | String | IP address |
+| **name** | String | - |
+| **firstDetectionTime** | Numeric | Epoch (UTC) |
+| lastSeen | Numeric | Epoch (UTC) |
 
-    **unauthorizedDevices**
+**illegalTrafficByFirewallRules fields**
 
-    | Field name | Type | List of values |
-    | ---------- | ---- | -------------- |
-    | **address** | String | IP address |
-    | **name** | String | - |
-    | **firstDetectionTime** | Numeric | Epoch (UTC) |
-    | lastSeen | Numeric | Epoch (UTC) |
+| Field name | Type | List of values |
+| ---------- | ---- | -------------- |
+| **server** | String | IP address |
+| **client** | String | IP address |
+| **port** | Numeric | - |
+| **transport** | String | TCP, UDP, or ICMP |
 
-    **illegalTrafficByFirewallRules**
+**weakFirewallRules fields**
 
-    | Field name | Type | List of values |
-    | ---------- | ---- | -------------- |
-    | **server** | String | IP address |
-    | **client** | String | IP address |
-    | **port** | Numeric | - |
-    | **transport** | String | TCP, UDP, or ICMP |
+| Field name | Type | List of values |
+| ---------- | ---- | -------------- |
+| **sources** | JSON array of sources. Each source can be in any of four formats. | "Any", "ip address (Host", "from ip-to ip (RANGE)", "ip address, subnet mask (NETWORK)" |
+| **destinations** | JSON array of destinations. Each destination can be in any of four formats. | "Any", "ipaddress (Host)", "from ip-to ip (RANGE)", "ip address, subnet mask (NETWORK)" |
+| **ports** | JSON array of ports in any of three formats | "Any", "port (protocol, if detected)", "fromport-to port (protocol, if detected)" |
 
-    **weakFirewallRules**
+**accessPoints fields**
 
-    | Field name | Type | List of values |
-    | ---------- | ---- | -------------- |
-    | **sources** | JSON array of sources. Each source can be in any of four formats. | "Any", "ip address (Host)", "from ip-to ip (RANGE)", "ip address, subnet mask (NETWORK)" |
-    | **destinations** | JSON array of destinations. Each destination can be in any of four formats. | "Any", "ip address (Host)", "from ip-to ip (RANGE)", "ip address, subnet mask (NETWORK)" |
-    | **ports** | JSON array of ports in any of three formats | "Any", "port (protocol, if detected)", "from port-to port (protocol, if detected)" |
+| Field name | Type | List of values |
+| ---------- | ---- | -------------- |
+| **macAddress** | String | MAC address |
+| **vendor** | String | Vendor name |
+| **ipAddress** | String | IP address, or N/A |
+| **name** | String | Device name, or N/A |
+| **wireless** | String | No, Suspected, or Yes |
 
-    **accessPoints**
+**connectionsBetweenSubnets fields**
 
-    | Field name | Type | List of values |
-    | ---------- | ---- | -------------- |
-    | **macAddress** | String | MAC address |
-    | **vendor** | String | Vendor name |
-    | **ipAddress** | String | IP address, or N/A |
-    | **name** | String | Device name, or N/A |
-    | **wireless** | String | No, Suspected, or Yes |
+| Field name | Type | List of values |
+| ---------- | ---- | -------------- |
+| **server** | String | IP address |
+| **client** | String | IP address |
 
-    **connectionsBetweenSubnets**
+**industrialMalwareIndicators fields**
 
-    | Field name | Type | List of values |
-    | ---------- | ---- | -------------- |
-    | **server** | String | IP address |
-    | **client** | String | IP address |
+| Field name | Type | List of values |
+| ---------- | ---- | -------------- |
+| **detectionTime** | Numeric | Epoch (UTC) |
+| **alertMessage** | String | - |
+| **description** | String | - |
+| **devices** | JSON array | Device names |
 
-    **industrialMalwareIndicators**
+**internetConnections fields**
 
-    | Field name | Type | List of values |
-    | ---------- | ---- | -------------- |
-    | **detectionTime** | Numeric | Epoch (UTC) |
-    | **alertMessage** | String | - |
-    | **description** | String | - |
-    | **devices** | JSON array | Device names |
+| Field name | Type | List of values |
+| ---------- | ---- | -------------- |
+| **internalAddress** | String | IP address |
+| **authorized** | Boolean | Yes or No |
+| **externalAddresses** | JSON array | IP address |
 
-    **internetConnections**
-
-    | Field name | Type | List of values |
-    | ---------- | ---- | -------------- |
-    | **internalAddress** | String | IP address |
-    | **authorized** | Boolean | Yes or No |
-    | **externalAddresses** | JSON array | IP address |
-
-#### Response example
+**Response example**:
 
 ```rest
 {
@@ -1324,79 +1317,84 @@ JSON object that represents assessed results. Each key can be nullable. Otherwis
 }
 ```
 
-### Curl command
+# [Curl command](#tab-security-curl)
 
-| Type | APIs | Example |
-|--|--|--|
-| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/reports/vulnerabilities/security` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/reports/vulnerabilities/security` |
+**Type**: GET
 
-## Retrieve operational vulnerabilities
+**APIs**:
 
-**URL**: /api/v1/reports/vulnerabilities/operational
+```rest
+curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/reports/vulnerabilities/security
+```
+
+**Example**:
+
+```
+curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/reports/vulnerabilities/security
+```
+
+## operational (Retrieve operational vulnerabilities)
 
 Use this API to request results of a general vulnerability assessment. This assessment provides insight into the operational status of your network. It's based on general network and system information and not on a specific device evaluation.
 
-### Request
+**URL**: /api/v1/reports/vulnerabilities/operational
 
-- **GET**
+# [Request](#tab/operational-request)
 
-### Response
+**Type**: GET
 
-- **JSON**
+# [Response](#tab/operational-response)
 
-#### Response content
+**Type**: JSON
 
 JSON object that represents assessed results. Each key contains a JSON array of results.
 
-#### Result fields
 
-- **Keys**
+**backupServer result fields**
 
-    **backupServer**
+| Field name | Type | List of values |
+|--|--|--|
+| **source** | String | IP address |
+| **destination** | String | IP address |
+| **port** | Numeric | - |
+| **transport** | String | TCP or UDP |
+| **backupMaximalInterval** | String | - |
+| **lastSeenBackup** | Numeric | Epoch (UTC) |
 
-    | Field name | Type | List of values |
-    |--|--|--|
-    | **source** | String | IP address |
-    | **destination** | String | IP address |
-    | **port** | Numeric | - |
-    | **transport** | String | TCP or UDP |
-    | **backupMaximalInterval** | String | - |
-    | **lastSeenBackup** | Numeric | Epoch (UTC) |
+**ipNetworks result fields**
 
-    **ipNetworks**
+| Field name | Type | List of values |
+|--|--|--|
+| **addresse**s | Numeric | - |
+| **network** | String | IP address |
+| **mask** | String | Subnet mask |
 
-    | Field name | Type | List of values |
-    |--|--|--|
-    | **addresse**s | Numeric | - |
-    | **network** | String | IP address |
-    | **mask** | String | Subnet mask |
+**protocolProblems result fields**
 
-    **protocolProblems**
+| Field name | Type | List of values |
+|--|--|--|
+| **protocol** | String | - |
+| **addresses** | JSON array | IP addresses |
+| **alert** | String | - |
+| **reportTime** | Numeric | Epoch (UTC) |
 
-    | Field name | Type | List of values |
-    |--|--|--|
-    | **protocol** | String | - |
-    | **addresses** | JSON array | IP addresses |
-    | **alert** | String | - |
-    | **reportTime** | Numeric | Epoch (UTC) |
+**protocolDataVolumes result fields**
 
-    **protocolDataVolumes**
+| Field name | Type | List of values |
+|--|--|--|
+| protocol | String | - |
+| volume | String | "volume number MB" |
 
-    | Field name | Type | List of values |
-    |--|--|--|
-    | protocol | String | - |
-    | volume | String | "volume number MB" |
+**disconnections result fields**
 
-    **disconnections**
+| Field name | Type | List of values |
+|--|--|--|
+| **assetAddress** | String | IP address |
+| **assetName** | String | - |
+| **lastDetectionTime** | Numeric | Epoch (UTC) |
+| **backToNormalTime** | Numeric | Epoch (UTC) |
 
-    | Field name | Type | List of values |
-    |--|--|--|
-    | **assetAddress** | String | IP address |
-    | **assetName** | String | - |
-    | **lastDetectionTime** | Numeric | Epoch (UTC) |
-    | **backToNormalTime** | Numeric | Epoch (UTC) |
-
-#### Response example
+**Response example**
 
 ```rest
 {
@@ -1522,12 +1520,23 @@ JSON object that represents assessed results. Each key contains a JSON array of 
 }
 ```
 
-### Curl command
+# [Curl command](#tab/operational-curl)
 
-| Type | APIs | Example |
-|--|--|--|
-| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/reports/vulnerabilities/operational` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/reports/vulnerabilities/operational` |
+**Type**: GET
 
+**APIs**:
+
+```rest
+curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/reports/vulnerabilities/operational
+```
+
+**Example**:
+
+```rest
+curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/reports/vulnerabilities/operational
+```
+
+---
 ## Retrieve alert PCAP
 
 **URL**: /api/v2/alerts/pcap
