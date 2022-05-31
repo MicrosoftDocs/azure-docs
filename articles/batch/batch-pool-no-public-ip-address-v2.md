@@ -86,9 +86,9 @@ client-request-id: 00000000-0000-0000-0000-000000000000
           "imageReference": {
                "publisher": "Canonical",
                "offer": "UbuntuServer",
-               "sku": "16.040-LTS"
+               "sku": "18.04-lts"
           },
-          "nodeAgentSKUId": "batch.node.ubuntu 16.04"
+          "nodeAgentSKUId": "batch.node.ubuntu 18.04"
      }
      "networkConfiguration": {
           "subnetId": "/subscriptions/<your_subscription_id>/resourceGroups/<your_resource_group>/providers/Microsoft.Network/virtualNetworks/<your_vnet_name>/subnets/<your_subnet_name>",
@@ -121,7 +121,7 @@ In a pool without public IP addresses, your virtual machines won't be able to ac
 Another way to provide outbound connectivity is to use a user-defined route (UDR). This lets you route traffic to a proxy machine that has public internet access, for example [Azure Firewall](../firewall/overview.md).
 
 > [!IMPORTANT]
-> There is no extra network resource (load balancer, network security group) created for pools without public IP addresses. Since the compute nodes in the pool are not bound to any load balancer, Azure may provide [Default Outbound Access](../virtual-network/ip-services/default-outbound-access.md). However this is not recommended for production workloads, so we strongly suggest to bring your own internet outbound access.
+> There is no extra network resource (load balancer, network security group) created for pools without public IP addresses (No Public IP v2). Since the compute nodes in the pool are not bound to any load balancer, Azure may provide [Default Outbound Access](../virtual-network/ip-services/default-outbound-access.md). However, Default Outbound Access is not suitable for production workloads, so it is strongly recommended to bring your own Internet outbound access.
 
 ## Migration from No Public IP v1 pools
 
@@ -129,8 +129,8 @@ For existing pools using the previous preview version of [Azure Batch No Public 
 
 - Opt in to use simplified node communication.
 - Create [private endpoint for Batch node management](private-connectivity.md) in the virtual network.
-- Shrink the pool to empty (zero node).
-- Scale up the pool again and it will be automatically migrated to use the latest version of Batch no public IP pool.
+- Scale down the pool to zero nodes.
+- Scale out the pool again and it will be automatically migrated to a No Public IP v2 pool.
 
 ## Next steps
 

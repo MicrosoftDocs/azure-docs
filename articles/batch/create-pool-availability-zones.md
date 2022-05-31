@@ -58,12 +58,12 @@ Request body
         "imageReference": {
             "publisher": "Canonical",
             "offer": "UbuntuServer",
-            "sku": "16.040-LTS"
+            "sku": "18.04-lts"
         },
         "nodePlacementConfiguration": {
             "policy": "Zonal"
         }
-        "nodeAgentSKUId": "batch.node.ubuntu 16.04"
+        "nodeAgentSKUId": "batch.node.ubuntu 18.04"
     },
     "resizeTimeout": "PT15M",
     "targetDedicatedNodes": 5,

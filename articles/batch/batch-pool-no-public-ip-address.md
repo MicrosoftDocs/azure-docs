@@ -79,9 +79,9 @@ client-request-id: 00000000-0000-0000-0000-000000000000
           "imageReference": {
                "publisher": "Canonical",
                "offer": "UbuntuServer",
-               "sku": "16.040-LTS"
+               "sku": "18.04-lts"
           },
-          "nodeAgentSKUId": "batch.node.ubuntu 16.04"
+          "nodeAgentSKUId": "batch.node.ubuntu 18.04"
      }
      "networkConfiguration": {
           "subnetId": "/subscriptions/<your_subscription_id>/resourceGroups/<your_resource_group>/providers/Microsoft.Network/virtualNetworks/<your_vnet_name>/subnets/<your_subnet_name>",
