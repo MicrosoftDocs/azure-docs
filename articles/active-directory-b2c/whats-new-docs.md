@@ -20,7 +20,6 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 
 ### Updated articles
 
-- [Azure Active Directory B2C: What's new](whats-new-docs.md)
 - [Set redirect URLs to b2clogin.com for Azure Active Directory B2C](b2clogin.md)
 - [Enable custom domains for Azure Active Directory B2C](custom-domain.md)
 - [Configure xID with Azure Active Directory B2C for passwordless authentication](partner-xid.md)
