@@ -49,7 +49,7 @@ Here are some benefits of Connection Monitor:
 * Support for connectivity checks that are based on HTTP, Transmission Control Protocol (TCP), and Internet Control Message Protocol (ICMP) 
 * Metrics and Log Analytics support for both Azure and non-Azure test setups
 
-![Diagram showing how Connection Monitor interacts with Azure VMs, non-Azure hosts, endpoints, and data storage locations.](./media/connection-monitor-2-preview/hero-graphic.png)
+![Diagram showing how Connection Monitor interacts with Azure VMs, non-Azure hosts, endpoints, and data storage locations.](./media/connection-monitor-2-preview/hero-graphic-new.png)
 
 To start using Connection Monitor for monitoring, do the following: 
 
@@ -62,16 +62,25 @@ To start using Connection Monitor for monitoring, do the following:
 The following sections provide details for these steps.
 
 ## Install monitoring agents
+
+ > [!NOTE]
+ > Connection Monitor now supports auto enablement of monitoring extensions for Azure & Non-Azure endpoints, thus eliminating the need for manual installion of monitoring solutions during the creation of Connection Monitor. 
  
 Connection Monitor relies on lightweight executable files to run connectivity checks. It supports connectivity checks from both Azure environments and on-premises environments. The executable file that you use depends on whether your VM is hosted on Azure or on-premises.
 
 ### Agents for Azure virtual machines and virtual machine scale sets 
-Create a VM scale set
+
 To make Connection Monitor recognize your Azure VMs or VMSS as monitoring sources, install the Network Watcher Agent virtual machine extension on them. This extension is also known as the *Network Watcher extension*. Azure virtual machines and scale sets require the extension to trigger end-to-end monitoring and other advanced functionality. 
 
-You can install the Network Watcher extension when you [create a VM](./connection-monitor.md#create-the-first-vm) or when you [creat a VM scale set](./connection-monitor-vmss.md#create-a-vm-scale-set). Follow similar steps for enabling the  You can also separately install, configure, and troubleshoot the Network Watcher extension for [Linux](../virtual-machines/extensions/network-watcher-linux.md) and [Windows](../virtual-machines/extensions/network-watcher-windows.md).
+You can install the Network Watcher extension when you [create a VM](./connection-monitor.md#create-the-first-vm) or when you [create a VM scale set](./connection-monitor-vmss.md#create-a-vm-scale-set). Follow similar steps for enabling the  You can also separately install, configure, and troubleshoot the Network Watcher extension for [Linux](../virtual-machines/extensions/network-watcher-linux.md) and [Windows](../virtual-machines/extensions/network-watcher-windows.md).
 
 Rules for a network security group (NSG) or firewall can block communication between the source and destination. Connection Monitor detects this issue and shows it as a diagnostics message in the topology. To enable connection monitoring, ensure that the NSG and firewall rules allow packets over TCP or ICMP between the source and destination.
+
+If you wish to escape the installation process for enabling Network Watcher extension, you can proceed with the creation of Connection Monitor and allow auto enablement of Network Watcher extensions on your Azure VMs and VM scale sets.
+
+ > [!Note]
+ > In the case the VMSS is set for manual upgradation, the user will have to upgrade the scale set post Network Watcher extension installation in order to continue setting up the Connection Monitor with VMSS as endpoints. In-case the VMSS is set to auto upgradation, the user need not worry about any upgradation after Network Watcher extension installation.
+ > As Connection Monitor now supports unified auto enablement of monitoring extensions, user can consent to auto upgradation of VM scale set with auto enablement of Network Watcher extension during the creation on Connection Monitor for VM scale sets with manual upgradation. 
 
 ### Agents for on-premises machines
 
@@ -117,6 +126,8 @@ To enable the NPM solution for on-premises machines, do the following:
    :::image type="content" source="./media/connection-monitor/network-performance-monitor-solution-enable.png" alt-text="Screenshot showing how to add the NPM solution in Connection Monitor." lightbox="./media/connection-monitor/network-performance-monitor-solution-enable.png":::
 
 Unlike Log Analytics agents, the NPM solution can be configured to send data only to a single Log Analytics workspace.
+
+If you wish to escape the installation process for enabling Network Watcher extension, you can proceed with the creation of Connection Monitor and allow auto enablement of monitoring solution on your on-premises machines. 
 
 ## Enable Network Watcher on your subscription
 
@@ -178,6 +189,8 @@ All sources, destinations, and test configurations that you add to a test group 
 | 11 | C | E | Config 1 |
 | 12 | C | E | Config 2 |
 | | |
+
+
 
 ### Scale limits
 
