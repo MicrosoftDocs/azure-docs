@@ -6,7 +6,7 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 05/12/2022
+ms.date: 05/31/2022
 ---
 
 # Read replicas in Azure Database for PostgreSQL - Hyperscale (Citus)
@@ -18,7 +18,7 @@ run to up to five replicas from the primary server.
 
 Replicas are new server groups that you manage similar to regular Hyperscale
 (Citus) server groups. For each read replica, you're billed for the provisioned
-compute in vCores and storage in GB/ month.
+compute in vCores and storage in GiB/month.
 
 Learn how to [create and manage replicas](howto-read-replicas-portal.md).
 
@@ -110,9 +110,9 @@ to the replica when the replica is created or afterwards.
 ### Cross-region replication (preview)
 
 Read replicas can be created in the region of the primary server group, or in
-any other region supported by Hyperscale (Citus). The limit of five replicas
-per server group counts across all regions, meaning five total, not five per
-region.
+any other [region supported by Hyperscale (Citus)](resources-regions.md). The
+limit of five replicas per server group counts across all regions, meaning five
+total, not five per region.
 
 ## Next steps
 
