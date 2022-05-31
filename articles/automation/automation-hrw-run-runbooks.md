@@ -143,7 +143,7 @@ By default, the Hybrid jobs run under the context of System account. However, to
     - HKLM\SYSTEM\CurrentControlSet\Services\EventLog (read) </br>
     - HKLM\SYSTEM\CurrentControlSet\Services\WinSock2\Parameters (full access) </br>
     - HKLM\SOFTWARE\Microsoft\Wbem\CIMOM (full access) </br>
-    - HKLM\Software\Policies\Microsoft\SystemCertificates\Root` (full access) </br>
+    - HKLM\Software\Policies\Microsoft\SystemCertificates\Root (full access) </br>
     - HKLM\Software\Microsoft\SystemCertificates (full access) </br>
     - HKLM\Software\Microsoft\EnterpriseCertificates (full access) </br>
     - HKLM\software\Microsoft\HybridRunbookWorker (full access) </br>
