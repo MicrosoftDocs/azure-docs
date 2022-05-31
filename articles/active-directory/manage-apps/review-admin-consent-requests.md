@@ -43,7 +43,7 @@ To review the admin consent requests and take action:
    - To see who is requesting access and why, select the **Requested by** tab.
    - To see what permissions are being requested by the application, select **Review permissions and consent**.
    
-   :::image type="content" source="media/configure-admin-consent-workflow/review-consent-requests.png" alt-text="Review admin consent requests.":::
+   :::image type="content" source="media/configure-admin-consent-workflow/review-consent-requests.png" alt-text="Screenshot of the admin consent requests in the portal":::
    
 1. Evaluate the request and take the appropriate action:
    - **Approve the request**. To approve a request, grant admin consent to the application. Once a request is approved, all requestors are notified that they have been granted access. Approving a request allows all users in your tenant to access the application unless otherwise restricted with user assignment. 
