@@ -62,9 +62,8 @@ You can also [create log alert rules using Azure Resource Manager templates](../
 # [Activity Log alerts](#tab/activity-log)
 1.  In the **Conditions** pane.
 
+---
 
-
-Now continue here....
 1. The **Condition** tab opens, populated with your log query.
    
    By default, the rule counts the number of results in the last 5 minutes.
