@@ -71,7 +71,7 @@ See how data is extracted from W-2 forms using the Form Recognizer Studio. You'l
 
 | Model | Language—Locale code | Default |
 |--------|:----------------------|:---------|
-|prebuilt-tax.us.w2| <ul>English (United States)</ul></br>|English (United States)—en-US|
+|prebuilt-tax.us.w2|<ul><li>English (United States)</li></ul>|English (United States)—en-US|
 
 ## Field extraction
 
