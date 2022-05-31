@@ -920,14 +920,8 @@ items:
     href: concepts/model-lifecycle.md
   - name: Send requests asynchronously
     href: concepts/use-asynchronously.md 
-- name: Tutorials
-  items:
-  - name: Use Cognitive Services in canvas apps
-    href: /powerapps/maker/canvas-apps/cognitive-services-api?context=/azure/cognitive-services/language-service/context/context
-  - name: Use Azure Kubernetes Service
-    href: tutorials/use-kubernetes-service.md
-- name: Enterprise readiness
-  items:
+  - name: Enterprise readiness
+    items:
     - name: Virtual networks
       href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/language-service/context/context
     - name: Cognitive Services security
@@ -938,6 +932,12 @@ items:
       href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
     - name: Compliance and certification
       href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+- name: Tutorials
+  items:
+  - name: Use Cognitive Services in canvas apps
+    href: /powerapps/maker/canvas-apps/cognitive-services-api?context=/azure/cognitive-services/language-service/context/context
+  - name: Use Azure Kubernetes Service
+    href: tutorials/use-kubernetes-service.md
 - name: Resources
   items:
     - name: Support and help options
