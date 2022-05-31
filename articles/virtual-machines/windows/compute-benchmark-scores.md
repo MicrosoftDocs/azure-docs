@@ -1,14 +1,14 @@
 ---
-title: Compute benchmark scores for Azure Windows VMs
-description: Compare SPECint compute benchmark scores for Azure VMs running Windows Server.
-author: cynthn
-ms.service: virtual-machines
-ms.subservice: sizes
-ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 04/26/2022
-ms.author: cynthn
-ms.reviewer: davberg
+title:: Compute benchmark scores for Azure Windows VMs 
+description:: Compare Coremark compute benchmark scores for Azure VMs running Windows Server.
+author:: DavidBerg-MSFT
+ms.service:: virtual-machines
+ms.subservice:: sizes
+ms.topic:: conceptual
+ms.workload:: infrastructure-services
+ms.date:: 05/31/2022
+ms.author:: davberg
+ms.reviewer:: ladolan
 
 ---
 # Compute benchmark scores for Windows VMs
@@ -46,6 +46,9 @@ The following CoreMark benchmark scores show compute performance for select Azur
 | Standard_F48s_v2 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 48 | 1 | 96.0 | 742,828 | 17,316 | 2.33% | 112 |
 | Standard_F64s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 64 | 2 | 128.0 | 1,030,552 | 8,106 | 0.79% | 70 |
 | Standard_F64s_v2 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 64 | 2 | 128.0 | 1,028,052 | 9,373 | 0.91% | 168 |
+| Standard_F72s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 72 | 2 | 144.0 | N/A | - | - | - |
+| Standard_F72s_v2 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 72 | 2 | 144.0 | N/A | - | - | - |
+
 
 ### Fs - Compute Optimized + Premium Storage
 (04/28/2021 PBIID:9198755)
@@ -183,7 +186,7 @@ The following CoreMark benchmark scores show compute performance for select Azur
 | Standard_D32as_v4 | AMD EPYC 7452 32-Core Processor                 | 32 | 4 | 128.0 | 566,270 | 8,484 | 1.50% | 140 |
 | Standard_D48as_v4 | AMD EPYC 7452 32-Core Processor                 | 48 | 6 | 192.0 | 829,547 | 15,679 | 1.89% | 126 |
 | Standard_D64as_v4 | AMD EPYC 7452 32-Core Processor                 | 64 | 8 | 256.0 | 1,088,030 | 16,708 | 1.54% | 28 |
-
+| Standard_D96as_v4 | AMD EPYC 7452 32-Core Processor                 | 96 | 12 | 384.0 | N/A | - | - | - |
 
 ### Dav4
 (03/25/2021 PBIID:9198755)
@@ -197,7 +200,7 @@ The following CoreMark benchmark scores show compute performance for select Azur
 | Standard_D32a_v4 | AMD EPYC 7452 32-Core Processor                 | 32 | 4 | 128.0 | 567,019 | 11,019 | 1.94% | 210 |
 | Standard_D48a_v4 | AMD EPYC 7452 32-Core Processor                 | 48 | 6 | 192.0 | 835,617 | 13,097 | 1.57% | 140 |
 | Standard_D64a_v4 | AMD EPYC 7452 32-Core Processor                 | 64 | 8 | 256.0 | 1,099,165 | 21,962 | 2.00% | 252 |
-
+| Standard_D96a_v4 | AMD EPYC 7452 32-Core Processor                 | 96 | 12 | 384.0 | N/A | - | - | - |
 
 ### DDSv4
 (03/26/2021 PBIID:9198755)
@@ -430,6 +433,7 @@ The following CoreMark benchmark scores show compute performance for select Azur
 | Standard_E64as_v4 | AMD EPYC 7452 32-Core Processor                 | 64 | 8 | 512.0 | 1,097,588 | 26,100 | 2.38% | 280 |
 | Standard_E64-16as_v4 | AMD EPYC 7452 32-Core Processor                 | 16 | 8 | 512.0 | 284,934 | 5,065 | 1.78% | 154 |
 | Standard_E64-32as_v4 | AMD EPYC 7452 32-Core Processor                 | 32 | 8 | 512.0 | 561,951 | 9,691 | 1.72% | 140 |
+| Standard_E96as_v4 | AMD EPYC 7452 32-Core Processor                 | 96 | 12 | 672.0 | N/A | - | - | - |
 | Standard_E96-24as_v4 | AMD EPYC 7452 32-Core Processor                 | 24 | 11 | 672.0 | 423,442 | 8,504 | 2.01% | 182 |
 | Standard_E96-48as_v4 | AMD EPYC 7452 32-Core Processor                 | 48 | 11 | 672.0 | 839,993 | 14,218 | 1.69% | 70 |
 
@@ -446,6 +450,7 @@ The following CoreMark benchmark scores show compute performance for select Azur
 | Standard_E32a_v4 | AMD EPYC 7452 32-Core Processor                 | 32 | 4 | 256.0 | 565,363 | 10,941 | 1.94% | 126 |
 | Standard_E48a_v4 | AMD EPYC 7452 32-Core Processor                 | 48 | 6 | 384.0 | 837,493 | 15,803 | 1.89% | 126 |
 | Standard_E64a_v4 | AMD EPYC 7452 32-Core Processor                 | 64 | 8 | 512.0 | 1,097,111 | 30,290 | 2.76% | 336 |
+| Standard_E96a_v4 | AMD EPYC 7452 32-Core Processor                 | 96 | 12 | 672.0 | N/A | - | - | - |
 
 ### EDSv4
 (03/27/2021 PBIID:9198755)
@@ -471,6 +476,13 @@ The following CoreMark benchmark scores show compute performance for select Azur
 | Standard_E64-16ds_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 16 | 2 | 504.0 | 260,677 | 3,340 | 1.28% | 154 |
 | Standard_E64-32ds_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 32 | 2 | 504.0 | 514,504 | 4,082 | 0.79% | 98 |
 
+### Edsv4 Isolated Extended
+(04/05/2021 PBIID:9198755)
+
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Standard_E80ids_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 80 | 2 | 504.0 |N/A | - | - | - |
+
 ### EDv4
 (03/26/2021 PBIID:9198755)
 
@@ -484,6 +496,13 @@ The following CoreMark benchmark scores show compute performance for select Azur
 | Standard_E32d_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 32 | 1 | 256.0 | 530,364 | 9,914 | 1.87% | 336 |
 | Standard_E48d_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 48 | 2 | 384.0 | 761,410 | 21,640 | 2.84% | 336 |
 | Standard_E64d_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 64 | 2 | 504.0 | 1,030,708 | 9,500 | 0.92% | 322 |
+
+### EIASv4
+(04/05/2021 PBIID:9198755)
+
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Standard_E96ias_v4 | AMD EPYC 7452 32-Core Processor                 | 96 | 12 | 672.0 | N/A | - | - | - |
 
 ### Esv4
 (03/25/2021 PBIID:9198755)
@@ -509,9 +528,13 @@ The following CoreMark benchmark scores show compute performance for select Azur
 | Standard_E64-16s_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 16 | 2 | 504.0 | 224,499 | 3,955 | 1.76% | 168 |
 | Standard_E64-32s_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 32 | 2 | 504.0 | 441,521 | 30,939 | 7.01% | 168 |
 
+### Esv4 Isolated Extended
+| VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
+| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| Standard_E80is_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 80 | 2 | 504.0 | N/A | - | - | - |
+
 ### Ev4
 (03/25/2021 PBIID:9198755)
-
 | VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | Standard_E2_v4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 2 | 1 | 16.0 | 30,825 | 2,765 | 8.97% | 406 |
@@ -679,6 +702,7 @@ The following CoreMark benchmark scores show compute performance for select Azur
 
 Windows numbers were computed by running CoreMark on Windows Server 2019. CoreMark was configured with the number of threads set to the number of virtual CPUs, and concurrency set to `PThreads`. The target number of iterations was adjusted based on expected performance to provide a runtime of at least 20 seconds (typically much longer). The final score represents the number of iterations completed divided by the number of seconds it took to run the test. Each test was run at least seven times on each VM. Test run dates shown above. Tests run on multiple VMs across Azure public regions the VM was supported in on the date run.
 
+Windows numbers were computed by running CoreMark on Windows Server 2019. CoreMark was configured with the number of threads set to the number of virtual CPUs, and concurrency set to `PThreads`. The target number of iterations was adjusted based on expected performance to provide a runtime of at least 20 seconds (typically much longer). The final score represents the number of iterations completed divided by the number of seconds it took to run the test. Each test was run at least seven times on each VM. Test run dates shown above. Tests run on multiple VMs across Azure public regions the VM was supported in on the date run. (Coremark does not properly support more than 64 vCPUs on Windows, therefore SKUs with > 64 vCPUs have been marked as N/A.)
 
 ### Running Coremark on Azure VMs
 
