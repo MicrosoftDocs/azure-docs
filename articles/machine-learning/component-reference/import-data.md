@@ -5,6 +5,7 @@ description: Learn how to use the Import Data component in Azure Machine Learnin
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.custom: event-tier1-build-2022
 ms.topic: reference
 
 author: likebupt

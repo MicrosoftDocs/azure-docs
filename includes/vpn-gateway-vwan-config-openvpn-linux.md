@@ -2,11 +2,11 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 05/12/2022
+ ms.date: 05/18/2022
  ms.author: cherylmc
  ms.custom: include file
 
-#Customer intent: this file is used for both virtual wan and vpn gateway articles.
+#Customer intent: This file is duplicated as vpn-gateway-config-openvpn-linux.md. If the steps and screenshots in this file are updated, they need to be also updated in the other file unless specific to Virtual WAN.
 ---
 
 1. Open a new Terminal session. You can open a new session by pressing 'Ctrl + Alt + t' at the same time.
@@ -20,10 +20,7 @@
    ```
 1. Download the VPN profile for the gateway. This can be done from the Point-to-site configuration tab in the Azure portal.
 
-1. Export the P2S client certificate you created and uploaded to your P2S configuration on the gateway. Use the following article links:
-
-   * [VPN Gateway](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport) instructions
-   * [Virtual WAN](../articles/virtual-wan/certificates-point-to-site.md#clientexport) instructions
+1. Export the P2S client certificate you created and uploaded to your P2S configuration on the gateway. See [Virtual WAN point-to-site](../articles/virtual-wan/certificates-point-to-site.md#clientexport) for instructions.
 
 1. Extract the private key and the base64 thumbprint from the .pfx. There are multiple ways to do this. Using OpenSSL on your computer is one way.
 
