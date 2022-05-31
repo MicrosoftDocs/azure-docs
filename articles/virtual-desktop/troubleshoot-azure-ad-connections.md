@@ -34,7 +34,7 @@ If you can't sign in and keep receiving an error message that says your credenti
 - Does your Conditional Access policy exclude multi-factor authentication requirements for the Azure Windows VM sign-in cloud application?
 - Have you assigned the **Virtual Machine User Login** role-based access control (RBAC) permission to the VM or resource group for each user? 
 
-If you answered "no" to either of these questions, follow the instructions in [Enforce Azure Active Directory Multi-Factor Authentication for Azure Virtual Desktop using Conditional Access](set-up-mfa#azure-ad-joined-session-host-vms) to reconfigure your multi-factor authentication.
+If you answered "no" to either of these questions, follow the instructions in [Enforce Azure Active Directory Multi-Factor Authentication for Azure Virtual Desktop using Conditional Access](set-up-mfa.md#azure-ad-joined-session-host-vms) to reconfigure your multi-factor authentication.
 
 > [!WARNING] 
 > VM sign-ins don't support per-user enabled or enforced Azure AD Multi-Factor Authentication. If you try to sign in with multi-factor authentication on a VM, you won't be able to sign in and will receive an error message.
@@ -61,11 +61,11 @@ If you come across an error saying **The logon attempt failed** on the Windows S
 - You are on a device that is Azure AD-joined or hybrid Azure AD-joined to the same Azure AD tenant as the session host OR
 - You are on a device running Windows 10 2004 or later that is Azure AD registered to the same Azure AD tenant as the session host
 - The [PKU2U protocol is enabled](/windows/security/threat-protection/security-policy-settings/network-security-allow-pku2u-authentication-requests-to-this-computer-to-use-online-identities) on both the local PC and the session host
-- [Per-user multi-factor authentication is disabled](set-up-mfa#azure-ad-joined-session-host-vms) for the user account as it's not supported for Azure AD-joined VMs.
+- [Per-user multi-factor authentication is disabled](set-up-mfa.md#azure-ad-joined-session-host-vms) for the user account as it's not supported for Azure AD-joined VMs.
 
 ### The sign-in method you're trying to use isn't allowed
 
-If you come across an error saying **The sign-in method you're trying to use isn't allowed. Try a different sign-in method or contact your system administrator**, you have Conditional Access policies restricting access. Follow the instructions in [Enforce Azure Active Directory Multi-Factor Authentication for Azure Virtual Desktop using Conditional Access](set-up-mfa#azure-ad-joined-session-host-vms) to enforce Azure Active Directory Multi-Factor Authentication for your Azure AD-joined VMs.
+If you come across an error saying **The sign-in method you're trying to use isn't allowed. Try a different sign-in method or contact your system administrator**, you have Conditional Access policies restricting access. Follow the instructions in [Enforce Azure Active Directory Multi-Factor Authentication for Azure Virtual Desktop using Conditional Access](set-up-mfa.md#azure-ad-joined-session-host-vms) to enforce Azure Active Directory Multi-Factor Authentication for your Azure AD-joined VMs.
 
 ## Web client
 
@@ -75,7 +75,7 @@ If you come across an error saying **Oops, we couldn't connect to NAME. Sign in 
 
 ### We couldn't connect to the remote PC because of a security error
 
-If you come across an error saying **Oops, we couldn't connect to NAME. We couldn't connect to the remote PC because of a security error. If this keeps happening, ask your admin or tech support for help.**, you have Conditional Access policies restricting access. Follow the instructions in [Enforce Azure Active Directory Multi-Factor Authentication for Azure Virtual Desktop using Conditional Access](set-up-mfa#azure-ad-joined-session-host-vms) to enforce Azure Active Directory Multi-Factor Authentication for your Azure AD-joined VMs.
+If you come across an error saying **Oops, we couldn't connect to NAME. We couldn't connect to the remote PC because of a security error. If this keeps happening, ask your admin or tech support for help.**, you have Conditional Access policies restricting access. Follow the instructions in [Enforce Azure Active Directory Multi-Factor Authentication for Azure Virtual Desktop using Conditional Access](set-up-mfa.md#azure-ad-joined-session-host-vms) to enforce Azure Active Directory Multi-Factor Authentication for your Azure AD-joined VMs.
 
 ## Android client
 
