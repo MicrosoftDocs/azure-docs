@@ -87,14 +87,6 @@ items:
     - name: Accepted data formats
       href: custom-text-classification/concepts/data-formats.md
       displayName: Data representation
-    - name: Enterprise readiness
-      items: 
-      - name: Virtual networks
-        href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/language-service/context/context
-      - name: Cognitive Services security
-        href: ../cognitive-services-security.md?context=/azure/cognitive-services/language-service/context/context
-      - name: Encryption of data at rest
-        href: concepts/encryption-data-at-rest.md
   - name: Tutorials
     items:
     - name: Enrich a Cognitive Search index 
@@ -178,14 +170,6 @@ items:
         href: custom-named-entity-recognition/concepts/evaluation-metrics.md
       - name: Accepted data formats
         href: custom-named-entity-recognition/concepts/data-formats.md
-      - name: Enterprise readiness
-        items: 
-        - name: Virtual networks
-          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/language-service/context/context
-        - name: Cognitive Services security
-          href: ../cognitive-services-security.md?context=/azure/cognitive-services/language-service/context/context
-        - name: Encryption of data at rest
-          href: concepts/encryption-data-at-rest.md
   - name: Reference
     items:
     - name: Glossary
@@ -248,14 +232,6 @@ items:
         href: conversational-language-understanding/concepts/data-formats.md
       - name: None intent
         href: conversational-language-understanding/concepts/none-intent.md
-      - name: Enterprise readiness
-        items: 
-        - name: Virtual networks
-          href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/language-service/context/context
-        - name: Cognitive Services security
-          href: ../cognitive-services-security.md?context=/azure/cognitive-services/language-service/context/context
-        - name: Encryption of data at rest
-          href: concepts/encryption-data-at-rest.md
   - name: Tutorials
     items:
       - name: Use Bot Framework
@@ -564,14 +540,6 @@ items:
         href: orchestration-workflow/concepts/none-intent.md
       - name: Data formats
         href: orchestration-workflow/concepts/data-formats.md
-  - name: Enterprise readiness
-    items: 
-    - name: Virtual networks
-      href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/language-service/context/context
-    - name: Cognitive Services security
-      href: ../cognitive-services-security.md?context=/azure/cognitive-services/language-service/context/context
-    - name: Encryption of data at rest
-      href: concepts/encryption-data-at-rest.md
   - name: Tutorials
     items:
       - name: Connect conversational language understanding and custom question answering
@@ -952,18 +920,24 @@ items:
     href: concepts/model-lifecycle.md
   - name: Send requests asynchronously
     href: concepts/use-asynchronously.md 
+  - name: Enterprise readiness
+    items:
+    - name: Virtual networks
+      href: ../cognitive-services-virtual-networks.md?context=/azure/cognitive-services/language-service/context/context
+    - name: Cognitive Services security
+      href: ../cognitive-services-security.md?context=/azure/cognitive-services/language-service/context/context
+    - name: Encryption of data at rest
+      href: concepts/encryption-data-at-rest.md
+    - name: Region support
+      href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+    - name: Compliance and certification
+      href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
 - name: Tutorials
   items:
   - name: Use Cognitive Services in canvas apps
     href: /powerapps/maker/canvas-apps/cognitive-services-api?context=/azure/cognitive-services/language-service/context/context
   - name: Use Azure Kubernetes Service
     href: tutorials/use-kubernetes-service.md
-- name: Enterprise readiness
-  items:
-    - name: Region support
-      href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
-    - name: Compliance and certification
-      href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
 - name: Resources
   items:
     - name: Support and help options
