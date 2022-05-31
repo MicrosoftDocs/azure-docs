@@ -190,7 +190,7 @@ Perform the high availability update in the following order. Make sure each step
 
 1. Update both the primary and secondary appliances to the new version. <!--do we have an xref to instructions for this?--> 
 
-1. Set up the high availability <!--say again? or from the beginning? or something to indicate repeating the initial setup--> on both the primary and secondary appliances, as described [here](#create-the-primary-and-secondary-pair).
+1. Set up high availability again, on both the primary and secondary appliances. For more information, see [Create the primary and secondary pair](#create-the-primary-and-secondary-pair).
 
 
 ## Next steps
