@@ -4,7 +4,7 @@ description: Learn to use Azure file shares with Windows and Windows Server. Use
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/10/2021
+ms.date: 05/31/2022
 ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
