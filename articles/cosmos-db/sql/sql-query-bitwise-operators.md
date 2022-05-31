@@ -26,7 +26,7 @@ The following table shows the explanations and examples of bitwise operations in
 | **Right shift** | ``>>`` | Shift left-hand value *right* by the specified number of bits. |
 | **Zero-fill (unsigned) right shift** | ``>>>`` | Shift left-hand value *right* by the specified number of bits without filling left-most bits. |
 | **AND** | ``&`` |  Computes bitwise logical AND. |
-| **OR** | ``\|`` | Computes bitwise logical OR. |
+| **OR** | ``|`` | Computes bitwise logical OR. |
 | **XOR** | ``^`` | Computes bitwise logical exclusive OR. |
 
 
