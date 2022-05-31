@@ -47,7 +47,7 @@ The following example creates a VM named *myVM* and adds a user account named *a
 az vm create \
   --resource-group myResourceGroup \
   --name myVM \
-  --image UbuntuLTS \
+  --image Debian \
   --admin-username azureuser \
   --generate-ssh-keys
 ```
@@ -71,6 +71,14 @@ Note your own `publicIpAddress` in the output from your VM. This address is used
 
 [!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
 
+## Install web server
+
+To see your VM in action, install the NGINX web server. Update your package sources and then install the latest NGINX package.
+
+```azurecli-interactive
+az vm run-command invoke -g MyResourceGroup -n MyVm --command-id RunShellScript --scripts "sudo apt-get update && sudo apt-get install -y nginx"
+```
+
 ## Open port 80 for web traffic
 
 By default, only SSH connections are opened when you create a Linux VM in Azure. Use [az vm open-port](/cli/azure/vm) to open TCP port 80 for use with the NGINX web server:
@@ -78,25 +86,6 @@ By default, only SSH connections are opened when you create a Linux VM in Azure.
 ```azurecli-interactive
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 ```
-
-## Connect to virtual machine
-
-SSH to your VM as normal. Replace the IP address in the example with the public IP address of your VM as noted in the previous output:
-
-```bash
-ssh azureuser@40.68.254.142
-```
-
-## Install web server
-
-To see your VM in action, install the NGINX web server. Update your package sources and then install the latest NGINX package.
-
-```bash
-sudo apt-get -y update
-sudo apt-get -y install nginx
-```
-
-When done, type `exit` to leave the SSH session.
 
 ## View the web server in action
 
