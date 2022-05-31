@@ -86,7 +86,7 @@ Now that the repository is created, you can create a static web app from the Azu
 
     Replace the placeholder `<YOUR_GITHUB_USER_NAME>` with your GitHub user name.
 
-1. Create a new static web app from your repository.
+1. Create a new static web app from your repository. As you execute this command, the CLI starts GitHub interactive login experience. Following the message to complete authorization.
 
     ```azurecli-interactive
     az staticwebapp create \
@@ -102,19 +102,15 @@ Now that the repository is created, you can create a static web app from the Azu
     > [!IMPORTANT]
     > The URL passed to the `--source` parameter must not include the `.git` suffix.
 
-    As you execute this command, the CLI starts GitHub interactive login experience. Look for a line in your console that resembles the following message.
+1. Navigate to **https://github.com/login/device**.
 
-    > Please navigate to `https://github.com/login/device` and enter the user code <CODE> to activate and retrieve your GitHub personal access token.
+1. Enter the user code as displayed your console's message.
 
-2. Navigate to **https://github.com/login/device**.
+1. Select the **Continue** button.
 
-3. Enter the user code as displayed your console's message.
+1. Select the **Authorize AzureAppServiceCLI** button.
 
-4. Select the **Continue** button.
-
-5. Select the **Authorize AzureAppServiceCLI** button.
-
-6. Configure the static web app settings.
+1. Configure the static web app settings.
 
     ```azurecli-interactive
     az staticwebapp appsettings set \
