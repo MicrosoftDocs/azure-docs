@@ -28,7 +28,7 @@ Before you can get tokens to access APIs in your application, you need an authen
 You can also optionally pass the scopes of the APIs for which you need the user to consent at the time of sign-in.
 
 > [!NOTE]
-> If your application already has access to an authenticated user context or ID token, you can skip the login step and directly acquire tokens. For details, see [SSO with user hint](msal-js-sso.md#With-user-hint).
+> If your application already has access to an authenticated user context or ID token, you can skip the login step and directly acquire tokens. For details, see [SSO with user hint](msal-js-sso.md#with-user-hint).
 
 ## Choosing between a pop-up or redirect experience
 
