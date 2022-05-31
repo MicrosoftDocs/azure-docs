@@ -96,6 +96,9 @@ The following table lists the supported configurations when configuring inbound 
 | public inbound with secure outbound | `public_network_access` is enabled | `egress_public_network_access` is disabled    | Yes |
 | public inbound with public outbound | `public_network_access` is enabled | `egress_public_network_access` is enabled  | Yes |
 
+> [!IMPORTANT]
+> To allow __public__ access to a managed online endpoint, your Azure Machine Learning workspace must also [allow public access](how-to-configure-private-link.md#enable-public-access).
+
 ## End-to-end example
 
 Use the information in this section to create an example configuration that uses private endpoints to secure online endpoints.
