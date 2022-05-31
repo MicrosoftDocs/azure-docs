@@ -53,7 +53,7 @@ In the following steps, set up a blob container in Azure Storage to store hetero
 
 You should have 10 files containing photographs of signs.
 
-There is a second subfolder that includes landmark buildings. If you want to [attach a Cognitive Services key](cognitive-search-attach-cognitive-services.md), you can include these files as well to see how image analysis works over image files that do not include embedded text. The key is necessary for jobs that exceed the free allotment.
+There is a second subfolder that includes landmark buildings. If you want to [attach a Cognitive Services key](cognitive-search-attach-cognitive-services.md), you can include these files as well to see how image analysis works over image files that don't include embedded text. The key is necessary for jobs that exceed the free allotment.
 
 You are now ready to move on the Import data wizard.
 
@@ -75,7 +75,7 @@ You are now ready to move on the Import data wizard.
 
 Next, configure AI enrichment to invoke OCR and image analysis. 
 
-1. For this quickstart, we are using the **Free** Cognitive Services resource. The sample data consists of 19 files, so the daily, per-indexer allotment of 20 free transactions on Cognitive Services is sufficient for this quickstart. 
+1. For this quickstart, you can use the **Free** Cognitive Services resource. The sample data consists of 19 files, so the daily, per-indexer allotment of 20 free transactions on Cognitive Services is sufficient for this quickstart. 
 
    :::image type="content" source="media/cognitive-search-quickstart-blob/free-enrichments.png" alt-text="Attach free Cognitive Services processing" border="true":::
 
@@ -103,7 +103,7 @@ For this quickstart, the wizard does a good job setting reasonable defaults:
 
   :::image type="content" source="media/cognitive-search-quickstart-blob/index-fields-ocr-images.png" alt-text="Index fields" border="true":::
 
-Marking a field as **Retrievable** does not mean that the field *must* be present in the search results. You can precisely control search results composition by using the **$select** query parameter to specify which fields to include. For text-heavy fields like `content`, the **$select** parameter is your solution for shaping manageable search results to the human users of your application, while ensuring client code has access to all the information it needs via the **Retrievable** attribute.
+Marking a field as **Retrievable** doesn't mean that the field *must* be present in the search results. You can precisely control search results composition by using the **$select** query parameter to specify which fields to include. For text-heavy fields like `content`, the **$select** parameter is your solution for shaping manageable search results to the human users of your application, while ensuring client code has access to all the information it needs via the **Retrievable** attribute.
 
 ### Step 4 - Configure the indexer
 
@@ -151,7 +151,7 @@ When you're working in your own subscription, it's a good idea at the end of a p
 
 You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
 
-If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
+If you're using a free service, remember that you're limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
 
 ## Next steps
 
