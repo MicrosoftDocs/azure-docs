@@ -22,7 +22,7 @@ Batch account resource has two endpoints supported to access with private endpoi
 
 - Account endpoint (sub-resource: **batchAccount**): this is the endpoint for [Batch Service REST API](/rest/api/batchservice/) (data plane), for example managing pools, compute nodes, jobs, tasks, etc.
 
-- (**Preview**) Node management endpoint (sub-resource: **nodeManagement**): used by Batch pool nodes to access Batch node management service. This is only applicable when using [simplified compute node communication](simplified-compute-node-communication.md).
+- Node management endpoint (sub-resource: **nodeManagement**): used by Batch pool nodes to access Batch node management service. This is only applicable when using [simplified compute node communication](simplified-compute-node-communication.md). This feature is in preview.
 
 > [!IMPORTANT]
 > - This preview sub-resource is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
@@ -32,19 +32,19 @@ Batch account resource has two endpoints supported to access with private endpoi
 
 Use the following steps to create a private Batch account using the Azure portal:
 
-1. Go to Batch account in Azure portal.
-2. In **Settings**, select **Networking** and go to tab **Private Access**, then select **+ Private endpoint**.
+1. Go to your Batch account in the Azure portal.
+2. In **Settings**, select **Networking** and go to the tab **Private Access**. Then, select **+ Private endpoint**.
    :::image type="content" source="media/private-connectivity/private-endpoint-connections.png" alt-text="Private endpoint connections":::
 3. In the **Basics** pane, enter or select the subscription, resource group, private endpoint resource name and region details, then select **Next: Resource**.
    :::image type="content" source="media/private-connectivity/create-private-endpoint-basics.png" alt-text="Create a private endpoint - Basics pane":::
 4. In the **Resource** pane, set the **Resource type** to **Microsoft.Batch/batchAccounts**. Select the Batch account you want to access, select the target sub-resource, then select **Next: Configuration**.
    :::image type="content" source="media/private-connectivity/create-private-endpoint.png" alt-text="Create a private endpoint - Resource pane":::
 5. In the **Configuration** pane, enter or select this information:
-   - **Virtual network**: Select your virtual network.
-   - **Subnet**: Select your subnet.
-   - **Private IP configuration**: Select default "Dynamically allocate IP address".
-   - **Integrate with private DNS zone**: Select **Yes**. To connect privately with your private endpoint, you need a DNS record. We recommend that you integrate your private endpoint with a private DNS zone. You can also use your own DNS servers or create DNS records by using the host files on your virtual machines.
-   - **Private DNS Zone**: Select `privatelink.batch.azure.com`. The private DNS zone is determined automatically. You can't change it by using the Azure portal.
+   - For **Virtual network**, select your virtual network.
+   - For **Subnet**, select your subnet.
+   - For **Private IP configuration**, select the default **Dynamically allocate IP address**.
+   - For **Integrate with private DNS zone**, select **Yes**. To connect privately with your private endpoint, you need a DNS record. We recommend that you integrate your private endpoint with a private DNS zone. You can also use your own DNS servers or create DNS records by using the host files on your virtual machines.
+   - For **Private DNS Zone**, select **privatelink.batch.azure.com**. The private DNS zone is determined automatically. You can't change this setting by using the Azure portal.
 
 > [!IMPORTANT]
 > If you have existing private endpoints created with previous private DNS zone `privatelink.<region>.batch.azure.com`, please follow [Migration with existing Batch account private endpoints](#migration-with-existing-batch-account-private-endpoints).
@@ -82,18 +82,19 @@ When you're creating the private endpoint, you can integrate it with a [private 
 
 ## Migration with existing Batch account private endpoints
 
-With the introduction of new private endpoint sub-resource `nodeManagement` for Batch node management endpoint, the default private DNS zone for Batch account is simplified from `privatelink.<region>.batch.azure.com` to `privatelink.batch.azure.com`. The existing private endpoints for sub-resource `batchAccount` will continue to work, no action is needed.
+With the introduction of the new private endpoint sub-resource `nodeManagement` for Batch node management endpoint, the default private DNS zone for Batch account is simplified from `privatelink.<region>.batch.azure.com` to `privatelink.batch.azure.com`. The existing private endpoints for sub-resource `batchAccount` will continue to work, and no action is needed.
 
-However, if you have existing `batchAccount` private endpoints created before, and also enabled with automatic private DNS integration, follow the steps below to work together with newly created private endpoints in the same virtual network:
+However, if you have existing `batchAccount` private endpoints that are enabled with automatic private DNS integration, configure these endpoints together with newly created private endpoints in the same virtual network.
 
-- If you don't need previous private endpoint anymore, delete the private endpoint, and also unlink the previous private DNS zone from your virtual network.
+- If you don't need the previous private endpoint anymore, delete the private endpoint. Also unlink the previous private DNS zone from your virtual network.
 
-- If you want to create new private endpoint with private DNS integration in virtual network which has any existing `batchAccount` private endpoint with previous private DNS zone:
-  - After the new private endpoint is created, the automatic private DNS integration should have DNS A record created in the new private DNS zone `privatelink.batch.azure.com` like below:
-    - `myaccount.<region>     A  <IPv4 address>`
+You can create a private endpoint with private DNS integration in a virtual network that has any existing `batchAccount` private endpoint with the previous private DNS zone:
+ 
+1. After the new private endpoint is created, make sure the automatic private DNS integration has a DNS A record created in the new private DNS zone `privatelink.batch.azure.com`. For example, `myaccount.<region>     A  <IPv4 address>`.
 
-  - Go to previous private DNS zone `privatelink.<region>.batch.azure.com`, and manually add DNS CNAME record like below:
-    - `myaccount     CNAME => myaccount.<region>.privatelink.batch.azure.com`
+1. Go to previous private DNS zone `privatelink.<region>.batch.azure.com`. 
+
+1. Manually add a DNS CNAME record. For example, `myaccount     CNAME => myaccount.<region>.privatelink.batch.azure.com`.
 
 > [!IMPORTANT]
 > This manual mitigation is only needed when you create a new private endpoint with private DNS integration in the same virtual network which has existing private endpoints.
@@ -106,9 +107,9 @@ For details on costs related to private endpoints, see [Azure Private Link prici
 
 When creating private endpoint with your Batch account, keep in mind the following:
 
-- Private endpoint resource with sub-resource **batchAccount** must be created in the same subscription as the Batch account.
+- Private endpoint resources with the sub-resource **batchAccount** must be created in the same subscription as the Batch account.
 - Resource movement is not supported for private endpoints with Batch accounts.
-- If a Batch account resource is moved to different resource group or subscription, its private endpoints can still work, but the association to Batch account is broken. If you delete the private endpoint resource, its associated private endpoint connection will still exist in your Batch account. You can manually remove it from the Batch account.
+- If a Batch account resource is moved to a different resource group or subscription, the private endpoints can still work, but the association to the Batch account breaks. If you delete the private endpoint resource, its associated private endpoint connection still exists in your Batch account. You can manually remove connection from your Batch account.
 - To delete the private connection, you can either delete the private endpoint resource, or delete the private connection in Batch account which will set the related private endpoint resource to Disconnected state.
 - DNS records in the private DNS zone are not removed automatically when you delete a private endpoint connection from the Batch account. You must manually remove the DNS records before adding a new private endpoint linked to this private DNS zone. If you don't clean up the DNS records, unexpected access issues might happen.
 

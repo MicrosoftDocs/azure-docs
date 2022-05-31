@@ -1,55 +1,58 @@
 ---
-title: Create an Azure Batch pool without public IP addresses (V2 preview)
-description: Learn how to create an Azure Batch pool without public IP addresses (V2).
+title: Create a simplified node communication pool without public IP addresses (preview)
+description: Learn how to create an Azure Batch simplified node communication pool without public IP addresses.
 ms.topic: how-to
 ms.date: 05/26/2022
 ms.custom: references_regions
 ---
 
-# Create an Azure Batch pool without public IP addresses (V2 preview)
+# Create a simplified node communication pool without public IP addresses (preview)
 
 > [!NOTE]
 > This is replacement to the current preview version of [Azure Batch pool withoud public IP addresses](batch-pool-no-public-ip-address.md). This new version requires [using simplified compute node communication](simplified-compute-node-communication.md).
 
 > [!IMPORTANT]
-> - Support for pools without public IP addresses (V2) in Azure Batch is currently in public preview for selected regions.
+> - Support for pools without public IP addresses in Azure Batch is currently in public preview for selected regions.
 > - This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > - For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-When you create an Azure Batch pool, you can provision the virtual machine configuration pool without a public IP address. This article explains how to set up a Batch pool without public IP addresses.
+When you create an Azure Batch pool, you can provision the virtual machine (VM) configuration pool without a public IP address. This article explains how to set up a Batch pool without public IP addresses.
 
 ## Why use a pool without public IP Addresses?
 
-By default, all the compute nodes in an Azure Batch virtual machine configuration pool are assigned a public IP address. This address is used by the Batch service to support outbound access to the internet, as well as customers inbound access to compute nodes from internet.
+By default, all the compute nodes in an Azure Batch VM configuration pool are assigned a public IP address. This address is used by the Batch service to support outbound access to the internet, as well inbound access to compute nodes from the internet.
 
 To restrict access to these nodes and reduce the discoverability of these nodes from the internet, you can provision the pool without public IP addresses.
 
 ## Prerequisites
 
-- **You must use simplified compute node communication**. Please follow the guide at [Use simplified compute node communication](simplified-compute-node-communication.md).
+> [!IMPORTANT]
+> The prerequisites have changed from the previous version of this preview. Make sure to review each item for changes before proceeding.
 
-- **Authentication**. To use a pool without public IP addresses, the Batch client API must use Azure Active Directory (AD) authentication. Azure Batch support for Azure AD is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
+- Use simplified compute node communication. For more information, see [Use simplified compute node communication](simplified-compute-node-communication.md).
 
-- **An Azure virtual network**. You must create your pool in a [virtual network](batch-virtual-network.md), follow these  requirements and configurations. To prepare a VNet with one or more subnets in advance, you can use the Azure portal, Azure PowerShell, the Azure CLI, or other methods.
+- The Batch client API must use Azure Active Directory (AD) authentication. Azure Batch support for Azure AD is documented in [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
+
+- Create your pool in an [Azure virtual network (VNet)](batch-virtual-network.md), follow these  requirements and configurations. To prepare a VNet with one or more subnets in advance, you can use the Azure portal, Azure PowerShell, the Azure Command-Line Interface (Azure CLI), or other methods.
 
   - The VNet must be in the same subscription and region as the Batch account you use to create your pool.
 
   - The subnet specified for the pool must have enough unassigned IP addresses to accommodate the number of VMs targeted for the pool; that is, the sum of the `targetDedicatedNodes` and `targetLowPriorityNodes` properties of the pool. If the subnet doesn't have enough unassigned IP addresses, the pool partially allocates the compute nodes, and a resize error occurs.
 
-  - If you plan to use [private endpoint with Batch accounts](private-connectivity.md), you must disable private endpoint network policies. This can be done by using Azure CLI:
+  - If you plan to use a [private endpoint with Batch accounts](private-connectivity.md), you must disable private endpoint network policies. Run the following Azure CLI command:
 
     `az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --resource-group <resourcegroup> --disable-private-endpoint-network-policies`
 
-- **Outbound access for Batch node management**. A pool with no public IP addresses doesn't have internet outbound access enabled by default. To allow compute nodes to access the Batch node management service (see [Use simplified compute node communication](simplified-compute-node-communication.md)), you must:
+- Enable outbound access for Batch node management. A pool with no public IP addresses doesn't have internet outbound access enabled by default. To allow compute nodes to access the Batch node management service (see [Use simplified compute node communication](simplified-compute-node-communication.md)) either:
 
-  - (**Recommended**) Use `nodeManagement` [private endpoint with Batch accounts](private-connectivity.md).
+  - Use `nodeManagement` [private endpoint with Batch accounts](private-connectivity.md). This is the preferred method.
 
   - Alternatively, provide your own internet outbound access support (see [Outbound access to the internet](#outbound-access-to-the-internet)).
 
 ## Current limitations
 
 1. Pools without public IP addresses must use Virtual Machine Configuration and not Cloud Services Configuration.
-1. [Custom endpoint configuration](pool-endpoint-configuration.md) to Batch compute nodes doesn't work with pools without public IP addresses.
+1. [Custom endpoint configuration](pool-endpoint-configuration.md) for Batch compute nodes doesn't work with pools without public IP addresses.
 1. Because there are no public IP addresses, you can't [use your own specified public IP addresses](create-pool-public-ip.md) with this type of pool.
 
 ## Create a pool without public IP addresses in the Azure portal
@@ -127,10 +130,10 @@ Another way to provide outbound connectivity is to use a user-defined route (UDR
 
 For existing pools using the previous preview version of [Azure Batch No Public IP pool](batch-pool-no-public-ip-address.md), they can only be migrated if the pool was created in a [virtual network](batch-virtual-network.md). The pool can be migrated following the [opt-in process for simplified node communication](simplified-compute-node-communication.md):
 
-- Opt in to use simplified node communication.
-- Create [private endpoint for Batch node management](private-connectivity.md) in the virtual network.
-- Scale down the pool to zero nodes.
-- Scale out the pool again and it will be automatically migrated to a No Public IP v2 pool.
+1. Opt in to use simplified node communication.
+1. Create a [private endpoint for Batch node management](private-connectivity.md) in the virtual network.
+1. Scale down the pool to zero nodes.
+1. Scale out the pool again. The pool is then automatically migrated to the new version of the preview.
 
 ## Next steps
 

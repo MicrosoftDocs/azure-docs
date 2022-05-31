@@ -6,7 +6,7 @@ ms.date: 01/11/2022
 ms.custom: references_regions
 ---
 
-# Create an Azure Batch pool without public IP addresses (preview)
+# Create a Batch pool without public IP addresses (preview)
 
 > [!IMPORTANT]
 > - Support for pools without public IP addresses in Azure Batch is currently in public preview for the following regions: France Central, East Asia, West Central US, South Central US, West US 2, East US, North Europe, East US 2, Central US, West Europe, North Central US, West US, Australia East, Japan East, Japan West.

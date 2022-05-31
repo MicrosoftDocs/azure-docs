@@ -17,18 +17,18 @@ Each endpoint supports a maximum of 200 IP network rules.
 
 Batch accounts have two public endpoints:
 
-- **Account endpoint**: this is the endpoint for [Batch Service REST API](/rest/api/batchservice/) (data plane), for example managing pools, compute nodes, jobs, tasks, etc.
-- **Node management endpoint**: used by Batch pool nodes to access Batch node management service. This is only applicable when using [simplified compute node communication](simplified-compute-node-communication.md).
+- The *Account endpoint* is the endpoint for [Batch Service REST API](/rest/api/batchservice/) (data plane). Use this endpoint for managing pools, compute nodes, jobs, tasks, etc.
+- The *Node management endpoint* is used by Batch pool nodes to access the Batch node management service. This endpoint only applicable when using [simplified compute node communication](simplified-compute-node-communication.md).
 
-You can check both endpoints in account properties when you query Batch account with [Batch Management REST API](/rest/api/batchmanagement/batch-account/get). You can also check them in **Overview** for Batch account in Azure Portal:
+You can check both endpoints in account properties when you query the Batch account with [Batch Management REST API](/rest/api/batchmanagement/batch-account/get). You can also check them in the overview for your Batch account in the Azure portal:
 
    :::image type="content" source="media/public-access/batch-account-endpoints.png" alt-text="Batch account endpoints":::
 
-You can configure public network access to Batch account endpoints with following options:
+You can configure public network access to Batch account endpoints with the following options:
 
 - **All networks**: allow public network access with no restriction.
 - **Selected networks**: allow public network access with allowed network rules.
-- **Disabled**: disable public network access, and private endpoints will be required to access Batch account enpoints.
+- **Disabled**: disable public network access, and private endpoints are required to access Batch account endpoints.
 
 ## Access from selected public networks
 
