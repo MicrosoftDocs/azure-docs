@@ -144,6 +144,7 @@ Perform the high availability update in the following order. Make sure each step
 1. Disconnect the high availability from both the primary and secondary appliances:
 
     **On the primary:**
+    
 
     1. List the currently connected appliance using the following command:
 
@@ -151,17 +152,17 @@ Perform the high availability update in the following order. Make sure each step
     cyberx-management-trusted-hosts-list
     ```
 
-    2. Find the domain associated with the secondary, and copy it. As shown below:
+    2. Find the domain associated with the secondary appliance and copy it to your clipboard. For example:
 
     :::image type="content" source="media/how-to-set-up-high-availability/update-high-availability-domain.jpg" alt-text="Find the domain associated with the secondary appliance":::
 
-    3. Remove the secondary domain from the trusted hosts list using the following command:
+    3. Remove the secondary domain from the list of trusted hosts. Run:
     
     ```bash
     sudo cyberx-management-trusted-hosts-remove -d [Secondary domain]
     ```
     
-    4. Run the following command on the primary to verify that the certificate is installed properly:
+    4. Verify that the certificate is installed correctly. Run:
     
     ```bash
     sudo cyberx-management-trusted-hosts-apply
@@ -190,7 +191,7 @@ Perform the high availability update in the following order. Make sure each step
 
 1. Update both the primary and secondary appliances to the new version. <!--do we have an xref to instructions for this?--> 
 
-1. Set up the high availability <!--say again? or from the beginning? or something to indicate repeating the initial setup--> on both the primary and secondary appliances, as described [here](#create-the-primary-and-secondary-pair).
+1. Set up high availability again, on both the primary and secondary appliances. For more information, see [Create the primary and secondary pair](#create-the-primary-and-secondary-pair).
 
 
 ## Next steps
