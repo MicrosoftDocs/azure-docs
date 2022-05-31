@@ -584,7 +584,7 @@
         "articles/app-service/environment/*.md": "madsd",
         "articles/app-service/scripts/*.md": "cephalin",
         "articles/app-service-mobile/**/*.md": "emalani",
-        "articles/automanage/*md": "orspod",
+        "articles/automanage/*md": "orspodek",
         "articles/automation/**/*.md": "sudhirsneha",
         "articles/azure-arc/**/*.md": "jenhayes",
         "articles/azure-arc/servers/**/*.md": "johnmarc",
