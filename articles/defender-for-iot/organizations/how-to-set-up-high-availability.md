@@ -161,7 +161,7 @@ Perform the high availability update in the following order. Make sure each step
     sudo cyberx-management-trusted-hosts-remove -d [Secondary domain]
     ```
     
-    4. Run the following command on the primary to verify that the certificate is installed properly:
+    4. Verify that the certificate is installed correctly. Run:
     
     ```bash
     sudo cyberx-management-trusted-hosts-apply
