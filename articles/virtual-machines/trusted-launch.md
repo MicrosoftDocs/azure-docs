@@ -6,7 +6,7 @@ ms.author: dejv
 ms.service: virtual-machines
 ms.subservice: trusted-launch
 ms.topic: conceptual
-ms.date: 05/02/2022
+ms.date: 05/31/2022
 ms.reviewer: cynthn
 ms.custom: template-concept; references_regions
 ---
@@ -174,11 +174,11 @@ Trusted launch now supports Azure Backup. For more information, see  [Support ma
 
 Trusted launch now supports ephemeral OS disks in preview. Note that, while using ephemeral disks for Trusted Launch VMs, keys and secrets generated or sealed by the vTPM after the creation of the VM may not be persisted across operations like reimaging and platform events like service healing. For more information, see [Trusted Launch for Ephemeral OS disks (Preview)](https://aka.ms/ephemeral-os-disks-support-trusted-launch).
 
-### How can VM sizes supporting Trusted launch be determined?
+### How can I find VM sizes that support Trusted launch?
 
-The list of [Generation 2 VM Sizes supporting Trusted launch](trusted-launch.md#limitations) have already been provided.
+See the list of [Generation 2 VM sizes supporting Trusted launch](trusted-launch.md#limitations).
 
-The following commands can be used to ascertain if a particular [Generation 2 VM Size](../virtual-machines/generation-2.md/#generation-2-vm-sizes) does not support Trusted launch.
+The following commands can be used to check if a [Generation 2 VM Size](../virtual-machines/generation-2.md/#generation-2-vm-sizes) does not support Trusted launch.
 
 #### CLI
 
