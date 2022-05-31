@@ -14,12 +14,18 @@ ms.topic: how-to
 
 # Delete an Azure Arc-enabled SQL Managed Instance
 
-In this how-to guide, you'll find and then delete an Azure Arc-enabled SQL Managed Instance. Optionally, after deleting managed instances, you can reclaim associated Kubernetes persistent volume claims (PVCs). Deleting PVCs is recommended but it isn't mandatory. However, if you don't reclaim these PVCs, you'll eventually end up with errors in your Kubernetes cluster. For example,  you might be unable to create, read, update, or delete resources from the Kubernetes API. You might not be able to run commands like `az arcdata dc export` because the controller pods were evicted from the Kubernetes nodes due to storage issues (normal Kubernetes behavior). You can see messages in the logs similar to:  
+In this how-to guide, you'll find and then delete an Azure Arc-enabled SQL Managed Instance. Optionally, after deleting managed instances, you can reclaim associated Kubernetes persistent volume claims (PVCs).
+
+## Reclaim PVCs
+
+A Persistent Volume Claim (PVC) is a request for storage by a user from a Kubernetes cluster while creating and adding storage to a SQL Managed Instance. Deleting PVCs is recommended but it isn't mandatory. However, if you don't reclaim these PVCs, you'll eventually end up with errors in your Kubernetes cluster. For example,  you might be unable to create, read, update, or delete resources from the Kubernetes API. You might not be able to run commands like `az arcdata dc export` because the controller pods were evicted from the Kubernetes nodes due to storage issues (normal Kubernetes behavior). You can see messages in the logs similar to:  
 
 - Annotations:    microsoft.com/ignore-pod-health: true  
 - Status:         Failed  
 - Reason:         Evicted  
 - Message:        The node was low on resource: ephemeral-storage. Container controller was using 16372Ki, which exceeds its request of 0.
+
+## Delete managed instances
 
 1. Find existing Azure Arc-enabled SQL Managed Instances:
 
@@ -63,8 +69,8 @@ In this how-to guide, you'll find and then delete an Azure Arc-enabled SQL Manag
      Deleted demo-mi from namespace arc
      ```
 
-1. Optionally, reclaim the Kubernetes Persistent Volume Claims (PVCs). A Persistent Volume Claim (PVC) is a request for storage by a user from a Kubernetes cluster while creating and adding storage to a SQL Managed Instance. By design, deleting a SQL Managed Instance doesn't remove its associated [PVCs](https://kubernetes.io/docs/concepts/storage/persistent-volumes/).  The intention is to ensure that you can access the database files in case the deletion was accidental. To reclaim the PVCs, take the following steps:
-   1. List the PVCs for the server group you deleted.
+1. Optionally, reclaim the Kubernetes PVCs.  By design, deleting a SQL Managed Instance doesn't remove its associated [PVCs](https://kubernetes.io/docs/concepts/storage/persistent-volumes/).  The intention is to ensure that you can access the database files in case the deletion was accidental. To reclaim the PVCs, take the following steps:
+   1. Find the PVCs for the server group you deleted.
 
       ```console
       kubectl get pvc
