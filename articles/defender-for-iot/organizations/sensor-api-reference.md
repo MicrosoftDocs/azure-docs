@@ -709,39 +709,27 @@ curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/
 
 Use this API to request a list of events reported to the event timeline.
 
-**Method**:
+**Method**: GET
 
 **URL**:  `/api/v1/events`
 
-#### Method
+# [Request](#tab/events-request)
 
-- **GET**
+**Query parameters**:
 
-#### Query parameters
 
-- **minutesTimeFrame**: Time frame from now backward, by minute, in which the events were reported.
+|Parameter name  |Description  |Example  |
+|---------|---------|---------|
+|**minutesTimeFrame**     |  Filter results by a given time frame during which events were reported. Defined backwards from the current time.       |   `/api/v1/events?minutesTimeFrame=20`      |
+|**type**     |   Get results of a given type only.      |      `/api/v1/events?type=DEVICE_CONNECTION_CREATED` <br><br>  `/api/v1/events?type=REMOTE_ACCESS&minutesTimeFrame`|
 
-  **Example**:
+# [Response](#tab-events-response)
 
-  `/api/v1/events?minutesTimeFrame=20`
-
-- **type**: To filter the events list by a specific type.
-
-  **Examples**:
-
-  `/api/v1/events?type=DEVICE_CONNECTION_CREATED`
-
-  `/api/v1/events?type=REMOTE_ACCESS&minutesTimeFrame`
-
-#### Response type
-
-- **JSON**
-
-#### Response content
+**Type**: JSON
 
 Array of JSON objects that represent alerts.
 
-#### Event fields
+**Event fields**:
 
 | Name | Type | Nullable | List of values |
 |--|--|--|--|--|
@@ -751,43 +739,43 @@ Array of JSON objects that represent alerts.
 | **owner** | String | Yes | If the event was created manually, this field will include the username that created the event |
 | **content** | String | No | - |
 
-#### Response example
+**Response example**:
 
 ```rest
 [
 
     {
-    
+
         "severity": "INFO",
-        
+
         "title": "Back to Normal",
-        
+
         "timestamp": 1504097077000,
-        
+
         "content": "Device 10.2.1.15 was found responsive, after being suspected as disconnected",
-        
+
         "owner": null,
-        
+
         "type": "BACK_TO_NORMAL"
-    
+
     },
-    
+
     {
-    
+
         "severity": "ALERT",
-        
+
         "title": "Alert Detected",
-        
+
         "timestamp": 1504096909000,
-        
+
         "content": "Device 10.2.1.15 is suspected to be disconnected (unresponsive).",
-        
+
         "owner": null,
-        
+
         "type": "ALERT_REPORTED"
-    
+
     },
-    
+
     {
 
         "severity": "ALERT",
@@ -824,11 +812,22 @@ Array of JSON objects that represent alerts.
 
 ```
 
-### Curl command
+# [Curl command](#tab/events-curl)
 
-| Type | APIs | Example |
-|--|--|--|
-| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/events?minutesTimeFrame=&type='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/api/v1/events?minutesTimeFrame=20&type=DEVICE_CONNECTION_CREATED'` |
+**Type**: GET
+
+**API**:
+
+```rest
+curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/events?minutesTimeFrame=&type='
+```
+
+**Example**:
+
+```rest
+curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/api/v1/events?minutesTimeFrame=20&type=DEVICE_CONNECTION_CREATED'`
+
+---
 
 ## Retrieve vulnerability information
 
