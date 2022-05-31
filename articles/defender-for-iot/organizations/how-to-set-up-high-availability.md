@@ -151,7 +151,7 @@ Perform the high availability update in the following order. Make sure each step
     cyberx-management-trusted-hosts-list
     ```
 
-    2. Find the domain associated with the secondary, and copy it. As shown below:
+    2. Find the domain associated with the secondary appliance and copy it to your clipboard. For example:
 
     :::image type="content" source="media/how-to-set-up-high-availability/update-high-availability-domain.jpg" alt-text="Find the domain associated with the secondary appliance":::
 
