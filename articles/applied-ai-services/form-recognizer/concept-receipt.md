@@ -16,7 +16,7 @@ ms.custom: ignite-fall-2021
 
 # Form Recognizer receipt model
 
-The receipt model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key information from sales receipts. Receipts can be of various formats and quality including printed and handwritten receipts. The API extracts key information such as merchant name, merchant phone number, transaction date, tax, and transaction total and returns a structured JSON data representation.
+The receipt model combines powerful Optical Character Recognition (OCR) capabilities with deep learning models to analyze and extract key information from sales receipts. Receipts can be of various formats and quality including printed and handwritten receipts. The API extracts key information such as merchant name, merchant phone number, transaction date, total tax, and transaction total and returns a structured JSON data representation.
 
 ***Sample receipt processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)***:
 
@@ -107,13 +107,13 @@ You will need a receipt document. You can use our [sample receipt document](http
 | TransactionTime | Time | Time the receipt was issued | hh-mm-ss (24-hour)  |
 | Total | Number (USD)| Full transaction total of receipt | Two-decimal float|
 | Subtotal | Number (USD) | Subtotal of receipt, often before taxes are applied | Two-decimal float|
-| Tax | Number (USD) | Tax on receipt (often sales tax or equivalent) | Two-decimal float |
+| Tax | Number (USD) | Total tax on receipt (often sales tax or equivalent). Renamed to "TotalTax" in v3.0. | Two-decimal float |
 | Tip | Number (USD) | Tip included by buyer | Two-decimal float|
 | Items | Array of objects | Extracted line items, with name, quantity, unit price, and total price extracted | |
-| Name | String | Item name | |
-| Quantity | Number | Quantity of each item | Integer |
+| Name | String | Item description. Renamed to "Description" in v3.0. | |
+| Quantity | Number | Quantity of each item | Two-decimal float |
 | Price | Number | Individual price of each item unit| Two-decimal float |
-| Total Price | Number | Total price of line item | Two-decimal float |
+| TotalPrice | Number | Total price of line item | Two-decimal float |
 
 ## Form Recognizer preview v3.0
 
@@ -130,7 +130,7 @@ You will need a receipt document. You can use our [sample receipt document](http
 | Items.*.Category | String | Item category, for example, Room, Tax, etc. |  |
 | Items.*.Date | Date | Item date | yyyy-mm-dd |
 | Items.*.Description | String | Item description | |
-| Items.*.TotalPrice |  Number | Item total price | Integer |
+| Items.*.TotalPrice |  Number | Item total price | Two-decimal float |
 | Locale | String | Locale of the receipt, for example, en-US. | ISO language-county code   |
 | MerchantAddress | String | Listed address of merchant | |
 | MerchantAliases | Array| | |
