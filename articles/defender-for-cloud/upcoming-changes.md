@@ -92,7 +92,9 @@ The new release will bring the following capabilities:
 This update, will rename two recommendations, and revise their descriptions. The assessment keys will remain unchanged.
 
  | Property | Current value | New update's change | 
+
  |----|----|----|----|----|
+
  |**First recommendation**| - | - | |
  |Assessment key | e52064aa-6853-e252-a11e-dffc675689c2 | No change | 
  | Name | [Deprecated accounts with owner permissions should be removed from your subscription](https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e52064aa-6853-e252-a11e-dffc675689c2) |Subscriptions should be purged of accounts that are blocked in Active Directory and have owner permissions.| 
