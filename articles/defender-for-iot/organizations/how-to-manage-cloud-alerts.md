@@ -25,7 +25,7 @@ Use the **Alerts** page on the Azure portal to take any of the following actions
 
 - **Understand when an alert was detected**.
 
-- **Investigate the alert** by reviewing alert details, such as the traffic's source and destination, PCAP data, vendor, related firmware and operating system, and related MITRE ATT&CK tactics.
+- **Investigate the alert** by reviewing alert details, such as the traffic's source and destination, vendor, related firmware and operating system, and related MITRE ATT&CK tactics.
 
 - **Manage the alert** by taking remediation steps on the device or network process, or changing the device status or severity.
 
@@ -171,20 +171,6 @@ Alert management across all interfaces functions as follows:
 
     Alerts excluded because they meet criteria for a specific exclusion rule are not displayed on the sensor, or in the Azure portal. For more information, see [Create alert exclusion rules](how-to-work-with-alerts-on-premises-management-console.md#create-alert-exclusion-rules).
 
-## Access alert PCAP data (Public preview)
-To access raw traffic files for your alert, known as packet capture files or PCAP files, select **Download PCAP** in the top-left corner of your alert details page.
-
-For example:
-
-:::image type="content" source="media/release-notes/pcap-request.png" alt-text="Screenshot of the Download PCAP button" lightbox="media/release-notes/pcap-request.png":::
-
-The portal requests the file from the sensor that detected the alert and downloads it to your Azure storage.
-
-Downloading the PCAP file can take several minutes, depending on the quality of your sensor connectivity.
-
-> [!TIP]
-> Accessing PCAP files directly from the Azure portal supports SOC or OT security engineers who want to investigate alerts from Defender for IoT or Microsoft Sentinel, without having to access each sensor separately. For more information, see [OT threat monitoring in enterprise SOCs](concept-sentinel-integration.md).
->
 
 ## Next steps
 

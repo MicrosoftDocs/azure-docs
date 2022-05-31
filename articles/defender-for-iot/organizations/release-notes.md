@@ -60,14 +60,12 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 **Sensor version**: 22.2.3
 
 - [Define sensor settings from the Azure portal](#define-sensor-settings-from-the-azure-portal-public-preview)
-- [Bi-directional alert synch between sensors and the Azure portal](#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)
-- [PCAP access from the Azure portal](#pcap-access-from-the-azure-portal-public-preview)
 - [Support diagnostic log enhancements](#support-diagnostic-log-enhancements-public-preview)
 - [Improved security for uploading protocol plugins](#improved-security-for-uploading-protocol-plugins)
 
 **Sensor version**: 22.1.5
 
-Bug fixes related to OT monitoring software updates and sensor-cloud connections.
+- Bug fixes related to OT monitoring software updates and sensor-cloud connections.
 
 For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
@@ -78,32 +76,6 @@ For sensor versions 22.2.x and higher, you can configure sensor settings directl
 On the **Sites and sensors** page, select **Sensor settings (Preview)** to create and apply settings across one or more cloud-connected sensors in your network.
 
 For more information, see [Define and view OT sensor settings (Public preview)](how-to-manage-sensors-on-the-cloud.md#define-and-view-ot-sensor-settings-public-preview).
-
-### Bi-directional alert synch between sensors and the Azure portal (Public preview)
-
-For sensors updated to version 22.2.3, alert statuses and learn statuses are now fully synchronized between the sensor console and the Azure portal. For example, this means that you can close an alert on the Azure portal or the sensor console, and the alert status is updated in both locations.
-
-*Learn* an alert from either the Azure portal or the sensor console to ensure that it's not triggered again the next time the same network traffic is detected.
-
-The sensor console is also synchronized with an on-premises management console, so that alert statuses and learn statuses remain up-to-date across your management interfaces.
-
-For more information, see:
-
-- [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md)
-- [View alerts on your sensor](how-to-view-alerts.md)
-- [Manage alerts from the sensor console](how-to-manage-the-alert-event.md)
-- [Work with alerts on the on-premises management console](how-to-work-with-alerts-on-premises-management-console.md)
-
-### PCAP access from the Azure portal (Public preview)
-
-Now you can access the raw traffic files, known as packet capture files or PCAP files, directly from the Azure portal. This feature supports SOC or OT security engineers who want to investigate alerts from Defender for IoT or Microsoft Sentinel, without having to access each sensor separately.
-
-:::image type="content" source="media/release-notes/pcap-request.png" alt-text="Screenshot of the Download PCAP button" lightbox="media/release-notes/pcap-request.png":::
-
-PCAP files are downloaded to your Azure storage.
-
-For more information, see [View and manage alerts from the Azure portal](how-to-manage-cloud-alerts.md).
-
 
 ### Support diagnostic log enhancements (Public preview)
 
