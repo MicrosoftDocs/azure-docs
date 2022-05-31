@@ -298,7 +298,7 @@
       href: bookmarks.md
     - name: Hunt with livestream
       href: livestream.md
-  - name: Investigate and respond
+  - name: Investigate incidents
     items:
     - name: Investigate incidents
       href: investigate-cases.md
@@ -312,6 +312,10 @@
       href: customize-entity-activities.md
     - name: Collaborate in Microsoft Teams
       href: collaborate-in-microsoft-teams.md
+  - name: Automate responses
+    items:
+    - name: Create automation rules
+      href: create-manage-use-automation-rules.md
     - name: Authenticate playbooks to Microsoft Sentinel
       href: authenticate-playbooks-to-sentinel.md
     - name: Use triggers and actions in playbooks

@@ -247,6 +247,8 @@
         href: baldwin-safety-&-compliance-tutorial.md  
       - name: Balsamiq Wireframes
         href: balsamiq-wireframes-tutorial.md   
+      - name: BMIS - Battery Management Information System
+        href: battery-management-information-system-tutorial.md
       - name: BC in the Cloud
         href: bcinthecloud-tutorial.md
       - name: Bealink
@@ -739,6 +741,8 @@
         href: envimmis-tutorial.md
       - name: Envoy
         href: envoy-tutorial.md
+      - name: E2open LSP
+        href: e2open-lsp-tutorial.md
       - name: EPHOTO DAM
         href: ephoto-dam-tutorial.md
       - name: ePlatform
@@ -926,7 +930,7 @@
         href: gigya-tutorial.md
       - name: GitHub
         href: github-tutorial.md
-      - name: GitHub AE
+      - name: GitHub Enterprise Server
         href: github-ae-tutorial.md
       - name: GitHub Enterprise Cloud - Enterprise Account
         href: github-enterprise-cloud-enterprise-account-tutorial.md  
@@ -1942,6 +1946,8 @@
         href: screensteps-tutorial.md
       - name: Scuba Analytics
         href: scuba-analytics-tutorial.md  
+      - name: S4 - Digitsec
+        href: s4-digitsec-tutorial.md
       - name: SD Elements
         href: sd-elements-tutorial.md
       - name: SDS & Chemical Information Management
@@ -2114,6 +2120,8 @@
         href: ssogen-tutorial.md
       - name: Standard for Success Accreditation
         href: standard-for-success-accreditation-tutorial.md
+      - name: Standard for Success K-12
+        href: standard-for-success-tutorial.md
       - name: Starmind
         href: starmind-tutorial.md  
       - name: StatusPage
@@ -2294,6 +2302,8 @@
         href: torii-tutorial.md
       - name: TruNarrative
         href: trunarrative-tutorial.md
+      - name: TVU Service
+        href: tvu-service-tutorial.md
       - name: Tulip
         href: tulip-tutorial.md
       - name: TurboRater
