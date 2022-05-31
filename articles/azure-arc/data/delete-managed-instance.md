@@ -14,178 +14,87 @@ ms.topic: how-to
 
 # Delete an Azure Arc-enabled SQL Managed Instance
 
-In this how-to guide, you will find and then delete an Azure Arc-enabled SQL Managed Instance. After deleting, you can reclaim associated Kubernetes persistent volume claims (PVCs).
+In this how-to guide, you will find and then delete an Azure Arc-enabled SQL Managed Instance. After deleting, you can optionally reclaim associated Kubernetes persistent volume claims (PVCs).
 
 1. Find existing Azure Arc-enabled SQL Managed Instances:
 
-```azurecli
-az sql mi-arc list --k8s-namespace <namespace> --use-k8s
-```
+   ```azurecli
+   az sql mi-arc list --k8s-namespace <namespace> --use-k8s
+   ```
 
-Example output:
+   Example output:
 
-```console
-Name    Replicas    ServerEndpoint    State
-------  ----------  ----------------  -------
-demo-mi 1/1         10.240.0.4:32023  Ready
-```
+   ```console
+   Name    Replicas    ServerEndpoint    State
+   ------  ----------  ----------------  -------
+   demo-mi 1/1         10.240.0.4:32023  Ready
+   ```
 
-1. Delete the SQL Managed Instance, run one of the commands:
+1. Delete the SQL Managed Instance, run one of the commands appropriate for your deployment type:
 
-    1. Indirectly connected mode:
-
-```azurecli
-az sql mi-arc delete -n <instance_name> --k8s-namespace <namespace> --use-k8s
-```
-
-Output should look something like this:
-
-```azurecli
-# az sql mi-arc delete -n demo-mi --k8s-namespace <namespace> --use-k8s
-Deleted demo-mi from namespace arc
-```
-
-1. Directly connected mode:
-
-```azurecli
-az sql mi-arc delete -n <instance_name> -g <resource_group>
-```
-
-Output should look something like this:
-
-```azurecli
-# az sql mi-arc delete -n demo-mi -g my-rg
-Deleted demo-mi from namespace arc
-```
-
-1. Optional. Find existing Azure Arc-enabled SQL Managed instances:
-
-```azurecli
-az sql mi-arc list --k8s-namespace <namespace> --use-k8s
-```
-
-Example output:
-
-```console
-Name    Replicas    ServerEndpoint    State
-------  ----------  ----------------  -------
-demo-mi 1/1         10.240.0.4:32023  Ready
-```
-
-1. Delete an instance. Use the command appropriate for your deployment type.
    1. Indirectly connected mode:
 
-```azurecli
-az sql mi-arc delete -n <instance_name> --k8s-namespace <namespace> --use-k8s
-```
+     ```azurecli
+     az sql mi-arc delete -n <instance_name> --k8s-namespace <namespace> --use-k8s
+     ```
 
-Output should look something like this:
+     Example output:
 
-```azurecli
-# az sql mi-arc delete -n demo-mi --k8s-namespace <namespace> --use-k8s
-Deleted demo-mi from namespace arc
-```
+     ```azurecli
+     # az sql mi-arc delete -n demo-mi --k8s-namespace <namespace> --use-k8s
+     Deleted demo-mi from namespace arc
+     ```
 
    1. Directly connected mode:
 
-```azurecli
-az sql mi-arc delete -n <instance_name> -g <resource_group>
-```
+     ```azurecli
+     az sql mi-arc delete -n <instance_name> -g <resource_group>
+     ```
 
-Output should look something like this:
+     Example output:
 
-```azurecli
-# az sql mi-arc delete -n demo-mi -g my-rg
-Deleted demo-mi from namespace arc
-```
+     ```azurecli
+     # az sql mi-arc delete -n demo-mi -g my-rg
+     Deleted demo-mi from namespace arc
+     ```
 
-## Find existing Azure Arc-enabled SQL Managed Instances
+1. Optional. Reclaim the Kubernetes Persistent Volume Claims (PVCs). A PersistentVolumeClaim (PVC) is a request for storage by a user from Kubernetes cluster while creating and adding storage to a SQL Managed Instance. Deleting a SQL Managed Instance does not remove its associated [PVCs](https://kubernetes.io/docs/concepts/storage/persistent-volumes/). This is by design. The intention is to help the user to access the database files in case the deletion of instance was accidental. Deleting PVCs is not mandatory. However it is recommended. If you don't reclaim these PVCs, you'll eventually end up with errors as your Kubernetes cluster will run out of disk space or usage of the same SQL Managed Instance name while creating new instance might cause inconsistencies. To reclaim the PVCs, take the following steps:
+   1. List the PVCs for the server group you deleted.
 
-To find SQL Managed Instances, run the following command:
+      ```console
+      kubectl get pvc
+      ```
 
-```azurecli
-az sql mi-arc list --k8s-namespace <namespace> --use-k8s
-```
+      In the example below, notice the PVCs for the SQL Managed Instances you deleted.
 
-Example output:
+      ```console
+      # kubectl get pvc -n arc
 
-```console
-Name    Replicas    ServerEndpoint    State
-------  ----------  ----------------  -------
-demo-mi 1/1         10.240.0.4:32023  Ready
-```
+      NAME                    STATUS    VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS      AGE
+      data-demo-mi-0        Bound     pvc-1030df34-4b0d-4148-8986-4e4c20660cc4   5Gi        RWO            managed-premium   13h
+      logs-demo-mi-0        Bound     pvc-11836e5e-63e5-4620-a6ba-d74f7a916db4   5Gi        RWO            managed-premium   13h
+      ```
 
-## Delete an instance
+   1. Delete the data and log PVCs for each of the SQL Managed Instances you deleted.
+      The general format of this command is:
 
-To delete a SQL Managed Instance, run the appropriate command for your deployment type. For example:
+      ```console
+      kubectl delete pvc <name of pvc>
+      ```
 
-### [Indirectly connected mode](#tab/indirectly)
+      For example:
 
-```azurecli
-az sql mi-arc delete -n <instance_name> --k8s-namespace <namespace> --use-k8s
-```
+      ```console
+      kubectl delete pvc data-demo-mi-0 -n arc
+      kubectl delete pvc logs-demo-mi-0 -n arc
+      ```
 
-Output should look something like this:
+      Each of these kubectl commands will confirm the successful deleting of the PVC. For example:
 
-```azurecli
-# az sql mi-arc delete -n demo-mi --k8s-namespace <namespace> --use-k8s
-Deleted demo-mi from namespace arc
-```
-
-### [Directly connected mode](#tab/directly)
-
-```azurecli
-az sql mi-arc delete -n <instance_name> -g <resource_group>
-```
-
-Output should look something like this:
-
-```azurecli
-# az sql mi-arc delete -n demo-mi -g my-rg
-Deleted demo-mi from namespace arc
-```
-
----
-
-## Reclaim the Kubernetes Persistent Volume Claims (PVCs)
-
-A PersistentVolumeClaim (PVC) is a request for storage by a user from Kubernetes cluster while creating and adding storage to a SQL Managed Instance. Deleting a SQL Managed Instance does not remove its associated [PVCs](https://kubernetes.io/docs/concepts/storage/persistent-volumes/). This is by design. The intention is to help the user to access the database files in case the deletion of instance was accidental. Deleting PVCs is not mandatory. However it is recommended. If you don't reclaim these PVCs, you'll eventually end up with errors as your Kubernetes cluster will run out of disk space or usage of the same SQL Managed Instance name while creating new instance might cause inconsistencies. To reclaim the PVCs, take the following steps:
-
-### 1. List the PVCs for the server group you deleted
-
-To list the PVCs, run the following command:
-```console
-kubectl get pvc
-```
-
-In the example below, notice the PVCs for the SQL Managed Instances you deleted.
-
-```console
-# kubectl get pvc -n arc
-
-NAME                    STATUS    VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS      AGE
-data-demo-mi-0        Bound     pvc-1030df34-4b0d-4148-8986-4e4c20660cc4   5Gi        RWO            managed-premium   13h
-logs-demo-mi-0        Bound     pvc-11836e5e-63e5-4620-a6ba-d74f7a916db4   5Gi        RWO            managed-premium   13h
-```
-
-### 2. Delete each of the PVCs
-Delete the data and log PVCs for each of the SQL Managed Instances you deleted.
-The general format of this command is: 
-```console
-kubectl delete pvc <name of pvc>
-```
-
-For example:
-```console
-kubectl delete pvc data-demo-mi-0 -n arc
-kubectl delete pvc logs-demo-mi-0 -n arc
-```
-
-Each of these kubectl commands will confirm the successful deleting of the PVC. For example:
-```console
-persistentvolumeclaim "data-demo-mi-0" deleted
-persistentvolumeclaim "logs-demo-mi-0" deleted
-```
+      ```console
+      persistentvolumeclaim "data-demo-mi-0" deleted
+      persistentvolumeclaim "logs-demo-mi-0" deleted
+      ```
   
 
 > [!NOTE]
