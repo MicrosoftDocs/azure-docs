@@ -144,6 +144,7 @@ Perform the high availability update in the following order. Make sure each step
 1. Disconnect the high availability from both the primary and secondary appliances:
 
     **On the primary:**
+    
 
     1. List the currently connected appliance using the following command:
 
