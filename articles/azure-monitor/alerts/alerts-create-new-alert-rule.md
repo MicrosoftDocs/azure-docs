@@ -9,7 +9,7 @@ ms.reviewer: harelbr
 ---
 # Create a new alert rule
 
-This article shows you how to create alert rules and manage your alert instances. Rules can trigger one or more actions using [alert processing rules](alerts-action-rules.md) and [action groups](./action-groups.md). Learn the concepts behind alerts[here](alerts-overview).
+This article shows you how to create alert rules and manage your alert instances. Rules can trigger one or more actions using [alert processing rules](alerts-action-rules.md) and [action groups](./action-groups.md). Learn the concepts behind alerts [here](alerts-overview.md).
 
 You create an alert rule by combining:
  - The resource(s) to be monitored.
