@@ -321,7 +321,7 @@ PolyBase offers the capability to create a logical data warehouse to simplify us
 
 This is attractive because many companies have adopted "workload optimized" analytical data stores over the last several years in addition to their data warehouses. Examples of these platforms on Azure include:
 
-- ADLS with Azure Synapse Spark Pool Notebook (Spark-as-a-service), for big data analytics.
+- ADLS with Azure Synapse Spark pool notebook (Spark-as-a-service), for big data analytics.
 
 - Azure HDInsight (Hadoop as-a-service), also for big data analytics.
 
