@@ -22,7 +22,7 @@ ms.custom: how-to, devplatv2, sdkv2, deployment
 > The preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In this article, you learn how to deploy a new version of the model without causing any disruption. With blue-green deployment or safe rollout, an approach in which a new version of a web service is introduced to production by rolling out the change to a small subset of users/requests before rolling it out completely. This article assumes you're using online endpoints; for more information, see [What are Azure Machine Learning endpoints?](concept-endpoints.md).
+In this article, you learn how to deploy a new version of the model without causing any disruption. With blue-green deployment or safe rollout, an approach in which a new version of a web service is introduced to production by rolling out the change to a small subset of users/requests before rolling it out completely. This article assumes you're using online endpoints; for more information, see [Azure Machine Learning endpoints](concept-endpoints.md).
 
 In this article, you'll learn to:
 
@@ -36,7 +36,7 @@ In this article, you'll learn to:
 
 ## Prerequisites
 
-* If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today
+* If you don't have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://azure.microsoft.com/free/) today.
 * The [Azure Machine Learning SDK v2 for Python](/python/api/overview/azure/ml/installv2).
 * You must have an Azure resource group, and you (or the service principal you use) must have Contributor access to it.
 * You must have an Azure Machine Learning workspace.
@@ -54,7 +54,7 @@ cd azureml-examples/sdk
 > [!TIP]
 > Use `--depth 1` to clone only the latest commit to the repository, which reduces time to complete the operation.
 
-## Connect to Azure machine learning workspace
+## Connect to Azure Machine Learning workspace
 
 The [workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning. In this section, we'll connect to the workspace in which you'll perform deployment tasks.
 
@@ -91,7 +91,7 @@ The [workspace](concept-workspace.md) is the top-level resource for Azure Machin
     )
     ```
 
-## Create Online Endpoint
+## Create online endpoint
 
 Online endpoints are endpoints that are used for online (real-time) inferencing. Online endpoints contain deployments that are ready to receive data from clients and can send responses back in real time.
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to secure traffic that flows in and out of pods by using Kubernetes network policies in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 03/16/2021
+ms.date: 03/29/2022
 
 ---
 
@@ -100,7 +100,7 @@ az network vnet create \
     --subnet-prefix 10.240.0.0/16
 
 # Create a service principal and read in the application ID
-SP=$(az ad sp create-for-rbac --role Contributor --output json)
+SP=$(az ad sp create-for-rbac --output json)
 SP_ID=$(echo $SP | jq -r .appId)
 SP_PASSWORD=$(echo $SP | jq -r .password)
 
@@ -239,7 +239,13 @@ kubectl run backend --image=mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine --la
 Create another pod and attach a terminal session to test that you can successfully reach the default NGINX webpage:
 
 ```console
-kubectl run --rm -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 network-policy --namespace development
+kubectl run --rm -it --image=mcr.microsoft.com/dotnet/runtime-deps:6.0 network-policy --namespace development
+```
+
+Install `wget`:
+
+```console
+apt-get update && apt-get install -y wget
 ```
 
 At the shell prompt, use `wget` to confirm that you can access the default NGINX webpage:
@@ -295,7 +301,13 @@ kubectl apply -f backend-policy.yaml
 Let's see if you can use the NGINX webpage on the back-end pod again. Create another test pod and attach a terminal session:
 
 ```console
-kubectl run --rm -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 network-policy --namespace development
+kubectl run --rm -it --image=mcr.microsoft.com/dotnet/runtime-deps:6.0 network-policy --namespace development
+```
+
+Install `wget`:
+
+```console
+apt-get update && apt-get install -y wget
 ```
 
 At the shell prompt, use `wget` to see if you can access the default NGINX webpage. This time, set a timeout value to *2* seconds. The network policy now blocks all inbound traffic, so the page can't be loaded, as shown in the following example:
@@ -352,7 +364,13 @@ kubectl apply -f backend-policy.yaml
 Schedule a pod that is labeled as *app=webapp,role=frontend* and attach a terminal session:
 
 ```console
-kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --labels app=webapp,role=frontend --namespace development
+kubectl run --rm -it frontend --image=mcr.microsoft.com/dotnet/runtime-deps:6.0 --labels app=webapp,role=frontend --namespace development
+```
+
+Install `wget`:
+
+```console
+apt-get update && apt-get install -y wget
 ```
 
 At the shell prompt, use `wget` to see if you can access the default NGINX webpage:
@@ -382,7 +400,13 @@ exit
 The network policy allows traffic from pods labeled *app: webapp,role: frontend*, but should deny all other traffic. Let's test to see whether another pod without those labels can access the back-end NGINX pod. Create another test pod and attach a terminal session:
 
 ```console
-kubectl run --rm -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 network-policy --namespace development
+kubectl run --rm -it --image=mcr.microsoft.com/dotnet/runtime-deps:6.0 network-policy --namespace development
+```
+
+Install `wget`:
+
+```console
+apt-get update && apt-get install -y wget
 ```
 
 At the shell prompt, use `wget` to see if you can access the default NGINX webpage. The network policy blocks the inbound traffic, so the page can't be loaded, as shown in the following example:
@@ -415,7 +439,13 @@ kubectl label namespace/production purpose=production
 Schedule a test pod in the *production* namespace that is labeled as *app=webapp,role=frontend*. Attach a terminal session:
 
 ```console
-kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --labels app=webapp,role=frontend --namespace production
+kubectl run --rm -it frontend --image=mcr.microsoft.com/dotnet/runtime-deps:6.0 --labels app=webapp,role=frontend --namespace production
+```
+
+Install `wget`:
+
+```console
+apt-get update && apt-get install -y wget
 ```
 
 At the shell prompt, use `wget` to confirm that you can access the default NGINX webpage:
@@ -479,7 +509,13 @@ kubectl apply -f backend-policy.yaml
 Schedule another pod in the *production* namespace and attach a terminal session:
 
 ```console
-kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --labels app=webapp,role=frontend --namespace production
+kubectl run --rm -it frontend --image=mcr.microsoft.com/dotnet/runtime-deps:6.0 --labels app=webapp,role=frontend --namespace production
+```
+
+Install `wget`:
+
+```console
+apt-get update && apt-get install -y wget
 ```
 
 At the shell prompt, use `wget` to see that the network policy now denies traffic:
@@ -501,7 +537,13 @@ exit
 With traffic denied from the *production* namespace, schedule a test pod back in the *development* namespace and attach a terminal session:
 
 ```console
-kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --labels app=webapp,role=frontend --namespace development
+kubectl run --rm -it frontend --image=mcr.microsoft.com/dotnet/runtime-deps:6.0 --labels app=webapp,role=frontend --namespace development
+```
+
+Install `wget`:
+
+```console
+apt-get update && apt-get install -y wget
 ```
 
 At the shell prompt, use `wget` to see that the network policy allows the traffic:
