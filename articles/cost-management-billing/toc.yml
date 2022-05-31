@@ -78,6 +78,8 @@
         href: reservations/reservation-discount-app-service.md?toc=/azure/cost-management-billing/toc.json
       - name: Azure Cache for Redis
         href: reservations/understand-azure-cache-for-redis-reservation-charges.md?toc=/azure/cost-management-billing/toc.json
+      - name: Azure Data Explorer
+        href: reservations/understand-azure-data-explorer-reservation-charges.md?toc=/azure/cost-management-billing/toc.json
       - name: Cosmos DB
         href: reservations/understand-cosmosdb-reservation-charges.md?toc=/azure/cost-management-billing/toc.json
       - name: Database for MariaDB
@@ -90,8 +92,6 @@
         href: ../postgresql/hyperscale/concepts-reserved-pricing.md?toc=/azure/cost-management-billing/toc.json
       - name: Databricks
         href: reservations/reservation-discount-databricks.md
-      - name: Data Explorer
-        href: reservations/understand-azure-data-explorer-reservation-charges.md?toc=/azure/cost-management-billing/toc.json
       - name: Dedicated Hosts
         href: reservations/billing-understand-dedicated-hosts-reservation-charges.md?toc=/azure/cost-management-billing/toc.json
       - name: Disk Storage
