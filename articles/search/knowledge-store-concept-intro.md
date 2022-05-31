@@ -88,11 +88,11 @@ Go with the portal approach for the fastest route to a finished knowledge store.
 
 1. Define a skillset. The skillset specifies enrichment steps and the knowledge store.
 
-1. Define an index schema. You might not need a search index, but indexers require one. The wizard can infer one for you.
+1. Define an index schema. You might not need one, but indexers require it. The wizard can infer an index.
 
 1. Complete the wizard. Data extraction, enrichment, and knowledge store creation occur in this last step.
 
-The wizard automates tasks that you would otherwise have to be handled manually. Specifically, both shaping and projections (definitions of physical data structures in Azure Storage) are created for you. 
+The wizard automates several tasks. Specifically, both shaping and projections (definitions of physical data structures in Azure Storage) are created for you. 
 
 ### [**REST**](#tab/kstore-rest)
 

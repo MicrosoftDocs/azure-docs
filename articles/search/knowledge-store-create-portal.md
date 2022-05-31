@@ -147,13 +147,13 @@ In the **Overview** page, open the **Indexers** tab in the middle of the page, a
 
 1. In the storage account's left navigation pane, select **Storage browser (preview)** to view the new tables. 
 
-You should see three tables, one for each projection that was offered in the "Save enrichments" section of the "Add enrichments" page.
+   You should see three tables, one for each projection that was offered in the "Save enrichments" section of the "Add enrichments" page.
 
-+ "hotelReviewssDocuments" contains all of the first-level nodes of a document's enrichment tree that are not collections. 
+   + "hotelReviewssDocuments" contains all of the first-level nodes of a document's enrichment tree that are not collections. 
 
-+ "hotelReviewssKeyPhrases" contains a long list of just the key phrases extracted from all reviews. Skills that output collections (arrays), such as key phrases and entities, will have output sent to a standalone table.
+   + "hotelReviewssKeyPhrases" contains a long list of just the key phrases extracted from all reviews. Skills that output collections (arrays), such as key phrases and entities, will have output sent to a standalone table.
 
-+ "hotelReviewssPages" contains enriched fields created over each page that was split from the document. In this skillset and data source, page-level enrichments consisting of sentiment labels and translated text. A pages table (or a sentences table if you specify that particular level of granularity) is created when you choose "pages" granularity in the skillset definition. 
+   + "hotelReviewssPages" contains enriched fields created over each page that was split from the document. In this skillset and data source, page-level enrichments consisting of sentiment labels and translated text. A pages table (or a sentences table if you specify that particular level of granularity) is created when you choose "pages" granularity in the skillset definition. 
 
 All of these tables contain ID columns to support table relationships in other tools and apps. When you open a table, scroll past these fields to view the content fields added by the pipeline.
 
