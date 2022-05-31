@@ -171,7 +171,7 @@ items:
       href: register-scan-azure-sql-database.md
       displayName: Register and scan Azure SQL DB
     - name: Azure SQL Managed Instance
-      href: register-scan-azure-sql-database-managed-instance.md
+      href: register-scan-azure-sql-managed-instance.md
       displayName: Register and scan Azure SQL DB Managed Instance
     - name: Azure Dedicated SQL pool (formerly SQL DW)
       href: register-scan-azure-synapse-analytics.md

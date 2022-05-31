@@ -4,7 +4,7 @@ description: Learn how to directly connect to Kafka on HDInsight through an Azur
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-python
-ms.date: 03/04/2020
+ms.date: 05/30/2022
 ---
 
 # Connect to Apache Kafka on HDInsight through an Azure Virtual Network

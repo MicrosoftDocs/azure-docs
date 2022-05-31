@@ -73,6 +73,8 @@ items:
           href: uninstall-azure-arc-data-controller.md
     - name: Manage
       items:
+        - name: Upload usage data
+          href: upload-usage-data.md
         - name: Monitor with Grafana & Kibana
           href: monitor-grafana-kibana.md
         - name: Upload to Azure Monitor
@@ -83,8 +85,6 @@ items:
               href: upload-logs.md
             - name: Upload metrics
               href: upload-metrics.md
-            - name: Upload usage data
-              href: upload-usage-data.md
         - name: Inventory database instances
           href: view-arc-data-services-inventory-in-azure-portal.md
         - name: Update service principal credentials
