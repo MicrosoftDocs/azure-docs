@@ -18,7 +18,7 @@ This article provides details about Azure Container Registry (ACR) support polic
 >* [Encrypt using Customer managed keys](container-registry-customer-managed-keys.md)
 >* [Enable Content trust](container-registry-content-trust.md)
 >* [Scan Images using Azure Security Center](../defender-for-cloud/defender-for-container-registries-introduction.md)
->* [ACR Tasks](/azure/container-registry/container-registry-tasks-overview)
+>* [ACR Tasks](./container-registry-tasks-overview.md)
 >* [Import container images to ACR](container-registry-import-images.md)
 >* [Image locking in ACR](container-registry-image-lock.md)
 >* [Synchronize content with ACR using Connected Registry](intro-connected-registry.md)

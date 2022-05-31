@@ -4,7 +4,7 @@ description: This article describes the version details for the Azure Monitor ag
 ms.topic: conceptual
 author: shseth
 ms.author: shseth
-ms.date: 4/11/2022
+ms.date: 5/25/2022
 ms.custom: references_region
 
 ---
@@ -18,6 +18,7 @@ We strongly recommended to update to the latest version at all times, or opt in 
 ## Version details
 | Release Date | Release notes | Windows | Linux |  
 |:---|:---|:---|:---| 
+| April 2022 | <ul><li>Private IP information added in Log Analytics <i>Heartbeat</i> table for Windows and Linux</li><li>Fixed bugs in Windows IIS log collection (preview) <ul><li>Updated IIS site column name to match backend KQL transform</li><li>Added delay to IIS upload task to account for IIS buffering</li></ul></li><li>Fixed Linux CEF syslog forwarding for Sentinel</li><li>Removed 'error' message for Azure MSI token retrieval failure on Arc to show as 'Info' instead</li><li>Support added for Ubuntu 22.04, AlmaLinux and RockyLinux distros</li></ul> | 1.4.1.0<sup>Hotfix</sup> | 1.19.3 |
 | March 2022 | <ul><li>Fixed timestamp and XML format bugs in Windows Event logs</li><li>Full Windows OS information in Log Analytics Heartbeat table</li><li>Fixed Linux performance counters to collect instance values instead of 'total' only</li></ul> | 1.3.0.0 | 1.17.5.0 |
 | February 2022 | <ul><li>Bugfixes for the AMA Client installer (private preview)</li><li>Versioning fix to reflect appropriate Windows major/minor/hotfix versions</li><li>Internal test improvement on Linux</li></ul> | 1.2.0.0 | 1.15.3 | 
 | January 2022 | <ul><li>Syslog RFC compliance for Linux</li><li>Fixed issue for Linux perf counters not flowing on restart</li><li>Fixed installation failure on Windows Server 2008 R2 SP1</li></ul> | 1.1.5.1<sup>Hotfix</sup> | 1.15.2.0<sup>Hotfix</sup> |  

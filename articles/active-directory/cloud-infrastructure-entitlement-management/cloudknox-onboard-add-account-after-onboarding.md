@@ -2,14 +2,14 @@
 title: Add an account/ subscription/ project to Microsoft CloudKnox Permissions Management after onboarding is complete
 description: How to add an account/ subscription/ project to Microsoft CloudKnox Permissions Management after onboarding is complete.
 services: active-directory
-author: Yvonne-deQ
-manager: karenh444
+author: kenwith
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: kenwith
 ---
 
 # Add an account/ subscription/ project after onboarding is complete

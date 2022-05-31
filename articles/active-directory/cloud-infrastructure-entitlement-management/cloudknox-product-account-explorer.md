@@ -2,12 +2,12 @@
 title: The CloudKnox Permissions Management - View roles and identities that can access account information from an external account
 description: How to view information about identities that can access accounts from an external account in CloudKnox Permissions Management.
 services: active-directory
-manager: karenh444
+manager: rkarlin
 ms.service: active-directory
 ms.topic: how-to
-author: Yvonne-deQ
+author: kenwith
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: kenwith
 ---
 
 # View roles and identities that can access account information from an external account

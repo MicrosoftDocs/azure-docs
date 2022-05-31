@@ -2,14 +2,14 @@
 title: Create a rule in the Autopilot dashboard in CloudKnox Permissions Management 
 description: How to create a rule in the Autopilot dashboard in CloudKnox Permissions Management.
 services: active-directory
-author: Yvonne-deQ
-manager: karenh444
+author: kenwith
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/23/2022
-ms.author: v-ydequadros
+ms.author: kenwith
 ---
 
 # Create a rule in the Autopilot dashboard

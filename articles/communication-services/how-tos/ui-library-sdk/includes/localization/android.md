@@ -14,39 +14,39 @@ Azure Communication UI [open source library](https://github.com/Azure/communicat
 
 ### Available Languages
 
-The following table of `languageCode` with out of the box translations. If you want to localize the composite, pass the `languageCode` into `LocalizationConfiguration` as options into `CallComposite`.
+The following is table of `CommunicationUISupportedLocale` with out of the box translations. If you want to localize the composite, pass the `Locale` from `CommunicationUISupportedLocale` into `LocalizationConfiguration` as options into `CallComposite`.
 
-|Language| LanguageCode|
+|Language| CommunicationUISupportedLocale|
 |---------|---------|
-|German| LanguageCode.GERMAN|
-|Japanese| LanguageCode.JAPANESE|
-|English| LanguageCode.ENGLISH_US|
-|Chinese (Traditional)| LanguageCode.CHINESE_TRADITIONAL|
-|Spanish |LanguageCode.SPANISH|
-|Chinese (Simplified) |LanguageCode.CHINESE_SIMPLIFIED|
-|Italian |LanguageCode.ITALIAN|
-|English (United Kingdom) |LanguageCode.ENGLISH_UK|
-|Korean |LanguageCode.KOREAN|
-|Turkish |LanguageCode.TURKISH|
-|Russian |LanguageCode.RUSSIAN|
-|French |LanguageCode.FRENCH|
-|Dutch |LanguageCode.DUTCH|
-|Portuguese |LanguageCode.BRAZILIAN_PORTUGUESE|
+|German| CommunicationUISupportedLocale.DE|
+|Japanese| CommunicationUISupportedLocale.JA|
+|English| CommunicationUISupportedLocale.EN_US|
+|Chinese (Traditional)| CommunicationUISupportedLocale.ZH_TW|
+|Spanish |CommunicationUISupportedLocale.ES|
+|Chinese (Simplified) |CommunicationUISupportedLocale.ZH_CN|
+|Italian |CommunicationUISupportedLocale.IT|
+|English (United Kingdom) |CommunicationUISupportedLocale.EN_UK|
+|Korean |CommunicationUISupportedLocale.KO|
+|Turkish |CommunicationUISupportedLocale.TR|
+|Russian |CommunicationUISupportedLocale.RU|
+|French |CommunicationUISupportedLocale.FR|
+|Dutch |CommunicationUISupportedLocale.NL|
+|Portuguese |CommunicationUISupportedLocale.PT_BR|
 
 ### Localization Provider
 
-`LocalizationConfiguration` is an options wrapper that sets all the strings for Mobile UI Library components using a `languageCode`. By default, all text labels use English strings. If desired `LocalizationConfiguration` can be used to set a different `language`. Out of the box, the UI library includes a set of `language` usable with the UI components and composites.
+`LocalizationConfiguration` is an options wrapper that sets all the strings for Mobile UI Library components using a `CommunicationUISupportedLocale`. By default, all text labels use English strings. If desired `LocalizationConfiguration` can be used to set a different language by passing a `Locale` object from `CommunicationUISupportedLocale`. Out of the box, the UI library includes a set of `Locale` usable with the UI components and composites.
 
-You can also obtain list of `languageCode` by the static function `LanguageCode.values()`.
+You can also obtain list of `Locale` by the static function `CommunicationUISupportedLocale.getSupportedLocales()`.
 
 :::image type="content" source="media/android-localization.png" alt-text="Android localization":::
 
 #### Usage
 
-To use the `LocalizationConfiguration`, specify a `language` and pass it to the `CallCompositeOptions`. For the example below, we'll  localize the composite to French.
+To use the `LocalizationConfiguration`, specify a `CommunicationUISupportedLocale` and pass it to the `CallCompositeOptions`. For the example below, we'll localize the composite to French.
 
 ```Kotlin
-val callComposite: CallComposite =  CallCompositeBuilder().localization(LocalizationConfiguration(LanguageCode.FRENCH)).build()
+val callComposite: CallComposite = CallCompositeBuilder().localization(LocalizationConfiguration(CommunicationUISupportedLocale.FR).build()
 ```
 
 ### Layout Direction
@@ -54,7 +54,7 @@ val callComposite: CallComposite =  CallCompositeBuilder().localization(Localiza
 Certain cultures (Arabic, Hebrew, etc.) may need for localization to have right-to-left layout. You can specify the `layoutDirection` as part of the `LocalizationConfiguration`. The layout of the composite will be mirrored but the text will remain in the direction of the string.
 
 ```Koltin
-val callComposite: CallComposite =  CallCompositeBuilder().localization(LocalizationConfiguration(LanguageCode.FRENCH,LaytoutDirection.RTL)).build()
+val callComposite: CallComposite = CallCompositeBuilder().localization(LocalizationConfiguration(CommunicationUISupportedLocale.FR,LaytoutDirection.RTL)).build()
 ```
 
 |`LayoutDirection.RTL` | `LayoutDirection.LTR`     |

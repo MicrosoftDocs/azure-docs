@@ -23,7 +23,7 @@ In this article, you'll learn how to deploy an endpoint for a Custom Speech mode
 
 To create a custom endpoint, follow these steps:
 
-1. Sign in to the [Speech Studio](https://speech.microsoft.com/customspeech). 
+1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech). 
 1. Select **Custom Speech** > Your project name > **Deploy models**.
 
    If this is your first endpoint, you'll notice that there are no endpoints listed in the table. After you create an endpoint, you use this page to track each deployed endpoint.
@@ -55,7 +55,7 @@ An endpoint can be updated to use another model that was created by the same Spe
 
 To use a new model and redeploy the custom endpoint:
 
-1. Sign in to the [Speech Studio](https://speech.microsoft.com/customspeech). 
+1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech). 
 1. Select **Custom Speech** > Your project name > **Deploy models**.
 1. Select the link to an endpoint by name, and then select **Change model**.
 1. Select the new model that you want the endpoint to use.
@@ -69,7 +69,7 @@ Logging data is available for export if you configured it while creating the end
 
 To download the endpoint logs:
 
-1. Sign in to the [Speech Studio](https://speech.microsoft.com/customspeech). 
+1. Sign in to the [Speech Studio](https://aka.ms/speechstudio/customspeech). 
 1. Select **Custom Speech** > Your project name > **Deploy models**.
 1. Select the link by endpoint name.
 1. Under **Content logging**, select **Download log**.
