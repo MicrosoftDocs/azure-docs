@@ -284,7 +284,7 @@ A typical pronunciation assessment result in JSON:
 
 * Learn more about pronunciation assessment [features](use-pronunciation-assessment.md)
 
-* Try out [pronunciation assessment tool through Speech Studio](how-to-use-pronunciation-assessment-tool.md)
+* Try out [pronunciation assessment tool through Speech Studio](pronunciation-assessment-tool.md)
 
 * Learn more about released [use cases](https://techcommunity.microsoft.com/t5/azure-ai-blog/speech-service-update-pronunciation-assessment-is-generally/ba-p/2505501)
 

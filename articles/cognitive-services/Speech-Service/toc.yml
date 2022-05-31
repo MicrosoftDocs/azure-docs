@@ -202,12 +202,12 @@ items:
         href: ingestion-client.md
     - name: Pronunciation Assessment
       items:
+        - name: Pronunciation Assessment tool
+          href: pronunciation-assessment-tool.md
         - name: Pronunciation Assessment quickstart
           href: how-to-pronunciation-assessment.md
         - name: Use Pronunciation Assessment
           href: use-pronunciation-assessment.md
-        - name: Pronunciation Assessment tool
-          href: how-to-use-pronunciation-assessment-tool.md
     - name: Conversation transcription
       items:
         - name: Conversation Transcription overview

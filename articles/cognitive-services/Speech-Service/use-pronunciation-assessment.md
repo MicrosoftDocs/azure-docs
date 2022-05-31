@@ -19,20 +19,15 @@ zone_pivot_groups: programming-languages-speech-services-nomore-variant
 
 In this article, you'll learn how to use Pronunciation Assessment features through the Speech SDK.
 
-
 The following features are available publicly for you to enhance mispronunciation feedback. 
 
 - Syllable support
 - Phoneme in IPA format
 - Spoken phoneme
 
-> [!NOTE]
-> Spoken phoneme is only available in `en-US`. 
-> 
-> If you want to use languages that aren't supported or have other requirements for these features , please contact us by email at [mspafeedback@microsoft.com](mailto:mspafeedback@microsoft.com).
->  
-> For pronunciation assessment supported regions, see [available regions](regions.md#speech-to-text-pronunciation-assessment-text-to-speech-and-translation).
 
+> [!NOTE]
+> For pronunciation assessment supported languages and regions, see [supported languages](language-support.md#pronunciation-assessment) and [available regions](regions.md#speech-to-text-pronunciation-assessment-text-to-speech-and-translation).
 
 ## Configuration parameters
 
@@ -44,7 +39,6 @@ This table lists the configuration parameters for pronunciation assessment.
 | `GradingSystem` | The point system for score calibration. The `FivePoint` system gives a 0-5 floating point score, and `HundredMark` gives a 0-100 floating point score. Default: `FivePoint`. | Optional |
 | `Granularity` | The evaluation granularity. Accepted values are `Phoneme`, which shows the score on the full text, word and phoneme level, `Syllable`, which shows the score on the full text, word and syllable level, `Word`, which shows the score on the full text and word level, `FullText`, which shows the score on the full text level only. Default: `Phoneme`. | Optional |
 | `EnableMiscue` | Enables miscue calculation when the pronounced words are compared to the reference text. If this value is `True`, the `ErrorType` result value can be set to `Omission` or `Insertion` based on the comparison. Accepted values are `False` and `True`. Default: `False`. | Optional |
-| `ScenarioId` | A GUID indicating a customized point system. | Optional |
 
 
 ## Syllable support
@@ -65,74 +59,27 @@ Below are a few samples showing the difference before and after grouping to syll
 |luck|lʌk|lʌk|
 |photosynthesis|foʊtəsɪnθəsɪs|foʊ·tə·sɪn·θə·sɪs|
 
-### How to get syllables
 
-In this section, you'll learn how to update the Pronunciation Assessment configuration to get syllables. But before reading this section, you need to follow [how to use speech SDK for pronunciation assessment](how-to-pronunciation-assessment.md) to learn how to set up `PronunciationAssessmentConfig` and retrieve the `PronunciationAssessmentResult` using the speech SDK.
+Within each `Words` array in the result, there's a `Syllables` element, which contains the syllables for this word. For word `good`, there's only one syllable / ɡʊd /, and for word `morning`, you can see two syllables / mɔr / and / nɪŋ /. Each syllable also has a `AccuracyScore` field within the `PronunciationAssessment` element, which means the syllable-level score. This score can tell how accurately the speaker pronounces this syllable.
 
-1. Modify the code of creating pronunciationAssessmentConfig as below.
-   
-  ::: zone pivot="programming-language-csharp"
+Get syllable support by setting the `Granularity` parameter to `Phoneme`.
 
-  ```csharp
-  var pronunciationAssessmentConfig = PronunciationAssessmentConfig.FromJson("{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\",\"phonemeAlphabet\":\"IPA\"}");
-  ```
-
-  ::: zone-end
-
-  ::: zone pivot="programming-language-cpp"
-
-  ```cpp
-  auto pronunciationAssessmentConfig = PronunciationAssessmentConfig::CreateFromJson("{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\",\"phonemeAlphabet\":\"IPA\"}");
-  ```
-
-  ::: zone-end
-
-  ::: zone pivot="programming-language-java"
-
-  ```Java
-    PronunciationAssessmentConfig pronunciationAssessmentConfig = PronunciationAssessmentConfig.fromJson("{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\",\"phonemeAlphabet\":\"IPA\"}");
-  ```
-
-  ::: zone-end
-
-  ::: zone pivot="programming-language-python"
-
-  ```Python
-  pronunciation_assessment_config = speechsdk.PronunciationAssessmentConfig(json_string="{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\",\"phonemeAlphabet\":\"IPA\"}")
-  ```
-
- ::: zone-end
-
- ::: zone pivot="programming-language-javascript"
-
-  ```JavaScript
-  var pronunciationAssessmentConfig = SpeechSDK.PronunciationAssessmentConfig.fromJSON("{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\",\"phonemeAlphabet\":\"IPA\"}");
-  ```
-
- ::: zone-end
-
- ::: zone pivot="programming-language-objectivec"
-   
- ```ObjectiveC
- SPXPronunciationAssessmentConfiguration* pronunciationAssessmentConfig = [[SPXPronunciationAssessmentConfiguration alloc]initWithJson:[@"{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\",\"phonemeAlphabet\":\"IPA\"}"]];
-```
-
- ::: zone-end
-
-2. Based on the code in step 1, insert a code line to receive the Pronunciation Assessment result in JSON, as below:
- 
 ::: zone pivot="programming-language-csharp"
 
 ```csharp
-var pronunciationAssessmentResultJson = speechRecognitionResult.Properties.GetProperty(PropertyId.SpeechServiceResponse_JsonResult);
+var pronunciationConfig = new PronunciationAssessmentConfig(
+    referenceText: "Evaluate speech with this text",
+    gradingSystem: GradingSystem.HundredMark, 
+    granularity: Granularity.Phoneme, 
+    enableMiscue: true);
 ```
-
-::: zone-end
+   
+::: zone-end  
 
 ::: zone pivot="programming-language-cpp"
 
 ```cpp
-auto pronunciationAssessmentResultJson = speechRecognitionResult ->Properties.GetProperty(PropertyId::SpeechServiceResponse_JsonResult);
+auto pronunciationAssessmentConfig = PronunciationAssessmentConfig::CreateFromJson("{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\",\"phonemeAlphabet\":\"IPA\"}");
 ```
 
 ::: zone-end
@@ -140,15 +87,15 @@ auto pronunciationAssessmentResultJson = speechRecognitionResult ->Properties.Ge
 ::: zone pivot="programming-language-java"
 
 ```Java
-String pronunciationAssessmentResultJson = result.getProperties().getProperty(PropertyId.SpeechServiceResponse_JsonResult);
+PronunciationAssessmentConfig pronunciationAssessmentConfig = PronunciationAssessmentConfig.fromJson("{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\",\"phonemeAlphabet\":\"IPA\"}");
 ```
-   
+
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
 ```Python
-pronunciation_assessment_result_json = result.properties.get(speechsdk.PropertyId.SpeechServiceResponse_JsonResult)
+pronunciation_assessment_config = speechsdk.PronunciationAssessmentConfig(json_string="{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\",\"phonemeAlphabet\":\"IPA\"}")
 ```
 
 ::: zone-end
@@ -156,118 +103,40 @@ pronunciation_assessment_result_json = result.properties.get(speechsdk.PropertyI
 ::: zone pivot="programming-language-javascript"
 
 ```JavaScript
-var pronunciationAssessmentResultJson = result.properties.getProperty(SpeechSDK.PropertyId.SpeechServiceResponse_JsonResult);
+var pronunciationAssessmentConfig = SpeechSDK.PronunciationAssessmentConfig.fromJSON("{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\",\"phonemeAlphabet\":\"IPA\"}");
 ```
 
 ::: zone-end
 
 ::: zone pivot="programming-language-objectivec"
-   
+
 ```ObjectiveC
-NSString* pronunciationAssessmentResultJson = [result.properties getPropertyByName:@"RESULT-Json"];
+SPXPronunciationAssessmentConfiguration *pronunicationConfig =
+[[SPXPronunciationAssessmentConfiguration alloc] init:@"Hello world! Today is a nice day!"
+                                            gradingSystem:SPXPronunciationAssessmentGradingSystem_HundredMark
+                                            granularity:SPXPronunciationAssessmentGranularity_Phoneme
+                                            enableMiscue:true];
+[self.pronunicationConfig setPropertyTo:5 byId:SPXSpeechServiceResponseStablePartialResultThreshold];
 ```
 
 ::: zone-end
 
-3. After you run the updated code, the content of `pronunciationAssessmentResultJson` will be displayed as the following JSON example. You can parse it with any JSON parsing library. Within each `Words` array, there's a `Syllables` element, which contains the syllables for this word. For word `good`, there's only one syllable / ɡʊd /, and for word `morning`, you can see two syllables / mɔr / and / nɪŋ /. Each syllable also has a `AccuracyScore` field within the `PronunciationAssessment` element, which means the syllable-level score. This score can tell how accurately the speaker pronounces this syllable.
 
-```json
-    {
-        "Format": "Detailed",
-        "RecognitionStatus": "Success",
-        "DisplayText": "Good morning.",
-        "Offset": 400000,
-        "Duration": 11000000,
-        "SNR": 37.3953,
-        "NBest": [
-        {
-            "Confidence": "0.87",
-            "Lexical": "good morning",
-            "ITN" : "good morning",
-            "MaskedITN" : "good morning",
-            "Display" : "Good morning.",
-            "PronunciationAssessment" : {
-                "PronScore" : 84.4,
-                "AccuracyScore" : 100.0,
-                "FluencyScore" : 74.0,
-                "CompletenessScore" : 100.0,
-            },
-            "Words": [
-            {
-                "Word" : "good",
-                "Offset" : 500000,
-                "Duration" : 2700000,
-                "PronunciationAssessment": {
-                    "AccuracyScore" : 100.0,
-                    "ErrorType" : "None"
-                },
-                "Syllables" : [
-                {
-                    "Syllable" : "ɡʊd",
-                    "Offset" : 500000,
-                    "Duration" : 2700000,
-                    "PronunciationAssessment" : {
-                        "AccuracyScore": 100.0
-                    }
-                }],
-                "Phonemes": [
-                {
-                    "Phoneme" : "ɡ",
-                    "Offset" : 500000,
-                    "Duration": 1200000,
-                    "PronunciationAssessment": {
-                        "AccuracyScore": 100.0
-                    }
-                },
-                {
-                    "Phoneme" : "ʊ",
-                    "Offset" : 1800000,
-                    "Duration": 500000,
-                    "PronunciationAssessment": {
-                        "AccuracyScore": 100.0
-                    }
-                },
-                {
-                    "Phoneme" : "d",
-                    "Offset" : 2400000,
-                    "Duration": 800000,
-                    "PronunciationAssessment": {
-                        "AccuracyScore": 100.0
-                    }
-                }]
-            },
-            {
-                "Word" : "morning",
-                "Offset" : 3300000,
-                "Duration" : 5500000,
-                "PronunciationAssessment": {
-                    "AccuracyScore" : 100.0,
-                    "ErrorType" : "None"
-                },
-                "Syllables": [
-                {
-                    "Syllable" : "mɔr",
-                    "Offset" : 3300000,
-                    "Duration": 2300000,
-                    "PronunciationAssessment": {
-                        "AccuracyScore": 100.0
-                    }
-                },
-                {
-                    "Syllable" : "nɪŋ",
-                    "Offset" : 5700000,
-                    "Duration": 3100000,
-                    "PronunciationAssessment": {
-                        "AccuracyScore": 100.0
-                    }
-                }],
-                "Phonemes": [
-                    ... // omitted phonemes
-                ]
-            }]
-        }]
-    }
+::: zone pivot="programming-language-swift"
+
+```swift
+var pronunciationConfig: SPXPronunciationAssessmentConfiguration?
+do {
+    try pronunciationConfig = SPXPronunciationAssessmentConfiguration.init(referenceText, gradingSystem: SPXPronunciationAssessmentGradingSystem.hundredMark, granularity: SPXPronunciationAssessmentGranularity.phoneme, enableMiscue: true)
+} catch {
+    print("error \(error) happened")
+    pronunciationConfig = nil
+    return
+}
 ```
+
+::: zone-end
+
 
 ## Phoneme in IPA format
 
@@ -283,19 +152,21 @@ Below are a few samples for comparison between SAPI phonemes and IPA phonemes.
 |luck|l ah k|l ʌ k|
 |photosynthesis|f ow t ax s ih n th ax s ih s|f oʊ t ə s ɪ n θ ə s ɪ s|
 
-### How to get phonemes in IPA format
 
-In this section, you'll learn how to update the Pronunciation Assessment configuration to get phonemes in IPA format. But before reading this section, you need to follow [how to use speech SDK for pronunciation assessment](how-to-pronunciation-assessment.md) to learn how to set up `PronunciationAssessmentConfig` and retrieve the `PronunciationAssessmentResult` using the speech SDK.
+If you don't specify this attribute, the phonemes will be in SAPI format by default.
 
-1. Modify the code of creating pronunciationAssessmentConfig as below.
-   
 ::: zone pivot="programming-language-csharp"
 
-   ```csharp
-   var pronunciationAssessmentConfig = PronunciationAssessmentConfig.FromJson("{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\",\"phonemeAlphabet\":\"IPA\"}");
-   ```
+```csharp
+var pronunciationConfig = new PronunciationAssessmentConfig(
+    referenceText: "Evaluate speech with this text",
+    gradingSystem: GradingSystem.HundredMark, 
+    granularity: Granularity.Phoneme, 
+    enableMiscue: true);
+pronunciationConfig.PhonemeAlphabet = "IPA";
+```
    
-::: zone-end
+::: zone-end  
 
 ::: zone pivot="programming-language-cpp"
 
@@ -337,244 +208,70 @@ SPXPronunciationAssessmentConfiguration* pronunciationAssessmentConfig = [[SPXPr
 
 ::: zone-end
 
-2. Based on the code in step 1, insert a code line to receive the Pronunciation Assessment result in JSON, as below:
- 
-::: zone pivot="programming-language-csharp"
 
-   ```csharp
-    var pronunciationAssessmentResultJson = speechRecognitionResult.Properties.GetProperty(PropertyId.SpeechServiceResponse_JsonResult);
-   ```
-   
-::: zone-end   
+::: zone pivot="programming-language-swift"
 
-::: zone pivot="programming-language-cpp"
+```swift
+var pronunciationConfig: SPXPronunciationAssessmentConfiguration?
+do {
+    try pronunciationConfig = SPXPronunciationAssessmentConfiguration.init(referenceText, gradingSystem: SPXPronunciationAssessmentGradingSystem.hundredMark, granularity: SPXPronunciationAssessmentGranularity.phoneme, enableMiscue: true)
+} catch {
+    print("error \(error) happened")
+    pronunciationConfig = nil
+    return
+}
+pronunciationConfig?.phonemeAlphabet = "IPA"
+```
 
-   ```cpp
-    auto pronunciationAssessmentResultJson = speechRecognitionResult ->Properties.GetProperty(PropertyId::SpeechServiceResponse_JsonResult);
-   ```
-   
-::: zone-end 
+::: zone-end
 
-::: zone pivot="programming-language-java"
-
-   ```Java
-    String pronunciationAssessmentResultJson = result.getProperties().getProperty(PropertyId.SpeechServiceResponse_JsonResult);
-   ```
-
-::: zone-end 
-
-::: zone pivot="programming-language-python"
-
-   ```Python
-    pronunciation_assessment_result_json = result.properties.get(speechsdk.PropertyId.SpeechServiceResponse_JsonResult)
-   ```
-   
-::: zone-end  
-
-::: zone pivot="programming-language-javascript"
-
-   ```JavaScript
-    var pronunciationAssessmentResultJson = result.properties.getProperty(SpeechSDK.PropertyId.SpeechServiceResponse_JsonResult);
-   ```
-   
-::: zone-end  
-
-::: zone pivot="programming-language-objectivec"
-   
-   ```ObjectiveC
-    NSString* pronunciationAssessmentResultJson = [result.properties getPropertyByName:@"RESULT-Json"];
-   ```
-
-::: zone-end   
-
-3. After you run the updated code, the content of `pronunciationAssessmentResultJson` will be displayed as the following JSON example. As you specified "phonemeAlphabet":"IPA" in step 1, you can see the phonemes in IPA format. If you don't specify this attribute, the phonemes will be in SAPI format by default.
-
-    ```json
-    {
-        "Format": "Detailed",
-        "RecognitionStatus": "Success",
-        "DisplayText": "Good morning.",
-        "Offset": 400000,
-        "Duration": 11000000,
-        "SNR": 37.3953,
-        "NBest": [
-        {
-            "Confidence": "0.87",
-            "Lexical": "good morning",
-            "ITN" : "good morning",
-            "MaskedITN" : "good morning",
-            "Display" : "Good morning.",
-            "PronunciationAssessment" : {
-                "PronScore" : 84.4,
-                "AccuracyScore" : 100.0,
-                "FluencyScore" : 74.0,
-                "CompletenessScore" : 100.0,
-            },
-            "Words": [
-            {
-                "Word" : "good",
-                "Offset" : 500000,
-                "Duration" : 2700000,
-                "PronunciationAssessment": {
-                    "AccuracyScore" : 100.0,
-                    "ErrorType" : "None"
-                },
-                "Syllables" : [
-                {
-                    "Syllable" : "ɡʊd",
-                    "Offset" : 500000,
-                    "Duration" : 2700000,
-                    "PronunciationAssessment" : {
-                        "AccuracyScore": 100.0
-                    }
-                }],
-                "Phonemes": [
-                {
-                    "Phoneme" : "ɡ",
-                    "Offset" : 500000,
-                    "Duration": 1200000,
-                    "PronunciationAssessment": {
-                        "AccuracyScore": 100.0
-                    }
-                },
-                {
-                    "Phoneme" : "ʊ",
-                    "Offset" : 1800000,
-                    "Duration": 500000,
-                    "PronunciationAssessment": {
-                        "AccuracyScore": 100.0
-                    }
-                },
-                {
-                    "Phoneme" : "d",
-                    "Offset" : 2400000,
-                    "Duration": 800000,
-                    "PronunciationAssessment": {
-                        "AccuracyScore": 100.0
-                    }
-                }]
-            },
-            {
-                "Word" : "morning",
-                "Offset" : 3300000,
-                "Duration" : 5500000,
-                "PronunciationAssessment": {
-                    "AccuracyScore" : 100.0,
-                    "ErrorType" : "None"
-                },
-                "Syllables": [
-                {
-                    "Syllable" : "mɔr",
-                    "Offset" : 3300000,
-                    "Duration": 2300000,
-                    "PronunciationAssessment": {
-                        "AccuracyScore": 100.0
-                    }
-                },
-                {
-                    "Syllable" : "nɪŋ",
-                    "Offset" : 5700000,
-                    "Duration": 3100000,
-                    "PronunciationAssessment": {
-                        "AccuracyScore": 100.0
-                    }
-                }],
-                "Phonemes": [
-                    ... // omitted phonemes
-                ]
-            }]
-        }]
-    }
-    ```
 
 ## Spoken phoneme
 
+> [!NOTE]
+> Spoken phoneme is only available in `en-US`. 
+> 
+> If you want to use languages that aren't supported or have other requirements for these features , please contact us by email at [mspafeedback@microsoft.com](mailto:mspafeedback@microsoft.com).
+>  
+> For pronunciation assessment supported regions, see [available regions](regions.md#speech-to-text-pronunciation-assessment-text-to-speech-and-translation).
+
 Previously Pronunciation Assessment API detects miscues and provides an accuracy score and error types in the given speech. But we can only show the targeted phonemes for each word from the reference text. With this new feature, it can also show the phoneme that a user speaks as a clear comparison to the targeted phonemes. For example, for the word “hello”, when a user incorrectly speaks one of the phonemes as another one (such as / ɛ / was spoken as / ʌ /), previously the API can just give its targeted phonemes / h ɛ l oʊ / and low score on this phoneme, but can't give the actually spoken phoneme. Now with this new feature, the API not only gives targeted phonemes / h ɛ l oʊ / and low score on / ɛ /, but also gives the actual spoken phonemes / h ʌ l oʊ /. Thus, this feature can help you better understand the pronunciation issue.
 
-### How to get spoken phoneme
-
-In this section, you'll learn how to update the Pronunciation Assessment configuration to get spoken phoneme. But before reading this section, you need to follow [how to use speech SDK for pronunciation assessment](how-to-pronunciation-assessment.md) to learn how to set up `PronunciationAssessmentConfig` and retrieve the `PronunciationAssessmentResult` using the speech SDK.
-
-1. Modify the code of creating pronunciationAssessmentConfig as below.
+Must set 
    
 ::: zone pivot="programming-language-csharp"
 
-   ```csharp
-   var pronunciationAssessmentConfig = PronunciationAssessmentConfig.FromJson("{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\",\"phonemeAlphabet\":\"IPA\",\"nBestPhonemeCount\":5}");
-   ```
+```csharp
+var pronunciationConfig = new PronunciationAssessmentConfig(
+    referenceText: "Evaluate speech with this text",
+    gradingSystem: GradingSystem.HundredMark, 
+    granularity: Granularity.Phoneme, 
+    enableMiscue: true);
+pronunciationConfig.NBestPhonemeCount = 5;
+```
    
 ::: zone-end      
 
 ::: zone pivot="programming-language-cpp"
 
-   ```cpp
-   auto pronunciationAssessmentConfig = PronunciationAssessmentConfig::CreateFromJson("{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\",\"phonemeAlphabet\":\"IPA\",\"nBestPhonemeCount\":5}");
-   ```
-   
-::: zone-end
-
-::: zone pivot="programming-language-java"
-
-   ```Java
-    PronunciationAssessmentConfig pronunciationAssessmentConfig = PronunciationAssessmentConfig.fromJson("{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\",\"phonemeAlphabet\":\"IPA\",\"nBestPhonemeCount\":5}");
-   ```
-   
-::: zone-end   
-
-::: zone pivot="programming-language-python"
-
-   ```Python
-   pronunciation_assessment_config = speechsdk.PronunciationAssessmentConfig(json_string="{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\",\"phonemeAlphabet\":\"IPA\",\"nBestPhonemeCount\":5}")
-   ```
-
-::: zone-end
-
-::: zone pivot="programming-language-javascript"
-
-   ```JavaScript
-   var pronunciationAssessmentConfig = SpeechSDK.PronunciationAssessmentConfig.fromJSON("{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\",\"phonemeAlphabet\":\"IPA\",\"nBestPhonemeCount\":5}");
-   ```
-
-::: zone-end
-
-::: zone pivot="programming-language-objectivec"
-   
-   ```ObjectiveC
-    SPXPronunciationAssessmentConfiguration* pronunciationAssessmentConfig = [[SPXPronunciationAssessmentConfiguration alloc]initWithJson:[@"{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\",\"phonemeAlphabet\":\"IPA\",\"nBestPhonemeCount\":5}"]];
-   ```
-
-::: zone-end
-
-2. Based on the code in step 1, insert a code line to receive the Pronunciation Assessment result in JSON, as below:
- 
-::: zone pivot="programming-language-csharp"
-
-```csharp
-var pronunciationAssessmentResultJson = speechRecognitionResult.Properties.GetProperty(PropertyId.SpeechServiceResponse_JsonResult);
-```
-
-::: zone-end
-
-::: zone pivot="programming-language-cpp"
-
 ```cpp
-auto pronunciationAssessmentResultJson = speechRecognitionResult ->Properties.GetProperty(PropertyId::SpeechServiceResponse_JsonResult);
+auto pronunciationAssessmentConfig = PronunciationAssessmentConfig::CreateFromJson("{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\",\"phonemeAlphabet\":\"IPA\",\"nBestPhonemeCount\":5}");
 ```
-
+   
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
 
 ```Java
-String pronunciationAssessmentResultJson = result.getProperties().getProperty(PropertyId.SpeechServiceResponse_JsonResult);
+PronunciationAssessmentConfig pronunciationAssessmentConfig = PronunciationAssessmentConfig.fromJson("{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\",\"phonemeAlphabet\":\"IPA\",\"nBestPhonemeCount\":5}");
 ```
-
-::: zone-end
+   
+::: zone-end   
 
 ::: zone pivot="programming-language-python"
 
 ```Python
-pronunciation_assessment_result_json = result.properties.get(speechsdk.PropertyId.SpeechServiceResponse_JsonResult)
+pronunciation_assessment_config = speechsdk.PronunciationAssessmentConfig(json_string="{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\",\"phonemeAlphabet\":\"IPA\",\"nBestPhonemeCount\":5}")
 ```
 
 ::: zone-end
@@ -582,7 +279,7 @@ pronunciation_assessment_result_json = result.properties.get(speechsdk.PropertyI
 ::: zone pivot="programming-language-javascript"
 
 ```JavaScript
-var pronunciationAssessmentResultJson = result.properties.getProperty(SpeechSDK.PropertyId.SpeechServiceResponse_JsonResult);
+var pronunciationAssessmentConfig = SpeechSDK.PronunciationAssessmentConfig.fromJSON("{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\",\"phonemeAlphabet\":\"IPA\",\"nBestPhonemeCount\":5}");
 ```
 
 ::: zone-end
@@ -590,131 +287,147 @@ var pronunciationAssessmentResultJson = result.properties.getProperty(SpeechSDK.
 ::: zone pivot="programming-language-objectivec"
    
 ```ObjectiveC
- NSString* pronunciationAssessmentResultJson = [result.properties getPropertyByName:@"RESULT-Json"];
+SPXPronunciationAssessmentConfiguration* pronunciationAssessmentConfig = [[SPXPronunciationAssessmentConfiguration alloc]initWithJson:[@"{\"referenceText\":\"good morning\",\"gradingSystem\":\"HundredMark\",\"granularity\":\"Phoneme\",\"phonemeAlphabet\":\"IPA\",\"nBestPhonemeCount\":5}"]];
 ```
 
 ::: zone-end
 
-3. After you run the updated code, the content of `pronunciationAssessmentResultJson` will be displayed as the following JSON example. Within each element of `Phonemes` array, there's also a `PronunciationAssessment` element. This element has a `Phoneme` field and a `NBestPhonemes` element. The `Phoneme` field indicates the expected phoneme, and the `NBestPhonemes` element indicates the spoken phonemes. Each expected phoneme may have more than one spoken phoneme, ranked by pronunciation probability. For example, for the first phoneme of word `good`, the expected phoneme is / ɡ /, and it has `NBestPhonemes`: / ɡ /, / k /, and so on. There should be 5 `NBestPhonemes` if you specify "nBestPhonemeCount":5 in step 1.
+
+::: zone pivot="programming-language-swift"
+
+```swift
+var pronunciationConfig: SPXPronunciationAssessmentConfiguration?
+do {
+    try pronunciationConfig = SPXPronunciationAssessmentConfiguration.init(referenceText, gradingSystem: SPXPronunciationAssessmentGradingSystem.hundredMark, granularity: SPXPronunciationAssessmentGranularity.phoneme, enableMiscue: true)
+} catch {
+    print("error \(error) happened")
+    pronunciationConfig = nil
+    return
+}
+pronunciationConfig?.nbestPhonemeCount = 5
+```
+
+::: zone-end
+
+## Get pronunciation assessment results 
+
+For recognized speech.
+
+
+```csharp
+if (result.Reason == ResultReason.RecognizedSpeech)
+{
+    Console.WriteLine($"RECOGNIZED: Text={result.Text}");
+    Console.WriteLine("  PRONUNCIATION ASSESSMENT RESULTS:");
+
+    var pronunciationResult = PronunciationAssessmentResult.FromResult(result);
+    Console.WriteLine(
+        $"    Accuracy score: {pronunciationResult.AccuracyScore}, Pronunciation score: {pronunciationResult.PronunciationScore}, Completeness score : {pronunciationResult.CompletenessScore}, FluencyScore: {pronunciationResult.FluencyScore}");
+
+    Console.WriteLine("  Word-level details:");
+
+    // Granularity must be set to Word or Phoneme in PronunciationAssessmentConfig
+    // to get word-level details.
+    foreach (var word in pronunciationResult.Words)
+    {
+        Console.WriteLine($"    Word: {word.Word}, Accuracy score: {word.AccuracyScore}, Error type: {word.ErrorType}.");
+
+        // Granularity must be set to Phoneme in PronunciationAssessmentConfig
+        // to get syllable-level details.
+        if(null != word.Syllables) {
+            foreach (var syllable in word.Syllables) {
+                Console.WriteLine($"      Syllable: {syllable.Syllable}, Accuracy score: {syllable.AccuracyScore}, Offset: {syllable.Offset}, Duration: {syllable.Duration}, Grapheme: {syllable.Grapheme}");
+            }
+        }
+
+        // Granularity must be set to Phoneme in PronunciationAssessmentConfig
+        // to get phoneme-level details.
+        if(null != word.Phonemes) {
+            foreach (var phoneme in word.Phonemes) {
+                Console.WriteLine($"        Target Phoneme: {phoneme.Phoneme}, Accuracy score: {phoneme.AccuracyScore}, Offset: {phoneme.Offset}, Duration: {phoneme.Duration}");
+
+                // NBestPhonemeCount must be set in PronunciationAssessmentConfig
+                // to get spoken phoneme details.
+                if(null != phoneme.NBestPhonemes) {
+                    foreach (var nBestPhoneme in phoneme.NBestPhonemes) {
+                        Console.WriteLine($"            Spoken Phoneme: {nBestPhoneme.Phoneme}, Score: {nBestPhoneme.Score}");
+                    }
+                }
+            }
+        }
+    }
+}
+```
+
+
+```cpp
+
+```
+   
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+```Java
+
+```
+   
+::: zone-end   
+
+::: zone pivot="programming-language-python"
+
+```Python
+
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+```JavaScript
+
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-objectivec"
+   
+```ObjectiveC
+
+```
+
+::: zone-end
+
+
+::: zone pivot="programming-language-swift"
+
+```swift
+
+```
+
+::: zone-end
+
+After you run the updated code, the content of `pronunciationAssessmentResultJson` will be displayed as the following JSON example. Within each element of `Phonemes` array, there's also a `PronunciationAssessment` element. This element has a `Phoneme` field and a `NBestPhonemes` element. The `Phoneme` field indicates the expected phoneme, and the `NBestPhonemes` element indicates the spoken phonemes. Each expected phoneme may have more than one spoken phoneme, ranked by pronunciation probability. For example, for the first phoneme of word `good`, the expected phoneme is / ɡ /, and it has `NBestPhonemes`: / ɡ /, / k /, and so on. There should be 5 `NBestPhonemes` if you specify "nBestPhonemeCount":5 in step 1.
 The phoneme / ɡ / is in the first position within `NBestPhonemes` element and scores the highest. It means that the speaker's pronunciation is mostly closed to / ɡ /.
 The phoneme / k / in the second position has the second high score. It means that the speaker's pronunciation is secondly closed to / k /. In this example, the speaker pronounced the phoneme / ɡ / well, because the top spoken phoneme / ɡ / is consistent with expected phoneme / ɡ /. If the  `NBestPhonemes`: / k / is at the top with higher score than other following `NBestPhonemes`, it means that the speaker pronounced the word `good` more like `kood`.
 
-    ```json
-    {
-        "Format": "Detailed",
-        "RecognitionStatus": "Success",
-        "DisplayText": "Good morning.",
-        "Offset": 400000,
-        "Duration": 11000000,
-        "SNR": 37.3953,
-        "NBest": [
-        {
-            "Confidence": "0.87",
-            "Lexical": "good morning",
-            "ITN" : "good morning",
-            "MaskedITN" : "good morning",
-            "Display" : "Good morning.",
-            "PronunciationAssessment" : {
-                "PronScore" : 84.4,
-                "AccuracyScore" : 100.0,
-                "FluencyScore" : 74.0,
-                "CompletenessScore" : 100.0,
-            },
-            "Words": [
-            {
-                "Word" : "good",
-                "Offset" : 500000,
-                "Duration" : 2700000,
-                "PronunciationAssessment": {
-                    "AccuracyScore" : 100.0,
-                    "ErrorType" : "None"
-                },
-                "Syllables" : [
-                {
-                    "Syllable" : "ɡʊd",
-                    "Offset" : 500000,
-                    "Duration" : 2700000,
-                    "PronunciationAssessment" : {
-                        "AccuracyScore": 100.0
-                    }
-                }],
-                "Phonemes": [
-                {
-                    "Phoneme" : "ɡ",
-                    "Offset" : 500000,
-                    "Duration": 1200000,
-                    "PronunciationAssessment": {
-                        "AccuracyScore": 100.0,
-                        "NBestPhonemes": [
-                        {
-                            "Phoneme": "ɡ",
-                            "Score": 100.0
-                        },
-                        {
-                            "Phoneme": "k",
-                            "Score": 5.0
-                        },
-                        ... // omitted n best phonemes
-                        ]
-                    }
-                },
-                {
-                    "Phoneme" : "ʊ",
-                    "Offset" : 1800000,
-                    "Duration": 500000,
-                    "PronunciationAssessment": {
-                        "AccuracyScore": 100.0
-                        "NBestPhonemes": [
-                            ... // omitted n best phonemes
-                        ]
-                    }
-                },
-                {
-                    "Phoneme" : "d",
-                    "Offset" : 2400000,
-                    "Duration": 800000,
-                    "PronunciationAssessment": {
-                        "AccuracyScore": 100.0
-                        "NBestPhonemes": [
-                            ... // omitted n best phonemes
-                        ]
-                    }
-                }]
-            },
-            {
-                "Word" : "morning",
-                "Offset" : 3300000,
-                "Duration" : 5500000,
-                "PronunciationAssessment": {
-                    "AccuracyScore" : 100.0,
-                    "ErrorType" : "None"
-                },
-                "Syllables": [
-                {
-                    "Syllable" : "mɔr",
-                    "Offset" : 3300000,
-                    "Duration": 2300000,
-                    "PronunciationAssessment": {
-                        "AccuracyScore": 100.0
-                    }
-                },
-                {
-                    "Syllable" : "nɪŋ",
-                    "Offset" : 5700000,
-                    "Duration": 3100000,
-                    "PronunciationAssessment": {
-                        "AccuracyScore": 100.0
-                    }
-                }],
-                "Phonemes": [
-                    ... // omitted phonemes
-                ]
-            }]
-        }]
-    }
-    ```
+Example output for IPA phonemes and NBestPhonemeCount set to 5.
+
+```console
+Accuracy score: 97, Pronunciation score: 98, Completeness score : 100, FluencyScore: 99
+  Word-level details:
+    Word: hello, Accuracy score: 100, Error type: None.
+      Syllable: hɛ, Accuracy score: 96, Offset: 9600000, Duration: 5400000, Grapheme: 
+      Syllable: loʊ, Accuracy score: 100, Offset: 15100000, Duration: 4900000, Grapheme: 
+        Target Phoneme: h, Accuracy score: 99, Offset: 9600000, Duration: 4800000
+            Spoken Phoneme: h, Score: 100
+            Spoken Phoneme: oʊ, Score: 54
+            Spoken Phoneme: ə, Score: 32
+            Spoken Phoneme: t, Score: 19
+            Spoken Phoneme: s, Score: 16
+```
 
 ## Next steps
 
 - Try out [pronunciation assessment with the Speech SDK](how-to-pronunciation-assessment.md)
-- Try out [pronunciation assessment tool through Speech Studio](how-to-use-pronunciation-assessment-tool.md)
+- Try out [pronunciation assessment tool through Speech Studio](pronunciation-assessment-tool.md)
