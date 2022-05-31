@@ -76,7 +76,7 @@ To generate a report:
 
 3. From the right drop-down list, select the report that you want to generate.
 
-4. To create a PDF of the report results, select :::image typFe="icon" source="media/how-to-generate-reports/pdf-report-icon.png" border="false":::.
+4. To create a PDF of the report results, select :::image type="icon" source="media/how-to-generate-reports/pdf-report-icon.png" border="false":::.
 
 
 ## Next steps
