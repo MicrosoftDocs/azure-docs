@@ -62,6 +62,10 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 - [Support diagnostic log enhancements](#support-diagnostic-log-enhancements-public-preview)
 - [Improved security for uploading protocol plugins](#improved-security-for-uploading-protocol-plugins)
 
+**Sensor version**: 22.1.5
+
+Bug fixes related to OT monitoring software updates and sensor-cloud connections.
+
 ### Release note tracking per version
 
 Starting in June 2022, we're tracking our release notes per software version for the sensor and on-premises management console, including major and minor versions.
@@ -149,6 +153,7 @@ This version of the sensor provides a improved security for uploading proprietar
 :::image type="content" source="media/release-notes/horizon.png" alt-text="Screenshot of the new Protocols DPI (Horizon Plugins) page.":::
 
 For more information, see [Manage proprietary protocols with Horizon plugins](resources-manage-proprietary-protocols.md).
+
 
 ## May 2022
 
