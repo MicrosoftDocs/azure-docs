@@ -182,7 +182,7 @@ Use this API to let system administrators change passwords for specified users. 
 
 **Method**: POST
 
-# [Request](#tab-set-password-by-admin-request)
+# [Request](#tab/set-password-by-admin-request)
 
 **Type**: JSON
 
@@ -211,7 +211,7 @@ request:
 | **username** | String | No |
 | **new_password** | String | No |
 
-# [Response](#tab-set-password-by-admin-response)
+# [Response](#tab/set-password-by-admin-response)
 
 **Type**: JSON
 
@@ -245,7 +245,7 @@ response:
 }
 
 ```
-# [Curl command](#tab-set-password-by-admin-curl)
+# [Curl command](#tab/set-password-by-admin-curl)
 
 
 **Type**: POST
@@ -723,7 +723,7 @@ Use this API to request a list of events reported to the event timeline.
 |**minutesTimeFrame**     |  Filter results by a given time frame during which events were reported. Defined backwards from the current time.       |   `/api/v1/events?minutesTimeFrame=20`      |
 |**type**     |   Get results of a given type only.      |      `/api/v1/events?type=DEVICE_CONNECTION_CREATED` <br><br>  `/api/v1/events?type=REMOTE_ACCESS&minutesTimeFrame`|
 
-# [Response](#tab-events-response)
+# [Response](#tab/events-response)
 
 **Type**: JSON
 
@@ -1317,7 +1317,7 @@ JSON object that represents assessed results. Each key can be nullable. Otherwis
 }
 ```
 
-# [Curl command](#tab-security-curl)
+# [Curl command](#tab/security-curl)
 
 **Type**: GET
 
