@@ -3,7 +3,7 @@ title: Use Container Storage Interface (CSI) driver for Azure Disk in Azure Kube
 description: Learn how to use the Container Storage Interface (CSI) drivers for Azure disks in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 05/23/2022
+ms.date: 05/31/2022
 author: palma21
 
 ---
@@ -247,7 +247,7 @@ outfile
 test.txt
 ```
 
-## Resize a persistent volume without downtime
+## Resize a persistent volume without downtime (Preview)
 
 You can request a larger volume for a PVC. Edit the PVC object, and specify a larger size. This change triggers the expansion of the underlying volume that backs the PV.
 
@@ -264,9 +264,8 @@ Filesystem      Size  Used Avail Use% Mounted on
 ```
 
 > [!IMPORTANT]
-> Azure disk CSI driver supports resizing PVCs without downtime in specific regions.
+> Azure disk CSI driver supports resizing PVCs without downtime.
 > Follow this [link][expand-an-azure-managed-disk] to register the disk online resize feature.
-> If your cluster is not in the supported region list, you need to delete application first to detach disk on the node before expanding PVC.
 
 Expand the PVC by increasing the `spec.resources.requests.storage` field running the following command:
 
