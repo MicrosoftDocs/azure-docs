@@ -45,19 +45,21 @@ You can use the Azure portal to onboard an apex domain on your Front Door and en
 
 1. On **Add a domain** page, you'll enter information about the custom domain. You can choose Azure-managed DNS (recommended) or you can choose to use your DNS provider. 
 
-   * If you choose Azure-managed DNS, select an existing DNS zone and for *Custom domain*, select **Add new**. Select **APEX domain** from the pop-up and then select **OK** to save.
+   1. **Azure-managed DNS** - select an existing DNS zone and for *Custom domain*, select **Add new**. Select **APEX domain** from the pop-up and then select **OK** to save.
 
       :::image type="content" source="./media/front-door-apex-domain/add-custom-domain.png" alt-text="Screenshot of adding a new custom domain to Front Door profile.":::
 
-   * If you're using another DNS provider, make sure the DNS provider supports CNAME flattening and follow the steps for [adding a custom domain](standard-premium/how-to-add-custom-domain.md#add-a-new-custom-domain).
+   1. **Another DNS provider** - make sure the DNS provider supports CNAME flattening and follow the steps for [adding a custom domain](standard-premium/how-to-add-custom-domain.md#add-a-new-custom-domain).
 
 1. Select the **Pending** validation state. A new page will appear with DNS TXT record information needed to validate the custom domain. The TXT record is in the form of `_dnsauth.<your_subdomain>`. 
 
    :::image type="content" source="./media/front-door-apex-domain/pending-validation.png" alt-text="Screenshot of custom domain pending validation.":::
 
-   * If you're using Azure DNS-based zone, select the **Add** button and a new TXT record with the displayed record value will be created in the Azure DNS zone. If you're using another DNS provider, manually create a new TXT record of name `_dnsauth.<your_subdomain>` with the record value as shown on the page.
+   1. **Azure DNS-based zone** - select the **Add** button and a new TXT record with the displayed record value will be created in the Azure DNS zone.
 
       :::image type="content" source="./media/front-door-apex-domain/validate-custom-domain.png" alt-text="Screenshot of validate a new custom domain.":::
+
+    1. If you're using another DNS provider, manually create a new TXT record of name `_dnsauth.<your_subdomain>` with the record value as shown on the page.
 
 1. Close the *Validate the custom domain* page and return to the *Domains* page for the Front Door profile. You should see the *Validation state* change from **Pending** to **Approved**. If not, wait up to 10 minutes for changes to reflect. If your validation doesn't get approved make sure your TXT record is correct and name servers are configured correctly if you're using Azure DNS.
 
@@ -73,11 +75,11 @@ You can use the Azure portal to onboard an apex domain on your Front Door and en
 
 1.	Under the *DNS state* column, select the **CNAME record is currently not detected** to add the alias record to DNS provider.
 
-   * If you're using Azure DNS, select the **Add** button on the page.
+    1. **Azure DNS** - select the **Add** button on the page.
 
-      :::image type="content" source="./media/front-door-apex-domain/cname-record.png" alt-text="Screenshot of add or update CNAME record page.":::
+       :::image type="content" source="./media/front-door-apex-domain/cname-record.png" alt-text="Screenshot of add or update CNAME record page.":::
 
-   * If you're using another DNS provider that supports CNAME flattening, you must manually enter the alias record name.
+    1. **A DNS provider that supports CNAME flattening** - you must manually enter the alias record name.
     
 1. Once the alias record gets created and the custom domain is associated to the Azure Front Door endpoint, traffic will start flowing.
 
