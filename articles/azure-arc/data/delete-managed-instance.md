@@ -33,8 +33,8 @@ demo-mi 1/1         10.240.0.4:32023  Ready
 1. Delete the SQL Managed Instance, run one of the commands:
 
     1. Indirectly connected mode:
-    
-    ```azurecli
+
+```azurecli
 az sql mi-arc delete -n <instance_name> --k8s-namespace <namespace> --use-k8s
 ```
 
@@ -45,7 +45,7 @@ Output should look something like this:
 Deleted demo-mi from namespace arc
 ```
 
-    1. Directly connected mode:
+1. Directly connected mode:
 
 ```azurecli
 az sql mi-arc delete -n <instance_name> -g <resource_group>
@@ -58,7 +58,46 @@ Output should look something like this:
 Deleted demo-mi from namespace arc
 ```
 
-1. Optional.
+1. Optional. Find existing Azure Arc-enabled SQL Managed instances:
+
+```azurecli
+az sql mi-arc list --k8s-namespace <namespace> --use-k8s
+```
+
+Example output:
+
+```console
+Name    Replicas    ServerEndpoint    State
+------  ----------  ----------------  -------
+demo-mi 1/1         10.240.0.4:32023  Ready
+```
+
+1. Delete an instance. Use the command appropriate for your deployment type.
+   1. Indirectly connected mode:
+
+```azurecli
+az sql mi-arc delete -n <instance_name> --k8s-namespace <namespace> --use-k8s
+```
+
+Output should look something like this:
+
+```azurecli
+# az sql mi-arc delete -n demo-mi --k8s-namespace <namespace> --use-k8s
+Deleted demo-mi from namespace arc
+```
+
+   1. Directly connected mode:
+
+```azurecli
+az sql mi-arc delete -n <instance_name> -g <resource_group>
+```
+
+Output should look something like this:
+
+```azurecli
+# az sql mi-arc delete -n demo-mi -g my-rg
+Deleted demo-mi from namespace arc
+```
 
 ## Find existing Azure Arc-enabled SQL Managed Instances
 
