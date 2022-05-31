@@ -10,7 +10,7 @@ ms.date: 5/09/2022
 
 ## Overview
 
-This article will show you how to encrypt VMware vSAN Key Encryption Keys (KEK) with customer-managed keys (CMKs) managed by customer-owned Azure Key Vault. 
+This article will show you how to encrypt VMware vSAN Key Encryption Keys (KEK) with customer-managed keys (CMKs) managed by customer-owned Azure Key Vault.
 
 When CMK encryptions are enabled on your Azure VMware Solution private cloud, Azure VMware Solution uses the CMK from your Key Vault to encrypt the vSAN KEKs. Each ESXi host that participates in the vSAN cluster uses randomly generated Disk Encryption Keys (DEKs) that ESXi uses to encrypt disk data at rest. vSAN encrypts all DEKs with a KEK provided by Azure VMware Solution key management system (KMS). Azure VMware Solution private cloud and Key Vault don't need to be in the same subscription.
 
@@ -25,12 +25,11 @@ Customer-managed keys (CMKs) feature supports, see the following shown by key ty
 - RSA: 2048, 3072, 4096
 - RSA-HSM: 2048, 3072, 4096
 
-## Topology 
+## Topology
 
-The following diagram shows how Azure VMware Solution uses Azure Active Directory (Azure AD) and a key vault to deliver the customer-managed key.
+The following diagram shows how Azure VMware Solution uses Azure Active Directory (Azure AD) and a Key Vault to deliver the customer-managed key.
 
 :::image type="content" source="media/configure-customer-managed-keys/customer-managed-keys-topology-diagram.png" alt-text="Diagram showing the customer-managed keys topology." border="false" lightbox="media/configure-customer-managed-keys/customer-managed-keys-topology-diagram.png":::
-
 
 ## Prerequisites
 
