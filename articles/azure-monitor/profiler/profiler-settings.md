@@ -95,7 +95,7 @@ Memory % | Percentage of memory that was being used while the profiler was runni
 ## Next steps
 [Enable Profiler and view traces](profiler-overview.md?toc=/azure/azure-monitor/toc.json)
 
-[profiler-on-demand]: ./media/profiler-settings/Profiler-on-demand.png
+[profiler-on-demand]: ./media/profiler-settings/profiler-on-demand.png
 [performance-blade]: ./media/profiler-settings/performance-blade.png
 [configure-profiler-page]: ./media/profiler-settings/configureBlade.png
 [trigger-settings-flyout]: ./media/profiler-settings/trigger-central-p-u.png
