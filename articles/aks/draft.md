@@ -90,6 +90,22 @@ You can also run the command on a specific directory using the `--destination` f
 az aks draft up --destination /Workspaces/ContosoAir
 ```
 
+## Use Web Application Routing with Draft to make your application accessible over the internet
+
+[Web Application Routing][web-app-routing] is the easiest way to get your web application up and running in Kubernetes securely, removing the complexity of ingress controllers and certificate and DNS management while offering configuration for enterprises looking to bring their own. Web Application Routing offers a managed ingress controller based on nginx that you can use without restrictions and integrates out of the box with Open Service Mesh to secure intra-cluster communications.
+
+To set up Draft with Web Application Routing, use `az aks draft update` and pass in the DNS name and Azure Key Vault-stored certificate when prompted:
+
+```azure-cli-interactive
+az aks draft update
+```
+
+You can also run the command on a specific directory using the `--destination` flag:
+
+```azure-cli-interactive
+az aks draft update --destination /Workspaces/ContosoAir
+```
+
 <!-- LINKS INTERNAL -->
 [deploy-cluster]: ./tutorial-kubernetes-deploy-cluster.md
 [az-feature-register]: /cli/azure/feature#az-feature-register
