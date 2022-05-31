@@ -68,7 +68,7 @@ Get started with a sample Redis Cache and Python Custom Application [here](https
 
 [Gramine](https://grapheneproject.io/) is a lightweight guest OS, designed to run a single Linux application with minimal host requirements. Gramine can run applications in an isolated environment. There's tooling support for converting existing Docker container applications to Gramine Shielded Containers (GSCs).
 
-For more information, see the Gramine's [sample application and deployment on AKS](https://graphene.readthedocs.io/en/latest/cloud-deployment.html#azure-kubernetes-service-aks)
+For more information, see the Gramine's [sample application and deployment on AKS](https://github.com/gramineproject/contrib/tree/master/Examples/aks-attestation)
 
 ### Occlum
 

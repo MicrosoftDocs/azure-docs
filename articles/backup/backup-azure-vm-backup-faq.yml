@@ -4,7 +4,7 @@ metadata:
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
   ms.topic: faq
   ms.service: backup
-  ms.date: 03/02/2022
+  ms.date: 05/06/2022
   author: v-amallick
   ms.author: v-amallick
 
@@ -69,8 +69,7 @@ sections:
 
       - question: I enabled a lock on the resource group created by Azure Backup Service (for example, `AzureBackupRG_<geo>_<number>`). Will my backups continue to work?
         answer: |
-          If you lock the resource group created by the Azure Backup Service, backups will start to fail as there's a maximum limit of 18 restore points.
-
+          If you lock the resource group created by the Azure Backup Service, backups will start to fail.
           Remove the lock, and clear the restore point collection from that resource group to make the future backups successful. [Follow these steps](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) to remove the restore point collection.
 
       - question: I have a lock at the resource group level that contains all the resources related to my virtual machine. Will my backup work?
@@ -213,6 +212,10 @@ sections:
       -  question: Is there a limit to trigger restore in a day?
          answer: |
            Yes, the default maximum limit to trigger restore is 10 attempts per VM in 24 hours.
+
+      - question: Can I delete JSON template and VHD files after the restore process is complete?
+        answer: |
+          Yes, you can delete these files once the restoration process is complete. By default, Azure Backup retains these files for future use.
 
   - name: Manage VM backups
     questions:

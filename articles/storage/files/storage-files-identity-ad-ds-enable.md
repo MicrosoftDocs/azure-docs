@@ -5,7 +5,7 @@ author: khdownie
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 05/06/2022
+ms.date: 05/24/2022
 ms.author: kendownie 
 ms.custom: devx-track-azurepowershell
 ---
@@ -69,7 +69,6 @@ Connect-AzAccount
 # $StorageAccountName is the name of an existing storage account that you want to join to AD
 # $SamAccountName is an AD object, see https://docs.microsoft.com/en-us/windows/win32/adschema/a-samaccountname
 # for more information.
-# If you want to use AES256 encryption (recommended), except for the trailing '$', the storage account name must be the same as the computer object's SamAccountName.
 $SubscriptionId = "<your-subscription-id-here>"
 $ResourceGroupName = "<resource-group-name-here>"
 $StorageAccountName = "<storage-account-name-here>"
@@ -148,32 +147,30 @@ Set-AzStorageAccount `
         -ActiveDirectoryForestName "<your-forest-name-here>" `
         -ActiveDirectoryDomainGuid "<your-guid-here>" `
         -ActiveDirectoryDomainsid "<your-domain-sid-here>" `
-        -ActiveDirectoryAzureStorageSid "<your-storage-account-sid>"
+        -ActiveDirectoryAzureStorageSid "<your-storage-account-sid>" `
+        -ActiveDirectorySamAccountName "<your-domain-object-sam-account-name>" `
+        -ActiveDirectoryAccountType "<you-domain-object-account-type, the value could be 'Computer' or 'User', for AES256 must be 'Computer'>"
 ```
 
 #### Enable AES-256 encryption (recommended)
 
 To enable AES-256 encryption, follow the steps in this section. If you plan to use RC4, skip this section.
 
-The domain object that represents your storage account must meet the following requirements:
+> [!IMPORTANT]
+> The domain object that represents your storage account must be created as a computer object in the on-premises AD domain. If your domain object doesn't meet this requirement, delete it and create a new domain object that does.
 
-- The domain object must be created as a computer object in the on-premises AD domain.
-- Except for the trailing '$', the storage account name must be the same as the computer object's SamAccountName.
-
-If your domain object doesn't meet those requirements, delete it and create a new domain object that does.
-
-Replace `<domain-object-identity>` and `<domain-name>` with your values, then run the following cmdlet to configure AES-256 support: 
+Replace `<domain-object-identity>` and `<domain-name>` with your values, then run the following cmdlet to configure AES-256 support:
 
 ```powershell
 Set-ADComputer -Identity <domain-object-identity> -Server <domain-name> -KerberosEncryptionType "AES256"
 ```
 
-After you've run that cmdlet, replace `<domain-object-identity>` in the following script with your value, then run the script to refresh your domain object password:
+After you've run the above cmdlet, replace `<domain-object-identity>` in the following script with your value, then run the script to refresh your domain object password:
 
 ```powershell
 $KeyName = "kerb1" # Could be either the first or second kerberos key, this script assumes we're refreshing the first
 $KerbKeys = New-AzStorageAccountKey -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -KeyName $KeyName
-$KerbKey = $KerbKeys | Where-Object {$_.KeyName -eq $KeyName} | Select-Object -ExpandProperty Value
+$KerbKey = $KerbKeys.keys | Where-Object {$_.KeyName -eq $KeyName} | Select-Object -ExpandProperty Value
 $NewPassword = ConvertTo-SecureString -String $KerbKey -AsPlainText -Force
 
 Set-ADAccountPassword -Identity <domain-object-identity> -Reset -NewPassword $NewPassword
@@ -181,7 +178,7 @@ Set-ADAccountPassword -Identity <domain-object-identity> -Reset -NewPassword $Ne
 
 ### Debugging
 
-You can run the Debug-AzStorageAccountAuth cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on AzFilesHybrid v0.1.2+ version. For more information on the checks performed in this cmdlet, see [Unable to mount Azure Files with AD credentials](storage-troubleshoot-windows-file-connection-problems.md#unable-to-mount-azure-files-with-ad-credentials) in the troubleshooting guide for Windows.
+You can run the `Debug-AzStorageAccountAuth` cmdlet to conduct a set of basic checks on your AD configuration with the logged on AD user. This cmdlet is supported on AzFilesHybrid v0.1.2+ version. For more information on the checks performed in this cmdlet, see [Unable to mount Azure Files with AD credentials](storage-troubleshoot-windows-file-connection-problems.md#unable-to-mount-azure-files-with-ad-credentials) in the troubleshooting guide for Windows.
 
 ```PowerShell
 Debug-AzStorageAccountAuth -StorageAccountName $StorageAccountName -ResourceGroupName $ResourceGroupName -Verbose
