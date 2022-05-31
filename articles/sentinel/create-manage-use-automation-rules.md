@@ -34,7 +34,7 @@ You also want to determine your use case. What are you trying to accomplish with
 
 Do you want this automation to be activated when new incidents are created? Or any time an incident gets updated?
 
-Automation rules are triggered **when an incident is created or updated** (the update trigger is now in **Preview**). To review – incidents are created from alerts by analytics rules, of which there are several types, as explained in [Detect threats with built-in analytics rules in Microsoft Sentinel](detect-threats-built-in.md).
+Automation rules are triggered **when an incident is created or updated** (the update trigger is now in **Preview**). Recall that incidents are created from alerts by analytics rules, of which there are several types, as explained in [Detect threats with built-in analytics rules in Microsoft Sentinel](detect-threats-built-in.md).
 
 The following table shows the different possible ways that incidents can be created or updated that will cause an automation rule to run.
 
@@ -49,60 +49,6 @@ Most of the following instructions apply to any and all use cases for which you'
 
 - For the use case of suppressing noisy incidents, see [this article on handling false positives](false-positives.md#add-exceptions-by-using-automation-rules).
 - For creating an automation rule that will apply to a single specific analytics rule, see [this article on configuring automated response in analytics rules](detect-threats-custom.md#set-automated-responses-and-create-the-rule).
-
-<!--Depending on your choice of scope and use case, choose a location from which to begin creating your rule:
-
-| Use case | Goal of automation rule | Start from here |
-| - | - | - |
-| **Suppression** | - Ignore and close noisy incidents | **Incidents** blade |
-| **Detection-based triage** | - Handle incidents based on the rules that created them<br>- Create an automation rule that will apply only to one analytics rule | **Analytics** blade |
-| **Entity-based triage**<br>or anything else | - Handle incidents based on criteria in the incident<br>- Create a single automation rule that will apply to detections made by many or all analytics rules | **Automation** blade |
-
-### Choose a starting point
-
-# [Incidents](#tab/incidents)
-
-1. From the **Incidents** blade in the Microsoft Sentinel navigation menu, select an example of the incident you want to suppress.
-
-    :::image type="content" source="media/create-manage-use-automation-rules/create-automation-rule-on-incident.png" alt-text="Screenshot of creating an automation rule from the incidents blade." lightbox="media/create-manage-use-automation-rules/create-automation-rule-on-incident.png":::
-
-1. Select **Actions** at the bottom of the incident details pane, and then **Create automation rule**.
-
-    :::image type="content" source="media/create-manage-use-automation-rules/select-create-automation-rule.png" alt-text="Screenshot of pop up menu to select automation rule.":::
-
-    - The identifying fields in the **Create new automation rule** panel are automatically populated with values from the incident:
-
-        - **Automation rule name:** the incident name
-        - **Analytics rule condition:** the analytics rule that generated the incident
-        - **Other conditions:** all the entities identified in the incident
-
-    - The prescriptive fields are populated with default values:
-
-        - **Trigger:** When incident is created
-        - **Actions:** Change status to **Closed**, with the reason **Benign Positive - suspicious but expected**.
-        - **Rule expiration:** 24 hours from when the rule creation wizard was opened.
-
-    Depending on your needs for this rule, you can select the **When incident is updated** trigger instead, add or remove conditions and actions, or change any of the other values, as necessary.
-
-    :::image type="content" source="media/create-manage-use-automation-rules/incident-automation-rule-populated.png" alt-text="Screenshot of automation rule wizard launched from incident panel.":::
-
-# [Analytics](#tab/analytics)
-
-1. From the **Analytics** blade in the Microsoft Sentinel navigation menu:
-    - Select an analytics rule for which you want to automate a response, and select **Edit** on the rule details pane,  
-    **- OR -**
-    - Select **Create** from the top menu bar and choose a rule type to create a new rule.
-
-1. In the **Automated response** tab of the **Analytics rule wizard**, under **Incident automation**, select **+ Add new**.
-
-    In the **Create new automation rule** panel, the **Analytics rule condition** is set to the analytics rule being edited, and the **Trigger** is set to **When incident is created**. These settings are locked and can't be changed. 
-
-    The only other field populated is **Order**, set to a number higher than any automation rule already defined in this analytics rule. This ensures that the current automation rule will be the last to run. You can change this number if necessary.
-
-    All the other fields in the panel are open and unpopulated, and you can add conditions and actions as you wish.
-
-# [Automation](#tab/automation)-->
-
 
 1. From the **Automation** blade in the Microsoft Sentinel navigation menu, select **Create** from the top menu and choose **Automation rule**.
 
@@ -130,6 +76,47 @@ Add any other conditions you want this automation rule's activation to depend on
 1. Select an operator from the next drop-down box to the right.
     :::image type="content" source="media/create-manage-use-automation-rules/select-operator.png" alt-text="Screenshot of selecting a condition operator for automation rules.":::
 
+    The list of operators you can choose from varies according to the selected trigger and property. Here's a summary of what's available:
+
+    #### Create trigger
+
+    | Property | Operator set |
+    | -------- | -------- |
+    | - Title<br>- Description<br>- Tag<br>- All entity properties | - Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with |
+    | - Severity<br>- Status<br>- Incident provider | - Equals/Does not equal |
+    | - Tactics<br>- Alert product names | - Contains/Does not contain |
+
+    #### Update trigger
+
+    | Property | Operator set |
+    | -------- | -------- |
+    | - Title<br>- Description<br>- Tag<br>- All entity properties | - Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with |
+    | - Tag (in addition to above)<br>- Alerts<br>- Comments | - Added |
+    | - Severity<br>- Status | - Equals/Does not equal<br>- Changed<br>- Changed from<br>- Changed to |
+    | - Incident provider<br>- Updated by | - Equals/Does not equal |
+    | - Tactics | - Contains/Does not contain<br>- Added |
+    | - Alert product names | - Contains/Does not contain |
+    | - Owner | - Changed |
+
+
+
+    #### Other way to present both triggers together
+
+    | Operator set | Available with<br>under Create trigger | Available with<br>under Update trigger |
+    | ------------ | -------------- | -------------- |
+    | - Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with | - Title<br>- Description<br>- Tag<br>- All entity properties | - Title<br>- Description<br>- Tag<br>- All entity properties |
+    | - Equals/Does not equal | - Severity<br>- Status<br>- Incident provider | - Severity<br>- Status<br>- Incident provider<br>- Updated by |
+    | - Contains/Does not contain | - Tactics<br>- Alert product names | - Tactics<br>- Alert product names |
+    | - Changed<br>- Changed from<br>- Changed to | | - Severity<br>- Status |
+    | - Changed | | - Owner |
+    | - Added | | - Tactics<br>- Tags<br>- Alerts<br>- Comments |
+
+
+
+
+
+
+
 1. Enter a value in the text box on the right. Depending on the property you chose, this might be a drop-down list from which you would select the values you choose. You might also be able to add several values by selecting the icon to the right of the text box (highlighted by the red arrow below).
     :::image type="content" source="media/create-manage-use-automation-rules/add-values-to-condition.png" alt-text="Screenshot of adding values to your condition in automation rules.":::
 
@@ -151,9 +138,11 @@ If you add a **Run playbook** action, you will be prompted to choose from the dr
 
     You yourself must have **owner** permissions on any resource group to which you want to grant Microsoft Sentinel permissions, and you must have the **Logic App Contributor** role on any resource group containing playbooks you want to run.
 
+- If you don't yet have a playbook that will take the action you have in mind, [create a new playbook](tutorial-respond-threats-playbook.md). You will have to exit the automation rule creation process and restart it after you have created your playbook.
+
 ### Finish creating your rule
 
-1. Set an expiration date for your automation rule if you want it to have one.
+1. Set an **expiration date** for your automation rule if you want it to have one.
 
 1. Enter a number under **Order** to determine where in the sequence of automation rules this rule will run.
 

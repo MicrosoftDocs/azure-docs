@@ -57,68 +57,38 @@ Complex sets of conditions can be defined to govern when actions (see below) sho
 
 When an automation rule is triggered, it checks the triggering incident against the conditions defined in the rule. The property-based conditions are evaluated according to **the current state** of the property at the moment the evaluation occurs, or according to **changes in the state** of the property (see below for details). Since a single incident creation or update event could trigger several automation rules, the **order** in which they run (see below) makes a difference in determining the outcome of the conditions' evaluation. The **actions** defined in the rule will run only if all the conditions are satisfied.
 
-#### Incident creation trigger
+#### Incident create trigger
 
 For rules defined using the trigger **When an incident is created**, you can define conditions that check the **current state** of the values of a given list of incident properties, using one or more of the following operators:
 
-| Property | Operator | Value types |
-| -------- | -------- | ----------- |
-| - Title<br>- Description<br>- Tag<br>- All entity properties | - Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with | \<free text> |
-| - Severity<br>- Status<br>- Incident provider | - Equals/Does not equal | \<single selection><br>(radio button)|
-| - Tactics<br>- Alert product names | - Contains/Does not contain | \<multiple selections><br>(check boxes)
+An incident property's value 
+- **equals** or **does not equal** the value defined in the condition.
+- **contains** or **does not contain** the value defined in the condition.
+- **starts with** or **does not start with** the value defined in the condition.
+- **ends with** or **does not end with** the value defined in the condition.
 
-The **current state** in this context refers to the moment the condition is evaluated - that is, the moment the automation rule runs. If more than one automation rule is defined to run in response to the creation of this incident, then changes made to the incident by an earlier-run automation rule are considered the current state for later-run rules. So consider the following sequence as an example:
 
-- Incident is created with *low* severity and triggers two automation rules to run.
-- Rule 1 runs.
-    - A condition in Rule 1 is satisfied (say, an IP address in the incident matches a known bad actor).
-    - Rule 1's actions run and change the severity to *high*.
-- Rule 2 runs.
-    - A condition in Rule 2 evaluates the severity of the incident as *high*, meeting the condition's criteria.
-    - Rule 2's actions are executed as a result.
+
+The **current state** in this context refers to the moment the condition is evaluated - that is, the moment the automation rule runs. If more than one automation rule is defined to run in response to the creation of this incident, then changes made to the incident by an earlier-run automation rule are considered the current state for later-run rules.
 
 #### Incident update trigger
 
 The conditions evaluated in rules defined using the trigger **When an incident is updated** include all of those listed for the incident creation trigger. But the update trigger includes more properties that can be evaluated.
 
-More to the point, the update trigger also checks **state changes** in the values of incident properties as well as their current state. A **state change** condition would be satisfied if:
+More to the point, the update trigger also uses other operators that check **state changes** in the values of incident properties as well as their current state. A **state change** condition would be satisfied if:
 
-- An incident property's value was **changed** (regardless of the actual value before or after).
-- An incident property's value was **changed from** the value defined in the condition.
-- An incident property's value was **changed to** the value defined in the condition.
-- An incident property's value was **added** to (this applies to properties with a list of values).
-
-Here are the conditions that can be defined:
-
-| Property | Operator | Value types |
-| -------- | -------- | ----------- |
-| - Title<br>- Description<br>- Tag<br>- All entity properties | - Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with | \<free text> |
-| - Severity<br>- Status<br>- Incident provider<br>- *Updated by* | - Equals/Does not equal | \<single selection><br>(radio button)|
-| - *Owner* | - Changed | - |
-| - Severity<br>- Status | - Changed<br>- Changed from<br>- Changed to | - <br>\<single selection><br>(radio button)|
-| - Tactics<br>- Alert product names | - Contains/Does not contain | \<multiple selections><br>(check boxes)
-| - Tag<br>- Tactics<br>- *Alerts*<br>- *Comments* | - Added | - |
+An incident property's value was
+- **changed** (regardless of the actual value before or after).
+- **changed from** the value defined in the condition.
+- **changed to** the value defined in the condition.
+- **added** to (this applies to properties with a list of values).
 
 > [!NOTE]
-> An automation rule based on the update trigger can run on an incident that was updated by another automation rule based on the incident creation trigger that ran on the incident.
+> - An automation rule, based on the update trigger, can run on an incident that was updated by another automation rule, based on the incident creation trigger, that ran on the incident.
 >
-> Also, if an incident is updated by an automation rule that ran on the incident's creation, the incident can be evaluated by both a subsequent incident-creation automation rule and an incident-update automation rule, which will both run if the incident satisfies the rules' conditions.
+> - Also, if an incident is updated by an automation rule that ran on the incident's creation, the incident can be evaluated by *both* a subsequent *incident-creation* automation rule *and* an *incident-update* automation rule, both of which will run if the incident satisfies the rules' conditions.
 >
-> So, to continue our earlier example:
->
-> - Incident is created with *low* severity and triggers three automation rules to run based on the incident creation trigger.
-> - Rule 1 runs.
->     - A condition in Rule 1 is satisfied (say, an IP address in the incident matches a known bad actor).
->     - Rule 1's actions run and change the severity to *high*.
-> - Rule 2 runs.
->     - A condition in Rule 2 evaluates the severity of the incident as *high*, meeting the condition's criteria.
->     - Rule 2's actions are executed as a result, applying a tag to the incident.
-> - Rule 3 has a condition that evaluates the contents of an incident's tags.
-> - At the same time, an update-trigger automation rule is triggered and evaluates if any tags were added to the incident.
-> - Rule 3 will run first if the tag matches the condition.
-> - Then the update-trigger rule will run since a tag was added.
-> 
-> If an incident triggers both create and update automation rules, the create-trigger rules will run first, according to their **[Order](#order)** numbers, and then the update-trigger rules will run, depending on *their* **Order** numbers.
+> - If an incident triggers both create-trigger and update-trigger automation rules, the create-trigger rules will run first, according to their **[Order](#order)** numbers, and then the update-trigger rules will run, according to *their* **Order** numbers.
 
 
 ### Actions
