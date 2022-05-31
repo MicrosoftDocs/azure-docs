@@ -12,13 +12,17 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: overview
-ms.date: 05/25/2022
+ms.date: 05/31/2022
 ms.author: anfdocs
 ---
 
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
+
+* [Standard network features](configure-network-features.md) are now generally available.
+
+    You must still [register the feature](configure-network-features.md#register-the-feature) before using it. 
 
 ## May 2022
 
