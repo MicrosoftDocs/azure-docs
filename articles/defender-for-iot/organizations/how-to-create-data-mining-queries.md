@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Run data mining queries
 
-Using data mining queries to get dynamic, granular information about your network devices, including for specific time periods, internet connectivity, ports and protocols, firmware vrsions, programming commands, and device state. You can use data mining queries for:
+Using data mining queries to get dynamic, granular information about your network devices, including for specific time periods, internet connectivity, ports and protocols, firmware versions, programming commands, and device state. You can use data mining queries for:
 
 - **SOC incident response**: Generate a report in real time to help deal with immediate incident response. For example, Data Mining can generate a report for a list of devices that might require patching.
 - **Forensics**: Generate a report based on historical data for investigative reports.
