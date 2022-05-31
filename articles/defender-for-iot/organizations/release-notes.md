@@ -37,6 +37,10 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 > Manual changes to software packages may have detrimental effects on the sensor and on-premises management console. Microsoft is unable to support deployments with manual changes made to packages.
 >
 
+> [!TIP]
+> Version numbers are listed only in this article, and not in detailed descriptions elsewhere in the documentation.
+> To understand whether a feature is supported in your sensor version, check the listed features for that sensor version on this page.
+
 **Current versions of the sensor and on-premises management console software include**:
 
 | Version | Date released | End support date |
@@ -55,7 +59,6 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 **Sensor version**: 22.2.3
 
-- [Release note tracking per version](#release-note-tracking-per-version)
 - [Define sensor settings from the Azure portal (public preview)](#define-sensor-settings-from-the-azure-portal-public-preview)
 - [Bi-directional alert synch between sensors and the Azure portal](#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)
 - [PCAP access from the Azure portal](#pcap-access-from-the-azure-portal-public-preview)
@@ -67,19 +70,6 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 Bug fixes related to OT monitoring software updates and sensor-cloud connections.
 
 For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
-
-### Release note tracking per version
-
-Starting in June 2022, we're tracking our release notes per software version for the sensor and on-premises management console, including major and minor versions.
-
-Going forward, find the sensor software versions released in a given month, and their features, at the top of the release notes for that month. For example, in June, we released version **22.2.3**. Features that are cloud-only and unrelated to sensor or on-premises management console software will also be listed separately from the software releases.
-
-> [!IMPORTANT]
-> Version numbers are listed only in this article, and not in detailed descriptions elsewhere in the documentation.
-> To understand whether a feature is supported in your sensor version, check the listed features for that sensor version on this page.
-
-For more information, see [Versioning and support for on-premises software versions](#versioning-and-support-for-on-premises-software-versions).
-
 
 ### Define sensor settings from the Azure portal (public preview)
 
