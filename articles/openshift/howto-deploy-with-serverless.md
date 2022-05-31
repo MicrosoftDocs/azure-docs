@@ -38,7 +38,7 @@ mv kn-linux-amd64 knative/kn
 echo 'export PATH=$PATH:~/knative' >> ~/.bashrc && source ~/.bashrc
 ```
 
-### Launch the OpenShift web console
+### Open the OpenShift web console
 
 Find your cluster web console URL by running:
 
@@ -55,7 +55,7 @@ You should get a URL similar to the following.
 https://console-openshift-console.apps.wzy5hg7x.eastus.aroapp.io/
 ```
 
-Launch a web browser and open the console URL. Log in using the `kubeadmin` credentials.
+Open a web browser and open the console URL. Log in using the `kubeadmin` credentials.
 
 :::image type="content" source="media/login.png" alt-text="A screenshot that shows the Azure Red Hat OpenShift log-in screen":::
 
@@ -63,19 +63,19 @@ Launch a web browser and open the console URL. Log in using the `kubeadmin` cred
 
 When you're logged into the OpenShift web console, confirm that you're in *Administrator* view. Open the *Operator Hub* and select the **OpenShift Serverless** operator.
 
-![Look for the OpenShift Serverless operator](media/serverless/serverless-operatorhub.png)
+:::image type="content" source="media/serverless/serverless-operatorhub.png" alt-text="A screenshot that shows the position of the OpenShift Serverless operator.":::
 
 Next, open the operator installation page by selecting **Install**.
 
-![Select Install to install the operator](media/serverless/serverless-clickinstall.png)
+:::image type="content" source="media/serverless/serverless-clickinstall.png" alt-text="A screenshot that shows how to select Install to install the operator.":::
 
 Choose the appropriate *Update Channel* for your Azure Red Hat OpenShift's cluster version and install the operator in the `openshift-serverless` namespace. Scroll down and select **Install**.
 
-![Operator installation page](media/serverless/serverless-installpage.png)
+:::image type="content" source="media/serverless/serverless-installpage.png" alt-text="A screenshot that shows the Operator installation page.":::
 
 Within a few minutes, the status page reflects that the operator is installed and is ready for use. Select the **View Operator** button to proceed.
 
-![The operator is installed and is ready for use](media/serverless/serverless-installed.png)
+:::image type="content" source="media/serverless/serverless-installed.png" alt-text="A screenshot that shows the status page with the operator installed and ready for use.":::
 
 ## Install Knative Serving
 
@@ -85,15 +85,15 @@ The option to run a container in a serverless fashion on OpenShift Serverless is
 
 In the upper-left corner of the window, in the **Project** list, select `knative-server`. Then in the **Provided APIs** pane, select **Create Instance** within the *Knative Serving* card.
 
-![Click to create Knative Service instance](media/serverless/serverless-createknativeserving.png)
+:::image type="content" source="media/serverless/serverless-createknativeserving.png" alt-text="A screenshot that shows where to select to create a Knative Service instance.":::
 
 On the *Create Knative Serving* page, Keep all of the default values. Scroll down and select the **Create** button.
 
-![Keep the defaults and click on Create](media/serverless/serverless-createknativeserving2.png)
+:::image type="content" source="media/serverless/serverless-createknativeserving2.png" alt-text="A screenshot that shows the default values listed in the form.":::
 
 OpenShift Serverless is installed when the *Status* column shows **Ready**. Now you're ready to create an OpenShift Serverless project.
 
-![Knative Serving ready](media/serverless/serverless-createknativeserving3.png)
+:::image type="content" source="media/serverless/serverless-createknativeserving3.png" alt-text="A screenshot that shows that the Knative Serving is ready.":::
 
 ## Create a serverless project
 
@@ -119,20 +119,20 @@ Or use kubectl to deploy a simple Kubernetes application:
 
 Let's switch from the Administrator perspective to the Developer perspective. Go to your list of projects in the left menu and select `demoserverless`. You are now at the **Topology** page for the project.
 
-![Azure Red Hat OpenShift project topology](media/serverless/serverless-topology.png)
+:::image type="content" source="media/serverless/serverless-topology.png" alt-text="A screenshot that shows Azure Red Hat OpenShift project topology.":::
 
 ## Deploy using the web console
 
 On the **Topology** page, select **From Git**. On the *Import from Git* page, use `https://github.com/sclorg/django-ex.git` as the **Git Repo URL**. A sample web application is implemented with Python programming language.
 
-![Azure Red Hat OpenShift project from Git](media/serverless/serverless-from-git.png)
+:::image type="content" source="media/serverless/serverless-from-git.png" alt-text="A screenshot that shows Azure Red Hat OpenShift project from within Git.":::
 
 > [!NOTE]
 > OpenShift detects that this is a Python project and selects the appropriate builder image.
 
 Scroll to **Resources** and confirm that **Knative Service** is selected as the resource type to generate. This will create a Knative Service, a type of deployment that enables OpenShift Serverless scaling to zero when idle.
 
-![Azure Red Hat OpenShift project - Knative](media/serverless/serverless-knative.png)
+:::image type="content" source="media/serverless/serverless-knative.png" alt-text="A screenshot that shows how to select the Knative Service.":::
 
 
 At the bottom of the page, select **Create**. This creates resources to manage the build and deployment of the application. You'll then be redirected to the topology overview for the project.
@@ -141,17 +141,17 @@ The topology overview provides a visual representation of the application you've
 
 Wait for the build to complete. It may take a few minutes. When the build completes, a green checkmark appears in the lower-left corner of the service.
 
-![Azure Red Hat OpenShift project topology - Build successful](media/serverless/serverless-ready.png)
+:::image type="content" source="media/serverless/serverless-ready.png" alt-text="A screenshot that shows a checkmark that indicates that the build is complete.":::
 
 ## See your application scale
 
 At the top of the Topology view, in the **Display Options** list, select *Pod Count*. Wait for the Pod count to scale down to zero Pods. Scaling down may take a few minutes.
 
-![Azure Red Hat OpenShift project topology - Scaled to zero](media/serverless/serverless-scaledtozero.png)
+:::image type="content" source="media/serverless/serverless-scaledtozero.png" alt-text="A screenshot that shows the Pod count when it has scaled to zero.":::
 
 In the upper-right corner of the Knative Service panel, select the **Open URL** icon. The application opens in a new browser tab. Close the tab and return to the Topology view. There you can see that your application scaled up to one Pod, to accommodate your request. After a few minutes, your application scales back down to zero Pods.
 
-![Azure Red Hat OpenShift project topology - Scaled to one](media/serverless/serverless-scaledtoone.png)
+:::image type="content" source="media/serverless/serverless-scaledtoone.png" alt-text="A screenshot that shows the application scaled up to Pod.":::
 
 ## Forcing a new revision and setting traffic distribution
 
@@ -159,19 +159,19 @@ Knative services allow traffic mapping, which means that revisions of a service 
 
 In the topology created, select the revision displayed inside your service to view its details. The badges under the Pod ring and at the top of the detail panel should be `(REV)`. In the side panel, within the **Resources** tab, scroll down and select the configuration associated with your service.
 
-![Azure Red Hat OpenShift project topology - Revision](media/serverless/serverless-revdetails.png)
+:::image type="content" source="media/serverless/serverless-revdetails.png" alt-text="A screenshot that shows the Pod ring.":::
 
 Force a configuration update by switching to the *YAML* tab and scrolling down to edit the value of `timeoutSeconds`. Change the value to `301`. Select **Save**. In a real world scenario, configuration updates can also be triggered by updating the container image tag.
 
-![Force a new revision by updating the configuration](media/serverless/serverless-confupdate.png)
+:::image type="content" source="media/serverless/serverless-confupdate.png" alt-text="A screenshot that shows how to force a new revision by updating the configuration.":::
 
-Return to *Topology* view, you'll see that a new revision has been deployed. Select the service ending with the badge `(KSVC)` and select the **Set Traffic Distribution** button. You should now be able to divide traffic between the revisions in the service.
+Return to the *Topology* view, you'll see that a new revision has been deployed. Select the service ending with the badge `(KSVC)` and select the **Set Traffic Distribution** button. You should now be able to divide traffic between the revisions in the service.
 
-![Set traffic distribution](media/serverless/serverless-trafficdist.png)
+:::image type="content" source="media/serverless/serverless-trafficdist.png" alt-text="A screenshot that shows how to set traffic distribution.":::
 
 The **Topology** view will now show you how traffic is distributed between the revisions.
 
-![Review traffic distribution](media/serverless/serverless-trafficdist2.png)
+:::image type="content" source="media/serverless/serverless-trafficdist2.png" alt-text="A screenshot that shows how to review traffic distribution.":::
 
 ## Using the Knative command-line tool (kn)
 
