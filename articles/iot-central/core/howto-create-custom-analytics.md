@@ -43,7 +43,7 @@ iotcentralapplicationname="your-app-name-data-bricks"
 # A unique name for the Databricks workspace.
 databricksworkspace="your-databricks-name-data-bricks"
 
-# A unique name for the Resource group.
+# Name for the Resource group.
 resourcegroup=eventhubsrg
 
 eventhub=centralexport
@@ -88,13 +88,13 @@ echo "Your event hub connection string is: $(jq -r .primaryConnectionString <<< 
 
 ```
 
-Make a note of the above three values in the command output, you need them in the following steps.
+Make a note of the three values output by the script, you need them in the following steps.
 
 ## Configure export in IoT Central
 
 In this section, you configure the application to stream telemetry from its simulated devices to your event hub.
 
-On the [Azure IoT Central application manager](https://aka.ms/iotcentral) website, navigate to the IoT Central application you created previously. To configure the export, first create a destination:
+Use the URL output by the script to navigate to the IoT Central application it created.
 
 1. Navigate to the **Data export** page, then select **Destinations**.
 1. Select **+ New destination**.
@@ -105,8 +105,8 @@ On the [Azure IoT Central application manager](https://aka.ms/iotcentral) websit
     | Destination name | Telemetry event hub |
     | Destination type | Azure Event Hubs |
     | Authorization | System-assigned managed identity |
-    | Host name | The event hub namespace host name, it's the value you assigned to `eventhubnamespace` in the above script  |
-    | Event Hub | The event hub name, it's the value you assigned to `eventhub` in the above script  |
+    | Host name | The event hub namespace host name, it's the value you assigned to `eventhubnamespace` in the earlier script  |
+    | Event Hub | The event hub name, it's the value you assigned to `eventhub` in the earlier script  |
 
     :::image type="content" source="media/howto-create-custom-analytics/data-export-1.png" alt-text="Screenshot showing data export destination.":::
 
@@ -133,14 +133,16 @@ Wait until the export status is **Healthy** on the **Data export** page before y
 
 ## Create a device template
 
-1. To add a new device template, select **+ New** on the **Device templates** page.
+To add a device template for the MXChip device:
+
+1. Select **+ New** on the **Device templates** page.
 1. On the **Select type** page, scroll down until you find the **MXCHIP AZ3166** tile in the **Featured device templates** section.
 1. Select the **MXCHIP AZ3166** tile, and then select **Next: Review**.
 1. On the **Review** page, select **Create**.
 
 ## Add a device
 
-To add a device to your Azure IoT Central application:
+To add a simulated device to your Azure IoT Central application:
 
 1. Choose **Devices** on the left pane.
 1. Choose the **MXCHIP AZ3166** device template from which you created.
@@ -149,9 +151,11 @@ To add a device to your Azure IoT Central application:
 1. Turn the **Simulated** toggle to **On**.
 1. Select **Create**.
 
+Repeat these steps to add two more simulated MXChip devices to your application.
+
 ## Configure Databricks workspace
 
-In the Azure portal, navigate to your Azure Databricks service and select **Launch Workspace**. A new tab opens in your browser and signs you in to your workspace.
+Use the URL output by the script to navigate to the Databricks workspace it created.
 
 ### Create a cluster
 
@@ -200,7 +204,7 @@ Use the following steps to import a Databricks notebook that contains the Python
 
 1. Navigate to the **Workspace** page in your Databricks environment. Select the dropdown from the workspace and then choose **Import**.
 
-:::image type="content" source="media/howto-create-custom-analytics/databricks-import.png" alt-text="Screenshot of data bricks import.":::
+    :::image type="content" source="media/howto-create-custom-analytics/databricks-import.png" alt-text="Screenshot of data bricks import.":::
 
 1. Choose to import from a URL and enter the following address: [https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true](https://github.com/Azure-Samples/iot-central-docs-samples/blob/master/databricks/IoT%20Central%20Analysis.dbc?raw=true)
 
@@ -208,9 +212,9 @@ Use the following steps to import a Databricks notebook that contains the Python
 
 1. Select the **Workspace** to view the imported notebook:
 
-:::image type="content" source="media/howto-create-custom-analytics/import-notebook.png" alt-text="Screenshot of Imported notebook.":::
+    :::image type="content" source="media/howto-create-custom-analytics/import-notebook.png" alt-text="Screenshot of Imported notebook.":::
 
-5. Edit the code in the first Python cell to add the Event Hubs connection string you saved previously:
+1. Use the connection string output by the script to edit the code in the first Python cell to add the Event Hubs connection string:
 
     ```python
     from pyspark.sql.functions import *
