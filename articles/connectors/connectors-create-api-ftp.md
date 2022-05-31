@@ -1,24 +1,42 @@
 ---
 title: Connect to FTP server
-description: Automate tasks and workflows that create, monitor, and manage files on an FTP server by using Azure Logic Apps.
+description: Connect to FTP server from workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 12/15/2019
+ms.date: 06/01/2022
 tags: connectors
 ---
 
-# Create, monitor, and manage FTP files by using Azure Logic Apps
+# Connect to an FTP server from workflows in Azure Logic Apps
 
-With Azure Logic Apps and the FTP connector, you can create automated tasks and workflows that create, monitor, send, and receive files through your account on an FTP server, along with other actions, for example:
+This article shows how to access your FTP server from a workflow in Azure Logic Apps with the FTP connector. You can then create automated workflows that run when triggered by events in your FTP server or in other systems and run actions to manage your FTP server data, content, and resources.
+
+For example, your workflow can start with an FTP trigger that monitors and responds to events on your FTP server. The trigger makes the outputs available to subsequent actions in your workflow. Your workflow can run FTP actions that create, send, receive, and manage files through your FTP server account using the following specific tasks:
 
 * Monitor when files are added or changed.
 * Get, create, copy, update, list, and delete files.
 * Get file content and metadata.
 * Extract archives to folders.
 
-You can use triggers that get responses from your FTP server and make the output available to other actions. You can use run actions in your logic apps for managing files on your FTP server. You can also have other actions use the output from FTP actions. For example, if you regularly get files from your FTP server, you can send email about those files and their content by using the Office 365 Outlook connector or Outlook.com connector. If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md).
+If you're new to Azure Logic Apps, review the following get started documentation:
+
+* [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md)
+* [Quickstart: Create your first logic app workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+## Connector technical reference
+
+The FTP connector has different versions, based on [logic app type and host environment](../logic-apps/logic-apps-overview.md#resource-environment-differences).
+
+| Logic app | Environment | Connector version |
+|-----------|-------------|-------------------|
+| **Consumption** | Multi-tenant Azure Logic Apps | [Managed connector - Standard class](managed.md). For more information, review the [FTP managed connector reference](/connectors/ftp). |
+| **Consumption** | Integration service environment (ISE) | [Managed connector - Standard class](managed.md) and ISE version. For the managed version, review the [SQL Server managed connector reference](/connectors/sql). For the ISE version, review the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits). |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | [Managed connector - Standard class](managed.md) and [built-in connector](built-in.md), which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in version can directly access Azure virtual networks with a connection string, rather than use the on-premises data gateway. <br><br>For the managed version, review the [SQL Server managed connector reference](/connectors/sql/). For the built-in version, review the [Built-in operations](#built-in-operations) section later in this article. |
+||||
+
+
 
 ## Limitations
 
@@ -164,13 +182,50 @@ To check that your workflow returns the content that you expect, add another act
 
 1. Save your logic app. To run and trigger the logic app, on the toolbar, select **Run**, and then add a file to the FTP folder that your logic app now monitors.
 
-## Connector reference
+<a name="built-in-operations"></a>
 
-For more technical details about this connector, such as triggers, actions, and limits as described by the connector's Swagger file, see the [connector's reference page](/connectors/ftpconnector/).
+## Built-in connector operations
 
-> [!NOTE]
-> For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
-> this connector's ISE-labeled version uses the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
+The FTP built-in connector is available only for Standard logic app workflows and provides the following operations:
+
+| Trigger | Description |
+|---------|-------------|
+| [**When a file is added or updated**](#when-file-added-updated) | Start a logic app workflow when one or more files are added or changed in a folder on the FTP server. This trigger gets only the file metadata, not the file content. However, to get the content, your workflow can follow this trigger with the [**Get file content**](#get-file-content) action. <br><br> For more information, review [When a file is added or updated](#when-file-added-updated). |
+|||
+
+| Action | Description |
+|--------|-------------|
+| **Create file** | Create a file |
+| **Delete file** |
+| **Get File Content** |
+| **Get the file metadata** |
+| **List files and subfolders in a folder** |
+| **Update file** |
+|||
+
+<a name="when-file-added-updated"></a>
+
+### When a file is added or updated
+
+Operation ID: `whenFtpFilesAreAddedOrModified`
+
+This trigger starts a logic app workflow when one or more files are added or updated in a folder on the FTP server. The trigger gets only the file metadata, not any file content. However, to get the content, your workflow can follow this trigger with the [**Get file content**](#get-file-content) action.
+
+The trigger uses the last modified time for a file. If an external client creates the file, disable that client from preserving the last modified time. The trigger doesn't fire if a file is added or updated in a subfolder. If your workflow requires the trigger to work on a subfolder, create nested workflows with triggers.
+
+#### Parameters
+
+| Name | Key | Required | Type | Description |
+|------|-----|----------|------|-------------|
+| **Folder path** | `folderPath` | True | String | The folder path |
+| **Number of files to return** | `maxFileCount` | False | Integer | The maximum number of files to return from a single trigger run. Valid values range from 1 - 100. <br><br>**Note**: The **Split On** setting can force this trigger to process each item individually. |
+||||||
+||||||
+
+#### 
+
+### Create file
+
 
 ## Next steps
 
