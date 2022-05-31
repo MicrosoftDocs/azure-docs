@@ -16,17 +16,17 @@ ms.topic: reference
 |**Version 2**     | - [Retrieve alert PCAP - /api/v2/alerts/pcap](#retrieve-alert-pcap---apiv2alertspcap)        |
 
 
-## Validate user credentials
-
-**URL**: `/api/external/authentication/validation`
+## validation (Validate user credentials)
 
 Use this API to validate a Defender for IoT username and password. All Defender for IoT user roles can work with the API.
 
 You don't need a Defender for IoT access token to use this API.
 
-### Request
+**URL**: `/api/external/authentication/validation`
 
 **Method**: POST
+
+# [Request](#tab/validation-request)
 
 **Request type**: JSON
 
@@ -52,7 +52,7 @@ request:
 
 ```
 
-### Response
+# [Response](#tab/validation-response)
 
 **Type**: JSON
 
@@ -74,7 +74,7 @@ response:
 }
 ```
 
-### Curl command
+# [Curl command](#tab/validation-curl)
 
 **Type**: GET
 
@@ -88,16 +88,18 @@ curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/external/authe
 
 ```rest
 curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/external/authentication/validation```
+```
+---
 
-## Change password
-
-**URL**: `/external/authentication/set_password`
+## set_password (Change your password)
 
 Use this API to let users change their own passwords. All Defender for IoT user roles can work with the API. You don't need a Defender for IoT access token to use this API.
 
-### Request
+**URL**: `/external/authentication/set_password`
 
 **Method**: POST
+
+# [Request](#tab/set_password-request)
 
 **Type**: JSON
 
@@ -125,7 +127,8 @@ request:
 | **password** | String | No |
 | **new_password** | String | No |
 
-### Response
+# [Response](#tab/set_password-response)
+
 
 **Type**: JSON
 
@@ -153,7 +156,7 @@ response:
 }
 ```
 
-### Curl command
+# [Curl command](#tab/set_password-curl)
 
 **Type**: POST
 
@@ -168,16 +171,17 @@ curl -k -d '{"username": "<USER_NAME>","password": "<CURRENT_PASSWORD>","new_pas
 ```rest
 curl -k -d '{"username": "myUser","password": "1234@abcd","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/api/external/authentication/set_password
 ```
+---
 
-## User password update by system admin
-
-**URL**: /external/authentication/set_password_by_admin
+## set_password_by_admin (Update a user password by admin)
 
 Use this API to let system administrators change passwords for specified users. Defender for IoT administrator user roles can work with the API. You don't need a Defender for IoT access token to use this API.
 
-### Request
+**URL**: /external/authentication/set_password_by_admin
 
 **Method**: POST
+
+# [Request](#tab-set_password_by_admin-request)
 
 **Type**: JSON
 
@@ -206,8 +210,7 @@ request:
 | **username** | String | No |
 | **new_password** | String | No |
 
-
-### Response
+# [Response](#tab-set_password_by_admin-response)
 
 **Type**: JSON
 
@@ -241,9 +244,8 @@ response:
 }
 
 ```
+# [Curl command](#tab-set_password_by_admin-curl)
 
-
-### Curl command
 
 **Type**: POST
 
@@ -258,56 +260,36 @@ curl -k -d '{"admin_username":"<ADMIN_USERNAME>","admin_password":"<ADMIN_PASSWO
 ```rest
 curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/api/external/authentication/set_password_by_admin
 ```
+---
 
-## Retrieve device connection information - /api/v1/devices/connections
+## connections (Retrieve device connection information)
 
 Use this API to request a list of all the connections per device.
 
-### Method
+**URL**: `/api/v1/devices/connections`
 
-- **GET**
+**Method**: GET
 
-#### Query parameters
+# [Request](#tab/connections-request)
 
-If you don't set the query parameters, all the device connections are returned.
+**Query parameters**:
 
-**Example**:
+Define any of the following query parameters to filter the results returned. If you don't set query parameters, all device connections are returned.
 
-`/api/v1/devices/connections`
+|Parameter name  |Description  |Example  |
+|---------|---------|---------|
+|**deviceId**     |  Get connections for the given device.       | `/api/v1/devices/<deviceId>/connections`        |
+|**lastActiveInMinutes**     | Filter results by a given time frame during which connections were active. Defined backwards from the current time.        |   `/api/v1/devices/2/connections?lastActiveInMinutes=20`      |
+|**discoveredBefore**     | Filter results that were detected before a given time, in milliseconds and UTC format.        |   `/api/v1/devices/2/connections?discoveredBefore=<epoch>`      |
+|**discoveredAfter**     |Filter results that were given after a given time, in milliseconds and UTC format.         | `/api/v1/devices/2/connections?discoveredAfter=<epoch>`        |
 
-- **deviceId**: Filter by a specific device ID, to view its connections.
+# [Response](#tab/connections-response)
 
-  **Example**:
-
-  `/api/v1/devices/<deviceId>/connections`
-
-- **lastActiveInMinutes**: Time frame from now backward, by minute, during which the connections were active.
-
-  **Example**:
-
-  `/api/v1/devices/2/connections?lastActiveInMinutes=20`
-
-- **discoveredBefore**: Filter only connections that were detected before a specific time (in milliseconds, UTC).
-
-  **Example**:
-
-  `/api/v1/devices/2/connections?discoveredBefore=<epoch>`
-
-- **discoveredAfter**: Filter only connections that were detected after a specific time (in milliseconds, UTC).
-
-  **Example**:
-
-  `/api/v1/devices/2/connections?discoveredAfter=<epoch>`
-
-#### Response type
-
-- **JSON**
-
-#### Response content
+**Response type**: JSON
 
 Array of JSON objects that represent device connections.
 
-#### Fields
+**Response fields**
 
 | Name | Type | Nullable | List of values |
 |--|--|--|--|
@@ -318,160 +300,174 @@ Array of JSON objects that represent device connections.
 | **ports** | Number array | No | - |
 | **protocols** | JSON array | No | Protocol field |
 
-#### Protocol field
+**Protocol fields**:
 
 | Name | Type | Nullable | List of values |
 |--|--|--|--|
 | **name** | String | No | - |
 | **commands** | String array | No | - |
 
-#### Response example
+**Response example:**
 
 ```rest
 [
 
     {
-    
+
         "firstDeviceId": 171,
-        
+
         "secondDeviceId": 22,
-        
+
         "lastSeen": 1511281457933,
-        
+
         "discovered": 1511872830000,
-        
+
         "ports": [
-        
+
             502
-        
+
         ],
-    
+
         "protocols": [
-        
+
         {
-        
+
             name: "modbus",
-            
+
             commands: [
-            
+
                 "Read Coils"
-        
+
             ]
-        
+
         },
-    
+
         {
-        
+
             name: "ams",
-            
+
             commands: [
-            
+
                 "AMS Write"
-        
+
             ]
-        
+
         },
-    
+
         {
-        
+
             name: "http",
-            
+
             commands: [
-        
+
             ]
-        
+
         }
-    
+
     ]
-    
+
     },
-    
+
     {
-    
+
         "firstDeviceId": 171,
-        
+
         "secondDeviceId": 23,
-        
+
         "lastSeen": 1511281457933,
-        
+
         "discovered": 1511872830000,
-        
+
         "ports": [
-        
+
             502
-        
+
         ],
-        
+
         "protocols": [
-        
+
             {
-            
+
                 name: "s7comm",
-                
+
                 commands: [
-                
+
                     "Download block",
-                    
+
                     "Upload"
-            
+
                 ]
-            
+
             }
-        
+
         ]
-    
+
     }
 
 ]
 ```
 
-### Curl command
+# [Curl command](#tab/connections-curl)
 
-> [!div class="mx-tdBreakAll"]
-> | Type | APIs | Example |
-> |--|--|--|
-> | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/connections` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/devices/connections` |
-> | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/devices/<deviceId>/connections?lastActiveInMinutes=&discoveredBefore=&discoveredAfter='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/api/v1/devices/2/connections?lastActiveInMinutes=20&discoveredBefore=1594550986000&discoveredAfter=1594550986000'` |
+**Type**: GET
 
-### Retrieve information on CVEs - /api/v1/devices/cves
+**APIs**:
+
+With no query parameters:
+
+```rest
+curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/connections
+```
+
+With given query parameters:
+
+```rest
+curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/api/v1/devices/<deviceId>/connections?lastActiveInMinutes=&discoveredBefore=&discoveredAfter=
+```
+
+**Examples**:
+
+With no query parameters:
+
+```rest
+curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/devices/connections
+```
+
+With given query parameters:
+
+```rest
+curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/api/v1/devices/2/connections?lastActiveInMinutes=20&discoveredBefore=1594550986000&discoveredAfter=1594550986000
+```
+
+---
+
+## cves (Retrieve information on CVEs
 
 Use this API to request a list of all known CVEs discovered on devices in the network.
 
-#### Method
+**Method**: GET
 
-- **GET**
+**URL**:  /api/v1/devices/cves
 
-#### Query parameters
+# [Request](#tab/cves-request)
 
-By default, this API provides the list of all the device IPs with CVEs, up to 100 top-scored CVEs for each IP address.
+**Example**: `/api/v1/devices/cves`
 
-**Example**:
+Define any of the following query parameters to filter the results returned. If you don't set query parameters, all all device IP addresses with CVEs are returned, including to 100 top-scored CVEs for each IP address.
 
-`/api/v1/devices/cves`
 
-- **deviceId**: Filter by a specific device IP address, to get up to 100 top-scored CVEs identified on that specific device.
+|Parameter name  |Description  |Example  |
+|---------|---------|---------|
+|**deviceId**     |  Get CVEs for the given device.       |  `/api/v1/devices/<ipAddress>/cves`       |
+|**top**     |    Determine how many top-scored CVEs to get for each device IP address.     |     `/api/v1/devices/cves?top=50` <br><br>  `/api/v1/devices/<ipAddress>/cves?top=50`      |
 
-  **Example**:
+# [Response](#tab/cves-response)
 
-  `/api/v1/devices/<ipAddress>/cves`
-
-- **top**: How many top-scored CVEs to retrieve for each device IP address.
-
-  **Example**:
-
-  `/api/v1/devices/cves?top=50`
-
-  `/api/v1/devices/<ipAddress>/cves?top=50`
-
-#### Response type
-
-- **JSON**
-
-#### Response content
+**Type**: JSON
 
 Array of JSON objects that represent CVEs identified on IP addresses.
 
-#### Fields
+**Response fields**
 
 | Name | Type | Nullable | List of values |
 |--|--|--|--|
@@ -481,110 +477,124 @@ Array of JSON objects that represent CVEs identified on IP addresses.
 | **attackVector** | String | No | Network, Adjacent Network, Local, or Physical |
 | **description** | String | No | - |
 
-#### Response example
+**Response example:**
 
 ```rest
 [
 
     {
-    
+
         "cveId": "CVE-2007-0099",
-        
+
         "score": "9.3",
-        
+
         "ipAddress": "10.35.1.51",
-        
+
         "attackVector": "NETWORK",
-        
+
         "description": "Race condition in the msxml3 module in Microsoft XML Core
-        
+
         Services 3.0, as used in Internet Explorer 6 and other
-        
+
         applications, allows remote attackers to execute arbitrary
-        
+
         code or cause a denial of service (application crash) via many
-        
+
         nested tags in an XML document in an IFRAME, when synchronous
-        
+
         document rendering is frequently disrupted with asynchronous
-        
+
         events, as demonstrated using a JavaScript timer, which can
-        
+
         trigger NULL pointer dereferences or memory corruption, aka
-        
+
         \"MSXML Memory Corruption Vulnerability.\""
-    
+
     },
-    
+
     {
-    
+
         "cveId": "CVE-2009-1547",
-        
+
         "score": "9.3",
-        
+
         "ipAddress": "10.35.1.51",
-        
+
         "attackVector": "NETWORK",
-        
+
         "description": "Unspecified vulnerability in Microsoft Internet Explorer 5.01
-        
+
         SP4, 6, 6 SP1, and 7 allows remote attackers to execute
-        
+
         arbitrary code via a crafted data stream header that triggers
-        
+
         memory corruption, aka \"Data Stream Header Corruption
-        
+
         Vulnerability.\""
-    
+
     }
 
 ]
 ```
 
-### Curl command
+# [Curl command](#tab/cves-curl)
 
-| Type | APIs | Example |
-|--|--|--|
-| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/cves` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/devices/cves` |
-| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/<deviceIpAddress>/cves?top=` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/devices/10.10.10.15/cves?top=50` |
+**Type**: GET
 
-### Retrieve alert information - /api/v1/alerts
+**APIs**:
+
+With no query parameters:
+
+```rest
+curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/cves
+```
+
+With given query parameters:
+
+```rest
+curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices/<deviceIpAddress>/cves?top=
+```
+
+**Examples**:
+
+With no query parameters:
+
+```rest
+curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/devices/cves
+```
+
+With given query parameters:
+
+```rest
+curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/devices/10.10.10.15/cves?top=50
+```
+
+---
+
+
+## alerts (Retrieve alert information)
 
 Use this API to request a list of all the alerts that the Defender for IoT sensor has detected.
 
-#### Method
+**Method**:
 
-- **GET**
+**URL**: `/api/v1/alerts`
 
-#### Query parameters
+# [Request](#tab/alerts-request)
 
-- **state**: To filter only handled or unhandled alerts.
+**Query parameters**:
 
-  **Example**:
 
-  `/api/v1/alerts?state=handled`
+|Parameter name  |Description  |Example  |
+|---------|---------|---------|
+|**state**     | Get only handled or unhandled alerts. Supported values: <br>- `handled`<br>- `unhandled`       |  `/api/v1/alerts?state=handled`       |
+|**fromTime**     |   Get alerts created starting at a given time, in milliseconds and UTC format.      |    `/api/v1/alerts?fromTime=<epoch>`     |
+|**toTime**     |  Get alerts created only before at a given time, in milliseconds and UTC format.        | `/api/v1/alerts?toTime=<epoch>`        |
+|**type**     |  Get alerts of a specific type only. Supported values: <br>- `unexpected new devices` <br>- `disconnections`       |  `/api/v1/alerts?type=disconnections`       |
 
-- **fromTime**: To filter alerts created from a specific time (in milliseconds, UTC).
+# [Response](#tab/-alerts-response)
 
-  **Example**:
-
-  `/api/v1/alerts?fromTime=<epoch>`
-
-- **toTime**: To filter alerts created only before a specific time (in milliseconds, UTC).
-
-  **Example**:
-
-  `/api/v1/alerts?toTime=<epoch>`
-
-- **type**: To filter alerts by a specific type. Existing types to filter by: unexpected new devices, disconnections.
-
-  **Example**:
-
-  `/api/v1/alerts?type=disconnections`
-
-#### Response type
-
-- **JSON**
+**Type**: JSON
 
 #### Response content
 
