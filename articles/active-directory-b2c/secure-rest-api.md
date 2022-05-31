@@ -484,8 +484,21 @@ The following XML snippet is an example of a RESTful technical profile configure
 </ClaimsProvider>
 ```
 
-::: zone-end
+Add the validation technical profile reference to the sign up technical profile, which calls the `REST-AcquireAccessToken`.  This behavior means that Azure AD B2C moves on to create the account in the directory only after successful validation.
 
+
+
+For example:
+    ```XML
+    <ValidationTechnicalProfiles>
+       ....
+       <ValidationTechnicalProfile ReferenceId="REST-AcquireAccessToken" />
+       ....
+    </ValidationTechnicalProfiles>
+    ```
+    
+
+::: zone-end
 
 ## API key authentication
 

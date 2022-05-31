@@ -166,7 +166,7 @@ How to get information for the base model:
 
 How to get information for the custom model:
 
-1. Go to the [Speech Studio](https://speech.microsoft.com/) portal.
+1. Go to the [Speech Studio](https://aka.ms/speechstudio/customspeech) portal.
 1. Sign in if necessary, and go to **Custom Speech**.
 1. Select your project, and go to **Deployment**.
 1. Select the required endpoint.
@@ -219,7 +219,7 @@ You aren't able to see the existing value of the concurrent request limit parame
 
 To create an increase request, you provide your deployment region and the custom endpoint ID. To get it, perform the following actions:
 
-1. Go to the [Speech Studio](https://speech.microsoft.com/) portal.
+1. Go to the [Speech Studio](https://aka.ms/speechstudio/customvoice) portal.
 1. Sign in if necessary, and go to **Custom Voice**.
 1. Select your project, and go to **Deployment**.
 1. Select the required endpoint.

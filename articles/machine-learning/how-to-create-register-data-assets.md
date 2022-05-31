@@ -117,7 +117,7 @@ For a complete example, see the [working_with_uris.ipynb notebook](https://githu
 # [Python-SDK](#tab/Python-SDK)
 ```python
 from azure.ai.ml.entities import Data
-from azure.ai.ml._constants import AssetTypes
+from azure.ai.ml.constants import AssetTypes
 
 # select one from:
 my_path = 'abfss://<file_system>@<account_name>.dfs.core.windows.net/<path>' # adls gen2
@@ -171,19 +171,20 @@ path: wasbs://mainstorage9c05dabf5c924.blob.core.windows.net/azureml-blobstore-5
 ### Consume registered URI Folder data assets in job
 
 ```python
-from azure.ai.ml.entities import Data, UriReference, JobInput, CommandJob
-from azure.ai.ml._constants import AssetTypes
+from azure.ai.ml import Input, command
+from azure.ai.ml.entities import Data
+from azure.ai.ml.constants import AssetTypes
 
 registered_data_asset = ml_client.data.get(name='titanic', version='1')
 
 my_job_inputs = {
-    "input_data": JobInput(
+    "input_data": Input(
         type=AssetTypes.URI_FOLDER,
         path=registered_data_asset.id
     )
 }
 
-job = CommandJob(
+job = command(
     code="./src", 
     command='python read_data_asset.py --input_folder ${{inputs.input_data}}',
     inputs=my_job_inputs,
@@ -201,7 +202,7 @@ returned_job.services["Studio"].endpoint
 # [Python-SDK](#tab/Python-SDK)
 ```python
 from azure.ai.ml.entities import Data
-from azure.ai.ml._constants import AssetTypes
+from azure.ai.ml.constants import AssetTypes
 
 # select one from:
 my_file_path = '<path>/<file>' # local
@@ -270,7 +271,7 @@ Below we show an example of versioning the sample data in this repo. The data is
 # [Python-SDK](#tab/Python-SDK)
 ```python
 from azure.ai.ml.entities import Data
-from azure.ai.ml._constants import AssetTypes
+from azure.ai.ml.constants import AssetTypes
 import mltable
 
 my_data = Data(
