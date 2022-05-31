@@ -34,7 +34,7 @@ The response for this command is similar to the following JSON document:
 }
 ```
 
-If the value of `bypass` isn't `AzureServices`, use the guidance in the [Configure key vault network settings](/azure/key-vault/general/how-to-azure-key-vault-network-security?tabs=azure-cli) to set it to `AzureServices`.
+If the value of `bypass` isn't `AzureServices`, use the guidance in the [Configure key vault network settings](../articles/key-vault/general/how-to-azure-key-vault-network-security.md?tabs=azure-cli) to set it to `AzureServices`.
 
 ### Online deployments fail with an image download error
 
