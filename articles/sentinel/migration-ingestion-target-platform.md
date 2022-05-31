@@ -14,7 +14,7 @@ One of the important decisions you make during your migration process is where t
 This article compares target platforms in terms of performance, cost, usability and management overhead.
 
 > [!NOTE]
-> The considerations in this table only apply in the context of historical log migration, and don't apply in other scenarios, such as long-term retention.
+> The considerations in this table only apply to historical log migration, and don't apply in other scenarios, such as long-term retention.
 
 |  |[Basic Logs/Archive](../azure-monitor/logs/basic-logs-configure.md)  |[Azure Data Explorer (ADX)](/azure/data-explorer/data-explorer-overview)  |[Azure Blob Storage](../storage/blobs/storage-blobs-overview.md) |[ADX + Azure Blob Storage](../azure-monitor/logs/azure-data-explorer-query-storage.md) |
 |---------|---------|---------|---------|---------|

@@ -26,7 +26,7 @@ In this guide, you learn how to migrate your legacy SIEM to Microsoft Sentinel. 
 |Migrate from QRadar     |• [Migrate detection rules](migration-qradar-detection-rules.md)<br>• [Migrate SOAR automation](migration-qradar-automation.md)<br>• [Export historical data](migration-qradar-historical-data.md)          |
 |Ingest historical data |• [Select a target Azure platform to host the exported historical data](migration-ingestion-target-platform.md)<br>• [Select a data ingestion tool](migration-ingestion-tool.md)<br>• [Ingest historical data into your target platform](migration-export-ingest.md) |
 |Convert dashboards to workbooks |[Convert dashboards to Azure Workbooks](migration-convert-dashboards.md) |
-|Update SOC processes |[Update SOC processes](migration-soc-processes.md) |
+|Update SOC processes |[Update SOC processes](migration-security-operations-center-processes.md) |
 
 ## What is Microsoft Sentinel?
 
@@ -62,7 +62,7 @@ Review these key considerations for each phase.
 |Discover     |[Identify use cases](#identify-use-cases) and [migration priorities](#identify-your-migration-priorities) as part of this phase.        |
 |Design     |Define a detailed design and architecture for your Microsoft Sentinel implementation. You'll use this information to get approval from the relevant stakeholders before you start the implementation phase.         |
 |Implement     |As you implement Microsoft Sentinel components according to the design phase, and before you convert your entire infrastructure, consider whether you can use Microsoft Sentinel out-of-the-box content instead of migrating all components. You can begin using Microsoft Sentinel gradually, starting with a minimum viable product (MVP) for several use cases. As you add more use cases, you can use this Microsoft Sentinel instance as a user acceptance testing (UAT) environment to validate the use cases.         |
-|Operationalize     |You [migrate your content and SOC processes](migration-soc-processes.md) to ensure that the existing analyst experience isn't disrupted.         |
+|Operationalize     |You [migrate your content and SOC processes](migration-security-operations-center-processes.md) to ensure that the existing analyst experience isn't disrupted.         |
 
 #### Identify your migration priorities
 
@@ -71,7 +71,7 @@ Use these questions to pin down your migration priorities:
 - Who are your stakeholders in the migration? SIEM migration is likely to touch many areas of your business.
 - What drives your priorities? For example, greatest business risk, compliance requirements, business priorities, and so on.
 - What is your migration scale and timeline? What factors affect your dates and deadlines. Are you migrating an entire legacy system?
-- Do you have the skills you need? Are your security staff trained and ready for the migration?
+- Do you have the skills you need? Is your security staff trained and ready for the migration?
 - Are there any specific blockers in your organization? Do any issues affect migration planning and scheduling? For example, issues such as staffing and training requirements, license dates, hard stops, specific business needs, and so on.
 
 Before you begin migration, identify key use cases, detection rules, data, and automation in your current SIEM. Approach your migration as a gradual process. Be intentional and thoughtful about what you migrate first, what you deprioritize, and what doesn’t actually need to be migrated. Your team might have an overwhelming number of detections and use cases running in your current SIEM. Before beginning migration, decide which ones are actively useful to your business.
@@ -85,7 +85,7 @@ When planning the discover phase, use the following guidance to identify your us
 - What use cases are effective? A good starting place is to look at which detections have produced results within the last year (false positive versus positive rate). 
 - What are the business priorities that affect use case migration? What are the biggest risks to your business? What type of issues put your business most at risk?
 - Prioritize by use case characteristics.
-    - Consider setting lower and higher priorities. We recommend that you focus on detections that would enforce 90 percent true positive on alert feeds, while use cases that cause a high false positive might be a lower priority for your business.
+    - Consider setting lower and higher priorities. We recommend that you focus on detections that would enforce 90 percent true positive on alert feeds. Use cases that cause a high false positive rate might be a lower priority for your business.
     - Select use cases that justify rule migration in terms of business priority and efficacy:
         - Review rules that haven’t triggered any alerts in the last 6 to 12 months.
         - Eliminate low-level threats or alerts you routinely ignore.

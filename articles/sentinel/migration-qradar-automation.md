@@ -24,7 +24,7 @@ With automation rules, you can:
 Here’s what you need to think about when migrating SOAR use cases from IBM Security QRadar SOAR.
 - **Use case quality**. Choose good use cases for automation. Use cases should be based on procedures that are clearly defined, with minimal variation, and a low false-positive rate. Automation should work with efficient use cases.
 - **Manual intervention**. Automated response can have wide ranging effects and high impact automations should have human input to confirm high impact actions before they’re taken.
-- **Binary criteria**. To increase response success, decision points within an automated workflow should be as limited as possible, with binary criteria. This reduces the need for human intervention, and enhances outcome predictability.
+- **Binary criteria**. To increase response success, decision points within an automated workflow should be as limited as possible, with binary criteria. Binary criteria reduces the need for human intervention, and enhances outcome predictability.
 - **Accurate alerts or data**. Response actions are dependent on the accuracy of signals such as alerts. Alerts and enrichment sources should be reliable. Microsoft Sentinel resources such as watchlists and reliable threat intelligence can enhance reliability.
 - **Analyst role**. While automation where possible is great, reserve more complex tasks for analysts, and provide them with the opportunity for input into workflows that require validation. In short, response automation should augment and extend analyst capabilities.
 
@@ -38,7 +38,7 @@ This section shows how key SOAR concepts in IBM Security QRadar SOAR translate t
 |---------|---------|---------|
 |1 |Define rules and conditions.     |Define automation rules.     |
 |2 |Execute ordered activities.    |Execute automation rules containing multiple playbooks.   |
-|3 |Execute selected workflows. |Execute additional playbooks according to tags applied by playbooks that were executed previously.   |
+|3 |Execute selected workflows. |Execute other playbooks according to tags applied by playbooks that were executed previously.   |
 |4 |Post data to message destinations. |Execute code snippets using inline actions in Logic Apps. |
 
 ## Map SOAR components 

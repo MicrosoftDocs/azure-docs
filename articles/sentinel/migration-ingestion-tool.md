@@ -1,5 +1,5 @@
 ---
-title: Microsoft Sentinel migration: Select a data ingestion tool | Microsoft Docs
+title: "Microsoft Sentinel migration: Select a data ingestion tool | Microsoft Docs"
 description: Select a tool to transfer your historical data to the selected target platform.
 author: limwainstein
 ms.author: lwainstein
@@ -53,7 +53,7 @@ Here are a few main benefits and capabilities of LightIngest:
 If you choose LightIngest, review these tips and best practices.
 
 - To speed up your migration and reduce costs, increase the size of your ADX cluster to create more available nodes for ingestion. Decrease the size once the migration is over.
-- For more efficient queries after you ingest the data to ADX, ensure that the copied data uses the timestamp for the original events. The data should not use the timestamp from when the data is copied to ADX. You provide the timestamp to LightIngest as the path of file name as part of the [CreationTime property](/azure/data-explorer/lightingest#how-to-ingest-data-using-creationtime). 
+- For more efficient queries after you ingest the data to ADX, ensure that the copied data uses the timestamp for the original events. The data shouldn't use the timestamp from when the data is copied to ADX. You provide the timestamp to LightIngest as the path of file name as part of the [CreationTime property](/azure/data-explorer/lightingest#how-to-ingest-data-using-creationtime). 
 - If your path or file names don't include a timestamp, you can still instruct ADX to organize the data using a [partitioning policy](/azure/data-explorer/kusto/management/partitioningpolicy).
 
 ### Logstash 
@@ -91,7 +91,7 @@ You can also use these options to copy the data:
 
 ## Azure Data Box
 
-In a scenario where the source SIEM doesn't have good connectivity to Azure, ingesting the data using the tools reviewed in this section might be slow or even impossible. To address this scenario, you can use [Azure Data Box](../databox/data-box-overview.md) to copy the data locally from the customer's data center into an appliance, and then ship that appliance to an Azure data center. While Azure Data Box is not a replacement for AzCopy or LightIngest, you can use this tool to accelerate the data transfer between the customer data center and Azure.
+In a scenario where the source SIEM doesn't have good connectivity to Azure, ingesting the data using the tools reviewed in this section might be slow or even impossible. To address this scenario, you can use [Azure Data Box](../databox/data-box-overview.md) to copy the data locally from the customer's data center into an appliance, and then ship that appliance to an Azure data center. While Azure Data Box isn't a replacement for AzCopy or LightIngest, you can use this tool to accelerate the data transfer between the customer data center and Azure.
 
 Azure Data Box offers three different SKUs, depending on the amount of data to migrate: 
 

@@ -1,5 +1,5 @@
 ---
-title: Microsoft Sentinel migration: Update SOC and analyst processes | Microsoft Docs
+title: "Microsoft Sentinel migration: Update SOC and analyst processes | Microsoft Docs"
 description: Learn how to update your SOC and analyst processes as part of your migration to Microsoft Sentinel.
 author: limwainstein
 ms.author: lwainstein
@@ -17,7 +17,7 @@ To successfully migrate to Microsoft Sentinel, you need to update not only the t
 
 ## Update analyst workflow 
 
-Microsoft Sentinel offers a range of tools that map to a typical analyst workflow, from incident assignment to closure. Analysts can flexibly leverage some or all of the available tools to triage and investigate incidents. As your organization migrates to Microsoft Sentinel, your analysts need to adapt to these new toolsets, features, and workflows. 
+Microsoft Sentinel offers a range of tools that map to a typical analyst workflow, from incident assignment to closure. Analysts can flexibly use some or all of the available tools to triage and investigate incidents. As your organization migrates to Microsoft Sentinel, your analysts need to adapt to these new toolsets, features, and workflows. 
 
 ### Incidents in Microsoft Sentinel
 

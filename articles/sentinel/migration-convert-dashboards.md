@@ -1,5 +1,5 @@
 ---
-title: Convert dashboards to Azure Monitor Workbooks | Microsoft Docs
+title: "Convert dashboards to Azure Monitor Workbooks | Microsoft Docs"
 description: Learn how to review, planning and migrate your current workbooks to Azure Workbooks.
 author: limwainstein
 ms.author: lwainstein
@@ -93,4 +93,4 @@ Once you've saved your workbook, specify the parameters, if any exist, and valid
 In this article, you learned how to convert your dashboards to Azure workbooks. 
 
 > [!div class="nextstepaction"]
-> [Update SOC processes](migration-soc-processes.md)
+> [Update SOC processes](migration-security-operations-center-processes.md)

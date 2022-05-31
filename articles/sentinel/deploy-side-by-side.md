@@ -24,7 +24,7 @@ Consider the pros and cons for each approach when deciding which one to use.
 > [!NOTE]
 > Many organizations avoid running multiple on-premises analytics solutions because of cost and complexity.
 >
-> Microsoft Sentinel provides [pay-as-you-go pricing](billing.md) and flexible infrastructure, giving SOC teams time to adapt to the change. Deploy and test your content at a pace that works best for your organization, and learn about how to [fully migrate to Microsoft Sentinel](migration-overview.md).
+> Microsoft Sentinel provides [pay-as-you-go pricing](billing.md) and flexible infrastructure, giving SOC teams time to adapt to the change. Deploy and test your content at a pace that works best for your organization, and learn about how to [fully migrate to Microsoft Sentinel](migration.md).
 >
 ### Short-term approach
 
@@ -57,7 +57,7 @@ For more information, see:
 - [Migrate QRadar offenses to Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/migrating-qradar-offenses-to-azure-sentinel/ba-p/2102043)
 - [Export data from Splunk to Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/how-to-export-data-from-splunk-to-azure-sentinel/ba-p/1891237).
 
-If you want to fully migrate to Microsoft Sentinel, review the full [migration guide](migration-overview.md).
+If you want to fully migrate to Microsoft Sentinel, review the full [migration guide](migration.md).
 
 ### Send alerts and enriched incidents from Microsoft Sentinel to a legacy SIEM
 

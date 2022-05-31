@@ -1,5 +1,5 @@
 ---
-title: Microsoft Sentinel migration: Export QRadar data to target platform | Microsoft Docs
+title: "Microsoft Sentinel migration: Export QRadar data to target platform | Microsoft Docs"
 description: Learn how to export your historical data from QRadar.
 author: limwainstein
 ms.author: lwainstein
