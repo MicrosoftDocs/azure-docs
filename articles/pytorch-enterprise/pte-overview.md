@@ -1,8 +1,8 @@
 ---
 title: What is PyTorch Enterprise on Azure?
 description: This article describes the PyTorch Enterprise program. 
-author: alonbochman
-ms.author: alonbochman
+author: daveba
+ms.author: daveba
 ms.service: pytorch-enterprise
 ms.topic: conceptual
 ms.date: 07/06/2021
