@@ -76,6 +76,14 @@
       href: attach-disk-pools-to-azure-vmware-solution-hosts.md
     - name: Attach Azure NetApp Files to Azure VMware Solution VMs
       href: netapp-files-with-azure-vmware-solution.md
+    - name: Protecture Azure NetApp Files datastores and VMs
+      items: 
+      - name: Install Cloud Backup for Virtual Machines
+        href: install-cloud-backup.md
+      - name: Backup Azure NetApp Files datastores and VMs
+        href: backup-azure-netapp-files-datastores-vms.md
+      - name: Restore VMs
+        href: restore-azure-netapp-files-vms.md
     - name: Backup with Azure Backup Server
       items:
       - name: Set up Backup Server
@@ -214,6 +222,8 @@
       href: fix-deployment-failures.md
     - name: VMware tools vix error code = 21009
       href: https://kb.vmware.com/s/article/2129927
+    - name: Azure NetApp Files configurations 
+      href: troubleshoot-cloudbackup-vms.md
   - name: FAQ
     items:
     - name: General
