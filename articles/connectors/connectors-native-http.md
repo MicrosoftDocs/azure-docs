@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/13/2021
+ms.date: 05/31/2022
 tags: connectors
 ---
 
@@ -319,6 +319,9 @@ Here is the same example that shows the HTTP action response that contains `Retr
 }
 ```
 
+## Pagination support
+
+Sometime the service may return the response page by page. If the next page is specified with "nextLink" or "@odata.nextLink", you can turn on the Pagination setting on the HTTP action and the HTTP action will automatically follow these links to retireve next pages.  On the other hand, if the next page is specified with any other tags, you may need to create a loop in your logic app to retieve each page manually ny following the tag until it is null. 
 
 ## Disable checking location headers
 
