@@ -183,73 +183,47 @@ curl -i -X POST https://your-language-endpoint-here/language/analyze-conversatio
 -d \
 ' 
 {
+    "jobId": "738120e1-7987-4d19-af0c-89d277762a2f",
+    "lastUpdatedDateTime": "2022-05-31T16:52:59Z",
+    "createdDateTime": "2022-05-31T16:52:51Z",
+    "expirationDateTime": "2022-06-01T16:52:51Z",
+    "status": "succeeded",
+    "errors": [],
     "displayName": "Analyze conversations from 123",
-    "analysisInput": {
-        "conversations": [
+    "tasks": {
+        "completed": 1,
+        "failed": 0,
+        "inProgress": 0,
+        "total": 1,
+        "items": [
             {
-                "modality": "text",
-                "id": "conversation1",
-                "language": "en",
-                "conversationItems": [
-                    {
-                        "text": "Hello, you’re chatting with Rene. How may I help you?",
-                        "id": "1",
-                        "role": "Agent",
-                        "participantId": "Agent_1"
-                    },
-                    {
-                        "text": "Hi, I tried to set up wifi connection for Smart Brew 300 espresso machine, but it didn’t work.",
-                        "id": "2",
-                        "role": "Customer",
-                        "participantId": "Customer_1"
-                    },
-                    {
-                        "text": "I’m sorry to hear that. Let’s see what we can do to fix this issue. Could you please try the following steps for me? First, could you push the wifi connection button, hold for 3 seconds, then let me know if the power light is slowly blinking on and off every second?",
-                        "id": "3",
-                        "role": "Agent",
-                        "participantId": "Agent_1"
-                    },
-                    {
-                        "text": "Yes, I pushed the wifi connection button, and now the power light is slowly blinking.",
-                        "id": "4",
-                        "role": "Customer",
-                        "participantId": "Customer_1"
-                    },
-                    {
-                        "text": "Great. Thank you! Now, please check in your Contoso Coffee app. Does it prompt to ask you to connect with the machine?",
-                        "id": "5",
-                        "role": "Agent",
-                        "participantId": "Agent_1"
-                    },
-                    {
-                        "text": "No. Nothing happened.",
-                        "id": "6",
-                        "role": "Customer",
-                        "participantId": "Customer_1"
-                    },
-                    {
-                        "text": "I’m very sorry to hear that. Let me see if there’s another way to fix the issue. Please hold on for a minute.",
-                        "id": "7",
-                        "role": "Agent",
-                        "participantId": "Agent_1"
-                    }
-                ]
+                "kind": "conversationalSummarizationResults",
+                "taskName": "analyze 1",
+                "lastUpdateDateTime": "2022-05-31T16:52:59.85913Z",
+                "status": "succeeded",
+                "results": {
+                    "conversations": [
+                        {
+                            "id": "conversation1",
+                            "summaries": [
+                                {
+                                    "aspect": "issue",
+                                    "text": "Customer tried to set up wifi connection for Smart Brew 300 machine, but it didnt work"
+                                },
+                                {
+                                    "aspect": "resolution",
+                                    "text": "Asked customer to try the following steps | Asked customer for the power light | Checked if the app is prompting to connect to the machine | Transferred the call to a tech support"
+                                }
+                            ],
+                            "warnings": []
+                        }
+                    ],
+                    "errors": [],
+                    "modelVersion": "2022-05-15-preview"
+                }
             }
         ]
-    },
-    "tasks": [
-        {
-            "taskName": "analyze 1",
-            "kind": "ConversationalSummarizationTask",
-            "parameters": {
-                "modelVersion": "2022-05-15-preview",
-                "summaryAspects": [
-                    "Issue",
-                    "Resolution"
-                ]
-            }
-        }
-    ]
+    }
 }
 '
 ```
