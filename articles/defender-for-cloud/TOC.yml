@@ -232,6 +232,8 @@
     - name: Overview of Defender for Containers
       displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises, azure arc, multicloud
       href: defender-for-containers-introduction.md
+    - name: How does Defender for Containers work?
+      href: defender-for-containers-architecture.md
     - name: Enable Defender for Containers
       displayName: kubernetes, aks, acr, registries, k8s, arc, hybrid, on-premises, azure arc, multicloud
       href: defender-for-containers-enable.md
