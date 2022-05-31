@@ -354,17 +354,17 @@ The request message has the following application properties:
 
 | Key | Optional | Value Type | Value Contents |
 | --- | --- | --- | --- |
-| operation |No |string |**put-token** |
-| type |No |string |The type of the token being put. |
-| name |No |string |The "audience" to which the token applies. |
-| expiration |Yes |timestamp |The expiry time of the token. |
+| `operation` |No |string |**put-token** |
+| `type` |No |string |The type of the token being put. |
+| `name` |No |string |The "audience" to which the token applies. |
+| `expiration` |Yes |timestamp |The expiry time of the token. |
 
 The *name* property identifies the entity with which the token shall be associated. In Service Bus it's the path to the queue, or topic/subscription. The *type* property identifies the token type:
 
 | Token Type | Token Description | Body Type | Notes |
 | --- | --- | --- | --- |
-| jwt |JSON Web Token (JWT) |AMQP Value (string) | |
-| servicebus.windows.net:sastoken |Service Bus SAS Token |AMQP Value (string) |- |
+| `jwt` |JSON Web Token (JWT) |AMQP Value (string) | |
+| `servicebus.windows.net:sastoken` |Service Bus SAS Token |AMQP Value (string) |- |
 
 Tokens confer rights. Service Bus knows about three fundamental rights: "Send" enables sending, "Listen" enables receiving, and "Manage" enables manipulating entities. Service Bus SAS tokens refer to rules configured on the namespace or entity, and those rules are configured with rights. Signing the token with the key associated with that rule thus makes the token express the respective rights. The token associated with an entity using *put-token* permits the connected client to interact with the entity per the token rights. A link where the client takes on the *sender* role requires the "Send" right; taking on the *receiver* role requires the "Listen" right.
 
@@ -372,8 +372,8 @@ The reply message has the following *application-properties* values
 
 | Key | Optional | Value Type | Value Contents |
 | --- | --- | --- | --- |
-| status-code |No |int |HTTP response code **[RFC2616]**. |
-| status-description |Yes |string |Description of the status. |
+| `status-code` |No |int |HTTP response code **[RFC2616]**. |
+| `status-description` |Yes |string |Description of the status. |
 
 The client can call *put-token* repeatedly and for any entity in the messaging infrastructure. The tokens are scoped to the current client and anchored on the current connection, meaning the server drops any retained tokens when the connection drops.
 
@@ -395,8 +395,8 @@ With this functionality, you create a sender and establish the link to the `via-
 
 | Client | Direction | Service Bus |
 | :--- | :---: | :--- |
-| attach(<br/>name={link name},<br/>role=sender,<br/>source={client link ID},<br/>target=**{via-entity}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** ) | ------> | |
-| | <------ | attach(<br/>name={link name},<br/>role=receiver,<br/>source={client link ID},<br/>target={via-entity},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )] ) |
+| `attach(<br/>name={link name},<br/>role=sender,<br/>source={client link ID},<br/>target=**{via-entity}**,<br/>**properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )]** )` | ------> | |
+| | <------ | `attach(<br/>name={link name},<br/>role=receiver,<br/>source={client link ID},<br/>target={via-entity},<br/>properties=map [(<br/>com.microsoft:transfer-destination-address=<br/>{destination-entity} )] )` |
 
 ## Next steps
 To learn more about AMQP, see [Service Bus AMQP overview](service-bus-amqp-overview.md).
