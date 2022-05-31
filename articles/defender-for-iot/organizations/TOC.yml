@@ -164,8 +164,6 @@
           items:
           - name: Planning and prerequisites
             href: configure-active-monitoring.md
-          - name: Configure active discovery scans
-            href: configure-active-discovery-scans.md
           - name: Configure Windows Endpoint Monitoring
             href: configure-windows-endpoint-monitoring.md
           - name: Configure reverse DNS lookup

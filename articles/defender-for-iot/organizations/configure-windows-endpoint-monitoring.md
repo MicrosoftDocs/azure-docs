@@ -177,5 +177,4 @@ Learn more about active monitoring options. For more information, see:
 
 - [Active and passive OT monitoring in Defender for IoT](best-practices/passive-active-monitoring.md)
 - [Configure active monitoring for OT networks](configure-active-monitoring.md)
-- [Configure active discovery scans](configure-active-discovery-scans.md)
 - [Configure DNS servers for reverse lookup resolution for OT monitoring](configure-reverse-dns-lookup.md)

@@ -48,5 +48,4 @@ Learn more about active monitoring options. For more information, see:
 
 - [Active and passive OT monitoring in Defender for IoT](best-practices/passive-active-monitoring.md)
 - [Configure active monitoring for OT networks](configure-active-monitoring.md)
-- [Configure active discovery scans](configure-active-discovery-scans.md)
 - [Configure Windows Endpoint monitoring](configure-windows-endpoint-monitoring.md)

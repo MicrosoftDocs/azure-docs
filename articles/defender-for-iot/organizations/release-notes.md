@@ -55,8 +55,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 **Sensor version**: 22.2.3
 
 - [Release note tracking per version](#release-note-tracking-per-version)
-- [Active discovery scans](#active-discovery-scans-public-preview)
-- [Sensor management from the Azure portal](#sensor-management-from-the-azure-portal-public-preview)
+- [Define sensor settings from the Azure portal (public preview)](#define-sensor-settings-from-the-azure-portal-public-preview)
 - [Bi-directional alert synch between sensors and the Azure portal](#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)
 - [PCAP access from the Azure portal](#pcap-access-from-the-azure-portal-public-preview)
 - [Support diagnostic log enhancements](#support-diagnostic-log-enhancements-public-preview)
@@ -78,23 +77,8 @@ Going forward, find the sensor software versions released in a given month, and 
 
 For more information, see [Versioning and support for on-premises software versions](#versioning-and-support-for-on-premises-software-versions).
 
-### Active discovery scans (Public preview)
 
-Starting in version 22.2.3, you can configure active discovery scans from your sensor to dive deeper into your device data or discover new devices in your network.
-
-Active discovery scans allow for faster deployments, enriching your existing device data with more details. They also help you discover more devices across your network, including older network switches where you can't create a SPAN port or put in a network TAP device.
-
-**Supported protocols currently include**:
-
-- **Switch discovery scans**: SNMPv1, SNMPv2, SNMPv3, HTTP
-- **PLC discovery and enrichment scans**: S7 (Siemens), CIP (Rockwell)
-
-> [!IMPORTANT]
-> Active discovery scans run detection activity directly in your network and may cause some downtime. Take care when configuring your active discovery scan so that you only scan necessary resources.
-
-View scanning data from active discovery scans from your sensor console only. For more information, see [Configure active discovery scans](configure-active-discovery-scans.md) and [Active and passive OT monitoring in Defender for IoT](best-practices/passive-active-monitoring.md).
-
-### Sensor management from the Azure portal (public preview)
+### Define sensor settings from the Azure portal (public preview)
 
 For sensor versions 22.2.x and higher, you can configure sensor settings directly from the **Sites and sensors** page on the Azure portal.
 

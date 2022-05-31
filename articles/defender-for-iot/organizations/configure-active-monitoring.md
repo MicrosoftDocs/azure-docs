@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Configure active monitoring for OT networks
 
-This article describes how to configure active monitoring on OT networks with Microsoft Defender for IoT, including methods for Windows Event monitoring, reverse DNS lookup, and active discovery scans.
+This article describes how to configure active monitoring on OT networks with Microsoft Defender for IoT, including methods for Windows Event monitoring and reverse DNS lookup.
 
 For more information, see [Active and passive OT monitoring in Defender for IoT](best-practices/passive-active-monitoring.md).
 
@@ -31,7 +31,6 @@ When planning active monitoring:
 
 - **Determine which active monitoring method to use**:
 
-    - Use [active discovery scans](configure-active-discovery-scans.md) to combine various protocols, device types, and advanced configurations.
     - Use [Windows Endpoint Monitoring](configure-windows-endpoint-monitoring.md) to monitor WMI events
     - Use [DNS lookup](configure-reverse-dns-lookup.md) for device data enrichment
 
@@ -41,14 +40,13 @@ Before you can configure active monitoring, you must also configure your network
 
 For example, the following image highlights in grey the extra network access you must configure from the management interface to the OT network.
 
-:::image type="content" source="media/configure-active-monitoring/architecture.png" alt-text="Diagram highlighting the extra management network configuration required for active discovery scans.":::
+:::image type="content" source="media/configure-active-monitoring/architecture.png" alt-text="Diagram highlighting the extra management network configuration required for active monitoring.":::
 
 
 ## Next steps
 
 Use one of the following procedures to configure active monitoring in your OT network:
 
-- [Configure active discovery scans](configure-active-discovery-scans.md)
 - [Configure Windows Endpoint monitoring](configure-windows-endpoint-monitoring.md)
 - [Configure DNS servers for reverse lookup resolution for OT monitoring](configure-reverse-dns-lookup.md)
 
