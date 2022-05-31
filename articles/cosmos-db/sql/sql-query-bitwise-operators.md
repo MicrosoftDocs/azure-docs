@@ -42,7 +42,9 @@ SELECT
     (100 ^ 1000) AS logicalExclusiveOr
 ```
 
-```output
+The example query's results as a JSON object.
+
+```json
 [
     {
         "rightShift": 25,
