@@ -148,14 +148,14 @@ However, it's important to understand where performance optimizations such as in
 
 Netezza implements some database objects that aren't directly supported in Azure Synapse, but there are methods to achieve the same functionality within the new environment:
 
-- Zone maps: In Netezza, zone maps are automatically created and maintained for some column types and are used at query time to restrict the amount of data to be scanned. Zone maps are created on the following column types:
+- Zone maps: in Netezza, zone maps are automatically created and maintained for some column types and are used at query time to restrict the amount of data to be scanned. Zone maps are created on the following column types:
   - `INTEGER` columns of length 8 bytes or less.
   - Temporal columns. For instance, `DATE`, `TIME`, and `TIMESTAMP`.
   - `CHAR` columns, if these are part of a materialized view and mentioned in the `ORDER BY` clause.
 
   You can find out which columns have zone maps by using the `nz_zonemap` utility, which is part of the NZ Toolkit. Azure Synapse doesn't include zone maps, but you can achieve similar results by using other user-defined index types and/or partitioning.
 
-- Clustered base tables (CBT): In Netezza, CBTs are commonly used for fact tables, which can have billions of records. Scanning such a huge table requires a lot of processing time, since a full table scan might be needed to get relevant records. Organizing records on restrictive CBT allows Netezza to group records in same or nearby extents. This process also creates zone maps that improve the performance by reducing the amount of data to be scanned.
+- Clustered base tables (CBT): in Netezza, CBTs are commonly used for fact tables, which can have billions of records. Scanning such a huge table requires a lot of processing time, since a full table scan might be needed to get relevant records. Organizing records on restrictive CBT allows Netezza to group records in same or nearby extents. This process also creates zone maps that improve the performance by reducing the amount of data to be scanned.
 
   In Azure Synapse, you can achieve a similar effect by use of partitioning and/or use of other indexes.
 
@@ -201,7 +201,7 @@ There are third-party vendors who offer tools and services to automate migration
 
 There are a few differences in SQL Data Manipulation Language (DML) syntax between Netezza SQL and Azure Synapse (T-SQL) that you should be aware of during migration:
 
-- `STRPOS`: In Netezza, the `STRPOS` function returns the position of a substring within a string. The equivalent function in Azure Synapse is `CHARINDEX`, with the order of the arguments reversed. For example, `SELECT STRPOS('abcdef','def')...` in Netezza is equivalent to `SELECT CHARINDEX('def','abcdef')...` in Azure Synapse.
+- `STRPOS`: in Netezza, the `STRPOS` function returns the position of a substring within a string. The equivalent function in Azure Synapse is `CHARINDEX`, with the order of the arguments reversed. For example, `SELECT STRPOS('abcdef','def')...` in Netezza is equivalent to `SELECT CHARINDEX('def','abcdef')...` in Azure Synapse.
 
 - `AGE`: Netezza supports the `AGE` operator to give the interval between two temporal values, such as timestamps or dates. For example, `SELECT AGE('23-03-1956','01-01-2019') FROM...`. In Azure Synapse, `DATEDIFF` gives the interval. For example, `SELECT DATEDIFF(day, '1956-03-26','2019-01-01') FROM...`. Note the date representation sequence.
 
@@ -271,7 +271,7 @@ If sufficient network bandwidth is available, extract data directly from an on-p
 
 Recommended data formats for the extracted data include delimited text files (also called Comma Separated Values or CSV), Optimized Row Columnar (ORC), or Parquet files.
 
-For more information about the process of migrating data and ETL from a Netezza environment, see [Data migration, ETL, and load for Netezza migration](1-design-performance-migration.md).
+For more information about the process of migrating data and ETL from a Netezza environment, see [Data migration, ETL, and load for Netezza migrations](2-etl-load-migration-considerations.md).
 
 ## Performance recommendations for Netezza migrations
 
@@ -331,4 +331,4 @@ Use [workload management](../../sql-data-warehouse/sql-data-warehouse-workload-m
 
 ## Next steps
 
-To learn more about ETL and load for Netezza migration, see the next article in this series: [Data migration, ETL, and load for Netezza migration](2-etl-load-migration-considerations.md).
+To learn more about ETL and load for Netezza migration, see the next article in this series: [Data migration, ETL, and load for Netezza migrations](2-etl-load-migration-considerations.md).

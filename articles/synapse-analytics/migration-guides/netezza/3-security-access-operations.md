@@ -35,9 +35,9 @@ The IBM Netezza system offers several authentication methods for Netezza databas
 
 - **Local authentication**: Netezza administrators define database users and their passwords by using the `CREATE USER` command or through Netezza administrative interfaces. In local authentication, use the Netezza system to manage database accounts and passwords, and to add and remove database users from the system. This method is the default authentication method.
 
-- **LDAP authentication**: Use an LDAP name server to authenticate database users, and manage passwords, database account activations, and deactivations. The Netezza system uses a Pluggable Authentication Module (PAM) to authenticate users on the LDAP name server. Microsoft Active Directory conforms to the LDAP protocol, so it can be treated like an LDAP server for the purposes of LDAP authentication.
+- **LDAP authentication**: use an LDAP name server to authenticate database users, and manage passwords, database account activations, and deactivations. The Netezza system uses a Pluggable Authentication Module (PAM) to authenticate users on the LDAP name server. Microsoft Active Directory conforms to the LDAP protocol, so it can be treated like an LDAP server for the purposes of LDAP authentication.
 
-- **Kerberos authentication**: Use a Kerberos distribution server to authenticate database users, and manage passwords, database account activations, and deactivations.
+- **Kerberos authentication**: use a Kerberos distribution server to authenticate database users, and manage passwords, database account activations, and deactivations.
 
 Authentication is a system-wide setting. Users must be either locally authenticated or authenticated by using the LDAP or Kerberos method. If you choose LDAP or Kerberos authentication, create users with local authentication on a per-user basis. LDAP and Kerberos can't be used at the same time to authenticate users. Netezza host supports LDAP or Kerberos authentication for database user logins only, not for operating system logins on the host.
 
@@ -47,7 +47,7 @@ Azure Synapse supports two basic options for connection and authorization:
 
 - **SQL authentication**: SQL authentication is via a database connection that includes a database identifier, user ID, and password plus other optional parameters. This is functionally equivalent to Netezza local connections.
 
-- **Azure Active Directory (Azure AD) authentication**: With Azure AD authentication, you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage Azure Synapse users and simplifies permission management. Azure AD can also support connections to LDAP and Kerberos services&mdash;for example, Azure AD can be used to connect to existing LDAP directories if these are to remain in place after migration of the database.
+- **Azure Active Directory (Azure AD) authentication**: with Azure AD authentication, you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage Azure Synapse users and simplifies permission management. Azure AD can also support connections to LDAP and Kerberos services&mdash;for example, Azure AD can be used to connect to existing LDAP directories if these are to remain in place after migration of the database.
 
 ### Users, roles, and permissions
 
@@ -214,7 +214,7 @@ Netezza recommends collecting statistics as follows:
 
 - Production phase, after a significant percentage of change to the table or partition (~10% of rows). For high volumes of nonunique values, such as dates or timestamps, it may be advantageous to recollect at 7%.
 
-- Recommendation: Collect production phase statistics after you've created users and applied real world query loads to the database (up to about three months of querying).
+- Recommendation: collect production phase statistics after you've created users and applied real world query loads to the database (up to about three months of querying).
 
 - Collect statistics in the first few weeks after an upgrade or migration during periods of low CPU utilization.
 

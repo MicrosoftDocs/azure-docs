@@ -132,7 +132,7 @@ Usage is interesting, since it's an indicator of business value. Reports and das
 
 If your legacy data warehouse has been up and running for many years, there's a high chance you could have hundreds, if not thousands, of reports in existence. In these situations, usage is an important indicator of the business value of a specific report or dashboard. In that sense, it's worth compiling an inventory of the reports and dashboards you have and defining their business purpose and usage statistics.
 
-For those that aren't used at all, it's an appropriate time to seek a business decision, to determine if it's necessary to decommission those reports to optimize your migration efforts. A key question worth asking when deciding to decommission unused reports is: Are they unused because people don't know they exist, or is it because they offer no business value, or have they been superseded by others?
+For those that aren't used at all, it's an appropriate time to seek a business decision, to determine if it's necessary to decommission those reports to optimize your migration efforts. A key question worth asking when deciding to decommission unused reports is: are they unused because people don't know they exist, or is it because they offer no business value, or have they been superseded by others?
 
 ### Migrate reports based on business value
 

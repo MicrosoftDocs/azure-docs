@@ -286,7 +286,7 @@ Call Teradata Parallel Transporter directly from Azure Data Factory. This is the
 
 Recommended data formats for the extracted data include delimited text files (also called Comma Separated Values or CSV), Optimized Row Columnar (ORC), or Parquet files.
 
-For more information about the process of migrating data and ETL from a Teradata environment, see [Data migration, ETL, and load for Teradata migration](2-etl-load-migration-considerations.md).
+For more information about the process of migrating data and ETL from a Teradata environment, see [Data migration, ETL, and load for Teradata migrations](2-etl-load-migration-considerations.md).
 
 ## Performance recommendations for Teradata migrations
 
@@ -333,4 +333,4 @@ Use [workload management](../../sql-data-warehouse/sql-data-warehouse-workload-m
 
 ## Next steps
 
-To learn more about ETL and load for Teradata migration, see the next article in this series: [Data migration, ETL, and load for Teradata migration](2-etl-load-migration-considerations.md).
+To learn more about ETL and load for Teradata migration, see the next article in this series: [Data migration, ETL, and load for Teradata migrations](2-etl-load-migration-considerations.md).

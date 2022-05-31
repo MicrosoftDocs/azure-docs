@@ -53,7 +53,7 @@ Azure Synapse supports two basic options for connection and authorization:
 
 - **SQL authentication**: SQL authentication is via a database connection that includes a database identifier, user ID, and password plus other optional parameters. This is functionally equivalent to Teradata TD1, TD2 and default connections.
 
-- **Azure Active Directory (Azure AD) authentication**: With Azure AD authentication, you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage SQL Data Warehouse users and simplifies permission management. Azure AD can also support connections to LDAP and Kerberos services&mdash;for example, Azure AD can be used to connect to existing LDAP directories if these are to remain in place after migration of the database.
+- **Azure Active Directory (Azure AD) authentication**: with Azure AD authentication, you can centrally manage the identities of database users and other Microsoft services in one central location. Central ID management provides a single place to manage SQL Data Warehouse users and simplifies permission management. Azure AD can also support connections to LDAP and Kerberos services&mdash;for example, Azure AD can be used to connect to existing LDAP directories if these are to remain in place after migration of the database.
 
 ### Users, roles, and permissions
 
@@ -240,7 +240,7 @@ Teradata recommends collecting statistics as follows:
 
 - Production phase, after a significant percentage of change to the table or partition (~10% of rows). For high volumes of nonunique values, such as dates or timestamps, it may be advantageous to recollect at 7%.
 
-- Recommendation: Collect production phase statistics after you've created users and applied real world query loads to the database (up to about three months of querying).
+- Recommendation: collect production phase statistics after you've created users and applied real world query loads to the database (up to about three months of querying).
 
 - Collect statistics in the first few weeks after an upgrade or migration during periods of low CPU utilization.
 
@@ -255,41 +255,41 @@ Teradata Database contains many log tables in the Data Dictionary that accumulat
 
 Reset accumulators and peak values using the `DBC.AMPUsage` view and the `ClearPeakDisk` macro provided with the software:
 
-- `DBC.Acctg`: Resource usage by account/user
+- `DBC.Acctg`: resource usage by account/user
 
-- `DBC.DataBaseSpace`: Database and table space accounting
+- `DBC.DataBaseSpace`: database and table space accounting
 
 Teradata automatically maintains these tables, but good practices can reduce their size:
 
-- `DBC.AccessRights`: User rights on objects
+- `DBC.AccessRights`: user rights on objects
 
-- `DBC.RoleGrants`: Role rights on objects
+- `DBC.RoleGrants`: role rights on objects
 
-- `DBC.Roles`: Defined roles
+- `DBC.Roles`: defined roles
 
-- `DBC.Accounts`: Account codes by user
+- `DBC.Accounts`: account codes by user
 
 Archive these logging tables (if desired) and purge information 60-90 days old. Retention depends on customer requirements:
 
-- `DBC.SW_Event_Log`: Database console log
+- `DBC.SW_Event_Log`: database console log
 
-- `DBC.ResUsage`: Resource monitoring tables
+- `DBC.ResUsage`: resource monitoring tables
 
-- `DBC.EventLog`: Session logon/logoff history
+- `DBC.EventLog`: session logon/logoff history
 
-- `DBC.AccLogTbl`: Logged user/object events
+- `DBC.AccLogTbl`: logged user/object events
 
-- `DBC.DBQL tables`: Logged user/SQL activity
+- `DBC.DBQL tables`: logged user/SQL activity
 
-- `.NETSecPolicyLogTbl`: Logs dynamic security policy audit trails
+- `.NETSecPolicyLogTbl`: logs dynamic security policy audit trails
 
-- `.NETSecPolicyLogRuleTbl`: Controls when and how dynamic security policy is logged
+- `.NETSecPolicyLogRuleTbl`: controls when and how dynamic security policy is logged
 
 Purge these tables when the associated removable media is expired and overwritten:
 
-- `DBC.RCEvent`: Archive/recovery events
+- `DBC.RCEvent`: archive/recovery events
 
-- `DBC.RCConfiguration`: Archive/recovery config
+- `DBC.RCConfiguration`: archive/recovery config
 
 - `DBC.RCMedia`: VolSerial for archive/recovery
 

@@ -1,5 +1,5 @@
 ---
-title: "Data migration, ETL, and load for Teradata migration"
+title: "Data migration, ETL, and load for Teradata migrations"
 description: Learn how to plan your data migration from Teradata to Azure Synapse Analytics to minimize the risk and impact on users. 
 ms.service: synapse-analytics
 ms.subservice: sql-dw
@@ -12,7 +12,7 @@ ms.reviewer: wiassaf
 ms.date: 05/31/2022
 ---
 
-# Data migration, ETL, and load for Teradata migration
+# Data migration, ETL, and load for Teradata migrations
 
 This article is part two of a seven part series that provides guidance on how to migrate from Teradata to Azure Synapse Analytics. This article provides best practices for ETL and load migration.
 
@@ -26,7 +26,7 @@ When migrating a Teradata data warehouse, you need to ask some basic data-relate
 
 - What's the best migration approach to minimize risk and user impact?
 
-- When migrating data marts&mdash;stay physical or go virtual?
+- When migrating data marts: stay physical or go virtual?
 
 The next sections discuss these points within the context of migration from Teradata.
 
@@ -97,13 +97,13 @@ There's another potential benefit to this approach. By implementing the aggregat
 
 The primary drivers for choosing a virtual data mart implementation over a physical data mart are:
 
-- More agility: A virtual data mart is easier to change than physical tables and the associated ETL processes.
+- More agility: a virtual data mart is easier to change than physical tables and the associated ETL processes.
 
-- Lower total cost of ownership: A virtualized implementation requires fewer data stores and copies of data.
+- Lower total cost of ownership: a virtualized implementation requires fewer data stores and copies of data.
 
 - Elimination of ETL jobs to migrate and simplify data warehouse architecture in a virtualized environment.
 
-- Performance: Although physical data marts have historically been more performant, virtualization products now implement intelligent caching techniques to mitigate.
+- Performance: although physical data marts have historically been more performant, virtualization products now implement intelligent caching techniques to mitigate.
 
 ### Data migration from Teradata
 
@@ -178,7 +178,7 @@ When it comes to migrating data from a Teradata data warehouse, there are some b
 
 Once the database tables to be migrated have been created in Azure Synapse, you can move the data to populate those tables out of the legacy Teradata system and into the new environment. There are two basic approaches:
 
-- **File extract**: Extract the data from the Teradata tables to flat files, normally in CSV format, via BTEQ, Fast Export, or Teradata Parallel Transporter (TPT). Use TPT whenever possible since it's the most efficient in terms of data throughput.
+- **File extract**: extract the data from the Teradata tables to flat files, normally in CSV format, via BTEQ, Fast Export, or Teradata Parallel Transporter (TPT). Use TPT whenever possible since it's the most efficient in terms of data throughput.
 
   This approach requires space to land the extracted data files. The space could be local to the Teradata source database (if sufficient storage is available), or remote in Azure Blob Storage. The best performance is achieved when a file is written locally, since that avoids network overhead.
 
@@ -188,7 +188,7 @@ Once the database tables to be migrated have been created in Azure Synapse, you 
 
   Microsoft provides different options to move large volumes of data, including AZCopy for moving files across the network into Azure Storage, Azure ExpressRoute for moving bulk data over a private network connection, and Azure Data Box where the files are moved to a physical storage device that's then shipped to an Azure data center for loading. For more information, see [data transfer](/azure/architecture/data-guide/scenarios/data-transfer).
 
-- **Direct extract and load across network**: The target Azure environment sends a data extract request, normally via a SQL command, to the legacy Teradata system to extract the data. The results are sent across the network and loaded directly into Azure Synapse, with no need to land the data into intermediate files. The limiting factor in this scenario is normally the bandwidth of the network connection between the Teradata database and the Azure environment. For very large data volumes this approach may not be practical.
+- **Direct extract and load across network**: the target Azure environment sends a data extract request, normally via a SQL command, to the legacy Teradata system to extract the data. The results are sent across the network and loaded directly into Azure Synapse, with no need to land the data into intermediate files. The limiting factor in this scenario is normally the bandwidth of the network connection between the Teradata database and the Azure environment. For very large data volumes this approach may not be practical.
 
 There's also a hybrid approach that uses both methods. For example, you can use the direct network extract approach for smaller dimension tables and samples of the larger fact tables to quickly provide a test environment in Azure Synapse. For the large volume historical fact tables, you can use the file extract and transfer approach using Azure Data Box.
 
