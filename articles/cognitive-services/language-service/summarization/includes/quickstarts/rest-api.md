@@ -177,7 +177,7 @@ The following cURL commands are executed from a BASH shell. Edit these commands 
 [!INCLUDE [REST API quickstart instructions](../../../includes/rest-api-instructions.md)]
 
 ```bash
-curl -i -X POST https://your-language-endpoint-here/language/analyze-conversations?api-version=2022-05-15-preview \
+curl -i -X POST https://your-language-endpoint-here/language/analyze-conversations/jobs?api-version=2022-05-15-preview \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: your-key-here" \
 -d \
@@ -298,11 +298,11 @@ curl -X GET    https://your-language-endpoint-here/language/analyze-conversation
                             "summaries": [
                                 {
                                     "aspect": "issue",
-                                    "text": "Customer tried to set up wifi connection for Smart Brew 300 medication machine, but it didn't work"
+                                    "text": "Customer wanted to set up wifi connection for Smart Brew 300 coffee machine, but it didn't work"
                                 },
                                 {
                                     "aspect": "resolution",
-                                    "text": "Asked customer to try the following steps | Asked customer for the power light | Helped customer to connect to the machine"
+                                    "text": "Asked customer if the power light is slowly blinking | Checked the Contoso coffee app. It had no prompt"
                                 }
                             ],
                             "warnings": []
