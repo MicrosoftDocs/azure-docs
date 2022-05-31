@@ -199,7 +199,7 @@ The arrows in the following table show the performative flow direction.
 
 The following sections explain which properties from the standard AMQP message sections are used by Service Bus and how they map to the Service Bus API set.
 
-Any property that application needs to defines should be mapped to AMQP's `application-properties` map.
+Any property that application needs to define should be mapped to AMQP's `application-properties` map.
 
 #### header
 
@@ -242,7 +242,7 @@ There are few other service bus message properties, which aren't part of AMQP me
 | x-opt-sequence-number | Service-defined unique number assigned to a message. | [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber) |
 | x-opt-offset | Service-defined enqueued sequence number of the message. | [EnqueuedSequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedsequencenumber) |
 | x-opt-locked-until | Service-defined. The date and time until which the message will be locked in the queue/subscription. | [LockedUntilUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.lockeduntilutc) |
-| x-opt-deadletter-source | Service-Defined. If the message is received from dead letter queue, the source of the original message. | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource) |
+| x-opt-deadletter-source | Service-Defined. If the message is received from dead letter queue, it represents the source of the original message. | [DeadLetterSource](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.deadlettersource) |
 
 ### Transaction capability
 
@@ -314,7 +314,7 @@ This section covers advanced capabilities of Azure Service Bus that are based on
 
 ### AMQP management
 
-The AMQP management specification is the first of the draft extensions discussed in this article. This specification defines a set of protocols layered on top of the AMQP protocol that allow management interactions with the messaging infrastructure over AMQP. The specification defines generic operations such as *create*, *read*, *update*, and *delete* for managing entities inside a messaging infrastructure and a set of query operations.
+The AMQP management specification is the first of the draft extensions discussed in this article. This specification defines a set of protocols layered on top of the AMQP protocol that allows management interactions with the messaging infrastructure over AMQP. The specification defines generic operations such as *create*, *read*, *update*, and *delete* for managing entities inside a messaging infrastructure and a set of query operations.
 
 All those gestures require a request/response interaction between the client and the messaging infrastructure, and therefore the specification defines how to model that interaction pattern on top of AMQP: the client connects to the messaging infrastructure, initiates a session, and then creates a pair of links. On one link, the client acts as sender and on the other it acts as receiver, thus creating a pair of links that can act as a bi-directional channel.
 
