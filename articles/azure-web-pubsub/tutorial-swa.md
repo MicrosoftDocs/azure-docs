@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 
 * [GitHub](https://github.com/) account
 * [Azure](https://portal.azure.com/) account
-* [Azure CLI](/cli/azure) (version 2.29.0 or higher) or [Azure Cloud Shell](../cloud-shell/quickstart) to manage Azure resources
+* [Azure CLI](/cli/azure) (version 2.29.0 or higher) or [Azure Cloud Shell](../cloud-shell/quickstart.md) to manage Azure resources
 
 ## Create a Web PubSub resource
 
