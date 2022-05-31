@@ -379,7 +379,7 @@ Customer-Managed key is provided on dedicated cluster and these operations are r
 
 ## Limitations and constraints
 
-- The max number of cluster per region and subscription is two.
+- The max number of cluster per region and subscription is five.
 
 - The maximum number of workspaces that can be linked to a cluster is 1000.
 
