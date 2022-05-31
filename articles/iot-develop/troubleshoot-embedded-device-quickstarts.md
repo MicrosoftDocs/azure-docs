@@ -1,8 +1,8 @@
 ---
 title: Troubleshooting the Azure RTOS embedded device quickstarts
 description: Steps to help you troubleshoot common issues when using the Azure RTOS embedded device quickstarts
-author: JimacoMS4
-ms.author: v-jbrannian
+author: timlt
+ms.author: timlt
 ms.service: iot-develop
 ms.topic: troubleshooting
 ms.date: 06/10/2021
