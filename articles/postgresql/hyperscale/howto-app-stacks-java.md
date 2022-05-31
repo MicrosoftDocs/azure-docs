@@ -38,7 +38,7 @@ To get the database credentials, you can use the **Connection strings** tab in t
 
 ### Create a new Java project
 
-Using your favorite IDE, create a new Java project, and add a pom.xml file in its root directory:
+Using your favorite IDE, create a new Java project with groupId **test** and artifactId **crud**. Add a pom.xml file in its root directory:
 
 ```XML
 <?xml version="1.0" encoding="UTF-8"?>
@@ -95,7 +95,7 @@ Using your favorite IDE, create a new Java project, and add a pom.xml file in it
 ```
 This file is [Apache Maven](https://maven.apache.org/) that configures our project to use:
 
-* Java 8
+* Java 18
 * A recent PostgreSQL driver for Java
 
 ### Prepare a configuration file to connect to Hyperscale (Citus)
@@ -105,10 +105,10 @@ Create a src/main/resources/application.properties file, and add:
 ``` properties
 url=jdbc:postgresql://<host>:5432/citus?ssl=true&sslmode=require
 user=citus
-password={your password}
+password=<password>
 ```
 
-Replace the  \<host\> using the Connection string that you gathered previously.
+Replace the  \<host\> using the Connection string that you gathered previously. Replace \<password\> with the password that you set for the database.
 
 > [!NOTE]
 > We append ?ssl=true&sslmode=require to the configuration property url, to tell the JDBC driver to use TLS (Transport Layer Security) when connecting to the database. It is mandatory to use TLS with Hyperscale (Citus), and it is a good security practice.
@@ -147,6 +147,7 @@ Next, add the Java code that will use JDBC to store and retrieve data from your 
 Create a src/main/java/DemoApplication.java file, that contains:
 
 ``` java
+    package test.crud;
     import java.io.IOException;
     import java.sql.*;
     import java.util.*;
@@ -156,6 +157,8 @@ Create a src/main/java/DemoApplication.java file, that contains:
     import org.postgresql.copy.CopyManager;
     import org.postgresql.core.BaseConnection;
     import java.io.IOException;
+    import java.io.Reader;
+    import java.io.StringReader;
     public class DemoApplication {
 
         private static final Logger log;
@@ -491,7 +494,8 @@ public static long copyFromFile(Connection connection, String filePath, String t
 You can now add the following line in the main method:
 
 ``` java
- System.out.println(copyFromFile(connection,"C:\\Users\\pharmacies.csv", "pharmacy"));
+int c = (int) copyFromFile(connection,"C:\\Users\\pharmacies.csv", "pharmacy");
+log.info("Copied "+ c +" rows using COPY command");
 ```
 
 Executing the main class should now produce the following output:
@@ -512,7 +516,7 @@ Executing the main class should now produce the following output:
 [INFO   ] Delete data
 [INFO   ] Read data
 [INFO   ] There is no data in the database!
-5000
+[INFO ] Copied 5000 rows using COPY command
 [INFO   ] Closing database connection
 ```
 
@@ -523,7 +527,7 @@ The following code is an example for copying the data from in-memory to table.
 ```java
 private static void inMemory(Connection connection) throws SQLException,IOException {
     log.info("Copying in-memory data into table");
-    String[] input = {"0,Target,Sunnyvale,California,94001"};
+    String[] input = {"5000,Target,Sunnyvale,California,94001"};
 
     CopyManager copyManager = new CopyManager((BaseConnection) connection);
     String copyCommand = "COPY pharmacy FROM STDIN with csv " ;
