@@ -61,7 +61,8 @@ Invoke-AzVMRunCommand -ResourceGroupName 'myResourceGroup' -VMName 'myVM' -Comma
 'Install-WindowsFeature -Name Web-Server -IncludeManagementTools'
 ```
 
-The `-ScriptString' parameter requires version `4.27.0` or later of the 'Az.Compute` module.
+The `-ScriptString` parameter requires version `4.27.0` or later of the `Az.Compute` module.
+
 
 ## View the web server in action
 
