@@ -83,7 +83,7 @@ While Private Traffic  includes both branch and Virtual Network address prefixes
 10. Repeat steps 2-8 for other Secured Virtual WAN hubs that you want to configure Routing policies for.
 11. At this point, you are ready to send test traffic. Please make sure your Firewall Policies are configured appropriately to allow/deny traffic based on your desired security configurations. 
 
-## <a name="nva"></a> Configure routing policies for Network Virtual Appliances (through Virtual WAN portal)
+## <a name="nva"></a> Configure routing policies for network virtual appliances (through Virtual WAN portal)
 
 >[!NOTE]
 > The only Network Virtual Appliance deployed in the Virtual WAN hub compatible with routing intent and routing policies are listed in the [Partners section](about-nva-hub.md) as dual-role connectivity and Next-Generation Firewall solution providers.
@@ -99,8 +99,8 @@ While Private Traffic  includes both branch and Virtual Network address prefixes
 
 4. If you want to configure a Private Traffic Routing Policy and have branches or virtual networks using non-IANA RFC1918 Prefixes, select **Additional Prefixes** and specify the non-IANA RFC1918 prefix ranges in the text box that comes up. Select **Done**. 
 
-> [!NOTE]
-> At this point in time, Routing Policies for **Network Virtual Appliances** do not allow you to edit the RFC1918 prefixes. Azure vWAN will be propagating the RFC 1918 space to all spokes and Gateways across, as well as to BGP speakers inside the ****Network Virtual Appliances**. Be mindful of the implications about the propagation of these prefixes into your environment and create the appropriate policies inside your **Network Virtual Appliance** to control routing behavior.  Should it be desired to propagate more specific RFC 1918 spaces (i.e Spoke address space), those prefixes need to be added as well on the box below explicit. 
+   > [!NOTE]
+   > At this point in time, Routing Policies for **Network Virtual Appliances** do not allow you to edit the RFC1918 prefixes. Azure vWAN will be propagating the RFC 1918 space to all spokes and Gateways across, as well as to BGP speakers inside the ****Network Virtual Appliances**. Be mindful of the implications about the propagation of these prefixes into your environment and create the appropriate policies inside your **Network Virtual Appliance** to control routing behavior.  Should it be desired to propagate more specific RFC 1918 spaces (i.e Spoke address space), those prefixes need to be added as well on the box below explicit. 
 
     :::image type="content" source="./media/routing-policies/private-prefixes-nva.png"alt-text="Screenshot showing how to configure additional private prefixes for NVA  routing policies."lightbox="./media/routing-policies/private-prefixes-nva.png":::
 
