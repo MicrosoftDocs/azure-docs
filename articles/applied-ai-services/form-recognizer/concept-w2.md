@@ -1,7 +1,7 @@
 ---
-title: Form Recognizer W-2 form prebuilt model
+title: Form Recognizer W-2 prebuilt model
 titleSuffix: Azure Applied AI Services
-description: Data extraction and analysis extraction using the prebuilt-tax Form W-2 model
+description: Data extraction and analysis extraction using the prebuilt W-2 model
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -24,7 +24,7 @@ A W-2 is a multipart form divided into state and federal sections and consisting
 
 ## Development options
 
-The prebuilt W-2 form, model is supported by Form Recognizer v3.0 with the following tools:
+The prebuilt W-2 model is supported by Form Recognizer v3.0 with the following tools:
 
 | Feature | Resources | Model ID |
 |----------|-------------|-----------|
@@ -45,7 +45,7 @@ See how data is extracted from W-2 forms using the Form Recognizer Studio. You'l
 > [!NOTE]
 > Form Recognizer studio is available with v3.0 preview API.
 
-1. On the [Form Recognizer Studio home page](https://formrecognizer.appliedai.azure.com/studio), select **W-2 form**.
+1. On the [Form Recognizer Studio home page](https://formrecognizer.appliedai.azure.com/studio), select **W-2**.
 
 1. You can analyze the sample W-2 document or select the **➕ Add** button to upload your own sample.
 
@@ -127,9 +127,10 @@ See how data is extracted from W-2 forms using the Form Recognizer Studio. You'l
 ## Next steps
 
 * Complete a Form Recognizer quickstart:
-
-|Programming language | :::image type="content" source="media/form-recognizer-icon.png" alt-text="Form Recognizer icon from the Azure portal."::: |Programming language
-|:---:|:---:|:---:|
-|[**C#**](quickstarts/try-v3-csharp-sdk.md#prebuilt-model)||[**JavaScript**](quickstarts/try-v3-javascript-sdk.md#prebuilt-model)|
-|[**Java**](quickstarts/try-v3-java-sdk.md#prebuilt-model)||[**Python**](quickstarts/try-v3-python-sdk.md#prebuilt-model)|
-|[**REST API**](quickstarts/try-v3-rest-api.md)|||
+> [!div class="checklist"]
+>
+> * [**REST API**](quickstarts/try-v3-rest-api.md)
+> * [**C# SDK**](quickstarts/try-v3-csharp-sdk.md#prebuilt-model)
+> * [**Python SDK**](quickstarts/try-v3-python-sdk.md#prebuilt-model)
+> * [**Java SDK**](quickstarts/try-v3-java-sdk.md#prebuilt-model)
+> * [**JavaScript**](quickstarts/try-v3-javascript-sdk.md#prebuilt-model)</li></ul>
