@@ -622,7 +622,7 @@ To install and use Hybrid Worker extension using REST API, follow these steps. T
 1. Get the automation account details using this API call.
 
    ```http
-   GET https://westcentralus.management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}?api-version=2021-06-22
+   GET https://westcentralus.management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/HybridWorkerExtension?api-version=2021-06-22
 
    ```
 
@@ -631,7 +631,7 @@ To install and use Hybrid Worker extension using REST API, follow these steps. T
 1. Install the Hybrid Worker Extension on Azure VM by using the following API call. 
   
     ```http
-    PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/extensions/{vmExtensionName}?api-version=2021-11-01
+    PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/extensions/HybridWorkerExtension?api-version=2021-11-01
 
     ```
    

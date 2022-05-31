@@ -2,7 +2,7 @@
 title: Understand the enhanced security features of Microsoft Defender for Cloud 
 description: Learn about the benefits of enabling enhanced security in Microsoft Defender for Cloud
 ms.topic: overview
-ms.date: 05/30/2022
+ms.date: 05/31/2022
 ms.custom: references_regions
 ---
 
@@ -99,7 +99,7 @@ No. When you enable [Microsoft Defender for Servers](defender-for-servers-introd
 
 :::image type="content" source="media/enhanced-security-features-overview/deallocated-virtual-machines.png" alt-text="Azure Virtual Machines showing a deallocated machine.":::
 
-### If I enable Defender for Clouds Servers plan on the Subscription level, do I need to enable it on the workspace level?
+### If I enable Defender for Clouds Servers plan on the subscription level, do I need to enable it on the workspace level?
 
 When you enable the Servers plan on the subscription level, Defender for Cloud will enable the Servers plan on your default workspace(s) automatically when auto-provisioning is enabled. This can be accomplished on the Auto provisioning page by selecting **Connect Azure VMs to the default workspace(s) created by Defender for Cloud** option and selecting **Apply**.
 
