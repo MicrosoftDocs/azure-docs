@@ -79,6 +79,25 @@ For each site you're deploying, do the following.
 - Ensure you have at least one network switch with at least three ports available. You'll connect each Azure Stack Edge Pro device to the switch(es) in the same site as part of the instructions in [Order and set up your Azure Stack Edge Pro device(s)](#order-and-set-up-your-azure-stack-edge-pro-devices).
 - If you're not enabling NAPT as described in [Allocate user equipment (UE) IP address pools](#allocate-user-equipment-ue-ip-address-pools), configure the data network to route traffic destined for the UE IP address pools via the IP address you allocated to the packet core instance's user plane interface on the data network.
 
+### Ports required for local access
+
+The following table contains the ports you need to open for Azure Private 5G Core local access. This includes local management access and control plane signalling.
+<!-- Should we clarify:
+- The reference for In and Outbound?
+- What is meant by ASE interface?
+- 5Gi? As far as I can tell this is the first time we reference it.
+ -->
+
+You should set these up in addition to [the ports required for Azure Stack Edge (ASE)](../databox-online/azure-stack-edge-gpu-system-requirements.md#networking-por-requirements).
+
+| Port | ASE interface | Description|
+|--|--|--|
+| TCP 443 Inbound      | Management (LAN)        | Access to local monitoring tools (packet core dashboards and distributed tracing). |
+| SCTP 38412 Inbound   | Port 5 (Access network) | Control plane access signalling (N2 interface).</br>Only required for 5G deployments. |
+| SCTP 36412 Inbound   | Port 5 (Access network) | Control plane access signalling (S1-C interface).</br>Only required for 4G deployments. |
+| UDP 2152 In/Outbound | Port 5 (Access network) | Access network user plane data (N3 interface for 5G, S1-U for 4G). |
+| All IP traffic       | Port 6 (Data network)   | Data network user plane data (N6 interface for 5G, SGi for 4G). |
+
 ## Order and set up your Azure Stack Edge Pro device(s)
 
 Do the following for each site you want to add to your private mobile network. Detailed instructions for how to carry out each step are included in the **Detailed instructions** column where applicable.
