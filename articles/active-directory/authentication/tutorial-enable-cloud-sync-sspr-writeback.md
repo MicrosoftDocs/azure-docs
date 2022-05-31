@@ -77,7 +77,7 @@ If you no longer want to use the SSPR password writeback functionality you have 
 1. Set **Write back passwords to your on-premises directory?** to **No**. 
 1. Set **Allow users to unlock accounts without resetting their password?** to **No**. 
 
-From your Azure AD Connect cloud sync server, run `Set-AADCloudSyncPasswordWritebackConfiguration` using global administrator credentials to disable password writeback with Azure AD Connect cloud sync. 
+From your Azure AD Connect cloud sync server, run `Set-AADCloudSyncPasswordWritebackConfiguration` using Hybrid Identity Administrator credentials to disable password writeback with Azure AD Connect cloud sync. 
 
 ```powershell
 Import-Module ‘C:\\Program Files\\Microsoft Azure AD Connect Provisioning Agent\\Microsoft.CloudSync.Powershell.dll’ 
