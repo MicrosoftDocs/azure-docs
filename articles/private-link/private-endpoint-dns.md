@@ -5,7 +5,7 @@ services: private-link
 author: asudbring
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 03/23/2022
+ms.date: 05/31/2022
 ms.author: allensu
 ms.custom: fasttrack-edit
 
@@ -43,7 +43,7 @@ For Azure services, use the recommended zone names as described in the following
 |---|---|---|
 | Azure Automation / (Microsoft.Automation/automationAccounts) / Webhook, DSCAndHybridWorker | privatelink.azure-automation.net | azure-automation.net |
 | Azure SQL Database (Microsoft.Sql/servers) / sqlServer | privatelink.database.windows.net | database.windows.net |
-| **Azure SQL Managed Instance** (Microsoft.Sql/managedInstances) | privatelink.{dnsPrefix}.database.windows.net | {instanceName}.{dnsPrefix}.database.windows.net |
+| Azure SQL Managed Instance (Microsoft.Sql/managedInstances) | privatelink.{dnsPrefix}.database.windows.net | {instanceName}.{dnsPrefix}.database.windows.net |
 | Azure Synapse Analytics (Microsoft.Synapse/workspaces) / Sql  | privatelink.sql.azuresynapse.net | sql.azuresynapse.net |
 | Azure Synapse Analytics (Microsoft.Synapse/workspaces) / SqlOnDemand  | privatelink.sql.azuresynapse.net | sqlondemand.azuresynapse.net |
 | Azure Synapse Analytics (Microsoft.Synapse/workspaces) / Dev  | privatelink.dev.azuresynapse.net | dev.azuresynapse.net |
@@ -65,7 +65,7 @@ For Azure services, use the recommended zone names as described in the following
 | Azure Database for MariaDB (Microsoft.DBforMariaDB/servers) / mariadbServer | privatelink.mariadb.database.azure.com | mariadb.database.azure.com |
 | Azure Key Vault (Microsoft.KeyVault/vaults) / vault | privatelink.vaultcore.azure.net | vault.azure.net <br> vaultcore.azure.net |
 | Azure Key Vault (Microsoft.KeyVault/managedHSMs) / Managed HSMs | privatelink.managedhsm.azure.net | managedhsm.azure.net |
-| Azure Kubernetes Service - Kubernetes API (Microsoft.ContainerService/managedClusters) / management | privatelink.{region}.azmk8s.io | {region}.azmk8s.io |
+| Azure Kubernetes Service - Kubernetes API (Microsoft.ContainerService/managedClusters) / management | privatelink.{region}.azmk8s.io </br> {subzone}.privatelink.{region}.azmk8s.io | {region}.azmk8s.io |
 | Azure Search (Microsoft.Search/searchServices) / searchService | privatelink.search.windows.net | search.windows.net |
 | Azure Container Registry (Microsoft.ContainerRegistry/registries) / registry | privatelink.azurecr.io | azurecr.io |
 | Azure App Configuration (Microsoft.AppConfiguration/configurationStores) / configurationStores | privatelink.azconfig.io | azconfig.io |
@@ -91,12 +91,44 @@ For Azure services, use the recommended zone names as described in the following
 | Microsoft Purview (Microsoft.Purview) / portal| privatelink.purviewstudio.azure.com | purview.azure.com |
 | Azure Digital Twins (Microsoft.DigitalTwins) / digitalTwinsInstances | privatelink.digitaltwins.azure.net | digitaltwins.azure.net |
 | Azure HDInsight (Microsoft.HDInsight) | privatelink.azurehdinsight.net | azurehdinsight.net |
-| Azure Arc (Microsoft.HybridCompute) / hybridcompute | privatelink.his.arc.azure.com<br />privatelink.guestconfiguration.azure.com | his.arc.azure.com<br />guestconfiguration.azure.com |
+| Azure Arc (Microsoft.HybridCompute) / hybridcompute | privatelink.his.arc.azure.com<br />privatelink.guestconfiguration.azure.com | his.arc.azure.com<br/>guestconfiguration.azure.com |
 | Azure Media Services (Microsoft.Media) / keydelivery, liveevent, streamingendpoint | privatelink.media.azure.net | media.azure.net |
 | Azure Data Explorer (Microsoft.Kusto) | privatelink.{region}.kusto.windows.net | {region}.kusto.windows.net |
-| Azure Static Web Apps (Microsoft.Web/Staticsites) / staticSites | privatelink.1.azurestaticapps.net | 1.azurestaticapps.net |
+| Azure Static Web Apps (Microsoft.Web/staticSites) / staticSites | privatelink.azurestaticapps.net </br> privatelink.{partitionId}.azurestaticapps.net | azurestaticapps.net </br> {partitionId}.azurestaticapps.net |
 
 <sup>1</sup>To use with IoT Hub's built-in Event Hub compatible endpoint. To learn more, see [private link support for IoT Hub's built-in endpoint](../iot-hub/virtual-network-support.md#built-in-event-hub-compatible-endpoint)
+
+### Government
+
+| Private link resource type / Subresource |Private DNS zone name | Public DNS zone forwarders |
+|---|---|---|
+| Azure Automation / (Microsoft.Automation/automationAccounts) / Webhook, DSCAndHybridWorker | privatelink.azure-automation.us | azure-automation.us |
+| Azure SQL Database (Microsoft.Sql/servers) / sqlServer | privatelink.database.usgovcloudapi.net | database.usgovcloudapi.net |
+| Azure SQL Managed Instance (Microsoft.Sql/managedInstances) | privatelink.{dnsPrefix}.database.usgovcloudapi.net | {instanceName}.{dnsPrefix}.database.usgovcloudapi.net |
+| Storage account (Microsoft.Storage/storageAccounts) / Blob (blob, blob_secondary) | privatelink.blob.core.usgovcloudapi.net | blob.core.usgovcloudapi.net |
+| Storage account (Microsoft.Storage/storageAccounts) / Table (table, table_secondary) | privatelink.table.core.usgovcloudapi.net | table.core.usgovcloudapi.net |
+| Storage account (Microsoft.Storage/storageAccounts) / Queue (queue, queue_secondary) | privatelink.queue.core.usgovcloudapi.net | queue.core.usgovcloudapi.net |
+| Storage account (Microsoft.Storage/storageAccounts) / File (file, file_secondary) | privatelink.file.core.usgovcloudapi.net | file.core.usgovcloudapi.net |
+| Storage account (Microsoft.Storage/storageAccounts) / Web (web, web_secondary) | privatelink.web.core.usgovcloudapi.net | web.core.usgovcloudapi.net |
+| Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / Sql | privatelink.documents.azure.us | documents.azure.us |
+| Azure Batch (Microsoft.Batch/batchAccounts) / batchAccount | privatelink.{region}.batch.usgovcloudapi.net | {region}.batch.usgovcloudapi.net |
+| Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers) / postgresqlServer | privatelink.postgres.database.usgovcloudapi.net | postgres.database.usgovcloudapi.net |
+| Azure Database for MySQL (Microsoft.DBforMySQL/servers) / mysqlServer | privatelink.mysql.database.usgovcloudapi.net | mysql.database.usgovcloudapi.net|
+| Azure Database for MariaDB (Microsoft.DBforMariaDB/servers) / mariadbServer | privatelink.mariadb.database.usgovcloudapi.net| mariadb.database.usgovcloudapi.net |
+| Azure Key Vault (Microsoft.KeyVault/vaults) / vault | privatelink.vaultcore.usgovcloudapi.net | vault.usgovcloudapi.net <br> vaultcore.usgovcloudapi.net |
+| Azure Search (Microsoft.Search/searchServices) / searchService | privatelink.search.windows.us | search.windows.us |
+| Azure App Configuration (Microsoft.AppConfiguration/configurationStores) / configurationStores | privatelink.azconfig.azure.us | azconfig.azure.us |
+| Azure Backup (Microsoft.RecoveryServices/vaults) / AzureBackup | privatelink.{region}.backup.windowsazure.us | {region}.backup.windowsazure.us |
+| Azure Site Recovery (Microsoft.RecoveryServices/vaults) / AzureSiteRecovery | privatelink.siterecovery.windowsazure.us | {region}.hypervrecoverymanager.windowsazure.us |
+| Azure Event Hubs (Microsoft.EventHub/namespaces) / namespace | privatelink.servicebus.usgovcloudapi.net | servicebus.usgovcloudapi.net|
+| Azure Service Bus (Microsoft.ServiceBus/namespaces) / namespace | privatelink.servicebus.usgovcloudapi.net| servicebus.usgovcloudapi.net |
+| Azure IoT Hub (Microsoft.Devices/IotHubs) / iotHub | privatelink.azure-devices.us<br/>privatelink.servicebus.windows.us<sup>1</sup> | azure-devices.us<br/>servicebus.usgovcloudapi.net |
+| Azure Relay (Microsoft.Relay/namespaces) / namespace | privatelink.servicebus.usgovcloudapi.net  | servicebus.usgovcloudapi.net  |
+| Azure Web Apps (Microsoft.Web/sites) / sites | privatelink.azurewebsites.us | azurewebsites.us |
+| Azure Monitor (Microsoft.Insights/privateLinkScopes) / azuremonitor | privatelink.adx.monitor.azure.us <br/> privatelink.	oms.opinsights.azure.us <br/> privatelink.ods.opinsights.azure.us <br/> privatelink.agentsvc.azure-automation.us <br/> privatelink.blob.core.usgovcloudapi.net | adx.monitor.azure.us <br/> oms.opinsights.azure.us<br/> ods.opinsights.azure.us<br/> agentsvc.azure-automation.us <br/> blob.core.usgovcloudapi.net |
+| Cognitive Services (Microsoft.CognitiveServices/accounts) / account | privatelink.cognitiveservices.azure.us  | cognitiveservices.azure.us  |
+| Azure Cache for Redis (Microsoft.Cache/Redis) / redisCache | privatelink.redis.cache.usgovcloudapi.net | redis.cache.usgovcloudapi.net |
+| Azure HDInsight (Microsoft.HDInsight) | privatelink.azurehdinsight.us | azurehdinsight.us |
 
 ### China
 

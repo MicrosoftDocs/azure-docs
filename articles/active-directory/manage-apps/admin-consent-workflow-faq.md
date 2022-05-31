@@ -8,8 +8,8 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: how-to
-ms.date: 11/17/2021
+ms.topic: reference
+ms.date: 05/27/2022
 ms.author: ergreenl
 ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
