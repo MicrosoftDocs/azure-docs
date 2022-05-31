@@ -9,9 +9,8 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/06/2022
+ms.date: 05/31/2022
 ms.author: jomondi
-ms.custom: aaddev, has-adal-ref
 ms.reviewer: celested
 ---
 
