@@ -51,7 +51,7 @@ In this tutorial, you learn how to:
       --sku Free_F1
     ```
 
-1. Get the key for later use.
+1. Get and hold the access key for later use.
 
     ```azurecli-interactive
     az webpubsub key show \
@@ -150,7 +150,7 @@ Before you can navigate to your new static site, the deployment build must first
       --query "defaultHostname"
     ```
 
-    Copy the URL to a command.
+    Hold the url to set in the Web PubSub event handler.
 
     ```azurecli-interactive
     STATIC_WEB_APP=<YOUR_STATIC_WEB_APP>
@@ -158,9 +158,9 @@ Before you can navigate to your new static site, the deployment build must first
 
 ## Configure the Web PubSub event handler
 
-At this point, you're able to view the chat room home page. However, there's last step to make your function api work, which is to configure the 
+Now you're very close to complete. The last step is to configure Web PubSub transfer client requests to your function APIs. 
 
-1. Run command to configure Web PubSub service events.
+1. Run command to configure Web PubSub service events. It's mapping to some functions under the `api` folder in your repo.
 
     ```azurecli-interactive
     az webpubsub hub create \
@@ -175,7 +175,7 @@ Now you're ready to play with your website **<YOUR_STATIC_WEB_APP>**. Copy it to
 
 ## Clean up resources
 
-If you're not going to continue to use this application, you can delete the resource group and the static web app by running the following command:
+If you're not going to continue to use this application, you can delete the resource group and the static web app by running the following command.
 
 ```azurecli-interactive
 az group delete --name my-awps-swa-group
