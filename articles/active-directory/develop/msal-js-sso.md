@@ -25,7 +25,7 @@ Azure Active Directory (Azure AD) enables SSO by setting a session cookie when a
 
 ## SSO between browser tabs for the same app
 
-When a user has your application open in several tabs and signs in on one of them, they can be signed into the same app open on the other tabs without being prompted. To do so, you'll need to set the the *cacheLocation* in MSAL.js configuration object to `localStorage` as shown below.
+When a user has your application open in several tabs and signs in on one of them, they can be signed into the same app open on the other tabs without being prompted. To do so, you'll need to set the *cacheLocation* in MSAL.js configuration object to `localStorage` as shown below.
 
 ```javascript
 const config = {
@@ -157,13 +157,13 @@ try {
 }
 ```
 
-However, be aware that there is a likelihood of silent sign-in errors if the application has multiple users in a single browser session or if the user has multiple accounts for that single browser session. You may see the following error show up in the event of multiple accounts:
+However, there's a likelihood of silent sign-in errors if the application has multiple users in a single browser session or if the user has multiple accounts for that single browser session. You may see the following error in the case of multiple accounts:
 
 ```txt
 InteractionRequiredAuthError: interaction_required: AADSTS16000: Either multiple user identities are available for the current request or selected account is not supported for the scenario.
 ```
 
-This indicates that the server could not determine which account to sign into, and will require either one of the parameters above (`account`, `login_hint`, `sid`) or an interactive sign-in to choose the account.
+The error indicates that the server couldn't determine which account to sign into, and will require either one of the parameters above (`account`, `login_hint`, `sid`) or an interactive sign-in to choose the account.
 
 ## Considerations when using `ssoSilent`
 
@@ -176,7 +176,7 @@ For better performance and to help avoid issues, set the `redirectUri` to a blan
 
 ### Third-party cookies
 
-`ssoSilent` attempts to open a hidden iframe and reuse an existing session with Azure AD. This will not work in browsers that block third-party cookies such as safari, and will lead to an interaction error:
+`ssoSilent` attempts to open a hidden iframe and reuse an existing session with Azure AD. This won't work in browsers that block third-party cookies such as safari, and will lead to an interaction error:
 
 ```txt
 InteractionRequiredAuthError: login_required: AADSTS50058: A silent sign-in request was sent but no user is signed in. The cookies used to represent the user's session were not sent in the request to Azure AD
@@ -221,6 +221,6 @@ Once the `cacheLocation` is configured, MSAL.js can read the cached state of the
 
 For more information about SSO, see:
 
-- [Single Sign-On SAML protocol](single-sign-on-saml-protocol.md)
+- [Single Sign-on SAML protocol](single-sign-on-saml-protocol.md)
 - [Optional token claims](active-directory-optional-claims.md)
 - [Configurable token lifetimes](active-directory-configurable-token-lifetimes.md)
