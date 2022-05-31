@@ -4,11 +4,16 @@ description: Learn how to determine which Azure regions have the weekly AKS rele
 services: container-service
 ms.topic: overview
 ms.date: 05/24/2022
+ms.author: nickoman
+author: nickomang
 
 ms.custom: mvc
 ---
 
 # AKS release tracker
+
+> [!NOTE]
+> The AKS release tracker is currently not accessible. When the feature is fully released, this article will be updated to include access instructions.
 
 AKS releases weekly rounds of fixes and feature and component updates that affect all clusters and customers. However, these releases can take up to two weeks to roll out to all regions from the initial time of shipping due to Azure Safe Deployment Practices (SDP). It is important for customers to know when a particular AKS release is hitting their region, and the AKS release tracker provides these details in real time by versions and regions.
 
