@@ -46,10 +46,10 @@ To recover a deleted App Configuration store the `Microsoft.AppConfiguration/con
 
 ## Permissions to read and purge deleted stores
 
-* List: `Microsoft.AppConfiguration/deletedConfigurationStores/read`
+* Read: `Microsoft.AppConfiguration/locations/deletedConfigurationStores/read`
 * Purge: `Microsoft.AppConfiguration/locations/deletedConfigurationStores/purge/action`
 
-To list deleted App Configuration stores the `Microsoft.AppConfiguration/deletedConfigurationStores/read` permission is needed. To purge a deleted App Configuration store the `Microsoft.AppConfiguration/locations/deletedConfigurationStores/purge/action` permission is needed. Permissions related to deleted configuration stores must be assigned at the subscription level. The built-in "Owner" and "Contributor" roles contain these permissions by default. This is because deleted configuration stores exist outside of individual resource groups.
+To list deleted App Configuration stores, or get an individual store by name the `Microsoft.AppConfiguration/locations/deletedConfigurationStores/read` permission is needed. To purge a deleted App Configuration store the `Microsoft.AppConfiguration/locations/deletedConfigurationStores/purge/action` permission is needed. The built-in "Owner" and "Contributor" roles contain these permissions by default. Permissions for reading and purging deleted App Configuration stores must be assigned at the subscription level. This is because deleted configuration stores exist outside of individual resource groups. 
 
 ## Billing implications
 
