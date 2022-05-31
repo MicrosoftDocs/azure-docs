@@ -9,7 +9,7 @@ ms.custom: references_regions
 # Create a simplified node communication pool without public IP addresses (preview)
 
 > [!NOTE]
-> This is replacement to the current preview version of [Azure Batch pool withoud public IP addresses](batch-pool-no-public-ip-address.md). This new version requires [using simplified compute node communication](simplified-compute-node-communication.md).
+> This replaces the previous preview version of [Azure Batch pool without public IP addresses](batch-pool-no-public-ip-address.md). This new version requires [using simplified compute node communication](simplified-compute-node-communication.md).
 
 > [!IMPORTANT]
 > - Support for pools without public IP addresses in Azure Batch is currently in public preview for selected regions.
@@ -124,11 +124,11 @@ In a pool without public IP addresses, your virtual machines won't be able to ac
 Another way to provide outbound connectivity is to use a user-defined route (UDR). This lets you route traffic to a proxy machine that has public internet access, for example [Azure Firewall](../firewall/overview.md).
 
 > [!IMPORTANT]
-> There is no extra network resource (load balancer, network security group) created for pools without public IP addresses (No Public IP v2). Since the compute nodes in the pool are not bound to any load balancer, Azure may provide [Default Outbound Access](../virtual-network/ip-services/default-outbound-access.md). However, Default Outbound Access is not suitable for production workloads, so it is strongly recommended to bring your own Internet outbound access.
+> There is no extra network resource (load balancer, network security group) created for simplified node communication pools without public IP addresses. Since the compute nodes in the pool are not bound to any load balancer, Azure may provide [Default Outbound Access](../virtual-network/ip-services/default-outbound-access.md). However, Default Outbound Access is not suitable for production workloads, so it is strongly recommended to bring your own Internet outbound access.
 
-## Migration from No Public IP v1 pools
+## Migration from previous preview version of No Public IP pools
 
-For existing pools using the previous preview version of [Azure Batch No Public IP pool](batch-pool-no-public-ip-address.md), they can only be migrated if the pool was created in a [virtual network](batch-virtual-network.md). The pool can be migrated following the [opt-in process for simplified node communication](simplified-compute-node-communication.md):
+For existing pools that use the [previous preview version of Azure Batch No Public IP pool](batch-pool-no-public-ip-address.md), it's only possible to migrate pools created in a [virtual network](batch-virtual-network.md). To migrate the pool, follow the [opt-in process for simplified node communication](simplified-compute-node-communication.md):
 
 1. Opt in to use simplified node communication.
 1. Create a [private endpoint for Batch node management](private-connectivity.md) in the virtual network.
