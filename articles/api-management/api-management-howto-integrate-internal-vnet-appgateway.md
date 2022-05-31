@@ -23,6 +23,11 @@ By combining API Management provisioned in an internal virtual network with the 
 * Use a single API Management resource and have a subset of APIs defined in API Management available for external consumers.
 * Provide a turnkey way to switch access to API Management from the public internet on and off.
 
+For architectural guidance about using Application Gateway with API Management, see:
+* [Basic enterprise integration](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
+* [API Management landing zone accelerator](/azure/architecture/example-scenario/integration/app-gateway-internal-api-management-function?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
+
+
 > [!NOTE]
 > This article has been updated to use the [Application Gateway WAF_v2 SKU](../application-gateway/application-gateway-autoscaling-zone-redundant.md).
 
