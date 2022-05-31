@@ -83,7 +83,7 @@ Even if a data model change is an intended part of the overall migration, it's g
 
 When migrating from Netezza, often the existing data model is already suitable for as-is migration to Azure Synapse.
 
-#### Migrate data marts&mdash;stay physical or go virtual?
+#### Migrate data marts: stay physical or go virtual?
 
 > [!TIP]
 > Virtualizing data marts can save on storage and processing resources.
