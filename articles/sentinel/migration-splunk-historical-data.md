@@ -1,5 +1,5 @@
 ---
-title: Microsoft Sentinel migration: Export ArcSight data to target platform | Microsoft Docs
+title: "Microsoft Sentinel migration: Export Splunk data to target platform | Microsoft Docs"
 description: Learn how to export your historical data from Splunk.
 author: limwainstein
 ms.author: lwainstein
@@ -36,7 +36,6 @@ This `dump` command exports all events from the `bigdata` index to the `YYYYmmdd
 ```
 index=bigdata | eval _dstpath=strftime(_time, "%Y%m%d/%H") + "/" + host | dump basefilename=MyExport format=csv 
 ```
-
 ## Next steps
 
 - [Select a target Azure platform to host the exported historical data](migration-ingestion-target-platform.md)

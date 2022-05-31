@@ -1,5 +1,5 @@
 ---
-title: Select a target Azure platform to host the exported historical data | Microsoft Docs
+title: "Microsoft Sentinel migration: Select a target Azure platform to host exported data | Microsoft Docs"
 description: Select a target Azure platform to host the exported historical data 
 author: limwainstein
 ms.author: lwainstein
