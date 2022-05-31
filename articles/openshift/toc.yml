@@ -40,7 +40,7 @@
           href: howto-restrict-egress.md
     - name: Storage
       items:
-        - name: Encrypt cluster data with customer-managed key (preview)
+        - name: Encrypt cluster data with customer-managed key
           href: howto-byok.md
         - name: Create an Azure Files Storageclass
           href: howto-create-a-storageclass.md
