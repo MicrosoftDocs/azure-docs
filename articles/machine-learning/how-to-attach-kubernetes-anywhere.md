@@ -472,16 +472,27 @@ spec:
 > [!IMPORTANT]
 > Only the job pods in the same Kubernetes namespace with the PVC(s) will be mounted the volume. Data scientist is able to access the `mount path` specified in the PVC annotation in the job.
 
-## Appendix V: Supported region, Kubernetes and AzureML extension version
+## Appendix V: Supported Kubernetes distribution and version, AzureML extension region and version
 
-- AzureML extension region availability, 
-  - East US, East US 2, South Central US, West US 2, Australia East, Southeast Asia, North Europe, UK South, West Europe, West Central US, Central US, North Central US, West US, Korea Central, France Central
-
+- Supported Kubernetes distribution,
+  * Azure Kubernetes Services (AKS)
+  * AKS Engine
+  * AKS on Azure Stack HCI
+  * Azure RedHat OpenShift Service (ARO)
+  * OpenShift Container Platform (OCP)
+  * Google GKE  
+  * Amazon EKS 
+  * Canonical Kubernetes Distribution
+  * Minikube
+  * Kind
+  * K3s-Lightweight Kubernetes 
 - Kubernetes clusters installing AzureML extension have a version support window of "N-2", that is aligned with [Azure Kubernetes Service (AKS) version support policy](../aks/supported-kubernetes-versions.md#kubernetes-version-support-policy), where 'N' is the latest GA minor version of Azure Kubernetes Service.
 
   - For example, if AKS introduces 1.20.a today, versions 1.20.a, 1.20.b, 1.19.c, 1.19.d, 1.18.e, and 1.18.f are supported.
 
   - If customers are running an unsupported Kubernetes version, they will be asked to upgrade when requesting support for the cluster. Clusters running unsupported Kubernetes releases are not covered by the AzureML extension support policies.
+- AzureML extension region availability, 
+  - East US, East US 2, South Central US, West US 2, Australia East, Southeast Asia, North Europe, UK South, West Europe, West Central US, Central US, North Central US, West US, Korea Central, France Central
 - General available (GA) version of AzureML extension >= 1.0.101
 
 
