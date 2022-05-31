@@ -1,7 +1,7 @@
 ---
 title: Set up SNMP MIB monitoring
 description: You can perform sensor health monitoring by using SNMP. The sensor responds to SNMP queries sent from an authorized monitoring server.
-ms.date: 01/31/2022
+ms.date: 05/31/2022
 ms.topic: how-to
 ---
 
@@ -50,7 +50,7 @@ Note that:
     
         | Parameter | Description |
         |--|--|
-        | **Username** | The SNMP username can contain up to 32 characters and include any combination of alphanumeric characters (uppercase letters, lowercase letters, and numbers). Spaces are not allowed. <br /> <br />The username for the SNMP v3 authentication must be configured on the system and on the SNMP server. |
+        | **Username** | The SNMP username can contain up to 32 characters and include any combination of alphanumeric characters (uppercase letters, lowercase letters, and numbers). Spaces aren't allowed. <br /> <br />The username for the SNMP v3 authentication must be configured on the system and on the SNMP server. |
         | **Password** | Enter a case-sensitive authentication password. The authentication password can contain 8 to 12 characters and include any combination of alphanumeric characters (uppercase letters, lowercase letters, and numbers). <br /> <br/>The username for the SNMP v3 authentication must be configured on the system and on the SNMP server. |
         | **Auth Type** | Select MD5 or SHA-1. |
         | **Encryption** | Select DES (56 bit key size)<sup>[1](#1)</sup> or AES (AES 128 bits supported)<sup>[2](#2)</sup>. |
