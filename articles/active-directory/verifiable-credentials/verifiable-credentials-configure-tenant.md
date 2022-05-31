@@ -12,7 +12,7 @@ ms.date: 05/06/2022
 
 ---
 
-# Configure your tenant for Azure AD Verifiable Credentials (preview)
+# Configure your tenant for Azure AD Verifiable Credentials (preview) P0, base article for tutorial set, next steps can be either workplace credentials or custom
 
 [!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
