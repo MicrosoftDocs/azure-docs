@@ -1,6 +1,6 @@
 ---
 title: 'Migrate to Azure Machine Learning - Consume pipeline endpoints'
-description: Learn how to integrate pipeline endpoints with client applications in Azure Machine Learning as part of migrating from Machine Learning Studio (classic).
+description: Learn how to integrate pipeline endpoints with client applications in Azure Machine Learning as part of migrating from Machine Learning Studio (Classic).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio-classic
@@ -30,7 +30,7 @@ This article is part of the ML Studio (classic) to Azure Machine Learning migrat
 
 If you deployed your model as a *real-time endpoint*, you can find its REST endpoint, and pre-generated consumption code in C#, Python, and R:
 
-1. Go to Azure Machine Learning Studio ([ml.azure.com](https://ml.azure.com)).
+1. Go to Azure Machine Learning studio ([ml.azure.com](https://ml.azure.com)).
 1. Go the **Endpoints** tab.
 1. Select your real-time endpoint.
 1. Select **Consume**.
@@ -49,7 +49,7 @@ There are two ways to consume a pipeline endpoint:
 
 Call the REST endpoint from your client application. You can use the Swagger specification for your endpoint to understand its schema:
 
-1. Go to Azure Machine Learning Studio ([ml.azure.com](https://ml.azure.com)).
+1. Go to Azure Machine Learning studio ([ml.azure.com](https://ml.azure.com)).
 1. Go the **Endpoints** tab.
 1. Select **Pipeline endpoints**.
 1. Select your pipeline endpoint.
