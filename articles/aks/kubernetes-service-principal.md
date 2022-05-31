@@ -283,6 +283,12 @@ ls -la $HOME/.azure/aksServicePrincipal.json
 
 The default expiration time for the service principal credentials is one year. If your *aksServicePrincipal.json* file is older than one year, delete the file and try to deploy an AKS cluster again.
 
+The Azure CLI can run in several shell environments, but with slight format variations.  If you have unexpected results with Azure CLI commands, see the following three articles for assistance:
+
+1. [Choose the right command-line tool](/cli/azure/choose-the-right-azure-command-line-tool)
+1. [Learn Bash with the Azure CLI](/cli/azure/azure-cli-learn-bash)
+1. [Tips for using the Azure CLI effectively](/cli/azure/use-cli-effectively)
+
 ### [Azure PowerShell](#tab/azure-powershell)
 
 The service principal credentials for an AKS cluster are cached by Azure PowerShell. If these credentials have expired, you encounter errors deploying AKS clusters. The following error message when running [New-AzAksCluster][new-azakscluster] may indicate a problem with the cached service principal credentials:
