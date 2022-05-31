@@ -53,13 +53,13 @@ If you want to reconcile costs with your price sheet or invoice, note the follow
 
 **Price Sheet price behavior** - The prices shown on the price sheet are the prices that you receive from Azure. They're scaled to a specific unit of measure. Unfortunately, the unit of measure doesn't always align to the unit of measure where the actual resource usage and charges are emitted.
 
-**cost details price behavior** - Usage files show scaled information that may not match precisely with the price sheet. Specifically:
+**Cost details price behavior** - Usage files show scaled information that may not match precisely with the price sheet. Specifically:
 
 - Unit Price - The price is scaled to match the unit of measure where the charges are actually emitted by Azure resources. If scaling occurs, then the price won't match the price seen in the Price Sheet.
 - Unit of Measure - Represents the unit of measure where charges are actually emitted by Azure resources.
 - Effective Price / Resource Rate - The price represents the actual rate that you end up paying per unit, after discounts are taken into account. It's the price that should be used with the Quantity to do Price \* Quantity calculations to reconcile charges. The price takes into account the following scenarios and the scaled unit price that's also present in the files. As a result, it might differ from the scaled unit price.
   - Tiered pricing - For example: $10 for the first 100 units, $8 for the next 100 units.
-  - Included quantity - For example: The first 100 units are free and then $10 per unit.
+  - Included quantity - For example: The first 100 units are free and then $10 for each unit.
   - Reservations
   - Rounding that occurs during calculation – Rounding takes into account the consumed quantity, tiered/included quantity pricing, and the scaled unit price.
 
@@ -77,7 +77,7 @@ If you have charges that you don't recognize, there are several things you can d
 
 For more information, see [Analyze unexpected charges](../understand/analyze-unexpected-charges.md).
 
-Note that Azure doesn't log most user actions. Instead, Azure logs resource usage for billing. If you notice a usage spike in the past and you didn't have logging enabled, Azure can't pinpoint the cause. Enable logging for the service that you want to view the increased usage for so that the appropriate technical team can assist you with the issue.
+Azure doesn't log most user actions. Instead, Azure logs resource usage for billing. If you notice a usage spike in the past and you didn't have logging enabled, Azure can't pinpoint the cause. Enable logging for the service that you want to view the increased usage for so that the appropriate technical team can assist you with the issue.
 
 ## Next steps
 

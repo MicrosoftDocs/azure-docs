@@ -152,23 +152,23 @@
         href: manage/assign-roles-azure-service-principals.md?toc=/azure/cost-management-billing/toc.json
     - name: API latency and rate limits
       href: automate/api-latency-rate-limits.md
-    - name: Ingest usage details
+    - name: Ingest cost details
       items:
-      - name: Usage details overview
+      - name: Cost details overview
         href: automate/automation-ingest-usage-details-overview.md
-      - name: Usage details best practices
+      - name: Cost details best practices
         href: automate/usage-details-best-practices.md
-      - name: Understand usage details data fields
+      - name: Understand cost details data fields
         href: automate/understand-usage-details-fields.md
       - name: Retrieve large datasets with exports
         href: costs/ingest-azure-usage-at-scale.md?toc=/azure/cost-management-billing/toc.json
       - name: Get small cost datasets on demand
         href: automate/get-small-usage-datasets-on-demand.md
-      - name: Get usage details as a legacy customer
+      - name: Get cost details as a legacy customer
         href: automate/get-usage-details-legacy-customer.md
-      - name: Get usage data with Azure CLI
+      - name: Get cost data with Azure CLI
         href: automate/get-usage-data-azure-cli.md
-      - name: Migrate from EA to MCA usage fields
+      - name: Migrate from EA to MCA cost fields
         href: automate/migrate-ea-mca-usage-fields.md
     - name: Budget automation
       items:
