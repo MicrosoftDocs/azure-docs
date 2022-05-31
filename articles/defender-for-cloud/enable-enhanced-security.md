@@ -2,9 +2,7 @@
 title: Enable Microsoft Defender for Cloud's integrated workload protections
 description: Learn how to enable enhanced security features to extend the protections of Microsoft Defender for Cloud to your hybrid and multicloud resources
 ms.topic: quickstart
-ms.author: benmansheim
-author: bmansheim
-ms.date: 11/09/2021
+ms.date: 05/31/2022
 ms.custom: mode-other
 ---
 
@@ -34,11 +32,8 @@ To enable all Defender for Cloud features including threat protection capabiliti
 
     1. From Defender for Cloud's main menu, select **Environment settings**.
     1. Select the subscription or workspace that you want to protect.
-    1. Select **Enable all Microsoft Defender plans** to upgrade.
+    1. Select **Enable all** to upgrade.
     1. Select **Save**.
-
-    > [!TIP]
-    > You'll notice that each Microsoft Defender plan is priced separately and can be individually set to on or off. For example, you might want to turn off Defender for App Service on subscriptions that don't have an associated Azure App Service plan. 
 
     :::image type="content" source="./media/enhanced-security-features-overview/pricing-tier-page.png" alt-text="Defender for Cloud's pricing page in the portal":::
 
@@ -64,11 +59,9 @@ If you need to disable enhanced security features for a subscription, the proced
  
 1. From Defender for Cloud's menu, open **Environment settings**.
 1. Select the relevant subscription.
-1. Select **Defender plans** and select **Enhanced security off**.
+1. Find the plan you wish to turn off and select **off**.
 
     :::image type="content" source="./media/enable-enhanced-security/disable-plans.png" alt-text="Enable or disable Defender for Cloud's enhanced security features.":::
-
-1. Select **Save**.
 
 > [!NOTE]
 > After you disable enhanced security features - whether you disable a single plan or all plans at once - data collection may continue for a short period of time. 
