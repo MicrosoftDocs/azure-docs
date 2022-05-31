@@ -2719,6 +2719,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/aks/keda.md",
+      "redirect_url": "/azure/aks/keda-about",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/analysis-services/analysis-services-create-model-portal.md",
       "redirect_url": "/azure/analysis-services/analysis-services-overview",
       "redirect_document_id": false
@@ -43272,6 +43277,11 @@
     {
       "source_path_from_root": "/articles/cognitive-services/translator/custom-translator/terminology.md",
       "redirect_url": "/azure/cognitive-services/translator/custom-translator/key-terms",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/generate-sas-tokens.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/create-sas-tokens",
       "redirect_document_id": false
     },
     {
