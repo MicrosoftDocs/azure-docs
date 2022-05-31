@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Create a serverless chat app using Azure Web PubSub service and Azure Static Web App service
-description: A tutorial to walk through how to use Azure Web PubSub service and Azure Static Web App to build a serverless chat application.
+title: Tutorial - Create a serverless chat app using Azure Web PubSub service and Azure Static Web Apps
+description: A tutorial to walk through how to use Azure Web PubSub service and Azure Static Web Apps to build a serverless chat application.
 author: JialinXin
 ms.author: jixin
 ms.service: azure-web-pubsub
@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 06/01/2022
 ---
 
-# Tutorial: Create a serverless chat app using Azure Web PubSub service and Azure Static Web App service
+# Tutorial: Create a serverless chat app using Azure Web PubSub service and Azure Static Web Apps
 
-The Azure Web PubSub service helps you build real-time messaging web applications using WebSockets. And with Azure Static Web App, you can automatically build and deploy full stack web apps to Azure from a code repository conveniently. In this tutorial, you learn how to use Azure Web PubSub service and Azure Static Web App to build a serverless real-time messaging application under chat room scenario.  
+The Azure Web PubSub service helps you build real-time messaging web applications using WebSockets. And with Azure Static Web Apps, you can automatically build and deploy full stack web apps to Azure from a code repository conveniently. In this tutorial, you learn how to use Azure Web PubSub service and Azure Static Web Apps to build a serverless real-time messaging application under chat room scenario.  
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Build a serverless chat app
 > * Work with Web PubSub function input and output bindings
-> * Work with Static Web App
+> * Work with Static Web Apps
 
 ## Prerequisites
 
@@ -114,7 +114,7 @@ Now that the repository is created, you can create a static web app from the Azu
 
 5. Select the **Authorize AzureAppServiceCLI** button.
 
-6. Configure static web app settings.
+6. Configure the static web app settings.
 
     ```azurecli-interactive
     az staticwebapp appsettings set \
