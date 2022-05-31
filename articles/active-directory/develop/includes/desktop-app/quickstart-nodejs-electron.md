@@ -53,12 +53,28 @@ To register your application and add the app's registration information to your 
 1. Edit *.env* and replace the values of the fields `TENANT_ID` and `CLIENT_ID` with the following snippet:
 
    ```
-   "TENANT_ID": "Enter_the_Tenant_Id_Here",
-   "CLIENT_ID": "Enter_the_Application_Id_Here"
+    # Credentials
+        CLIENT_ID=Enter_the_Application_Id_Here
+        TENANT_ID=Enter_the_Tenant_Id_Here
+    # Configuration
+        REDIRECT_URI=msal://redirect
+    # Endpoints
+        AAD_ENDPOINT_HOST=Enter_the_Cloud_Instance_Id_Here
+        GRAPH_ENDPOINT_HOST=Enter_the_Graph_Endpoint_Here
+    # RESOURCES
+        GRAPH_ME_ENDPOINT=v1.0/me
+        GRAPH_MAIL_ENDPOINT=v1.0/me/messages
+    # SCOPES
+        GRAPH_SCOPES=User.Read Mail.Read
    ```
    Where:
    - `Enter_the_Application_Id_Here` - is the **Application (client) ID** for the application you registered.
    - `Enter_the_Tenant_Id_Here` - replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
+   - `Enter_the_Cloud_Instance_Id_Here`: The Azure cloud instance in which your application is registered.
+  - For the main (or *global*) Azure cloud, enter `https://login.microsoftonline.com/`.
+  - `Enter_the_Graph_Endpoint_Here` is the instance of the Microsoft Graph API the application should communicate with.
+    - For the **global** Microsoft Graph API endpoint, replace both instances of this string with `https://graph.microsoft.com/`.
+    - For endpoints in **national** cloud deployments, see [National cloud deployments](/graph/deployments) in the Microsoft Graph documentation.
 
 > [!TIP]
 > To find the values of **Application (client) ID**, **Directory (tenant) ID**, go to the app's **Overview** page in the Azure portal.
@@ -83,7 +99,9 @@ You should see application's UI with a **Sign in** button.
 
 ## How the sample works
 
-Below, some of the important aspects of the sample application are discussed.
+When a user selects the **Sign In** button for the first time, get `getTokenInteractive` method of *AuthProvider.js* is called. This method redirects the user to sign-in with the *Microsoft identity platform endpoint* and validate the user's credentials, and then obtains an **authorization code**. This code is then exchanged for an access token using `acquireTokenByCode` public API of MSAL Node.
+
+The ID token contains basic information about the user, like their display name. The access token has a limited lifetime and expires after 24 hours. If you plan to use these tokens for accessing protected resource, your back-end server *must* validate it to guarantee the token was issued to a valid user for your application.
 
 ### MSAL Node
 
