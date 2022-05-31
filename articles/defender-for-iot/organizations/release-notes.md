@@ -19,7 +19,13 @@ Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Term
 
 The Defender for IoT architecture uses on-premises sensors and management servers. This section describes the servicing information and timelines for the available on-premises software versions.
 
-- Each General Availability (GA) version of the Defender for IoT sensor and on-premises management console software is supported for nine months after release. Fixes and new functionality are applied to each new version and aren't applied to older versions.
+- Each General Availability (GA) version of the Defender for IoT sensor and on-premises management console software is supported for nine months after its first minor release date, not including hotfix releases. Release versions have the following syntax:
+
+    **<Major><Minor><Hotfix>**
+
+    Therefore, for example, all 22.1.x versions, including all hotfix versions, are supported for nine months after the first 22.1.x release, which was 22.1.1 in February 2022.
+
+    Fixes and new functionality are applied to each new version and are not applied to older versions.
 
 - Software update packages include new functionality and security patches. Urgent, high-risk security updates are applied in minor versions that may be released throughout the quarter.
 
@@ -35,13 +41,12 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 | Version | Date released | End support date |
 |--|--|--|
-| 22.2.3 | 06/2022 | 1/2023 |
-| 22.2.1 | 05/2022 | 1/2023 |
-| 22.1.4 | 04/2022 | 12/2022 |
-| 22.1.3 | 03/2022 | 11/2022 |
+| 22.2.3 | 06/2022 | 3/2023 |
+| 22.1.4 | 04/2022 | 10/2022 |
+| 22.1.3 | 03/2022 | 10/2022 |
 | 22.1.1 | 02/2022 | 10/2022 |
-| 10.5.5 | 12/2021 | 09/2022 |
-| 10.5.4 | 12/2021 | 09/2022 |
+| 10.5.5 | 12/2021 | 07/2022 |
+| 10.5.4 | 12/2021 | 07/2022 |
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
 
