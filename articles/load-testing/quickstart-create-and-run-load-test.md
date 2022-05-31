@@ -49,7 +49,7 @@ Azure Load Testing enables you to quickly create a load test from the Azure port
 
 1. On the **Quickstart test** page, enter the **Test URL**.
 
-    Enter the complete URL that you would like to run the test for. For example, https://www.example.com/login.
+    Enter the complete URL that you would like to run the test for. For example, `https://www.example.com/login`.
 
 1. (Optional) Update the **Number of virtual users** to the total number of virtual users. 
 
