@@ -7,15 +7,15 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 05/11/2022
+ms.date: 05/31/2022
 ms.custom: mode-ui
 ---
 
 # Quickstart: Create a knowledge store in the Azure portal
 
-[Knowledge store](knowledge-store-concept-intro.md) is a feature of Azure Cognitive Search that accepts output from an [AI enrichment pipeline](cognitive-search-concept-intro.md) and makes it available in Azure Storage for downstream apps and workloads. Enrichments created by the pipeline - such as translated text, OCR text, tagged images, and recognized entities - are projected into tables or blobs, where they can be accessed by any app or workload that connects to Azure Storage.
+[Knowledge store](knowledge-store-concept-intro.md) is a feature of Azure Cognitive Search that accepts output from an [AI enrichment pipeline](cognitive-search-concept-intro.md) and makes it available in Azure Storage for downstream apps and workloads. 
 
-In this quickstart, you'll set up your data and then run the **Import data** wizard to create an enrichment pipeline that also generates a knowledge store. The knowledge store will contain original text content pulled from the source (customer reviews of a hotel), plus AI-generated content that includes a sentiment label, key phrase extraction, and text translation of non-English customer comments.
+In this quickstart, you'll set up some sample data and then run the **Import data** wizard to create an enrichment pipeline that also generates a knowledge store. The knowledge store will contain original text content pulled from the source (customer reviews of a hotel), plus AI-generated content that includes a sentiment label, key phrase extraction, and text translation of non-English customer comments.
 
 > [!NOTE]
 > This quickstart shows you the fastest route to a finished knowledge store in Azure Storage. For more detailed explanations of each step, see [Create a knowledge store in REST](knowledge-store-create-rest.md) instead.
@@ -143,7 +143,7 @@ In the **Overview** page, open the **Indexers** tab in the middle of the page, a
 
 ## Check tables in Azure portal
 
-1. In the Azure portal, [open the Storage account](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) that you used to create the knowledge store.
+1. In the Azure portal, [open the Storage account](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) used to create the knowledge store.
 
 1. In the storage account's left navigation pane, select **Storage browser (preview)** to view the new tables. 
 
