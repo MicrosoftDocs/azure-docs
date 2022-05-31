@@ -4,7 +4,7 @@ description: In this quickstart, you create and test a private DNS resolver in A
 services: dns
 author: greg-lindsay
 ms.author: greglin
-ms.date: 05/11/2022
+ms.date: 05/31/2022
 ms.topic: quickstart
 ms.service: dns
 ms.custom: mode-ui
@@ -116,6 +116,18 @@ Create a second virtual network to simulate an on-premises or other environment.
     ![second vnet review](./media/dns-resolver-getstarted-portal/vnet-review.png)
 
     ![second vnet create](./media/dns-resolver-getstarted-portal/vnet-create.png)
+
+## Link your forwarding ruleset to the second virtual network
+
+To apply your forwarding ruleset to the second virtual network, create a virtual link.
+
+1. Search for **DNS forwarding rulesets** in the Azure services list and select your ruleset (ex: **myruleset**).
+2. Select **Virtual Network Links**, select **Add**, choose **myvnet2** and use the default Link Name **myvnet2-link**.
+3. Select **Add** and verify that the link was added successfully.  You might need to refresh the page.
+
+    ![ruleset virtual network links](./media/dns-resolver-getstarted-portal/ruleset-links.png)
+
+4. Select **Rules** and review or edit your conditional forwarding rules.
 
 ## Test the private resolver
 

@@ -6,7 +6,7 @@ ms.custom: references_regions
 author: greg-lindsay
 ms.service: dns
 ms.topic: overview
-ms.date: 05/25/2022
+ms.date: 05/31/2022
 ms.author: greglin
 #Customer intent: As an administrator, I want to evaluate Azure DNS Private Resolver so I can determine if I want to use it instead of my current DNS resolver service.
 ---
@@ -114,12 +114,15 @@ Subnets used for DNS resolver have the following limitations:
 ### Outbound endpoint restrictions
 
 Outbound endpoints have the following limitations:
-- An outbound endpoint can't be deleted unless the DNS forwarding ruleset and the virtual network links under it are deleted
+- An outbound endpoint can't be deleted unless the DNS forwarding ruleset and the virtual network links under it are deleted.
+
+### Ruleset restrictions
+
+Currently, rulesets can't be linked across different subscriptions.
 
 ### Other restrictions
 
 - IPv6 enabled subnets aren't supported in Public Preview
-
 
 ## Next steps
 
