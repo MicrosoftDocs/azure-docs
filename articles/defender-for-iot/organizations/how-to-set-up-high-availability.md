@@ -155,7 +155,7 @@ Perform the high availability update in the following order. Make sure each step
 
     :::image type="content" source="media/how-to-set-up-high-availability/update-high-availability-domain.jpg" alt-text="Find the domain associated with the secondary appliance":::
 
-    3. Remove the secondary domain from the trusted hosts list using the following command:
+    3. Remove the secondary domain from the list of trusted hosts. Run:
     
     ```bash
     sudo cyberx-management-trusted-hosts-remove -d [Secondary domain]
