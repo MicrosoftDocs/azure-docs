@@ -4,9 +4,9 @@ description: Learn about the architecture of Microsoft Defender for Containers f
 author: bmansheim
 ms.author: benmansheim
 ms.topic: overview
-ms.date: 05/18/2022
+ms.date: 05/31/2022
 ---
-# Defender for Containers Architecture
+# Defender for Containers architecture
 
 Defender for Containers is designed differently for each container environment whether they're running in:
 
@@ -19,7 +19,7 @@ Defender for Containers is designed differently for each container environment w
 - **An unmanaged Kubernetes distribution** (using Azure Arc-enabled Kubernetes) - Cloud Native Computing Foundation (CNCF) certified Kubernetes clusters hosted on-premises or on IaaS.
 
 > [!NOTE]
-> Defender for Containers support for Arc-enabled Kubernetes clusters (AWS EKS, and GCP GKE) is a preview feature.
+> Defender for Containers support for Arc-enabled Kubernetes clusters (AWS EKS and GCP GKE) is a preview feature.
 
 To protect your Kubernetes containers, Defender for Containers receives and analyzes:
 
@@ -27,6 +27,8 @@ To protect your Kubernetes containers, Defender for Containers receives and anal
 - Cluster configuration information from the control plane
 - Workload configuration from Azure Policy
 - Security signals and events from the node level
+
+## Architecture for each container environment
 
 ## [**Azure (AKS)**](#tab/defender-for-container-arch-aks)
 
@@ -41,7 +43,7 @@ The **Azure Policy add-on for Kubernetes** collects cluster and workload configu
 > [!NOTE]
 > Defender for Containers **Defender profile** is a preview feature.
 
-:::image type="content" source="./media/defender-for-containers/architecture-aks-cluster.png" alt-text="High-level architecture of the interaction between Microsoft Defender for Containers, Azure Kubernetes Service, and Azure Policy." lightbox="./media/defender-for-containers/architecture-aks-cluster.png":::
+:::image type="content" source="./media/defender-for-containers/architecture-aks-cluster.png" alt-text="Graphic of high-level architecture of the interaction between Microsoft Defender for Containers, Azure Kubernetes Service, and Azure Policy." lightbox="./media/defender-for-containers/architecture-aks-cluster.png":::
 
 ### Defender profile component details
 
@@ -66,7 +68,7 @@ Workload configuration information is collected by an Azure Policy add-on. As ex
 > [!NOTE]
 > Defender for Containers support for Arc-enabled Kubernetes clusters is a preview feature.
 
-:::image type="content" source="./media/defender-for-containers/architecture-arc-cluster.png" alt-text="High-level architecture of the interaction between Microsoft Defender for Containers, Azure Kubernetes Service, Azure Arc-enabled Kubernetes, and Azure Policy." lightbox="./media/defender-for-containers/architecture-arc-cluster.png":::
+:::image type="content" source="./media/defender-for-containers/architecture-arc-cluster.png" alt-text="Graphic of high-level architecture of the interaction between Microsoft Defender for Containers, Azure Kubernetes Service, Azure Arc-enabled Kubernetes, and Azure Policy." lightbox="./media/defender-for-containers/architecture-arc-cluster.png":::
 
 ## [**AWS (EKS)**](#tab/defender-for-container-arch-eks)
 
@@ -85,7 +87,7 @@ These components are required in order to receive the full protection offered by
 > [!NOTE]
 > Defender for Containers support for AWS EKS clusters is a preview feature.
 
-:::image type="content" source="./media/defender-for-containers/architecture-eks-cluster.png" alt-text="High-level architecture of the interaction between Microsoft Defender for Containers, Amazon Web Services' EKS clusters, Azure Arc-enabled Kubernetes, and Azure Policy." lightbox="./media/defender-for-containers/architecture-eks-cluster.png":::
+:::image type="content" source="./media/defender-for-containers/architecture-eks-cluster.png" alt-text="Graphic of high-level architecture of the interaction between Microsoft Defender for Containers, Amazon Web Services' EKS clusters, Azure Arc-enabled Kubernetes, and Azure Policy." lightbox="./media/defender-for-containers/architecture-eks-cluster.png":::
 
 ## [**GCP (GKE)**](#tab/defender-for-container-gke)
 
@@ -104,7 +106,7 @@ These components are required in order to receive the full protection offered by
 > [!NOTE]
 > Defender for Containers support for GCP GKE clusters is a preview feature.
 
-:::image type="content" source="./media/defender-for-containers/architecture-gke.png" alt-text="High-level architecture of the interaction between Microsoft Defender for Containers, Google GKE clusters, Azure Arc-enabled Kubernetes, and Azure Policy." lightbox="./media/defender-for-containers/architecture-gke.png":::
+:::image type="content" source="./media/defender-for-containers/architecture-gke.png" alt-text="Graphic of high-level architecture of the interaction between Microsoft Defender for Containers, Google GKE clusters, Azure Arc-enabled Kubernetes, and Azure Policy." lightbox="./media/defender-for-containers/architecture-gke.png":::
 
 ---
 
