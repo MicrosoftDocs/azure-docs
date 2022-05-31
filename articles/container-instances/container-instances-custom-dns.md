@@ -112,7 +112,7 @@ Copy the following YAML into a new file named *custom-dns-deploy-aci.yaml*. Edit
 > [!NOTE]
 > The DNS config fields aren't automatically queried at this time, so these fields must be explicitly filled out.
 
-```yml
+```yaml
 apiVersion: '2021-07-01'
 location: westus
 name: pwsh-vnet-dns
@@ -213,7 +213,7 @@ Enter `y` when prompted if you're sure you wish to perform the operation.
 
 ## Next steps
 
-See the Azure quickstart template [Create an Azure container group with VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aci-vnet), to deploy a container group within a virtual network.
+See the Azure quickstart template [Create an Azure container group with VNet](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.containerinstance/aci-vnet), to deploy a container group within a virtual network.
 
 <!-- LINKS - Internal -->
 [az-network-vnet-create]: /cli/azure/network/vnet#az-network-vnet-create
