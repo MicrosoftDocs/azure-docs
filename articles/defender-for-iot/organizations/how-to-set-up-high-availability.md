@@ -64,13 +64,16 @@ Verify that you've met the following high availability requirements:
 
 ### Network access requirements
 
-Verify if your organizational security policy allows you to hav access to the following services on the primary and secondary on-premises management console. These services also allow the connection between the sensors and secondary on-premises management console:
+Verify if your organizational security policy allows you to have access to the following services on the primary and secondary on-premises management console. These services also allow the connection between the sensors and secondary on-premises management console:
 
 |Port|Service|Description|
 |----|-------|-----------|
 |**443 or TCP**|HTTPS|Grants access to the on-premises management console web console.|
 |**22 or TCP**|SSH|Syncs the data between the primary and secondary on-premises management console appliances|
 |**123 or UDP**|NTP| The on-premises management console's NTP time sync. Verify that the active and passive appliances are defined with the same timezone.|
+
+> [!NOTE]
+> In this document, the principal on-premises management console is referred to as the primary, and the agent is referred to as the secondary.
 
 ## Create the primary and secondary pair
 
@@ -92,8 +95,6 @@ Verify that both the primary and secondary on-premises management console applia
     sudo cyberx-management-trusted-hosts-add -ip <Secondary IP> -token <connection string>
     ```
 
-    >[!NOTE]
-    > In this document, the principal on-premises management console is referred to as the primary, and the agent is referred to as the secondary.
 
 1. Enter the IP address of the secondary appliance in the ```<Secondary ip>``` field and select Enter. The IP address is then validated, and the SSL certificate is downloaded to the primary. Entering the IP address also associates the sensors to the secondary appliance.
 
@@ -137,59 +138,65 @@ The core application logs can be exported to the Defender for IoT support team t
 
 ## Update the on-premises management console with high availability
 
-Perform the high availability update in the following order. Make sure each step is complete before you begin a new step.
+To update an on-premises management console that has high availability configured, you will need to:
 
-**To update with high availability**:
+1. Disconnect the high availability from both the primary and secondary appliances. 
+1. Update the appliances to the new version. 
+1. Reconfigure the high availability back onto both appliances.
+
+Perform the update in the following order. Make sure each step is complete before you begin a new step.
+
+**To update an on-premises management console with high availability configured**:
 
 1. Disconnect the high availability from both the primary and secondary appliances:
 
     **On the primary:**
     
+    1. Get the list of the currently connected appliances. Run: 
 
-    1. List the currently connected appliance using the following command:
+        ```bash
+        cyberx-management-trusted-hosts-list
+        ```
 
-    ```bash
-    cyberx-management-trusted-hosts-list
-    ```
+    1. Find the domain associated with the secondary appliance and copy it to your clipboard. For example:
 
-    2. Find the domain associated with the secondary appliance and copy it to your clipboard. For example:
+        :::image type="content" source="media/how-to-set-up-high-availability/update-high-availability-domain.jpg" alt-text="Find the domain associated with the secondary appliance":::
 
-    :::image type="content" source="media/how-to-set-up-high-availability/update-high-availability-domain.jpg" alt-text="Find the domain associated with the secondary appliance":::
-
-    3. Remove the secondary domain from the list of trusted hosts. Run:
+    1. Remove the secondary domain from the list of trusted hosts. Run:
     
-    ```bash
-    sudo cyberx-management-trusted-hosts-remove -d [Secondary domain]
-    ```
+        ```bash
+        sudo cyberx-management-trusted-hosts-remove -d [Secondary domain]
+        ```
     
-    4. Verify that the certificate is installed correctly. Run:
+    1. Verify that the certificate is installed correctly. Run:
     
-    ```bash
-    sudo cyberx-management-trusted-hosts-apply
-    ```
+        ```bash
+        sudo cyberx-management-trusted-hosts-apply
+        ```
     
     **On the secondary:**
     
-    1. List the currently connected appliance using the following command:
+    1. Get the list of the currently connected appliances. Run: 
 
-    ```bash
-    cyberx-management-trusted-hosts-list
-    ```
-    2. Find the domain associated with the primary, and copy it. 
+        ```bash
+        cyberx-management-trusted-hosts-list
+        ```
 
-    3. Remove the primary <!--original text said secondary, I think it's a mistake--> domain from the trusted hosts list using the command:
-    
-    ```bash
-    sudo cyberx-management-trusted-hosts-remove -d [Primary domain]
-    ```
-    
-    4. Run the following command on the secondary to verify that the certificate is installed properly:
-    
-    ```bash
-    sudo cyberx-management-trusted-hosts-apply
-    ```
+    1. Find the domain associated with the primary appliance and copy it to your clipboard.
 
-1. Update both the primary and secondary appliances to the new version. <!--do we have an xref to instructions for this?--> 
+    1. Remove the primary <!--original text said secondary, I think it's a mistake--> domain from the list of trusted hosts. Run:
+    
+        ```bash
+        sudo cyberx-management-trusted-hosts-remove -d [Primary domain]
+        ```
+    
+    1. Verify that the certificate is installed correctly. Run:
+    
+        ```bash
+        sudo cyberx-management-trusted-hosts-apply
+        ```
+
+1. Update both the primary and secondary appliances to the new version. For more information, see [Update the software version](how-to-manage-the-on-premises-management-console.md#update-the-software-version).
 
 1. Set up high availability again, on both the primary and secondary appliances. For more information, see [Create the primary and secondary pair](#create-the-primary-and-secondary-pair).
 
