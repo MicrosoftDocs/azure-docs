@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 05/18/2022
+ms.date: 05/30/2022
 ---
 
 # What's new in Microsoft Defender for Cloud?
@@ -50,7 +50,7 @@ Learn more about [vulnerability management](deploy-vulnerability-assessment-tvm.
 
 ### JIT (Just-in-time) access for VMs is now available for AWS EC2 instances (Preview)
 
-When you [connect AWS accounts](quickstart-onboard-aws.md), JIT will automatically evaluate the network configuration of your instances, security groups and recommend which instances need protection for their exposed management ports. This is similar to how JIT works with Azure. When you onboard unprotected EC2 instances, JIT will block public access to the management ports and only open them with authorized requests for a limited time frame.
+When you [connect AWS accounts](quickstart-onboard-aws.md), JIT will automatically evaluate the network configuration of your instance's security groups and recommend which instances need protection for their exposed management ports. This is similar to how JIT works with Azure. When you onboard unprotected EC2 instances, JIT will block public access to the management ports and only open them with authorized requests for a limited time frame.
 
 Learn how [JIT protects your AWS EC2 instances](just-in-time-access-overview.md#how-jit-operates-with-network-resources-in-azure-and-aws)
 
@@ -59,7 +59,7 @@ Learn how [JIT protects your AWS EC2 instances](just-in-time-access-overview.md#
 The Defender profile (preview) is required for Defender for Containers to provide the runtime protections and collects signals from nodes. You can now use the Azure CLI to [add and remove the Defender profile](defender-for-containers-enable.md?tabs=k8s-deploy-cli%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Ck8s-remove-cli&pivots=defender-for-container-aks#use-azure-cli-to-deploy-the-defender-extension) for an AKS cluster.
 
 > [!NOTE]
-> This option is included in [Azure CLI 3.7 and above](/cli/azure/update-azure-cli.md).
+> This option is included in [Azure CLI 3.7 and above](https://docs.microsoft.com/cli/azure/update-azure-cli).
 
 ## April 2022
 
