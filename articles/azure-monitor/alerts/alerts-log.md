@@ -61,7 +61,7 @@ You can also [create log alert rules using Azure Resource Manager templates](../
 
     |Field  |Description  |
     |---------|---------|
-    |Dimension name|Dimensions can be either number or string columns. Dimensions are used to monitor specific time series and provide context to a fired alert.<br>Splitting on the Azure Resource ID column makes the specified resource into the alert target. If an Resource ID column is detected, it is selected automatically and changes the context of the fired alert to the record's resource.  |
+    |Dimension name|Dimensions can be either number or string columns. Dimensions are used to monitor specific time series and provide context to a fired alert.<br>Splitting on the Azure Resource ID column makes the specified resource into the alert target. If a Resource ID column is detected, it is selected automatically and changes the context of the fired alert to the record's resource.  |
     |Operator|The operator used on the dimension name and value.  |
     |Dimension values|The dimension values are based on data from the last 48 hours. Select **Add custom value** to add custom dimension values.  |
 
