@@ -4,8 +4,9 @@ description: Create a private cluster with Azure Red Hat OpenShift 3.11
 author: sakthi-vetrivel
 ms.author: suvetriv
 ms.service: azure-redhat-openshift
-ms.topic: conceptual
-ms.date: 03/02/2020
+ms.topic: how-to
+ms.date: 06/02/2022
+ms.custom: kr2b-contr-experiment
 keywords: aro, openshift, private cluster, red hat
 #Customer intent: As a customer, I want to create a private cluster on ARO OpenShift.
 ---
