@@ -434,7 +434,7 @@ This article demonstrates an individual enrollment for a single device to be pro
         * Select an IoT hub linked with your provisioning service.
         * Update the **Initial device twin state** with the desired initial configuration for the device.
 
-    :::image type="content" source="./media/quick-create-simulated-device-x509/add-individual-enrollment-with-cert.png" alt-text="Add device as individual enrollment with X.509 attestation.":::
+    :::image type="content" source="./media/quick-create-simulated-device-x509/add-individual-enrollment-with-cert.png" alt-text="Screenshot that shows adding an individual enrollment with X.509 attestation to DPS in Azure portal.":::
 
 7. Select **Save**. You'll be returned to **Manage enrollments**.
 
@@ -446,7 +446,7 @@ In this section, you'll update the sample code to send the device's boot sequenc
 
 ::: zone pivot="programming-language-ansi-c"
 
-In this section you'll use your Git Bash prompt and the Visual Studio IDE.
+In this section, you'll use your Git Bash prompt and the Visual Studio IDE.
 
 ### Configure the provisioning device code
 
@@ -456,7 +456,7 @@ In this section, you update the sample code with your Device Provisioning Servic
 
 1. Copy the **ID Scope** value.
 
-    :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope.png" alt-text="Copy ID Scope from the portal.":::
+    :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope.png" alt-text="Screenshot of the I D scope on Azure portal.":::
 
 1. Launch Visual Studio and open the new solution file that was created in the `cmake` directory you created in the root of the azure-iot-sdk-c git repository. The solution file is named `azure_iot_sdks.sln`.
 
@@ -570,7 +570,7 @@ In this section, you'll use your Windows command prompt.
 
 2. Copy the **ID Scope** value.
 
-    :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope.png" alt-text="Copy ID Scope from the portal.":::
+    :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope.png" alt-text="Screenshot of the I D scope on Azure portal.":::
 
 3. In your Windows command prompt, change to the X509Sample directory. This is located in the *.\azure-iot-samples-csharp\provisioning\Samples\device\X509Sample* directory off the directory where you cloned the samples on your computer.
 
@@ -615,7 +615,7 @@ In this section, you'll use your Windows command prompt.
 
 1. Copy the **ID Scope** and **Global device endpoint** values.
 
-    :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope-and-global-device-endpoint.png" alt-text="Copy ID Scope from the portal.":::
+    :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope-and-global-device-endpoint.png" alt-text="Screenshot of the I D scope and global device endpoint on Azure portal.":::
 
 1. In your Windows command prompt, go to the sample directory, and install the packages needed by the sample. The path shown is relative to the location where you cloned the SDK.
 
@@ -624,7 +624,7 @@ In this section, you'll use your Windows command prompt.
     npm install
     ```
 
-1. Edit the **register_x509.js** file amd make the following changes:
+1. Edit the **register_x509.js** file and make the following changes:
 
     * Replace `provisioning host` with the **Global Device Endpoint** noted in **Step 1** above.
     * Replace `id scope` with the **ID Scope** noted in **Step 1** above.
@@ -652,7 +652,7 @@ In this section, you'll use your Windows command prompt.
 
 1. Copy the **ID Scope** and **Global device endpoint** values.
 
-    :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope-and-global-device-endpoint.png" alt-text="Copy ID Scope from the portal.":::
+    :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope-and-global-device-endpoint.png" alt-text="Screenshot of the I D scope and global device endpoint on Azure portal.":::
 
 1. In your Windows command prompt, go to the directory of the [provision_x509.py](https://github.com/Azure/azure-iot-sdk-python/blob/main/azure-iot-device/samples/async-hub-scenarios/provision_x509.py) sample. The path shown is relative to the location where you cloned the SDK.
 
@@ -741,7 +741,7 @@ In this section, you'll use both your Windows command prompt and your Git Bash p
 
 1. Copy the **ID Scope** and **Global device endpoint** values.
 
-    :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope-and-global-device-endpoint.png" alt-text="Copy ID Scope from the portal.":::
+    :::image type="content" source="./media/quick-create-simulated-device-x509/copy-id-scope-and-global-device-endpoint.png" alt-text="Screenshot of the I D scope and global device endpoint on Azure portal.":::
 
 1. In your Windows command prompt, navigate to the sample project folder. The path shown is relative to the location where you cloned the SDK
 
@@ -782,7 +782,7 @@ In this section, you'll use both your Windows command prompt and your Git Bash p
 
     1. Update the string value of the `leafPrivateKey` constant with the unencrypted private key for your device certificate, *unencrypted-device-key.pem*.
 
-        The syntax of the private key text must follow the pattern below with no extra spaces or or characters.
+        The syntax of the private key text must follow the pattern below with no extra spaces or characters.
 
         ```java
         private static final String leafPrivateKey = "-----BEGIN PRIVATE KEY-----\n" +
@@ -871,7 +871,7 @@ To see which IoT hub your device was provisioned to, examine the registration de
 
 1. Select the enrollment entry. The IoT hub that your device was assigned to and its device ID appears under **Registration Status**.
 
-    :::image type="content" source="./media/quick-create-simulated-device-x509/individiual-enrollment-after-registration.png" alt-text="Screenshot that shows the individual enrollment registration status for the device.":::
+    :::image type="content" source="./media/quick-create-simulated-device-x509/individual-enrollment-after-registration.png" alt-text="Screenshot that shows the individual enrollment registration status tab for the device on Azure portal.":::
 
 To verify the device on your IoT hub:
 
@@ -881,7 +881,7 @@ To verify the device on your IoT hub:
 
 1. If your device was provisioned successfully, its device ID, *my-x509-device*, should appear in the list, with **Status** set as *enabled*. If you don't see your device, select **Refresh**.
 
-    :::image type="content" source="./media/quick-create-simulated-device-x509/iot-hub-registration.png" alt-text="Screenshot that shows the device is registered with the IoT hub.":::
+    :::image type="content" source="./media/quick-create-simulated-device-x509/iot-hub-registration.png" alt-text="Screenshot that shows the device is registered with the I o T hub in Azure portal.":::
 
 ::: zone pivot="programming-language-csharp,programming-language-nodejs,programming-language-python,programming-language-java"
 
