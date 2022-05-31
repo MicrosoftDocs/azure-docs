@@ -36,12 +36,14 @@ Before you can proceed with the tasks in this article you need to install:
 
 [!INCLUDE [azure-arc-angle-bracket-example](../../../includes/azure-arc-angle-bracket-example.md)]
 
+The `arcdata` extension version and the image version are related. Check that you have the correct `arcdata` extension version that corresponds to the image version you want to upgrade to in the [Version log](version-log.md).
+
 ## View available images and chose a version
 
 Pull the list of available images for the data controller with the following command:
 
    ```azurecli
-   az arcdata dc list-upgrades --k8s-namespace <custom location> 
+   az arcdata dc list-upgrades --k8s-namespace <namespace> 
    ```
 
 The command above returns output like the following example:
@@ -62,7 +64,9 @@ This section shows how to upgrade a directly connected data controller.
 > To upgrade, delete all non-GA database instances. You can find the list of generally available 
 > and preview services in the [Release Notes](./release-notes.md).
 
-### Upgrade  
+[!INCLUDE [upgrade-supported-path](upgrade-supported-path.md)]
+
+### Authenticate  
 
 You will need to connect and authenticate to a Kubernetes cluster and have an existing Kubernetes context selected prior to beginning the upgrade of the Azure Arc data controller.
 
@@ -70,10 +74,41 @@ You will need to connect and authenticate to a Kubernetes cluster and have an ex
 kubectl config use-context <Kubernetes cluster name>
 ```
 
+### Upgrade Arc data controller extension
+
+Upgrade the Arc data controller extension first. 
+
+Retrieve the name of your extension and its version by going to the Azure portal, browsing to the Overview blade of your Arc enabled Kubernetes cluster, and selecting the Extensions tab on the left. You can also retrieve the name of your extension and its version running `az` CLI.
+
+```azurecli
+az k8s-extension list --resource-group <resource-group> --cluster-name <connected cluster name> --cluster-type connectedClusters
+```
+
+Example:
+
+```azurecli
+az k8s-extension list --resource-group rg-arcds --cluster-name aks-arc --cluster-type connectedClusters
+```
+
+After retrieving the extension name and its version, the extension can be upgraded. 
+
+```azurecli
+az k8s-extension update --resource-group <resource-group> --cluster-name <connected cluster name> --cluster-type connectedClusters --name <name of extension> --version <extension version> --release-train stable --config systemDefaultValues.image="<registry>/<repository>/arc-bootstrapper:<imageTag>"
+```
+
+Example:
+
+```azurecli
+az k8s-extension update --resource-group rg-arcds --cluster-name aks-arc --cluster-type connectedClusters --name aks-arc-ext --version 
+1.2.19581002 --release-train stable --config systemDefaultValues.image="mcr.microsoft.com/arcdata/arc-bootstrapper:v1.7.0_2022-05-24"
+```
+
+### Upgrade data controller
+
 You can perform a dry run first. The dry run validates the registry exists, the version schema, and the private repository authorization token (if used). To perform a dry run, use the `--dry-run` parameter in the `az arcdata dc upgrade` command. For example:
 
 ```azurecli
-az arcdata dc upgrade --resource-group <resource group> --name <data controller name> --desired-version <version> [--no-wait]
+az arcdata dc upgrade --resource-group <resource group> --name <data controller name> --desired-version <version> --dry-run [--no-wait]
 ```
 
 The output for the preceding command is:
@@ -85,42 +120,17 @@ Preparing to upgrade dc arcdc in namespace arc to version <version-tag>.
 Arcdata Control Plane would be upgraded to: <version-tag>
 ```
 
-Upgrade the data controller by running an upgrade on the Arc data controller extension first. This can be done as follows:
+After the Arc data controller extension has been upgraded, run the `az arcdata dc upgrade` command, specifying the image tag with `--desired-version`.
 
 ```azurecli
-az k8s-extension update --resource-group <resource-group> --cluster-name <connected cluster name> --cluster-type connectedClusters --name <name of extension> --version <extension version> --release-train stable --config systemDefaultValues.image="<registry>/<repository>/arc-bootstrapper:<imageTag>"
+az arcdata dc upgrade --resource-group <resource group> --name <data controller name> --desired-version <version> [--no-wait]
 ```
-You can retrieve the name of your extension and its version, by browsing to the Overview blade of your Arc enabled kubernetes cluster and select Extensions tab on the left. You can also retrieve the name of your extension and its version running `az` CLI As follows:
+
+Example:
 
 ```azurecli
-az k8s-extension list --resource-group <resource-group> --cluster-name <connected cluster name> --cluster-type connectedClusters
+az arcdata dc upgrade --resource-group rg-arcds --name dc01 --desired-version v1.7.0_2022-05-24 [--no-wait]
 ```
-
-For example:
-
-```azurecli
-az k8s-extension list --resource-group myresource-group --cluster-name myconnected-cluster --cluster-type connectedClusters
-```
-
-After retrieving the Arc data controller extension name and its version, the extension can be upgraded as follows:
-
-For example:
-
-```azurecli
-az k8s-extension update --resource-group myresource-group --cluster-name myconnected-cluster --cluster-type connectedClusters --name arcdc-ext --version 1.2.19481002 --release-train stable --config systemDefaultValues.image="mcr.microsoft.com/arcdata/arc-bootstrapper:v1.6.0_2022-05-02"
-```
-
-Once the extension is upgraded, run the `az arcdata dc upgrade` command to upgrade the data controller. If you don't specify a target image, the data controller will be upgraded to the latest version.
-
-```azurecli
-az arcdata dc upgrade --resource-group <resource group> --name <data controller name> [--no-wait]
-```
-
-In example above, you can include `--desired-version <version>` to specify a version if you do not want the latest version. 
-
-> [!NOTE]
-> Currently upgrade is only supported to the next immediate version. Hence, if you are more than one version behind, specify the `--desired-version` to avoid compatibility issues.
-
 
 ## Monitor the upgrade status
 
