@@ -35,7 +35,7 @@ To enable all Defender for Cloud features including threat protection capabiliti
     1. Select **Enable all** to upgrade.
     1. Select **Save**.
 
-    :::image type="content" source="./media/enhanced-security-features-overview/pricing-tier-page.png" alt-text="Defender for Cloud's pricing page in the portal":::
+    :::image type="content" source="./media/enhanced-security-features-overview/pricing-tier-page.png" alt-text="Defender for Cloud's pricing page in the portal" lightbox="media/enhanced-security-features-overview/pricing-tier-page.png":::
 
 - To enable enhanced security on multiple subscriptions or workspaces:
 
@@ -43,15 +43,14 @@ To enable all Defender for Cloud features including threat protection capabiliti
 
         The **Upgrade** tab lists subscriptions and workspaces eligible for onboarding.
 
-        :::image type="content" source="./media/enable-enhanced-security/get-started-upgrade-tab.png" alt-text="Upgrade tab of the getting started page."::: 
+        :::image type="content" source="./media/enable-enhanced-security/get-started-upgrade-tab.png" alt-text="Upgrade tab of the getting started page." lightbox="media/enable-enhanced-security/get-started-upgrade-tab.png"::: 
 
     1. From the **Select subscriptions and workspaces to protect with Microsoft Defender for Cloud** list, select the subscriptions and workspaces to upgrade and select **Upgrade** to enable all Microsoft Defender for Cloud security features.
 
        - If you select subscriptions and workspaces that aren't eligible for trial, the next step will upgrade them and charges will begin.
        - If you select a workspace that's eligible for a free trial, the next step will begin a trial.
 
-        :::image type="content" source="./media/enable-enhanced-security/upgrade-selected-workspaces-and-subscriptions.png" alt-text="Upgrade all selected workspaces and subscriptions from the getting started page.":::
-
+        :::image type="content" source="./media/enable-enhanced-security/upgrade-selected-workspaces-and-subscriptions.png" alt-text="Upgrade all selected workspaces and subscriptions from the getting started page." lightbox="media/enable-enhanced-security/upgrade-selected-workspaces-and-subscriptions.png":::
 
 ## Disable enhanced security features
 
@@ -61,7 +60,7 @@ If you need to disable enhanced security features for a subscription, the proced
 1. Select the relevant subscription.
 1. Find the plan you wish to turn off and select **off**.
 
-    :::image type="content" source="./media/enable-enhanced-security/disable-plans.png" alt-text="Enable or disable Defender for Cloud's enhanced security features.":::
+    :::image type="content" source="./media/enable-enhanced-security/disable-plans.png" alt-text="Enable or disable Defender for Cloud's enhanced security features." lightbox="media/enable-enhanced-security/disable-plans.png":::
 
 > [!NOTE]
 > After you disable enhanced security features - whether you disable a single plan or all plans at once - data collection may continue for a short period of time. 
