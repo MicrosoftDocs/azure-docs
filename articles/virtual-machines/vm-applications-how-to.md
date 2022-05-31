@@ -168,6 +168,9 @@ Create a version of your application using `New-AzGalleryApplicationVersion`. Al
 In this example, we are creating version number *1.0.0*. Replace the values of the variables as needed.
 
 ```azurepowershell-interactive
+$galleryName = "myGallery"
+$rgName = "myResourceGroup"
+$applicationName = "myApp"
 $version = 1.0.0
 New-AzGalleryApplicationVersion `
    -ResourceGroupName $rgName `
