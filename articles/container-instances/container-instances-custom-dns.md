@@ -142,7 +142,7 @@ properties:
     ports:
     - port: 80
   subnetIds:
-    - id: /subscriptions/0a208fee-a542-4ced-bde6-f95a7d64d55d/resourceGroups/TomsTestResourceGroup/providers/Microsoft.Network/virtualNetworks/aci-vnet/subnets/aci-subnet
+    - id: /subscriptions/<subscription-ID>/resourceGroups/ACIResourceGroup/providers/Microsoft.Network/virtualNetworks/aci-vnet/subnets/aci-subnet
   osType: Linux
 tags: null
 type: Microsoft.ContainerInstance/containerGroups
@@ -203,7 +203,7 @@ az network vnet delete --resource-group ACIResourceGroup --name aci-vnet
 
 ### Delete resource group
 
-If you're don't plan to use this resource group outside of this guide, you can delete it with [az group delete][az-group-delete] command:
+If you don't plan to use this resource group outside of this guide, you can delete it with [az group delete][az-group-delete] command:
 
 ```azurecli
 az group delete --name ACIResourceGroup
