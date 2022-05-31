@@ -12,7 +12,7 @@ ms.date: 05/11/2022
 ---
 # Create a knowledge store using REST and Postman
 
-Knowledge store is a feature of Azure Cognitive Search that sends skillset output from an [AI enrichment pipeline](cognitive-search-concept-intro.md) to Azure Storage for subsequent knowledge mining, data analysis, or downstream processing. After the knowledge store is populated, you can use tools like [Storage Browser](knowledge-store-view-storage-explorer.md) or [Power BI](knowledge-store-connect-power-bi.md) to explore the content.
+Knowledge store is a feature of Azure Cognitive Search that sends skillset output from an [AI enrichment pipeline](cognitive-search-concept-intro.md) to Azure Storage for subsequent knowledge mining, data analysis, or downstream processing. After the knowledge store is populated, you can use tools like [Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) or [Power BI](knowledge-store-connect-power-bi.md) to explore the content.
 
 In this article, you'll learn how to use the REST API to ingest, enrich, and explore a set of customer reviews of hotel stays in a knowledge store in Azure Storage. The end result is a knowledge store that contains original text content pulled from the source, plus AI-generated content that includes a sentiment score, key phrase extraction, language detection, and text translation of non-English customer comments.
 
@@ -39,7 +39,7 @@ This  uses Azure Cognitive Search, Azure Blob Storage, and [Azure Cognitive Serv
 
 1. [Download HotelReviews_Free.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?sp=r&st=2019-11-04T01:23:53Z&se=2025-11-04T16:00:00Z&spr=https&sv=2019-02-02&sr=b&sig=siQgWOnI%2FDamhwOgxmj11qwBqqtKMaztQKFNqWx00AY%3D). This data is hotel review data saved in a CSV file (originates from Kaggle.com) and contains 19 pieces of customer feedback about a single hotel. 
 
-1. In the Azure Storage resource, use **Storage Browser** to create a blob container named **hotel-reviews**.
+1. In Azure portal, on the Azure Storage resource page, use **Storage Browser** to create a blob container named **hotel-reviews**.
 
 1. Select **Upload** at the top of the page to load the **HotelReviews-Free.csv** file you downloaded from the previous step.
 
@@ -397,7 +397,7 @@ After you send each request, the search service should respond with a 201 succes
 
 In the Azure portal, go to the Azure Cognitive Search service's **Overview** page. Select the **Indexers** tab, and then select **hotels-reviews-ixr**. Within a minute or two, status should progress from "In progress" to "Success" with zero errors and warnings.
 
-## Check tables in Storage Browser
+## Check tables in Azure portal
 
 In the Azure portal, switch to your Azure Storage account and use **Storage Browser** to view the new tables. You should see six tables, one for each projection defined in the skillset.
 
@@ -429,9 +429,7 @@ If you are using a free service, remember that you are limited to three indexes,
 
 ## Next steps
 
-Now that you've enriched your data by using Cognitive Services and projected the results to a knowledge store, you can use Storage Browser or other apps to explore your enriched data set.
-
-To learn how to explore this knowledge store by using Storage Browser, see this walkthrough:
+Now that you've enriched your data by using Cognitive Services and projected the results to a knowledge store, you can use Storage Explorer or other apps to explore your enriched data set.
 
 > [!div class="nextstepaction"]
-> [View with Storage Browser](knowledge-store-view-storage-explorer.md)
+> [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md)

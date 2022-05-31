@@ -1,26 +1,26 @@
 ---
 title: Knowledge store concepts
 titleSuffix: Azure Cognitive Search
-description: Send enriched documents to Azure Storage where you can view, reshape, and consume enriched documents in Azure Cognitive Search and in other applications.
+description: A knowledge store is enriched content created by an Azure Cognitive Search skillset and saved to Azure Storage for use in other apps and non-search scenarios.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/02/2021
+ms.date: 05/31/2022
 ---
 
 # Knowledge store in Azure Cognitive Search
 
 Knowledge store is a data sink created by a Cognitive Search [AI enrichment pipeline](cognitive-search-concept-intro.md) that stores enriched content in tables and blob containers in Azure Storage for independent analysis or downstream processing in non-search scenarios, like knowledge mining.
 
-If you have used cognitive skills in the past, you already know that *skillsets* move a document through a sequence of enrichments that invoke atomic transformations, such as recognizing entities or translating text. The outcome can be a search index, or projections in a knowledge store. The two outputs, search index and knowledge store, are mutually exclusive products of the same pipeline; derived from the same inputs, but resulting in output that is structured, stored, and used in different applications.
+If you've used cognitive skills in the past, you already know that enriched content is created by *skillsets*. Skillsets move a document through a sequence of enrichments that invoke atomic transformations, such as recognizing entities or translating text. The output can be a search index, or projections in a knowledge store. The two outputs, search index and knowledge store, are mutually exclusive products of the same pipeline; derived from the same inputs, but resulting in content that is structured, stored, and used in different applications.
 
 :::image type="content" source="media/knowledge-store-concept-intro/knowledge-store-concept-intro.svg" alt-text="Pipeline with skillset" border="false":::
 
 Physically, a knowledge store is [Azure Storage](../storage/common/storage-account-overview.md), either Azure Table Storage, Azure Blob Storage, or both. Any tool or process that can connect to Azure Storage can consume the contents of a knowledge store.
 
-Viewed through Storage Browser, a knowledge store looks like any other collection of tables, objects, or files. The following example shows a knowledge store composed of three tables with fields that are either carried forward from the data source, or created through enrichments (see "sentiment score" and "translated_text").
+Viewed through Azure portal, a knowledge store looks like any other collection of tables, objects, or files. The following example shows a knowledge store composed of three tables with fields that are either carried forward from the data source, or created through enrichments (see "sentiment score" and "translated_text").
 
 :::image type="content" source="media/knowledge-store-concept-intro/kstore-in-storage-explorer.png" alt-text="Skills read and write from enrichment tree" border="true":::
 
@@ -119,7 +119,7 @@ For .NET developers, use the [KnowledgeStore Class](/dotnet/api/azure.search.doc
 
 Once the enrichments exist in storage, any tool or technology that connects to Azure Blob or Table Storage can be used to explore, analyze, or consume the contents. The following list is a start:
 
-+ [Storage Browser](knowledge-store-view-storage-explorer.md) to view enriched document structure and content. Consider this as your baseline tool for viewing knowledge store contents.
++ [Storage Explorer](../storage/blobs/quickstart-storage-explorer.md) or Storage browser (preview) in Azure portal to view enriched document structure and content. Consider this as your baseline tool for viewing knowledge store contents.
 
 + [Power BI](knowledge-store-connect-power-bi.md) for reporting and analysis. 
 
