@@ -15,7 +15,7 @@ When you're creating an Azure Video Indexer account, you choose between:
 - A free trial account. Azure Video Indexer provides up to 600 minutes of free indexing to website users and up to 2,400 minutes of free indexing to API users.
 - A paid option where you're not limited by a quota. You create an Azure Video Indexer account that's [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for indexed minutes.
 
-For more information about account types, see [Media Services pricing](https://azure.microsoft.com/pricing/details/azure/media-services/).
+For more information about account types, see [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/).
 
 After you upload and index a video, you can use [Azure Video Indexer website](video-indexer-view-edit.md) or [Azure Video Indexer Developer Portal](video-indexer-use-apis.md) to see the insights of the video (see [Examine the Azure Video Indexer output](video-indexer-output-json-v2.md)).
 
@@ -91,7 +91,7 @@ Use this parameter to define an AI bundle that you want to apply on your audio o
 
 Azure Video Indexer covers up to two tracks of audio. If the file has more audio tracks, they're treated as one track. If you want to index the tracks separately, you need to extract the relevant audio file and index it as `AudioOnly`.
 
-Price depends on the selected indexing option. For more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/azure/media-services/).
+Price depends on the selected indexing option. For more information, see [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/).
 
 #### priority
 

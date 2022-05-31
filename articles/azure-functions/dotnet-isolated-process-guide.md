@@ -44,7 +44,7 @@ A .NET isolated function project is basically a .NET console app project that ta
 + Program.cs file that's the entry point for the app.
 + Any code files [defining your functions](#bindings).
  
-For complete examples, see the [.NET 6 isolated sample project](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples/FunctionApp) and the [.NET Framework 4.8 isolated sample project](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples/NetFxWorker).
+For complete examples, see the [.NET 6 isolated sample project](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples/FunctionApp) and the [.NET Framework 4.8 isolated sample project](https://go.microsoft.com/fwlink/p/?linkid=2197310).
 
 > [!NOTE]
 > To be able to publish your isolated function project to either a Windows or a Linux function app in Azure, you must set a value of `dotnet-isolated` in the remote [FUNCTIONS_WORKER_RUNTIME](functions-app-settings.md#functions_worker_runtime) application setting. To support [zip deployment](deployment-zip-push.md) and [running from the deployment package](run-functions-from-deployment-package.md) on Linux, you also need to update the `linuxFxVersion` site config setting to `DOTNET-ISOLATED|6.0`. To learn more, see [Manual version updates on Linux](set-runtime-version.md#manual-version-updates-on-linux). 
