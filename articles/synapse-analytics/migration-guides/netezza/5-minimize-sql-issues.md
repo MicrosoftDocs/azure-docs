@@ -65,7 +65,7 @@ The following sections discuss Netezza-specific options to consider during a mig
 
 When migrating tables between different technologies, only the raw data and its descriptive metadata get physically moved between the two environments. Other database elements from the source system, such as indexes and log files, aren't directly migrated as these may not be needed or may be implemented differently within the new target environment. For example, the `TEMPORARY` option within Netezza's `CREATE TABLE` syntax is equivalent to prefixing the table name with a "#" character in Azure Synapse.
 
-It's important to understand where performance optimizations&mdash;such as indexes&mdash;were used in the source environment. This indicates where performance optimization can be added in the new target environment. For example, if zone maps were created in the source Netezza environment, this might indicate that a non-clustered index should be created in the migrated Azure Synapse environment. Other native performance optimization techniques, such as table replication, may be more applicable than a straight "like-for-like" index creation.
+It's important to understand where performance optimizations&mdash;such as indexes&mdash;were used in the source environment. This indicates where performance optimization can be added in the new target environment. For example, if zone maps were created in the source Netezza environment, this might indicate that a non-clustered index should be created in the migrated Azure Synapse database. Other native performance optimization techniques, such as table replication, may be more applicable than a straight "like-for-like" index creation.
 
 ### Unsupported Netezza database object types
 
