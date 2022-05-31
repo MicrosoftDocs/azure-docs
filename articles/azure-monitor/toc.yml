@@ -651,6 +651,8 @@ items:
       href: autoscale/autoscale-resource-log-schema.md
   - name: Alerts
     items:
+    - name: Create a new alert rule
+      href: alerts/alerts-create-new-alert-rule.md
     - name: Metric alert rules
       items:
       - name: Manage metric alerts
