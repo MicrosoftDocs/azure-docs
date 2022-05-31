@@ -1,5 +1,5 @@
 ---
-title: Java app to connect and query Hyperscale (Citus) 
+title: Java app to connect and query Hyperscale (Citus)
 description: Learn building a simple app on Hyperscale (Citus) using java
 ms.author: sasriram
 author: saimicrosoft
@@ -68,11 +68,11 @@ Using your favorite IDE, create a new Java project, and add a pom.xml file in it
       <version>5.7.1</version>
       <scope>test</scope>
     </dependency>
-     <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>42.2.12</version>
-        </dependency>
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>42.2.12</version>
+    </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-params</artifactId>
@@ -101,14 +101,16 @@ This file is [Apache Maven](https://maven.apache.org/) that configures our proje
 ### Prepare a configuration file to connect to Hyperscale (Citus)
 
 Create a src/main/resources/application.properties file, and add:
+
 ``` properties
 url=jdbc:postgresql://<host>:5432/citus?ssl=true&sslmode=require
 user=citus
 password={your password}
 ```
-Replace the  \<host\> using the Connection string that you gathered previously. 
 
-> [!NOTE]                              
+Replace the  \<host\> using the Connection string that you gathered previously.
+
+> [!NOTE]
 > We append ?ssl=true&sslmode=require to the configuration property url, to tell the JDBC driver to use TLS (Transport Layer Security) when connecting to the database. It is mandatory to use TLS with Hyperscale (Citus), and it is a good security practice.
 
 ## Create tables in Hyperscale (Citus)
@@ -116,6 +118,7 @@ Replace the  \<host\> using the Connection string that you gathered previously.
 ### Create an SQL file to generate the database schema
 
 We'll use a src/main/resources/schema.sql file in order to create a database schema. Create that file, with the following content:
+
 ``` SQL
 DROP TABLE IF EXISTS public.pharmacy;
 CREATE TABLE  public.pharmacy(pharmacy_id integer,pharmacy_name text ,city text ,state text ,zip_code integer);
@@ -132,6 +135,7 @@ Citus gives you [the super power of distributing your table](overview.md#the-sup
 >
 
 Append the below command to the schema.sql file in the previous section if you wanted to distribute your table.
+
 ```SQL
 select create_distributed_table('public.pharmacy','pharmacy_id');
 ```
@@ -153,39 +157,39 @@ Create a src/main/java/DemoApplication.java file, that contains:
     import org.postgresql.core.BaseConnection;
     import java.io.IOException;
     public class DemoApplication {
-    
+
         private static final Logger log;
-    
+
         static {
             System.setProperty("java.util.logging.SimpleFormatter.format", "[%4$-7s] %5$s %n");
             log =Logger.getLogger(DemoApplication.class.getName());
         }
-    public static void main(String[] args)throws Exception 
-    {
-        log.info("Loading application properties");
-        Properties properties = new Properties();
-        properties.load(DemoApplication.class.getClassLoader().getResourceAsStream("application.properties"));
-        log.info("Connecting to the database");
-        Connection connection = DriverManager.getConnection(properties.getProperty("url"), properties);
-        log.info("Database connection test: " + connection.getCatalog());
-        log.info("Creating table");
-        log.info("Creating index");
-        log.info("distributing table");
-        Scanner scanner = new Scanner(DemoApplication.class.getClassLoader().getResourceAsStream("schema.sql"));
-        Statement statement = connection.createStatement();
-        while (scanner.hasNextLine()) {
-            statement.execute(scanner.nextLine());
+        public static void main(String[] args)throws Exception
+        {
+            log.info("Loading application properties");
+            Properties properties = new Properties();
+            properties.load(DemoApplication.class.getClassLoader().getResourceAsStream("application.properties"));
+            log.info("Connecting to the database");
+            Connection connection = DriverManager.getConnection(properties.getProperty("url"), properties);
+            log.info("Database connection test: " + connection.getCatalog());
+            log.info("Creating table");
+            log.info("Creating index");
+            log.info("distributing table");
+            Scanner scanner = new Scanner(DemoApplication.class.getClassLoader().getResourceAsStream("schema.sql"));
+            Statement statement = connection.createStatement();
+            while (scanner.hasNextLine()) {
+                statement.execute(scanner.nextLine());
+            }
+            log.info("Closing database connection");
+            connection.close();
         }
-        log.info("Closing database connection");
-        connection.close();
-    }
-    
+
     }
 ```
 
 Above code will use the **application.properties** and the **schema.sql** files to connect to Hyperscale (Citus) and create the schema.
 
-> [!NOTE]                                               
+> [!NOTE]
 > The database credentials are stored in the user and password properties of the application.properties file. Those credentials are used when executing DriverManager.getConnection(properties.getProperty("url"), properties);, as the properties file is passed as an argument.
 
 You can now execute this main class with your favorite tool:
@@ -194,11 +198,12 @@ You can now execute this main class with your favorite tool:
 * Using Maven, you can run the application by executing: mvn exec:java -Dexec.mainClass="com.example.demo.DemoApplication".
 
 The application should connect to the Hyperscale (Citus), create a database schema, and then close the connection, as you should see in the console logs:
-``` 
-[INFO   ] Loading application properties 
-[INFO   ] Connecting to the database 
+
+```
+[INFO   ] Loading application properties
+[INFO   ] Connecting to the database
 [INFO   ] Database connection test: citus
-[INFO   ] Create database schema 
+[INFO   ] Create database schema
 [INFO   ] Closing database connection
 ```
 
@@ -207,7 +212,7 @@ The application should connect to the Hyperscale (Citus), create a database sche
 Create a new Pharmacy Java class, next to the DemoApplication class, and add the following code:
 
 ``` Java
-    public class Pharmacy {
+public class Pharmacy {
     private Integer pharmacy_id;
     private String pharmacy_name;
     private String city;
@@ -220,61 +225,60 @@ Create a new Pharmacy Java class, next to the DemoApplication class, and add the
         this.pharmacy_name = pharmacy_name;
         this.city = city;
         this.state = state;
-        this.zip_code = zip_code; 
-        
+        this.zip_code = zip_code;
     }
-    
+
     public Integer getpharmacy_id() {
         return pharmacy_id;
     }
-    
+
     public void setpharmacy_id(Integer pharmacy_id) {
         this.pharmacy_id = pharmacy_id;
     }
-    
+
     public String getpharmacy_name() {
         return pharmacy_name;
     }
-    
+
     public void setpharmacy_name(String pharmacy_name) {
         this.pharmacy_name = pharmacy_name;
     }
-    
+
     public String getcity() {
         return city;
     }
-    
+
     public void setcity(String city) {
         this.city = city;
     }
-    
+
     public String getstate() {
         return state;
     }
-    
+
     public void setstate(String state) {
         this.state = state;
     }
-    
+
     public Integer getzip_code() {
         return zip_code;
     }
-    
+
     public void setzip_code(Integer zip_code) {
         this.zip_code = zip_code;
     }
     @Override
     public String toString() {
-        return "TPharmacy{" +
-                "pharmacy_id=" + pharmacy_id +
-                ", pharmacy_name='" + pharmacy_name + '\'' +
-                ", city='" + city + '\'' +
-                    ", state='" + state + '\'' +
-                    ", zip_code='" + zip_code + '\'' +
-                '}';
+        return "TPharmacy{"
+               "pharmacy_id=" + pharmacy_id
+               ", pharmacy_name='" + pharmacy_name + '\''
+               ", city='" + city + '\''
+                   ", state='" + state + '\''
+                   ", zip_code='" + zip_code + '\''
+               '}';
     }
-    }
-``` 
+}
+```
 
 This class is a domain model mapped on the Pharmacy table that you created when executing the schema.sql script.
 
@@ -283,21 +287,23 @@ This class is a domain model mapped on the Pharmacy table that you created when 
 In the src/main/java/DemoApplication.java file, after the main method, add the following method to insert data into the database:
 
 ``` Java
-    private static void insertData(Pharmacy todo, Connection connection) throws SQLException {
-            log.info("Insert data");
-            PreparedStatement insertStatement = connection
-                    .prepareStatement("INSERT INTO pharmacy (pharmacy_id,pharmacy_name,city,state,zip_code)  VALUES (?, ?, ?, ?, ?);");
-    
-            insertStatement.setInt(1, todo.getpharmacy_id());
-            insertStatement.setString(2, todo.getpharmacy_name());
-            insertStatement.setString(3, todo.getcity());
-            insertStatement.setString(4, todo.getstate());
-            insertStatement.setInt(5, todo.getzip_code());
-            
-            insertStatement.executeUpdate();
-        }
-``` 
+private static void insertData(Pharmacy todo, Connection connection) throws SQLException {
+    log.info("Insert data");
+    PreparedStatement insertStatement = connection
+        .prepareStatement("INSERT INTO pharmacy (pharmacy_id,pharmacy_name,city,state,zip_code)  VALUES (?, ?, ?, ?, ?);");
+
+    insertStatement.setInt(1, todo.getpharmacy_id());
+    insertStatement.setString(2, todo.getpharmacy_name());
+    insertStatement.setString(3, todo.getcity());
+    insertStatement.setString(4, todo.getstate());
+    insertStatement.setInt(5, todo.getzip_code());
+
+    insertStatement.executeUpdate();
+}
+```
+
 You can now add the two following lines in the main method:
+
 ```java
     Pharmacy todo = new Pharmacy(0,"Target","Sunnyvale","California",94001);
     insertData(todo, connection);
@@ -305,15 +311,15 @@ You can now add the two following lines in the main method:
 
 Executing the main class should now produce the following output:
 
-``` 
-[INFO   ] Loading application properties 
-[INFO   ] Connecting to the database 
-[INFO   ] Database connection test: citus 
-[INFO   ] Creating table 
-[INFO   ] Creating index 
-[INFO   ] distributing table 
-[INFO   ] Insert data 
-[INFO   ] Closing database connection 
+```
+[INFO   ] Loading application properties
+[INFO   ] Connecting to the database
+[INFO   ] Database connection test: citus
+[INFO   ] Creating table
+[INFO   ] Creating index
+[INFO   ] distributing table
+[INFO   ] Insert data
+[INFO   ] Closing database connection
 ```
 
 ## Reading data from Hyperscale (Citus)
@@ -322,41 +328,45 @@ Let's read the data previously inserted, to validate that our code works correct
 
 In the src/main/java/DemoApplication.java file, after the insertData method, add the following method to read data from the database:
 ```  java
-    private static Pharmacy readData(Connection connection) throws SQLException {
-        log.info("Read data");
-        PreparedStatement readStatement = connection.prepareStatement("SELECT * FROM Pharmacy;");
-        ResultSet resultSet = readStatement.executeQuery();
-        if (!resultSet.next()) {
-            log.info("There is no data in the database!");
-            return null;
-        }
-        Pharmacy todo = new Pharmacy();
-        todo.setpharmacy_id(resultSet.getInt("pharmacy_id"));
-        todo.setpharmacy_name(resultSet.getString("pharmacy_name"));
-        todo.setcity(resultSet.getString("city"));
-        todo.setstate(resultSet.getString("state"));
-        todo.setzip_code(resultSet.getInt("zip_code"));
-        log.info("Data read from the database: " + todo.toString());
-        return todo;
-  }
-``` 
+private static Pharmacy readData(Connection connection) throws SQLException {
+    log.info("Read data");
+    PreparedStatement readStatement = connection.prepareStatement("SELECT * FROM Pharmacy;");
+    ResultSet resultSet = readStatement.executeQuery();
+    if (!resultSet.next()) {
+        log.info("There is no data in the database!");
+        return null;
+    }
+    Pharmacy todo = new Pharmacy();
+    todo.setpharmacy_id(resultSet.getInt("pharmacy_id"));
+    todo.setpharmacy_name(resultSet.getString("pharmacy_name"));
+    todo.setcity(resultSet.getString("city"));
+    todo.setstate(resultSet.getString("state"));
+    todo.setzip_code(resultSet.getInt("zip_code"));
+    log.info("Data read from the database: " + todo.toString());
+    return todo;
+}
+```
+
 You can now add the following line in the main method:
+
 ```  java
 todo = readData(connection);
-``` 
+```
+
 Executing the main class should now produce the following output:
-``` 
-[INFO   ] Loading application properties 
-[INFO   ] Connecting to the database 
-[INFO   ] Database connection test: citus 
-[INFO   ] Creating table 
-[INFO   ] Creating index 
-[INFO   ] distributing table 
-[INFO   ] Insert data 
-[INFO   ] Read data 
-[INFO   ] Data read from the database: Pharmacy{pharmacy_id=0, pharmacy_name='Target', city='Sunnyvale', state='California', zip_code='94001'} 
-[INFO   ] Closing database connection 
-``` 
+
+```
+[INFO   ] Loading application properties
+[INFO   ] Connecting to the database
+[INFO   ] Database connection test: citus
+[INFO   ] Creating table
+[INFO   ] Creating index
+[INFO   ] distributing table
+[INFO   ] Insert data
+[INFO   ] Read data
+[INFO   ] Data read from the database: Pharmacy{pharmacy_id=0, pharmacy_name='Target', city='Sunnyvale', state='California', zip_code='94001'}
+[INFO   ] Closing database connection
+```
 
 ## Updating data in Hyperscale (Citus)
 Let's update the data we previously inserted.
@@ -364,43 +374,45 @@ Let's update the data we previously inserted.
 Still in the src/main/java/DemoApplication.java file, after the readData method, add the following method to update data inside the database:
 
 ``` java
-    private static void updateData(Pharmacy todo, Connection connection) throws SQLException {
-        log.info("Update data");
-        PreparedStatement updateStatement = connection
-                .prepareStatement("UPDATE pharmacy SET city = ? WHERE pharmacy_id = ?;");
+private static void updateData(Pharmacy todo, Connection connection) throws SQLException {
+    log.info("Update data");
+    PreparedStatement updateStatement = connection
+        .prepareStatement("UPDATE pharmacy SET city = ? WHERE pharmacy_id = ?;");
 
-        updateStatement.setString(1, todo.getcity());
-        
-        updateStatement.setInt(2, todo.getpharmacy_id());
-        updateStatement.executeUpdate();
-        readData(connection);
-    }
+    updateStatement.setString(1, todo.getcity());
+
+    updateStatement.setInt(2, todo.getpharmacy_id());
+    updateStatement.executeUpdate();
+    readData(connection);
+}
 
 ```
+
 You can now add the two following lines in the main method:
+
 ``` java
-    todo.setcity("Guntur");
-    updateData(todo, connection);
+todo.setcity("Guntur");
+updateData(todo, connection);
 ```
 
 Executing the main class should now produce the following output:
 
-``` 
-[INFO   ] Loading application properties 
-[INFO   ] Connecting to the database 
-[INFO   ] Database connection test: citus 
-[INFO   ] Creating table 
-[INFO   ] Creating index 
-[INFO   ] distributing table 
-[INFO   ] Insert data 
-[INFO   ] Read data 
-[INFO   ] Data read from the database: Pharmacy{pharmacy_id=0, pharmacy_name='Target', city='Sunnyvale', state='California', zip_code='94001'} 
-[INFO   ] Update data 
-[INFO   ] Read data 
-[INFO   ] Data read from the database: Pharmacy{pharmacy_id=0, pharmacy_name='Target', city='Guntur', state='California', zip_code='94001'} 
-[INFO   ] Closing database connection 
 ```
- 
+[INFO   ] Loading application properties
+[INFO   ] Connecting to the database
+[INFO   ] Database connection test: citus
+[INFO   ] Creating table
+[INFO   ] Creating index
+[INFO   ] distributing table
+[INFO   ] Insert data
+[INFO   ] Read data
+[INFO   ] Data read from the database: Pharmacy{pharmacy_id=0, pharmacy_name='Target', city='Sunnyvale', state='California', zip_code='94001'}
+[INFO   ] Update data
+[INFO   ] Read data
+[INFO   ] Data read from the database: Pharmacy{pharmacy_id=0, pharmacy_name='Target', city='Guntur', state='California', zip_code='94001'}
+[INFO   ] Closing database connection
+```
+
 ## Deleting data in Hyperscale (Citus)
 
 Finally, let's delete the data we previously inserted.
@@ -408,39 +420,40 @@ Finally, let's delete the data we previously inserted.
 Still in the src/main/java/DemoApplication.java file, after the updateData method, add the following method to delete data inside the database:
 
 ``` java
-    private static void deleteData(Pharmacy todo, Connection connection) throws SQLException {
-            log.info("Delete data");
-            PreparedStatement deleteStatement = connection.prepareStatement("DELETE FROM pharmacy WHERE pharmacy_id = ?;");
-            deleteStatement.setLong(1, todo.getpharmacy_id());
-            deleteStatement.executeUpdate();
-            readData(connection);
-    }
+private static void deleteData(Pharmacy todo, Connection connection) throws SQLException {
+    log.info("Delete data");
+    PreparedStatement deleteStatement = connection.prepareStatement("DELETE FROM pharmacy WHERE pharmacy_id = ?;");
+    deleteStatement.setLong(1, todo.getpharmacy_id());
+    deleteStatement.executeUpdate();
+    readData(connection);
+}
 ```
+
 You can now add the following line in the main method:
 
 ``` java
-    deleteData(todo, connection);
+deleteData(todo, connection);
 ```
 
 Executing the main class should now produce the following output:
 
 ```
-[INFO   ] Loading application properties 
-[INFO   ] Connecting to the database 
-[INFO   ] Database connection test: citus 
-[INFO   ] Creating table 
-[INFO   ] Creating index 
-[INFO   ] distributing table 
-[INFO   ] Insert data 
-[INFO   ] Read data 
-[INFO   ] Data read from the database: Pharmacy{pharmacy_id=0, pharmacy_name='Target', city='Sunnyvale', state='California', zip_code='94001'} 
-[INFO   ] Update data 
-[INFO   ] Read data 
-[INFO   ] Data read from the database: Pharmacy{pharmacy_id=0, pharmacy_name='Target', city='Guntur', state='California', zip_code='94001'} 
-[INFO   ] Delete data 
-[INFO   ] Read data 
-[INFO   ] There is no data in the database! 
-[INFO   ] Closing database connection 
+[INFO   ] Loading application properties
+[INFO   ] Connecting to the database
+[INFO   ] Database connection test: citus
+[INFO   ] Creating table
+[INFO   ] Creating index
+[INFO   ] distributing table
+[INFO   ] Insert data
+[INFO   ] Read data
+[INFO   ] Data read from the database: Pharmacy{pharmacy_id=0, pharmacy_name='Target', city='Sunnyvale', state='California', zip_code='94001'}
+[INFO   ] Update data
+[INFO   ] Read data
+[INFO   ] Data read from the database: Pharmacy{pharmacy_id=0, pharmacy_name='Target', city='Guntur', state='California', zip_code='94001'}
+[INFO   ] Delete data
+[INFO   ] Read data
+[INFO   ] There is no data in the database!
+[INFO   ] Closing database connection
 ```
 
 ## COPY command for super fast ingestion
@@ -452,26 +465,27 @@ COPY command can yield [tremendous throughput](https://www.citusdata.com/blog/20
 The following code is an example for copying data from csv file to table using COPY command.
 
 ```java
-    public static long copyFromFile(Connection connection, String filePath, String tableName)
-                throws SQLException, IOException {
-            long count = 0;
-            FileInputStream fileInputStream = null;
-    
+public static long copyFromFile(Connection connection, String filePath, String tableName)
+    throws SQLException, IOException
+{
+    long count = 0;
+    FileInputStream fileInputStream = null;
+
+    try {
+        CopyManager copyManager = new CopyManager((BaseConnection) connection);
+        fileInputStream = new FileInputStream(filePath);
+        count = copyManager.copyIn("COPY " + tableName + " FROM STDIN delimiter ',' csv", fileInputStream);
+    } finally {
+        if (fileInputStream != null) {
             try {
-                CopyManager copyManager = new CopyManager((BaseConnection) connection);
-                fileInputStream = new FileInputStream(filePath);
-                count = copyManager.copyIn("COPY " + tableName + " FROM STDIN delimiter ',' csv", fileInputStream);
-            } finally {
-                if (fileInputStream != null) {
-                    try {
-                        fileInputStream.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
+                fileInputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-            return count;
         }
+    }
+    return count;
+}
 ```
 
 You can now add the following line in the main method:
@@ -483,67 +497,71 @@ You can now add the following line in the main method:
 Executing the main class should now produce the following output:
 
 ```
-[INFO   ] Loading application properties 
-[INFO   ] Connecting to the database 
-[INFO   ] Database connection test: citus 
-[INFO   ] Creating table 
-[INFO   ] Creating index 
-[INFO   ] distributing table 
-[INFO   ] Insert data 
-[INFO   ] Read data 
-[INFO   ] Data read from the database: Pharmacy{pharmacy_id=0, pharmacy_name='Target', city='Sunnyvale', state='California', zip_code='94001'} 
-[INFO   ] Update data 
-[INFO   ] Read data 
-[INFO   ] Data read from the database: Pharmacy{pharmacy_id=0, pharmacy_name='Target', city='Guntur', state='California', zip_code='94001'} 
-[INFO   ] Delete data 
-[INFO   ] Read data 
-[INFO   ] There is no data in the database! 
+[INFO   ] Loading application properties
+[INFO   ] Connecting to the database
+[INFO   ] Database connection test: citus
+[INFO   ] Creating table
+[INFO   ] Creating index
+[INFO   ] distributing table
+[INFO   ] Insert data
+[INFO   ] Read data
+[INFO   ] Data read from the database: Pharmacy{pharmacy_id=0, pharmacy_name='Target', city='Sunnyvale', state='California', zip_code='94001'}
+[INFO   ] Update data
+[INFO   ] Read data
+[INFO   ] Data read from the database: Pharmacy{pharmacy_id=0, pharmacy_name='Target', city='Guntur', state='California', zip_code='94001'}
+[INFO   ] Delete data
+[INFO   ] Read data
+[INFO   ] There is no data in the database!
 5000
-[INFO   ] Closing database connection 
+[INFO   ] Closing database connection
 ```
 
 ### COPY command to load data in-memory
 
 The following code is an example for copying the data from in-memory to table.
+
 ```java
-    private static void inMemory(Connection connection) throws SQLException,IOException {
-            log.info("Copying in-memory data into table");
-        String[] input = {"0,Target,Sunnyvale,California,94001"};    
-        
-        CopyManager copyManager = new CopyManager((BaseConnection) connection);
-        String copyCommand = "COPY pharmacy FROM STDIN with csv " ; 
-                
-        for (String var : input) 
-        { 
-            Reader reader = new StringReader(var);
-            copyManager.copyIn(copyCommand, reader);
-            
-        }
-        copyManager.copyIn(copyCommand);
-        }
+private static void inMemory(Connection connection) throws SQLException,IOException {
+    log.info("Copying in-memory data into table");
+    String[] input = {"0,Target,Sunnyvale,California,94001"};
+
+    CopyManager copyManager = new CopyManager((BaseConnection) connection);
+    String copyCommand = "COPY pharmacy FROM STDIN with csv " ;
+
+    for (String var : input)
+    {
+        Reader reader = new StringReader(var);
+        copyManager.copyIn(copyCommand, reader);
+    }
+    copyManager.copyIn(copyCommand);
+}
 ```
+
 You can now add the following line in the main method:
+
 ``` java
- inMemory(connection);
+inMemory(connection);
 ```
+
 Executing the main class should now produce the following output:
+
 ```
-[INFO   ] Loading application properties 
-[INFO   ] Connecting to the database 
-[INFO   ] Database connection test: citus 
-[INFO   ] Creating table 
-[INFO   ] Creating index 
-[INFO   ] distributing table 
-[INFO   ] Insert data 
-[INFO   ] Read data 
-[INFO   ] Data read from the database: Pharmacy{pharmacy_id=0, pharmacy_name='Target', city='Sunnyvale', state='California', zip_code='94001'} 
-[INFO   ] Update data 
-[INFO   ] Read data 
-[INFO   ] Data read from the database: Pharmacy{pharmacy_id=0, pharmacy_name='Target', city='Guntur', state='California', zip_code='94001'} 
-[INFO   ] Delete data 
-[INFO   ] Read data 
-[INFO   ] There is no data in the database! 
+[INFO   ] Loading application properties
+[INFO   ] Connecting to the database
+[INFO   ] Database connection test: citus
+[INFO   ] Creating table
+[INFO   ] Creating index
+[INFO   ] distributing table
+[INFO   ] Insert data
+[INFO   ] Read data
+[INFO   ] Data read from the database: Pharmacy{pharmacy_id=0, pharmacy_name='Target', city='Sunnyvale', state='California', zip_code='94001'}
+[INFO   ] Update data
+[INFO   ] Read data
+[INFO   ] Data read from the database: Pharmacy{pharmacy_id=0, pharmacy_name='Target', city='Guntur', state='California', zip_code='94001'}
+[INFO   ] Delete data
+[INFO   ] Read data
+[INFO   ] There is no data in the database!
 5000
-[INFO   ] Copying in-memory data into table 
-[INFO   ] Closing database connection  
+[INFO   ] Copying in-memory data into table
+[INFO   ] Closing database connection
 ```

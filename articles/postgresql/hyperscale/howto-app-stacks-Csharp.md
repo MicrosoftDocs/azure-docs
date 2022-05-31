@@ -1,5 +1,5 @@
 ---
-title: C# app to connect and query Hyperscale (Citus) 
+title: C# app to connect and query Hyperscale (Citus)
 description: Learn building a simple app on Hyperscale (Citus) using C#
 ms.author: sasriram
 author: saimicrosoft
@@ -93,7 +93,7 @@ namespace Driver
                     command.ExecuteNonQuery();
                     Console.Out.WriteLine("Finished creating index");
                 }
-             using (var command = new NpgsqlCommand("INSERT INTO  pharmacy  (pharmacy_id,pharmacy_name,city,state,zip_code) VALUES (@n1, @q1, @a, @b, @c)", conn))
+                using (var command = new NpgsqlCommand("INSERT INTO  pharmacy  (pharmacy_id,pharmacy_name,city,state,zip_code) VALUES (@n1, @q1, @a, @b, @c)", conn))
                 {
                     command.Parameters.AddWithValue("n1",0);
                     command.Parameters.AddWithValue("q1", "Target");
@@ -118,8 +118,6 @@ Citus gives you [the super power of distributing your table](overview.md#the-sup
 > [!TIP]
 >
 > Distributing your tables is optional if you are using single node citus (basic tier).
->
-
 
 ```csharp
 using System;
@@ -156,7 +154,7 @@ namespace Driver
                     command.ExecuteNonQuery();
                     Console.Out.WriteLine("Finished distributing the table");
                 }
-             
+
             }
             Console.WriteLine("Press RETURN to exit");
             Console.ReadLine();
@@ -343,13 +341,13 @@ public class csvtotable
     private static string DBname = "citus";
     private static string Password = "<your-password>";
     private static string Port = "5432";
-   
+
     static void Main(string[] args)
     {
         String sDestinationSchemaAndTableName = "pharmacy";
         String sFromFilePath = "C:\\Users\\johndoe\\Documents\\citus\\pharmacies.csv";
         // Build connection string using parameters from portal
-        
+
         string connString =
             String.Format(
                 "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4};SSLMode=Require",
@@ -358,23 +356,23 @@ public class csvtotable
                 DBname,
                 Port,
                 Password);
-      
-            NpgsqlConnection conn = new NpgsqlConnection(connString);
-            NpgsqlCommand cmd = new NpgsqlCommand();
-           
-                conn.Open();
-               
-            if (File.Exists(sFromFilePath))
+
+        NpgsqlConnection conn = new NpgsqlConnection(connString);
+        NpgsqlCommand cmd = new NpgsqlCommand();
+
+        conn.Open();
+
+        if (File.Exists(sFromFilePath))
+        {
+            using (var writer = conn.BeginTextImport("COPY " + sDestinationSchemaAndTableName + " FROM STDIN WITH(FORMAT CSV, HEADER true,NULL ''); "))
             {
-                using (var writer = conn.BeginTextImport("COPY " + sDestinationSchemaAndTableName + " FROM STDIN WITH(FORMAT CSV, HEADER true,NULL ''); ")) 
-            {
-                    foreach (String sLine in File.ReadAllLines(sFromFilePath))
-                    {
-                        writer.WriteLine(sLine);
-                    }
+                foreach (String sLine in File.ReadAllLines(sFromFilePath))
+                {
+                    writer.WriteLine(sLine);
                 }
+            }
             Console.WriteLine("completed");
-            }  
+        }
     }
 }
 ```
@@ -395,35 +393,32 @@ namespace Driver
         private static string DBname = "citus";
         private static string Password = "<password>";
         private static string Port = "5432";
-        
+
         static async Task Main(string[] args)
         {
             string connString =
-              String.Format(
-                  "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4};SSLMode=Require",
-                  Host,
-                  User,
-                  DBname,
-                  Port,
-                  Password);
+                String.Format(
+                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4};SSLMode=Require",
+                    Host,
+                    User,
+                    DBname,
+                    Port,
+                    Password);
             using (var conn = new NpgsqlConnection(connString))
-                {
+            {
                 conn.Open();
-         var text = new dynamic[] {0, "Target","Sunnyvale", "California",94001};
+                var text = new dynamic[] {0, "Target","Sunnyvale", "California",94001};
                 using (var writer = conn.BeginBinaryImport("COPY pharmacy  FROM STDIN (FORMAT BINARY)"))
                 {
-                   
-                    
                     writer.StartRow();
                     foreach (var item in text)
                     {
                         writer.Write(item);
-                      
                     }
                     writer.Complete();
                 }
             }
         }
-        }
     }
+}
 ```

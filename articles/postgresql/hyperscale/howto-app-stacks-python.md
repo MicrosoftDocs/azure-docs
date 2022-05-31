@@ -1,5 +1,5 @@
 ---
-title: Python app to connect and query Hyperscale (Citus) 
+title: Python app to connect and query Hyperscale (Citus)
 description: Learn building a simple app on Hyperscale (Citus) using python
 ms.author: sasriram
 author: saimicrosoft
@@ -87,8 +87,10 @@ conn.commit()
 cursor.close()
 conn.close()
 ```
+
 When the code runs successfully, it produces the following output:
-```dotnetcli
+
+```
 Connection established
 Finished dropping table
 Finished creating table
@@ -129,6 +131,7 @@ for row in rows:
 ## Step 4: Update Data
 
 The following code example uses [cursor.execute](https://www.psycopg.org/docs/cursor.html#execute) with the SQL UPDATE statement to update data.
+
 ```python
 # Update a data row in the table
 cursor.execute("UPDATE pharmacy SET city = %s WHERE pharmacy_id = %s;", ("guntur",1))
@@ -138,6 +141,7 @@ print("Updated 1 row of data")
 ## Step 5: Delete Data
 
 The following code example runs [cursor.execute](https://www.psycopg.org/docs/cursor.html#execute) with the SQL DELETE statement to delete the data.
+
 ```python
 # Delete data row from table
 cursor.execute("DELETE FROM pharmacy WHERE pharmacy_name = %s;", ("Target",))
@@ -158,11 +162,12 @@ with open('pharmacies.csv', 'r') as f:
     next(f) # Skip the header row.
     cursor.copy_from(f, 'pharmacy', sep=',')
 print("copying data completed")
-
 ```
+
 ### COPY command to load data in-memory
 
 The following code is an example for copying the data from in-memory to table.
+
 ```python
 data = [[3,"Walgreens","Sunnyvale","California",94006], [4,"Target","Sunnyvale","California",94016]]
 buf = io.StringIO()

@@ -1,5 +1,5 @@
 ---
-title: Node.js app to connect and query Hyperscale (Citus) 
+title: Node.js app to connect and query Hyperscale (Citus)
 description: Learn building a simple app on Hyperscale (Citus) using Node.js
 ms.author: sasriram
 author: saimicrosoft
@@ -29,10 +29,13 @@ In this document, you connect to a Hyperscale (citus) database using a Node.js a
 
 Install [pg](https://www.npmjs.com/package/pg), which is a PostgreSQL client for Node.js.
 To do so, run the node package manager (npm) for JavaScript from your command line to install the pg client.
+
 ```dotnetcli
 npm install pg
 ```
+
 Verify the installation by listing the packages installed.
+
 ```dotnetcli
 npm list
 ```
@@ -63,7 +66,7 @@ const config = {
     host: '<host>',
     // Do not hard code your username and password.
     // Consider using Node environment variables.
-    user: 'citus',     
+    user: 'citus',
     password: '<password>',
     database: 'citus',
     port: 5432,
@@ -74,7 +77,6 @@ client.connect(err => {
     if (err) throw err;
     else {
         queryDatabase();
-     
     }
 });
 function queryDatabase() {
@@ -85,7 +87,7 @@ function queryDatabase() {
         INSERT INTO pharmacy (pharmacy_id,pharmacy_name,city,state,zip_code) VALUES (1,'CVS','San Francisco','California',94002);
         CREATE INDEX idx_pharmacy_id ON pharmacy(pharmacy_id);
     `;
-         client
+    client
         .query(query)
         .then(() => {
             console.log('tablesand insertion');
@@ -116,7 +118,7 @@ const config = {
     host: '<your-db-server-name>.postgres.database.azure.com',
     // Do not hard code your username and password.
     // Consider using Node environment variables.
-    user: 'citus',     
+    user: 'citus',
     password: 'your-password',
     database: 'citus',
     port: 5432,
@@ -127,7 +129,6 @@ client.connect(err => {
     if (err) throw err;
     else {
         queryDatabase();
-     
     }
 });
 function queryDatabase() {
@@ -135,16 +136,16 @@ function queryDatabase() {
         select create_distributed_table('pharmacy','pharmacy_id');
     `;
     client
-    .query(query)
-    .then(() => {
-        console.log('Distributed table created');
-        client.end(console.log('Closed client connection'));
-    })
-    .catch(err => console.log(err))
-    .then(() => {
-        console.log('Finished execution, exiting now');
-        process.exit();
-    });
+        .query(query)
+        .then(() => {
+            console.log('Distributed table created');
+            client.end(console.log('Closed client connection'));
+        })
+        .catch(err => console.log(err))
+        .then(() => {
+            console.log('Finished execution, exiting now');
+            process.exit();
+        });
 }
 ```
 
@@ -158,7 +159,7 @@ const config = {
     host: '<your-db-server-name>.postgres.database.azure.com',
     // Do not hard code your username and password.
     // Consider using Node environment variables.
-    user: 'citus',     
+    user: 'citus',
     password: '<your-password>',
     database: 'citus',
     port: 5432,
@@ -167,13 +168,15 @@ const config = {
 const client = new pg.Client(config);
 client.connect(err => {
     if (err) throw err;
-    else { queryDatabase(); }
+    else {
+		queryDatabase();
+	}
 });
 function queryDatabase() {
-  
     console.log(`Running query to PostgreSQL server: ${config.host}`);
     const query = 'SELECT * FROM pharmacy';
-    client.query(query)
+    client
+		.query(query)
         .then(res => {
             const rows = res.rows;
             rows.map(row => {
@@ -189,7 +192,7 @@ function queryDatabase() {
 
 ## Update data
 
-Use the following code to connect and read the data using a UPDATE SQL statement. 
+Use the following code to connect and read the data using a UPDATE SQL statement.
 
 ```javascript
 const pg = require('pg');
@@ -197,7 +200,7 @@ const config = {
     host: '<your-db-server-name>.postgres.database.azure.com',
     // Do not hard code your username and password.
     // Consider using Node environment variables.
-    user: 'citus',     
+    user: 'citus',
     password: '<your-password>',
     database: 'citus',
     port: 5432,
@@ -212,8 +215,8 @@ client.connect(err => {
 });
 function queryDatabase() {
     const query = `
-        UPDATE pharmacy SET city = 'guntur' 
-          WHERE pharmacy_id = 1 ; 
+        UPDATE pharmacy SET city = 'guntur'
+          WHERE pharmacy_id = 1 ;
     `;
     client
         .query(query)
@@ -230,7 +233,7 @@ function queryDatabase() {
 
 ## Delete data
 
-Use the following code to connect and read the data using a DELETE SQL statement. 
+Use the following code to connect and read the data using a DELETE SQL statement.
 
 ```javascript
 const pg = require('pg');
@@ -238,7 +241,7 @@ const config = {
     host: '<your-db-server-name>.postgres.database.azure.com',
     // Do not hard code your username and password.
     // Consider using Node environment variables.
-    user: 'citus',     
+    user: 'citus',
     password: '<your-password>',
     database: 'citus',
     port: 5432,
@@ -288,7 +291,7 @@ const config = {
     host: '<your-db-server-name>.postgres.database.azure.com',
     // Do not hard code your username and password.
     // Consider using Node environment variables.
-    user: 'citus',     
+    user: 'citus',
     password: '<your-password>',
     database: 'citus',
     port: 5432,
@@ -297,13 +300,13 @@ const config = {
 var inputFile = path.join(__dirname, '/pharmacies.csv')
 const client = new pg.Client(config);
 client.connect()
-  
-  // Execute Copy Function
+
+// Execute Copy Function
 var stream = client.query(copyFrom(`COPY pharmacy FROM  STDIN WITH (
     FORMAT CSV,
     HEADER true,
-    NULL ''
-  );`))
+    NULL '');`
+))
 var fileStream = fs.createReadStream(inputFile)
 fileStream.on('error', (error) =>{
     console.log(`Error in reading file: ${error}`)
@@ -336,31 +339,29 @@ var copyFrom = require('pg-copy-streams').from;
 const { Pool, Client} = require('pg')
 var Readable = require('stream').Readable;
 const config = {
-  user: 'citus',     
-  password: '<your-password>',
-  database: 'citus',
-  port: 5432,
-  ssl: true
+    user: 'citus',
+    password: '<your-password>',
+    database: 'citus',
+    port: 5432,
+    ssl: true
 };
 const client = new pg.Client(config);
 client.connect()
 var sqlcopysyntax = 'COPY pharmacy FROM STDIN ';
 var stream = client.query(copyFrom(sqlcopysyntax));
-   
+
 var interndataset = [['0','Target','Sunnyvale','California','94001'],
-                ['1','CVS','San Francisco','California','94002']]; 
- 
+                     ['1','CVS','San Francisco','California','94002']];
+
 var started = false;
 var internmap = through2.obj(function(arr, enc, cb) {
-         var rowText = (started ? '\n' : '') + arr.join('\t');
-          started = true;
-          console.log(rowText);
-          cb(null, rowText);
-})
-interndataset.forEach(function(r) {
-          internmap.write(r);
-})
-      
+	var rowText = (started ? '\n' : '') + arr.join('\t');
+	started = true;
+	console.log(rowText);
+	cb(null, rowText);
+});
+interndataset.forEach(function(r) { internmap.write(r); })
+
 internmap.end();
 internmap.pipe(stream);
 console.log("inserted successfully");
