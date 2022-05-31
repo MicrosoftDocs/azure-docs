@@ -12,10 +12,15 @@ ms.reviewer: yanivlavi
 
 This article shows you how to create log alert rules and manage your alert instances. Azure Monitor log alerts allow users to use a [Log Analytics](../logs/log-analytics-tutorial.md) query to evaluate resource logs at a set frequency and fire an alert based on the results. Rules can trigger one or more actions using [alert processing rules](alerts-action-rules.md) and [action groups](./action-groups.md). Learn the concepts behind log alerts [here](alerts-types.md#log-alerts).
 
-When an alert is triggered by an alert rule, 
-- Target: A specific Azure resource to monitor.
-- Criteria: Logic to evaluate. If met, the alert fires.  
-- Action: Notifications or automation - email, SMS, webhook, and so on.
+You create an alert rule by combining:
+ - The resource(s) to be monitored.
+ - The signal or telemetry from the resource
+ - Conditions
+
+And then defining these elements of the triggered alert:
+ - Alert processing rules
+ - Action groups
+
 You can also [create log alert rules using Azure Resource Manager templates](../alerts/alerts-log-create-templates.md).
 ## Create a new log alert rule in the Azure portal
 
