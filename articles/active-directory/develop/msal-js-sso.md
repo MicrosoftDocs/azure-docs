@@ -137,7 +137,7 @@ try {
 
 ### Without user hint
 
-If there is not enough information available about the user, you can attempt to use the `ssoSilent` method without passing an account, `sid` or `login_hint`.
+You can attempt to use the `ssoSilent` method without passing any `account`, `sid` or `login_hint` as shown in the code below:
 
 ```javascript
 const request = {
@@ -157,7 +157,7 @@ try {
 }
 ```
 
-However, be aware that if your application has code paths for multiple users in a single browser session, or if the user has multiple accounts for that single browser session, then there is a higher likelihood of silent sign-in errors. You may see the following error show up in the event of multiple account sessions found by the authorization server:
+However, be aware that there is a likelihood of silent sign-in errors if the application has multiple users in a single browser session or if the user has multiple accounts for that single browser session. You may see the following error show up in the event of multiple accounts:
 
 ```txt
 InteractionRequiredAuthError: interaction_required: AADSTS16000: Either multiple user identities are available for the current request or selected account is not supported for the scenario.
