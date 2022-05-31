@@ -66,6 +66,8 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 Bug fixes related to OT monitoring software updates and sensor-cloud connections.
 
+For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
+
 ### Release note tracking per version
 
 Starting in June 2022, we're tracking our release notes per software version for the sensor and on-premises management console, including major and minor versions.
