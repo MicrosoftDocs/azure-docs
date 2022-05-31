@@ -59,7 +59,7 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 **Sensor version**: 22.2.3
 
-- [Define sensor settings from the Azure portal (public preview)](#define-sensor-settings-from-the-azure-portal-public-preview)
+- [Define sensor settings from the Azure portal](#define-sensor-settings-from-the-azure-portal-public-preview)
 - [Bi-directional alert synch between sensors and the Azure portal](#bi-directional-alert-synch-between-sensors-and-the-azure-portal-public-preview)
 - [PCAP access from the Azure portal](#pcap-access-from-the-azure-portal-public-preview)
 - [Support diagnostic log enhancements](#support-diagnostic-log-enhancements-public-preview)
