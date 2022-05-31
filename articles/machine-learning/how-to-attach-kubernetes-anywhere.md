@@ -29,7 +29,7 @@ In this article, you can learn about steps to configure and attach an existing K
 1. If you have an AKS cluster in Azure, register the AKS-ExtensionManager feature flag by using the ```az feature register --namespace "Microsoft.ContainerService" --name "AKS-ExtensionManager``` command. **Azure Arc connection is not required and not recommended**. 
 1. Cluster running behind an outbound proxy server or firewall needs additional network configurations. Fulfill the [network requirements](./how-to-access-azureml-behind-firewall.md#azureml-kubernetes-compute-a-id"arc-kubernetes"a)
 1. Install or upgrade Azure CLI to version >=2.16.0
-1. Install the Azure CLI extension ```k8s-extension``` (version>=1.0.0) by running ```az extension add --name k8s-extension```
+1. Install the Azure CLI extension ```k8s-extension``` (version>=1.2.2) by running ```az extension add --name k8s-extension```
 
 ## What is AzureML extension
 
@@ -472,7 +472,7 @@ spec:
 > [!IMPORTANT]
 > Only the job pods in the same Kubernetes namespace with the PVC(s) will be mounted the volume. Data scientist is able to access the `mount path` specified in the PVC annotation in the job.
 
-## Appendix V: Supported region and  Kubernetes version
+## Appendix V: Supported region, Kubernetes and AzureML extension version
 
 - AzureML extension region availability, 
   - East US, East US 2, South Central US, West US 2, Australia East, Southeast Asia, North Europe, UK South, West Europe, West Central US, Central US, North Central US, West US, Korea Central, France Central
@@ -482,6 +482,7 @@ spec:
   - For example, if AKS introduces 1.20.a today, versions 1.20.a, 1.20.b, 1.19.c, 1.19.d, 1.18.e, and 1.18.f are supported.
 
   - If customers are running an unsupported Kubernetes version, they will be asked to upgrade when requesting support for the cluster. Clusters running unsupported Kubernetes releases are not covered by the AzureML extension support policies.
+- General available (GA) version of AzureML extension >= 1.0.101
 
 
 ## Next steps
