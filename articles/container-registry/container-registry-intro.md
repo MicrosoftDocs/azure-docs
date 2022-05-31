@@ -7,7 +7,7 @@ ms.date: 02/10/2020
 ms.author: stevelas
 ms.custom: "seodec18, mvc"
 ---
-# Introduction to Docker container registries in Azure
+# Introduction to Container registries in Azure
 
 Azure Container Registry is a managed registry service based on the open-source Docker Registry 2.0. Create and maintain Azure container registries to store and manage your container images and related artifacts.
 
