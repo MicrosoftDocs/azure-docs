@@ -77,7 +77,7 @@ With this approach, standard Teradata utilities, such as Teradata Parallel Data 
 
 - The migration process is orchestrated and controlled entirely within the Azure environment.
 
-#### Migrate data marts&mdash;stay physical or go virtual?
+#### Migrate data marts: stay physical or go virtual?
 
 > [!TIP]
 > Virtualizing data marts can save on storage and processing resources.
