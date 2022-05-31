@@ -14,7 +14,12 @@ ms.topic: how-to
 
 # Delete an Azure Arc-enabled SQL Managed Instance
 
-In this how-to guide, you will find and then delete an Azure Arc-enabled SQL Managed Instance. After deleting, you can optionally reclaim associated Kubernetes persistent volume claims (PVCs).
+In this how-to guide, you'll find and then delete an Azure Arc-enabled SQL Managed Instance. Optionally, after deleting managed instances, you can reclaim associated Kubernetes persistent volume claims (PVCs). Deleting PVCs is recommended but it isn't mandatory. However, if you don't reclaim these PVCs, you'll eventually end up with errors in your Kubernetes cluster. For example,  you might be unable to create, read, update, or delete resources from the Kubernetes API. You might not be able to run commands like `az arcdata dc export` because the controller pods were evicted from the Kubernetes nodes due to storage issues (normal Kubernetes behavior). You can see messages in the logs similar to:  
+
+- Annotations:    microsoft.com/ignore-pod-health: true  
+- Status:         Failed  
+- Reason:         Evicted  
+- Message:        The node was low on resource: ephemeral-storage. Container controller was using 16372Ki, which exceeds its request of 0.
 
 1. Find existing Azure Arc-enabled SQL Managed Instances:
 
@@ -32,7 +37,7 @@ In this how-to guide, you will find and then delete an Azure Arc-enabled SQL Man
 
 1. Delete the SQL Managed Instance, run one of the commands appropriate for your deployment type:
 
-   1. Indirectly connected mode:
+   1. **Indirectly connected mode**:
 
      ```azurecli
      az sql mi-arc delete -n <instance_name> --k8s-namespace <namespace> --use-k8s
@@ -45,7 +50,7 @@ In this how-to guide, you will find and then delete an Azure Arc-enabled SQL Man
      Deleted demo-mi from namespace arc
      ```
 
-   1. Directly connected mode:
+   1. **Directly connected mode**:
 
      ```azurecli
      az sql mi-arc delete -n <instance_name> -g <resource_group>
@@ -58,7 +63,7 @@ In this how-to guide, you will find and then delete an Azure Arc-enabled SQL Man
      Deleted demo-mi from namespace arc
      ```
 
-1. Optional. Reclaim the Kubernetes Persistent Volume Claims (PVCs). A PersistentVolumeClaim (PVC) is a request for storage by a user from Kubernetes cluster while creating and adding storage to a SQL Managed Instance. Deleting a SQL Managed Instance does not remove its associated [PVCs](https://kubernetes.io/docs/concepts/storage/persistent-volumes/). This is by design. The intention is to help the user to access the database files in case the deletion of instance was accidental. Deleting PVCs is not mandatory. However it is recommended. If you don't reclaim these PVCs, you'll eventually end up with errors as your Kubernetes cluster will run out of disk space or usage of the same SQL Managed Instance name while creating new instance might cause inconsistencies. To reclaim the PVCs, take the following steps:
+1. Optionally, reclaim the Kubernetes Persistent Volume Claims (PVCs). A Persistent Volume Claim (PVC) is a request for storage by a user from a Kubernetes cluster while creating and adding storage to a SQL Managed Instance. By design, deleting a SQL Managed Instance doesn't remove its associated [PVCs](https://kubernetes.io/docs/concepts/storage/persistent-volumes/).  The intention is to ensure that you can access the database files in case the deletion was accidental. To reclaim the PVCs, take the following steps:
    1. List the PVCs for the server group you deleted.
 
       ```console
@@ -96,16 +101,6 @@ In this how-to guide, you will find and then delete an Azure Arc-enabled SQL Man
       persistentvolumeclaim "logs-demo-mi-0" deleted
       ```
   
-
-> [!NOTE]
-> As indicated, not deleting the PVCs might eventually get your Kubernetes cluster in a situation where it will throw errors. Some of these errors may include being unable to create, read, update, delete resources from the Kubernetes API, or being able to run commands like `az arcdata dc export` as the controller pods may be evicted from the Kubernetes nodes because of this storage issue (normal Kubernetes behavior).
->
-> For example, you may see messages in the logs similar to:  
-> - Annotations:    microsoft.com/ignore-pod-health: true  
-> - Status:         Failed  
-> - Reason:         Evicted  
-> - Message:        The node was low on resource: ephemeral-storage. Container controller was using 16372Ki, which exceeds its request of 0.
-
 ## Next steps
 
 Learn more about [Features and Capabilities of Azure Arc-enabled SQL Managed Instance](managed-instance-features.md)
