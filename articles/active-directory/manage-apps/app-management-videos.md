@@ -42,7 +42,7 @@ ___
 
 :::row:::
     :::column:::
-        1 - <a href="https://www.youtube.com/watch?v=19v7WSt9HwU&list=PLlrxD0HtieHiBPIyUWkqVzoMrgfwKi4dY&index=4" target="_blank">How do I turn on the admin consent workflow?</a> (1:04)
+        1 - [How do I turn on the admin consent workflow?](https://www.youtube.com/watch?v=19v7WSt9HwU&list=PLlrxD0HtieHiBPIyUWkqVzoMrgfwKi4dY&index=4)(1:04)
     :::column-end:::
     :::column:::
         >[!Video https://www.youtube.com/embed/19v7WSt9HwU]
