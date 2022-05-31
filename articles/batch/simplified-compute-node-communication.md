@@ -17,6 +17,16 @@ This document describes forthcoming changes with how the Azure Batch service com
 
 Opting in is not required at this time. However, in the future, using simplified compute node communication will be required for all Batch accounts. At that time, an official retirement notice will be provided, with an opportunity to migrate your Batch pools before that happens.
 
+## Supported regions
+
+Simplified compute node communication in Azure Batch is currently available for the following regions:
+
+- Public: Central US EUAP, East US 2 EUAP, West Central US, North Central US, South Central US, East US, East US 2, West US 2, West US, Central US, West US 3, East Asia, South East Asia, Australia East, Australia Southeast, Brazil Southeast, Brazil South, Canada Central, Canada East, North Europe, West Europe, Central India, Jio India West, Japan East, Japan West, Korea Central, Korea South, Switzerland North, UK West, UK South, UAE North, France Central, Germany West Central, Norway East, South Africa North.
+
+- Government: USGov Arizona, USGov Virginia, USGov Texas.
+
+- China: China North 3.
+
 ## Compute node communication changes
 
 The Azure Batch service is simplifying the way Batch pool infrastructure is managed on behalf of users. The new communication method reduces the complexity and scope of inbound and outbound networking connections required in baseline operations.
