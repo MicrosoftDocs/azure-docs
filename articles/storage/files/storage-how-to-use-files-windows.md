@@ -103,7 +103,7 @@ You have now mounted your Azure file share.
 
 1. Use Azure file share as desired.
 
-    :::image type="content" source="media/storage-how-to-use-files-windows/4_MountOnWindows10.png" alt-text="The Azure file share is now mounted.":::
+    :::image type="content" source="media/storage-how-to-use-files-windows/4_MountOnWindows10.png" alt-text="Screenshot showing that the Azure file share is now mounted.":::
 
 1. When you're ready to dismount the Azure file share, right-click on the entry for the share under the **Network locations** in File Explorer and select **Disconnect**.
 
