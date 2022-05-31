@@ -434,7 +434,7 @@ This article demonstrates an individual enrollment for a single device to be pro
         * Select an IoT hub linked with your provisioning service.
         * Update the **Initial device twin state** with the desired initial configuration for the device.
 
-    :::image type="content" source="./media/quick-create-simulated-device-x509/add-individual-enrollment-with-cert.png" alt-text="Screenshot that shows adding an individual enrollment with X.509 attestation to DPS in Azure portal.":::
+    :::image type="content" source="./media/quick-create-simulated-device-x509/add-individual-enrollment-with-cert.png" alt-text="Screenshot that shows adding an individual enrollment with X.509 attestation to D P S in Azure portal.":::
 
 7. Select **Save**. You'll be returned to **Manage enrollments**.
 
