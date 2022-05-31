@@ -54,7 +54,7 @@ Use Service Connector to create a new service connection in Container Apps using
 1. Select **All resources** on the left of the Azure portal. Type **Container Apps** in the filter and select the name of the container app you want to use in the list.
 1. Select **Service Connector** from the left table of contents. Then select **Create**.
 
-    :::image type="content" source="media/connect-backing/connect-service-connector.png" alt-text="Screenshot of the Azure portal, selecting Service Connector within a container app":::
+    :::image type="content" source="media/connect-backing/connect-service-connector.png" alt-text="Screenshot of the Azure portal, selecting Service Connector within a container app" lightbox="media/connect-backing/connect-service-connector-expanded.png":::
 
 1. Select or enter the following settings.
 
