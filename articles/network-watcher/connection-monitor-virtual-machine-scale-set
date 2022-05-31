@@ -84,7 +84,7 @@ You can deploy a scale set with a Windows Server image or Linux image such as RH
    - If you select a Linux OS disk image, you can instead choose **SSH public key**. Only provide your public key, such as *~/.ssh/id_rsa.pub*. You can use the Azure Cloud Shell from the portal to [create and use SSH keys](../virtual-machines/linux/mac-create-ssh-keys.md).
    
  
-1. Select **Next** to move the the other pages. 
+1. Select **Next** to move the other pages. 
 1. Leave the defaults for the **Instance** and **Disks** pages.
 1. On the **Networking** page, under **Load balancing**, select **Yes** to put the scale set instances behind a load balancer. 
 1. In **Load balancing options**, select **Azure load balancer**.
@@ -98,8 +98,9 @@ Once the scale set is created, follow the steps below to enable the Network Watc
 
 1. Under **Settings**, select **Extensions**. Select **Add extension**, and select **Network Watcher Agent for Windows**, as shown in the following picture:
 
-    ![Network Watcher agent extension](./media/connection-monitor/nw-agent-extension.png)
+:::image type="content" source="./media/connection-monitor/nw-agent-extension.png" alt-text="Screenshot that Network Watcher extension addition.":::
 
+  
 1. Under **Network Watcher Agent for Windows**, select **Create**, under **Install extension** select **OK**, and then under **Extensions**, select **OK**.
 
  
@@ -138,18 +139,18 @@ Create a connection monitor to monitor communication over TCP port 22 from *myVm
     | Virtual machine          | myVm2               |
     | Port                     | 22                  |
 
-    ![Add Connection Monitor](./media/connection-monitor/add-connection-monitor.png)
-
+    :::image type="content" source="./media/connection-monitor/add-connection-monitor.png" alt-text="Screenshot that addition of Connection Monitor.":::
+	
 ## View a connection monitor
 
 1. Complete steps 1-3 in [Create a connection monitor](#create-a-connection-monitor) to view connection monitoring. You see a list of existing connection monitors, as shown in the following picture:
 
-    ![Connection monitors](./media/connection-monitor/connection-monitors.png)
-
+    :::image type="content" source="./media/connection-monitor/connection-monitors.png" alt-text="Screenshot that Connection Monitor.":::
+	
 2. Select the monitor with the name **myVmss1-myVm2(22)**, as shown in the previous picture, to see details for the monitor, as shown in the following picture:
 
-    ![Monitor details](./media/connection-monitor/vm-monitor.png)
-
+    :::image type="content" source="./media/connection-monitor/vm-monitor.png" alt-text="Screenshot that virtual machine monitor.":::
+	
     Note the following information:
 
     | Item                     | Value                      | Details                                                     |
@@ -166,10 +167,12 @@ Alerts are created by alert rules in Azure Monitor and can automatically run sav
 1. In Azure portal, select the **Monitor** service, and then select **Alerts** > **New alert rule**.
 2. Click **Select target**, and then select the resources that you want to target. Select the **Subscription**, and set **Resource type** to filter down to the Connection Monitor that you want to use.
 
-    ![alert screen with target selected](./media/connection-monitor/set-alert-rule.png)
+    :::image type="content" source="./media/connection-monitor/set-alert-rule.png" alt-text="Screenshot of alert rule.":::
+	
 1. Once you have selected a resource to target, select **Add criteria**.The Network Watcher has [metrics on which you can create alerts](../azure-monitor/alerts/alerts-metric-near-real-time.md#metrics-and-dimensions-supported). Set **Available signals** to the metrics ProbesFailedPercent and AverageRoundtripMs:
 
-    ![alert page with signals selected](./media/connection-monitor/set-alert-signals.png)
+    :::image type="content" source="./media/connection-monitor/set-alert-signals.png" alt-text="Screenshot of alert signals.":::
+	
 1. Fill out the alert details like alert rule name, description and severity. You can also add an action group to the alert to automate and customize the alert response.
 
 ## View a problem
@@ -180,7 +183,7 @@ By default, Azure allows communication over all ports between VMs in the same vi
 2. Select the **myVm2-nsg** network security group.
 3. Select **Inbound security rules**, and then select **Add**, as shown in the following picture:
 
-    ![Inbound security rules](./media/connection-monitor/inbound-security-rules.png)
+	:::image type="content" source="./media/connection-monitor/inbound-security-rules.png" alt-text="Screenshot of network security rules.":::
 
 4. The default rule that allows communication between all VMs in a virtual network is the rule named **AllowVnetInBound**. Create a rule with a higher priority (lower number) than the **AllowVnetInBound** rule that denies inbound communication over port 22. Select, or enter, the following information, accept the remaining defaults, and then select **Add**:
 
@@ -193,7 +196,7 @@ By default, Azure allows communication over all ports between VMs in the same vi
 
 5. Since connection monitor probes at 60-second intervals, wait a few minutes and then on the left side of the portal, select **Network Watcher**, then **Connection monitor**, and then select the **myVm1-myVm2(22)** monitor again. The results are different now, as shown in the following picture:
 
-    ![Monitor details fault](./media/connection-monitor/vm-monitor-fault.png)
+	:::image type="content" source="../media/connection-monitor/vm-monitor-fault.png" alt-text="Screenshot of virtual  machine at fault.":::
 
     You can see that there's a red exclamation icon in the status column for the **myvm2529** network interface.
 
