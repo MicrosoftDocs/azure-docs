@@ -44,7 +44,7 @@ Using key vault certificates is recommended because it helps improve API Managem
 
 1. For steps to create a key vault, see [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md).
 1. Enable a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md) in the API Management instance.
-1. Assign a [key vault access policy](../key-vault/general/assign-access-policy-portal.md) to the managed identity with permissions to get and list certificates from the vault. To add the policy:
+1. Assign a [key vault access policy](../key-vault/general/assign-access-policy-portal.md) to the managed identity with permissions to get and list secrets from the vault. To add the policy:
     1. In the portal, navigate to your key vault.
     1. Select **Settings > Access policies > + Add Access Policy**.
     1. Select **Secret permissions**, then select **Get** and **List**.
