@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 01/03/2022
+ms.date: 05/31/2022
 ms.custom: contperf-fy21q1
 ---
 # What is Azure Cognitive Search?
@@ -21,7 +21,7 @@ When you create a search service, you'll work with the following capabilities:
 
 + A search engine for full text search with storage for user-owned content in a search index
 + Rich indexing, with [text analysis](search-analyzers.md) and [optional AI enrichment](cognitive-search-concept-intro.md) for advanced content extraction and transformation
-+ Rich query capabilities, including simple syntax, full Lucene syntax, and typeahead search
++ Rich query syntax that supplements free text search with filters, autocomplete, regex, geo-search and more
 + Programmability through REST APIs and client libraries in Azure SDKs for .NET, Python, Java, and JavaScript
 + Azure integration at the data layer, machine learning layer, and AI (Cognitive Services)
 
@@ -35,15 +35,15 @@ Across the Azure platform, Cognitive Search can integrate with other Azure servi
 
 On the search service itself, the two primary workloads are *indexing* and *querying*. 
 
-+ [Indexing](search-what-is-an-index.md) is an intake process that loads content into to your search service and makes it searchable. Internally, inbound text is processed into tokens and stored in inverted indexes for fast scans. You can upload any text that is in the form of JSON documents.
++ [**Indexing**](search-what-is-an-index.md) is an intake process that loads content into to your search service and makes it searchable. Internally, inbound text is processed into tokens and stored in inverted indexes for fast scans. You can upload any text that is in the form of JSON documents.
 
   Additionally, if your content includes mixed files, you have the option of adding *AI enrichment* through [cognitive skills](cognitive-search-working-with-skillsets.md). AI enrichment can extract text embedded in application files, and also infer text and structure from non-text files by analyzing the content. 
 
   The skills providing the analysis are predefined ones from Microsoft, or custom skills that you create. The subsequent analysis and transformations can result in new information and structures that did not previously exist, providing high utility for many search and knowledge mining scenarios.
 
-+ [Querying](search-query-overview.md) can happen once an index is populated with searchable text, when your client app sends query requests to a search service and handles responses. All query execution is over a search index that you create, own, and store in your service. In your client app, the search experience is defined using APIs from Azure Cognitive Search, and can include relevance tuning, autocomplete, synonym matching, fuzzy matching, pattern matching, filter, and sort.
++ [**Querying**](search-query-overview.md) can happen once an index is populated with searchable text, when your client app sends query requests to a search service and handles responses. All query execution is over a search index that you create, own, and store in your service. In your client app, the search experience is defined using APIs from Azure Cognitive Search, and can include relevance tuning, autocomplete, synonym matching, fuzzy matching, pattern matching, filter, and sort.
 
-Functionality is exposed through a simple [REST API](/rest/api/searchservice/) or [.NET SDK](search-howto-dotnet-sdk.md) that masks the inherent complexity of information retrieval. You can also use the Azure portal for service administration and content management, with tools for prototyping and querying your indexes and skillsets. Because the service runs in the cloud, infrastructure and availability are managed by Microsoft.
+Functionality is exposed through a simple [REST API](/rest/api/searchservice/), or Azure SDKs like the [Azure SDK for .Net](search-howto-dotnet-sdk.md), that masks the inherent complexity of information retrieval. You can also use the Azure portal for service administration and content management, with tools for prototyping and querying your indexes and skillsets. Because the service runs in the cloud, infrastructure and availability are managed by Microsoft.
 
 ## Why use Cognitive Search?
 
@@ -63,7 +63,7 @@ For more information about specific functionality, see [Features of Azure Cognit
 
 An end-to-end exploration of core search features can be accomplished in four steps:
 
-1. [**Decide on a tier**](search-sku-tier.md). One free search service is allowed per subscription. All quickstarts can be completed on the free tier. For more capacity and capabilities, you will need a [billable tier](https://azure.microsoft.com/pricing/details/search/).
+1. [**Decide on a tier**](search-sku-tier.md) and region. One free search service is allowed per subscription. All quickstarts can be completed on the free tier. For more capacity and capabilities, you'll need a [billable tier](https://azure.microsoft.com/pricing/details/search/).
 
 1. [**Create a search service**](search-create-service-portal.md) in the Azure portal.
 
@@ -71,7 +71,7 @@ An end-to-end exploration of core search features can be accomplished in four st
 
 1. [**Finish with Search Explorer**](search-explorer.md), using a portal client to query the search index you just created.
 
-Alternatively, you can create, load, and query a search index in atomically:
+Alternatively, you can create, load, and query a search index in atomic steps:
 
 1. [**Create a search index**](search-what-is-an-index.md) using the portal, [REST API](/rest/api/searchservice/create-index), [.NET SDK](search-howto-dotnet-sdk.md), or another SDK. The index schema defines the structure of searchable content.
 
@@ -98,8 +98,8 @@ Among cloud providers, Azure Cognitive Search is strongest for full text search 
 Key strengths include:
 
 + Data integration (crawlers) at the indexing layer.
++ AI and machine learning integration with Azure Cognitive Services, useful if you need to make unsearchable content full text-searchable.
 + Security integration with Azure Active Directory for trusted connections, and with Azure Private Link integration to support private connections to a search index in no-internet scenarios.
-+ Machine learning and AI integration with Azure Cognitive Services, useful if you need to make unsearchable content types full text-searchable.
 + Linguistic and custom text analysis in 56 languages.
 + [Full search experience](search-features-list.md): rich query language, relevance tuning and semantic ranking, faceting, autocomplete queries and suggested results, and synonyms.
 + Azure scale, reliability, and world-class availability.
