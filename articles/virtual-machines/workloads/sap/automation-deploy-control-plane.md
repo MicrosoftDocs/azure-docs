@@ -131,11 +131,11 @@ The deployment will use the configuration defined in the Terraform variable file
 
 Run the pipeline by selecting the _Deploy control plane_ pipeline from the Pipelines section. Enter the configuration names for the deployer and the SAP library. Use 'MGMT-WEEU-DEP00-INFRASTRUCTURE' as the Deployer configuration name and 'MGMT-WEEU-SAP_LIBRARY' as the SAP Library configuration name.
 
-:::image type="content" source="media/automation-devops/automation-run-pipeline.png" alt-text="Picture showing the DevOps tutorial run pipeline dialog":::
+:::image type="content" source="media/automation-devops/automation-run-pipeline.png" alt-text="Screenshot of Azure DevOps run pipeline dialog.":::
 
 You can track the progress in the Azure DevOps portal. Once the deployment is complete, you can see the Control Plane details in the _Extensions_ tab.
 
- :::image type="content" source="media/automation-devops/automation-run-pipeline-control-plane.png" alt-text="Picture showing the DevOps tutorial run pipeline results":::
+ :::image type="content" source="media/automation-devops/automation-run-pipeline-control-plane.png" alt-text="Screenshot of the run Azure DevOps pipeline run results.":::
 
 ---
 

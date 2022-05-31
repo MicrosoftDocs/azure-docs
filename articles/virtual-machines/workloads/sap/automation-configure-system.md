@@ -393,5 +393,5 @@ az keyvault secret set --name "<prefix>-fencing-spn-tenant" --vault-name "<workl
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Deploy SAP System](automation-deploy-system.md)
+> [Deploy SAP system](automation-deploy-system.md)
 

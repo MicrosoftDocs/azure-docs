@@ -190,7 +190,7 @@ The pipelines use a custom task to run Ansible. The custom task can be installed
 The pipelines use a custom task to perform cleanup activities post deployment. The custom task can be installed from [Post Build Cleanup](https://marketplace.visualstudio.com/items?itemName=mspremier.PostBuildCleanup). Install it to your Azure DevOps organization before running the pipelines.
 
 
-## Preparations for Self hosted agent    
+## Preparations for self-hosted agent    
 
 
 1. Create an Agent Pool by navigating to the Organizational Settings and selecting _Agent Pools_ from the Pipelines section. Click the _Add Pool_ button and choose Self-hosted as the pool type. Name the pool to align with the workload zone environment, for example `DEV-WEEU-POOL`. Ensure _Grant access permission to all pipelines_ is selected and create the pool using the _Create_ button.
@@ -344,4 +344,4 @@ The agent will now be configured and started.
 ## Next step
 
 > [!div class="nextstepaction"]
-> [DevOps Hands on Lab](automation-devops-tutorial.md)
+> [DevOps hands on lab](automation-devops-tutorial.md)

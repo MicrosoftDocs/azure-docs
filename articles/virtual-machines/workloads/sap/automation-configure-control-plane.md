@@ -280,7 +280,7 @@ deployer_vnet="DEP00"
 ```
 
 
-## Next step
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Configure SAP system](automation-configure-system.md)

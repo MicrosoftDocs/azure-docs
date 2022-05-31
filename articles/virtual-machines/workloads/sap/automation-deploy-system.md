@@ -178,7 +178,7 @@ You can track the progress in the Azure DevOps Services portal. Once the deploym
 
 ### Output files
 
-The deployment will create a Ansible hosts file (`SID_hosts.yaml`) and an Ansible parameter file (`sap-parameters.yaml`) that are required input for the Ansible playbooks.
+The deployment will create an Ansible hosts file (`SID_hosts.yaml`) and an Ansible parameter file (`sap-parameters.yaml`) that are required input for the Ansible playbooks.
 ## Next steps
 
 > [!div class="nextstepaction"]
