@@ -13,6 +13,7 @@ If [Key Vault firewall](../articles/key-vault/general/network-security.md) is en
 
 * You must use the API Management instance's **system-assigned** managed identity to access the key vault.
 * In Key Vault firewall, enable the **Allow Trusted Microsoft Services to bypass this firewall** option.
+* Ensure that your local client IP address is allowed to access the key vault temporarily while you select a certificate or secret to add to Azure API Management. After completing the configuration, you may block your client address in the key vault firewall.
 
 #### Virtual network requirements
 

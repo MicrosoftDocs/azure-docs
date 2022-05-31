@@ -50,6 +50,7 @@ Using key vault certificates is recommended because it helps improve API Managem
     1. Select **Secret permissions**, then select **Get** and **List**.
     1. In **Select principal**, select the resource name of your managed identity. If you're using a system-assigned identity, the principal is the name of your API Management instance.
 1. Create or import a certificate to the key vault. See [Quickstart: Set and retrieve a certificate from Azure Key Vault using the Azure portal](../key-vault/certificates/quick-create-portal.md).
+1. When adding a key vault certificate to your API Management instance, you must have permissions to list secrets from the key vault.
 
 [!INCLUDE [api-management-key-vault-network](../../includes/api-management-key-vault-network.md)]
 
