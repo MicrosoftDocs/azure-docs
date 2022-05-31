@@ -42,7 +42,7 @@ With Purge protection enabled, soft deleted stores can't be purged in the retent
 
 - `Microsoft.AppConfiguration/configurationStores/write`
 
-To recover a deleted App Configuration store the `Microsoft.AppConfiguration/configurationStores/write` permission is needed. The built-in "Owner" and "Contributor" roles contain this permission by default. The permission can be assigned at the subscription, resource group scope.
+To recover a deleted App Configuration store the `Microsoft.AppConfiguration/configurationStores/write` permission is needed. The built-in "Owner" and "Contributor" roles contain this permission by default. The permission can be assigned at the subscription or resource group scope.
 
 ## Permissions to read and purge deleted stores
 
