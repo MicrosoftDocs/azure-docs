@@ -177,7 +177,7 @@ The following cURL commands are executed from a BASH shell. Edit these commands 
 [!INCLUDE [REST API quickstart instructions](../../../includes/rest-api-instructions.md)]
 
 ```bash
-curl -i -X POST https://your-language-endpoint-here/language/analyze-conversations?api-version=2022-05-15-preview \
+curl -i -X POST https://your-language-endpoint-here/language/analyze-conversations/jobs?api-version=2022-05-15-preview \
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: your-key-here" \
 -d \

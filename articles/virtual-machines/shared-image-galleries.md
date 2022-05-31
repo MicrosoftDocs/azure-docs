@@ -173,11 +173,29 @@ To list all the Azure Compute Gallery resources across subscriptions that you ha
 1. Select all the subscriptions under which you'd like to list all the resources.
 1. Look for resources of the **Azure Compute Gallery** type.
   
+### [Azure CLI](#tab/azure-cli)
+
 To list all the Azure Compute Gallery resources, across subscriptions that you have permissions to, use the following command in the Azure CLI:
 
 ```azurecli
    az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
 ```
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+To list all the Azure Compute Gallery resources, across subscriptions that you have permissions to, use the following command in the Azure PowerShell:
+
+```azurepowershell
+$params = @{
+    Begin   = { $currentContext = Get-AzContext }
+    Process = { $null = Set-AzContext -SubscriptionObject $_; Get-AzGallery }
+    End     = { $null = Set-AzContext -Context $currentContext }
+}
+
+Get-AzSubscription | ForEach-Object @params
+```
+
+---
 
 For more information, see [List, update, and delete image resources](update-image-resources.md).
 
@@ -225,7 +243,7 @@ Source region is the region in which your image version will be created, and tar
 
 ### How do I specify the source region while creating the image version?
 
-While creating an image version, you can use the **--location** tag in CLI and the **-Location** tag in PowerShell to specify the source region. Please ensure the managed image that you are using as the base image to create the image version is in the same location as the location in which you intend to create the image version. Also, make sure that you pass the source region location as one of the target regions when you create an image version.  
+While creating an image version, you can use the **--location** argument in CLI and the **-Location** parameter in PowerShell to specify the source region. Please ensure the managed image that you are using as the base image to create the image version is in the same location as the location in which you intend to create the image version. Also, make sure that you pass the source region location as one of the target regions when you create an image version.  
 
 ### How do I specify the number of image version replicas to be created in each region?
 
@@ -234,11 +252,23 @@ There are two ways you can specify the number of image version replicas to be cr
 1. The regional replica count which specifies the number of replicas you want to create per region. 
 2. The common replica count which is the default per region count in case regional replica count is not specified. 
 
-To specify the regional replica count, pass the location along with the number of replicas you want to create in that region: "South Central US=2". 
+### [Azure CLI](#tab/azure-cli)
 
-If regional replica count is not specified with each location, then the default number of replicas will be the common replica count that you specified. 
+To specify the regional replica count, pass the location along with the number of replicas you want to create in that region: "South Central US=2".
 
-To specify the common replica count in CLI, use the **--replica-count** argument in the `az sig image-version create` command.
+If regional replica count is not specified with each location, then the default number of replicas will be the common replica count that you specified.
+
+To specify the common replica count in Azure CLI, use the **--replica-count** argument in the `az sig image-version create` command.
+
+### [Azure PowerShell](#tab/azure-powershell)
+
+To specify the regional replica count, pass the location along with the number of replicas you want to create in that region, `@{Name = 'South Central US';ReplicaCount = 2}`, to the **-TargetRegion** parameter in the `New-AzGalleryImageVersion` command.
+
+If regional replica count is not specified with each location, then the default number of replicas will be the common replica count that you specified.
+
+To specify the common replica count in Azure PowerShell, use the **-ReplicaCount** parameter in the `New-AzGalleryImageVersion` command.
+
+---
 
 ### Can I create the gallery in a different location than the one for the image definition and image version?
 

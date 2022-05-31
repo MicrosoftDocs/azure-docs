@@ -51,9 +51,8 @@ Custom text classification is only available in some Azure regions. To use custo
 * West Europe
 * North Europe
 * UK south
-* Southeast Asia
 * Australia East
-* Sweden Central 
+ 
 
 ## API limits
 

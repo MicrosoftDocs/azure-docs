@@ -15,7 +15,7 @@ ms.custom: event-tier1-build-2022
 
 # Use network isolation with managed online endpoints (preview)
 
-When deploying a machine learning model to a managed online endpoint, you can secure communication with the online endpoint by using [private endpoints](/azure/private-link/private-endpoint-overview). Using a private endpoint with online endpoints is currently a preview feature.
+When deploying a machine learning model to a managed online endpoint, you can secure communication with the online endpoint by using [private endpoints](../private-link/private-endpoint-overview.md). Using a private endpoint with online endpoints is currently a preview feature.
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -35,7 +35,7 @@ The following diagram shows how communications flow through private endpoints to
 
 * You must have an Azure Machine Learning workspace, and the workspace must use a private endpoint. If you don't have one, the steps in this article create an example workspace, VNet, and VM. For more information, see [Configure a private endpoint for Azure Machine Learning workspace](how-to-configure-private-link.md).
 
-* The Azure Container Registry for your workspace must be configured for __Premium__ tier. For more information, see [Azure Container Registry service tiers](/azure/container-registry/container-registry-skus).
+* The Azure Container Registry for your workspace must be configured for __Premium__ tier. For more information, see [Azure Container Registry service tiers](../container-registry/container-registry-skus.md).
 
 * The Azure Container Registry and Azure Storage Account must be in the same Azure Resource Group as the workspace.
 
