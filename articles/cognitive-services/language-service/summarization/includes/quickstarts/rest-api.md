@@ -183,6 +183,96 @@ curl -i -X POST https://your-language-endpoint-here/language/analyze-conversatio
 -d \
 ' 
 {
+    "displayName": "Analyze conversations from 123",
+    "analysisInput": {
+        "conversations": [
+            {
+                "modality": "text",
+                "id": "conversation1",
+                "language": "en",
+                "conversationItems": [
+                    {
+                        "text": "Hello, you’re chatting with Rene. How may I help you?",
+                        "id": "1",
+                        "role": "Agent",
+                        "participantId": "Agent_1"
+                    },
+                    {
+                        "text": "Hi, I tried to set up wifi connection for Smart Brew 300 espresso machine, but it didn’t work.",
+                        "id": "2",
+                        "role": "Customer",
+                        "participantId": "Customer_1"
+                    },
+                    {
+                        "text": "I’m sorry to hear that. Let’s see what we can do to fix this issue. Could you please try the following steps for me? First, could you push the wifi connection button, hold for 3 seconds, then let me know if the power light is slowly blinking on and off every second?",
+                        "id": "3",
+                        "role": "Agent",
+                        "participantId": "Agent_1"
+                    },
+                    {
+                        "text": "Yes, I pushed the wifi connection button, and now the power light is slowly blinking.",
+                        "id": "4",
+                        "role": "Customer",
+                        "participantId": "Customer_1"
+                    },
+                    {
+                        "text": "Great. Thank you! Now, please check in your Contoso Coffee app. Does it prompt to ask you to connect with the machine?",
+                        "id": "5",
+                        "role": "Agent",
+                        "participantId": "Agent_1"
+                    },
+                    {
+                        "text": "No. Nothing happened.",
+                        "id": "6",
+                        "role": "Customer",
+                        "participantId": "Customer_1"
+                    },
+                    {
+                        "text": "I’m very sorry to hear that. Let me see if there’s another way to fix the issue. Please hold on for a minute.",
+                        "id": "7",
+                        "role": "Agent",
+                        "participantId": "Agent_1"
+                    }
+                ]
+            }
+        ]
+    },
+    "tasks": [
+        {
+            "taskName": "analyze 1",
+            "kind": "ConversationalSummarizationTask",
+            "parameters": {
+                "modelVersion": "2022-05-15-preview",
+                "summaryAspects": [
+                    "Issue",
+                    "Resolution"
+                ]
+            }
+        }
+    ]
+}
+'
+```
+
+Get the `operation-location` from the response header. The value will look similar to the following URL:
+
+```http
+https://your-language-endpoint-here/language/analyze-conversations/jobs/12345678-1234-1234-1234-12345678
+```
+
+To get the results of the request, use the following cURL command. Be sure to replace `my-job-id` with the numerical ID value you received from the previous `operation-location` response header:
+
+```bash
+curl -X GET    https://your-language-endpoint-here/language/analyze-conversations/jobs/my-job-id \
+-H "Content-Type: application/json" \
+-H "Ocp-Apim-Subscription-Key: your-key-here"
+```
+
+
+### JSON response
+
+```json
+{
     "jobId": "738120e1-7987-4d19-af0c-89d277762a2f",
     "lastUpdatedDateTime": "2022-05-31T16:52:59Z",
     "createdDateTime": "2022-05-31T16:52:51Z",
@@ -208,75 +298,11 @@ curl -i -X POST https://your-language-endpoint-here/language/analyze-conversatio
                             "summaries": [
                                 {
                                     "aspect": "issue",
-                                    "text": "Customer tried to set up wifi connection for Smart Brew 300 machine, but it didnt work"
+                                    "text": "Customer tried to set up wifi connection for Smart Brew 300 machine, but it didn't work"
                                 },
                                 {
                                     "aspect": "resolution",
                                     "text": "Asked customer to try the following steps | Asked customer for the power light | Checked if the app is prompting to connect to the machine | Transferred the call to a tech support"
-                                }
-                            ],
-                            "warnings": []
-                        }
-                    ],
-                    "errors": [],
-                    "modelVersion": "2022-05-15-preview"
-                }
-            }
-        ]
-    }
-}
-'
-```
-
-Get the `operation-location` from the response header. The value will look similar to the following URL:
-
-```http
-https://your-language-endpoint-here/language/analyze-conversations/jobs/12345678-1234-1234-1234-12345678
-```
-
-To get the results of the request, use the following cURL command. Be sure to replace `my-job-id` with the numerical ID value you received from the previous `operation-location` response header:
-
-```bash
-curl -X GET    https://your-language-endpoint-here/language/analyze-conversations/jobs/my-job-id \
--H "Content-Type: application/json" \
--H "Ocp-Apim-Subscription-Key: your-key-here"
-```
-
-
-### JSON response
-
-```json
-{
-    "jobId": "28261846-59bc-435a-a73a-f47c2feb245e",
-    "lastUpdatedDateTime": "2022-05-11T23:16:48Z",
-    "createdDateTime": "2022-05-11T23:16:44Z",
-    "expirationDateTime": "2022-05-12T23:16:44Z",
-    "status": "succeeded",
-    "errors": [],
-    "displayName": "Analyze conversations from 123",
-    "tasks": {
-        "completed": 1,
-        "failed": 0,
-        "inProgress": 0,
-        "total": 1,
-        "items": [
-            {
-                "kind": "conversationalSummarizationResults",
-                "taskName": "analyze 1",
-                "lastUpdateDateTime": "2022-05-11T23:16:48.9553011Z",
-                "status": "succeeded",
-                "results": {
-                    "conversations": [
-                        {
-                            "id": "conversation1",
-                            "summaries": [
-                                {
-                                    "aspect": "issue",
-                                    "text": "Customer tried to set up wifi connection for Smart Brew 300 medication machine, but it didn't work"
-                                },
-                                {
-                                    "aspect": "resolution",
-                                    "text": "Asked customer to try the following steps | Asked customer for the power light | Helped customer to connect to the machine"
                                 }
                             ],
                             "warnings": []
