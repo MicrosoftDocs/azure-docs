@@ -25,7 +25,7 @@ In this article, you can learn about steps to configure and attach an existing K
 1. A running Kubernetes cluster - **We recommend minimum of 4 vCPU cores and 8GB memory, around 2 vCPU cores and 3GB memory will be used by Azure Arc agents and AzureML extension components**.
 1. Connect your Kubernetes cluster to Azure Arc. Follow instructions in [connect existing Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md).
    
-      a. if you have Azure RedHat OpenShift Service (ARO) cluster or OpenShift Container Platform (OCP) cluster, follow another prerequisite step [here](#appendix-iii-prerequisites-for-aro-or-ocp-clusterss) before AzureML extension deployment.
+      a. if you have Azure RedHat OpenShift Service (ARO) cluster or OpenShift Container Platform (OCP) cluster, follow another prerequisite step [here](#appendix-iii-prerequisites-for-aro-or-ocp-clusters) before AzureML extension deployment.
 1. If you have an AKS cluster in Azure, register the AKS-ExtensionManager feature flag by using the ```az feature register --namespace "Microsoft.ContainerService" --name "AKS-ExtensionManager``` command. **Azure Arc connection is not required and not recommended**. 
 1. Cluster running behind an outbound proxy server or firewall needs additional network configurations. Fulfill the [network requirements](./how-to-access-azureml-behind-firewall.md#azureml-kubernetes-compute-a-id"arc-kubernetes"a)
 1. Install or upgrade Azure CLI to version >=2.16.0
@@ -62,7 +62,7 @@ Ensure you have fulfilled [prerequisites](#prerequisites). For AzureML extension
 
 ### Use Minikube on your desktop for a quick POC, training workload support only
 
-Ensure you have fulfilled [prerequisites](#prerequisites). Since the follow steps would create an Azure Arc connected cluster, you would need to specify ```connectedClusters``` value for ```--cluster-type``` parameter. Run following simple Azure CLI command to deploy AzureML extension:
+Ensure you have fulfilled [prerequisites](#prerequisites). Since the following steps would create AzureML extension on an Azure Arc connected cluster, you would need to specify ```connectedClusters``` value for ```--cluster-type``` parameter. Run following simple Azure CLI command to deploy AzureML extension:
 ```azurecli
    az k8s-extension create --name azureml-extension --extension-type Microsoft.AzureML.Kubernetes --config enableTraining=True --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --resource-group <your-RG-name> --scope cluster
 ```
@@ -106,7 +106,7 @@ Otherwise, if a user-assigned managed identity is specified in Azure Machine Lea
 
 |Azure resource name |Role to be assigned|Description|
 |--|--|--|
-|Azure Relay|Azure Relay Owner|Only applicable for Arc-enabled Kubernetes cluster. Azure Relay is not created for AKS cluster without Arc connected.|
+|Azure Relay|Azure Relay Owner|Only applicable for Arc-enabled Kubernetes cluster. Azure Relay isn't created for AKS cluster without Arc connected.|
 |Azure Arc-enabled Kubernetes|Reader|Applicable for both Arc-enabled Kubernetes cluster and AKS cluster.|
 
 Azure Relay resource is created during the extension deployment under the same Resource Group as the Arc-enabled Kubernetes cluster.
@@ -357,8 +357,8 @@ Upon AzureML extension deployment completes, it will create following resources 
    |metrics-controller-manager|Kubernetes deployment|**&check;**|**&check;**|**&check;**|Manage the configuration for Prometheus|N/A|
    |{EXTENSION-NAME}-kube-state-metrics|Kubernetes deployment|**&check;**|**&check;**|**&check;**|Export the cluster-related metrics to Prometheus.|N/A|
    |{EXTENSION-NAME}-prometheus-operator|Kubernetes deployment|Optional|Optional|Optional| Provide Kubernetes native deployment and management of Prometheus and related monitoring components.|N/A|
-   |amlarc-identity-controller|Kubernetes deployment|N/A|**&check;**|**&check;**|Request and renew Azure Blob/Azure Container Registry token through managed identity.|Token exchange with the cloud token service for authentication and authorization of Azure Contianer Registry and Azure Blob used by inference/model deployment.|
-   |amlarc-identity-proxy|Kubernetes deployment|N/A|**&check;**|**&check;**|Request and renew Azure Blob/Azure Container Registry token  through managed identity.|Token exchange with the cloud token service for authentication and authorization of Azure Contianer Registry and Azure Blob used by inference/model deployment.|
+   |amlarc-identity-controller|Kubernetes deployment|N/A|**&check;**|**&check;**|Request and renew Azure Blob/Azure Container Registry token through managed identity.|Token exchange with the cloud token service for authentication and authorization of Azure Container  Registry and Azure Blob used by inference/model deployment.|
+   |amlarc-identity-proxy|Kubernetes deployment|N/A|**&check;**|**&check;**|Request and renew Azure Blob/Azure Container Registry token  through managed identity.|Token exchange with the cloud token service for authentication and authorization of Azure Container  Registry and Azure Blob used by inference/model deployment.|
    |azureml-fe-v2|Kubernetes deployment|N/A|**&check;**|**&check;**|The front-end component that routes incoming inference requests to deployed services.|Send service logs to Azure Blob.|
    |inference-operator-controller-manager|Kubernetes deployment|N/A|**&check;**|**&check;**|Manage the lifecycle of inference endpoints. |N/A|
    |volcano-admission|Kubernetes deployment|Optional|N/A|Optional|Volcano admission webhook.|N/A|
@@ -366,12 +366,12 @@ Upon AzureML extension deployment completes, it will create following resources 
    |volcano-scheduler |Kubernetes deployment|Optional|N/A|Optional|Used to perform in-cluster job scheduling.|N/A|
    |fluent-bit|Kubernetes daemonset|**&check;**|**&check;**|**&check;**|Gather the components' system log.| Upload the components' system log to cloud.|
    |{EXTENSION-NAME}-dcgm-exporter|Kubernetes daemonset|Optional|Optional|Optional|dcgm-exporter exposes GPU metrics for Prometheus.|N/A|
-   |nvidia-device-plugin-daemonset|Kubernetes daemonset|Optional|Optional|Optional|nvidia-device-plugin-daemonset exposes GPUs on each nodes of your cluster| N/A|
-   |prometheus-prom-prometheus|Kubernetes statefulset|**&check;**|**&check;**|**&check;**|Gather and send job metrics to cloud.|Send job metrics like cpu/gpu/memory uitilization to cloud.|
+   |nvidia-device-plugin-daemonset|Kubernetes daemonset|Optional|Optional|Optional|nvidia-device-plugin-daemonset exposes GPUs on each node of your cluster| N/A|
+   |prometheus-prom-prometheus|Kubernetes statefulset|**&check;**|**&check;**|**&check;**|Gather and send job metrics to cloud.|Send job metrics like cpu/gpu/memory utilization to cloud.|
 
 > [!IMPORTANT]
    > * Azure Relay resource  is under the same resource group as the Arc cluster resource. It is used to communicate with the Kubernetes cluster and modifying them will break attached compute targets.
-   > * By default, the deployed kubernetes deployment resourses are randomly deployed to 1 or more nodes of the cluster, and daemonset resource are deployed to ALL nodes. If you want to restrict the extension deployment to specific nodes, use `nodeSelector` configuration setting described as below.
+   > * By default, the deployed kubernetes deployment resources are randomly deployed to 1 or more nodes of the cluster, and daemonset resource are deployed to ALL nodes. If you want to restrict the extension deployment to specific nodes, use `nodeSelector` configuration setting described as below.
 
 > [!NOTE]
    > * **{EXTENSION-NAME}:** is the extension name specified with ```az k8s-extension create --name``` CLI command. 
@@ -384,17 +384,17 @@ For AzureML extension deployment configurations, use ```--config``` or ```--conf
    |--|--|--|--|--|
    |```enableTraining``` |```True``` or ```False```, default ```False```. **Must** be set to ```True``` for AzureML extension deployment with Machine Learning model training support.  |  **&check;**| N/A |  **&check;** |
    | ```enableInference``` |```True``` or ```False```, default ```False```.  **Must** be set to ```True``` for AzureML extension deployment with Machine Learning inference support. |N/A| **&check;** |  **&check;** |
-   | ```allowInsecureConnections``` |```True``` or ```False```, default `False`. This **must** be set to ```True``` to use inference HTTP endpoints for development or test purposes. |N/A| Optional |  Optional |
+   | ```allowInsecureConnections``` |```True``` or ```False```, default `False`. **Must** be set to ```True``` to use inference HTTP endpoints for development or test purposes. |N/A| Optional |  Optional |
    | ```inferenceRouterServiceType``` |```loadBalancer```, ```nodePort``` or ```clusterIP```.  **Required** if ```enableInference=True```. | N/A| **&check;** |   **&check;** |
    | ```internalLoadBalancerProvider``` | This config is only applicable for Azure Kubernetes Service(AKS) cluster now. Set to ```azure``` to allow the inference router using internal load balancer.  | N/A| Optional |  Optional |
    |```sslSecret```| The Kubernetes secret name under azureml namespace to store `cert.pem` (PEM-encoded SSL cert) and `key.pem` (PEM-encoded SSL key), required for inference  HTTPS endpoint support, when  ``allowInsecureConnections`` is set to False. Use this config or combination of `sslCertPemFile` and `sslCertKeyFile` protected config settings. |N/A| Optional |  Optional |
    |```sslCname``` |A SSL CName used by inference HTTPS endpoint. **Required** if ```allowInsecureConnections=True```  |  N/A | Optional | Optional|
-   | ```inferenceRouterHA``` |```True``` or ```False```, default ```True```. By default, AzureML extension will deploy 3 ingress controller replicas for high availability, which requires at least 3 workers in a cluster. Set this to ```False``` if your cluster has fewer than 3 workers, in this case only one ingress controller is deployed. | N/A| Optional |  Optional |
+   | ```inferenceRouterHA``` |```True``` or ```False```, default ```True```. By default, AzureML extension will deploy 3 ingress controller replicas for high availability, which requires at least 3 workers in a cluster. Set to ```False``` if your cluster has fewer than 3 workers, in this case only one ingress controller is deployed. | N/A| Optional |  Optional |
    |```nodeSelector``` | By default, the deployed kubernetes resourses are randomly deployed to 1 or more nodes of the cluster, and daemonset resources are deployed to ALL nodes. If you want to restrict the extension deployment to specific nodes with label `key1=value1` and `key2=value2`, use `nodeSelector.key1=value1`, `nodeSelector.key2=value2` correspondingly. | Optional| Optional |  Optional |
-   |```installNvidiaDevicePlugin```  | ```True``` or ```False```, default ```False```. [Nvidia Device Plugin](https://github.com/NVIDIA/k8s-device-plugin#nvidia-device-plugin-for-kubernetes) is required for ML workloads on Nvidia GPU hardware. By default, AzureML extension deployment will not install Nvidia Device Plugin regardless Kubernetes cluster has GPU hardware or not. User can specify this setting to ```True```, to install it, but make sure to fulfill [Prerequesities](https://github.com/NVIDIA/k8s-device-plugin#prerequisites). | Optional |Optional |Optional |
+   |```installNvidiaDevicePlugin```  | ```True``` or ```False```, default ```False```. [Nvidia Device Plugin](https://github.com/NVIDIA/k8s-device-plugin#nvidia-device-plugin-for-kubernetes) is required for ML workloads on Nvidia GPU hardware. By default, AzureML extension deployment will not install Nvidia Device Plugin regardless Kubernetes cluster has GPU hardware or not. User can specify this setting to ```True```, to install it, but make sure to fulfill [Prerequisites](https://github.com/NVIDIA/k8s-device-plugin#prerequisites). | Optional |Optional |Optional |
    |```installPromOp```|```True``` or ```False```, default ```True```. AzureML extension needs prometheus operator to manage prometheus. Set to ```False``` to reuse existing prometheus operator. Compatible [kube-prometheus-stack](https://github.com/prometheus-community/helm-charts/blob/main/charts/kube-prometheus-stack/README.md) helm chart versions are from 9.3.4 to 30.0.1.| Optional| Optional |  Optional |
  |```installVolcano```| ```True``` or ```False```, default ```True```. AzureML extension needs volcano scheduler to schedule the job. Set to ```False``` to reuse existing volcano scheduler. Supported volcano scheduler versions are 1.4, 1.5. | Optional| N/A |  Optional |
- |```installDcgmExporter```  |```True``` or ```False```, default ```False```. Dcgm-exporter can expose GPU metrics for AzureML workloads, which can be monitored in Azure Portal. Set ```installDcgmExporter```  to ```True``` to install dcgm-exporter. But if you want to utilize your own dcgm-exporter, please refer to [DCGM exporter](./troubleshooting.md#dcgm) |Optional |Optional |Optional |
+ |```installDcgmExporter```  |```True``` or ```False```, default ```False```. Dcgm-exporter can expose GPU metrics for AzureML workloads, which can be monitored in Azure Portal. Set ```installDcgmExporter```  to ```True``` to install dcgm-exporter. But if you want to utilize your own dcgm-exporter, refer to [DCGM exporter](https://github.com/Azure/AML-Kubernetes/blob/master/docs/troubleshooting.md#dcgm) |Optional |Optional |Optional |
 
 
    |Configuration Protected Setting Key Name  |Description  |Training |Inference |Training and Inference
@@ -405,7 +405,7 @@ For AzureML extension deployment configurations, use ```--config``` or ```--conf
 ## Appendix III: Prerequisites for ARO or OCP clusters
 ### Disable Security Enhanced Linux (SELinux) 
 
-[AzureML dataset](./how-to-train-with-datasets.md) that usually used in AzureML training jobs, is not supported on machines with SELinux enabled. Therefore, please disable `selinux`  on all workers.
+[AzureML dataset](./how-to-train-with-datasets.md) that usually used in AzureML training jobs, is not supported on machines with SELinux enabled. Therefore, you need to disable `selinux`  on all workers in order to use AzureML dataset.
 
 ### Privileged setup for ARO and OCP
 
@@ -422,15 +422,13 @@ For AzureML extension deployment on ARO or OCP cluster, grant privileged access 
    * ```system:serviceaccount:{KUBERNETES-COMPUTE-NAMESPACE}:default```
    * ```system:serviceaccount:azureml:azureml-ingress-nginx```
    * ```system:serviceaccount:azureml:azureml-ingress-nginx-admission```
-   > **<span stype="color:yellow">Notes</span>**
+   > **<span>Notes</span>**
       >* **{EXTENSION-NAME}:** is the extension name specified with ```az k8s-extension create --name``` CLI command. 
       >* **{KUBERNETES-COMPUTE-NAMESPACE}:** is the namespace of kubernetes compute specified with ```az ml compute attach --namespace``` CLI command. Skip configuring `system:serviceaccount:{KUBERNETES-COMPUTE-NAMESPACE}:default` if namespace is not specified with ```az ml compute attach ``` CLI command.
 
 ## Appendix IV: AzureML jobs connect with on-premises data storage
 
 [Persistent Volume (PV) and Persistent Volume Claim (PVC)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) are Kubernetes concept, allowing user to provide and consume various storage resources. 
-
-By giving the special label and annotation to PVC, the PVC can be mounted to AzureML job pods, so data scientists can access their data by specifying the data mount path.  
 
 1. Create PV, take NFS as example,
 
@@ -451,7 +449,7 @@ spec:
     server: 20.98.110.84 
     readOnly: false
 ```
-2. Cteate PVC in the same Kubernetes namespace with ML workloads. In `metadata`, add label `ml.azure.com/pvc: "true"`, and add annotation  `ml.azure.com/mountpath: <mount path>` to set the mount path. 
+2. Create PVC in the same Kubernetes namespace with ML workloads. In `metadata`, you **must** add label `ml.azure.com/pvc: "true"` to be recognized by AzureML , and add annotation  `ml.azure.com/mountpath: <mount path>` to set the mount path. 
 
 ```
 apiVersion: v1
@@ -472,18 +470,33 @@ spec:
        storage: 1Gi
 ```
 > [!IMPORTANT]
-> The jobs in the sane Kubernetes namespace as the PVC(s) will be mounted the PVC in job runtime. Data scientist is able to access the PVC `mount path` specified in the PVC annotation in the job.
+> Only the job pods in the same Kubernetes namespace with the PVC(s) will be mounted the volume. Data scientist is able to access the `mount path` specified in the PVC annotation in the job.
 
+## Appendix V: Supported region and  Kubernetes version
 
+- AzureML extension region availability, 
+  - East US, East US 2, South Central US, West US 2, Australia East, Southeast Asia, North Europe, UK South, West Europe, West Central US, Central US, North Central US, West US, Korea Central, France Central
+
+- Kubernetes clusters installing AzureML extension have a version support window of "N-2", that is aligned with [Azure Kubernetes Service (AKS) version support policy](../aks/supported-kubernetes-versions.md#kubernetes-version-support-policy), where 'N' is the latest GA minor version of Azure Kubernetes Service.
+
+  - For example, if AKS introduces 1.20.a today, versions 1.20.a, 1.20.b, 1.19.c, 1.19.d, 1.18.e, and 1.18.f are supported.
+
+  - If customers are running an unsupported Kubernetes version, they will be asked to upgrade when requesting support for the cluster. Clusters running unsupported Kubernetes releases are not covered by the AzureML extension support policies.
 
 
 ## Next steps
 
-- [Train models with CLI (v2)](how-to-train-cli.md)
-- [Configure and submit training runs](how-to-set-up-training-targets.md)
-- [Tune hyperparameters](how-to-tune-hyperparameters.md)
-- [Train a model using Scikit-learn](how-to-train-scikit-learn.md)
-- [Train a TensorFlow model](how-to-train-tensorflow.md)
-- [Train a PyTorch model](how-to-train-pytorch.md)
-- [Train using Azure Machine Learning pipelines](how-to-create-machine-learning-pipelines.md)
-- [Train model on-premise with outbound proxy server](../azure-arc/kubernetes/quickstart-connect-cluster.md#connect-using-an-outbound-proxy-server)
+- [Train models with CLI v2](how-to-train-cli.md)
+- [Train models with Python SDK](how-to-set-up-training-targets.md)
+- [Deploy model with an online endpoint (CLI v2)](./how-to-deploy-managed-online-endpoints.md)
+- [Use batch endpoint for batch scoring (CLI v2)](./how-to-use-batch-endpoint.md)
+
+### AzureML examples
+
+All AzureML examples can be found in [https://github.com/Azure/azureml-examples.git](https://github.com/Azure/azureml-examples).
+
+For any training job sample, you only need to update the compute target name in the sample to your Kubernetes compute target, then submit the job. 
+* Explore training job samples with CLI v2 - [https://github.com/Azure/azureml-examples/tree/main/cli/jobs](https://github.com/Azure/azureml-examples/tree/main/cli/jobs)
+* Explore model deployment with online endpoint samples with CLI v2 - [https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/kubernetes](https://github.com/Azure/azureml-examples/tree/main/cli/endpoints/online/kubernetes)
+* Explore training job samples with SDK v2 -[https://github.com/Azure/azureml-examples/tree/main/sdk/jobs](https://github.com/Azure/azureml-examples/tree/main/sdk/jobs)
+* Explore model deployment with online endpoint samples with SDK v2 -[https://github.com/Azure/azureml-examples/tree/main/sdk/endpoints/online/kubernetes](https://github.com/Azure/azureml-examples/tree/main/sdk/endpoints/online/kubernetes)
