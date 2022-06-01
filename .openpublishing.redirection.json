@@ -2719,6 +2719,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/aks/keda.md",
+      "redirect_url": "/azure/aks/keda-about",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/analysis-services/analysis-services-create-model-portal.md",
       "redirect_url": "/azure/analysis-services/analysis-services-overview",
       "redirect_document_id": false
@@ -22013,6 +22018,11 @@
       "source_path_from_root": "/articles/scheduler/get-started-portal.md",
       "redirect_url": "/azure/scheduler/migrate-from-scheduler-to-logic-apps",
       "redirect_document_id": ""
+    },
+    {
+      "source_path_from_root": "/articles/search/knowledge-store-view-storage-explorer.md",
+      "redirect_url": "/azure/search/knowledge-store-create-portal#view-kstore",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/search/cognitive-search-resources-documentation.md",
@@ -43272,6 +43282,11 @@
     {
       "source_path_from_root": "/articles/cognitive-services/translator/custom-translator/terminology.md",
       "redirect_url": "/azure/cognitive-services/translator/custom-translator/key-terms",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/generate-sas-tokens.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/create-sas-tokens",
       "redirect_document_id": false
     },
     {
