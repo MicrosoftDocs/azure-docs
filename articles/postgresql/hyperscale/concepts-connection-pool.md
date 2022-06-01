@@ -30,7 +30,7 @@ actively run in the database doesn't change. Instead, PgBouncer queues excess
 connections and runs them when the database is ready.
 
 Hyperscale (Citus) is now offering a managed instance of PgBouncer for server
-groups. It supports up to 2,000 simultaneous client connections. Addtionally,
+groups. It supports up to 2,000 simultaneous client connections. Additionally,
 if a server group has [high availability](concepts-high-availability.md) (HA)
 enabled, then so does its managed PgBouncer.
 
