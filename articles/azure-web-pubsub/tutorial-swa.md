@@ -24,10 +24,10 @@ In this tutorial, you learn how to:
 :::image type="content" source="media/tutorial-swa/tutorial-swa.png" alt-text="Azure Web PubSub working with Static Web App":::
 
 * GitHub along with DevOps provide source control and continuous delivery. So whenever there's code change to the source repo, Azure DevOps pipeline will soon apply it to Azure Static Web App and present to endpoint user.
-* When a new user login, Functions `login` API will be triggered and generate Azure Web PubSub service client connection url.
+* When a new user is login, Functions `login` API will be triggered and generate Azure Web PubSub service client connection url.
 * When client init the connection request to Azure Web PubSub service, service will send a system `connect` event and Functions `connect` API will be triggered to auth the user.
 * When client send message to Azure Web PubSub service, service will send a user `message` event and Functions `message` API will be triggered and broadcast the message to all the connected clients.
-* Functions `validate` API will be triggered periodically for [CloudEvents Abuse Protection](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection) purpose, when the events in Azure Web PubSub is configured with predefined parameter `{event}`, i.e. https://$STATIC_WEB_APP/api/{event}.
+* Functions `validate` API will be triggered periodically for [CloudEvents Abuse Protection](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection) purpose, when the events in Azure Web PubSub are configured with predefined parameter `{event}`, that is, https://$STATIC_WEB_APP/api/{event}.
 
 > [!NOTE]
 > `connect` and `message` event will be triggered when Azure Web PubSub service is configured with these 2 events.
