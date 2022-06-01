@@ -1,6 +1,6 @@
 ---
 title: Azure Attestation claim rule functions
-description: Claim rule concepts for Azure Attestation Policy.
+description: Learn about claim rule concepts for Azure Attestation policy and the improvements made to the policy language.
 services: attestation
 author: prsriva
 ms.service: attestation
@@ -10,34 +10,34 @@ ms.author: prsriva
 ms.custom: claim rules
 ---
 
-# Claim Rule functions (supported in policy version 1.2+)
+# Claim rule functions (supported in policy version 1.2+)
 
-The attestation policy language is updated to enable querying of the incoming evidence in a JSON format. This section explains all the improvements made to the policy language.
+Azure Attestation policy language is updated to enable querying of the incoming evidence in a JSON format. This article explains all the improvements made to the policy language.
 
-One new operator and Six functions are introduced in this policy version.
+One new operator and six functions are introduced in this policy version.
 
 ## Functions
 
-Attestation evidence, which was earlier processed to generate specific incoming claims is now made available to the policy writer in the form of a JSON input. The policy language is also updated to use functions to extract the information. As specified in [Azure Attestation claim rule grammar](claim-rule-grammar.md), the language supports three valueType’s and an implicit assignment operator.
+Attestation evidence, which was earlier processed to generate specific incoming claims, is now made available to the policy writer in the form of a JSON input. The policy language is also updated to use functions to extract the information. As specified in [Azure Attestation claim rule grammar](claim-rule-grammar.md), the language supports the following three value types and an implicit assignment operator:
 
 - Boolean
 - Integer
 - String
 - Claim property access
 
-The new function call expression can now be used to process the incoming claims set. The function call expression can be used with a claim property and is structured as:
+You can use the new function call expression to process the incoming claims set. Use the function call expression with a claim property. It's structured as:
 
 ```JSON
 value=FunctionName((Expression (, Expression)*)?))
 ```
 
-The function call expression starts with the name of the function, followed by parentheses containing zero or more arguments separated by comma. Since the arguments of the function are expressions, the language allows specifying a function call as an argument to another function. The arguments are evaluated from left to right before the evaluation of the function begins.
+The function call expression starts with the name of the function, followed by parentheses that contain zero or more arguments separated by commas. Because the arguments of the function are expressions, the language allows specifying a function call as an argument to another function. The arguments are evaluated from left to right before the evaluation of the function begins.
 
-The following functions are implemented in the policy language:
+The following functions are implemented in the policy language.
 
 ## JmesPath function
 
-JmesPath is a query language for JSON. It specifies several operators and functions that can be used to search data in a JSON document. The search always returns a valid JSON as output. The JmesPath function is structured as: 
+JmesPath is a query language for JSON. It specifies several operators and functions that you can use to search data in a JSON document. The search always returns a valid JSON as output. The JmesPath function is structured as:
 
 ```JSON
 JmesPath(Expression, Expression)
@@ -49,11 +49,11 @@ The function requires exactly two arguments. The first argument must evaluate a 
 
 ### Evaluation
 
-Evaluates the JmesPath expression represented by the second argument, against JSON data represented by the first argument and returns the result JSON as a string.
+Evaluates the JmesPath expression represented by the second argument, against JSON data represented by the first argument, and returns the resultant JSON as a string.
 
 ### Effect of read-only arguments on result
 
-The result JSON string is read-only if either of the input arguments are retrieved from read-only claims.
+The resultant JSON string is read only if either of the input arguments are retrieved from read-only claims.
 
 ### Usage example
 
@@ -67,7 +67,7 @@ Consider the following rule:
 
 During the evaluation of this rule, the JmesPath function is evaluated. The evaluation boils down to evaluating JmesPath query *foo* against the JSON *{ "foo" :  "bar" }.* The result of this search operation is a JSON value *"bar".* So, the evaluation of the rule adds a new claim with type *"JmesPathResult"* and string value *"bar"* to the incoming claims set.
 
-Notice that the backslash character is used to escape the double-quote character within the literal string representing the JSON data.
+The backslash character is used to escape the double-quote character within the literal string that represents the JSON data.
 
 #### Arguments constructed from claims
 
@@ -78,7 +78,7 @@ Claim1: {type="JsonData", value="{\"values\": [0,1,2,3,4]}"}
 Claim2: {type="JmesPathQuery", value="values[2]"}
 ```
 
-A JmesPath query can be written as following:
+A JmesPath query can be written as:
 
 ```JSON
 c1:[type="JsonData"] && c2:[type=="JmesPathQuery"] =>
@@ -123,22 +123,22 @@ The function requires exactly one argument, which must evaluate to a valid JSON 
 
 ### Evaluation
 
-Here is how each type of the JSON values are converted to a claim value:
+Here's how each type of the JSON values are converted to a claim value:
 
-- **Number**: If the number is an integer, the function returns a claim value with same integer value. If the number is a fraction, an error is generated. 
+- **Number**: If the number is an integer, the function returns a claim value with the same integer value. If the number is a fraction, an error is generated.
 - **Boolean**: The function returns a claim value with the same Boolean value.
 - **String**: The function returns a claim value with the same string value.
-- **Object**: The function does not support JSON objects. If the argument is a JSON object, an error is generated.
-- **Array**: The function only supports arrays of primitive (number, Boolean, string, null) types. Such an array is converted to a set, containing claim with the same type but with values created by converting the JSON values from the array. If the argument to the function is an array of non-primitive (object, array) types, an error is generated.
-- **Null**: If the input is a JSON null, the function returns an empty claim value. If such a claim value is used to construct a claim, the claim is an empty claim. If a rule attempts to add or issue an empty claim, no claim is added to the incoming or the outgoing claims set. In other words, a rule attempting to add or issue an empty claim result in a no-op.
+- **Object**: The function doesn't support JSON objects. If the argument is a JSON object, an error is generated.
+- **Array**: The function only supports arrays of primitive (number, Boolean, string, null) types. Such an array is converted to a set that contains a claim with the same type but with values created by converting the JSON values from the array. If the argument to the function is an array of non-primitive (object, array) types, an error is generated.
+- **Null**: If the input is a JSON null, the function returns an empty claim value. If such a claim value is used to construct a claim, the claim is an empty claim. If a rule attempts to add or issue an empty claim, no claim is added to the incoming or the outgoing claims set. In other words, a rule attempting to add or issue an empty claim results in a no-op.
 
 ### Effect of read-only arguments on result
 
-The result claim value/values is/are read-only if the input argument is read-only.
+The resultant claim values are read only if the input argument is read only.
 
 ### Usage example
 
-#### JSON Number/Boolean/String
+#### JSON number/Boolean/string
 
 Assume the following claims are available in the incoming claim set:
 
@@ -156,7 +156,7 @@ c:[type=="JsonBooleanData"] => add(type="BooleanResult", value=JsonToClaimValue(
 c:[type=="JsonStringData"] => add(type="StringResult", value=JsonToClaimValue(c.value));
 ```
 
-Updated Incoming claims set:
+Updated incoming claims set:
 
 ```JSON
 Claim1: { type = "JsonIntegerData", value="100" } 
@@ -167,7 +167,7 @@ Claim5: { type = "JsonStringData", value="abc" }
 Claim6: { type = "StringResult", value="abc" } 
 ```
 
-#### JSON Array
+#### JSON array
 
 Assume the following claims are available in the incoming claims set:
 
@@ -190,9 +190,9 @@ Claim3: { type="Result", value="abc" }
 Claim4: { type="Result", value=true}
 ```
 
-Note the type in the claims is the same and only the value differs. If Multiple entries exist with the same value in the array, multiple claims will be created.
+The type in the claims is the same and only the value differs. If multiple entries exist with the same value in the array, multiple claims are created.
 
-#### JSON Null
+#### JSON null
 
 Assume the following claims are available in the incoming claims set:
 
@@ -212,11 +212,11 @@ Updated incoming claims set:
 Claim1: { type="JsonData", value="null" }
 ```
 
-The rule attempts to add a claim with type *Result* and an empty value, since it's not allowed no claim is created, and the incoming claims set remains unchanged.
+The rule attempts to add a claim with the type *Result* and an empty value. Because it's not allowed, no claim is created, and the incoming claims set remains unchanged.
 
 ## IsSubsetOf function
 
-This function is used to check if a set of claims is subset of another set of claims. The function is structured as:
+This function is used to check if a set of claims is a subset of another set of claims. The function is structured as:
 
 ```JSON
 IsSubsetOf(Expression, Expression)
@@ -224,17 +224,18 @@ IsSubsetOf(Expression, Expression)
 
 ### Argument constraints
 
-This function requires exactly two arguments. Both arguments can be sets of any cardinality. The sets in policy language are inherently heterogeneous, so there is no restriction on which type of values can be present in the argument sets.
+This function requires exactly two arguments. Both arguments can be sets of any cardinality. The sets in policy language are inherently heterogeneous, so there's no restriction on which type of values can be present in the argument sets.
 
 ### Evaluation
 
-The function checks if the set represented by the first argument is a subset of the set represented by the second argument. If so, it returns true, otherwise it returns false.
+The function checks if the set represented by the first argument is a subset of the set represented by the second argument. If so, it returns true. Otherwise, it returns false.
 
 ### Effect of read-only arguments on result
 
-Since the function simply creates and returns a Boolean value, the returned claim value is always non-read-only.
+Because the function simply creates and returns a Boolean value, the returned claim value is always non-read only.
 
 ### Usage example
+
 Assume the following claims are available in the incoming claims set:
 
 ```JSON
@@ -263,6 +264,7 @@ Claim6: { type="IsSubset", value=true }
 ```
 
 ## AppendString function
+
 This function is used to append two string values. The function is structured as:
 
 ```JSON
@@ -275,11 +277,11 @@ This function requires exactly two arguments. Both the arguments must evaluate s
 
 ### Evaluation
 
-This function appends the string value of the second argument to the string value of the first argument and returns the result string value.
+This function appends the string value of the second argument to the string value of the first argument and returns the resultant string value.
 
-### Effect of read-only arguments on result
+### Effect of read-only arguments on the result
 
-The result string value is considered to be read-only if either of the arguments are retrieved from read-only claims.
+The resultant string value is considered to be read only if either of the arguments are retrieved from read-only claims.
 
 ### Usage example
 
@@ -305,6 +307,7 @@ Claim3: { type="Result", value="abcxyz" }
 ```
 
 ## NegateBool function
+
 This function is used to negate a Boolean claim value. The function is structured as:
 
 ```JSON
@@ -319,9 +322,9 @@ The function requires exactly one argument, which must evaluate a Boolean value.
 
 This function negates the Boolean value represented by the argument and returns the negated value.
 
-### Effect of read-only arguments on result
+### Effect of read-only arguments on the result
 
-The resultant Boolean value is considered to be read-only if the argument is retrieved from a read-only claim.
+The resultant Boolean value is considered to be read only if the argument is retrieved from a read-only claim.
 
 ### Usage example
 
@@ -358,11 +361,11 @@ This function requires exactly two arguments. The first argument can evaluate a 
 
 ### Evaluation
 
-The function returns true if the set represented by the first argument is not empty and only contains the value represented by the second argument. The function returns false, if the set represented by the first argument is empty or contains any value other than the value represented by the second argument.
+The function returns true if the set represented by the first argument isn't empty and only contains the value represented by the second argument. The function returns false if the set represented by the first argument is empty or contains any value other than the value represented by the second argument.
 
 ### Effect of read-only arguments on result
 
-Since the function simply creates and returns a Boolean value, the returned claim value is always non-read-only.
+Because the function simply creates and returns a Boolean value, the returned claim value is always non-read only.
 
 ### Usage example
 
@@ -416,9 +419,9 @@ Claim2: {type="Claim2", value=200}
 Claim3: {type="Claim2", value=300}
 ```
 
-### Sample Policy using policy version 1.2
+### Sample policy using policy version 1.2
 
-Windows [implements measured boot](/windows/security/information-protection/secure-the-windows-10-boot-process) and along with attestation the protections provided is greatly enhanced which can be securely and reliably used to detect and protect against vulnerable and malicious boot components. These measurements can now be used to build the attestation policy.
+Windows [implements measured boot](/windows/security/information-protection/secure-the-windows-10-boot-process) and, along with attestation, the protection that's provided is greatly enhanced. You can use it to securely and reliably detect and protect against vulnerable and malicious boot components. You can now use these measurements to build the attestation policy.
 
 ```
 version=1.2;
