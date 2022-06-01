@@ -13,7 +13,7 @@ David explains the use case scenarios for this integration and how the data clas
 
 <br>
 <br>
-<iframe src="https://aka.ms/docs/player?id=9b911e9c-e933-4b7b-908a-5fd614f822c7" max-width: 100%; min-width: 100% allowFullScreen="true" frameBorder="0"></iframe>></iframe>
+<iframe src="https://aka.ms/docs/player?id=9b911e9c-e933-4b7b-908a-5fd614f822c7" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
 
 - [1:36](/shows/mdc-in-the-field/integrate-with-purview) - Overview of Azure Purview
 

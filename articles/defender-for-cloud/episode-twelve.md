@@ -13,7 +13,7 @@ Netta explains how Defender for Servers applies Azure Arc as a bridge to onboard
 
 <br>
 <br>
-<iframe src="https://aka.ms/docs/player?id=18fdbe74-4399-44fe-81e7-3e3ce92df451" max-width: 100%; min-width: 100% allowFullScreen="true" frameBorder="0"></iframe>></iframe>
+<iframe src="https://aka.ms/docs/player?id=18fdbe74-4399-44fe-81e7-3e3ce92df451" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
 
 - [00:55](/shows/mdc-in-the-field/enhanced-workload-protection#time=00m55s) - Arc Auto-provisioning in GCP
 

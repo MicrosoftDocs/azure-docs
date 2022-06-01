@@ -13,7 +13,7 @@ Nadav gives insights about workload protection for GKE and how to obtain visibil
 
 <br>
 <br>
-<iframe src="https://aka.ms/docs/player?id=078af1f2-1f12-4030-bd3f-3e7616150562" max-width: 100%; min-width: 100% allowFullScreen="true" frameBorder="0"></iframe>></iframe>
+<iframe src="https://aka.ms/docs/player?id=078af1f2-1f12-4030-bd3f-3e7616150562" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
 
 - [00:55](/shows/mdc-in-the-field/gcp-containers#time=00m55s) - Architecture solution for Defender for Containers and support for GKE
 
