@@ -45,7 +45,7 @@ For Application Gateway with WAF configuration, you can upgrade the WAF configur
 
 The WAF policy can be shared to multiple application gateways. Also, a WAF policy allows you to take advantage of advanced and new features like bot protection, newer rule sets, and reduced false positives. New features are only released on WAF policies.
 
-To upgrade a WAF configuration to a WAF policy, select **Upgrade configuration** from the desired application gateway.
+To upgrade a WAF configuration to a WAF policy, select **Upgrade from WAF configuration** from the desired application gateway.
 
 :::image type="content" source="media/manage-waf-policies/upgrade-policy.png" alt-text="Screenshot showing upgrade from WAF configuration":::
 
