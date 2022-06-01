@@ -178,7 +178,7 @@ Trusted launch now supports ephemeral OS disks in preview. Note that, while usin
 
 See the list of [Generation 2 VM sizes supporting Trusted launch](trusted-launch.md#limitations).
 
-The following commands can be used to check if a [Generation 2 VM Size](../virtual-machines/generation-2.md/#generation-2-vm-sizes) does not support Trusted launch.
+The following commands can be used to check if a [Generation 2 VM Size](../virtual-machines/generation-2.md#generation-2-vm-sizes) does not support Trusted launch.
 
 #### CLI
 
