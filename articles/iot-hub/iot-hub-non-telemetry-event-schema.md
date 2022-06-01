@@ -36,8 +36,8 @@ The following system properties are set by IoT Hub on each event. System propert
 | -------- | ---- | ---------- |
 | content_encoding | string | "utf-8" |
 | content_type | string |"application/json" |
-| correlation_id | string | c598c0e62a |
-| user_id | string | contoso-routing-hub |
+| correlation_id | string | NEED A DEFINITION. A Guid that ... |
+| user_id | string | The name of IoT Hub that generated the event. |
 
 ### Application properties
 
@@ -46,11 +46,11 @@ The following application properties are set by IoT Hub on each event.
 | Property | Type |Description |
 | -------- | ---- | ---------- |
 | deviceId | string | The unique identifier of the device. This case-sensitive string can be up to 128 characters long, and supports ASCII 7-bit alphanumeric characters plus the following special characters: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
-| hubName | string | The name of the IoT hub. |
-| iothub-message-schema | string | The message schema associated with the event category; for example, "deviceLifecycleNotification". |
+| hubName | string | The name of the IoT Hub that generated the event. |
+| iothub-message-schema | string | The message schema associated with the event category; for example, *deviceLifecycleNotification*. |
 | moduleId | string | The unique identifier of the module. This property is output only for module lifecycle and twin change events. This case-sensitive string can be up to 128 characters long, and supports ASCII 7-bit alphanumeric characters plus the following special characters: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 | operationTimestamp | string | The ISO8601 timestamp of the operation. |
-| opType | string | The identifier for the operation that generated the event. For example, "createDeviceIdentity". |
+| opType | string | The identifier for the operation that generated the event. For example, *createDeviceIdentity*. |
 
 ### Annotations
 
@@ -60,13 +60,71 @@ The following annotations are stamped by IoT Hub on each event.
 | -------- | ---- | ----------- |
 | iothub-connection-device-id | string | The unique identifier of the device. This case-sensitive string can be up to 128 characters long, and supports ASCII 7-bit alphanumeric characters plus the following special characters: `- : . + % _ # * ? ! ( ) , = @ ; $ '`.  |
 | iothub-connection-module-id | string | The unique identifier of the module. This property is output only for module life cycle and twin events. This case-sensitive string can be up to 128 characters long, and supports ASCII 7-bit alphanumeric characters plus the following special characters: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
-| iothub-enqueuedtime | number | Description needed. 1653677358153 |
-| iothub-message-source | string | A value corresponding the the event categories that identifies the message source; for example, "deviceLifecycleEvents". |
-| x-opt-sequence-number  | number | Description needed. |
-| x-opt-offset | string | Description needed. |
-| x-opt-enqueued-time | number | Description needed. 1653677358262 |
+| iothub-enqueuedtime | number | DESCRIPTION NEEDED. 1653677358153 |
+| iothub-message-source | string | A value corresponding the the event categories that identifies the message source; for example, *deviceLifecycleEvents*. |
+| x-opt-sequence-number  | number | DESCRIPTION NEEDED. |
+| x-opt-offset | string | DESCRIPTION NEEDED. |
+| x-opt-enqueued-time | number | DESCRIPTION NEEDED. 1653677358262 |
 
-## Device Lifecycle Events
+## Connection state events
+
+Connection state events are emitted whenever a device or module connects or disconnects from the IoT hub.
+
+**Application properties**: The following table shows how application property values are set for connection state events:  
+
+| Property | Value |
+| ---- | ----------- |
+| iothub-message-schema | deviceConnectionStateNotification |
+| opType | One of the following values: deviceConnected, deviceDisconnected, moduleConnected, or moduleDisconnected. |
+
+**Annotations**: The following table shows how annotations are set for connection state events:
+
+| Property | Value |
+| ---- | ----------- |
+| iothub-message-source |  deviceConnectionStateEvents |
+
+**Payload**: The message payload contains a sequence number.
+
+### Example
+
+```json
+{
+    "event": {
+        "origin": "contoso-device-1",
+        "module": "",
+        "interface": "",
+        "component": "",
+        "properties": {
+            "system": {
+                "content_encoding": "utf-8",
+                "content_type": "application/json",
+                "correlation_id": "98dcbcf6-3398-c488-c62c-06330e65ea98",
+                "user_id": "contoso-routing-hub"
+            },
+            "application": {
+                "hubName": "contoso-routing-hub",
+                "deviceId": "contoso-device-1",
+                "opType": "deviceDisconnected",
+                "iothub-message-schema": "deviceConnectionStateNotification",
+                "operationTimestamp": "2022-06-01T18:43:04.5561024Z"
+            }
+        },
+        "annotations": {
+            "iothub-connection-device-id": "contoso-device-1",
+            "iothub-enqueuedtime": 1654109018051,
+            "iothub-message-source": "deviceConnectionStateEvents",
+            "x-opt-sequence-number": 72,
+            "x-opt-offset": "37344",
+            "x-opt-enqueued-time": 1654109018176
+        },
+        "payload": {
+            "sequenceNumber": "000000000000000001D8713FF7E0851400000002000000000000000000000007"
+        }
+    }
+}
+```
+
+## Device lifecycle events
 
 Device lifecycle events are emitted whenever a device or module is created or deleted from the identity registry.
 
@@ -74,8 +132,8 @@ Device lifecycle events are emitted whenever a device or module is created or de
 
 | Property | Value |
 | ---- | ----------- |
-| iothub-message-schema | "deviceLifecycleNotification". |
-| opType | One of the following values: "createDeviceIdentity", "deleteDeviceIdentity", "createModuleIdentity", or "deleteModuleIdentity". |
+| iothub-message-schema | deviceLifecycleNotification. |
+| opType | One of the following values: createDeviceIdentity, deleteDeviceIdentity, createModuleIdentity, or "deleteModuleIdentity. |
 
 **Annotations**: The following table shows how annotations are set for device lifecycle events:
 
@@ -83,7 +141,7 @@ Device lifecycle events are emitted whenever a device or module is created or de
 | ---- | ----------- |
 | iothub-message-source |  "deviceLifecycleEvents". |
 
-**Payload**: The message payload contains the device ID, the etag property, and version properties  the twin of the target device or module identity.
+**Payload**: The message payload contains the device twin or module twin.
 
 ### Example
 
