@@ -91,7 +91,7 @@ Make the downloaded activation file accessible to the sensor console admin so th
 1. Copy the command to a safe location, and continue with installing the sensor. For more information, see [Install the sensor](tutorial-getting-started-eiot-sensor.md#install-the-sensor).
 
 > [!NOTE]
-> As opposed to OT sensors, where you define your sensor's site, all Enterprise IoT sensors are automatically added to the **BuiltIn-Enterprise** site.
+> As opposed to OT sensors, where you define your sensor's site, all Enterprise IoT sensors are automatically added to the **Enterprise network** site.
 
 ---
 ## Manage on-boarded sensors

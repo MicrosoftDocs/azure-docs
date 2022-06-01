@@ -220,7 +220,7 @@ Once you've validated your setup, the device inventory will start to populate wi
 
 The device inventory is where you'll be able to view all of your device systems, and network information.
 
-You can also view your sensors from the **Sites and sensors** page. Enterprise IoT sensors are all automatically added to the same site, named **BuiltIn-Enterprise**.
+You can also view your sensors from the **Sites and sensors** page. Enterprise IoT sensors are all automatically added to the same site, named **Enterprise network**.
 
 For more information, see:
 
