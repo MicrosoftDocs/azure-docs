@@ -58,9 +58,9 @@ The Functions runtime uses an Azure Storage account internally. For all trigger 
 
 To set the storage account connection string:
 
-1. In the Azure portal, navigate to your storage account
+1. In the Azure portal, navigate to your storage account.
 
-2. In the **Access keys** tab, below **Security + networking**, copy the **Connection string** of **key1**
+2. In the **Access keys** tab, below **Security + networking**, copy the **Connection string** of **key1**.
 
 2. In your project, open the local.settings.json file and set the value of the `AzureWebJobsStorage` key to the connection string you copied.
 

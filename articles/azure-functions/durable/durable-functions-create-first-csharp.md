@@ -208,7 +208,7 @@ The following steps use a template to create the durable function code in your p
 
 1. Verify **Azure Function** is selected from the add menu, type a name for your C# file, and then select **Add**.
 
-1. Select the **Durable Functions Orchestration** template and then select **Add**
+1. Select the **Durable Functions Orchestration** template and then select **Add**.
 
     ![Select durable template](./media/durable-functions-create-first-csharp/functions-vs-select-template.png)
 
