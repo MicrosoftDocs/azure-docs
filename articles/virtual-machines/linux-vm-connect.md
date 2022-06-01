@@ -20,12 +20,12 @@ This document describes how to connect, via SSH, to a VM that has a public IP. I
 
 - You need an SSH key pair. If you don't already have one, Azure will create a key pair during the deployment process. If you need help with creating one manually, see [Create and use an SSH public-private key pair for Linux VMs in Azure](./linux/mac-create-ssh-keys.md).
 - You need an existing Network Security Group (NSG). Most VMs will have an NSG by default, but if you don't already have one you can create one and attach it manually. For more information, see [Create, change, or delete a network security group](../virtual-network/manage-network-security-group.md).
-- In order to connect to a Linux Virtual Machine you need the appropriate port open: normally this will be port 22. The following instructions assume port 22 but the process is the same for other port numbers. You can validate an appropriate port is open for SSH using the troubleshooter or by checking manually in your VM settings. To check if port 22 is open: 
+- To connect to a Linux VM, you need the appropriate port open. Typically this will be port 22. The following instructions assume port 22 but the process is the same for other port numbers. You can validate an appropriate port is open for SSH using the troubleshooter or by checking manually in your VM settings. To check if port 22 is open: 
 
     1. On the page for the VM, select **Networking** from the left menu.
     1. On the **Networking** page, check to see if there is a rule which allows TCP on port 22 from the IP address of the computer you are using to connect to the VM. If the rule exists, you can move to the next section.
     1. If there isn't a rule, add one by selecting **Add inbound port rule**.
-    1. From the **Service** dropdown select **SSH**.
+    1. For **Service**, select **SSH** from the dropdown.
     
        :::image type="content" source="media/linux-vm-connect/create-rule.png" alt-text="Screenshot showing where to choose S S H.":::
 
@@ -50,7 +50,7 @@ This document describes how to connect, via SSH, to a VM that has a public IP. I
 Once the above prerequisites are met, you are ready to connect to your VM. Open your SSH client of choice.
 
 
-- If you are using Linux or macOS this is most commonly terminal or shell.
+- If you are using Linux or macOS, the SSH client is most commonly terminal or shell.
 - For a Windows machine this might be [WSL](/windows/wsl/about), or any local terminal like [PowerShell](/powershell/scripting/overview). If you do not have an SSH client you can [install WSL](/windows/wsl/install), or consider using [Azure Cloud Shell](../cloud-shell/overview.md).
 
 > [!NOTE]
@@ -59,7 +59,7 @@ Once the above prerequisites are met, you are ready to connect to your VM. Open 
 ## [WSL, macOS, or native Linux client](#tab/Linux)
 
 ### SSH with a new key pair
-1. Ensure your public and private keys are in the correct directory. This is usually the ~/.ssh directory.
+1. Ensure your public and private keys are in the correct directory. The directory is usually `~/.ssh`.
 
     If you generated keys manually or generated them with the CLI, then the keys are probably already there. However, if you downloaded them in pem format from the Azure portal, you may need to move them to the right location. This can be done with the following syntax: `mv PRIVATE_KEY_SOURCE  PRIVATE_KEY_DESTINATION`
    
