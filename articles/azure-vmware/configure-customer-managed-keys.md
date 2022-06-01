@@ -39,33 +39,61 @@ Before you begin to enable customer-managed key (CMK) functionality, ensure the 
 1. If you enabled restricted access to Key Vault, you'll need to allow Microsoft Trusted Services to bypass the Azure Key Vault firewall. Go to [Configure Azure Key Vault networking settings](https://docs.microsoft.com/azure/key-vault/general/how-to-azure-key-vault-network-security?tabs=azure-portal) to learn more.
 1. Enable system assigned Identity on your Azure VMware Solution private cloud if you didn't enable it during software-defined data center (SDDC) provisioning.
 
+    # [Azure Portal](#tab/azure-portal)
+    
+    1. Log into Azure portal.
+    1. Navigate to **Azure VMware Solution** and locate your SDDC.
+    1. From the left navigation, open **Manage** and select **Identity**. 
+    1. In **System Assigned**, check **Enable** and select **Save**.
+    
+        **System Assigned identity** should now be enabled.
 
-# [Azure CLI](#tab/azure-cli)
+    # [Azure CLI](#tab/azure-cli)
 
-<!--
-Need intro content here from Rahi
--->
+    <!--
+    Need intro content here from Rahi
+    -->
+    
+    `$privateCloudName=<private_cloud_name>`
 
-`$privateCloudName=<private_cloud_name>`
-`$resourceGroupName=<resource_group_name>`
- 
-Next, get the Private Cloud resource id and save it to a variable. You will need this value in the next step to update resource with system assigned identity:
+    `$resourceGroupName=<resource_group_name>`
+     
+    Next, get the Private Cloud resource id and save it to a variable. You will need this value in the next step to update resource with system assigned identity:
+    
+    `privateCloudId=$(az vmware private-cloud show --name $privateCloudName --resource-group $resourceGroupName --query id | tr -d '"')`
+     
+    To configure the system-assigned identity on Azure VMware Solution private cloud with Azure CLI, call az-resource-update, providing the variable for the private cloud resource ID that you previously retrieved.
+    
+    `az resource update --ids $privateCloudId --set identity.type=SystemAssigned --api-version "2021-12-01"`
+---
 
-`privateCloudId=$(az vmware private-cloud show --name $privateCloudName --resource-group $resourceGroupName --query id | tr -d '"')`
- 
-To configure the system-assigned identity on Azure VMware Solution private cloud with Azure CLI, call az-resource-update, providing the variable for the private cloud resource ID that you previously retrieved.
+4. Configure the key vault access policy to grant permissions to the managed identity. It'll be used to authorize access to the key vault.
+    
+    # [Azure Portal](#tab/azure-portal)
 
-`az resource update --ids $privateCloudId --set identity.type=SystemAssigned --api-version "2021-12-01"`
+    1. Log into Azure portal.
+    1. 
+    1. 
 
-# [Portal](#tab/azure-portal)
+    # [Azure CLI](#tab/azure-cli)
 
-1. Log into Azure portal.
-1. Navigate to **Azure VMware Solution** and locate your SDDC.
-1. From the left navigation, open **Manage** and select **Identity**. 
-1. In **System Assigned**, check **Enable** and select **Save**.
+    <!--
+    Need intro content here from Rahi
+    -->
+    
+    `$privateCloudName=<private_cloud_name>`
 
-**System Assigned identity** should now be enabled.
+    `$resourceGroupName=<resource_group_name>`
 
+    `$keyVault=<keyvault_name>`
+    
+    Next, get the principal ID for the system-assigned managed identity, and save it to a variable. You will need this value in the next step to create the key vault access policy: 
+    
+    `principalId=$(az vmware private-cloud show --name $privateCloudName --resource-group $resourceGroupName --query identity.principalId | tr -d '"')`
+    
+    To configure the key vault access policy with Azure CLI, call az keyvault set-policy, providing the variable for the principal ID that you previously retrieved for the managed identity.
+
+    `az keyvault set-policy --name $keyVault --resource-group $resourceGroupName --object-id $principalId --key-permissions get unwrapKey wrapKey` 
 ---
 
 ## Enable CMK with system-assigned identity 
