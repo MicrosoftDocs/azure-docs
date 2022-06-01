@@ -155,7 +155,7 @@ If you're using a free service, remember that you're limited to three indexes, i
 
 ## Next steps
 
-Cognitive Search has other built-in skills that can be exercised in the Import data wizard. As a next step, try the OCR and image analysis skills to create text-searchable content from image files.
+Cognitive Search has other built-in skills that can be exercised in the Import data wizard. As a next step, try the next quickstart that creates a knowledge store.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Use OCR and image analysis to create searchable content](cognitive-search-quickstart-ocr.md)
+> [Quickstart: Create a knowledge store](knowledge-store-create-portal.md)
