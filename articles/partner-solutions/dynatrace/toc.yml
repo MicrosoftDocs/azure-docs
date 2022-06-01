@@ -17,11 +17,11 @@
     href: dynatrace-manage.md
   - name: Troubleshoot
     href: dynatrace-troubleshoot.md
-- name: Reference
-  items:
-  - name: Azure CLI
-    href: /cli/azure/Dynatrace
-  - name: Azure PowerShell
-    href: /powershell/module/az.Dynatrace/#Dynatrace
-  - name: REST API
-    href: /rest/api/Dynatrace
+#- name: Reference
+#  items:
+#  - name: Azure CLI
+#    href: /cli/azure/Dynatrace
+#  - name: Azure PowerShell
+#    href: /powershell/module/az.Dynatrace/#Dynatrace
+#  - name: REST API
+#    href: /rest/api/Dynatrace
