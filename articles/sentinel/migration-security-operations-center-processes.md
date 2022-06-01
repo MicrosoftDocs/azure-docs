@@ -95,13 +95,13 @@ Use one of the following options to access playbooks:
 - The Microsoft Sentinel [Content hub](sentinel-solutions-deploy.md) 
 - The Microsoft Sentinel [GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks)  
 
-These sources include a wide range of security-oriented playbooks to cover a substantial portion of use cases of varying complexity. To streamline your work with playbooks, use the templates under **Automation > Playbook templates**. Templates allow you to easily deploy playbooks into the Microsoft Sentinel instance, and then modify the playbooks to suit your organization's needs.
+These sources include a wide range of security-oriented playbooks to cover a substantial portion of use cases of varying complexity. To streamline your work with playbooks, use the templates under **Automation > Playbook templates**. Templates allow you to easily deploy playbooks into the Microsoft Sentinel instance, and then modify the playbooks to suit your organization's needs. 
 
 See the [SOC Process Framework](https://github.com/Azure/Azure-Sentinel/wiki/SOC-Process-Framework) to map your SOC process to Microsoft Sentinel capabilities.
 
 ## Compare SIEM concepts
 
-Use this table to compare the main concepts of your legacy SIEM to Microsoft Sentinel concepts.
+Use this table to compare the main concepts of your legacy SIEM to Microsoft Sentinel concepts. 
 
 | ArcSight | QRadar | Splunk | Microsoft Sentinel |
 |--|--|--|--|
@@ -117,7 +117,7 @@ Use this table to compare the main concepts of your legacy SIEM to Microsoft Sen
 
 ## Next steps
 
-After migration, explore Microsoft's Microsoft Sentinel resources to expand your skills and get the most out of Microsoft Sentinel.
+After migration, explore Microsoft's Microsoft Sentinel resources to expand your skills and get the most out of Microsoft Sentinel. 
 
 Also consider increasing your threat protection by using Microsoft Sentinel alongside [Microsoft 365 Defender](./microsoft-365-defender-sentinel-integration.md) and [Microsoft Defender for Cloud](../security-center/azure-defender.md) for [integrated threat protection](https://www.microsoft.com/security/business/threat-protection). Benefit from the breadth of visibility that Microsoft Sentinel delivers, while diving deeper into detailed threat analysis.
 
