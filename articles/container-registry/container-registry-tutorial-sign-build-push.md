@@ -12,7 +12,7 @@ ms.date: 05/08/2022
 
 The Azure Key Vault (AKV) is used to store a signing key that can be utilized by **notation** with the notation AKV plugin (azure-kv) to sign and verify container images and other artifacts. The Azure Container Registry (ACR) allows you to attach these signatures using the **az** or **oras** CLI commands.
 
-The signed containers enable users to assure deployments are built from a trusted entity and verify artifact remains unmodified and hasn't been tampered with since their creation. The signed artifact ensures integrity and authenticity before the user pulls an artifact into any environment and avoid attacks.
+The signed containers enable users to assure deployments are built from a trusted entity and verify artifact hasn't been tampered with since their creation. The signed artifact ensures integrity and authenticity before the user pulls an artifact into any environment and avoid attacks.
 
 
 In this tutorial:
@@ -25,7 +25,6 @@ In this tutorial:
 ## Prerequisites
 
 > * Install, create and sign in to [ORAS artifact enabled registry](/articles/container-registry/container-registry-oras-artifacts#sign-in-with-oras-1)
-> * Install the [notation CLI and Azure Key Vault plugin](#install-the-notation-cli-and-akv-plugin)
 > * Create or use an [Azure Key Vault](/azure/key-vault/general/quick-create-cli)
 >*  This tutorial can be run in the [Azure Cloud Shell](https://portal.azure.com/#cloudshell/)
 
@@ -74,7 +73,7 @@ In this tutorial:
 ## Configure environment variables
 
 > [!NOTE]
-> For easy execution of commands in the tutorial, Provide values for the Azure resources to match the existing ACR and AKV resources.
+> For easy execution of commands in the tutorial, provide values for the Azure resources to match the existing ACR and AKV resources.
 
 1. Configure AKV resource names
 
@@ -173,7 +172,7 @@ Otherwise create an x509 self-signed certificate storing it in AKV for remote si
     az acr build -r $ACR_NAME -t $IMAGE $IMAGE_SOURCE
     ```
 
-2. Authenticate with your individual Azure AD identity to use an AD token
+2. Authenticate with your individual Azure AD identity to use an ACR token
 
     ```azure-cli
     export USER_NAME="00000000-0000-0000-0000-000000000000"
@@ -190,7 +189,7 @@ Otherwise create an x509 self-signed certificate storing it in AKV for remote si
 
 ## View the graph of artifacts with the ORAS CLI
 
-ACR support for ORAS Artifacts creates a linked graph of supply chain artifacts that can be viewed through the ORAS CLI or the Azure CLI
+ACR support for ORAS artifacts enables a linked graph of supply chain artifacts that can be viewed through the ORAS CLI or the Azure CLI
 
 1. Signed images can be view with the ORAS CLI
 
