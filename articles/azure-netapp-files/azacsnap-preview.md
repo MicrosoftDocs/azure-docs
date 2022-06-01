@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: reference
-ms.date: 03/07/2022
+ms.date: 06/01/2022
 ms.author: phjensen
 ---
 
@@ -341,7 +341,7 @@ The following example commands set up a user (AZACSNAP) in the Oracle database, 
 
     1. Copy the ZIP file to the target system (for example, the centralized virtual machine running AzAcSnap).
     
-       > [!NOTE]
+       > [!IMPORTANT]
        > If deploying to a centralized virtual machine, then it will need to have the Oracle instant client installed and set up so the AzAcSnap user can 
        > run `sqlplus` commands.  The Oracle Instant Client can downloaded from https://www.oracle.com/database/technologies/instant-client/linux-x86-64-downloads.html.
        > In order for SQL\*Plus to run correctly, download both the required package (for example, Basic Light Package) and the optional SQL\*Plus tools package.
