@@ -162,7 +162,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/alerts/alerts-metric-overview.md" ,
-            "redirect_url": "/azure/azure-monitor/alerts/alert-types.md#metric-alerts",
+            "redirect_url": "/azure/azure-monitor/alerts/alert-types.md",
             "redirect_document_id": false
         },
         {
@@ -172,12 +172,17 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/alerts/alerts-unified-log.md" ,
-            "redirect_url": "/azure/azure-monitor/alerts/alert-types.md#log-alerts",
+            "redirect_url": "/azure/azure-monitor/alerts/alert-types.md",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/alerts/activity-log-alerts.md" ,
-            "redirect_url": "/azure/azure-monitor/alerts/alert-types.md#activity-log-alerts",
+            "redirect_url": "/azure/azure-monitor/alerts/alert-types.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/insights/data-explorer.md" ,
+            "redirect_url": "/azure/data-explorer/data-explorer-insights",
             "redirect_document_id": false
         }
     ]

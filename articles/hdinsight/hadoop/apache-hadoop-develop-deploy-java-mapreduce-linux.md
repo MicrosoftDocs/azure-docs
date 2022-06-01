@@ -4,7 +4,7 @@ description: Learn how to use Apache Maven to create a Java-based MapReduce appl
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017, devx-track-java
-ms.date: 01/16/2020
+ms.date: 05/31/2022
 ---
 
 # Develop Java MapReduce programs for Apache Hadoop on HDInsight
