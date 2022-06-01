@@ -25,4 +25,4 @@
 
 | Region | Location |
 | --- | --- |
-| North American (US Gov) | Arizona, AZ, USA<br />Iowa, IA, USA,<br />Texas, TX, USA<br />Virginia, VA, USA | 
+| North America (US Gov) | Arizona, AZ, USA<br />Iowa, IA, USA,<br />Texas, TX, USA<br />Virginia, VA, USA | 
