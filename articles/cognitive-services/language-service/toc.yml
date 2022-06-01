@@ -115,7 +115,7 @@ items:
         - name: JavaScript
           href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
         - name: Python
-          href: python/api/overview/azure/ai-textanalytics-readme?view=azure-python-preview&preserve-view=true
+          href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python-preview&preserve-view=true
         - name: Samples
           items:
           - name: Java
@@ -205,7 +205,7 @@ items:
         - name: JavaScript
           href: /javascript/api/overview/azure/ai-text-analytics-readme?view=azure-node-preview&preserve-view=true
         - name: Python
-          href: python/api/overview/azure/ai-textanalytics-readme?view=azure-python-preview&preserve-view=true
+          href: /python/api/overview/azure/ai-textanalytics-readme?view=azure-python-preview&preserve-view=true
         - name: Samples
           items:
           - name: Java
@@ -279,9 +279,9 @@ items:
       - name: SDK
         items:
         - name: C#
-          href: /dotnet/api/overview/azure/ai.language.conversations-readme-pre?view=azure-dotnet-preview
+          href: /dotnet/api/overview/azure/ai.language.conversations-readme-pre?view=azure-dotnet-preview&preserve-view=true
         - name: Python
-          href: /python/api/overview/azure/ai-language-conversations-readme?view=azure-python-preview
+          href: /python/api/overview/azure/ai-language-conversations-readme?view=azure-python-preview&preserve-view=true
         - name: Samples
           items:
           - name: C#
@@ -594,9 +594,9 @@ items:
       - name: SDK
         items:
         - name: C#
-          href: /dotnet/api/overview/azure/ai.language.conversations-readme-pre?view=azure-dotnet-preview
+          href: /dotnet/api/overview/azure/ai.language.conversations-readme-pre?view=azure-dotnet-preview&preserve-view=true
         - name: Python
-          href: /python/api/overview/azure/ai-language-conversations-readme?view=azure-python-preview
+          href: /python/api/overview/azure/ai-language-conversations-readme?view=azure-python-preview&preserve-view=true
         - name: Samples
           items:
           - name: C#
