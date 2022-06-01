@@ -25,7 +25,7 @@ You'll learn how to create a function app that can access Azure Cosmos DB data w
 - An existing Azure Functions function app. [Create your first function in the Azure portal](../azure-functions/functions-create-function-app-portal.md)
   - A system-assigned managed identity for the function app. [Add a system-assigned identity](/app-service/overview-managed-identity.md?tabs=cli#add-a-system-assigned-identity)
 - [Azure Functions Core Tools](../azure-functions/functions-run-local.md)
-[!INCLUDE [azure-cli-prerequisites-include](../../includes/azure-cli-prerequisites-include.md)]
+- To perform the steps in this article, install the [Azure CLI](/cli/azure/install-azure-cli) and [sign in to Azure](/cli/azure/authenticate-azure-cli).
 
 ## Prerequisite check
 
@@ -199,7 +199,7 @@ We now have a function app that has a system-assigned managed identity with the 
     func new --template httptrigger --name readdatabases
     ```
 
-1. Add the [``Azure.Identity``]() and [``Microsoft.Azure.Cosmos``]() NuGet package to the .NET project. Build the project using [``dotnet build``]().
+1. Add the [``Azure.Identity``](https://www.nuget.org/packages/Azure.Identity/) and [``Microsoft.Azure.Cosmos``](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) NuGet package to the .NET project. Build the project using [``dotnet build``](/dotnet/core/tools/dotnet-build).
 
     ```azurecli-interactive
     dotnet add package Azure.Identity
