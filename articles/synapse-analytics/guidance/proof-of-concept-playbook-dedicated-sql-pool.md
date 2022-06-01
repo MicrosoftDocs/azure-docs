@@ -191,7 +191,7 @@ When you load data into the dedicated SQL pool for the first time, you need to c
 
 The following example shows the COPY load method:
 
-```tsql
+```sql
 --Note when specifying the column list, input field numbers start from 1
 COPY INTO
     test_1 (Col_1 default 'myStringDefault' 1, Col_2 default 1 3)
@@ -218,7 +218,7 @@ It's easy to run sequential query tests in SSMS. It's important to run these tes
 
 Notice that the following first query uses a [query label](../sql/develop-label.md) to provide a mechanism to keep track of the query. The second query uses the `sys.dm_pdw_exec_requests` dynamic management view to search by the label.
 
-```tsql
+```sql
 /* Use the OPTION(LABEL = '') Syntax to add a query label to track the query in DMVs */
 SELECT TOP (1000)
     *
