@@ -38,7 +38,7 @@
       - name: Build a real-time chat app with client authentication
         href: quickstart-serverless.md
       - name: Build a real-time chat app with Azure Static Web App
-        href: tutorial-swa.md
+        href: tutorial-serverless-staticwebapp.md
       - name: Visualize IoT data with Azure Function
         href: tutorial-serverless-iot.md
     - name: Publish and subscribe messages
