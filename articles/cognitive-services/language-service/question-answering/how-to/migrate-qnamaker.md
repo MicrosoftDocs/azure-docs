@@ -74,7 +74,7 @@ You can follow the steps below to migrate knowledge bases:
 9. After resolving the validation errors, select **Start migration**
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot with special characters removed](../media/migrate-qnamaker/migration-kb-name-validation_success.png)
+    > ![Screenshot with special characters removed](../media/migrate-qnamaker/migration-kb-name-validation-success.png)
 
 10. It will take a few minutes for the migration to occur. Do not cancel the migration while it is in progress. You can navigate to the migrated projects within the [Language Studio](https://language.azure.com/) post migration.
 
