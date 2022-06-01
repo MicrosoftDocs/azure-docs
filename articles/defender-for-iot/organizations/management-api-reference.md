@@ -1,0 +1,1350 @@
+---
+title: OT monitoring management API reference - Microsoft Defender for IoT
+description: Learn about the REST APIs supported for Microsoft Defender for IoT OT monitoring on-premises management consoles.
+ms.date: 05/25/2022
+ms.topic: reference
+---
+
+# On-premises management console API reference
+
+This article lists the APIs supported for Defender for IoT OT on-premises monitoring consoles.
+
+## Version reference
+
+|Version  |APIs  |
+|---------|---------|
+|**No version**     |  - Alert exclusions <br>- Set password <br> Set password by admin <br>QRadar alerts <br>- Authenticate user credentials   |
+|**Version 1**     | Devices <br> External devices <br>  alerts <br> Maintenance window <br>      |
+|**Version 2**     |  PCAP       |
+|**Version 3**     |   External integration preview      |
+
+
+## Alert Exclusions
+
+Define conditions under which alerts *won't* be sent.
+
+For example, define and update stop and start times, devices or subnets that should be excluded when triggering alerts, or Defender for IoT engines that should be excluded.
+
+During a maintenance window, you might want to stop delivery of all alerts, except for malware alerts on critical devices. The items you define here appear in the on-premises management console's Alert Exclusions window as read-only exclusion rules.
+
+<!--this doesn't describe this API-->
+
+**URL**: `/external/authentication/validation`
+
+**Response example**:
+
+```rest
+{
+    "msg": "Authentication succeeded."
+}
+```
+
+## set_password (Change password)
+
+Use this API to let users change their own passwords. All Defender for IoT user roles can work with the API.
+
+You don't need a Defender for IoT access token to use this API.
+
+**URL**: `/external/authentication/set_password`
+
+**Method**: POST
+
+# [Request](#tab/request-set-password)
+
+**Type**: JSON
+
+**Request example**:
+
+```rest
+request:
+
+{
+
+    "username": "test",
+
+    "password": "Test12345\!",
+
+    "new_password": "Test54321\!"
+
+}
+
+```
+
+# [Response](#tab/response-set-password)
+
+**Type**: JSON
+
+
+Message string with the operation status details:
+
+- **Success – msg**: Password has been replaced
+
+- **Failure – error**: User authentication failure
+
+- **Failure – error**: Password does not match security policy
+
+**Response example**:
+
+```rest
+response:
+
+{
+
+    "error": {
+
+        "userDisplayErrorMessage": "User authentication failure"
+
+    }
+
+}
+
+```
+
+**Device fields**:
+
+| **Name** | **Type** | **Nullable** |
+|--|--|--|
+| **username** | String | No |
+| **password** | String | No |
+| **new_password** | String | No |
+
+# [Curl command](#tab/set-password-curl)
+
+**Type**: POST
+
+**API**:
+
+```
+curl -k -d '{"username": "<USER_NAME>","password": "<CURRENT_PASSWORD>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/external/authentication/set_password
+```
+
+**Example**:
+
+```rest
+curl -k -d '{"username": "myUser","password": "1234@abcd","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/external/authentication/set_password
+```
+---
+## User password update by system admin - /external/authentication/set_password_by_admin
+
+Use this API to let system administrators change passwords for specified users. Defender for IoT admin user roles can work with the API. You don't need a Defender for IoT access token to use this API.
+
+#### Method
+
+- **POST**
+
+#### Request type
+
+- **JSON**
+
+#### Request example
+
+```rest
+request:
+
+{
+
+    "username": "test",
+    
+    "password": "Test12345\!",
+    
+    "new_password": "Test54321\!"
+
+}
+```
+
+#### Response type
+
+- **JSON**
+
+#### Response content
+
+Message string with the operation status details:
+
+- **Success – msg**: Password has been replaced
+
+- **Failure – error**: User authentication failure
+
+- **Failure – error**: User does not exist
+
+- **Failure – error**: Password doesn't match security policy
+
+- **Failure – error**: User does not have the permissions to change password
+
+#### Response example
+
+```rest
+response:
+
+{
+
+    "error": {
+    
+        "userDisplayErrorMessage": "The user 'test_user' doesn't exist",
+        
+        "internalSystemErrorMessage": "The user 'yoavfe' doesn't exist"
+    
+    }
+
+}
+
+```
+
+#### Device fields
+
+| **Name** | **Type** | **Nullable** |
+|--|--|--|
+| **admin_username** | String | No |
+| **admin_password** | String | No |
+| **username** | String | No |
+| **new_password** | String | No |
+
+#### Curl command
+
+> [!div class="mx-tdBreakAll"]
+> | Type | APIs | Example |
+> |--|--|--|
+> | POST | `curl -k -d '{"admin_username":"<ADMIN_USERNAME>","admin_password":"<ADMIN_PASSWORD>","username": "<USER_NAME>","new_password": "<NEW_PASSWORD>"}' -H 'Content-Type: application/json'  https://<IP_ADDRESS>/external/authentication/set_password_by_admin` | `curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": "myUser","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/external/authentication/set_password_by_admin` |
+
+## QRadar alerts
+
+QRadar integration helps you to identify and action alerts generated by Defender for IoT. QRadar receives the data from Defender for IoT, and then contacts the public API on-premises management console.
+
+To send the data discovered by Defender for IoT to QRadar, define a forwarding rule in the Defender for IoT system and select the **Remote support alert handling** option. With this option selected, the following additional fields appear in QRadar:
+
+- **UUID**: Unique alert identifier, such as 1-1555245116250.
+
+- **Site**: The site where the alert was discovered.
+
+- **Zone**: The zone where the alert was discovered.
+
+#### Example of the payload sent to QRadar:
+
+```
+<9>May 5 12:29:23 sensor_Agent LEEF:1.0|CyberX|CyberX platform|2.5.0|CyberX platform Alert|devTime=May 05 2019 15:28:54 devTimeFormat=MMM dd yyyy HH:mm:ss sev=2 cat=XSense Alerts title=Device is Suspected to be Disconnected (Unresponsive) score=81 reporter=192.168.219.50 rta=0 alertId=6 engine=Operational senderName=sensor Agent UUID=5-1557059334000 site=Site zone=Zone actions=handle dst=192.168.2.2 dstName=192.168.2.2 msg=Device 192.168.2.2 is suspected to be disconnected (unresponsive).
+```
+
+## Retrieve device information - /api/v1/devices
+
+Use this API to request a list of all devices that a Defender for IoT sensor has detected.
+
+#### Method
+
+- **GET**
+
+Requests a list of all the devices that the Defender for IoT sensor has detected.
+
+#### Query parameters
+
+- **authorized**: To filter only authorized and unauthorized devices.
+
+  **Examples**:
+
+  `/api/v1/devices?authorized=true`
+
+  `/api/v1/devices?authorized=false`
+
+#### Response type
+
+- **JSON**
+
+#### Response content
+
+Array of JSON objects that represent devices.
+
+#### Device fields
+
+| Name | Type | Nullable | List of values |
+|--|--|--|--|
+| **id** | Numeric | No | - |
+| **ipAddresses** | JSON array | Yes | IP addresses (can be more than one address in case of internet addresses or a device with dual NICs) |
+| **name** | String | No | - |
+| **type** | String | No | Unknown, Engineering Station, PLC, HMI, Historian, Domain Controller, DB Server, Wireless Access Point, Router, Switch, Server, Workstation, IP Camera, Printer, Firewall, Terminal station, VPN Gateway, Internet, or Multicast and Broadcast |
+| **macAddresses** | JSON array | Yes | MAC addresses (can be more than one address in case of a device with dual NICs) |
+| **operatingSystem** | String | Yes | - |
+| **engineeringStation** | Boolean | No | True or false |
+| **scanner** | Boolean | No | True or false |
+| **authorized** | Boolean | No | True or false |
+| **vendor** | String | Yes | - |
+| **protocols** | JSON array | Yes | Protocol object |
+| **firmware** | JSON array | Yes | Firmware object |
+
+#### Protocol fields
+
+| Name | Type | Nullable | List of values |
+|--|--|--|--|
+| **Name** | String | No |  |
+| **Addresses** | JSON array | Yes | `Master`, or numeric values |
+
+#### Firmware fields
+
+| Name | Type | Nullable | List of values |
+|--|--|--|--|
+| **serial** | String | No | N/A, or the actual value |
+| **model** | String | No | N/A, or the actual value |
+| **firmwareVersion** | Double | No | N/A, or the actual value |
+| **additionalData** | String | No | N/A, or the actual value |
+| **moduleAddress** | String | No | N/A, or the actual value |
+| **rack** | String | No | N/A, or the actual value |
+| **slot** | String | No | N/A, or the actual value |
+| **address** | String | No | N/A, or the actual value |
+
+#### Response example
+
+```rest
+[
+
+    {
+    
+    "vendor": null,
+    
+    "name": "10.4.14.102",
+    
+    "firmware": [
+    
+        {
+        
+            "slot": "N/A",
+            
+            "additionalData": "N/A",
+            
+            "moduleAddress": "Network: Local network (0), Node: 0, Unit: CPU (0x0)",
+            
+            "rack": "N/A",
+            
+            "address": "10.4.14.102",
+            
+            "model": "AAAAAAAAAA",
+            
+            "serial": "N/A",
+            
+            "firmwareVersion": "20.55"
+        
+        },
+    
+        {
+        
+            "slot": "N/A",
+            
+            "additionalData": "N/A",
+            
+            "moduleAddress": "Network: Local network (0), Node: 0, Unit: Unknown (0x3)",
+            
+            "rack": "N/A",
+            
+            "address": "10.4.14.102",
+            
+            "model": "AAAAAAAAAAAAAAAAAAAA",
+            
+            "serial": "N/A",
+            
+            "firmwareVersion": "20.55"
+        
+        },
+    
+        {
+        
+            "slot": "N/A",
+            
+            "additionalData": "N/A",
+            
+            "moduleAddress": "Network: Local network (0), Node: 3, Unit: CPU (0x0)",
+            
+            "rack": "N/A",
+            
+            "address": "10.4.14.102",
+            
+            "model": "AAAAAAAAAAAAAAAAAAAA",
+            
+            "serial": "N/A",
+            
+            "firmwareVersion": "20.55"
+        
+        },
+    
+        {
+        
+            "slot": "N/A",
+            
+            "additionalData": "N/A",
+            
+            "moduleAddress": "Network: 3, Node: 0, Unit: CPU (0x0)",
+            
+            "rack": "N/A",
+            
+            "address": "10.4.14.102",
+            
+            "model": "AAAAAAAAAAAAAAAAAAAA",
+            
+            "serial": "N/A",
+            
+            "firmwareVersion": "20.55"
+        
+        }
+    
+    ],
+    
+    "id": 79,
+    
+    "macAddresses": null,
+    
+    "authorized": true,
+    
+    "ipAddresses": [
+    
+        "10.4.14.102"
+    
+    ],
+    
+    "engineeringStation": false,
+    
+    "type": "PLC",
+    
+    "operatingSystem": null,
+    
+    "protocols": [
+    
+        {
+        
+            "addresses": [],
+            
+            "id": 62,
+            
+            "name": "Omron FINS"
+        
+        }
+    
+    ],
+    
+    "scanner": false
+    
+}
+
+]
+```
+
+#### Curl command
+
+| Type | APIs | Example |
+|--|--|--|
+| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/api/v1/devices` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/api/v1/devices?authorized=true` |
+
+## Authenticate user credentials - /external/authentication/validation
+
+Use this API to validate user credentials. All Defender for IoT user roles can work with the API. You don't need a Defender for IoT access token to use this API.
+
+#### Method
+
+**POST**
+
+#### Request type
+
+- **JSON**
+
+#### Request example
+
+```rest
+request:
+
+{
+
+    "username": "test",
+
+    "password": "Test12345\!"
+
+}
+```
+
+#### Response type
+
+- **JSON**
+
+#### Response content
+
+Message string with the operation status details:
+
+- **Success – msg**: Authentication succeeded
+
+- **Failure – error**: Credentials Validation Failed
+
+#### Device fields
+
+| **Name** | **Type** | **Nullable** |
+|--|--|--|
+| **username** | String | No |
+| **password** | String | No |
+
+#### Response example
+
+```rest
+response:
+
+{
+
+    "msg": "Authentication succeeded."
+
+}
+```
+
+#### Curl command
+
+| Type | APIs | Example |
+|--|--|--|
+| POST | `curl -k -d '{"username":"<USER_NAME>","password":"PASSWORD"}' 'https://<IP_ADDRESS>/external/authentication/validation'` | `curl -k -d '{"username":"myUser","password":"1234@abcd"}' 'https://127.0.0.1/external/authentication/validation'` |
+
+## Retrieve device information - /external/v1/devices
+
+This API requests a list of all devices detected by Defender for IoT sensors that are connected to an on-premises management console.
+
+#### Method
+
+- **GET**
+
+#### Response type
+
+- **JSON**
+
+#### Response content
+
+Array of JSON objects that represent devices.
+
+#### Query parameters
+
+- **authorized**: To filter only authorized and unauthorized devices.
+
+- **siteId**: To filter only devices related to specific sites.
+
+- **zoneId**: To filter only devices related to specific zones. [1](#1)
+
+- **sensorId**: To filter only devices detected by specific sensors. [1](#1)
+
+###### <a id="1">1</a> *You might not have the site and zone ID. If this is the case, query all devices to retrieve the site and zone ID.*
+
+#### Query parameters example
+
+`/external/v1/devices?authorized=true`
+
+`/external/v1/devices?authorized=false`
+
+`/external/v1/devices?siteId=1,2`
+
+`/external/v1/devices?zoneId=5,6`
+
+`/external/v1/devices?sensorId=8`
+
+#### Device fields
+
+| Name | Type | Nullable | List of values |
+|--|--|--|--|
+| **sensorId** | Numeric | No | - |
+| **zoneId** | Numeric | Yes | - |
+| **siteId** | Numeric | Yes | - |
+| **ipAddresses** | JSON array | Yes | IP addresses (can be more than one address in case of internet addresses or a device with dual NICs) |
+| **name** | String | No | - |
+| **type** | String | No | Unknown, Engineering Station, PLC, HMI, Historian, Domain Controller, DB Server, Wireless Access Point, Router, Switch, Server, Workstation, IP Camera, Printer, Firewall, Terminal station, VPN Gateway, Internet, or Multicast and Broadcast |
+| **macAddresses** | JSON array | Yes | MAC addresses (can be more than one address in case of a device with dual NICs) |
+| **operatingSystem** | String | Yes | - |
+| **engineeringStation** | Boolean | No | True or false |
+| **scanner** | Boolean | No | True or false |
+| **authorized** | Boolean | No | True or false |
+| **vendor** | String | Yes | - |
+| **Protocols** | JSON array | Yes | Protocol object |
+| **firmware** | JSON array | Yes | Firmware object |
+
+#### Protocol fields
+
+| Name | Type | Nullable | List of values |
+|--|--|--|--|
+| Name | String | No | - |
+| Addresses | JSON array | Yes | `Master`, or numeric values |
+
+#### Firmware fields
+
+| Name | Type | Nullable | List of values |
+|--|--|--|--|
+| **serial** | String | No | N/A, or the actual value |
+| **model** | String | No | N/A, or the actual value |
+| **firmwareVersion** | Double | No | N/A, or the actual value |
+| **additionalData** | String | No | N/A, or the actual value |
+| **moduleAddress** | String | No | N/A, or the actual value |
+| **rack** | String | No | N/A, or the actual value |
+| **slot** | String | No | N/A, or the actual value |
+| **address** | String | No | N/A, or the actual value |
+
+#### Response example
+
+```rest
+[
+
+    {
+    
+    "sensorId": 7,
+    
+    "zoneId": 1,
+    
+    "siteId": 1,
+    
+    "vendor": null,
+    
+    "name": "10.4.14.102",
+    
+    "firmware": [
+    
+    {
+    
+        "slot": "N/A",
+        
+        "additionalData": "N/A",
+        
+        "moduleAddress": "Network: Local network (0), Node: 0, Unit: CPU (0x0)",
+        
+        "rack": "N/A",
+        
+        "address": "10.4.14.102",
+        
+        "model": "AAAAAAAAAA",
+        
+        "serial": "N/A",
+        
+        "firmwareVersion": "20.55"
+    
+    },
+    
+    {
+    
+        "slot": "N/A",
+        
+        "additionalData": "N/A",
+        
+        "moduleAddress": "Network: Local network (0), Node: 0, Unit: Unknown (0x3)",
+        
+        "rack": "N/A",
+        
+        "address": "10.4.14.102",
+        
+        "model": "AAAAAAAAAAAAAAAAAAAA",
+        
+        "serial": "N/A",
+        
+        "firmwareVersion": "20.55"
+    
+    },
+    
+    {
+    
+        "slot": "N/A",
+        
+        "additionalData": "N/A",
+        
+        "moduleAddress": "Network: Local network (0), Node: 3, Unit: CPU (0x0)",
+        
+        "rack": "N/A",
+        
+        "address": "10.4.14.102",
+        
+        "model": "AAAAAAAAAAAAAAAAAAAA",
+        
+        "serial": "N/A",
+        
+        "firmwareVersion": "20.55"
+    
+    },
+    
+    {
+    
+        "slot": "N/A",
+        
+        "additionalData": "N/A",
+        
+        "moduleAddress": "Network: 3, Node: 0, Unit: CPU (0x0)",
+        
+        "rack": "N/A",
+        
+        "address": "10.4.14.102",
+        
+        "model": "AAAAAAAAAAAAAAAAAAAA",
+        
+        "serial": "N/A",
+        
+        "firmwareVersion": "20.55"
+    
+    }
+
+],
+
+"id": 79,
+
+"macAddresses": null,
+
+"authorized": true,
+
+"ipAddresses": [
+
+    "10.4.14.102"
+
+],
+
+"engineeringStation": false,
+
+"type": "PLC",
+
+"operatingSystem": null,
+
+"protocols": [
+
+    {
+    
+        "addresses": [],
+        
+        "id": 62,
+        
+        "name": "Omron FINS"
+    
+    }
+
+],
+
+"scanner": false
+
+}
+
+]
+```
+
+#### Curl command
+
+| Type | APIs | Example |
+|--|--|--|
+| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<>IP_ADDRESS>/external/v1/devices?siteId=&zoneId=&sensorId=&authorized='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/external/v1/devices?siteId=1&zoneId=2&sensorId=5&authorized=true'` |
+
+## Retrieve alert information - /external/v1/alerts
+
+Use this API to retrieve all or filtered alerts from an on-premises management console.
+
+#### Method
+
+- **GET**
+
+#### Query parameters
+
+- **state**: To filter only handled and unhandled alerts.
+
+  **Example**:
+
+  `/api/v1/alerts?state=handled`
+
+- **fromTime**: To filter alerts created from a specific time (in milliseconds, UTC).
+
+  **Example**:
+
+  `/api/v1/alerts?fromTime=<epoch>`
+
+- **toTime**: To filter alerts created only before a specific time (in milliseconds, UTC).
+
+  **Example**:
+
+  `/api/v1/alerts?toTime=<epoch>`
+
+- **siteId**: The site on which the alert was discovered.
+- **zoneId**: The zone on which the alert was discovered.
+- **sensor**: The sensor on which the alert was discovered.
+
+*You might not have the site and zone ID. If this is the case, query all devices to retrieve the site and zone ID.*
+
+#### Alert fields 
+
+| Name | Type | Nullable | List of values |
+|--|--|--|--|
+| **ID** | Numeric | No | - |
+| **time** | Numeric | No | Epoch (UTC) |
+| **title** | String | No | - |
+| **message** | String | No | - |
+| **severity** | String | No | Warning, Minor, Major, or Critical |
+| **engine** | String | No | Protocol Violation, Policy Violation, Malware, Anomaly, or Operational |
+| **sourceDevice** | Numeric | Yes | Device ID |
+| **destinationDevice** | Numeric | Yes | Device ID |
+| **sourceDeviceAddress** | Numeric | Yes | IP, MAC |
+| **destinationDeviceAddress** | Numeric | Yes | IP, MAC |
+| **remediationSteps** | String | Yes | Remediation steps shown in alert|
+| **sensorName** | String | Yes | Name of sensor defined by user |
+|**zoneName** | String | Yes | Name of zone associated with sensor|
+| **siteName** | String | Yes | Name of site associated with sensor |
+| **additionalInformation** | Additional information object | Yes | - |
+
+Note that /api/v2/ is needed for the following information:
+
+- sourceDeviceAddress
+- destinationDeviceAddress
+- remediationSteps
+- sensorName
+- zoneName
+- siteName
+
+#### Additional information fields
+
+| Name | Type | Nullable | List of values |
+|--|--|--|--|
+| **description** | String | No | - |
+| **information** | JSON array | No | String |
+
+#### Response example
+
+```rest
+[
+    {
+        "engine": "Operational",
+        "handled": false,
+        "title": "Traffic Detected on sensor Interface",
+        "additionalInformation": null,
+        "sourceDevice": 0,
+        "zoneId": 1,
+        "siteId": 1,
+        "time": 1594808245000,
+        "sensorId": 1,
+        "message": "The sensor resumed detecting network traffic on ens224.",
+        "destinationDevice": 0,
+        "id": 1,
+        "severity": "Warning"
+    },
+    {
+        "engine": "Anomaly",
+        "handled": false,
+        "title": "Address Scan Detected",
+        "additionalInformation": null,
+        "sourceDevice": 4,
+        "zoneId": 1,
+        "siteId": 1,
+        "time": 1594808260000,
+        "sensorId": 1,
+        "message": "Address scan detected.\nScanning address: 10.10.10.22\nScanned subnet: 10.11.0.0/16\nScanned addresses: 10.11.1.1, 10.11.20.1, 10.11.20.10, 10.11.20.100, 10.11.20.2, 10.11.20.3, 10.11.20.4, 10.11.20.5, 10.11.20.6, 10.11.20.7...\nIt is recommended to notify the security officer of the incident.",
+        "destinationDevice": 0,
+        "id": 2,
+        "severity": "Critical"
+    },
+    {
+        "engine": "Operational",
+        "handled": false,
+        "title": "Suspicion of Unresponsive MODBUS Device",
+        "additionalInformation": null,
+        "sourceDevice": 194,
+        "zoneId": 1,
+        "siteId": 1,
+        "time": 1594808285000,
+        "sensorId": 1,
+        "message": "Outstation device 10.13.10.1 (Protocol Address 53) seems to be unresponsive to MODBUS requests.",
+        "destinationDevice": 0,
+        "id": 3,
+        "severity": "Minor"
+    }
+]
+```
+
+#### Curl command
+
+> [!div class="mx-tdBreakAll"]
+> | Type | APIs | Example |
+> |--|--|--|
+> | GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<>IP_ADDRESS>/external/v1/alerts?state=&zoneId=&fromTime=&toTime=&siteId=&sensor='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/external/v1/alerts?state=unhandled&zoneId=1&fromTime=0&toTime=1594551777000&siteId=1&sensor=1'` |
+
+#### /external/v1/alerts/&lt;UUID&gt;
+
+#### Method
+
+**PUT**
+
+#### Request type
+
+- **JSON**
+
+#### Request content
+
+JSON object that represents the action to perform on the alert that contains the UUID.
+
+#### Action fields
+
+| Name | Type | Nullable | List of values |
+|--|--|--|--|
+| **action** | String | No | handle or handleAndLearn |
+
+#### Request example
+
+```rest
+{
+    "action": "handle"
+}
+
+```
+
+#### Response type
+
+- **JSON**
+
+#### Response content
+
+Array of JSON objects that represent devices.
+
+#### Response fields
+
+| Name | Type | Nullable | Description |
+|--|--|--|--|
+| **content / error** | String | No | If the request is successful, the content property appears. Otherwise, the error property appears. |
+
+#### Possible content values
+
+| Status code | Content value | Description |
+|--|--|--|
+| 200 | Alert update request finished successfully. | The update request finished successfully. No comments. |
+| 200 | Alert was already handled (**handle**). | The alert was already handled when a handle request for the alert was received.<br />The alert remains **handled**. |
+| 200 | Alert was already handled and learned (**handleAndLearn**). | The alert was already handled and learned when a request to **handleAndLearn** was received.<br />The alert remains in the **handledAndLearn** status. |
+| 200 | Alert was already handled (**handled**).<br />Handle and learn (**handleAndLearn**) was performed on the alert. | The alert was already handled when a request to **handleAndLearn** was received.<br />The alert becomes **handleAndLearn**. |
+| 200 | Alert was already handled and learned (**handleAndLearn**). Ignored handle request. | The alert was already **handleAndLearn** when a request to handle the alert was received. The alert stays **handleAndLearn**. |
+| 500 | Invalid action. | The action that was sent is not a valid action to perform on the alert. |
+| 500 | Unexpected error occurred. | An unexpected error occurred. To resolve the issue, contact Technical Support. |
+| 500 | Couldn't execute request because no alert was found for this UUID. | The specified alert UUID was not found in the system. |
+
+#### Response example
+
+**Successful**
+
+```rest
+{
+    "content": "Alert update request finished successfully"
+}
+```
+
+**Unsuccessful**
+
+```rest
+{
+    "error": "Invalid action"
+}
+```
+o
+#### Curl command
+
+| Type | APIs | Example |
+|--|--|--|
+| PUT | `curl -k -X PUT -d '{"action": "<ACTION>"}' -H "Authorization: <AUTH_TOKEN>" https://<IP_ADDRESS>/external/v1/alerts/<UUID>` | `curl -k -X PUT -d '{"action": "handle"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/external/v1/alerts/1-1594550943000` |
+
+## Alert exclusions (maintenance window) - /external/v1/maintenanceWindow
+
+Define conditions under which alerts won't be sent. For example, define and update stop and start times, devices or subnets that should be excluded when triggering alerts, or Defender for IoT engines that should be excluded. For example, during a maintenance window, you might want to stop alert delivery of all alerts, except for malware alerts on critical devices.
+
+The APIs that you define here appear in the on-premises management console's Alert Exclusions window as a read-only exclusion rule.
+
+This API is supported for maintenance purposes only and is not meant to be used instead of [alert exclusion rules](/azure/defender-for-iot/organizations/how-to-work-with-alerts-on-premises-management-console#create-alert-exclusion-rules). Use this API for one-time maintenance operations only.
+
+#### Method - POST
+
+#### Query parameters
+
+- **ticketId**: Defines the maintenance ticket ID in the user's systems.
+
+- **ttl**: Required. Defines the TTL (time to live), which is the duration of the maintenance window in minutes. After the period of time that this parameter defines, the system automatically starts sending alerts.
+
+- **engines**: Defines from which security engine to suppress alerts during the maintenance process:
+
+    - ANOMALY
+
+    - MALWARE
+
+    - OPERATIONAL
+
+    - POLICY_VIOLATION
+
+    - PROTOCOL_VIOLATION
+
+- **sensorIds**: Defines from which Defender for IoT sensor to suppress alerts during the maintenance process. It's the same ID retrieved from /api/v1/appliances (GET).
+
+- **subnets**: Defines from which subnet to suppress alerts during the maintenance process. The subnet is sent in the following format: 192.168.0.0/16.
+
+#### Error codes
+
+- **201 (Created)**: The action was successfully completed.
+
+- **400 (Bad Request)**: Appears in the following cases:
+
+   - The **ttl** parameter is not numeric or not positive.
+   - The **subnets** parameter was defined using a wrong format.
+   - The **ticketId** parameter is missing.
+   - The **engine** parameter does not match the existing security engines.
+
+- **404 (Not Found)**: One of the sensors doesn't exist.
+
+- **409 (Conflict)**: The ticket ID is linked to another open maintenance window.
+
+- **500 (Internal Server Error)**: Any other unexpected error.
+
+> [!NOTE]
+> Make sure that the ticket ID is not linked to an existing open window. The following exclusion rule is generated: Maintenance-{token name}-{ticket ID}.
+
+#### Method - PUT
+
+Allows updating the maintenance window duration after you start the maintenance process by changing the **ttl** parameter. The new duration definition overrides the previous one.
+
+This method is useful when you want to set a longer duration than the currently configured duration.
+
+#### Query parameters
+
+- **ticketId**: Defines the maintenance ticket ID in the user's systems.
+
+- **ttl**: Defines the duration of the window in minutes.
+
+#### Error code
+
+- **200 (OK)**: The action was successfully completed.
+
+- **400 (Bad Request)**: Appears in the following cases:
+
+   - The **ttl** parameter is not numeric or not positive.
+   - The **ticketId** parameter is missing.
+   - The **ttl** parameter is missing.
+
+- **404 (Not Found)**: The ticket ID is not linked to an open maintenance window.
+
+- **500 (Internal Server Error)**: Any other unexpected error.
+
+> [!NOTE]
+> Make sure that the ticket ID is linked to an existing open window.
+
+#### Method - DELETE
+
+Closes an existing maintenance window.
+
+#### Query parameters
+
+- **ticketId**: Logs the maintenance ticket ID in the user's systems.
+
+#### Error code
+
+- **200 (OK)**: The action was successfully completed.
+
+- **400 (Bad Request)**: The **ticketId** parameter is missing.
+
+- **404 (Not Found)**: The ticket ID is not linked to an open maintenance window.
+
+- **500 (Internal Server Error)**: Any other unexpected error.
+
+> [!NOTE]
+> Make sure that the ticket ID is linked to an existing open window.
+
+#### Method - GET
+
+Retrieve a log of all the open, close, and update actions that were performed in the system during the maintenance. You can retrieve a log only for maintenance windows that were active in the past and have been closed.
+
+#### Query parameters
+
+- **fromDate**: Filters the logs from the predefined date and later. The format is 2019-12-30.
+
+- **toDate**: Filters the logs up to the predefined date. The format is 2019-12-30.
+
+- **ticketId**: Filters the logs related to a specific ticket ID.
+
+- **tokenName**: Filters the logs related to a specific token name.
+
+#### Error code 
+
+- **200 (OK)**: The action was successfully completed.
+
+- **400 (Bad Request)**: The date format is wrong.
+
+- **204 (No Content)**: There is no data to show.
+
+- **500 (Internal Server Error)**: Any other unexpected error.
+
+#### Response type
+
+- **JSON**
+
+#### Response content
+
+Array of JSON objects that represent maintenance window operations.
+
+#### Response structure
+
+| Name | Type | Comment | Nullable |
+|--|--|--|--|
+| **dateTime** | String | Example: "2012-04-23T18:25:43.511Z" | no |
+| **ticketId** | String | Example: "9a5fe99c-d914-4bda-9332-307384fe40bf" | no |
+| **tokenName** | String | - | no |
+| **engines** | Array of string | - | yes |
+| **sensorIds** | Array of string | - | yes |
+| **subnets** | Array of string | - | yes |
+| **ttl** | Numeric | - | yes |
+| **operationType** | String | Values are "OPEN", "UPDATE", and "CLOSE" | no |
+
+#### Curl command
+
+| Type | APIs | Example |
+|--|--|--|
+| POST | `curl -k -X POST -d '{"ticketId": "<TICKET_ID>",ttl": <TIME_TO_LIVE>,"engines": [<ENGINE1, ENGINE2...ENGINEn>],"sensorIds": [<SENSOR_ID1, SENSOR_ID2...SENSOR_IDn>],"subnets": [<SUBNET1, SUBNET2....SUBNETn>]}' -H "Authorization: <AUTH_TOKEN>" https://127.0.0.1/external/v1/maintenanceWindow` | `curl -k -X POST -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20","engines": ["ANOMALY"],"sensorIds": ["5","3"],"subnets": ["10.0.0.3"]}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/external/v1/maintenanceWindow` |
+| PUT | `curl -k -X PUT -d '{"ticketId": "<TICKET_ID>",ttl": "<TIME_TO_LIVE>"}' -H "Authorization: <AUTH_TOKEN>" https://127.0.0.1/external/v1/maintenanceWindow` | `curl -k -X PUT -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/external/v1/maintenanceWindow` |
+| DELETE | `curl -k -X DELETE -d '{"ticketId": "<TICKET_ID>"}' -H "Authorization: <AUTH_TOKEN>" https://127.0.0.1/external/v1/maintenanceWindow` | `curl -k -X DELETE -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/external/v1/maintenanceWindow` |
+| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/external/v1/maintenanceWindow?fromDate=&toDate=&ticketId=&tokenName='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/external/v1/maintenanceWindow?fromDate=2020-01-01&toDate=2020-07-14&ticketId=a5fe99c-d914-4bda-9332-307384fe40bf&tokenName=a'` |
+
+## Request alert PCAP - /external/v2/alerts/pcap
+
+Use this API to request a PCAP file related to an alert.
+
+#### Method
+
+- **GET**
+
+#### Query Parameters
+
+- id: CM Alert ID  
+Example:  
+`/external/v2/alerts/pcap/<id>`
+
+#### Response type
+
+- **JSON**
+
+#### Response content
+
+- **Success**: JSON object that contains data regarding the requested PCAP file
+- **Failure**: JSON object that contains error message
+
+#### Data fields
+
+|Name|Type|Nullable|
+|-|-|-|
+|id|Numeric|No|
+|xsenseId|Numeric|No|
+|xsenseAlertId|Numeric|No|
+|downloadUrl|String|No|
+|token|String|No|
+
+#### Response example
+
+#### Success
+
+```json
+{
+  "downloadUrl": "https://10.1.0.2/api/v2/alerts/pcap/1",
+  "xsenseId": 1,
+  "token": "d2791f58-2a88-34fd-ae5c-2651fe30a63c",
+  "id": 1,
+  "xsenseAlertId": 1
+}
+```
+
+#### Error
+
+```json
+{
+  "error": "alert not found"
+}
+```
+
+#### Curl command
+
+|Type|APIs|Example|
+|-|-|-|
+|GET|`curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/external/v2/alerts/pcap/<ID>'`|`curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://10.1.0.1/external/v2/alerts/pcap/1'`
+
+## ServiceNow Integration API - “/external/v3/integration/ (Preview)
+
+The below API's can be used with the ServiceNow integration via the ServiceNow's Service Graph Connector for Defender for IoT.
+
+## Create and update devices
+
+#### Request
+
+- Path: “/devices/{timestamp}”
+- Method type: GET
+- Path parameters:
+    - “**timestamp**” – the time from which updates are required, only later updates will be returned.
+
+- Query parameters:
+    - “**sensorId**” - use this parameter to get only devices seen by a specific sensor. The ID should be taken from the results of the Sensors API.
+    - “**notificationType**” - should be a number, from the following mapping:
+        - 0 – both updated and new devices (default).
+        - 1 – only new devices.
+        - 2 – only updated devices.
+    - “**page**” - the page number, from the result set (first page is 0, default value is 0)
+    - “**size**” - the page size (default value is 50)
+
+#### Response
+
+- Type: JSON
+- Structure:
+    - “**u_count**” - amount of object in the full result sets, including all pages.
+    - “**u_devices**” - array of device objects (as defined in the specific device API).
+
+## Connections
+
+#### Request
+
+- Path: “/connections/{timestamp}”
+- Method type: GET
+- Path parameters:
+    - “**timestamp**” – the time from which updates are required, only later updates will be returned.
+- Query parameters:
+    - “**page**” - the page number, from the result set (default value is 1)
+    - “**size**” - the page size (default value is 50)
+
+#### Response
+
+- Type: JSON
+- Structure: 
+    - “**u_count**” - amount of object in the full result sets, including all pages.
+    - “**u_connections**” - array of
+        - “**u_src_device_id**” - the ID of the source device.
+        - “**u_dest_device_id**” - the ID of the destination device.
+        - “**u_connection_type**” - one of the following:
+            - “**One Way**”
+            - “**Two Way**”
+            - “**Multicast**”
+
+## Specific device
+
+#### Request
+
+- Path: “/device/{deviceId}”
+- Method type: GET
+- Path parameters:
+    - “**deviceId**” – the ID of the requested device.
+
+#### Response
+
+- Type: JSON
+- Structure:
+    - “**u_id**” - the internal ID of the device.
+    - “**u_vendor**” - the name of the vendor.
+    - “**u_mac_address_objects**” - array of
+        - “**u_mac_address**” - mac address of the device.
+    - “**u_ip_address_objects**” - array of
+        - “**u_ip_address**” - IP address of the device.
+        - “**u_guessed_mac_addresses**” - array of
+            - “**u_mac_address**” - guessed mac address.
+    - “**u_name**” - the name of the device.
+    - “**u_last_activity**” - timestamp of the last time the device was active.
+    - “**u_first_discovered**” - timestamp of the discovery time of the device.
+    - “**u_last_update**” - timestamp of the last update time of the device.
+    - “**u_vlans**” - array of
+        - “**u_vlan**” - vlan in which the device is in.
+    - “**u_device_type**” -
+        - “**u_name**” - the device type
+        - “**u_purdue_layer**” - the default purdue layer for this device type.
+        - “**u_category**” - will be one of the following:
+            - “**IT**”
+            - “**ICS**”
+            - “**IoT**”
+            - “**Network**”
+    - “**u_operating_system**” - the device operating system.
+    - “**u_protocol_objects**” - array of
+        - “**u_protocol**” - protocol the device uses.
+    - “**u_purdue_layer**” - the purdue layer that was manually set by the user.
+    - “**u_sensor_ids**” - array of
+        - “**u_sensor_id**” - the ID of the sensor that saw the device.
+    - “**u_device_urls**” - array of
+        - “**u_device_url**” the URL to view the device in the sensor.
+    - “**u_firmwares**” - array of
+        - “**u_address**”
+        - “**u_module_address**”
+        - “**u_serial**”
+        - “**u_model**”
+        - “**u_version**”
+        - “**u_additional_data**"
+
+## Deleted devices
+
+#### Request
+
+- Path: “/deleteddevices/{timestamp}”
+- Method type: GET
+- Path parameters:
+    - “**timestamp**” – the time from which updates are required, only later updates will be returned.
+
+#### Response
+
+- Type: JSON
+- Structure:
+    - Array of
+        - “**u_id**” - the ID of the deleted device.
+
+## Sensors
+
+#### Request
+
+- Path: “/sensors”
+- Method type: GET
+
+#### Response
+
+- Type: JSON
+- Structure:
+    - Array of
+        - “**u_id**” - internal sensor ID, to be used in the devices API.
+        - “**u_name**” - the name of the appliance.
+        - “**u_connection_state**” - connectivity with the CM state. One of the following:
+            - “**SYNCED**” - Connection is successful.
+            - “**OUT_OF_SYNC**” - Management console cannot process data received from Sensor.
+            - “**TIME_DIFF_OFFSET**” - Time drift detected. management console has been disconnected from Sensor.
+            - “**DISCONNECTED**” - Sensor not communicating with management console. Check network connectivity.
+        - “**u_interface_address**” - the network address of the appliance.
+        - “**u_version**” - string representation of the sensor’s version.
+        - “**u_alert_count**” - number of alerts found by the sensor.
+        - “**u_device_count**” - number of devices discovered by the sensor.
+        - “**u_unhandled_alert_count**” - number of unhandled alerts in the sensor.
+        - “**u_is_activated**” - is the alert activated.
+        - “**u_data_intelligence_version**” - string representation of the data intelligence installed in the sensor.
+        - “**u_remote_upgrade_stage**” - the state of the remote upgrade. One of the following:
+            - "**UPLOADING**"
+            - "**PREPARE_TO_INSTALL**"
+            - "**STOPPING_PROCESSES**"
+            - "**BACKING_UP_DATA**"
+            - "**TAKING_SNAPSHOT**"
+            - "**UPDATING_CONFIGURATION**"
+            - "**UPDATING_DEPENDENCIES**"
+            - "**UPDATING_LIBRARIES**"
+            - "**PATCHING_DATABASES**"
+            - "**STARTING_PROCESSES**"
+            - "**VALIDATING_SYSTEM_SANITY**"
+            - "**VALIDATION_SUCCEEDED_REBOOTING**"
+            - "**SUCCESS**"
+            - "**FAILURE**"
+            - "**UPGRADE_STARTED**"
+            - "**STARTING_INSTALLATION**"
+            - "**INSTALLING_OPERATING_SYSTEM**"
+        - “**u_uid**” - globally unique identifier of the sensor
+
+## Device CVEs
+
+#### Request
+
+- Path: “/devicecves/{timestamp}”
+- Method type: GET
+- Path parameters:
+    - “**timestamp**” – the time from which updates are required, only later updates will be returned.
+- Query parameters:
+    - “**page**” - the page number, from the result set (first page is 0, default value is 0)
+    - “**size**” - the page size (default value is 50)
+
+#### Response
+
+- Type: JSON
+- Structure:
+    - “**u_count**” - amount of object in the full result sets, including all pages.
+    - “**u_id**” - the same as in the specific device API.
+    - “**u_name**” - the same as in the specific device API.
+    - “**u_ip_address_objects**” - the same as in the specific device API.
+    - “**u_mac_address_objects**” - the same as in the specific device API.
+    - “**u_last_activity**” - the same as in the specific device API.
+    - “**u_last_update**” - the same as in the specific device API.
+    - “**u_cves**” - an array of CVEs:
+        - “**u_ip_address**” - the IP address of the specific interface with the specific firmware on which the CVE was detected.
+        - “**u_cve_id**”- the ID of the CVE
+        - “**u_score**”- the risk score of the CVE
+        - “**u_attack_vector**” - one of the following:
+            - "**ADJACENT_NETWORK**"
+            - "**LOCAL**"
+            - "**NETWORK**"
+        - “**u_description**” - description about the CVE.
+
+## Next steps
+
+For more information, see:
+
+- [Defender for IoT sensor and management console APIs](references-work-with-defender-for-iot-apis.md)
+- [OT monitoring sensor APIs](sensor-api-reference.md)

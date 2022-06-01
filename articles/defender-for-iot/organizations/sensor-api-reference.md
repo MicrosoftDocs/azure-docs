@@ -7,6 +7,8 @@ ms.topic: reference
 
 # OT monitoring sensor APIs
 
+This article lists the APIs supported for Defender for IoT OT sensors.
+
 ## Version reference
 
 
@@ -1596,4 +1598,5 @@ curl -k -H "Authorization: d2791f58-2a88-34fd-ae5c-2651fe30a63c" 'https://10.1.0
 
 For more information, see:
 
-TBD
+- [Defender for IoT sensor and management console APIs](references-work-with-defender-for-iot-apis.md)
+- [On-premises management console API reference](management-api-reference.md)
