@@ -3,7 +3,7 @@ title: Microsoft 365 Store step-by-step submission guide
 description:  Use this step-by-step submission guide to submit your app to the Microsoft stores. 
 ms.localizationpriority: medium
 ms.author: mingshen
-ms.date: 05/26/2022
+ms.date: 06/01/2022
 ---
 
 # Store step-by-step submission guide
@@ -54,7 +54,7 @@ This article is a step-by-step guide that will detail how to submit your app to 
     If so, connect this system using the Connect link.
 
     > [!NOTE]
-    > If you’re submitting a Teams add-in, make sure to update the Apple ID in your account settings to make your app acquirable on iOS mobile devices.
+    > If you’re submitting a Teams add-in, make sure to update your Apple ID in your account settings to make your app acquirable on iOS mobile devices.
 
 1. Select **Save draft** before continuing to the next page: Packages.
 
