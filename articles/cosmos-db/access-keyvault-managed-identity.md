@@ -19,7 +19,7 @@ Azure Cosmos DB may need to read secret/key data from Azure Key Vault. For examp
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An existing Azure Cosmos DB SQL API account. [Create an Azure Cosmos DB SQL API account](sql/create-cosmosdb-resources-portal.md)
-- An existing Azure Key Vault resource. [Create a key vault using the Azure CLI](../key-vault/general/quick-create-cli)
+- An existing Azure Key Vault resource. [Create a key vault using the Azure CLI](../key-vault/general/quick-create-cli.md)
 [!INCLUDE [azure-cli-prerequisites-include](../../includes/azure-cli-prerequisites-include.md)]
 
 ## Prerequisite check
@@ -77,7 +77,7 @@ First, create a system-assigned managed identity for the existing Azure Cosmos D
 
 In this step, create an access policy in Azure Key Vault using the previously managed identity.
 
-1. Use the [``az keyvault set-policy``](cli/azure/keyvault#az-keyvault-set-policy) command to create an access policy in Azure Key Vault that gives the Azure Cosmos DB managed identity permission to access Key Vault. Specifically, the policy will use the **key-permissions** parameters to grant permissions to ``get``, ``list``, and ``import`` keys.
+1. Use the [``az keyvault set-policy``](/cli/azure/keyvault#az-keyvault-set-policy) command to create an access policy in Azure Key Vault that gives the Azure Cosmos DB managed identity permission to access Key Vault. Specifically, the policy will use the **key-permissions** parameters to grant permissions to ``get``, ``list``, and ``import`` keys.
 
     ```azurecli-itneractive
     az keyvault set-policy \
