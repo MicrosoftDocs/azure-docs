@@ -1,7 +1,7 @@
 ---
 title: Form Recognizer receipt model
 titleSuffix: Azure Applied AI Services
-description: Concepts encompassing data extraction and analysis using the prebuilt receipt model
+description: Concepts related to data extraction and analysis using the prebuilt receipt model
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
