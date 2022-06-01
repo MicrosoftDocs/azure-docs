@@ -40,7 +40,7 @@ You can also set the owner of the resources that are affected by the specified r
 
 By default, email notifications are sent to the resource owners weekly to provide a list of the on time and overdue tasks. If an email for the owner's manager is found in the organizational Azure Active Directory (Azure AD), the owner's manager receives a weekly email showing any overdue recommendations by default.
 
-:::image type="content" source="./media/governance-rules/add-governance-rules.png" alt-text="Screenshot of fields required to add a governance rule.":::
+:::image type="content" source="./media/governance-rules/add-governance-rules.png" alt-text="Screenshot of fields required to add a governance rule." lightbox="media/governance-rules/add-governance-rules.png":::
 
 To define a governance rule that assigns an owner and due date:
 
@@ -49,17 +49,20 @@ To define a governance rule that assigns an owner and due date:
 1. Enter a name for the rule.
 1. Set a priority for the rule. You can see the priority for the existing rules in the list of governance rules.
 1. Select the recommendations that the rule applies to, either:
-    1. **By severity** - The rule assigns the owner and due date to any recommendation in the subscription that doesn't already have them assigned.
-    1. **By name** - Select the specific recommendations that the rule applies to.
-1. Set the owner to assign to the recommendations:
+    - **By severity** - The rule assigns the owner and due date to any recommendation in the subscription that doesn't already have them assigned.
+    - **By name** - Select the specific recommendations that the rule applies to.
+1. Set the owner to assign to the recommendations either:
     - **By resource tag** - Enter the resource tag on your resources that defines the resource owner.
     - **By email address** - Enter the email address of the owner to assign to the recommendations.
-1. Set the remediation timeframe, which is the time from when the resources are identified to require remediation to the time that the remediation is due.
+1. Set the **remediation timeframe**, which is the time between when the resources are identified to require remediation and the time that the remediation is due.
 1. If you don't want the resources to affect your secure score until they're overdue, select **Apply grace period**.
 1. If you don't want either the owner or the owner's manager to receive weekly emails, clear the notification options.
 1. Select **Create**.
 
-You can choose to assign an owner and due date to existing recommendations that match the definition of the governance rule and don't already have an owner or due date, or overwrite the owner and due date of existing recommendations.
+If there are existing recommendations that match the definition of the governance rule, you can either:
+
+- Assign an owner and due date to recommendation that don't already have an owner or due date.
+- Overwrite the owner and due date of existing recommendations.
 
 ## Manually assigning owners and due dates for recommendation remediation
 
@@ -87,17 +90,17 @@ After you define governance rules, you'll want to review the progress that the o
 
 You can track the assigned and overdue recommendations in:
 
-- The security posture shows the unassigned and overdue recommendations by number and percentage.
+- The security posture shows the number of unassigned and overdue recommendations.
 
     :::image type="content" source="./media/governance-rules/governance-in-security-posture.png" alt-text="Screenshot of governance status in the security posture.":::
 
 - The list of recommendations shows the governance status of each recommendation.
 
-    :::image type="content" source="./media/governance-rules/governance-in-recommendations.png" alt-text="Screenshot of recommendations with their governance status.":::
+    :::image type="content" source="./media/governance-rules/governance-in-recommendations.png" alt-text="Screenshot of recommendations with their governance status." lightbox="media/governance-rules/governance-in-recommendations.png":::
 
 - The governance report in the governance rules settings lets you drill down into recommendations by rule and owner.
 
-    :::image type="content" source="./media/governance-rules/governance-in-workbook.png" alt-text="Screenshot of governance status by rule and owner in the governance workbook.":::
+    :::image type="content" source="./media/governance-rules/governance-in-workbook.png" alt-text="Screenshot of governance status by rule and owner in the governance workbook." lightbox="media/governance-rules/governance-in-workbook.png":::
 
 ### Tracking progress by rule with the governance report
 
