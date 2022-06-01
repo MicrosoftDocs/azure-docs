@@ -1,17 +1,16 @@
 ---
-title: Availability zone support for Azure API Management
-description: Learn how to improve the resiliency of your Azure API Management service instance in a region by enabling zone redundancy.
-author: dlepow
-
+title: Migrate Azure API Management to availability zone support
+description: Learn how to migrate your AAzure API Management instances to availability zone support.
+author: anaharris-ms
 ms.service: api-management
 ms.topic: how-to
-ms.date: 05/11/2022
-ms.author: danlep
+ms.date: 06/01/2022
+ms.author: anaharris
 ms.custom: references_regions
 
 ---
 
-# Migrate Azure Storage accounts to availability zone support
+# Migrate Azure API Management to availability zone support
 
 This guide describes how to enable availability zone support for your API Management instance. The API Management service supports [Zone redundancy](../availability-zones/az-overview.md#availability-zones), which provides resiliency and high availability to a service instance in a specific Azure region. With zone redundancy, the gateway and the control plane of your API Management instance (Management API, developer portal, Git configuration) are replicated across datacenters in physically separated zones, making it resilient to a zone failure.
 
@@ -108,10 +107,10 @@ The public IP address in the location changes when you enable, add, or remove av
 To enable zone redundancy in the Azure portal:
 
 1. In the Azure portal, navigate to your API Management service and select **Locations** in the menu.
-1. Select an existing location, or select **+ Add** in the top bar. The location must [support availability zones](#supported-regions).
-1. Select the number of scale **[Units](upgrade-and-scale.md)** in the location.
+1. Select an existing location, or select **+ Add** in the top bar. The location must [support availability zones](#prerequisites).
+1. Select the number of scale **[Units](../api-management/upgrade-and-scale.md)** in the location.
 1. In **Availability zones**, select one or more zones. The number of units selected must distribute evenly across the availability zones. For example, if you selected 3 units, select 3 zones so that each zone hosts one unit.
-1. If the API Management instance is deployed in a [virtual network](api-management-using-with-virtual networket.md), select an existing virtual network, subnet, and public IP address that are available in the location. For an existing location, the virtual network and subnet must be configured from the Virtual Network blade.
+1. If the API Management instance is deployed in a [virtual network](../api-management/api-management-using-with-vnet.md), select an existing virtual network, subnet, and public IP address that are available in the location. For an existing location, the virtual network and subnet must be configured from the Virtual Network blade.
 1. Select **Apply** and then select **Save**.
 
 :::image type="content" source="../api-management/media/zone-redundancy/add-location-zones.png" alt-text="Enable zone redundancy":::
