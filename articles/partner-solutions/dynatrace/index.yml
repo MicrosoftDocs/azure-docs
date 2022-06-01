@@ -43,13 +43,13 @@ landingContent:
             url: dynatrace-troubleshoot.md
 
   # Card
-  - title: Explore reference content
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Azure CLI
-            url: /cli/azure/Dynatrace
-          - text: Azure PowerShell
-            url: /powershell/module/az.Dynatrace/#Dynatrace
-          - text: REST API
-            url: /rest/api/Dynatrace
+#  - title: Explore reference content
+#    linkLists:
+#      - linkListType: reference
+#        links:
+#          - text: Azure CLI
+#            url: /cli/azure/Dynatrace
+#          - text: Azure PowerShell
+#            url: /powershell/module/az.Dynatrace/#Dynatrace
+#          - text: REST API
+#            url: /rest/api/Dynatrace
