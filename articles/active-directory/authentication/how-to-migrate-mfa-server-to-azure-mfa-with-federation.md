@@ -4,7 +4,7 @@ description: Step-by-step guidance to move from Azure MFA Server on-premises to 
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/07/2022
+ms.date: 04/21/2022
 ms.author: BaSelden
 author: BarbaraSelden
 manager: martinco
@@ -174,7 +174,8 @@ This section covers final steps before migrating user phone numbers.
 
 ### Set federatedIdpMfaBehavior to enforceMfaByFederatedIdp
 
-For federated domains, MFA may be enforced by Azure AD Conditional Access or by the on-premises federation provider. Each federated domain has a Microsoft Graph PowerShell security setting named **federatedIdpMfaBehavior**. You can set **federatedIdpMfaBehavior** to `enforceMfaByFederatedIdp` so Azure AD accepts MFA that's performed by the federated identity provider. If the federated identity provider didn't perform MFA, Azure AD redirects the request to the federated identity provider to perform MFA. For more information, see [federatedIdpMfaBehavior](/graph/api/resources/federatedIdpMfaBehavior?view=graph-rest-beta&preserve-view=true).
+
+For federated domains, MFA may be enforced by Azure AD Conditional Access or by the on-premises federation provider. Each federated domain has a Microsoft Graph PowerShell security setting named **federatedIdpMfaBehavior**. You can set **federatedIdpMfaBehavior** to `enforceMfaByFederatedIdp` so Azure AD accepts MFA that's performed by the federated identity provider. If the federated identity provider didn't perform MFA, Azure AD redirects the request to the federated identity provider to perform MFA. For more information, see [federatedIdpMfaBehavior](/graph/api/resources/internaldomainfederation?view=graph-rest-beta#federatedidpmfabehavior-values).
 
 >[!NOTE]
 > The **federatedIdpMfaBehavior** setting is an evolved version of the **SupportsMfa** property of the [Set-MsolDomainFederationSettings MSOnline v1 PowerShell cmdlet](/powershell/module/msonline/set-msoldomainfederationsettings). 
@@ -418,9 +419,3 @@ Possible considerations when decommissions the MFA Servers include:
 - [Deploy password hash synchronization](../hybrid/whatis-phs.md)
 - [Learn more about Conditional Access](../conditional-access/overview.md)
 - [Migrate applications to Azure AD](../manage-apps/migrate-application-authentication-to-azure-active-directory.md)
-
- 
-
- 
-
- 

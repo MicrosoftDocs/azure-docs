@@ -13,7 +13,7 @@ ms.author: lajanuar
 
 # Language support for Form Recognizer
 
- This table lists the written languages supported by each Form Recognizer service.
+This article covers the supported languages for text and field **extraction (by feature)** and **[detection (Read only)](#detected-languages-read-api)**. Both groups are mutually exclusive.
 
 <!-- markdownlint-disable MD001 -->
 <!-- markdownlint-disable MD024 -->
@@ -29,7 +29,7 @@ The following lists include the currently GA languages in for the v2.1 version a
 
 To use the preview languages, refer to the [v3.0 REST API migration guide](/rest/api/media/#changes-to-the-rest-api-endpoints) to understand the differences from the v2.1 GA API and explore the [v3.0 preview SDK quickstarts](quickstarts/try-v3-python-sdk.md).
 
-### Handwritten languages (preview and GA)
+### Handwritten text (preview and GA)
 
 The following table lists the supported languages for extracting handwritten texts.
 
@@ -41,7 +41,7 @@ The following table lists the supported languages for extracting handwritten tex
 |German (preview) |`de`|Spanish (preview) |`es`|
 |Italian (preview) |`it`|
 
-### Print languages (preview)
+### Print text (preview)
 
 This section lists the supported languages for extracting printed texts in the latest preview.
 
@@ -94,7 +94,7 @@ This section lists the supported languages for extracting printed texts in the l
 |Kurukh (Devanagari) | `kru`|Welsh | `cy`
 |Kyrgyz (Cyrillic)  | `ky`
 
-### Print languages (GA)
+### Print text (GA)
 
 This section lists the supported languages for extracting printed texts in the latest GA version.
 
@@ -178,14 +178,14 @@ Language| Locale code |
 
 ## Detected languages: Read API
 
-The [Read API](concept-read.md) supports language detection for the following languages:
+The [Read API](concept-read.md) supports detecting the following languages in your documents. This list may include languages not currently supported for text extraction.
 
 > [!NOTE]
 > **Language detection**
 >
-> Form Recognizer read model can _detect_ a wide range of languages, variants, dialects, and some regional/cultural languages and return a language code.
->
-> This section lists the languages that can be detected using the Read API. To determine if text can also be _extracted_ for a given language, see [handwritten](#handwritten-languages-preview-and-ga), [print preview](#print-languages-preview), and [print GA](#print-languages-ga) language extraction lists (above).
+> Form Recognizer read model can _detect_ possible presence of languages and returns language codes for detected languages. To determine if text can also be 
+> extracted for a given language, see previous sections.
+
 
 | Language            | Code |
 |---------------------|---------------|

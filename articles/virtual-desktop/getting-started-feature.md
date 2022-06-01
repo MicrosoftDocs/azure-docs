@@ -6,7 +6,7 @@ ms.topic: quickstart
 ms.date: 07/14/2021
 ms.author: helohr
 manager: femila
-ms.custom: mode-other
+ms.custom: mode-portal
 ---
 
 # Deploy Azure Virtual Desktop with the getting started feature

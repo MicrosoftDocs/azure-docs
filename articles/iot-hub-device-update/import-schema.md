@@ -152,7 +152,7 @@ Each property is a name-value pair of type string.
 * **Minimum Property Value Length**: `1`
 * **Maximum Property Value Length**: `64`
 
-_Note that the same exact set of compatibility properties cannot be re-used with a different Provider and Name combination._
+_Note that the same exact set of compatibility properties cannot be used with more than one Update Provider and Name combination._
 
 ### instructions object
 

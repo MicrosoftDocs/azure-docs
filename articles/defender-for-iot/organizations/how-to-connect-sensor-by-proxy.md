@@ -7,7 +7,7 @@ ms.date: 02/06/2022
 
 # Connect Microsoft Defender for IoT sensors without direct internet access by using a proxy (legacy)
 
-This article describes how to connect Microsoft Defender for IoT sensors to Defender for IoT via a proxy, with no direct internet access, and is only relevant if you are using a legacy connection method via your own IoT Hub.
+This article describes how to connect Microsoft Defender for IoT sensors to Defender for IoT via a proxy, with no direct internet access. This article is only relevant if you are using a legacy connection method via your own IoT Hub.
 
 Starting with sensor software versions 22.1.x, updated connection methods are supported that don't require customers to have their own IoT Hub. For more information, see [Sensor connection methods](architecture-connections.md) and [Connect your sensors to Microsoft Defender for IoT](connect-sensors.md).
 
@@ -25,7 +25,7 @@ The following diagram shows data going from Microsoft Defender for IoT to the Io
 
 ## Set up your system
 
-For this scenario we will be installing, and configuring the latest version of [Squid](http://www.squid-cache.org/) on an Ubuntu 18 server.
+For this scenario we'll be installing, and configuring the latest version of [Squid](http://www.squid-cache.org/) on an Ubuntu 18 server.
 
 > [!Note]
 > Microsoft Defender for IoT does not offer support for Squid or any other proxy service.

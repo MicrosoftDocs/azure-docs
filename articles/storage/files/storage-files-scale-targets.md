@@ -58,8 +58,8 @@ There are two main types of storage accounts for Azure Files:
 | Maximum request rate (Max IOPS) | <ul><li>20,000, with large file share feature enabled<sup>2</sup></li><li>1,000 or 100 requests per 100 ms, default</li></ul> | <ul><li>Baseline IOPS: 3000 + 1 IOPS per GiB, up to 100,000</li><li>IOPS bursting: Max (10000, 3x IOPS per GiB), up to 100,000</li></ul> |
 | Throughput (ingress + egress) for a single file share (MiB/sec) | <ul><li>Up to 300 MiB/sec, with large file share feature enabled<sup>2</sup></li><li>Up to 60 MiB/sec, default</li></ul> | 100 + CEILING(0.04 * ProvisionedGiB) + CEILING(0.06 * ProvisionedGiB) |
 | Maximum number of share snapshots | 200 snapshots | 200 snapshots |
-| Maximum object (directories and files) name length | 2,048 characters | 2,048 characters |
-| Maximum pathname component (in the path \A\B\C\D, each letter is a component) | 255 characters | 255 characters |
+| Maximum object name length (total pathname including all directories and filename) | 2,048 characters | 2,048 characters |
+| Maximum individual pathname component length (in the path \A\B\C\D, each letter represents a directory or file that is an individual component) | 255 characters | 255 characters |
 | Hard link limit (NFS only) | N/A | 178 |
 | Maximum number of SMB Multichannel channels | N/A | 4 |
 | Maximum number of stored access policies per file share | 5 | 5 |

@@ -25,7 +25,7 @@ To get a list of IP addresses of the Batch service and Azure Machine Learning se
 > [!IMPORTANT]
 > The IP addresses may change over time.
 
-When creating the UDR, set the __Next hop type__ to __Internet__. The following image shows an example IP address based UDR in the Azure portal:
+When creating the UDR, set the __Next hop type__ to __Internet__. This means the inbound communication from Azure skips your firewall to access the load balancers with public IPs of Compute Instance and Compute Cluster. UDR is required because Compute Instance and Compute Cluster will get random public IPs at creation, and you cannot know the public IPs before creation to register them on your firewall to allow the inbound from Azure to specific IPs for Compute Instance and Compute Cluster. The following image shows an example IP address based UDR in the Azure portal:
 
 :::image type="content" source="./media/machine-learning-compute-user-defined-routes/user-defined-route.png" alt-text="Image of a user-defined route configuration":::
 

@@ -1,6 +1,6 @@
 ---
 title: Home Realm Discovery policy
-titleSuffix: Azure AD
+titleSuffix: Microsoft Entra
 description: Learn how to manage Home Realm Discovery policy for Azure Active Directory authentication for federated users, including auto-acceleration and domain hints.
 services: active-directory
 author: nickludwig

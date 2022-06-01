@@ -2,7 +2,7 @@
 title: Monitor Azure Backup protected workloads
 description: In this article, learn about the monitoring and notification capabilities for Azure Backup workloads using the Azure portal.
 ms.topic: conceptual
-ms.date: 03/21/2022
+ms.date: 05/16/2022
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
 author: v-amallick
 ms.service: backup
@@ -130,58 +130,85 @@ The following table summarizes the different backup alerts currently available (
 
 | **Alert Category** | **Alert Name** | **Supported workload types / vault types** | **Description** | 
 | ------------------ | -------------  | ------------------------------------------ | -------- |
-| Security | Delete Backup Data | <li> Azure Virtual Machine <br><br> <li> SQL in Azure VM (non-AG scenarios) <br><br> <li> SAP HANA in Azure VM <br><br> <li> Azure Backup Agent <br><br> <li> DPM <br><br> <li> Azure Backup Server <br><br> <li> Azure Database for PostgreSQL Server <br><br> <li> Azure Blobs <br><br> <li> Azure Managed Disks  | This alert is fired when a user stops backup and deletes backup data (Note – If soft-delete feature is disabled for the vault, Delete Backup Data alert is not received) |
-| Security | Upcoming Purge | <li> Azure Virtual Machine <br><br> <li> SQL in Azure VM (non-AG scenarios) <br><br> <li> SAP HANA in Azure VM | For all workloads which support soft-delete, this alert is fired when the backup data for an item is 2 days away from being permanently purged by the Azure Backup service | 
-| Security | Purge Complete | <li> Azure Virtual Machine <br><br> <li> SQL in Azure VM (non-AG scenarios) <br><br> <li> SAP HANA in Azure VM | Delete Backup Data |
+| Security | Delete Backup Data | - Azure Virtual Machine <br><br> - SQL in Azure VM (non-AG scenarios) <br><br> - SAP HANA in Azure VM <br><br> - Azure Backup Agent <br><br> - DPM <br><br> - Azure Backup Server <br><br> - Azure Database for PostgreSQL Server <br><br> - Azure Blobs <br><br> - Azure Managed Disks  | This alert is fired when a user stops backup and deletes backup data (Note – If soft-delete feature is disabled for the vault, Delete Backup Data alert is not received) |
+| Security | Upcoming Purge | - Azure Virtual Machine <br><br> - SQL in Azure VM (non-AG scenarios) <br><br> - SAP HANA in Azure VM | For all workloads which support soft-delete, this alert is fired when the backup data for an item is 2 days away from being permanently purged by the Azure Backup service | 
+| Security | Purge Complete | - Azure Virtual Machine <br><br> - SQL in Azure VM (non-AG scenarios) <br><br> - SAP HANA in Azure VM | Delete Backup Data |
 | Security | Soft Delete Disabled for Vault | Recovery Services vaults | This alert is fired when the soft-deleted backup data for an item has been permanently deleted by the Azure Backup service | 
-| Jobs | Backup Failure | <li> Azure Virtual Machine <br><br> <li> SQL in Azure VM (non-AG scenarios) <br><br> <li> SAP HANA in Azure VM <br><br> <li> Azure Backup Agent <br><br> <li> Azure Files <br><br> <li> Azure Database for PostgreSQL Server <br><br> <li> Azure Managed Disks | This alert is fired when a backup job failure has occurred. By default, alerts for backup  failures are turned off. Refer to the [section on turning on alerts for this scenario](#turning-on-azure-monitor-alerts-for-job-failure-scenarios) for more details. | 
-| Jobs | Restore Failure | <li> Azure Virtual Machine <br><br> <li> SQL in Azure VM (non-AG scenarios) <br><br> <li> SAP HANA in Azure VM <br><br> <li> Azure Backup Agent <br><br> <li> Azure Files <br><br> <li> Azure Database for PostgreSQL Server <br><br> <li> Azure Blobs <br><br> <li> Azure Managed Disks| This alert is fired when a restore job failure has occurred. By default, alerts for restore failures are turned off. Refer to the [section on turning on alerts for this scenario](#turning-on-azure-monitor-alerts-for-job-failure-scenarios) for more details. | 
+| Jobs | Backup Failure | - Azure Virtual Machine <br><br> - SQL in Azure VM (non-AG scenarios) <br><br> - SAP HANA in Azure VM <br><br> - Azure Backup Agent <br><br> - Azure Files <br><br> - Azure Database for PostgreSQL Server <br><br> - Azure Managed Disks | This alert is fired when a backup job failure has occurred. By default, alerts for backup  failures are turned off. Refer to the [section on turning on alerts for this scenario](#turning-on-azure-monitor-alerts-for-job-failure-scenarios) for more details. | 
+| Jobs | Restore Failure | - Azure Virtual Machine <br><br> - SQL in Azure VM (non-AG scenarios) <br><br> - SAP HANA in Azure VM <br><br> - Azure Backup Agent <br><br> - Azure Files <br><br> - Azure Database for PostgreSQL Server <br><br> - Azure Blobs <br><br> - Azure Managed Disks | This alert is fired when a restore job failure has occurred. By default, alerts for restore failures are turned off. Refer to the [section on turning on alerts for this scenario](#turning-on-azure-monitor-alerts-for-job-failure-scenarios) for more details. | 
 
 ### Turning on Azure Monitor alerts for job failure scenarios
 
 To opt in to Azure Monitor alerts for backup failure and restore failure scenarios, follow the below steps:
 
-1. Navigate to the Azure portal and search for **Preview Features**.
+**Choose a vault type**:
 
-    ![Screenshot for viewing preview features in portal](media/backup-azure-monitoring-laworkspace/portal-preview-features.png)
+# [Recovery Services vaults](#tab/recovery-services-vaults)
 
-2. You can view the list of all preview features that are available for you to opt in to.
+1. Go to the Azure portal and search for **Preview Features**.
 
-    * If you wish to receive job failure alerts for workloads backed up to Recovery Services vaults, select the flag named **EnableAzureBackupJobFailureAlertsToAzureMonitor** corresponding to Microsoft.RecoveryServices provider (column 3).
-    * If you wish to receive job failure alerts for workloads backed up to the Backup vaults, select the flag named **EnableAzureBackupJobFailureAlertsToAzureMonitor** corresponding to Microsoft.DataProtection provider (column 3).
+    :::image type="content" source="media/backup-azure-monitoring-laworkspace/portal-preview-features.png" alt-text="Screenshot for viewing preview features in portal.":::
 
-    ![Screenshot for Alerts preview registration](media/backup-azure-monitoring-laworkspace/alert-preview-feature-flags.png)
+1. You can view the list of all preview features that are available for you to opt in to.
 
-3. Click **Register** to enable this feature for your subscription.
-    > [!NOTE]
-    > It may take up to 24 hours for the registration to take effect. To enable this feature for multiple subscriptions, repeat the above process by selecting the relevant subscription at the top of the screen. We also recommend to re-register the preview flag if a new resource has been created in the subscription after the initial registration to continue receiving alerts.
+   To receive job failure alerts for workloads backed up to Recovery Services vaults, select the flag named **EnableAzureBackupJobFailureAlertsToAzureMonitor** corresponding to *Microsoft.RecoveryServices* provider (column 3).
 
-4. As a best practice, we also recommend you to register the resource provider to ensure that the feature registration information gets synced with the Azure Backup service as expected. To register the resource provider, run the following PowerShell command in the subscription for which you have registered the feature flag.
+   :::image type="content" source="media/backup-azure-monitoring-laworkspace/alert-preview-feature-flags.png" alt-text="Screenshot for Alerts preview registration.":::
 
-```powershell
-Register-AzResourceProvider -ProviderNamespace <ProviderNamespace>
-```
+1. Click **Register** to enable this feature for your subscription.
 
-To receive alerts for Recovery Services vaults, use the value _Microsoft.RecoveryServices_ for the _ProviderNamespace_ parameter. To receive alerts for Backup vaults, use the value _Microsoft.DataProtection_.
+   > [!NOTE]
+   > It may take up to 24 hours for the registration to take effect. To enable this feature for multiple subscriptions, repeat the above process by selecting the relevant subscription at the top of the screen. We also recommend to re-register the preview flag if a new resource has been created in the subscription after the initial registration to continue receiving alerts.
+
+1. As a best practice, we also recommend you to register the resource provider to ensure that the feature registration information gets synced with the Azure Backup service as expected.
+
+   To register the resource provider, run the following PowerShell command in the subscription for which you have registered the feature flag.
+
+    ```powershell
+    Register-AzResourceProvider -ProviderNamespace <ProviderNamespace>
+    ```
+
+   To receive alerts for Recovery Services vaults, use the value *Microsoft.RecoveryServices* for the *ProviderNamespace* parameter.
+
+# [Backup vaults](#tab/backup-vaults)
+
+For Backup vaults, you no longer need to use a feature flag to opt in to alerts for job failure scenarios. Built-in Azure Monitor alerts are generated for job failures by default. If you want to turn off alerts for these scenarios, you can edit the monitoring settings property of the vault accordingly.
+
+To manage monitoring settings for a Backup vault, follow these steps:
+
+1. Go to the vault and click **Properties**.
+
+1. Locate the **Monitoring Settings** vault property and click **Update**.
+
+   :::image type="content" source="media/backup-azure-monitoring-laworkspace/monitoring-settings-backup-vault.png" alt-text="Screenshot for monitoring settings in backup vault.":::
+
+
+1. In the context pane, select the appropriate options to enable/disable built-in Azure Monitor alerts for job failures depending on your requirement.
+
+1. Click **Update** to save the setting for the vault.
+
+    :::image type="content" source="media/backup-azure-monitoring-laworkspace/job-failure-alert-setting-inline.png" alt-text="Screenshot for updating Azure Monitor alert settings in backup vault." lightbox="media/backup-azure-monitoring-laworkspace/job-failure-alert-setting-expanded.png":::
+
+---
 
 ### Viewing fired alerts in the Azure portal 
 
-Once an alert is fired for a vault, you can view the alert in the Azure portal by navigating to Backup center. On the **Overview** tab, you can see a summary of active alerts split by severity. There're two kinds of alerts displayed:
+Once an alert is fired for a vault, you can go to Backup center to view the alert in the Azure portal. On the **Overview** tab, you can see a summary of active alerts split by severity. There're two kinds of alerts displayed:
 
 * **Datasource Alerts**: Alerts that are tied to a specific datasource being backed up (for example, back up or restore failure for a VM, deleting backup data for a database, and so on) appear under the **Datasource Alerts** section.
 * **Global Alerts**: Alerts that are not tied to a specific datasource (for example, disabling soft-delete functionality for a vault) appear under the **Global Alerts** section.
 
 Each of the above types of alerts is further split into **Security** and **Configured** alerts. Currently, Security alerts include the scenarios of deleting backup data, or disabling soft-delete for vault (for the applicable workloads as detailed in the above section). Configured alerts include backup failure and restore failure since these alerts are only fired after registering the feature in the preview portal.
 
-![Screenshot for viewing alerts in Backup center](media/backup-azure-monitoring-laworkspace/backup-center-azure-monitor-alerts.png)
+:::image type="content" source="media/backup-azure-monitoring-laworkspace/backup-center-azure-monitor-alerts.png" alt-text="Screenshot for viewing alerts in Backup center.":::
 
 Clicking any of the numbers (or on the **Alerts** menu item) opens up a list of all active alerts fired with the relevant filters applied. You can filter on a range of properties, such as subscription, resource group, vault, severity, state, and so on. You can click any of the alerts to get more details about the alert, such as the affected datasource, alert description and recommended action, and so on.
 
-![Screenshot for viewing details of the alert](media/backup-azure-monitoring-laworkspace/backup-center-alert-details.png) 
+:::image type="content" source="media/backup-azure-monitoring-laworkspace/backup-center-alert-details.png" alt-text="Screenshot for viewing details of the alert.":::
 
 You can change the state of an alert to **Acknowledged** or **Closed** by clicking on **Change Alert State**.
 
-![Screenshot for changing state of the alert](media/backup-azure-monitoring-laworkspace/backup-center-change-alert-state.png) 
+:::image type="content" source="media/backup-azure-monitoring-laworkspace/backup-center-change-alert-state.png" alt-text="Screenshot for changing state of the alert."::: 
 
 > [!NOTE]
 > - In Backup center, only alerts for Azure-based workloads are displayed currently. To view alerts for on-premises resources, navigate to the Recovery Services vault and click the **Alerts** menu item.
@@ -216,11 +243,11 @@ To configure notifications for Azure Monitor alerts, create an [alert processing
 
 1. On the **Basics** tab, select the name of the action group, the subscription, and resource group under which it should be created.
 
-    ![Screenshot for basic properties of action group](media/backup-azure-monitoring-laworkspace/azure-monitor-action-groups-basic.png) 
+    :::image type="content" source="media/backup-azure-monitoring-laworkspace/azure-monitor-action-groups-basic.png" alt-text="Screenshot for basic properties of action group."::: 
 
 1. On the **Notifications** tab, select **Email/SMS message/Push/Voice** and enter the recipient email ID.
 
-    ![Screenshot for setting notification properties](media/backup-azure-monitoring-laworkspace/azure-monitor-email.png) 
+    :::image type="content" source="media/backup-azure-monitoring-laworkspace/azure-monitor-email.png" alt-text="Screenshot for setting notification properties."::: 
 
 1. Click **Review+Create** and then **Create** to deploy the action group.
 

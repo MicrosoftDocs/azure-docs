@@ -1,17 +1,16 @@
 ---
 title: What is application management?
 description: An overview of managing the lifecycle of an application in Azure Active Directory.
-titleSuffix: Azure AD
+titleSuffix: Microsoft Entra
 services: active-directory
-author: davidmu1
+author: omondiatieno
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: overview
 ms.workload: identity
 ms.date: 10/22/2021
-ms.author: davidmu
-ms.reviewer: sureshja, napuri
+ms.author: jomondi
 ---
 
 # What is application management in Azure Active Directory?

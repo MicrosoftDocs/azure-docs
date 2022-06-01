@@ -33,6 +33,18 @@
   "contribution_branch_mappings": {},
   "dependent_repositories": [
     {
+      "path_to_root": "azure-dev-docs-pr",
+      "url": "https://github.com/MicrosoftDocs/azure-dev-docs-pr",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "terraform_samples",
+      "url": "https://github.com/Azure/terraform",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "quickstart-templates",
       "url": "https://github.com/Azure/azure-quickstart-templates",
       "branch": "master",
@@ -72,6 +84,12 @@
       "path_to_root": "azure_storage-snippets",
       "url": "https://github.com/Azure-Samples/AzureStorageSnippets",
       "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "msdocs-storage-bind-function-service",
+      "url": "https://github.com/Azure-Samples/msdocs-storage-bind-function-service",
+      "branch": "main",
       "branch_mapping": {}
     },
     {
@@ -240,6 +258,12 @@
       "path_to_root": "azure-functions-dotnet-worker",
       "url": "https://github.com/Azure/azure-functions-dotnet-worker",
       "branch": "main",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azure-functions-kafka-extension",
+      "url": "https://github.com/Azure/azure-functions-kafka-extension",
+      "branch": "dev",
       "branch_mapping": {}
     },
     {
@@ -435,9 +459,15 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "azureml-examples-march-cli-preview",
+      "path_to_root": "azureml-examples-sdk-preview",
       "url": "https://github.com/azure/azureml-examples",
-      "branch": "march-cli-preview",
+      "branch": "sdk-preview",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "azureml-examples-online-endpoint-vnet",
+      "url": "https://github.com/azure/azureml-examples",
+      "branch": "rsethur/mvnet",
       "branch_mapping": {}
     },
     {
@@ -807,6 +837,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "ms-identity-b2c-javascript-spa",
+      "url": "https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa",
+      "branch": "main",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "ms-identity-dotnetcore-b2c-account-management",
       "url": "https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management",
       "branch": "master",
@@ -865,8 +901,13 @@
       "url": "https://github.com/Azure-Samples/azure-sql-binding-func-dotnet-todo",
       "branch": "docs-snippets",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "ms-identity-node",
+      "url": "https://github.com/Azure-Samples/ms-identity-node",
+      "branch": "main",
+      "branch_mapping": {}
     }
-
   ],
   "branch_target_mapping": {
     "live": ["Publish", "PDF"],
@@ -885,15 +926,14 @@
     ".openpublishing.redirection.json",
     ".openpublishing.redirection.active-directory.json",
     ".openpublishing.redirection.azure-blob.json",
-    ".openpublishing.redirection.azure-sql.json",
     "articles/data-factory/.openpublishing.redirection.data-factory.json",
     ".openpublishing.redirection.defender-for-cloud.json",
     ".openpublishing.redirection.defender-for-iot.json",
     ".openpublishing.redirection.healthcare-apis.json",
     ".openpublishing.redirection.iot-hub.json",
     ".openpublishing.redirection.key-vault.json",
-    ".openpublishing.redirection.security-benchmark.json",
     ".openpublishing.redirection.sql-database.json",
+    ".openpublishing.redirection.security-benchmark.json",
     "articles/synapse-analytics/.openpublishing.redirection.synapse-analytics.json",
     ".openpublishing.redirection.azure-web-pubsub.json",
     ".openpublishing.redirection.azure-monitor.json",
@@ -930,6 +970,7 @@
     "articles/mysql/.openpublishing.redirection.mysql.json",
     "articles/container-apps/.openpublishing.redirection.container-apps.json",
     "articles/spring-cloud/.openpublishing.redirection.spring-cloud.json",
-    "articles/load-testing/.openpublishing.redirection.azure-load-testing.json"
+    "articles/load-testing/.openpublishing.redirection.azure-load-testing.json",
+    "articles/azure-video-indexer/.openpublishing.redirection.azure-video-indexer.json"
   ]
 }

@@ -82,9 +82,13 @@ Managed identities are more secure because:
 
 To learn more, see:
 
-- [Export IoT data to cloud destinations using data export](howto-export-data.md)
+- [Export IoT data to cloud destinations using blob storage](howto-export-to-blob-storage.md)
 - [Configure a managed identity in the Azure portal](howto-manage-iot-central-from-portal.md#configure-a-managed-identity)
 - [Configure a managed identity using the Azure CLI](howto-manage-iot-central-from-cli.md#configure-a-managed-identity)
+
+## Connect to a destination on a secure virtual network
+
+Data export in IoT Central lets you continuously stream device data to destinations such as Azure Blob Storage, Azure Event Hubs, Azure Service Bus Messaging. You may choose to lock down these destinations by using an Azure Virtual Network (VNet) and private endpoints. To enable IoT Central to connect to a destination on a secure VNet, configure a firewall exception. To learn more, see [Export data to a secure destination on an Azure Virtual Network](howto-connect-secure-vnet.md).
 
 ## Next steps
 

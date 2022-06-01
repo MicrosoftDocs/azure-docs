@@ -16,11 +16,11 @@ Debug snapshots are stored for 15 days. This retention policy is set on a per-ap
 
 ## Enable Application Insights Snapshot Debugger for your application
 Snapshot collection is available for:
-* .NET Framework and ASP.NET applications running .NET Framework 4.5 or later.
-* .NET Core and ASP.NET Core applications running .NET Core 2.1 (LTS) or 3.1 (LTS) on Windows.
-* .NET 5.0 applications on Windows.
+* .NET Framework and ASP.NET applications running .NET Framework [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) or later.
+* .NET Core and ASP.NET Core applications running .NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) on Windows.
+* .NET [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) applications on Windows.
 
-We don't recommend using .NET Core 2.0, 2.2 or 3.0 since they're out of support.
+We don't recommend using .NET Core versions prior to LTS since they're out of support.
 
 The following environments are supported:
 

@@ -5,21 +5,25 @@ description: Link your Azure Synapse Analytics workspace to your Azure machine l
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mldata
-ms.author: nibaccam
-author: nibaccam
+ms.author: larryfr
+author: blackmist
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: synapse-azureml
-
-# Customer intent: As a user of both Azure Machine Learning pipelines and Azure Synapse Analytics, I'd like to use Apache Spark for the data preparation of my pipeline
-
+ms.custom: synapse-azureml, sdkv1, event-tier1-build-2022
+#Customer intent: As a user of both Azure Machine Learning pipelines and Azure Synapse Analytics, I'd like to use Apache Spark for the data preparation of my pipeline
 ---
 
 # How to use Apache Spark (powered by Azure Synapse Analytics) in your machine learning pipeline (preview)
 
-In this article, you'll learn how to use Apache Spark pools powered by Azure Synapse Analytics as the compute target for a data preparation step in an Azure Machine Learning pipeline. You'll learn how a single pipeline can use compute resources suited for the specific step, such as data preparation or training. You'll see how data is prepared for the Spark step and how it's passed to the next step. 
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
+
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
+In this article, you'll learn how to use Apache Spark pools powered by Azure Synapse Analytics as the compute target for a data preparation step in an Azure Machine Learning pipeline. You'll learn how a single pipeline can use compute resources suited for the specific step, such as data preparation or training. You'll see how data is prepared for the Spark step and how it's passed to the next step. 
+
+
 
 ## Prerequisites
 

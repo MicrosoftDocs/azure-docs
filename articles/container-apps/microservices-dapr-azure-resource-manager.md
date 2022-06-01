@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: conceptual
 ms.date: 01/31/2022
 ms.author: keroden
-ms.custom: ignite-fall-2021, devx-track-azurecli
+ms.custom: ignite-fall-2021, devx-track-azurecli, event-tier1-build-2022
 zone_pivot_groups: container-apps
 ---
 
@@ -29,7 +29,7 @@ In this tutorial, you deploy the same applications from the Dapr [Hello World](h
 
 The application consists of:
 
-- A client (Python) container app to generates messages.
+- A client (Python) container app to generate messages.
 - A service (Node) container app to consume and persist those messages in a state store
 
 The following architecture diagram illustrates the components that make up this tutorial:
@@ -124,19 +124,16 @@ az upgrade
 
 Next, install the Azure Container Apps extension for the Azure CLI.
 
-> [!NOTE]
-> If you have worked with earlier versions of Container Apps, make sure to first remove the old extension version by running `az extension remove -n containerapp`.
-
 # [Bash](#tab/bash)
 
 ```azurecli
-az extension add --name containerapp
+az extension add --name containerapp --upgrade
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```azurecli
-az extension add --name containerapp
+az extension add --name containerapp --upgrade
 ```
 
 ---
@@ -144,7 +141,7 @@ az extension add --name containerapp
 Now that the extension is installed, register the `Microsoft.App` namespace.
 
 > [!NOTE]
-> Azure Container Apps resources are in the process of migrating from the `Microsoft.Web` namespace to the `Microsoft.App` namespace. Refer to [Namespace migration from Microsoft.Web to Microsoft.App in March 2022](https://github.com/microsoft/azure-container-apps/issues/109) for more details.
+> Azure Container Apps resources have migrated from the `Microsoft.Web` namespace to the `Microsoft.App` namespace. Refer to [Namespace migration from Microsoft.Web to Microsoft.App in March 2022](https://github.com/microsoft/azure-container-apps/issues/109) for more details.
 
 # [Bash](#tab/bash)
 
@@ -248,7 +245,7 @@ Save the following file as _hello-world.json_:
   "resources": [
     {
       "type": "Microsoft.OperationalInsights/workspaces",
-      "apiVersion": "2020-03-01-preview",
+      "apiVersion": "2021-06-01",
       "name": "[variables('logAnalyticsWorkspaceName')]",
       "location": "[parameters('location')]",
       "properties": {
@@ -277,7 +274,7 @@ Save the following file as _hello-world.json_:
     },
     {
       "type": "Microsoft.App/managedEnvironments",
-      "apiVersion": "2022-01-01-preview",
+      "apiVersion": "2022-03-01",
       "name": "[parameters('environment_name')]",
       "location": "[parameters('location')]",
       "dependsOn": [
@@ -288,8 +285,8 @@ Save the following file as _hello-world.json_:
         "appLogsConfiguration": {
           "destination": "log-analytics",
           "logAnalyticsConfiguration": {
-            "customerId": "[reference(resourceId('Microsoft.OperationalInsights/workspaces/', variables('logAnalyticsWorkspaceName')), '2020-03-01-preview').customerId]",
-            "sharedKey": "[listKeys(resourceId('Microsoft.OperationalInsights/workspaces/', variables('logAnalyticsWorkspaceName')), '2020-03-01-preview').primarySharedKey]"
+            "customerId": "[reference(resourceId('Microsoft.OperationalInsights/workspaces/', variables('logAnalyticsWorkspaceName')), '2021-06-01').customerId]",
+            "sharedKey": "[listKeys(resourceId('Microsoft.OperationalInsights/workspaces/', variables('logAnalyticsWorkspaceName')), '2021-06-01').primarySharedKey]"
           }
         }
       },
@@ -297,7 +294,7 @@ Save the following file as _hello-world.json_:
         {
           "type": "daprComponents",
           "name": "statestore",
-          "apiVersion": "2022-01-01-preview",
+          "apiVersion": "2022-03-01",
           "dependsOn": [
             "[resourceId('Microsoft.App/managedEnvironments/', parameters('environment_name'))]"
           ],
@@ -333,7 +330,7 @@ Save the following file as _hello-world.json_:
     },
     {
       "type": "Microsoft.App/containerApps",
-      "apiVersion": "2022-01-01-preview",
+      "apiVersion": "2022-03-01",
       "name": "nodeapp",
       "location": "[parameters('location')]",
       "dependsOn": [
@@ -373,7 +370,7 @@ Save the following file as _hello-world.json_:
     },
     {
       "type": "Microsoft.App/containerApps",
-      "apiVersion": "2022-01-01-preview",
+      "apiVersion": "2022-03-01",
       "name": "pythonapp",
       "location": "[parameters('location')]",
       "dependsOn": [
@@ -429,7 +426,7 @@ param storage_container_name string
 var logAnalyticsWorkspaceName = 'logs-${environment_name}'
 var appInsightsName = 'appins-${environment_name}'
 
-resource logAnalyticsWorkspace'Microsoft.OperationalInsights/workspaces@2020-03-01-preview' = {
+resource logAnalyticsWorkspace'Microsoft.OperationalInsights/workspaces@2021-06-01' = {
   name: logAnalyticsWorkspaceName
   location: location
   properties: any({
@@ -453,7 +450,7 @@ resource appInsights 'Microsoft.Insights/components@2020-02-02' = {
   }
 }
 
-resource environment 'Microsoft.App/managedEnvironments@2022-01-01-preview' = {
+resource environment 'Microsoft.App/managedEnvironments@2022-03-01' = {
   name: environment_name
   location: location
   properties: {
@@ -461,12 +458,12 @@ resource environment 'Microsoft.App/managedEnvironments@2022-01-01-preview' = {
     appLogsConfiguration: {
       destination: 'log-analytics'
       logAnalyticsConfiguration: {
-        customerId: reference(logAnalyticsWorkspace.id, '2020-03-01-preview').customerId
-        sharedKey: listKeys(logAnalyticsWorkspace.id, '2020-03-01-preview').primarySharedKey
+        customerId: reference(logAnalyticsWorkspace.id, '2021-06-01').customerId
+        sharedKey: listKeys(logAnalyticsWorkspace.id, '2021-06-01').primarySharedKey
       }
     }
   }
-  resource daprComponent 'daprComponents@2022-01-01-preview' = {
+  resource daprComponent 'daprComponents@2022-03-01' = {
     name: 'statestore'
     properties: {
       componentType: 'state.azure.blobstorage'
@@ -500,7 +497,7 @@ resource environment 'Microsoft.App/managedEnvironments@2022-01-01-preview' = {
   }
 }
 
-resource nodeapp 'Microsoft.App/containerApps@2022-01-01-preview' = {
+resource nodeapp 'Microsoft.App/containerApps@2022-03-01' = {
   name: 'nodeapp'
   location: location
   properties: {
@@ -536,7 +533,7 @@ resource nodeapp 'Microsoft.App/containerApps@2022-01-01-preview' = {
   }
 }
 
-resource pythonapp 'Microsoft.App/containerApps@2022-01-01-preview' = {
+resource pythonapp 'Microsoft.App/containerApps@2022-03-01' = {
   name: 'pythonapp'
   location: location
   properties: {

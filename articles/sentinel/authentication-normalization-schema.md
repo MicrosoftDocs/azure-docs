@@ -25,25 +25,15 @@ For more information about normalization in Microsoft Sentinel, see [Normalizati
 
 ## Parsers
 
-Deploy ASIM parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/DeployASIM). For more information about ASIM parsers, see the articles [ASIM parsers overview](normalization-parsers-overview.md) and [Use ASIM parsers](normalization-about-parsers.md).
+Deploy ASIM authentication parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/DeployASIM). For more information about ASIM parsers, see the articles [ASIM parsers overview](normalization-parsers-overview.md)..
 
 ### Unifying parsers
 
-To use parsers that unify all ASIM out-of-the-box parsers, and ensure that your analysis runs across all the configured sources, use the `ImAuthentication` filtering parser or the `ASimAuthentication` parameter-less parser.
+To use parsers that unify all ASIM out-of-the-box parsers, and ensure that your analysis runs across all the configured sources, use the `imAuthentication` filtering parser or the `ASimAuthentication` parameter-less parser.
 
-## Source-specific parsers
+### Source-specific parsers
 
-Microsoft Sentinel provides the following built-in, product-specific authentication event parsers: 
-
-- **Windows sign-ins**
-    - Collected using the Log Analytics Agent or Azure Monitor Agent.
-    - Collected using either the Security Events connectors to the SecurityEvent table or using the WEF connector to the WindowsEvent table.
-    - Reported as Security Events (4624, 4625, 4634, and 4647).
-- **Windows sign-ins** reported by Microsoft 365 Defender for Endpoint, collected using the Microsoft 365 Defender connector.
-- **Linux Sign-ins** reported by Microsoft Defender to IoT Endpoint.
-- **Azure Active Directory sign-ins**, collected using the Azure Active Directory connector. Separate parsers are provided for regular, Non-Interactive, Managed Identities and Service Principles Sign-ins.
-- **AWS sign-ins**, collected using the AWS CloudTrail connector.
-- **Okta authentication**, collected using the Okta connector.
+For the list of authentication parsers Microsoft Sentinel provides refer to the [ASIM parsers list](normalization-parsers-list.md#authentication-parsers): 
 
 ### Add your own normalized parsers
 
@@ -52,11 +42,11 @@ When implementing custom parsers for the Authentication information model, name 
 - `vimAuthentication<vendor><Product>` for filtering parsers
 - `ASiAuthentication<vendor><Product>` for parameter-less parsers
 
-For information on adding the your custom parsers to the unifying parser, refer to [Managing ASIM parsers](normalization-manage-parsers.md).
+For information on adding your custom parsers to the unifying parser, refer to [Managing ASIM parsers](normalization-manage-parsers.md).
 
 ### Filtering parser parameters
 
-The `im` and `vim*` parsers support [filtering parameters](normalization-about-parsers.md#optimized-parsers). While these parsers are optional, they can improve your query performance.
+The `im` and `vim*` parsers support [filtering parameters](normalization-about-parsers.md#optimizing-parsing-using-parameters). While these parsers are optional, they can improve your query performance.
 
 The following filtering parameters are available:
 
@@ -64,7 +54,7 @@ The following filtering parameters are available:
 |----------|-----------|-------------|
 | **starttime** | datetime | Filter only authentication events that ran at or after this time. |
 | **endtime** | datetime | Filter only authentication events that finished running at or before this time. |
-| **targetusername_has** | string | Filter only authentication events that has any of the listed user names. |
+| **targetusername_has** | string | Filter only authentication events that have any of the listed user names. |
 
 
 For example, to filter only authentication events from the last day to a specific user, use:
@@ -72,6 +62,11 @@ For example, to filter only authentication events from the last day to a specifi
 ```kql
 imAuthentication (targetusername_has = 'johndoe', starttime = ago(1d), endtime=now())
 ```
+
+
+> [!TIP]
+> To pass a literal list to parameters that expect a dynamic value, explicitly use a [dynamic literal](/azure/data-explorer/kusto/query/scalar-data-types/dynamic#dynamic-literals.md). For example: `dynamic(['192.168.','10.'])`.
+>
 
 
 ## Normalized content
@@ -135,7 +130,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 | --------- | ---------- |
 | Mandatory | - [EventCount](normalization-common-fields.md#eventcount)<br> - [EventStartTime](normalization-common-fields.md#eventstarttime)<br> - [EventEndTime](normalization-common-fields.md#eventendtime)<br> - [EventType](normalization-common-fields.md#eventtype)<br>- [EventResult](normalization-common-fields.md#eventresult)<br> - [EventProduct](normalization-common-fields.md#eventproduct)<br> - [EventVendor](normalization-common-fields.md#eventvendor)<br> - [EventSchema](normalization-common-fields.md#eventschema)<br> - [EventSchemaVersion](normalization-common-fields.md#eventschemaversion)<br> - [Dvc](normalization-common-fields.md#dvc)<br>|
 | Recommended | - [EventResultDetails](normalization-common-fields.md#eventresultdetails)<br>- [EventSeverity](normalization-common-fields.md#eventseverity)<br> - [DvcIpAddr](normalization-common-fields.md#dvcipaddr)<br> - [DvcHostname](normalization-common-fields.md#dvchostname)<br> - [DvcDomain](normalization-common-fields.md#dvcdomain)<br>- [DvcDomainType](normalization-common-fields.md#dvcdomaintype)<br>- [DvcFQDN](normalization-common-fields.md#dvcfqdn)<br>- [DvcId](normalization-common-fields.md#dvcid)<br>- [DvcIdType](normalization-common-fields.md#dvcidtype)<br>- [DvcAction](normalization-common-fields.md#dvcaction)|
-| Optional | - [EventMessage](normalization-common-fields.md#eventmessage)<br> - [EventSubType](normalization-common-fields.md#eventsubtype)<br>- [EventOriginalUid](normalization-common-fields.md#eventoriginaluid)<br>- [EventOriginalType](normalization-common-fields.md#eventoriginaltype)<br>- [EventOriginalSubType](normalization-common-fields.md#eventoriginalsubtype)<br>- [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails)<br> - [EventOriginalSeverity](normalization-common-fields.md#eventoriginalseverity) <br> - [EventProductVersion](normalization-common-fields.md#eventproductversion)<br> - [EventReportUrl](normalization-common-fields.md#eventreporturl)<br>- [DvcMacAddr](normalization-common-fields.md#dvcmacaddr)<br>- [DvcOs](normalization-common-fields.md#dvcos)<br>- [DvcOsVersion](normalization-common-fields.md#dvchostname)<br>- [DvcOriginalAction](normalization-common-fields.md#dvcoriginalaction)<br>- [DvcInterface](normalization-common-fields.md#dvcinterface)<br>- [AdditionalFields](normalization-common-fields.md#additionalfields)|
+| Optional | - [EventMessage](normalization-common-fields.md#eventmessage)<br> - [EventSubType](normalization-common-fields.md#eventsubtype)<br>- [EventOriginalUid](normalization-common-fields.md#eventoriginaluid)<br>- [EventOriginalType](normalization-common-fields.md#eventoriginaltype)<br>- [EventOriginalSubType](normalization-common-fields.md#eventoriginalsubtype)<br>- [EventOriginalResultDetails](normalization-common-fields.md#eventoriginalresultdetails)<br> - [EventOriginalSeverity](normalization-common-fields.md#eventoriginalseverity) <br> - [EventProductVersion](normalization-common-fields.md#eventproductversion)<br> - [EventReportUrl](normalization-common-fields.md#eventreporturl)<br>- [DvcMacAddr](normalization-common-fields.md#dvcmacaddr)<br>- [DvcOs](normalization-common-fields.md#dvcos)<br>- [DvcOsVersion](normalization-common-fields.md#dvchostname)<br>- [DvcOriginalAction](normalization-common-fields.md#dvcoriginalaction)<br>- [DvcInterface](normalization-common-fields.md#dvcinterface)<br>- [AdditionalFields](normalization-common-fields.md#additionalfields)<br>- [DvcDescription](normalization-common-fields.md#dvcdescription)|
 
 
 
@@ -213,7 +208,7 @@ Fields that appear in the table below are common to all ASIM schemas. Any guidel
 
 | Field          | Class        | Type       | Description   |
 |---------------|--------------|------------|-----------------|
-| <a name="dst"></a>**Dst** | Recommended       | String     |    A unique identifier of the authetication target. <br><br>This field may alias the [TargerDvcId](#targetdvcid), [TargetHostname](#targethostname), [TargetIpAddr](#targetipaddr), [TargetAppId](#targetappid), or [TargetAppName](#targetappname) fields. <br><br>Example: `192.168.12.1` |
+| <a name="dst"></a>**Dst** | Recommended       | String     |    A unique identifier of the authentication target. <br><br>This field may alias the [TargerDvcId](#targetdvcid), [TargetHostname](#targethostname), [TargetIpAddr](#targetipaddr), [TargetAppId](#targetappid), or [TargetAppName](#targetappname) fields. <br><br>Example: `192.168.12.1` |
 | <a name="targetappid"></a>**TargetAppId** |Optional | String| The ID of the application to which the authorization is required, often assigned by the reporting device. <br><br>Example: `89162` |
 |<a name="targetappname"></a>**TargetAppName** |Optional |String |The name of the application to which the authorization is required, including a service, a URL, or a SaaS application. <br><br>Example: `Saleforce` |
 | **TargetAppType**|Optional |AppType |The type of the application authorizing on behalf of the Actor. For more information, and allowed list of values, see [AppType](normalization-about-schemas.md#apptype) in the [Schema Overview article](normalization-about-schemas.md).|

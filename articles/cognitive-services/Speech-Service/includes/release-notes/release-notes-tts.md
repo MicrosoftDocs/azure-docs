@@ -5,6 +5,16 @@ ms.topic: include
 ms.date: 01/24/2022
 ms.author: eur
 ---
+### 2022-May release
+
+#### Prebuilt Neural TTS Voice
+
+* Released 5 new voices in public preview with multiple styles to enrich the variety in American English. See [full language and voice list](../../language-support.md#prebuilt-neural-voices).
+
+* Support these new styles `Angry`, `Excited`, `Friendly`, `Hopeful`, `Sad`, `Shouting`, `Unfriendly`, `Terrified` and `Whispering` in public preview for `en-US-AriaNeural`. 
+* Support these new styles `Angry`, `Cheerful`, `Excited`, `Friendly`, `Hopeful`, `Sad`, `Shouting`, `Unfriendly`, `Terrified` and `Whispering` in public preview for `en-US-GuyNeural`, `en-US-JennyNeural`. 
+* Support these new styles `Excited`, `Friendly`, `Hopeful`, `Shouting`, `Unfriendly`, `Terrified` and `Whispering` in public preview for `en-US-SaraNeural`. See [voice styles and roles](../../language-support.md#voice-styles-and-roles).
+* Released disconnected containers for prebuilt neural TTS voices in public preview. See [use Docker containers in disconnected environments](../../../containers/disconnected-containers.md).
 
 ### 2022-March release
 

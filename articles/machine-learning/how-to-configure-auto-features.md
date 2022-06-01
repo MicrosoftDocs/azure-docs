@@ -2,18 +2,20 @@
 title: Featurization with automated machine learning
 titleSuffix: Azure Machine Learning
 description: Learn the data featurization settings in Azure Machine Learning and how to customize those features for your automated ML experiments.
-author: nibaccam
-ms.author: nibaccam
+author: blackmist
+ms.author: larryfr
 ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: how-to
-ms.custom: automl,contperf-fy21q2
+ms.custom: automl, contperf-fy21q2, sdkv1, event-tier1-build-2022
 ms.date: 01/24/2022
 ---
 
 # Data featurization in automated machine learning
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 Learn about the data featurization settings in Azure Machine Learning, and how to customize those features for [automated machine learning experiments](concept-automated-ml.md).
 
@@ -381,4 +383,4 @@ automl_settings = {
 
 * Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
 
-* Learn more about [how to train a regression model by using automated machine learning](tutorial-auto-train-models.md) or [how to train by using automated machine learning on a remote resource](concept-automated-ml.md#local-remote).
+* Learn more about [how to train a regression model by using automated machine learning](tutorial-auto-train-models.md) or [how to train by using automated machine learning on a remote resource](./v1/concept-automated-ml-v1.md#local-remote).

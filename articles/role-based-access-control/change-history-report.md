@@ -201,9 +201,9 @@ Here are the basic steps to get started:
 
 1. [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md).
 
-1. [Configure the Activity Log Analytics solution](../azure-monitor/essentials/activity-log.md#activity-log-analytics-monitoring-solution) for your workspace.
+1. [Configure the Activity](../azure-monitor/essentials/activity-log.md) for your workspace.
 
-1. [View the activity logs](../azure-monitor/essentials/activity-log.md#activity-log-analytics-monitoring-solution). A quick way to navigate to the Activity Log Analytics solution Overview page is to click the **Logs** option.
+1. [View the activity logs Insights](../azure-monitor/essentials/activity-log.md). A quick way to navigate to the Activity Log Overview page is to click the **Logs** option.
 
    ![Azure Monitor logs option in portal](./media/change-history-report/azure-log-analytics-option.png)
 

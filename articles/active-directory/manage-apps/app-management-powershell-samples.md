@@ -1,6 +1,6 @@
 ---
 title: PowerShell samples in Application Management
-titleSuffix: Azure AD
+titleSuffix: Microsoft Entra
 description: These PowerShell samples are used for apps you manage in your Azure Active Directory tenant. You can use these sample scripts to find expiration information about secrets and certificates.
 services: active-directory
 author: davidmu1
@@ -10,7 +10,7 @@ ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: sample
 ms.date: 02/18/2021
-ms.author: davidmu
+ms.author: sureshja
 ms.reviewer: sureshja
 ---
 

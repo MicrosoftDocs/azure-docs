@@ -227,7 +227,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Synapse Analytics](../../synapse-analytics/index.yml) | &#x2705; | &#x2705; |
 | [Time Series Insights](../../time-series-insights/index.yml) | &#x2705; | &#x2705; |
 | [Traffic Manager](../../traffic-manager/index.yml) | &#x2705; | &#x2705; |
-| [Video Analyzer for Media](../../azure-video-analyzer/video-analyzer-for-media-docs/index.yml) (formerly Video Indexer) | &#x2705; | &#x2705; |
+| [Video Analyzer for Media](../../azure-video-indexer/index.yml) (formerly Video Indexer) | &#x2705; | &#x2705; |
 | [Virtual Machine Scale Sets](../../virtual-machine-scale-sets/index.yml) | &#x2705; | &#x2705; |
 | [Virtual Machines](../../virtual-machines/index.yml) (incl. [Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)) | &#x2705; | &#x2705; |
 | [Virtual Network](../../virtual-network/index.yml) | &#x2705; | &#x2705; |

@@ -82,11 +82,14 @@ The API Management service depends on several Azure services. When API Managemen
 
 ## Routing
 
-+ A load-balanced public IP address (VIP) is reserved to provide access to all service endpoints and resources outside the VNet.
++ A load-balanced public IP address (VIP) is reserved to provide access to the API Management endpoints and resources outside the VNet.
   + The public VIP can be found on the **Overview/Essentials** blade in the Azure portal.
-+ An IP address from a subnet IP range (DIP) is used to access resources within the VNet.
 
 For more information and considerations, see [IP addresses of Azure API Management](api-management-howto-ip-addresses.md#ip-addresses-of-api-management-service-in-vnet).
+
+[!INCLUDE [api-management-virtual-network-vip-dip](../../includes/api-management-virtual-network-vip-dip.md)]
+
+
 
 ## <a name="network-configuration-issues"> </a>Common network configuration issues
 

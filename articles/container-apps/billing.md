@@ -1,15 +1,16 @@
 ---
-title: Billing in Azure Container Apps preview
-description: Learn how billing is calculated in Azure Container Apps preview
+title: Billing in Azure Container Apps
+description: Learn how billing is calculated in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.date: 03/09/2022
 ms.author: cshoe
 ---
 
-# Billing in Azure Container Apps preview
+# Billing in Azure Container Apps
 
 Azure Container Apps billing consists of two types of charges:
 
@@ -25,7 +26,7 @@ The following resources are free during each calendar month, per subscription:
 This article describes how to calculate the cost of running your container app. For pricing details in your account's currency, see [Azure Container Apps Pricing](https://azure.microsoft.com/pricing/details/container-apps/).
 
 > [!NOTE]
-> If you use Container Apps with [your own virtual network](vnet-custom.md#managed-resources) or your apps utilize other Azure resources, additional charges may apply.
+> If you use Container Apps with [your own virtual network](networking.md#managed-resources) or your apps utilize other Azure resources, additional charges may apply.
 
 ## Resource consumption charges
 
