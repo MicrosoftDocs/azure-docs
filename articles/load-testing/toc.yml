@@ -65,6 +65,8 @@
       href: monitor-load-testing.md
 - name: Reference
   items:
+    - name: REST API
+      href: /rest/api/loadtesting/
     - name: Test configuration YAML
       href: reference-test-config-yaml.md
     - name: Monitor data reference
