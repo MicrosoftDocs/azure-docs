@@ -1,5 +1,5 @@
 ---
-title: Manage Web Application Firewall policies (preview)
+title: Manage Azure Web Application Firewall policies (preview)
 description: Learn how to use Azure Firewall Manager to manage Azure Web Application Firewall policies
 author: vhorne
 ms.author: victorh
@@ -25,10 +25,10 @@ You can centrally create and associate Web Application Firewall (WAF) policies f
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 2. In the Azure portal search bar, type **Firewall Manager** and press **Enter**.
 3. On the Azure Firewall Manager page, select **Application Delivery Platforms**.
-   :::image type="content" source="media/manage-waf-policies/application-delivery-platforms.png" alt-text="Screenshot of Firewall Manager application delivery platforms":::
+   :::image type="content" source="media/manage-web-application-firewall-policies/application-delivery-platforms.png" alt-text="Screenshot of Firewall Manager application delivery platforms":::
 1. Select your application delivery platform (Front Door or Application Gateway) to associate a WAF policy. In this example, we'll associate a WAF policy to a Front Door.
 1. Select **Manage Security** and then select **Associate WAF policy**.
-   :::image type="content" source="media/manage-waf-policies/associate-waf-policy.png" alt-text="Screenshot of Firewall Manager associate WAF policy":::
+   :::image type="content" source="media/manage-web-application-firewall-policies/associate-waf-policy.png" alt-text="Screenshot of Firewall Manager associate WAF policy":::
 1. Select either an existing policy or **Create New**.
 1. Select the domain(s) that you want the WAF policy to protect with your Azure Front Door profile.
 1. Select **Associate**.
@@ -37,7 +37,7 @@ You can centrally create and associate Web Application Firewall (WAF) policies f
 
 1. On the Azure Firewall Manager page, under **Security**, select **Web application firewall policies** to view all your policies.
 1. Select **Add** to create a new WAF policy or import settings from an existing WAF policy.
-   :::image type="content" source="media/manage-waf-policies/web-application-firewall-policies.png" alt-text="Screenshot of Firewall Manager Web Application Firewall policies":::
+   :::image type="content" source="media/manage-web-application-firewall-policies/web-application-firewall-policies.png" alt-text="Screenshot of Firewall Manager Web Application Firewall policies":::
 
 ## Upgrade Application Gateway WAF configuration to WAF policy
 
@@ -47,7 +47,7 @@ The WAF policy can be shared to multiple application gateways. Also, a WAF polic
 
 To upgrade a WAF configuration to a WAF policy, select **Upgrade from WAF configuration** from the desired application gateway.
 
-:::image type="content" source="media/manage-waf-policies/upgrade-policy.png" alt-text="Screenshot showing upgrade from WAF configuration":::
+:::image type="content" source="media/manage-web-application-firewall-policies/upgrade-policy.png" alt-text="Screenshot showing upgrade from WAF configuration":::
 
 ## Next steps
 

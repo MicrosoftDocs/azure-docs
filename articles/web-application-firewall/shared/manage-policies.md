@@ -22,4 +22,4 @@ You can use Azure Firewall Manager to centrally create, associate, and manage We
 
 ## Next steps
 
-- [Manage Web Application Firewall policies (preview)](../../firewall-manager/manage-waf-policies.md)
+- [Manage Azure Web Application Firewall policies (preview)](../../firewall-manager/manage-web-application-firewall-policies.md)
