@@ -9,17 +9,17 @@ ms.reviewer: harelbr
 ---
 # Create a new alert rule
 
-This article shows you how to create alert rules and manage your alert instances. Rules can trigger one or more actions using [alert processing rules](alerts-action-rules.md) and [action groups](./action-groups.md). Learn the concepts behind alerts [here](alerts-overview.md).
+This article shows you how to create alert rules and manage your alert instances. Learn more about alerts [here](alerts-overview.md).
 
 You create an alert rule by combining:
  - The resource(s) to be monitored.
  - The signal or telemetry from the resource
  - Conditions
 
-And then defining these elements for the resulting alert:
- - Alert processing rules
- - Action groups
-
+And then defining these elements for the resulting alert actions using:
+ - [Alert processing rules](alerts-action-rules.md)
+ - [Action groups](./action-groups.md). 
+ 
 You can also [create log alert rules using Azure Resource Manager templates](../alerts/alerts-log-create-templates.md).
 ## Create a new alert rule in the Azure portal
 
