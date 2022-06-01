@@ -15,7 +15,7 @@ ms.author: allensu
 
 # How to send Real User Measurements to Azure Traffic Manager using web pages
 
-You can configure your web pages to send Real User Measurements to Traffic Manager by obtaining a Real User Measurements (RUM) key and embedding the generated code to web page.
+You can configure your web pages to send Real User Measurements to Traffic Manager by obtaining a Real User Measurements (RUM) key and embedding the generated code to a web page.
 
 ## Obtain a Real User Measurements key
 
