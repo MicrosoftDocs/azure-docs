@@ -134,7 +134,7 @@ The following classes and interfaces handle some of the major features of the Az
 | --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | [CallComposite](#create-call-composite) | The composite renders a call experience with participant gallery and controls. |
 | [CallCompositeOptions](#create-call-composite) | Includes options such as the theme options and the events handler. |
-| [RemoteOptions](#setup-group-call-or-teams-meeting-options) | The remote options send to AzureCommunicationService for joining a [group call](#group-capp) or [Team's meeting](#teams-meeting). |
+| [RemoteOptions](#setup-group-call-or-teams-meeting-options) | The remote options send to AzureCommunicationService for joining a [group call](#group-call) or [Team's meeting](#teams-meeting). |
 | [ThemeOptions](#apply-theme-options) | Allows you to customize the theme. |
 | [LocalizationOptions](#apply-localization-options) | Allows you to set the language for the composite. |
 
