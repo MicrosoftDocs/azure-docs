@@ -19,7 +19,7 @@ If you've installed a Microsoft Sentinel out-of-the-box solution, you can remove
 
 Delete content items for an installed solution deployed by the content hub.
 
-1. In the content hub, select an installed solution where the content source is **Content hub**.
+1. In the content hub, select an installed solution where the version is 2.0.0 or higher.
 1. On the solutions details page, select **Manage**.
 1. Select the content item or items you want to delete.
 1. Select **Delete items**.
