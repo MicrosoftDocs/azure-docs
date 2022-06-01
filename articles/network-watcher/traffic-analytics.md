@@ -30,7 +30,7 @@ Traffic analytics is a cloud-based solution that shows you application and user 
   - Virtual machines (VMs) that connect to rogue networks
 
 - Optimize your network deployment for performance and capacity by understanding traffic flow patterns across Azure regions and the internet.
-- Pinpoint network misconfigurations that lead to failed connections in your network.
+- Pinpoint network misconfigurations that can lead to failed connections in your network.
 
 > [!NOTE]
 > Traffic analytics now supports collecting NSG flow logs data at a frequency of every 10 minutes.
@@ -41,7 +41,7 @@ Traffic analytics is a cloud-based solution that shows you application and user 
 
 It's vital to monitor, manage, and know your own network for uncompromised security, compliance, and performance. Knowing your own environment is of paramount importance to protect and optimize it. You often need to know the current state of the network, including the following information:
 
-- Who is connecting?
+- Who is connecting to the network?
 - Where are they connecting from?
 - Which ports are open to the internet?
 - What's the expected network behavior?
@@ -50,7 +50,7 @@ It's vital to monitor, manage, and know your own network for uncompromised secur
 
 Cloud networks are different from on-premises enterprise networks. In on-premises networks, routers and switches support NetFlow and other, equivalent protocols. You can use these devices to collect data about IP network traffic as it enters or exits a network interface. By analyzing traffic flow data, you can build an analysis of network traffic flow and volume.
 
-With Azure virtual networks, you have NSG flow logs. These logs provide you with information about ingress and egress IP traffic through an NSG that's associated with individual network interfaces, VMs, or subnets. Traffic analytics analyzes raw NSG flow logs and combines their data with intelligence about security, topology, and geography. By using this information, traffic analytics can provide you with insights into traffic flow in your environment.
+With Azure virtual networks, NSG flow logs collect data about the network. These logs provide information about ingress and egress IP traffic through an NSG that's associated with individual network interfaces, VMs, or subnets. Traffic analytics analyzes raw NSG flow logs and combines their data with intelligence about security, topology, and geography. By using this information, traffic analytics can provide you with insights into traffic flow in your environment.
 
 Traffic analytics provides the following information:
 
@@ -81,15 +81,17 @@ Traffic analytics provides the following information:
 
   For more information about NSG flow logs, see [NSG flow logs](network-watcher-nsg-flow-logging-overview.md).
 
-- **Log Analytics**: An Azure service that collects monitoring data and stores the data in a central repository. This data can include events, performance data, or custom data that's provided through the Azure API. After this data is collected, it's available for alerting, analysis, and export. Monitoring applications such as network performance monitor and traffic analytics use Azure Monitor logs as a foundation. For more information, see [Azure Monitor logs](../azure-monitor/logs/log-query-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Azure Monitor Logs**: An Azure service that collects monitoring data and stores the data in a central repository. This data can include events, performance data, or custom data that's provided through the Azure API. After this data is collected, it's available for alerting, analysis, and export. Monitoring applications such as network performance monitor and traffic analytics use Azure Monitor Logs as a foundation. For more information, see [Azure Monitor Logs](../azure-monitor/logs/log-query-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
-- **Log Analytics workspace**: An instance of Azure Monitor logs, where the data pertaining to an Azure account is stored. For more information about Log Analytics workspaces, see [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Log Analytics**: A tool in the Azure portal that you use to work with Azure Monitor Logs data. Log Analytics provides a way to edit and run queries on logs. You can also use this tool to analyze query results. For more information, see [Overview of Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
-- **Network Watcher**: A regional service that you can use to monitor and diagnose conditions at a network-scenario level in Azure. You can turn NSG flow logs on and off by using Network Watcher. For more information, see [Network Watcher](network-watcher-monitoring-overview.md).
+- **Log Analytics workspace**: The environment that stores Azure Monitor log data that pertains to an Azure account. For more information about Log Analytics workspaces, see [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+
+- **Network Watcher**: A regional service that you can use to monitor and diagnose conditions at a network-scenario level in Azure. You can use Network Watcher to turn NSG flow logs on and off. For more information, see [Network Watcher](network-watcher-monitoring-overview.md).
 
 ## How traffic analytics works
 
-Traffic analytics examines the raw NSG flow logs. Then it reduces the log volume by aggregating flows that have a common source IP address, destination IP address, destination port, and protocol.
+Traffic analytics examines raw NSG flow logs. Then it reduces the log volume by aggregating flows that have a common source IP address, destination IP address, destination port, and protocol.
 
 An example might involve Host 1 at IP address 10.10.10.10 and Host 2 at IP address 10.10.20.10. Suppose these two hosts communicate 100 times over a period of one hour. The raw flow log has 100 entries in this case. If these hosts use the HTTP protocol on port 80 for each of those 100 interactions, the reduced log has one entry. That entry states that Host 1 and Host 2 communicated 100 times over a period of one hour by using the HTTP protocol on port 80.
 
@@ -134,5 +136,5 @@ To get answers to frequently asked questions about traffic analytics, see [Traff
 
 ## Next steps
 
-- To learn how to turn on flow logs, see [Enabling NSG flow logging](network-watcher-nsg-flow-logging-portal.md).
+- To learn how to turn on flow logs, see [Enable NSG flow log](network-watcher-nsg-flow-logging-portal.md#enable-nsg-flow-log).
 - To understand the schema and processing details of traffic analytics, see [Traffic analytics schema](traffic-analytics-schema.md).
