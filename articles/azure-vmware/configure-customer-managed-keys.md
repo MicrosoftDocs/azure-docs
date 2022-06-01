@@ -48,89 +48,23 @@ Before you begin to enable customer-managed key (CMK) functionality, ensure the 
 
 **System Assigned identity** should now be enabled.
 
-# [Template](#tab/azure-resource-manager)
+# [Azure CLI](#tab/azure-cli)
 
-Use the given JSON file to create an Azure Resource Manager template (ARM template). Use it to enable Managed Service Identity (MSI) on pre-existing SDDC or while deploying a new SDDC.
+<!--
+Need intro content here from Rahi
+-->
 
-```json
-   {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "apiVersion": {
-      "type": "String",
-      "metadata": {
-        "description": "Must be 2021-12-01"
-      }
-    },
-    "name": {
-      "type": "String",
-      "metadata": {
-        "description": "Name of the SDDC"
-      }
-    },
-    "location": {
-      "type": "String",
-      "metadata": {
-        "description": "Region of SDDC"
-      }
-    },
-    "sku": {
-      "type": "String",
-      "metadata": {
-        "description": "SKU value of the SDDC"
-      }
-    },
-    "hosts": {
-      "type": "Int",
-      "metadata": {
-        "description": "Number of hosts in the management cluster"
-      }
-    },
-    "networkBlock": {
-      "type": "String"
-    },
-    "internet": {
-      "type": "String",
-      "allowedValues": [
-        "enabled",
-        "disabled"
-      ],
-      "metadata": {
-        "description": "Internet status"
-      }
-    },
-    "identityType": {
-      "type": "String",
-      "allowedValues": [
-        "SystemAssigned",
-        "None"
-      ]
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.AVS/privateClouds",
-      "apiVersion": "[parameters('apiVersion')]",
-      "name": "[parameters('name')]",
-      "location": "[parameters('location')]",
-      "sku": {
-        "name": "[parameters('sku')]"
-      },
-      "properties": {
-        "managementCluster": {
-          "clusterSize": "[parameters('hosts')]"
-        },
-        "internet": "[parameters('internet')]",
-        "networkBlock": "[parameters('networkBlock')]"
-      },
-      "identity": {
-        "type": "[parameters('identityType')]"
-      }
-    }
-  ]
-}
-```
+`$privateCloudName=<private_cloud_name>`
+`$resourceGroupName=<resource_group_name>`
+ 
+Next, get the Private Cloud resource id and save it to a variable. You will need this value in the next step to update resource with system assigned identity:
+
+`privateCloudId=$(az vmware private-cloud show --name $privateCloudName --resource-group $resourceGroupName --query id | tr -d '"')`
+ 
+To configure the system-assigned identity on Azure VMware Solution private cloud with Azure CLI, call az-resource-update, providing the variable for the private cloud resource ID that you previously retrieved.
+
+`az resource update --ids $privateCloudId --set identity.type=SystemAssigned --api-version "2021-12-01"`
+
 ---
 
 ## Enable CMK with system-assigned identity 
