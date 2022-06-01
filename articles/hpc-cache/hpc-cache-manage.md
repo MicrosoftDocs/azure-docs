@@ -4,7 +4,7 @@ description: How to manage and update Azure HPC Cache using the Azure portal or 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 05/27/2022
+ms.date: 06/01/2022
 ms.author: v-erinkelly
 ---
 
@@ -149,28 +149,28 @@ Client access is not interrupted during a software upgrade, but cache performanc
 
 The software update can take several hours. Caches configured with higher throughput take longer to upgrade than caches with smaller peak throughput values. The cache status changes to **Upgrading** until the operation completes.
 
-When a software upgrade is available, you will have a week or so to apply it manually. The end date is listed in the upgrade message. If you don't upgrade during that time, Azure automatically applies the update to your cache. 
+When a software upgrade is available, you will have a week or so to apply it manually. The end date is listed in the upgrade message. If you don't upgrade during that time, Azure automatically applies the new software to your cache.
 
-You can use the Azure Portal to schedule a more convenient time for the update. Follow the instructions in the **Portal** tab below.
+You can use the Azure Portal to schedule a more convenient time for the upgrade. Follow the instructions in the **Portal** tab below.
 
 If your cache is stopped when the end date passes, the cache will automatically upgrade software the next time it is started. (The update might not start immediately, but it will start in the first hour.)
 
 ### [Portal](#tab/azure-portal)
 
-Click the **Upgrade** button to configure your software update. You have the option to update the software immediately, or to schedule the update for a specific date and time.
+Click the **Upgrade** button to configure your software update. You have the option to upgrade the software immediately, or to schedule the upgrade for a specific date and time.
 
 ![Screenshot of the Schedule software upgrade blade showing radio buttons with "Schedule later" selected and fields to select a new date and time.](media/upgrade-schedule.png)
 
 To upgrade immediately, select **Upgrade now** and click the **Save** button.
 
-To schedule a different update time, select **Schedule later** and select a new date and time.
+To schedule a different upgrade time, select **Schedule later** and select a new date and time.
 
 * The date and time are shown in the browser's local time zone.
 * You can't choose a later time than the deadline in the original message.
 
-When you save the custom date, the update message will change to show the date you chose.
+When you save the custom date, the banner message will change to show the date you chose.
 
-If you want to revise your scheduled upgrade date, click the **Update** button again. Click the **Reset date** link. This immediately removes your scheduled date.
+If you want to revise your scheduled upgrade date, click the **Upgrade** button again. Click the **Reset date** link. This immediately removes your scheduled date.
 
 > [!NOTE]
 > You must choose a new date before you exit the **Schedule software upgrade** blade. The calendar selector might reset to a date and time one hour from the current time; be careful to choose the date and time you prefer.
@@ -185,11 +185,11 @@ You can't change the schedule if there are fewer than 15 minutes remaining befor
 
 On the Azure CLI, new software information is included at the end of the cache status report. (Use [az hpc-cache show](/cli/azure/hpc-cache#az-hpc-cache-show) to check.) Look for the string "upgradeStatus" in the message.
 
-Use [az hpc-cache upgrade-firmware](/cli/azure/hpc-cache#az-hpc-cache-upgrade-firmware) to apply the update, if any exists.
+Use [az hpc-cache upgrade-firmware](/cli/azure/hpc-cache#az-hpc-cache-upgrade-firmware) to apply the software upgrade, if any exists.
 
 If no update is available, this operation has no effect.
 
-This example shows the cache status (no update is available) and the results of the upgrade-firmware command.
+This example shows the cache status (no upgrade is available) and the results of the upgrade-firmware command.
 
 ```azurecli
 $ az hpc-cache show --name doc-cache0629

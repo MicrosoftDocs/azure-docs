@@ -4,7 +4,7 @@ description: Use the cache priming feature to populate or preload cache contents
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 05/31/2022
+ms.date: 06/01/2022
 ms.author: v-erinkelly
 ---
 
@@ -182,13 +182,13 @@ Use the Azure portal to create a priming job. View your Azure HPC Cache in the p
 
 ![screenshot of the Priming page in the portal, with several jobs in various states.](media/prime-overview.png)
 
-Click the **Add priming job** text at the top of the table to define a new job.
+Click the **Start priming job** text at the top of the table to define a new job.
 
 In the **Job name** field, type a unique name for the priming job.
 
 Use the **Priming file** field to select your priming manifest file. Select the storage account, container, and file where your priming manifest is stored.
 
-![screenshot of the Add priming job page, with a job name and priming file path filled in. Below the Priming file field is a link labeled "Select from existing blob location".](media/create-priming-job.png)
+![screenshot of the Start priming job page, with a job name and priming file path filled in. Below the Priming file field is a link labeled "Select from existing blob location".](media/create-priming-job.png)
 
 To select the priming manifest file, click the link to select a storage target. Then select the container where your .json manifest file is stored.
 
