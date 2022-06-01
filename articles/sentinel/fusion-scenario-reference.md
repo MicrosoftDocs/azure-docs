@@ -13,7 +13,7 @@ This document lists the types of scenario-based multistage attacks, grouped by t
 
 Since [Fusion](fusion.md) correlates multiple signals from various products to detect advanced multistage attacks, successful Fusion detections are presented as **Fusion incidents** on the Microsoft Sentinel **Incidents** page and not as **alerts**, and are stored in the *Incidents* table in **Logs** and not in the *SecurityAlerts* table.
 
-In order to enable these Fusion-powered attack detection scenarios, any data sources listed must be ingested to your Log Analytics workspace. For scenarios with scheduled analytics rules, follow [configure scheduled analytics rules for Fusion detections](configure-fusion-rules.md#configure-scheduled-analytics-rules-for-fusion-detections).
+In order to enable these Fusion-powered attack detection scenarios, any data sources listed must be ingested to your Log Analytics workspace. For scenarios with scheduled analytics rules, follow the instructions in [Configure scheduled analytics rules for Fusion detections](configure-fusion-rules.md#configure-scheduled-analytics-rules-for-fusion-detections).
 
 > [!NOTE]
 > Some of these scenarios are in **PREVIEW**. They will be so indicated.
