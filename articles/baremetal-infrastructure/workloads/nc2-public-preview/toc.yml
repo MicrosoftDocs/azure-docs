@@ -1,19 +1,16 @@
-- name: What is BareMetal Infrastructure for Nutanix?
-  href: nutanix-baremetal-overview.md
+- name: What is NC2 on Azure?
+  href: nc2-baremetal-overview.md
 - name: About the Public Preview
   href: about-the-public-preview.md
+- name: Solution design
+  href: solution-design.md
 - name: Architecture
-  href: nutanix-baremetal-architecture.md  
-- name: Getting ready for Deployment
-  items:
-  - name: Requirements
-    href: requirements.md
-  - name: Supported instances
-    href: supported-instances.md
-- name: Deployment
-  items:
-  - name: Overview
-    href: nutanix-deployment-overview.md
+  href: architecture.md  
+- name: Requirements
+  href: requirements.md
+- name: Supported instances
+  href: supported-instances.md
+
 
 
   

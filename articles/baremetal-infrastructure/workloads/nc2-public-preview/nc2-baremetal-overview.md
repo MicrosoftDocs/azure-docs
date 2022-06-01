@@ -1,18 +1,18 @@
 ---
-title: What is BareMetal Infrastructure for Nutanix?
-description: Learn about the features BareMetal Infrastructure offers for Nutanix workloads. 
+title: What is NC2 on BareMetal Infrastructure?
+description: Learn about the features BareMetal Infrastructure offers for NC2 workloads. 
 ms.topic: conceptual
 ms.subservice:  
-ms.date: 09/03/2021
+ms.date: 07/01/2022
 ---
 
-# What is BareMetal Infrastructure for Nutanix?
+# What is BareMetal Infrastructure for NC2?
 
 In this article, we'll give an overview of the features BareMetal Infrastructure offers for Nutanix workloads.
 
-Nutanix Clusters on Microsoft Azure provides a hybrid cloud solution that operates as a single cloud, allowing you to manage applications and infrastructure in your private cloud and Azure. With your Nutanix clusters running on Azure, you can seamlessly move your applications between on-premises and Azure using a single management console. With Nutanix Clusters on Azure, you can use your existing Azure accounts and networking setup (VPN, VNets, and Subnets), eliminating the need to manage any complex network overlays. With this hybrid offering, you use the same Nutanix software and licenses across your on-premises cluster and Azure to optimize your IT investment efficiently.
+Nutanix Cloud Clusters on Microsoft Azure provides a hybrid cloud solution that operates as a single cloud, allowing you to manage applications and infrastructure in your private cloud and Azure. With NC2 running on Azure, you can seamlessly move your applications between on-premises and Azure using a single management console. With NC2 on Azure, you can use your existing Azure accounts and networking setup (VPN, VNets, and Subnets), eliminating the need to manage any complex network overlays. With this hybrid offering, you use the same Nutanix software and licenses across your on-premises cluster and Azure to optimize your IT investment efficiently.
 
-You use the Nutanix Clusters console to create a cluster, update the cluster capacity (the number of nodes), and delete a Nutanix cluster. After you create a Nutanix cluster in Azure using Nutanix Clusters, you can operate the cluster in the same manner as you operate your on-prem Nutanix cluster with minor changes in the Nutanix command-line interface (nCLI), the Prism Element and Prism Central web consoles, and APIs.  
+You use the NC2 console to create a cluster, update the cluster capacity (the number of nodes), and delete a Nutanix cluster. After you create a Nutanix cluster in Azure using NC2, you can operate the cluster in the same manner as you operate your on-prem Nutanix cluster with minor changes in the Nutanix command-line interface (nCLI), the Prism Element and Prism Central web consoles, and APIs.  
 
 
 ### Supported protocols
