@@ -34,7 +34,7 @@ To learn more about SFTP support for Azure Blob Storage, see [SSH File Transfer 
 
 ## Enable SFTP support
 
-This section shows you how to enable SFTP support for an existing storage account. To view an Azure Resource Manager template that enables SFTP support as part of creating the account, see [Create an Azure Storage Account and Blob Container accessible using SFTP protocol on Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.storage/storage-sftp). To view the Local User REST APIs, see [Local Users](https://docs.microsoft.com/en-us/rest/api/storagerp/local-users).
+This section shows you how to enable SFTP support for an existing storage account. To view an Azure Resource Manager template that enables SFTP support as part of creating the account, see [Create an Azure Storage Account and Blob Container accessible using SFTP protocol on Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.storage/storage-sftp). To view the Local User REST APIs and .NET references, see [Local Users](https://docs.microsoft.com/en-us/rest/api/storagerp/local-users) and [LocalUser Class](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.storage.models.localuser?view=azure-dotnet).
 
 ### [Portal](#tab/azure-portal)
 
