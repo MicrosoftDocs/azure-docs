@@ -358,7 +358,7 @@ To run a Functions project, you run the Functions host from the root directory o
 # [C\#](#tab/csharp)
 
 ```
-func start
+func host start
 ```
 
 # [Java](#tab/java)
@@ -371,20 +371,20 @@ mvn azure-functions:run
 # [JavaScript](#tab/node)
 
 ```
-func start
+func host start
 ```
 
 
 # [PowerShell](#tab/powershell)
 
 ```
-func start
+func host start
 ```
 
 # [Python](#tab/python)
 
 ```
-func start
+func host start
 ```
 This command must be [run in a virtual environment](./create-first-function-cli-python.md).
 
