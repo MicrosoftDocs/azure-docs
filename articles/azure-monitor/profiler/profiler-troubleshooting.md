@@ -116,7 +116,7 @@ You can use the Kudu management site for App Service to get the base url of this
  It will end like this: `https://<kudu-url>/DiagnosticServices`
 
 It will display a Status Page similar like the below:
-![Diagnostic Services Status Page](./media/diagnostic-services-site-extension/status-page.png)
+![Diagnostic Services Status Page](../app/media/diagnostic-services-site-extension/status-page.png)
     
 ### Manual installation
 
@@ -223,5 +223,5 @@ The IPs used by Application Insights Profiler are included in the Azure Monitor 
 
 
 [profiler-search-telemetry]:./media/profiler-troubleshooting/Profiler-Search-Telemetry.png
-[profiler-webjob]:./media/profiler-troubleshooting/Profiler-webjob.png
-[profiler-webjob-log]:./media/profiler-troubleshooting/Profiler-webjob-log.png
+[profiler-webjob]:./media/profiler-troubleshooting/profiler-web-job.png
+[profiler-webjob-log]:./media/profiler-troubleshooting/profiler-web-job-log.png

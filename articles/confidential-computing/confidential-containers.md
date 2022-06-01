@@ -37,7 +37,7 @@ You can enable confidential containers in Azure Partners and Open Source Softwar
 
 ### Fortanix
 
-[Fortanix](https://www.fortanix.com/) has portal and Command Line Interface (CLI) experiences to convert their containerized applications to SGX-capable confidential containers. You don't need to modify or recompile the application. Fortanix provides the flexibility to run and manage a broad set of applications. You can use existing applications, new enclave-native applications, and pre-packaged applications. Start with Fortanix's [Enclave Manager](https://em.fortanix.com/) UI or [REST APIs](https://www.fortanix.com/api/em/). Create confidential containers using the Fortanix's [quickstart guide for AKS](https://hubs.li/Q017JnNt0).
+[Fortanix](https://www.fortanix.com/) has portal and Command Line Interface (CLI) experiences to convert their containerized applications to SGX-capable confidential containers. You don't need to modify or recompile the application. Fortanix provides the flexibility to run and manage a broad set of applications. You can use existing applications, new enclave-native applications, and pre-packaged applications. Start with Fortanix's [Enclave Manager](https://em.fortanix.com/) UI or [REST APIs](https://www.fortanix.com/api/). Create confidential containers using the Fortanix's [quickstart guide for AKS](https://hubs.li/Q017JnNt0).
 
 ![Diagram of Fortanix deployment process, showing steps to move applications to confidential containers and deploy.](./media/confidential-containers/fortanix-confidential-containers-flow.png)
 

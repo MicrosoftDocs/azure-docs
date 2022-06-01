@@ -1,8 +1,6 @@
 ---
-title: Use the Azure Application Insights Profiler settings pane | Microsoft Docs
-description: See Profiler status and start profiling sessions
-ms.author: hannahhunter
-author: hhunter-ms
+title: Configure Application Insights Profiler | Microsoft Docs
+description: Use the Azure Application Insights Profiler settings pane to see Profiler status and start profiling sessions
 ms.contributor: Charles.Weininger
 ms.topic: conceptual
 ms.date: 04/26/2022
@@ -48,7 +46,7 @@ Recent profiling sessions | Displays information about past profiling sessions, 
 ## Profile Now
 Select **Profile Now** to start a profiling session on demand. When you click this link, all profiler agents that are sending data to this Application Insights instance will start to capture a profile. After 5 to 10 minutes, the profile session will show in the list below.
 
-To manually trigger a profiler session, you'll need, at minimum, *write* access on your role for the Application Insights component. In most cases, you get write access automatically. If you're having issues, you'll need the "Application Insights Component Contributor" subscription scope role added. [See more about role access control with Azure Monitoring](./resources-roles-access-control.md).
+To manually trigger a profiler session, you'll need, at minimum, *write* access on your role for the Application Insights component. In most cases, you get write access automatically. If you're having issues, you'll need the "Application Insights Component Contributor" subscription scope role added. [See more about role access control with Azure Monitoring](../app/resources-roles-access-control.md).
 
 ## Trigger Settings
 
@@ -97,17 +95,17 @@ Memory % | Percentage of memory that was being used while the profiler was runni
 ## Next steps
 [Enable Profiler and view traces](profiler-overview.md?toc=/azure/azure-monitor/toc.json)
 
-[profiler-on-demand]: ./media/profiler-settings/Profiler-on-demand.png
+[profiler-on-demand]: ./media/profiler-settings/profiler-on-demand.png
 [performance-blade]: ./media/profiler-settings/performance-blade.png
 [configure-profiler-page]: ./media/profiler-settings/configureBlade.png
-[trigger-settings-flyout]: ./media/profiler-settings/CPUTrigger.png
+[trigger-settings-flyout]: ./media/profiler-settings/trigger-central-p-u.png
 [create-performance-test]: ./media/profiler-settings/new-performance-test.png
 [configure-performance-test]: ./media/profiler-settings/configure-performance-test.png
 [load-test-queued]: ./media/profiler-settings/load-test-queued.png
-[load-test-in-progress]: ./media/profiler-settings/load-test-inprogress.png
+[load-test-in-progress]: ./media/profiler-settings/load-test-in-progress.png
 [enable-app-insights]: ./media/profiler-settings/enable-app-insights-blade-01.png
 [update-site-extension]: ./media/profiler-settings/update-site-extension-01.png
-[change-and-save-appinsights]: ./media/profiler-settings/change-and-save-appinsights-01.png
-[app-settings-for-profiler]: ./media/profiler-settings/appsettings-for-profiler-01.png
+[change-and-save-appinsights]: ./media/profiler-settings/change-and-save-app-insights-01.png
+[app-settings-for-profiler]: ./media/profiler-settings/app-settings-for-profiler-01.png
 [check-for-extension-update]: ./media/profiler-settings/check-extension-update-01.png
-[profiler-timeout]: ./media/profiler-settings/profiler-timeout.png
+[profiler-timeout]: ./media/profiler-settings/profiler-time-out.png
