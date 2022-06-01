@@ -1,16 +1,14 @@
 ---
-title: Setup networking infrastructure in Azure 
+title: Solution design
 description:  
-ms.topic: how-to
+ms.topic: conceptual
 ms.subservice:  
-ms.date: 03/31/2021
+ms.date: 07/01/2022
 ---
 
 # Solution design
 
-
 ![Nutanix Preview](media/nutanix-public-preview/nutanix-preview.png)
-```
 
 ## Next steps
 

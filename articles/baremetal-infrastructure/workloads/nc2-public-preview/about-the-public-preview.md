@@ -35,4 +35,4 @@ This public preview release supports the following Azure regions:
 Learn more about Nutanix on Azure:
 
 > [!div class="nextstepaction"]
-> [Nutanix Baremetal Overview](nutanix-baremetal-overview.md)
+> [Nutanix Baremetal Overview](nc2-baremetal-overview.md)
