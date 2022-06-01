@@ -20,7 +20,7 @@ This document describes the cost details (formely known as usage details) fields
 If you're using an older cost details solution and want to migrate to Exports or the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml), read the following articles.
 
 - [Migrate from Enterprise Usage Details APIs](migrate-ea-usage-details-api.md)
-- [Migrate from EA to MCA APIs](migrate-cost-management-api.md)
+- [Migrate from EA to MCA APIs](../costs/migrate-cost-management-api.md)
 - [Migrate from Consumption Usage Details API](migrate-consumption-usage-details-api.md)
 
 ## List of fields and descriptions
