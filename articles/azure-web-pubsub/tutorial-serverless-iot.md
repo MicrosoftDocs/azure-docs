@@ -464,8 +464,7 @@ If you already have a device registered in your IoT hub, you can skip this secti
 ## Run the visualization website
 Open function host index page: `http://localhost:7071/api/index` to view the real-time dashboard. Register multiple devices and you can see the dashboard updates multiple devices in real-time. Open multiple browsers and you can see every page are updated in real-time.
 
-
-    :::image type="content" source="media/tutorial-serverless-iot/iot-devices-sample.png" alt-text="Screenshot of multiple devices data visualization using Web PubSub service.":::
+:::image type="content" source="media/tutorial-serverless-iot/iot-devices-sample.png" alt-text="Screenshot of multiple devices data visualization using Web PubSub service.":::
 
 ## Clean up resources
 
