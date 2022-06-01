@@ -125,7 +125,7 @@ The recommended method is to use the Azure Identity library for your preferred p
 
 ### Using the Azure Identity library in your development environment
 
-The Azure Identity library will automatically attempt to authenticate via multiple mechanisms, including environment variables or an interactive login. This means that it can be used in your development using your own credentials, and your Azure environment using a Managed identity with no changes required when you deploy your application.
+With the exception of the C++ library, the Azure Identity libraries support a `DefaultAzureCredential` type. `DefaultAzureCredential` automatically attempts to authenticate via multiple mechanisms, including environment variables or an interactive login. The credential type can be used in your development environment using your own credentials. It can also be used in your production Azure environment using a Managed identity. No code changes are required when you deploy your application.
 
 You can also explicitly specify that the Managed identity you wish to authenticate with by passing in the identity's client ID. You can retrieve this client ID by browsing to the identity in the Portal.
 
