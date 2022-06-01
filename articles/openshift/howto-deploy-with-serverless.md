@@ -22,11 +22,11 @@ You can use built-in OpenShift interface features to manage all aspects of serve
 
 [!INCLUDE [aro-howto-beforeyoubegin](includes/aro-howto-before-you-begin.md)]
 
-### Install the Knative command-line tool (kn)
+### Install the Knative command-line interface (kn)
 
-Download the latest release of the CLI appropriate to your machine from <https://github.com/knative/client/releases/>
+Download the latest release of the *command-line interface* (CLI) appropriate for your machine, from <https://github.com/knative/client/releases/>
 
-If you run commands on the Azure Cloud Shell, download the latest Knative CLI for Linux.
+If you run commands on Azure Cloud Shell, download the latest Knative CLI for Linux.
 
 ```azurecli-interactive
 cd ~
@@ -40,7 +40,7 @@ echo 'export PATH=$PATH:~/knative' >> ~/.bashrc && source ~/.bashrc
 
 ### Open the OpenShift web console
 
-Find your cluster web console URL by running:
+Find your cluster web console URL by running the following script:
 
 ```azurecli-interactive
  az aro show \
@@ -55,7 +55,7 @@ You should get a URL similar to the following.
 https://console-openshift-console.apps.wzy5hg7x.eastus.aroapp.io/
 ```
 
-Open a web browser and open the console URL. Log in using the `kubeadmin` credentials.
+Open a web browser and open the console URL. Log in using `kubeadmin` credentials.
 
 :::image type="content" source="media/login.png" alt-text="A screenshot that shows the Azure Red Hat OpenShift log-in screen":::
 
@@ -87,7 +87,7 @@ In the upper-left corner of the window, in the **Project** list, select `knative
 
 :::image type="content" source="media/serverless/serverless-createknativeserving.png" alt-text="A screenshot that shows where to select to create a Knative Service instance.":::
 
-On the *Create Knative Serving* page, Keep all of the default values. Scroll down and select the **Create** button.
+On the *Create Knative Serving* page, keep all of the default values. Scroll down and select the **Create** button.
 
 :::image type="content" source="media/serverless/serverless-createknativeserving2.png" alt-text="A screenshot that shows the default values listed in the form.":::
 
@@ -117,7 +117,7 @@ Or use kubectl to deploy a simple Kubernetes application:
     kubectl create deployment hello-node --image=gcr.io/hello-minikube-zero-install/hello-node
 ```
 
-Let's switch from the Administrator perspective to the Developer perspective. Go to your list of projects in the left menu and select `demoserverless`. You are now at the **Topology** page for the project.
+Let's switch from the Administrator view to the Developer view. Go to your list of projects in the left menu and select `demoserverless`. You are now at the **Topology** page for the project.
 
 :::image type="content" source="media/serverless/serverless-topology.png" alt-text="A screenshot that shows Azure Red Hat OpenShift project topology.":::
 
@@ -173,12 +173,12 @@ The **Topology** view will now show you how traffic is distributed between the r
 
 :::image type="content" source="media/serverless/serverless-trafficdist2.png" alt-text="A screenshot that shows how to review traffic distribution.":::
 
-## Using the Knative command-line tool (kn)
+## Using the Knative command-line interface (kn)
 
-In prior steps, you've used the OpenShift web console to create and deploy an application to OpenShift Serverless. Since OpenShift Serverless is running Knative underneath, you can also use the Knative command-line tool (kn) to create Knative services.
+In prior steps, you've used the OpenShift web console to create and deploy an application to OpenShift Serverless. Since OpenShift Serverless is running Knative underneath, you can also use the Knative command-line interface (kn) to create Knative services.
 
 > [!NOTE]
-> If you haven't installed the `kn` CLI already, make sure to follow the steps in the prerequisites section of this article. Also make sure that you've logged in using the OpenShift command-line tool `oc`.
+> If you haven't installed the `kn` CLI already, make sure to follow the steps in the prerequisites section of this article. Also make sure that you've logged in using the OpenShift command-line interface `oc`.
 
 We're going to use a container image that is already built at `quay.io/rhdevelopers/knative-tutorial-greeter`.
 
@@ -255,7 +255,7 @@ To view a list of all revisions and their traffic distributions, run the followi
 kn revision list
 ```
 
-You'll get a list similar to the following output. Note that in this instance, the new revision is receiving 100% of the traffic.
+You'll get a list similar to the following output. Note that in this instance, the new revision receives 100% of the traffic.
 
 ```output
 NAME            SERVICE   TRAFFIC   TAGS   GENERATION   AGE     CONDITIONS   READY   REASON
@@ -265,13 +265,13 @@ greeter-v1      greeter                    1            5m32s   3 OK / 4     Tru
 
 ### Blue/green and canary deployments
 
-When a new revision is deployed, by default, it is assigned 100% of the traffic. Let's say you want to implement a blue/green deployment strategy where you can quickly rollback to the older version of the application. Knative makes this easy.
+When a new revision is deployed, by default it is assigned 100% of the traffic. Let's say you want to implement a blue/green deployment strategy where you can quickly rollback to the older version of the application. Knative makes this easy.
 
 You can update the service to create three traffic tags, while assigning 100% of traffic to them.
 
-- **current**: points at current deployed version
-- **prev**: points at the previous version
-- **latest**: always points at the latest version
+- **current**: points to the currently deployed version
+- **prev**: points tp the previous version
+- **latest**: always points to the latest version
 
 ```azurecli-interactive
 kn service update greeter \
@@ -319,7 +319,7 @@ Traffic Targets:
 [..]
 ```
 
-Let's say you want to quickly rollback to the previous version, you can update traffic distribution to send 100% of traffic to the previous tag:
+Let's say you want to quickly rollback to the previous version, you can update traffic distribution to send 100% of the traffic to the previous tag:
 
 ```azurecli-interactive
 kn service update greeter --traffic current=0 --traffic prev=100
