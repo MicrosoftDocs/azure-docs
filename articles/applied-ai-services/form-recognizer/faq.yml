@@ -402,7 +402,7 @@ sections:
           What permissions do I need to access Form Recognizer Studio?
         answer: |
 
-          You need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/) and subscription with at least a **Reader** role to access Form Recognizer Studio.
+          - You need an active [Azure account](https://azure.microsoft.com/free/cognitive-services/) and subscription with at least a **Reader** role to access Form Recognizer Studio.
 
           - For **document analysis and prebuilt models**, you need full access—**Contributor** role—to at least one [Form Recognizer](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [Cognitive Services multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) resource to enter the analyze page. Once you access the model analyze page, you can change the endpoint and key to access other resources, if needed.
 

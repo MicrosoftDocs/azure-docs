@@ -179,7 +179,7 @@ A composed model is created by taking a collection of custom models and assignin
 ## Model data extraction
 
  | **Model ID** | **Text extraction** | **Selection Marks** | **Tables** | **Paragraphs** | **Key-Value pairs** | **Fields** |**Entities** |
- |:-----|:----|:----|:----|:----|:----|:----|:----|
+ |:-----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 |🆕 [prebuilt-read](concept-read.md#data-extraction) | ✓ |  |  | ✓ |   |   |  |
 |🆕 [prebuilt-tax.us.w2](concept-w2.md#field-extraction) | ✓  |  ✓  |  | ✓ |  | ✓ |  |
 |🆕 [prebuilt-document](concept-general-document.md#data-extraction)| ✓  |  ✓ | ✓ | ✓  | ✓  |  | ✓ |
