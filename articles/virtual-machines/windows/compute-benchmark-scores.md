@@ -32,22 +32,22 @@ The following CoreMark benchmark scores show compute performance for select Azur
 
 | VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Standard_F2s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 2 | 1 | 4.0 | 34,903 | 1,101 | 3.15% | 112 |
-| Standard_F2s_v2 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 2 | 1 | 4.0 | 34,738 | 1,331 | 3.83% | 224 |
-| Standard_F4s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 4 | 1 | 8.0 | 66,828 | 1,524 | 2.28% | 168 |
-| Standard_F4s_v2 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 4 | 1 | 8.0 | 66,903 | 1,047 | 1.57% | 182 |
-| Standard_F8s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 8 | 1 | 16.0 | 131,477 | 2,180 | 1.66% | 140 |
-| Standard_F8s_v2 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 8 | 1 | 16.0 | 132,533 | 1,732 | 1.31% | 210 |
-| Standard_F16s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 16 | 1 | 32.0 | 260,760 | 3,629 | 1.39% | 112 |
-| Standard_F16s_v2 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 16 | 1 | 32.0 | 265,158 | 2,185 | 0.82% | 182 |
-| Standard_F32s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 32 | 1 | 64.0 | 525,608 | 6,270 | 1.19% | 98 |
-| Standard_F32s_v2 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 32 | 1 | 64.0 | 530,137 | 6,085 | 1.15% | 140 |
-| Standard_F48s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 48 | 2 | 96.0 | 769,768 | 7,567 | 0.98% | 112 |
-| Standard_F48s_v2 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 48 | 1 | 96.0 | 742,828 | 17,316 | 2.33% | 112 |
-| Standard_F64s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 64 | 2 | 128.0 | 1,030,552 | 8,106 | 0.79% | 70 |
-| Standard_F64s_v2 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 64 | 2 | 128.0 | 1,028,052 | 9,373 | 0.91% | 168 |
-| Standard_F72s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70GHz | 72 | 2 | 144.0 | N/A | - | - | - |
-| Standard_F72s_v2 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 72 | 2 | 144.0 | N/A | - | - | - |
+| Standard_F2s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70 GHz | 2 | 1 | 4.0 | 34,903 | 1,101 | 3.15% | 112 |
+| Standard_F2s_v2 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60 GHz | 2 | 1 | 4.0 | 34,738 | 1,331 | 3.83% | 224 |
+| Standard_F4s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70 GHz | 4 | 1 | 8.0 | 66,828 | 1,524 | 2.28% | 168 |
+| Standard_F4s_v2 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60 GHz | 4 | 1 | 8.0 | 66,903 | 1,047 | 1.57% | 182 |
+| Standard_F8s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70 GHz | 8 | 1 | 16.0 | 131,477 | 2,180 | 1.66% | 140 |
+| Standard_F8s_v2 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60 GHz | 8 | 1 | 16.0 | 132,533 | 1,732 | 1.31% | 210 |
+| Standard_F16s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70 GHz | 16 | 1 | 32.0 | 260,760 | 3,629 | 1.39% | 112 |
+| Standard_F16s_v2 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60 GHz | 16 | 1 | 32.0 | 265,158 | 2,185 | 0.82% | 182 |
+| Standard_F32s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70 GHz | 32 | 1 | 64.0 | 525,608 | 6,270 | 1.19% | 98 |
+| Standard_F32s_v2 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60 GHz | 32 | 1 | 64.0 | 530,137 | 6,085 | 1.15% | 140 |
+| Standard_F48s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70 GHz | 48 | 2 | 96.0 | 769,768 | 7,567 | 0.98% | 112 |
+| Standard_F48s_v2 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60 GHz | 48 | 1 | 96.0 | 742,828 | 17,316 | 2.33% | 112 |
+| Standard_F64s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70 GHz | 64 | 2 | 128.0 | 1,030,552 | 8,106 | 0.79% | 70 |
+| Standard_F64s_v2 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60 GHz | 64 | 2 | 128.0 | 1,028,052 | 9,373 | 0.91% | 168 |
+| Standard_F72s_v2 | Intel(R) Xeon(R) Platinum 8168 CPU @ 2.70 GHz | 72 | 2 | 144.0 | N/A | - | - | - |
+| Standard_F72s_v2 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60 GHz | 72 | 2 | 144.0 | N/A | - | - | - |
 
 
 ### Fs - Compute Optimized + Premium Storage
@@ -55,78 +55,78 @@ The following CoreMark benchmark scores show compute performance for select Azur
 
 | VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Standard_F1s | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 1 | 1 | 2.0 | 16,445 | 825 | 5.02% | 42 |
-| Standard_F1s | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 1 | 1 | 2.0 | 17,614 | 2,873 | 16.31% | 210 |
-| Standard_F1s | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 1 | 1 | 2.0 | 16,053 | 1,802 | 11.22% | 70 |
-| Standard_F1s | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 1 | 1 | 2.0 | 20,007 | 1,684 | 8.42% | 28 |
-| Standard_F2s | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 4.0 | 33,451 | 3,424 | 10.24% | 70 |
-| Standard_F2s | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 4.0 | 33,626 | 2,990 | 8.89% | 154 |
-| Standard_F2s | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 2 | 1 | 4.0 | 34,386 | 3,851 | 11.20% | 98 |
-| Standard_F2s | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 2 | 1 | 4.0 | 36,826 | 344 | 0.94% | 28 |
-| Standard_F4s | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 4 | 1 | 8.0 | 67,351 | 4,407 | 6.54% | 42 |
-| Standard_F4s | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 8.0 | 67,009 | 4,637 | 6.92% | 196 |
-| Standard_F4s | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 4 | 1 | 8.0 | 63,668 | 3,375 | 5.30% | 84 |
-| Standard_F4s | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 4 | 1 | 8.0 | 79,153 | 15,034 | 18.99% | 28 |
-| Standard_F8s | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 8 | 1 | 16.0 | 128,232 | 1,272 | 0.99% | 42 |
-| Standard_F8s | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 16.0 | 127,871 | 5,109 | 4.00% | 154 |
-| Standard_F8s | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 8 | 1 | 16.0 | 122,811 | 5,481 | 4.46% | 126 |
-| Standard_F8s | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 8 | 1 | 16.0 | 154,842 | 10,354 | 6.69% | 28 |
-| Standard_F16s | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 16 | 2 | 32.0 | 260,883 | 15,853 | 6.08% | 42 |
-| Standard_F16s | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 16 | 1 | 32.0 | 255,762 | 4,966 | 1.94% | 182 |
-| Standard_F16s | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 16 | 1 | 32.0 | 248,884 | 11,035 | 4.43% | 70 |
-| Standard_F16s | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 16 | 1 | 32.0 | 310,303 | 21,942 | 7.07% | 28 |
+| Standard_F1s | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40 GHz | 1 | 1 | 2.0 | 16,445 | 825 | 5.02% | 42 |
+| Standard_F1s | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30 GHz | 1 | 1 | 2.0 | 17,614 | 2,873 | 16.31% | 210 |
+| Standard_F1s | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60 GHz | 1 | 1 | 2.0 | 16,053 | 1,802 | 11.22% | 70 |
+| Standard_F1s | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60 GHz | 1 | 1 | 2.0 | 20,007 | 1,684 | 8.42% | 28 |
+| Standard_F2s | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40 GHz | 2 | 1 | 4.0 | 33,451 | 3,424 | 10.24% | 70 |
+| Standard_F2s | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30 GHz | 2 | 1 | 4.0 | 33,626 | 2,990 | 8.89% | 154 |
+| Standard_F2s | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60 GHz | 2 | 1 | 4.0 | 34,386 | 3,851 | 11.20% | 98 |
+| Standard_F2s | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60 GHz | 2 | 1 | 4.0 | 36,826 | 344 | 0.94% | 28 |
+| Standard_F4s | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40 GHz | 4 | 1 | 8.0 | 67,351 | 4,407 | 6.54% | 42 |
+| Standard_F4s | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30 GHz | 4 | 1 | 8.0 | 67,009 | 4,637 | 6.92% | 196 |
+| Standard_F4s | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60 GHz | 4 | 1 | 8.0 | 63,668 | 3,375 | 5.30% | 84 |
+| Standard_F4s | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60 GHz | 4 | 1 | 8.0 | 79,153 | 15,034 | 18.99% | 28 |
+| Standard_F8s | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40 GHz | 8 | 1 | 16.0 | 128,232 | 1,272 | 0.99% | 42 |
+| Standard_F8s | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30 GHz | 8 | 1 | 16.0 | 127,871 | 5,109 | 4.00% | 154 |
+| Standard_F8s | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60 GHz | 8 | 1 | 16.0 | 122,811 | 5,481 | 4.46% | 126 |
+| Standard_F8s | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60 GHz | 8 | 1 | 16.0 | 154,842 | 10,354 | 6.69% | 28 |
+| Standard_F16s | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40 GHz | 16 | 2 | 32.0 | 260,883 | 15,853 | 6.08% | 42 |
+| Standard_F16s | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30 GHz | 16 | 1 | 32.0 | 255,762 | 4,966 | 1.94% | 182 |
+| Standard_F16s | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60 GHz | 16 | 1 | 32.0 | 248,884 | 11,035 | 4.43% | 70 |
+| Standard_F16s | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60 GHz | 16 | 1 | 32.0 | 310,303 | 21,942 | 7.07% | 28 |
 
 ### F - Compute Optimized
 (04/28/2021 PBIID:9198755)
 
 | VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Standard_F1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 1 | 1 | 2.0 | 17,356 | 1,151 | 6.63% | 112 |
-| Standard_F1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 1 | 1 | 2.0 | 16,508 | 1,740 | 10.54% | 154 |
-| Standard_F1 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 1 | 1 | 2.0 | 16,076 | 2,065 | 12.84% | 70 |
-| Standard_F1 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 1 | 1 | 2.0 | 20,074 | 1,612 | 8.03% | 14 |
-| Standard_F2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 4.0 | 32,770 | 1,915 | 5.84% | 126 |
-| Standard_F2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 4.0 | 33,081 | 2,242 | 6.78% | 126 |
-| Standard_F2 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 2 | 1 | 4.0 | 33,310 | 2,532 | 7.60% | 84 |
-| Standard_F2 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 2 | 1 | 4.0 | 40,746 | 2,027 | 4.98% | 14 |
-| Standard_F4 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 4 | 1 | 8.0 | 65,694 | 3,512 | 5.35% | 126 |
-| Standard_F4 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 8.0 | 65,054 | 3,457 | 5.31% | 154 |
-| Standard_F4 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 4 | 1 | 8.0 | 61,607 | 3,662 | 5.94% | 56 |
-| Standard_F4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 4 | 1 | 8.0 | 76,884 | 1,763 | 2.29% | 14 |
-| Standard_F8 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 8 | 1 | 16.0 | 130,415 | 5,353 | 4.10% | 98 |
-| Standard_F8 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 16.0 | 126,139 | 2,917 | 2.31% | 126 |
-| Standard_F8 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 8 | 1 | 16.0 | 122,443 | 4,391 | 3.59% | 98 |
-| Standard_F8 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 8 | 1 | 16.0 | 144,696 | 2,172 | 1.50% | 14 |
-| Standard_F16 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 16 | 2 | 32.0 | 253,473 | 8,597 | 3.39% | 140 |
-| Standard_F16 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 16 | 1 | 32.0 | 257,457 | 7,596 | 2.95% | 126 |
-| Standard_F16 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 16 | 1 | 32.0 | 244,559 | 8,036 | 3.29% | 70 |
-| Standard_F16 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 16 | 1 | 32.0 | 283,565 | 8,683 | 3.06% | 14 |
+| Standard_F1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40 GHz | 1 | 1 | 2.0 | 17,356 | 1,151 | 6.63% | 112 |
+| Standard_F1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30 GHz | 1 | 1 | 2.0 | 16,508 | 1,740 | 10.54% | 154 |
+| Standard_F1 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60 GHz | 1 | 1 | 2.0 | 16,076 | 2,065 | 12.84% | 70 |
+| Standard_F1 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60 GHz | 1 | 1 | 2.0 | 20,074 | 1,612 | 8.03% | 14 |
+| Standard_F2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40 GHz | 2 | 1 | 4.0 | 32,770 | 1,915 | 5.84% | 126 |
+| Standard_F2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30 GHz | 2 | 1 | 4.0 | 33,081 | 2,242 | 6.78% | 126 |
+| Standard_F2 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60 GHz | 2 | 1 | 4.0 | 33,310 | 2,532 | 7.60% | 84 |
+| Standard_F2 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60 GHz | 2 | 1 | 4.0 | 40,746 | 2,027 | 4.98% | 14 |
+| Standard_F4 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40 GHz | 4 | 1 | 8.0 | 65,694 | 3,512 | 5.35% | 126 |
+| Standard_F4 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30 GHz | 4 | 1 | 8.0 | 65,054 | 3,457 | 5.31% | 154 |
+| Standard_F4 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60 GHz | 4 | 1 | 8.0 | 61,607 | 3,662 | 5.94% | 56 |
+| Standard_F4 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60 GHz | 4 | 1 | 8.0 | 76,884 | 1,763 | 2.29% | 14 |
+| Standard_F8 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40 GHz | 8 | 1 | 16.0 | 130,415 | 5,353 | 4.10% | 98 |
+| Standard_F8 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30 GHz | 8 | 1 | 16.0 | 126,139 | 2,917 | 2.31% | 126 |
+| Standard_F8 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60 GHz | 8 | 1 | 16.0 | 122,443 | 4,391 | 3.59% | 98 |
+| Standard_F8 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60 GHz | 8 | 1 | 16.0 | 144,696 | 2,172 | 1.50% | 14 |
+| Standard_F16 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40 GHz | 16 | 2 | 32.0 | 253,473 | 8,597 | 3.39% | 140 |
+| Standard_F16 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30 GHz | 16 | 1 | 32.0 | 257,457 | 7,596 | 2.95% | 126 |
+| Standard_F16 | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60 GHz | 16 | 1 | 32.0 | 244,559 | 8,036 | 3.29% | 70 |
+| Standard_F16 | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60 GHz | 16 | 1 | 32.0 | 283,565 | 8,683 | 3.06% | 14 |
 
 ### GS - Compute Optimized + Premium Storage
 (05/27/2021 PBIID:9198755)
 
 | VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Standard_GS1 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 2 | 1 | 28.0 | 35,593 | 2,888 | 8.11% | 252 |
-| Standard_GS2 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 4 | 1 | 56.0 | 72,188 | 5,949 | 8.24% | 252 |
-| Standard_GS3 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 8 | 1 | 112.0 | 132,665 | 6,910 | 5.21% | 238 |
-| Standard_GS4 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 16 | 1 | 224.0 | 261,542 | 3,722 | 1.42% | 252 |
-| Standard_GS4-4 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 4 | 1 | 224.0 | 79,352 | 4,935 | 6.22% | 224 |
-| Standard_GS4-8 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 8 | 1 | 224.0 | 137,774 | 6,887 | 5.00% | 238 |
-| Standard_GS5 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 32 | 2 | 448.0 | 507,026 | 6,895 | 1.36% | 252 |
-| Standard_GS5-8 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 8 | 2 | 448.0 | 157,541 | 3,151 | 2.00% | 238 |
-| Standard_GS5-16 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 16 | 2 | 448.0 | 278,656 | 5,235 | 1.88% | 224 |
+| Standard_GS1 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00 GHz | 2 | 1 | 28.0 | 35,593 | 2,888 | 8.11% | 252 |
+| Standard_GS2 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00 GHz | 4 | 1 | 56.0 | 72,188 | 5,949 | 8.24% | 252 |
+| Standard_GS3 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00 GHz | 8 | 1 | 112.0 | 132,665 | 6,910 | 5.21% | 238 |
+| Standard_GS4 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00 GHz | 16 | 1 | 224.0 | 261,542 | 3,722 | 1.42% | 252 |
+| Standard_GS4-4 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00 GHz | 4 | 1 | 224.0 | 79,352 | 4,935 | 6.22% | 224 |
+| Standard_GS4-8 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00 GHz | 8 | 1 | 224.0 | 137,774 | 6,887 | 5.00% | 238 |
+| Standard_GS5 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.0 0GHz | 32 | 2 | 448.0 | 507,026 | 6,895 | 1.36% | 252 |
+| Standard_GS5-8 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00 GHz | 8 | 2 | 448.0 | 157,541 | 3,151 | 2.00% | 238 |
+| Standard_GS5-16 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00 GHz | 16 | 2 | 448.0 | 278,656 | 5,235 | 1.88% | 224 |
 
 ### G - Compute Optimized
 (05/27/2021 PBIID:9198755)
 
 | VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Standard_G1 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 2 | 1 | 28.0 | 36,386 | 4,100 | 11.27% | 252 |
-| Standard_G2 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 4 | 1 | 56.0 | 72,484 | 5,563 | 7.67% | 252 |
-| Standard_G3 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 8 | 1 | 112.0 | 136,618 | 5,714 | 4.18% | 252 |
-| Standard_G4 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 16 | 1 | 224.0 | 261,708 | 3,426 | 1.31% | 238 |
-| Standard_G5 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00GHz | 32 | 2 | 448.0 | 507,423 | 7,261 | 1.43% | 252 |
+| Standard_G1 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00 GHz | 2 | 1 | 28.0 | 36,386 | 4,100 | 11.27% | 252 |
+| Standard_G2 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00 GHz | 4 | 1 | 56.0 | 72,484 | 5,563 | 7.67% | 252 |
+| Standard_G3 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00 GHz | 8 | 1 | 112.0 | 136,618 | 5,714 | 4.18% | 252 |
+| Standard_G4 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00 GHz | 16 | 1 | 224.0 | 261,708 | 3,426 | 1.31% | 238 |
+| Standard_G5 | Intel(R) Xeon(R) CPU E5-2698B v3 @ 2.00 GHz | 32 | 2 | 448.0 | 507,423 | 7,261 | 1.43% | 252 |
 
 ## General purpose
 
@@ -135,44 +135,44 @@ The following CoreMark benchmark scores show compute performance for select Azur
 
 | VM Size | CPU | vCPUs | NUMA Nodes | Memory(GiB) | Avg Score | StdDev | StdDev% | #Runs |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Standard_B1ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 1 | 1 | 2.0 | 18,093 | 679 | 3.75% | 42 |
-| Standard_B1ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 1 | 1 | 2.0 | 18,197 | 1,341 | 7.37% | 168 |
-| Standard_B1ms | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 1 | 1 | 2.0 | 17,975 | 920 | 5.12% | 112 |
-| Standard_B1ms | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 1 | 1 | 2.0 | 20,176 | 1,568 | 7.77% | 28 |
-| Standard_B2s | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 4.0 | 35,546 | 660 | 1.86% | 42 |
-| Standard_B2s | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 4.0 | 36,569 | 2,172 | 5.94% | 154 |
-| Standard_B2s | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 2 | 1 | 4.0 | 36,136 | 924 | 2.56% | 140 |
-| Standard_B2s | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 2 | 1 | 4.0 | 42,546 | 834 | 1.96% | 14 |
-| Standard_B2hms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 8.0 | 36,949 | 1,494 | 4.04% | 28 |
-| Standard_B2hms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 8.0 | 36,512 | 2,537 | 6.95% | 70 |
-| Standard_B2hms | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 2 | 1 | 8.0 | 36,389 | 990 | 2.72% | 56 |
-| Standard_B2ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 2 | 1 | 8.0 | 35,758 | 1,028 | 2.88% | 42 |
-| Standard_B2ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 2 | 1 | 8.0 | 36,028 | 1,605 | 4.45% | 182 |
-| Standard_B2ms | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 2 | 1 | 8.0 | 36,122 | 2,128 | 5.89% | 112 |
-| Standard_B2ms | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 2 | 1 | 8.0 | 42,525 | 672 | 1.58% | 14 |
-| Standard_B4hms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 4 | 1 | 16.0 | 71,028 | 879 | 1.24% | 28 |
-| Standard_B4hms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 16.0 | 73,126 | 2,954 | 4.04% | 56 |
-| Standard_B4hms | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 4 | 1 | 16.0 | 68,451 | 1,571 | 2.29% | 56 |
-| Standard_B4hms | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 4 | 1 | 16.0 | 83,525 | 563 | 0.67% | 14 |
-| Standard_B4ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 4 | 1 | 16.0 | 70,831 | 1,135 | 1.60% | 28 |
-| Standard_B4ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 16.0 | 70,987 | 2,287 | 3.22% | 168 |
-| Standard_B4ms | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 4 | 1 | 16.0 | 68,796 | 1,897 | 2.76% | 84 |
-| Standard_B4ms | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 4 | 1 | 16.0 | 81,712 | 4,042 | 4.95% | 70 |
-| Standard_B8ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 8 | 1 | 32.0 | 141,620 | 2,256 | 1.59% | 42 |
-| Standard_B8ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 32.0 | 139,090 | 3,229 | 2.32% | 182 |
-| Standard_B8ms | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 8 | 1 | 32.0 | 135,510 | 2,653 | 1.96% | 112 |
-| Standard_B8ms | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 8 | 1 | 32.0 | 164,510 | 2,254 | 1.37% | 14 |
-| Standard_B12ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 12 | 1 | 48.0 | 206,957 | 5,240 | 2.53% | 56 |
-| Standard_B12ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 12 | 1 | 48.0 | 211,461 | 4,115 | 1.95% | 154 |
-| Standard_B12ms | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 12 | 1 | 48.0 | 200,729 | 3,475 | 1.73% | 140 |
-| Standard_B16ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 16 | 2 | 64.0 | 273,257 | 3,862 | 1.41% | 42 |
-| Standard_B16ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 16 | 1 | 64.0 | 282,187 | 5,030 | 1.78% | 154 |
-| Standard_B16ms | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 16 | 1 | 64.0 | 265,834 | 5,545 | 2.09% | 112 |
-| Standard_B16ms | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 16 | 1 | 64.0 | 331,694 | 3,537 | 1.07% | 28 |
-| Standard_B20ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 20 | 2 | 80.0 | 334,369 | 8,555 | 2.56% | 42 |
-| Standard_B20ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 20 | 1 | 80.0 | 345,686 | 6,702 | 1.94% | 154 |
-| Standard_B20ms | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60GHz | 20 | 1 | 80.0 | 328,900 | 7,625 | 2.32% | 126 |
-| Standard_B20ms | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60GHz | 20 | 1 | 80.0 | 409,515 | 4,792 | 1.17% | 14 |
+| Standard_B1ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40 GHz | 1 | 1 | 2.0 | 18,093 | 679 | 3.75% | 42 |
+| Standard_B1ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30 GHz | 1 | 1 | 2.0 | 18,197 | 1,341 | 7.37% | 168 |
+| Standard_B1ms | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60 GHz | 1 | 1 | 2.0 | 17,975 | 920 | 5.12% | 112 |
+| Standard_B1ms | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60 GHz | 1 | 1 | 2.0 | 20,176 | 1,568 | 7.77% | 28 |
+| Standard_B2s | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40 GHz | 2 | 1 | 4.0 | 35,546 | 660 | 1.86% | 42 |
+| Standard_B2s | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30 GHz | 2 | 1 | 4.0 | 36,569 | 2,172 | 5.94% | 154 |
+| Standard_B2s | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60 GHz | 2 | 1 | 4.0 | 36,136 | 924 | 2.56% | 140 |
+| Standard_B2s | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60 GHz | 2 | 1 | 4.0 | 42,546 | 834 | 1.96% | 14 |
+| Standard_B2hms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40 GHz | 2 | 1 | 8.0 | 36,949 | 1,494 | 4.04% | 28 |
+| Standard_B2hms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30 GHz | 2 | 1 | 8.0 | 36,512 | 2,537 | 6.95% | 70 |
+| Standard_B2hms | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60 GHz | 2 | 1 | 8.0 | 36,389 | 990 | 2.72% | 56 |
+| Standard_B2ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40 GHz | 2 | 1 | 8.0 | 35,758 | 1,028 | 2.88% | 42 |
+| Standard_B2ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30 GHz | 2 | 1 | 8.0 | 36,028 | 1,605 | 4.45% | 182 |
+| Standard_B2ms | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60 GHz | 2 | 1 | 8.0 | 36,122 | 2,128 | 5.89% | 112 |
+| Standard_B2ms | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60 GHz | 2 | 1 | 8.0 | 42,525 | 672 | 1.58% | 14 |
+| Standard_B4hms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40 GHz | 4 | 1 | 16.0 | 71,028 | 879 | 1.24% | 28 |
+| Standard_B4hms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30 GHz | 4 | 1 | 16.0 | 73,126 | 2,954 | 4.04% | 56 |
+| Standard_B4hms | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60 GHz | 4 | 1 | 16.0 | 68,451 | 1,571 | 2.29% | 56 |
+| Standard_B4hms | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60 GHz | 4 | 1 | 16.0 | 83,525 | 563 | 0.67% | 14 |
+| Standard_B4ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40 GHz | 4 | 1 | 16.0 | 70,831 | 1,135 | 1.60% | 28 |
+| Standard_B4ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30 GHz | 4 | 1 | 16.0 | 70,987 | 2,287 | 3.22% | 168 |
+| Standard_B4ms | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60 GHz | 4 | 1 | 16.0 | 68,796 | 1,897 | 2.76% | 84 |
+| Standard_B4ms | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60 GHz | 4 | 1 | 16.0 | 81,712 | 4,042 | 4.95% | 70 |
+| Standard_B8ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40 GHz | 8 | 1 | 32.0 | 141,620 | 2,256 | 1.59% | 42 |
+| Standard_B8ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30 GHz | 8 | 1 | 32.0 | 139,090 | 3,229 | 2.32% | 182 |
+| Standard_B8ms | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60 GHz | 8 | 1 | 32.0 | 135,510 | 2,653 | 1.96% | 112 |
+| Standard_B8ms | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60 GHz | 8 | 1 | 32.0 | 164,510 | 2,254 | 1.37% | 14 |
+| Standard_B12ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40 GHz | 12 | 1 | 48.0 | 206,957 | 5,240 | 2.53% | 56 |
+| Standard_B12ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30 GHz | 12 | 1 | 48.0 | 211,461 | 4,115 | 1.95% | 154 |
+| Standard_B12ms | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60 GHz | 12 | 1 | 48.0 | 200,729 | 3,475 | 1.73% | 140 |
+| Standard_B16ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40 GHz | 16 | 2 | 64.0 | 273,257 | 3,862 | 1.41% | 42 |
+| Standard_B16ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30 GHz | 16 | 1 | 64.0 | 282,187 | 5,030 | 1.78% | 154 |
+| Standard_B16ms | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60 GHz | 16 | 1 | 64.0 | 265,834 | 5,545 | 2.09% | 112 |
+| Standard_B16ms | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60 GHz | 16 | 1 | 64.0 | 331,694 | 3,537 | 1.07% | 28 |
+| Standard_B20ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40 GHz | 20 | 2 | 80.0 | 334,369 | 8,555 | 2.56% | 42 |
+| Standard_B20ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30 GHz | 20 | 1 | 80.0 | 345,686 | 6,702 | 1.94% | 154 |
+| Standard_B20ms | Intel(R) Xeon(R) Platinum 8171M CPU @ 2.60 GHz | 20 | 1 | 80.0 | 328,900 | 7,625 | 2.32% | 126 |
+| Standard_B20ms | Intel(R) Xeon(R) Platinum 8272CL CPU @ 2.60 GHz | 20 | 1 | 80.0 | 409,515 | 4,792 | 1.17% | 14 |
 
 ### Dasv4
 (03/25/2021 PBIID:9198755)
@@ -698,7 +698,7 @@ The following CoreMark benchmark scores show compute performance for select Azur
 
 ## About CoreMark
 
-[CoreMark](https://www.eembc.org/coremark/faq.php) is a benchmark that tests the functionality of a microctronoller (MCU) or central processing unit (CPU). CoreMark is not system dependent, so it functions the same regardless of the platform (e.g. big or little endian, high-end or low-end processor).
+[CoreMark](https://www.eembc.org/coremark/faq.php) is a benchmark that tests the functionality of a microctronoller (MCU) or central processing unit (CPU). CoreMark is not system dependent, so it functions the same regardless of the platform (for example, big or little endian, high-end or low-end processor).
 
 Windows numbers were computed by running CoreMark on Windows Server 2019. CoreMark was configured with the number of threads set to the number of virtual CPUs, and concurrency set to `PThreads`. The target number of iterations was adjusted based on expected performance to provide a runtime of at least 20 seconds (typically much longer). The final score represents the number of iterations completed divided by the number of seconds it took to run the test. Each test was run at least seven times on each VM. Test run dates shown above. Tests run on multiple VMs across Azure public regions the VM was supported in on the date run.
 
@@ -717,7 +717,7 @@ To build and run the benchmark, type:
 `> make`
 
 Full results are available in the files ```run1.log``` and ```run2.log```.
-```run1.log``` contains CoreMark results. These are the benchmark results with performance parameters.
+```run1.log``` contains CoreMark results with performance parameters.
 ```run2.log``` contains benchmark results with validation parameters.
 
 **Run Time:**
@@ -752,4 +752,4 @@ Performance of GPU based VM series is best understood by using GPU appropriate b
 
 
 ## Next steps
-* For storage capacities, disk details, and additional considerations for choosing among VM sizes, see [Sizes for virtual machines](../sizes.md).
+* For storage capacities, disk details, and other considerations for choosing among VM sizes, see [Sizes for virtual machines](../sizes.md).
