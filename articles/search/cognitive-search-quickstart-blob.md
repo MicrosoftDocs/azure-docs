@@ -49,7 +49,7 @@ In the following steps, set up a blob container in Azure Storage to store hetero
 
 1. In Azure portal, open your Azure Storage page and create a container. You can use the default public access level. 
 
-1. In Container, click **Upload** to upload the sample files you downloaded in the first step. Notice that you have a wide range of content types, including images and application files that are not full text searchable in their native formats.
+1. In Container, select **Upload** to upload the sample files you downloaded in the first step. Notice that you have a wide range of content types, including images and application files that are not full text searchable in their native formats.
 
    :::image type="content" source="media/cognitive-search-quickstart-blob/sample-data.png" alt-text="Source files in Azure Blob Storage" border="false":::
 
@@ -59,7 +59,7 @@ You are now ready to move on the Import data wizard.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
 
-1. [Find your search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, click **Import data** on the command bar to set up cognitive enrichment in four steps.
+1. [Find your search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, select **Import data** on the command bar to set up cognitive enrichment in four steps.
 
    :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Screenshot of the Import data command" border="true":::
 
@@ -115,7 +115,7 @@ Continue to the next page.
 
 The indexer drives the indexing process. It specifies the data source name, a target index, and frequency of execution. The **Import data** wizard creates several objects, including an indexer that you can reset and run repeatedly.
 
-1. In the **Indexer** page, you can accept the default name and click the **Once** schedule option to run it immediately. 
+1. In the **Indexer** page, you can accept the default name and select **Once** to run it immediately. 
 
    :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-def.png" alt-text="Indexer definition" border="true":::
 
@@ -123,21 +123,25 @@ The indexer drives the indexing process. It specifies the data source name, a ta
 
 ## Monitor status
 
-Cognitive skills indexing takes longer to complete than typical text-based indexing, especially OCR and image analysis. To monitor progress, go to the Overview page and click **Indexers** in the middle of page.
+Cognitive skills indexing takes longer to complete than typical text-based indexing, especially OCR and image analysis. To monitor progress, go to the Overview page and select **Indexers** in the middle of page.
 
   :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-notification.png" alt-text="Azure Cognitive Search notification" border="false":::
 
 To check details about execution status, select an indexer from the list.
 
+There is one warning. It tells you that the PNG file in the data source doesn't provide a text input to Entity Recognition. This warning occurs because the upstream OCR skill didn't recognize any text in the image, and thus could not provide a text input to the downstream Entity Recognition skill.
+
+In skillset execution, warnings are common. As you become familiar with skillset execution, you'll begin to notice patterns and learn which warnings are safe to ignore.
+
 ## Query in Search explorer
 
 After an index is created, you can run queries to return results. In the portal, use **Search explorer** for this task. 
 
-1. On the search service dashboard page, click **Search explorer** on the command bar.
+1. On the search service dashboard page, select **Search explorer** on the command bar.
 
 1. Select **Change Index** at the top to select the index you created.
 
-1. Enter a search string to query the index, such as `search=Microsoft&$select=people,organizations,locations,imageTags`.
+1. Enter a search string to query the index, such as `search=Satya Nadella&$select=people,organizations,locations&$count=true`.
 
 Results are returned as JSON, which can be verbose and hard to read, especially in large documents originating from Azure blobs. Some tips for searching in this tool include the following techniques:
 
@@ -146,7 +150,7 @@ Results are returned as JSON, which can be verbose and hard to read, especially 
 
 Query strings are case-sensitive so if you get an "unknown field" message, check **Fields** or **Index Definition (JSON)** to verify name and case. 
 
-  :::image type="content" source="media/cognitive-search-quickstart-blob/search-explorer.png" alt-text="Search explorer example" border="false":::
+  :::image type="content" source="media/cognitive-search-quickstart-blob/search-explorer.png" alt-text="Search explorer example" border="true":::
 
 ## Takeaways
 
