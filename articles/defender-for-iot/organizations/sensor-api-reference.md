@@ -9,12 +9,12 @@ ms.topic: reference
 
 ## Version reference
 
+
 |Version  |Supported APIs  |
 |---------|---------|
-|**No version**     |  - [Validate user credentials - /api/external/authentication/validation](#validate-user-credentials---apiexternalauthenticationvalidation)<br><br>- [Change password - /external/authentication/set_password](#change-password---externalauthenticationset_password)<br><br>- [User password update by system admin - /external/authentication/set_password_by_admin](#user-password-update-by-system-admin---externalauthenticationset_password_by_admin)       |
-|**Version 1**     |  - [Retrieve device information - /api/v1/devices](#retrieve-device-information---apiv1devices) <br><br>- [Retrieve device connection information - /api/v1/devices/connections](#retrieve-device-connection-information---apiv1devicesconnections)<br><br>- [Retrieve information on CVEs - /api/v1/devices/cves](#retrieve-information-on-cves---apiv1devicescves)<br><br>- [Retrieve alert information - /api/v1/alerts](#retrieve-alert-information---apiv1alerts)<br><br>- [Retrieve timeline events - /api/v1/events](#retrieve-timeline-events---apiv1events)<br><br>- [Retrieve vulnerability information - /api/v1/reports/vulnerabilities/devices](#retrieve-vulnerability-information---apiv1reportsvulnerabilitiesdevices)<br><br>- [Retrieve security vulnerabilities - /api/v1/reports/vulnerabilities/security](#retrieve-security-vulnerabilities---apiv1reportsvulnerabilitiessecurity)<br><br>- [Retrieve operational vulnerabilities - /api/v1/reports/vulnerabilities/operational](#retrieve-operational-vulnerabilities---apiv1reportsvulnerabilitiesoperational)       |
-|**Version 2**     | - [Retrieve alert PCAP - /api/v2/alerts/pcap](#retrieve-alert-pcap---apiv2alertspcap)        |
-
+|**No version**     |  - [validation (Validate user credentials)](#validation-validate-user-credentials)  <br>- [set_password (Change your password)](#set_password-change-your-password) <br>- [set_password_by_admin (Update a user password by admin)](#set_password_by_admin-update-a-user-password-by-admin)     |
+|**Version 1**     |  [connections (Retrieve device connection information)](#connections-retrieve-device-connection-information) <br><br>[cves (Retrieve information on CVEs](#cves-retrieve-information-on-cves)<br>- [alerts (Retrieve alert information)](#alerts-retrieve-alert-information)<br>- [events (Retrieve timeline events)](#events-retrieve-timeline-events)[vulnerabilities (Retrieve vulnerability information)](#vulnerabilities-retrieve-vulnerability-information)<br>- [security (Retrieve security vulnerabilities)](#security-retrieve-security-vulnerabilities)<br>- [operational (Retrieve operational vulnerabilities)](#operational-retrieve-operational-vulnerabilities)<br>-   |
+|**Version 2**     |    [Retrieve alert PCAP](#retrieve-alert-pcap)     |
 
 ## validation (Validate user credentials)
 
@@ -687,6 +687,7 @@ Use this API to request a list of all the alerts that the Defender for IoT senso
 ]
 
 ```
+
 # [Curl command](#tab-alerts-curl)
 
 **Type**: GET
@@ -829,7 +830,7 @@ curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/
 ```
 ---
 
-## devices (Retrieve vulnerability information)
+## vulnerabilities (Retrieve vulnerability information)
 
 Use this API to request vulnerability assessment results for each device.
 
