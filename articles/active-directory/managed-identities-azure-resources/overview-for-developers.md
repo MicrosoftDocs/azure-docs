@@ -121,7 +121,7 @@ Your managed identity now has the correct permissions to access the Azure resour
 
 Your App service now has an identity with permissions, so now you can use the identity in your code to interact with Azure Key Vault, instead of needing to store credentials in your code.
 
-The recommended method is to use the Azure Identity library, which is available for C#, Java, Python, JavaScript, and Go. The library acquires access tokens for you, making it simple to connect to target endpoints.
+The recommended method is to use the Azure Identity library for your preferred programming language. The supported languages include .NET, Java, JavaScript, Python, Go, and C++. The library acquires access tokens for you, making it simple to connect to target endpoints.
 
 ### Using the Azure Identity library in your development environment
 
