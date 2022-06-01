@@ -50,7 +50,7 @@ New-AzVm `
     -Image Debian `
     -size Standard_B2s `
     -PublicIpAddressName myPubIP `
-    -OpenPorts 80,22 `
+    -OpenPorts 80 `
     -GenerateSshKey `
     -SshKeyName mySSHKey
 ```
@@ -69,10 +69,10 @@ It will take a few minutes for your VM to be deployed. When the deployment is fi
 To see your VM in action, install the NGINX web server.
 
 ```azurepowershell-interactive
-Invoke-AzVMRunCommand \
-   -ResourceGroupName 'myResourceGroup' \
-   -Name 'myVM' \
-   -CommandId 'RunShellScript' \
+Invoke-AzVMRunCommand `
+   -ResourceGroupName 'myResourceGroup' `
+   -Name 'myVM' `
+   -CommandId 'RunShellScript' `
    -ScriptString 'sudo apt-get update && sudo apt-get install -y nginx'
 ```
 
