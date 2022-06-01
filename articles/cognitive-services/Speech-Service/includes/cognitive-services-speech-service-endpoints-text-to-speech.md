@@ -86,7 +86,7 @@ If you've created a custom neural voice font, use the endpoint that you've creat
 | West US 3 | No |Yes| `https://westus3.voice.speech.microsoft.com/cognitiveservices/v1?deploymentId={deploymentId}` |
 
 > [!NOTE]
-> The preceding regions are available for neural voice model hosting and real-time synthesis. Custom neural voice training is available in only some regions. But users can easily copy a neural voice model from these regions to other regions in the preceding list.
+> The preceding regions are available for neural voice model hosting and real-time synthesis. Custom neural voice training is only available in some regions. But users can easily copy a neural voice model from these regions to other regions in the preceding list.
 
 ### Long Audio API
 
