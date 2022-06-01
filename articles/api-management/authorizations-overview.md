@@ -46,7 +46,7 @@ The feature consists of two parts, management and runtime:
 
 For public preview the following limitations exist:
 
-
+- Authorizations feature will be available in the Consumption tier in the coming weeks.
 - Supported identity providers: Azure AD, DropBox, Generic OAuth 2.0, GitHub, Google, LinkedIn, Spotify
 - Maximum configured number of authorization providers per API Management instance: 50
 - Maximum configured number of authorizations per Authorization provider: 500
