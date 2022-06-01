@@ -1,6 +1,6 @@
 ---
 title: Review permissions granted to applications
-titleSuffix: Azure AD
+titleSuffix: Microsoft Entra
 description: Learn how to review and manage permissions for an application in Azure Active Directory.
 services: active-directory
 author: Jackson-Woods
