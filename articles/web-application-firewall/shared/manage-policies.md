@@ -5,7 +5,7 @@ author: vhorne
 ms.author: victorh
 ms.service: web-application-firewall
 ms.topic: conceptual
-ms.date: 05/10/2022
+ms.date: 06/01/2022
 ---
 
 # Use Azure Firewall Manager to manage Web Application Firewall policies (preview)
