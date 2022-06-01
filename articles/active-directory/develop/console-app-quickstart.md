@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Call Microsoft Graph from a console application | Azure"
+title: "Quickstart: Call Microsoft Graph from a console application"
 description: In this quickstart, you learn how a console application can get an access token and call an API protected by Microsoft identity platform, using the app's own identity
 services: active-directory
 author: Dickson-Mwendia
