@@ -6,12 +6,12 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/09/2022
+ms.date: 03/11/2022
 
 ms.author: justinha
 author: vimrang
-manager: daveba
-ms.reviewer: tommma
+manager: karenhoran
+ms.reviewer: vimrang
 
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
@@ -49,7 +49,9 @@ Let's cover each step:
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-alt.png" alt-text="Screenshot of the Sign-in if FIDO2 is also enabled.":::
 
-1. After the user clicks the link, the client is redirected to the certauth endpoint [http://certauth.login.microsoftonline.com](http://certauth.login.microsoftonline.com). The endpoint performs mutual authentication and requests the client certificate as part of the TLS handshake. You will see an entry for this request in the Sign-in logs. There is a [known issue](#known-issues) where User ID is displayed instead of Username.
+1. After the user clicks the link, the client is redirected to the certauth endpoint, which is [https://certauth.login.microsoftonline.com](https://certauth.login.microsoftonline.com) for Azure Global. For [Azure Government](../../azure-government/compare-azure-government-global-azure.md#guidance-for-developers), the certauth endpoint is [https://certauth.login.microsoftonline.us](https://certauth.login.microsoftonline.us). For the correct endpoint for other environments, see the specific Microsoft cloud docs. 
+
+   The endpoint performs mutual authentication and requests the client certificate as part of the TLS handshake. You will see an entry for this request in the Sign-in logs. There is a [known issue](#known-issues) where User ID is displayed instead of Username.
 
    :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-log.png" alt-text="Screenshot of the Sign-in log in Azure AD." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/sign-in-log.png":::
    
@@ -194,7 +196,7 @@ For the first test scenario, configure the authentication policy where the Issue
 
 ### Test multifactor authentication
 
-For the next test scenario, configure the authentication policy where the Issuer subject rule satisfies multifactor authentication.
+For the next test scenario, configure the authentication policy where the **policyOID** rule satisfies multifactor authentication.
 
 :::image type="content" border="true" source="./media/concept-certificate-based-authentication-technical-deep-dive/multifactor.png" alt-text="Screenshot of the Authentication policy configuration showing multifactor authentication required." lightbox="./media/concept-certificate-based-authentication-technical-deep-dive/multifactor.png":::  
 
@@ -227,6 +229,12 @@ For the next test scenario, configure the authentication policy where the Issuer
  
 - The **Additional Details** tab shows **User certificate subject name** as the attribute name but it is actually "User certificate binding identifier". It is the value of the certificate field that username binding is configured to use.
 
+- There is a double prompt for iOS because iOS only supports pushing certificates to a device storage. When an organization pushes user certificates to an iOS device through Mobile Device Management (MDM) or when a user accesses first-party or native apps, there is no access to device storage. Only Safari can access device storage.
+
+  When an iOS client sees a client TLS challenge and the user clicks **Sign in with certificate**, iOS client knows it cannot handle it and sends a completely new authorization request using the Safari browser. The user clicks **Sign in with certificate** again, at which point Safari which has access to certificates for authentication in device storage. This requires users to click **Sign in with certificate** twice, once in app’s WKWebView and once in Safari’s System WebView.
+
+  We are aware of the UX experience issue and are working to fix this on iOS and to have a seamless UX experience.
+
 ## Next steps
 
 - [Overview of Azure AD CBA](concept-certificate-based-authentication.md)
@@ -234,4 +242,3 @@ For the next test scenario, configure the authentication policy where the Issuer
 - [How to configure Azure AD CBA](how-to-certificate-based-authentication.md)
 - [FAQ](certificate-based-authentication-faq.yml)
 - [Troubleshoot Azure AD CBA](troubleshoot-certificate-based-authentication.md)
-

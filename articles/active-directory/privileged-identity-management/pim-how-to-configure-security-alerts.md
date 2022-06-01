@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/30/2021
+ms.date: 04/18/2022
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.custom: pim
@@ -68,9 +68,10 @@ Severity: **Low**
 
 Severity: **Medium**
 
+
 | | Description |
 | --- | --- |
-| **Why do I get this alert?** | Accounts in a privileged role have not changed their password in the past 90 days. These accounts might be service or shared accounts that aren't being maintained and are vulnerable to attackers. |
+| **Why do I get this alert?** | This alert is no longer triggered based on the last password change date of for an account. This alert is for accounts in a privileged role that haven't signed in during the past *n* days, where *n* is a number of days that is configurable between 1-365 days . These accounts might be service or shared accounts that aren't being maintained and are vulnerable to attackers. |
 | **How to fix?** | Review the accounts in the list. If they no longer need access, remove them from their privileged roles. |
 | **Prevention** | Ensure that accounts that are shared are rotating strong passwords when there is a change in the users that know the password. </br>Regularly review accounts with privileged roles using [access reviews](./pim-create-azure-ad-roles-and-resource-roles-review.md) and remove role assignments that are no longer needed. |
 | **In-portal mitigation action** | Removes the account from their privileged role. |

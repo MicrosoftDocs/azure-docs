@@ -7,7 +7,7 @@ ms.date: 01/13/2022
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
-ms.custom: mode-other
+ms.custom: [mode-other, iot-central-frontdoor, contperf-fy22q4]
 ---
 
 # Quickstart - Use your smartphone as a device to send telemetry to an IoT Central application
@@ -23,7 +23,7 @@ An active Azure subscription. If you don't have an Azure subscription, create a 
 > [!TIP]
 > You should have at least **Contributor** access in your Azure subscription. If you created the subscription yourself, you're automatically an administrator with sufficient access. To learn more, see [What is Azure role-based access control?](../../role-based-access-control/overview.md)
 
-An Android or iOS phone on which you're able to install a free app from one of the official app stores.
+An Android or iOS smartphone on which you're able to install a free app from one of the official app stores.
 
 ## Create an application
 
@@ -55,11 +55,11 @@ IoT Central provides various industry-focused application templates to help you 
 
 ## Register a device
 
-To connect a device to to your IoT Central application, you need some connection information. An easy way to get this connection information is to register your device.
+To connect a device to your IoT Central application, you need some connection information. An easy way to get this connection information is to register your device.
 
 To register your device:
 
-1. In IoT Central, navigate to the **Devices** page and select **Create a device**:
+1. In IoT Central, navigate to the **Devices** page and select **Add a device**:
 
     :::image type="content" source="media/quick-deploy-iot-central/create-device.png" alt-text="Screenshot that shows create a device in IoT Central.":::
 
@@ -71,21 +71,21 @@ To register your device:
 
 1. On the device page, select **Connect** and then **QR Code**:
 
-    :::image type="content" source="media/quick-deploy-iot-central/device-registration.png" alt-text="Screenshot that shows the QR code you can use to connect the phone app.":::
+    :::image type="content" source="media/quick-deploy-iot-central/device-registration.png" alt-text="Screenshot that shows the QR code you can use to connect the smartphone app.":::
 
-Keep this page open. In the next section you scan this QR code using the phone app to connect it to IoT Central.
+Keep this page open. In the next section, you scan this QR code using the smartphone app to connect it to IoT Central.
 
 ## Connect your device
 
-To get you started quickly, this article uses the **IoT Plug and Play** smartphone app as an IoT device. The app sends telemetry collected from the phone's sensors, responds to commands invoked from IoT Central, and reports property values to IoT Central.
+To get you started quickly, this article uses the **IoT Plug and Play** smartphone app as an IoT device. The app sends telemetry collected from the smartphone's sensors, responds to commands invoked from IoT Central, and reports property values to IoT Central.
 
 [!INCLUDE [iot-phoneapp-install](../../../includes/iot-phoneapp-install.md)]
 
-To connect the **IoT Plug and Play** app to you Iot Central application:
+To connect the **IoT Plug and Play** app to your Iot Central application:
 
 1. Open the **IoT PnP** app on your smartphone.
 
-1. On the welcome page, select **Scan QR code**. Point the phone's camera at the QR code. Then wait for a few seconds while the connection is established.
+1. On the welcome page, select **Scan QR code**. Point the smartphone's camera at the QR code. Then wait for a few seconds while the connection is established.
 
 1. On the telemetry page in the app, you can see the data the app is sending to IoT Central. On the logs page, you can see the device connecting and several initialization messages.
 
@@ -99,6 +99,17 @@ To view the telemetry from the smartphone app in IoT Central:
 
 > [!TIP]
 > The smartphone app only sends data when the screen is on.
+
+## Control your device
+
+To send a command from IoT Central to your device, select the **Commands** view for your device. The smartphone app can respond to three commands:
+
+:::image type="content" source="media/quick-deploy-iot-central/device-commands.png" alt-text="Screenshot that shows the three commands the smartphone app responds to.":::
+
+To make the light on your smartphone flash, use the **LightOn** command. Set the duration to three seconds, the pulse interval to five seconds, and the number of pulses to two. Select **Run** to send the command to the smartphone app. The light on your smartphone app flashes twice.
+
+To see the acknowledgment from the smartphone app, select **command history**.
+
 ## Clean up resources
 
 [!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]

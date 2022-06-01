@@ -1,51 +1,54 @@
 ---
 title: What's new? 
 description: Learn about the new features and documentation improvements for Azure Synapse Analytics
-services: synapse-analytics
 author: ryanmajidi
 ms.author: rymajidi 
 ms.service: synapse-analytics
 ms.subservice: overview
 ms.topic: conceptual
-ms.date: 01/28/2022
+ms.date: 04/15/2022
 ---
 
 # What's new in Azure Synapse Analytics?
 
-This article lists updates to Azure Synapse Analytics that are published in Jan 2022. Each update links to the Azure Synapse Analytics blog and an article that provides more information. For previous months releases, check out [Azure Synapse Analytics - updates archive](whats-new-archive.md).
-
-## Jan 2022 update
+This article lists updates to Azure Synapse Analytics that are published in Mar 2022. Each update links to the Azure Synapse Analytics blog and an article that provides more information. For previous months releases, check out [Azure Synapse Analytics - updates archive](whats-new-archive.md).
 
 The following updates are new to Azure Synapse Analytics this month.
 
-### Apache Spark for Synapse
+## SQL
 
-You can now use four new database templates in Azure Synapse. [Learn more about Automotive, Genomics, Manufacturing, and Pharmaceuticals templates from the blog post](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/four-additional-azure-synapse-database-templates-now-available/ba-p/3058044) or the [database templates article](./database-designer/overview-database-templates.md). These templates are currently in public preview and are available within the Synapse Studio gallery.
+* Cross-subscription restore for Azure Synapse SQL is now generally available.  Previously, it took many undocumented steps to restore a dedicated SQL pool to another subscription.  Now, with the PowerShell Az.Sql module 3.8 update, the Restore-AzSqlDatabase cmdlet can be used for cross-subscription restore.  To learn more, see [Restore a dedicated SQL pool (formerly SQL DW) to a different subscription](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-april-update-2022/ba-p/3280185).
 
-### Machine Learning
+* It is now possible to recover a SQL pool from a dropped server or workspace.  With the PowerShell Restore cmdlets in Az.Sql and Az.Synapse modules, you can now restore from a deleted server or workspace without filing a support ticket.  For more information, read [Synapse workspace SQL pools](./backuprestore/restore-sql-pool-from-deleted-workspace.md) or [standalone SQL pools (formerly SQL DW)](./sql-data-warehouse/sql-data-warehouse-restore-from-deleted-server.md), depending on your scenario.
 
-Improvements to the Synapse Machine Learning library v0.9.5 (previously called MMLSpark). This release simplifies the creation of massively scalable machine learning pipelines with Apache Spark. To learn more, [read the blog post about the new capabilities in this release](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-january-update-2022/ba-p/3071681#TOCREF_3) or see the [full release notes](https://microsoft.github.io/SynapseML/)
+## Synapse database templates and database designer
 
-### Security
+* Based on popular customer feedback, we've made significant improvements to our exploration experience when creating a lake database using an industry template.  To learn more, read [Quickstart: Create a new Lake database leveraging database templates](./database-designer/quick-start-create-lake-database.md).
 
-* The Azure Synapse Analytics security overview - A whitepaper that covers the five layers of security. The security layers include authentication, access control, data protection, network security, and threat protection. [Understand each security feature in detailed](./guidance/security-white-paper-introduction.md) to implement an industry-standard security baseline and protect your data on the cloud.
+* We've added the option to clone a lake database.  This  unlocks additional opportunities to manage new versions of databases or support schemas that evolve in discrete steps. You can quickly clone a database using the action menu available on the lake database.  To learn more, read [How-to: Clone a lake database](./database-designer/clone-lake-database.md).
 
-* TLS 1.2 is now required for newly created Synapse Workspaces. To learn more, see how [TLS 1.2 provides enhanced security using this article](./security/connectivity-settings.md) or the [blog post](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-january-update-2022/ba-p/3071681#TOCREF_6). Login attempts to a newly created Synapse workspace from connections using a TLS versions lower than 1.2 will fail.
+* You can now use wildcards to specify custom folder hierarchies.  Lake databases sit on top of data that is in the lake and this data can live in nested folders that don’t fit into clean partition patterns. Previously, querying lake databases required that your data exists in a simple directory structure that you could browse using the folder icon without the ability to manually specify directory structure or use wildcard characters.  To learn more, read [How-to: Modify a datalake](./database-designer/modify-lake-database.md).
 
-### Data Integration
+## Apache Spark for Synapse
 
-* Data quality validation rules using Assert transformation - You can now easily add data quality, data validation, and schema validation to your Synapse ETL jobs by leveraging Assert transformation in Synapse data flows. To learn more, see the [Assert transformation in mapping data flow article](../data-factory/data-flow-assert.md) or [the blog post](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-january-update-2022/ba-p/3071681#TOCREF_8).
+* We are excited to announce the preview availability of Apache Spark™ 3.2 on Synapse Analytics. This new version incorporates user-requested enhancements and resolves 1,700+ Jira tickets. Please review the [official release notes](https://spark.apache.org/releases/spark-release-3-2-0.html) for the complete list of fixes and features and review the [migration guidelines between Spark 3.1 and 3.2](https://spark.apache.org/docs/latest/sql-migration-guide.html#upgrading-from-spark-sql-31-to-32) to assess potential changes to your applications. For more details, read [Apache Spark version support and Azure Synapse Runtime for Apache Spark 3.2](./spark/apache-spark-version-support.md).  
 
-* Native data flow connector for Dynamics - Synapse data flows can now read and write data directly to Dynamics through the new data flow Dynamics connector. Learn more on how to [Create data sets in data flows to read, transform, aggregate, join, etc. using this article](../data-factory/connector-dynamics-crm-office-365.md) or the [blog post](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-january-update-2022/ba-p/3071681#TOCREF_9). You can then write the data back into Dynamics using the built-in Synapse Spark compute.
+* Assigning parameters dynamically based on variables, metadata, or specifying Pipeline specific parameters has been one of your top feature requests. Now, with the release of parameterization for the Spark job definition activity, you can do just that.  For more details, read [Transform data using Apache Spark job definition](quickstart-transform-data-using-spark-job-definition.md#settings-tab).
 
-* IntelliSense and auto-complete added to pipeline expressions - IntelliSense makes creating expressions, editing them easy. To learn more, see how to [check your expression syntax, find functions, and add code to your pipelines.](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/intellisense-support-in-expression-builder-for-more-productive/ba-p/3041459)
+* We often receive customer requests to access the snapshot of the Notebook when there is a Pipeline Notebook run failure or there is a long-running Notebook job. With the release of the Synapse Notebook snapshot feature, you can now view the snapshot of the Notebook activity run with the original Notebook code, the cell output, and the input parameters. You can also access the snapshot of the referenced Notebook from the referencing Notebook cell output if you refer to other Notebooks through Spark utils. To learn more, read [Transform data by running a Synapse notebook](synapse-notebook-activity.md?tabs=classical#see-notebook-activity-run-history) and [Introduction to Microsoft Spark utilities](/spark/microsoft-spark-utilities.md?pivots=programming-language-scala#reference-a-notebook-1). 
 
-### Synapse SQL
+## Security
 
-* COPY schema discovery for complex data ingestion. To learn more, see the [blog post](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-january-update-2022/ba-p/3071681#TOCREF_12) or [how Github leveraged this functionality in Introducing Automatic Schema Discovery with auto table creation for complex datatypes](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/introducing-automatic-schema-discovery-with-auto-table-creation/ba-p/3068927).
+* The Synapse Monitoring Operator RBAC role is now generally available.  Since the GA of Synapse, customers have asked for a fine-grained RBAC (role-based access control) role that allows a user persona to monitor the execution of Synapse Pipelines and Spark applications without having the ability to run or cancel the execution of these applications.  Now, customers can assign the Synapse Monitoring Operator role to such monitoring personas. This allows organizations to stay compliant while having flexibility in the delegation of tasks to individuals or teams. Learn more by reading [Synapse RBAC Roles](security/synapse-workspace-synapse-rbac-roles.md). 
+## Data integration
 
-* Serverless SQL pools now support the HASHBYTES function. HASHBYTES is a T-SQL function which hashes values. Learn how to use [hash values in distributing data using this article](/sql/t-sql/functions/hashbytes-transact-sql) or the [blog post](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-january-update-2022/ba-p/3071681#TOCREF_13).
+* Microsoft has added Dataverse as a source and sink connector to Synapse Data Flows so that you can now build low-code data transformation ETL jobs in Synapse directly accessing your Dataverse environment. For more details on how to use this new connector, read [Mapping data flow properties](../data-factory/connector-dynamics-crm-office-365.md#mapping-data-flow-properties). 
 
+* We heard from you that a 1-minute timeout for Web activity was not long enough, especially in cases of synchronous APIs. Now, with the response timeout property 'httpRequestTimeout', you can define timeout for the HTTP request up to 10 minutes. Learn more by reading [Web activity response timeout improvements](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/web-activity-response-timeout-improvement/ba-p/3260307).
+ 
+## Developer experience
+
+* Previously, if you wanted to reference a notebook in another notebook, you could only reference published or committed content. Now, when using %run notebooks, you can enable ‘unpublished notebook reference’ which will allow you to reference unpublished notebooks. When enabled, notebook run will fetch the current contents in the notebook web cache, meaning the changes in your notebook editor can be referenced immediately by other notebooks without having to be published (Live mode) or committed (Git mode).  To learn more, read [Reference unpublished notebook](spark/apache-spark-development-using-notebooks.md#reference-unpublished-notebook). 
 ## Next steps
 
 [Get started with Azure Synapse Analytics](get-started.md)

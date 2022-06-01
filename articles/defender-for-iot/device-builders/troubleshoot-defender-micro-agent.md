@@ -7,7 +7,7 @@ ms.topic: reference
 
 # Defender for IoT micro agent troubleshooting (Preview)
 
-If an unexpected error occurs, you can use these troubleshooting methods in an attempt to resolve the issue. You can also reach out to the Azure Defender for Cloud for IoT product team for assistance as needed.   
+If an unexpected error occurs, you can use these troubleshooting methods in an attempt to resolve the issue. 
 
 ## Service status 
 
@@ -19,9 +19,9 @@ To view the status of the service:
     systemctl status defender-iot-micro-agent.service 
     ```
 
-1. Check that the service is stable by making sure it is `active`, and that the uptime in the process is appropriate.
+1. Check that the service is stable by making sure it's `active`, and that the uptime in the process is appropriate.
 
-    :::image type="content" source="media/troubleshooting/active-running.png" alt-text="Ensure your service is stable by checking to see that it is active and the uptime is appropriate.":::
+    :::image type="content" source="media/troubleshooting/active-running.png" alt-text="Ensure your service is stable by checking to see that it's active and the uptime is appropriate.":::
 
 If the service is listed as `inactive`, use the following command to start the service:
 
@@ -54,7 +54,7 @@ If an issue occurs when the micro agent is run, you can run the micro agent in a
 
 ```bash
 sudo systectl stop defender-iot-micro-agent
-cd /var/defender_iot_micro_agent/
+cd /etc/defender_iot_micro_agent/
 sudo ./defender_iot_micro_agent
 ```
 

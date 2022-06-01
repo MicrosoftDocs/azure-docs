@@ -1,7 +1,7 @@
 ---
 title: What is Azure IoT Edge | Microsoft Docs
 description: Overview of the Azure IoT Edge service
-author: kgremban
+author: PatAltimore
 
 # this is the PM responsible
 ms.reviewer: chipalost
@@ -9,7 +9,7 @@ ms.service: iot-edge
 services: iot-edge
 ms.topic: overview
 ms.date: 10/28/2019
-ms.author: kgremban
+ms.author: patricka
 ms.custom: mvc
 ---
 

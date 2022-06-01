@@ -3,12 +3,11 @@ metadata:
   title: Azure Virtual Desktop for Azure Stack HCI FAQ - Azure
   description: Frequently asked questions about Azure Virtual Desktop for Azure Stack HCI.
   author: Heidilohr
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 11/02/2021
   ms.author: helohr 
   ms.custom: devx-track-azurepowershell
   manager: femila
-    
 title: Azure Virtual Desktop for Azure Stack HCI FAQ
 summary: This article answers frequently asked questions about Azure Virtual Desktop for Azure Stack HCI.
 
@@ -46,7 +45,7 @@ sections:
       - question: |
          Is Azure Virtual Desktop for Azure Stack HCI available in Azure Government?
         answer: |
-          No, because Azure Stack HCI is not currently available in Azure Government.
+          Yes. Azure Stack HCI is available in Preview in Azure Government and may be used with Azure Virtual Desktop. For more information, see the note at [Azure Stack HCI prerequisites for cluster registration](/azure-stack/hci/deploy/register-with-azure#prerequisites-for-cluster-registration).
 
       - question: |
          Does using Azure Virtual Desktop for Azure Stack HCI mean all my data is stored on-premises?

@@ -85,6 +85,10 @@ You can now update an AKS cluster currently working with service principals to w
 az aks update -g <RGName> -n <AKSName> --enable-managed-identity
 ```
 > [!NOTE]
+> An update will only work if there is an actual VHD update to consume.  If you are running the latest VHD, you will need to wait till the next VHD is available in order to do the actual update.
+>
+
+> [!NOTE]
 > After updating, your cluster's control plane and addon pods will switch to use managed identity, but kubelet will KEEP USING SERVICE PRINCIPAL until you upgrade your agentpool. Perform an `az aks nodepool upgrade --node-image-only` on your nodes to complete the update to managed identity. 
 >
 > If your cluster was using --attach-acr to pull from image from Azure Container Registry, after updating your cluster to Managed Identity, you need to rerun `az aks update --attach-acr <ACR Resource ID>` to let the newly created kubelet used for managed identity get the permission to pull from ACR. Otherwise you will not be able to pull from ACR after the upgrade.
@@ -144,20 +148,29 @@ If you don't have a managed identity yet, you should go ahead and create one for
 ```azurecli-interactive
 az identity create --name myIdentity --resource-group myResourceGroup
 ```
+
+Assign "Managed Identity Operator" role to the identity.
+
+```azurecli-interactive
+az role assignment create --assignee <id> --role "Managed Identity Operator" --scope <id>
+
+
 The result should look like:
 
 ```output
-{                                                                                                                                                                                 
-  "clientId": "<client-id>",
-  "clientSecretUrl": "<clientSecretUrl>",
-  "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity", 
-  "location": "westus2",
-  "name": "myIdentity",
+{
+  "canDelegate": null,
+  "condition": null,
+  "conditionVersion": null,
+  "description": null,
+  "id": "/subscriptions/<subscriptionid>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity",
+  "name": "myIdentity,
   "principalId": "<principalId>",
-  "resourceGroup": "myResourceGroup",                       
-  "tags": {},
-  "tenantId": "<tenant-id>",
-  "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+  "principalType": "ServicePrincipal",
+  "resourceGroup": "myResourceGroup",
+  "roleDefinitionId": "/subscriptions/<subscriptionid>/providers/Microsoft.Authorization/roleDefinitions/<definitionid>",
+  "scope": "<resourceid>",
+  "type": "Microsoft.Authorization/roleAssignments"
 }
 ```
 
@@ -201,6 +214,9 @@ A successful cluster creation using your own managed identities contains this us
 ## Bring your own kubelet MI
 
 A Kubelet identity enables access to be granted to the existing identity prior to cluster creation. This feature enables scenarios such as connection to ACR with a pre-created managed identity.
+
+> [!WARNING]
+> Updating kubelet MI will upgrade Nodepool, which causes downtime for your AKS cluster as the nodes in the nodepools will be cordoned/drained and then reimaged.
 
 ### Prerequisites
 
@@ -284,6 +300,55 @@ az aks create \
 ```
 
 A successful cluster creation using your own kubelet managed identity contains the following output:
+
+```output
+  "identity": {
+    "principalId": null,
+    "tenantId": null,
+    "type": "UserAssigned",
+    "userAssignedIdentities": {
+      "/subscriptions/<subscriptionid>/resourcegroups/resourcegroups/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myIdentity": {
+        "clientId": "<client-id>",
+        "principalId": "<principal-id>"
+      }
+    }
+  },
+  "identityProfile": {
+    "kubeletidentity": {
+      "clientId": "<client-id>",
+      "objectId": "<object-id>",
+      "resourceId": "/subscriptions/<subscriptionid>/resourcegroups/resourcegroups/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myKubeletIdentity"
+    }
+  },
+```
+
+### Update an existing cluster using kubelet identity 
+
+Update kubelet identity on an existing cluster with your existing identities. 
+
+#### Make sure the CLI version is 2.37.0 or later
+
+```azurecli-interactive
+# Check the version of Azure CLI modules 
+az version
+
+# Upgrade the version to make sure it is 2.37.0 or later
+az upgrade
+```
+#### Updating your cluster with kubelet identity 
+
+Now you can use the following command to update your cluster with your existing identities. Provide the control plane identity id via `assign-identity` and the kubelet managed identity via `assign-kubelet-identity`:
+
+```azurecli-interactive
+az aks update \
+    --resource-group myResourceGroup \
+    --name myManagedCluster \
+    --enable-managed-identity \
+    --assign-identity <identity-id> \
+    --assign-kubelet-identity <kubelet-identity-id>
+```
+
+A successful cluster update using your own kubelet managed identity contains the following output:
 
 ```output
   "identity": {

@@ -8,8 +8,8 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: powershell
-ms.topic: conceptual
-ms.date: 08/03/2021 
+ms.topic: how-to
+ms.date: 05/23/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -18,7 +18,7 @@ ms.custom: devx-track-azurepowershell
 > * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
 > * [Azure CLI](search-manage-azure-cli.md)
-> * [REST API](/rest/api/searchmanagement/)
+> * [REST API](search-manage-rest.md)
 > * [.NET SDK](/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)
 
@@ -36,17 +36,17 @@ You can run PowerShell cmdlets and scripts on Windows, Linux, or in [Azure Cloud
 
 Occasionally, questions are asked about tasks *not* on the above list. Currently, you cannot use either the **Az.Search** module or the management REST API to change a server name, region, or tier. Dedicated resources are allocated when a service is created. As such, changing the underlying hardware (location or node type) requires a new service. Similarly, there are no tools or APIs for transferring content, such as an index, from one service to another.
 
-Within a service, content creation and management is through [Search Service REST API](/rest/api/searchservice/) or [.NET SDK](/dotnet/api/overview/azure/search.documents-readme). While there are no dedicated PowerShell commands for content, you can write PowerShell script that calls REST or .NET APIs to create and load indexes.
+Within a service, programmatic creation of content is through [Search Service REST API](/rest/api/searchservice/) or [.NET SDK](/dotnet/api/overview/azure/search.documents-readme). While there are no dedicated PowerShell commands for content, you can write PowerShell script that calls REST or .NET APIs to create and load indexes.
 
 <a name="check-versions-and-load"></a>
 
 ## Check versions and load modules
 
-The examples in this article are interactive and require elevated permissions. Azure PowerShell (the **Az** module) must be installed. For more information, see [Install Azure PowerShell](/powershell/azure/).
+The examples in this article are interactive and require elevated permissions. Local PowerShell and the Azure PowerShell (the **Az** module) are required.
 
-### PowerShell version check (5.1 or later)
+### PowerShell version check
 
-Local PowerShell must be 5.1 or later, on any supported operating system.
+PowerShell 7.0.6 LTS, PowerShell 7.1.3, or higher is the recommended version of PowerShell for use with the Azure Az PowerShell module on all platforms. [Install the latest version of PowerShell](/powershell/scripting/install/installing-powershell) if you don't have it.
 
 ```azurepowershell-interactive
 $PSVersionTable.PSVersion
@@ -60,7 +60,7 @@ If you aren't sure whether **Az** is installed, run the following command as a v
 Get-InstalledModule -Name Az
 ```
 
-Some systems do not auto-load modules. If you get an error on the previous command, try loading the module, and if that fails, go back to the installation instructions to see if you missed a step.
+Some systems do not auto-load modules. If you get an error on the previous command, try loading the module, and if that fails, go back to the installation [Azure PowerShell installation instructions](/powershell/azure/) to see if you missed a step.
 
 ```azurepowershell-interactive
 Import-Module -Name Az
@@ -404,7 +404,7 @@ Private endpoints of secured resources that are created through Azure Cognitive 
 
 If you're using an indexer to index data in Azure Cognitive Search, and your data source is on a private network, you can create an outbound [private endpoint connection](../private-link/private-endpoint-overview.md) to reach the data.
 
-A full list of the Azure Resources for which you can create outbound private endpoints from Azure Cognitive Search can be found [here](search-indexer-howto-access-private.md#shared-private-link-resources-management-apis) along with the related **Group ID** values.
+A full list of the Azure Resources for which you can create outbound private endpoints from Azure Cognitive Search can be found [here](search-indexer-howto-access-private.md#group-ids) along with the related **Group ID** values.
 
 [New-AzSearchSharedPrivateLinkResource](/powershell/module/az.search/New-AzSearchSharedPrivateLinkResource) is used to create the shared private link resource. Keep in mind that some configuration may be required for the data source before running this command.
 

@@ -2,176 +2,97 @@
 author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/11/2020
+ms.date: 03/15/2022
 ms.author: eur
 ---
 
-[!INCLUDE [Header](../common/python.md)]
+[!INCLUDE [Header](../../common/python.md)]
 
 [!INCLUDE [Introduction](intro.md)]
 
 ## Prerequisites
 
-[!INCLUDE [Prerequisites](../common/azure-prerequisites.md)]
+[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
 
-### Install the Speech SDK
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Prerequisites" target="_target">I ran into an issue</a>
 
-[!INCLUDE [Get the Speech SDK include](../../get-speech-sdk-python.md)]
+## Set up the environment
 
-## Create a speech configuration
+The Speech SDK for Python is available as a [Python Package Index (PyPI) module](https://pypi.org/project/azure-cognitiveservices-speech/). The Speech SDK for Python is compatible with Windows, Linux, and macOS. 
+- On Windows, you must install the [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017, 2019, or 2022](/cpp/windows/latest-supported-vc-redist?view=msvc-170&preserve-view=true) for your platform. Installing this package for the first time might require a restart.
+- On Linux, you must use the x64 target architecture.
 
-To call the Speech service by using the Speech SDK, you need to create a [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig) instance. This class includes information about your subscription, like your speech key and associated location/region, endpoint, host, or authorization token. 
+Install a version of [Python from 3.7 to 3.10](https://www.python.org/downloads/). First check the [platform-specific installation instructions](../../../quickstarts/setup-platform.md?pivots=programming-language-python) for any more requirements. 
 
-Create a `SpeechConfig` instance by using your speech key and location/region. For more information, see [Find keys and location/region](../../../overview.md#find-keys-and-locationregion).
-
-```Python
-speech_config = speechsdk.SpeechConfig(subscription="<paste-your-speech-key-here>", region="<paste-your-speech-location/region-here>")
-```
-
-You can initialize [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig) in a few other ways:
-
-* With an endpoint: pass in a Speech service endpoint. A speech key or authorization token is optional.
-* With a host: pass in a host address. A speech key or authorization token is optional.
-* With an authorization token: pass in an authorization token and the associated region.
-
-> [!NOTE]
-> Regardless of whether you're performing speech recognition, speech synthesis, translation, or intent recognition, you'll always create a configuration.
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Set-up-the-environment" target="_target">I ran into an issue</a>
 
 ## Recognize speech from a microphone
 
-To recognize speech by using your device microphone, create a `SpeechRecognizer` instance without passing [`AudioConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.audio.audioconfig), and then pass `speech_config`:
+Follow these steps to create a new console application.
 
-```Python
-import azure.cognitiveservices.speech as speechsdk
+1. Open a command prompt where you want the new project, and create a new file named `speech-recognition.py`.
+1. Run this command to install the Speech SDK:  
+    ```console
+    pip install azure-cognitiveservices-speech
+    ```
+1. Copy the following code into `speech_recognition.py`: 
 
-def from_mic():
-    speech_config = speechsdk.SpeechConfig(subscription="<paste-your-speech-key-here>", region="<paste-your-speech-location/region-here>")
-    speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config)
-    
-    print("Speak into your microphone.")
-    result = speech_recognizer.recognize_once_async().get()
-    print(result.text)
+    ```Python
+    import azure.cognitiveservices.speech as speechsdk
 
-from_mic()
+    def recognize_from_microphone():
+        speech_config = speechsdk.SpeechConfig(subscription="YourSubscriptionKey", region="YourServiceRegion")
+        speech_config.speech_recognition_language="en-US"
+
+        audio_config = speechsdk.audio.AudioConfig(use_default_microphone=True)
+        speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_config)
+
+        print("Speak into your microphone.")
+        speech_recognition_result = speech_recognizer.recognize_once_async().get()
+
+        if speech_recognition_result.reason == speechsdk.ResultReason.RecognizedSpeech:
+            print("Recognized: {}".format(speech_recognition_result.text))
+        elif speech_recognition_result.reason == speechsdk.ResultReason.NoMatch:
+            print("No speech could be recognized: {}".format(speech_recognition_result.no_match_details))
+        elif speech_recognition_result.reason == speechsdk.ResultReason.Canceled:
+            cancellation_details = speech_recognition_result.cancellation_details
+            print("Speech Recognition canceled: {}".format(cancellation_details.reason))
+            if cancellation_details.reason == speechsdk.CancellationReason.Error:
+                print("Error details: {}".format(cancellation_details.error_details))
+                print("Did you set the speech resource key and region values?")
+
+    recognize_from_microphone()
+    ```
+1. In `speech_recognition.py`, replace `YourSubscriptionKey` with your Speech resource key, and replace `YourServiceRegion` with your Speech resource region.
+1. To change the speech recognition language, replace `en-US` with another [supported language](~/articles/cognitive-services/speech-service/supported-languages.md). For example, `es-ES` for Spanish (Spain). The default language is `en-us` if you don't specify a language. For details about how to identify one of multiple languages that might be spoken, see [language identification](~/articles/cognitive-services/speech-service/supported-languages.md). 
+
+Run your new console application to start speech recognition from a microphone:
+
+```console
+python speech_recognition.py
 ```
 
-If you want to use a *specific* audio input device, you need to specify the device ID in `AudioConfig`, and the pass it to the `SpeechRecognizer` constructor's `audio_config` parameter. Learn [how to get the device ID](../../../how-to-select-audio-input-devices.md) for your audio input device.
+Speak into your microphone when prompted. What you speak should be output as text: 
 
-## Recognize speech from a file
-
-If you want to recognize speech from an audio file instead of using a microphone, create an `AudioConfig` instance and use the `filename` parameter:
-
-```Python
-import azure.cognitiveservices.speech as speechsdk
-
-def from_file():
-    speech_config = speechsdk.SpeechConfig(subscription="<paste-your-speech-key-here>", region="<paste-your-speech-location/region-here>")
-    audio_input = speechsdk.AudioConfig(filename="your_file_name.wav")
-    speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_input)
-    
-    result = speech_recognizer.recognize_once_async().get()
-    print(result.text)
-
-from_file()
+```console
+Speak into your microphone.
+RECOGNIZED: Text=I'm excited to try speech to text.
 ```
 
-## Handle errors
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=PYTHON&Pillar=Speech&Product=speech-to-text&Page=quickstart&Section=Recognize-speech-from-a-microphone" target="_target">I ran into an issue</a>
 
-The previous examples simply get the recognized text from `result.text`. To handle errors and other responses, you need to write some code to handle the result. The following code evaluates the [`result.reason`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.resultreason) property and:
+Here are some additional considerations:
 
-* Prints the recognition result: `speechsdk.ResultReason.RecognizedSpeech`.
-* If there is no recognition match, informs the user: `speechsdk.ResultReason.NoMatch`.
-* If an error is encountered, prints the error message: `speechsdk.ResultReason.Canceled`.
+- This example uses the `recognize_once_async` operation to transcribe utterances of up to 30 seconds, or until silence is detected. For information about continuous recognition for longer audio, including multi-lingual conversations, see [How to recognize speech](~/articles/cognitive-services/speech-service/how-to-recognize-speech.md).
+- To recognize speech from an audio file, use `filename` instead of `use_default_microphone`:
+    ```python
+    audio_config = speechsdk.audio.AudioConfig(filename="YourAudioFile.wav")
+    ```
+- For compressed audio files such as MP4, install GStreamer and use `PullAudioInputStream` or `PushAudioInputStream`. For more information, see [How to use compressed input audio](~/articles/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams.md).
 
-```Python
-if result.reason == speechsdk.ResultReason.RecognizedSpeech:
-    print("Recognized: {}".format(result.text))
-elif result.reason == speechsdk.ResultReason.NoMatch:
-    print("No speech could be recognized: {}".format(result.no_match_details))
-elif result.reason == speechsdk.ResultReason.Canceled:
-    cancellation_details = result.cancellation_details
-    print("Speech Recognition canceled: {}".format(cancellation_details.reason))
-    if cancellation_details.reason == speechsdk.CancellationReason.Error:
-        print("Error details: {}".format(cancellation_details.error_details))
-```
+## Clean up resources
 
-## Use continuous recognition
-
-The previous examples use at-start recognition, which recognizes a single utterance. The end of a single utterance is determined by listening for silence at the end or until a maximum of 15 seconds of audio is processed.
-
-In contrast, you use continuous recognition when you want to control when to stop recognizing. It requires you to connect to `EventSignal` to get the recognition results. To stop recognition, you must call [stop_continuous_recognition()](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#stop-continuous-recognition--) or [stop_continuous_recognition()](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#stop-continuous-recognition-async--). Here's an example of how continuous recognition is performed on an audio input file.
-
-Start by defining the input and initializing [`SpeechRecognizer`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechrecognizer):
-
-```Python
-audio_config = speechsdk.audio.AudioConfig(filename=weatherfilename)
-speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_config)
-```
-
-Next, create a variable to manage the state of speech recognition. Set the variable to `False` because at the start of recognition, you can safely assume that it's not finished.
-
-```Python
-done = False
-```
-
-Now, create a callback to stop continuous recognition when `evt` is received. Keep these points in mind:
-
-* When `evt` is received, the `evt` message is printed.
-* After `evt` is received, [stop_continuous_recognition()](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#stop-continuous-recognition--) is called to stop recognition.
-* The recognition state is changed to `True`.
-
-```Python
-def stop_cb(evt):
-    print('CLOSING on {}'.format(evt))
-    speech_recognizer.stop_continuous_recognition()
-    nonlocal done
-    done = True
-```
-
-The following code sample shows how to connect callbacks to events sent from [`SpeechRecognizer`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#start-continuous-recognition--). The events are:
-
-* [`recognizing`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#recognizing): Signal for events that contain intermediate recognition results.
-* [`recognized`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#recognized): Signal for events that contain final recognition results, which indicate a successful recognition attempt.
-* [`session_started`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#session-started): Signal for events that indicate the start of a recognition session (operation).
-* [`session_stopped`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#session-stopped): Signal for events that indicate the end of a recognition session (operation).
-* [`canceled`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#canceled): Signal for events that contain canceled recognition results. These results indicate a recognition attempt that was canceled as a result or a direct cancellation request. Alternatively, they indicate a transport or protocol failure.
-
-```Python
-speech_recognizer.recognizing.connect(lambda evt: print('RECOGNIZING: {}'.format(evt)))
-speech_recognizer.recognized.connect(lambda evt: print('RECOGNIZED: {}'.format(evt)))
-speech_recognizer.session_started.connect(lambda evt: print('SESSION STARTED: {}'.format(evt)))
-speech_recognizer.session_stopped.connect(lambda evt: print('SESSION STOPPED {}'.format(evt)))
-speech_recognizer.canceled.connect(lambda evt: print('CANCELED {}'.format(evt)))
-
-speech_recognizer.session_stopped.connect(stop_cb)
-speech_recognizer.canceled.connect(stop_cb)
-```
-
-With everything set up, you can call [start_continuous_recognition()](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#session-stopped):
-
-```Python
-speech_recognizer.start_continuous_recognition()
-while not done:
-    time.sleep(.5)
-```
-
-### Dictation mode
-
-When you're using continuous recognition, you can enable dictation processing by using the corresponding function. This mode will cause the speech configuration instance to interpret word descriptions of sentence structures such as punctuation. For example, the utterance "Do you live in town question mark" would be interpreted as the text "Do you live in town?".
-
-To enable dictation mode, use the [`enable_dictation()`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig#enable-dictation--) method on [`SpeechConfig`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig):
-
-```Python 
-SpeechConfig.enable_dictation()
-```
-
-## Change the source language
-
-A common task for speech recognition is specifying the input (or source) language. The following example shows how you would change the input language to German. In your code, find your `SpeechConfig` instance and add this line directly below it:
-
-```Python
-speech_config.speech_recognition_language="de-DE"
-```
-
-[`speech_recognition_language`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig#speech-recognition-language) is a parameter that takes a string as an argument. You can provide any value in the [list of supported locales/languages](../../../language-support.md).
-
+[!INCLUDE [Delete resource](../../common/delete-resource.md)]

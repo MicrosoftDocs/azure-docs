@@ -2,13 +2,13 @@
 title: Azure Active Directory identity configuration for Azure API for FHIR
 description: Learn the principles of identity, authentication, and authorization for Azure FHIR servers.
 services: healthcare-apis
-author: caitlinv39
+author: mikaelweave
 ms.reviewer: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 08/05/2021
-ms.author: cavoeg
+ms.date: 02/15/2022
+ms.author: mikaelw
 ---
 
 # Azure Active Directory identity configuration for Azure API for FHIR
@@ -25,8 +25,8 @@ Using [authorization code flow](../../active-directory/azuread-dev/v1-protocols-
 
 ![FHIR Authorization](media/azure-ad-hcapi/fhir-authorization.png)
 
-1. The client sends a request to the `/authorize` endpoint of Azure AD. Azure AD will redirect the client to a sign in page where the user will authenticate using appropriate credentials (for example username and password or two-factor authentication). See details on [obtaining an authorization code](../../active-directory/azuread-dev/v1-protocols-oauth-code.md#request-an-authorization-code). Upon successful authentication, an *authorization code* is returned to the client. Azure AD will only allow this authorization code to be returned to a registered reply URL configured in the client application registration.
-1. The client application exchanges the authorization code for an *access token* at the `/token` endpoint of Azure AD. When requesting a token, the client application may have to provide a client secret (the applications password). See details on [obtaining an access token](../../active-directory/azuread-dev/v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token).
+1. The client sends a request to the `/authorize` endpoint of Azure AD. Azure AD will redirect the client to a sign-in page where the user will authenticate using appropriate credentials (for example username and password or two-factor authentication). See details on [obtaining an authorization code](../../active-directory/azuread-dev/v1-protocols-oauth-code.md#request-an-authorization-code). Upon successful authentication, an *authorization code* is returned to the client. Azure AD will only allow this authorization code to be returned to a registered reply URL configured in the client application registration.
+1. The client application exchanges the authorization code for an *access token* at the `/token` endpoint of Azure AD. When you request a token, the client application may have to provide a client secret (the applications password). See details on [obtaining an access token](../../active-directory/azuread-dev/v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token).
 1. The client makes a request to the Azure API for FHIR, for example `GET /Patient` to search all patients. When making the request, it includes the access token in an HTTP request header, for example `Authorization: Bearer eyJ0e...`, where `eyJ0e...` represents the Base64 encoded access token.
 1. The Azure API for FHIR validates that the token contains appropriate claims (properties in the token). If everything checks out, it will complete the request and return a FHIR bundle with results to the client.
 
@@ -101,7 +101,7 @@ The pertinent sections of the Azure AD documentation are:
     * [Authorization code flow](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
     * [Client credentials flow](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).
 
-There are other variations (for example on behalf of flow) for obtaining a token. Check the Azure AD documentation for details. When using the Azure API for FHIR, there are also some shortcuts for obtaining an access token (for debugging purposes) [using the Azure CLI](get-healthcare-apis-access-token-cli.md).
+There are other variations (for example on behalf of flow) for obtaining a token. Check the Azure AD documentation for details. When you use Azure API for FHIR, there are some shortcuts for obtaining an access token (for debugging purposes) [using the Azure CLI](get-healthcare-apis-access-token-cli.md).
 
 ## Next steps
 

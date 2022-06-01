@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 05/13/2021
+ms.date: 04/13/2022
 ms.author: banders
 ---
 
@@ -27,10 +27,9 @@ You might be using an email ID that differs from the one that is used for the su
 
 To troubleshoot this issue, see [No subscriptions found sign-in error for Azure portal](no-subscriptions-found.md).
 
-## Unable to use a virtual or prepaid credit or debit card as a payment method.
+## Unable to use a virtual or prepaid credit as a payment method.
 
-*	Virtual or prepaid credit cards aren't accepted as payment for Azure subscriptions.
-*	Debit cards aren't accepted as payment for Azure subscriptions.
+Virtual or prepaid credit cards aren't accepted as payment for Azure subscriptions.
 
 For more information, see [Troubleshoot a declined card at Azure sign-up](troubleshoot-declined-card.md).
 

@@ -119,8 +119,8 @@ items:
         href: workday-attribute-reference.md
       - name: Provisioning Agent version history
         href: provisioning-agent-release-version-history.md
-      - name: Migrate connector from MIM Sync
-        href: on-premises-migrate-microsoft-identity-manager.md
+    - name: Migrate connector from MIM Sync
+      href: on-premises-migrate-microsoft-identity-manager.md
   - name: Resources
     items:
     - name: Support and help options for developers

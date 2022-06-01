@@ -3,7 +3,7 @@ title: Create and enable an Azure DDoS Protection plan using an Azure Resource M
 description: Learn how to create and enable an Azure DDoS Protection plan using an Azure Resource Manager template (ARM template).
 services: ddos-protection
 documentationcenter: na
-author: mumian
+author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: quickstart
 ms.tgt_pltfrm: na

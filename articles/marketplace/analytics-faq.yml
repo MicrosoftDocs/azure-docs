@@ -4,14 +4,13 @@ metadata:
   description: Get answers to frequently asked questions about commercial marketplace analytics in Partner Center for offers published to Azure Marketplace.
   ms.service: marketplace 
   ms.subservice: partnercenter-marketplace-publisher
-  ms.topic: conceptual
+  ms.topic: faq
   author: smannepalle
   ms.author: smannepalle
   ms.reviewer: sroy
-  ms.date: 12/28/2021
-    
+  ms.date: 02/11/2022
 title: Commercial marketplace analytics Frequently Asked Questions
-summary: This article addresses frequently asked questions about analytics messages in Partner Center.
+summary: This article addresses frequently asked questions about analytics in Partner Center.
 
 sections:
   - name: General
@@ -142,10 +141,10 @@ sections:
       - question: |
           Does customer name represent bill to account, the end-customer, or the reseller information?
         answer: |
-          Customer name represents the bill to account details. For individuals, the customer name will be the end-customer’s name. For a cloud service provider (CSP), the customer name will be the name of the CSP.
+          Customer name represents the bill to account details. For individuals, the customer name will be the end-customer's name. For a cloud service provider (CSP), the customer name will be the name of the CSP.
 
       - question: |
-          Is it possible to use an API to download data from the revenue dashboard?
+          Can I use an API to download data from the revenue dashboard?
         answer: |
           Yes. To learn about the analytics APIs, see [Get started with programmatic access to analytics data](analytics-get-started.md).
 
@@ -165,7 +164,7 @@ sections:
       - question: |
           Can the revenue dashboard show who is the end-user customer, the reseller, and the distributor?
         answer: |
-          You can use the _Sales channel_ field to infer whether the customer was an end-customer or a cloud solution provider.
+          Use the _Sales channel_ field to infer whether the customer was an end-customer or a cloud solution provider.
 
       - question: |
           Do we have “ship-to” address information (country, state, city, zip code) in the revenue dashboard?
@@ -188,7 +187,7 @@ sections:
           Yes, you sort a column in the widget in ascending or descending order.
 
       - question: |
-          How should I read growth percentage change for “Total” and “Others” estimated revenue?
+          How should I read growth percentage change for Total and Others estimated revenue?
         answer: |
           The growth percentage change in the revenue dashboard is defined in a similar way to other reports. It's the percentage of change between the value at the end of the selected month range and the value at the beginning of the selected month range.
 
@@ -198,7 +197,7 @@ sections:
           This is expected because all figures for future months are shown for the unprocessed and upcoming revenues until date.
 
       - question: |
-          Where can I find my downloaded reports?
+          Where are my downloaded reports?
         answer: |
           To find your downloaded reports, go to the **CMP Analyze** > **Downloads** section. The reports are available in .csv/.tsv format. To learn more about downloading reports, see [Downloads dashboard in commercial marketplace analytics](downloads-dashboard.md).
 
@@ -233,6 +232,97 @@ sections:
         answer: |
           See the payout schedules for Enterprise agreement, Microsoft customer agreement, or CSP transactions at [Payout schedules and processes](/partner-center/payout-policy-details).
       
+  - name: Customer retention
+    questions:
+      - question: |
+          How should I be using this dashboard?
+        answer: |
+          This dashboard helps business teams understand customer behavior in terms of retention and churn after a customer has deployed your marketplace offer. Use it to answer questions like, “How many customers am I retaining, and for how long?” and “Compared to other offers in a category, are my retention numbers good or bad?”
+
+          Use the monthly tab to look at a group of users over a longer time frame. For example, if you run a promotional campaign in a certain month, you can see whether that month had higher retention than months when you did not run the campaign.
+
+      - question: |
+          What insights can I get from this dashboard?
+        answer: |
+          Discover whether customers are continuing to use your VM offer over a period of time and whether they churn right away. When you identify which customers are churning, you can contact them or include them in a campaign.
+
+          Determine if your investments in marketing are working: the monthly view shows if months when you ran campaigns out-perform months when you didn't.
+
+      - question: |
+          The retention widget looks like it's showing me 45 days of data. What day is it counting from?
+        answer: |
+          Read **Retained customers** in the [Customer retention dashboard](customer-retention-dashboard.md#retained-customers). The data shown here is a normalized view of 18 months of customer data, and so is not “to” or “from” a specific date.
+
+      - question: |
+          Can I filter the graphs to show a specific date range?
+        answer: |
+          No. As the documentation indicates, it is a normalized view of 18 months of data. The retention [heat map](customer-retention-dashboard.md#retention-heat-map) shows monthly views, but you cannot filter to specific dates.
+
+      - question: |
+          What is the difference between Total offers and Offer count?
+        answer: |
+          Total offers is how many there are in the entire category. For example, if you set the “category” filter to security, it is showing how many offers there are in the marketplace under the category Security. Offer count shows the count of offers in the category whose retention scores are above zero. So if you have the Category filter set to Security, the Y axis of the graph is showing how many offers in security have retention scores above 0.
+
+      - question: |
+          What is the green or red arrow on retention rank?
+        answer: |
+          The arrow shows the change in your retention rank. The time period is determined by the filter at the top; choose days, weeks, or months.
+
+      - question: |
+          How do I know which customers are retaining and which are churning?
+        answer: |
+          [Customers](customer-retention-dashboard.md#customers) shows this information.
+
+      - question: |
+          What does dormant mean?
+        answer: |
+          Dormant means a customer has not used that offer for several days. They are not labeled Churned because they could reengage and start using the offer again.
+
+      - question: |
+          I want to know about the orders or usage of these customers, but that data is in separate reports.
+        answer: |
+          The best way to get that information is to download details from the orders or usage reports and cross-check based on a shared field: customer name.
+
+      - question: |
+          Why does the retention percentage sometimes fluctuate in the monthly waterfall view?
+        answer: |
+          Note the Cohort column. This tells you how many customers started using your offer in a month. If the column says 60 users in the cohort, then the percentage is calculated month-over-month by dividing the total number of users still using the offer by 60. If it is showing 35%, for example, that means 21 users are still using the offer. If the next month shows 40%, that means that three users came back (24/60). Retention percentages increase when users come back.
+
+      - question: |
+          What does Cohort mean?
+        answer: |
+          A Cohort is the number of customers who started using your offer in a given month.
+
+      - question: |
+          How do you define a customer?
+        answer: |
+          A customer is one billing account ID.
+
+      - question: |
+          Can I filter this by a billing model? For example, can I see all my PAYGO or BYOL offers in one view?
+        answer: |
+          No, you can only view one offer at a time.
+
+      - question: |
+          Can I see the different SKUs/plans per offer?
+        answer: |
+          No, you can only look at the offer level.
+
+      - question: |
+          Can I see this data quarterly?
+        answer: |
+          There is no quarterly filter. However, looking at the monthly view will help you see patterns over a quarterly time frame.
+
+      - question: |
+          Do these views filter out internal users from my company who might be testing the offer?
+        answer: |
+          No, the only identifier available for these users would be email domain; we can't know with confidence whether or not they are internal to your company.
+
+      - question: |
+          Do these views filter out trial users or customers who are only doing a trial of my product?
+        answer: |
+          No, the functionality to filter only paid customers is not available yet.
+
 additionalContent: |
 
   ## Next steps

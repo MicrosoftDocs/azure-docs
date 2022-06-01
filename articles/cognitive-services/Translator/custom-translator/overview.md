@@ -6,7 +6,7 @@ author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
-ms.date: 12/09/2019
+ms.date: 02/25/2022
 ms.author: lajanuar
 ms.topic: overview
 #Customer intent: As a custom translator user, I want to understand what is Custom Translator, so that I can start using it.
@@ -17,7 +17,7 @@ Custom Translator is a feature of the Microsoft Translator service, which enable
 
 Translation systems built with [Custom Translator](https://portal.customtranslator.azure.ai) are available through the same cloud-based, secure, high performance, highly scalable Microsoft Translator [Text API V3](../reference/v3-0-translate.md?tabs=curl), that powers billions of translations  every day.
 
-Custom Translator supports more than three dozen languages, and maps directly to the languages available for NMT. For a complete list, see  [Microsoft Translator Languages](../language-support.md).
+The platform enables users to build and publish custom translation systems to and from English. Custom Translator supports more than three dozen languages that map directly to the languages available for NMT. For a complete list, *see* [Translator language support](../language-support.md).
 
 This documentation contains the following article types:
 

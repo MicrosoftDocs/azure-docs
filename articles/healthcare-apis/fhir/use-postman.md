@@ -1,31 +1,28 @@
 ---
-title: Access the Azure Healthcare APIs FHIR service using Postman
-description: This article describes how to access the Azure Healthcare APIs FHIR service with Postman.
+title: Access the Azure Health Data Services FHIR service using Postman
+description: This article describes how to access Azure Health Data Services FHIR service with Postman.
 services: healthcare-apis
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.date: 01/18/2022
-ms.author: zxue
+ms.date: 05/03/2022
+ms.author: mikaelw
 ---
 
 # Access using Postman
 
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-In this article, we will walk through the steps of accessing the Healthcare APIs FHIR service (hear by called the FHIR service) with [Postman](https://www.getpostman.com/).
+In this article, we'll walk through the steps of accessing the Azure Health Data Services (hear by called FHIR service) with [Postman](https://www.getpostman.com/).
 
 ## Prerequisites
 
-* The FHIR service deployed in Azure. For information about how to deploy the FHIR service, see [Deploy a FHIR service](fhir-portal-quickstart.md).
+* FHIR service deployed in Azure. For information about how to deploy the FHIR service, see [Deploy a FHIR service](fhir-portal-quickstart.md).
 * A registered client application to access the FHIR service. For information about how to register a client application, see [Register a service client application in Azure Active Directory](./../register-application.md). 
 * Permissions granted to the client application and your user account, for example, "FHIR Data Contributor", to access the FHIR service. 
 * Postman installed locally. For more information about Postman, see [Get Started with Postman](https://www.getpostman.com/).
 
 ## Using Postman: create workspace, collection, and environment
 
-If you are new to Postman, follow the steps below. Otherwise, you can skip this step.
+If you're new to Postman, follow the steps below. Otherwise, you can skip this step.
  
 Postman introduces the workspace concept to enable you and your team to share APIs, collections, environments, and other components. You can use the default “My workspace” or “Team workspace” or create a new workspace for you or your team.
  
@@ -41,7 +38,7 @@ You can also import and export Postman collections. For more information, see [t
 
 ## Create or update environment variables
 
-While you can use the full URL in the request, it is recommended that you store the URL and other data in variables and use them.
+While you can use the full URL in the request, it's recommended that you store the URL and other data in variables and use them.
 
 To access the FHIR service, we'll need to create or update the following variables.
 
@@ -160,7 +157,7 @@ Select **Send**. You should notice a `202 Accepted` response. Select the **Heade
 
 ## Next steps
 
-In this article, you learned how to access the FHIR service in Azure Healthcare APIs with Postman. For information about the FHIR service in Azure Healthcare APIs, see
+In this article, you learned how to access the FHIR service in Azure Health Data Services with Postman. For information about FHIR service in Azure Health Data Services, see
 
 >[!div class="nextstepaction"]
 >[What is FHIR service?](overview.md)

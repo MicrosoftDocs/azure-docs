@@ -14,7 +14,6 @@ Azure enables you to create and manage support requests, also known as support t
 > The Azure portal URL is specific to the Azure cloud where your organization is deployed.
 >
 >- Azure portal for commercial use is: [https://portal.azure.com](https://portal.azure.com)
->- Azure portal for Germany is: [https://portal.microsoftazure.de](https://portal.microsoftazure.de)
 >- Azure portal for the United States government is: [https://portal.azure.us](https://portal.azure.us)
 
 Azure provides unlimited support for subscription management, which includes billing, quota adjustments, and account transfers. For technical support, you need a support plan. For more information, see [Compare support plans](https://azure.microsoft.com/support/plans).
@@ -25,12 +24,12 @@ You can get to **Help + support** in the Azure portal. It's available from the A
 
 ### Azure role-based access control
 
-To create a support request, you must have the [Owner](../../role-based-access-control/built-in-roles.md#owner), [Contributor](../../role-based-access-control/built-in-roles.md#contributor),  [Support Request Contributor](../../role-based-access-control/built-in-roles.md#support-request-contributor) role, or a custom role with [Microsoft.Support/*](/azure/role-based-access-control/resource-provider-operations#microsoftsupport), at the subscription level.
+To create a support request, you must have the [Owner](../../role-based-access-control/built-in-roles.md#owner), [Contributor](../../role-based-access-control/built-in-roles.md#contributor),  [Support Request Contributor](../../role-based-access-control/built-in-roles.md#support-request-contributor) role, or a custom role with [Microsoft.Support/*](../../role-based-access-control/resource-provider-operations.md#microsoftsupport), at the subscription level.
 
 To create a support request without a subscription, for example an Azure Active Directory scenario, you must be an [Admin](../../active-directory/roles/permissions-reference.md).
 
 > [!IMPORTANT]
-> If a support request requires investigation into multiple subscriptions, you must have the required access for each subscription involved ([Owner](../../role-based-access-control/built-in-roles.md#owner), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), [Reader](../../role-based-access-control/built-in-roles.md#reader), [Support Request Contributor](../../role-based-access-control/built-in-roles.md#support-request-contributor), or a custom role with the [Microsoft.Support/supportTickets/read](/azure/role-based-access-control/resource-provider-operations#microsoftsupport) permission).
+> If a support request requires investigation into multiple subscriptions, you must have the required access for each subscription involved ([Owner](../../role-based-access-control/built-in-roles.md#owner), [Contributor](../../role-based-access-control/built-in-roles.md#contributor), [Reader](../../role-based-access-control/built-in-roles.md#reader), [Support Request Contributor](../../role-based-access-control/built-in-roles.md#support-request-contributor), or a custom role with the [Microsoft.Support/supportTickets/read](../../role-based-access-control/resource-provider-operations.md#microsoftsupport) permission).
 
 ### Go to Help + support from the global header
 

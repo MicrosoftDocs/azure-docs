@@ -109,10 +109,12 @@ The following tables list the Flexible orchestration mode features and links to 
 | SKUs supported  | D series, E series, F series, A series, B series, Intel, AMD; Specialty SKUs (G, H, L, M, N) are not supported |
 | Full control over VM, NICs, Disks  | Yes  |
 | RBAC Permissions Required  | Compute VMSS Write, Compute VM Write, Network |
+| Cross tenant shared image gallery | No |
 | Accelerated networking  | Yes  |
 | Spot instances and pricing   | Yes, you can have both Spot and Regular priority instances  |
 | Mix operating systems  | Yes, Linux and Windows can reside in the same Flexible scale set  |
 | Disk Types  | Managed disks only, all storage types  |
+| Disk Server Side Encryption with Customer Managed Keys | Yes |
 | Write Accelerator   | No  |
 | Proximity Placement Groups   | Yes, read [Proximity Placement Groups documentation](../virtual-machine-scale-sets/proximity-placement-groups.md) |
 | Azure Dedicated Hosts   | No  |
@@ -120,7 +122,7 @@ The following tables list the Flexible orchestration mode features and links to 
 | Add/remove existing VM to the group  | No  |
 | Service Fabric  | No  |
 | Azure Kubernetes Service (AKS) / AKE  | No  |
-| UserData  | Partial, UserData can be specified for individual VMs |
+| UserData  | Yes |
 
 
 ### Autoscaling and instance orchestration
@@ -139,7 +141,7 @@ The following tables list the Flexible orchestration mode features and links to 
 | Instance Protection | No, use [Azure resource lock](../azure-resource-manager/management/lock-resources.md) |
 | Scale In Policy | No |
 | VMSS Get Instance View | No |
-| VM Batch Operations (Start all, Stop all, delete subset, etc.) | No (can trigger operations on each instance using VM API) |
+| VM Batch Operations (Start all, Stop all, delete subset, etc.) | Partial, Batch delete is supported. Other operations can be triggered on each instance using VM API) |
 
 ### High availability 
 
@@ -162,7 +164,7 @@ The following tables list the Flexible orchestration mode features and links to 
 | Azure Load Balancer Standard SKU | Yes |
 | Application Gateway | Yes |
 | Infiniband Networking | No |
-| Basic SLB | No |
+| Azure Load Balancer Basic SKU | No |
 | Network Port Forwarding | Yes (NAT Rules for individual instances) |
 
 ### Backup and recovery 

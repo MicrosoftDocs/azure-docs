@@ -7,7 +7,7 @@ author: chschrae
 manager: travisw
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/15/2021
 ms.author: chschrae
 ms.devlang: cpp, csharp
@@ -29,15 +29,14 @@ In this guide, you use the Speech SDK to develop a console application that deri
 > - Add custom entities via the Speech SDK API
 > - Use asynchronous, event-driven continuous recognition
 
-## When should you use this?
+## When to use pattern matching
 
-Use this sample code if:
+Use this sample code if: 
+* You're only interested in matching strictly what the user said. These patterns match more aggressively than LUIS.
+* You don't have access to a [LUIS](../LUIS/index.yml) app, but still want intents. 
+* You can't or don't want to create a [LUIS](../LUIS/index.yml) app but you still want some voice-commanding capability.
 
-- You are only interested in matching very strictly what the user said. These patterns match more aggressively than LUIS.
-- You do not have access to a [LUIS](../LUIS/index.yml) app, but still want intents. This can be helpful since it is embedded within the SDK.
-- You cannot or do not want to create a LUIS app but you still want some voice-commanding capability.
-
-If you do not have access to a [LUIS](../LUIS/index.yml) app, but still want intents, this can be helpful since it is embedded within the SDK.
+For more information, see the [pattern matching overview](./pattern-matching-overview.md).
 
 ## Prerequisites
 
@@ -45,10 +44,6 @@ Be sure you have the following items before you begin this guide:
 
 - A [Cognitive Services Azure resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) or a [Unified Speech resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (any edition).
-
-## Pattern Matching Model overview
-
-[!INCLUDE [Pattern Matching Overview](includes/pattern-matching-overview.md)]
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [csharp](includes/how-to/intent-recognition/csharp/pattern-matching.md)]

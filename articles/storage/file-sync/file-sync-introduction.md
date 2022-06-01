@@ -1,11 +1,11 @@
 ---
 title: Introduction to Azure File Sync | Microsoft Docs
 description: An overview of Azure File Sync, a service that enables you to create and use network file shares in the cloud using the industry standard SMB protocol.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: overview
 ms.date: 04/19/2021
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files
 ---
 

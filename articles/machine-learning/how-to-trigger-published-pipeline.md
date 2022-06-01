@@ -5,16 +5,17 @@ description: Triggered pipelines allow you to automate routine, time-consuming t
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: mlops
-ms.author: nibaccam
-author: nibaccam
+ms.author: larryfr
+author: blackmist
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python
-
-# Customer intent: As a Python coding data scientist, I want to improve my operational efficiency by scheduling my training pipeline of my model using the latest data. 
+ms.custom: devx-track-python, sdkv1, event-tier1-build-2022
+#Customer intent: As a Python coding data scientist, I want to improve my operational efficiency by scheduling my training pipeline of my model using the latest data.
 ---
 
 # Trigger machine learning pipelines
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 In this article, you'll learn how to programmatically schedule a pipeline to run on Azure. You can create a schedule based on elapsed time or on file-system changes. Time-based schedules can be used to take care of routine tasks, such as monitoring for data drift. Change-based schedules can be used to react to irregular or unpredictable changes, such as new data being uploaded or old data being edited. After learning how to create schedules, you'll learn how to retrieve and deactivate them. Finally, you'll learn how to use other Azure services, Azure Logic App and Azure Data Factory, to run pipelines. An Azure Logic App allows for more complex triggering logic or behavior. Azure Data Factory pipelines allow you to call a machine learning pipeline as part of a larger data orchestration pipeline.
 
@@ -54,7 +55,7 @@ pipeline_id = "aaaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
 
 To run a pipeline on a recurring basis, you'll create a schedule. A `Schedule` associates a pipeline, an experiment, and a trigger. The trigger can either be a`ScheduleRecurrence` that describes the wait between runs or a Datastore path that specifies a directory to watch for changes. In either case, you'll need the pipeline identifier and the name of the experiment in which to create the schedule.
 
-At the top of your python file, import the `Schedule` and `ScheduleRecurrence` classes:
+At the top of your Python file, import the `Schedule` and `ScheduleRecurrence` classes:
 
 ```python
 

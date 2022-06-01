@@ -6,7 +6,7 @@ ms.workload: storage
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 10/11/2021
+ms.date: 06/02/2022
 ---
 # Integration FAQs for Azure NetApp Files
 

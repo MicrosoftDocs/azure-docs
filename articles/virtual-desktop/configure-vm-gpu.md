@@ -1,10 +1,10 @@
 ---
 title: Configure GPU for Azure Virtual Desktop - Azure
 description: How to enable GPU-accelerated rendering and encoding in Azure Virtual Desktop.
-author: gundarev
+author: femila
 ms.topic: how-to
 ms.date: 05/06/2019
-ms.author: denisgun
+ms.author: femila
 ---
 
 # Configure graphics processing unit (GPU) acceleration for Azure Virtual Desktop
@@ -12,31 +12,22 @@ ms.author: denisgun
 >[!IMPORTANT]
 >This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/configure-vm-gpu-2019.md).
 
-Azure Virtual Desktop supports GPU-accelerated rendering and encoding for improved app performance and scalability. GPU acceleration is particularly crucial for graphics-intensive apps.
-
-Follow the instructions in this article to create a GPU optimized Azure virtual machine, add it to your host pool, and configure it to use GPU acceleration for rendering and encoding. This article assumes you already have a Azure Virtual Desktop tenant configured.
-
-## Select an appropriate GPU optimized Azure virtual machine size
-
-Select one of Azure's [NV-series](../virtual-machines/nv-series.md), [NVv3-series](../virtual-machines/nvv3-series.md), [NVv4-series](../virtual-machines/nvv4-series.md) or [NCasT4_v3-series](../virtual-machines/nct4-v3-series.md) VM sizes. These are tailored for app and desktop virtualization and enable most apps and the Windows user interface to be GPU accelerated. The right choice for your host pool depends on a number of factors, including your particular app workloads, desired quality of user experience, and cost. In general, larger and more capable GPUs offer a better user experience at a given user density, while smaller and fractional-GPU sizes allow more fine-grained control over cost and quality. Consider NV series VM retirement when selecting VM, details on [NV retirement](../virtual-machines/nv-series-retirement.md)
-
->[!NOTE]
->Azure's NC, NCv2, NCv3, ND, and NDv2 series VMs are generally not appropriate for Azure Virtual Desktop session hosts. These VMs are tailored for specialized, high-performance compute or machine learning tools, such as those built with NVIDIA CUDA. They do not support GPU acceleration for most apps or the Windows user interface.
-
-
-## Create a host pool, provision your virtual machine, and configure an app group
-
-Create a new host pool using a VM of the size you selected. For instructions, see [Tutorial: Create a host pool with the Azure portal](./create-host-pools-azure-marketplace.md).
-
-Azure Virtual Desktop supports GPU-accelerated rendering and encoding in the following operating systems:
+Azure Virtual Desktop supports GPU-accelerated rendering and encoding for improved app performance and scalability. GPU acceleration is particularly crucial for graphics-intensive apps and is supported in the following operating systems:
 
 * Windows 10 version 1511 or newer
 * Windows Server 2016 or newer
 
 >[!NOTE]
->Multi-session OS is not specifically listed however NV instances GRID license supports 25 concurrent users, see [NV-series](../virtual-machines/nv-series.md)
+> Multi-session versions of Windows are not specifically listed, however each GPU in NV-series Azure virtual machine comes with a GRID license that supports 25 concurrent users. For more information, see [NV-series](../virtual-machines/nv-series.md).
 
-You must also configure an app group, or use the default desktop app group (named "Desktop Application Group") that's automatically created when you create a new host pool. For instructions, see [Tutorial: Manage app groups for Azure Virtual Desktop](./manage-app-groups.md).
+Follow the instructions in this article to create a GPU optimized Azure virtual machine, add it to your host pool, and configure it to use GPU acceleration for rendering and encoding. This article assumes you have already [created a host pool](./create-host-pools-azure-marketplace.md) and an [application group](./manage-app-groups.md).
+
+## Select an appropriate GPU-optimized Azure virtual machine size
+
+Select one of Azure's [NV-series](../virtual-machines/nv-series.md), [NVv3-series](../virtual-machines/nvv3-series.md), [NVv4-series](../virtual-machines/nvv4-series.md) or [NCasT4_v3-series](../virtual-machines/nct4-v3-series.md) VM sizes to use as a session host. These are tailored for app and desktop virtualization and enable most apps and the Windows user interface to be GPU accelerated. The right choice for your host pool depends on a number of factors, including your particular app workloads, desired quality of user experience, and cost. In general, larger and more capable GPUs offer a better user experience at a given user density, while smaller and fractional-GPU sizes allow more fine-grained control over cost and quality. Consider NV series VM retirement when selecting VM, details on [NV retirement](../virtual-machines/nv-series-retirement.md)
+
+>[!NOTE]
+>Azure's NC, NCv2, NCv3, ND, and NDv2 series VMs are generally not appropriate for Azure Virtual Desktop session hosts. These VMs are tailored for specialized, high-performance compute or machine learning tools, such as those built with NVIDIA CUDA. They do not support GPU acceleration for most apps or the Windows user interface.
 
 ## Install supported graphics drivers in your virtual machine
 

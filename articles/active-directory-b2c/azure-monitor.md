@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.date: 02/09/2022
+ms.date: 02/23/2022
 ---
 
 # Monitor Azure AD B2C with Azure Monitor
@@ -147,7 +147,9 @@ After you've deployed the template and waited a few minutes for the resource pro
 1. Sign in to the [Azure portal](https://portal.azure.com) with your **Azure AD B2C** administrative account. This account must be a member of the security group you specified in the [Delegate resource management](#3-delegate-resource-management) step.
 1. Select the **Directories + subscriptions** icon in the portal toolbar.
 1. On the **Portal settings | Directories + subscriptions** page, in the **Directory name** list,  find your Azure AD directory that contains the Azure subscription and the _azure-ad-b2c-monitor_ resource group you created, and then select **Switch**.
-1. Verify that you've selected the correct directory and subscription.
+1. Verify that you've selected the correct directory and your Azure subscription is listed and selected in the **Default subscription filter**.
+
+   ![Screenshot of the default subscription filter](./media/azure-monitor/default-subscription-filter.png)
 
 ## 5. Configure diagnostic settings
 
@@ -178,6 +180,10 @@ To configure monitoring settings for Azure AD B2C activity logs:
 1. Check the box for each destination to send the logs. Select **Configure** to specify their settings **as described in the following table**.
 1. Select **Send to Log Analytics**, and then select the **Name of workspace** you created earlier (`AzureAdB2C`).
 1. Select **AuditLogs** and **SignInLogs**.
+
+   > [!NOTE]
+   > Only the **AuditLogs** and **SignInLogs** diagnostic settings are currently supported for Azure AD B2C tenants.
+
 1. Select **Save**.
 
 > [!NOTE]
@@ -323,7 +329,7 @@ workspace("AD-B2C-TENANT1").AuditLogs
 
 ## Change the data retention period
 
-Azure Monitor Logs are designed to scale and support collecting, indexing, and storing massive amounts of data per day from any source in your enterprise or deployed in Azure. By default, logs are retained for 30 days, but retention duration can be increased to up to two years. Learn how to [manage usage and costs with Azure Monitor Logs](../azure-monitor/logs/manage-cost-storage.md). After you select the pricing tier, you can [Change the data retention period](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period).
+Azure Monitor Logs are designed to scale and support collecting, indexing, and storing massive amounts of data per day from any source in your enterprise or deployed in Azure. By default, logs are retained for 30 days, but retention duration can be increased to up to two years. Learn how to [manage usage and costs with Azure Monitor Logs](../azure-monitor/logs/cost-logs.md). After you select the pricing tier, you can [Change the data retention period](../azure-monitor/logs/data-retention-archive.md).
 
 ## Next steps
 

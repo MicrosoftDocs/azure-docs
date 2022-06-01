@@ -11,7 +11,7 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.author: ryanwi
-ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
+ms.reviewer: marsma, ludwignick
 ms.custom: aaddev
 ROBOTS: NOINDEX
 ---

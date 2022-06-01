@@ -34,11 +34,12 @@ The container also has the following container-specific configuration settings:
 |No|Queue:Azure:QueueVisibilityTimeoutInMilliseconds | v3.x containers only. The time for a message to be invisible when another worker is processing it. |
 |No|Storage::DocumentStore::MongoDB|v2.0 containers only. Enables MongoDB for permanent result storage. |
 |No|Storage:ObjectStore:AzureBlob:ConnectionString| v3.x containers only. Azure blob storage connection string. |
-|No|Storage:TimeToLiveInDays| v3.x containers only. Result expiration period in days. The setting specifies when the system should clear recognition results. The default is 2 days (48 hours), which means any result live for longer than that period is not guaranteed to be successfully retrieved. |
+|No|Storage:TimeToLiveInDays| v3.x containers only. Result expiration period in days. The setting specifies when the system should clear recognition results. The default is 2 days, which means any result live for longer than that period is not guaranteed to be successfully retrieved. The value is integer and it must be between 1 day to 7 days.|
+|No|StorageTimeToLiveInMinutes| v3.2-model-2021-09-30-preview and new containers. Result expiration period in minutes. The setting specifies when the system should clear recognition results. The default is 2 days (2880 minutes), which means any result live for longer than that period is not guaranteed to be successfully retrieved. The value is integer and it must be between 60 minutes to 7 days (10080 minutes).|
 |No|Task:MaxRunningTimeSpanInMinutes| v3.x containers only. Maximum running time for a single request. The default is 60 minutes. |
-|No|EnableSyncNTPServer| v3.x containers only. Enables the NTP server synchronization mechanism, which ensures synchronization between the system time and expected task runtime. Note that this requires external network traffic. The default is `true`. |
-|No|NTPServerAddress| v3.x containers only. NTP server for the time sync-up. The default is `time.windows.com`. |
-|No|Mounts::Shared| v3.x containers only. Local folder for storing recognition result. The default is `/share`. For running container without using Azure blob storage, we recommend mounting a volume to this folder to ensure you have enough space for the recognition results. |
+|No|EnableSyncNTPServer| v3.x containers only, except for v3.2-model-2021-09-30-preview and newer containers. Enables the NTP server synchronization mechanism, which ensures synchronization between the system time and expected task runtime. Note that this requires external network traffic. The default is `true`. |
+|No|NTPServerAddress| v3.x containers only, except for v3.2-model-2021-09-30-preview and newer containers. NTP server for the time sync-up. The default is `time.windows.com`. |
+|No|Mounts:Shared| v3.x containers only. Local folder for storing recognition result. The default is `/share`. For running container without using Azure blob storage, we recommend mounting a volume to this folder to ensure you have enough space for the recognition results. |
 
 ## ApiKey configuration setting
 
@@ -125,8 +126,8 @@ The following Docker examples are for the Read OCR container.
 ### Basic example
 
 ```bash
-docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.2 \
+docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2022-04-30 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -136,8 +137,8 @@ ApiKey={API_KEY}
 ### Logging example 
 
 ```bash
-docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.2 \
+docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-model-2022-04-30 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -149,7 +150,7 @@ Logging:Console:LogLevel:Default=Information
 ### Basic example
 
 ```bash
-docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
 mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview \
 Eula=accept \
 Billing={ENDPOINT_URI} \
@@ -160,7 +161,7 @@ ApiKey={API_KEY}
 ### Logging example 
 
 ```bash
-docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
+docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
 mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview \
 Eula=accept \
 Billing={ENDPOINT_URI} \

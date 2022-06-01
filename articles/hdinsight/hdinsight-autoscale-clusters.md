@@ -247,7 +247,8 @@ It can take 10 to 20 minutes for the overall scaling operation to complete. When
 
 During the cluster scaling down process, Autoscale decommissions the nodes to meet the target size. In case of load based autoscaling, If tasks are running on those nodes, Autoscale waits until the tasks are completed for Spark and Hadoop clusters. Since each worker node also serves a role in HDFS, the temporary data is shifted to the remaining worker nodes. Make sure there's enough space on the remaining nodes to host all temporary data.
 
-In case of schedule-based Autoscale scale-down, graceful decommission is not supported. This can cause job failures during a scale down operation, and it is recommended to plan schedules based on the anticipated job schedule patterns to include sufficient time for the ongoing jobs to conclude. You can set the schedules looking at historical spread of completion times so as to avoid job failures.
+> [!Note]
+> In case of schedule-based Autoscale scale-down, graceful decommission is not supported. This can cause job failures during a scale down operation, and it is recommended to plan schedules based on the anticipated job schedule patterns to include sufficient time for the ongoing jobs to conclude. You can set the schedules looking at historical spread of completion times so as to avoid job failures.
 
 ### Configure schedule-based Autoscale based on usage pattern
 

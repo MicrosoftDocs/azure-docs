@@ -7,7 +7,7 @@ author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 01/16/2022
 ms.author: eur
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
@@ -33,7 +33,7 @@ As your first step, see [Get started with speech translation](get-started-speech
 
 ## Sample code
 
-You'll find [Speech SDK speech-to-text and translation samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk) on GitHub. These samples cover common scenarios, such as reading audio from a file or stream, continuous and at-start recognition and translation, and working with custom models.
+You'll find [Speech SDK speech-to-text and translation samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk) on GitHub. These samples cover common scenarios, such as reading audio from a file or stream, continuous and single-shot recognition and translation, and working with custom models.
 
 ## Migration guides
 
@@ -48,6 +48,5 @@ If your applications, tools, or products are using the [Translator Speech API](.
 
 ## Next steps
 
-* Read the [Get started with speech translation](get-started-speech-translation.md) quickstart article.
-* Get a [Speech service subscription key for free](overview.md#try-the-speech-service-for-free).
-* Get the [Speech SDK](speech-sdk.md).
+* Complete the [speech translation quickstart](get-started-speech-translation.md)
+* Get the [Speech SDK](speech-sdk.md)

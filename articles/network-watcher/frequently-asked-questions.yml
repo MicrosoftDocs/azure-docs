@@ -8,13 +8,11 @@ metadata:
   manager:
   editor:
   ms.service: network-watcher
-  ms.topic: article
+  ms.topic: faq
   ms.tgt_pltfrm: na
   ms.workload:  infrastructure-services
   ms.date: 01/07/2021
   ms.author: damendo
-  
-    
 title: "Frequently asked questions (FAQ) about Azure Network Watcher"
 summary: |
   The [Azure Network Watcher](./network-watcher-monitoring-overview.md) service provides a suite of tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network. This article answers common questions about the service.
@@ -98,7 +96,7 @@ sections:
       - question: |
           Why is only one instance of Network Watcher allowed per region? 
         answer: |
-          Network Watcher just needs to be enabled once for a subscription for it's features to work, this is a not a service limit.
+          Network Watcher just needs to be enabled once for a subscription for its features to work, this is a not a service limit.
 
       - question: |
           How can I manage the Network Watcher Resource? 

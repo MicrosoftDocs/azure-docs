@@ -268,7 +268,7 @@ from requests import Request
 from mmlspark.io.http import HTTPTransformer, http_udf
 from pyspark.sql.functions import udf, col
 
-# Use any requests from the python requests library
+# Use any requests from the Python requests library
 def world_bank_request(country):
   return Request("GET", "http://api.worldbank.org/v2/country/{}?format=json".format(country))
 

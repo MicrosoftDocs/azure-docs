@@ -55,7 +55,7 @@ After making changes, click **OK** to update the storage target, or click **Canc
 
 [Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
-To change a blob storage target's namespace with the Azure CLI, use the command [az hpc-cache blob-storage-target update](/cli/azure/hpc-cache/blob-storage-target#az_hpc_cache_blob_storage_target_update). Only the `--virtual-namespace-path` value can be changed.
+To change a blob storage target's namespace with the Azure CLI, use the command [az hpc-cache blob-storage-target update](/cli/azure/hpc-cache/blob-storage-target#az-hpc-cache-blob-storage-target-update). Only the `--virtual-namespace-path` value can be changed.
 
   ```azurecli
   az hpc-cache blob-storage-target update --cache-name cache-name --name target-name \
@@ -138,7 +138,7 @@ Use the drop-down selector to choose a new usage model. Click **OK** to update t
 
 [Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
-Use the [az hpc-cache nfs-storage-target update](/cli/azure/hpc-cache/nfs-storage-target#az_hpc_cache_nfs_storage_target_update) command.
+Use the [az hpc-cache nfs-storage-target update](/cli/azure/hpc-cache/nfs-storage-target#az-hpc-cache-nfs-storage-target-update) command.
 
 The update command is nearly identical to the command that you use to add an NFS storage target. Refer to [Create an NFS storage target](hpc-cache-add-storage.md#create-an-nfs-storage-target) for details and examples.
 
@@ -146,7 +146,7 @@ To change the usage model, update the ``--nfs3-usage-model`` option. Example: ``
 
 The cache name, storage target name, and resource group values also are required.
 
-If you want to verify the names of the usage models, use the command [az hpc-cache usage-model list](/cli/azure/hpc-cache/usage-model#az_hpc_cache_usage-model-list).
+If you want to verify the names of the usage models, use the command [az hpc-cache usage-model list](/cli/azure/hpc-cache/usage-model#az-hpc-cache-usage-model-list).
 
 If the cache is stopped or not in a healthy state, the update will apply after the cache is healthy.
 

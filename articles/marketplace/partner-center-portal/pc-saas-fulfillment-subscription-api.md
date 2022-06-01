@@ -4,7 +4,7 @@ description: Learn how to use the Subscription APIs, which are part of the  the 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 12/08/2021
+ms.date: 03/07/2022
 author: arifgani
 ms.author: argani
 ---
@@ -40,7 +40,6 @@ Calling the Resolve API will return subscription details and status for SaaS sub
 |  `x-ms-correlationid` |  A unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers.  |
 |  `authorization`     |  A unique access token that identifies the publisher making this API call. The format is `"Bearer <accessaccess_token>"` when the token value is retrieved by the publisher as explained in [Get a token based on the Azure AD app](./pc-saas-registration.md#get-the-token-with-an-http-post). |
 |  `x-ms-marketplace-token`  | The purchase identification *token* parameter to resolve.  The token is passed in the landing page URL call when the customer is redirected to the SaaS partner's website (for example: `https://contoso.com/signup?token=<token><authorization_token>`). <br> <br>  Note that the *token* value being encoded is part of the landing page URL, so it needs to be decoded before it's used as a parameter in this API call.  <br> <br> Here's an example of an encoded string in the URL: `contoso.com/signup?token=ab%2Bcd%2Fef`, where *token* is `ab%2Bcd%2Fef`.  The same token decoded will be: `Ab+cd/ef` |
-| | |
 
 *Response codes:*
 
@@ -77,13 +76,16 @@ Response body example:
     "planId": "silver",
     "term": {
       "termUnit": "P1M",
-      "startDate": "2019-05-31",
-      "endDate": "2019-06-29"
+      "startDate": "2022-03-07T00:00:00Z",
+      "endDate": "2022-04-06T00:00:00Z"
     },
-    "isTest": true,
+      "autoRenew": true/false,
+    "isTest": true/false,
     "isFreeTrial": false,
     "allowedCustomerOperations": ["Delete", "Update", "Read"],
-    "sandboxType": "None",
+      "sandboxType": "None",
+      "lastModified": "0001-01-01T00:00:00",
+      "quantity": 5,
     "sessionMode": "None"
   }
 }
@@ -112,8 +114,7 @@ After the SaaS account is configured for an end user, the publisher must call th
 |  Parameter         | Value             |
 |  --------   |  ---------------  |
 | `ApiVersion`  |  Use 2018-08-31.   |
-| `subscriptionId` | The unique identifier of the purchased SaaS subscription.  This ID is obtained after resolving the commercial marketplace authorization token by using the [Resolve API](#resolve-a-purchased-subscription).
- |
+| `subscriptionId` | The unique identifier of the purchased SaaS subscription.  This ID is obtained after resolving the commercial marketplace authorization token by using the [Resolve API](#resolve-a-purchased-subscription). |
 
 *Request headers:*
 
@@ -129,18 +130,18 @@ After the SaaS account is configured for an end user, the publisher must call th
 ```json
 {  // needed for validation of the activation request
   "planId": "gold", // purchased plan, cannot be empty
-  "quantity": "" // purchased number of seats, can be empty if plan is not per seat
+  "quantity": "3" // purchased number of seats, can be empty if plan is not per seat
 }
 ```
 
 *Response codes:*
 
-Code: 200 
+Code: 200
 The subscription was marked as Subscribed on the Microsoft side.
 
 There is no response body for this call.
 
-Code: 400 
+Code: 400
 Bad request: validation failed.
 
 * `planId` doesn't exist in request payload.
@@ -185,7 +186,7 @@ The API returns paginated results of 100 per page.
 
 *Response codes:*
 
-Code: 200 
+Code: 200
 Returns the list of all existing subscriptions for all offers made by this publisher, based on the publisher's authorization token.
 
 *Response body example:*
@@ -199,24 +200,25 @@ Returns the list of all existing subscriptions for all offers made by this publi
       "publisherId": "contoso", // publisher ID
       "offerId": "offer1", // purchased offer ID
       "planId": "silver", // purchased plan ID
-      "quantity": "10", // purchased amount of seats, will be empty if plan is not per seat
+      "quantity": 10, // purchased amount of seats, will be empty if plan is not per seat
       "beneficiary": { // email address, user ID and tenant ID for which SaaS subscription was purchased.
         "emailId": " test@contoso.com",
         "objectId": "<guid>",
         "tenantId": "<guid>",
-        "pid": "<ID of the user>"
+        "puid": "<ID of the user>"
       },
       "purchaser": { // email address, user ID and tenant ID that purchased the SaaS subscription. These could be different from beneficiary information for reseller (CSP) purchase
         "emailId": " test@contoso.com",
         "objectId": "<guid>",
         "tenantId": "<guid>",
-        "pid": "<ID of the user>"
+        "puid": "<ID of the user>"
       },
       "term": { // The period for which the subscription was purchased.
-        "startDate": "2019-05-31", //format: YYYY-MM-DD. This is the date when the subscription was activated by the ISV and the billing started. This field is relevant only for Active and Suspended subscriptions.
-        "endDate": "2019-06-30", // This is the last day the subscription is valid. Unless stated otherwise, the automatic renew will happen the next day. This field is relevant only for Active and Suspended subscriptions.
+        "startDate": "2022-03-04T00:00:00Z", //format: YYYY-MM-DD. This is the date when the subscription was activated by the ISV and the billing started. This field is relevant only for Active and Suspended subscriptions.
+        "endDate": "2022-04-03T00:00:00Z", // This is the last day the subscription is valid. Unless stated otherwise, the automatic renew will happen the next day. This field is relevant only for Active and Suspended subscriptions.
         "termUnit": "P1M" // where P1M is monthly and P1Y is yearly. Also reflected in the startDate and endDate values
       },
+      "autoRenew": true,
       "allowedCustomerOperations": ["Read", "Update", "Delete"], // Indicates operations allowed on the SaaS subscription for beneficiary. For CSP-initiated purchases, this will always be "Read" because the customer cannot update or delete subscription in this flow.  Purchaser can perform all operations on the subscription.
       "sessionMode": "None", // not relevant
       "isFreeTrial": true, // true - the customer subscription is currently in free trial, false - the customer subscription is not currently in free trial. (Optional field -– if not returned, the value is false.)
@@ -249,6 +251,7 @@ Returns the list of all existing subscriptions for all offers made by this publi
         "endDate": "2020-04-30",
         "termUnit": "P1Y"
       },
+      "autoRenew": false
       "allowedCustomerOperations": ["Read"],
       "sessionMode": "None",
       "isFreeTrial": false,
@@ -307,28 +310,31 @@ Returns details for a SaaS subscription based on the `subscriptionId` provided.
   "publisherId": "contoso", // publisher ID
   "offerId": "offer1", // purchased offer ID
   "planId": "silver", // purchased plan ID
-  "quantity": "10", // purchased amount of seats, will be empty if plan is not per seat
+  "quantity": 10, // purchased amount of seats, will be empty if plan is not per seat
   "beneficiary": { // email address, user ID and tenant ID for which SaaS subscription is purchased.
     "emailId": "test@contoso.com",
     "objectId": "<guid>",
     "tenantId": "<guid>",
-    "pid": "<ID of the user>"
+    "puid": "<ID of the user>"
   },
   "purchaser": { // email address ,user ID and tenant ID that purchased the SaaS subscription.  These could be different from beneficiary information for reseller (CSP) scenario
     "emailId": "test@test.com",
     "objectId": "<guid>",
     "tenantId": "<guid>",
-    "pid": "<ID of the user>"
+    "puid": "<ID of the user>"
   },
   "allowedCustomerOperations": ["Read", "Update", "Delete"], // Indicates operations allowed on the SaaS subscription for beneficiary.  For CSP-initiated purchases, this will always be "Read" because the customer cannot update or delete subscription in this flow.  Purchaser can perform all operations on the subscription.
   "sessionMode": "None", // not relevant
   "isFreeTrial": false, // true - the customer subscription is currently in free trial, false - the customer subscription is not currently in free trial. Optional field – if not returned the value is false.
+  "autoRenew": true,
   "isTest": false, // not relevant
   "sandboxType": "None", // not relevant
+  "created": "2022-03-01T22:59:45.5468572Z",
+     "lastModified": "0001-01-01T00:00:00",
   "saasSubscriptionStatus": " Subscribed ", // Indicates the status of the operation: PendingFulfillmentStart, Subscribed, Suspended or Unsubscribed.
   "term": { // the period for which the subscription was purchased
-    "startDate": "2019-05-31", //format: YYYY-MM-DD. This is the date when the subscription was activated by the ISV and the billing started. This field is relevant only for Active and Suspended subscriptions.
-    "endDate": "2019-06-29", // This is the last day the subscription is valid. Unless stated otherwise, the automatic renew will happen the next day. This field is relevant only for Active and Suspended subscriptions.
+    "startDate": "2022-03-04T00:00:00Z", //format: YYYY-MM-DD. This is the date when the subscription was activated by the ISV and the billing started. This field is relevant only for Active and Suspended subscriptions.
+    "endDate": "2022-04-03T00:00:00Z", // This is the last day the subscription is valid. Unless stated otherwise, the automatic renew will happen the next day. This field is relevant only for Active and Suspended subscriptions.
     "termUnit": "P1M" //where P1M is monthly and P1Y is yearly. Also reflected in the startDate and endDate values.
   }
 }
@@ -383,11 +389,25 @@ Response body example:
       "planId": "Platinum001",
       "displayName": "Private platinum plan for Contoso", // display name of the plan as it appears in the marketplace
       "isPrivate": true //true or false
+      "description": "plan description",
+          "minQuantity": 5,
+          "maxQuantity": 100,
+          "hasFreeTrials": false,
+          "isPricePerSeat": true,
+          "isStopSell": false,
+          "market": "US",
     },
     {
       "planId": "gold",
       "displayName": "Gold plan for Contoso",
-      "isPrivate": false //true or false
+      "isPrivate": false //true or false,
+      "description": "gold plan details.",
+          "minQuantity": 1,
+          "maxQuantity": 5,
+          "hasFreeTrials": false,
+          "isPricePerSeat": true,
+          "isStopSell": false,
+          "market": "US",
     }
   ]
 }

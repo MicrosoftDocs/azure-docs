@@ -20,6 +20,7 @@ In the tables below we summarize these areas and availability of REST APIs and S
 Development of Calling and Chat applications can be accelerated by the  [Azure Communication Services UI library](./ui-library/ui-library-overview.md). The customizable UI library provides open-source UI components for Web and mobile apps, and a Microsoft Teams theme.
 
 ## SDKs
+
 | Assembly | Protocols| Environment | Capabilities|
 |--------|----------|---------|----------------------------------|
 | Azure Resource Manager | [REST](/rest/api/communication/communicationservice)| Service| Provision and manage Communication Services resources|
@@ -30,7 +31,7 @@ Development of Calling and Chat applications can be accelerated by the  [Azure C
 | Chat | [REST](/rest/api/communication/) with proprietary signaling | Client & Service | Add real-time text chat to your applications |
 | Calling | Proprietary transport | Client | Voice, video, screen-sharing, and other real-time communication |
 | Calling Server | [REST](/rest/api/communication/callautomation/server-calls) | Service| Make and manage calls, play audio, and configure recording |
-| Network Traversal | [REST](/azure/communication-services/concepts/network-traversal)| Service| Access TURN servers for low-level data transport |
+| Network Traversal | [REST](./network-traversal.md)| Service| Access TURN servers for low-level data transport |
 | UI Library | N/A | Client | Production-ready UI components for chat and calling apps |
 
 ### Languages and publishing locations
@@ -48,7 +49,7 @@ Publishing locations for individual SDK packages are detailed below.
 | Calling| [npm](https://www.npmjs.com/package/@azure/communication-calling) | [NuGet](https://www.NuGet.org/packages/Azure.Communication.Calling) | -| - | [GitHub](https://github.com/Azure/Communication/releases) | [Maven](https://search.maven.org/artifact/com.azure.android/azure-communication-calling/)| -|
 |Call Automation||[NuGet](https://www.NuGet.org/packages/Azure.Communication.CallingServer/)||[Maven](https://search.maven.org/artifact/com.azure/azure-communication-callingserver)
 |Network Traversal| [npm](https://www.npmjs.com/package/@azure/communication-network-traversal)|[NuGet](https://www.NuGet.org/packages/Azure.Communication.NetworkTraversal/) | [PyPi](https://pypi.org/project/azure-communication-networktraversal/) | [Maven](https://search.maven.org/search?q=a:azure-communication-networktraversal) | -|- | - |
-| UI Library| [npm](https://www.npmjs.com/package/@azure/communication-react) | - | - | - | - | - | [GitHub](https://github.com/Azure/communication-ui-library), [Storybook](https://azure.github.io/communication-ui-library/?path=/story/overview--page) |
+| UI Library| [npm](https://www.npmjs.com/package/@azure/communication-react) | - | - | - | [GitHub](https://github.com/Azure/communication-ui-library-ios) | [GitHub](https://github.com/Azure/communication-ui-library-android) | [GitHub](https://github.com/Azure/communication-ui-library), [Storybook](https://azure.github.io/communication-ui-library/?path=/story/overview--page) |
 | Reference Documentation | [docs](https://azure.github.io/azure-sdk-for-js/communication.html) | [docs](https://azure.github.io/azure-sdk-for-net/communication.html)| -| [docs](http://azure.github.io/azure-sdk-for-java/communication.html) | [docs](/objectivec/communication-services/calling/)| [docs](/java/api/com.azure.android.communication.calling)| -|
 
 ### SDK platform support details
@@ -63,10 +64,12 @@ Publishing locations for individual SDK packages are detailed below.
 Except for Calling, Communication Services packages target .NET Standard 2.0, which supports the platforms listed below.
 
 Support via .NET Framework 4.6.1
+
 - Windows 10, 8.1, 8 and 7
 - Windows Server 2012 R2, 2012 and 2008 R2 SP1
 
 Support via .NET Core 2.0:
+
 - Windows 10 (1607+), 7 SP1+, 8.1
 - Windows Server 2008 R2 SP1+
 - Max OS X 10.12+
@@ -78,13 +81,16 @@ Support via .NET Core 2.0:
 - Xamarin Mac 3.8
 
 The Calling package supports UWP apps build with .NET Native or C++/WinRT on:
+
 - Windows 10 10.0.17763
 - Windows Server 2019 10.0.17763
 
 ## REST APIs
+
 Communication Services APIs are documented alongside other [Azure REST APIs in docs.microsoft.com](/rest/api/azure/). This documentation will tell you how to structure your HTTP messages and offers guidance for using [Postman](../tutorials/postman-tutorial.md). REST interface documentation is also published in Swagger format on [GitHub](https://github.com/Azure/azure-rest-api-specs).
 
 ### REST API Throttles
+
 Certain REST APIs and corresponding SDK methods have throttle limits you should be mindful of. Exceeding these throttle limits will trigger a`429 - Too Many Requests` error response. These limits can be increased through [a request to Azure Support](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 | API| Throttle|

@@ -1,8 +1,8 @@
 ---
 title: Tutorial - Azure IoT smart meter monitoring | Microsoft Docs
 description: This tutorial shows you how to deploy and use the smart meter monitoring application template for IoT Central.
-author: op-ravi
-ms.author: omravi
+author: eross-msft
+ms.author: lizross
 ms.date: 12/23/2021
 ms.topic: tutorial
 ms.service: iot-central
@@ -10,9 +10,9 @@ services: iot-central
 manager: abjork
 ---
 
-# Tutorial: Deploy and walk through the smart meter monitoring app template
+# Tutorial: Deploy and walk through the smart meter monitoring application template
 
-The smart meters not only enable automated billing, but also advanced metering use cases such as real-time readings and bi-directional communication. The smart meter app template enables utilities and partners to monitor smart meters status and data, define alarms and notifications. It provides sample commands, such as disconnect meter and update software. The meter data can be set up to egress to other business applications and to develop custom solutions.
+The smart meters not only enable automated billing, but also advanced metering use cases such as real-time readings and bi-directional communication. The _smart meter monitoring_ application template enables utilities and partners to monitor smart meters status and data, define alarms and notifications. It provides sample commands, such as disconnect meter and update software. The meter data can be set up to egress to other business applications and to develop custom solutions.
 
 App's key functionalities:
 
@@ -23,9 +23,8 @@ App's key functionalities:
 - Built-in visualization and dashboards
 - Extensibility for custom solution development
 
-Use the IoT Central *smart meter monitoring* application template and the guidance in this article to develop an end-to-end smart meter monitoring solution.
 
-  :::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-app-architecture.png" alt-text="smart meter architecture.":::
+:::image type="content" source="media/tutorial-iot-central-smart-meter/smart-meter-app-architecture.png" alt-text="smart meter architecture.":::
 
 This architecture consists of the following components. Some solutions may not require every component listed here.
 
@@ -35,7 +34,7 @@ A smart meter is one of the most important devices among all the energy assets. 
 
 ### IoT Central platform
 
-When you build an IoT solution, Azure IoT Central simplifies the build process and helps to reduce the burden and costs of IoT management, operations, and development. With IoT Central, you can easily connect, monitor, and manage your Internet of Things (IoT) assets at scale. After you connect your smart meters to IoT Central, the app template uses built-in features such as device models, commands, and dashboards. The app template also uses the IoT Central storage for warm path scenarios such as near real-time meter data monitoring, analytics, rules, and visualization.
+When you build an IoT solution, Azure IoT Central simplifies the build process and helps to reduce the burden and costs of IoT management, operations, and development. With IoT Central, you can easily connect, monitor, and manage your Internet of Things (IoT) assets at scale. After you connect your smart meters to IoT Central, the application template uses built-in features such as device models, commands, and dashboards. The application template also uses the IoT Central storage for warm path scenarios such as near real-time meter data monitoring, analytics, rules, and visualization.
 
 ### Extensibility options to build with IoT Central
 

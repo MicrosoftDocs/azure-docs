@@ -1,11 +1,8 @@
 ---
 title: US Labor Force Statistics
-titleSuffix: Azure Open Datasets
 description: Learn how to use the US Labor Force Statistics dataset in Azure Open Datasets.
 ms.service: open-datasets
 ms.topic: sample
-author: peterclu
-ms.author: peterlu
 ms.date: 04/16/2021
 ---
 

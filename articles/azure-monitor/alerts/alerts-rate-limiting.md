@@ -4,7 +4,7 @@ description: Understand how Azure limits the number of possible SMS, email, Azur
 author: dkamstra
 ms.author: dukek
 ms.topic: conceptual
-ms.date: 3/12/2018
+ms.date: 2/23/2022
 ---
 
 # Rate limiting for Voice, SMS, emails, Azure App push notifications and webhook posts

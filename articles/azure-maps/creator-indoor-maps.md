@@ -3,7 +3,7 @@ title: Work with indoor maps in Azure Maps Creator
 description: This article introduces concepts that apply to Azure Maps Creator services
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 01/26/2022
+ms.date: 04/01/2022
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -57,7 +57,7 @@ Creator services create, store, and use various data types that are defined and 
 
 Creator collects indoor map data by converting an uploaded Drawing package. The Drawing package represents a constructed or remodeled facility. For information about Drawing package requirements, see [Drawing package requirements](drawing-requirements.md).
 
-Use the [Azure Maps Data Upload API](/rest/api/maps/data-v2/update-preview) to upload a Drawing package. After the Drawing packing is uploaded, the Data Upload API returns a user data identifier (`udid`). The `udid` can then be used to convert the uploaded package into indoor map data.
+Use the [Azure Maps Data Upload API](/rest/api/maps/data-v2/update) to upload a Drawing package. After the Drawing packing is uploaded, the Data Upload API returns a user data identifier (`udid`). The `udid` can then be used to convert the uploaded package into indoor map data.
 
 ## Convert a Drawing package
 
@@ -122,7 +122,7 @@ Applications can use the Render V2-Get Map Tile API to request tilesets. The til
 
 ### Web Feature Service API
 
-You can use the [Web Feature Service (WFS) API](/rest/api/maps/v2/wfs) to query datasets. WFS follows the [Open Geospatial Consortium API Features](http://docs.opengeospatial.org/DRAFTS/17-069r1.html). You can use the WFS API to query features within the dataset itself. For example, you can use WFS to find all mid-size meeting rooms of a specific facility and floor level.
+You can use the [Web Feature Service (WFS) API](/rest/api/maps/v2/wfs) to query datasets. WFS follows the [Open Geospatial Consortium API Features](http://docs.opengeospatial.org/DRAFTS/17-069r4.html). You can use the WFS API to query features within the dataset itself. For example, you can use WFS to find all mid-size meeting rooms of a specific facility and floor level.
 
 ### Alias API
 

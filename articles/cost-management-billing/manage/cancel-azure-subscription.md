@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 12/06/2021
+ms.date: 03/09/2022
 ms.author: banders
 ---
 
@@ -56,6 +56,16 @@ An account administrator without the service administrator or subscription owner
 
 If you purchased your support plan through the Azure website, Azure portal, or if you have one under a Microsoft Customer Agreement, you can cancel a support plan. If you purchased your support plan through a Microsoft representative or partner, contact them for assistance. 
 
+### Cancel a support plan bought from the Azure portal
+
+1. In the Azure portal, navigate to **Cost Management + Billing**.
+1. On the Overview page, find your plan and then select it.
+1. On the support plan page, select **Cancel**.
+1. In the Cancel support window, verify that you want to cancel and select **Yes, cancel**.  
+    :::image type="content" source="./media/cancel-azure-subscription/cancel-legacy-support-plan.png" alt-text="Screenshot showing the legacy Cancel support plan page." lightbox="./media/cancel-azure-subscription/cancel-legacy-support-plan.png" :::
+
+### Cancel a support plan for a Microsoft Customer Agreement
+
 1. In the Azure portal, navigate to **Cost Management + Billing**.
 1. Under **Billing**, select **Recurring charges**.
 1. On the right-hand side for the support plan line item, select the ellipsis (**...**) and select **Turn off auto-renewal**.
@@ -68,7 +78,7 @@ After you cancel, your services are disabled. That means your virtual machines a
 
 After your subscription is canceled, Microsoft waits 30 - 90 days before permanently deleting your data in case you need to access it or you change your mind. We don't charge you for keeping the data. To learn more, see [Microsoft Trust Center - How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 
-## Delete free trial or pay-as-you-go subscriptions
+## Delete subscriptions
 
 If you have a free trial or pay-as-you-go subscription, you don't have to wait 90 days for the subscription to automatically delete. You can delete your subscription *three days* after you cancel it. The **Delete subscription** option isn't available until three days after you cancel your subscription.
 

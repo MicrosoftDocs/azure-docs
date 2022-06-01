@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 11/19/2021
+ms.date: 04/27/2022
 ---
 
 # Azure Database for PostgreSQL output from Azure Stream Analytics (Preview)
@@ -47,6 +47,8 @@ The following table lists the property names and their description for creating 
 
 Partitioning needs to enabled and is based on the PARTITION BY clause in the query. When the Inherit Partitioning option is enabled, it follows the input partitioning for [fully parallelizable queries](stream-analytics-scale-jobs.md). 
 
+## Limitation
+Test connection functionality to Azure Database for PostgreSQL is not supported at the time of preview.
 
 ## Next steps
 

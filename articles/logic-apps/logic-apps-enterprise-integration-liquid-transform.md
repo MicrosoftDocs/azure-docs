@@ -5,8 +5,8 @@ services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, daviburg, logicappspm
-ms.topic: article
+ms.reviewer: estfan, daviburg, azla
+ms.topic: how-to
 ms.date: 07/25/2021
 
 # Customer intent: As a developer, I want to convert JSON and XML by using Liquid templates as maps in Azure Logic Apps

@@ -87,7 +87,7 @@ The cluster, SQL database, and other objects are created through the Azure porta
     |Bacpac File Name |Use the default value unless you want to use your own bacpac file.|
     |Location |Use the default value.|
 
-    The [logical SQL server](../../azure-sql/database/logical-servers.md) name will be  `<ClusterName>dbserver`. The database name will be `<ClusterName>db`. The default storage account name will be `e6qhezrh2pdqu`.
+    The [logical SQL server](/azure/azure-sql/database/logical-servers) name will be  `<ClusterName>dbserver`. The database name will be `<ClusterName>db`. The default storage account name will be `e6qhezrh2pdqu`.
 
 3. Select **I agree to the terms and conditions stated above**.
 

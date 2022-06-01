@@ -5,7 +5,7 @@ author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 12/20/2019
+ms.date: 03/16/2022
 ms.author: kgremban
 ms.custom: "mqtt, devx-track-azurecli, devx-track-csharp"
 # Customer intent: As a customer using Azure IoT Hub, I want to add information to the messages that come through my IoT hub and are sent to another endpoint. For example, I'd like to pass the IoT hub name to the application that reads the messages from the final endpoint, such as Azure Storage.
@@ -260,11 +260,6 @@ At this point, the resources are all set up and the message routing is configure
    | DeviceLocation | $twin.tags.location (assumes that the device twin has a location tag) | AzureStorageContainers > ContosoStorageEndpointEnriched |
    |customerID | 6ce345b8-1e4a-411e-9398-d34587459a3a | AzureStorageContainers > ContosoStorageEndpointEnriched |
 
-   > [!NOTE]
-   > If your device doesn't have a twin, the value you put in here will be stamped as a string for the value in the message enrichments. To see the device twin information, go to your hub in the portal and select **IoT devices**. Select your device, and then select **Device twin** at the top of the page.
-   >
-   > You can edit the twin information to add tags, such as location, and set it to a specific value. For more information, see [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md).
-
 3. When you're finished, your pane should look similar to this image:
 
    ![Table with all enrichments added](./media/tutorial-message-enrichments/all-message-enrichments.png)
@@ -272,6 +267,7 @@ At this point, the resources are all set up and the message routing is configure
 4. Select **Apply** to save the changes. Skip to the [Test message enrichments](#test-message-enrichments) section.
 
 ## Create and configure by using a Resource Manager template
+
 You can use a Resource Manager template to create and configure the resources, message routing, and message enrichments.
 
 1. Sign in to the Azure portal. Select **+ Create a Resource** to bring up a search box. Enter *template deployment*, and search for it. In the results pane, select **Template deployment (deploy using custom template)**.
@@ -318,6 +314,27 @@ You can use a Resource Manager template to create and configure the resources, m
 1. Select the check box to agree to the terms and conditions. Then select **Purchase** to continue with the template deployment.
 
 1. Wait for the template to be fully deployed. Select the bell icon at the top of the screen to check on the progress. When it's finished, continue to the [Test message enrichments](#test-message-enrichments) section.
+
+## Add location tag to the device twin
+
+One of the message enrichments configured on your IoT hub specifies a key of DeviceLocation with its value determined by the following device twin path: `$twin.tags.location`. If your device twin doesn't have a location tag, the twin path, `$twin.tags.location`, will be stamped as a string for the DeviceLocation value in the message enrichments.
+
+Follow these steps to add a location tag to your device's twin with the portal.
+
+1. Go to your IoT hub by selecting **Resource groups**. Then select the resource group set up for this tutorial (**ContosoResourcesMsgEn**). Find the IoT hub in the list, and select it. Select **Devices** on the left-pane of the IoT hub, then select your device (**Contoso-Test-Device**).
+
+1. Select the **Device twin** tab at the top of the device page and add the following line just before the closing brace at the bottom of the device twin. Then select **Save**.
+
+    ```json
+    		, "tags": {"location": "Plant 43"}
+
+    ```
+  
+    :::image type="content" source="./media/tutorial-message-enrichments/add-location-tag-to-device-twin.png" alt-text="Screenshot of adding location tag to device twin in Azure portal":::
+
+1. Wait about five minutes before continuing to the next section. It can take up to that long for updates to the device twin to be reflected in message enrichment values.
+
+To learn more about how device twin paths are handled with message enrichments, see [Message enrichments limitations](iot-hub-message-enrichments-overview.md#limitations). To learn more about device twins, see [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md).
 
 ## Test message enrichments
 
@@ -366,7 +383,7 @@ The messages in the container called **enriched** have the message enrichments i
 When you look at messages that have been enriched, you should see "my IoT Hub" with the hub name and the location and the customer ID, like this:
 
 ```json
-{"EnqueuedTimeUtc":"2019-05-10T06:06:32.7220000Z","Properties":{"level":"storage","my IoT Hub":"contosotesthubmsgen3276","devicelocation":"Plant 43","customerID":"6ce345b8-1e4a-411e-9398-d34587459a3a"},"SystemProperties":{"connectionDeviceId":"Contoso-Test-Device","connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}","connectionDeviceGenerationId":"636930642531278483","enqueuedTime":"2019-05-10T06:06:32.7220000Z"},"Body":"eyJkZXZpY2VJZCI6IkNvbnRvc28tVGVzdC1EZXZpY2UiLCJ0ZW1wZXJhdHVyZSI6MjkuMjMyMDE2ODQ4MDQyNjE1LCJodW1pZGl0eSI6NjQuMzA1MzQ5NjkyODQ0NDg3LCJwb2ludEluZm8iOiJUaGlzIGlzIGEgc3RvcmFnZSBtZXNzYWdlLiJ9"}
+{"EnqueuedTimeUtc":"2019-05-10T06:06:32.7220000Z","Properties":{"level":"storage","myIotHub":"contosotesthubmsgen3276","DeviceLocation":"Plant 43","customerID":"6ce345b8-1e4a-411e-9398-d34587459a3a"},"SystemProperties":{"connectionDeviceId":"Contoso-Test-Device","connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}","connectionDeviceGenerationId":"636930642531278483","enqueuedTime":"2019-05-10T06:06:32.7220000Z"},"Body":"eyJkZXZpY2VJZCI6IkNvbnRvc28tVGVzdC1EZXZpY2UiLCJ0ZW1wZXJhdHVyZSI6MjkuMjMyMDE2ODQ4MDQyNjE1LCJodW1pZGl0eSI6NjQuMzA1MzQ5NjkyODQ0NDg3LCJwb2ludEluZm8iOiJUaGlzIGlzIGEgc3RvcmFnZSBtZXNzYWdlLiJ9"}
 ```
 
 Here's an unenriched message. Notice that "my IoT Hub," "devicelocation," and "customerID" don't show up here because these fields are added by the enrichments. This endpoint has no enrichments.
@@ -381,7 +398,7 @@ To remove all of the resources you created in this tutorial, delete the resource
 
 ### Use the Azure CLI to clean up resources
 
-To remove the resource group, use the [az group delete](/cli/azure/group#az_group_delete) command. Recall that `$resourceGroup` was set to **ContosoResourcesMsgEn** at the beginning of this tutorial.
+To remove the resource group, use the [az group delete](/cli/azure/group#az-group-delete) command. Recall that `$resourceGroup` was set to **ContosoResourcesMsgEn** at the beginning of this tutorial.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup

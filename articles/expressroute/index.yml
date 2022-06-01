@@ -32,8 +32,16 @@ landingContent:
             url: expressroute-faqs.md
       - linkListType: learn
         links:
+          - text: Introduction to Azure ExpressRoute
+            url: /learn/modules/intro-to-azure-expressroute
           - text: Connect your on-premises network to the Microsoft global network using ExpressRoute
             url: /learn/modules/connect-on-premises-network-with-expressroute/   
+      - linkListType: reference
+        links:
+          - text: Pricing
+            url: https://azure.microsoft.com/en-us/pricing/details/expressroute/
+          - text: SLA agreement
+            url: https://azure.microsoft.com/en-us/support/legal/sla/
   # Card
   - title: Get started
     linkLists:
@@ -132,7 +140,7 @@ landingContent:
         links:
           - text: Azure CLI
             url: /cli/azure/network/express-route
-          - text: Azure Powershell
+          - text: Azure PowerShell
             url: /powershell/module/az.network#expressroute
           - text: REST
             url: /rest/api/expressroute

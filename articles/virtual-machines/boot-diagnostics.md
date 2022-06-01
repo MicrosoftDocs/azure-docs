@@ -108,6 +108,7 @@ Everything after API version 2020-06-01 supports managed boot diagnostics. For m
 - Managed storage accounts are supported in Resource Manager API version "2020-06-01" and later.
 - Azure Serial Console is currently incompatible with a managed storage account for boot diagnostics. Learn more about [Azure Serial Console](/troubleshoot/azure/virtual-machines/serial-console-overview).
 - Portal only supports the use of boot diagnostics with a managed storage account for single instance VMs.
+- Users canont configure a retention period for Managed Boot Diagnostics. The logs will be overwritten when the total size crosses 1 GB.
 
 ## Next steps
 

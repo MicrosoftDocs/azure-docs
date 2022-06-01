@@ -6,14 +6,15 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/02/2022
+ms.date: 05/05/2022
 
-ms.author: v-nisba
-author: NishthaBabith-V
+ms.author: justinha
+author: gargi-sinha
 manager: martinco
-ms.reviewer: rhicock
+ms.reviewer: tilarso
 
 ms.collection: M365-identity-device-management
+adobe-target: true
 ---
 # Plan an Azure Active Directory self-service password reset deployment
 
@@ -109,6 +110,10 @@ You can help users register quickly by deploying SSPR alongside another popular 
 Before deploying SSPR, you may opt to determine the number and the average cost of each password reset call. You can use this data post deployment to show the value SSPR is bringing to the organization.
 
 ### Combined registration for SSPR and Azure AD Multi-Factor Authentication
+
+> [!NOTE]
+> Starting on August 15th 2020, all new Azure AD tenants will be automatically enabled for combined registration. Tenants created after this date will be unable to utilize the legacy registration workflows.
+> After Sept. 30th, 2022, all existing Azure AD tenants will be automatically enabled for combined registration.
 
 We recommend that organizations use the [combined registration experience for Azure AD Multi-Factor Authentication and self-service password reset (SSPR)](howto-registration-mfa-sspr-combined.md). SSPR allows users to reset their password in a secure way using the same methods they use for Azure AD Multi-Factor Authentication. Combined registration is a single step for end users. To make sure you understand the functionality and end-user experience, see the [Combined security information registration concepts](concept-registration-mfa-sspr-combined.md).
 
@@ -252,7 +257,7 @@ To enable your support team's success, you can create a FAQ based on questions y
 | User isn't receiving a text or call on their office or cell phone| A user is trying to verify their identity via text or call but isn't receiving a text/call. |
 | User can't access the password reset portal| A user wants to reset their password but isn't enabled for password reset and can't access the page to update passwords. |
 | User can't set a new password| A user completes verification during the password reset flow but can't set a new password. |
-| User doesn't see a Reset Password link on a Windows 10 device| A user is trying to reset password from the Windows 10 lock screen, but the device is either not joined to Azure AD, or the Intune device policy isn't enabled |
+| User doesn't see a Reset Password link on a Windows 10 device| A user is trying to reset password from the Windows 10 lock screen, but the device is either not joined to Azure AD, or the Microsoft Endpoint Manager device policy isn't enabled |
 
 ### Plan rollback
 

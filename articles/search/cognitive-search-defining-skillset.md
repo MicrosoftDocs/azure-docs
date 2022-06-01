@@ -111,7 +111,7 @@ Inside the skillset definition, the skills array specifies which skills to execu
 ```
 
 > [!NOTE]
-> You can build complex skillsets with looping and branching using the [Conditional skill](cognitive-search-skill-conditional.md) to create the expressions. The syntax is based on the [JSON Pointer](https://tools.ietf.org/html/rfc6901) path notation, with a few modifications to identify nodes in the enrichment tree. A `"/"` traverses a level lower in the tree and `"*"` acts as a for-each operator in the context. Numerous examples in this article illustrate the syntax. 
+> You can build complex skillsets with looping and branching using the [Conditional skill](cognitive-search-skill-conditional.md) to create the expressions. The syntax is based on the [JSON Pointer](https://tools.ietf.org/html/rfc6901) path notation, with a few modifications to identify nodes in the enrichment tree. A `"/"` traverses a level lower in the tree and `"*"` acts as a for-each operator in the context. Numerous examples in this article illustrate the [the syntax](cognitive-search-skill-annotation-language.md). 
 
 ### How built-in skills are structured
 

@@ -1,15 +1,14 @@
 ---
 title: How to use OPENROWSET in serverless SQL pool
 description: This article describes syntax of OPENROWSET in serverless SQL pool and explains how to use arguments.
-services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: sql
-ms.date: 11/02/2021
+ms.date: 03/23/2022
 ms.author: fipopovi
 ms.reviewer: sngun
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, contperf-fy22q3
 ---
 
 # How to use OPENROWSET using serverless SQL pool in Azure Synapse Analytics
@@ -17,6 +16,9 @@ ms.custom: ignite-fall-2021
 The `OPENROWSET(BULK...)` function allows you to access files in Azure Storage. `OPENROWSET` function reads content of a remote data source (for example file) and returns the content as a set of rows. Within the serverless SQL pool resource, the OPENROWSET bulk rowset provider is accessed by calling the OPENROWSET function and specifying the BULK option.  
 
 The `OPENROWSET` function can be referenced in the `FROM` clause of a query as if it were a table name `OPENROWSET`. It supports bulk operations through a built-in BULK provider that enables data from a file to be read and returned as a rowset.
+
+> [!NOTE]
+> The OPENROWSET function is not supported in dedicated SQL pool.
 
 ## Data source
 
@@ -27,7 +29,7 @@ The `OPENROWSET` function can optionally contain a `DATA_SOURCE` parameter to sp
     ```sql
     SELECT *
     FROM OPENROWSET(BULK 'http://<storage account>.dfs.core.windows.net/container/folder/*.parquet',
-                    FORMAT = 'PARQUET') AS file
+                    FORMAT = 'PARQUET') AS [file]
     ```
 
 This is a quick and easy way to read the content of the files without pre-configuration. This option enables you to use the basic authentication option to access the storage (Azure AD passthrough for Azure AD logins and SAS token for SQL logins). 
@@ -38,7 +40,7 @@ This is a quick and easy way to read the content of the files without pre-config
     SELECT *
     FROM OPENROWSET(BULK '/folder/*.parquet',
                     DATA_SOURCE='storage', --> Root URL is in LOCATION of DATA SOURCE
-                    FORMAT = 'PARQUET') AS file
+                    FORMAT = 'PARQUET') AS [file]
     ```
 
 

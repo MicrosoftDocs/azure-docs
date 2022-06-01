@@ -4,9 +4,9 @@ description: Learn how to create a virtual machine (VM) offer from an approved b
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: emuench
-ms.author: krsh
-ms.date: 12/07/2021
+ms.author: edewebolton
+author: ebolton-cyber
+ms.date: 02/23/2022
 ---
 
 # Create a virtual machine using an approved base
@@ -84,6 +84,9 @@ Windows OS disks are generalized with the [sysprep](/windows-hardware/manufactur
 
 > [!WARNING]
 > After you run sysprep, turn the VM off until it's deployed because updates may run automatically. This shutdown will avoid subsequent updates from making instance-specific changes to the operating system or installed services. For more information about running sysprep, see [Generalize a Windows VM](../virtual-machines/generalize.md#windows).
+
+> [!NOTE]
+> If you have Microsoft Defender for Cloud (Azure Defender) enabled on the subscription where you are creating the VM to be captured and you do not want any VM created from this image to be enrolled in the Defender for Endpoint portal, ensure you disable Microsoft Defender for Cloud on the subscription or for the VM itself. If this is not disabled, any VM created from this image will be enrolled in the Defender for Endpoint portal even if the VM is deployed to a different tenant without Microsoft Defender for Cloud.
 
 ### For Linux
 

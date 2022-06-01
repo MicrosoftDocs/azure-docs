@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: automl
 ms.topic: tutorial
-ms.author: sacartac
+ms.author: larryfr
 ms.reviewer: nibaccam
-author: cartacioS
+author: blackmist
 ms.date: 10/21/2021
 ms.custom: automl
 # Customer intent: As a non-coding data scientist, I want to use automated machine learning to build a demand forecasting model.
@@ -79,7 +79,7 @@ Before you configure your experiment, upload your data file to your workspace in
         File format|Defines the layout and type of data stored in a file.| Delimited
         Delimiter|One or more characters for specifying the boundary between&nbsp; separate, independent regions in plain text or other data streams. |Comma
         Encoding|Identifies what bit to character schema table to use to read your dataset.| UTF-8
-        Column headers| Indicates how the headers of the dataset, if any, will be treated.| Use headers from the first file
+        Column headers| Indicates how the headers of the dataset, if any, will be treated.| Only first file has headers
         Skip rows | Indicates how many, if any, rows are skipped in the dataset.| None
 
     1. The **Schema** form allows for further configuration of your data for this experiment. 
@@ -194,11 +194,11 @@ For this experiment, deployment to a web service means that the bike share compa
 
 Once the run is complete, navigate back to parent run page by selecting **Run 1** at the top of your screen.
 
-In the **Best model summary** section, **StackEnsemble** is considered the best model in the context of this experiment, based on the **Normalized root mean squared error** metric.  
+In the **Best model summary** section, the best model in the context of this experiment, is selected based on the **Normalized root mean squared error metric.** 
 
 We deploy this model, but be advised, deployment takes about 20 minutes to complete. The deployment process entails several steps including registering the model, generating resources, and configuring them for the web service.
 
-1. Select **StackEnsemble** to open the model-specific page.
+1. Select **the best model** to open the model-specific page.
 
 1. Select the **Deploy** button located in the top-left area of the screen.
 

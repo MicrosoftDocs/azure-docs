@@ -1,58 +1,73 @@
 ---
 title: Configure a virtual network
-description: Learn how to configure an existing virtual network and subnet, and use them in a VM with Azure DevTest Labs
+description: Learn how to configure an existing virtual network and subnet to use for creating virtual machines in Azure DevTest Labs.
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.author: rosemalcolm
+author: RoseHJM
+ms.date: 02/15/2022
 ---
 
-# Configure a virtual network in Azure DevTest Labs
-As explained in the article [Add a VM to a lab](devtest-lab-add-vm.md), when you create a VM in a lab, you can specify a configured virtual network. 
-For example, you might need to access your corpnet resources from your VMs using the virtual network that was configured with ExpressRoute or site-to-site VPN.
+# Add a virtual network in Azure DevTest Labs
 
-This article explains how to add your existing virtual network into a lab's Virtual Network settings so that it is available to choose when creating VMs.
+In this article, you learn how to add a virtual network to a lab, and configure it for creating lab virtual machines (VMs).
 
-> [!NOTE]
-> To learn about costs associated with the Azure Virtual Network service, see [Pricing for Azure Virtual Network](../virtual-network/virtual-networks-overview.md#pricing).
+Azure DevTest Labs creates a new virtual network for each lab. If you have another virtual network, such as one configured with Azure ExpressRoute or site-to-site virtual private network (VPN), you can add it to your lab. You can then create lab VMs in that virtual network.
 
-## Configure a virtual network for a lab using the Azure portal
-The following steps walk you through adding an existing virtual network (and subnet) to a lab so that it can be used when creating a VM in the same lab. 
+## Add a virtual network to a lab
 
-1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Select **All Services**, and then select **DevTest Labs** from the list.
-1. From the list of labs, select the desired lab. 
-1. On the lab's main pane, select **Configuration and policies**.
+To add a configured virtual network and subnet to a lab, take the following steps:
 
-    ![Access the lab's configuration and policies](./media/devtest-lab-configure-vnet/policies-menu.png)
-1. In the **EXTERNAL RESOURCES** section, select **Virtual networks**. A list of virtual networks configured for the current lab is displayed as well as the default virtual network created for your lab. 
-1. Select **+ Add**.
+1. In the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040), on the **Overview** page for your lab, select **Configuration and policies** from the left navigation.
+
+   :::image type="content" source="./media/devtest-lab-configure-vnet/policies-menu.png" alt-text="Screenshot that shows the Configuration and policies menu for a lab.":::
+
+1. On the **Configuration and policies** page, in the left navigation under **External resources**, select **Virtual networks**.
+
+1. The **Virtual networks** page shows the lab's current virtual networks. Select **Add**.
    
-    ![Add an existing virtual network to your lab](./media/devtest-lab-configure-vnet/lab-settings-vnet-add.png)
-1. On the **Virtual network** pane, select **[Select virtual network]**.
-   
-    ![Select an existing virtual network](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet1.png)
-1. On the **Choose virtual network** pane, select the desired virtual network. A list is displayed showing all of the virtual networks that are under the same region in the subscription as the lab.
-1. After selecting a virtual network, you are returned to the **Virtual network** pane. Select the subnet in the list at the bottom.
+   :::image type="content" source="./media/devtest-lab-configure-vnet/lab-settings-vnet-add.png" alt-text="Screenshot that shows a lab's Virtual networks page with Add selected.":::
 
-    ![Subnet list](./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet2.png)
-    
-    The Lab Subnet pane is displayed.
+1. On the **Virtual network** page, select **Select virtual network**.
 
-    ![Lab subnet pane](./media/devtest-lab-configure-vnet/lab-subnet.png)
-     
-   - Specify a **Lab subnet name**.
-   - To allow a subnet to be used in lab VM creation, select **Use in virtual machine creation**.
-   - To enable a [shared public IP address](devtest-lab-shared-ip.md), select **Enable shared public IP**.
-   - To allow public IP addresses in a subnet, select **Allow public IP creation**.
-   - In the **Maximum virtual machines per user** field, specify the maximum VMs per user for each subnet. If you want an unrestricted number of VMs, leave this field blank.
-1. Select **OK** to close the Lab Subnet pane.
-1. Select **Save** to close the Virtual network pane.
+   :::image type="content" source="./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet1.png" alt-text="Screenshot that shows Select virtual network selected on the Virtual network page.":::
 
-Now that the virtual network is configured, it can be selected when creating a VM. 
-    To see how to create a VM and specify a virtual network, refer to the article, [Add a VM to a lab](devtest-lab-add-vm.md). 
+1. The **Choose virtual network** page appears, showing all virtual networks in the subscription that are in the same region as the lab. Select the virtual network you want to add.
 
-Azure's [Virtual Network Documentation](../virtual-network/index.yml) provides more information about how to use VNets, including how to set up and manage a VNet and connect it to your on-premises network.
+   :::image type="content" source="./media/devtest-lab-configure-vnet/choose-virtual-network.png" alt-text="Screenshot that shows the Choose virtual network page with a list of virtual networks.":::
 
-[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+1. The virtual network you chose shows on the **Virtual network** page. Select **Save**.
+
+1. The virtual network appears in the list on the lab's **Virtual networks** page. When the **Status** shows as **Ready**, select the new virtual network.
+
+   :::image type="content" source="./media/devtest-lab-configure-vnet/lab-subnet.png" alt-text="Screenshot that shows the added virtual network on the lab's Virtual networks page.":::
+
+1. The **Virtual network** page shows the subnets for the virtual network. Select a subnet to configure.
+
+1. On the **Lab Subnet** pane, select **Yes** or **No** under the following options:
+
+   - **Use in virtual machine creation** to allow or disallow VM creation in the subnet.
+   - **Enable shared public IP** to enable or disable a [shared public IP address](devtest-lab-shared-ip.md).
+   - **Allow public IP creation** to allow or disallow creating public IP addresses in the subnet.
+
+1. Under **Maximum virtual machines per user**, enter the maximum number of VMs each user can create in the subnet. If you don't want to restrict the number of VMs, leave this field blank.
+
+1. Select **Save**.
+
+   :::image type="content" source="./media/devtest-lab-configure-vnet/lab-settings-vnets-vnet2.png" alt-text="Screenshot that shows the settings for the Lab subnet pane.":::
+
+1. On the **Virtual network** page, select **Save** again.
+
+## Create VMs in a virtual network
+
+If you allowed VM creation in one of the subnets, you can now create lab VMs in the added virtual network.
+
+1. Follow the instructions at [Create and add virtual machines](devtest-lab-add-vm.md) to add a lab VM and select a VM base.
+1. On the **Create lab resource** screen, select the **Advanced settings** tab.
+1. Select the drop-down arrow in the **Virtual network** field, and select the virtual network you added.
+1. If necessary, select the drop-down arrow in the **Subnet Selector** field, and select the subnet you want.
+1. Proceed with VM creation.
 
 ## Next steps
-Once you have added the desired virtual network to your lab, the next step is to [add a VM to your lab](devtest-lab-add-vm.md).
+
+- For more information about how to set up, use, and manage virtual networks, see the [Azure virtual network documentation](../virtual-network/index.yml).
+- You can deploy [Azure Bastion](https://azure.microsoft.com/services/azure-bastion) in a new or existing virtual network to enable browser connection to your lab VMs. For more information, see [Enable browser connection to DevTest Labs VMs with Azure Bastion](enable-browser-connection-lab-virtual-machines.md).

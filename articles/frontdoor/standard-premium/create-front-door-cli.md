@@ -25,7 +25,7 @@ In this quickstart, you'll learn how to create an Azure Front Door Standard/Prem
 
 For this quickstart, you'll need two resource groups. One in *Central US* and the second in *East US*.
 
-Run [az group create](/cli/azure/group#az_group_create) to create resource groups.
+Run [az group create](/cli/azure/group#az-group-create) to create resource groups.
 
 ```azurecli
 az group create \
@@ -39,7 +39,7 @@ az group create \
 
 ## Create an Azure Front Door profile
 
-Run [az afd profile create](/cli/azure/afd/profile#az_afd_profile_create) to create an Azure Front Door profile.
+Run [az afd profile create](/cli/azure/afd/profile#az-afd-profile-create) to create an Azure Front Door profile.
 
 ```azurecli
 az afd profile create \
@@ -59,7 +59,7 @@ If you don't already have a web app, use the following script to set up two exam
 
 Before you can create the web apps you'll need two app service plans, one in *Central US* and the second in *East US*.
 
-Run [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create&preserve-view=true) to create your app service plans.
+Run [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create&preserve-view=true) to create your app service plans.
 
 ```azurecli
 az appservice plan create \
@@ -73,9 +73,9 @@ az appservice plan create \
 
 ### Create web apps
 
-Run [az webapp create](/cli/azure/webapp#az_webapp_create&preserve-view=true) to create a web app in each of the app service plans in the previous step. Web app names have to be globally unique.
+Run [az webapp create](/cli/azure/webapp#az-webapp-create&preserve-view=true) to create a web app in each of the app service plans in the previous step. Web app names have to be globally unique.
 
-Run [az webapp list-runtimes](/cli/azure/webapp#az_webapp_create&preserve-view=true) to see a list of built-in stacks for web apps.
+Run [az webapp list-runtimes](/cli/azure/webapp#az-webapp-create&preserve-view=true) to see a list of built-in stacks for web apps.
 
 ```azurecli
 az webapp create \
@@ -95,7 +95,7 @@ Make note of the default host name of each web app so you can define the backend
 
 ## Add an endpoint
 
-Run [az afd endpoint create](/cli/azure/afd/endpoint#az_afd_endpoint_create) to create an endpoint in your profile. You can create multiple endpoints in your profile after finishing the create experience.
+Run [az afd endpoint create](/cli/azure/afd/endpoint#az-afd-endpoint-create) to create an endpoint in your profile. You can create multiple endpoints in your profile after finishing the create experience.
 
 ```azurecli
 az afd endpoint create \
@@ -108,7 +108,7 @@ az afd endpoint create \
 
 ## Create an origin group
 
-Run [az afd origin-group create](/cli/azure/afd/origin-group#az_afd_origin_group_create) to create an origin group that contains your two web apps.
+Run [az afd origin-group create](/cli/azure/afd/origin-group#az-afd-origin-group-create) to create an origin group that contains your two web apps.
 
 ```azurecli
 az afd origin-group create \
@@ -126,7 +126,7 @@ az afd origin-group create \
 
 ## Add an origin to the group
 
-Run [az afd origin create](/cli/azure/afd/origin#az_afd_origin_create) to add an origin to your origin group.
+Run [az afd origin create](/cli/azure/afd/origin#az-afd-origin-create) to add an origin to your origin group.
 
 ```azurecli
 az afd origin create \
@@ -162,7 +162,7 @@ az afd origin create \
 
 ## Add a route
 
-Run [az afd route create](/cli/azure/afd/route#az_afd_route_create) to map your frontend endpoint to the origin group. This route forwards requests from the endpoint to *og1*.
+Run [az afd route create](/cli/azure/afd/route#az-afd-route-create) to map your frontend endpoint to the origin group. This route forwards requests from the endpoint to *og1*.
 
 ```azurecli
 az afd route create \
@@ -181,7 +181,7 @@ az afd route create \
 
 ### Create a WAF policy
 
-Run [az network front-door waf-policy create](/cli/azure/network/front-door/waf-policy#az_network_front_door_waf_policy_create) to create a WAF policy for one of your resource groups.
+Run [az network front-door waf-policy create](/cli/azure/network/front-door/waf-policy#az-network-front-door-waf-policy-create) to create a WAF policy for one of your resource groups.
 
 Create a new WAF policy for your Front Door. This example creates a policy that's enabled and in prevention mode.
     
@@ -199,7 +199,7 @@ az network front-door waf-policy create
 
 ### Create the security policy
 
-Run [az afd security-policy create](/cli/azure/afd/security-policy#az_afd_security_policy_create) to apply your WAF policy to the endpoint's default domain.
+Run [az afd security-policy create](/cli/azure/afd/security-policy#az-afd-security-policy-create) to apply your WAF policy to the endpoint's default domain.
 
 ```azurecli
 az afd security-policy create \
@@ -237,7 +237,7 @@ To test instant global failover, we'll use the following steps:
 
 When you don't need the resources for the Front Door, delete both resource groups. Deleting the resource groups also deletes the Front Door and all its related resources.
 
-Run [az group delete](/cli/azure/group#az_group_delete&preserve-view=true):
+Run [az group delete](/cli/azure/group#az-group-delete&preserve-view=true):
 
 ```azurecli
 az group delete \

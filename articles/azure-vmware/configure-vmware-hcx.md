@@ -48,7 +48,7 @@ In your data center, you can connect or pair the VMware HCX Cloud Manager in Azu
 > [!IMPORTANT]
 > Although the VMware Configuration Maximum tool describes site pairs maximum to be 25 between the on-premises HCX Connector and HCX Cloud Manager, licensing limits this to three for HCX Advanced and 10 for HCX Enterprise Edition.
 
-1. Sign in to your on-premises vCenter, and under **Home**, select **HCX**.
+1. Sign in to your on-premises vCenter Server, and under **Home**, select **HCX**.
 
 1. Under **Infrastructure**, select **Site Pairing** and select the **Connect To Remote Site** option (in the middle of the screen).
 
@@ -148,7 +148,7 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: C
 ## Create a service mesh
 
 >[!IMPORTANT]
->Make sure ports UDP 500/4500 are open between your on-premises VMware HCX Connector 'uplink' network profile addresses and the Azure VMware Solution HCX Cloud 'uplink' network profile addresses.
+>Make sure port UDP 4500 is open between your on-premises VMware HCX Connector 'uplink' network profile addresses and the Azure VMware Solution HCX Cloud 'uplink' network profile addresses.  (500 UDP was previously required in legacy versions of HCX.  See https://ports.vmware.com for latest information)
 
 
 1. Under **Infrastructure**, select **Interconnect** > **Service Mesh** > **Create Service Mesh**.

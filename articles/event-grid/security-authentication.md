@@ -18,6 +18,9 @@ Managed System Identity <br/>&<br/> Role-based access control | <p>Event Hubs</p
 |Bearer token authentication with Azure AD protected webhook | Webhook | See the [Authenticate event delivery to webhook endpoints](#authenticate-event-delivery-to-webhook-endpoints) section for details.. |
 Client secret as a query parameter | Webhook | See the [Using client secret as a query parameter](#using-client-secret-as-a-query-parameter) section for details. |
 
+> [!NOTE]
+> If you protect your Azure function with an Azure Active Directory app, you'll have to take the generic webhook approach using the HTTP trigger. Use the Azure function endpoint as a webhook URL when adding the subscription.
+
 ## Use system-assigned identities for event delivery
 You can enable a system-assigned managed identity for a topic or domain and use the identity to forward events to supported destinations such as Service Bus queues and topics, event hubs, and storage accounts.
 
@@ -40,7 +43,7 @@ You can secure the webhook endpoint that's used to receive events from Event Gri
 ### Using client secret as a query parameter
 You can also secure your webhook endpoint by adding query parameters to the webhook destination URL specified as part of creating an Event Subscription. Set one of the query parameters to be a client secret such as an [access token](https://en.wikipedia.org/wiki/Access_token) or a shared secret. Event Grid service includes all the query parameters in every event delivery request to the webhook. The webhook service can retrieve and validate the secret. If the client secret is updated, event subscription also needs to be updated. To avoid delivery failures during this secret rotation, make the webhook accept both old and new secrets for a limited duration before updating the event subscription with the new secret. 
 
-As query parameters could contain client secrets, they are handled with extra care. They are stored as encrypted and are not accessible to service operators. They are not logged as part of the service logs/traces. When retrieving the Event Subscription properties, destination query parameters aren't returned by default. For example: [--include-full-endpoint-url](/cli/azure/eventgrid/event-subscription#az_eventgrid_event_subscription_show) parameter is to be used in Azure [CLI](/cli/azure).
+As query parameters could contain client secrets, they are handled with extra care. They are stored as encrypted and are not accessible to service operators. They are not logged as part of the service logs/traces. When retrieving the Event Subscription properties, destination query parameters aren't returned by default. For example: [--include-full-endpoint-url](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-show) parameter is to be used in Azure [CLI](/cli/azure).
 
 For more information on delivering events to webhooks, see [Webhook event delivery](webhook-event-delivery.md)
 

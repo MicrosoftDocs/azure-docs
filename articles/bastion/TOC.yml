@@ -7,11 +7,11 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Configure Bastion from VM settings
+  - name: Deploy Bastion with default settings
     href: quickstart-host-portal.md
 - name: Tutorials
   items:
-  - name: Configure Bastion & connect
+  - name: Deploy Bastion with manual settings
     href: tutorial-create-host-portal.md
 - name: Concepts
   items:
@@ -21,8 +21,10 @@
     href: work-remotely-support.md
   - name: Bastion FAQ
     href: bastion-faq.md
-  - name: Configuration settings
+  - name: Bastion configuration settings
     href: configuration-settings.md
+  - name: VM connections and features
+    href: vm-about.md
   - name: Bastion and VNet peering
     href: vnet-peering.md
   - name: Work with NSGs
@@ -33,7 +35,7 @@
       href: /security/benchmark/azure/baselines/bastion-security-baseline?toc=/azure/bastion/TOC.json
 - name: How-to guides
   items:
-  - name: Configure a bastion host
+  - name: Deploy Bastion
     items:
     - name: Azure portal
       href: tutorial-create-host-portal.md
@@ -41,7 +43,7 @@
       href: bastion-create-host-powershell.md
     - name: Azure CLI
       href: create-host-cli.md
-  - name: Configure and manage bastion settings
+  - name: Configure Bastion settings
     items:
     - name: Upgrade a SKU
       href: upgrade-sku.md
@@ -51,6 +53,8 @@
         href: configure-host-scaling.md
       - name: Azure PowerShell
         href: configure-host-scaling-powershell.md
+    - name: Configure Kerberos authentication
+      href: kerberos-authentication-portal.md
   - name: Connect to a virtual machine
     items:
     - name: Windows VM
@@ -67,6 +71,8 @@
         href: bastion-connect-vm-ssh-linux.md
   - name: Connect to a VM - native client
     href: connect-native-client-windows.md
+  - name: Connect to a VM - IP address
+    href: connect-ip-address.md
   - name: Connect to a VM scale set
     href: bastion-connect-vm-scale-set.md
   - name: Connect to DevTest Labs VMs
@@ -77,7 +83,7 @@
       href: bastion-vm-copy-paste.md
     - name: Full screen view
       href: bastion-vm-full-screen.md
-    - name: Upload or download files - native client
+    - name: Upload or download files
       href: vm-upload-download-native.md
   - name: Monitoring
     items:

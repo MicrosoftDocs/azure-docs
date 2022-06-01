@@ -22,6 +22,10 @@
     href: quick-backup-vm-template.md
   - name: Back up a VM - Bicep template
     href: quick-backup-vm-bicep-template.md
+  - name: Back up Azure Database for PostgreSQL server - Azure portal
+    href: quick-backup-postgresql-database-portal.md
+  - name: Enable Multi-user authorization on Recovery Services vault
+    href: enable-multi-user-authorization-quickstart.md
 - name: Tutorials
   items:
   - name: Back up multiple Azure VMs
@@ -50,6 +54,8 @@
       href: tutorial-sap-hana-restore-cli.md
     - name: Manage backed up SAP HANA databases - CLI
       href: tutorial-sap-hana-manage-cli.md
+  - name: Configure Multi-user authorization (MUA) on Recovery Services vault
+    href: multi-user-authorization-tutorial.md
 - name: Concepts
   items:
   - name: Support matrices
@@ -106,6 +112,12 @@
       href: backup-azure-dpm-azure-server-faq.yml
     - name: FAQ-Azure Backup monitor alert
       href: backup-azure-monitor-alert-faq.yml
+    - name: FAQ-Protection against Ransomware
+      href: protect-backups-from-ransomware-faq.yml
+  - name: Security
+    items:
+    - name: Multi-user authorization
+      href: multi-user-authorization-concept.md
   - name: Backup architecture
     href: backup-architecture.md
   - name: Guidance and best practices
@@ -546,7 +558,7 @@
       href: query-backups-using-azure-resource-graph.md
     - name: Resource Manager templates
       href: backup-rm-template-samples.md
-  - name: Security
+  - name: Security and Ransomware protection
     items:
     - name: Overview
       href: security-overview.md
@@ -565,7 +577,11 @@
     - name: Delete protection for Azure file shares
       href: soft-delete-azure-file-share.md
     - name: Ransomware protection
-      href: ../security/fundamentals/backup-plan-to-protect-against-ransomware.md
+      items:
+      - name: Overview
+        href: ../security/fundamentals/backup-plan-to-protect-against-ransomware.md
+      - name: FAQ-Protection against Ransomware
+        href: protect-backups-from-ransomware-faq.yml
     - name: Security for hybrid backups
       href: backup-azure-security-feature.md
     - name: Private Endpoints

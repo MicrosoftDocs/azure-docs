@@ -2,7 +2,7 @@
 title: 'Tutorial: Host RESTful API with CORS'
 description: Learn how Azure App Service helps you host your RESTful APIs with CORS support. App Service can host both front-end web apps and back end APIs.
 ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
-ms.devlang: csharp, azurecli
+ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/28/2020
 ms.custom: "devx-track-csharp, mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seodec18, devx-track-azurecli"
@@ -164,7 +164,7 @@ Next, you enable the built-in CORS support in App Service for your API.
 
 ### Enable CORS 
 
-In the Cloud Shell, enable CORS to your client's URL by using the [`az webapp cors add`](/cli/azure/webapp/cors#az_webapp_cors_add) command. Replace the _&lt;app-name>_ placeholder.
+In the Cloud Shell, enable CORS to your client's URL by using the [`az webapp cors add`](/cli/azure/webapp/cors#az-webapp-cors-add) command. Replace the _&lt;app-name>_ placeholder.
 
 ```azurecli-interactive
 az webapp cors add --resource-group myResourceGroup --name <app-name> --allowed-origins 'http://localhost:5000'

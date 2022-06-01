@@ -1,8 +1,8 @@
 ---
 title: Store block blobs on devices - Azure IoT Edge | Microsoft Docs
 description: Understand tiering and time-to-live features, see supported blob storage operations, and connect to your blob storage account.
-author: kgremban
-ms.author: kgremban
+author: PatAltimore
+ms.author: patricka
 ms.reviewer: arduppal
 ms.date: 12/13/2019
 ms.topic: conceptual

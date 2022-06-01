@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 8/26/2021
+ms.date: 05/02/2020
 ms.custom: devx-track-csharp, mode-api
 ---
 
@@ -19,7 +19,6 @@ ms.custom: devx-track-csharp, mode-api
 > * [Python](create-mongodb-python.md)
 > * [Java](create-mongodb-java.md)
 > * [Node.js](create-mongodb-nodejs.md)
-> * [Xamarin](create-mongodb-xamarin.md)
 > * [Golang](create-mongodb-go.md)
 >  
 
@@ -30,13 +29,10 @@ This quickstart demonstrates how to:
 
 ## Prerequisites to run the sample app
 
-* [Visual Studio](https://www.visualstudio.com/downloads/)
+* Latest [!INCLUDE [cosmos-db-visual-studio](../includes/cosmos-db-visual-studio.md)]
 * [.NET 5.0](https://dotnet.microsoft.com/download/dotnet/5.0)
 * An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You can also [try Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments.
 
-If you don't already have Visual Studio, download [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload installed with setup.
-
-<a id="create-account"></a>
 ## Create a database account
 
 [!INCLUDE [cosmos-db-create-dbaccount](../includes/cosmos-db-create-dbaccount-mongodb.md)]
@@ -168,7 +164,7 @@ You've now updated your app with all the info it needs to communicate with Cosmo
 
 ## Load sample data
 
-[Download](https://www.mongodb.com/try/download/database-tools) [mongoimport](https://docs.mongodb.com/database-tools/mongoimport/#mongodb-binary-bin.mongoimport), a CLI tool that easily imports small amounts of JSON, CSV, or TSV data. We will use mongoimport to load the sample product data provided in the `Data` folder of this project.
+[Download](https://www.mongodb.com/try/download/database-tools) [mongoimport](https://docs.mongodb.com/database-tools/mongoimport/#mongodb-binary-bin.mongoimport), a CLI tool that easily imports small amounts of JSON, CSV, or TSV data. We'll use mongoimport to load the sample product data provided in the `Data` folder of this project.
 
 From the Azure portal, copy the connection information and enter it in the command below: 
 
@@ -197,7 +193,7 @@ mongoimport --host <HOST>:<PORT> -u <USERNAME> -p <PASSWORD> --db cosmicworks --
 
 From Visual Studio, select CTRL + F5 to run the app. The default browser is launched with the app.
 
-If you prefer the CLI, run the following command in a command window to start the sample app. This command will also install project dependencies and build the project, but will not automatically launch the browser.
+If you prefer the CLI, run the following command in a command window to start the sample app. This command will also install project dependencies and build the project, but won't automatically launch the browser.
 
 ```bash
 dotnet run
@@ -217,7 +213,7 @@ Enter any necessary parameters and select "Execute."
 
 ## Next steps
 
-In this quickstart, you've learned how to create an API for MongoDB account, create a database and a collection with code, and run a web API app. You can now import additional data to your database. 
+In this quickstart, you've learned how to create an API for MongoDB account, create a database and a collection with code, and run a web API app. You can now import other data to your database. 
 
 Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
 * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 

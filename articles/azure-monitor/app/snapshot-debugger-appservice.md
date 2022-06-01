@@ -2,11 +2,7 @@
 title: Enable Snapshot Debugger for .NET apps in Azure App Service | Microsoft Docs
 description: Enable Snapshot Debugger for .NET apps in Azure App Service
 ms.topic: conceptual
-author: cweining
-ms.author: cweining
 ms.date: 03/26/2019
-
-ms.reviewer: mbullwin
 ---
 
 # Enable Snapshot Debugger for .NET apps in Azure App Service
@@ -69,11 +65,11 @@ As of today, Snapshot Debugger only supports Azure AD authentication when you re
 Below you can find all the steps required to enable Azure AD for profiles ingestion:
 1. Create and add the managed identity you want to use to authenticate against your Application Insights resource to your App Service.
 
-   a.  For System-Assigned Managed identity, see the following [documentation](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=portal%2Chttp#add-a-system-assigned-identity)
+   a.  For System-Assigned Managed identity, see the following [documentation](../../app-service/overview-managed-identity.md?tabs=portal%2chttp#add-a-system-assigned-identity)
 
-   b.  For User-Assigned Managed identity, see the following [documentation](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=portal%2Chttp#add-a-user-assigned-identity)
+   b.  For User-Assigned Managed identity, see the following [documentation](../../app-service/overview-managed-identity.md?tabs=portal%2chttp#add-a-user-assigned-identity)
 
-2. Configure and enable Azure AD in your Application Insights resource. For more information, see the following [documentation](https://docs.microsoft.com/azure/azure-monitor/app/azure-ad-authentication?tabs=net#configuring-and-enabling-azure-ad-based-authentication)
+2. Configure and enable Azure AD in your Application Insights resource. For more information, see the following [documentation](./azure-ad-authentication.md?tabs=net#configuring-and-enabling-azure-ad-based-authentication)
 3. Add the following application setting, used to let Snapshot Debugger agent know which managed identity to use:
 
 For System-Assigned Identity:
@@ -135,6 +131,13 @@ For an Azure App Service, you can set app settings within the Azure Resource Man
   ]
 },
 ```
+
+## Not Supported Scenarios
+Below you can find scenarios where Snapshot Collector is not supported:
+
+|Scenario    | Side Effects | Recommendation |
+|------------|--------------|----------------|
+|When using the Snapshot Collector SDK in your application directly (.csproj) and you have enabled the advance option "Interop".| The local Application Insights SDK (including Snapshot Collector telemetry) will be lost, therefore, no Snapshots will be available.<br /><br />Your application could crash at startup with `System.ArgumentException: telemetryProcessorTypedoes not implement ITelemetryProcessor.`<br /><br />For more information about the Application Insights feature "Interop", see the [documentation.](./azure-web-apps-net-core.md#troubleshooting) | If you are using the advance option "Interop", use the codeless Snapshot Collector injection (enabled thru the Azure Portal UX) |
 
 ## Next steps
 

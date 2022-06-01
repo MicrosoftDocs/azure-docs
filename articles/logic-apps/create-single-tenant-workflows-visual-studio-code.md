@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/28/2022
+ms.date: 04/15/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -107,7 +107,7 @@ For more information, review the [Azurite documentation](https://github.com/Azur
 
     Currently, you can have both Consumption (multi-tenant) and Standard (single-tenant) extensions installed at the same time. The development experiences differ from each other in some ways, but your Azure subscription can include both Standard and Consumption logic app types. Visual Studio Code shows all the deployed logic apps in your Azure subscription, but organizes your apps under each extension, **Azure Logic Apps (Consumption)** and **Azure Logic Apps (Standard)**.
 
-* To use the [Inline Code Operations action](../logic-apps/logic-apps-add-run-inline-code.md) that runs JavaScript, install [Node.js versions 10.x.x, 11.x.x, or 12.x.x](https://nodejs.org/en/download/releases/).
+* To use the [Inline Code Operations action](../logic-apps/logic-apps-add-run-inline-code.md) that runs JavaScript, install [Node.js versions 12.x.x or 14.x.x](https://nodejs.org/en/download/releases/).
 
   > [!TIP]
   > For Windows, download the MSI version. If you use the ZIP version instead, you have to 
@@ -203,6 +203,11 @@ Before you can create your logic app, create a local project so that you can man
 1. Provide a name for your workflow and press Enter. This example uses `Fabrikam-Stateful-Workflow` as the name.
 
    ![Screenshot that shows the "Create new Stateful Workflow (3/4)" box and "Fabrikam-Stateful-Workflow" as the workflow name.](./media/create-single-tenant-workflows-visual-studio-code/name-your-workflow.png)
+
+   > [!NOTE]
+   > You might get an error named **azureLogicAppsStandard.createNewProject** with the error message, 
+   > **Unable to write to Workspace Settings because azureFunctions.suppressProject is not a registered configuration**. 
+   > If you do, try installing the [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions), either directly from the Visual Studio Marketplace or from inside Visual Studio Code.
 
    Visual Studio Code finishes creating your project, and opens the **workflow.json** file for your workflow in the code editor.
 
@@ -536,7 +541,7 @@ To test your logic app, follow these steps to start a debugging session, and fin
 
    1. Find the **Callback URL** value, which looks similar to this URL for the example Request trigger:
 
-      `http://localhost:7071/api/<workflow-name>/triggers/manual/invoke?api-version=2020-05-01-preview&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=<shared-access-signature>`
+      `http://localhost:7071/api/<workflow-name>/triggers/manual/invoke?api-version=2020-05-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=<shared-access-signature>`
 
       ![Screenshot that shows your workflow's overview page with callback URL](./media/create-single-tenant-workflows-visual-studio-code/find-callback-url.png)
 
@@ -580,6 +585,8 @@ To test your logic app, follow these steps to start a debugging session, and fin
 
    ![Screenshot that shows the workflow's overview page with run status and history](./media/create-single-tenant-workflows-visual-studio-code/post-trigger-call.png)
 
+   The following table shows the possible final statuses that each workflow run can have and show in Visual Studio Code:
+
    | Run status | Description |
    |------------|-------------|
    | **Aborted** | The run stopped or didn't finish due to external problems, for example, a system outage or lapsed Azure subscription. |
@@ -604,7 +611,7 @@ To test your logic app, follow these steps to start a debugging session, and fin
    > from a longer trigger name or action name that causes the underlying Uniform Resource Identifier (URI) to exceed 
    > the default character limit. For more information, see ["400 Bad Request"](#400-bad-request).
 
-   Here are the possible statuses that each step in the workflow can have:
+   The following table shows the possible statuses that each workflow action can have and show in Visual Studio Code:
 
    | Action status | Description |
    |---------------|-------------|

@@ -23,17 +23,15 @@ landingContent:
       - linkListType: video
         links:
           - text: Azure Friday - Scale your cloud app 
-            url: https://docs.microsoft.com/en-us/shows/azure-friday/scale-your-cloud-app-with-azure-cache-for-redis
+            url: /shows/azure-friday/scale-your-cloud-app-with-azure-cache-for-redis
           - text: Ask the Expert - The latest news
-            url: https://docs.microsoft.com/en-us/shows/ask-the-expert/ask-the-expert-the-latest-in-nosql-data-and-redis-on-azure
+            url: /shows/ask-the-expert/ask-the-expert-the-latest-in-nosql-data-and-redis-on-azure
       - linkListType: whats-new
         links:
           - text: Managed identity with Azure Cache for Redis
             url: cache-managed-identity.md
           - text: Create an Enterprise tier cache
             url: quickstart-create-redis-enterprise.md
-#          - text: Frequently asked questions
-#           url: cache-faq.yml
   - title: 'Quickstarts: Azure Cache for Redis'
     linkLists:
       - linkListType: quickstart
@@ -44,6 +42,8 @@ landingContent:
             url: cache-dotnet-core-quickstart.md
           - text: Code an ASP.NET web app
             url: cache-web-app-howto.md
+          - text: Code an ASP.NET Core web app
+            url: cache-web-app-aspnet-core-howto.md
           - text: Code a Java app
             url: cache-java-get-started.md
           - text: Code a Node.js app
@@ -116,4 +116,3 @@ landingContent:
             url: cache-troubleshoot-data-loss.md
           - text: Troubleshooting FAQs
             url: cache-monitor-troubleshoot-faq.yml
-            

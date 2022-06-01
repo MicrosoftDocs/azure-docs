@@ -17,7 +17,7 @@ ms.date: 01/20/2022
 - Owner
 - Manager
 
-The **Account Settings** page in Partner Center lets you use Azure AD to manage the users, groups, and Azure AD applications that have access to your Partner Center account. Your account must have Manager-level permissions for the [work account (Azure AD tenant)](company-work-accounts.md) in which you want to add or edit users. To manage users within a different work account / tenant, you will need to sign out and then sign back in as a user with **Manager** permissions on that work account / tenant.
+The **Account Settings** page in Partner Center lets you use Azure AD to manage the users, groups, and Azure AD applications that have access to your Partner Center account. Your account must have Manager-level permissions for the [work account (Azure AD tenant)](company-work-accounts.md) in which you want to add or edit users. To manage users within a different work account/tenant, you will need to sign out and then sign back in as a user with **Manager** permissions on that work account / tenant.
 
 After you are signed in with your work account (Azure AD tenant), you can add and manage users.
 

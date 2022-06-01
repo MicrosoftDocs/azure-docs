@@ -8,7 +8,7 @@ ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: overview
 ms.custom: mvc
-ms.date: 06/21/2021
+ms.date: 03/28/2022
 ms.author: mbaldwin
 author: msmbaldwin
 #Customer intent: As an IT Pro, Decision maker or developer I am trying to learn what Managed HSM is and if it offers anything that could be used in my organization.
@@ -43,7 +43,7 @@ For pricing information, please see Managed HSM Pools section on [Azure Key Vaul
 
 ### Integrated with Azure and Microsoft PaaS/SaaS services 
 
-- Generate (or import using [BYOK](hsm-protected-keys-byok.md)) keys and use them to encrypt your data at rest in Azure services such as [Azure Storage](../../storage/common/customer-managed-keys-overview.md), [Azure SQL](../../azure-sql/database/transparent-data-encryption-byok-overview.md), and [Azure Information Protection](/azure/information-protection/byok-price-restrictions).
+- Generate (or import using [BYOK](hsm-protected-keys-byok.md)) keys and use them to encrypt your data at rest in Azure services such as [Azure Storage](../../storage/common/customer-managed-keys-overview.md), [Azure SQL](/azure/azure-sql/database/transparent-data-encryption-byok-overview), [Azure Information Protection](/azure/information-protection/byok-price-restrictions), and [Customer Key for Microsoft 365](/microsoft-365/compliance/customer-key-set-up). For a more complete list of Azure services which work with Managed HSM, see [Data Encryption Models](../../security/fundamentals/encryption-models.md#supporting-services).
 
 ### Uses same API and management interfaces as Key Vault
 

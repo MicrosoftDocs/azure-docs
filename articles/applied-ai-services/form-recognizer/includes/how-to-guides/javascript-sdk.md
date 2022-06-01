@@ -95,7 +95,7 @@ With Form Recognizer, you can create two different client types. The first, `For
 
 ## Authenticate the client
 
-Authenticate a client object using the subscription variables you defined. You'll use an `AzureKeyCredential` object, so that if needed, you can update the API key without creating new client objects. You'll also create a training client object.
+Authenticate a client object using the subscription variables you defined. You'll use an `AzureKeyCredential` object, so that if needed, you can update the key without creating new client objects. You'll also create a training client object.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_auth)]
 
@@ -281,7 +281,7 @@ Document errors: undefined
 
 ## Analyze forms with a custom model
 
-This section demonstrates how to extract key/value information and other content from your custom form types, using models you trained with your own forms.
+This section demonstrates how to extract key/value information and other content from your custom template types, using models you trained with your own forms.
 
 > [!IMPORTANT]
 > In order to implement this scenario, you must have already trained a model so you can pass its ID into the method below. See the [Train a model](#train-a-model-without-labels) section.

@@ -25,42 +25,19 @@ To learn about metrics supported by other Azure services, see [Supported metrics
 
 **Topics in this section**
 
-- [Monitoring Azure IoT Hub data reference](#monitoring-azure-iot-hub-data-reference)
-  - [Metrics](#metrics)
-    - [Supported aggregations](#supported-aggregations)
-    - [Cloud to device command metrics](#cloud-to-device-command-metrics)
-    - [Cloud to device direct methods metrics](#cloud-to-device-direct-methods-metrics)
-    - [Cloud to device twin operations metrics](#cloud-to-device-twin-operations-metrics)
-    - [Configurations metrics](#configurations-metrics)
-    - [Daily quota metrics](#daily-quota-metrics)
-    - [Device metrics](#device-metrics)
-    - [Device telemetry metrics](#device-telemetry-metrics)
-    - [Device to cloud twin operations metrics](#device-to-cloud-twin-operations-metrics)
-    - [Event grid metrics](#event-grid-metrics)
-    - [Jobs metrics](#jobs-metrics)
-    - [Routing metrics](#routing-metrics)
-    - [Twin query metrics](#twin-query-metrics)
-  - [Metric dimensions](#metric-dimensions)
-  - [Resource logs](#resource-logs)
-    - [Connections](#connections)
-    - [Device telemetry](#device-telemetry)
-    - [Cloud-to-device commands](#cloud-to-device-commands)
-    - [Device identity operations](#device-identity-operations)
-    - [File upload operations](#file-upload-operations)
-    - [Routes](#routes)
-    - [Device-to-cloud twin operations](#device-to-cloud-twin-operations)
-    - [Cloud-to-device twin operations](#cloud-to-device-twin-operations)
-    - [Twin queries](#twin-queries)
-    - [Jobs operations](#jobs-operations)
-    - [Direct Methods](#direct-methods)
-    - [Distributed Tracing (Preview)](#distributed-tracing-preview)
-      - [IoT Hub D2C (device-to-cloud) logs](#iot-hub-d2c-device-to-cloud-logs)
-      - [IoT Hub ingress logs](#iot-hub-ingress-logs)
-      - [IoT Hub egress logs](#iot-hub-egress-logs)
-    - [Configurations](#configurations)
-    - [Device Streams (Preview)](#device-streams-preview)
-  - [Azure Monitor Logs tables](#azure-monitor-logs-tables)
-  - [See Also](#see-also)
+- [Supported aggregations](#supported-aggregations)
+- [Cloud to device command metrics](#cloud-to-device-command-metrics)
+- [Cloud to device direct methods metrics](#cloud-to-device-direct-methods-metrics)
+- [Cloud to device twin operations metrics](#cloud-to-device-twin-operations-metrics)
+- [Configurations metrics](#configurations-metrics)
+- [Daily quota metrics](#daily-quota-metrics)
+- [Device metrics](#device-metrics)
+- [Device telemetry metrics](#device-telemetry-metrics)
+- [Device to cloud twin operations metrics](#device-to-cloud-twin-operations-metrics)
+- [Event grid metrics](#event-grid-metrics)
+- [Jobs metrics](#jobs-metrics)
+- [Routing metrics](#routing-metrics)
+- [Twin query metrics](#twin-query-metrics)
 
 ### Supported aggregations
 
@@ -197,7 +174,7 @@ For metrics with a **Unit** value of **Count**, only total (sum) aggregation is 
 
 |Metric Display Name|Metric|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-| Routing Delivery Attempts (preview) |RoutingDeliveries | Count | Total |This is the routing delivery metric. Use the dimensions to identify the delivery status for a specific endpoint or for a specific routing source.| Result,<br>RoutingSource,<br>EndpointType,<br>FailureReasonCategory,<br>EndpointName<br>*For more information, see [Metric dimensions](#metric-dimensions)*. |
+| Routing Deliveries (preview) |RoutingDeliveries | Count | Total |This is the routing delivery metric. Use the dimensions to identify the delivery status for a specific endpoint or for a specific routing source.| Result,<br>RoutingSource,<br>EndpointType,<br>FailureReasonCategory,<br>EndpointName<br>*For more information, see [Metric dimensions](#metric-dimensions)*. |
 | Routing Delivery Data Size In Bytes (preview)|RoutingDataSizeInBytesDelivered| Bytes | Total |The total number of bytes routed by IoT Hub to custom endpoint and built-in endpoint. Use the dimensions to identify data size routed to a specific endpoint or for a specific routing source.| RoutingSource,<br>EndpointType<br>EndpointName<br>*For more information, see [Metric dimensions](#metric-dimensions)*.|
 | Routing Latency (preview) |RoutingDeliveryLatency| Milliseconds | Average |This is the routing delivery latency metric. Use the dimensions to identify the latency for a specific endpoint or for a specific routing source.| RoutingSource,<br>EndpointType,<br>EndpointName<br>*For more information, see [Metric dimensions](#metric-dimensions)*.|
 |Routing: blobs delivered to storage|d2c.endpoints.egress.storage.blobs|Count|Total|The number of times IoT Hub routing delivered blobs to storage endpoints.|None|
@@ -248,46 +225,27 @@ To learn more about metric dimensions, see [Multi-dimensional metrics](../azure-
 
 ## Resource logs
 
-This section lists all the resource log category types and schemas collected for Azure IoT Hub. The resource provider and type for all IoT Hub logs is [Microsoft.Devices/IotHubs](../azure-monitor/essentials/resource-logs-categories.md#microsoftdevicesiothubs).
+This section lists all the resource log category types and schemas collected for Azure IoT Hub. The resource provider and type for all IoT Hub logs is [Microsoft.Devices/IotHubs](../azure-monitor/essentials/resource-logs-categories.md#microsoftdevicesiothubs). Be aware that events are emitted only for errors in some categories.
 
 **Topics in this section**
 
-- [Monitoring Azure IoT Hub data reference](#monitoring-azure-iot-hub-data-reference)
-  - [Metrics](#metrics)
-    - [Supported aggregations](#supported-aggregations)
-    - [Cloud to device command metrics](#cloud-to-device-command-metrics)
-    - [Cloud to device direct methods metrics](#cloud-to-device-direct-methods-metrics)
-    - [Cloud to device twin operations metrics](#cloud-to-device-twin-operations-metrics)
-    - [Configurations metrics](#configurations-metrics)
-    - [Daily quota metrics](#daily-quota-metrics)
-    - [Device metrics](#device-metrics)
-    - [Device telemetry metrics](#device-telemetry-metrics)
-    - [Device to cloud twin operations metrics](#device-to-cloud-twin-operations-metrics)
-    - [Event grid metrics](#event-grid-metrics)
-    - [Jobs metrics](#jobs-metrics)
-    - [Routing metrics](#routing-metrics)
-    - [Twin query metrics](#twin-query-metrics)
-  - [Metric dimensions](#metric-dimensions)
-  - [Resource logs](#resource-logs)
-    - [Connections](#connections)
-    - [Device telemetry](#device-telemetry)
-    - [Cloud-to-device commands](#cloud-to-device-commands)
-    - [Device identity operations](#device-identity-operations)
-    - [File upload operations](#file-upload-operations)
-    - [Routes](#routes)
-    - [Device-to-cloud twin operations](#device-to-cloud-twin-operations)
-    - [Cloud-to-device twin operations](#cloud-to-device-twin-operations)
-    - [Twin queries](#twin-queries)
-    - [Jobs operations](#jobs-operations)
-    - [Direct Methods](#direct-methods)
-    - [Distributed Tracing (Preview)](#distributed-tracing-preview)
-      - [IoT Hub D2C (device-to-cloud) logs](#iot-hub-d2c-device-to-cloud-logs)
-      - [IoT Hub ingress logs](#iot-hub-ingress-logs)
-      - [IoT Hub egress logs](#iot-hub-egress-logs)
-    - [Configurations](#configurations)
-    - [Device Streams (Preview)](#device-streams-preview)
-  - [Azure Monitor Logs tables](#azure-monitor-logs-tables)
-  - [See Also](#see-also)
+- [Connections](#connections)
+- [Device telemetry](#device-telemetry)
+- [Cloud-to-device commands](#cloud-to-device-commands)
+- [Device identity operations](#device-identity-operations)
+- [File upload operations](#file-upload-operations)
+- [Routes](#routes)
+- [Device-to-cloud twin operations](#device-to-cloud-twin-operations)
+- [Cloud-to-device twin operations](#cloud-to-device-twin-operations)
+- [Twin queries](#twin-queries)
+- [Jobs operations](#jobs-operations)
+- [Direct Methods](#direct-methods)
+- [Distributed Tracing (Preview)](#distributed-tracing-preview)
+  - [IoT Hub D2C (device-to-cloud) logs](#iot-hub-d2c-device-to-cloud-logs)
+  - [IoT Hub ingress logs](#iot-hub-ingress-logs)
+  - [IoT Hub egress logs](#iot-hub-egress-logs)
+- [Configurations](#configurations)
+- [Device Streams (Preview)](#device-streams-preview)
 
 ### Connections
 
@@ -312,6 +270,8 @@ The connections category tracks device connect and disconnect events from an IoT
     ]
 }
 ```
+
+For detailed information about using connections logs to monitor device connectivity, see [Monitor, diagnose, and troubleshoot device connectivity to Azure IoT Hub](iot-hub-troubleshoot-connectivity.md).
 
 ### Device telemetry
 

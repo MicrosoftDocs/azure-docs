@@ -3,12 +3,11 @@ metadata:
   title: Windows 10 Enterprise multi-session FAQ - Azure
   description: Frequently asked questions and best practices for using Windows 10 Enterprise multi-session for Azure Virtual Desktop.
   author: Heidilohr
-  ms.topic: article
+  ms.topic: faq
   ms.prod: windows
   ms.date: 01/04/2022
   ms.author: helohr
   manager: femila
-    
 title: Windows 10 Enterprise multi-session FAQ
 summary: This article answers frequently asked questions and explains best practices for Windows 10 Enterprise multi-session.
 
@@ -35,7 +34,7 @@ sections:
         answer: No. It's not currently possible to upgrade an existing virtual machine (VM) that's running Windows 10 Professional or Enterprise to Windows 10 Enterprise multi-session. Also, if you deploy a Windows 10 Enterprise multi-session VM and then update the product key to another edition, you won't be able to switch the VM back to Windows 10 Enterprise multi-session and will need to redeploy the VM. Changing your Azure Virtual Desktop VM SKU to another edition is not supported.
         
       - question: Does Windows 10 Enterprise multi-session support Remote Desktop IP Virtualization?
-        answer: No. Azure Virtual Desktop [supported virtual machine OS images](overview.md#supported-virtual-machine-os-images) do not support Remote Desktop IP Virtualization. 
+        answer: No. Azure Virtual Desktop [supported virtual machine OS images](prerequisites.md#operating-systems-and-licenses) do not support Remote Desktop IP Virtualization. 
 
       - question: How do I customize the Windows 10 Enterprise multi-session image for my organization?
         answer: |

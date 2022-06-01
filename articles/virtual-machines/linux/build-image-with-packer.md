@@ -37,7 +37,7 @@ Packer authenticates with Azure using a service principal. An Azure service prin
 Create a service principal with [az ad sp create-for-rbac](/cli/azure/ad/sp) and output the credentials that Packer needs:
 
 ```azurecli
-az ad sp create-for-rbac --role Contributor --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
+az ad sp create-for-rbac --role Contributor --scopes /subscriptions/<subscription_id> --query "{ client_id: appId, client_secret: password, tenant_id: tenant }"
 ```
 
 An example of the output from the preceding commands is as follows:
@@ -207,7 +207,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-If you wish to create VMs in a different resource group or region than your Packer image, specify the image ID rather than image name. You can obtain the image ID with [az image show](/cli/azure/image#az_image_show).
+If you wish to create VMs in a different resource group or region than your Packer image, specify the image ID rather than image name. You can obtain the image ID with [az image show](/cli/azure/image#az-image-show).
 
 It takes a few minutes to create the VM. Once the VM has been created, take note of the `publicIpAddress` displayed by the Azure CLI. This address is used to access the NGINX site via a web browser.
 

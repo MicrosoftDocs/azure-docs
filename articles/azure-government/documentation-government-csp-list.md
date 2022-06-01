@@ -93,7 +93,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[CGI Federal, Inc.](https://www.cgi.com/en/us-federal)|
 |[CGI Technologies and Solutions Inc.](https://www.cgi.com)|
 |[Ciellos Inc.](https://www.ciellos.com/)|
-|[Ciracom Inc.](https://ciracom.com)|
+|[Ciracom Inc.](https://www.ciracomcloud.com)|
 |[Clients First Business Solutions LLC](https://www.clientsfirst-us.com)|
 |[ClearShark](https://clearshark.com/)|
 |[CloudFit Software, LLC](https://www.cloudfitsoftware.com/)|
@@ -144,7 +144,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Doublehorn, LLC](https://doublehorn.com/)|
 |[DXC Technology Services LLC](https://www.dxc.technology/services)|
 |[DXL Enterprises, Inc.](https://mahwahnjcoc.wliinc31.com/Supply-Chain-Management/DXL-Enterprises,-Inc-1349)|
-|[Dynamics Intelligence Inc.](https://www.dynamicsintelligence.us)|
 |[DynTek](https://www.dyntek.com)|
 |[ECS Federal, LLC](https://ecstech.com/)|
 |[Edafio Technology Partners](https://edafio.com)|
@@ -172,7 +171,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[FourPoints Technology](https://www.4points.com)|
 |[For The Record LTD](https://www.fortherecord.com/)|
 |[Fujitsu America Inc.](https://www.fujitsu.com/us/)|
-|[Futurez Consulting, LLC](https://futurezconsulting.com/)|
 |[General Dynamics Information Technology](https://gdit.com/)|
 |[Giga-Green Technologies](https://giga-green.com)|
 |[Gimmal](https://www.gimmal.com/)|
@@ -200,7 +198,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[HTS Voice & Data Systems, Inc.](https://www.hts-tx.com/)|
 |[HumanTouch LLC](https://www.humantouchllc.com/)|
 |[Hyertek Inc.](https://www.hyertek.com)|
-|[I10 Inc](http://i10agile.com/)|
+|I10 Inc|
 |[I2, Inc. (IBM)](https://www.ibm.com/security/intelligence-analysis/i2)|
 |[i3 Business Solutions, LLC](https://www.i3businesssolutions.com/)|
 |[i3 LLC](http://i3llc.net/)|
@@ -383,7 +381,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[South River Technologies](https://southrivertech.com)|
 |[Stabilify](http://www.stabilify.net/)|
 |[Stafford Associates](https://www.staffordnet.com/)|
-|[Static Networks, LLC](https://staticnetworks.com)|
+|Static Networks, LLC|
 |[Steel Root](https://steelroot.us)|
 |[StoneFly, Inc.](https://stonefly.com)|
 |[Strategic Communications](https://stratcomminc.com)|
@@ -472,6 +470,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[DLT Solutions](https://www.dlt.com)|
 |[Ingram Micro Inc.](https://usa.ingrammicro.com/)|
 |[Insight Public Sector Inc](https://www.ips.insight.com/en_US/public-sector.html)|
+|[Pax8](https://www.pax8.com/en-us/microsoft/)|
 |[Synnex](https://www.synnexcorp.com)|
 |[Tech Data Corporation](https://www.techdata.com/)|
 |[Tech Data Government Solutions, LLC](https://gov.as.techdata.com/en-us/Pages/default.aspx)|
@@ -484,7 +483,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |CDW Corp.|cdwgsales@cdwg.com|800-808-4239|
 |Dell Corp.|Get_Azure@Dell.com|888-375-9857|
 |Insight Public Sector|federal@insight.com|800-467-4448|
-|PC Connection|govtssms@connection.com|800-998-0009|
+|PC Connection|govtssms@connection.com|800-800-0019|
 |SHI, Inc.|msftgov@shi.com|888-764-8888|
 |Minburn Technology Group|microsoft@minburntech.com |571-699-0705 Opt. 1|
 

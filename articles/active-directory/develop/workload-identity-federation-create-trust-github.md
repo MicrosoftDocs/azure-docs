@@ -1,6 +1,5 @@
 ---
 title: Create a trust relationship between an app and GitHub
-titleSuffix: Microsoft identity platform
 description: Set up a trust relationship between an app in Azure AD and a GitHub repo.  This allows a GitHub Actions workflow to access Azure AD protected resources without using secrets or certificates. 
 services: active-directory
 author: rwike77
@@ -206,6 +205,6 @@ az rest -m DELETE  -u 'https://graph.microsoft.com/beta/applications/f6475511-fd
 Before configuring your GitHub Actions workflow, get the *tenant-id* and *client-id* values of your app registration.  You can find these values in the Azure portal. Go to the list of [registered applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) and select your app registration.  In **Overview**->**Essentials**, find the **Application (client) ID** and **Directory (tenant) ID**. Set these values in your GitHub environment to use in the Azure login action for your workflow.  
 
 ## Next steps
-For an end-to-end example, read [Deploy to App Service using GitHub Actions](/azure/app-service/deploy-github-actions?tabs=openid).
+For an end-to-end example, read [Deploy to App Service using GitHub Actions](../../app-service/deploy-github-actions.md?tabs=openid).
 
 Read the [GitHub Actions documentation](https://docs.github.com/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-azure) to learn more about configuring your GitHub Actions workflow to get an access token from Microsoft identity provider and access Azure resources.

@@ -28,8 +28,8 @@ The following sequence diagram is showing detailed steps of the authentication:
 :::image type="content" source="./media/custom-teams-endpoint/authentication-case-single-tenant-azure-rbac.svg" alt-text="Sequence diagram is describing detailed set of steps, that happens to authenticate Teams user. In the end, client application retrieves an Azure Communication Services access token for single tenant Azure AD application." lightbox="./media/custom-teams-endpoint/authentication-case-single-tenant-azure-rbac.svg":::
 
 Prerequisites:
-- Alice or her Azure AD Administrator needs to provide consent to the Fabrikam's Azure Active Directory Application before first sign in. To learn more about [consent flow](https://docs.microsoft.com/azure/active-directory/develop/consent-framework).
-- The admin of the Azure Communication Services resource must grant Alice permission to perform this action. You can learn about the [Azure RBAC role assignment](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+- Alice or her Azure AD Administrator needs to provide consent to the Fabrikam's Azure Active Directory Application before first sign in. To learn more about [consent flow](../../../active-directory/develop/consent-framework.md).
+- The admin of the Azure Communication Services resource must grant Alice permission to perform this action. You can learn about the [Azure RBAC role assignment](../../../role-based-access-control/role-assignments-portal.md).
 
 Steps:
 1. Authentication of Alice from Fabrikam against Fabrikam's Azure Active Directory: This step is standard OAuth flow leveraging Microsoft Authentication Library (MSAL) to authenticate against Fabrikam's Azure Active Directory. Alice is authenticating for Fabrikam's Azure AD application. If the authentication of Alice is successful, Fabrikam's Client application receives Azure AD access token 'A'. Details of the token are captured below. Developer experience is captured in the [quickstart](../../quickstarts/manage-teams-identity.md). 
@@ -57,7 +57,7 @@ The following sequence diagram is showing detailed steps of the authentication:
 :::image type="content" source="./media/custom-teams-endpoint/authentication-case-multiple-tenants-hmac.svg" alt-text="Sequence diagram is describing detailed set of steps, that happens to authenticate Teams user and retrieve Azure Communication Services access token for multi-tenant Azure AD application." lightbox="./media/custom-teams-endpoint/authentication-case-multiple-tenants-hmac.svg":::
 
 Prerequisites:
-- Alice or her Azure AD Administrator needs to provide consent to the Contoso's Azure Active Directory Application before first sign in. To learn more about [consent flow](https://docs.microsoft.com/azure/active-directory/develop/consent-framework).
+- Alice or her Azure AD Administrator needs to provide consent to the Contoso's Azure Active Directory Application before first sign in. To learn more about [consent flow](../../../active-directory/develop/consent-framework.md).
 
 Steps:
 1. Authentication of Alice from Fabrikam against Fabrikam's Azure Active Directory: This step is standard OAuth flow using Microsoft Authentication Library (MSAL) to authenticate against Fabrikam's Azure Active Directory. Alice is authenticating for Contoso's Azure AD application. If the authentication of Alice is successful, Contoso's Client application receives Azure AD access token 'A'. Details of the token are captured below. Developer experience is captured in the [quickstart](../../quickstarts/manage-teams-identity.md). 

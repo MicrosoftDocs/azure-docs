@@ -302,6 +302,8 @@
     href: /answers/topics/azure-active-directory.html
   - name: Pricing
     href: https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing
+  - name: Feature availability
+    href: feature-availability.md
   - name: Service updates
     href: ../fundamentals/whats-new.md
   - name: Stack Overflow

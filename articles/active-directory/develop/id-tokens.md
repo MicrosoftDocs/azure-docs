@@ -1,17 +1,16 @@
 ---
-title: Microsoft identity platform ID tokens | Azure
-titleSuffix: Microsoft identity platform
+title: Microsoft identity platform ID tokens
 description: Learn how to use id_tokens emitted by the Azure AD v1.0 and Microsoft identity platform (v2.0) endpoints.
 services: active-directory
-author: hpsin
+author: nickludwig
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/25/2022
-ms.author: hirsin
-ms.reviewer: hirsin
+ms.author: ludwignick
+ms.reviewer: ludwignick
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
 ---
 

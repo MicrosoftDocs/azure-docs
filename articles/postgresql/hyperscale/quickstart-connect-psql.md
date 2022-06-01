@@ -1,13 +1,14 @@
 ---
 title: 'Quickstart: connect to a server group with psql - Hyperscale (Citus) - Azure Database for PostgreSQL'
 description: Quickstart to connect psql to Azure Database for PostgreSQL - Hyperscale (Citus).
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
+recommendations: false
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc, mode-ui
 ms.topic: quickstart
-ms.date: 02/09/2022
+ms.date: 05/05/2022
 ---
 
 # Connect to a Hyperscale (Citus) server group with psql
@@ -53,11 +54,28 @@ When you create your Hyperscale (Citus) server group, a default database named *
    When psql successfully connects to the database, you'll see a new prompt:
 
    ```
-   psql (13.0 (Debian 13.0-1.pgdg100+1), server 13.5)
+   psql (14.2 (Debian 14.2-1.pgdg100+1))
    SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)
    Type "help" for help.
    
    citus=>
+   ```
+
+4. Run a test query. Copy the following command and paste it into the psql
+   prompt, then press enter to run:
+
+   ```sql
+   SHOW server_version;
+   ```
+
+   You should see a result matching the PostgreSQL version you selected
+   during server group creation. For instance:
+
+   ```
+    server_version
+   ----------------
+    14.2
+   (1 row)
    ```
 
 ## Next steps
@@ -66,4 +84,4 @@ Now that you've connected to the server group, the next step is to create
 tables and shard them for horizontal scaling.
 
 > [!div class="nextstepaction"]
-> [Create and distribute tables](quickstart-distribute-tables.md)
+> [Create and distribute tables >](quickstart-distribute-tables.md)

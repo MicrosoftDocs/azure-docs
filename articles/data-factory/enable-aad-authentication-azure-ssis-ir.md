@@ -30,9 +30,6 @@ For more info about the managed identity for your ADF, see [Managed identity for
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-> [!NOTE]
-> For Azure-SSIS IR in Azure Synapse, user-assigned managed identity is not supported.
-
 ## Enable Azure AD authentication on Azure SQL Database
 
 Azure SQL Database supports creating a database with an Azure AD user. First, you need to create an Azure AD group with the specified system/user-assigned managed identity for your ADF as a member. Next, you need to set an Azure AD user as the Active Directory admin for your Azure SQL Database server and then connect to it on SQL Server Management Studio (SSMS) using that user. Finally, you need to create a contained user representing the Azure AD group, so the specified system/user-assigned managed identity for your ADF can be used by Azure-SSIS IR to create SSISDB on your behalf.
@@ -76,7 +73,7 @@ You can use an existing Azure AD group or create a new one using Azure AD PowerS
 
 ### Configure Azure AD authentication for Azure SQL Database
 
-You can [Configure and manage Azure AD authentication for Azure SQL Database](../azure-sql/database/authentication-aad-configure.md) using the following steps:
+You can [Configure and manage Azure AD authentication for Azure SQL Database](/azure/azure-sql/database/authentication-aad-configure) using the following steps:
 
 1. In Azure portal, select **All services** -> **SQL servers** from the left-hand navigation.
 
@@ -98,7 +95,7 @@ For this next step, you need [SSMS](/sql/ssms/download-sql-server-management-st
 
 2. In the **Connect to Server** dialog, enter your server name in the **Server name** field.
 
-3. In the **Authentication** field, select **Active Directory - Universal with MFA support** (you can also use the other two Active Directory authentication types, see [Configure and manage Azure AD authentication for Azure SQL Database](../azure-sql/database/authentication-aad-configure.md)).
+3. In the **Authentication** field, select **Active Directory - Universal with MFA support** (you can also use the other two Active Directory authentication types, see [Configure and manage Azure AD authentication for Azure SQL Database](/azure/azure-sql/database/authentication-aad-configure)).
 
 4. In the **User name** field, enter the name of Azure AD account that you set as the server administrator, e.g. testuser@xxxonline.com.
 
@@ -148,7 +145,7 @@ Azure SQL Managed Instance supports creating a database with the specified syste
 
 ### Configure Azure AD authentication for Azure SQL Managed Instance
 
-Follow the steps in [Provision an Azure AD administrator for Azure SQL Managed Instance](../azure-sql/database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
+Follow the steps in [Provision an Azure AD administrator for Azure SQL Managed Instance](/azure/azure-sql/database/authentication-aad-configure#provision-azure-ad-admin-sql-managed-instance).
 
 ### Add the specified system/user-assigned managed identity for your ADF or Azure Synapse as a user in Azure SQL Managed Instance
 

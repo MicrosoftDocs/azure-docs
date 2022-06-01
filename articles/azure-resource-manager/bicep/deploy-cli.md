@@ -19,7 +19,7 @@ You need a Bicep file to deploy. The file must be local.
 You need Azure CLI and to be connected to Azure:
 
 - **Install Azure CLI commands on your local computer.** To deploy Bicep files, you need [Azure CLI](/cli/azure/install-azure-cli) version **2.20.0 or later**.
-- **Connect to Azure by using [az login](/cli/azure/reference-index#az_login)**. If you have multiple Azure subscriptions, you might also need to run [az account set](/cli/azure/account#az_account_set).
+- **Connect to Azure by using [az login](/cli/azure/reference-index#az-login)**. If you have multiple Azure subscriptions, you might also need to run [az account set](/cli/azure/account#az-account-set).
 
 Samples for the Azure CLI are written for the `bash` shell. To run this sample in Windows PowerShell or Command Prompt, you may need to change elements of the script.
 
@@ -31,13 +31,13 @@ If you don't have Azure CLI installed, you can use Azure Cloud Shell. For more i
 
 You can target your deployment to a resource group, subscription, management group, or tenant. Depending on the scope of the deployment, you use different commands.
 
-* To deploy to a **resource group**, use [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create):
+* To deploy to a **resource group**, use [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create):
 
   ```azurecli-interactive
   az deployment group create --resource-group <resource-group-name> --template-file <path-to-bicep>
   ```
 
-* To deploy to a **subscription**, use [az deployment sub create](/cli/azure/deployment/sub#az_deployment_sub_create):
+* To deploy to a **subscription**, use [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create):
 
   ```azurecli-interactive
   az deployment sub create --location <location> --template-file <path-to-bicep>
@@ -45,7 +45,7 @@ You can target your deployment to a resource group, subscription, management gro
 
   For more information about subscription level deployments, see [Create resource groups and resources at the subscription level](deploy-to-subscription.md).
 
-* To deploy to a **management group**, use [az deployment mg create](/cli/azure/deployment/mg#az_deployment_mg_create):
+* To deploy to a **management group**, use [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create):
 
   ```azurecli-interactive
   az deployment mg create --location <location> --template-file <path-to-bicep>
@@ -53,7 +53,7 @@ You can target your deployment to a resource group, subscription, management gro
 
   For more information about management group level deployments, see [Create resources at the management group level](deploy-to-management-group.md).
 
-* To deploy to a **tenant**, use [az deployment tenant create](/cli/azure/deployment/tenant#az_deployment_tenant_create):
+* To deploy to a **tenant**, use [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
 
   ```azurecli-interactive
   az deployment tenant create --location <location> --template-file <path-to-bicep>
@@ -91,7 +91,7 @@ The deployment can take a few minutes to complete. When it finishes, you see a m
 
 ## Deploy remote Bicep file
 
-Currently, Azure CLI doesn't support deploying remote Bicep files. You can use [Bicep CLI](./install.md#vs-code-and-bicep-extension) to [build](/cli/azure/bicep#az_bicep_build) the Bicep file to a JSON template, and then load the JSON file to the remote location.
+Currently, Azure CLI doesn't support deploying remote Bicep files. You can use [Bicep CLI](./install.md#vs-code-and-bicep-extension) to [build](/cli/azure/bicep) the Bicep file to a JSON template, and then load the JSON file to the remote location.
 
 ## Parameters
 
@@ -143,7 +143,7 @@ To pass in an object, for example, to set tags, use JSON. For example, your Bice
 
 In this case, you can pass in a JSON string to set the parameter as shown in the following Bash script:
 
-```bash
+```azurecli
 tags='{"Owner":"Contoso","Cost Center":"2345-324"}'
 az deployment group create --name addstorage  --resource-group myResourceGroup \
 --template-file $bicepFile \

@@ -5,9 +5,9 @@ services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Securit
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
-ms.date: 03/30/2021
+author: aarathin
+ms.author: aarathin
+ms.date: 03/15/2022
 ---
 
 # Plan an Azure container offer
@@ -29,7 +29,6 @@ These are the available licensing options for Azure Container offers:
 | --- | --- |
 | Free | List your offer to customers for free. |
 | BYOL | The Bring Your Own Licensing option lets your customers bring existing software licenses to Azure.\* |
-|
 
 \* As the publisher, you support all aspects of the software license transaction, including (but not limited to) order, fulfillment, metering, billing, invoicing, payment, and collection.
 
@@ -50,10 +49,10 @@ You can choose to provide your own terms and conditions, instead of the standard
 
 To help create your offer more easily, prepare these items ahead of time. All are required except where noted.
 
-- **Name** – The name will appear as the title of your offer listing in the commercial marketplace. The name may be trademarked. It cannot contain emojis (unless they are the trademark and copyright symbols) and is limited to 50 characters.
+- **Name** – The name will appear as the title of your offer listing in the commercial marketplace. The name may be trademarked. It cannot contain emojis (unless they are the trademark and copyright symbols) and is limited to 200 characters.
 - **Search results summary** – The purpose or function of your offer as a single sentence with no line breaks in 100 characters or less. This is used in the commercial marketplace listing(s) search results.
 - **Short description** – Details of the purpose or function of the offer, written in plain text with no line breaks. This will appear on your offer's details page.
-- **Description** – This description displays in the commercial marketplace listing(s) overview. Consider including a value proposition, key benefits, intended user base, any category or industry associations, in-app purchase opportunities, any required disclosures, and a link to learn more. This text box has rich text editor controls to make your description more engaging. Optionally, use HTML tags for formatting.
+- **Description** – This description displays in the commercial marketplace listing(s) overview, allowing up to 5,000 characters. Consider including a value proposition, key benefits, intended user base, any category or industry associations, in-app purchase opportunities, any required disclosures, and a link to learn more. This text box has rich text editor controls to make your description more engaging. Optionally, use HTML tags for formatting.
 - **Privacy policy link** – The URL for your company’s privacy policy. You are responsible for ensuring your app complies with privacy laws and regulations.
 - **Useful links** (optional): Links to various resources for users of your offer. For example, forums, FAQs, and release notes.
 - **Contact information**

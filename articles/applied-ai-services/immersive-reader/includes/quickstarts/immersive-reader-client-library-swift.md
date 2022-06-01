@@ -205,7 +205,7 @@ class LaunchViewController: UIViewController {
                 })
             }
         }, onFailure: { error in
-            print("an error occured: \(error)")
+            print("an error occurred: \(error)")
         })
     }
 

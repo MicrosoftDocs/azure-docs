@@ -1,7 +1,7 @@
 ---
 title: "How-to: Analyze documents, Label forms, train a model, and analyze forms with Form Recognizer"
 titleSuffix: Azure Applied AI Services
-description: In this how-to, you'll use the Form Recognizer sample tool to analyze documents, invoices, receipts etc. Label and create a custom model to extract text, tables, selection marks, structure and key value pairs from documents.
+description: In this how-to, you'll use the Form Recognizer sample tool to analyze documents, invoices, receipts etc. Label and create a custom model to extract text, tables, selection marks, structure and key-value pairs from documents.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -18,7 +18,7 @@ keywords: document processing
 <!-- markdownlint-disable MD034 -->
 # Train a custom model using the Sample Labeling tool
 
-In this article, you'll use the Form Recognizer REST API with the Sample Labeling tool to train a custom document processing model with manually labeled data. 
+In this article, you'll use the Form Recognizer REST API with the Sample Labeling tool to train a custom model with manually labeled data. 
 
 > [!VIDEO https://docs.microsoft.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
 
@@ -127,11 +127,11 @@ Fill in the fields with the following values:
 In the Sample Labeling tool, projects store your configurations and settings. Create a new project and fill in the fields with the following values:
 
 * **Display Name** - the project display name
-* **Security Token** - Some project settings can include sensitive values, such as API keys or other shared secrets. Each project will generate a security token that can be used to encrypt/decrypt sensitive project settings. You can find security tokens in the Application Settings by selecting the gear icon at the bottom of the left navigation bar.
+* **Security Token** - Some project settings can include sensitive values, such as keys or other shared secrets. Each project will generate a security token that can be used to encrypt/decrypt sensitive project settings. You can find security tokens in the Application Settings by selecting the gear icon at the bottom of the left navigation bar.
 * **Source Connection** - The Azure Blob Storage connection you created in the previous step that you would like to use for this project.
 * **Folder Path** - Optional - If your source forms are located in a folder on the blob container, specify the folder name here
 * **Form Recognizer Service Uri** - Your Form Recognizer endpoint URL.
-* **API Key** - Your Form Recognizer subscription key.
+* **Key** - Your Form Recognizer key.
 * **Description** - Optional - Project description
 
 :::image type="content" source="media/label-tool/new-project.png" alt-text="New project page on Sample Labeling tool.":::

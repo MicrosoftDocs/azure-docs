@@ -13,9 +13,6 @@ ms.date: 7/28/2021
 
 You can use a private endpoint (also called private link) to restrict access to your static web app so that it is only accessible from your private network.
 
-> [!NOTE]
-> Private endpoints support in Static Web Apps is currently in preview.
-
 ## How it works
 
 An Azure Virtual Network (VNet) is a network just like you might have in a traditional data center, but resources within the VNet talk to each other securely on the Microsoft backbone network.
@@ -25,8 +22,11 @@ Configuring Static Web Apps with a private endpoint allows you to use a private 
 > [!NOTE]
 > Placing your application behind a private endpoint means your app is only available in the region where your VNet is located. As a result, your application is no longer available across multiple points of presence.
 
-> [!WARNING]
-> Currently, private endpoints only secure your production environment. Support for staging environments will be added in an upcoming service update.
+If your app has a private endpoint enabled, the server will respond with a `403` status code if the request comes from a public IP address. This behavior applies to both the production environment as well as any staging environments. The only way to reach the app is to use the private endpoint deployed within your VNet.
+
+The default DNS resolution of the static web app still exists and routes to a public IP address. The private endpoint will expose 2 IP Addresses within your VNet, one for the production environment and one for any staging environments. To ensure your client is able to reach the app correctly, make sure your client resolves the hostname of the app to the appropriate IP address of the private endpoint. This is required for the default hostname as well as any custom domains configured for the static web app. This resolution is done automatically if you select a private DNS zone when creating the private endpoint (see example below) and is the recommended solution.
+
+If you are connecting from on-prem or do not wish to use a private DNS zone, manually configure the DNS records for your application so that requests are routed to the appropriate IP address of the private endpoint. You can find more information on private endpoint DNS resolution [here](../private-link/private-endpoint-dns.md).
 
 ## Prerequisites
 

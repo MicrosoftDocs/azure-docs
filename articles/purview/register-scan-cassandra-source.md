@@ -1,18 +1,18 @@
 ---
 title: Connect to and manage Cassandra
-description: This guide describes how to connect to Cassandra in Azure Purview, and use Azure Purview's features to scan and manage your Cassandra source.
+description: This guide describes how to connect to Cassandra in Microsoft Purview, and use Microsoft Purview's features to scan and manage your Cassandra source.
 author: linda33wj
 ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 01/20/2022
+ms.date: 05/04/2022
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Connect to and manage Cassandra in Azure Purview (Preview)
+# Connect to and manage Cassandra in Microsoft Purview (Preview)
 
-This article outlines how to register Cassandra, and how to authenticate and interact with Cassandra in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
+This article outlines how to register Cassandra, and how to authenticate and interact with Cassandra in Microsoft Purview. For more information about Microsoft Purview, read the [introductory article](overview.md).
 
 ## Supported capabilities
 
@@ -22,7 +22,7 @@ This article outlines how to register Cassandra, and how to authenticate and int
 
 The supported Cassandra server versions are 3.*x* or 4.*x*.
 
-When scanning Cassandra source, Azure Purview supports:
+When scanning Cassandra source, Microsoft Purview supports:
 
 - Extracting technical metadata including:
 
@@ -39,26 +39,27 @@ When setting up scan, you can choose to scan an entire Cassandra instance, or sc
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* An active [Azure Purview resource](create-catalog-portal.md).
+* An active [Microsoft Purview account](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Azure Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You need Data Source Administrator and Data Reader permissions to register a source and manage it in the Microsoft Purview governance portal. For more information about permissions, see [Access control in Microsoft Purview](catalog-permissions.md).
 
-* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717).
-  For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
+**If your data store is not publically accessible** (if your data store limits access from on-premises network, private network or specific IPs, etc.) you need to configure a self-hosted integration runtime to connect to it:
 
-* Ensure [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
+* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
 
-* Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
+    * Ensure [JDK 11](https://www.oracle.com/java/technologies/downloads/#java11) is installed on the machine where the self-hosted integration runtime is installed. Restart the machine after you newly install the JDK for it to take effect.
+
+    * Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
 
 ## Register
 
-This section describes how to register Cassandra in Azure Purview using the [Azure Purview Studio](https://web.purview.azure.com/).
+This section describes how to register Cassandra in Microsoft Purview using the [Microsoft Purview governance portal](https://web.purview.azure.com/).
 
 ### Steps to register
 
 To register a new Cassandra server in your data catalog:
 
-1. Go to your Azure Purview account.
+1. Go to your Microsoft Purview account.
 1. Select **Data Map** on the left pane.
 1. Select **Register**.
 1. On the **Register sources** screen, select **Cassandra**, and then select **Continue**:
@@ -97,8 +98,7 @@ To create and run a new scan:
 
     1. **Name**: Specify a name for the scan.
 
-    1. **Connect via integration runtime**: Select the configured
-        self-hosted integration runtime.
+    1. **Connect via integration runtime**: Select the Azure auto-resolved integration runtime or your configured self-hosted integration runtime used to perform scan.
 
     1. **Credential**: When you configure the Cassandra credentials, be sure
         to:
@@ -107,7 +107,7 @@ To create and run a new scan:
         * In the **User name** box, provide the name of the user you're making the connection for. 
         * In the key vault's secret, save the password of the Cassandra user you're making the connection for.
 
-        For more information, see [Credentials for source authentication in Azure Purview](manage-credentials.md).
+        For more information, see [Credentials for source authentication in Microsoft Purview](manage-credentials.md).
 
     1. **Keyspaces**: Specify a list of Cassandra keyspaces to import. Multiple keyspaces must be separated with semicolons. For example, keyspace1; keyspace2. When the list is empty, all available keyspaces are imported.
 
@@ -127,10 +127,10 @@ To create and run a new scan:
     to use Secure Sockets Layer (SSL) when connecting to the
     Cassandra server. By default, this option is set to **False**.
 
-    1. **Maximum memory available**: Specify the maximum memory (in GB) available on your VM to be used for scanning processes. This value depends on the size of Cassandra server to be scanned.
+    1. **Maximum memory available** (applicable when using self-hosted integration runtime): Specify the maximum memory (in GB) available on your VM to be used for scanning processes. This value depends on the size of Cassandra server to be scanned.
         :::image type="content" source="media/register-scan-cassandra-source/scan.png" alt-text="scan Cassandra source" border="true":::
 
-1. Select **Test connection.**
+1. Select **Test connection** (available when using self-hosted integration runtime).
 
 1. Select **Continue**.
 
@@ -151,8 +151,8 @@ Go to the asset -> lineage tab, you can see the asset relationship when applicab
 
 ## Next steps
 
-Now that you have registered your source, follow the below guides to learn more about Azure Purview and your data.
+Now that you've registered your source, follow the below guides to learn more about Microsoft Purview and your data.
 
-- [Data insights in Azure Purview](concept-insights.md)
-- [Lineage in Azure Purview](catalog-lineage-user-guide.md)
+- [Data Estate Insights in Microsoft Purview](concept-insights.md)
+- [Lineage in Microsoft Purview](catalog-lineage-user-guide.md)
 - [Search Data Catalog](how-to-search-catalog.md)

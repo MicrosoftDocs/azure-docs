@@ -9,9 +9,9 @@ metadata:
   services: dns
   ms.service: dns
   ms.topic: landing-page
-  author: rohinkoul
-  ms.author: rohink
-  ms.date: 07/07/2021
+  author: greg-lindsay
+  ms.author: greglin
+  ms.date: 05/10/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -27,6 +27,8 @@ landingContent:
             url: dns-overview.md
       - linkListType: learn
         links:
+          - text: Introduction to Azure DNS
+            url: /learn/modules/intro-to-azure-dns
           - text: Host your domain on Azure DNS?
             url: /learn/modules/host-domain-azure-dns/    
   # Card
@@ -60,6 +62,20 @@ landingContent:
         links:
           - text: Create an Azure DNS private zone using the Azure portal
             url: ./private-dns-getstarted-portal.md
+
+  # Card
+  - title: Deploy a DNS resolver
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure DNS Private Resolver?
+            url: dns-private-resolver-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Create an Azure DNS Private Resolver using the Azure portal
+            url: ./dns-private-resolver-get-started-portal.md
+          - text: Create an Azure DNS Private Resolver using Windows PowerShell
+            url: ./dns-private-resolver-get-started-powershell.md
 
 # Card
   - title: Use alias records

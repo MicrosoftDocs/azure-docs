@@ -10,10 +10,7 @@ Azure Key Vault service supports two resource types: Vaults and Managed HSMs. Th
 
 ### Resource type: vault
 
-This section describes service limits for resource type `vaults` for Public cloud. 
-> [!NOTE]
-> For Azure US Government cloud and Azure China, the limits are half from what is documented below.
-> 
+This section describes service limits for resource type `vaults`. 
 
 #### Key transactions (maximum transactions allowed in 10 seconds, per vault per region<sup>1</sup>):
 
@@ -65,16 +62,6 @@ When you back up a key vault object, such as a secret, key, or certificate, the 
 Key Vault does not restrict the number of keys, secrets or certificates that can be stored in a vault. The transaction limits on the vault should be taken into account to ensure that operations are not throttled.
 
 Key Vault does not restrict the number of versions on a secret, key or certificate, but storing a large number of versions (500+) can impact the performance of backup operations. See [Azure Key Vault Backup](../articles/key-vault/general/backup.md).
-
-#### Azure Private Link integration
-
-> [!NOTE]
-> The number of key vaults with private endpoints enabled per subscription is an adjustable limit. The limit shown below is the default limit. If you would like to request a limit increase for your service, please create a support request and it will be assessed on a case by case basis.
-
-| Resource | Limit |
-| -------- | -----:|
-| Private endpoints per key vault or managed HSM| 64 |
-| Key vaults with private endpoints per subscription | 400 |
 
 ### Resource type: Managed HSM
 

@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn how to route events within Azure Digital Twins and to other Azure Services.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 12/08/2021
+ms.date: 03/01/2022
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -17,13 +17,11 @@ ms.service: digital-twins
 
 # Route events within and outside of Azure Digital Twins
 
-This article covers **event routes** and how Azure Digital Twins uses them to send data internally and to consumers outside the service.
+This article covers *event routes* and how Azure Digital Twins uses them to send data internally and to consumers outside the service.
 
 There are two major cases for sending Azure Digital Twins data:
 * Sending data from one twin in the Azure Digital Twins graph to another. For instance, when a property on one digital twin changes, you may want to notify and update another digital twin based on the updated data.
-* Sending data to downstream data services for more storage or processing (also known as *data egress*). For instance,
-  - A hospital may want to send Azure Digital Twins event data to [Time Series Insights](../time-series-insights/overview-what-is-tsi.md), to record time series data of handwashing-related events for bulk analytics.
-  - A business that is already using [Azure Maps](../azure-maps/about-azure-maps.md) may want to use Azure Digital Twins to enhance their solution. They can quickly enable an Azure Map after setting up Azure Digital Twins, bring Azure Map entities into Azure Digital Twins as [digital twins](concepts-twins-graph.md) in the twin graph, or run powerful queries using their Azure Maps and Azure Digital Twins data together.
+* Sending data to downstream data services for more storage or processing (also known as *data egress*). For instance, a business that is already using [Azure Maps](../azure-maps/about-azure-maps.md) may want to use Azure Digital Twins to enhance their solution. They can quickly enable an Azure Map after setting up Azure Digital Twins, bring Azure Map entities into Azure Digital Twins as [digital twins](concepts-twins-graph.md) in the twin graph, or run powerful queries using their Azure Maps and Azure Digital Twins data together.
 
 Event routes are used for both of these scenarios.
 
@@ -31,7 +29,7 @@ Event routes are used for both of these scenarios.
 
 An event route lets you send event data from digital twins in Azure Digital Twins to custom-defined endpoints in your subscriptions. Three Azure services are currently supported for endpoints: [Event Hubs](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md), and [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md). Each of these Azure services can be connected to other services and acts as the middleman, sending data along to final destinations such as Time Series Insights or Azure Maps for whatever processing you need.
 
-Azure Digital Twins implements **at least once** delivery for data emitted to egress services. 
+Azure Digital Twins implements *at least once* delivery for data emitted to egress services. 
 
 The following diagram illustrates the flow of event data through a larger IoT solution with an Azure Digital Twins aspect:
 
@@ -53,7 +51,7 @@ To walk through the process of setting up an Azure function to process digital t
 
 ## Create an endpoint
 
-To define an event route, developers first must define endpoints. An **endpoint** is a destination outside of Azure Digital Twins that supports a route connection. Supported destinations include:
+To define an event route, developers first must define endpoints. An *endpoint* is a destination outside of Azure Digital Twins that supports a route connection. Supported destinations include:
 * Event Grid custom topics
 * Event Hubs
 * Service Bus
@@ -64,7 +62,7 @@ When defining an endpoint, you'll need to provide:
 * The endpoint's name
 * The endpoint type (Event Grid, Event Hubs, or Service Bus)
 * The primary connection string and secondary connection string to authenticate 
-* The topic path of the endpoint, such as *your-topic.westus2.eventgrid.azure.net*
+* The topic path of the endpoint, such as `your-topic.westus2.eventgrid.azure.net`
 
 The endpoint APIs that are available in control plane are:
 * Create endpoint
@@ -91,12 +89,12 @@ Here's an example of creating an event route within a client application, using 
 
 ## Dead-letter events
 
-When an endpoint can't deliver an event within a certain time period or after trying to deliver the event several times, it can send the undelivered event to a storage account. This process is known as **dead-lettering**. Azure Digital Twins will dead-letter an event when **one of the following** conditions is met:
+When an endpoint can't deliver an event within a certain time period or after trying to deliver the event several times, it can send the undelivered event to a storage account. This process is known as *dead-lettering*. Azure Digital Twins will dead-letter an event when one of the following conditions is met:
 
 * Event isn't delivered within the time-to-live period
 * The number of tries to deliver the event has exceeded the limit
 
-If either of the conditions is met, the event is dropped or dead-lettered. By default, each endpoint **does not** turn on dead-lettering. To enable it, you must specify a storage account to hold undelivered events when creating the endpoint. You can then pull events from this storage account to resolve deliveries.
+If either of the conditions is met, the event is dropped or dead-lettered. By default, each endpoint doesn't turn on dead-lettering. To enable it, you must specify a storage account to hold undelivered events when creating the endpoint. You can then pull events from this storage account to resolve deliveries.
 
 Before setting the dead-letter location, you must have a storage account with a container. You provide the URL for this container when creating the endpoint. The dead-letter is provided as a container URL with a SAS token. That token needs only `write` permission for the destination container within the storage account. The fully formed URL will be in the format of:
 `https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>`
