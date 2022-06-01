@@ -28,7 +28,7 @@ In your subscription, navigate to **Resource Providers** from the left navigatio
 
 ## Pre-requisites
 
-Take care of the pre-requisites listed [here](./concepts-single-to-flexible.md#pre-requisites) to get started with the migration tool.
+Take care of the [pre-requisites](./concepts-single-to-flexible.md#pre-requisites) to get started with the migration tool.
 
 ## Configure migration task
 
@@ -79,7 +79,7 @@ Once the single server is chosen, the fields such as  **Location, PostgreSQL ver
 
 You should also see the list of user databases inside the single server that you can pick for migration. You can select up to eight databases that can be migrated in a single migration attempt. If there are more than eight user databases, create multiple migrations using the same experience between the source and target servers.
 
-The final property in the source tab is migration mode. The migration tool offers online and offline mode of migration. To know more about the migration modes and their differences, please visit this [link](./concepts-single-to-flexible.md).
+The final property in the source tab is migration mode. The migration tool offers online and offline mode of migration. The concepts page talks more about the [migration modes and their differences](./concepts-single-to-flexible.md).
 
 Once you pick the migration mode, the restrictions associated with the mode are displayed.
 

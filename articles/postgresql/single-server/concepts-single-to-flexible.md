@@ -160,7 +160,7 @@ Once all these pre-requisites are taken care of, you can do the migration. This 
 
 - The migration tool only migrates user databases including Postgres database and not system/maintenance databases.
 
-- For failed migrations, there is no option to retry the same migration task. A new migration task with a unique name can to be created.
+- For failed migrations, there is no option to retry the same migration task. A new migration task with a unique name has to be created.
 
 - The migration tool does not include assessment of your single server. 
 
