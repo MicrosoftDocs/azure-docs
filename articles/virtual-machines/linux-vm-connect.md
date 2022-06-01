@@ -14,12 +14,12 @@ ms.author: cynthn
 
 In Azure there are multiple ways to connect to a Linux virtual machine. The most common practice for connecting to a Linux VM is using the Secure Shell Protocol (SSH). This is done via any standard SSH aware client commonly found in Linux; on Windows you can use [Windows Sub System for Linux](/windows/wsl/about) or any local terminal. You can also use [Azure Cloud Shell](../cloud-shell/overview.md) from any browser.
 
-This document describes how to connect, via SSH, to a VM that has a public IP. If you need to connect to a VM without a public IP see [Azure Bastion Service](../bastion/bastion-overview.md)
+This document describes how to connect, via SSH, to a VM that has a public IP. If you need to connect to a VM without a public IP, see [Azure Bastion Service](../bastion/bastion-overview.md).
 
 ## Prerequisites
 
-- You need an SSH key pair. If you don't already have one Azure will create a key pair during the deployment process. If you need help with creating one manually, see [Create and use an SSH public-private key pair for Linux VMs in Azure](./linux/mac-create-ssh-keys.md).
-- You need an existing Network Security Group. Most VMs will have this by default, but if you don't already have one you can create one and attach it manually, see [Create, change, or delete a network security group](../virtual-network/manage-network-security-group.md).
+- You need an SSH key pair. If you don't already have one, Azure will create a key pair during the deployment process. If you need help with creating one manually, see [Create and use an SSH public-private key pair for Linux VMs in Azure](./linux/mac-create-ssh-keys.md).
+- You need an existing Network Security Group (NSG). Most VMs will have an NSG by default, but if you don't already have one you can create one and attach it manually. For more information, see [Create, change, or delete a network security group](../virtual-network/manage-network-security-group.md).
 - In order to connect to a Linux Virtual Machine you need the appropriate port open: normally this will be port 22. The following instructions assume port 22 but the process is the same for other port numbers. You can validate an appropriate port is open for SSH using the troubleshooter or by checking manually in your VM settings. To check if port 22 is open: 
 
     1. On the page for the VM, select **Networking** from the left menu.
