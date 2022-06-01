@@ -1,15 +1,15 @@
 ### YamlMime:FAQ
 metadata:
-  title: Frequently asked questions about Azure Video Indexer (formerly Azure Video Analyzer for Media) - Azure
-  description: This article gives answers to frequently asked questions about Azure Video Indexer (formerly Azure Video Analyzer for Media).
-  services: azure-video-analyzer
+  title: Frequently asked questions about Azure Video Indexer - Azure
+  description: This article gives answers to frequently asked questions about Azure Video Indexer.
+  services: azure-video-indexer
   author: Juliako
   manager: femila
   ms.topic: faq
   ms.date: 05/25/2021
   ms.author: juliako
 title: Azure Video Indexer frequently asked questions
-summary: This article answers frequently asked questions about Azure Video Indexer (formerly Azure Video Analyzer for Media).
+summary: This article answers frequently asked questions about Azure Video Indexer.
 
 
 sections:
@@ -37,7 +37,7 @@ sections:
         answer: |
           Azure Video Indexer includes a free trial offering that provides you with 600 minutes in the web-based interface and 2,400 minutes via the API. You can [login to the Azure Video Indexer web-based interface](https://www.videoindexer.ai/) and try it for yourself using any web identity and without having to set up an Azure Subscription. Follow [this easy introduction lab](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/IntroToVideoIndexer.md) to get better idea of how to use Azure Video Indexer.
 
-          To index videos and audio flies at scale, you can connect Azure Video Indexer to a paid Microsoft Azure subscription. You can find more information on pricing on the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/) page.
+          To index videos and audio flies at scale, you can connect Azure Video Indexer to a paid Microsoft Azure subscription. You can find more information on pricing on the [pricing](https://azure.microsoft.com/pricing/details/video-indexer/) page.
 
           You can find more information on getting started in [Get started](video-indexer-get-started.md).
 
@@ -95,7 +95,7 @@ sections:
 
       - question: What is the SLA for Azure Video Indexer?
         answer: |
-          Azure Media Service’s SLA covers Azure Video Indexer and can be found on the [SLA](https://azure.microsoft.com/support/legal/sla/azure/media-services/v1_2/) page. The SLA only applies to Azure Video Indexer paid accounts and does not apply to the free trial.
+          Azure Media Service’s SLA covers Azure Video Indexer and can be found on the [SLA](https://azure.microsoft.com/support/legal/sla/media-services/v1_2/) page. The SLA only applies to Azure Video Indexer paid accounts and does not apply to the free trial.
 
   - name: Privacy Questions
     questions:

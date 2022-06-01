@@ -8,10 +8,10 @@ ms.reviewer: vgorbenko
 
 # PageView telemetry: Application Insights data model
 
-PageView telemetry (in [Application Insights](./app-insights-overview.md)) is logged when an application user opens a new page of a monitored application. The `Page` in this context is a logical unit that is defined by the developer to be an application tab or a screen and is not necessarily correlated to a browser webpage load or refresh action. This distinction can be further understood in the context of single-page applications (SPA) where the switch between pages is not tied to browser page actions. [`pageViews.duration`](https://docs.microsoft.com/azure/azure-monitor/reference/tables/pageviews) is the time it takes for the application to present the page to the user.
+PageView telemetry (in [Application Insights](./app-insights-overview.md)) is logged when an application user opens a new page of a monitored application. The `Page` in this context is a logical unit that is defined by the developer to be an application tab or a screen and is not necessarily correlated to a browser webpage load or refresh action. This distinction can be further understood in the context of single-page applications (SPA) where the switch between pages is not tied to browser page actions. [`pageViews.duration`](/azure/azure-monitor/reference/tables/pageviews) is the time it takes for the application to present the page to the user.
 
 > [!NOTE]
-> By default, Application Insights SDKs log single PageView events on each browser webpage load action, with [`pageViews.duration`](https://docs.microsoft.com/azure/azure-monitor/reference/tables/pageviews) populated by [browser timing](#measuring-browsertiming-in-application-insights). Developers can extend additional tracking of PageView events by using the [trackPageView API call](./api-custom-events-metrics.md#page-views).
+> By default, Application Insights SDKs log single PageView events on each browser webpage load action, with [`pageViews.duration`](/azure/azure-monitor/reference/tables/pageviews) populated by [browser timing](#measuring-browsertiming-in-application-insights). Developers can extend additional tracking of PageView events by using the [trackPageView API call](./api-custom-events-metrics.md#page-views).
 
 ## Measuring browserTiming in Application Insights
 

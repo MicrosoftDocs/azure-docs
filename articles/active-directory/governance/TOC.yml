@@ -134,6 +134,8 @@
 
     - name: Groups and apps
       items:
+      - name: Prepare for an app access review
+        href: access-reviews-application-preparation.md
       - name: Create an access review
         href: create-access-review.md
       - name: Review access

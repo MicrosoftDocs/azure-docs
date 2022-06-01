@@ -2,7 +2,7 @@
 title: Service remoting by using C# in Service Fabric
 description: Service Fabric remoting allows clients and services to communicate with C# services by using a remote procedure call.
 ms.topic: conceptual
-ms.date: 09/20/2017
+ms.date: 05/17/2022
 ms.custom: devx-track-csharp
 ---
 # Service remoting in C# with Reliable Services
@@ -223,7 +223,7 @@ This step makes sure that the service is listening only on the V2 listener.
 
 ## Use the remoting V2 (interface compatible) stack
 
- The remoting V2 (interface compatible, known as V2_1) stack has all the features of the V2 remoting stack. Its interface stack is compatible with the remoting V1 stack, but it is not backward compatible with V2 and V1. To upgrade from V1 to V2_1 without affecting service availability, follow the steps in the article Upgrade from V1 to V2 (interface compatible).
+ The remoting V2 (interface compatible) stack is known as V2_1 and is the most up-to-date version. It has all the features of the V2 remoting stack. Its interface stack is compatible with the remoting V1 stack, but it is not backward compatible with V2 and V1. To upgrade from V1 to V2_1 without affecting service availability, follow the steps in the article Upgrade from V1 to V2 (interface compatible).
 
 
 ### Use an assembly attribute to use the remoting V2 (interface compatible) stack

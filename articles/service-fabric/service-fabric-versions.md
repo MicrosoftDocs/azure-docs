@@ -93,8 +93,9 @@ Support for Service Fabric on a specific OS ends when support for the OS version
 #### Ubuntu
 | OS version | Service Fabric support end date| OS Lifecycle link |
 | --- | --- | --- |
-| Ubuntu 18.04 | April 2028 | <a href="https://wiki.ubuntu.com/Releases">Ubuntu lifecycle</a>|
-| Ubuntu 16.04 | April 2024 | <a href="https://wiki.ubuntu.com/Releases">Ubuntu lifecycle</a>|
+| Ubuntu 20.04 | April 2025 | <a href="https://wiki.ubuntu.com/Releases">Ubuntu lifecycle</a>|
+| Ubuntu 18.04 | April 2023 | <a href="https://wiki.ubuntu.com/Releases">Ubuntu lifecycle</a>|
+| Ubuntu 16.04 | April 2021 | <a href="https://wiki.ubuntu.com/Releases">Ubuntu lifecycle</a>|
 
 ## Service Fabric version name and number reference
 The following table lists the version names of Service Fabric and their corresponding version numbers.

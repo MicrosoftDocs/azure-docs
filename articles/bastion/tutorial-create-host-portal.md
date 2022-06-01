@@ -124,7 +124,7 @@ This section helps you deploy Bastion to your VNet. Once Bastion is deployed, yo
 
 1. When you finish specifying the settings, select **Review + Create**. This validates the values.
 
-1. Once validation passes, you can deploy Bastion. Select **Create**.  You'll see a message letting you know that your deployment is process. Status will display on this page as the resources are created. It takes about 10 minutes for the Bastion resource to be created and deployed.
+1. Once validation passes, you can deploy Bastion. Select **Create**.  You'll see a message letting you know that your deployment is in process. Status will display on this page as the resources are created. It takes about 10 minutes for the Bastion resource to be created and deployed.
 
 ## <a name="connect"></a>Connect to a VM
 

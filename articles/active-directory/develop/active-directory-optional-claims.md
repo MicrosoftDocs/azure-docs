@@ -77,8 +77,8 @@ These claims are always included in v1.0 Azure AD tokens, but not included in v2
 |---------------|---------------------------------|-------------|-------|
 | `ipaddr`      | IP Address                      | The IP address the client logged in from.   |       |
 | `onprem_sid`  | On-Premises Security Identifier |                                             |       |
-| `pwd_exp`     | Password Expiration Time        | The datetime at which the password expires. |       |
-| `pwd_url`     | Change Password URL             | A URL that the user can visit to change their password.   |   |
+| `pwd_exp`     | Password Expiration Time        | The number of seconds after the time in the iat claim at which the password expires. This claim is only included when the password is expiring soon (as defined by "notification days" in the password policy).  |       |
+| `pwd_url`     | Change Password URL             | A URL that the user can visit to change their password.  This claim is only included when the password is expiring soon (as defined by "notification days" in the password policy).  |   |
 | `in_corp`     | Inside Corporate Network        | Signals if the client is logging in from the corporate network. If they're not, the claim isn't included.   |  Based off of the [trusted IPs](../authentication/howto-mfa-mfasettings.md#trusted-ips) settings in MFA.    |
 | `family_name` | Last Name                       | Provides the last name, surname, or family name of the user as defined in the user object. <br>"family_name":"Miller" | Supported in MSA and Azure AD. Requires the `profile` scope.   |
 | `given_name`  | First name                      | Provides the first or "given" name of the user, as set on the user object.<br>"given_name": "Frank"                   | Supported in MSA and Azure AD.  Requires the `profile` scope. |
@@ -351,7 +351,7 @@ This section covers the configuration options under optional claims for changing
             {
                 "name": "groups",
                 "additionalProperties": [
-                    "netbios_name_and_sam_account_name",
+                    "netbios_domain_and_sam_account_name",
                     "emit_as_roles"
                 ]
             }
@@ -360,7 +360,7 @@ This section covers the configuration options under optional claims for changing
             {
                 "name": "groups",
                 "additionalProperties": [
-                    "netbios_name_and_sam_account_name",
+                    "netbios_domain_and_sam_account_name",
                     "emit_as_roles"
                 ]
             }

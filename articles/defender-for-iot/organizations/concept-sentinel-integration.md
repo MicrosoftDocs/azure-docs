@@ -31,7 +31,7 @@ Without OT telemetry, context and integration with existing SOC tools and workfl
 
 Microsoft Sentinel is a scalable cloud solution for security information event management (SIEM) security orchestration automated response (SOAR).  SOC teams can use Microsoft Sentinel to collect data across networks, detect and investigate threats, and respond to incidents.
 
-The Defender for IoT and Microsoft Sentinel integration delivers out-of-the-box capabilities to SOC teams to help them efficiently and effectively view, analyze, and respond to OT security alerts, and the incidents they generate in a broader organizational threat context.
+The Defender for IoT and Microsoft Sentinel integration delivers out-of-the-box capabilities to SOC teams. This helps them to efficiently and effectively view, analyze, and respond to OT security alerts, and the incidents they generate in a broader organizational threat context.
 
 Bring Defender for IoT's rich telemetry into Microsoft Sentinel to bridge the gap between OT and SOC teams with the Microsoft Sentinel data connector for Defender for IoT and the **IoT OT Threat Monitoring with Defender for IoT** solution.
 
@@ -63,7 +63,7 @@ Playbooks are collections of automated remediation actions that can be run from 
 
 For example, use SOAR playbooks to:
 
-- Open an asset ticket in ServiceNow when a new asset is detected, such as a new engineering workstation. This can either be an unauthorized device that can be used by adversaries to reprogram PLCs.
+- Open an asset ticket in ServiceNow when a new asset is detected, such as a new engineering workstation. This alert can be an unauthorized device that can be used by adversaries to reprogram PLCs.
 
 - Send an email to relevant stakeholders when suspicious activity is detected, for example unplanned PLC reprogramming. The mail may be sent to OT personnel, such as a control engineer responsible on the related production line.
 

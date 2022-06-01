@@ -5,7 +5,7 @@ author: anvar-ms
 ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 05/17/2022
 ---
 
 
@@ -87,7 +87,7 @@ The replication appliance needs access to these URLs in the Azure public cloud.
 https://management.azure.com | Used for replication management operations and coordination.
 *.services.visualstudio.com | Used for logging purposes. (It is optional)
 time.windows.com | Used to check time synchronization between system and global time.
-https://login.microsoftonline.com <br> https://secure.aadcdn.microsoftonline-p.com <br> https://login.live.com <br> https://graph.windows.net <br> https://login.windows.net <br> https://www.live.com <br> https://www.microsoft.com  | Appliance setup needs access to these URLs. They are used for access control and identity management by Azure Active Directory.
+https://login.microsoftonline.com <br> https://login.live.com <br> https://graph.windows.net <br> https://login.windows.net <br> https://www.live.com <br> https://www.microsoft.com  | Appliance setup needs access to these URLs. They are used for access control and identity management by Azure Active Directory.
 https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | To complete MySQL download. In a few regions, the download might be redirected to the CDN URL. Ensure that the CDN URL is also allowed if  needed.
 
 ## Azure Government URL access
@@ -103,7 +103,7 @@ The replication appliance needs access to these URLs in Azure Government.
 https://management.usgovcloudapi.net | Used for replication management operations and coordination
 *.services.visualstudio.com | Used for logging purposes (It is optional)
 time.nist.gov | Used to check time synchronization between system and global time.
-https://login.microsoftonline.com <br> https://secure.aadcdn.microsoftonline-p.com <br> https://login.live.com <br> https://graph.windows.net <br> https://login.windows.net <br> https://www.live.com <br> https://www.microsoft.com  | Appliance setup with OVA needs access to these URLs. They are used for access control and identity management by Azure Active Directory.
+https://login.microsoftonline.com <br> https://login.live.com <br> https://graph.windows.net <br> https://login.windows.net <br> https://www.live.com <br> https://www.microsoft.com  | Appliance setup with OVA needs access to these URLs. They are used for access control and identity management by Azure Active Directory.
 https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | To complete MySQL download. In a few regions, the download might be redirected to the CDN URL. Ensure that the CDN URL is also allowed if  needed.  
 
 >[!Note]

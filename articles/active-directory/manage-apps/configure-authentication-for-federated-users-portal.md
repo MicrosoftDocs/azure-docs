@@ -1,6 +1,6 @@
 ---
 title: Configure sign-in auto-acceleration using Home Realm Discovery
-titleSuffix: Azure AD
+titleSuffix: Microsoft Entra
 description: Learn how to force federated IdP acceleration for an application using Home Realm Discovery policy.
 services: active-directory
 author: nickludwig

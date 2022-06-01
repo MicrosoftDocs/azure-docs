@@ -350,7 +350,7 @@ The way you create a `TokenCredential` instance is beyond the scope of this arti
 - [In .NET](/dotnet/api/overview/azure/identity-readme#credential-classes)
 - [In Java](/java/api/overview/azure/identity-readme#credential-classes)
 - [In JavaScript](/javascript/api/overview/azure/identity-readme#credential-classes)
-- [In Python](/python/api/overview/azure/identity-readme?view=azure-python#credential-classes)
+- [In Python](/python/api/overview/azure/identity-readme#credential-classes)
 
 The examples below use a service principal with a `ClientSecretCredential` instance.
 
