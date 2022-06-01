@@ -1,5 +1,5 @@
 ---
-title: Configure Kubernetes cluster for Azure Machine Learning
+title: Configure Kubernetes cluster for Azure Machine Learning (Preview)
 description: Configure and attach an existing Kubernetes in any infrastructure across on-premises and multi-cloud to build, train, and deploy models with seamless Azure ML experience.
 titleSuffix: Azure Machine Learning
 author: ssalgadodev
@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
 ---
 
-# Configure Kubernetes cluster for Azure Machine Learning
+# Configure Kubernetes cluster for Azure Machine Learning (Preview)
 
 Azure Machine Learning Kubernetes enables customers to build, train, and deploy models in any infrastructure on-premises and across multi-cloud using Kubernetes. With an AzureML extension deployment on Kubernetes, you can instantly onboard teams of ML professionals with AzureML service capabilities. These services include full machine learning lifecycle and automation with MLOps in hybrid cloud and multi-cloud.
 
