@@ -82,7 +82,7 @@ Once the above prerequisites are met, you are ready to connect to your VM. Open 
     ```
 4. Validate the returned fingerprint.
 
-    If you have never connected to this VM before you will be asked to verify the hosts fingerprint. It is tempting to simply accept the fingerprint presented, however, this exposes you to a potential person in the middle attack. You should always validate the hosts fingerprint. You only need to do this on the first time you connect from a client. To obtain the host fingerprint via the portal, use the Run Command feature to execute the command:
+    If you have never connected to this VM before, you'll be asked to verify the hosts fingerprint. It's tempting to simply accept the fingerprint presented, but that exposes you to a potential person in the middle attack. You should always validate the hosts fingerprint. You only need to do this the first time you connect from a client. To get the host fingerprint via the portal, use the Run Command feature to execute the command:
     
      ```bash
      ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'
