@@ -68,7 +68,7 @@ For more information, see [Microsoft Sentinel content hub catalog](sentinel-solu
 
 Centrally manage content items for an installed solution deployed by the content hub.
 
-1. In the content hub, select an installed solution where the content source is **Content hub**.
+1. In the content hub, select an installed solution where the version is 2.0.0 or higher.
 1. On the solutions details page, select **Manage**.
 
     :::image type="content" source="media/sentinel-solutions-deploy/content-hub-manage-option.png" alt-text="Screenshot of manage button on details page of the Azure Activity content hub solution." lightbox="media/sentinel-solutions-deploy/content-hub-manage-option.png":::
