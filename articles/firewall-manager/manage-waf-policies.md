@@ -1,5 +1,5 @@
 ---
-title: Use Azure Firewall Manager to manage Web Application Firewall policies (preview)
+title: Manage Web Application Firewall policies (preview)
 description: Learn how to use Azure Firewall Manager to manage Azure Web Application Firewall policies
 author: vhorne
 ms.author: victorh
@@ -8,9 +8,9 @@ ms.topic: how-to
 ms.date: 06/01/2022
 ---
 
-# Use Azure Firewall Manager to manage Web Application Firewall policies  (preview)
+# Manage Web Application Firewall policies (preview)
 
-Azure Firewall Manager is a platform to manage and protect your network resources at scale. You can centrally create and associate Web Application Firewall (WAF) policies for your application delivery platforms, including Azure Front Door and Azure Application Gateway.
+You can centrally create and associate Web Application Firewall (WAF) policies for your application delivery platforms, including Azure Front Door and Azure Application Gateway.
 
 > [!IMPORTANT]
 > Managing Web Application Firewall policies using Azure Firewall Manager is currently in PREVIEW.
