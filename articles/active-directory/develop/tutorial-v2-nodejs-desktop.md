@@ -77,7 +77,7 @@ The renderer methods are exposed by the preload script found in the *preload.js*
 
     :::code language="js" source="~/ms-identity-JavaScript-nodejs-desktop/App/preload.js":::
 
-This preload script exposes a renderer methods to give the renderer process controlled access to some `Node APIs` by leveraging IPC channels that have been configured for communication between the main and renderer processes.
+This preload script exposes a renderer methods to give the renderer process controlled access to some `Node APIs` by applying IPC channels that have been configured for communication between the main and renderer processes.
 
 6. Next, create *UIManager.js* class inside the *App* folder and add the following code:
 
@@ -87,7 +87,7 @@ This preload script exposes a renderer methods to give the renderer process cont
 
     :::code language="js" source="~/ms-identity-JavaScript-nodejs-desktop/App/CustomProtocolListener.js":::
 
-*CustomProtocolListener* class can be instantiated in order to register and unregister a custom typed protocol on which MSAL Node can listen for Auth Code reponses.
+*CustomProtocolListener* class can be instantiated in order to register and unregister a custom typed protocol on which MSAL Node can listen for Auth Code responses.
 
 8. Finally, create a file named *constants.js* that will store the strings constants for describing the application **events**:
 
@@ -113,7 +113,7 @@ ElectronDesktopApp/
 
 ## Add authentication logic to your app
 
-In *App* folder, create a file named *AuthProvider.js*. This will contain an authentication provider class that will handle login, logout, token acquisition, account selection and related authentication tasks using MSAL Node. Add the following code there:
+In *App* folder, create a file named *AuthProvider.js*. The *AuthProvider.js* file will contain an authentication provider class that will handle login, logout, token acquisition, account selection and related authentication tasks using MSAL Node. Add the following code there:
 
 :::code language="js" source="~/ms-identity-JavaScript-nodejs-desktop/App/AuthProvider.js":::
 
@@ -160,6 +160,7 @@ Fill in these details with the values you obtain from Azure app registration por
 - `Enter_the_Cloud_Instance_Id_Here`: The Azure cloud instance in which your application is registered.
   - For the main (or *global*) Azure cloud, enter `https://login.microsoftonline.com/`.
   - For **national** clouds (for example, China), you can find appropriate values in [National clouds](authentication-national-cloud.md).
+- `Enter_the_Redirect_Uri_Here`: The Redirect Uri of the application you registered `msal{YourAppId}:///auth`.
 - `Enter_the_Graph_Endpoint_Here` is the instance of the Microsoft Graph API the application should communicate with.
   - For the **global** Microsoft Graph API endpoint, replace both instances of this string with `https://graph.microsoft.com/`.
   - For endpoints in **national** cloud deployments, see [National cloud deployments](/graph/deployments) in the Microsoft Graph documentation.
@@ -196,13 +197,13 @@ Select **Read Mails** to view the messages in user's account. You'll be presente
 
 :::image type="content" source="media/tutorial-v2-nodejs-desktop/desktop-05-consent-mail.png" alt-text="consent screen for read.mail permission":::
 
-After consent, you will view the messages returned in the response from the call to the Microsoft Graph API:
+After consent, you'll view the messages returned in the response from the call to the Microsoft Graph API:
 
 :::image type="content" source="media/tutorial-v2-nodejs-desktop/desktop-06-mails.png" alt-text="mail information from Microsoft Graph":::
 
 ## How the application works
 
-When a user selects the **Sign In** button for the first time, get `getTokenInteractive` method of *AuthProvider.js* is called. This method redirects the user to sign-in with the *Microsoft identity platform endpoint* and validate the user's credentials, and then obtains an **authorization code**. This code is then exchanged for an access token using `acquireTokenByCode` public API of MSAL Node.
+When a user selects the **Sign In** button for the first time, get `getTokenInteractive` method of *AuthProvider.js* is called. This method redirects the user to sign-in with the Microsoft identity platform endpoint and validates the user's credentials, and then obtains an **authorization code**. This code is then exchanged for an access token using `acquireTokenByCode` public API of MSAL Node.
 
 At this point, a PKCE-protected authorization code is sent to the CORS-protected token endpoint and is exchanged for tokens. An ID token, access token, and refresh token are received by your application and processed by MSAL Node, and the information contained in the tokens is cached.
 
@@ -210,9 +211,9 @@ The ID token contains basic information about the user, like their display name.
 
 The desktop app you've created in this tutorial makes a REST call to the Microsoft Graph API using an access token as bearer token in request header ([RFC 6750](https://tools.ietf.org/html/rfc6750)).
 
-The Microsoft Graph API requires the *user.read* scope to read a user's profile. By default, this scope is automatically added in every application that's registered in the Azure portal. Other APIs for Microsoft Graph, as well as custom APIs for your back-end server, might require additional scopes. For example, the Microsoft Graph API requires the *Mail.Read* scope in order to list the user's email.
+The Microsoft Graph API requires the *user.read* scope to read a user's profile. By default, this scope is automatically added in every application that's registered in the Azure portal. Other APIs for Microsoft Graph, and custom APIs for your back-end server, might require extra scopes. For example, the Microsoft Graph API requires the *Mail.Read* scope in order to list the user's email.
 
-As you add scopes, your users might be prompted to provide additional consent for the added scopes.
+As you add scopes, your users might be prompted to provide another consent for the added scopes.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
