@@ -109,6 +109,7 @@ The following tables list the Flexible orchestration mode features and links to 
 | SKUs supported  | D series, E series, F series, A series, B series, Intel, AMD; Specialty SKUs (G, H, L, M, N) are not supported |
 | Full control over VM, NICs, Disks  | Yes  |
 | RBAC Permissions Required  | Compute VMSS Write, Compute VM Write, Network |
+| Cross tenant shared image gallery | No |
 | Accelerated networking  | Yes  |
 | Spot instances and pricing   | Yes, you can have both Spot and Regular priority instances  |
 | Mix operating systems  | Yes, Linux and Windows can reside in the same Flexible scale set  |
