@@ -33,9 +33,9 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Get started with Dynatrace
+          - text: Create a new Dynatrace resource
             url: dynatrace-create.md
-          - text: Get started with Dynatrace
+          - text: Link to an existing Dynatrace environment
             url: dynatrace-link-to-existing.md
       - linkListType: how-to-guide
         links:
