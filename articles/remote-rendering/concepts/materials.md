@@ -10,7 +10,9 @@ ms.custom: devx-track-csharp
 
 # Materials
 
-Materials are [shared resources](../concepts/lifetime.md) that define how [meshes](meshes.md) are rendered. Materials are used to specify which [textures](textures.md) to apply, whether to make objects transparent and how lighting will be calculated.
+Materials are [shared resources](../concepts/lifetime.md) that define how triangular [meshes](meshes.md) are rendered. Point clouds on the other hand do not expose materials whatsoever.
+
+Materials are used to specify which [textures](textures.md) to apply, whether to make objects transparent and how lighting will be calculated.
 
 Materials are automatically created during [model conversion](../how-tos/conversion/model-conversion.md) and are accessible at runtime. You can also create custom materials from code and replace existing ones. This scenario makes especially sense if you want to share the same material across many meshes. Since modifications of a material are visible on every mesh that references it, this method can be used to easily apply changes.
 
@@ -27,7 +29,7 @@ Azure Remote Rendering has two distinct material types:
 
 ## Mesh vs. MeshComponent material assignment
 
-[Meshes](meshes.md) have one or more submeshes. Each submesh references one material. You can change the material to use either directly on the mesh, or you can override which material to use for a submesh on a [MeshComponent](meshes.md#meshcomponent).
+Triangular [Meshes](meshes.md) have one or more submeshes. Each submesh references one material. You can change the material to use either directly on the mesh, or you can override which material to use for a submesh on a [MeshComponent](meshes.md#meshcomponent).
 
 When you modify a material directly on the mesh resource, this change affects all instances of that mesh. Changing it on the MeshComponent, however, only affects that one mesh instance. Which method is more appropriate depends on the desired behavior, but modifying a MeshComponent is the more common approach.
 

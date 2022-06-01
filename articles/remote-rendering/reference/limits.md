@@ -31,11 +31,12 @@ The following limitations apply to the frontend API (C++ and C#):
 * **Maximum number of distinct textures**: There is no hard limit on the number of distinct textures. The only constraint is overall GPU memory and the number of distinct materials.
 * **Maximum dimension of a single texture**: 16,384 x 16,384. Larger textures cannot be used by the renderer. The conversion process can sometimes reduce larger textures in size, but in general it will fail to process textures larger than this limit.
 
-### Overall number of polygons
+### Overall number of primitives
 
-The allowable number of polygons for all loaded models depends on the size of the VM as passed to [the session management REST API](../how-tos/session-rest-api.md):
+A primitive is either a single triangle (in triangular meshes) or a single point (in point cloud meshes).
+The allowable number of primitives for all loaded models depends on the size of the VM as passed to [the session management REST API](../how-tos/session-rest-api.md):
 
-| Server size | Maximum number of polygons |
+| Server size | Maximum number of primitives |
 |:--------|:------------------|
 |standard| 20 million |
 |premium| no limit |

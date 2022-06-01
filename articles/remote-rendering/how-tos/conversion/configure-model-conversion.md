@@ -87,6 +87,12 @@ An example file `box.ConversionSettings.json` might be:
 }
 ```
 
+The schema is identical for converting triangular meshes and point clouds. However point cloud conversion uses only a strict subset of feature as discussed below.
+
+## Settings for triangular meshes
+
+When converting a triangular mesh, for instance from an .fbx file, all parameters from the schema above do affect the outcome. The parameters are explained in detail now:
+
 ### Geometry parameters
 
 * `scaling` - This parameter scales a model uniformly. Scaling can be used to grow or shrink a model, for example to display a building model on a table top.
@@ -237,9 +243,24 @@ By default the converter has to assume that you may want to use PBR materials on
 
 Knowing that you never need dynamic lighting on the model, and knowing that all texture coordinates are in `[0; 1]` range, you can set `normal`, `tangent`, and `binormal` to `NONE` and `texcoord0` to half precision (`16_16_FLOAT`), resulting in only 16 bytes per :::no-loc text="vertex":::. Cutting the mesh data in half enables you to load larger models and potentially improves performance.
 
+## Settings for point clouds
+
+When converting a point cloud, only a small subset of properties from the schema is used. Other properties are being ignored, if specified.
+
+The properties that do have an effect on point cloud conversion are:
+
+* `scaling` - same meaning as for triangular meshes.
+* `recenterToOrigin` - same meaning as for triangular meshes.
+* `axis` - same meaning as for triangular meshes. Default values are `["+x", "+y", "+z"]`, however most point cloud data will be rotated compared to renderer's own coordinate system. To compensate, in most cases `["+x", "+z", "-y"]` fixes the rotation.
+* `gammaToLinearVertex` - similar to triangular meshes, this flag can be used when point colors are expressed in gamma space. In practice, when enabled, makes the point cloud appear darker.
+* `generateCollisionMesh` - similar to triangular meshes, this flag needs to be enabled to support [spatial queries](../../overview/features/spatial-queries.md). But unlike for triangular meshes, this flag neither incurs longer conversion times nor larger output file sizes, nor longer runtime loading times. So disabling this flag cannot be considered an optimization.
+
 ## Memory optimizations
 
 Memory consumption of loaded content may become a bottleneck on the rendering system. If the memory payload becomes too large, it may compromise rendering performance or cause the model to not load altogether. This paragraph discusses some important strategies to reduce the memory footprint.
+
+> [!NOTE]
+> The following optimizations apply to triangular meshes. There is no way to optimize the output of point clouds through conversion settings.
 
 ### Instancing
 

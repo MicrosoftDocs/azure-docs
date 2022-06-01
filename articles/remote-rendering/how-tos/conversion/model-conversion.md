@@ -9,7 +9,7 @@ ms.topic: how-to
 
 # Convert models
 
-Azure Remote Rendering allows you to render very complex models. To achieve maximum performance, the data must be preprocessed to be in an optimal format. Depending on the amount of data, this step might take a while. It would be impractical, if this time was spent during model loading. Also, it would be wasteful to repeat this process for multiple sessions. 
+Azure Remote Rendering allows you to render very complex models. To achieve maximum performance, the data must be preprocessed to be in an optimal format. Depending on the amount of data, this step might take a while. It would be impractical, if this time was spent during model loading. Also, it would be wasteful to repeat this process for multiple sessions.
 For these reasons, ARR service provides a dedicated *conversion service*, which you can run ahead of time.
 Once converted, a model can be loaded from an Azure Storage Account.
 
@@ -17,10 +17,24 @@ Once converted, a model can be loaded from an Azure Storage Account.
 
 The conversion service supports these formats:
 
-- **FBX**  (version 2011 to version 2020)
-- **GLTF**/**GLB** (version 2.x)
+### Triangular meshes
+
+* **FBX**  (version 2011 to version 2020)
+* **GLTF**/**GLB** (version 2.x)
 
 There are minor differences between the formats with regard to material property conversion, as listed in chapter [material mapping for model formats](../../reference/material-mapping.md).
+
+### Point clouds
+
+* **XYZ**
+* **PLY** : There exist both text and binary version of the file, and vertex properties can be encoded in various ways. These are the current requirements for the file format:
+  * file is encoded using the "binary_little_endian 1.0" format,
+  * file contains a point cloud (i.e. no triangles),
+  * positions contain all 3 components (x, y, z),
+  * colors contain all 3 components (red, green, blue).
+
+  In case any other properties exist, they are just ignored during ingestion. Every PLY file have a human-readable header, which can be used to verify whether given file complies.
+* **E57** : E57 contains two types of data: "data3d" and "image2d". The conversion service only loads the "data3d" part of the file, while the "image2d" part of the file is being ignored.
 
 ## The conversion process
 
