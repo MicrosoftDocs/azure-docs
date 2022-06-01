@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 author: SimranArora904
 ms.author: siarora
-ms.date: 05/24/2022
+ms.date: 06/01/2022
 ms.topic: how-to
 ms.custom: troubleshooting, contperf-fy20q4, contperf-fy21q2, event-tier1-build-2022
 ---
@@ -123,7 +123,7 @@ Azure Machine Learning managed online endpoints have limits described in the fol
 
 To determine the current usage for an endpoint, [view the metrics](how-to-monitor-online-endpoints.md#view-metrics). 
 
-To request an exception from the Azure Machine Learning product team, usee the steps in the [Request quota increases](#request-quota-increases) section and provide the following information:
+To request an exception from the Azure Machine Learning product team, use the steps in the [Request quota increases](#request-quota-increases) section and provide the following information:
 
 1. Provide the Azure __subscriptions__ and __regions__ where you want to increase the quota.
 1. Provide the __tenant ID__ and __customer name__.
