@@ -38,7 +38,7 @@ If you are onboarding machines to Azure Arc-enabled servers, copy the following 
       service_principal_id: 'INSERT-SERVICE-PRINCIPAL-CLIENT-ID'
       service_principal_secret: 'INSERT-SERVICE-PRINCIPAL-SECRET'
       resource_group: 'INSERT-RESOURCE-GROUP'
-      tenant_id: 'TENANT-ID'
+      tenant_id: 'INSERT-TENANT-ID'
       subscription_id: 'INSERT-SUBSCRIPTION-ID'
       location: 'INSERT-LOCATION'
   tasks:
