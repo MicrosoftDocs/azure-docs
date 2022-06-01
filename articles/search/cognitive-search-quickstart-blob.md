@@ -65,9 +65,11 @@ You are now ready to move on the Import data wizard.
 
 ### Step 1 - Create a data source
 
-1. In **Connect to your data**, choose **Azure Blob Storage**. Choose an existing connection to the storage account and container you created. Give the data source a name, and use default values for the rest. 
+1. In **Connect to your data**, choose **Azure Blob Storage**.
 
-   :::image type="content" source="media/cognitive-search-quickstart-blob/blob-datasource.png" alt-text="Azure blob configuration" border="false":::
+1. Choose an existing connection to the storage account and select the container you created. Give the data source a name, and use default values for the rest. 
+
+   :::image type="content" source="media/cognitive-search-quickstart-blob/blob-datasource.png" alt-text="Azure blob configuration" border="true":::
 
     Continue to the next page.
 
@@ -77,7 +79,7 @@ Next, configure AI enrichment to invoke OCR, image analysis, and natural languag
 
 1. For this quickstart, we are using the **Free** Cognitive Services resource. The sample data consists of 14 files, so the free allotment of 20 transaction on Cognitive Services is sufficient for this quickstart. 
 
-   :::image type="content" source="media/cognitive-search-quickstart-blob/cog-search-attach.png" alt-text="Attach Cognitive Services attach base service" border="false":::
+   :::image type="content" source="media/cognitive-search-quickstart-blob/cog-search-attach.png" alt-text="Attach Cognitive Services attach base service" border="true":::
 
 1. Expand **Add enrichments** and make four selections. 
 
@@ -97,13 +99,13 @@ An index contains your searchable content and the **Import data** wizard can usu
 
 For this quickstart, the wizard does a good job setting reasonable defaults:  
 
-+ Default fields are based on properties for existing blobs plus new fields to contain enrichment output (for example, `people`, `organizations`, `locations`). Data types are inferred from metadata and by data sampling.
++ Default fields are based on metadata properties for existing blobs, plus the new fields for the enrichment output (for example, `people`, `organizations`, `locations`). Data types are inferred from metadata and by data sampling.
 
 + Default document key is *metadata_storage_path* (selected because the field contains unique values).
 
-+ Default attributes are **Retrievable** and **Searchable**. **Searchable** allows full text search a field. **Retrievable** means field values can be returned in results. The wizard assumes you want these fields to be retrievable and searchable because you created them via a skillset.
++ Default attributes are **Retrievable** and **Searchable**. **Searchable** allows full text search a field. **Retrievable** means field values can be returned in results. The wizard assumes you want these fields to be retrievable and searchable because you created them via a skillset. Select **Filterable** if you want to use fields in a filter expression.
 
-  :::image type="content" source="media/cognitive-search-quickstart-blob/index-fields.png" alt-text="Index fields" border="false":::
+  :::image type="content" source="media/cognitive-search-quickstart-blob/index-fields.png" alt-text="Index fields" border="true":::
 
 Marking a field as **Retrievable** does not mean that the field *must* be present in the search results. You can control search results composition by using the **$select** query parameter to specify which fields to include.
   
@@ -115,7 +117,7 @@ The indexer drives the indexing process. It specifies the data source name, a ta
 
 1. In the **Indexer** page, you can accept the default name and click the **Once** schedule option to run it immediately. 
 
-   :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-def.png" alt-text="Indexer definition" border="false":::
+   :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-def.png" alt-text="Indexer definition" border="true":::
 
 1. Click **Submit** to create and simultaneously run the indexer.
 
