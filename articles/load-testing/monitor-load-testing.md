@@ -37,7 +37,7 @@ The following sections build on this article by describing the specific data gat
 ## Monitoring data 
 
 
-Azure Load Testing collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](/azure/azure-monitor/essentials/monitor-azure-resource#monitoring-data-from-Azure-resources). 
+Azure Load Testing collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data-from-azure-resources). 
 
 See [Monitor Azure Load Testing data reference](monitor-load-testing-reference.md) for detailed information on logs metrics created by Azure Load Testing.
 
@@ -60,9 +60,9 @@ The following sections describe which types of logs you can collect.
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/essentials/resource-logs-schema). You can find the schema for Azure Load Testing resource logs in the [Monitor Azure Load Testing data reference](monitor-load-testing-reference.md#resource-logs).
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../azure-monitor/essentials/resource-logs-schema.md). You can find the schema for Azure Load Testing resource logs in the [Monitor Azure Load Testing data reference](monitor-load-testing-reference.md#resource-logs).
 
-The [Activity log](/azure/azure-monitor/essentials/activity-log) is a type of platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
+The [Activity log](../azure-monitor/essentials/activity-log.md) is a type of platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
 For a list of resource logs types collected for Azure Load Testing, see [Monitor Azure Load Testing data reference](monitor-load-testing-reference.md#resource-logs).
 
@@ -71,7 +71,7 @@ For a list of resource logs types collected for Azure Load Testing, see [Monitor
 
 
 > [!IMPORTANT]
-> When you select **Logs** from the Azure Load Testing menu, Log Analytics is opened with the query scope set to the current [service name]. This means that log queries will only include data from that resource. If you want to run a query that includes data from other [service resource] or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/logs/scope) for details.
+> When you select **Logs** from the Azure Load Testing menu, Log Analytics is opened with the query scope set to the current [service name]. This means that log queries will only include data from that resource. If you want to run a query that includes data from other [service resource] or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../azure-monitor/logs/scope.md) for details.
 
 
 Following are queries that you can use to help you monitor your Azure Load Testing resources:
@@ -98,4 +98,4 @@ AzureLoadTestingOperation
 
 - See [Monitor Azure Load Testing data reference](monitor-load-testing-reference.md) for a reference of the metrics, logs, and other important values created by Azure Load Testing.
 
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
+- See [Monitoring Azure resources with Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) for details on monitoring Azure resources.

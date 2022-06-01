@@ -151,6 +151,8 @@
         items:
         - name: Create and manage users
           href: how-to-create-and-manage-users.md
+        - name: Integrate with active directory
+          href: integrate-with-active-directory.md
         - name: Define global user access control
           href: how-to-define-global-user-access-control.md
       - name: Enrich device information

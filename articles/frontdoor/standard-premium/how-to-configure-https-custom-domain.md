@@ -142,7 +142,7 @@ If you want to change the secret version from ‘Latest’ to a specified versio
 
     > [!NOTE]
     > * It may take up to an hour for the new certificate to be deployed when you switch between certificate types.
-    > * If your domain state is Approved, switching the certificate type between BYOC and managed certificate won't have any downtime. Whhen switching to managed certificate, unless the domain ownership is re-validated and the domain state becomes Approved, you will continue to be served by the previous certificate.
+    > * If your domain state is Approved, switching the certificate type between BYOC and managed certificate won't have any downtime. When switching to managed certificate, unless the domain ownership is re-validated and the domain state becomes Approved, you will continue to be served by the previous certificate.
     > * If you switch from BYOC to managed certificate, domain re-validation is required. If you switch from managed certificate to BYOC, you're not required to re-validate the domain.
     >
 

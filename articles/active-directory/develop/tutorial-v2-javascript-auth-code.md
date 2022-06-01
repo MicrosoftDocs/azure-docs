@@ -67,8 +67,8 @@ Next, implement a small [Express](https://expressjs.com/) web server to serve yo
     npm install yargs
     ```
 2. Next, create file named *server.js* and add the following code:
-
-  :::code language="js" source="~/ms-identity-javascript-v2/server.js":::
+ 
+   :::code language="js" source="~/ms-identity-javascript-v2/server.js":::
 
 ## Create the SPA UI
 
