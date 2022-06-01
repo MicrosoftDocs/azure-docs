@@ -51,7 +51,7 @@ In the following steps, set up a blob container in Azure Storage to store hetero
 
 1. In Container, select **Upload** to upload the sample files you downloaded in the first step. Notice that you have a wide range of content types, including images and application files that are not full text searchable in their native formats.
 
-   :::image type="content" source="media/cognitive-search-quickstart-blob/sample-data.png" alt-text="Source files in Azure Blob Storage" border="false":::
+   :::image type="content" source="media/cognitive-search-quickstart-blob/sample-data.png" alt-text="Screenshot of source files in Azure Blob Storage." border="false":::
 
 You are now ready to move on the Import data wizard.
 
@@ -61,7 +61,7 @@ You are now ready to move on the Import data wizard.
 
 1. [Find your search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) and on the Overview page, select **Import data** on the command bar to set up cognitive enrichment in four steps.
 
-   :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Screenshot of the Import data command" border="true":::
+   :::image type="content" source="media/search-import-data-portal/import-data-cmd.png" alt-text="Screenshot of the Import data command." border="true":::
 
 ### Step 1 - Create a data source
 
@@ -69,7 +69,7 @@ You are now ready to move on the Import data wizard.
 
 1. Choose an existing connection to the storage account and select the container you created. Give the data source a name, and use default values for the rest. 
 
-   :::image type="content" source="media/cognitive-search-quickstart-blob/blob-datasource.png" alt-text="Azure blob configuration" border="true":::
+   :::image type="content" source="media/cognitive-search-quickstart-blob/blob-datasource.png" alt-text="Screenshot of the data source definition page." border="true":::
 
     Continue to the next page.
 
@@ -79,17 +79,15 @@ Next, configure AI enrichment to invoke OCR, image analysis, and natural languag
 
 1. For this quickstart, we are using the **Free** Cognitive Services resource. The sample data consists of 14 files, so the free allotment of 20 transaction on Cognitive Services is sufficient for this quickstart. 
 
-   :::image type="content" source="media/cognitive-search-quickstart-blob/cog-search-attach.png" alt-text="Attach Cognitive Services attach base service" border="true":::
+   :::image type="content" source="media/cognitive-search-quickstart-blob/cog-search-attach.png" alt-text="Screenshot of the Attach Cognitive Services tab." border="true":::
 
-1. Expand **Add enrichments** and make four selections. 
+1. Expand **Add enrichments** and make six selections. 
 
    Enable OCR to add image analysis skills to wizard page.
 
-   Set granularity to Pages to break up text into smaller chunks. Several text skills are limited to 5-KB inputs.
+   Choose entity recognition (people, organizations, locations) and image analysis skills (tags, captions).
 
-   Choose entity recognition (people, organizations, locations) and image analysis skills.
-
-   :::image type="content" source="media/cognitive-search-quickstart-blob/skillset.png" alt-text="Attach Cognitive Services select services for skillset" border="false":::
+   :::image type="content" source="media/cognitive-search-quickstart-blob/skillset.png" alt-text="Screenshot of the skillset definition page." border="true":::
 
    Continue to the next page.
 
@@ -105,7 +103,7 @@ For this quickstart, the wizard does a good job setting reasonable defaults:
 
 + Default attributes are **Retrievable** and **Searchable**. **Searchable** allows full text search a field. **Retrievable** means field values can be returned in results. The wizard assumes you want these fields to be retrievable and searchable because you created them via a skillset. Select **Filterable** if you want to use fields in a filter expression.
 
-  :::image type="content" source="media/cognitive-search-quickstart-blob/index-fields.png" alt-text="Index fields" border="true":::
+  :::image type="content" source="media/cognitive-search-quickstart-blob/index-fields.png" alt-text="Screenshot of the index definition page" border="true":::
 
 Marking a field as **Retrievable** does not mean that the field *must* be present in the search results. You can control search results composition by using the **$select** query parameter to specify which fields to include.
   
@@ -117,7 +115,7 @@ The indexer drives the indexing process. It specifies the data source name, a ta
 
 1. In the **Indexer** page, you can accept the default name and select **Once** to run it immediately. 
 
-   :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-def.png" alt-text="Indexer definition" border="true":::
+   :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-def.png" alt-text="Screenshot of the indexer definition page." border="true":::
 
 1. Click **Submit** to create and simultaneously run the indexer.
 
@@ -125,17 +123,17 @@ The indexer drives the indexing process. It specifies the data source name, a ta
 
 Cognitive skills indexing takes longer to complete than typical text-based indexing, especially OCR and image analysis. To monitor progress, go to the Overview page and select **Indexers** in the middle of page.
 
-  :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-notification.png" alt-text="Azure Cognitive Search notification" border="false":::
+  :::image type="content" source="media/cognitive-search-quickstart-blob/indexer-notification.png" alt-text="Screenshot of the indexer status page." border="true":::
 
-To check details about execution status, select an indexer from the list.
+To check details about execution status, select an indexer from the list, and then select **Success** (or **Failed**) to view execution details.
 
-There is one warning. It tells you that the PNG file in the data source doesn't provide a text input to Entity Recognition. This warning occurs because the upstream OCR skill didn't recognize any text in the image, and thus could not provide a text input to the downstream Entity Recognition skill.
+In this demo, there is one warning. It tells you that a PNG file in the data source doesn't provide a text input to Entity Recognition. This warning occurs because the upstream OCR skill didn't recognize any text in the image, and thus could not provide a text input to the downstream Entity Recognition skill.
 
-In skillset execution, warnings are common. As you become familiar with skillset execution, you'll begin to notice patterns and learn which warnings are safe to ignore.
+Warnings are common in skillset execution. As you become familiar with how skills iterate over your data, you'll begin to notice patterns and learn which warnings are safe to ignore.
 
 ## Query in Search explorer
 
-After an index is created, you can run queries to return results. In the portal, use **Search explorer** for this task. 
+After an index is created, run queries in **Search explorer** to return results.
 
 1. On the search service dashboard page, select **Search explorer** on the command bar.
 
@@ -143,14 +141,14 @@ After an index is created, you can run queries to return results. In the portal,
 
 1. Enter a search string to query the index, such as `search=Satya Nadella&$select=people,organizations,locations&$count=true`.
 
-Results are returned as JSON, which can be verbose and hard to read, especially in large documents originating from Azure blobs. Some tips for searching in this tool include the following techniques:
+Results are returned as verbose JSON, which can be hard to read, especially in large documents. Some tips for searching in this tool include the following techniques:
 
-+ Append `$select` to specify which fields to include in results. 
++ Append `$select` to limit the fields returned in results. 
 + Use CTRL-F to search within the JSON for specific properties or terms.
 
-Query strings are case-sensitive so if you get an "unknown field" message, check **Fields** or **Index Definition (JSON)** to verify name and case. 
+Query strings are case-sensitive so if you get an "unknown field" message, check **Fields** or **Index Definition (JSON)** to verify name and case.
 
-  :::image type="content" source="media/cognitive-search-quickstart-blob/search-explorer.png" alt-text="Search explorer example" border="true":::
+  :::image type="content" source="media/cognitive-search-quickstart-blob/search-explorer.png" alt-text="Screenshot of the the Search explorer page." border="true":::
 
 ## Takeaways
 
