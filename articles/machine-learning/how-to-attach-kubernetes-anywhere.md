@@ -1,5 +1,5 @@
 ---
-title: Azure Machine Learning anywhere with Kubernetes (preview)
+title: Configure Kubernetes cluster for Azure Machine Learning
 description: Configure and attach an existing Kubernetes in any infrastructure across on-premises and multi-cloud to build, train, and deploy models with seamless Azure ML experience.
 titleSuffix: Azure Machine Learning
 author: ssalgadodev
@@ -11,14 +11,32 @@ ms.topic: how-to
 ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
 ---
 
-# Azure Machine Learning anywhere with Kubernetes (preview)
+# Configure Kubernetes cluster for Azure Machine Learning
 
-Azure Machine Learning anywhere with Kubernetes (AzureML anywhere) enables customers to build, train, and deploy models in any infrastructure on-premises and across multi-cloud using Kubernetes. With an AzureML extension deployment on a Kubernetes cluster, you can instantly onboard teams of ML professionals with AzureML service capabilities. These services include full machine learning lifecycle and automation with MLOps in hybrid cloud and multi-cloud.
+Azure Machine Learning Kubernetes enables customers to build, train, and deploy models in any infrastructure on-premises and across multi-cloud using Kubernetes. With an AzureML extension deployment on Kubernetes, you can instantly onboard teams of ML professionals with AzureML service capabilities. These services include full machine learning lifecycle and automation with MLOps in hybrid cloud and multi-cloud.
+
+For any of a Kubernetes cluster in cloud or on-premises, you can easily bring your cluster to AzureML as a compute target by deploying AzureML extension to the cluster,
+
+- For Azure Kubernetes Servce (AKS) in Azure, you can deploy AzureML extension to it directly. See [Deploy and manage cluster extensions for Azure Kubernetes Service (AKS)](../aks/cluster-extensions.md).
+- For Kubernetes clusters on-premises or from other cloud providers, you can connect the cluster with Azure Arc, then deploy AzureML extension. See [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md).
 
 In this article, you can learn about steps to configure and attach an existing Kubernetes cluster anywhere for Azure Machine Learning:
 * [Deploy AzureML extension to Kubernetes cluster](#deploy-azureml-extension---example-scenarios)
 * [Attach a Kubernetes cluster to AzureML workspace](#attach-a-kubernetes-cluster-to-an-azureml-workspace)
 * [Create and use instance types to manage compute resources efficiently](#create-custom-instance-types)
+
+## Why use Azure Machine Learning Kubernetes?
+
+AzureML Kubernetes is customer fully configured and managed compute for machine learning. It can be used for both training and inference purposes. It provides the following benefits:
+
+- Harness existing hetreogenious or homogeneous Kubernetes cluster, with CPUs or GPUs.
+- Share the same Kubernetes cluster in multiple AzureML Workspace across region.
+- Secure network coummunication between the cluster and cloud with Azure Private Link and Private Endpoint.
+- Isolate team projects and machine learning workloads with Kubernetes node selector and namespace.
+- Target certain types of compute nodes and CPU/Memory/GPU resource allocation for training and inference workloads. 
+- Connect with data sources from Azure, on-premises or other clouds for training workloads.
+
+
 
 ## Prerequisites
 
@@ -97,6 +115,8 @@ Ensure you have fulfilled [prerequisites](#prerequisites). Assuming your cluster
    ```
 
 ## Attach a Kubernetes cluster to an AzureML workspace
+
+Attach an AKS or Arc-enabled Kubernetes cluster with AzureML extension installed to AzureML workspace. The same cluster can be attached and shared by multiple AzureMl workspace across region.
 
 ### Prerequisite
 
@@ -473,28 +493,17 @@ spec:
 > [!IMPORTANT]
 > Only the job pods in the same Kubernetes namespace with the PVC(s) will be mounted the volume. Data scientist is able to access the `mount path` specified in the PVC annotation in the job.
 
-## Appendix V: Supported Kubernetes distribution and version, AzureML extension region and version
+## Appendix V: Supported Kubernetes version, AzureML extension region and version
 
-- Supported Kubernetes distribution,
-  * Azure Kubernetes Services (AKS)
-  * AKS Engine
-  * AKS on Azure Stack HCI
-  * Azure RedHat OpenShift Service (ARO)
-  * OpenShift Container Platform (OCP)
-  * Google GKE  
-  * Amazon EKS 
-  * Canonical Kubernetes Distribution
-  * Minikube
-  * Kind
-  * K3s-Lightweight Kubernetes 
+
 - Kubernetes clusters installing AzureML extension have a version support window of "N-2", that is aligned with [Azure Kubernetes Service (AKS) version support policy](../aks/supported-kubernetes-versions.md#kubernetes-version-support-policy), where 'N' is the latest GA minor version of Azure Kubernetes Service.
 
   - For example, if AKS introduces 1.20.a today, versions 1.20.a, 1.20.b, 1.19.c, 1.19.d, 1.18.e, and 1.18.f are supported.
 
   - If customers are running an unsupported Kubernetes version, they will be asked to upgrade when requesting support for the cluster. Clusters running unsupported Kubernetes releases are not covered by the AzureML extension support policies.
 - AzureML extension region availability, 
-  - East US, East US 2, South Central US, West US 2, Australia East, Southeast Asia, North Europe, UK South, West Europe, West Central US, Central US, North Central US, West US, Korea Central, France Central
-- General available (GA) version of AzureML extension >= 1.0.101
+  - Supportd regions are listed in [Azure Arc enabled Kubernetes region support](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=azure-arc&regions=all).
+- General available (GA) version of AzureML extension >= 1.1.1
 
 
 ## Next steps
