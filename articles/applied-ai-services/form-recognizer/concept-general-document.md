@@ -1,7 +1,7 @@
 ---
 title: Form Recognizer general document model | Preview
 titleSuffix: Azure Applied AI Services
-description: Concepts encompassing data extraction and analysis using prebuilt general document preview model
+description: Concepts related to data extraction and analysis using prebuilt general document preview model
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services

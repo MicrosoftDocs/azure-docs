@@ -1,7 +1,7 @@
 ---
 title: Form Recognizer ID document model
 titleSuffix: Azure Applied AI Services
-description: Concepts relating to data extraction and analysis using the prebuilt ID document model
+description: Concepts related to data extraction and analysis using the prebuilt ID document model
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
