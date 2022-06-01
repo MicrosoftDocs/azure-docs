@@ -4,7 +4,7 @@ description: List of metrics available for each resource type with Azure Monitor
 author: rboucher
 services: azure-monitor
 ms.topic: reference
-ms.date: 04/12/2022
+ms.date: 06/01/2022
 ms.author: robb
 ---
 
@@ -56,12 +56,31 @@ The Azure Monitor agent replaces the Azure Diagnostics extension and Log Analyti
 
 This latest update adds a new column and reorders the metrics to be alphabetical. The additional information means that the tables might have a horizontal scroll bar at the bottom, depending on the width of your browser window. If you seem to be missing information, use the scroll bar to see the entirety of the table.
 
+## Microsoft.AAD/DomainServices
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|\DirectoryServices(NTDS)\LDAP Searches/sec|Yes|NTDS - LDAP Searches/sec|CountPerSecond|Average|This metric indicates the average number of searches per second for the NTDS object. It is backed by performance counter data from the domain controller, and can be filtered or splitted by role instance.|No Dimensions|
+|\DirectoryServices(NTDS)\LDAP Successful Binds/sec|Yes|NTDS - LDAP Successful Binds/sec|CountPerSecond|Average|This metric indicates the number of LDAP successful binds per second for the NTDS object. It is backed by performance counter data from the domain controller, and can be filtered or splitted by role instance.|No Dimensions|
+|\DNS\Total Query Received/sec|Yes|DNS - Total Query Received/sec|CountPerSecond|Average|This metric indicates the average number of queries received by DNS server in each second. It is backed by performance counter data from the domain controller, and can be filtered or splitted by role instance.|No Dimensions|
+|\DNS\Total Response Sent/sec|Yes|Total Response Sent/sec|CountPerSecond|Average|This metric indicates the average number of reponses sent by DNS server in each second. It is backed by performance counter data from the domain controller, and can be filtered or splitted by role instance.|No Dimensions|
+|\Memory\% Committed Bytes In Use|Yes|% Committed Bytes In Use|Percent|Average|This metric indicates the ratio of Memory\Committed Bytes to the Memory\Commit Limit. Committed memory is the physical memory in use for which space has been reserved in the paging file should it need to be written to disk. The commit limit is determined by the size of the paging file. If the paging file is enlarged, the commit limit increases, and the ratio is reduced. This counter displays the current percentage value only; it is not an average. It is backed by performance counter data from the domain controller, and can be filtered or splitted by role instance.|No Dimensions|
+|\Process(dns)\% Processor Time|Yes|% Processor Time (dns)|Percent|Average|This metric indicates the percentage of elapsed time that all of dns process threads used the processor to execute instructions. An instruction is the basic unit of execution in a computer, a thread is the object that executes instructions, and a process is the object created when a program is run. Code executed to handle some hardware interrupts and trap conditions are included in this count. It is backed by performance counter data from the domain controller, and can be filtered or splitted by role instance.|No Dimensions|
+|\Process(lsass)\% Processor Time|Yes|% Processor Time (lsass)|Percent|Average|This metric indicates the percentage of elapsed time that all of lsass process threads used the processor to execute instructions. An instruction is the basic unit of execution in a computer, a thread is the object that executes instructions, and a process is the object created when a program is run. Code executed to handle some hardware interrupts and trap conditions are included in this count. It is backed by performance counter data from the domain controller, and can be filtered or splitted by role instance.|No Dimensions|
+|\Processor(_Total)\% Processor Time|Yes|Total Processor Time|Percent|Average|This metric indicates the percentage of elapsed time that the processor spends to execute a non-Idle thread. It is calculated by measuring the percentage of time that the processor spends executing the idle thread and then subtracting that value from 100%. (Each processor has an idle thread that consumes cycles when no other threads are ready to run). This counter is the primary indicator of processor activity, and displays the average percentage of busy time observed during the sample interval. It should be noted that the accounting calculation of whether the processor is idle is performed at an internal sampling interval of the system clock (10ms). On todays fast processors, % Processor Time can therefore underestimate the processor utilization as the processor may be spending a lot of time servicing threads between the system clock sampling interval. Workload based timer applications are one example  of applications  which are more likely to be measured inaccurately as timers are signaled just after the sample is taken. It is backed by performance counter data from the domain controller, and can be filtered or splitted by role instance.|No Dimensions|
+|\Security System-Wide Statistics\Kerberos Authentications|Yes|Kerberos Authentications|CountPerSecond|Average|This metric indicates the number of times that clients use a ticket to authenticate to this computer per second. It is backed by performance counter data from the domain controller, and can be filtered or splitted by role instance.|No Dimensions|
+|\Security System-Wide Statistics\NTLM Authentications|Yes|NTLM Authentications|CountPerSecond|Average|This metric indicates the number of NTLM authentications processed per second for the Active Directory on this domain contrller or for local accounts on this member server. It is backed by performance counter data from the domain controller, and can be filtered or splitted by role instance.|No Dimensions|
+
 
 ## microsoft.aadiam/azureADMetrics
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|ThrottledRequests|No|ThrottledRequests|Count|Average|azureADMetrics type metric|No Dimensions|
+|CACompliantDeviceSuccessCount|Yes|CACompliantDeviceSuccessCount|Count|Count|CA comliant device scuccess count for Azure AD|No Dimensions|
+|CAManagedDeviceSuccessCount|No|CAManagedDeviceSuccessCount|Count|Count|CA domain join device success count for Azure AD|No Dimensions|
+|MFAAttemptCount|No|MFAAttemptCount|Count|Count|MFA attempt count for Azure AD|No Dimensions|
+|MFAFailureCount|No|MFAFailureCount|Count|Count|MFA failure count for Azure AD|No Dimensions|
+|MFASuccessCount|No|MFASuccessCount|Count|Count|MFA success count for Azure AD|No Dimensions|
 
 
 ## Microsoft.AnalysisServices/servers
@@ -143,6 +162,19 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |WebSocketMessages|Yes|WebSocket Messages (Preview)|Count|Total|Count of WebSocket messages based on selected source and destination|Location, Source, Destination|
 
 
+## Microsoft.App/containerapps
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|Replicas|Yes|Replica Count|Count|Maximum|Number of replicas count of container app|revisionName|
+|Requests|Yes|Requests|Count|Total|Requests processed|revisionName, podName, statusCodeCategory, statusCode|
+|RestartCount|Yes|Replica Restart Count|Count|Maximum|Restart count of container app replicas|revisionName, podName|
+|RxBytes|Yes|Network In Bytes|Bytes|Total|Network received bytes|revisionName, podName|
+|TxBytes|Yes|Network Out Bytes|Bytes|Total|Network transmitted bytes|revisionName, podName|
+|UsageNanoCores|Yes|CPU Usage|NanoCores|Average|CPU consumed by the container app, in nano cores. 1,000,000,000 nano cores = 1 core|revisionName, podName|
+|WorkingSetBytes|Yes|Memory Working Set Bytes|Bytes|Average|Container App working set memory used in bytes.|revisionName, podName|
+
+
 ## Microsoft.AppConfiguration/configurationStores
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -156,14 +188,14 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|active-timer-count|Yes|active-timer-count|Count|Average|Number of timers that are currently active|Deployment, AppName, Pod|
-|alloc-rate|Yes|alloc-rate|Bytes|Average|Number of bytes allocated in the managed heap|Deployment, AppName, Pod|
-|AppCpuUsage|Yes|App CPU Usage |Percent|Average|The recent CPU usage for the app|Deployment, AppName, Pod|
-|assembly-count|Yes|assembly-count|Count|Average|Number of Assemblies Loaded|Deployment, AppName, Pod|
-|cpu-usage|Yes|cpu-usage|Percent|Average|% time the process has utilized the CPU|Deployment, AppName, Pod|
-|current-requests|Yes|current-requests|Count|Average|Total number of requests in processing in the lifetime of the process|Deployment, AppName, Pod|
-|exception-count|Yes|exception-count|Count|Total|Number of Exceptions|Deployment, AppName, Pod|
-|failed-requests|Yes|failed-requests|Count|Average|Total number of failed requests in the lifetime of the process|Deployment, AppName, Pod|
+|active-timer-count|Yes|System.Runtime|active-timer-count|Count|Average|Number of timers that are currently active|Deployment, AppName, Pod|
+|alloc-rate|Yes|System.Runtime|alloc-rate|Bytes|Average|Number of bytes allocated in the managed heap|Deployment, AppName, Pod|
+|AppCpuUsage|Yes|App CPU Usage (Deprecated)|Percent|Average|The recent CPU usage for the app. This metric is being deprecated. Please use "App CPU Usage" with metric id "PodCpuUsage".|Deployment, AppName, Pod|
+|assembly-count|Yes|System.Runtime|assembly-count|Count|Average|Number of Assemblies Loaded|Deployment, AppName, Pod|
+|cpu-usage|Yes|System.Runtime|cpu-usage|Percent|Average|% time the process has utilized the CPU|Deployment, AppName, Pod|
+|current-requests|Yes|Microsoft.AspNetCore.Hosting|current-requests|Count|Average|Total number of requests in processing in the lifetime of the process|Deployment, AppName, Pod|
+|exception-count|Yes|System.Runtime|exception-count|Count|Total|Number of Exceptions|Deployment, AppName, Pod|
+|failed-requests|Yes|Microsoft.AspNetCore.Hosting|failed-requests|Count|Average|Total number of failed requests in the lifetime of the process|Deployment, AppName, Pod|
 |GatewayHttpServerRequestsMilliSecondsMax|Yes|Max time of requests|Milliseconds|Maximum|The max time of requests|Pod, httpStatusCode, outcome, httpMethod|
 |GatewayHttpServerRequestsMilliSecondsSum|Yes|Total time of requests|Milliseconds|Total|The total time of requests|Pod, httpStatusCode, outcome, httpMethod|
 |GatewayHttpServerRequestsSecondsCount|Yes|Request count|Count|Total|The number of requests|Pod, httpStatusCode, outcome, httpMethod|
@@ -179,13 +211,13 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |GatewayProcessCpuUsage|Yes|process.cpu.usage|Percent|Average|The recent CPU usage for the JVM process|Pod|
 |GatewayRatelimitThrottledCount|Yes|Throttled requests count|Count|Total|The count of the throttled requests|Pod|
 |GatewaySystemCpuUsage|Yes|system.cpu.usage|Percent|Average|The recent CPU usage for the whole system|Pod|
-|gc-heap-size|Yes|gc-heap-size|Count|Average|Total heap size reported by the GC (MB)|Deployment, AppName, Pod|
-|gen-0-gc-count|Yes|gen-0-gc-count|Count|Average|Number of Gen 0 GCs|Deployment, AppName, Pod|
-|gen-0-size|Yes|gen-0-size|Bytes|Average|Gen 0 Heap Size|Deployment, AppName, Pod|
-|gen-1-gc-count|Yes|gen-1-gc-count|Count|Average|Number of Gen 1 GCs|Deployment, AppName, Pod|
-|gen-1-size|Yes|gen-1-size|Bytes|Average|Gen 1 Heap Size|Deployment, AppName, Pod|
-|gen-2-gc-count|Yes|gen-2-gc-count|Count|Average|Number of Gen 2 GCs|Deployment, AppName, Pod|
-|gen-2-size|Yes|gen-2-size|Bytes|Average|Gen 2 Heap Size|Deployment, AppName, Pod|
+|gc-heap-size|Yes|System.Runtime|gc-heap-size|Count|Average|Total heap size reported by the GC (MB)|Deployment, AppName, Pod|
+|gen-0-gc-count|Yes|System.Runtime|gen-0-gc-count|Count|Average|Number of Gen 0 GCs|Deployment, AppName, Pod|
+|gen-0-size|Yes|System.Runtime|gen-0-size|Bytes|Average|Gen 0 Heap Size|Deployment, AppName, Pod|
+|gen-1-gc-count|Yes|System.Runtime|gen-1-gc-count|Count|Average|System.Runtime|Number of Gen 1 GCs|Deployment, AppName, Pod|
+|gen-1-size|Yes|System.Runtime|gen-1-size|Bytes|Average|Gen 1 Heap Size|Deployment, AppName, Pod|
+|gen-2-gc-count|Yes|System.Runtime|gen-2-gc-count|Count|Average|Number of Gen 2 GCs|Deployment, AppName, Pod|
+|gen-2-size|Yes|System.Runtime|gen-2-size|Bytes|Average|Gen 2 Heap Size|Deployment, AppName, Pod|
 |IngressBytesReceived|Yes|Bytes Received|Bytes|Average|Count of bytes received by Azure Spring Cloud from the clients|Hostname, HttpStatus|
 |IngressBytesReceivedRate|Yes|Throughput In (bytes/s)|BytesPerSecond|Average|Bytes received per second by Azure Spring Cloud from the clients|Hostname, HttpStatus|
 |IngressBytesSent|Yes|Bytes Sent|Bytes|Average|Count of bytes sent by Azure Spring Cloud to the clients|Hostname, HttpStatus|
@@ -203,19 +235,19 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |jvm.memory.committed|Yes|jvm.memory.committed|Bytes|Average|Memory assigned to JVM in bytes|Deployment, AppName, Pod|
 |jvm.memory.max|Yes|jvm.memory.max|Bytes|Maximum|The maximum amount of memory in bytes that can be used for memory management|Deployment, AppName, Pod|
 |jvm.memory.used|Yes|jvm.memory.used|Bytes|Average|App Memory Used in bytes|Deployment, AppName, Pod|
-|loh-size|Yes|loh-size|Bytes|Average|LOH Heap Size|Deployment, AppName, Pod|
-|monitor-lock-contention-count|Yes|monitor-lock-contention-count|Count|Average|Number of times there were contention when trying to take the monitor lock|Deployment, AppName, Pod|
+|loh-size|Yes|System.Runtime|loh-size|Bytes|Average|LOH Heap Size|Deployment, AppName, Pod|
+|monitor-lock-contention-count|Yes|System.Runtime|monitor-lock-contention-count|Count|Average|Number of times there were contention when trying to take the monitor lock|Deployment, AppName, Pod|
 |PodCpuUsage|Yes|App CPU Usage|Percent|Average|The recent CPU usage for the app|Deployment, AppName, Pod|
 |PodMemoryUsage|Yes|App Memory Usage|Percent|Average|The recent Memory usage for the app|Deployment, AppName, Pod|
 |PodNetworkIn|Yes|App Network In|Bytes|Average|Cumulative count of bytes received in the app|Deployment, AppName, Pod|
 |PodNetworkOut|Yes|App Network Out|Bytes|Average|Cumulative count of bytes sent from the app|Deployment, AppName, Pod|
 |process.cpu.usage|Yes|process.cpu.usage|Percent|Average|The recent CPU usage for the JVM process|Deployment, AppName, Pod|
-|requests-per-second|Yes|requests-rate|Count|Average|Request rate|Deployment, AppName, Pod|
+|requests-per-second|Yes|Microsoft.AspNetCore.Hosting|requests-rate|Count|Average|Request rate|Deployment, AppName, Pod|
 |system.cpu.usage|Yes|system.cpu.usage|Percent|Average|The recent CPU usage for the whole system|Deployment, AppName, Pod|
-|threadpool-completed-items-count|Yes|threadpool-completed-items-count|Count|Average|ThreadPool Completed Work Items Count|Deployment, AppName, Pod|
-|threadpool-queue-length|Yes|threadpool-queue-length|Count|Average|ThreadPool Work Items Queue Length|Deployment, AppName, Pod|
-|threadpool-thread-count|Yes|threadpool-thread-count|Count|Average|Number of ThreadPool Threads|Deployment, AppName, Pod|
-|time-in-gc|Yes|time-in-gc|Percent|Average|% time in GC since the last GC|Deployment, AppName, Pod|
+|threadpool-completed-items-count|Yes|System.Runtime|threadpool-completed-items-count|Count|Average|ThreadPool Completed Work Items Count|Deployment, AppName, Pod|
+|threadpool-queue-length|Yes|System.Runtime|threadpool-queue-length|Count|Average|ThreadPool Work Items Queue Length|Deployment, AppName, Pod|
+|threadpool-thread-count|Yes|System.Runtime|threadpool-thread-count|Count|Average|Number of ThreadPool Threads|Deployment, AppName, Pod|
+|time-in-gc|Yes|System.Runtime|time-in-gc|Percent|Average|% time in GC since the last GC|Deployment, AppName, Pod|
 |tomcat.global.error|Yes|tomcat.global.error|Count|Total|Tomcat Global Error|Deployment, AppName, Pod|
 |tomcat.global.received|Yes|tomcat.global.received|Bytes|Total|Tomcat Total Received Bytes|Deployment, AppName, Pod|
 |tomcat.global.request.avg.time|Yes|tomcat.global.request.avg.time|Milliseconds|Average|Tomcat Request Average Time|Deployment, AppName, Pod|
@@ -231,8 +263,8 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |tomcat.sessions.rejected|Yes|tomcat.sessions.rejected|Count|Total|Tomcat Session Rejected Count|Deployment, AppName, Pod|
 |tomcat.threads.config.max|Yes|tomcat.threads.config.max|Count|Total|Tomcat Config Max Thread Count|Deployment, AppName, Pod|
 |tomcat.threads.current|Yes|tomcat.threads.current|Count|Total|Tomcat Current Thread Count|Deployment, AppName, Pod|
-|total-requests|Yes|total-requests|Count|Average|Total number of requests in the lifetime of the process|Deployment, AppName, Pod|
-|working-set|Yes|working-set|Count|Average|Amount of working set used by the process (MB)|Deployment, AppName, Pod|
+|total-requests|Yes|Microsoft.AspNetCore.Hosting|total-requests|Count|Average|Total number of requests in the lifetime of the process|Deployment, AppName, Pod|
+|working-set|Yes|System.Runtime|working-set|Count|Average|Amount of working set used by the process (MB)|Deployment, AppName, Pod|
 
 
 ## Microsoft.Automation/automationAccounts
@@ -295,27 +327,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |WaitingForStartTaskNodeCount|No|Waiting For Start Task Node Count|Count|Total|Number of nodes waiting for the Start Task to complete|No Dimensions|
 
 
-## Microsoft.BatchAI/workspaces
-
-|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
-|---|---|---|---|---|---|---|
-|Active Cores|Yes|Active Cores|Count|Average|Number of active cores|Scenario, ClusterName|
-|Active Nodes|Yes|Active Nodes|Count|Average|Number of running nodes|Scenario, ClusterName|
-|Idle Cores|Yes|Idle Cores|Count|Average|Number of idle cores|Scenario, ClusterName|
-|Idle Nodes|Yes|Idle Nodes|Count|Average|Number of idle nodes|Scenario, ClusterName|
-|Job Completed|Yes|Job Completed|Count|Total|Number of jobs completed|Scenario, ClusterName, ResultType|
-|Job Submitted|Yes|Job Submitted|Count|Total|Number of jobs submitted|Scenario, ClusterName|
-|Leaving Cores|Yes|Leaving Cores|Count|Average|Number of leaving cores|Scenario, ClusterName|
-|Leaving Nodes|Yes|Leaving Nodes|Count|Average|Number of leaving nodes|Scenario, ClusterName|
-|Preempted Cores|Yes|Preempted Cores|Count|Average|Number of preempted cores|Scenario, ClusterName|
-|Preempted Nodes|Yes|Preempted Nodes|Count|Average|Number of preempted nodes|Scenario, ClusterName|
-|Quota Utilization Percentage|Yes|Quota Utilization Percentage|Count|Average|Percent of quota utilized|Scenario, ClusterName, VmFamilyName, VmPriority|
-|Total Cores|Yes|Total Cores|Count|Average|Number of total cores|Scenario, ClusterName|
-|Total Nodes|Yes|Total Nodes|Count|Average|Number of total nodes|Scenario, ClusterName|
-|Unusable Cores|Yes|Unusable Cores|Count|Average|Number of unusable cores|Scenario, ClusterName|
-|Unusable Nodes|Yes|Unusable Nodes|Count|Average|Number of unusable nodes|Scenario, ClusterName|
-
-
 ## microsoft.bing/accounts
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -329,92 +340,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |SuccessfulCalls|Yes|Successful Calls|Count|Total|Number of successful calls (HTTP status code 2xx)|ApiName, ServingRegion, StatusCode|
 |TotalCalls|Yes|Total Calls|Count|Total|Total number of calls|ApiName, ServingRegion, StatusCode|
 |TotalErrors|Yes|Total Errors|Count|Total|Number of calls with any error (HTTP status code 4xx or 5xx)|ApiName, ServingRegion, StatusCode|
-
-
-## Microsoft.Blockchain/blockchainMembers
-
-|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
-|---|---|---|---|---|---|---|
-|BroadcastProcessedCount|Yes|BroadcastProcessedCountDisplayName|Count|Average|The number of transactions processed.|Node, channel, type, status|
-|ChaincodeExecuteTimeouts|Yes|ChaincodeExecuteTimeoutsDisplayName|Count|Average|The number of chaincode executions (Init or Invoke) that have timed out.|Node, chaincode|
-|ChaincodeLaunchFailures|Yes|ChaincodeLaunchFailuresDisplayName|Count|Average|The number of chaincode launches that have failed.|Node, chaincode|
-|ChaincodeLaunchTimeouts|Yes|ChaincodeLaunchTimeoutsDisplayName|Count|Average|The number of chaincode launches that have timed out.|Node, chaincode|
-|ChaincodeShimRequestsCompleted|Yes|ChaincodeShimRequestsCompletedDisplayName|Count|Average|The number of chaincode shim requests completed.|Node, type, channel, chaincode, success|
-|ChaincodeShimRequestsReceived|Yes|ChaincodeShimRequestsReceivedDisplayName|Count|Average|The number of chaincode shim requests received.|Node, type, channel, chaincode|
-|ClusterCommEgressQueueCapacity|Yes|ClusterCommEgressQueueCapacityDisplayName|Count|Average|Capacity of the egress queue.|Node, host, msg_type, channel|
-|ClusterCommEgressQueueLength|Yes|ClusterCommEgressQueueLengthDisplayName|Count|Average|Length of the egress queue.|Node, host, msg_type, channel|
-|ClusterCommEgressQueueWorkers|Yes|ClusterCommEgressQueueWorkersDisplayName|Count|Average|Count of egress queue workers.|Node, channel|
-|ClusterCommEgressStreamCount|Yes|ClusterCommEgressStreamCountDisplayName|Count|Average|Count of streams to other nodes.|Node, channel|
-|ClusterCommEgressTlsConnectionCount|Yes|ClusterCommEgressTlsConnectionCountDisplayName|Count|Average|Count of TLS connections to other nodes.|Node|
-|ClusterCommIngressStreamCount|Yes|ClusterCommIngressStreamCountDisplayName|Count|Average|Count of streams from other nodes.|Node|
-|ClusterCommMsgDroppedCount|Yes|ClusterCommMsgDroppedCountDisplayName|Count|Average|Count of messages dropped.|Node, host, channel|
-|ConnectionAccepted|Yes|Accepted Connections|Count|Total|Accepted Connections|Node|
-|ConnectionActive|Yes|Active Connections|Count|Average|Active Connections|Node|
-|ConnectionHandled|Yes|Handled Connections|Count|Total|Handled Connections|Node|
-|ConsensusEtcdraftActiveNodes|Yes|ConsensusEtcdraftActiveNodesDisplayName|Count|Average|Number of active nodes in this channel.|Node, channel|
-|ConsensusEtcdraftClusterSize|Yes|ConsensusEtcdraftClusterSizeDisplayName|Count|Average|Number of nodes in this channel.|Node, channel|
-|ConsensusEtcdraftCommittedBlockNumber|Yes|ConsensusEtcdraftCommittedBlockNumberDisplayName|Count|Average|The block number of the latest block committed.|Node, channel|
-|ConsensusEtcdraftConfigProposalsReceived|Yes|ConsensusEtcdraftConfigProposalsReceivedDisplayName|Count|Average|The total number of proposals received for config type transactions.|Node, channel|
-|ConsensusEtcdraftIsLeader|Yes|ConsensusEtcdraftIsLeaderDisplayName|Count|Average|The leadership status of the current node: 1 if it is the leader else 0.|Node, channel|
-|ConsensusEtcdraftLeaderChanges|Yes|ConsensusEtcdraftLeaderChangesDisplayName|Count|Average|The number of leader changes since process start.|Node, channel|
-|ConsensusEtcdraftNormalProposalsReceived|Yes|ConsensusEtcdraftNormalProposalsReceivedDisplayName|Count|Average|The total number of proposals received for normal type transactions.|Node, channel|
-|ConsensusEtcdraftProposalFailures|Yes|ConsensusEtcdraftProposalFailuresDisplayName|Count|Average|The number of proposal failures.|Node, channel|
-|ConsensusEtcdraftSnapshotBlockNumber|Yes|ConsensusEtcdraftSnapshotBlockNumberDisplayName|Count|Average|The block number of the latest snapshot.|Node, channel|
-|ConsensusKafkaBatchSize|Yes|ConsensusKafkaBatchSizeDisplayName|Count|Average|The mean batch size in bytes sent to topics.|Node, topic|
-|ConsensusKafkaCompressionRatio|Yes|ConsensusKafkaCompressionRatioDisplayName|Count|Average|The mean compression ratio (as percentage) for topics.|Node, topic|
-|ConsensusKafkaIncomingByteRate|Yes|ConsensusKafkaIncomingByteRateDisplayName|Count|Average|Bytes/second read off brokers.|Node, broker_id|
-|ConsensusKafkaLastOffsetPersisted|Yes|ConsensusKafkaLastOffsetPersistedDisplayName|Count|Average|The offset specified in the block metadata of the most recently committed block.|Node, channel|
-|ConsensusKafkaOutgoingByteRate|Yes|ConsensusKafkaOutgoingByteRateDisplayName|Count|Average|Bytes/second written to brokers.|Node, broker_id|
-|ConsensusKafkaRecordSendRate|Yes|ConsensusKafkaRecordSendRateDisplayName|Count|Average|The number of records per second sent to topics.|Node, topic|
-|ConsensusKafkaRecordsPerRequest|Yes|ConsensusKafkaRecordsPerRequestDisplayName|Count|Average|The mean number of records sent per request to topics.|Node, topic|
-|ConsensusKafkaRequestLatency|Yes|ConsensusKafkaRequestLatencyDisplayName|Count|Average|The mean request latency in ms to brokers.|Node, broker_id|
-|ConsensusKafkaRequestRate|Yes|ConsensusKafkaRequestRateDisplayName|Count|Average|Requests/second sent to brokers.|Node, broker_id|
-|ConsensusKafkaRequestSize|Yes|ConsensusKafkaRequestSizeDisplayName|Count|Average|The mean request size in bytes to brokers.|Node, broker_id|
-|ConsensusKafkaResponseRate|Yes|ConsensusKafkaResponseRateDisplayName|Count|Average|Requests/second sent to brokers.|Node, broker_id|
-|ConsensusKafkaResponseSize|Yes|ConsensusKafkaResponseSizeDisplayName|Count|Average|The mean response size in bytes from brokers.|Node, broker_id|
-|CpuUsagePercentageInDouble|Yes|CPU Usage Percentage|Percent|Maximum|CPU Usage Percentage|Node|
-|DeliverBlocksSent|Yes|DeliverBlocksSentDisplayName|Count|Average|The number of blocks sent by the deliver service.|Node, channel, filtered, data_type|
-|DeliverRequestsCompleted|Yes|DeliverRequestsCompletedDisplayName|Count|Average|The number of deliver requests that have been completed.|Node, channel, filtered, data_type, success|
-|DeliverRequestsReceived|Yes|DeliverRequestsReceivedDisplayName|Count|Average|The number of deliver requests that have been received.|Node, channel, filtered, data_type|
-|DeliverStreamsClosed|Yes|DeliverStreamsClosedDisplayName|Count|Average|The number of GRPC streams that have been closed for the deliver service.|Node|
-|DeliverStreamsOpened|Yes|DeliverStreamsOpenedDisplayName|Count|Average|The number of GRPC streams that have been opened for the deliver service.|Node|
-|EndorserChaincodeInstantiationFailures|Yes|EndorserChaincodeInstantiationFailuresDisplayName|Count|Average|The number of chaincode instantiations or upgrade that have failed.|Node, channel, chaincode|
-|EndorserDuplicateTransactionFailures|Yes|EndorserDuplicateTransactionFailuresDisplayName|Count|Average|The number of failed proposals due to duplicate transaction ID.|Node, channel, chaincode|
-|EndorserEndorsementFailures|Yes|EndorserEndorsementFailuresDisplayName|Count|Average|The number of failed endorsements.|Node, channel, chaincode, chaincodeerror|
-|EndorserProposalAclFailures|Yes|EndorserProposalAclFailuresDisplayName|Count|Average|The number of proposals that failed ACL checks.|Node, channel, chaincode|
-|EndorserProposalSimulationFailures|Yes|EndorserProposalSimulationFailuresDisplayName|Count|Average|The number of failed proposal simulations.|Node, channel, chaincode|
-|EndorserProposalsReceived|Yes|EndorserProposalsReceivedDisplayName|Count|Average|The number of proposals received.|Node|
-|EndorserProposalValidationFailures|Yes|EndorserProposalValidationFailuresDisplayName|Count|Average|The number of proposals that have failed initial validation.|Node|
-|EndorserSuccessfulProposals|Yes|EndorserSuccessfulProposalsDisplayName|Count|Average|The number of successful proposals.|Node|
-|FabricVersion|Yes|FabricVersionDisplayName|Count|Average|The active version of Fabric.|Node, version|
-|GossipCommMessagesReceived|Yes|GossipCommMessagesReceivedDisplayName|Count|Average|Number of messages received.|Node|
-|GossipCommMessagesSent|Yes|GossipCommMessagesSentDisplayName|Count|Average|Number of messages sent.|Node|
-|GossipCommOverflowCount|Yes|GossipCommOverflowCountDisplayName|Count|Average|Number of outgoing queue buffer overflows.|Node|
-|GossipLeaderElectionLeader|Yes|GossipLeaderElectionLeaderDisplayName|Count|Average|Peer is leader (1) or follower (0).|Node, channel|
-|GossipMembershipTotalPeersKnown|Yes|GossipMembershipTotalPeersKnownDisplayName|Count|Average|Total known peers.|Node, channel|
-|GossipPayloadBufferSize|Yes|GossipPayloadBufferSizeDisplayName|Count|Average|Size of the payload buffer.|Node, channel|
-|GossipStateHeight|Yes|GossipStateHeightDisplayName|Count|Average|Current ledger height.|Node, channel|
-|GrpcCommConnClosed|Yes|GrpcCommConnClosedDisplayName|Count|Average|gRPC connections closed. Open minus closed is the active number of connections.|Node|
-|GrpcCommConnOpened|Yes|GrpcCommConnOpenedDisplayName|Count|Average|gRPC connections opened. Open minus closed is the active number of connections.|Node|
-|GrpcServerStreamMessagesReceived|Yes|GrpcServerStreamMessagesReceivedDisplayName|Count|Average|The number of stream messages received.|Node, service, method|
-|GrpcServerStreamMessagesSent|Yes|GrpcServerStreamMessagesSentDisplayName|Count|Average|The number of stream messages sent.|Node, service, method|
-|GrpcServerStreamRequestsCompleted|Yes|GrpcServerStreamRequestsCompletedDisplayName|Count|Average|The number of stream requests completed.|Node, service, method, code|
-|GrpcServerUnaryRequestsReceived|Yes|GrpcServerUnaryRequestsReceivedDisplayName|Count|Average|The number of unary requests received.|Node, service, method|
-|IOReadBytes|Yes|IO Read Bytes|Bytes|Total|IO Read Bytes|Node|
-|IOWriteBytes|Yes|IO Write Bytes|Bytes|Total|IO Write Bytes|Node|
-|LedgerBlockchainHeight|Yes|LedgerBlockchainHeightDisplayName|Count|Average|Height of the chain in blocks.|Node, channel|
-|LedgerTransactionCount|Yes|LedgerTransactionCountDisplayName|Count|Average|Number of transactions processed.|Node, channel, transaction_type, chaincode, validation_code|
-|LoggingEntriesChecked|Yes|LoggingEntriesCheckedDisplayName|Count|Average|Number of log entries checked against the active logging level.|Node, level|
-|LoggingEntriesWritten|Yes|LoggingEntriesWrittenDisplayName|Count|Average|Number of log entries that are written.|Node, level|
-|MemoryLimit|Yes|Memory Limit|Bytes|Average|Memory Limit|Node|
-|MemoryUsage|Yes|Memory Usage|Bytes|Average|Memory Usage|Node|
-|MemoryUsagePercentageInDouble|Yes|Memory Usage Percentage|Percent|Average|Memory Usage Percentage|Node|
-|PendingTransactions|Yes|Pending Transactions|Count|Average|Pending Transactions|Node|
-|ProcessedBlocks|Yes|Processed Blocks|Count|Total|Processed Blocks|Node|
-|ProcessedTransactions|Yes|Processed Transactions|Count|Total|Processed Transactions|Node|
-|QueuedTransactions|Yes|Queued Transactions|Count|Average|Queued Transactions|Node|
-|RequestHandled|Yes|Handled Requests|Count|Total|Handled Requests|Node|
-|StorageUsage|Yes|Storage Usage|Bytes|Average|Storage Usage|Node|
 
 
 ## microsoft.botservice/botservices
@@ -879,6 +804,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |APIRequestAuthentication|No|Authentication API Requests|Count|Count|Count of all requests against the Communication Services Authentication endpoint.|Operation, StatusCode, StatusCodeClass|
+|APIRequestCallRecording|Yes|Call Recording API Requests|Count|Count|Count of all requests against the Communication Services Call Recording endpoint.|Operation, StatusCode, StatusCodeClass|
 |APIRequestChat|Yes|Chat API Requests|Count|Count|Count of all requests against the Communication Services Chat endpoint.|Operation, StatusCode, StatusCodeClass|
 |APIRequestNetworkTraversal|No|Network Traversal API Requests|Count|Count|Count of all requests against the Communication Services Network Traversal endpoint.|Operation, StatusCode, StatusCodeClass|
 |APIRequestSMS|Yes|SMS API Requests|Count|Count|Count of all requests against the Communication Services SMS endpoint.|Operation, StatusCode, StatusCodeClass, ErrorCode, NumberType|
@@ -916,10 +842,11 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|Composite Disk Read Bytes/sec|No|Disk Read Bytes/sec(Preview)|Bytes|Average|Bytes/sec read from disk during monitoring period, please note, this metric is in preview and is subject to change before becoming generally available|No Dimensions|
-|Composite Disk Read Operations/sec|No|Disk Read Operations/sec(Preview)|Bytes|Average|Number of read IOs performed on a disk during monitoring period, please note, this metric is in preview and is subject to change before becoming generally available|No Dimensions|
-|Composite Disk Write Bytes/sec|No|Disk Write Bytes/sec(Preview)|Bytes|Average|Bytes/sec written to disk during monitoring period, please note, this metric is in preview and is subject to change before becoming generally available|No Dimensions|
-|Composite Disk Write Operations/sec|No|Disk Write Operations/sec(Preview)|Bytes|Average|Number of Write IOs performed on a disk during monitoring period, please note, this metric is in preview and is subject to change before becoming generally available|No Dimensions|
+|Composite Disk Read Bytes/sec|No|Disk Read Bytes/sec(Preview)|BytesPerSecond|Average|Bytes/sec read from disk during monitoring period, please note, this metric is in preview and is subject to change before becoming generally available|No Dimensions|
+|Composite Disk Read Operations/sec|No|Disk Read Operations/sec(Preview)|CountPerSecond|Average|Number of read IOs performed on a disk during monitoring period, please note, this metric is in preview and is subject to change before becoming generally available|No Dimensions|
+|Composite Disk Write Bytes/sec|No|Disk Write Bytes/sec(Preview)|BytesPerSecond|Average|Bytes/sec written to disk during monitoring period, please note, this metric is in preview and is subject to change before becoming generally available|No Dimensions|
+|Composite Disk Write Operations/sec|No|Disk Write Operations/sec(Preview)|CountPerSecond|Average|Number of Write IOs performed on a disk during monitoring period, please note, this metric is in preview and is subject to change before becoming generally available|No Dimensions|
+|DiskPaidBurstIOPS|No|Disk On-demand Burst Operations(Preview)|Count|Average|The accumulated operations of burst transactions used for disks with on-demand burst enabled. Emitted on an hour interval|No Dimensions|
 
 
 ## Microsoft.Compute/virtualMachines
@@ -976,9 +903,10 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |VM Cached IOPS Consumed Percentage|Yes|VM Cached IOPS Consumed Percentage|Percent|Average|Percentage of cached disk IOPS consumed by the VM|No Dimensions|
 |VM Uncached Bandwidth Consumed Percentage|Yes|VM Uncached Bandwidth Consumed Percentage|Percent|Average|Percentage of uncached disk bandwidth consumed by the VM|No Dimensions|
 |VM Uncached IOPS Consumed Percentage|Yes|VM Uncached IOPS Consumed Percentage|Percent|Average|Percentage of uncached disk IOPS consumed by the VM|No Dimensions|
+|VmAvailabilityMetric|Yes|VM Availability Metric (Preview)|Count|Average|Measure of Availability of Virtual machines over time. Note: This metric is previewed to only a small set of customers at the moment, as we prioritize improving data quality and consistency. As we improve our data standard, we will be rolling out this feature fleetwide in a phased manner.|No Dimensions|
 
 
-## Microsoft.Compute/virtualMachineScaleSets
+## Microsoft.Compute/virtualmachineScaleSets
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -1032,6 +960,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |VM Cached IOPS Consumed Percentage|Yes|VM Cached IOPS Consumed Percentage|Percent|Average|Percentage of cached disk IOPS consumed by the VM|VMName|
 |VM Uncached Bandwidth Consumed Percentage|Yes|VM Uncached Bandwidth Consumed Percentage|Percent|Average|Percentage of uncached disk bandwidth consumed by the VM|VMName|
 |VM Uncached IOPS Consumed Percentage|Yes|VM Uncached IOPS Consumed Percentage|Percent|Average|Percentage of uncached disk IOPS consumed by the VM|VMName|
+|VmAvailabilityMetric|Yes|VM Availability Metric (Preview)|Count|Average|Measure of Availability of Virtual machines over time. Note: This metric is previewed to only a small set of customers at the moment, as we prioritize improving data quality and consistency. As we improve our data standard, we will be rolling out this feature fleetwide in a phased manner.|VMName|
 
 
 ## Microsoft.Compute/virtualMachineScaleSets/virtualMachines
@@ -1095,7 +1024,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
 |egressbps|Yes|Egress Mbps|BitsPerSecond|Average|Egress Throughput|cachenodeid|
-|hitRatio|Yes|Hit Ratio|Percent|Average|Hit Ratio|cachenodeid|
+|hitRatio|Yes|Cache Efficiency|Percent|Average|Cache Efficiency|cachenodeid|
 |hits|Yes|Hits|Count|Count|Count of hits|cachenodeid|
 |hitsbps|Yes|Hit Mbps|BitsPerSecond|Average|Hit Throughput|cachenodeid|
 |misses|Yes|Misses|Count|Count|Count of misses|cachenodeid|
@@ -1271,6 +1200,14 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ReadRequests|Yes|Read Requests|Count|Total|Count of data read requests to the account.|No Dimensions|
 |TotalStorage|Yes|Total Storage|Bytes|Maximum|Total amount of data stored in the account.|No Dimensions|
 |WriteRequests|Yes|Write Requests|Count|Total|Count of data write requests to the account.|No Dimensions|
+
+
+## Microsoft.DataProtection/BackupVaults
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|BackupHealthEvent|Yes|Backup Health Events (preview)|Count|Count|The count of health events pertaining to backup job health|dataSourceURL, backupInstanceUrl, dataSourceType, healthStatus, backupInstanceName|
+|RestoreHealthEvent|Yes|Restore Health Events (preview)|Count|Count|The count of health events pertaining to restore job health|dataSourceURL, backupInstanceUrl, dataSourceType, healthStatus, backupInstanceName|
 
 
 ## Microsoft.DataShare/accounts
@@ -1738,7 +1675,9 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |DataUsage|No|Data Usage|Bytes|Total|Total data usage reported at 5 minutes granularity|CollectionName, DatabaseName, Region|
 |DedicatedGatewayAverageCPUUsage|No|DedicatedGatewayAverageCPUUsage|Percent|Average|Average CPU usage across dedicated gateway instances|Region, MetricType|
 |DedicatedGatewayAverageMemoryUsage|No|DedicatedGatewayAverageMemoryUsage|Bytes|Average|Average memory usage across dedicated gateway instances, which is used for both routing requests and caching data|Region|
+|DedicatedGatewayCPUUsage|No|DedicatedGatewayCPUUsage|Percent|Average|CPU usage across dedicated gateway instances|Region, ApplicationType|
 |DedicatedGatewayMaximumCPUUsage|No|DedicatedGatewayMaximumCPUUsage|Percent|Average|Average Maximum CPU usage across dedicated gateway instances|Region, MetricType|
+|DedicatedGatewayMemoryUsage|No|DedicatedGatewayMemoryUsage|Bytes|Average|Memory usage across dedicated gateway instances|Region, ApplicationType|
 |DedicatedGatewayRequests|Yes|DedicatedGatewayRequests|Count|Count|Requests at the dedicated gateway|DatabaseName, CollectionName, CacheExercised, OperationName, Region, CacheHit|
 |DeleteAccount|Yes|Account Deleted|Count|Count|Account Deleted|No Dimensions|
 |DocumentCount|No|Document Count|Count|Total|Total document count reported at 5 minutes, 1 hour and 1 day granularity|CollectionName, DatabaseName, Region|
@@ -1777,6 +1716,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |NormalizedRUConsumption|No|Normalized RU Consumption|Percent|Maximum|Max RU consumption percentage per minute|CollectionName, DatabaseName, Region, PartitionKeyRangeId, CollectionRid|
 |OfflineRegion|No|Region Offlined|Count|Count|Region Offlined|Region, StatusCode, Role, OperationName|
 |OnlineRegion|No|Region Onlined|Count|Count|Region Onlined|Region, StatusCode, Role, OperationName|
+|PhysicalPartitionThroughputInfo|No|Physical Partition Throughput|Count|Maximum|Physical Partition Throughput|CollectionName, DatabaseName, PhysicalPartitionId, OfferOwnerRid, Region|
 |ProvisionedThroughput|No|Provisioned Throughput|Count|Maximum|Provisioned Throughput|DatabaseName, CollectionName|
 |RegionFailover|Yes|Region Failed Over|Count|Count|Region Failed Over|No Dimensions|
 |RemoveRegion|Yes|Region Removed|Count|Count|Region Removed|Region|
@@ -1798,11 +1738,21 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TableTableThroughputUpdate|No|AzureTable Table Throughput Updated|Count|Count|AzureTable Table Throughput Updated|ResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest|
 |TableTableUpdate|No|AzureTable Table Updated|Count|Count|AzureTable Table Updated|ResourceName, ApiKind, ApiKindResourceType, IsThroughputRequest, OperationType|
 |TotalRequests|Yes|Total Requests|Count|Count|Number of requests made|DatabaseName, CollectionName, Region, StatusCode, OperationType, Status|
+|TotalRequestsPreview|No|Total Requests (Preview)|Count|Count|Number of requests made with CapacityType|DatabaseName, CollectionName, Region, StatusCode, OperationType, Status, CapacityType|
 |TotalRequestUnits|Yes|Total Request Units|Count|Total|Request Units consumed|DatabaseName, CollectionName, Region, StatusCode, OperationType, Status|
+|TotalRequestUnitsPreview|No|Total Request Units (Preview)|Count|Total|Request Units consumed with CapacityType|DatabaseName, CollectionName, Region, StatusCode, OperationType, Status, CapacityType|
 |UpdateAccountKeys|Yes|Account Keys Updated|Count|Count|Account Keys Updated|KeyType|
 |UpdateAccountNetworkSettings|Yes|Account Network Settings Updated|Count|Count|Account Network Settings Updated|No Dimensions|
 |UpdateAccountReplicationSettings|Yes|Account Replication Settings Updated|Count|Count|Account Replication Settings Updated|No Dimensions|
 |UpdateDiagnosticsSettings|No|Account Diagnostic Settings Updated|Count|Count|Account Diagnostic Settings Updated|DiagnosticSettingsName, ResourceGroupName|
+
+
+## microsoft.edgezones/edgezones
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|TotalVcoreCapacity|Yes|Total VCore Capacity|Count|Average|The total capacity of the General-Purpose Compute vcore in Edge Zone Enterprise site. |No Dimensions|
+|VcoresUsage|Yes|Vcore Usage Percentage|Percent|Average|The utilization of the General-Purpose Compute vcores in Edge Zone Enterprise site |No Dimensions|
 
 
 ## Microsoft.EventGrid/domains
@@ -1906,25 +1856,25 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|ActiveConnections|No|ActiveConnections|Count|Maximum|Total Active Connections for Microsoft.EventHub.|No Dimensions|
+|ActiveConnections|No|ActiveConnections|Count|Average|Total Active Connections for Microsoft.EventHub.|No Dimensions|
 |AvailableMemory|No|Available Memory|Percent|Maximum|Available memory for the Event Hub Cluster as a percentage of total memory.|Role|
 |CaptureBacklog|No|Capture Backlog.|Count|Total|Capture Backlog for Microsoft.EventHub.|No Dimensions|
 |CapturedBytes|No|Captured Bytes.|Bytes|Total|Captured Bytes for Microsoft.EventHub.|No Dimensions|
 |CapturedMessages|No|Captured Messages.|Count|Total|Captured Messages for Microsoft.EventHub.|No Dimensions|
-|ConnectionsClosed|No|Connections Closed.|Count|Maximum|Connections Closed for Microsoft.EventHub.|No Dimensions|
-|ConnectionsOpened|No|Connections Opened.|Count|Maximum|Connections Opened for Microsoft.EventHub.|No Dimensions|
+|ConnectionsClosed|No|Connections Closed.|Count|Average|Connections Closed for Microsoft.EventHub.|No Dimensions|
+|ConnectionsOpened|No|Connections Opened.|Count|Average|Connections Opened for Microsoft.EventHub.|No Dimensions|
 |CPU|No|CPU|Percent|Maximum|CPU utilization for the Event Hub Cluster as a percentage|Role|
 |IncomingBytes|Yes|Incoming Bytes.|Bytes|Total|Incoming Bytes for Microsoft.EventHub.|No Dimensions|
 |IncomingMessages|Yes|Incoming Messages|Count|Total|Incoming Messages for Microsoft.EventHub.|No Dimensions|
 |IncomingRequests|Yes|Incoming Requests|Count|Total|Incoming Requests for Microsoft.EventHub.|No Dimensions|
 |OutgoingBytes|Yes|Outgoing Bytes.|Bytes|Total|Outgoing Bytes for Microsoft.EventHub.|No Dimensions|
 |OutgoingMessages|Yes|Outgoing Messages|Count|Total|Outgoing Messages for Microsoft.EventHub.|No Dimensions|
-|QuotaExceededErrors|No|Quota Exceeded Errors.|Count|Total|Quota Exceeded Errors for Microsoft.EventHub.|No Dimensions|
-|ServerErrors|No|Server Errors.|Count|Total|Server Errors for Microsoft.EventHub.|No Dimensions|
+|QuotaExceededErrors|No|Quota Exceeded Errors.|Count|Total|Quota Exceeded Errors for Microsoft.EventHub.|OperationResult|
+|ServerErrors|No|Server Errors.|Count|Total|Server Errors for Microsoft.EventHub.|OperationResult|
 |Size|No|Size|Bytes|Average|Size of an EventHub in Bytes.|Role|
-|SuccessfulRequests|No|Successful Requests|Count|Total|Successful Requests for Microsoft.EventHub.|No Dimensions|
-|ThrottledRequests|No|Throttled Requests.|Count|Total|Throttled Requests for Microsoft.EventHub.|No Dimensions|
-|UserErrors|No|User Errors.|Count|Total|User Errors for Microsoft.EventHub.|No Dimensions|
+|SuccessfulRequests|No|Successful Requests|Count|Total|Successful Requests for Microsoft.EventHub.|OperationResult|
+|ThrottledRequests|No|Throttled Requests.|Count|Total|Throttled Requests for Microsoft.EventHub.|OperationResult|
+|UserErrors|No|User Errors.|Count|Total|User Errors for Microsoft.EventHub.|OperationResult|
 
 
 ## Microsoft.EventHub/Namespaces
@@ -2049,7 +1999,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|HyperVVirtualProcessorUtilization|Yes|Average CPU Utilization|Percent|Average|Total average percentage of virtual CPU utilization at one minute interval. The total number of virtual CPU is based on user configured value in SKU definition. Further filter can be applied based on RoleName defined in SKU.|InstanceName
+|HyperVVirtualProcessorUtilization|Yes|Average CPU Utilization|Percent|Average|Total average percentage of virtual CPU utilization at one minute interval. The total number of virtual CPU is based on user configured value in SKU definition. Further filter can be applied based on RoleName defined in SKU.|InstanceName|
 
 
 ## microsoft.insights/autoscalesettings
@@ -2153,7 +2103,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |capacity_cpu_cores|Yes|Total number of cpu cores in a connected cluster|Count|Total|Total number of cpu cores in a connected cluster|No Dimensions|
 
 
-## Microsoft.Kusto/Clusters
+## Microsoft.Kusto/clusters
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2190,15 +2140,14 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |MaterializedViewHealth|Yes|Materialized View Health|Count|Average|The health of the materialized view (1 for healthy, 0 for non-healthy)|Database, MaterializedViewName|
 |MaterializedViewRecordsInDelta|Yes|Materialized View Records In Delta|Count|Average|The number of records in the non-materialized part of the view|Database, MaterializedViewName|
 |MaterializedViewResult|Yes|Materialized View Result|Count|Average|The result of the materialization process|Database, MaterializedViewName, Result|
-|QueryDuration|Yes|Query duration|Milliseconds|Average|Queries' duration in seconds|QueryStatus|
+|QueryDuration|Yes|Query duration|MilliSeconds|Average|Queries' duration in seconds|QueryStatus|
 |QueryResult|No|Query Result|Count|Count|Total number of queries.|QueryStatus|
 |QueueLength|Yes|Queue Length|Count|Average|Number of pending messages in a component's queue.|ComponentType|
 |QueueOldestMessage|Yes|Queue Oldest Message|Count|Average|Time in seconds from when the oldest message in queue was inserted.|ComponentType|
 |ReceivedDataSizeBytes|Yes|Received Data Size Bytes|Bytes|Average|Size of data received by data connection. This is the size of the data stream, or of raw data size if provided.|ComponentType, ComponentName|
 |StageLatency|Yes|Stage Latency|Seconds|Average|Cumulative time from when a message is discovered until it is received by the reporting component for processing (discovery time is set when message is enqueued for ingestion queue, or when discovered by data connection).|Database, ComponentType|
-|SteamingIngestRequestRate|Yes|Streaming Ingest Request Rate|Count|RateRequestsPerSecond|Streaming ingest request rate (requests per second)|No Dimensions|
 |StreamingIngestDataRate|Yes|Streaming Ingest Data Rate|Count|Average|Streaming ingest data rate (MB per second)|No Dimensions|
-|StreamingIngestDuration|Yes|Streaming Ingest Duration|Milliseconds|Average|Streaming ingest duration in milliseconds|No Dimensions|
+|StreamingIngestDuration|Yes|Streaming Ingest Duration|MilliSeconds|Average|Streaming ingest duration in milliseconds|No Dimensions|
 |StreamingIngestResults|Yes|Streaming Ingest Result|Count|Count|Streaming ingest result|Result|
 |TotalNumberOfConcurrentQueries|Yes|Total number of concurrent queries|Count|Maximum|Total number of concurrent queries|No Dimensions|
 |TotalNumberOfExtents|Yes|Total number of extents|Count|Average|Total number of data extents|No Dimensions|
@@ -2207,7 +2156,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |WeakConsistencyLatency|Yes|Weak consistency latency|Seconds|Average|The max latency between the previous metadata sync and the next one (in DB/node scope)|Database, RoleInstance|
 
 
-## Microsoft.Logic/integrationServiceEnvironments
+## Microsoft.Logic/IntegrationServiceEnvironments
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
@@ -2218,21 +2167,17 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ActionsStarted|Yes|Actions Started |Count|Total|Number of workflow actions started.|No Dimensions|
 |ActionsSucceeded|Yes|Actions Succeeded |Count|Total|Number of workflow actions succeeded.|No Dimensions|
 |ActionSuccessLatency|Yes|Action Success Latency |Seconds|Average|Latency of succeeded workflow actions.|No Dimensions|
-|ActionThrottledEvents|Yes|Action Throttled Events|Count|Total|Number of workflow action throttled events..|No Dimensions|
 |IntegrationServiceEnvironmentConnectorMemoryUsage|Yes|Connector Memory Usage for Integration Service Environment|Percent|Average|Connector memory usage for integration service environment.|No Dimensions|
 |IntegrationServiceEnvironmentConnectorProcessorUsage|Yes|Connector Processor Usage for Integration Service Environment|Percent|Average|Connector processor usage for integration service environment.|No Dimensions|
 |IntegrationServiceEnvironmentWorkflowMemoryUsage|Yes|Workflow Memory Usage for Integration Service Environment|Percent|Average|Workflow memory usage for integration service environment.|No Dimensions|
 |IntegrationServiceEnvironmentWorkflowProcessorUsage|Yes|Workflow Processor Usage for Integration Service Environment|Percent|Average|Workflow processor usage for integration service environment.|No Dimensions|
-|RunFailurePercentage|Yes|Run Failure Percentage|Percent|Total|Percentage of workflow runs failed.|No Dimensions|
 |RunLatency|Yes|Run Latency|Seconds|Average|Latency of completed workflow runs.|No Dimensions|
 |RunsCancelled|Yes|Runs Cancelled|Count|Total|Number of workflow runs cancelled.|No Dimensions|
 |RunsCompleted|Yes|Runs Completed|Count|Total|Number of workflow runs completed.|No Dimensions|
 |RunsFailed|Yes|Runs Failed|Count|Total|Number of workflow runs failed.|No Dimensions|
 |RunsStarted|Yes|Runs Started|Count|Total|Number of workflow runs started.|No Dimensions|
 |RunsSucceeded|Yes|Runs Succeeded|Count|Total|Number of workflow runs succeeded.|No Dimensions|
-|RunStartThrottledEvents|Yes|Run Start Throttled Events|Count|Total|Number of workflow run start throttled events.|No Dimensions|
 |RunSuccessLatency|Yes|Run Success Latency|Seconds|Average|Latency of succeeded workflow runs.|No Dimensions|
-|RunThrottledEvents|Yes|Run Throttled Events|Count|Total|Number of workflow action or trigger throttled events.|No Dimensions|
 |TriggerFireLatency|Yes|Trigger Fire Latency |Seconds|Average|Latency of fired workflow triggers.|No Dimensions|
 |TriggerLatency|Yes|Trigger Latency |Seconds|Average|Latency of completed workflow triggers.|No Dimensions|
 |TriggersCompleted|Yes|Triggers Completed |Count|Total|Number of workflow triggers completed.|No Dimensions|
@@ -2242,7 +2187,6 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |TriggersStarted|Yes|Triggers Started |Count|Total|Number of workflow triggers started.|No Dimensions|
 |TriggersSucceeded|Yes|Triggers Succeeded |Count|Total|Number of workflow triggers succeeded.|No Dimensions|
 |TriggerSuccessLatency|Yes|Trigger Success Latency |Seconds|Average|Latency of succeeded workflow triggers.|No Dimensions|
-|TriggerThrottledEvents|Yes|Trigger Throttled Events|Count|Total|Number of workflow trigger throttled events.|No Dimensions|
 
 
 ## Microsoft.Logic/Workflows
@@ -2495,6 +2439,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |CapacityUnits|No|Current Capacity Units|Count|Average|Capacity Units consumed|No Dimensions|
 |ClientRtt|No|Client RTT|MilliSeconds|Average|Average round trip time between clients and Application Gateway. This metric indicates how long it takes to establish connections and return acknowledgements|Listener|
 |ComputeUnits|No|Current Compute Units|Count|Average|Compute Units consumed|No Dimensions|
+|ConnectionLifetime|No|Connection Lifetime|MilliSeconds|Average|Average time duration from the start of a new connection to its termination|Listener|
 |CpuUtilization|No|CPU Utilization|Percent|Average|Current CPU utilization of the Application Gateway|No Dimensions|
 |CurrentConnections|Yes|Current Connections|Count|Total|Count of current connections established with Application Gateway|No Dimensions|
 |EstimatedBilledCapacityUnits|No|Estimated Billed Capacity Units|Count|Average|Estimated capacity units that will be charged|No Dimensions|
@@ -2542,6 +2487,22 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |BitsOutPerSecond|Yes|BitsOutPerSecond|BitsPerSecond|Average|Bits egressing Azure per second|No Dimensions|
 
 
+## Microsoft.Network/dnsForwardingRulesets
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|ForwardingRuleCount|Yes|Forwarding Rule Count|Count|Maximum|This metric indicates the number of forwarding rules present in each DNS forwarding ruleset.|No Dimensions|
+|VirtualNetworkLinkCount|Yes|Virtual Network Link Count|Count|Maximum|This metric indicates the number of associated virtual network links to a DNS forwarding ruleset.|No Dimensions|
+
+
+## Microsoft.Network/dnsResolvers
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|InboundEndpointCount|Yes|Inbound Endpoint Count|Count|Maximum|This metric indicates the number of inbound endpoints created for a DNS Resolver.|No Dimensions|
+|OutboundEndpointCount|Yes|Outbound Endpoint Count|Count|Maximum|This metric indicates the number of outbound endpoints created for a DNS Resolver.|No Dimensions|
+
+
 ## Microsoft.Network/dnszones
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -2573,18 +2534,19 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |BitsOutPerSecond|Yes|BitsOutPerSecond|BitsPerSecond|Average|Bits egressing Azure per second|No Dimensions|
 
 
-## Microsoft.Network/expressRouteGateways
+## microsoft.network/expressroutegateways
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|ErGatewayConnectionBitsInPerSecond|No|BitsInPerSecond|BitsPerSecond|Average|Bits ingressing Azure per second|ConnectionName|
-|ErGatewayConnectionBitsOutPerSecond|No|BitsOutPerSecond|BitsPerSecond|Average|Bits egressing Azure per second|ConnectionName|
-|ExpressRouteGatewayCountOfRoutesAdvertisedToPeer|Yes|Count Of Routes Advertised to Peer|Count|Maximum|Count Of Routes Advertised To Peer by ExpressRouteGateway|roleInstance|
-|ExpressRouteGatewayCountOfRoutesLearnedFromPeer|Yes|Count Of Routes Learned from Peer|Count|Maximum|Count Of Routes Learned From Peer by ExpressRouteGateway|roleInstance|
+|ErGatewayConnectionBitsInPerSecond|No|Bits In Per Second|BitsPerSecond|Average|Bits per second ingressing Azure via ExpressRoute Gateway which can be further split for specific connections|ConnectionName|
+|ErGatewayConnectionBitsOutPerSecond|No|Bits Out Per Second|BitsPerSecond|Average|Bits per second egressing Azure via ExpressRoute Gateway which can be further split for specific connections|ConnectionName|
+|ExpressRouteGatewayBitsPerSecond|No|Bits Received Per second|BitsPerSecond|Average|Total Bits received on ExpressRoute Gateway per second|roleInstance|
+|ExpressRouteGatewayCountOfRoutesAdvertisedToPeer|Yes|Count Of Routes Advertised to Peer|Count|Maximum|Count Of Routes Advertised To Peer by ExpressRoute Gateway|roleInstance|
+|ExpressRouteGatewayCountOfRoutesLearnedFromPeer|Yes|Count Of Routes Learned from Peer|Count|Maximum|Count Of Routes Learned From Peer by ExpressRoute Gateway|roleInstance|
 |ExpressRouteGatewayCpuUtilization|Yes|CPU utilization|Percent|Average|CPU Utilization of the ExpressRoute Gateway|roleInstance|
 |ExpressRouteGatewayFrequencyOfRoutesChanged|No|Frequency of Routes change|Count|Total|Frequency of Routes change in ExpressRoute Gateway|roleInstance|
 |ExpressRouteGatewayNumberOfVmInVnet|No|Number of VMs in the Virtual Network|Count|Maximum|Number of VMs in the Virtual Network|No Dimensions|
-|ExpressRouteGatewayPacketsPerSecond|No|Packets per second|CountPerSecond|Average|Packet count of ExpressRoute Gateway|roleInstance|
+|ExpressRouteGatewayPacketsPerSecond|No|Packets received per second|CountPerSecond|Average|Total Packets received on ExpressRoute Gateway per second|roleInstance|
 
 
 ## Microsoft.Network/expressRoutePorts
@@ -2747,6 +2709,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |BgpPeerStatus|No|Bgp Peer Status|Count|Maximum|1 - Connected, 0 - Not connected|routeserviceinstance, bgppeerip, bgppeertype|
 |CountOfRoutesAdvertisedToPeer|No|Count Of Routes Advertised To Peer|Count|Maximum|Total number of routes advertised to peer|routeserviceinstance, bgppeerip, bgppeertype|
 |CountOfRoutesLearnedFromPeer|No|Count Of Routes Learned From Peer|Count|Maximum|Total number of routes learned from peer|routeserviceinstance, bgppeerip, bgppeertype|
+|VirtualHubDataProcessed|No|Data Processed by the Virtual Hub Router|Bytes|Total|Data Processed by the Virtual Hub Router|No Dimensions|
 
 
 ## microsoft.network/virtualnetworkgateways
@@ -2930,69 +2893,69 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|Average_% Available Memory|Yes|% Available Memory|Count|Average|Average_% Available Memory. Supported for: Linux. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_% Available Swap Space|Yes|% Available Swap Space|Count|Average|Average_% Available Swap Space. Supported for: Linux. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_% Committed Bytes In Use|Yes|% Committed Bytes In Use|Count|Average|Average_% Committed Bytes In Use. Supported for: Windows. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_% DPC Time|Yes|% DPC Time|Count|Average|Average_% DPC Time. Supported for: Linux, Windows. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_% Free Inodes|Yes|% Free Inodes|Count|Average|Average_% Free Inodes. Supported for: Linux. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_% Free Space|Yes|% Free Space|Count|Average|Average_% Free Space. Supported for: Linux, Windows. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_% Idle Time|Yes|% Idle Time|Count|Average|Average_% Idle Time. Supported for: Linux, Windows. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_% Interrupt Time|Yes|% Interrupt Time|Count|Average|Average_% Interrupt Time. Supported for: Linux, Windows. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_% IO Wait Time|Yes|% IO Wait Time|Count|Average|Average_% IO Wait Time. Supported for: Linux. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_% Nice Time|Yes|% Nice Time|Count|Average|Average_% Nice Time. Supported for: Linux. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_% Privileged Time|Yes|% Privileged Time|Count|Average|Average_% Privileged Time. Supported for: Linux, Windows. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_% Processor Time|Yes|% Processor Time|Count|Average|Average_% Processor Time. Supported for: Linux, Windows. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_% Used Inodes|Yes|% Used Inodes|Count|Average|Average_% Used Inodes. Supported for: Linux. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_% Used Memory|Yes|% Used Memory|Count|Average|Average_% Used Memory. Supported for: Linux. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_% Used Space|Yes|% Used Space|Count|Average|Average_% Used Space. Supported for: Linux. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_% Used Swap Space|Yes|% Used Swap Space|Count|Average|Average_% Used Swap Space. Supported for: Linux. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_% User Time|Yes|% User Time|Count|Average|Average_% User Time. Supported for: Linux, Windows. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Available MBytes|Yes|Available MBytes|Count|Average|Average_Available MBytes. Supported for: Windows. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Available MBytes Memory|Yes|Available MBytes Memory|Count|Average|Average_Available MBytes Memory. Supported for: Linux. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Available MBytes Swap|Yes|Available MBytes Swap|Count|Average|Average_Available MBytes Swap. Supported for: Linux. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Avg. Disk sec/Read|Yes|Avg. Disk sec/Read|Count|Average|Average_Avg. Disk sec/Read. Supported for: Linux, Windows. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Avg. Disk sec/Transfer|Yes|Avg. Disk sec/Transfer|Count|Average|Average_Avg. Disk sec/Transfer. Supported for: Linux, Windows. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Avg. Disk sec/Write|Yes|Avg. Disk sec/Write|Count|Average|Average_Avg. Disk sec/Write. Supported for: Linux, Windows. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md). |Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Bytes Received/sec|Yes|Bytes Received/sec|Count|Average|Average_Bytes Received/sec. Supported for: Windows. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Bytes Sent/sec|Yes|Bytes Sent/sec|Count|Average|Average_Bytes Sent/sec. Supported for: Windows. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Bytes Total/sec|Yes|Bytes Total/sec|Count|Average|Average_Bytes Total/sec. Supported for: Windows. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Current Disk Queue Length|Yes|Current Disk Queue Length|Count|Average|Average_Current Disk Queue Length. Supported for: Windows. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Disk Read Bytes/sec|Yes|Disk Read Bytes/sec|Count|Average|Average_Disk Read Bytes/sec. Supported for: Linux, Windows. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Disk Reads/sec|Yes|Disk Reads/sec|Count|Average|Average_Disk Reads/sec. Supported for: Linux, Windows. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Disk Transfers/sec|Yes|Disk Transfers/sec|Count|Average|Average_Disk Transfers/sec. Supported for: Linux, Windows. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Disk Write Bytes/sec|Yes|Disk Write Bytes/sec|Count|Average|Average_Disk Write Bytes/sec. Supported for: Linux, Windows. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Disk Writes/sec|Yes|Disk Writes/sec|Count|Average|Average_Disk Writes/sec. Supported for: Linux, Windows. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Free Megabytes|Yes|Free Megabytes|Count|Average|Average_Free Megabytes. Supported for: Linux, Windows. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Free Physical Memory|Yes|Free Physical Memory|Count|Average|Average_Free Physical Memory. Supported for: Linux. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md). |Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Free Space in Paging Files|Yes|Free Space in Paging Files|Count|Average|Average_Free Space in Paging Files. Supported for: Linux. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Free Virtual Memory|Yes|Free Virtual Memory|Count|Average|Average_Free Virtual Memory. Supported for: Linux. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Logical Disk Bytes/sec|Yes|Logical Disk Bytes/sec|Count|Average|Average_Logical Disk Bytes/sec. Supported for: Linux. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Page Reads/sec|Yes|Page Reads/sec|Count|Average|Average_Page Reads/sec. Supported for: Linux, Windows. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Page Writes/sec|Yes|Page Writes/sec|Count|Average|Average_Page Writes/sec. Supported for: Linux, Windows. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Pages/sec|Yes|Pages/sec|Count|Average|Average_Pages/sec. Supported for: Linux, Windows. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Pct Privileged Time|Yes|Pct Privileged Time|Count|Average|Average_Pct Privileged Time. Supported for: Linux. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Pct User Time|Yes|Pct User Time|Count|Average|Average_Pct User Time. Supported for: Linux. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Physical Disk Bytes/sec|Yes|Physical Disk Bytes/sec|Count|Average|Average_Physical Disk Bytes/sec. Supported for: Linux. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Processes|Yes|Processes|Count|Average|Average_Processes. Supported for: Linux, Windows. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Processor Queue Length|Yes|Processor Queue Length|Count|Average|Average_Processor Queue Length. Supported for: Windows. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md). |Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Size Stored In Paging Files|Yes|Size Stored In Paging Files|Count|Average|Average_Size Stored In Paging Files. Supported for: Linux. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Total Bytes|Yes|Total Bytes|Count|Average|Average_Total Bytes. Supported for: Linux. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Total Bytes Received|Yes|Total Bytes Received|Count|Average|Average_Total Bytes Received. Supported for: Linux. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Total Bytes Transmitted|Yes|Total Bytes Transmitted|Count|Average|Average_Total Bytes Transmitted. Supported for: Linux. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Total Collisions|Yes|Total Collisions|Count|Average|Average_Total Collisions. Supported for: Linux. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Total Packets Received|Yes|Total Packets Received|Count|Average|Average_Total Packets Received. Supported for: Linux. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Total Packets Transmitted|Yes|Total Packets Transmitted|Count|Average|Average_Total Packets Transmitted. Supported for: Linux. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Total Rx Errors|Yes|Total Rx Errors|Count|Average|Average_Total Rx Errors. Supported for: Linux. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Total Tx Errors|Yes|Total Tx Errors|Count|Average|Average_Total Tx Errors. Supported for: Linux. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Uptime|Yes|Uptime|Count|Average|Average_Uptime. Supported for: Linux. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Used MBytes Swap Space|Yes|Used MBytes Swap Space|Count|Average|. Supported for: Linux. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Used Memory kBytes|Yes|Used Memory kBytes|Count|Average|Average_Used Memory kBytes. Supported for: Linux. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Used Memory MBytes|Yes|Used Memory MBytes|Count|Average|Average_Used Memory MBytes. Supported for: Linux. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Users|Yes|Users|Count|Average|Average_Users. Supported for: Linux. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Virtual Shared Memory|Yes|Virtual Shared Memory|Count|Average|Average_Virtual Shared Memory. Supported for: Linux. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Event|Yes|Event|Count|Average|Event. Supported for: Windows. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Source, EventLog, Computer, EventCategory, EventLevel, EventLevelName, EventID|
-|Heartbeat|Yes|Heartbeat|Count|Total|Heartbeat. Supported for: Linux, Windows. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, OSType, Version, SourceComputerId|
-|Update|Yes|Update|Count|Average|Update. Supported for: Windows. Part of [metric alerts for logs feature](../alerts/alerts-metric-logs.md).|Computer, Product, Classification, UpdateState, Optional, Approved|
+|Average_% Available Memory|Yes|% Available Memory|Count|Average|Average_% Available Memory. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Available Swap Space|Yes|% Available Swap Space|Count|Average|Average_% Available Swap Space. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Committed Bytes In Use|Yes|% Committed Bytes In Use|Count|Average|Average_% Committed Bytes In Use. Supported for: Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% DPC Time|Yes|% DPC Time|Count|Average|Average_% DPC Time. Supported for: Linux, Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Free Inodes|Yes|% Free Inodes|Count|Average|Average_% Free Inodes. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Free Space|Yes|% Free Space|Count|Average|Average_% Free Space. Supported for: Linux, Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Idle Time|Yes|% Idle Time|Count|Average|Average_% Idle Time. Supported for: Linux, Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Interrupt Time|Yes|% Interrupt Time|Count|Average|Average_% Interrupt Time. Supported for: Linux, Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% IO Wait Time|Yes|% IO Wait Time|Count|Average|Average_% IO Wait Time. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Nice Time|Yes|% Nice Time|Count|Average|Average_% Nice Time. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Privileged Time|Yes|% Privileged Time|Count|Average|Average_% Privileged Time. Supported for: Linux, Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Processor Time|Yes|% Processor Time|Count|Average|Average_% Processor Time. Supported for: Linux, Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Used Inodes|Yes|% Used Inodes|Count|Average|Average_% Used Inodes. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Used Memory|Yes|% Used Memory|Count|Average|Average_% Used Memory. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Used Space|Yes|% Used Space|Count|Average|Average_% Used Space. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% Used Swap Space|Yes|% Used Swap Space|Count|Average|Average_% Used Swap Space. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_% User Time|Yes|% User Time|Count|Average|Average_% User Time. Supported for: Linux, Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Available MBytes|Yes|Available MBytes|Count|Average|Average_Available MBytes. Supported for: Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Available MBytes Memory|Yes|Available MBytes Memory|Count|Average|Average_Available MBytes Memory. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Available MBytes Swap|Yes|Available MBytes Swap|Count|Average|Average_Available MBytes Swap. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Avg. Disk sec/Read|Yes|Avg. Disk sec/Read|Count|Average|Average_Avg. Disk sec/Read. Supported for: Linux, Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Avg. Disk sec/Transfer|Yes|Avg. Disk sec/Transfer|Count|Average|Average_Avg. Disk sec/Transfer. Supported for: Linux, Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Avg. Disk sec/Write|Yes|Avg. Disk sec/Write|Count|Average|Average_Avg. Disk sec/Write. Supported for: Linux, Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric). |Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Bytes Received/sec|Yes|Bytes Received/sec|Count|Average|Average_Bytes Received/sec. Supported for: Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Bytes Sent/sec|Yes|Bytes Sent/sec|Count|Average|Average_Bytes Sent/sec. Supported for: Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Bytes Total/sec|Yes|Bytes Total/sec|Count|Average|Average_Bytes Total/sec. Supported for: Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Current Disk Queue Length|Yes|Current Disk Queue Length|Count|Average|Average_Current Disk Queue Length. Supported for: Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Read Bytes/sec|Yes|Disk Read Bytes/sec|Count|Average|Average_Disk Read Bytes/sec. Supported for: Linux, Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Reads/sec|Yes|Disk Reads/sec|Count|Average|Average_Disk Reads/sec. Supported for: Linux, Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Transfers/sec|Yes|Disk Transfers/sec|Count|Average|Average_Disk Transfers/sec. Supported for: Linux, Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Write Bytes/sec|Yes|Disk Write Bytes/sec|Count|Average|Average_Disk Write Bytes/sec. Supported for: Linux, Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Disk Writes/sec|Yes|Disk Writes/sec|Count|Average|Average_Disk Writes/sec. Supported for: Linux, Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Free Megabytes|Yes|Free Megabytes|Count|Average|Average_Free Megabytes. Supported for: Linux, Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Free Physical Memory|Yes|Free Physical Memory|Count|Average|Average_Free Physical Memory. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric). |Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Free Space in Paging Files|Yes|Free Space in Paging Files|Count|Average|Average_Free Space in Paging Files. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Free Virtual Memory|Yes|Free Virtual Memory|Count|Average|Average_Free Virtual Memory. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Logical Disk Bytes/sec|Yes|Logical Disk Bytes/sec|Count|Average|Average_Logical Disk Bytes/sec. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Page Reads/sec|Yes|Page Reads/sec|Count|Average|Average_Page Reads/sec. Supported for: Linux, Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Page Writes/sec|Yes|Page Writes/sec|Count|Average|Average_Page Writes/sec. Supported for: Linux, Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Pages/sec|Yes|Pages/sec|Count|Average|Average_Pages/sec. Supported for: Linux, Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Pct Privileged Time|Yes|Pct Privileged Time|Count|Average|Average_Pct Privileged Time. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Pct User Time|Yes|Pct User Time|Count|Average|Average_Pct User Time. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Physical Disk Bytes/sec|Yes|Physical Disk Bytes/sec|Count|Average|Average_Physical Disk Bytes/sec. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Processes|Yes|Processes|Count|Average|Average_Processes. Supported for: Linux, Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Processor Queue Length|Yes|Processor Queue Length|Count|Average|Average_Processor Queue Length. Supported for: Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric). |Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Size Stored In Paging Files|Yes|Size Stored In Paging Files|Count|Average|Average_Size Stored In Paging Files. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Bytes|Yes|Total Bytes|Count|Average|Average_Total Bytes. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Bytes Received|Yes|Total Bytes Received|Count|Average|Average_Total Bytes Received. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Bytes Transmitted|Yes|Total Bytes Transmitted|Count|Average|Average_Total Bytes Transmitted. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Collisions|Yes|Total Collisions|Count|Average|Average_Total Collisions. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Packets Received|Yes|Total Packets Received|Count|Average|Average_Total Packets Received. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Packets Transmitted|Yes|Total Packets Transmitted|Count|Average|Average_Total Packets Transmitted. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Rx Errors|Yes|Total Rx Errors|Count|Average|Average_Total Rx Errors. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Total Tx Errors|Yes|Total Tx Errors|Count|Average|Average_Total Tx Errors. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Uptime|Yes|Uptime|Count|Average|Average_Uptime. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Used MBytes Swap Space|Yes|Used MBytes Swap Space|Count|Average|. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Used Memory kBytes|Yes|Used Memory kBytes|Count|Average|Average_Used Memory kBytes. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Used Memory MBytes|Yes|Used Memory MBytes|Count|Average|Average_Used Memory MBytes. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Users|Yes|Users|Count|Average|Average_Users. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Virtual Shared Memory|Yes|Virtual Shared Memory|Count|Average|Average_Virtual Shared Memory. Supported for: Linux. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Event|Yes|Event|Count|Average|Event. Supported for: Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Source, EventLog, Computer, EventCategory, EventLevel, EventLevelName, EventID|
+|Heartbeat|Yes|Heartbeat|Count|Total|Heartbeat. Supported for: Linux, Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, OSType, Version, SourceComputerId|
+|Update|Yes|Update|Count|Average|Update. Supported for: Windows. Part of [metric alerts for logs feature](https://aka.ms/am-log-to-metric).|Computer, Product, Classification, UpdateState, Optional, Approved|
 
 
 ## Microsoft.Peering/peerings
@@ -3016,54 +2979,9 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|CleanerCurrentPrice|Yes|Memory: Cleaner Current Price|Count|Average|Current price of memory, $/byte/time, normalized to 1000.|No Dimensions|
-|CleanerMemoryNonshrinkable|Yes|Memory: Cleaner Memory nonshrinkable|Bytes|Average|Amount of memory, in bytes, not subject to purging by the background cleaner.|No Dimensions|
-|CleanerMemoryShrinkable|Yes|Memory: Cleaner Memory shrinkable|Bytes|Average|Amount of memory, in bytes, subject to purging by the background cleaner.|No Dimensions|
-|CommandPoolBusyThreads|Yes|Threads: Command pool busy threads|Count|Average|Number of busy threads in the command thread pool.|No Dimensions|
-|CommandPoolIdleThreads|Yes|Threads: Command pool idle threads|Count|Average|Number of idle threads in the command thread pool.|No Dimensions|
-|CommandPoolJobQueueLength|Yes|Command Pool Job Queue Length|Count|Average|Number of jobs in the queue of the command thread pool.|No Dimensions|
 |cpu_metric|Yes|CPU (Gen2)|Percent|Average|CPU Utilization. Supported only for Power BI Embedded Generation 2 resources.|No Dimensions|
 |cpu_workload_metric|Yes|CPU Per Workload (Gen2)|Percent|Average|CPU Utilization Per Workload. Supported only for Power BI Embedded Generation 2 resources.|Workload|
-|CurrentConnections|Yes|Connection: Current connections|Count|Average|Current number of client connections established.|No Dimensions|
-|CurrentUserSessions|Yes|Current User Sessions|Count|Average|Current number of user sessions established.|No Dimensions|
-|LongParsingBusyThreads|Yes|Threads: Long parsing busy threads|Count|Average|Number of busy threads in the long parsing thread pool.|No Dimensions|
-|LongParsingIdleThreads|Yes|Threads: Long parsing idle threads|Count|Average|Number of idle threads in the long parsing thread pool.|No Dimensions|
-|LongParsingJobQueueLength|Yes|Threads: Long parsing job queue length|Count|Average|Number of jobs in the queue of the long parsing thread pool.|No Dimensions|
-|memory_metric|Yes|Memory (Gen1)|Bytes|Average|Memory. Range 0-3 GB for A1, 0-5 GB for A2, 0-10 GB for A3, 0-25 GB for A4, 0-50 GB for A5 and 0-100 GB for A6. Supported only for Power BI Embedded Generation 1 resources.|No Dimensions|
-|memory_thrashing_metric|Yes|Memory Thrashing (Datasets) (Gen1)|Percent|Average|Average memory thrashing. Supported only for Power BI Embedded Generation 1 resources.|No Dimensions|
-|MemoryLimitHard|Yes|Memory: Memory Limit Hard|Bytes|Average|Hard memory limit, from configuration file.|No Dimensions|
-|MemoryLimitHigh|Yes|Memory: Memory Limit High|Bytes|Average|High memory limit, from configuration file.|No Dimensions|
-|MemoryLimitLow|Yes|Memory: Memory Limit Low|Bytes|Average|Low memory limit, from configuration file.|No Dimensions|
-|MemoryLimitVertiPaq|Yes|Memory: Memory Limit VertiPaq|Bytes|Average|In-memory limit, from configuration file.|No Dimensions|
-|MemoryUsage|Yes|Memory: Memory Usage|Bytes|Average|Memory usage of the server process as used in calculating cleaner memory price. Equal to counter Process\PrivateBytes plus the size of memory-mapped data, ignoring any memory which was mapped or allocated by the xVelocity in-memory analytics engine (VertiPaq) in excess of the xVelocity engine Memory Limit.|No Dimensions|
 |overload_metric|Yes|Overload (Gen2)|Count|Average|Resource Overload, 1 if resource is overloaded, otherwise 0. Supported only for Power BI Embedded Generation 2 resources.|No Dimensions|
-|ProcessingPoolBusyIOJobThreads|Yes|Threads: Processing pool busy I/O job threads|Count|Average|Number of threads running I/O jobs in the processing thread pool.|No Dimensions|
-|ProcessingPoolBusyNonIOThreads|Yes|Threads: Processing pool busy non-I/O threads|Count|Average|Number of threads running non-I/O jobs in the processing thread pool.|No Dimensions|
-|ProcessingPoolIdleIOJobThreads|Yes|Threads: Processing pool idle I/O job threads|Count|Average|Number of idle threads for I/O jobs in the processing thread pool.|No Dimensions|
-|ProcessingPoolIdleNonIOThreads|Yes|Threads: Processing pool idle non-I/O threads|Count|Average|Number of idle threads in the processing thread pool dedicated to non-I/O jobs.|No Dimensions|
-|ProcessingPoolIOJobQueueLength|Yes|Threads: Processing pool I/O job queue length|Count|Average|Number of I/O jobs in the queue of the processing thread pool.|No Dimensions|
-|ProcessingPoolJobQueueLength|Yes|Processing Pool Job Queue Length|Count|Average|Number of non-I/O jobs in the queue of the processing thread pool.|No Dimensions|
-|qpu_high_utilization_metric|Yes|QPU High Utilization (Gen1)|Count|Total|QPU High Utilization In Last Minute, 1 For High QPU Utilization, Otherwise 0. Supported only for Power BI Embedded Generation 1 resources.|No Dimensions|
-|qpu_metric|Yes|QPU (Gen1)|Count|Average|QPU. Range for A1 is 0-20, A2 is 0-40, A3 is 0-40, A4 is 0-80, A5 is 0-160, A6 is 0-320. Supported only for Power BI Embedded Generation 1 resources.|No Dimensions|
-|QueryDuration|Yes|Query Duration (Datasets) (Gen1)|Milliseconds|Average|DAX Query duration in last interval. Supported only for Power BI Embedded Generation 1 resources.|No Dimensions|
-|QueryPoolBusyThreads|Yes|Query Pool Busy Threads|Count|Average|Number of busy threads in the query thread pool.|No Dimensions|
-|QueryPoolIdleThreads|Yes|Threads: Query pool idle threads|Count|Average|Number of idle threads for I/O jobs in the processing thread pool.|No Dimensions|
-|QueryPoolJobQueueLength|Yes|Query Pool Job Queue Length (Datasets) (Gen1)|Count|Average|Number of jobs in the queue of the query thread pool. Supported only for Power BI Embedded Generation 1 resources.|No Dimensions|
-|Quota|Yes|Memory: Quota|Bytes|Average|Current memory quota, in bytes. Memory quota is also known as a memory grant or memory reservation.|No Dimensions|
-|QuotaBlocked|Yes|Memory: Quota Blocked|Count|Average|Current number of quota requests that are blocked until other memory quotas are freed.|No Dimensions|
-|RowsConvertedPerSec|Yes|Processing: Rows converted per sec|CountPerSecond|Average|Rate of rows converted during processing.|No Dimensions|
-|RowsReadPerSec|Yes|Processing: Rows read per sec|CountPerSecond|Average|Rate of rows read from all relational databases.|No Dimensions|
-|RowsWrittenPerSec|Yes|Processing: Rows written per sec|CountPerSecond|Average|Rate of rows written during processing.|No Dimensions|
-|ShortParsingBusyThreads|Yes|Threads: Short parsing busy threads|Count|Average|Number of busy threads in the short parsing thread pool.|No Dimensions|
-|ShortParsingIdleThreads|Yes|Threads: Short parsing idle threads|Count|Average|Number of idle threads in the short parsing thread pool.|No Dimensions|
-|ShortParsingJobQueueLength|Yes|Threads: Short parsing job queue length|Count|Average|Number of jobs in the queue of the short parsing thread pool.|No Dimensions|
-|SuccessfullConnectionsPerSec|Yes|Successful Connections Per Sec|CountPerSecond|Average|Rate of successful connection completions.|No Dimensions|
-|TotalConnectionFailures|Yes|Total Connection Failures|Count|Average|Total failed connection attempts.|No Dimensions|
-|TotalConnectionRequests|Yes|Total Connection Requests|Count|Average|Total connection requests. These are arrivals.|No Dimensions|
-|VertiPaqNonpaged|Yes|Memory: VertiPaq Nonpaged|Bytes|Average|Bytes of memory locked in the working set for use by the in-memory engine.|No Dimensions|
-|VertiPaqPaged|Yes|Memory: VertiPaq Paged|Bytes|Average|Bytes of paged memory in use for in-memory data.|No Dimensions|
-|workload_memory_metric|Yes|Memory Per Workload (Gen1)|Bytes|Average|Memory Per Workload. Supported only for Power BI Embedded Generation 1 resources.|Workload|
-|workload_qpu_metric|Yes|QPU Per Workload (Gen1)|Count|Average|QPU Per Workload. Range for A1 is 0-20, A2 is 0-40, A3 is 0-40, A4 is 0-80, A5 is 0-160, A6 is 0-320. Supported only for Power BI Embedded Generation 1 resources.|Workload|
 
 
 ## microsoft.purview/accounts
@@ -3124,6 +3042,21 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ThrottledSearchQueriesPercentage|Yes|Throttled search queries percentage|Percent|Average|Percentage of search queries that were throttled for the search service|No Dimensions|
 
 
+## microsoft.securitydetonation/chambers
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|CapacityUtilization|No|Capacity Utilization|Percent|Maximum|The percentage of the allocated capacity the resource is actively using.|Region|
+|CpuUtilization|No|CPU Utilization|Percent|Average|The percentage of the CPU that is being utilized across the resource.|Region|
+|CreateSubmissionApiResult|No|CreateSubmission Api Results|Count|Count|The total number of CreateSubmission API requests, with return code.|OperationName, ServiceTypeName, Region, HttpReturnCode|
+|PercentFreeDiskSpace|No|Available Disk Space|Percent|Average|The percent amount of available disk space across the resource.|Region|
+|SubmissionDuration|No|Submission Duration|MilliSeconds|Maximum|The submission duration (processing time), from creation to completion.|Region|
+|SubmissionsCompleted|No|Completed Submissions / Hr|Count|Maximum|The number of completed submissions / Hr.|Region|
+|SubmissionsFailed|No|Failed Submissions / Hr|Count|Maximum|The number of failed submissions / Hr.|Region|
+|SubmissionsOutstanding|No|Outstanding Submissions|Count|Average|The average number of outstanding submissions that are queued for processing.|Region|
+|SubmissionsSucceeded|No|Successful Submissions / Hr|Count|Maximum|The number of successful submissions / Hr.|Region|
+
+
 ## Microsoft.ServiceBus/Namespaces
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -3164,6 +3097,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |InboundTraffic|Yes|Inbound Traffic|Bytes|Total|The inbound traffic of service|No Dimensions|
 |MessageCount|Yes|Message Count|Count|Total|The total amount of messages.|No Dimensions|
 |OutboundTraffic|Yes|Outbound Traffic|Bytes|Total|The outbound traffic of service|No Dimensions|
+|ServerLoad|No|Server Load|Percent|Maximum|SignalR server load.|No Dimensions|
 |SystemErrors|Yes|System Errors|Percent|Maximum|The percentage of system errors|No Dimensions|
 |UserErrors|Yes|User Errors|Percent|Maximum|The percentage of user errors|No Dimensions|
 
@@ -3177,6 +3111,7 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |ConnectionQuotaUtilization|Yes|Connection Quota Utilization|Percent|Maximum|The percentage of connection connected relative to connection quota.|No Dimensions|
 |InboundTraffic|Yes|Inbound Traffic|Bytes|Total|The traffic originating from outside to inside of the service. It is aggregated by adding all the bytes of the traffic.|No Dimensions|
 |OutboundTraffic|Yes|Outbound Traffic|Bytes|Total|The traffic originating from inside to outside of the service. It is aggregated by adding all the bytes of the traffic.|No Dimensions|
+|ServerLoad|No|Server Load|Percent|Maximum|SignalR server load.|No Dimensions|
 |TotalConnectionCount|Yes|Connection Count|Count|Maximum|The number of user connections established to the service. It is aggregated by adding all the online connections.|No Dimensions|
 
 
@@ -3212,6 +3147,9 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |cpu_percent|Yes|CPU percentage|Percent|Average|CPU percentage|No Dimensions|
 |cpu_used|Yes|CPU used|Count|Average|CPU used. Applies to vCore-based databases.|No Dimensions|
 |deadlock|Yes|Deadlocks|Count|Total|Deadlocks. Not applicable to data warehouses.|No Dimensions|
+|delta_num_of_bytes_read|Yes|Remote data reads|Bytes|Total|Remote data reads in bytes|No Dimensions|
+|delta_num_of_bytes_total|Yes|Total remote bytes read and written|Bytes|Total|Total remote bytes read and written by compute|No Dimensions|
+|delta_num_of_bytes_written|Yes|Remote log writes|Bytes|Total|Remote log writes in bytes|No Dimensions|
 |diff_backup_size_bytes|Yes|Differential backup storage size|Bytes|Maximum|Cumulative differential backup storage size. Applies to vCore-based databases. Not applicable to Hyperscale databases.|No Dimensions|
 |dtu_consumption_percent|Yes|DTU percentage|Percent|Average|DTU Percentage. Applies to DTU-based databases.|No Dimensions|
 |dtu_limit|Yes|DTU Limit|Count|Average|DTU Limit. Applies to DTU-based databases.|No Dimensions|
@@ -3294,9 +3232,9 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 |Availability|Yes|Availability|Percent|Average|The percentage of availability for the storage service or the specified API operation. Availability is calculated by taking the TotalBillableRequests value and dividing it by the number of applicable requests, including those that produced unexpected errors. All unexpected errors result in reduced availability for the storage service or the specified API operation.|GeoType, ApiName, Authentication|
 |Egress|Yes|Egress|Bytes|Total|The amount of egress data. This number includes egress to external client from Azure Storage as well as egress within Azure. As a result, this number does not reflect billable egress.|GeoType, ApiName, Authentication|
 |Ingress|Yes|Ingress|Bytes|Total|The amount of ingress data, in bytes. This number includes ingress from an external client into Azure Storage as well as ingress within Azure.|GeoType, ApiName, Authentication|
-|SuccessE2ELatency|Yes|Success E2E Latency|Milliseconds|Average|The average end-to-end latency of successful requests made to a storage service or the specified API operation, in milliseconds. This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response.|GeoType, ApiName, Authentication|
-|SuccessServerLatency|Yes|Success Server Latency|Milliseconds|Average|The average time used to process a successful request by Azure Storage. This value does not include the network latency specified in SuccessE2ELatency.|GeoType, ApiName, Authentication|
-|Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType, GeoType, ApiName, Authentication|
+|SuccessE2ELatency|Yes|Success E2E Latency|MilliSeconds|Average|The average end-to-end latency of successful requests made to a storage service or the specified API operation, in milliseconds. This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response.|GeoType, ApiName, Authentication|
+|SuccessServerLatency|Yes|Success Server Latency|MilliSeconds|Average|The average time used to process a successful request by Azure Storage. This value does not include the network latency specified in SuccessE2ELatency.|GeoType, ApiName, Authentication|
+|Transactions|Yes|Transactions|Count|Total|The number of requests made to a storage service or the specified API operation. This number includes successful and failed requests, as well as requests which produced errors. Use ResponseType dimension for the number of different type of response.|ResponseType, GeoType, ApiName, Authentication, TransactionType|
 |UsedCapacity|Yes|Used capacity|Bytes|Average|The amount of storage used by the storage account. For standard storage accounts, it's the sum of capacity used by blob, table, file, and queue. For premium storage accounts and Blob storage accounts, it is the same as BlobCapacity or FileCapacity.|No Dimensions|
 
 
@@ -3623,7 +3561,20 @@ This latest update adds a new column and reorders the metrics to be alphabetical
 
 |Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|---|
-|ApiConnectionRequests|Yes|Requests|Count|Total|API Connection Requests|HttpStatusCode, ClientIPAddress|
+|Requests|No|Requests|Count|Total|API Connection Requests|HttpStatusCode, ClientIPAddress|
+
+
+## Microsoft.Web/containerapps
+
+|Metric|Exportable via Diagnostic Settings?|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
+|---|---|---|---|---|---|---|
+|Replicas|Yes|Replica Count|Count|Maximum|Number of replicas count of container app|revisionName, deploymentName|
+|Requests|Yes|Requests|Count|Total|Requests processed|revisionName, podName, statusCodeCategory, statusCode|
+|RestartCount|Yes|Replica Restart Count|Count|Maximum|Restart count of container app replicas|revisionName, podName|
+|RxBytes|Yes|Network In Bytes|Bytes|Total|Network received bytes|revisionName, podName|
+|TxBytes|Yes|Network Out Bytes|Bytes|Total|Network transmitted bytes|revisionName, podName|
+|UsageNanoCores|Yes|CPU Usage Nanocores|NanoCores|Average|CPU consumed by the container app, in nano cores. 1,000,000,000 nano cores = 1 core|revisionName, podName|
+|WorkingSetBytes|Yes|Memory Working Set Bytes|Bytes|Average|Container App working set memory used in bytes.|revisionName, podName|
 
 
 ## Microsoft.Web/hostingEnvironments
