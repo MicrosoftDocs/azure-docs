@@ -14,7 +14,7 @@ ms.custom: subject-rbac-steps, kr2b-contr-experiment
 
 # Secure an Azure Maps account with a SAS token
 
-This article describes how to create an Azure Maps account with a securely-stored SAS token you can use when you call the Azure Maps REST API.
+This article describes how to create an Azure Maps account with a securely stored SAS token you can use to call the Azure Maps REST API.
 
 ## Prerequisites
 
@@ -48,9 +48,9 @@ The following example scenario uses two Azure Resource Manager (ARM) template de
 
 When you finish, you should see Azure Maps `Search Address (Non-Batch)` REST API results on PowerShell with Azure CLI. The Azure resources deploy with permissions to connect to the Azure Maps account. There are controls for maximum rate limit, allowed regions, `localhost` configured CORS policy, and Azure RBAC.
 
-### Azure resource deployment with Azure CLI
+## Azure resource deployment with Azure CLI
 
-The following steps describe how to create and configure an Azure Maps account with SAS token authentication. Azure CLI runs in a PowerShell instance.
+The following steps describe how to create and configure an Azure Maps account with SAS token authentication. In this example, Azure CLI runs in a PowerShell instance.
 
 1. Sign in to your Azure subscription with `az login`.
 
@@ -68,7 +68,7 @@ The following steps describe how to create and configure an Azure Maps account w
     $id = $(az rest --method GET --url 'https://graph.microsoft.com/v1.0/me?$select=id' --headers 'Content-Type=application/json' --query "id")
     ```
 
-1. Create a template file *prereq.azuredeploy.json* with the following content:
+1. Create a template file named *prereq.azuredeploy.json* with the following content:
     
     ```json
     {
@@ -163,7 +163,7 @@ The following steps describe how to create and configure an Azure Maps account w
     
     ```
 
-1. Deploy the prerequisite resources. Make sure to use the same location as the Azure Maps account.
+1. Deploy the prerequisite resources you just created. Make sure to use the same location as the Azure Maps account.
 
    ```azurecli
    az group create --name {group-name} --location "East US"
@@ -360,10 +360,10 @@ The following steps describe how to create and configure an Azure Maps account w
     }
     ```
 
-1. Deploy the template with the ID parameters from the Key Vault and managed identity resources you created in the previous step. When creating the SAS token, you set the `allowedRegions` parameter to `eastus`, `westus2`, and `westcentralus`, so you can use these locations to make HTTP requests to the `us.atlas.microsoft.com` endpoint.
+1. Deploy the template with the ID parameters from the Key Vault and managed identity resources you created in the previous step. When creating the SAS token, you set the `allowedRegions` parameter to `eastus`, `westus2`, and `westcentralus`. You can then use these locations to make HTTP requests to the `us.atlas.microsoft.com` endpoint.
 
    > [!IMPORTANT]
-   > You save the SAS token in the key vault to prevent its credentials from appearing in the Azure deployment logs. The Key Vault SAS token secret's `tags` also contain the start, expiry, and signing key name, to show when the SAS token will expire.
+   > You save the SAS token in the key vault to prevent its credentials from appearing in the Azure deployment logs. The SAS token secret's `tags` also contain the start, expiry, and signing key name, to show when the SAS token will expire.
 
    ```azurecli
     az deployment group create --name ExampleDeployment --resource-group {group-name} --template-file "./azuredeploy.json" --parameters keyVaultName="$($outputs[0])" userAssignedIdentityPrincipalId="$($outputs[1])" userAssignedIdentityResourceId="$($outputs[2])" allowedOrigins="['http://localhost']" allowedRegions="['eastus', 'westus2', 'westcentralus']" maxRatePerSecond="10"
@@ -376,15 +376,15 @@ The following steps describe how to create and configure an Azure Maps account w
    $sasToken = $(az keyvault secret show --id "$secretId" --query "value" --output tsv)
    ```
 
-1. Test the SAS token by making a request to an Azure Maps endpoint. This example specifies the `us.atlas.microsoft.com` to ensure your request routes to US geography, because your SAS token allows regions within the geography.
+1. Test the SAS token by making a request to an Azure Maps endpoint. This example specifies the `us.atlas.microsoft.com` to ensure your request routes to US geography. Your SAS token allows regions within the US geography.
 
    ```azurecli
    az rest --method GET --url 'https://us.atlas.microsoft.com/search/address/json?api-version=1.0&query=1 Microsoft Way, Redmond, WA 98052' --headers "Authorization=jwt-sas $($sasToken)" --query "results[].address"
    ```
 
-## Complete CLI script example
+## Complete script example
 
-To run the complete example, have the following template files in the directory of the current PowerShell session:
+To run the complete example, the following template files must be in the directory of the current PowerShell session:
 
 - *prereq.azuredeploy.json* to create the key vault and managed identity.
 - *azuredeploy.json* to create the Azure Maps account, configure the role assignment and managed identity, and store the SAS token in the key vault.
@@ -405,7 +405,9 @@ $sasToken = $(az keyvault secret show --id "$secretId" --query "value" --output 
 az rest --method GET --url 'https://us.atlas.microsoft.com/search/address/json?api-version=1.0&query=1 Microsoft Way, Redmond, WA 98052' --headers "Authorization=jwt-sas $($sasToken)" --query "results[].address"
 ```
 
-The following small example uses the JavaScript [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#supplying_request_options) to call the Azure Maps REST API:
+## Real-world JavaScript example
+
+The following small example shows how you could use your SAS token with the JavaScript [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#supplying_request_options) to get and return Azure Maps information:
 
 ```javascript
 async function getData(url = 'https://us.atlas.microsoft.com/search/address/json?api-version=1.0&query=1 Microsoft Way, Redmond, WA 98052') {
