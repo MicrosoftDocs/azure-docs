@@ -39,11 +39,14 @@ Global administrator and Authentication Method Policy administrator role holders
 To configure the Temporary Access Pass authentication method policy:
 
 1. Sign in to the Azure portal as a Global admin or Authentication Policy admin and click **Azure Active Directory** > **Security** > **Authentication methods** > **Temporary Access Pass**.
-3. Set Enable to **Yes** to enable the policy, select which users have the policy applied. 
-4. (Optional) Click **Configure** and modify the default Temporary Access Pass settings, such as setting maximum lifetime, or length. 
-5. Click **Save** to apply the policy. 
+![Screenshot of how to enable the Temporary Access Pass authentication method policy](./media/how-to-authentication-temporary-access-pass/policy.png)
+1. Set Enable to **Yes** to enable the policy, select which users have the policy applied. 
+![Screenshot of how to enable the Temporary Access Pass authentication method policy](./media/how-to-authentication-temporary-access-pass/policy_scope.png)
+1. (Optional) Click **Configure** and modify the default Temporary Access Pass settings, such as setting maximum lifetime, or length. 
+![Screenshot of how to customize the settings for Temporary Access Pass](./media/how-to-authentication-temporary-access-pass/policy_settings.png)
+1. Click **Save** to apply the policy. 
 
-   ![Screenshot of how to enable the Temporary Access Pass authentication method policy](./media/how-to-authentication-temporary-access-pass/policy.png)
+
 
    The default value and the range of allowed values are described in the following table.
 
@@ -127,6 +130,11 @@ Users can also continue to sign-in by using their password; a TAP doesn’t repl
 Users managing their security information at [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) will see an entry for the Temporary Access Pass. If a user does not have any other registered methods they will be presented a banner at the top of the screen requesting them to add a new sign-in method. Users can additionally view the TAP expiration time, and delete the TAP if no longer needed. 
 
 ![Screenshot of how users can manage a Temporary Access Pass](./media/how-to-authentication-temporary-access-pass/tap_msi.png)
+
+### Windows device setup
+Users with a Temporary Access Pass can navigate the setup process on Windows 10 and 11 to perform device join operations and  configure Windows Hello For Business.
+
+![Screenshot of how to enter TAP on Win10](./media/how-to-authentication-temporary-access-pass/win10_tap.png)
 
 ### Passwordless phone sign-in
 
