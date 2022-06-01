@@ -1,6 +1,6 @@
 ---
 title: Application Management certificates frequently asked questions
-titleSuffix: Azure AD
+titleSuffix: Microsoft Entra
 description: Learn answers to frequently asked questions (FAQ) about managing certificates for apps using Azure Active Directory as an Identity Provider (IdP).  
 services: active-directory
 author: davidmu1

@@ -1,7 +1,7 @@
 ---
 title: Understand how users are assigned to apps
 description: Understand how users get assigned to an app that is using Azure Active Directory for identity management.
-titleSuffix: Azure AD
+titleSuffix: Microsoft Entra
 services: active-directory
 author: eringreenlee
 manager: CelesteDG
