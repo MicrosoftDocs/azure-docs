@@ -73,7 +73,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, the application is pre-configured and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button.
 
-1. Your TVU Service application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of Unique User Identifier is user.userprincipalname but TVU Service expects this to be mapped with the user's email address. For that you can use user.mail attribute from the list or use the appropriate attribute value based on your organization configuration.
+1. Your TVU Service application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **Unique User Identifier** is **user.userprincipalname** but TVU Service expects this to be mapped with the user's email address. For that you can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration.
 
     ![Screenshot shows the image of TVU Service application.](common/default-attributes.png "Attributes")
 
