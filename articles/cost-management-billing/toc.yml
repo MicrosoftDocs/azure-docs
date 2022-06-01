@@ -204,8 +204,6 @@
       items:
       - name: Usage Details API
         href: automate/migrate-consumption-usage-details-api.md
-      - name: Forecasts API
-        href: automate/migrate-consumption-forecasts-api.md
       - name: Marketplaces API
         href: automate/migrate-consumption-marketplaces-api.md
   - name: Security
