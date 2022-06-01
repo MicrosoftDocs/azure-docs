@@ -6,7 +6,7 @@ author: asudbring
 # Customer intent: As someone who has a basic network background but is new to Azure, I want to understand the capabilities of private endpoints so that I can securely connect to my Azure PaaS services within the virtual network.
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 02/17/2022
+ms.date: 05/31/2022
 ms.author: allensu
 ---
 # What is a private endpoint?
@@ -110,6 +110,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure App Service | Microsoft.Web/hostingEnvironments | hosting environment |
 | Azure App Service | Microsoft.Web/sites | sites |
 | Azure Static Web Apps | Microsoft.Web/staticSites | staticSites |
+| Azure Media Services | Microsoft.Media/mediaservices | keydelivery, liveevent, streamingendpoint |
 
 > [!NOTE]
 > You can create private endpoints only on a General Purpose v2 (GPv2) storage account.
