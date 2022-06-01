@@ -1,16 +1,15 @@
 ---
 title: Form Recognizer business card model
 titleSuffix: Azure Applied AI Services
-description: Concepts encompassing data extraction and analysis using prebuilt business card model
+description: Concepts related to data extraction and analysis using prebuilt business card model
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/11/2022
+ms.date: 06/06/2022
 ms.author: lajanuar
 recommendations: false
-ms.custom: ignite-fall-2021
 ---
 <!-- markdownlint-disable MD033 -->
 
@@ -96,7 +95,7 @@ You'll need a business card document. You can use our [sample business card docu
 
 | Model | Language—Locale code | Default |
 |--------|:----------------------|:---------|
-|Business card| <ul><li>English (United States)—en-US</li><li> English (Australia)—en-AU</li><li>English (Canada)—en-CA</li><li>English (United Kingdom)—en-GB</li><li>English (India)—en-IN</li></ul>  | Autodetected |
+|Business card| <ul><li>English (United States)—en-US</li><li> English (Australia)—en-AU</li><li>English (Canada)—en-CA</li><li>English (United Kingdom)—en-GB</li><li>English (India)—en-IN</li><li>English (Japan)—en-JP</li><li>Japanese (Japan)—ja-JP</li></ul>  | Autodetected (en-US or ja-JP) |
 
 ## Field extraction
 
