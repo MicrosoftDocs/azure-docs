@@ -688,7 +688,7 @@ Use this API to request a list of all the alerts that the Defender for IoT senso
 
 ```
 
-# [Curl command](#tab-alerts-curl)
+# [Curl command](#tab/alerts-curl)
 
 **Type**: GET
 
