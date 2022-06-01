@@ -124,19 +124,22 @@ curl -k -d '{"username": "<USER_NAME>","password": "<CURRENT_PASSWORD>","new_pas
 curl -k -d '{"username": "myUser","password": "1234@abcd","new_password": "abcd@1234"}' -H 'Content-Type: application/json'  https://127.0.0.1/external/authentication/set_password
 ```
 ---
-## User password update by system admin - /external/authentication/set_password_by_admin
 
-Use this API to let system administrators change passwords for specified users. Defender for IoT admin user roles can work with the API. You don't need a Defender for IoT access token to use this API.
+## set_password_by_admin (User password update by system admin)
 
-#### Method
+Use this API to let system administrators change passwords for specified users. Defender for IoT admin user roles can work with the API.
 
-- **POST**
+You don't need a Defender for IoT access token to use this API.
 
-#### Request type
+**URL**: /external/authentication/set_password_by_admin
 
-- **JSON**
+**Method**: POST
 
-#### Request example
+# [Request](#tab/set-password-by-admin-request)
+
+**Type**: JSON
+
+**Request example**:
 
 ```rest
 request:
@@ -144,14 +147,15 @@ request:
 {
 
     "username": "test",
-    
+
     "password": "Test12345\!",
-    
+
     "new_password": "Test54321\!"
 
 }
 ```
 
+# [Response](#tab/set-password-by-admin-response)
 #### Response type
 
 - **JSON**
