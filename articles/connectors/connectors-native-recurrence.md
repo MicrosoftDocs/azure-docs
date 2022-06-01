@@ -1,6 +1,6 @@
 ---
-title: Schedule recurring tasks and workflows
-description: Schedule and run recurring automated workflows with the Recurrence trigger in Azure Logic Apps.
+title: Schedule and run recurring workflows
+description: Schedule and run recurring workflows with the generic Recurrence trigger in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
@@ -8,30 +8,34 @@ ms.topic: how-to
 ms.date: 06/01/2022
 ---
 
-# Create, schedule, and run recurring workflows with the Recurrence trigger in Azure Logic Apps
+# Schedule and run recurring workflows with the Recurrence trigger in Azure Logic Apps
 
-To regularly run tasks, processes, or jobs on specific schedule, you can start your logic app workflow with the built-in **Recurrence** trigger, which runs natively with the Azure Logic Apps runtime.
+To start and run your workflow on a schedule, you can use the generic **Recurrence** trigger as the first step. You can set a date, time, and time zone for starting the workflow and a recurrence for repeating that workflow.
 
-With this trigger, you can set a date, time, and time zone for starting the workflow and a recurrence for repeating that workflow. If the trigger misses recurrences for any reason, for example, due to disruptions or disabled workflows, this trigger doesn't process the missed recurrences but restarts recurrences at the next scheduled interval. For more information about the built-in Schedule triggers and actions, see [Schedule and run recurring automated, tasks, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
-
-> [!TIP]
->
-> To trigger and run your workflow only once and in the future, see 
-> [Run jobs one time only](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#run-once).
+This trigger isn't associated with any specific service, so you can use the trigger with almost any workflow, such as [Consumption logic app workflows and Standard logic app *stateful* workflows](../logic-apps/logic-apps-overview.md#resource-environment-differences). This trigger is currently unavailable for [Standard logic app *stateless* workflows](../logic-apps/logic-apps-overview.md#resource-environment-differences).
 
 The following list includes some patterns that this trigger supports along with more advanced recurrences and complex schedules:
 
+* Run at a specific date and time, then repeat every *n* number of seconds, minutes, hours, days, weeks, or months.
+
 * Run immediately and repeat every *n* number of seconds, minutes, hours, days, weeks, or months.
 
-* Start at a specific date and time, then run and repeat every *n* number of seconds, minutes, hours, days, weeks, or months.
+* Run immediately and repeat daily at one or more specific times, such as 8:00 AM and 5:00 PM.
 
-* Run and repeat at one or more times each day, for example, at 8:00 AM and 5:00 PM.
+* Run immediately and repeat weekly on specific days, such as Saturday and Sunday.
 
-* Run and repeat each week, but only for specific days, such as Saturday and Sunday.
+* Run immediately and repeat weekly on specific days and times, such as Monday through Friday at 8:00 AM and 5:00 PM.
 
-* Run and repeat each week, but only for specific days and times, such as Monday through Friday at 8:00 AM and 5:00 PM.
+> [!NOTE]
+>
+> To start and run your workflow only once in the future, use workflow template named 
+> **Scheduler: Run Once Jobs**. This template uses the Request trigger and HTTP action, 
+> rather than the Recurrence trigger, which doesn't support this recurrence pattern.
+> For more information, see [Run jobs one time only](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#run-once).
 
-For differences between the Recurrence trigger and Sliding Window trigger or for more information about scheduling recurring workflows, see [Schedule and run recurring automated tasks, processes, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
+If the Recurrence trigger misses recurrences for any reason, for example, due to disruptions or disabled workflows, the trigger doesn't process the missed recurrences but restarts recurrences at the next scheduled interval.
+
+The Recurrence trigger is part of the built-in Schedule connector and runs natively on the Azure Logic Apps runtime. For more information about the built-in Schedule triggers and actions, see [Schedule and run recurring automated, tasks, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
 ## Prerequisites
 
@@ -39,13 +43,15 @@ For differences between the Recurrence trigger and Sliding Window trigger or for
 
 * Basic knowledge about [logic app workflows](../logic-apps/logic-apps-overview.md). If you're new to logic apps, learn [how to create your first logic app workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
+<a name="add-recurrence-trigger"></a>
+
 ## Add the Recurrence trigger
 
 1. In the [Azure portal](https://portal.azure.com), create a blank logic app and workflow.
 
    > [!NOTE]
    >
-   > If you created a Standard logic app workflow, make sure to create a stateful workflow. 
+   > If you created a Standard logic app workflow, make sure to create a *stateful* workflow. 
    > The Recurrence trigger is currently unavailable for stateless workflows.
 
 1. In the designer, follow the corresponding steps, based on whether your logic app workflow is [Consumption or Standard](../logic-apps/logic-apps-overview.md#resource-environment-differences).
@@ -127,11 +133,12 @@ For differences between the Recurrence trigger and Sliding Window trigger or for
    | **At these minutes** | `minutes` | No | Integer or integer array | If you select "Day" or "Week", you can select one or more integers from 0 to 59 as the minutes of the hour when you want to run the workflow. <br><br>For example, you can specify "30" as the minute mark and using the previous example for hours of the day, you get 10:30 AM, 12:30 PM, and 2:30 PM. <br><br>**Note**: Sometimes, the timestamp for the triggered run might vary up to 1 minute from the scheduled time. If you need to pass the timestamp exactly as scheduled to subsequent actions, you can use template expressions to change the timestamp accordingly. For more information, see [Date and time functions for expressions](../logic-apps/workflow-definition-language-functions-reference.md#date-time-functions). |
    |||||
 
-   For example, suppose that today is Friday, September 4, 2020. The following Recurrence trigger doesn't fire *any sooner* than the start date and time, which is Friday, September 18, 2020 at 8:00 AM PST. However, the recurrence schedule is set for 10:30 AM, 12:30 PM, and 2:30 PM on Mondays only. The first time that the trigger fires and creates a logic app workflow instance is on Monday at 10:30 AM. To learn more about how start times work, see these [start time examples](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time).
+   For example, suppose that today is Friday, September 4, 2020. The following Recurrence trigger doesn't fire *any sooner* than the specified start date and time, which is Friday, September 18, 2020 at 8:00 AM Pacific Time. However, the recurrence schedule is set for 10:30 AM, 12:30 PM, and 2:30 PM on Mondays only. The first time that the trigger fires and creates a workflow instance is on Monday at 10:30 AM. To learn more about how start times work, see these [start time examples](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time).
 
    Future runs happen at 12:30 PM and 2:30 PM on the same day. Each recurrence creates their own workflow instance. After that, the entire schedule repeats all over again next Monday. [*What are some other example occurrences?*](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#example-recurrences)
 
    > [!NOTE]
+   >
    > The trigger shows a preview for your specified recurrence only when you select "Day" or "Week" as the frequency.
 
    **Consumption**
