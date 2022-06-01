@@ -129,22 +129,6 @@
       - name: Version & track datasets
         displayName: data, data set
         href: ../how-to-version-track-datasets.md
-    - name: Label data
-      items: 
-      - name: Set up image labeling
-        displayName: data, dataset
-        href: ../how-to-create-image-labeling-projects.md
-      - name: Set up text labeling
-        displayName: data, dataset
-        href: ../how-to-create-text-labeling-projects.md
-      - name: Label images and text
-        displayName: data, dataset, labeling
-        href: ../how-to-label-data.md
-      - name: Add users
-        displayName: data, dataset, labeling
-        href: ../how-to-add-users.md
-      - name: Outsource labeling tasks
-        href: ../how-to-outsource-data-labeling.md
       - name: Create datasets with labels
         displayName: data, labels, torchvision
         href: ../how-to-use-labeled-dataset.md

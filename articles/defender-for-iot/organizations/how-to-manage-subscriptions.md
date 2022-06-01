@@ -17,7 +17,7 @@ For each subscription, you will be asked to define the number of *committed devi
 
 ## Subscription billing
 
-You are billed based on the number of committed devices associated with each subscription.
+You're billed based on the number of committed devices associated with each subscription.
 
 The billing cycle for Microsoft Defender for IoT follows a calendar month. Changes you make to committed devices during the  month are implemented one hour after confirming your update and are reflected in your monthly bill. Removal of Defender for IoT from a subscription also takes effect one hour after removal.
 
