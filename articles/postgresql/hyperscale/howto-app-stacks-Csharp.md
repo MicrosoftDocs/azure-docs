@@ -13,7 +13,7 @@ ms.date: 05/19/2022
 
 ## Overview
 
-In this document, you connect to a Hyperscale (Citus) database using a C# application. It shows how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you're familiar with developing using Node.js, and are new to working with Hyperscale (Citus).
+In this document, you connect to a Hyperscale (Citus) database using a C# application. It shows how to use SQL statements to query, insert, update, and delete data in the database. The steps in this article assume that you're familiar with developing using C#, and are new to working with Hyperscale (Citus).
 
 > [!TIP]
 >
@@ -31,7 +31,7 @@ In this document, you connect to a Hyperscale (Citus) database using a C# applic
 
 To get the database credentials, you can use the **Connection strings** tab in the Azure portal. See below screenshot.
 
-![Diagram showing C# connection string](../media/howto-app-stacks/01-python-connection-string.png)
+![Diagram showing C# connection string](../media/howto-app-stacks/03-csharp-connection-string.png)
 
 
 ## Step 1: Connect, create table, insert data
@@ -41,13 +41,6 @@ Use the following code to connect and load the data using CREATE TABLE and INSER
 * [CreateCommand()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) sets the CommandText property.
 * [ExecuteNonQuery()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) method to run the database commands.
 
-Replace the following values:
-
-* \<host> with the value you copied from previous section
-* \<password> with your server password.
-* Default admin user is *citus*
-* Default database is *citus*
-
 ```csharp
 using System;
 using Npgsql;
@@ -55,26 +48,16 @@ namespace Driver
 {
     public class AzurePostgresCreate
     {
-        // Obtain connection string information from the portal
-        //
-        private static string Host = "<host>";
-        private static string User = "citus";
-        private static string DBname = "citus";
-        private static string Password = "<password>";
-        private static string Port = "5432";
+       
+       
         static void Main(string[] args)
         {
-            // Build connection string using parameters from portal
-            //
-            string connString =
-                String.Format(
-                    "Server={0};Username={1};Database={2};Port={3};Password={4};SSLMode=Require",
-                    Host,
-                    User,
-                    DBname,
-                    Port,
-                    Password);
-            using (var conn = new NpgsqlConnection(connString))
+            // Replace below argument with connection string from portal.
+            var connStr = new NpgsqlConnectionStringBuilder("Server = <host> Database = citus; Port = 5432; User Id = citus; Password = {your password}; Ssl Mode = Require;");
+
+            connStr.TrustServerCertificate = true;
+
+          using (var conn = new NpgsqlConnection(connStr.ToString()))
             {
                 Console.Out.WriteLine("Opening connection");
                 conn.Open();
@@ -88,14 +71,14 @@ namespace Driver
                     command.ExecuteNonQuery();
                     Console.Out.WriteLine("Finished creating table");
                 }
-                using (var command = new NpgsqlCommand( "CREATE INDEX idx_pharmacy_id ON pharmacy(pharmacy_id);", conn))
+                using (var command = new NpgsqlCommand("CREATE INDEX idx_pharmacy_id ON pharmacy(pharmacy_id);", conn))
                 {
                     command.ExecuteNonQuery();
                     Console.Out.WriteLine("Finished creating index");
                 }
                 using (var command = new NpgsqlCommand("INSERT INTO  pharmacy  (pharmacy_id,pharmacy_name,city,state,zip_code) VALUES (@n1, @q1, @a, @b, @c)", conn))
                 {
-                    command.Parameters.AddWithValue("n1",0);
+                    command.Parameters.AddWithValue("n1", 0);
                     command.Parameters.AddWithValue("q1", "Target");
                     command.Parameters.AddWithValue("a", "Sunnyvale");
                     command.Parameters.AddWithValue("b", "California");
@@ -103,6 +86,7 @@ namespace Driver
                     int nRows = command.ExecuteNonQuery();
                     Console.Out.WriteLine(String.Format("Number of rows inserted={0}", nRows));
                 }
+
             }
             Console.WriteLine("Press RETURN to exit");
             Console.ReadLine();
@@ -126,30 +110,19 @@ namespace Driver
 {
     public class AzurePostgresCreate
     {
-        // Obtain connection string information from the portal
-        //
-        private static string Host = "<host>";
-        private static string User = "citus";
-        private static string DBname = "citus";
-        private static string Password = "<password>";
-        private static string Port = "5432";
+      
         static void Main(string[] args)
         {
-            // Build connection string using parameters from portal
-            //
-            string connString =
-                String.Format(
-                    "Server={0};Username={1};Database={2};Port={3};Password={4};SSLMode=Require",
-                    Host,
-                    User,
-                    DBname,
-                    Port,
-                    Password);
-            using (var conn = new NpgsqlConnection(connString))
+            // Replace below argument with connection string from portal.
+            var connStr = new NpgsqlConnectionStringBuilder("Server = <host>; Database = citus; Port = 5432; User Id = citus; Password = {your password}; Ssl Mode = Require;");
+
+            connStr.TrustServerCertificate = true;
+
+            using (var conn = new NpgsqlConnection(connStr.ToString()))
             {
                 Console.Out.WriteLine("Opening connection");
                 conn.Open();
-                using (var command = new NpgsqlCommand( "select create_distributed_table('pharmacy','pharmacy_id');", conn))
+                using (var command = new NpgsqlCommand("select create_distributed_table('pharmacy','pharmacy_id');", conn))
                 {
                     command.ExecuteNonQuery();
                     Console.Out.WriteLine("Finished distributing the table");
@@ -179,25 +152,14 @@ namespace Driver
 {
     public class read
     {
-        // Obtain connection string information from the portal
-        //
-        private static string Host = "<host>";
-        private static string User = "citus";
-        private static string DBname = "citus";
-        private static string Password = "<password>";
-        private static string Port = "5432";
+
         static void Main(string[] args)
         {
-            // Build connection string using parameters from portal
-            //
-            string connString =
-                String.Format(
-                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4};SSLMode=Require",
-                    Host,
-                    User,
-                    DBname,
-                    Port,
-                    Password);
+            // Replace below argument with connection string from portal.
+            var connStr = new NpgsqlConnectionStringBuilder("Server = <host>; Database = citus; Port = 5432; User Id = citus; Password = {your password}; Ssl Mode = Require;");
+
+            connStr.TrustServerCertificate = true;
+
             using (var conn = new NpgsqlConnection(connString))
             {
                 Console.Out.WriteLine("Opening connection");
@@ -239,26 +201,14 @@ namespace Driver
 {
     public class AzurePostgresUpdate
     {
-        // Obtain connection string information from the portal
-        //
-        private static string Host = "<your-db-server-name>";
-        private static string User = "citus";
-        private static string DBname = "citus";
-        private static string Password = "<your-password>";
-        private static string Port = "5432";
         static void Main(string[] args)
         {
-            // Build connection string using parameters from portal
-            //
-            string connString =
-                String.Format(
-                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4};SSLMode=Require",
-                    Host,
-                    User,
-                    DBname,
-                    Port,
-                    Password);
-            using (var conn = new NpgsqlConnection(connString))
+            // Replace below argument with connection string from portal.
+            var connStr = new NpgsqlConnectionStringBuilder("Server = <host>; Database = citus; Port = 5432; User Id = citus; Password = {your password}; Ssl Mode = Require;");
+
+            connStr.TrustServerCertificate = true;
+
+            using (var conn = new NpgsqlConnection(connStr.ToString()))
             {
                 Console.Out.WriteLine("Opening connection");
                 conn.Open();
@@ -288,27 +238,17 @@ namespace Driver
 {
     public class AzurePostgresDelete
     {
-        // Obtain connection string information from the portal
-        //
-        private static string Host = "<your-db-server-name>";
-        private static string User = "citus";
-        private static string DBname = "citus";
-        private static string Password = "<your-password>";
-        private static string Port = "5432";
+       
         static void Main(string[] args)
         {
-            // Build connection string using parameters from portal
-            //
-            string connString =
-                String.Format(
-                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4};SSLMode=Require",
-                    Host,
-                    User,
-                    DBname,
-                    Port,
-                    Password);
-            using (var conn = new NpgsqlConnection(connString))
+            // Replace below argument with connection string from portal.
+            var connStr = new NpgsqlConnectionStringBuilder("Server = <host>; Database = citus; Port = 5432; User Id = citus; Password = {your password}; Ssl Mode = Require;");
+
+            connStr.TrustServerCertificate = true;
+
+            using (var conn = new NpgsqlConnection(connStr.ToString()))
             {
+
                 Console.Out.WriteLine("Opening connection");
                 conn.Open();
                 using (var command = new NpgsqlCommand("DELETE FROM pharmacy WHERE pharmacy_id = @n", conn))
@@ -345,19 +285,14 @@ public class csvtotable
     static void Main(string[] args)
     {
         String sDestinationSchemaAndTableName = "pharmacy";
-        String sFromFilePath = "C:\\Users\\johndoe\\Documents\\citus\\pharmacies.csv";
-        // Build connection string using parameters from portal
+        String sFromFilePath = "C:\\Users\\Documents\\pharmacies.csv";
+       
+        // Replace below argument with connection string from portal.
+        var connStr = new NpgsqlConnectionStringBuilder("Server = <host>; Database = citus; Port = 5432; User Id = citus; Password = {your password}; Ssl Mode = Require;");
+            
+        connStr.TrustServerCertificate = true;
 
-        string connString =
-            String.Format(
-                "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4};SSLMode=Require",
-                Host,
-                User,
-                DBname,
-                Port,
-                Password);
-
-        NpgsqlConnection conn = new NpgsqlConnection(connString);
+        NpgsqlConnection conn = new NpgsqlConnection(connStr.ToString());
         NpgsqlCommand cmd = new NpgsqlCommand();
 
         conn.Open();
@@ -371,7 +306,7 @@ public class csvtotable
                     writer.WriteLine(sLine);
                 }
             }
-            Console.WriteLine("completed");
+            Console.WriteLine("csv file data copied sucessfully");
         }
     }
 }
@@ -388,26 +323,20 @@ namespace Driver
 {
     public class InMemory
     {
-        private static string Host = "<host>";
-        private static string User = "citus";
-        private static string DBname = "citus";
-        private static string Password = "<password>";
-        private static string Port = "5432";
+        
 
         static async Task Main(string[] args)
         {
-            string connString =
-                String.Format(
-                    "Server={0}; User Id={1}; Database={2}; Port={3}; Password={4};SSLMode=Require",
-                    Host,
-                    User,
-                    DBname,
-                    Port,
-                    Password);
-            using (var conn = new NpgsqlConnection(connString))
+         
+             // Replace below argument with connection string from portal.
+            var connStr = new NpgsqlConnectionStringBuilder("Server = <host>; Database = citus; Port = 5432; User Id = citus; Password = {your password}; Ssl Mode = Require;");
+
+            connStr.TrustServerCertificate = true;
+
+            using (var conn = new NpgsqlConnection(connStr.ToString()))
             {
                 conn.Open();
-                var text = new dynamic[] {0, "Target","Sunnyvale", "California",94001};
+                var text = new dynamic[] { 0, "Target", "Sunnyvale", "California", 94001 };
                 using (var writer = conn.BeginBinaryImport("COPY pharmacy  FROM STDIN (FORMAT BINARY)"))
                 {
                     writer.StartRow();
@@ -417,6 +346,7 @@ namespace Driver
                     }
                     writer.Complete();
                 }
+                Console.WriteLine("in-memory data copied sucessfully");
             }
         }
     }
