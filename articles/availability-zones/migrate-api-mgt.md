@@ -65,11 +65,11 @@ This option is for deployments that are in an Azure virtual network (VNet). The 
 
 ### When to use manual configuration
 
-Use the manual configuration option when you your current API Management service is on a virtual network that doesn't support availability zones. Once you complete the required tasks,  API Management service will migrate to VMSS and you'll own the public IP address, which means the IP can remain the same for this service for as long as needed.
+Use the manual configuration option when your current API Management service is on a virtual network that doesn't support availability zones. Once you've completed the required tasks, the API Management service will migrate to VMSS. You'll then own the public IP address, which will remain the same for this service as long as required.
 
 ### Considerations for manual configuration
 
-The public IP address in the location will change, but it must be pre-created in the same subscription and attached to the APIM instance. Another consideration is that there is some administrative overhead of creating a new subnet and allowing the IP in the firewall.
+The public IP address in the location will change, but it must be pre-created in the same subscription and attached to the APIM instance. Another consideration is that there's some administrative overhead of creating a new subnet and allowing the IP in the firewall.
 
 ### How to use manual configuration
 
@@ -77,11 +77,11 @@ To migrate to availability zone support by using manual configuration:
 
 1. Create new subnet (can be in same VNET as long as address space is available).
 
-1. Create a public IP address in you subscription (Standard SKU. Create in same subscription as the subnet).
+1. Create a public IP address in your subscription (Standard SKU. Create in same subscription as the subnet).
 
 1. Allow-list the public IP address in your system, wherever the current API management public IP address is allow-listed.  
 
-1. In the the Azure portal, change the subnet and provide the public IP address to your existing API Management service. Or, you can use an ARM template that uses *apiVersion=2021-01-01-preview* or above. For more information about using an ARM template, see [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-simple-zones).
+1. In the Azure portal, change the subnet and provide the public IP address to your existing API Management service. Or, you can use an ARM template that uses *apiVersion=2021-01-01-preview* or above. For more information about using an ARM template, see [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-simple-zones).
 
 1. After the service has been moved to new subnet, you can then enable availability zones for your API Management service.
 
@@ -89,11 +89,11 @@ To migrate to availability zone support by using manual configuration:
 
 This option is for deployments that aren't on a VNET.
 
-In the Azure portal, you can enable zone redundancy when you add a location to your API Management service, or when you update the configuration of an existing location. When you enable zone redundancy, you effectively change the configuration and migrate the entire API Management instance to one that is running on the new VMSS architecture, so that availability zones can be supported. The legacy systems will then give up hosting the workload on its own infrastructure and move it to the new ARM based infrastructure. This change is permanent, and even if the resource is changed to Standard tier, the service will remain on VMSS and ARM.
+In the Azure portal, you can enable zone redundancy when you add a location to your API Management service, or when you update the configuration of an existing location. When you enable zone redundancy, you are migrating the API Management instance to one that is running on the new VMSS architecture. The legacy systems will then give up hosting the workload on its own infrastructure and move it to the new ARM based infrastructure that supports availability zones. This change is permanent.Even if the resource is changed to Standard tier, the service will remain on VMSS and ARM.
 
 ### When to use Azure portal configuration
 
-Use this option if you wish to enable availability zone support yourself without having to worry about the overhead of creating a new subnet and allowing IP in the firewall.
+Use this option if you wish to enable availability zone support yourself without the overhead of creating a new subnet and allowing IP in the firewall.
 
 ### Considerations for Azure portal configuration
 
@@ -109,7 +109,7 @@ To enable zone redundancy in the Azure portal:
 1. In the Azure portal, navigate to your API Management service and select **Locations** in the menu.
 1. Select an existing location, or select **+ Add** in the top bar. The location must [support availability zones](#prerequisites).
 1. Select the number of scale **[Units](../api-management/upgrade-and-scale.md)** in the location.
-1. In **Availability zones**, select one or more zones. The number of units selected must distribute evenly across the availability zones. For example, if you selected 3 units, select 3 zones so that each zone hosts one unit.
+1. In **Availability zones**, select one or more zones. The number of units selected must distribute evenly across the availability zones. For example, if you selected three units, select three zones so that each zone hosts one unit.
 1. If the API Management instance is deployed in a [virtual network](../api-management/api-management-using-with-vnet.md), select an existing virtual network, subnet, and public IP address that are available in the location. For an existing location, the virtual network and subnet must be configured from the Virtual Network blade.
 1. Select **Apply** and then select **Save**.
 
