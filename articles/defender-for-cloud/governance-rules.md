@@ -10,7 +10,7 @@ ms.date: 05/29/2022
 ---
 # Drive your organization to remediate security recommendations with governance
 
-Security teams are responsible for improving the security posture of their organizations but they don't have the resources to actually implement security recommendations. [Assigning owners with due dates](#manually-assigning-owners-and-due-dates-for-recommendation-remediation) and [defining governance rules](#defining-governance-rules-to-automatically-set-the-owner-and-due-date-of-recommendations-preview) creates accountability and transparency so you can drive the process of improving the security posture in your organization.
+Security teams are responsible for improving the security posture of their organizations but they may not have the resources or authority to actually implement security recommendations. [Assigning owners with due dates](#manually-assigning-owners-and-due-dates-for-recommendation-remediation) and [defining governance rules](#defining-governance-rules-to-automatically-set-the-owner-and-due-date-of-recommendations-preview) creates accountability and transparency so you can drive the process of improving the security posture in your organization.
 
 Stay on top of the progress on the recommendations in the security posture. Weekly email notifications to the owners and managers make sure that they take timely action on the recommendations that can improve your security posture and recommendations.
 
@@ -28,17 +28,19 @@ You can then review the progress of the tasks by subscription, recommendation, o
 |Pricing:|Free|
 |Supported environments:|Microsoft Azure, Amazon AWS, Google GCP|
 |Required roles and permissions:|Azure - **Contributor**, **Security Admin**, or **Owner** on the subscription<br>AWS, GCP – **Contributor**, **Security Admin**, or **Owner** on the connector|
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected GCP accounts|
 
 ### Defining governance rules to automatically set the owner and due date of recommendations
 
-When you define governance rules, you can either identify recommendations by severity or by name. Many governance rules can apply to the same resources, so the rule with the lower priority value takes precedence.
+Governance rules can identify resources that require remediation according to specific recommendations or severities, and the rule assigns an owner and due date to make sure the recommendations are handled. Many governance rules can apply to the same recommendations, so the rule with lower priority value is the one that assigns the owner and due date.
 
 The due date set for the recommendation to be remediated is based on a timeframe of 7, 14, 30, or 90 days from when the recommendation is found by the rule. For example, if the rule identifies the resource on March 1st and the remediation timeframe is 14 days, March 15th is the due date. You can apply a grace period so that the resources that are given a due date don't impact your secure score until they're overdue.
 
 You can also set the owner of the resources that are affected by the specified recommendations. In organizations that use resource tags to associate resources with an owner, you can specify the tag key and the governance rule reads the name of the resource owner from the tag.
 
 By default, email notifications are sent to the resource owners weekly to provide a list of the on time and overdue tasks. If an email for the owner's manager is found in the organizational Azure Active Directory (Azure AD), the owner's manager receives a weekly email showing any overdue recommendations by default.
+
+:::image type="content" source="./media/governance-rules/add-governance-rules.png" alt-text="Screenshot of fields required to add a governance rule.":::
 
 To define a governance rule that assigns an owner and due date:
 
@@ -65,19 +67,25 @@ After you define governance rules, you'll want to review the progress that the o
 
 You can track the assigned and overdue recommendations in:
 
-- The security posture
-- The list of recommendations
-- The governance report in the governance rules settings
+- The security posture shows the unassigned and overdue recommendations by number and percentage.
+
+    :::image type="content" source="./media/governance-rules/governance-in-security-posture.png" alt-text="Screenshot of governance status in the security posture.":::
+
+- The list of recommendations shows the governance status of each recommendation.
+
+    :::image type="content" source="./media/governance-rules/governance-in-recommendations.png" alt-text="Screenshot of recommendations with their governance status.":::
+
+- The governance report in the governance rules settings lets you drill down into recommendations by rule and owner.
+
+    :::image type="content" source="./media/governance-rules/governance-in-workbook.png" alt-text="Screenshot of governance status by rule and owner in the governance workbook.":::
+
+#### Tracking progress by rule with the governance report
 
 The governance report lets you select subscriptions that have governance rules and, for each rule and owner, shows you how many recommendations are completed, on time, overdue, or unassigned.
 
 To review the status of the recommendations in a rule:
 
-1. In the **Environment settings**, select the subscription that you want to define the rule for.
-1. In **Governance rules (preview)**, select **Governance report (preview)**.
-
-    :::image type="content" source="{source}" alt-text="{alt-text}":::
-
+1. In **Recommendations**, select **Governance report (preview)**.
 1. Select the subscriptions that you want to review.
 1. Select the rules that you want to see details about.
 
