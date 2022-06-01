@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 * Functions `validate` API will be triggered periodically for [CloudEvents Abuse Protection](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection) purpose, when the events in Azure Web PubSub are configured with predefined parameter `{event}`, that is, https://$STATIC_WEB_APP/api/{event}.
 
 > [!NOTE]
-> `connect` and `message` event will be triggered when Azure Web PubSub service is configured with these 2 events.
+> Functions APIs `connect` and `message` will be triggered when Azure Web PubSub service is configured with these 2 events.
 
 ## Prerequisites
 
