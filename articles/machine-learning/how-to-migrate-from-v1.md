@@ -1,7 +1,7 @@
 ---
 title: 'Migrate from v1 to v2'
 titleSuffix: Azure Machine Learning
-description: Migrate from v1 to v2.
+description: Migrate from v1 to v2 of Azure Machine Learning REST APIs, CLI extension, and Python SDK (preview).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -15,7 +15,7 @@ ms.custom: devx-track-azurecli, devplatv2
 
 # How to migrate from v1 to v2
 
-Azure Machine Learning's v2 REST APIs, Azure CLI extension, and Python SDK (preview) introduce consistency and a set of new features to accelerator the production machine learning lifecycle. In this article, we'll overview migrating from v1 to v2 with recommendations to help you decide on v1, v2, or both.
+Azure Machine Learning's v2 REST APIs, Azure CLI extension, and Python SDK (preview) introduce consistency and a set of new features to accelerate the production machine learning lifecycle. In this article, we'll overview migrating from v1 to v2 with recommendations to help you decide on v1, v2, or both.
 
 ## Prerequisites
 
@@ -24,7 +24,9 @@ Azure Machine Learning's v2 REST APIs, Azure CLI extension, and Python SDK (prev
 
 ## Should I use v2?
 
-If you're starting a new machine learning project, we recommend using v2. We also recommend migrating to v2 for existing projects built on v1 with the following caveats:
+You should use v2 if you're starting a new machine learning project. A new v2 project can reuse assets like models and environments created using v1.
+
+We also recommend migrating to v2 for existing projects built on v1 with the following caveats:
 
 - features used in v1 available in v2
 - general availability of features needed in v2
@@ -83,7 +85,7 @@ We recommend migrating the code for creating connections to v2.
 
 ### Datastore
 
-Supported datastore types (object storage) created with v1 are fully available for use in v2. Database datastores are not supported; export to object storage (usually Azure Blob) is the recommended migration path.
+Object storage datastore types created with v1 are fully available for use in v2. Database datastores are not supported; export to object storage (usually Azure Blob) is the recommended migration path.
 
 We recommend migrating the code for creating datastores to v2.
 
@@ -101,7 +103,7 @@ We recommend using managed endpoints in v2 for online (near real-time) and batch
 
 ### Jobs (experiments, runs, pipelines in v1)
 
-In v2, "experiments", "runs", and "pipelines" are consolidated into jobs. A job has a type. Most jobs are `command` jobs that run a command, like `python main.py`. Notice what runs in a job is agnostic to any programming language, so you can run `bash` scripts, invoke `python` interpreters, run a bunch of `curl` commands, or anything else. Another type of job is `pipeline`, which defines child jobs that may have input/output relationships, forming a directed acyclic graph (DAG).
+In v2, "experiments", "runs", and "pipelines" are consolidated into jobs. A job has a type. Most jobs are `command` jobs that run a command, like `python main.py`. What runs in a job is agnostic to any programming language, so you can run `bash` scripts, invoke `python` interpreters, run a bunch of `curl` commands, or anything else. Another type of job is `pipeline`, which defines child jobs that may have input/output relationships, forming a directed acyclic graph (DAG).
 
 You'll need to refactor the v1 analogs for v2, though the code being run in the job generally doesn't need to change. However, it's recommended with v2 to remove any code specific to Azure ML from your model training code. This separation allows for an easier transition between local and cloud and is considered best practice for MLOps.
 
@@ -111,7 +113,7 @@ We recommend migrating the code for creating jobs to v2.
 
 Datasets are renamed to data assets. Interoperability between v1 datasets and v2 data assets is the most complex of any entity in Azure ML.
 
-Data assets in v2 (or File Datasets in v1) are *references* to files in object storage. Thus, deleting a data asset (or v1 dataset) doesn't actually delete anything in underlying storage, but the reference. Therefore it may be easier to avoid backward and forward compatibility considerations for data and re-create v1 datasets as v2 data assets.
+Data assets in v2 (or File Datasets in v1) are *references* to files in object storage. Thus, deleting a data asset (or v1 dataset) doesn't actually delete anything in underlying storage, only a reference. Therefore, it may be easier to avoid backward and forward compatibility considerations for data by re-creating v1 datasets as v2 data assets.
 
 For details on data in v2, see the [data concept article](concept-data.md).
 
