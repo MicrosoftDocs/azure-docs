@@ -19,7 +19,6 @@ In this article, learn how to create and manage compute targets in Azure Machine
 * Azure Machine Learning Learning SDK or  CLI extension for Azure Machine Learning
   * [Compute instance](how-to-create-manage-compute-instance.md)
   * [Compute cluster](how-to-create-attach-compute-cluster.md)
-  * [Azure Kubernetes Service cluster](how-to-create-attach-kubernetes.md)
   * [Other compute resources](how-to-attach-compute-targets.md)
 * The [VS Code extension](how-to-manage-resources-vscode.md#compute-clusters) for Azure Machine Learning.
 
@@ -68,7 +67,6 @@ Follow the previous steps to view the list of compute targets. Then use these st
 
     * [Compute instance](how-to-create-manage-compute-instance.md?tabs=azure-studio#create)
     * [Compute clusters](#amlcompute)
-    * [Inference clusters](#inference-clusters)
     * [Attached compute](#attached-compute)
 
 1. Select __Create__.
@@ -120,25 +118,6 @@ During cluster creation or when editing compute cluster details, in the **Advanc
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-default.md)]
 
-## <a name="inference-clusters"></a> Create inference clusters
-
-> [!IMPORTANT]
-> Using Azure Kubernetes Service with Azure Machine Learning has multiple configuration options. Some scenarios, such as networking, require additional setup and configuration. For more information on using AKS with Azure ML, see [Create and attach an Azure Kubernetes Service cluster](how-to-create-attach-kubernetes.md).
-
-Create or attach an Azure Kubernetes Service (AKS) cluster for large scale inferencing. Use the [steps above](#portal-create) to create the AKS cluster.  Then fill out the form as follows:
-
-
-|Field  |Description  |
-|---------|---------|
-|Compute name     |  <li>Name is required. Name must be between 2 to 16 characters. </li><li>Valid characters are upper and lower case letters, digits, and the  **-** character.</li><li>Name must start with a letter</li><li>Name needs to be unique across all existing computes within an Azure region. You will see an alert if the name you choose is not unique</li><li>If **-**  character is used, then it needs to be followed by at least one letter later in the name</li>     |
-|Kubernetes Service | Select **Create New** and fill out the rest of the form.  Or select **Use existing** and then select an existing AKS cluster from your subscription.
-|Region |  Select the region where the cluster will be created |
-|Virtual machine size     |  Supported virtual machine sizes might be restricted in your region. Check the [availability list](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
-|Cluster purpose  | Select **Production** or **Dev-test** |
-|Number of nodes | The number of nodes multiplied by the virtual machine’s number of cores (vCPUs) must be greater than or equal to 12. |
-| Network configuration | Select **Advanced** to  create the compute within an existing virtual network. For more information about AKS in a virtual network, see [Network isolation during training and inference with private endpoints and virtual networks](./how-to-secure-inferencing-vnet.md). |
-| Enable SSL configuration | Use this to configure SSL certificate on the compute |
-
 ## <a name="attached-compute"></a> Attach other compute
 
 To use compute targets created outside the Azure Machine Learning workspace, you must attach them. Attaching a compute target makes it available to your workspace.  Use **Attached compute** to attach a compute target for **training**.  Use **Inference clusters** to attach an AKS cluster for **inferencing**.
@@ -151,7 +130,7 @@ Use the [steps above](#portal-create) to attach a compute.  Then fill out the fo
     * Azure Databricks (for use in machine learning pipelines)
     * Azure Data Lake Analytics (for use in machine learning pipelines)
     * Azure HDInsight
-    * Kubernetes (preview)
+    * [Kubernetes](./how-to-attach-kubernetes-anywhere.md#attach-a-kubernetes-cluster-to-an-azureml-workspace)
 
 1. Fill out the form and provide values for the required properties.
 

@@ -32,7 +32,7 @@ In this article, learn how to set up your workspace to use these compute resourc
 * Azure Databricks - used as a training compute target only in [machine learning pipelines](../how-to-create-machine-learning-pipelines.md)
 * Azure Data Lake Analytics
 * Azure Container Instance
-* Azure Kubernetes Service & Azure Arc-enabled Kubernetes (preview)
+* Azure Machine Learning Kubernetes
 
 To use compute targets managed by Azure Machine Learning, see:
 

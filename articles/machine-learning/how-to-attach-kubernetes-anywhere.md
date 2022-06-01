@@ -190,7 +190,7 @@ Attaching an Azure Arc-enabled Kubernetes cluster makes it available to your wor
 1. Navigate to [Azure Machine Learning studio](https://ml.azure.com).
 1. Under **Manage**, select **Compute**.
 1. Select the **Attached computes** tab.
-1. Select **+New > Kubernetes (preview)**
+1. Select **+New > Kubernetes**
 
    :::image type="content" source="media/how-to-attach-arc-kubernetes/attach-kubernetes-cluster.png" alt-text="Screenshot of settings for Kubernetes cluster to make available in your workspace.":::
 
