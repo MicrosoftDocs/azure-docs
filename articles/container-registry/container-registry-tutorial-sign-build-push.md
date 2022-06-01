@@ -34,19 +34,15 @@ In this tutorial:
 > [!NOTE]
 > The tutorial uses early released versions of notation and notation plugins.  
 
-1. Install notation with plugin support from the [release version](https://github.com/notaryproject/notation/releases/tag/feat-kv-extensibility)
+1. Install notation with plugin support from the [release version](https://github.com/notaryproject/notation/releases/)
 
     ```bash
-    # Choose a binary
-    timestamp=20220121081115
-    commit=17c7607
     # Download, extract and install
-    curl -Lo notation.tar.gz https://github.com/notaryproject/notation/releases/download/feat-kv-extensibility/notation-feat-kv-extensibility-$timestamp-$commit.tar.gz
+    curl -Lo notation.tar.gz https://github.com/notaryproject/notation/releases/download/v0.9.0-alpha.1/notation_0.9.0-alpha.1_linux_amd64.tar.gz
     tar xvzf notation.tar.gz
-    tar xvzf notation_0.0.0-SNAPSHOT-${commit}_linux_amd64.tar.gz -C ~/bin notation
-        
+            
     # Copy the notation cli to the desired bin directory in your PATH
-    cp ~/bin/notation /usr/local/bin
+    cp ./notation /usr/local/bin
     ```
 
 2. Install the notation-azure-kv plugin for remote signing and verification
@@ -57,9 +53,9 @@ In this tutorial:
     
     # Download the plugin
     curl -Lo notation-azure-kv.tar.gz \
-        https://github.com/Azure/notation-azure-kv/releases/download/v0.2.0-alpha.1/notation-azure-kv_0.2.0-alpha.1_Linux_amd64.tar.gz
+        https://github.com/Azure/notation-azure-kv/releases/download/v0.3.0-alpha.1/notation-azure-kv_0.3.0-alpha.1_Linux_amd64.tar.gz
     
-    # Extract to the plugin directory    
+    # Extract to the plugin directory
     tar xvzf notation-azure-kv.tar.gz -C ~/.config/notation/plugins/azure-kv notation-azure-kv
     ```
 
@@ -107,37 +103,16 @@ In this tutorial:
     IMAGE_SOURCE=https://github.com/wabbit-networks/net-monitor.git#main
     ```
 
-## Create a service principal and assign permissions to the key
-
-1. Create a service principal
-
-    ```bash
-    # Service Principal Name
-    SP_NAME=https://${AKV_NAME}-sp
-    # Create the service principal, capturing the password
-    export AZURE_CLIENT_SECRET=$(az ad sp create-for-rbac --skip-assignment --name $SP_NAME --query "password" --output tsv)
-    # Capture the service principal appId
-    export AZURE_CLIENT_ID=$(az ad sp list --display-name $SP_NAME --query "[].appId" --output tsv)
-    # Capture the Azure Tenant ID
-    export AZURE_TENANT_ID=$(az account show --query "tenantId" -o tsv)
-    ```
-
-2. Assign key and certificate permissions to the service principal object ID
-
-    ```azure-cli
-    az keyvault set-policy --name $AKV_NAME --key-permissions get sign --spn $AZURE_CLIENT_ID
-    az keyvault set-policy --name $AKV_NAME --certificate-permissions get --spn $AZURE_CLIENT_ID
-
 ## Store the signing certificate in AKV
 
-If you have an existing certificate, upload to AKV and skip to [Create a service principal and assign permissions to the key.](#create-a-service-principal-and-assign-permissions-to-the-key)
-Otherwise, create or provide an x509 signing certificate, storing it in AKV for remote signing.
+If you have an existing certificate, upload it to AKV. For more information on how to use your own signing key, see the [signing certificate requirements.](https://github.com/notaryproject/notaryproject/blob/main/signature-specification.md#certificate-requirements)
+Otherwise create an x509 self-signed certificate storing it in AKV for remote signing using the steps below.
 
 ### Create a self-signed certificate (Azure CLI)
 
 1. Create a certificate policy file
 
-    Once the certificate policy file is executed as below, it creates a valid signing certificate compatible with **notation** in AKV. For more information on how to use your own signing key, see the [signing certificate requirements.](https://github.com/notaryproject/notaryproject/blob/main/signature-specification.md#certificate-requirements)
+    Once the certificate policy file is executed as below, it creates a valid signing certificate compatible with **notation** in AKV. 
 
     ```bash
     cat <<EOF > ./my_policy.json
