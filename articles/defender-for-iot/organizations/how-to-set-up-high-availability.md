@@ -6,9 +6,12 @@ ms.topic: how-to
 ---
 # About high availability
 
-Increase the resiliency of your Defender for IoT deployment by installing an on-premises management console high availability appliance. High availability deployments ensure your managed sensors continuously report to an active on-premises management console.
+Increase the resiliency of your Defender for IoT deployment by configuring high availability on your on-premises management console. High availability deployments ensure your managed sensors continuously report to an active on-premises management console.
 
 This deployment is implemented with an on-premises management console pair that includes a primary and secondary appliance.
+
+> [!NOTE]
+> In this document, the principal on-premises management console is referred to as the primary, and the agent is referred to as the secondary.
 
 ## About primary and secondary communication
 
@@ -18,9 +21,9 @@ When a primary and secondary on-premises management console is paired:
 
     When validation is `ON`, the appliance should be able to establish connection to the CRL server defined by the certificate.
 
-- The primary on-premises management console data is automatically backed up to the secondary on-premises management console every 10 minutes. The on-premises management console configurations and device data are backed up. PCAP files and logs are not included in the backup. You can back up and restore of PCAPs and logs manually.
+- The primary on-premises management console data is automatically backed up to the secondary on-premises management console every 10 minutes. The on-premises management console configurations and device data are backed up. PCAP files and logs are not included in the backup. You can back up and restore PCAPs and logs manually.
 
-- The primary setup at the management console is duplicated on the secondary; for example, system settings. If these settings are updated on the primary, they're also updated on the secondary.
+- The primary setup on the management console is duplicated on the secondary. For example, if the system settings are updated on the primary, they're also updated on the secondary.
 
 - Before the license of the secondary expires, you should define it as the primary in order to update the license.
 
@@ -28,7 +31,7 @@ When a primary and secondary on-premises management console is paired:
 
 If a sensor can't connect to the primary on-premises management console, it automatically connects to the secondary. Your system will be supported by both the primary and secondary simultaneously, if less than half of the sensors are communicating with the secondary. The secondary takes over when more than half of the sensors are communicating with it. Fail over from the primary to the secondary takes approximately three minutes. When the failover occurs, the primary on-premises management console freezes. When this happens, you can sign in to the secondary using the same sign-in credentials.
 
-During failover, sensors continue attempting to communicate with the primary appliance. When more than half the managed sensors succeed to communicate with the primary, the primary is restored. The following message appears at the secondary console when the primary is restored.
+During failover, sensors continue attempting to communicate with the primary appliance. When more than half the managed sensors succeed to communicate with the primary, the primary is restored. The following message appears on the secondary console when the primary is restored:
 
 :::image type="content" source="media/how-to-set-up-high-availability/secondary-console-message.png" alt-text="Screenshot of a message that appears at the secondary console when the primary is restored.":::
 
@@ -40,7 +43,7 @@ The installation and configuration procedures are performed in four main stages:
 
 1. Install an on-premises management console primary appliance. 
 
-1. Configure the on-premises management console primary appliance. For example, scheduled backup settings, VLAN settings. See the on-premises management console user guide for details. All settings are applied to the secondary appliance automatically after pairing.
+1. Configure the on-premises management console primary appliance. For example, scheduled backup settings, VLAN settings. For more information, see [Manage the on-premises management console](how-to-manage-the-on-premises-management-console.md). All settings are applied to the secondary appliance automatically after pairing.
 
 1. Install an on-premises management console secondary appliance. For more information, see [About the Defender for IoT Installation](how-to-install-software.md).
 
@@ -50,7 +53,7 @@ The installation and configuration procedures are performed in four main stages:
 
 Verify that you've met the following high availability requirements:
 
-- Certificate requirements
+- [Certificate requirements](how-to-manage-the-on-premises-management-console.md#manage-certificates)
 
 - Software and hardware requirements
 
@@ -71,9 +74,6 @@ Verify if your organizational security policy allows you to have access to the f
 |**443 or TCP**|HTTPS|Grants access to the on-premises management console web console.|
 |**22 or TCP**|SSH|Syncs the data between the primary and secondary on-premises management console appliances|
 |**123 or UDP**|NTP| The on-premises management console's NTP time sync. Verify that the active and passive appliances are defined with the same timezone.|
-
-> [!NOTE]
-> In this document, the principal on-premises management console is referred to as the primary, and the agent is referred to as the secondary.
 
 ## Create the primary and secondary pair
 
