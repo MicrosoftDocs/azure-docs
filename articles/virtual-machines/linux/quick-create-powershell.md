@@ -89,7 +89,7 @@ Get-AzPublicIpAddress -Name myPubIP -ResourceGroupName myResourceGroup | select 
 
 Use a web browser of your choice to view the default NGINX welcome page. Enter the public IP address of the VM as the web address.
 
-![NGINX default Welcome page](./media/quick-create-cli/nginix-welcome-page.png)
+:::image type="content" source="media/quick-create-cli/view-the-nginx-welcome-page.png" alt-text="Screenshot showing the N G I N X default web page.":::
 
 ## Clean up resources
 
