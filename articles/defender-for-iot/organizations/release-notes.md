@@ -47,9 +47,13 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 
 Defender for IoT now supports Enterprise IoT devices in General Availability. With this update, we've made the following updates and improvements:
 - An updated **Plans and pricing** page with an enhanced onboarding process. For more information, see [Manage your subscriptions](how-to-manage-subscriptions.md)
+
 - View detected Enterprise IoT devices on the Defender for IoT **Device inventory** page in the Azure portal. Integrate with Microsoft Defender for Endpoint to view related alerts, vulnerabilities, and recommendations in the Microsoft 365 Security portal.
 
+- All Enterprise IoT sensors are now automatically added to the same site, named **BuiltIn-Enterprise**. When onboarding a new Enterprise IoT device, you only need to define a sensor name and select your subscription, without defining a site or zone.
+
 For more information, see [Tutorial: Get started with Enterprise IoT monitoring](tutorial-getting-started-eiot-sensor.md)
+
 ## May 2022
 
 We've recently optimized and enhanced our documentation as follows:
