@@ -1,6 +1,5 @@
 ---
-title: OAuth 2.0 and OpenID Connect protocols on the Microsoft identity platform | Azure
-titleSuffix: Microsoft identity platform
+title: OAuth 2.0 and OpenID Connect protocols on the Microsoft identity platform
 description: A guide to OAuth 2.0 and OpenID Connect protocols as supported by the Microsoft identity platform.
 services: active-directory
 author: nickludwig
