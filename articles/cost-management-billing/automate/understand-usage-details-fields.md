@@ -11,21 +11,21 @@ ms.subservice: cost-management
 ms.reviewer: adwise
 ---
 
-# Understand usage details fields
+# Understand cost details fields
 
-This document describes the usage details fields found in files from using [Azure portal download](../understand/download-azure-daily-usage.md), [Exports](../costs/tutorial-export-acm-data.md) from Cost Management, or the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml). For more information about usage details best practices, see [Usage details best practices](usage-details-best-practices.md).
+This document describes the cost details (formely known as usage details) fields found in files from using [Azure portal download](../understand/download-azure-daily-usage.md), [Exports](../costs/tutorial-export-acm-data.md) from Cost Management, or the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml). For more information about cost details best practices, see [Cost details best practices](usage-details-best-practices.md).
 
-## Migration to new usage details formats
+## Migration to new cost details formats
 
-If you're using an older usage details solution and want to migrate to Exports or the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml), read the following articles.
+If you're using an older cost details solution and want to migrate to Exports or the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml), read the following articles.
 
-- [Migrate from Enterprise Reporting usage fields-UNPUBLISHED](../index.yml)
-- [Migrate from EA to MCA usage fields](migrate-ea-mca-usage-fields.md)
-- [Migrate from Consumption Usage Details fields](migrate-consumption-usage-details-api.md)
+- [Migrate from Enterprise Usage Details APIs](migrate-ea-usage-details-api.md)
+- [Migrate from EA to MCA APIs](migrate-cost-management-api.md)
+- [Migrate from Consumption Usage Details API](migrate-consumption-usage-details-api.md)
 
 ## List of fields and descriptions
 
-The following table describes the important terms used in the latest version of the Azure usage and charges file. The list covers pay-as-you-go (also called Microsoft Online Services Program), Enterprise Agreement (EA), and Microsoft Customer Agreement (MCA) accounts. To identify what account type you are, see [supported Microsoft Azure offers](../costs/understand-cost-mgt-data.md#supported-microsoft-azure-offers).
+The following table describes the important terms used in the latest version of the cost details file. The list covers pay-as-you-go (also called Microsoft Online Services Program), Enterprise Agreement (EA), and Microsoft Customer Agreement (MCA) accounts. To identify what account type you are, see [supported Microsoft Azure offers](../costs/understand-cost-mgt-data.md#supported-microsoft-azure-offers).
 
 | Term | Account type | Description |
 | --- | --- | --- |
@@ -100,7 +100,7 @@ The following table describes the important terms used in the latest version of 
 
 <sup>1</sup> Fields used to build a unique ID for a single cost record.
 
-Some fields might differ in casing and spacing between account types. Older versions of pay-as-you-go usage files have separate sections for the statement and daily usage.
+Some fields might differ in casing and spacing between account types. Older versions of pay-as-you-go cost details files have separate sections for the statement and daily cost.
 
 ### List of terms from older APIs
 
@@ -119,8 +119,8 @@ The following table maps terms used in older APIs to the new terms. Refer to the
 
 ## Next steps
 
-- Get an overview of how to [ingest usage data](automation-ingest-usage-details-overview.md).
-- Learn more about [usage details best practices](usage-details-best-practices.md).
+- Get an overview of how to [ingest cost data](automation-ingest-usage-details-overview.md).
+- Learn more about [cost details best practices](usage-details-best-practices.md).
 - [Create and manage exported data](../costs/tutorial-export-acm-data.md) in the Azure portal with Exports.
 - [Automate Export creation](../costs/ingest-azure-usage-at-scale.md) and ingestion at scale using the API.
 - Learn how to [Get small cost datasets on demand](get-small-usage-datasets-on-demand.md).
