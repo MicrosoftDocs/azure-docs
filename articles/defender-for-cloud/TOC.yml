@@ -125,6 +125,8 @@
       href: review-security-recommendations.md
     - name: Remediate recommendations
       href: implement-security-recommendations.md
+    - name: Improve your security posture with recommendation governance
+      href: governance-rules.md
     - name: Prevent misconfigurations with Enforce/Deny
       displayName: recommendations
       href: prevent-misconfigurations.md
