@@ -1703,6 +1703,8 @@
           href: ../private-link/tutorial-private-endpoint-cosmosdb-portal.md?bc=%2fazure%2fcosmos-db%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fcosmos-db%2ftoc.json
         - name: Use Azure Key Vault to access data
           href: access-secrets-from-keyvault.md
+        - name: Access Azure Key Vault with managed identity
+          href: access-key-vault-managed-identity.md
         - name: Restrict user access to data operations only
           href: how-to-restrict-user-data.md
         - name: Configure customer-managed keys
