@@ -309,4 +309,5 @@ More information about this threat: [API10:2019  Insufficient logging and monito
 ## Next steps
 
 * [Security baseline for API Management](/security/benchmark/azure/baselines/api-management-security-baseline)
+* [Security controls by Azure policy](security-controls-policy.md)
 * [Landing zone accelerator for API Management](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator)
