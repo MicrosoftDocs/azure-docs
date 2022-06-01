@@ -14,7 +14,7 @@ ms.author: banders
 
 # View and download your Microsoft Azure invoice
 
-You can download your invoice in the [Azure portal](https://portal.azure.com/) or have it sent in email. If you're an Azure customer with an Enterprise Agreement (EA customer), you can't download your organization's invoice. Instead, invoices are sent to the person set to receive invoices for the enrollment.
+You can download your invoice in the [Azure portal](https://portal.azure.com/) or have it sent in email. If you're an Azure customer with an Enterprise Agreement (EA customer), only an EA administrator can download and view your organization's invoice. Invoices are sent to the person set to receive invoices for the enrollment.
 
 ## When invoices are generated
 

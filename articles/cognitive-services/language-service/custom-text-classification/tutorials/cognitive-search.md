@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: tutorial
-ms.date: 04/14/2022
+ms.date: 05/24/2022
 ms.author: aahi
 ms.custom: 
 ---
 
-# Tutorial: Enrich Cognitive search index with custom classes from your data
+# Tutorial: Enrich Cognitive Search index with custom classes from your data
 
 With the abundance of electronic documents within the enterprise, the problem of search through them becomes a tiring and expensive task. [Azure Cognitive Search](../../../../search/search-create-service-portal.md) helps with searching through your files based on their indices. Custom text classification helps in enriching the indexing of these files by classifying them into your custom classes.
 
@@ -143,9 +143,9 @@ Generally after training a model you would review it's [evaluation details](../h
 
 6. Get your custom text classification project secrets
 
-    1. You will need your **project-name**, project names are case-sensitive.
+    1. You will need your **project-name**, project names are case-sensitive. Project names can be found in **project settings** page.
 
-    2. You will also need the **deployment-name**. 
+    2. You will also need the **deployment-name**. Deployment names can be found in **Deploying a model** page.
 
 ### Run the indexer command
 

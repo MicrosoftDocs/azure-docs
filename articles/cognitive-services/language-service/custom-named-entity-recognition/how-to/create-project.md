@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 05/06/2022
+ms.date: 05/24/2022
 ms.author: aahi
 ms.custom: language-service-custom-ner, references_regions, ignite-fall-2021, event-tier1-build-2022
 ---
@@ -112,4 +112,4 @@ If you have already labeled data, you can use it to get started with the service
 
 * You should have an idea of the [project schema](design-schema.md) you will use to label your data.
 
-* After your project is created, you can start [tagging your data](tag-data.md), which will inform your entity extraction model how to interpret text, and is used for training and evaluation.
+* After your project is created, you can start [labeling your data](tag-data.md), which will inform your entity extraction model how to interpret text, and is used for training and evaluation.

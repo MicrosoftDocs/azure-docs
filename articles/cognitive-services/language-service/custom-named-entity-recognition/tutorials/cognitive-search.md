@@ -143,9 +143,9 @@ Generally after training a model you would review its [evaluation details](../ho
 
 6. Get your custom NER project secrets
 
-    1. You’ll need your **project-name**, project names are case-sensitive.
+    1. You will need your **project-name**, project names are case-sensitive. Project names can be found in **project settings** page.
 
-    2. You’ll also need the **deployment-name**. 
+    2. You will also need the **deployment-name**. Deployment names can be found in **Deploying a model** page.
 
 ### Run the indexer command
 
