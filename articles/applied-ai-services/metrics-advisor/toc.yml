@@ -21,6 +21,8 @@
   href: /samples/browse/?products=azure&terms=metrics-advisor
 - name: How-to guides
   items:
+  - name: map business problem to dataset
+    href: how-tos/map-problem-to-dataset.md
   - name: Onboard your data
     href: how-tos/onboard-your-data.md
   - name: Create a credential entity
