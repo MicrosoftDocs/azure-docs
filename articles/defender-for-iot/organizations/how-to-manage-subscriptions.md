@@ -50,7 +50,7 @@ If you already have access to an Azure subscription, but it isn't listed when su
 
 Azure **Subscription Owners** and **Subscription Contributor**s can onboard, update, and offboard Microsoft Defender for IoT subscriptions.
 
-## Calculate the number of devices you need to monitor
+### Calculate the number of devices you need to monitor
 
 When onboarding or editing your Defender for IoT plan, you'll need to know how many devices you want to monitor.
 
@@ -65,6 +65,8 @@ Collect the total number of devices in your network and remove:
 - **Inactive devices**, with no traffic for more than 60 days.
 
 - **Broadcast / multicast devices**. These represent unique addresses but not unique devices.
+
+For more information, see [What's a device?](#whats-a-device)
 
 ## Onboard a trial subscription
 
