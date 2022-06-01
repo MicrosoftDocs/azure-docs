@@ -96,7 +96,7 @@ Your resource now has a system-assigned identity that it can use to connect to o
 > [!NOTE]
 > You'll need a role such as "User Access Administrator" or "Owner" for the target resource to add Role assignments. Ensure you're granting the least privilege required for the application to run.
 
-Now your App service has a managed identity, you'll need to give the identity the correct permissions. As you're using this identity to interact with Azure Key Vault, you'll use the Azure RBAC (Role Based Access Control) system.
+Now your App Service has a managed identity, you'll need to give the identity the correct permissions. As you're using this identity to interact with Azure Key Vault, you'll use the Azure RBAC (Role Based Access Control) system.
 
 1. Locate the resource you want to connect to using the search bar at the top of the Portal
 2. Select the "Access Control (IAM)" link in the left hand navigation.
