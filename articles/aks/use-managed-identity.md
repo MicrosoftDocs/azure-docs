@@ -141,6 +141,7 @@ az aks show -g <RGName> -n <ClusterName> --query "identity"
 ## Bring your own control plane MI
 A custom control plane identity enables access to be granted to the existing identity prior to cluster creation. This feature enables scenarios such as using a custom VNET or outboundType of UDR with a pre-created managed identity.
 
+
 You must have the Azure CLI, version 2.15.1 or later installed.
 
 ### Limitations
@@ -150,6 +151,11 @@ If you don't have a managed identity yet, you should go ahead and create one for
 
 ```azurecli-interactive
 az identity create --name myIdentity --resource-group myResourceGroup
+```
+
+Azure CLI will automatically add required role assignment for control plane MI. If you are using ARM template or other clients, you need to create the role assignment manually. 
+```azurecli-interactive
+az role assignment create --assignee <control-plane-identity-object-id> --role "Managed Identity Operator" --scope <kubelet-identity-resource-id>
 ```
 
 If your managed identity is part of your subscription, you can use [az identity CLI command][az-identity-list] to query it.  
@@ -196,9 +202,6 @@ A Kubelet identity enables access to be granted to the existing identity prior t
 > [!WARNING]
 > Updating kubelet MI will upgrade Nodepool, which causes downtime for your AKS cluster as the nodes in the nodepools will be cordoned/drained and then reimaged.
 
-
-> [!NOTE]
-> For bring-your-own kubelet MI, Azure CLI will automatically add required role assignment for control plane MI. If you are using ARM template or other clients, you need to create the role assignment manually. It can be done using CLI command 'az role assignment create --assignee <control plane identity object id> --role "Managed Identity Operator" --scope <kubelet identity resource id>'
 
 ### Prerequisites
 
