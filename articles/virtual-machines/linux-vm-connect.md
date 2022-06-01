@@ -23,7 +23,7 @@ This document describes how to connect, via SSH, to a VM that has a public IP. I
 - To connect to a Linux VM, you need the appropriate port open. Typically this will be port 22. The following instructions assume port 22 but the process is the same for other port numbers. You can validate an appropriate port is open for SSH using the troubleshooter or by checking manually in your VM settings. To check if port 22 is open: 
 
     1. On the page for the VM, select **Networking** from the left menu.
-    1. On the **Networking** page, check to see if there is a rule which allows TCP on port 22 from the IP address of the computer you are using to connect to the VM. If the rule exists, you can move to the next section.
+    1. On the **Networking** page, check to see if there is a rule which allows TCP on port 22 from the IP address of the computer you're using to connect to the VM. If the rule exists, you can move to the next section.
     1. If there isn't a rule, add one by selecting **Add inbound port rule**.
     1. For **Service**, select **SSH** from the dropdown.
     
@@ -31,7 +31,7 @@ This document describes how to connect, via SSH, to a VM that has a public IP. I
 
     1. Edit **Priority** and **Source** if necessary
     1. For **Name**, type *SSH*.
-    1. When you are done, select **Add**.
+    1. When you're done, select **Add**.
     1. You should now have an SSH rule in the table of inbound port rules.
 
 - Your VM must have a public IP address. To check if your VM has a public IP address, select **Overview** from the left menu and look at the **Networking** section. If you see an IP address next to **Public IP address**, then your VM has a public IP
@@ -47,10 +47,10 @@ This document describes how to connect, via SSH, to a VM that has a public IP. I
    
 ## Connect to the VM
 
-Once the above prerequisites are met, you are ready to connect to your VM. Open your SSH client of choice.
+Once the above prerequisites are met, you're ready to connect to your VM. Open your SSH client of choice.
 
 
-- If you are using Linux or macOS, the SSH client is most commonly terminal or shell.
+- If you're using Linux or macOS, the SSH client is usually terminal or shell.
 - For a Windows machine this might be [WSL](/windows/wsl/about), or any local terminal like [PowerShell](/powershell/scripting/overview). If you do not have an SSH client you can [install WSL](/windows/wsl/install), or consider using [Azure Cloud Shell](../cloud-shell/overview.md).
 
 > [!NOTE]
@@ -68,7 +68,7 @@ Once the above prerequisites are met, you are ready to connect to your VM. Open 
     mv /Downloads/myKey.pem ~/.ssh
     ```  
     > [!NOTE]
-    > If you are using WSL, local files are found in the `mnt/c/` directory. Accordingly, the path to the downloads folder and SSH key would be `/mnt/c/Users/{USERNAME}/Downloads/myKey.pem`
+    > If you're using WSL, local files are found in the `mnt/c/` directory. Accordingly, the path to the downloads folder and SSH key would be `/mnt/c/Users/{USERNAME}/Downloads/myKey.pem`
     
 2. Ensure you have read-only access to the private key by running 
     ```bash
@@ -87,7 +87,7 @@ Once the above prerequisites are met, you are ready to connect to your VM. Open 
      ```bash
      ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'
      ```
-5. Success! You should now be connected to your VM. If you are unable to connect, see [Troubleshoot SSH connections](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
+5. Success! You should now be connected to your VM. If you;re unable to connect, see [Troubleshoot SSH connections](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
 
 ### SSH With existing public key
 1. Run the following command in your SSH client. In this example, *20.51.230.13* is the public IP Address of your VM and *azureuser* is the username you created when you created the VM.
@@ -102,7 +102,7 @@ Once the above prerequisites are met, you are ready to connect to your VM. Open 
     ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'
     ```
 
-3. Success! You should now be connected to your VM. If you are unable to connect, see our troubleshooting guide [Troubleshoot SSH connections](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
+3. Success! You should now be connected to your VM. If you;re unable to connect, see our troubleshooting guide [Troubleshoot SSH connections](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
 
 ### Password authentication
  
@@ -124,7 +124,7 @@ Once the above prerequisites are met, you are ready to connect to your VM. Open 
     ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'
     ```
 
-3. Success! You should now be connected to your VM. If you are unable to connect using the correct method above, see [Troubleshoot SSH connections](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
+3. Success! You should now be connected to your VM. If you're unable to connect using the correct method above, see [Troubleshoot SSH connections](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
 
 
 ## [Windows 10 Command Line (cmd.exe, PowerShell etc.)](#tab/Windows)
@@ -144,7 +144,7 @@ Once the above prerequisites are met, you are ready to connect to your VM. Open 
     ```bash
     ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'
     ```
-4. Success! You should now be connected to your VM. If you are unable to connect, see [Troubleshoot SSH connections](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
+4. Success! You should now be connected to your VM. If you're unable to connect, see [Troubleshoot SSH connections](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
 
 ### Password authentication
  
@@ -167,7 +167,7 @@ Once the above prerequisites are met, you are ready to connect to your VM. Open 
     ssh-keygen -lf /etc/ssh/ssh_host_ecdsa_key.pub | awk '{print $2}'
     ```
 
-3. Success! You should now be connected to your VM. If you are unable to connect using the methods above, see [Troubleshoot SSH connections](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
+3. Success! You should now be connected to your VM. If you're unable to connect using the methods above, see [Troubleshoot SSH connections](/troubleshoot/azure/virtual-machines/troubleshoot-ssh-connection).
 
 ---
 
