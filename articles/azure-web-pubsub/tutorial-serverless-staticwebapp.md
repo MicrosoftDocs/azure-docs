@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 
 ## Overview
 
-:::image type="content" source="media/tutorial-swa/tutorial-serverless-staticwebapp.png" alt-text="Diagram showing Azure Web PubSub work with Static Web App." border="false":::
+:::image type="content" source="media/tutorial-serverless-staticwebapp/tutorial-serverless-staticwebapp.png" alt-text="Diagram showing Azure Web PubSub work with Static Web App." border="false":::
 
 * GitHub along with DevOps provide source control and continuous delivery. So whenever there's code change to the source repo, Azure DevOps pipeline will soon apply it to Azure Static Web App and present to endpoint user.
 * When a new user is login, Functions `login` API will be triggered and generate Azure Web PubSub service client connection url.
