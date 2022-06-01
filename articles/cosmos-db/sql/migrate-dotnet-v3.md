@@ -88,7 +88,7 @@ The following classes have been replaced on the 3.0 SDK:
 
 * `Microsoft.Azure.Documents.Resource`
 
-The Microsoft.Azure.Documents.UriFactory class has been replaced by the fluent design. The fluent design builds URLs internally and allows a single `Container` object to be passed around instead of a `DocumentClient`, `DatabaseName`, and `DocumentCollection`.
+The Microsoft.Azure.Documents.UriFactory class has been replaced by the fluent design. 
 
 Because the .NET v3 SDK allows users to configure a custom serialization engine, there's no direct replacement for the `Document` type. When using Newtonsoft.Json (default serialization engine), `JObject` can be used to achieve the same functionality. When using a different serialization engine, you can use its base json document type (for example, `JsonDocument` for System.Text.Json). The recommendation is to use a C# type that reflects the schema of your items instead of relying on generic types.
 
@@ -132,6 +132,8 @@ The following properties have been removed:
 ### Constructing a client
 
 The .NET SDK v3 provides a fluent `CosmosClientBuilder` class that replaces the need for the SDK v2 URI Factory.
+
+The fluent design builds URLs internally and allows a single `Container` object to be passed around instead of a `DocumentClient`, `DatabaseName`, and `DocumentCollection`.
 
 The following example creates a new `CosmosClientBuilder` with a strong ConsistencyLevel and a list of preferred locations:
 
