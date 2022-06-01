@@ -1,8 +1,6 @@
 ---
 title: Profile Azure Functions app with Application Insights Profiler
 description: Enable Application Insights Profiler for Azure Functions app.
-ms.author: hannahhunter
-author: hhunter-ms
 ms.reviewer: brwoldey
 ms.contributor: charles.weininger
 ms.topic: conceptual
@@ -26,7 +24,7 @@ In this article, you'll use the Azure portal to:
   :::image type="content" source="./media/profiler-azure-functions/choose-plan.png" alt-text="Screenshot of where to select App Service plan from drop-down in Functions app creation.":::
 
 
-- Linked to [an Application Insights resource](./create-new-resource.md). Make note of the instrumentation key.
+- Linked to [an Application Insights resource](../app/create-new-resource.md). Make note of the instrumentation key.
 
 ## App settings for enabling Profiler
 
@@ -45,7 +43,7 @@ From your Functions app overview page in the Azure portal:
 
 1. In the **Application settings** tab, verify the `APPINSIGHTS_INSTRUMENTATIONKEY` setting is included in the settings list.
 
-   :::image type="content" source="./media/profiler-azure-functions/appinsights-key.png" alt-text="Screenshot showing the App Insights Instrumentation Key setting in the list.":::
+   :::image type="content" source="./media/profiler-azure-functions/app-insights-key.png" alt-text="Screenshot showing the App Insights Instrumentation Key setting in the list.":::
 
 1. Select **New application setting**.
 
@@ -93,5 +91,5 @@ The app settings now show up in the table:
 
 ## Next Steps
 
-- Set these values using [Azure Resource Manager Templates](./azure-web-apps-net-core.md#app-service-application-settings-with-azure-resource-manager), [Azure PowerShell](/powershell/module/az.websites/set-azwebapp), or the [Azure CLI](/cli/azure/webapp/config/appsettings).
+- Set these values using [Azure Resource Manager Templates](../app/azure-web-apps-net-core.md#app-service-application-settings-with-azure-resource-manager), [Azure PowerShell](/powershell/module/az.websites/set-azwebapp), or the [Azure CLI](/cli/azure/webapp/config/appsettings).
 - Learn more about [Profiler settings](profiler-settings.md).

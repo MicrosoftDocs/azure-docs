@@ -19,7 +19,7 @@ To enable Profiler on Linux, walk through the [ASP.NET Core Azure Linux web apps
 ## Pre-requisites
 
 - An [Azure App Services ASP.NET/ASP.NET Core app](/app-service/quickstart-dotnetcore.md).
-- [Application Insights resource](./create-new-resource.md) connected to your App Service app. 
+- [Application Insights resource](../app/create-new-resource.md) connected to your App Service app. 
 
 ## Verify "Always On" setting is enabled
 
@@ -65,7 +65,7 @@ If your Application Insights resource is in a different subscription from your A
 |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
 Set these values using:
-- [Azure Resource Manager Templates](./azure-web-apps-net-core.md#app-service-application-settings-with-azure-resource-manager)
+- [Azure Resource Manager Templates](../app/azure-web-apps-net-core.md#app-service-application-settings-with-azure-resource-manager)
 - [Azure PowerShell](/powershell/module/az.websites/set-azwebapp)
 - [Azure CLI](/cli/azure/webapp/config/appsettings)
 
@@ -92,7 +92,7 @@ To enable Azure AD for profiles ingestion:
 
    b.  [User-Assigned Managed identity documentation](../../app-service/overview-managed-identity.md?tabs=portal%2chttp#add-a-user-assigned-identity)
 
-1. [Configure and enable Azure AD](./azure-ad-authentication.md?tabs=net#configuring-and-enabling-azure-ad-based-authentication) in your Application Insights resource.
+1. [Configure and enable Azure AD](../app/azure-ad-authentication.md?tabs=net#configuring-and-enabling-azure-ad-based-authentication) in your Application Insights resource.
 
 1. Add the following application setting to let the Profiler agent know which managed identity to use:
 
@@ -130,4 +130,4 @@ Profiler's files can be deleted when using WebDeploy to deploy changes to your w
 
 ## Next steps
 
-* [Working with Application Insights in Visual Studio](./visual-studio.md)
+* [Working with Application Insights in Visual Studio](../app/visual-studio.md)
