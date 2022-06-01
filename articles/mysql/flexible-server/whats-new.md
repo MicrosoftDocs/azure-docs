@@ -26,6 +26,9 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 - **Announcing the addition of new Burstable compute instances for Azure Database for MySQL - Flexible Server**
     We are announcing the addition of new Burstable compute instances to support customers’ auto-scaling compute requirements from 1 vCore up to 20 vCores. learn more about [Compute Option for Azure Database for MySQL - Flexible Server](https://docs.microsoft.com/azure/mysql/flexible-server/concepts-compute-storage).
 
+- **Known issues**
+  - The Reserved instances (RI) feature in Azure Database for MySQL – Flexible server is not working properly for the Business Critical service tier, after its rebranding from the Memory Optimized service tier. Specifically, instance reservation has stopped working, and we are currently working to fix the issue.
+
 ## April 2022
 
 - **Minor version upgrade for Azure Database for MySQL - Flexible server to 8.0.28**

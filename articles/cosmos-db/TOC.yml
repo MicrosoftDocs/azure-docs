@@ -160,8 +160,6 @@
           href: data-residency.md
     - name: Automatic recommendations
       href: automated-recommendations.md
-    - name: Move data within Azure Cosmos DB
-      href: intra-account-container-copy.md
 - name: SQL/Core API
   expanded: true
   items:
@@ -333,6 +331,10 @@
                 - name: Ternary and coalesce operators
                   displayName: ternary, coalesce, operators
                   href: sql/sql-query-ternary-coalesce-operators.md
+                - name: Bitwise operators
+                  displayName: bitwise, binary, operators
+                  href: sql/sql-query-bitwise-operators.md
+                
             - name: Functions
               items:
                 - name: User-defined functions
@@ -388,6 +390,9 @@
                     - name: DateTimeAdd
                       displayName: DateTimeAdd, date time add, timestamp, date and time functions, datetime
                       href: sql/sql-query-datetimeadd.md
+                    - name: DateTimeBin
+                      displayName: DateTimeBin, date time bin, date and time functions, datetime
+                      href: sql/sql-query-datetimebin.md
                     - name: DateTimeDiff
                       displayName: DateTimeDiff, date time diff, date and time functions, datetime
                       href: sql/sql-query-datetimediff.md
@@ -1599,9 +1604,6 @@
     - name: Limit total account throughput
       displayName: cost, RUs, RU
       href: limit-total-account-throughput.md
-    - name: Move data within Cosmos DB
-      displayName: Move data within Cosmos DB
-      href: how-to-container-copy.md
     - name: Access preview features
       href: access-previews.md
     - name: Manage Azure Cosmos DB resources

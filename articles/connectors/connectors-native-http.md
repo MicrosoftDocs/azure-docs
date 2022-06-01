@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/13/2021
+ms.date: 05/31/2022
 tags: connectors
 ---
 
@@ -319,6 +319,9 @@ Here is the same example that shows the HTTP action response that contains `Retr
 }
 ```
 
+## Pagination support
+
+Sometimes, the target service responds by returning the results one page at a time. If the response specifies the next page with the **nextLink** or **@odata.nextLink** property, you can turn on the **Pagination** setting on the HTTP action. This setting causes the HTTP action to automatically follow these links and get the next page. However, if the response specifies the next page with any other tag, you might have to add a loop to your workflow. Make this loop follow that tag and manually get each page until the tag is null.
 
 ## Disable checking location headers
 

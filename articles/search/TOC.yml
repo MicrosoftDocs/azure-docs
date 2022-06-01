@@ -364,7 +364,7 @@
           href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
         - name: Azure SQL Server VMs
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
-      - name: Power Query data sources
+      - name: Power Query (preview - retired)
         href: search-how-to-index-power-query-data-sources.md
       - name: SharePoint in Microsoft 365
         href: search-howto-index-sharepoint-online.md
