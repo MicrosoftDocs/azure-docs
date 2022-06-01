@@ -9,7 +9,7 @@ ms.author: ssalgado
 author: ssalgadodev
 ms.date: 10/21/2021
 ms.topic: troubleshooting
-ms.custom: devx-track-python, deploy, contperf-fy21q2
+ms.custom: devx-track-python, deploy, contperf-fy21q2, sdkv1, event-tier1-build-2022
 #Customer intent: As a data scientist, I want to try a local deployment so that I can troubleshoot my model deployment problems.
 ---
 
@@ -25,7 +25,7 @@ Try a local model deployment as a first step in troubleshooting deployment to Az
 * Option B - Debug locally on your compute
    * The [Azure Machine Learning SDK](/python/api/overview/azure/ml/install).
    * The [Azure CLI](/cli/azure/install-azure-cli).
-   * The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
+   * The [CLI extension for Azure Machine Learning](v1/reference-azure-machine-learning-cli.md).
    * Have a working Docker installation on your local system. 
    * To verify your Docker installation, use the command `docker run hello-world` from a terminal or command prompt. For information on installing Docker, or troubleshooting Docker errors, see the [Docker Documentation](https://docs.docker.com/).
 * Option C - Enable local debugging with Azure Machine Learning inference HTTP server.
@@ -62,6 +62,8 @@ You can find a sample [local deployment notebook](https://github.com/Azure/Machi
 > Local web service deployments are not supported for production scenarios.
 
 To deploy locally, modify your code to use `LocalWebservice.deploy_configuration()` to create a deployment configuration. Then use `Model.deploy()` to deploy the service. The following example deploys a model (contained in the model variable) as a local web service:
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 ```python
 from azureml.core.environment import Environment

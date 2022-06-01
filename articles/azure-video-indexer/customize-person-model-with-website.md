@@ -1,17 +1,17 @@
 ---
-title: Customize a Person model with Azure Video Indexer (formerly Azure Video Analyzer for Media) website
-description: Learn how to customize a Person model with the Azure Video Indexer (formerly Azure Video Analyzer for Media) website.
+title: Customize a Person model with Azure Video Indexer website
+description: Learn how to customize a Person model with the Azure Video Indexer website.
 services: azure-video-analyzer
 author: Juliako
 manager: femila
 ms.topic: article
-ms.date: 12/16/2020
+ms.date: 05/31/2022
 ms.author: juliako
 ---
 
 # Customize a Person model with the Azure Video Indexer website
 
-Azure Video Indexer (formerly Azure Video Analyzer for Media) supports celebrity recognition for video content. The celebrity recognition feature covers approximately one million faces based on commonly requested data source such as IMDB, Wikipedia, and top LinkedIn influencers. For a detailed overview, see [Customize a Person model in Azure Video Indexer](customize-person-model-overview.md).
+Azure Video Indexer supports celebrity recognition for video content. The celebrity recognition feature covers approximately one million faces based on commonly requested data source such as IMDB, Wikipedia, and top LinkedIn influencers. For a detailed overview, see [Customize a Person model in Azure Video Indexer](customize-person-model-overview.md).
 
 You can use the Azure Video Indexer website to edit faces that were detected in a video, as described in this topic. You can also use the API, as described in [Customize a Person model using APIs](customize-person-model-with-api.md).
 
@@ -34,7 +34,7 @@ You can use the Azure Video Indexer website to edit faces that were detected in 
 ## Create a new Person model
 
 1. Select the **+ Add model** button on the right.
-1. Enter the name of the model. You can now add new people and faces to the new Person model.
+1. Enter the name of the model and select the check button to save the new model created. You can now add new people and faces to the new Person model.
 1. Select the list menu button and choose **+ Add person**.
 
     > [!div class="mx-imgBorder"]
@@ -77,7 +77,7 @@ You can delete any Person model that you created in your account. However, you c
 
 ## Manage existing people in a Person model
 
-To look at the contents of any of your Person models, select the arrow next to the name of the Person model. The drop-down shows you all of the people in that particular Person model. If you select the list menu button next to each of the people, you see manage, rename, and delete options.  
+To look at the contents of any of your Person models, select the arrow next to the name of the Person model. Then you can view all of the people in that particular Person model. If you select the list menu button next to each of the people, you see manage, rename, and delete options.  
 
 ![Screenshot shows a contextual menu with options to Manage, Rename, and Delete.](./media/customize-face-model/manage-people.png)
 

@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 05/10/2022
+ms.date: 05/31/2022
 ---
 
 # Important upcoming changes to Microsoft Defender for Cloud
@@ -19,15 +19,15 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change | Estimated date for change |
 |--|--|
-| [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions) | May 2022 |
-| [Changes to vulnerability assessment](#changes-to-vulnerability-assessment) | May 2022 |
-| [Key Vault recommendations changed to "audit"](#key-vault-recommendations-changed-to-audit) | May 2022 |
+| [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions) | June 2022 |
+| [Key Vault recommendations changed to "audit"](#key-vault-recommendations-changed-to-audit) | June 2022 |
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | June 2022 |
 | [Deprecating three VM alerts](#deprecating-three-vm-alerts) | June 2022|
+| [Deprecating the "API App should only be accessible over HTTPS" policy](#deprecating-the-api-app-should-only-be-accessible-over-https-policy)|June 2022| 
 
 ### Changes to recommendations for managing endpoint protection solutions
 
-**Estimated date for change:** May 2022
+**Estimated date for change:** June 2022
 
 In August 2021, we added two new **preview** recommendations to deploy and maintain the endpoint protection solutions on your machines. For full details, [see the release note](release-notes-archive.md#two-new-recommendations-for-managing-endpoint-protection-solutions-in-preview).
 
@@ -45,19 +45,9 @@ Learn more:
 - [Defender for Cloud's supported endpoint protection solutions](supported-machines-endpoint-solutions-clouds-servers.md#endpoint-supported)
 - [How these recommendations assess the status of your deployed solutions](endpoint-protection-recommendations-technical.md)
 
-### Changes to vulnerability assessment
-
-**Estimated date for change:** May 2022
-
-Currently, Defender for Containers doesn't show vulnerabilities that have medium and low level severities that are not patchable.
-
-As part of this update, vulnerabilities that have medium and low severities, that don't have patches will be shown. This update will provide maximum visibility, while still allowing you to filter undesired vulnerabilities by using the provided Disable rule.
-
-:::image type="content" source="media/upcoming-changes/disable-rule.png" alt-text="Screenshot of the disable rule screen.":::
-
-Learn more about [vulnerability management](deploy-vulnerability-assessment-tvm.md)
-
 ### Key Vault recommendations changed to "audit"
+
+**Estimated date for change:** June 2022
 
 The Key Vault recommendations listed here are currently disabled so that they don't impact your secure score. We will change their effect to "audit".
 
@@ -98,23 +88,23 @@ The new release will bring the following capabilities:
     |External accounts with owner permissions should be removed from your subscription|c3b6ae71-f1f0-31b4-e6c1-d5951285d03d|
     |External accounts with read permissions should be removed from your subscription|a8c6a4ad-d51e-88fe-2979-d3ee3c864f8b|
     |External accounts with write permissions should be removed from your subscription|04e7147b-0deb-9796-2e5c-0336343ceb3d|
+
 #### Recommendations rename 
 
 This update, will rename two recommendations, and revise their descriptions. The assessment keys will remain unchanged.
 
-| Property | Current value | New update's change |
-|--|--|--|
-|**First recommendation**| - | - |
-|Assessment key | e52064aa-6853-e252-a11e-dffc675689c2 | No change |
-| Name | [Deprecated accounts with owner permissions should be removed from your subscription](https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e52064aa-6853-e252-a11e-dffc675689c2) | Subscriptions should be purged of accounts that are blocked in Active Directory and have owner permissions. |
-| Description | User accounts that have been blocked from signing in, should be removed from your subscriptions.
-These accounts can be targets for attackers looking to find ways to access your data without being noticed. | User accounts that have been blocked from signing into Active Directory, should be removed from your subscriptions. These accounts can be targets for attackers looking to find ways to access your data without being noticed. <br> Learn more about securing the identity perimeter in [Azure Identity Management and access control security best practices](../security/fundamentals/identity-management-best-practices.md). |
-| Related policy | [Deprecated accounts with owner permissions should be removed from your subscription](https://ms.portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2febb62a0c-3560-49e1-89ed-27e074e9f8ad) | Subscriptions should be purged of accounts that are blocked in Active Directory and have owner permissions. |
-|**Second recommendation**| - | - |
-| Assessment key | 00c6d40b-e990-6acf-d4f3-471e747a27c4 | No change |
-| Name | [Deprecated accounts should be removed from your subscription](https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/00c6d40b-e990-6acf-d4f3-471e747a27c4) | Subscriptions should be purged of accounts that are blocked in Active Directory and have read and write permissions. |
-| Description | User accounts that have been blocked from signing in, should be removed from your subscriptions. <br> These accounts can be targets for attackers looking to find ways to access your data without being noticed. | User accounts that have been blocked from signing into Active Directory, should be removed from your subscriptions. These accounts can be targets for attackers looking to find ways to access your data without being noticed. <br> Learn more about securing the identity perimeter in [Azure Identity Management and access control security best practices](../security/fundamentals/identity-management-best-practices.md). | 
-| Related policy | [Deprecated accounts should be removed from your subscription](https://ms.portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6b1cbf55-e8b6-442f-ba4c-7246b6381474) | Subscriptions should be purged of accounts that are blocked in Active Directory and have read and write permissions. |
+ | Property | Current value | New update's change | 
+ |----|----|----|
+ |**First recommendation**| - | - |
+ |Assessment key | e52064aa-6853-e252-a11e-dffc675689c2 | No change| 
+ | Name | [Deprecated accounts with owner permissions should be removed from your subscription](https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e52064aa-6853-e252-a11e-dffc675689c2) |Subscriptions should be purged of accounts that are blocked in Active Directory and have owner permissions.| 
+ |Description| User accounts that have been blocked from signing in, should be removed from your subscriptions.|These accounts can be targets for attackers looking to find ways to access your data without being noticed. <br> Learn more about securing the identity perimeter in [Azure Identity Management and access control security best practices](../security/fundamentals/identity-management-best-practices.md).| 
+ |Related policy|[Deprecated accounts with owner permissions should be removed from your subscription](https://ms.portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2febb62a0c-3560-49e1-89ed-27e074e9f8ad) | Subscriptions should be purged of accounts that are blocked in Active Directory and have owner permissions.| 
+ |**Second recommendation**| - | - | 
+ | Assessment key | 00c6d40b-e990-6acf-d4f3-471e747a27c4 | No change | 
+ | Name | [Deprecated accounts should be removed from your subscription](https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/00c6d40b-e990-6acf-d4f3-471e747a27c4)|Subscriptions should be purged of accounts that are blocked in Active Directory and have read and write permissions.| 
+|Description|User accounts that have been blocked from signing in, should be removed from your subscriptions. <br> These accounts can be targets for attackers looking to find ways to access your data without being noticed.|User accounts that have been blocked from signing into Active Directory, should be removed from your subscriptions.<br> Learn more about securing the identity perimeter in [Azure Identity Management and access control security best practices](../security/fundamentals/identity-management-best-practices.md).| 
+ | Related policy | [Deprecated accounts should be removed from your subscription](https://ms.portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6b1cbf55-e8b6-442f-ba4c-7246b6381474) | Subscriptions should be purged of accounts that are blocked in Active Directory and have read and write permissions. | 
 
 ### Deprecating three VM alerts
 
@@ -129,6 +119,14 @@ The following table lists the alerts that will be deprecated during June 2022.
 | **SSH server is running inside a container** <br>(VM_ContainerSSH) | Machine logs indicate that an SSH server is running inside a Docker container. While this behavior can be intentional, it frequently indicates that a container is misconfigured or breached. | 	Execution | Medium |
 
 These alerts are used to notify a user about suspicious activity connected to a Kubernetes cluster. The alerts will be replaced with matching alerts that are part of the Microsoft Defender for Cloud Container alerts (`K8S.NODE_ImageBuildOnNode`, `K8S.NODE_ KubernetesAPI` and `K8S.NODE_ ContainerSSH`) which will provide improved fidelity and comprehensive context to investigate and act on the alerts. Learn more about alerts for [Kubernetes Clusters](alerts-reference.md).
+
+### Deprecating the "API App should only be accessible over HTTPS" policy
+
+**Estimated date for change:** June 2022
+
+The policy `API App should only be accessible over HTTPS` is set to be deprecated. This policy will be replaced with `Web Application should only be accessible over HTTPS`, which will be renamed to `App Service apps should only be accessible over HTTPS`. 
+
+To learn more about policy definitions for Azure App Service, see [Azure Policy built-in definitions for Azure App Service](../azure-app-configuration/policy-reference.md)
 
 ## Next steps
 

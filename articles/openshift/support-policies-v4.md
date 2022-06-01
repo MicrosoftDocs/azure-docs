@@ -47,6 +47,18 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |Dsv3|Standard_D8s_v3|8|32|
 |Dsv3|Standard_D16s_v3|16|64|
 |Dsv3|Standard_D32s_v3|32|128|
+|Eiv3|Standard_E64i_v3|64|432|
+|Eisv3|Standard_E64is_v3|64|432|
+|Eis4|Standard_E80is_v4|80|504|
+|Eids4|Standard_E80ids_v4|80|504|
+|Eiv5|Standard_E104i_v5|104|672|
+|Eisv5|Standard_E104is_v5|104|672|
+|Eidv5|Standard_E104id_v5|104|672|
+|Eidsv5|Standard_E104ids_v5|104|672|
+|Fsv2|Standard_F72s_v2|72|144|
+|G|Standard_G5|32|448|
+|G|Standard_GS5|32|448|
+|Mms|Standard_M128ms|128|3892|
 
 ### General purpose
 
@@ -69,6 +81,14 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |Esv3|Standard_E8s_v3|8|64|
 |Esv3|Standard_E16s_v3|16|128|
 |Esv3|Standard_E32s_v3|32|256|
+|Eiv3|Standard_E64i_v3|64|432|
+|Eisv3|Standard_E64is_v3|64|432|
+|Eis4|Standard_E80is_v4|80|504|
+|Eids4|Standard_E80ids_v4|80|504|
+|Eiv5|Standard_E104i_v5|104|672|
+|Eisv5|Standard_E104is_v5|104|672|
+|Eidv5|Standard_E104id_v5|104|672|
+|Eidsv5|Standard_E104ids_v5|104|672|
 
 ### Compute optimized
 
@@ -78,6 +98,13 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |Fsv2|Standard_F8s_v2|8|16|
 |Fsv2|Standard_F16s_v2|16|32|
 |Fsv2|Standard_F32s_v2|32|64|
+|Fsv2|Standard_F72s_v2|72|144|
+
+### Memory and compute optimized
+
+|Series|Size|vCPU|Memory: GiB|
+|-|-|-|-|
+|Mms|Standard_M128ms|128|3892|
 
 ### Storage optimized
 
@@ -92,3 +119,10 @@ Azure Red Hat OpenShift 4 supports node instances on the following virtual machi
 |L32s_v2|Standard_L32s_v2|32|256|
 |L48s_v2|Standard_L48s_v2|32|384|
 |L64s_v2|Standard_L48s_v2|64|512|
+
+### Memory and storage optimized
+
+|Series|Size|vCPU|Memory: GiB|
+|-|-|-|-|
+|G|Standard_G5|32|448|
+|G|Standard_GS5|32|448|
