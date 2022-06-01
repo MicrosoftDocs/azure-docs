@@ -52,6 +52,22 @@ In contrast, when working with locally managed sensors:
 
 - Sensor names can be updated in the sensor console.
 
+### Devices monitored by Defender for IoT
+
+Defender for IoT considers any of the following as single and unique network devices:
+
+- Standalone IT/OT/IoT devices, with one or more NICs
+- Devices with multiple backlplace components, including all racks, slots, or modules
+- Devices that provide network infrastructure, such as switches or routers with multiple NICs
+
+The following items are not monitored as devices, and do not appear in the Defender for IoT device inventories:
+
+- Public internet IP addresses
+- Multi-cast groups
+- Broadcast groups
+
+Devices that are inactive for more than 60 days are classified as *inactive* inventory devices.
+
 ## Analytics engines
 
 Defender for IoT sensors apply analytics engines on ingested data, triggering alerts based on both real-time and pre-recorded traffic.
