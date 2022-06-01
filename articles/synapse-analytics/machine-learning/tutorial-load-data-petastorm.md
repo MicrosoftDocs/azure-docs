@@ -35,11 +35,10 @@ At the start of the session, we will need to configure a few Apache Spark settin
 ```
 
 ## Petastorm write APIs
-A dataset created using Petastorm is stored in Apache Parquet format. On top of a Parquet schema, petastorm also stores higher-level schema information that makes multidimensional arrays into a native part of a petastorm dataset.
 
-Generating a dataset is done using PySpark. PySpark natively supports Parquet format, making it easy to run on a single machine or on a Spark compute cluster.
+A dataset created using Petastorm is stored in an Apache Parquet format. On top of a Parquet schema, Petastorm also stores higher-level schema information that makes multidimensional arrays into a native part of a Petastorm dataset.
 
-This notebook shows an example of creating a dataset in adls and writing to it with some random data.
+In the sample below, we create a dataset using PySpark. We write the dataset to an Azure Data Lake Storage Gen2 account.
 
 ```python
 import numpy as np
@@ -87,14 +86,17 @@ def generate_petastorm_dataset(output_url):
             .parquet(output_url)
 
 
-if __name__ == '__main__':
-    output_url = 'abfs://container_name@storage_account_url/data_dir' #use your own adls account info
-    generate_petastorm_dataset(output_url)
+output_url = 'abfs://container_name@storage_account_url/data_dir' #use your own adls account info
+generate_petastorm_dataset(output_url)
 ```
 
 ## Petastorm read APIs
 
-### Read dataset in primary ADLS
+### Read dataset from a primary storage account
+
+The ```petastorm.reader.Reader``` class is the main entry point for user code that accesses the data from an ML framework such as Tensorflow or Pytorch. You can read a dataset using the ```petastorm.reader.Reader``` class and the ```petastorm.make_reader``` factory method.
+
+In the example below, you can see how you can pass an ```abfs``` URL protocol.
 
 ```python
 from petastorm import make_reader
@@ -105,17 +107,17 @@ with make_reader('abfs://<container_name>/<data directory path>/') as reader:
         print(row)
 ```
 
-### Read dataset in non-primary adls
+### Read dataset from secondary storage account
 
-We will need the Azure Data Lake Storage (ADLS) account for storing intermediate and model data. If you are using an alternative storage account, be sure to set up the [linked service](https://docs.microsoft.com/azure/data-factory/concepts-linked-services?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext&tabs=data-factory) to automatically authenticate and read from the account. In addition, you will need to modify the following properties below: ```remote_url```, ```account_name```, and ```linked_service_name```.
+If you are using an alternative storage account, be sure to set up the [linked service](https://docs.microsoft.com/azure/data-factory/concepts-linked-services?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext&tabs=data-factory) to automatically authenticate and read from the account. In addition, you will need to modify the following properties below: ```remote_url```, ```account_name```, and ```linked_service_name```.
 
 ```python
 from petastorm import make_reader
 
 # create sas token for storage account access, use your own adls account info
-remote_url = "abfs://default@adls4synapsemlgpu.dfs.core.windows.net"
-account_name = "adls4synapsemlgpu"
-linked_service_name = 'adls4synapsemlgpu'
+remote_url = "abfs://container_name@storage_account_url"
+account_name = "<<adls account name>>"
+linked_service_name = '<<linked service name>>'
 TokenLibrary = spark._jvm.com.microsoft.azure.synapse.tokenlibrary.TokenLibrary
 sas_token = TokenLibrary.getConnectionString(linked_service_name)
 
@@ -124,7 +126,9 @@ with make_reader('{}/data_directory'.format(remote_url), storage_options = {'sas
         print(row)
 ```
 
-### Read dataset in batches with schema on primary storage
+### Read dataset in batches
+
+In the example below, you can see how you can pass an ```abfs``` URL protocol to read data in batches. This example uses the ```make_batch_reader``` class. 
 
 ```python
 from petastorm import make_batch_reader
@@ -134,14 +138,123 @@ with make_batch_reader('abfs://<container_name>/<data directory path>/', schema_
         print("Batched read:\nvalue1: {0} value2: {1}".format(schema_view.value1, schema_view.value2))
 ```
 
-## Petastorm DataLoader
+## PyTorch API
 
-Load Parquet files directly using Petastorm. Reading a petastorm dataset from pytorch can be done via the adapter class petastorm.pytorch.DataLoader, which allows custom pytorch collating function and transforms to be supplied.
+To read a Petastorm dataset from PyTorch, you can use the adapter ```petastorm.pytorch.DataLoader``` class. This allows for custom PyTorch collating functions and transforms to be supplied.
 
-This notebook is an example of how Petastorm DataLoader can be used to load a Petastorm dataset with the help of make_reader API.
+In this example, we will show how Petastorm DataLoader can be used to load a Petastorm dataset with the help of make_reader API. This first section creates the definition of a ```Net``` class and ```train``` and ```test``` function.
 
 ```python
+from __future__ import division, print_function
 
+import argparse
+import pyarrow
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+import torch.optim as optim
+from torchvision import transforms
+
+from petastorm import make_reader, TransformSpec
+from petastorm.pytorch import DataLoader
+from pyspark.sql.functions import col
+
+class Net(nn.Module):
+    def __init__(self):
+        super(Net, self).__init__()
+        self.conv1 = nn.Conv2d(1, 10, kernel_size=5)
+        self.conv2 = nn.Conv2d(10, 20, kernel_size=5)
+        self.conv2_drop = nn.Dropout2d()
+        self.fc1 = nn.Linear(320, 50)
+        self.fc2 = nn.Linear(50, 10)
+
+    def forward(self, x):
+        x = F.relu(F.max_pool2d(self.conv1(x), 2))
+        x = F.relu(F.max_pool2d(self.conv2_drop(self.conv2(x)), 2))
+        x = x.view(-1, 320)
+        x = F.relu(self.fc1(x))
+        x = F.dropout(x, training=self.training)
+        x = self.fc2(x)
+        return F.log_softmax(x, dim=1)
+
+def train(model, device, train_loader, log_interval, optimizer, epoch):
+    model.train()
+    for batch_idx, row in enumerate(train_loader):
+        data, target = row['image'].to(device), row['digit'].to(device)
+        optimizer.zero_grad()
+        output = model(data)
+        loss = F.nll_loss(output, target)
+        loss.backward()
+        optimizer.step()
+        if batch_idx % log_interval == 0:
+            print('Train Epoch: {} [{}]\tLoss: {:.6f}'.format(
+                epoch, batch_idx * len(data), loss.item()))
+
+def test(model, device, test_loader):
+    model.eval()
+    test_loss = 0
+    correct = 0
+    count = 0
+    with torch.no_grad():
+        for row in test_loader:
+            data, target = row['image'].to(device), row['digit'].to(device)
+            output = model(data)
+            test_loss += F.nll_loss(output, target, reduction='sum').item()  # sum up batch loss
+            pred = output.max(1, keepdim=True)[1]  # get the index of the max log-probability
+            correct += pred.eq(target.view_as(pred)).sum().item()
+            count += data.shape[0]
+    test_loss /= count
+    print('\nTest set: Average loss: {:.4f}, Accuracy: {}/{} ({:.0f}%)\n'.format(
+        test_loss, correct, count, 100. * correct / count))
+
+def _transform_row(mnist_row):
+    # For this example, the images are stored as simpler ndarray (28,28), but the
+    # training network expects 3-dim images, hence the additional lambda transform.
+    transform = transforms.Compose([
+        transforms.Lambda(lambda nd: nd.reshape(28, 28, 1)),
+        transforms.ToTensor(),
+        transforms.Normalize((0.1307,), (0.3081,))
+    ])
+    # In addition, the petastorm pytorch DataLoader does not distinguish the notion of
+    # data or target transform, but that actually gives the user more flexibility
+    # to make the desired partial transform, as shown here.
+    result_row = {
+        'image': transform(mnist_row['image']),
+        'digit': mnist_row['digit']
+    }
+
+    return result_row
+```
+
+In this example, an Azure Data Lake Storage account is used to store intermediate data. To store this data, you must set up a Linked Service to the storage account and retrieve the following pieces of information: ```remote_url```, ```account_name```, and ```linked_service_name```.
+
+```python
+from petastorm import make_reader
+
+# create sas token for storage account access, use your own adls account info
+remote_url = "abfs://container_name@storage_account_url"
+account_name = "<account name>"
+linked_service_name = '<linked service name>'
+TokenLibrary = spark._jvm.com.microsoft.azure.synapse.tokenlibrary.TokenLibrary
+sas_token = TokenLibrary.getConnectionString(linked_service_name)
+
+# Read Petastorm dataset and apply custom PyTorch transformation functions 
+
+device = torch.device('cpu') #For GPU, it will be torch.device('cuda'). More details: https://pytorch.org/docs/stable/tensor_attributes.html#torch-device
+
+model = Net().to(device)
+optimizer = optim.SGD(model.parameters(), lr=0.01, momentum=0.5)
+
+loop_epochs = 1
+reader_epochs = 1
+
+transform = TransformSpec(_transform_row, removed_fields=['idx'])
+
+for epoch in range(1, loop_epochs + 1):
+    with DataLoader(make_reader('{}/train'.format(remote_url), num_epochs=reader_epochs, transform_spec=transform),batch_size=5) as train_loader:
+        train(model, device, train_loader, 10, optimizer, epoch)
+    with DataLoader(make_reader('{}/test'.format(remote_url), num_epochs=reader_epochs, transform_spec=transform), batch_size=5) as test_loader:
+        test(model, device, test_loader)
 ```
 
 ## Next steps
