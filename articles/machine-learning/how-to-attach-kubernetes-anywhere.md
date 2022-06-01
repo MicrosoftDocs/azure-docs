@@ -27,7 +27,7 @@ In this article, you can learn about steps to configure and attach an existing K
 
 ## Why use Azure Machine Learning Kubernetes?
 
-AzureML Kubernetes is customer fully configured and managed compute for machine learning. It can be used as both [training compute target](./concept-compute-target.md#a-name"train"a-training-compute-targets) and [inference compute target](./concept-compute-target.md#a-name"deploy"a-compute-targets-for-inference). It provides the following benefits:
+AzureML Kubernetes is customer fully configured and managed compute for machine learning. It can be used as both [training compute target](./concept-compute-target.md#train) and [inference compute target](./concept-compute-target.md#deploy). It provides the following benefits:
 
 - Harness existing hetreogenious or homogeneous Kubernetes cluster, with CPUs or GPUs.
 - Share the same Kubernetes cluster in multiple AzureML Workspace across region.
@@ -47,7 +47,7 @@ AzureML Kubernetes is customer fully configured and managed compute for machine 
     a. If you have an AKS cluster in Azure, **Azure Arc connection is not required and not recommended**.
     
     b. if you have Azure RedHat OpenShift Service (ARO) cluster or OpenShift Container Platform (OCP) cluster, follow another prerequisite step [here](#appendix-iii-prerequisites-for-aro-or-ocp-clusters) before AzureML extension deployment. 
-1. Cluster running behind an outbound proxy server or firewall needs additional network configurations. Fulfill the [network requirements](./how-to-access-azureml-behind-firewall.md#azureml-kubernetes-compute-a-id"arc-kubernetes"a)
+1. Cluster running behind an outbound proxy server or firewall needs additional network configurations. Fulfill the [network requirements](./how-to-access-azureml-behind-firewall.md#arc-kubernetes)
 1. Install or upgrade Azure CLI to version >=2.16.0
 1. Install the Azure CLI extension ```k8s-extension``` (version>=1.2.2) by running ```az extension add --name k8s-extension```
 
@@ -503,7 +503,7 @@ spec:
 
   - If customers are running an unsupported Kubernetes version, they will be asked to upgrade when requesting support for the cluster. Clusters running unsupported Kubernetes releases are not covered by the AzureML extension support policies.
 - AzureML extension region availability, 
-  - Supportd regions are listed in [Azure Arc enabled Kubernetes region support](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=azure-arc&regions=all).
+  - Supportd regions are listed in [Azure Arc enabled Kubernetes region support](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc&regions=all).
 - General available (GA) version of AzureML extension >= 1.1.1
 
 
