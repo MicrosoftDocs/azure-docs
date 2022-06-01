@@ -157,7 +157,7 @@ In the topology illustrated above, the on-premises network is connected to a hub
 * VM 3 in the hub VNet can connect to Volume 2 in spoke VNet 1 and Volume 3 in spoke VNet 2.
 * VM 4 from spoke VNet 1 and VM 5 from spoke VNet 2 can connect to Volume 1 in the hub VNet.
 * VM 4 in spoke VNet 1 can't connect to Volume 3 in spoke VNet 2. Also, VM 5 in spoke VNet2 can't connect to Volume 2 in spoke VNet 1. This is the case because the spoke VNets aren't peered and _transit routing isn't supported over VNet peering_.
-* In the above architecture if there's a gateway in the spoke VNet as well, the connectivity to the ANF volume from on-prem connecting over the gateway in the Hub will be lost. By design, preference would be given to the gateway in the spoke VNet and so only machines connecting over that gateway can connect to the ANF volume.
+* In the above architecture if there's a gateway in the spoke VNet as well, the connectivity to the ANF volume from on-premises connecting over the gateway in the Hub will be lost. By design, preference would be given to the gateway in the spoke VNet and so only machines connecting over that gateway can connect to the ANF volume.
 
 ## Next steps
 
