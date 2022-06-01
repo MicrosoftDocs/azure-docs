@@ -27,9 +27,9 @@ The following example shows you how to create and run a job to set the light thr
 
 1. Select the target device group that you want your job to apply to. If your application uses organizations, the selected organization determines the available device groups. You can see how many devices your job configuration applies to below your **Device group** selection.
 
-1. Choose **Cloud property**, **Property**, or **Command** as the **Job type**:
+1. Choose **Cloud property**, **Property**, **Command**, or **Change device template** as the **Job type**:
 
-    To configure a **Property** job, select a property and set its new value. To configure a **Command** job, choose the command to run. A property job can set multiple properties.
+    To configure a **Property** job, select a property and set its new value. A property job can set multiple properties. To configure a **Command** job, choose the command to run. To configure a **Change device template** job, select the device template to assign to the devices in the device group.
 
     :::image type="content" source="media/howto-manage-devices-in-bulk/configure-job.png" alt-text="Screenshot that shows selections for creating a property job called Set Light Threshold":::
 

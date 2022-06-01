@@ -6,6 +6,10 @@ items:
   items:
   - name: What is Azure Private 5G Core?
     href: private-5g-core-overview.md
+- name: Quickstarts
+  items:
+  - name: Deploy a private mobile network and site - ARM template
+    href: deploy-private-mobile-network-with-site-arm-template.md
 - name: Tutorials
   items:
   - name: Create an example policy control configuration set
@@ -18,6 +22,10 @@ items:
     href: statement-of-compliance.md
   - name: Policy control
     href: policy-control.md
+  - name: Default service and SIM policy
+    href: default-service-sim-policy.md
+  - name: Monitor Azure Private 5G Core using Log Analytics
+    href: monitor-private-5g-core-with-log-analytics.md  
   - name: Local monitoring tools
     items:
     - name: Distributed tracing
@@ -40,26 +48,40 @@ items:
     items:
     - name: Collect the required information for a site
       href: collect-required-information-for-a-site.md    
-    - name: Create a site
+    - name: Create a site - Azure portal
       href: create-a-site.md
-  - name: Services
+    - name: Create a site - ARM template
+      href: create-site-arm-template.md
+    - name: Upgrade a packet core instance
+      href: upgrade-packet-core-azure-portal.md
+  - name: Policy control
     items:
     - name: Collect the required information for a service
       href: collect-required-information-for-service.md
-    - name: Configure a service
+    - name: Configure a service - Azure portal
       href: configure-service-azure-portal.md
-  - name: SIM policies
-    items:
     - name: Collect the required information for a SIM policy
       href: collect-required-information-for-sim-policy.md
-    - name: Configure a SIM policy
+    - name: Configure a SIM policy - Azure portal
       href: configure-sim-policy-azure-portal.md
+    - name: Configure a service and SIM policy - ARM template
+      href: configure-service-sim-policy-arm-template.md
   - name: SIMs
     items:
-    - name: Provision SIMs
+    - name: Provision SIMs - Azure portal
       href: provision-sims-azure-portal.md
-    - name: Activate SIMs
-      href: activate-sims.md
+    - name: Provision SIMs - ARM template
+      href: provision-sims-arm-template.md
+  - name: Log Analytics
+    items:
+    - name: Enable Log Analytics for a packet core instance
+      href: enable-log-analytics-for-private-5g-core.md
+    - name: Create an overview Log Analytics dashboard - ARM template
+      href: create-overview-dashboard.md
+  - name: Distributed tracing
+    items:
+    - name: Export, upload and share traces
+      href: distributed-tracing-share-traces.md
 - name: Reference
   items:
    - name: REST API
@@ -69,7 +91,7 @@ items:
   - name: Azure Private 5G Core product page
     href: https://azure.microsoft.com/services/private-5g-core/
   - name: Azure private MEC documentation
-    href: https://docs.microsoft.com/azure/private-multi-access-edge-compute-mec/
+    href: ../private-multi-access-edge-compute-mec/index.yml
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Blog

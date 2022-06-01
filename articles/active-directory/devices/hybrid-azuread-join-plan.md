@@ -140,8 +140,7 @@ These scenarios don't require you to configure a federation server for authentic
 
 > [!NOTE]
 > [Cloud authentication using Staged rollout](../hybrid/how-to-connect-staged-rollout.md) is only supported starting at the Windows 10 1903 update.
-> 
-> Azure AD doesn't support smartcards or certificates in managed domains.
+
 
 ### Federated environment
 
@@ -178,7 +177,7 @@ The following table provides details on support for these on-premises AD UPNs in
 | ----- | ----- | ----- | ----- |
 | Routable | Federated | From 1703 release | Generally available |
 | Non-routable | Federated | From 1803 release | Generally available |
-| Routable | Managed | From 1803 release | Generally available, Azure AD SSPR on Windows lock screen isn't supported. The on-premises UPN must be synced to the `onPremisesUserPrincipalName` attribute in Azure AD |
+| Routable | Managed | From 1803 release | Generally available, Azure AD SSPR on Windows lock screen isn't supported in environments where the on-premises UPN is different from the Azure AD UPN. The on-premises UPN must be synced to the `onPremisesUserPrincipalName` attribute in Azure AD |
 | Non-routable | Managed | Not supported | |
 
 ## Next steps

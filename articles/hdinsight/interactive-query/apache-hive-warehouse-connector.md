@@ -5,7 +5,7 @@ author: nis-goel
 ms.author: nisgoel
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 05/28/2020
+ms.date: 04/01/2022
 ---
 
 # Integrate Apache Spark and Apache Hive with Hive Warehouse Connector in Azure HDInsight

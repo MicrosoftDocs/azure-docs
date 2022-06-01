@@ -2,10 +2,22 @@
 author: timwarner-msft
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/10/2022
+ms.date: 05/18/2022
 ms.author: timwarner
 ms.custom: generated
 ---
+
+## [Preview]: SWIFT CSCF v2021
+
+To review how the available Azure Policy built-ins for all Azure services map to this compliance
+standard, see
+[Azure Policy Regulatory Compliance details for [Preview]: SWIFT CSCF v2021](../../../../articles/governance/policy/samples/swift-cscf-v2021.md).
+For more information about this compliance standard, see
+[SWIFT CSCF v2021](https://www.swift.com/myswift/customer-security-programme-csp).
+
+|Domain |Control ID |Control title |Policy<br /><sub>(Azure portal)</sub> |Policy version<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|Detect Anomalous Activity to Systems or Transaction Records |SWIFT CSCF v2021 6.4 |Logging and Monitoring |[Azure Monitor solution 'Security and Audit' must be deployed](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3e596b57-105f-48a6-be97-03e9243bad6e) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/Security_Audit_MustBeDeployed.json) |
 
 ## RMIT Malaysia
 

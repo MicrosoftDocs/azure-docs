@@ -59,13 +59,13 @@ The **Secure your IoT solution** button will only appear if the IoT Hub has not 
 
 1. Navigate to **IoT Hub** > **`Your hub`** > **Defender for IoT** > **Overview**.
 
-1. The Threat prevention, and Threat detection screen will appear.
+    The Threat prevention and Threat detection screen will appear.
 
     :::image type="content" source="media/quickstart-onboard-iot-hub/threat-prevention.png" alt-text="Screenshot showing that Defender for IoT is enabled." lightbox="media/quickstart-onboard-iot-hub/threat-prevention-expanded.png":::
 
 ## Next steps
 
-Advance to the next article to add a resource group to your solution...
+Advance to the next article to add a resource group to your solution.
 
 > [!div class="nextstepaction"]
 > [Add a resource group to your IoT solution](tutorial-configure-your-solution.md)

@@ -284,7 +284,7 @@ You can also specify the conditions under which the blob will be copied. These c
 You can use the `az storage blob copy start-batch` command to recursively copy multiple blobs between storage containers within the same storage account. This command requires values for the `--source-container` and `--destination-container` parameters, and can copy all files between the source and destination. Like other CLI batch commands, this command supports Unix filename pattern matching with the `--pattern` parameter. The supported patterns are `*`, `?`, `[seq]`, and `[!seq]`. To learn more, refer to the Python documentation on [Unix filename pattern matching](https://docs.python.org/3.7/library/fnmatch.html).
 
 > [!NOTE]
-> Consider the use of AzCopy for ease and performance, especially when copying blobs between storage accounts. AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. Find out more about how to [Get started with AzCopy](/azure/storage/common/storage-use-azcopy-v10).
+> Consider the use of AzCopy for ease and performance, especially when copying blobs between storage accounts. AzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account. Find out more about how to [Get started with AzCopy](../common/storage-use-azcopy-v10.md).
 
 For more information, see the [az storage blob copy](/cli/azure/storage/blob/copy) reference.
 
@@ -416,9 +416,10 @@ done < /mnt/c/temp/bloblist.xml
 
 You can delete either a single blob or series of blobs with the `az storage blob delete` and `az storage blob delete-batch` commands. When deleting multiple blobs, you can use conditional operations, loops, or other automation as shown in the examples below.
 
-[!WARNING] Running the following examples may permanently delete blobs. Microsoft recommends enabling container soft delete to protect containers and blobs from accidental deletion. For more info, see Soft delete for containers.
+> [!WARNING]
+> Running the following examples may permanently delete blobs. Microsoft recommends enabling container soft delete to protect containers and blobs from accidental deletion. For more info, see [Soft delete for containers](soft-delete-blob-overview.md).
 
-The following sample code provides an example of both single and multiple download approaches. The first example deletes a single, named blob. The second example illustrates the use of logical operations in Bash to delete multiple blobs. The third example uses the `delete-batch` command to delete all blobs with the format *bennett-x*, except *bennett-2*.
+The following sample code provides an example of both individual and batch delete operations. The first example deletes a single, named blob. The second example illustrates the use of logical operations in Bash to delete multiple blobs. The third example uses the `delete-batch` command to delete all blobs with the format *bennett-x*, except *bennett-2*.
 
 For more information, see the [az storage blob delete](/cli/azure/storage/blob#az-storage-blob-delete) and [az storage blob delete-batch](/cli/azure/storage/blob#az-storage-blob-delete-batch) reference.
 
@@ -476,9 +477,9 @@ az storage blob delete-batch \
     --auth-mode login
 ```
 
-If your storage account's soft delete data protection option is enabled, you can use a listing operation to return blobs deleted within the associated retention period. To learn more about soft delete, refer to the [Soft delete for blobs](soft-delete-blob-overview.md) article.
+In some cases, it's possible to retrieve blobs that have been deleted. If your storage account's soft delete data protection option is enabled, the `--include d` parameter and value will return blobs deleted within the account's retention period. To learn more about soft delete, refer to thee [Soft delete for blobs](soft-delete-blob-overview.md) article.
 
-Use the following example to retrieve a list of blobs deleted within container's associated retention period. The result displays a list of recently deleted blobs.
+Use the following examples to retrieve a list of blobs deleted within container's associated retention period. The first example displays a list of all recently deleted blobs and the dates on which they were deleted. The second example lists all deleted blobs matching a specific prefix.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -496,7 +497,7 @@ az storage blob list \
     --auth-mode login \
     --query "[?deleted].{name:name,deleted:properties.deletedTime}"
 
-#Retrieve a list of all blobs matching specific prefix
+#Retrieve a list of all deleted blobs matching a specific prefix
 az storage blob list \
     --container-name $containerName \
     --prefix $blobPrefix \
@@ -507,53 +508,119 @@ az storage blob list \
     --query "[].{name:name,deleted:deleted}"
 ```
 
-## Restore a soft-deleted blob
-As mentioned in the [List blobs](#list-blobs) section, you can configure the soft delete data protection option on your storage account. When enabled, it's possible to restore containers deleted within the associated retention period.
+## Restore a deleted blob
+As mentioned in the [List blobs](#list-blobs) section, you can configure the soft delete data protection option on your storage account. When enabled, it's possible to restore containers deleted within the associated retention period. You may also use versioning to maintain previous versions of your blobs for each recovery and restoration.
 
-The following examples restore soft-deleted blobs with the `az storage blob undelete` method. The first example uses the `--name` parameter to restore a single named blob. The second example uses a loop to restore the remainder of the deleted blobs. Before you can follow this example, you'll need to enable soft delete on at least one of your storage accounts.
+If blob versioning and blob soft delete are both enabled, then modifying, overwriting, deleting, or restoring a blob automatically creates a new version. The method you'll use to restore a deleted blob will depend upon whether versioning is enabled on your storage account.
 
-To learn more about the soft delete data protection option, refer to the [Soft delete for blobs](soft-delete-blob-overview.md) article or the [az storage blob undelete](/cli/azure/storage/blob#az-storage-blob-undelete) reference.
+The following code sample restores all soft-deleted blobs or, if versioning is enabled, restores the latest version of a blob. It first determines whether versioning is enabled with the `az storage account blob-service-properties show` command.
+
+If versioning is enabled, the `az storage blob list` command retrieves a list of all uniquely-named blob versions. Next, the blob versions on the list are retrieved and ordered by date. If no versions are found with the `isCurrentVersion` attribute value, the `az storage blob copy start` command is used to make an active copy of the blob's latest version.
+
+If versioning is disabled, the `az storage blob undelete` command is used to restore each soft-deleted blob in the container.
+
+Before you can follow this example, you'll need to enable soft delete on at least one of your storage accounts. To learn more about the soft delete data protection option, refer to the [Soft delete for blobs](soft-delete-blob-overview.md) article or the [az storage blob undelete](/cli/azure/storage/blob#az-storage-blob-undelete) reference.
 
 ```azurecli-interactive
 #!/bin/bash
 storageAccount="<storage-account>"
+groupName="myResourceGroup"
 containerName="demo-container"
 
-blobName="demo-file.txt"
-
-#Restore a single, named blob
-az storage blob undelete \
-    --container-name $containerName \
-    --name $blobName \
-    --account-name $storageAccount \
-    --auth-mode login
- 
-#Retrieve all deleted blobs
-blobList=$( \
-    az storage blob list \
-        --container-name $containerName \
-        --include d \
-        --output tsv \
+blobSvcProps=$(
+    az storage account blob-service-properties show \
         --account-name $storageAccount \
-        --auth-mode login \
-        --query "[?deleted].[name]" \
-)
+        --resource-group $groupName)
 
-#Iterate list of deleted blobs and restore
-for row in $blobList
-do
-    tmpName=$(echo $row | sed -e 's/\r//g')
-    echo "Restoring $tmpName"
-    az storage blob undelete \
-        --container-name $containerName \
-        --name $tmpName \
-        --account-name $storageAccount \
-        --auth-mode login
-done
+softDelete=$(echo "${blobSvcProps}" | jq -r '.deleteRetentionPolicy.enabled')
+versioning=$(echo "${blobSvcProps}" | jq -r '.isVersioningEnabled')
+
+# If soft delete is enabled
+if $softDelete
+then
+    
+    # If versioning is enabled
+    if $versioning
+    then
+
+        # Get all blobs and versions using -Unique to avoid processing duplicates/versions
+        blobList=$(
+            az storage blob list \
+                --account-name $storageAccount \
+                --container-name $containerName \
+                --include dv \--query "[?versionId != null].{name:name}" \
+                --auth-mode login -o tsv | uniq)
+        
+        # Iterate the collection
+        for blob in $blobList
+        do
+            # Get all versions of the blob, newest to oldest
+            blobVers=$(
+                az storage blob list \
+                    --account-name $storageAccount \
+                    --container-name $containerName \
+                    --include dv \
+                    --prefix $blob \
+                    --auth-mode login -o json | jq 'sort_by(.versionId) | reverse | .[]')
+            # Select the first (newest) object
+            delBlob=$(echo "$blobVers" | jq -sr '.[0]')
+            
+            # Verify that the newest version is NOT the latest (that the version is "deleted")
+            if [[ $(echo "$delBlob" | jq '.isCurrentVersion') != true ]]; 
+            then
+                # Get the blob's versionId property, build the URI to the blob
+                versionID=$(echo "$delBlob" | jq -r '.versionId')
+                uri="https://$storageAccount.blob.core.windows.net/$containerName/$blob?versionId=$versionID"
+                
+                # Copy the latest version 
+                az storage blob copy start \
+                    --account-name $storageAccount \
+                    --destination-blob $blob \
+                    --destination-container $containerName \
+                    --source-uri $uri \
+                    --auth-mode login
+       
+                delBlob=""
+            fi
+        done
+
+    else
+
+        #Retrieve all deleted blobs
+        blobList=$( \
+            az storage blob list \
+                --container-name $containerName \
+                --include d \
+                --output tsv \
+                --account-name $storageAccount \
+                --auth-mode login \
+                --query "[?deleted].[name]" \
+        )
+
+        #Iterate list of deleted blobs and restore
+        for row in $blobList
+        do
+            tmpName=$(echo $row | sed -e 's/\r//g')
+            echo "Restoring $tmpName"
+            az storage blob undelete \
+                --container-name $containerName \
+                --name $tmpName \
+                --account-name $storageAccount \
+                --auth-mode login
+        done
+
+    fi
+
+else
+    
+    #Soft delete is not enabled
+    echo "Sorry, the delete retention policy is not enabled."
+
+fi
 ```
 
 ## Next steps
 
-- [Choose how to authorize access to blob data with Azure CLI](/azure/storage/blobs/authorize-data-operations-cli)
-- [Run PowerShell commands with Azure AD credentials to access blob data](/azure/storage/blobs/authorize-data-operations-cli)
+- [Choose how to authorize access to blob data with Azure CLI](./authorize-data-operations-cli.md)
+- [Run PowerShell commands with Azure AD credentials to access blob data](./authorize-data-operations-cli.md)
 - [Manage blob containers using CLI](blob-containers-cli.md)

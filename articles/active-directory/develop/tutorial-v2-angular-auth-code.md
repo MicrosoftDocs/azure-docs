@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 04/14/2021
+ms.date: 03/25/2022
 ms.author: joarroyo
 ms.custom: aaddev, devx-track-js
 ---
@@ -105,8 +105,8 @@ Register your **Redirect URI** value as **http://localhost:4200/** and type as '
         AppRoutingModule,
         MsalModule.forRoot( new PublicClientApplication({
           auth: {
-            clientId: 'Enter_the_Application_Id_here', // This is your client ID
-            authority: 'Enter_the_Cloud_Instance_Id_Here'/'Enter_the_Tenant_Info_Here', // This is your tenant ID
+            clientId: 'Enter_the_Application_Id_here', // Application (client) ID from the app registration
+            authority: 'Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here', // The Azure cloud instance and the app's sign-in audience (tenant ID, common, organizations, or consumers)
             redirectUri: 'Enter_the_Redirect_Uri_Here'// This is your redirect URI
           },
           cache: {
@@ -220,7 +220,7 @@ Register your **Redirect URI** value as **http://localhost:4200/** and type as '
         MsalModule.forRoot( new PublicClientApplication({
           auth: {
             clientId: 'Enter_the_Application_Id_here',
-            authority: 'Enter_the_Cloud_Instance_Id_Here'/'Enter_the_Tenant_Info_Here',
+            authority: 'Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here',
             redirectUri: 'Enter_the_Redirect_Uri_Here'
           },
           cache: {
@@ -344,7 +344,7 @@ Add the code from the following sections to invoke login using a pop-up window o
         MsalModule.forRoot( new PublicClientApplication({
           auth: {
             clientId: 'Enter_the_Application_Id_here',
-            authority: 'Enter_the_Cloud_Instance_Id_Here'/'Enter_the_Tenant_Info_Here', 
+            authority: 'Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here',
             redirectUri: 'Enter_the_Redirect_Uri_Here'
           },
           cache: {
@@ -592,7 +592,7 @@ MSAL Angular provides `MsalGuard`, a class you can use to protect routes and req
         MsalModule.forRoot( new PublicClientApplication({
           auth: {
             clientId: 'Enter_the_Application_Id_here',
-            authority: 'Enter_the_Cloud_Instance_Id_Here'/'Enter_the_Tenant_Info_Here', 
+            authority: 'Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here',
             redirectUri: 'Enter_the_Redirect_Uri_Here'
           },
           cache: {

@@ -1,11 +1,12 @@
 ---
 title: Networking overview - Azure Database for PostgreSQL - Flexible Server
 description: Learn about connectivity and networking options in the Flexible Server deployment option for Azure Database for PostgreSQL.
-author: niklarin
-ms.author: nlarin
 ms.service: postgresql
 ms.subservice: flexible-server
 ms.topic: conceptual
+ms.author: gennadyk
+author: GennadNY
+ms.reviewer: 
 ms.date: 11/30/2021
 ---
 
@@ -54,6 +55,7 @@ Here are some concepts to be familiar with when you're using virtual networks wi
 * **Delegated subnet**. A virtual network contains subnets (sub-networks). Subnets enable you to segment your virtual network into smaller address spaces. Azure resources are deployed into specific subnets within a virtual network. 
 
   Your flexible server must be in a subnet that's *delegated*. That is, only Azure Database for PostgreSQL - Flexible Server instances can use that subnet. No other Azure resource types can be in the delegated subnet. You delegate a subnet by assigning its delegation property as `Microsoft.DBforPostgreSQL/flexibleServers`.
+ The smallest CIDR range you can specify for a subnet is /28, which provides fourteen IP addresses, however the first and last address in any network or subnet can't be assigned to any individual host. Azure reserves five IPs to be utilized internally by Azure networking, which include two IPs that cannot be assigned to host,  mentioned above. This leaves you eleven available IP addresses for /28 CIDR range,  whereas a single Flexible Server with High Availability features utilizes 4 addresses. 
 
   > [!IMPORTANT]
   > The names `AzureFirewallSubnet`, `AzureFirewallManagementSubnet`, `AzureBastionSubnet`, and `GatewaySubnet` are reserved within Azure. Don't use any of these as your subnet name.
@@ -81,6 +83,8 @@ If you use the Azure portal or the Azure CLI to create flexible servers with a v
 If you use an Azure API, an Azure Resource Manager template (ARM template), or Terraform, create private DNS zones that end with `.postgres.database.azure.com`. Use those zones while configuring flexible servers with private access. For example, use the form `[name1].[name2].postgres.database.azure.com` or `[name].postgres.database.azure.com`. If you choose to use the form `[name].postgres.database.azure.com`, the name can't be the name you use for one of your flexible servers or an error message will be shown during provisioning. For more information, see the [private DNS zones overview](../../dns/private-dns-overview.md).
 
 When using private network access with Azure virtual network, providing the private DNS zone information is  mandatory across various interfaces, including API, ARM, and Terraform.  Therefore, for new Azure Database for PostgreSQL Flexible Server creation using private network access with API, ARM, or Terraform, create private DNS zones and use them while configuring flexible servers with private access. See more information on [REST API specifications for Microsoft Azure](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2021-06-01/postgresql.json). If you use the [Azure portal](./how-to-manage-virtual-network-portal.md) or [Azure CLI](./how-to-manage-virtual-network-cli.md) for creating flexible servers, you can either provide a private DNS zone name that you had previously created in the same or a different subscription or a default private DNS zone is automatically created in your subscription.
+
+Using Azure Portal, CLI or ARM,  you can also change private DNS Zone from the one you provided when creating your Azure Database for PostgreSQL - Flexible Server to another private DNS zone that exists the same or different subscription. 
 
 ### Integration with a custom DNS server
 

@@ -3,7 +3,7 @@ title: Integrate your app with an Azure virtual network
 description: Integrate your app in Azure App Service with Azure virtual networks.
 author: madsd
 ms.topic: conceptual
-ms.date: 03/04/2022
+ms.date: 04/08/2022
 ms.author: madsd
 
 ---
@@ -60,9 +60,11 @@ When you scale up or down in size, the required address space is doubled for a s
 
 <sup>*</sup>Assumes that you'll need to scale up or down in either size or SKU at some point.
 
-Because subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your app might reach. To avoid any issues with subnet capacity, use a `/26` with 64 addresses. When creating subnets in Azure portal as part of integrating with the virtual network, a minimum size of /27 is required.
+Because subnet size can't be changed after assignment, use a subnet that's large enough to accommodate whatever scale your app might reach. To avoid any issues with subnet capacity, use a `/26` with 64 addresses. When you're creating subnets in Azure portal as part of integrating with the virtual network, a minimum size of /27 is required.
 
 When you want your apps in your plan to reach a virtual network that's already connected to by apps in another plan, select a different subnet than the one being used by the pre-existing virtual network integration.
+
+### Permissions
 
 You must have at least the following Role-based access control permissions on the subnet or at a higher level to configure regional virtual network integration through Azure portal, CLI or when setting the `virtualNetworkSubnetId` site property directly:
 
@@ -76,7 +78,7 @@ If the virtual network is in a different subscription than the app, you must ens
 
 ### Routes
 
-You can control what traffic goes through the virtual network integration. There are three types of routing to consider when you configure regional virtual network integration. [Application routing](#application-routing) defines what traffic is routed from your app and into the virtual network. [Configuration routing](#configuration-routing) affects operations that happen before or during startup of you app. Examples are container image pull and app settings with Key Vault reference. [Network routing](#network-routing) is the ability to handle how both app and configuration traffic is routed from your virtual network and out.
+You can control what traffic goes through the virtual network integration. There are three types of routing to consider when you configure regional virtual network integration. [Application routing](#application-routing) defines what traffic is routed from your app and into the virtual network. [Configuration routing](#configuration-routing) affects operations that happen before or during startup of your app. Examples are container image pull and app settings with Key Vault reference. [Network routing](#network-routing) is the ability to handle how both app and configuration traffic are routed from your virtual network and out.
 
 By default, only private traffic (also known as [RFC1918](https://datatracker.ietf.org/doc/html/rfc1918#section-3) traffic) sent from your app is routed through the virtual network integration. Unless you configure application routing or configuration routing options, all other traffic will not be sent through the virtual network integration. Traffic is only subject to [network routing](#network-routing) if it is sent through the virtual network integration.
 
@@ -85,7 +87,7 @@ By default, only private traffic (also known as [RFC1918](https://datatracker.ie
 Application routing applies to traffic that is sent from your app after it has been started. See [configuration routing](#configuration-routing) for traffic during start up. When you configure application routing, you can either route all traffic or only private traffic into your virtual network. You configure this behavior through the **Route All** setting. If **Route All** is disabled, your app only routes private traffic into your virtual network. If you want to route all your outbound app traffic into your virtual network, make sure that **Route All** is enabled.
 
 > [!NOTE]
-> * Only traffic configured in applicaiton or configuration routing is subject to the NSGs and UDRs that are applied to your integration subnet.
+> * Only traffic configured in application or configuration routing is subject to the NSGs and UDRs that are applied to your integration subnet.
 > * When **Route All** is enabled, outbound traffic from your app is still sent from the addresses that are listed in your app properties, unless you provide routes that direct the traffic elsewhere.
 > * Regional virtual network integration can't use port 25.
 
@@ -105,7 +107,7 @@ When you are using virtual network integration, you can configure how parts of t
 
 ##### Content storage
 
-Bringing you own storage for content in often used in Functions where [content storage](./../azure-functions/configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network) is configured as part of the Functions app.
+Bringing your own storage for content in often used in Functions where [content storage](./../azure-functions/configure-networking-how-to.md#restrict-your-storage-account-to-a-virtual-network) is configured as part of the Functions app.
 
 To route content storage traffic through the virtual network integration, you need to add an app setting named `WEBSITE_CONTENTOVERVNET` with the value `1`. In addition to adding the app setting, you must also ensure that any firewall or Network Security Group configured on traffic from the subnet allow traffic to port 443 and 445.
 
@@ -156,7 +158,7 @@ After your app integrates with your virtual network, it uses the same DNS server
 
 There are some limitations with using regional virtual network integration:
 
-* The feature is available from all App Service deployments in Premium v2 and Premium v3. It's also available in Standard but only from newer App Service deployments. If you're on an older deployment, you can only use the feature from a Premium v2 App Service plan. If you want to make sure you can use the feature in a Standard App Service plan, create your app in a Premium v3 App Service plan. Those plans are only supported on our newest deployments. You can scale down if you want after the plan is created.
+* The feature is available from all App Service deployments in Premium v2 and Premium v3. It's also available in Basic and Standard tier but only from newer App Service deployments. If you're on an older deployment, you can only use the feature from a Premium v2 App Service plan. If you want to make sure you can use the feature in a Basic or Standard App Service plan, create your app in a Premium v3 App Service plan. Those plans are only supported on our newest deployments. You can scale down if you want after the plan is created.
 * The feature can't be used by Isolated plan apps that are in an App Service Environment.
 * You can't reach resources across peering connections with classic virtual networks.
 * The feature requires an unused subnet that's an IPv4 `/28` block or larger in an Azure Resource Manager virtual network.
@@ -185,6 +187,7 @@ You can't use gateway-required virtual network integration:
 * From a Linux app.
 * From a [Windows container](./quickstart-custom-container.md).
 * To access service endpoint-secured resources.
+* To resolve App Settings referencing a network protected Key Vault.
 * With a coexistence gateway that supports both ExpressRoute and point-to-site or site-to-site VPNs.
 
 ### Set up a gateway in your Azure virtual network
@@ -255,7 +258,7 @@ The regional virtual network integration feature has no extra charge for use bey
 
 Three charges are related to the use of the gateway-required virtual network integration feature:
 
-* **App Service plan pricing tier charges**: Your apps need to be in a Standard, Premium, Premium v2, or Premium v3 App Service plan. For more information on those costs, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/).
+* **App Service plan pricing tier charges**: Your apps need to be in a Basic, Standard, Premium, Premium v2, or Premium v3 App Service plan. For more information on those costs, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/).
 * **Data transfer costs**: There's a charge for data egress, even if the virtual network is in the same datacenter. Those charges are described in [Data transfer pricing details](https://azure.microsoft.com/pricing/details/data-transfers/).
 * **VPN gateway costs**: There's a cost to the virtual network gateway that's required for the point-to-site VPN. For more information, see [VPN gateway pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/).
 

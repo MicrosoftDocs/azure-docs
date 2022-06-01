@@ -34,7 +34,7 @@ Assign the relevant permissions for vault's system-assigned managed identity on 
 
 ### Fetching the relevant recovery point
 
-List all backup instances within a vault using [az dataprotection backup-instance list](/cli/azure/dataprotection/backup-instance#az_dataprotection_backup_instance_list) command, and then fetch the relevant instance using the [az dataprotection backup-instance show](/cli/azure/dataprotection/backup-instance#az_dataprotection_backup_instance_show) command. Alternatively, for at-scale scenarios, you can list backup instances across vaults and subscriptions using the [az dataprotection backup-instance list-from-resourcegraph](/cli/azure/dataprotection/backup-instance#az_dataprotection_backup_instance_list_from_resourcegraph)
+List all backup instances within a vault using [az dataprotection backup-instance list](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-list) command, and then fetch the relevant instance using the [az dataprotection backup-instance show](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-show) command. Alternatively, for at-scale scenarios, you can list backup instances across vaults and subscriptions using the [az dataprotection backup-instance list-from-resourcegraph](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-list-from-resourcegraph)
 
 ```azurecli-interactive
 az dataprotection backup-instance list-from-resourcegraph --datasource-type AzureDisk --datasource-id /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/diskrg/providers/Microsoft.Compute/disks/CLITestDisk
@@ -102,7 +102,7 @@ az dataprotection backup-instance list-from-resourcegraph --datasource-type Azur
 ]
 ```
 
-Once the instance is identified, fetch the relevant recovery point using the [az dataprotection recovery-point list](/cli/azure/dataprotection/recovery-point#az_dataprotection_recovery_point_list) command.
+Once the instance is identified, fetch the relevant recovery point using the [az dataprotection recovery-point list](/cli/azure/dataprotection/recovery-point#az-dataprotection-recovery-point-list) command.
 
 ```azurecli-interactive
 az dataprotection recovery-point list --backup-instance-name diskrg-CLITestDisk-3df6ac08-9496-4839-8fb5-8b78e594f166 -g testBkpVaultRG --vault-name TestBkpVault
@@ -190,7 +190,7 @@ Construct the ARM ID of the new disk to be created with the target resource grou
 $targetDiskId = /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourceGroups/targetrg/providers/Microsoft.Compute/disks/CLITestDisk2
 ```
 
-Use the [az dataprotection backup-instance restore initialize-for-data-recovery](/cli/azure/dataprotection/backup-instance/restore#az_dataprotection_backup_instance_restore_initialize_for_data_recovery) command to prepare the restore request with all relevant details.
+Use the [az dataprotection backup-instance restore initialize-for-data-recovery](/cli/azure/dataprotection/backup-instance/restore#az-dataprotection-backup-instance-restore-initialize-for-data-recovery) command to prepare the restore request with all relevant details.
 
 ```azurecli-interactive
 az dataprotection backup-instance restore initialize-for-data-recovery --datasource-type AzureDisk --restore-location southeastasia --source-datastore OperationalStore --recovery-point-id 5081ad8f1e6c4548ae89536d0d45c493 --target-resource-id /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourceGroups/targetrg/providers/Microsoft.Compute/disks/CLITestDisk2 > restore.json
@@ -219,7 +219,7 @@ az dataprotection backup-instance restore initialize-for-data-recovery --datasou
 
 ```
 
-You can also validate if the JSON file will succeed in creating new resources using the [az dataprotection backup-instance validate-for-restore](/cli/azure/dataprotection/backup-instance#az_dataprotection_backup_instance_validate_for_restore) command.
+You can also validate if the JSON file will succeed in creating new resources using the [az dataprotection backup-instance validate-for-restore](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-validate-for-restore) command.
 
 ```azurecli-interactive
 az dataprotection backup-instance validate-for-restore -g testBkpVaultRG --vault-name TestBkpVault --backup-instance-name diskrg-CLITestDisk-3df6ac08-9496-4839-8fb5-8b78e594f166 --restore-request-object restore.json
@@ -227,7 +227,7 @@ az dataprotection backup-instance validate-for-restore -g testBkpVaultRG --vault
 
 ### Trigger the restore
 
-Use the [az dataprotection backup-instance restore trigger](/cli/azure/dataprotection/backup-instance/restore#az_dataprotection_backup_instance_restore_trigger) command to trigger the restore with the request prepared above.
+Use the [az dataprotection backup-instance restore trigger](/cli/azure/dataprotection/backup-instance/restore#az-dataprotection-backup-instance-restore-trigger) command to trigger the restore with the request prepared above.
 
 ```azurecli-interactive
 az dataprotection backup-instance restore trigger -g testBkpVaultRG --vault-name TestBkpVault --backup-instance-name diskrg-CLITestDisk-3df6ac08-9496-4839-8fb5-8b78e594f166 --restore-request-object restore.json
@@ -235,9 +235,9 @@ az dataprotection backup-instance restore trigger -g testBkpVaultRG --vault-name
 
 ## Tracking job
 
-Track all jobs using the [az dataprotection job list](/cli/azure/dataprotection/job#az_dataprotection_job_list) command. You can list all jobs and fetch a particular job detail.
+Track all jobs using the [az dataprotection job list](/cli/azure/dataprotection/job#az-dataprotection-job-list) command. You can list all jobs and fetch a particular job detail.
 
-You can also use Az.ResourceGraph to track all jobs across all Backup vaults. Use the [az dataprotection job list-from-resourcegraph](/cli/azure/dataprotection/job#az_dataprotection_job_list_from_resourcegraph) command to get the relevant job that can be across any Backup vault.
+You can also use Az.ResourceGraph to track all jobs across all Backup vaults. Use the [az dataprotection job list-from-resourcegraph](/cli/azure/dataprotection/job#az-dataprotection-job-list-from-resourcegraph) command to get the relevant job that can be across any Backup vault.
 
 ```azurecli-interactive
 az dataprotection job list-from-resourcegraph --datasource-type AzureDisk --operation Restore

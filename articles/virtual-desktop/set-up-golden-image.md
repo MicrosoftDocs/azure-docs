@@ -11,7 +11,7 @@ manager: bterkaly
 This article will walk you through how to use the Azure portal to create a custom image to use for your Azure Virtual Desktop session hosts. This custom image, which we'll call a "golden image," contains all apps and configuration settings you want to apply to your deployment.
 There are other approaches to customizing your session hosts, such as using device management tools like [Microsoft Endpoint Manager](/mem/intune/fundamentals/azure-virtual-desktop-multi-session) or automating your image build using tools like [Azure Image Builder](../virtual-machines/windows/image-builder-virtual-desktop.md) with [Azure DevOps](/azure/devops/pipelines/get-started/key-pipelines-concepts?view=azure-devops&preserve-view=true). Which strategy works best depends on the complexity and size of your planned Azure Virtual Desktop environment and your current application deployment processes. 
 ## Create an image from an Azure VM
-When creating a new VM for your golden image, make sure to choose an OS that's in the list of [supported virtual machine OS images](overview.md#supported-virtual-machine-os-images).  We recommend using a Windows 10 multi-session (with or without Microsoft 365) or Windows Server image for pooled host pools. We recommend using Windows 10 Enterprise images for personal host pools. You can use either Generation 1 or Generation 2 VMs; Gen 2 VMs support features that aren't supported for Gen 1 machines. Learn more about Generation 1 and Generation 2 VMs at [Support for generation 2 VMs on Azure](../virtual-machines/generation-2.md).
+When creating a new VM for your golden image, make sure to choose an OS that's in the list of [supported virtual machine OS images](prerequisites.md#operating-systems-and-licenses).  We recommend using a Windows 10 multi-session (with or without Microsoft 365) or Windows Server image for pooled host pools. We recommend using Windows 10 Enterprise images for personal host pools. You can use either Generation 1 or Generation 2 VMs; Gen 2 VMs support features that aren't supported for Gen 1 machines. Learn more about Generation 1 and Generation 2 VMs at [Support for generation 2 VMs on Azure](../virtual-machines/generation-2.md).
 ### Take your first snapshot
 First, [create the base VM](../virtual-machines/windows/quick-create-portal.md) for your chosen image. After you've deployed the image, take a snapshot of the disk of your image VM. Snapshots are save states that will let you roll back any changes if you run into problems while building the image. Since you'll be taking many snapshots throughout the build process, make sure to give the snapshot a name you can easily identify. 
 ### Customize your VM
@@ -20,7 +20,9 @@ Make sure you've done the following things before taking the final snapshot:
 - Install the latest Windows updates.
 - Complete any necessary cleanup, such as cleaning up temporary files, defragmenting disks, and removing unnecessary user profiles.
 > [!NOTE]
-> If your machine will include an antivirus app, it may cause issues when you start sysprep. To avoid this, disable all antivirus programs before running sysprep.
+> 1. If your machine will include an antivirus app, it may cause issues when you start sysprep. To avoid this, disable all antivirus programs before running sysprep.
+> 
+> 1. [Unified Write Filter](/windows-hardware/customize/enterprise/unified-write-filter) (UWF) is not supported for session hosts. Please ensure it is not enabled in your image.
 ### Take the final snapshot
 When you are done installing your applications to the image VM, take a final snapshot of the disk. If sysprep or capture fails, you will be able to create a new base VM with your applications already installed from this snapshot. 
 ### Run sysprep

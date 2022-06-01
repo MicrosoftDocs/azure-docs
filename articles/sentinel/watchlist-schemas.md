@@ -1,8 +1,8 @@
 ---
 title: Schemas for Microsoft Sentinel watchlist templates | Microsoft Docs
 description: Learn about the schemas used in each built-in watchlist template in Microsoft Sentinel.
-author: batamig
-ms.author: bagol
+author: cwatson-cat
+ms.author: cwatson
 ms.topic: reference
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
@@ -63,8 +63,8 @@ The Terminated Employees watchlist lists user accounts of employees that have be
 | **User On-Prem Sid**    | SID                                                                             | `S-1-12-1-4141952679-1282074057-123`   | Optional           |
 | **User Principal Name** | UPN                                                                             | `JeffL@seccxp.ninja`                  | Mandatory          |
 | **UserState**           | String <br><br>We recommend using either `Notified` or `Terminated` | `Terminated`                           | Mandatory          |
-| **Notification date**  | Timestamp - day                                                                 | `01.12.20`                             | Optional           |
-| **Termination date**    | Timestamp - day                                                                 | `01.01.21`                            | Mandatory          |
+| **Notification date**  | Timestamp - day <br><br>We recommend using the UTC format                        | `2020-12-1`                             | Optional           |
+| **Termination date**    | Timestamp - day <br><br>We recommend using the UTC format                       | `2021-01-01`                            | Mandatory          |
 | **Tags**                | List                                                                            | `["SAW user","Amba Wolfs team"]`       | Optional           |
 
 

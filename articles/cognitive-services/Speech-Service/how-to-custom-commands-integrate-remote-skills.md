@@ -10,11 +10,15 @@ ms.subservice: speech-service
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: eur
+ms.custom: cogserv-non-critical-speech
 ---
 
 # Export Custom Commands application as a remote skill
 
 In this article, you will learn how to export a Custom Commands application as a remote skill.
+
+> [!NOTE]
+> Exporting a Custom Commands application as a remote skill is a limited preview feature.
 
 ## Prerequisites
 > [!div class="checklist"]

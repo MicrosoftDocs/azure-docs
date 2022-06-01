@@ -33,13 +33,13 @@ To begin using Azure CLI:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-Sign in to the Azure subscription you use for the Azure VMware Solution deployment through the Azure CLI. Register the `Microsoft.AVS` resource provider with the [az provider register](/cli/azure/provider#az_provider_register) command:
+Sign in to the Azure subscription you use for the Azure VMware Solution deployment through the Azure CLI. Register the `Microsoft.AVS` resource provider with the [az provider register](/cli/azure/provider#az-provider-register) command:
 
 ```azurecli-interactive
 az provider register -n Microsoft.AVS --subscription <your subscription ID>
 ```
 
-You can use the [az provider list](/cli/azure/provider#az_provider_list) command to see all available providers.
+You can use the [az provider list](/cli/azure/provider#az-provider-list) command to see all available providers.
 
 ---
 

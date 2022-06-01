@@ -8,7 +8,7 @@ ms.subservice: security
 ms.topic: conceptual
 ms.date: 01/27/2022
 ms.author: abnarain 
-ms.custom: devx-track-azurepowershell, synapse
+ms.custom: devx-track-azurepowershell, synapse, subject-rbac-steps
 ---
 
 # Managed identity for Azure Data Factory and Azure Synapse 
@@ -304,7 +304,21 @@ You can find the managed identity information from Azure portal -> your data fac
 
 The managed identity information will also show up when you create linked service, which supports managed identity authentication, like Azure Blob, Azure Data Lake Storage, Azure Key Vault, etc.
 
-When granting permission, in Azure resource's Access Control (IAM) tab -> Add role assignment -> Assign access to -> select Data Factory under System assigned managed identity -> select by factory name; or in general, you can use object ID or data factory name (as managed identity name) to find this identity. If you need to get managed identity's application ID, you can use PowerShell.
+To grant permissions, follow these steps. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+
+1. Select **Access control (IAM)**.
+
+1. Select **Add** > **Add role assignment**.
+
+    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
+
+1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
+
+1. Select your Azure subscription.
+
+1. Under **System-assigned managed identity**, select **Data Factory**, and then select a data factory. You can also use the object ID or data factory name (as the managed-identity name) to find this identity. To get the managed identity's application ID, use PowerShell.
+
+1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
 #### Retrieve system-assigned managed identity using PowerShell
 

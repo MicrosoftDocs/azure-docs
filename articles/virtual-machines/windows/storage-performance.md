@@ -3,7 +3,7 @@ title: Optimize performance on Azure Lsv2-series virtual machines
 description: Learn how to optimize performance for your solution on the Lsv2-series virtual machines using a Windows example.
 author: sasha-melamed
 ms.service: virtual-machines
-ms.subservice: vm-sizes-storage
+ms.subservice: sizes
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
@@ -70,8 +70,6 @@ Scenarios that securely erase data to protect the customer include:
 - The VM is redeployed, stopped (de-allocated), or deleted (by you).
 - The VM becomes unhealthy and has to service heal to another node due to a hardware issue.
 - A small number of the planned maintenance servicing operations that requires the VM to be reallocated to another host for servicing.
-
-To learn more about options for backing up data in local storage, see [Backup and disaster recovery for Azure IaaS disks](../backup-and-disaster-recovery-for-azure-iaas-disks.md).
 
 ## Frequently asked questions
 

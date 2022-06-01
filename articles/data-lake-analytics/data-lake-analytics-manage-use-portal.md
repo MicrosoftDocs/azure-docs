@@ -5,6 +5,7 @@ ms.service: data-lake-analytics
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 12/05/2016
+ms.custom: subject-rbac-steps
 ---
 # Manage Azure Data Lake Analytics using the Azure portal
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -101,10 +102,14 @@ Use the Data Lake Analytics Developer role to enable U-SQL developers to use the
 ### Add users or security groups to a Data Lake Analytics account
 
 1. In the Azure portal, go to your Data Lake Analytics account.
-2. Click **Access control (IAM)** > **Add role assignment**.
-3. Select a role.
-4. Add a user.
-5. Click **OK**.
+
+1. Select **Access control (IAM)**.
+
+1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
+
+1. Assign a role to a user. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+
+   ![Screenshot that shows Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 >[!NOTE]
 >If a user or a security group needs to submit jobs, they also need permission on the store account. For more information, see [Secure data stored in Data Lake Store](../data-lake-store/data-lake-store-secure-data.md).

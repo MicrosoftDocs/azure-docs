@@ -1,15 +1,15 @@
 ---
-title: 'Tutorial: Use Azure Virtual WAN to Create Site-to-Site connections'
-description: Learn how to use Azure Virtual WAN to create a Site-to-Site VPN connection to Azure.
+title: 'Tutorial: Create site-to-site connections using Virtual WAN'
+description: Learn how to use Azure Virtual WAN to create a site-to-site VPN connection to Azure.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 08/18/2021
+ms.date: 05/02/2022
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ---
-# Tutorial: Create a Site-to-Site connection using Azure Virtual WAN
+# Tutorial: Create a site-to-site connection using Azure Virtual WAN
 
 This tutorial shows you how to use Virtual WAN to connect to your resources in Azure over an IPsec/IKE (IKEv1 and IKEv2) VPN connection. This type of connection requires a VPN device located on-premises that has an externally facing public IP address assigned to it. For more information about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md).
 
@@ -34,7 +34,7 @@ In this tutorial you learn how to:
 
 ## Prerequisites
 
-Verify that you have met the following criteria before beginning your configuration:
+Verify that you've met the following criteria before beginning your configuration:
 
 [!INCLUDE [Before you begin](../../includes/virtual-wan-before-include.md)]
 
@@ -44,9 +44,11 @@ Verify that you have met the following criteria before beginning your configurat
 
 ## <a name="hub"></a>Configure hub settings
 
-A hub is a virtual network that can contain gateways for site-to-site, ExpressRoute, or point-to-site functionality. For this tutorial, you begin by filling out the **Basics** tab for the virtual hub and then continue on to fill out the site-to-site tab in the next section. Note that it is possible to create an empty hub (a hub that does not contain any gateways) and then add gateways (S2S, P2S, ExpressRoute, etc.) later. Once a hub is created, you'll be charged for the hub, even if you don't attach any sites or create any gateways within the hub.
+A hub is a virtual network that can contain gateways for site-to-site, ExpressRoute, or point-to-site functionality. For this tutorial, you begin by filling out the **Basics** tab for the virtual hub and then continue on to fill out the site-to-site tab in the next section. It's also possible to create an empty hub (a hub that doesn't contain any gateways) and then add gateways (S2S, P2S, ExpressRoute, etc.) later. Once a hub is created, you'll be charged for the hub, even if you don't attach any sites or create any gateways within the hub.
 
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-s2s-hub-include.md)]
+
+Don't create the hub yet. Continue on to the next section to configure additional settings.
 
 ## <a name="gateway"></a>Configure a site-to-site gateway
 
@@ -74,17 +76,17 @@ In this section, you create a connection between the hub and your VNet.
 
 ## <a name="device"></a>Download VPN configuration
 
-Use the VPN device configuration file to configure your on-premises VPN device. The basic steps are listed below. The information about what the configuration file contains and how to configure your VPN device are 
+Use the VPN device configuration file to configure your on-premises VPN device. The basic steps are listed below.
 
-1. Navigate to your **Virtual HUB -> VPN (Site to site)** page.
+1. From your Virtual WAN page, go to **Hubs -> Your virtual hub -> VPN (Site to site)** page.
 
-1. At the top of the **VPN (Site to site)** page, click **Download VPN Config**. You will see a series of messages as Azure creates a storage account in the resource group 'microsoft-network-[location]', where location is the location of the WAN.
+1. At the top of the **VPN (Site to site)** page, click **Download VPN Config**. You'll see a series of messages as Azure creates a storage account in the resource group 'microsoft-network-[location]', where location is the location of the WAN.
 
-1. Once the file has finished creating, click the link to download the file. To learn about the contents of the file, see [About the VPN device configuration file](#config-file) in this section.
+1. Once the file finishes creating, click the link to download the file. To learn about the contents of the file, see [About the VPN device configuration file](#config-file) in this section.
 
 1. Apply the configuration to your on-premises VPN device. For more information, see [VPN device configuration](#vpn-device) in this section.
 
-1. After you have applied the configuration to your VPN devices, it isn't necessary to keep the storage account that Azure created. You can delete it.
+1. After you've applied the configuration to your VPN devices, it isn't necessary to keep the storage account that Azure created. You can delete it.
 
 ### <a name="config-file"></a>About the VPN device configuration file
 
@@ -103,17 +105,17 @@ The device configuration file contains the settings to use when configuring your
          ```
         "ConnectedSubnets":["10.2.0.0/16","10.3.0.0/16"]
          ```
-    * **IP addresses** of the virtual hub vpngateway. Because each connection of the vpngateway is composed of two tunnels in active-active configuration, you'll see both IP addresses listed in this file. In this example, you see "Instance0" and "Instance1" for each site.<br>Example:
+    * **IP addresses** of the virtual hub vpngateway. Because each vpngateway connection is composed of two tunnels in active-active configuration, you'll see both IP addresses listed in this file. In this example, you see "Instance0" and "Instance1" for each site.<br>Example:
 
         ``` 
         "Instance0":"104.45.18.186"
         "Instance1":"104.45.13.195"
         ```
-    * **Vpngateway connection configuration details** such as BGP, pre-shared key etc. The PSK is the pre-shared key that is automatically generated for you. You can always edit the connection in the Overview page for a custom PSK.
+    * **Vpngateway connection configuration details** such as BGP, pre-shared key etc. The PSK is the pre-shared key that is automatically generated for you. You can always edit the connection in the **Overview** page for a custom PSK.
   
 ### Example device configuration file
 
-  ```
+```
   { 
       "configurationVersion":{ 
          "LastUpdatedTime":"2018-07-03T18:29:49.8405161Z",
@@ -214,7 +216,7 @@ The device configuration file contains the settings to use when configuring your
          }
       ]
    }
-  ```
+```
 
 ### <a name="vpn-device"></a>Configuring your VPN device
 
@@ -224,9 +226,9 @@ The device configuration file contains the settings to use when configuring your
 
 If you need instructions to configure your device, you can use the instructions on the [VPN device configuration scripts page](~/articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#configscripts) with the following caveats:
 
-* The instructions on the VPN devices page are not written for Virtual WAN, but you can use the Virtual WAN values from the configuration file to manually configure your VPN device.
- 
-* The downloadable device configuration scripts that are for VPN Gateway do not work for Virtual WAN, as the configuration is different.
+* The instructions on the VPN devices page aren't written for Virtual WAN, but you can use the Virtual WAN values from the configuration file to manually configure your VPN device.
+
+* The downloadable device configuration scripts that are for VPN Gateway don't work for Virtual WAN, as the configuration is different.
 
 * A new Virtual WAN can support both IKEv1 and IKEv2.
 
@@ -234,7 +236,7 @@ If you need instructions to configure your device, you can use the instructions 
 
 ## <a name="gateway-config"></a>View or edit gateway settings
 
-You can view and edit your VPN gateway settings at any time by navigating to **Virtual HUB -> VPN (Site to site)** and selecting **View/Configure**.
+You can view and edit your VPN gateway settings at any time. Go to your **Virtual HUB -> VPN (Site to site)** and select **View/Configure**.
 
 :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="Screenshot that shows the 'VPN (Site-to-site)' page with an arrow pointing to the 'View/Configure' action." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
 
@@ -245,7 +247,7 @@ On the **Edit VPN Gateway** page, you can see the following settings:
 * **Default BGP IP Address**: Assigned by Azure.
 * **Custom BGP IP Address**: This field is reserved for APIPA (Automatic Private IP Addressing). Azure supports BGP IP in the ranges 169.254.21.* and 169.254.22.*. Azure accepts BGP connections in these ranges but will dial connection with the default BGP IP.
 
-   :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="Screenshot shows the Edit VPN Gateway page with the Edit button highlighted." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
+   :::image type="content" source="media/virtual-wan-site-to-site-portal/edit-gateway.png" alt-text="Screenshot shows the Edit VPN Gateway page with the Edit button highlighted." lightbox="media/virtual-wan-site-to-site-portal/edit-gateway.png":::
 
 ## <a name="cleanup"></a>Clean up resources
 

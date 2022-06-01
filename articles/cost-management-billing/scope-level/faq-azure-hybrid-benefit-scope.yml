@@ -41,7 +41,7 @@ sections:
           Other agreement types aren't supported yet. For more information, see [Prerequisites](create-sql-license-assignments.md#prerequisites).
       - question: What SQL licenses qualify for Azure Hybrid Benefit?
         answer: |
-          SQL Server Enterprise and Standard Edition core licenses with Software Assurance or core subscription licenses. For more information, see [Azure Hybrid Benefit for SQL Server](../../azure-sql/azure-hybrid-benefit.md).
+          SQL Server Enterprise and Standard Edition core licenses with Software Assurance or core subscription licenses. For more information, see [Azure Hybrid Benefit for SQL Server](/azure/azure-sql/azure-hybrid-benefit).
       - question: How do I decide how many qualifying SQL Server licenses to assign to Azure?
         answer: |
           In general, your procurement or software asset management department needs to be involved in the decision about how many licenses to assign because the number depends on how many eligible SQL Server licenses are available. You might need to buy more licenses. The decision involves a few steps:
@@ -56,7 +56,7 @@ sections:
         answer: |
           The new approach of centrally managing Azure Hybrid Benefit at a scope-level supports SQL Server in Azure Virtual machines. However, it’s essential that you have enabled automatic registration of the self-installed SQL server images with the IaaS extension *before* you assign SQL licenses. The new experience includes a feature that informs you about current usage of Azure Hybrid Benefit and the usage of SQL licenses that aren’t discounted. Assigning the number of SQL Server licenses at the level of the current usage will ensure that you won’t experience unexpected pay-as-you-go charges. Because the unregistered SQL VMs aren’t recognized as SQL resources, registering them with the IaaS extension *after* you begin assigning licenses at a scope-level could lead to the license assignments being insufficient to cover the newly recognized SQL VMs. In that case, those *new* SQL VMs from registration may incur unexpected pay-as-you-go charges. 
 
-          For more information about how to enable automatic IaaS registration, see [Register SQL VMs in Azure with the SQL IaaS Agent extension](../../azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk.md).
+          For more information about how to enable automatic IaaS registration, see [Register SQL VMs in Azure with the SQL IaaS Agent extension](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-vms-bulk).
 
           To get more information about the total number of unregistered SQL Server VMs in each subscription, you can use the [SQL license usage PowerShell script](https://github.com/anosov1960/sql-server-samples/tree/master/samples/manage/azure-hybrid-benefit).
       - question: How will my Azure bill change when I switch to centrally assigning licenses at a scope level?

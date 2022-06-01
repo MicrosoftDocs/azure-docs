@@ -2,7 +2,7 @@
 title: Configure security agents
 description: Learn how to configure Defender for IoT security agents for use with the Defender for IoT security service.
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 03/28/2022
 ---
 
 # Tutorial: Configure security agents

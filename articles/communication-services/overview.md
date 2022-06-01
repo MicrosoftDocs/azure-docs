@@ -15,6 +15,8 @@ ms.service: azure-communication-services
 
 Azure Communication Services are cloud-based services with REST APIs and client library SDKs available to help you integrate communication into your applications. You can add communication to your applications without being an expert in underlying technologies such as media encoding or telephony. Azure Communication Service is available in multiple [Azure geographies](concepts/privacy.md) and Azure for government.
 
+> [!VIDEO https://www.youtube.com/embed/chMHVHLFcao]
+
 Azure Communication Services supports various communication formats:
 
 - [Voice and Video Calling](concepts/voice-video-calling/calling-sdk-features.md)
@@ -23,7 +25,7 @@ Azure Communication Services supports various communication formats:
 
 You can connect custom client apps, custom services, and the publicly switched telephony network (PSTN) to your communications experience. You can acquire [phone numbers](./concepts/telephony/plan-solution.md) directly through Azure Communication Services REST APIs, SDKs, or the Azure portal; and use these numbers for SMS or calling applications. Azure Communication Services [direct routing](./concepts/telephony/plan-solution.md) allows you to use SIP and session border controllers to connect your own PSTN carriers and bring your own phone numbers.
 
-In addition to REST APIs, [Azure Communication Services client libraries](./concepts/sdk-options.md) are available for various platforms and languages, including Web browsers (JavaScript), iOS (Swift), Java (Android), Windows (.NET). A [UI library](https://aka.ms/acsstorybook) can accelerate development for Web, iOS, and Android apps. Azure Communication Services is identity agnostic and you control how end users are identified and authenticated.
+In addition to REST APIs, [Azure Communication Services client libraries](./concepts/sdk-options.md) are available for various platforms and languages, including Web browsers (JavaScript), iOS (Swift), Android (Java), Windows (.NET). A [UI library](https://aka.ms/acsstorybook) can accelerate development for Web, iOS, and Android apps. Azure Communication Services is identity agnostic and you control how end users are identified and authenticated.
 
 Scenarios for Azure Communication Services include:
 
@@ -76,7 +78,11 @@ Learn more about the Azure Communication Services SDKs with the resources below.
 |**[Calling SDK overview](./concepts/voice-video-calling/calling-sdk-features.md)**|Review the Communication Services Calling SDK overview.|
 |**[Chat SDK overview](./concepts/chat/sdk-features.md)**|Review the Communication Services Chat SDK overview.|
 |**[SMS SDK overview](./concepts/sms/sdk-features.md)**|Review the Communication Services SMS SDK overview.|
-|**[UI Library overview](https://aka.ms/acsstorybook))**| Review the UI Library for the Communication Services |
+|**[UI Library overview](https://aka.ms/acsstorybook)**| Review the UI Library for the Communication Services |
+
+## Design resources
+
+Find comprehensive components, composites, and UX guidance in the [UI Library Design Kit for Figma](https://www.figma.com/community/file/1095841357293210472). This design resource is purpose-built to help design your video calling and chat experiences faster and with less effort.  
 
 ## Other Microsoft Communication Services
 

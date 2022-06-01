@@ -350,6 +350,7 @@ The way you create a `TokenCredential` instance is beyond the scope of this arti
 - [In .NET](/dotnet/api/overview/azure/identity-readme#credential-classes)
 - [In Java](/java/api/overview/azure/identity-readme#credential-classes)
 - [In JavaScript](/javascript/api/overview/azure/identity-readme#credential-classes)
+- [In Python](/python/api/overview/azure/identity-readme#credential-classes)
 
 The examples below use a service principal with a `ClientSecretCredential` instance.
 
@@ -395,6 +396,18 @@ const client = new CosmosClient({
     endpoint: "<account-endpoint>",
     aadCredentials: servicePrincipal
 });
+```
+
+### In Python
+
+The Azure Cosmos DB RBAC is supported in the [Python SDK versions 4.3.0b4](sql-api-sdk-python.md) and higher.
+
+```python
+aad_credentials = ClientSecretCredential(
+    tenant_id="<azure-ad-tenant-id>",
+    client_id="<client-application-id>",
+    client_secret="<client-application-secret>")
+client = CosmosClient("<account-endpoint>", aad_credentials)
 ```
 
 ## Authenticate requests on the REST API

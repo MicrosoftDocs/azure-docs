@@ -40,7 +40,7 @@ Since this sample only focuses on the server APIs, the client application is not
 
 To be able to run this sample, you will need to:
 
-- Register a Client and Server (Web API) applications in Azure Active Directory as part of [On Behalf Of workflow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). Follow instructions on [registrations set up guideline](https://github.com/Azure-Samples/communication-services-authentication-hero-csharp/blob/main/docs/deployment-guides/set-up-app-registrations.md)
+- Register a Client and Server (Web API) applications in Azure Active Directory as part of [On Behalf Of workflow](../../active-directory/develop/v2-oauth2-on-behalf-of-flow.md). Follow instructions on [registrations set up guideline](https://github.com/Azure-Samples/communication-services-authentication-hero-csharp/blob/main/docs/deployment-guides/set-up-app-registrations.md)
 - A deployed Azure Communication Services resource. [Create an Azure Communication Services resource](../quickstarts/create-communication-resource.md?tabs=linux&pivots=platform-azp). 
 - Update the Server (Web API) application with information from the app registrations.
  

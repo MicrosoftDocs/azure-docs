@@ -17,7 +17,7 @@
 When creating the Key Vault, you must enable purge protection. Purge protection ensures that a deleted key cannot be permanently deleted until the retention period lapses. These settings protect you from losing data due to accidental deletion. These settings are mandatory when using a Key Vault for encrypting managed disks.
 
 > [!IMPORTANT]
-> Do not camel case the region, if you do so you may experience problems when assigning additional disks to the resource in the Azure portal.
+> Don't camel case the region, if you do so, you may experience problems when assigning additional disks to the resource in the Azure portal.
 
 ```azurecli
 subscriptionId=yourSubscriptionID
@@ -73,8 +73,8 @@ Alternatively, you can use a Managed HSM to handle your keys.
 To do this, you must complete the following prerequisites:
 
 - Install the latest [Azure CLI](/cli/azure/install-az-cli2) and log in to an Azure account in with [az login](/cli/azure/reference-index).
-- [Create and configure a managed HSM](/azure/key-vault/managed-hsm/quick-create-cli).
-- [Assign permissions to a user, so they can manage your Managed HSM](/azure/key-vault/managed-hsm/role-management).
+- [Create and configure a managed HSM](../articles/key-vault/managed-hsm/quick-create-cli.md).
+- [Assign permissions to a user, so they can manage your Managed HSM](../articles/key-vault/managed-hsm/role-management.md).
 
 #### Configuration
 

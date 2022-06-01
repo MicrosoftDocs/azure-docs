@@ -16,6 +16,8 @@
     href: concepts/container-management.md
   - name: 'Distributed data structures'
     href: concepts/data-structures.md
+  - name: Data storage in Azure Fluid Relay
+    href: concepts/data-storage.md
   - name: Data encryption in Azure Fluid Relay
     href: concepts/data-encryption.md
   - name: 'Authentication and authorization in your app'
@@ -40,6 +42,8 @@
       href: how-tos/test-automation.md
     - name: 'How to: Delete a Fluid container'
       href: how-tos/container-deletion.md
+    - name: 'How to: Validate a User Created a Document'
+      href: how-tos/validate-document-creator.md
 - name: Reference
   items:
     - name: API documentation

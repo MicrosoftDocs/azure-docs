@@ -95,7 +95,7 @@ If you are using IoT Edge for Linux on Windows, you need to use the SSH key loca
       trusted_ca_certs: "file:///<path>/<root CA cert>"
    ```
 
-1. Make sure that the user **iotedge** has read permissions for the directory holding the certificates.
+1. Make sure that the user **iotedge** has read/write permissions for the directory holding the certificates.
 
 1. If you've used any other certificates for IoT Edge on the device before, delete the files in the following two directories before starting or restarting IoT Edge:
 

@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/28/2022
+ms.date: 03/31/2022
 ---
 
 # Service limits in Azure Cognitive Search
@@ -36,28 +36,27 @@ Maximum limits on storage, workloads, and quantities of indexes and other object
 | Resource | Free | Basic&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
 | Maximum indexes |3 |5 or 15 |50 |200 |200 |1000 per partition or 3000 per service |10 |10 |
-| Maximum simple fields per index |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
-| Maximum complex collection fields per index |40 |40 |40 |40 |40 |40 |40 |40 |
-| Maximum elements across all complex collections per document&nbsp;<sup>2</sup> |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
+| Maximum simple fields per index&nbsp;<sup>2</sup> |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
+| Maximum complex collections per index |40 |40 |40 |40 |40 |40 |40 |40 |
+| Maximum elements across all complex collections per document&nbsp;<sup>3</sup> |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
 | Maximum depth of complex fields |10 |10 |10 |10 |10 |10 |10 |10 |
 | Maximum [suggesters](/rest/api/searchservice/suggesters) per index |1 |1 |1 |1 |1 |1 |1 |1 |
 | Maximum [scoring profiles](/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per index |100 |100 |100 |100 |100 |100 |100 |100 |
 | Maximum functions per profile |8 |8 |8 |8 |8 |8 |8 |8 |
 
-<sup>1</sup> Basic services created before December 2017 have lower limits (5 instead of 15) on indexes. Basic tier is the only SKU with a lower limit of 100 fields per index.
+<sup>1</sup> Basic services created before December 2017 have lower limits (5 instead of 15) on indexes. Basic tier is the only SKU with a lower limit of 100 fields per index. 
 
-<sup>2</sup> An upper limit exists for elements because having a large number of them significantly increases the storage required for your index. An element of a complex collection is defined as a member of that collection. For example, assume a [Hotel document with a Rooms complex collection](search-howto-complex-data-types.md#indexing-complex-types), each room in the Rooms collection is considered an element. During indexing, the indexing engine can safely process a maximum of 3000 elements across the document as a whole. [This limit](search-api-migration.md#upgrade-to-2019-05-06) was introduced in `api-version=2019-05-06` and applies to complex collections only, and not to string collections or to complex fields.
+<sup>2</sup> The upper limit on fields includes both first-level fields and nested subfields in a complex collection. For example, if an index contains 15 fields and has two complex collections with 5 subfields each, the field count of your index is 25. Indexes with a very large fields collection can be slow. [Limit fields and attributes](search-what-is-an-index.md#physical-structure-and-size) to just those you need, and run indexing and query test to ensure performance is acceptable.
+
+<sup>3</sup> An upper limit exists for elements because having a large number of them significantly increases the storage required for your index. An element of a complex collection is defined as a member of that collection. For example, assume a [Hotel document with a Rooms complex collection](search-howto-complex-data-types.md#indexing-complex-types), each room in the Rooms collection is considered an element. During indexing, the indexing engine can safely process a maximum of 3000 elements across the document as a whole. [This limit](search-api-migration.md#upgrade-to-2019-05-06) was introduced in `api-version=2019-05-06` and applies to complex collections only, and not to string collections or to complex fields.
+
+You might find some variation in maximum limits if your service happens to be provisioned on a more powerful cluster. The limits here represent the common denominator. Indexes built to the above specifications will be portable across equivalent service tiers in any region.
 
 <a name="document-limits"></a>
 
 ## Document limits 
 
-As of October 2018, there are no longer any document count limits for any new service created at any billable tier (Basic, S1, S2, S3, S3 HD) in any region. Older services created prior to October 2018 may still be subject to document count limits.
-
-To determine whether your service has document limits, use the [GET Service Statistics REST API](/rest/api/searchservice/get-service-statistics). Document limits are reflected in the response, with `null` indicating no limits.
-
-> [!NOTE]
-> Although there are no document limits imposed by the service, there is a shard limit of approximately 24 billion documents per index on Basic, S1, S2, and S3 search services. For S3 HD, the shard limit is 2 billion documents per index. Each element of a complex collection counts as a separate document in terms of shard limits.
+There are no longer any document limits per service in Azure Cognitive Search, however, there is a limit of approximately 24 billion documents per index on Basic, S1, S2, and S3 search services. For S3 HD, the limit is 2 billion documents per index. Each element of a complex collection counts as a separate document in terms of these limits.
 
 ### Document size limits per API call
 

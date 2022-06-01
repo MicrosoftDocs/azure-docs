@@ -28,12 +28,12 @@ Microsoft manages and monitors the following components through the control pane
 * Kubelet or Kubernetes API servers
 * Etcd or a compatible key-value store, providing Quality of Service (QoS), scalability, and runtime
 * DNS services (for example, kube-dns or CoreDNS)
-* Kubernetes proxy or networking
+* Kubernetes proxy or networking (except when [BYOCNI](use-byo-cni.md) is used)
 * Any additional addon or system component running in the kube-system namespace
 
 AKS isn't a Platform-as-a-Service (PaaS) solution. Some components, such as agent nodes, have *shared responsibility*, where users must help maintain the AKS cluster. User input is required, for example, to apply an agent node operating system (OS) security patch.
 
-The services are *managed* in the sense that Microsoft and the AKS team deploys, operates, and is responsible for service availability and functionality. Customers can't alter these managed components. Microsoft limits customization to ensure a consistent and scalable user experience. For a fully customizable solution, see [AKS Engine](https://github.com/Azure/aks-engine).
+The services are *managed* in the sense that Microsoft and the AKS team deploys, operates, and is responsible for service availability and functionality. Customers can't alter these managed components. Microsoft limits customization to ensure a consistent and scalable user experience.
 
 ## Shared responsibility
 
@@ -52,9 +52,9 @@ Microsoft provides technical support for the following examples:
 * Connectivity to all Kubernetes components that the Kubernetes service provides and supports, such as the API server.
 * Management, uptime, QoS, and operations of Kubernetes control plane services (Kubernetes control plane, API server, etcd, and coreDNS, for example).
 * Etcd data store. Support includes automated, transparent backups of all etcd data every 30 minutes for disaster planning and cluster state restoration. These backups aren't directly available to you or any users. They ensure data reliability and consistency. On-demand rollback or restore is not supported as a feature.
-* Any integration points in the Azure cloud provider driver for Kubernetes. These include integrations into other Azure services such as load balancers, persistent volumes, or networking (Kubernetes and Azure CNI).
+* Any integration points in the Azure cloud provider driver for Kubernetes. These include integrations into other Azure services such as load balancers, persistent volumes, or networking (Kubernetes and Azure CNI, except when [BYOCNI](use-byo-cni.md) is in use).
 * Questions or issues about customization of control plane components such as the Kubernetes API server, etcd, and coreDNS.
-* Issues about networking, such as Azure CNI, kubenet, or other network access and functionality issues. Issues could include DNS resolution, packet loss, routing, and so on. Microsoft supports various networking scenarios:
+* Issues about networking, such as Azure CNI, kubenet, or other network access and functionality issues, except when [BYOCNI](use-byo-cni.md) is in use. Issues could include DNS resolution, packet loss, routing, and so on. Microsoft supports various networking scenarios:
   * Kubenet and Azure CNI using managed VNETs or with custom (bring your own) subnets.
   * Connectivity to other Azure services and applications
   * Ingress controllers and ingress or load balancer configurations
@@ -75,6 +75,7 @@ Microsoft doesn't provide technical support for the following examples:
   > Microsoft can provide best-effort support for third-party open-source projects such as Helm. Where the third-party open-source tool integrates with the Kubernetes Azure cloud provider or other AKS-specific bugs, Microsoft supports examples and applications from Microsoft documentation.
 * Third-party closed-source software. This software can include security scanning tools and networking devices or software.
 * Network customizations other than the ones listed in the [AKS documentation](./index.yml).
+* Custom or 3rd-party CNI plugins used in [BYOCNI](use-byo-cni.md) mode.
 
 
 ## AKS support coverage for agent nodes

@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 07/02/2021
 ms.author: justipat
 ms.reviewer: sngun
-ms.custom: devx-track-csharp, devx-track-azurecli
+ms.custom: devx-track-csharp, devx-track-azurecli, subject-rbac-steps
 
 ---
 
@@ -57,23 +57,23 @@ In this scenario, the function app will read the temperature of the aquarium, th
 
 ### Assign the role using Azure portal
 
-1. Sign in to the Azure portal and go to your Azure Cosmos DB account. Open the **Access control (IAM)** pane and then the **Role assignments** tab:
+1. Sign in to the Azure portal and go to your Azure Cosmos DB account.
 
-   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab.png" alt-text="Screenshot showing the Access control pane and the Role assignments tab.":::
+1. Select **Access control (IAM)**.
 
-1. Select **+ Add** > **Add role assignment**.
+1. Select **Add** > **Add role assignment**.
 
-1. The **Add role assignment** panel opens to the right:
+    :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png" alt-text="Screenshot that shows Access control (IAM) page with Add role assignment menu open.":::
 
-   :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" alt-text="Screenshot showing the Add role assignment pane.":::
+1. On the **Role** tab, select **DocumentDB Account Contributor**.
 
-   * **Role**: Select **DocumentDB Account Contributor**
-   * **Assign access to**: Under the **Select system-assigned managed identity** subsection, select **Function App**.
-   * **Select**: The pane will be populated with all the function apps in your subscription that have a **Managed System Identity**. In this case, select the **FishTankTemperatureService** function app: 
+1. On the **Members** tab, select **Managed identity**, and then select **Select members**.
 
-      :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="Screenshot showing the Add role assignment pane populated with examples.":::
+1. Select your Azure subscription.
 
-1. After you have selected your function app, select **Save**.
+1. Under **System-assigned managed identity**, select **Function App**, and then select **FishTankTemperatureService**.
+
+1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
 ### Assign the role using Azure CLI
 

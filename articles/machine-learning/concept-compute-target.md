@@ -9,8 +9,8 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/21/2021
+ms.custom: ignite-fall-2021, event-tier1-build-2022
 #Customer intent: As a data scientist, I want to understand what a compute target is and why I need it.
-ms.custom: ignite-fall-2021
 ---
 
 # What are compute targets in Azure Machine Learning?
@@ -53,7 +53,6 @@ You can create Azure Machine Learning compute instances or compute clusters from
     * [Compute instance](how-to-create-manage-compute-instance.md).
     * [Compute cluster](how-to-create-attach-compute-cluster.md).
 * An Azure Resource Manager template. For an example template, see [Create an Azure Machine Learning compute cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-amlcompute).
-* A machine learning [extension for the Azure CLI](reference-azure-machine-learning-cli.md#resource-management).
 
 When created, these compute resources are automatically part of your workspace, unlike other kinds of compute targets.
 
@@ -132,8 +131,8 @@ If using the GPU-enabled compute targets, it is important to ensure that the cor
 
 In addition to ensuring the CUDA version and hardware are compatible, also ensure that the CUDA version is compatible with the version of the machine learning framework you are using: 
 
-- For PyTorch, you can check the compatibility [here](https://pytorch.org/get-started/previous-versions/). 
-- For Tensorflow, you can check the compatibility [here](https://www.tensorflow.org/install/source#gpu).
+- For PyTorch, you can check the compatibility by visiting [Pytorch's previous versions page](https://pytorch.org/get-started/previous-versions/). 
+- For Tensorflow, you can check the compatibility by visiting [Tensorflow's build from source page](https://www.tensorflow.org/install/source#gpu).
 
 ### Compute isolation
 

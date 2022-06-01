@@ -4,8 +4,8 @@ description: Learn how to create and deploy stateless node types in Azure Servic
 author: peterpogorski
 
 ms.topic: conceptual
-ms.date: 10/19/2021
-ms.author: pepogors
+ms.date: 03/16/2022
+ms.author: ashank
 ---
 # Deploy an Azure Service Fabric cluster with stateless-only node types
 Service Fabric node types come with inherent assumption that at some point of time, stateful services might be placed on the nodes. Stateless node types change this assumption for a node type, thus allowing the node type to use other features such as faster scale out operations, support for Automatic OS Upgrades on Bronze durability and scaling out to more than 100 nodes in a single virtual machine scale set.
@@ -133,7 +133,7 @@ To enable stateless node types, you should configure the underlying virtual mach
 ```
 
 ## Configuring Stateless node types with multiple Availability Zones
-To configure Stateless node type spanning across multiple availability zones follow the documentation [here](./service-fabric-cross-availability-zones.md#1-preview-enable-multiple-availability-zones-in-single-virtual-machine-scale-set), along with the few changes as follows:
+To configure Stateless node type spanning across multiple availability zones follow the documentation [here](./service-fabric-cross-availability-zones.md#1-enable-multiple-availability-zones-in-single-virtual-machine-scale-set), along with the few changes as follows:
 
 * Set **singlePlacementGroup** :  **false**  if multiple placement groups is required to be enabled.
 * Set  **upgradePolicy** : **Rolling**   and add Application Health Extension/Health Probes as mentioned above.

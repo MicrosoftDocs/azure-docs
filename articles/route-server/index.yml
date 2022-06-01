@@ -9,8 +9,8 @@ metadata:
   services: route-server
   ms.service: route-server 
   ms.topic: landing-page 
-  author: duongau 
-  ms.author: duau 
+  author: halkazwini 
+  ms.author: halkazwini 
   ms.date: 09/01/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -25,6 +25,10 @@ landingContent:
         links:
           - text: What is Azure Route Server?
             url: overview.md
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure Route Server
+            url: /learn/modules/intro-to-azure-route-server
             
   # Card
   - title: Get started

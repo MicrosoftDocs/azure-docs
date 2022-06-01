@@ -4,7 +4,7 @@ description: Troubleshoot why you're not seeing data from your devices in IoT Ce
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/21/2021
+ms.date: 03/24/2022
 ms.topic: troubleshooting
 ms.service: iot-central
 ms.custom: device-developer, devx-track-azurecli
@@ -166,8 +166,6 @@ If you are seeing issues related to your authentication flow:
 | 401 IoTHubUnauthorized | DEVICE_DISABLED | The device is disabled in this IoT hub and has moved to another IoT hub. Re-provision the device. |
 | 401 IoTHubUnauthorized | DEVICE_BLOCKED | An operator has blocked this device. |
 
-
-
 ### File upload error codes
 
 Here is a list of common error codes you might see when a device tries to upload a file to the cloud. Remember that before your device can upload a file, you must configure [device file uploads](howto-configure-file-uploads.md) in your application.
@@ -176,20 +174,11 @@ Here is a list of common error codes you might see when a device tries to upload
 | - | - | - |
 | 403006  | You've exceeded the number of concurrent file upload operations. Each device client is limited to 10 concurrent file uploads. | Ensure the device promptly notifies IoT Central that the file upload operation has completed. If that doesn't work, try reducing the request timeout. |
 
-## Payload shape issues
+## Unmodeled data issues
 
 When you've established that your device is sending data to IoT Central, the next step is to ensure that your device is sending data in a valid format.
 
-There are two main categories of common issues that cause device data to not appear in IoT Central:
-
-- Device template to device data mismatch:
-  - Mismatch in naming such as typos or case-matching issues.
-  - Unmodeled properties where the schema isn't defined in the device template.
-  - Schema mismatch such as a type defined in the template as `boolean`, but the data is a string.
-  - The same telemetry name is defined in multiple interfaces, but the device isn't IoT Plug and Play compliant.
-- Data shape is invalid JSON. To learn more, see [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md).
-
-To detect which categories your issue is in, run the most appropriate command for your scenario:
+To detect which categories your issue is in, run the most appropriate Azure CLI command for your scenario:
 
 - To validate telemetry, use the preview command:
 
@@ -197,7 +186,7 @@ To detect which categories your issue is in, run the most appropriate command fo
     az iot central diagnostics validate-messages --app-id <app-id> --device-id <device-name>
     ```
 
-- To validate property updates, use the preview command
+- To validate property updates, use the preview command:
 
     ```azurecli
     az iot central diagnostics validate-properties --app-id <app-id> --device-id <device-name>
@@ -205,27 +194,59 @@ To detect which categories your issue is in, run the most appropriate command fo
 
 You may be prompted to install the `uamqp` library the first time you run a `validate` command.
 
-The following output shows example error and warning messages from the validate command:
+The three common types of issue that cause device data to not appear in IoT Central are:
+
+- Device template to device data mismatch.
+- Data is invalid JSON.
+- Old versions of IoT Edge cause telemetry from components to display incorrectly as unmodeled data.
+
+### Device template to device data mismatch
+
+A device must use the same name and casing as used in the device template for any telemetry field names in the payload it sends. The following output shows an example warning message where the device is sending a telemetry value called `Temperature`, when it should be `temperature`:
 
 ```output
 Validating telemetry.
-Filtering on device: v22upeoqx6.
+Filtering on device: sample-device-01.
 Exiting after 300 second(s), or 10 message(s) have been parsed (whichever happens first).
-[WARNING] [DeviceId: v22upeoqx6] No encoding found. Expected encoding 'utf-8' to be present in message header.
-
-[WARNING] [DeviceId: v22upeoqx6] Content type '' is not supported. Expected Content type is 'application/json'.
-
-[ERROR] [DeviceId: v22upeoqx6] [TemplateId: urn:krhsi_k0u:modelDefinition:w53jukkazs] Datatype of field 'humid' does not match the da
-tatype 'double'. Data '56'. All dates/times/datetimes/durations must be ISO 8601 compliant.
+[WARNING] [DeviceId: sample-device-01] [TemplateId: urn:modelDefinition:ofhmazgddj:vmjwwjuvdzg] Device is sending data that has not been defined in the device template. Following capabilities have NOT been defined in the device template '['Temperature']'. Following capabilities have been defined in the device template (grouped by components) '{'thermostat1': ['temperature', 'targetTemperature', 'maxTempSinceLastReboot', 'getMaxMinReport'], 'thermostat2': ['temperature', 'targetTemperature', 'maxTempSinceLastReboot', 'getMaxMinReport'], 'deviceInformation': ['manufacturer', 'model', 'swVersion', 'osName', 'processorArchitecture', 'processorManufacturer', 'totalStorage', 'totalMemory']}'. 
 ```
 
-If you prefer to use a GUI, use the IoT Central **Raw data** view to see if something isn't being modeled. The **Raw data** view doesn't detect if the device is sending malformed JSON.
+A device must use the same name and casing as used in the device template for any property names in the payload it sends. The following output shows an example warning message where the property `osVersion` isn't defined in the device template:
+
+```output
+Command group 'iot central diagnostics' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
+[WARNING]  [DeviceId: sample-device-01] [TemplateId: urn:modelDefinition:ofhmazgddj:vmjwwjuvdzg] Device is sending data that has not been defined in the device template. Following capabilities have NOT been defined in the device template '['osVersion']'. Following capabilities have been defined in the device template (grouped by components) '{'thermostat1': ['temperature', 'targetTemperature', 'maxTempSinceLastReboot', 'getMaxMinReport', 'rundiagnostics'], 'thermostat2': ['temperature', 'targetTemperature', 'maxTempSinceLastReboot', 'getMaxMinReport', 'rundiagnostics'], 'deviceInformation': ['manufacturer', 'model', 'swVersion', 'osName', 'processorArchitecture', 'processorManufacturer', 'totalStorage', 'totalMemory']}'.
+```
+
+A device must use the data types defined in the device template for any telemetry or property values. For example, you see a schema mismatch if the type defined in the device template is boolean, but the device sends a string. The following output shows an example error message where the device using a string value for a property that's defined as a double:
+
+```output
+Command group 'iot central diagnostics' is in preview and under development. Reference and support levels: https://aka.ms/CLI_refstatus
+Validating telemetry.
+Filtering on device: sample-device-01.
+Exiting after 300 second(s), or 10 message(s) have been parsed (whichever happens first).
+[ERROR] [DeviceId: sample-device-01] [TemplateId: urn:modelDefinition:ofhmazgddj:vmjwwjuvdzg]  Datatype of telemetry field 'temperature' does not match the datatype double. Data sent by the device : curr_temp. For more information, see: https://aka.ms/iotcentral-payloads
+```
+
+The validation commands also report an error if the same telemetry name is defined in multiple interfaces, but the device isn't IoT Plug and Play compliant.
+
+If you prefer to use a GUI, use the IoT Central **Raw data** view to see if something isn't being modeled.
 
 :::image type="content" source="media/troubleshoot-connection/raw-data-view.png" alt-text="Screenshot of Raw Data view":::
 
 When you've detected the issue, you may need to update device firmware, or create a new device template that models previously unmodeled data.
 
 If you chose to create a new template that models the data correctly, migrate devices from your old template to the new template. To learn more, see [Manage devices in your Azure IoT Central application](howto-manage-devices-individually.md).
+
+### Invalid JSON
+
+If there are no errors reported, but a value isn't appearing, then it's probably malformed JSON in the payload the device sends. To learn more, see [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md).
+
+You can't use the validate commands or the **Raw data** view in the UI to detect if the device is sending malformed JSON.
+
+### IoT Edge version
+
+To display telemetry from components hosted in IoT Edge modules correctly, use [IoT Edge version 1.2.4](https://github.com/Azure/azure-iotedge/releases/tag/1.2.4) or later. If you use an earlier version, telemetry from components in IoT Edge modules displays as *_unmodeleddata*.
 
 ## Next steps
 

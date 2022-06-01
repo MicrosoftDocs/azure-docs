@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 06/18/2019
+ms.date: 03/21/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
 ---
@@ -60,6 +60,9 @@ A typical flow includes the following steps:
 5. **Upload** - Data is automatically copied from the disks to Azure. The disks are securely erased as per the National Institute of Standards and Technology (NIST) guidelines.
 
 Throughout this process, you are notified through email on all status changes. For more information about the detailed flow, go to [Deploy Data Box Disks in Azure portal](data-box-disk-quickstart-portal.md).
+
+> [!NOTE]
+> Only import is supported for Data Box Disk. Export functionality is not available. If you want to export data from Azure, you can use [Azure Data Box](data-box-overview.md).
 
 ## Benefits
 

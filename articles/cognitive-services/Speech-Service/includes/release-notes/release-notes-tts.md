@@ -5,6 +5,44 @@ ms.topic: include
 ms.date: 01/24/2022
 ms.author: eur
 ---
+### 2022-May release
+
+#### Prebuilt Neural TTS Voice
+
+* Released 5 new voices in public preview with multiple styles to enrich the variety in American English. See [full language and voice list](../../language-support.md#prebuilt-neural-voices).
+
+* Support these new styles `Angry`, `Excited`, `Friendly`, `Hopeful`, `Sad`, `Shouting`, `Unfriendly`, `Terrified` and `Whispering` in public preview for `en-US-AriaNeural`. 
+* Support these new styles `Angry`, `Cheerful`, `Excited`, `Friendly`, `Hopeful`, `Sad`, `Shouting`, `Unfriendly`, `Terrified` and `Whispering` in public preview for `en-US-GuyNeural`, `en-US-JennyNeural`. 
+* Support these new styles `Excited`, `Friendly`, `Hopeful`, `Shouting`, `Unfriendly`, `Terrified` and `Whispering` in public preview for `en-US-SaraNeural`. See [voice styles and roles](../../language-support.md#voice-styles-and-roles).
+* Released disconnected containers for prebuilt neural TTS voices in public preview. See [use Docker containers in disconnected environments](../../../containers/disconnected-containers.md).
+
+### 2022-March release
+
+#### Prebuilt Neural TTS Voice
+
+* Added support in public preview for the `Cheerful` and `Sad` styles with `fr-FR-DeniseNeural`. See [voice styles and roles](../../language-support.md#voice-styles-and-roles).
+* Released disconnected containers for prebuilt neural TTS voices in public preview. See [use Docker containers in disconnected environments](../../../containers/disconnected-containers.md).
+
+#### Custom Neural Voice
+
+* Supported role based access control. Learn more on [Azure role-based access control in Speech Studio](../../speech-studio-role-based-access-control.md)
+* Supported private endpoints and virtual network service endpoints. Learn more on [how to use private endpoints with speech service](../../speech-services-private-link.md).
+
+#### Audio Content Creation tool
+
+* Updated the file size and concurrency limit for free-tier (F0) resources to make the experience consistent with the Speech SDK and APIs. See [speech service quotas and limits](../../speech-services-quotas-and-limits.md#audio-content-creation-tool).
+ 
+### 2022-February release
+
+#### Custom Neural Voice
+
+* Released Custom Neural Voice Lite in public preview. Learn more about [what is Custom Neural Voice Lite](../../custom-neural-voice.md#custom-neural-voice-project-types).
+* Extended language support to 49 locales. See [language support](../../language-support.md#custom-neural-voice).
+* Supported more regions/datacenters. See [region support](../../regions.md#custom-neural-voices).
+
+#### Audio Content Creation tool
+
+* Removed the output length limit for downloading audios.
 
 ### 2022-January release
 

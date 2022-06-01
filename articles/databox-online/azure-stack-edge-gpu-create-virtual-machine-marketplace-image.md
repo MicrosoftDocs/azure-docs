@@ -64,8 +64,11 @@ az vm image list --all --publisher "Canonical"
 
 Here is an example output when VM images of a certain publisher, offer, and SKU were queried.
 
-```output
+```azurecli
 PS /home/user> az vm image list --all --publisher "Canonical" --offer "UbuntuServer" --sku "12.04.4-LTS"
+```
+
+```output
 [
   {
     "offer": "UbuntuServer",

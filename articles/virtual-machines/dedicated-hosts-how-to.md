@@ -24,20 +24,21 @@ This article guides you through how to create an Azure [dedicated host](dedicate
 ## Limitations
 
 - The sizes and hardware types available for dedicated hosts vary by region. Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
+- The fault domain count of the virtual machine scale set can't exceed the fault domain count of the host group.
 
 ## Create a host group
 
-A **host group** is a resource that represents a collection of dedicated hosts. You create a host group in a region and an availability zone, and add hosts to it. When planning for high availability, there are additional options. You can use one or both of the following options with your dedicated hosts:
-- Span across multiple availability zones. In this case, you are required to have a host group in each of the zones you wish to use.
-- Span across multiple fault domains which are mapped to physical racks.
+A **host group** is a resource that represents a collection of dedicated hosts. You create a host group in a region and an availability zone, and add hosts to it. When planning for high availability, there are more options. You can use one or both of the following options with your dedicated hosts:
+- Span across multiple availability zones. In this case, you're required to have a host group in each of the zones you wish to use.
+- Span across multiple fault domains, which are mapped to physical racks.
 
-In either case, you are need to provide the fault domain count for your host group. If you do not want to span fault domains in your group, use a fault domain count of 1.
+In either case, you need to provide the fault domain count for your host group. If you don't want to span fault domains in your group, use a fault domain count of 1.
 
 You can also decide to use both availability zones and fault domains.
 
 ### [Portal](#tab/portal)
 
-In this example, we will create a host group using 1 availability zone and 2 fault domains.
+In this example, we'll create a host group using one availability zone and two fault domains.
 
 1. Open the Azure [portal](https://portal.azure.com).
 1. Select **Create a resource** in the upper left corner.
@@ -64,7 +65,7 @@ Not all host SKUs are available in all regions, and availability zones. You can 
 az vm list-skus -l eastus2  -r hostGroups/hosts  -o table
 ```
 
-In this example, we will use [az vm host group create](/cli/azure/vm/host/group#az_vm_host_group_create) to create a host group using both availability zones and fault domains.
+In this example, we'll use [az vm host group create](/cli/azure/vm/host/group#az-vm-host-group-create) to create a host group using both availability zones and fault domains.
 
 ```azurecli-interactive
 az vm host group create \
@@ -79,7 +80,7 @@ Add the `--automatic-placement true` parameter to have your VMs and scale set in
 
 **Other examples**
 
-You can also use [az vm host group create](/cli/azure/vm/host/group#az_vm_host_group_create) to create a host group in availability zone 1 (and no fault domains).
+You can also use [az vm host group create](/cli/azure/vm/host/group#az-vm-host-group-create) to create a host group in availability zone 1 (and no fault domains).
 
 ```azurecli-interactive
 az vm host group create \
@@ -89,7 +90,7 @@ az vm host group create \
    --platform-fault-domain-count 1
 ```
 
-The following uses [az vm host group create](/cli/azure/vm/host/group#az_vm_host_group_create) to create a host group by using fault domains only (to be used in regions where availability zones are not supported).
+The following code snippet uses [az vm host group create](/cli/azure/vm/host/group#az-vm-host-group-create) to create a host group by using fault domains only (to be used in regions where availability zones aren't supported).
 
 ```azurecli-interactive
 az vm host group create \
@@ -124,11 +125,11 @@ Add the `-SupportAutomaticPlacement true` parameter to have your VMs and scale s
 
 ## Create a dedicated host
 
-Now create a dedicated host in the host group. In addition to a name for the host, you are required to provide the SKU for the host. Host SKU captures the supported VM series as well as the hardware generation for your dedicated host.
+Now create a dedicated host in the host group. In addition to a name for the host, you're required to provide the SKU for the host. Host SKU captures the supported VM series and the hardware generation for your dedicated host.
 
 For more information about the host SKUs and pricing, see [Azure Dedicated Host pricing](https://aka.ms/ADHPricing).
 
-If you set a fault domain count for your host group, you will need to specify the fault domain for your host.
+If you set a fault domain count for your host group, you'll need to specify the fault domain for your host.
 
 ### [Portal](#tab/portal)
 
@@ -139,12 +140,12 @@ If you set a fault domain count for your host group, you will need to specify th
 1. Select *myDedicatedHostsRG* as the **Resource group**.
 1. In **Instance details**, type *myHost* for the **Name** and select *East US* for the location.
 1. In **Hardware profile**, select *Standard Es3 family - Type 1* for the **Size family**, select *myHostGroup* for the **Host group** and then select *1* for the **Fault domain**. Leave the defaults for the rest of the fields.
-1. When you are done, select **Review + create** and wait for validation.
+1. When you're done, select **Review + create** and wait for validation.
 1. Once you see the **Validation passed** message, select **Create** to create the host.
 
 ### [CLI](#tab/cli)
 
-Use [az vm host create](/cli/azure/vm/host#az_vm_host_create) to create a host. If you set a fault domain count for your host group, you will be asked to specify the fault domain for your host.
+Use [az vm host create](/cli/azure/vm/host#az-vm-host-create) to create a host. If you set a fault domain count for your host group, you'll be asked to specify the fault domain for your host.
 
 ```azurecli-interactive
 az vm host create \
@@ -195,7 +196,7 @@ It will take a few minutes for your VM to be deployed.
 
 ### [CLI](#tab/cli)
 
-Create a virtual machine within a dedicated host using [az vm create](/cli/azure/vm#az_vm_create). If you specified an availability zone when creating your host group, you are required to use the same zone when creating the virtual machine. Replace the values like image and host name with your own. If you are creating a Windows VM, remove `--generate-ssh-keys` to be prompted for a password.
+Create a virtual machine within a dedicated host using [az vm create](/cli/azure/vm#az-vm-create). If you specified an availability zone when creating your host group, you're required to use the same zone when creating the virtual machine. Replace the values like image and host name with your own. If you're creating a Windows VM, remove `--generate-ssh-keys` to be prompted for a password.
 
 ```azurecli-interactive
 az vm create \
@@ -254,7 +255,7 @@ When you deploy a scale set, you specify the host group.
 
 ### [CLI](#tab/cli)
 
-When you deploy a scale set using [az vmss create](/cli/azure/vmss#az_vmss_create), you specify the host group using `--host-group`. In this example, we are deploying the latest Ubuntu LTS image. To deploy a Windows image, replace the value of `--image` and remove `--generate-ssh-keys` to be prompted for a password.
+When you deploy a scale set using [az vmss create](/cli/azure/vmss#az-vmss-create), you specify the host group using `--host-group`. In this example, we're deploying the latest Ubuntu LTS image. To deploy a Windows image, replace the value of `--image` and remove `--generate-ssh-keys` to be prompted for a password.
 
 ```azurecli-interactive
 az vmss create \
@@ -298,13 +299,13 @@ If you want to manually choose which host to deploy the scale set to, add `--hos
 
 You can add an existing VM to a dedicated host, but the VM must first be Stop\Deallocated. Before you move a VM to a dedicated host, make sure that the VM configuration is supported:
 
-- The VM size must be in the same size family as the dedicated host. For example, if your dedicated host is DSv3, then the VM size could be Standard_D4s_v3, but it could not be a Standard_A4_v2.
+- The VM size must be in the same size family as the dedicated host. For example, if your dedicated host is DSv3, then the VM size could be Standard_D4s_v3, but it couldn't be a Standard_A4_v2.
 - The VM needs to be located in same region as the dedicated host.
 - The VM can't be part of a proximity placement group. Remove the VM from the proximity placement group before moving it to a dedicated host. For more information, see [Move a VM out of a proximity placement group](./windows/proximity-placement-groups.md#move-an-existing-vm-out-of-a-proximity-placement-group)
 - The VM can't be in an availability set.
 - If the VM is in an availability zone, it must be the same availability zone as the host group. The availability zone settings for the VM and the host group must match.
 
-### [Portal](#tab/portal2)
+### [Portal](#tab/portal)
 
 Move the VM to a dedicated host using the [portal](https://portal.azure.com).
 
@@ -312,12 +313,34 @@ Move the VM to a dedicated host using the [portal](https://portal.azure.com).
 1. Select **Stop** to stop\deallocate the VM.
 1. Select **Configuration** from the left menu.
 1. Select a host group and a host from the drop-down menus.
-1. When you are done, select **Save** at the top of the page.
+1. When you're done, select **Save** at the top of the page.
 1. After the VM has been added to the host, select **Overview** from the left menu.
 1. At the top of the page, select **Start** to restart the VM.
 
 
-### [PowerShell](#tab/powershell2)
+## [CLI](#tab/cli)
+
+Move the existing VM to a dedicated host using the CLI. The VM must be Stop/Deallocated using [az vm deallocate](/cli/azure/vm#az_vm_stop) in order to assign it to a dedicated host. 
+
+Replace the values with your own information.
+
+```azurecli-interactive
+az vm deallocate -n myVM -g myResourceGroup
+az vm update - n myVM -g myResourceGroup --host myHost
+az vm start -n myVM -g myResourceGroup
+```
+
+For automatically placed VMs, only update the host group. For more information, see [Manual vs. automatic placement](dedicated-hosts.md#manual-vs-automatic-placement).
+
+Replace the values with your own information.
+
+```azurecli-interactive
+az vm deallocate -n myVM -g myResourceGroup
+az vm update -n myVM -g myResourceGroup --host-group myHostGroup
+az vm start -n myVM -g myResourceGroup
+```
+
+### [PowerShell](#tab/powershell)
 
 Replace the values of the variables with your own information.
 
@@ -370,7 +393,7 @@ If you need to know how much capacity is still available on a how, you can check
 
 ### [CLI](#tab/cli)
 
-You can check the host health status and how many virtual machines you can still deploy to the host using [az vm host get-instance-view](/cli/azure/vm/host#az_vm_host_get_instance_view).
+You can check the host health status and how many virtual machines you can still deploy to the host using [az vm host get-instance-view](/cli/azure/vm/host#az-vm-host-get-instance-view).
 
 ```azurecli-interactive
 az vm host get-instance-view \
@@ -554,7 +577,9 @@ Tags                   : {}
 ---
 
 ## Deleting hosts 
-You are being charged for your dedicated hosts even when no virtual machines are deployed. You should delete any hosts you are currently not using to save costs.
+
+
+being charged for your dedicated hosts even when no virtual machines are deployed. You should delete any hosts you're currently not using to save costs.
 
 You can only delete a host when there are no any longer virtual machines using it.
 
@@ -568,19 +593,19 @@ You can only delete a host when there are no any longer virtual machines using i
 
 ### [CLI](#tab/cli)
 
- Delete the VMs using [az vm delete](/cli/azure/vm#az_vm_delete).
+ Delete the VMs using [az vm delete](/cli/azure/vm#az-vm-delete).
 
 ```azurecli-interactive
 az vm delete -n myVM -g myDHResourceGroup
 ```
 
-After deleting the VMs, you can delete the host using [az vm host delete](/cli/azure/vm/host#az_vm_host_delete).
+After deleting the VMs, you can delete the host using [az vm host delete](/cli/azure/vm/host#az-vm-host-delete).
 
 ```azurecli-interactive
 az vm host delete -g myDHResourceGroup --host-group myHostGroup --name myHost
 ```
 
-Once you have deleted all of your hosts, you may delete the host group using [az vm host group delete](/cli/azure/vm/host/group#az_vm_host_group_delete).
+Once you've deleted all of your hosts, you may delete the host group using [az vm host group delete](/cli/azure/vm/host/group#az-vm-host-group-delete).
 
 ```azurecli-interactive
 az vm host group delete -g myDHResourceGroup --host-group myHostGroup
@@ -607,7 +632,7 @@ After deleting the VMs, you can delete the host using [Remove-AzHost](/powershel
 Remove-AzHost -ResourceGroupName $rgName -Name myHost
 ```
 
-Once you have deleted all of your hosts, you may delete the host group using [Remove-AzHostGroup](/powershell/module/az.compute/remove-azhostgroup).
+Once you've deleted all of your hosts, you may delete the host group using [Remove-AzHostGroup](/powershell/module/az.compute/remove-azhostgroup).
 
 ```azurepowershell-interactive
 Remove-AzHost -ResourceGroupName $rgName -Name myHost
@@ -625,5 +650,5 @@ Remove-AzResourceGroup -Name $rgName
 
 - For more information, see the [Dedicated hosts](dedicated-hosts.md) overview.
 
-- There is sample template, available at [Azure quickstart templates](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md), that uses both zones and fault domains for maximum resiliency in a region.
+- There's sample template, available at [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md), which uses both zones and fault domains for maximum resiliency in a region.
 

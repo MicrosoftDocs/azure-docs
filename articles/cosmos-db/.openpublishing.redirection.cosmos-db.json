@@ -681,6 +681,16 @@
     "redirect_document_id": false
   },
   {
+    "source_path_from_root": "/articles/cosmos-db/mongodb/create-mongodb-xamarin.md",
+    "redirect_url": "/azure/cosmos-db/mongodb/mongodb-introduction",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/mongodb/create-mongodb-rust.md",
+    "redirect_url": "/azure/cosmos-db/mongodb/mongodb-introduction",
+    "redirect_document_id": false
+  },
+  {
     "source_path_from_root": "/articles/documentdb/documentdb-monitor-accounts.md",
     "redirect_url": "/azure/cosmos-db/monitor-accounts",
     "redirect_document_id": false
@@ -1304,15 +1314,15 @@
     "source_path_from_root": "/articles/cosmos-db/sql-query-execution.md",
     "redirect_url": "/azure/cosmos-db/sql-query-pagination",
     "redirect_document_id": false
-  },
+  },  
   {
     "source_path_from_root": "/articles/cosmos-db/troubleshoot-azure-cosmosdb.md",
-    "redirect_url": "/azure/cosmos-db/storage-explorer",
+    "redirect_url": "/azure/vs-azure-tools-storage-manage-with-storage-explorer",
     "redirect_document_id": true
   },
   {
     "source_path_from_root": "/articles/cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md",
-    "redirect_url": "/azure/cosmos-db/storage-explorer",
+    "redirect_url": "/azure/vs-azure-tools-storage-manage-with-storage-explorer",
     "redirect_document_id": false
   },
   {
@@ -1571,6 +1581,11 @@
     "redirect_document_id": true
   },
   {
+    "source_path_from_root": "/articles/cosmos-db/table-storage-how-to-use-go.md",
+    "redirect_url": "/azure/cosmos-db/table/how-to-use-go",
+    "redirect_document_id": true
+  },
+  {
     "source_path_from_root": "/articles/cosmos-db/table-storage-how-to-use-ruby.md",
     "redirect_url": "/azure/cosmos-db/table/how-to-use-ruby",
     "redirect_document_id": true
@@ -1786,6 +1801,11 @@
     "redirect_document_id": true
   },
   {
+    "source_path_from_root": "/articles/cosmos-db/cassandra/migrate-data-blitzz.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/migrate-data-arcion",
+    "redirect_document_id": true
+  },
+  {
     "source_path_from_root": "/articles/cosmos-db/cassandra-migrate-cosmos-db-databricks.md",
     "redirect_url": "/azure/cosmos-db/cassandra/migrate-data-databricks",
     "redirect_document_id": true
@@ -1878,6 +1898,11 @@
   {
     "source_path_from_root": "/articles/cosmos-db/oracle-migrate-cosmos-db-blitzz.md",
     "redirect_url": "/azure/cosmos-db/cassandra/oracle-migrate-cosmos-db-blitzz",
+    "redirect_document_id": true
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/cassandra/oracle-migrate-cosmos-db-blitzz.md",
+    "redirect_url": "/azure/cosmos-db/cassandra/oracle-migrate-cosmos-db-arcion",
     "redirect_document_id": true
   },
   {
@@ -2907,8 +2932,8 @@
   },
   {
     "source_path_from_root": "/articles/cosmos-db/create-real-time-weather-dashboard-powerbi.md",
-    "redirect_url": "/azure/cosmos-db/sql/create-real-time-weather-dashboard-powerbi",
-    "redirect_document_id": true
+    "redirect_url": "/azure/cosmos-db/sql/powerbi-visualize",
+    "redirect_document_id": false
   },
   {
     "source_path_from_root": "/articles/cosmos-db/create-sql-api-dotnet-v4.md",
@@ -3600,6 +3625,16 @@
     "source_path_from_root": "/articles/cosmos-db/sql/advanced-threat-protection.md",
     "redirect_url": "/azure/cosmos-db/sql/defender-for-cosmos-db",
     "redirect_document_id": false
-  }
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/how-to-container-copy.md",
+    "redirect_url": "/azure/cosmos-db/",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/cosmos-db/intra-account-container-copy.md",
+    "redirect_url": "/azure/cosmos-db/",
+    "redirect_document_id": false
+  },
     ]
 }

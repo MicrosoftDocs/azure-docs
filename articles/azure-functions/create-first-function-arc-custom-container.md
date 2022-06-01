@@ -166,7 +166,7 @@ Before you can deploy your container to your new App Service Kubernetes environm
 
 ### Create Storage account
 
-Use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command to create a general-purpose storage account in your resource group and region:
+Use the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command to create a general-purpose storage account in your resource group and region:
 
 ```azurecli
 az storage account create --name <STORAGE_NAME> --location westeurope --resource-group myResourceGroup --sku Standard_LRS
@@ -179,7 +179,7 @@ In the previous example, replace `<STORAGE_NAME>` with a name that is appropriat
 
 ### Create the function app
 
-Run the [az functionapp create](/cli/azure/functionapp#az_functionapp_create) command to create a new function app in the environment.
+Run the [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command to create a new function app in the environment.
 
 # [C\#](#tab/csharp)  
 ```azurecli
@@ -199,7 +199,7 @@ az functionapp create --resource-group MyResourceGroup --name <APP_NAME> --custo
 
 In this example, replace `<CUSTOM_LOCATION_ID>` with the ID of the custom location you determined for the App Service Kubernetes environment. Also, replace `<STORAGE_NAME>` with the name of the account you used in the previous step, `<APP_NAME>` with a globally unique name appropriate to you, and `<DOCKER_ID>` with your Docker Hub ID. 
 
-The *deployment-container-image-name* parameter specifies the image to use for the function app. You can use the [az functionapp config container show](/cli/azure/functionapp/config/container#az_functionapp_config_container_show) command to view information about the image used for deployment. You can also use the [az functionapp config container set](/cli/azure/functionapp/config/container#az_functionapp_config_container_set) command to deploy from a different image.
+The *deployment-container-image-name* parameter specifies the image to use for the function app. You can use the [az functionapp config container show](/cli/azure/functionapp/config/container#az-functionapp-config-container-show) command to view information about the image used for deployment. You can also use the [az functionapp config container set](/cli/azure/functionapp/config/container#az-functionapp-config-container-set) command to deploy from a different image.
 
 When you first create the function app, it pulls the initial image from your Docker Hub. You can also [Enable continuous deployment to Azure](functions-create-function-linux-custom-image.md#enable-continuous-deployment-to-azure) from  Docker Hub.  
 

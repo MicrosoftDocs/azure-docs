@@ -1,19 +1,17 @@
 ---
 title: 'Monitoring Azure Virtual WAN'
 description: Learn about Azure Virtual WAN logs and metrics using Azure Monitor.
-services: virtual-wan
 author: cherylmc
-
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 06/30/2021
+ms.date: 05/25/2022
 ms.author: cherylmc
 
 ---
 
 # Monitoring Virtual WAN
 
-You can monitor Azure Virtual WAN using Azure Monitor. Virtual WAN is a networking service that brings together many networking, security, and routing functionalities to provide a single operational interface. Virtual WAN VPN gateways, ExpressRoute gateways, and Azure Firewall have logging and metrics available through Azure Monitor. 
+You can monitor Azure Virtual WAN using Azure Monitor. Virtual WAN is a networking service that brings together many networking, security, and routing functionalities to provide a single operational interface. Virtual WAN VPN gateways, ExpressRoute gateways, and Azure Firewall have logging and metrics available through Azure Monitor.
 
 This article discusses metrics and diagnostics that are available through the portal. Metrics are lightweight and can support near real-time scenarios, making them useful for alerting and fast issue detection.
 
@@ -28,7 +26,6 @@ For every Azure Virtual WAN you secure and convert to a Secured Hub, an explicit
 Diagnostics and logging configuration must be done from there accessing the **Diagnostic Setting** tab:
 
 :::image type="content" source="./media/monitor-virtual-wan/firewall-diagnostic-settings.png" alt-text="Screenshot shows Firewall diagnostic settings.":::
-
 
 ## Metrics
 
@@ -62,7 +59,7 @@ $MetricInformation.Data
 
 **Metric Name** - Refers to the name of the metric you are querying, which in this case is called 'VirtualHubDataProcessed'. This metric shows all the data that the Virtual Hub Router has processed in the selected time period of the hub.  
 
-**Time Grain** - Refers to the frequency at which you want see the aggregation of. In the current command, you will see a selected aggregated unit per 5 mins. You can select – 5M/15M/30M/1H/6H/12H and 1D.
+**Time Grain** - Refers to the frequency at which you want to see the aggregation. In the current command, you will see a selected aggregated unit per 5 mins. You can select – 5M/15M/30M/1H/6H/12H and 1D.
 
 **Start Time and End Time** - This time is based on UTC, so please ensure that you are entering UTC values when inputting these parameters. If these parameters are not used, by default the past one hour's worth of data is shown.  
 
@@ -71,7 +68,7 @@ $MetricInformation.Data
 * Minimum – Minimum bytes that were sent during the selected time grain period. 
 * Maximum – Maximum bytes that were sent during the selected time grain period 
 * Total – Total bytes/sec that were sent during the selected time grain period. 
- 
+
 ### Site-to-site VPN gateways
 
 The following metrics are available for Azure site-to-site VPN gateways:
@@ -129,14 +126,15 @@ The following metrics are available for Azure ExpressRoute gateways:
 
 | Metric | Description|
 | --- | --- |
-| **BitsInPerSecond** | Bits ingressing Azure per second.|
-| **BitsOutPerSecond** | Bits egressing Azure per second. |
-| **CPU Utilization** | CPU Utilization of the ExpressRoute Gateway.|
-| **Packets per second** | Packet count of ExpressRoute Gateway.|
-| **Count of routes advertised to peer**| Count of Routes Advertised to Peer by ExpressRoute Gateway. | 
-| **Count of routes learned from peer**| Count of Routes Learned from Peer by ExpressRoute Gateway.|
-| **Frequency of routes changed** | Frequency of Route changes in ExpressRoute Gateway.|
-| **Number of VMs in Virtual Network**| Number of VM's that use this ExpressRoute Gateway.|
+| **BitsInPerSecond** |  Bits per second ingressing Azure via ExpressRoute gateway which can be further split for specific connections. |
+| **BitsOutPerSecond** | Bits per second egressing Azure via ExpressRoute gateway which can be further split for specific connection.  |
+| **Bits Received Per Second** | Total Bits received on ExpressRoute gateway per second. |
+| **CPU Utilization** | CPU Utilization of the ExpressRoute gateway.|
+| **Packets per second** | Total Packets received on ExpressRoute gateway per second.|
+| **Count of routes advertised to peer**| Count of Routes Advertised to Peer by ExpressRoute gateway. |
+| **Count of routes learned from peer**| Count of Routes Learned from Peer by ExpressRoute gateway.|
+| **Frequency of routes changed** | Frequency of Route changes in ExpressRoute gateway.|
+| **Number of VMs in Virtual Network**| Number of VMs that use this ExpressRoute gateway.|
 
 ### <a name="metrics-steps"></a>View gateway metrics
 
@@ -221,8 +219,8 @@ In order to execute the query, you have to open the Log Analytics resource you c
 
 :::image type="content" source="./media/monitor-virtual-wan/log-analytics-query-samples.png" alt-text="Log Analytics Query Samples.":::
 
-For additional Log Analytics query samples for Azure VPN Gateway, both Site-to-Site and Point-to-Site, you can visit the page [Troubleshoot Azure VPN Gateway using diagnostic logs](../vpn-gateway/troubleshoot-vpn-with-azure-diagnostics.md). 
-For Azure Firewall, a [workbook](../firewall/firewall-workbook.md) is provided to make log analysis easier. Using its graphical interface, it will be possible to investigate into the diagnostic data without manually writing any Log Analytics query. 
+For additional Log Analytics query samples for Azure VPN Gateway, both Site-to-Site and Point-to-Site, you can visit the page [Troubleshoot Azure VPN Gateway using diagnostic logs](../vpn-gateway/troubleshoot-vpn-with-azure-diagnostics.md).
+For Azure Firewall, a [workbook](../firewall/firewall-workbook.md) is provided to make log analysis easier. Using its graphical interface, it will be possible to investigate into the diagnostic data without manually writing any Log Analytics query.
 
 ## <a name="activity-logs"></a>Activity logs
 

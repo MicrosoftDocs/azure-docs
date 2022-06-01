@@ -3,7 +3,6 @@ title: Troubleshoot problems with Azure Application Insights Profiler
 description: This article presents troubleshooting steps and information to help developers enable and use Application Insights Profiler.
 ms.topic: conceptual
 ms.date: 08/06/2018
-ms.reviewer: mbullwin
 ---
 
 # Troubleshoot problems enabling or viewing Application Insights Profiler
@@ -45,7 +44,7 @@ Profiler writes trace messages and custom events to your Application Insights re
 
 ### Other things to check
 * Make sure that your app is running on .NET Framework 4.6.
-* If your web app is an ASP.NET Core application, it must be running at least ASP.NET Core 2.0.
+* If your web app is an ASP.NET Core application, it must be running at least ASP.NET Core [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 * If the data you're trying to view is older than a couple of weeks, try limiting your time filter and try again. Traces are deleted after seven days.
 * Make sure that proxies or a firewall haven't blocked access to https://gateway.azureserviceprofiler.net.
 * Profiler isn't supported on free or shared app service plans. If you're using one of those plans, try scaling up to one of the basic plans and Profiler should start working.

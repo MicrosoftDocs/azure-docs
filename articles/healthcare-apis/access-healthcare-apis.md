@@ -2,17 +2,17 @@
 title: Access Azure Health Data Services
 description: This article describes the different ways to access Azure Health Data Services in your applications using tools and programming languages.
 services: healthcare-apis
-author: SteveWohl
+author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 02/11/2022
-ms.author: zxue
+ms.date: 05/03/2022
+ms.author: mikaelw
 ---
 
 # Access Azure Health Data Services
 
-In this article, you'll learn about the different ways to access Azure Health Data Services in your applications. After you've provisioned a FHIR service, DICOM service, or IoT connector, you can then access them in your applications using tools like Postman, cURL, REST Client in Visual Studio Code, and with programming languages such as Python and C#.
+In this article, you'll learn about the different ways to access Azure Health Data Services in your applications. After you've provisioned a FHIR service, DICOM service, or MedTech service, you can then access them in your applications using tools like Postman, cURL, REST Client in Visual Studio Code, and with programming languages such as Python and C#.
 
 ## Access the FHIR service
 
@@ -22,13 +22,13 @@ In this article, you'll learn about the different ways to access Azure Health Da
 
 ## Access the DICOM service
 
-- [Access the DICVOM service using Python](dicom/dicomweb-standard-apis-python.md)
+- [Access the DICOM service using Python](dicom/dicomweb-standard-apis-python.md)
 - [Access the DICOM service using cURL](dicom/dicomweb-standard-apis-curl.md)
 - [Access the DICOM service using C#](dicom/dicomweb-standard-apis-c-sharp.md)
 
-## Access IoT connector
+## Access MedTech service
 
-The IoT connector works with the IoT Hub and Event Hubs in your subscription to receive message data, and the FHIR service to persist the data.
+The MedTech service works with the IoT Hub and Event Hubs in your subscription to receive message data, and the FHIR service to persist the data.
 
 - [Receive device data through Azure IoT Hub](iot/device-data-through-iot-hub.md)
 - [Access the FHIR service using Postman](fhir/use-postman.md)

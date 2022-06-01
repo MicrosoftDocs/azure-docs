@@ -60,7 +60,7 @@ sections:
         answer: |
           During the preview, confidential VMs undergo attestation as part of their boot phase. This process is opaque to the user and takes place by the cloud operating system in conjunction with the Microsoft Azure Attestation and Azure Key Vault services.
           When the product launches in General Availability, confidential VMs will extend to let users perform independent attestation for their VMs. This will be done using new tooling and supporting documentation. 
-          Until then, similar to [trusted launch VMs](https://docs.microsoft.com/en-us/azure/virtual-machines/trusted-launch-portal?tabs=portal), customers can use the vTPM in their VMs to perform attestation of the VM firmware and OS as described [here](https://docs.microsoft.com/windows/security/information-protection/tpm/tpm-fundamentals#measured-boot-with-support-for-attestation).
+          Until then, similar to [trusted launch VMs](../virtual-machines/trusted-launch-portal.md?tabs=portal), customers can use the vTPM in their VMs to perform attestation of the VM firmware and OS as described [here](/windows/security/information-protection/tpm/tpm-fundamentals#measured-boot-with-support-for-attestation).
           In addition, see the next question on confirming that your VM is running on an AMD processor with confidentiality features enabled.
 
       - question: |

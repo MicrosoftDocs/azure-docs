@@ -4,7 +4,7 @@ title: Events
 summary: Events documentation page for Azure Health Data Services . 
 
 metadata:
-  title: Azure Health Data Services IoT connector
+  title: Azure Health Data Services MedTech service
   description: Events documentation section for Azure Health Data Services
   services: healthcare-apis
   ms.service: healthcare-apis
@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: msjasteppe
   ms.author: jasteppe
-  ms.date: 03/02/2022
+  ms.date: 03/22/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 

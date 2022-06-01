@@ -35,7 +35,9 @@ To filter telemetry, you write a telemetry processor and register it with `Telem
 >
 >
 
-### Create a telemetry processor (C#)
+### Create a telemetry processor 
+
+### C#
 
 1. To create a filter, implement `ITelemetryProcessor`.
 
@@ -195,6 +197,10 @@ public void Process(ITelemetry item)
 [This blog](https://azure.microsoft.com/blog/implement-an-application-insights-telemetry-processor/) describes a project to diagnose dependency issues by automatically sending regular pings to dependencies.
 
 <a name="add-properties"></a>
+
+### Java
+
+To learn more about telemetry processors and their implementation in Java, please reference the [Java telemetry processors documentation](./java-standalone-telemetry-processors.md).
 
 ### JavaScript web applications
 

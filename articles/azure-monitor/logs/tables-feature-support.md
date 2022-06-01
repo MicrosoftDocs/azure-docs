@@ -122,7 +122,6 @@ The following list identifies the tables in a [Log Analytics workspace](log-anal
 | [DeviceNetworkInfo](/azure/azure-monitor/reference/tables/devicenetworkinfo) | |
 | [DnsEvents](/azure/azure-monitor/reference/tables/dnsevents) | |
 | [DnsInventory](/azure/azure-monitor/reference/tables/dnsinventory) | |
-| [DummyHydrationFact](/azure/azure-monitor/reference/tables/dummyhydrationfact) | |
 | [Dynamics365Activity](/azure/azure-monitor/reference/tables/dynamics365activity) | |
 | [EmailAttachmentInfo](/azure/azure-monitor/reference/tables/emailattachmentinfo) | |
 | [EmailEvents](/azure/azure-monitor/reference/tables/emailevents) | |
