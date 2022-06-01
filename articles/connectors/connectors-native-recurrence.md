@@ -10,11 +10,7 @@ ms.date: 06/01/2022
 
 # Schedule and run recurring workflows with the Recurrence trigger in Azure Logic Apps
 
-To start and run your workflow on a schedule, you can use the generic **Recurrence** trigger as the first step. You can set a date, time, and time zone for starting the workflow and a recurrence for repeating that workflow.
-
-This trigger isn't associated with any specific service, so you can use the trigger with almost any workflow, such as [Consumption logic app workflows and Standard logic app *stateful* workflows](../logic-apps/logic-apps-overview.md#resource-environment-differences). This trigger is currently unavailable for [Standard logic app *stateless* workflows](../logic-apps/logic-apps-overview.md#resource-environment-differences).
-
-The following list includes some patterns that this trigger supports along with more advanced recurrences and complex schedules:
+To start and run your workflow on a schedule, you can use the generic Recurrence trigger as the first step. You can set a date, time, and time zone for starting the workflow and a recurrence for repeating that workflow. The following list includes some patterns that this trigger supports along with more advanced recurrences and complex schedules:
 
 * Run at a specific date and time, then repeat every *n* number of seconds, minutes, hours, days, weeks, or months.
 
@@ -33,7 +29,7 @@ The following list includes some patterns that this trigger supports along with 
 > rather than the Recurrence trigger, which doesn't support this recurrence pattern.
 > For more information, see [Run jobs one time only](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#run-once).
 
-If the Recurrence trigger misses recurrences for any reason, for example, due to disruptions or disabled workflows, the trigger doesn't process the missed recurrences but restarts recurrences at the next scheduled interval.
+The Recurrence trigger isn't associated with any specific service, so you can use the trigger with almost any workflow, such as [Consumption logic app workflows and Standard logic app *stateful* workflows](../logic-apps/logic-apps-overview.md#resource-environment-differences). This trigger is currently unavailable for [Standard logic app *stateless* workflows](../logic-apps/logic-apps-overview.md#resource-environment-differences).
 
 The Recurrence trigger is part of the built-in Schedule connector and runs natively on the Azure Logic Apps runtime. For more information about the built-in Schedule triggers and actions, see [Schedule and run recurring automated, tasks, and workflows with Azure Logic Apps](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md).
 
