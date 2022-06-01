@@ -1,7 +1,7 @@
 ---
 title: Form Recognizer models
 titleSuffix: Azure Applied AI Services
-description: Concepts encompassing data extraction and analysis using prebuilt models.
+description: Concepts relating to data extraction and analysis using prebuilt models.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
