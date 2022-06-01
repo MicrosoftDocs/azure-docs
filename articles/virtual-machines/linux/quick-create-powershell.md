@@ -81,7 +81,13 @@ The `-ScriptString' parameter requires version `4.27.0` or later of the 'Az.Comp
 
 ## View the web server in action
 
-Use a web browser of your choice to view the default NGINX welcome page. Enter the public IP address of the VM as the web address. The public IP address can be found on the VM overview page or as part of the SSH connection string you used earlier.
+Get the public IP address of your VM:
+
+```azurepowershell-interactive
+Get-AzPublicIpAddress -Name myPubIP -ResourceGroupName myResourceGroup | select "IpAddress" 
+```
+
+Use a web browser of your choice to view the default NGINX welcome page. Enter the public IP address of the VM as the web address.
 
 ![NGINX default Welcome page](./media/quick-create-cli/nginix-welcome-page.png)
 
