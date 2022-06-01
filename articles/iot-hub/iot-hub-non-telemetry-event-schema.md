@@ -34,9 +34,9 @@ The following system properties are set by IoT Hub on each event. System propert
 
 | Property | Type |Description |
 | -------- | ---- | ---------- |
-| content_encoding | string | "utf-8" |
-| content_type | string |"application/json" |
-| correlation_id | string | NEED A DEFINITION. A Guid that ... |
+| content_encoding | string | utf-8 |
+| content_type | string |application/json |
+| correlation_id | string | NEED A DEFINITION. (Sometimes a GUID, sometimes not.) |
 | user_id | string | The name of IoT Hub that generated the event. |
 
 ### Application properties
