@@ -5,7 +5,7 @@
  author: duongau
  ms.service: frontdoor
  ms.topic: include
- ms.date: 05/13/2021
+ ms.date: 06/01/2022
  ms.author: duau
  ms.custom: include file
 ---
@@ -20,3 +20,9 @@
 | India | Chennai, India<br />Hyderabad, India<br />Mumbai, India<br />New Delhi, India |
 | Asia | Chai Wan, Hong Kong SAR<br />Hong Kong<br />Jakarta, Indonesia<br />Osaka, Japan<br />Tokyo, Japan<br />Kuala Lumpur, Malaysia<br />Manila, Philippines<br />Singapore<br />Busan, South Korea<br />Seoul, South Korea<br />Taipei, Taiwan<br />Taipei City, Taiwan<br />Bangkok, Thailand<br />Ho Chi Minh City, Vietnam |
 | Australia and New Zealand | Brisbane, Australia<br />Melbourne, Australia<br />Perth, Australia<br />Sydney, Australia<br />Auckland, New Zealand |
+
+## Azure Government edge locations
+
+| Region | Location |
+| --- | --- |
+| North American (US Gov) | Arizona, AZ, USA<br />Iowa, IA, USA,<br />Texas, TX, USA<br />Virginia, VA, USA | 
