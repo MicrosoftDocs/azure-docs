@@ -17,8 +17,10 @@ zone_pivot_groups: programming-languages-speech-sdk
 
 In this article, you'll learn how to use Pronunciation Assessment through the Speech SDK.
 
+::: zone pivot="programming-language-go"
 > [!NOTE]
 > Pronunciation Assessment is not available with the Speech SDK for Go.
+::: zone-end
 
 You can get Pronunciation Assessment accuracy scores for:
 
@@ -115,9 +117,6 @@ do {
 
 ::: zone pivot="programming-language-go"
 
-> [!NOTE]
-> Pronunciation Assessment is not available with the Speech SDK for Go.
-
 ::: zone-end
 
 
@@ -209,9 +208,6 @@ pronunciationConfig?.phonemeAlphabet = "IPA"
 
 ::: zone pivot="programming-language-go"
 
-> [!NOTE]
-> Pronunciation Assessment is not available with the Speech SDK for Go.
-
 ::: zone-end
 
 
@@ -220,9 +216,9 @@ pronunciationConfig?.phonemeAlphabet = "IPA"
 > [!NOTE]
 > The spoken phoneme feature of Pronunciation Assessment is only in public preview for the `en-US` locale.
 
-With spoken phonemes, you can get confidence scores about how likely the spoken phonemes matched the expected phonemes. For example, when When you speak the word "hello", the expected IPA phonemes are "h ɛ l oʊ". 
+With spoken phonemes, you can get confidence scores indicating how likely the spoken phonemes matched the expected phonemes. 
 
-In the following example JSON result, the Speech service determined that in the 2nd position, the most likely spoken phoneme was `"ə"` instead of the expected phoneme `"ɛ"`. The expected phoneme `"ɛ"` only received a confidence score of 47. Other potential matches received confidence scores of 52, 17, and 2. 
+For example, when you speak the word "hello", the expected IPA phonemes are "h ɛ l oʊ". The actual spoken phonemes could be "h ə l oʊ". In the following assessment result, the most likely spoken phoneme was `"ə"` instead of the expected phoneme `"ɛ"`. The expected phoneme `"ɛ"` only received a confidence score of 47. Other potential matches received confidence scores of 52, 17, and 2. 
 
 ```json
 {
@@ -257,7 +253,7 @@ In the following example JSON result, the Speech service determined that in the 
 },
 ```
 
-To indicate whether, and how many potential spoken phonemes to get confidence scores for, set the `NBestPhonemeCount` to an integer value such as `5`. 
+To indicate whether, and how many potential spoken phonemes to get confidence scores for, set the `NBestPhonemeCount` parameter to an integer value such as `5`. 
    
 ::: zone pivot="programming-language-csharp"
 
@@ -319,18 +315,11 @@ pronunciationConfig?.nbestPhonemeCount = 5
 
 ::: zone pivot="programming-language-go"
 
-> [!NOTE]
-> Pronunciation Assessment is not available with the Speech SDK for Go.
-
 ::: zone-end
 
 ## Get pronunciation assessment results 
 
-For recognized speech.
-
-* Syllables - Within each `Words` array in the result, there's a `Syllables` element, which contains the syllables for this word. For word `good`, there's only one syllable / ɡʊd /, and for word `morning`, you can see two syllables / mɔr / and / nɪŋ /. Each syllable also has a `AccuracyScore` field within the `PronunciationAssessment` element, which means the syllable-level score. This score can tell how accurately the speaker pronounces this syllable.
-* NBestPhonemes - Within each element of `Phonemes` array, there's also a `PronunciationAssessment` element. This element has a `Phoneme` field and a `NBestPhonemes` element. The `Phoneme` field indicates the expected phoneme, and the `NBestPhonemes` element indicates the spoken phonemes. Each expected phoneme may have more than one spoken phoneme, ranked by pronunciation probability. For example, for the first phoneme of word `good`, the expected phoneme is / ɡ /, and it has `NBestPhonemes`: / ɡ /, / k /, and so on. There should be 5 `NBestPhonemes` if you specify "nBestPhonemeCount":5.
-
+When speech is recognized, you can request the pronunciation assessment results as a JSON string. 
 
 ::: zone pivot="programming-language-csharp"
 
@@ -392,12 +381,14 @@ let pronunciationAssessmentResultJson = result.properties.getPropertyBy(Property
 
 ::: zone pivot="programming-language-go"
 
-> [!NOTE]
-> Pronunciation Assessment is not available with the Speech SDK for Go.
-
 ::: zone-end
 
-The following example JSON result corresponds to a request for IPA phonemes and NBestPhonemeCount set to 5.
+Pronunciation assessment results for the spoken word "hello" are shown as a JSON string in the following example. Here's what you should know:
+- The phoneme alphabet is IPA.
+- Syllables are returned alongside phonemes for the same word. 
+- You can use the `Offset` and `Duration` values to align syllables with their corresponding phonemes. For example, the starting offset (11700000) of the second syllable ("loʊ") aligns with the third phoneme ("l").
+- There are five `NBestPhonemes` corresponding to the requested `NBestPhonemeCount`
+- Within `Phonemes`, the most likely spoken phoneme was `"ə"` instead of the expected phoneme `"ɛ"`. The expected phoneme `"ɛ"` only received a confidence score of 47. Other potential matches received confidence scores of 52, 17, and 2. 
 
 ```json
 {
