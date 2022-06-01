@@ -133,11 +133,12 @@ You can also explicitly specify that the Managed identity you wish to authentica
 
 Read more about the Azure Identity libraries below:
 
-* [Azure Identity client library for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)
-* [Azure Identity client library for Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme?view=azure-java-stable)
-* [Azure Identity client library for JavaScript](/javascript/api/overview/azure/identity-readme?view=azure-node-latest)
-* [Azure Identity client library for Python](https://docs.microsoft.com/python/api/overview/azure/identity-readme?view=azure-python)    
-* [Azure Identity module for Go](https://docs.microsoft.com/azure/developer/go/azure-sdk-authentication?tabs=bash)
+* [Azure Identity library for .NET](/dotnet/api/overview/azure/identity-readme)
+* [Azure Identity library for Java](/java/api/overview/azure/identity-readme?view=azure-java-stable)
+* [Azure Identity library for JavaScript](/javascript/api/overview/azure/identity-readme?view=azure-node-latest)
+* [Azure Identity library for Python](/python/api/overview/azure/identity-readme?view=azure-python)    
+* [Azure Identity module for Go](/azure/developer/go/azure-sdk-authentication)
+* [Azure Identity library for C++](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/identity/azure-identity/README.md)
 
 ### Accessing a secret stored in Azure Key Vault
 
