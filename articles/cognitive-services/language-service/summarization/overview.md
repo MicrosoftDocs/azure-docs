@@ -86,8 +86,8 @@ Conversation summarization feature would simplify the text into the following:
 
 |Example summary  | Format | Conversation aspect |
 |---------|----|----|
-|  Customer wants to use the wifi connection on their Smart Brew 300. They can’t connect it using the Contoso Coffee app. |  One or two sentences     | issue  |
-| Checked if the power light is blinking slowly. Tried to do a factory reset. | One or more sentences, generated from multiple lines of the transcript.    | resolution |
+|  Customer wants to use the wifi connection on their Smart Brew 300. But it didn't work. |  One or two sentences     | issue  |
+| Checked if the power light is blinking slowly. Checked the Contoso coffee app. It had no prompt. Tried to do a factory reset. | One or more sentences, generated from multiple lines of the transcript.    | resolution |
 
 ---
 
