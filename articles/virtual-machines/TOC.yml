@@ -240,6 +240,10 @@
         href: sizes-storage.md
       - name: Lsv2-series
         href: lsv2-series.md
+      - name: Lsv3-series
+        href: lsv3-series.md
+      - name: Lasv3-series
+        href: lasv3-series.md
       - name: Optimize performance
         items:
         - name: Linux
