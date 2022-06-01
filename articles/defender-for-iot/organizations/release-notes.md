@@ -19,7 +19,7 @@ Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Term
 
 The Defender for IoT architecture uses on-premises sensors and management servers. This section describes the servicing information and timelines for the available on-premises software versions.
 
-- **Each General Availability (GA) version of the Defender for IoT sensor and on-premises management console software** is supported for nine months after its first minor release date, not including hotfix releases.
+- **Starting in version 22.1.x**, each General Availability (GA) version of the Defender for IoT sensor and on-premises management console software is supported for nine months after its first minor release date, not including hotfix releases.
 
     Release versions have the following syntax: **[Major][Minor][Hotfix]**
 
@@ -38,8 +38,9 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 >
 
 > [!TIP]
-> Version numbers are listed only in this article, and not in detailed descriptions elsewhere in the documentation.
-> To understand whether a feature is supported in your sensor version, check the listed features for that sensor version on this page.
+> - Version numbers are listed only in this article, and not in detailed descriptions elsewhere in the documentation. To understand whether a feature is supported in your sensor version, check the listed features for that sensor version on this page.
+>
+> - When updating your sensor software version, make sure to also update your on-premises management console. For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
 **Current versions of the sensor and on-premises management console software include**:
 
@@ -50,24 +51,22 @@ For more information, see the [Microsoft Security Development Lifecycle practice
 | 22.1.4 | 04/2022 | 10/2022 |
 | 22.1.3 | 03/2022 | 10/2022 |
 | 22.1.1 | 02/2022 | 10/2022 |
-| 10.5.5 | 12/2021 | 07/2022 |
-| 10.5.4 | 12/2021 | 07/2022 |
+| 10.5.5 | 12/2021 | 09/2022 |
+| 10.5.4 | 12/2021 | 09/2022 |
 | 10.5.3 | 10/2021 | 07/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
 
 ## June 2022
 
-**Sensor version**: 22.2.3
+**Sensor software version**: 22.2.3
 
 - [Define sensor settings from the Azure portal](#define-sensor-settings-from-the-azure-portal-public-preview)
 - [Support diagnostic log enhancements](#support-diagnostic-log-enhancements-public-preview)
 - [Improved security for uploading protocol plugins](#improved-security-for-uploading-protocol-plugins)
 
-**Sensor version**: 22.1.5
+**Sensor software version**: 22.1.5
 
 - Bug fixes related to OT monitoring software updates and sensor-cloud connections.
-
-For more information, see [Update Defender for IoT OT monitoring software](update-ot-software.md).
 
 ### Define sensor settings from the Azure portal (public preview)
 
@@ -220,6 +219,8 @@ For more information, see [Work with Defender for IoT CLI commands](references-w
 
 
 ## February 2022
+
+**Sensor software version**: 22.1.1
 
 - [New sensor installation wizard](#new-sensor-installation-wizard)
 - [Sensor redesign and unified Microsoft product experience](#sensor-redesign-and-unified-microsoft-product-experience)
@@ -415,6 +416,8 @@ The following Defender for IoT options and configurations have been moved, remov
 
 ## December 2021
 
+**Sensor software version**: 10.5.4
+
 - [Enhanced integration with Microsoft Sentinel (Preview)](#enhanced-integration-with-microsoft-sentinel-preview)
 - [Apache Log4j vulnerability](#apache-log4j-vulnerability)
 - [Alerting](#alerting)
@@ -491,6 +494,8 @@ This new functionality is available on the following alerts:
 
 ## November 2021
 
+**Sensor software version**: 10.5.3
+
 The following feature enhancements are available with version 10.5.3 of Microsoft Defender for IoT.
 
 - The on-premises management console, has a new [ServiceNow Integration API - “/external/v3/integration/ (Preview)](references-work-with-defender-for-iot-apis.md#servicenow-integration-api---externalv3integration-preview).
@@ -502,6 +507,8 @@ The following feature enhancements are available with version 10.5.3 of Microsof
 - Many enhancements have been made to the exporting of alert metadata based on customer feedback.
 
 ## October 2021
+
+**Sensor software version**: 10.5.2
 
 The following feature enhancements are available with version 10.5.2 of Microsoft Defender for IoT.
 
