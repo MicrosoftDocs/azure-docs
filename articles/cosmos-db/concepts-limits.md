@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/27/2022
+ms.date: 05/30/2022
 ---
 
 # Azure Cosmos DB service quotas
@@ -93,8 +93,8 @@ Depending on the current RU/s provisioned and resource settings, each resource c
 | Maximum RU/s per container | 5,000 |
 | Maximum storage across all items per (logical) partition | 20 GB |
 | Maximum number of distinct (logical) partition keys | Unlimited |
-| Maximum storage per container (SQL API, Mongo API, Table API, Gremlin API)| 50 GB<sup>1</sup>  |
-| Maximum storage per container (Cassandra API)| 30 GB  |
+| Maximum storage per container (SQL API, Mongo API, Table API, Gremlin API)| 1 TB  |
+| Maximum storage per container (Cassandra API)| 1 TB  |
 
 <sup>1</sup> Serverless containers up to 1 TB are currently in preview with Azure Cosmos DB. To try the new feature, register the *"Azure Cosmos DB Serverless 1 TB Container Preview"* [preview feature in your Azure subscription](../azure-resource-manager/management/preview-features.md).
 
@@ -105,7 +105,7 @@ You can [provision and manage your Azure Cosmos account](how-to-manage-database-
 | Resource | Limit |
 | --- | --- |
 | Maximum number of accounts per subscription | 50 by default. <sup>1</sup> |
-| Maximum number of regional failovers | 1/hour by default. <sup>1</sup> <sup>2</sup> |
+| Maximum number of regional failovers | 10/hour by default. <sup>1</sup> <sup>2</sup> |
 
 <sup>1</sup> You can increase these limits by creating an [Azure Support request](create-support-request-quota-increase.md).
 

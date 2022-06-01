@@ -1,6 +1,6 @@
 ---
 title: Secure hybrid access with F5
-titleSuffix: Azure AD
+titleSuffix: Microsoft Entra
 description: F5 BIG-IP Access Policy Manager and Azure Active Directory integration for Secure Hybrid Access
 author: gargi-sinha
 manager: martinco

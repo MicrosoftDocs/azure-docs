@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Manage federation certificates"
 description: In this tutorial, you'll learn how to customize the expiration date for your federation certificates, and how to renew certificates that will soon expire.
-titleSuffix: Azure AD
+titleSuffix: Microsoft Entra
 services: active-directory
 author: davidmu1
 manager: CelesteDG
