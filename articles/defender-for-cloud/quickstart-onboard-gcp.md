@@ -2,7 +2,7 @@
 title: Connect your GCP project to Microsoft Defender for Cloud
 description: Monitoring your GCP resources from Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 05/31/2022
+ms.date: 06/01/2022
 zone_pivot_groups: connect-gcp-accounts
 ms.custom: mode-other
 ---
@@ -22,7 +22,7 @@ To protect your GCP-based resources, you can connect an account in two different
     - **Defender for Cloud's CSPM features** extends to your GCP resources. This agentless plan assesses your GCP resources according to GCP-specific security recommendations and these are included in your secure score. The resources will also be assessed for compliance with built-in standards specific to GCP. Defender for Cloud's [asset inventory page](asset-inventory.md) is a multicloud enabled feature helping you manage your GCP resources alongside your Azure resources.
     - **Microsoft Defender for Servers** brings threat detection and advanced defenses to your GCP VM instances. This plan includes the integrated license for Microsoft Defender for Endpoint, security baselines and OS level assessments, vulnerability assessment scanning, adaptive application controls (AAC), file integrity monitoring (FIM), and more. You can view the full list of available features in the [Supported features for virtual machines and servers table](supported-machines-endpoint-solutions-clouds-servers.md)
     - **Microsoft Defender for Containers** - Microsoft Defender for Containers brings threat detection and advanced defenses to your Google's Kubernetes Engine (GKE) Standard clusters. This plan includes Kubernetes threat protection, behavioral analytics, Kubernetes best practices, admission control recommendations and more. You can view the full list of available features in [Defender for Containers feature availability](supported-machines-endpoint-solutions-clouds-containers.md).
-    - **Microsoft Defender for SQL** brings threat detection and advanced defenses to your SQL Servers running on GCP compute engine instances. This plan includes the advanced threat protection and vulnerability assessment scanning. You can view the [full list of available features](defender-for-sql-introduction).
+    - **Microsoft Defender for SQL** brings threat detection and advanced defenses to your SQL Servers running on GCP compute engine instances. This plan includes the advanced threat protection and vulnerability assessment scanning. You can view the [full list of available features](defender-for-sql-introduction.md).
 
 :::image type="content" source="./media/quickstart-onboard-gcp/gcp-account-in-overview.png" alt-text="Screenshot of GCP projects shown in Microsoft Defender for Cloud's overview dashboard." lightbox="./media/quickstart-onboard-gcp/gcp-account-in-overview.png":::
 
@@ -33,7 +33,7 @@ To protect your GCP-based resources, you can connect an account in two different
 |Aspect|Details|
 |----|:----|
 | Release state: | Preview <br> The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to the Azure features that are in beta, preview, or otherwise not yet released into general availability. |
-|Pricing:|The **CSPM plan** is free.<br>The **[Defender for SQL](defender-for-sql-introduction)** plan is billed at the same price as Azure resources.<br> The **Defender for Servers** plan is billed at the same price as the [Microsoft Defender for Servers](defender-for-servers-introduction.md) plan for Azure machines. If a GCP VM instance doesn't have the Azure Arc agent deployed, you won't be charged for that machine. <br>The **[Defender for Containers](defender-for-containers-introduction.md)** plan is free during the preview. After which, it will be billed for GCP at the same price as for Azure resources.|
+|Pricing:|The **CSPM plan** is free.<br>The **[Defender for SQL](defender-for-sql-introduction.md)** plan is billed at the same price as Azure resources.<br> The **Defender for Servers** plan is billed at the same price as the [Microsoft Defender for Servers](defender-for-servers-introduction.md) plan for Azure machines. If a GCP VM instance doesn't have the Azure Arc agent deployed, you won't be charged for that machine. <br>The **[Defender for Containers](defender-for-containers-introduction.md)** plan is free during the preview. After which, it will be billed for GCP at the same price as for Azure resources.|
 |Required roles and permissions:| **Contributor** on the relevant Azure Subscription <br> **Owner** on the GCP organization or project| 
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet, Other Gov)|
 
@@ -108,9 +108,9 @@ Follow the steps below to create your GCP cloud connector.
 
 (**Servers/SQL only**) When Arc auto-provisioning is enabled, copy the unique numeric ID presented at the end of the Cloud Shell script.
 
-    :::image type="content" source="media/quickstart-onboard-gcp/powershell-unique-id.png" alt-text="Screenshot showing the unique numeric I D to be copied." lightbox="media/quickstart-onboard-gcp/powershell-unique-id-expanded.png":::
+:::image type="content" source="media/quickstart-onboard-gcp/powershell-unique-id.png" alt-text="Screenshot showing the unique numeric I D to be copied." lightbox="media/quickstart-onboard-gcp/powershell-unique-id-expanded.png":::
 
-    To locate the unique numeric ID in the GCP portal, Navigate to **IAM & Admin** > **Service Accounts**, in the Name column, locate `Azure-Arc for servers onboarding` and copy the unique numeric ID number (OAuth 2 Client ID).
+To locate the unique numeric ID in the GCP portal, Navigate to **IAM & Admin** > **Service Accounts**, in the Name column, locate `Azure-Arc for servers onboarding` and copy the unique numeric ID number (OAuth 2 Client ID).
 
 1. Navigate back to the Microsoft Defender for Cloud portal.
 
