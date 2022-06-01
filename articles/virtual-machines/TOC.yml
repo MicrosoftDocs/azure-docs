@@ -169,6 +169,8 @@
         href: dcv2-series.md
       - name: DCsv3 and DCdsv3-series
         href: dcv3-series.md
+      - name: Dpv5-series
+        href: dpv5-series.md
       - name: Dv2 and DSv2-series
         href: dv2-dsv2-series.md
       - name: Dv3 and DSv3-series
@@ -203,6 +205,8 @@
         href: sizes-memory.md
       - name: Dv2 and DSv2-series 11-15
         href: dv2-dsv2-series-memory.md
+      - name: Epv5-series
+        href: epv5-series.md
       - name: Ev3 and Esv3-series
         href: ev3-esv3-series.md
       - name: Eav4 and Easv4-series
