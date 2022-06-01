@@ -61,7 +61,7 @@ There are no downtime requirements for any of the migration options.
 
 ## Migration option 1: Manual configuration
 
-This option is for deployments that are in an Azure virtual network (VNet). The option requires you to create a new subnet and public IP address for your API Management service. The result of this will change the service configuration and migrate your API management instance to one that is running on the new VMSS architecture that supports availability zones.
+This option is for deployments that are in an Azure virtual network (VNet). The option requires you to create a new subnet and public IP address for your API Management service. The procedure will change the service configuration and migrate your API management instance to one that is running on the new VMSS architecture that supports availability zones.
 
 ### When to use manual configuration
 
@@ -110,7 +110,7 @@ To enable zone redundancy in the Azure portal:
 1. Select an existing location, or select **+ Add** in the top bar. The location must [support availability zones](#prerequisites).
 1. Select the number of scale **[Units](../api-management/upgrade-and-scale.md)** in the location.
 1. In **Availability zones**, select one or more zones. The number of units selected must distribute evenly across the availability zones. For example, if you selected three units, select three zones so that each zone hosts one unit.
-1. If the API Management instance is deployed in a [virtual network](../api-management/api-management-using-with-vnet.md), select an existing virtual network, subnet, and public IP address that are available in the location. For an existing location, the virtual network and subnet must be configured from the Virtual Network blade.
+1. If you deploy your API Management instance in a [virtual network](../api-management/api-management-using-with-vnet.md), select an existing virtual network, subnet, and public IP address that are available in the location. For an existing location, the virtual network and subnet must be configured from the Virtual Network blade.
 1. Select **Apply** and then select **Save**.
 
 :::image type="content" source="../api-management/media/zone-redundancy/add-location-zones.png" alt-text="Enable zone redundancy":::
