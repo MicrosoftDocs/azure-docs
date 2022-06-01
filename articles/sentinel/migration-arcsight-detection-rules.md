@@ -292,7 +292,7 @@ on $left.TargetUserName==$right.TargetUserName
 ```
 Best practices:
 - To optimize your query, ensure that the smaller table is on the left side of the `join` function. 
-- If the left side of the table is relatively small (up to 100K records), add `hint.strategy=broadcast` for better performance.
+- If the left side of the table is relatively small (up to 100 K records), add `hint.strategy=broadcast` for better performance.
 
 ### Correlation (time window) example: ArcSight
 
