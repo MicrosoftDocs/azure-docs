@@ -131,7 +131,7 @@ Use the given JSON file to create an Azure Resource Manager template (ARM templa
   ]
 }
 ```
-
+---
 
 ## Enable CMK with system-assigned identity 
 
@@ -266,7 +266,7 @@ Use the given JSON file to create an Azure Resource Manager template (ARM templa
 	}]
 }
 ```
-
+---
 
 ## Customer-managed key version lifecycle
 
