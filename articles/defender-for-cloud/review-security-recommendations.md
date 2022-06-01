@@ -39,6 +39,8 @@ Recommendations are listed as **On time** until their due date is passed, when t
 
 To help you plan your work and report on progress, you can set an ETA for the specific resources to show when you plan to have the recommendation resolved by for those resources. You can also change the owner of the recommendation for specific resources so that the person responsible for remediation is assigned to the resource.
 
+:::image type="content" source="./media/governance-rules/change-governance-owner-eta.png" alt-text="Screenshot of fields required to add a governance rule." lightbox="media/governance-rules/change-governance-owner-eta.png":::
+
 To change the owner of resources and set the ETA for remediation of recommendations that are assigned to you:
 
 1. In the filters for list of recommendations, select **Show my items only**.
