@@ -39,14 +39,6 @@ Before you begin to enable customer-managed key (CMK) functionality, ensure the 
 1. If you enabled restricted access to Key Vault, you'll need to allow Microsoft Trusted Services to bypass the Azure Key Vault firewall. Go to [Configure Azure Key Vault networking settings](https://docs.microsoft.com/azure/key-vault/general/how-to-azure-key-vault-network-security?tabs=azure-portal) to learn more.
 1. Enable system assigned Identity on your Azure VMware Solution private cloud if you didn't enable it during software-defined data center (SDDC) provisioning.
 
-# [Portal](#tab/azure-portal)
-
-1. Log into Azure portal.
-1. Navigate to **Azure VMware Solution** and locate your SDDC.
-1. From the left navigation, open **Manage** and select **Identity**. 
-1. In **System Assigned**, check **Enable** and select **Save**.
-
-**System Assigned identity** should now be enabled.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -64,6 +56,15 @@ Next, get the Private Cloud resource id and save it to a variable. You will need
 To configure the system-assigned identity on Azure VMware Solution private cloud with Azure CLI, call az-resource-update, providing the variable for the private cloud resource ID that you previously retrieved.
 
 `az resource update --ids $privateCloudId --set identity.type=SystemAssigned --api-version "2021-12-01"`
+
+# [Portal](#tab/azure-portal)
+
+1. Log into Azure portal.
+1. Navigate to **Azure VMware Solution** and locate your SDDC.
+1. From the left navigation, open **Manage** and select **Identity**. 
+1. In **System Assigned**, check **Enable** and select **Save**.
+
+**System Assigned identity** should now be enabled.
 
 ---
 
