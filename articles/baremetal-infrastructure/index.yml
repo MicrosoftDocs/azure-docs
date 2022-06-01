@@ -150,23 +150,18 @@ landingContent:
             url: /azure/cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity
 
             # card 4
-  - title: BareMetal Infrastructure for Nutanix 
+  - title: BareMetal Infrastructure for NC2 
     linkLists: 
       - linkListType: overview
         links:
-          - text: What is BareMetal Infrastructure for Nutanix? 
-            url: workloads/nutanix-public-preview/nutanix-baremetal-overview.md
+          - text: What is BareMetal Infrastructure for NC2? 
+            url: workloads/nc2-public-preview/nc2-baremetal-overview.md
           - text: About the Public Preview
-            url: workloads/nutanix-public-preview/about-the-public-preview.md
+            url: workloads/nc2-public-preview/about-the-public-preview.md
           - text: Architecture
-            url:  workloads/nutanix-public-preview/nutanix-baremetal-architecture.md  
-
-      - linkListType: how-to-guide
-        links:
+            url:  workloads/nc2-public-preview/architecture.md  
           - text: Requirements
-            url:  workloads/nutanix-public-preview/requirements.md
+            url:  workloads/nc2-public-preview/requirements.md
           - text: Supported instances
-            url:  workloads/nutanix-public-preview/supported-instances.md
-          - text: Deployment Overview
-            url:  workloads/nutanix-public-preview/nutanix-deployment-overview.md
+            url:  workloads/nc2-public-preview/supported-instances.md
   
