@@ -1,7 +1,6 @@
 ---
 title: What is single sign-on?
 description: Learn about single sign-on for enterprise applications in Azure Active Directory.
-titleSuffix: Microsoft Entra
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
