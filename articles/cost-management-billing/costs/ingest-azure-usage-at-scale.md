@@ -31,46 +31,6 @@ Before you create your first export, consider your scenario and the configuratio
 - **Columns** – Defines the data fields you want included in your export file. They correspond with the fields available in the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml).
 - **Partitioning** - Set the option to true if you have a large dataset and would like it to be broken up into multiple files. This makes data ingestion much faster and easier. For more information about partitioning, see [File partitioning for large datasets](../costs/tutorial-export-acm-data.md#file-partitioning-for-large-datasets).
 
-## Seed a historical cost dataset in Azure storage
-
-When setting up a data pipeline using exports, you might find it useful to seed your historical cost data. This historical data can then be loaded into the data store of your choice. We recommend creating one-time data exports in one month chunks. The following example explains how to create a one-time export using the Exports API. If you have a large dataset each month, we recommend setting `partitionData = true` for your one-time export to split it into multiple files. For more information, see [File partitioning for large datasets](tutorial-export-acm-data.md?tabs=azure-portal#file-partitioning-for-large-datasets).
-
-After you've seeded your historical dataset, you can then create a scheduled export to continue populating your cost data in Azure storage as your charges accrue moving forward. The next section has additional information. 
-
-```http
-PUT https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.CostManagement/exports/{ExportName}?api-version=2021-10-01
-```
-
-Request body:
-
-```json
-{
-  "properties": {
-    "definition": {
-      "dataset": {
-        "granularity": "Daily",
-        "grouping": []
-      },
-      "timePeriod": {
-        "from": "2021-09-01T00:00:00.000Z",
-        "to": "2021-09-30T00:00:00.000Z"
-      },
-      "timeframe": "Custom",
-      "type": "ActualCost"
-    },
-    "deliveryInfo": {
-      "destination": {
-        "container": "{containerName}",
-        "rootFolderPath": "{folderName}",
-        "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}"
-      }
-    },
-    "format": "Csv",
-    "partitionData": false
-  }
-}
-```
-
 ## Create a daily month-to-date export for a subscription
 
 Request URL: `PUT https://management.azure.com/{scope}/providers/Microsoft.CostManagement/exports/{exportName}?api-version=2020-06-01`
