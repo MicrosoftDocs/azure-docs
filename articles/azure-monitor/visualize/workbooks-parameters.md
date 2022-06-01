@@ -19,9 +19,12 @@ Workbooks allow you to control how your parameter controls are presented to cons
 Supported parameter types include:
 * [Time](workbooks-time.md) - allows a user to select from prepopulated time ranges or select a custom range
 * [Drop down](workbooks-dropdowns.md) - allows a user to select from a value or set of values
+* [Options group](workbooks-options-group.md)
 * [Text](workbooks-text.md) - allows a user to enter arbitrary text
+* [Criteria](workbooks-criteria.md)
 * [Resource](workbooks-resources.md) - allows a user to select one or more Azure resources
 * [Subscription](workbooks-resources.md) - allows a user to select one or more Azure subscription resources
+* [Multi-value](workbooks-multi-value.md)
 * Resource Type - allows a user to select one or more Azure resource type values
 * Location - allows a user to select one or more Azure location values
 
@@ -69,11 +72,75 @@ This is how the workbook will look like in read-mode, in the "Pills" style.
 4. The text control will show text: _The chosen time range is Last 24 hours_
 
 ## Parameter options
+**** I have no idea what this section means ******
+
 The _In Text_ section used the `label` of the parameter instead of its value. Parameters expose various such options depending on its type - e.g. time range pickers allow value, label, query, start, end, and grain.
 
 Use the `Previews` section of the _Edit Parameter_ pane to see the expansion options for your parameter:
 
 ![Image showing a time range parameter options](./media/workbooks-parameters/time-previews.png)
+
+
+# #Parameter options
+
+The following parameter options are applicable to all parameter types except Time range picker.
+
+For Resource picker, resource Ids are formatted and for Subscription picker, subscription values are formatted.
+
+## tomltojson
+To convert toml to json, use `{param:tomltojson}`.
+
+Value: 
+```
+name = "Sam Green"
+
+[address]
+state = "New York"
+country = "USA"
+```
+
+Formatted Value:
+```
+{
+  "name": "Sam Green",
+  "address": {
+    "state": "New York",
+    "country": "USA"
+  }
+}
+```
+
+## escapejson
+To escape, use `{param:escapejson}`.
+
+Value: 
+```
+{
+	"name": "Sam Green",
+	"address": {
+		"state": "New York",
+		"country": "USA"
+  }
+}
+```
+
+Formatted Value:
+```
+{\r\n\t\"name\": \"Sam Green\",\r\n\t\"address\": {\r\n\t\t\"state\": \"New York\",\r\n\t\t\"country\": \"USA\"\r\n  }\r\n}
+```
+
+## base64
+To encode text to base64, use `{param:base64}`.
+
+Value: 
+```
+Sample text to test base64 encoding
+```
+
+Formatted Value:
+```
+U2FtcGxlIHRleHQgdG8gdGVzdCBiYXNlNjQgZW5jb2Rpbmc=
+```
 
 ## Next steps
 

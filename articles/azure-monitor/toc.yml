@@ -1358,10 +1358,17 @@ items:
   - name: Workbooks
     items:
     - name: Overview
-      displayName: Workbooks
       href: visualize/workbooks-overview.md
-    - name: Common Workbook tasks
-      href: visualize/workbooks-common-tasks.md
+    - name: Working with workbooks
+      items:
+        - name: Common Workbook Tasks
+          href: visualize/workbooks-common-tasks.md
+        - name: Add text to your workbook
+          href: visualize/workbooks-add-text.md
+        - name: Working with Parameters
+          href: visualize/workbooks-parameters.md
+        - name: Time parameters
+          href: visualize/workbooks-time.md
     - name: Integrate Workbooks with Azure features
       items:
         - name: Overview
@@ -1390,14 +1397,10 @@ items:
       href: visualize/workbooks-data-sources.md
     - name: Parameters
       items:
-      - name: Parameter summary
-        href: visualize/workbooks-parameters.md
       - name: Drop down parameters
         href: visualize/workbooks-dropdowns.md
       - name: Interactive parameters
         href: visualize/workbooks-interactive.md
-      - name: Time parameters
-        href: visualize/workbooks-time.md
       - name: Text parameters
         href: visualize/workbooks-text.md
       - name: Resource parameters
