@@ -181,7 +181,7 @@ More information about this threat: [API7:2019 Security misconfiguration](https:
 
     * When using OAuth 2.0, configure and test the [validate JWT](api-management-access-restriction-policies.md#ValidateJWT) policy to check the existence and validity of the JWT token before it reaches the backend. Automatically check the token expiration time, token signature, and issuer. Enforce claims, audiences, token expiration, and token signature through policy settings. 
 
-    * Configure the [CORS](api-management-cross-domain-policies.md#CORS) policy and don't use wildcard `*` for any origin. Instead, explicitly list allowed values. 
+    * Configure the [CORS](api-management-cross-domain-policies.md#CORS) policy and don't use wildcard `*` for any configuration option. Instead, explicitly list allowed values. 
 
     * Set [validation policies](validation-policies.md) to `prevent` in production environments to validate JSON and XML schemas, headers, query parameters, and status codes, and to enforce the maximum size for request or response. 
 
@@ -189,21 +189,19 @@ More information about this threat: [API7:2019 Security misconfiguration](https:
 
     * If client certificates are used between caller and API Management, use the [validate client certificate](api-management-access-restriction-policies.md#validate-client-certificate) policy. Ensure that the `validate-revocation`, `validate-trust`, `validate-not-before`, and `validate-not-after` attributes are all set to `true`. 
 
-    * Client certificates (mutual TLS) can also be applied between API Management and the backend. The backend should:
+        * Client certificates (mutual TLS) can also be applied between API Management and the backend. The backend should:
 
-        * Have authorization credentials configured		 
+            * Have authorization credentials configured		 
 
-        * Validate the certificate chain where applicable 
+            * Validate the certificate chain where applicable 
 
-        * Validate the certificate name where applicable 
+            * Validate the certificate name where applicable 
 
 * For GraphQL scenarios, use the [validate GraphQL request](graphql-policies.md#validate-graphql-request) policy. Ensure that the `authorization` element and `max-size` and `max-depth` attributes are set. 
 
 * Don't store secrets in policy files or in source control. Always use API Management [named values](api-management-howto-properties.md) or fetch the secrets at runtime using custom policy expressions.	 
 
-    * Named values can be [integrated with Key Vault](api-management-howto-properties.md#key-vault-secrets) 
-
-    * Named values can also be encrypted within API Management by marking them "secret". Only store secrets in named values when the values are marked as "secret". 
+    * Named values should be [integrated with Key Vault](api-management-howto-properties.md#key-vault-secrets) or encrypted within API Management by marking them "secret". Never store secrets in plain-text named values.
 
 * Publish APIs through [products](api-management-howto-add-products.md), which require subscriptions. Don't use [open products](api-management-howto-add-products.md#access-to-product-apis) that don't require a subscription.
 
@@ -229,7 +227,7 @@ More information about this threat: [API7:2019 Security misconfiguration](https:
 
 ## Injection
 
-Any accessible endpoint accepting user data is potentially vulnerable to an injection exploit. Examples include, but aren't limited to: 
+Any endpoint accepting user data is potentially vulnerable to an injection exploit. Examples include, but aren't limited to: 
 
 * [Command injection](https://owasp.org/www-community/attacks/Command_Injection), where a bad actor attempts to alter the API request to execute commands on the operating system hosting the API
 
@@ -239,7 +237,7 @@ More information about this threat: [API8:2019 Injection](https://github.com/OWA
 
 ### Recommendations
 
-* [Modern Web Application Firewall (WAF) policies](https://github.com/SpiderLabs/ModSecurity) cover many common injection vulnerabilities. While API Management doesn’t have a built-in WAF component, a WAF can be deployed upstream (in front) of the API Management instance. For example, you can use [Azure Application Gateway](/azure/architecture/reference-architectures/apis/protect-apis) or [Azure Front Door](../frontdoor/front-door-overview.md). 
+* [Modern Web Application Firewall (WAF) policies](https://github.com/SpiderLabs/ModSecurity) cover many common injection vulnerabilities. While API Management doesn’t have a built-in WAF component, deploying a WAF upstream (in front) of the API Management instance is strongly recommended. For example, use [Azure Application Gateway](/azure/architecture/reference-architectures/apis/protect-apis) or [Azure Front Door](../frontdoor/front-door-overview.md). 
 
     > [!IMPORTANT]
     > Ensure that a bad actor can't bypass the gateway hosting the WAF and connect directly to the API Management gateway or backend API itself. Possible mitigations include: [network ACLs](../virtual-network/network-security-groups-overview.md), using API Management policy to [restrict inbound traffic by client IP](api-management-access-restriction-policies.md#RestrictCallerIPs), removing public access where not required, and [client certificate authentication](api-management-howto-mutual-certificates-for-clients.md) (also known as mutual TLS or mTLS). 
