@@ -131,7 +131,7 @@ Use the given JSON file to create an Azure Resource Manager template (ARM templa
   ]
 }
 ```
----
+
 
 ## Enable CMK with system-assigned identity 
 
@@ -161,7 +161,7 @@ Navigate to your **Azure Key Vault** and provide access to the SDDC on Azure Key
     > [!IMPORTANT]
     > If you'd like to select a specific key version instead of the auto selected latest version, you'll need to specify key URI with key version. This will affect the CMK key version life cycle.
 
-1. Select **Save** to grant access to the resource. 
+1. Select **Save** to grant access to the resource.
 
 # [Template](#tab/azure-resource-manager)
 
@@ -266,7 +266,7 @@ Use the given JSON file to create an Azure Resource Manager template (ARM templa
 	}]
 }
 ```
----
+
 
 ## Customer-managed key version lifecycle
 
