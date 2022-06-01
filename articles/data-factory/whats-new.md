@@ -22,6 +22,15 @@ Azure Data Factory is improved on an ongoing basis. To stay up to date with the 
 
 This page is updated monthly, so revisit it regularly.
 
+## May 2022
+<br>
+<table>
+<tr><td><b>Service category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
+
+<tr><td><b>Data flow</b></td><td>User Defined Functions for mapping data flows</td><td>Azure Data Factory introduces in public preview user defined functions and data flow libraries. A user defined function is a customized expression you can define to be able to reuse logic across multiple mapping data flows. User defined functions live in a collection called a data flow library to be able to easily group up common sets of customized functions.<br><a href="concepts-data-flow-udf.md">Learn more</a></td></tr>
+
+</table>
+
 ## April 2022
 <br>
 <table>
