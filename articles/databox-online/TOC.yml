@@ -339,7 +339,7 @@
 
     - name: Kubernetes
       items:
-      - name: What is Kubernetes?
+      - name: What is Kubernetes
         href: azure-stack-edge-gpu-kubernetes-overview.md  
       - name: Kubernetes storage 
         href: azure-stack-edge-gpu-kubernetes-storage.md 
