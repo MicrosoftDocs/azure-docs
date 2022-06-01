@@ -45,7 +45,7 @@ You'll learn how to create a function app that can access Azure Cosmos DB data w
     > [!NOTE]
     > These variables will be re-used in later steps. This example assumes your Azure Cosmos DB account name is ``msdocs-cosmos-app``, your function app name is ``msdocs-function-app`` and your resource group name is ``msdocs-cosmos-functions-dotnet-identity``.
 
-1. View the function app's properties using the [``az functionapp show``](/cli/azure/functionapp?view=azure-cli-latest&preserve-view=true#az-functionapp-show) command.
+1. View the function app's properties using the [``az functionapp show``](/cli/azure/functionapp&preserve-view=true#az-functionapp-show) command.
 
     ```azurecli-interactive
     az functionapp show \
@@ -64,7 +64,7 @@ You'll learn how to create a function app that can access Azure Cosmos DB data w
 1. View the Cosmos DB account's properties using [``az cosmosdb show``](/cli/azure/cosmosdb#az-cosmosdb-show).
 
     ```azurecli-interactive
-    az cosmosdb show
+    az cosmosdb show \
         --resource-group $resourceGroupName \
         --name $cosmosName
     ```
@@ -76,7 +76,7 @@ In this step, you'll create two databases.
 1. In a terminal or command window, create a new ``products`` database using [``az cosmosdb sql database create``](/cli/azure/cosmosdb/sql/database#az-cosmosdb-sql-database-create).
 
     ```azurecli-interactive
-    az cosmosdb show
+    az cosmosdb sql database create \
         --resource-group $resourceGroupName \
         --name products \
         --account-name $cosmosName
@@ -85,7 +85,7 @@ In this step, you'll create two databases.
 1. Create a new ``customers`` database.
 
     ```azurecli-interactive
-    az cosmosdb show
+    az cosmosdb sql database create \
         --resource-group $resourceGroupName \
         --name customers \
         --account-name $cosmosName
@@ -98,16 +98,17 @@ In this step, you'll query the document endpoint for the SQL API account.
 1. Use ``az cosmosdb show`` with the **query** parameter set to ``documentEndpoint``. Record the result. You'll use this value in a later step. 
 
     ```azurecli-interactive
-    az cosmosdb show
+    az cosmosdb show \
         --resource-group $resourceGroupName \
         --name $cosmosName \
         --query documentEndpoint
 
     cosmosEndpoint=$(
-        az cosmosdb show
+        az cosmosdb show \
             --resource-group $resourceGroupName \
             --name $cosmosName \
-            --query id
+            --query documentEndpoint \
+            --output tsv
     )
     
     echo $cosmosEndpoint
@@ -127,10 +128,11 @@ In this step, you'll assign a role to the function app's system-assigned managed
 
     ```azurecli-interactive
     scope=$(
-        az cosmosdb show
+        az cosmosdb show \
             --resource-group $resourceGroupName \
             --name $cosmosName \
-            --query id
+            --query id \
+            --output tsv
     )
     
     echo $scope
@@ -139,25 +141,43 @@ In this step, you'll assign a role to the function app's system-assigned managed
     > [!NOTE]
     > This variable will be re-used in a later step.
 
-1. Use ``az webapp identity show`` with the **query** parameter set to ``principalId``. Store the result in a shell variable named ``assignee``.
+1. Use ``az webapp identity show`` with the **query** parameter set to ``principalId``. Store the result in a shell variable named ``principal``.
 
     ```azurecli-interactive
-    assignee=$(
+    principal=$(
         az webapp identity show \
             --resource-group $resourceGroupName \
             --name $functionName \
-            --query principalId
+            --query principalId \
+            --output tsv
     )
     
-    echo $assignee
+    echo $principal
     ```
 
-1. Use [``az role assignment create``](/cli/azure/role/assignment#az-role-assignment-create) to assign the ``Cosmos DB Built-in Data Reader`` role to the system-assigned managed identity.
+1. Create a new JSON object with the configuration of the new custom role.
+
+    ```json
+    {
+        "RoleName": "Read Cosmos Metadata",
+        "Type": "CustomRole",
+        "AssignableScopes": ["/"],
+        "Permissions": [{
+            "DataActions": [
+                "Microsoft.DocumentDB/databaseAccounts/readMetadata"
+            ]
+        }]
+    }
+    ```
+
+1. Use [``az role assignment create``](/cli/azure/cosmosdb/sql/role/assignment#az-cosmosdb-sql-role-assignment-create) to assign the ``Cosmos DB Built-in Data Reader`` role to the system-assigned managed identity.
 
     ```azurecli-interactive
-    az role assignment create \
-        --role "Cosmos DB Built-in Data Reader" \
-        --assignee $assignee \
+    az cosmosdb sql role assignment create \
+        --resource-group $resourceGroupName \
+        --account-name $cosmosName \
+        --role-definition-name "Read Cosmos Metadata" \
+        --principal-id $principal \
         --scope $scope
     ```
 
@@ -168,7 +188,7 @@ We now have a function app that has a system-assigned managed identity with the 
 1. Create a local function project with the ``--dotnet`` parameter in a folder named ``csmsfunc``. Change your shell's directory
 
     ```azurecli-interactive
-    func init --dotnet csmsfunc
+    func init csmsfunc --dotnet
     
     cd csmsfunc
     ```
@@ -194,14 +214,15 @@ We now have a function app that has a system-assigned managed identity with the 
     > [!TIP]
     > If you are using the Azure CLI locally or in the Azure Cloud Shell, you can open Visual Studio Code.
     >
-    > ```azurecli-interactive
+    > ```azurecli
     > code .
     > ```
     >
 
-1. Replace the code in the **readdatabases.cs** file with this sample function implementation.
+1. Replace the code in the **readdatabases.cs** file with this sample function implementation. Save the updated file.
 
     ```csharp
+    using System;
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using Azure.Identity;
@@ -224,12 +245,12 @@ We now have a function app that has a system-assigned managed identity with the 
                 log.LogTrace("Start function");
     
                 CosmosClient client = new CosmosClient(
-                    accountEndpoint: System.Environment.GetEnvironmentVariable("COSMOS_ENDPOINT", EnvironmentVariableTarget.Process),
+                    accountEndpoint: Environment.GetEnvironmentVariable("COSMOS_ENDPOINT", EnvironmentVariableTarget.Process),
                     new DefaultAzureCredential()
                 );
     
                 using FeedIterator<DatabaseProperties> iterator = client.GetDatabaseQueryIterator<DatabaseProperties>();
-                
+    
                 List<(string name, string uri)> databases = new();
                 while(iterator.HasMoreResults)
                 {
@@ -239,7 +260,7 @@ We now have a function app that has a system-assigned managed identity with the 
                         databases.Add((database.Id, database.SelfLink));
                     }
                 }
-                
+    
                 return new OkObjectResult(databases);
             }
         }
@@ -256,7 +277,7 @@ In a local environment, the [``DefaultAzureCredential``](/dotnet/api/azure.ident
     ...
     "Values": {
         ...
-        "COSMOS_ENDPOINT": "https://sidneysecure.documents.azure.com:443/"
+        "COSMOS_ENDPOINT": "https://msdocs-cosmos-app.documents.azure.com:443/",
         ...
     }
     ...
@@ -289,6 +310,8 @@ Once published, the ``DefaultAzureCredential`` class will use credentials from t
     ```azurecli-interactive
     func azure functionapp publish $functionName
     ```
+
+1. [Test your function in the Azure portal](../azure-functions/functions-create-function-app-portal.md#test-the-function).
 
 ## Next steps
 
