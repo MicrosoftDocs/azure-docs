@@ -80,7 +80,7 @@ For ETL/ELT, transformation, and orchestration, evaluate the following points.
 For networking and security, evaluate the following points.
 
 - What regulatory requirements do you have for your data?
-- If your data contains personally identifying information (PII), payment card industry (PCI), or Health Insurance Portability and Accountability Act of 1996 (HIPAA) data, has your security group certified Azure for this data? If so, for which Azure services?
+- If your data contains customer content, payment card industry (PCI), or Health Insurance Portability and Accountability Act of 1996 (HIPAA) data, has your security group certified Azure for this data? If so, for which Azure services?
 - Describe your user authorization and authentication requirements.
 - Are there security issues that could limit access to data during implementation?
 - Is there test data available to use during development and testing?

@@ -24,7 +24,7 @@ This guidance is intended to supplement the official Azure Synapse documentation
 > [!NOTE]
 > This guidance undergoes continuous improvement by the Synapse CSE team. In time, guidance articles will cover additional topics, including enterprise development support using continuous integration and continuous deployment (CI/CD) methods, business continuity and disaster recovery (BCDR), high availability (HA), and Azure Synapse monitoring.
 
-## Next steps
+Next steps:
 
 > [!div class="nextstepaction"]
 > [Synapse proof of concept playbook](proof-of-concept-playbook-overview.md)

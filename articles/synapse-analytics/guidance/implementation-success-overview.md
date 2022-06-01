@@ -31,7 +31,7 @@ The checkpoints are invoked at four milestones during the project:
 1. [Pre go-live](#pre-go-live-checkpoint)
 1. [Post go-live](#post-go-live-checkpoint)
 
-### Project planning checkpoint
+## Project planning checkpoint
 
 The project planning checkpoint includes the solution evaluation, project plan evaluation, the solution development environment design evaluation, and the team skill sets evaluation.
 
