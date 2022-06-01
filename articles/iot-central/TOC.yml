@@ -239,6 +239,8 @@
           href: core/howto-customize-ui.md
         - name: Configure and use file uploads
           href: core/howto-configure-file-uploads.md
+        - name: Integrate with DevOps
+          href: core/howto-integrate-iotc-with-devops.md
         - name: Manage and monitor in the Azure portal
           href: core/howto-manage-iot-central-from-portal.md
         - name: Manage from command line

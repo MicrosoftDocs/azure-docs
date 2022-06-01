@@ -1,136 +1,276 @@
 ---
-title: Export data from Azure IoT Central (legacy) | Microsoft Docs
-description: How to export data from your Azure IoT Central application to Azure Event Hubs, Azure Service Bus, and Azure Blob storage
-services: iot-central
+title: Integrate Azure IoT Central with CI/CD | Microsoft Docs
+description: Describes how to integrate IoT Central into your Azure DevOps CI/CD pipeline
 author: troyhop
 ms.author: troyhop
-ms.date: 05/23/2022
+ms.date: 05/27/2022
 ms.topic: how-to
 ms.service: iot-central
 ---
-# Integrating Azure IoT Central Into Your CI/CD Pipeline
+# Integrate IoT Central into your Azure DevOps CI/CD pipeline
 
 ## Overview
 
-Continuous integration and continuous delivery (CI/CD) refer to the process of developing and delivering software in short, frequent cycles using automation pipelines. While this is by no means a new process, having been ubiquitous in traditional software engineering for decades, it is no less valuable for IoT Central applications. By automating the building, testing, and deployment of IoT Central application configuration, development teams can deliver highly reliable releases more frequently.
+Continuous integration and continuous delivery (CI/CD) refers to the process of developing and delivering software in short, frequent cycles using automation pipelines. This article shows you how to automate the build, test, and deployment of IoT Central application configuration, to enable development teams to deliver reliable releases more frequently.
 
-Continuous integration begins with the practice of having you commit your code with some frequency to a branch within a source code repository. Each commit is then merged with the commits from other developers to ensure that no conflicts are introduced. Changes are further validated by creating a build and running automated tests against that build. This process ultimately results in an artifact, or deployment bundle, that will eventually be deployed to a target environment, in this case an Azure IoT Central application.
+Continuous integration starts with a commit of your code to a branch in a source code repository. Each commit is merged with commits from other developers to ensure that no conflicts are introduced. Changes are further validated by creating a build and running automated tests against that build. This process ultimately results in an artifact, or deployment bundle, to deploy to a target environment, in this case an Azure IoT Central application.
 
-Just as IoT Central is one part of your larger IoT solution, IoT Central is one part of your CI/CD pipeline. Your CI/CD pipeline should deploy your entire IoT solution and all configurations to each environment from Dev environments all the way through to production.
+Just as IoT Central is a part of your larger IoT solution, IoT Central is a part of your CI/CD pipeline. Your CI/CD pipeline should deploy your entire IoT solution and all configurations to each environment from development through to production:
 
 ![DevOps flow](media/howto-integrate-iotc-with-devops/devops.png)
 
-With IoT Central being an Application Platform as a Service (aPaaS) it is a bit different than Platform as a Service (PaaS) components. For IoT Central, you will be deploying configurations and device templates. These are managed and integrated into your release pipeline via APIs.
+IoT Central is an *application platform as a service* that has different deployment requirements from *platform as a service* components. For IoT Central, you deploy configurations and device templates. These are managed and integrated into your release pipeline by using APIs.
 
-While it is possible to automate app creation, you should create an app in each environment prior to developing your CI/CD pipeline.
+While it's possible to automate IoT Central app creation, you should create an app in each environment before you develop your CI/CD pipeline.
 
 By using the Azure IoT Central REST API, you can integrate IoT Central app configurations into your release pipeline.
 
-This guide will walk you through the process of creating a new DevOps pipeline that updates an IoT Central application based on configuration files managed in GitHub. While this process calls out specific instructions for integrating with Azure DevOps, this same process can be used to include IoT Central in any release pipeline including popular tools like Tekton, Jenkins, GitLab, GitHub Actions and more.
+This guide walks you through the creation of a new DevOps pipeline that updates an IoT Central application based on configuration files managed in GitHub. This guide has specific instructions for integrating with Azure DevOps, but could be adapted to include IoT Central in any release pipeline built using tools such as Tekton, Jenkins, GitLab, or GitHub Actions.
 
-For the purpose of this guide, we will create a DevOps pipeline that only applies an IoT Central configuration to a single instance of an IoT Central application. This process should be integrated into a larger DevOps pipeline that deploys your entire solution promoting it from Dev to QA to Pre-Production to Production and performs all necessary testing along the way.
+In this guide, you create a DevOps pipeline that only applies an IoT Central configuration to a single instance of an IoT Central application. You should integrate the steps into a larger DevOps pipeline that deploys your entire solution and promotes it from *development* to *QA* to *pre-production* to *production*, performing all necessary testing along the way.
+
+The scripts currently don't transfer the following settings between IoT Central instances: dashboards, views, custom settings in device templates, pricing plan, UX customizations, application image, rules, scheduled jobs, saved jobs, and enrollment groups.
+
+The scripts currently don't remove settings from the target IoT Central application that aren't present in the configuration file.
 
 ## Prerequisites
 
-The following prerequisites are required to complete this guide
+You need the following prerequisites to complete the steps in this guide:
 
-- Two IoT Central applications. (One will be for your dev environment and the other will be for your production environment) [Create an IoT Central application](https://docs.microsoft.com/en-us/azure/iot-central/core/howto-create-iot-central-application)
-- Two Azure Key Vaults. (One will be for your dev environment and the other will be for your production environment. It is a best practice to have a dedicated Key Vault per environment.) [Quickstart - Create an Azure Key Vault with the Azure portal](https://docs.microsoft.com/en-us/azure/key-vault/general/quick-create-portal)
-- A GitHub account [GitHub](https://github.com/)
-- An Azure DevOps organization [Create an organization - Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/create-organization?view=azure-devops#:~:text=%20Create%20an%20organization%20%201%20Sign%20in,an%20organization%20owner%21Sign%20in%20to%20your...%20See%20More.)
-- PowerShell 7 for Windows, Mac or Linux. [Get PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell)
-- Visual Studio Code or other tool for editing PowerShell and JSON files.[Get Visual Studio Code](https://code.visualstudio.com/Download)
-- Git client. Download the latest version here [Git - Downloads (git-scm.com)](https://git-scm.com/downloads)
+- Two IoT Central applications - one for your development environment and one for your production environment. To learn more, see [Create an IoT Central application](howto-create-iot-central-application.md).
+- Two Azure Key Vaults - one for your development environment and one for your production environment. It's best practice to have a dedicated Key Vault for each environment. To learn more, see [Create an Azure Key Vault with the Azure portal](../../key-vault/general/quick-create-portal.md).
+- A GitHub account [GitHub](https://github.com/).
+- An Azure DevOps organization. To learn more, see [Create an Azure DevOps organization](../../devops/organizations/accounts/create-organization.md?view=azure-devops).
+- PowerShell 7 for Windows, Mac or Linux. [Get PowerShell](../../powershell/scripting/install/installing-powershell.md).
+- Azure Az PowerShell module installed in your PowerShell 7 environment. To learn more, see [Install the Azure Az PowerShell module](../../powershell/azure/install-az-ps).
+- Visual Studio Code or other tool to edit PowerShell and JSON files.[Get Visual Studio Code](https://code.visualstudio.com/Download).
+- Git client. Download the latest version from [Git - Downloads (git-scm.com)](https://git-scm.com/downloads).
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](azure-cli-prepare-your-environment-no-header.md)]
 
 ## Download the sample code
 
-To get started, you will need to fork the IoT Central CICD Git Hub repository and then clone your copy to your local machine.
+To get started, fork the IoT Central CI/CD GitHub repository and then clone your fork to your local machine:
 
-1. Fork the Git Hub repository
-    1. Open the Git Hub repository in a browser by going [https://github.com/Azure/iot-central-CICD-samplehttps://github.com/Azure/iot-central-CICD-sample](https://github.com/Azure/iot-central-CICD-samplehttps:/github.com/Azure/iot-central-CICD-sample) and click "Fork"
-    
-    ![](media/howto-integrate-iotc-with-devops/fork.png)
+1. To fork the Git Hub repository, open the [IoT Central CI/CD GitHub repository](https://github.com/Azure/iot-central-CICD-sample) and select **Fork**.
+
 1. Clone your fork of the repository to your local machine by opening a console or bash window and running the following command.
 
-cmd\bash
+```cmd\bash
 
-git clone [https://github.com/\<YOUR](https://github.com/%3CYOUR) REPOSITORY\>.git
+git clone https://github.com/{your GitHub username}/iot-central-CICD-sample
+```
 
-## Create a Service Principal in Azure
+## Create a service principal
 
-While Azure DevOps can integrate directly with Key Vault, DevOps will need a service principal for some of the dynamic KeyVault interactions. Fetching secrets for data export destinations will require this service principal.
+While Azure DevOps can integrate directly with a key vault, DevOps needs a service principal for some of the dynamic key vault interactions such as fetching secrets for data export destinations.
 
-1. Run the following command to create a new service principal.
+To create a service principal scoped to your subscription:
 
-cmd\bash
+1. Run the following command to create a new service principal:
 
-az ad sp create-for-rbac --scopes /subscriptions/\<SubscriptionID\>
+    ```azurecli
+    az ad sp create-for-rbac -n DevOpsAccess --scopes /subscriptions/{your Azure subscription Id} --role Contributor
+    ```
 
-1. Note the App ID and Tenant ID as you will need these later.
+1. Make a note of the **password**, **appId**, and **tenant** as you need these values later.
 
-1. Manually save the password to the Key Vault for production.
+1. Add the service principal password as a secret called `SP-Password` to your production key vault:
 
-## Generate an IoT Central API token for each application
+    ```azurecli
+    az keyvault secret set --name SP-Password --vault-name {your production key vault name} --value {your service principal password}
+    ```
 
-For this guide, your Azure DevOps pipeline will use an API token to interact with your IoT Central Applications. While not covered in this document, Service Principals can also be used.
+1. Give the service principal permission to read secrets from the key vault:
+
+    ```azurecli
+    az keyvault set-policy --name {your production key vault name} --secret-permissions get list --spn {the appId of the service principal}
+    ```
+
+## Generate IoT Central API tokens
+
+In this guide, your Azure DevOps pipeline uses API tokens to interact with your IoT Central applications. It's also possible to use a service principal.
 
 > [!NOTE]
-> IoT Central API tokens expire after 1 year.
+> IoT Central API tokens expire after one year.
 
-Follow these steps for both your dev app and your production app.
+Complete the following steps for both your development and production IoT Central apps.
 
-1. In your IoT Central application click on Permissions and then API tokens
-2. Click New
-3. Give the token a name, specify the top-level organization, and set the role to "App Administrator"
- ![Generate API Token](media/howto-integrate-iotc-with-devops/generatetoken.png)
-4. Save the generated token to the appropriate Key Vault for the application.
+1. In your IoT Central app, select **Permissions** and then **API tokens**.
+1. Select **New**.
+1. Give the token a name, specify the top-level organization in your app, and set the role to **App Administrator**.
+1. Make a note of the API token from your development IoT Central application. You use it later when you run the *IoTC-Config.ps1* script.
+1. Save the generated token from the production IoT Central application as a secret called `API-Token` to the production key vault:
 
-## Generate a configuration file representing your Dev instance of IoT Central
+    ```azurecli
+    az keyvault secret set --name API-Token --vault-name {your production key vault name} --value '{your production app API token}'
+    ```
 
-This will produce a JSON configuration file based on an existing IoT Central application for your dev environment. You will also download all existing device templates from the application.
+## Generate a configuration file
 
-   ```powershell
-   cd \<project directory\>/powershell
-   ./IoTC-Config.ps1
-   ```
+These steps produces a JSON configuration file for your development environment based on an existing IoT Central application. You also download all the existing device templates from the application.
 
-1. You will be prompted to press enter to log into Azure. This will take you to a web browser.
-1. Once logged in, you will see the IoTC Config options menu. This script can generate a config file from an existing IoT Central application as well as apply a configuration to another IoT Central application.
- ![IoTC Config menu](media/howto-integrate-iotc-with-devops/iotcconfig.png)
-1. Enter "1" and hit enter
-1. Enter the necessary parameters:
-    1. Your API token
-    1. Your app's subdomain
-    1. The directory for the config file \<path\>/Config/Dev
-    1. Your Key Vault name.
- ![IotC Config properties](media/howto-integrate-iotc-with-devops/iotcconfig2.png)
-1. There will now be a new directory called "IoTC Configuration" in the location you specified. This folder will contain a config file and a directory for all your device templates. <br>
-![Config file structure](media/howto-integrate-iotc-with-devops/folders.png)
+1. Run the following PowerShell 7 script in the local copy of the IoT Central CI/CD repository:
+
+    ```powershell
+    cd .\iot-central-CICD-sample\PowerShell\
+    .\IoTC-Config.ps1
+    ```
+
+1. Follow the instructions to sign in to your Azure account.
+1. After you sign in, the script displays the IoTC Config options menu. The script can generate a config file from an existing IoT Central application and apply a configuration to another IoT Central application.
+1. Select option **1** to generate a configuration file.
+1. Enter the necessary parameters and press **Enter**:
+    - The API token you generated for your development IoT Central application.
+    - The subdomain of your development IoT Central application.
+    - Enter *..\Config\Dev* as the folder to store the config file and device templates.
+    - The name of your development key vault.
+
+1. The script creates a folder called *IoTC Configuration* in the *Config\Dev* folder in your local copy of the repository. This folder contains a configuration file and a folder called *Device Models* for all the device templates in your application.
 
 ## Modify the configuration file
 
-Now that you have a configuration file that represents the settings for your dev instance of the IoT Central application, you will need to make some changes before applying this configuration to your production IoT Central application.
+Now that you have a configuration file that represents the settings for your development IoT Central application instance, make any necessary changes before you apply this configuration to your production IoT Central application instance.
 
-1. Create a copy of the Dev folder created above and rename it "Production"
-1. Open IoTC-Config.json in the Production folder using the editor of your choice
-1. Your file will have multiple sections. However, if your application doesn't use a particular setting then that section will be omitted from your file. <br>
- ![Config file sections](media/howto-integrate-iotc-with-devops/configfile1.png)
+1. Create a copy of the *Dev* folder created previously and call it *Production*.
+1. Open IoTC-Config.json in the *Production* folder using a text editor.
+1. The file has multiple sections. However, if your application doesn't use a particular setting, that section is omitted from the file:
 
-1. If your application uses file uploads then a secret will have been created in your dev Key Vault with the value shown in the "connectionString" property. You will need to create a secret in your production key vault with the same name that contains the connection string for the production storage account.
- ![File uploads config](media/howto-integrate-iotc-with-devops/configfile2.png)
-1. If your application uses data exports then you will need to configure the secrets for the destinations. The config file doesn't contain any actual secrets for your destination. Instead, your secrets should be stored in Key Vault.
-1. Update the secrets in the config file with the name of the secret in your Key Vault.
+    ```json
+    {
+      "APITokens": {
+        "value": [
+          {
+            "id": "dev-admin",
+            "roles": [
+              {
+                "role": "ca310b8d-2f4a-44e0-a36e-957c202cd8d4"
+              }
+            ],
+            "expiry": "2023-05-31T10:47:08.53Z"
+          }
+        ]
+      },
+      "data exports": {
+        "value": [
+          {
+            "id": "5ad278d6-e22b-4749-803d-db1a8a2b8529",
+            "displayName": "All telemetry to blob storage",
+            "enabled": false,
+            "source": "telemetry",
+            "destinations": [
+              {
+                "id": "393adfc9-0ed8-45f4-aa29-25b5c96ecf63"
+              }
+            ],
+            "status": "notStarted"
+          }
+        ]
+      },
+      "device groups": {
+        "value": [
+          {
+            "id": "66f41d29-832d-4a12-9e9d-18932bee3141",
+            "displayName": "MXCHIP Getting Started Guide - All devices"
+          },
+          {
+            "id": "494dc749-0963-4ec1-89ff-e1de2228e750",
+            "displayName": "RS40 Occupancy Sensor - All devices"
+          },
+          {
+            "id": "dd87877d-9465-410b-947e-64167a7a1c39",
+            "displayName": "Cascade 500 - All devices"
+          },
+          {
+            "id": "91ceac5b-f98d-4df0-9ed6-5465854e7d9e",
+            "displayName": "Simulated devices"
+          }
+        ]
+      },
+      "organizations": {
+        "value": []
+      },
+      "roles": {
+        "value": [
+          {
+            "id": "344138e9-8de4-4497-8c54-5237e96d6aaf",
+            "displayName": "Builder"
+          },
+          {
+            "id": "ca310b8d-2f4a-44e0-a36e-957c202cd8d4",
+            "displayName": "Administrator"
+          },
+          {
+            "id": "ae2c9854-393b-4f97-8c42-479d70ce626e",
+            "displayName": "Operator"
+          }
+        ]
+      },
+      "destinations": {
+        "value": [
+          {
+            "id": "393adfc9-0ed8-45f4-aa29-25b5c96ecf63",
+            "displayName": "Blob destination",
+            "type": "blobstorage@v1",
+            "authorization": {
+              "type": "connectionString",
+              "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourexportaccount;AccountKey=*****;EndpointSuffix=core.windows.net",
+              "containerName": "dataexport"
+            },
+            "status": "waiting"
+          }
+        ]
+      },
+      "file uploads": {
+        "connectionString": "FileUpload",
+        "container": "fileupload",
+        "sasTtl": "PT1H"
+      },
+      "jobs": {
+        "value": []
+      }
+    }
+    ```
 
-    | **Destination Type** | **Property to be changed** |
+1. If your application uses file uploads, the script creates a secret in your development key vault with the value shown in the `connectionString` property. Create a secret with the same name in your production key vault that contains the connection string for your production storage account. For example:
+
+    ```azurecli
+    az keyvault secret set --name FileUpload --vault-name {your production key vault name} --value '{your production storage account connection string}'
+    ```
+
+1. If your application uses data exports, add secrets for the destinations to the production key vault. The config file doesn't contain any actual secrets for your destination, the secrets are stored in your key vault.
+1. Update the secrets in the config file with the name of the secret in your key vault.
+
+    | Destination type | Property to change |
     | --- | --- |
-    | **Service Bus Queue** | connectionString |
-    | **Service Bus Topic** | connectionString |
-    | **Azure Data Explorer** | clientSecret |
-    | **Azure Blob Storage** | connectionString |
-    | **Event Hub** | connectionString |
-    | **Webhook No Auth** | N/A |
+    | Service Bus queue | connectionString |
+    | Service Bus topic | connectionString |
+    | Azure Data Explorer | clientSecret |
+    | Azure Blob Storage | connectionString |
+    | Event Hub | connectionString |
+    | Webhook No Auth | N/A |
 
-1. Upload the "Configuration" directory to your GitHub repository by running the following commands from the IoTC-CICD-howto folder.
+    For example:
+
+    ```json
+    "destinations": {
+      "value": [
+        {
+          "id": "393adfc9-0ed8-45f4-aa29-25b5c96ecf63",
+          "displayName": "Blob destination",
+          "type": "blobstorage@v1",
+          "authorization": {
+            "type": "connectionString",
+            "connectionString": "Storage-CS",
+            "containerName": "dataexport"
+          },
+          "status": "waiting"
+        }
+      ]
+    }
+    ```
+
+1. To upload the *Configuration* folder to your GitHub repository, run the following commands from the *IoTC-CICD-howto* folder.
 
    ```cmd/bash
     git add Config
@@ -140,49 +280,48 @@ Now that you have a configuration file that represents the settings for your dev
 
 ## Create an Azure DevOps pipeline
 
-1. Open your DevOps organization in a web browser by going to https[]()://dev.azure.com/&lt;Organization&gt;
-1. Click "New project" to create a new project. <br> 
-![New project button](media/howto-integrate-iotc-with-devops/newbutton.png)
-1. Give your project a name and optional description and click "Create" <br> 
-![New project dialog](media/howto-integrate-iotc-with-devops/createproject.png)
-1. Click "Pipelines" and then click the "New Pipeline" button.
-1. Click on GitHub to indicate this is where your code is. <br>
- ![GitHub dialog](media/howto-integrate-iotc-with-devops/github1.png)
-1. You will need to authorize Azure Pipelines to access your GitHub account by clicking "Authorize AzurePipelines"
- ![Authorization dialog](media/howto-integrate-iotc-with-devops/github2.png)
-1. Select the repository you created earlier
-1. You will be prompted to log into GitHub and provide permission for Azure Pipelines to access this repository. Click "Approve and Install" <br>
- ![GitHub access dialog](media/howto-integrate-iotc-with-devops/githublogin.png)
-1. Select "Starter pipeline" to create a minimal pipeline to get started. <br>
- ![Configure pipeline dialog](media/howto-integrate-iotc-with-devops/configurepipeline.png)
+1. Open your DevOps organization in a web browser by going to `https://dev.azure.com/{your DevOps organization}`
+1. Select **New project** to create a new project.
+1. Give your project a name and optional description and then select **Create**.
+1. On the **Welcome to the project** page, select **Pipelines** and then **Create Pipeline**.
+1. Select **GitHub** as the location of your code.
+1. Select **Authorize AzurePipelines** to authorize Azure Pipelines to access your GitHub account.
+1. On the **Select a repository** page, select your fork of the IoT Central CI/CD GitHub repository.
+1. When prompted to log into GitHub and provide permission for Azure Pipelines to access the repository, select **Approve & install**.
+1. On the **Configure your pipeline** page, select **Starter pipeline** to get started. The *azure-pipelines.yml* is displayed for you to edit.
 
 ## Create a variable group in Azure DevOps
 
-An easy way to integrate key Vault secrets into a pipeline is through variable groups. Creating a variable group will ensure the right secrets are available to your deployment script.
+An easy way to integrate key vault secrets into a pipeline is through variable groups. Use a variable group to ensure the right secrets are available to your deployment script. To create a variable group:
 
-1. Create a variable group
-    1. Click on "Library" in the left menu
-    1. Click "+ Variable group"
-    1. Give your group a name and description. Also click the toggle to link secrets from Azure Key Vault.
- Select the subscription and authorize it. Then select the Key Vault name.
+1. Select **Library** in the **Pipelines** section of the menu on the left.
+1. Select **+ Variable group**.
+1. Enter `keyvault` as the name for your variable group.
+1. Enable the toggle to link secrets from an Azure key vault.
+1. Select your Azure subscription and authorize it. Then select your production key vault name.
 
-Click "Add"
+1. Select **Add** to start adding variables to the group.
 
- ![Variable group dialog](media/howto-integrate-iotc-with-devops/variablegroup.png)
+1. Add the following secrets:
+    - The IoT Central API Key for your production app. You called this secret `API-Token` when you created it.
+    - The password for the service principal you created previously. You called this secret `SP-Password` when you created it.
+1. Select **OK**.
+1. Select **Save** to save the variable group..
 
-  1. Specify which secrets to include in the variable group. Select the following.
-      1. The IoT Central API Key for your production app.
-      1. The password for the service principal you created earlier.
-  1. Click OK.
-  1. Click Save
+## Configure your pipeline
 
-## Configure your Azure DevOps pipeline
+Now configure the DevOps pipeline to push configuration changes to your IoT Central application:
 
-Now that you have a pipeline, it is time to configure it so that it can push configuration changes to IoT Central.
+1. Select **Pipelines** in the **Pipelines** section of the menu on the left.
+1. Replace the contents of your pipeline YAML with the following YAML. The configuration assumes your production key vault contains:
+    - The API token for your production IoT Central app in a secret called `API-Token`.
+    - Your service principal password in a secret called `SP-Password`.
+  
+    Replace the values for `-AppName` and `-KeyVault` with the appropriate values for your production instances.
 
-1. Replace the contents of your pipeline YAML with the following. Be sure to replace API KEY SECRET NAME, SERVICE PRINCIPAL SECRET NAME, SERVICE PRINCIPAL APP ID, KEY VAULT NAME and SERVICE PRINCIPAL TENANT ID with the correct values.
+    You made a note of the `-AppId` and `-TenantId` when you created your service principal.
 
-   ```yml
+    ```yml
     trigger:
     - master
     variables:
@@ -193,27 +332,25 @@ Now that you have a pipeline, it is time to configure it so that it can push con
     - task: PowerShell@2
       displayName: 'IoT Central'
       inputs:
-        filePath: 'powershell/IoTC-Task.ps1'
-        arguments: '-ApiToken "$(<API KEY SECRET NAME>)" -ConfigPath "Configs/Prod" -AppName "nerf" -ServicePrincipalPassword (ConvertTo-SecureString "$(\<SERVICE PRINCIPAL SECRET NAME)" -AsPlainText -Force) -AppId "\<SERVICE PRINCIPAL APP ID\>" -KeyVault "\<KEY VAULT NAME\>" -TenantId "\<SERVICE PRINCIPAL TENANT ID\>"'
+        filePath: 'PowerShell/IoTC-Task.ps1'
+        arguments: '-ApiToken "$(API-Token)" -ConfigPath "Config/Production/IoTC Configuration" -AppName "{your production IoT Central app name}" -ServicePrincipalPassword (ConvertTo-SecureString "$(SP-Password)" -AsPlainText -Force) -AppId "{your service principal app id}" -KeyVault "{your production key vault name}" -TenantId "{your tenant id}"'
         pwsh: true
         failOnStderr:  true
-   ```
+    ```
 
-1. Click "Save and run"
-1. The YAML file will be saved to your Git Hub repository so you will need to provide a commit message and then click "Save and run" again.
+1. Select **Save and run**.
+1. The YAML file is saved to your Git Hub repository, so you need to provide a commit message and then select **Save and run** again.
 
- Your pipeline will be queued and could take a few minutes before running.
+Your pipeline is queued. It may take a few minutes before it runs.
 
- The very first time you run your pipeline, you will be prompted to give permissions for the pipeline to access your subscription and to access Key Vault.
+The first time you run your pipeline, you're prompted to give permissions for the pipeline to access your subscription and to access your key vault. Select **Permit** and then **Permit** again for each resource.
 
- ![Permission needed alert](media/howto-integrate-iotc-with-devops/permission.png)
-  a. Click "view" and then click "Permit" for each resource.
+When your pipeline job completes successfully, sign in to your production IoT Central application and verify the configuration was applied as expected.
 
-![Permit dialog](media/howto-integrate-iotc-with-devops/waitingforreview.png)
+## Promote changes from development to production
 
-1. If your pipeline job succeeded, log into your production IoT Central application and verify the configuration has been applied as expected.
+Now that you have a working pipeline you can manage your IoT Central instances directly by using configuration changes. You can upload new device templates into the *Device Models* folder and make changes directly to the configuration file. This approach lets you treat your IoT Central application's configuration the same as any other code.
 
-## 11.Making changes to Dev and promoting to Production
+## Next steps
 
-Now that you have a working pipeline you can manage your IoT Central instances directly via config changes. You can upload new device templates into the Device Models folder as well as make changes directly to the config file. This allows you to treat your IoT Central application's configuration the same as any other code.
-
+Now that know how to integrate IoT Central configurations into your CI/CD pipelines, a suggested next step is to learn how to [Manage and monitor IoT Central from the Azure portal](howto-manage-iot-central-from-portal.md).
