@@ -67,6 +67,8 @@ It takes a few minutes to create the VM and supporting resources. The following 
 }
 ```
 
+Make a note of the `publicIpAddress` to use later.
+
 ## Install web server
 
 To see your VM in action, install the NGINX web server. Update your package sources and then install the latest NGINX package.
