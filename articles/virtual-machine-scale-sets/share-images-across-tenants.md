@@ -20,6 +20,9 @@ ms.custom: devx-track-azurecli
 
 ## Create a scale set using Azure CLI
 
+> [!IMPORTANT]
+> Cross tenant shared image gallery is not currently supported for Flexible virtual machine scale sets. 
+
 Sign in the service principal for tenant 1 using the appID, the app key, and the ID of tenant 1. You can use `az account show --query "tenantId"` to get the tenant IDs if needed.
 
 ```azurecli-interactive
