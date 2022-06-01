@@ -1,7 +1,7 @@
 ---
 title: Integrate Azure IoT Central with CI/CD | Microsoft Docs
 description: Describes how to integrate IoT Central into your Azure DevOps CI/CD pipeline
-author: troyhop
+author: troyhopwood
 ms.author: troyhop
 ms.date: 05/27/2022
 ms.topic: how-to
@@ -19,7 +19,7 @@ Just as IoT Central is a part of your larger IoT solution, IoT Central is a part
 
 ![DevOps flow](media/howto-integrate-iotc-with-devops/devops.png)
 
-IoT Central is an *application platform as a service* that has different deployment requirements from *platform as a service* components. For IoT Central, you deploy configurations and device templates. These are managed and integrated into your release pipeline by using APIs.
+IoT Central is an *application platform as a service* that has different deployment requirements from *platform as a service* components. For IoT Central, you deploy configurations and device templates. These configurations and device templates are managed and integrated into your release pipeline by using APIs.
 
 While it's possible to automate IoT Central app creation, you should create an app in each environment before you develop your CI/CD pipeline.
 
@@ -40,13 +40,13 @@ You need the following prerequisites to complete the steps in this guide:
 - Two IoT Central applications - one for your development environment and one for your production environment. To learn more, see [Create an IoT Central application](howto-create-iot-central-application.md).
 - Two Azure Key Vaults - one for your development environment and one for your production environment. It's best practice to have a dedicated Key Vault for each environment. To learn more, see [Create an Azure Key Vault with the Azure portal](../../key-vault/general/quick-create-portal.md).
 - A GitHub account [GitHub](https://github.com/).
-- An Azure DevOps organization. To learn more, see [Create an Azure DevOps organization](../../devops/organizations/accounts/create-organization.md?view=azure-devops).
-- PowerShell 7 for Windows, Mac or Linux. [Get PowerShell](../../powershell/scripting/install/installing-powershell.md).
-- Azure Az PowerShell module installed in your PowerShell 7 environment. To learn more, see [Install the Azure Az PowerShell module](../../powershell/azure/install-az-ps).
+- An Azure DevOps organization. To learn more, see [Create an Azure DevOps organization](/devops/organizations/accounts/create-organization?view=azure-devops&preserve-view=true).
+- PowerShell 7 for Windows, Mac or Linux. [Get PowerShell](/powershell/scripting/install/installing-powershell).
+- Azure Az PowerShell module installed in your PowerShell 7 environment. To learn more, see [Install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
 - Visual Studio Code or other tool to edit PowerShell and JSON files.[Get Visual Studio Code](https://code.visualstudio.com/Download).
 - Git client. Download the latest version from [Git - Downloads (git-scm.com)](https://git-scm.com/downloads).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Download the sample code
 
@@ -108,7 +108,7 @@ Complete the following steps for both your development and production IoT Centra
 
 ## Generate a configuration file
 
-These steps produces a JSON configuration file for your development environment based on an existing IoT Central application. You also download all the existing device templates from the application.
+These steps produce a JSON configuration file for your development environment based on an existing IoT Central application. You also download all the existing device templates from the application.
 
 1. Run the following PowerShell 7 script in the local copy of the IoT Central CI/CD repository:
 
@@ -247,7 +247,7 @@ Now that you have a configuration file that represents the settings for your dev
     | Service Bus topic | connectionString |
     | Azure Data Explorer | clientSecret |
     | Azure Blob Storage | connectionString |
-    | Event Hub | connectionString |
+    | Event Hubs | connectionString |
     | Webhook No Auth | N/A |
 
     For example:
@@ -306,7 +306,7 @@ An easy way to integrate key vault secrets into a pipeline is through variable g
     - The IoT Central API Key for your production app. You called this secret `API-Token` when you created it.
     - The password for the service principal you created previously. You called this secret `SP-Password` when you created it.
 1. Select **OK**.
-1. Select **Save** to save the variable group..
+1. Select **Save** to save the variable group.
 
 ## Configure your pipeline
 
