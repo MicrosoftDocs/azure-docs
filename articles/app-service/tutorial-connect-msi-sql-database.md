@@ -147,10 +147,6 @@ The steps you follow for your project depends on whether you're using [Entity Fr
     Install-Package Azure.Identity
     Update-Package EntityFramework
     ```
-> [!NOTE]
-> To fetch and install the latest version of Azure.Identity Nuget Package use this cmdlet `Install-Package Azure.Identity`.
-> If you want to use a specific version of Azure.Identity Nuget Package use this cmdlet `Install-Package Azure.Identity -Version 1.6.0`
-
 1. In your DbContext object (in *Models/MyDbContext.cs*), add the following code to the default constructor.
 
     ```csharp
