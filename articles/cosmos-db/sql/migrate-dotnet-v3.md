@@ -88,9 +88,81 @@ The following classes have been replaced on the 3.0 SDK:
 
 * `Microsoft.Azure.Documents.Resource`
 
-The Microsoft.Azure.Documents.UriFactory class has been replaced by the fluent design. The fluent design builds URLs internally and allows a single `Container` object to be passed around instead of a `DocumentClient`, `DatabaseName`, and `DocumentCollection`.
+The Microsoft.Azure.Documents.UriFactory class has been replaced by the fluent design. 
 
 Because the .NET v3 SDK allows users to configure a custom serialization engine, there's no direct replacement for the `Document` type. When using Newtonsoft.Json (default serialization engine), `JObject` can be used to achieve the same functionality. When using a different serialization engine, you can use its base json document type (for example, `JsonDocument` for System.Text.Json). The recommendation is to use a C# type that reflects the schema of your items instead of relying on generic types.
+
+# [.NET SDK v3](#tab/dotnet-v3)
+
+```csharp
+private readonly CosmosClient _client;
+private readonly Container _container;
+
+public Program()
+{
+    // Client should be a singleton
+    _client = new CosmosClient(
+        accountEndpoint: "https://testcosmos.documents.azure.com:443/",
+        authKeyOrResourceToken: "SuperSecretKey",
+        clientOptions: new CosmosClientOptions()
+        {
+            ApplicationPreferredRegions = new List<string>()
+            {
+                Regions.EastUS,
+                Regions.WestUS,
+            }
+        });
+
+    _container = _client.GetContainer("DatabaseName","ContainerName");
+}
+
+private async Task CreateItemAsync(SalesOrder salesOrder)
+{
+    ItemResponse<SalesOrder> response = await this._container.CreateItemAsync(
+        salesOrder,
+        new PartitionKey(salesOrder.AccountNumber));
+}
+
+```
+
+# [.NET SDK v2](#tab/dotnet-v2)
+
+```csharp
+private readonly DocumentClient _client;
+private readonly string _databaseName;
+private readonly string _containerName;
+
+public Program()
+{
+    ConnectionPolicy connectionPolicy = new ConnectionPolicy()
+    {
+        ConnectionMode = ConnectionMode.Direct, // Default for v2 is Gateway. v3 is Direct
+        ConnectionProtocol = Protocol.Tcp,
+    };
+
+    connectionPolicy.PreferredLocations.Add(LocationNames.EastUS);
+    connectionPolicy.PreferredLocations.Add(LocationNames.WestUS);
+
+    // Client should always be a singleton
+    _client = new DocumentClient(
+       new Uri("https://testcosmos.documents.azure.com:443/"),
+       "SuperSecretKey",
+       connectionPolicy);
+
+    _databaseName = "DatabaseName";
+    _containerName = "ContainerName";
+}
+
+private async Task CreateItemAsync(SalesOrder salesOrder)
+{
+    Uri collectionUri = UriFactory.CreateDocumentCollectionUri(_databaseName, _containerName)
+    await this._client.CreateDocumentAsync(
+        collectionUri,
+        salesOrder,
+        new RequestOptions { PartitionKey = new PartitionKey(salesOrder.AccountNumber) });
+}
+```
+---
 
 ### Changes to item ID generation
 
@@ -132,6 +204,8 @@ The following properties have been removed:
 ### Constructing a client
 
 The .NET SDK v3 provides a fluent `CosmosClientBuilder` class that replaces the need for the SDK v2 URI Factory.
+
+The fluent design builds URLs internally and allows a single `Container` object to be passed around instead of a `DocumentClient`, `DatabaseName`, and `DocumentCollection`.
 
 The following example creates a new `CosmosClientBuilder` with a strong ConsistencyLevel and a list of preferred locations:
 

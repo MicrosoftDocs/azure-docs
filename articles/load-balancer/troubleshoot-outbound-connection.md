@@ -3,11 +3,11 @@ title: Troubleshoot SNAT exhaustion and connection timeouts
 titleSuffix: Azure Load Balancer
 description: Resolutions for common problems with outbound connectivity with Azure Load Balancer. 
 services: load-balancer
-author: asudbring
+author: greg-lindsay
 ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 04/21/2022
-ms.author: allensu
+ms.author: greglin
 ---
 # Troubleshoot SNAT exhaustion and connection timeouts
 

@@ -285,12 +285,6 @@ The following questions and answers apply to the **Azure CNI network configurati
 
   The entire cluster should use only one type of CNI.
 
-## AKS Engine
-
-[Azure Kubernetes Service Engine (AKS Engine)][aks-engine] is an open-source project that generates Azure Resource Manager templates you can use for deploying Kubernetes clusters on Azure.
-
-Kubernetes clusters created with AKS Engine support both the [kubenet][kubenet] and [Azure CNI][cni-networking] plugins. As such, both networking scenarios are supported by AKS Engine.
-
 ## Next steps
 
 Learn more about networking in AKS in the following articles:
@@ -308,7 +302,6 @@ Learn more about networking in AKS in the following articles:
 [portal-01-networking-advanced]: ./media/networking-overview/portal-01-networking-advanced.png
 
 <!-- LINKS - External -->
-[aks-engine]: https://github.com/Azure/aks-engine
 [services]: https://kubernetes.io/docs/concepts/services-networking/service/
 [portal]: https://portal.azure.com
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
