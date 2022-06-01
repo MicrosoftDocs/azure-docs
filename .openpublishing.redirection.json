@@ -2719,6 +2719,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/aks/keda.md",
+      "redirect_url": "/azure/aks/keda-about",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/analysis-services/analysis-services-create-model-portal.md",
       "redirect_url": "/azure/analysis-services/analysis-services-overview",
       "redirect_document_id": false
@@ -22015,6 +22020,11 @@
       "redirect_document_id": ""
     },
     {
+      "source_path_from_root": "/articles/search/knowledge-store-view-storage-explorer.md",
+      "redirect_url": "/azure/search/knowledge-store-create-portal#view-kstore",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/search/cognitive-search-resources-documentation.md",
       "redirect_url": "/azure/search/cognitive-search-concept-intro",
       "redirect_document_id": false
@@ -27417,6 +27427,11 @@
     {
       "source_path_from_root": "/articles/frontdoor/waf-overview.md",
       "redirect_url": "/azure/web-application-firewall/afds/afds-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/web-application-firewall/waf-cdn-create-portal.md",
+      "redirect_url": "/azure/web-application-firewall/cdn/cdn-overview",
       "redirect_document_id": false
     },
     {
@@ -43270,6 +43285,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/generate-sas-tokens.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/create-sas-tokens",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/language-service/text-summarization/how-to/call-api.md",
       "redirect_url": "/azure/cognitive-services/language-service/summarization/how-to/document-summarization",
       "redirect_document_id": true
@@ -43303,11 +43323,6 @@
       "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-create-nat-gateway-cli.md",
       "redirect_url": "/azure/virtual-network/nat-gateway/quickstart-create-nat-gateway-cli",
       "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/aks/web-app-routing.md",
-      "redirect_url": "/azure/aks/intro-kubernetes",
-      "redirect_document_id":false
     },
     {
       "source_path_from_root": "/articles/private-link/private-endpoint-static-ip-powershell.md",

@@ -5,7 +5,7 @@ ms.author: hannahhunter
 author: hhunter-ms
 ms.contributor: charles.weininger
 ms.topic: conceptual
-ms.date: 04/25/2022
+ms.date: 05/26/2022
 ---
 
 # Profile live Azure containers with Application Insights
@@ -63,6 +63,17 @@ In this article, you'll learn the various ways you can:
    }
    ```
 
+1. Enable Application Insights and Profiler in `Startup.cs`:
+
+    ```csharp
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddApplicationInsightsTelemetry(); // Add this line of code to enable Application Insights.
+        services.AddServiceProfiler(); // Add this line of code to Enable Profiler
+        services.AddControllersWithViews();
+    }
+    ```
+
 ## Pull the latest ASP.NET Core build/runtime images
 
 1. Navigate to the .NET Core 6.0 example directory.
@@ -118,7 +129,7 @@ In this article, you'll learn the various ways you can:
 
 To hit the endpoint, either:
 
-- Visit [http://localhost:8080/weatherforecast](http://localhost:8080/weatherforecast) in your browser, or
+- Visit `http://localhost:8080/weatherforecast` in your browser, or
 - Use curl:
    
   ```terraform

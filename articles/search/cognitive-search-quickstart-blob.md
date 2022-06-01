@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 10/07/2021
+ms.date: 05/31/2022
 ms.custom: mode-ui
 ---
 # Quickstart: Translate text and recognize entities using the Import data wizard
@@ -26,7 +26,7 @@ Before you begin, have the following prerequisites in place:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
-+ Azure Cognitive Search service. [Create a service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
++ Azure Cognitive Search. [Create a service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). You can use a free service for this quickstart. 
 
 + Azure Storage account with Blob Storage. [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal) or [find an existing account](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
 
@@ -35,7 +35,7 @@ Before you begin, have the following prerequisites in place:
   + Choose the StorageV2 (general purpose V2).
 
 > [!NOTE]
-> This quickstart also uses [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) for the AI. Because the workload is so small, Cognitive Services is tapped behind the scenes for free processing for up to 20 transactions. This means that you can complete this exercise without having to create an additional Cognitive Services resource.
+> This quickstart uses [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) for the AI. Because the workload is so small, Cognitive Services is tapped behind the scenes for free processing for up to 20 transactions. You can complete this exercise without having to create a Cognitive Services resource.
 
 ## Set up your data
 
@@ -74,7 +74,7 @@ You are now ready to move on the Import data wizard.
 
 Next, configure AI enrichment to invoke language detection, text translation, and entity recognition. 
 
-1. For this quickstart, we are using the **Free** Cognitive Services resource. The sample data consists of 10 files, so the daily, per-indexer allotment of 20 free transactions on Cognitive Services is sufficient for this quickstart. 
+1. For this quickstart, you can use the **Free** Cognitive Services resource. The sample data consists of 10 files, so the daily, per-indexer allotment of 20 free transactions on Cognitive Services is sufficient for this quickstart. 
 
    :::image type="content" source="media/cognitive-search-quickstart-blob/free-enrichments.png" alt-text="Attach free Cognitive Services processing" border="true":::
 
@@ -104,7 +104,7 @@ For this quickstart, the wizard does a good job setting reasonable defaults:
 
   :::image type="content" source="media/cognitive-search-quickstart-blob/index-fields-lang-entities.png" alt-text="Index fields" border="true":::
 
-Marking a field as **Retrievable** does not mean that the field *must* be present in the search results. You can precisely control search results composition by using the **$select** query parameter to specify which fields to include. For text-heavy fields like `content`, the **$select** parameter is your solution for shaping manageable search results to the human users of your application, while ensuring client code has access to all the information it needs via the **Retrievable** attribute.
+Marking a field as **Retrievable** doesn't mean that the field *must* be present in the search results. You can precisely control search results composition by using the **$select** query parameter to specify which fields to include. For text-heavy fields like `content`, the **$select** parameter is your solution for shaping manageable search results to the human users of your application, while ensuring client code has access to all the information it needs via the **Retrievable** attribute.
 
 ### Step 4 - Configure the indexer
 
@@ -151,7 +151,7 @@ When you're working in your own subscription, it's a good idea at the end of a p
 
 You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
 
-If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
+If you're using a free service, remember that you're limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
 
 ## Next steps
 

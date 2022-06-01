@@ -15,7 +15,7 @@ Create a **PUT** request using the following URL, headers, and JSON body to star
 #### Request URL
 
 ```rest
-{ENDPOINT}/language/analyze-conversations/projects/{PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}?api-version={API-VERSION}
+{ENDPOINT}/language/authoring/analyze-conversations/projects/{PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}?api-version={API-VERSION}
 ```
 
 |Placeholder  |Value  | Example |
@@ -23,7 +23,7 @@ Create a **PUT** request using the following URL, headers, and JSON body to star
 |`{ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.   | `myProject` |
 |`{DEPLOYMENT-NAME}`     | The name for your deployment. This value is case-sensitive.   | `staging` |
-|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest released [model version](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data). | `2022-03-01-preview` |
+|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest released [model version](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data). | `2022-05-01` |
 
 
 #### Headers
@@ -49,7 +49,7 @@ Use the following header to authenticate your request.
 Once you send your API request, you will receive a `202` response indicating success. In the response headers, extract the `operation-location` value. It will be formatted like this: 
 
 ```rest
-{ENDPOINT}/language/analyze-conversations/projects/{PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}/jobs/{JOB-ID}?api-version={API-VERSION}
+{ENDPOINT}/language/authoring/analyze-conversations/projects/{PROJECT-NAME}/deployments/{DEPLOYMENT-NAME}/jobs/{JOB-ID}?api-version={API-VERSION}
 ``` 
 
 You can use this URL to get the deployment job status.
