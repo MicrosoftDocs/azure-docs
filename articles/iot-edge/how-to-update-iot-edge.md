@@ -1,6 +1,6 @@
 ---
 title: Update IoT Edge version on devices - Azure IoT Edge | Microsoft Docs 
-description: How to update IoT Edge devices to run the latest versions of the security daemon and the IoT Edge runtime
+description: How to update IoT Edge devices to run the latest versions of the module runtime and the IoT Edge runtime
 keywords: 
 author: PatAltimore
 
@@ -17,22 +17,22 @@ services: iot-edge
 
 As the IoT Edge service releases new versions, you'll want to update your IoT Edge devices for the latest features and security improvements. This article provides information about how to update your IoT Edge devices when a new version is available.
 
-Two components of an IoT Edge device need to be updated if you want to move to a newer version. The first is the security daemon, which runs on the device and starts the runtime modules when the device starts. Currently, the security daemon can only be updated from the device itself. The second component is the runtime, made up of the IoT Edge hub and IoT Edge agent modules. Depending on how you structure your deployment, the runtime can be updated from the device or remotely.
+Two components of an IoT Edge device need to be updated if you want to move to a newer version. The first is the module runtime, which runs on the device and starts the runtime modules when the device starts. Currently, the module runtime can only be updated from the device itself. The second component is the runtime, made up of the IoT Edge hub and IoT Edge agent modules. Depending on how you structure your deployment, the runtime can be updated from the device or remotely.
 
 To find the latest version of Azure IoT Edge, see [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases).
 
-## Update the security daemon
+## Update the module runtime
 
-The IoT Edge security daemon is a native component that needs to be updated using the package manager on the IoT Edge device.
+The IoT Edge module runtime is a native component that needs to be updated using the package manager on the IoT Edge device.
 
-Check the version of the security daemon running on your device by using the command `iotedge version`. If you're using IoT Edge for Linux on Windows, you need to SSH into the Linux virtual machine to check the version.
+Check the version of the module runtime running on your device by using the command `iotedge version`. If you're using IoT Edge for Linux on Windows, you need to SSH into the Linux virtual machine to check the version.
 
 # [Linux](#tab/linux)
 
 >[!IMPORTANT]
 >If you are updating a device from version 1.0 or 1.1 to version 1.2, there are differences in the installation and configuration processes that require extra steps. For more information, refer to the steps later in this article: [Special case: Update from 1.0 or 1.1 to 1.2](#special-case-update-from-10-or-11-to-12).
 
-On Linux x64 devices, use apt-get or your appropriate package manager to update the security daemon to the latest version.
+On Linux x64 devices, use apt-get or your appropriate package manager to update the module runtime to the latest version.
 
 Update apt.
 
@@ -52,13 +52,13 @@ Check to see which versions of IoT Edge are available.
    apt list -a iotedge
    ```
 
-If you want to update to the most recent version of the security daemon, use the following command which also updates **libiothsm-std** to the latest version:
+If you want to update to the most recent version of the module runtime, use the following command which also updates **libiothsm-std** to the latest version:
 
    ```bash
    sudo apt-get install iotedge
    ```
 
-If you want to update to a specific version of the security daemon, specify the version from the apt list output. Whenever **iotedge** is updated, it automatically tries to update the **libiothsm-std** package to its latest version, which may cause a dependency conflict. If you aren't going to the most recent version, be sure to target both packages for the same version. For example, the following command installs a specific version of the 1.1 release:
+If you want to update to a specific version of the module runtime, specify the version from the apt list output. Whenever **iotedge** is updated, it automatically tries to update the **libiothsm-std** package to its latest version, which may cause a dependency conflict. If you aren't going to the most recent version, be sure to target both packages for the same version. For example, the following command installs a specific version of the 1.1 release:
 
    ```bash
    sudo apt-get install iotedge=1.1.1 libiothsm-std=1.1.1
@@ -113,15 +113,15 @@ For information about IoT Edge for Linux on Windows updates, see [EFLOW Updates]
 
 With IoT Edge for Windows, IoT Edge runs directly on the Windows device.
 
-Use the `Update-IoTEdge` command to update the security daemon. The script automatically pulls the latest version of the security daemon.
+Use the `Update-IoTEdge` command to update the module runtime. The script automatically pulls the latest version of the module runtime.
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge
 ```
 
-Running the Update-IoTEdge command removes and updates the security daemon from your device, along with the two runtime container images. The config.yaml file is kept on the device, as well as data from the Moby container engine. Keeping the configuration information means that you don't have to provide the connection string or Device Provisioning Service information for your device again during the update process.
+Running the Update-IoTEdge command removes and updates the module runtime from your device, along with the two runtime container images. The config.yaml file is kept on the device, as well as data from the Moby container engine. Keeping the configuration information means that you don't have to provide the connection string or Device Provisioning Service information for your device again during the update process.
 
-If you want to update to a specific version of the security daemon, find the version from 1.1 release channel you want to target from [IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). In that version, download the **Microsoft-Azure-IoTEdge.cab** file. Then, use the `-OfflineInstallationPath` parameter to point to the local file location. For example:
+If you want to update to a specific version of the module runtime, find the version from 1.1 release channel you want to target from [IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). In that version, download the **Microsoft-Azure-IoTEdge.cab** file. Then, use the `-OfflineInstallationPath` parameter to point to the local file location. For example:
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Update-IoTEdge -OfflineInstallationPath <absolute path to directory>
@@ -168,7 +168,7 @@ The IoT Edge agent and IoT Edge hub images are tagged with the IoT Edge version 
 
 If you use rolling tags in your deployment (for example, mcr.microsoft.com/azureiotedge-hub:**1.1**) then you need to force the container runtime on your device to pull the latest version of the image.
 
-Delete the local version of the image from your IoT Edge device. On Windows machines, uninstalling the security daemon also removes the runtime images, so you don't need to take this step again.
+Delete the local version of the image from your IoT Edge device. On Windows machines, uninstalling the module runtime also removes the runtime images, so you don't need to take this step again.
 
 ```bash
 docker rmi mcr.microsoft.com/azureiotedge-hub:1.1
@@ -264,7 +264,7 @@ The IoT Edge agent and hub modules have RC versions that are tagged with the sam
 
 As previews, release candidate versions aren't included as the latest version that the regular installers target. Instead, you need to manually target the assets for the RC version that you want to test. For the most part, installing or updating to an RC version is the same as targeting any other specific version of IoT Edge.
 
-Use the sections in this article to learn how to update an IoT Edge device to a specific version of the security daemon or runtime modules.
+Use the sections in this article to learn how to update an IoT Edge device to a specific version of the module runtime or runtime modules.
 
 If you're installing IoT Edge, rather than upgrading an existing installation, use the steps in [Offline or specific version installation](how-to-provision-single-device-linux-symmetric.md#offline-or-specific-version-installation-optional).
 
