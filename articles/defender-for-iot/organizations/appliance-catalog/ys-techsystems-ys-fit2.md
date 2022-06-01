@@ -5,7 +5,7 @@ ms.date: 04/24/2022
 ms.topic: reference
 ---
 
-# YS-techsystems YS-FIT2
+# YS-techsystems YS-FIT2 (Rugged)
 
 This article describes the **YS-techsystems YS-FIT2** appliance deployment and installation for OT sensors.
 

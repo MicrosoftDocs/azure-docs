@@ -3,13 +3,13 @@ title: Azure Load Balancer SKUs
 description: Overview of Azure Load Balancer SKUs
 services: load-balancer
 documentationcenter: na
-author: asudbring
+author: greg-lindsay
 ms.service: load-balancer
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/22/2021
-ms.author: allensu
+ms.author: greglin
 
 ---
 # Azure Load Balancer SKUs
@@ -57,7 +57,7 @@ For more information, see [Load balancer limits](../azure-resource-manager/manag
 - A standalone virtual machine resource, availability set resource, or virtual machine scale set resource can reference one SKU, never both.
 - [Move operations](../azure-resource-manager/management/move-resource-group-and-subscription.md):
   - Resource group move operations (within same subscription) **are supported** for Standard Load Balancer and Standard Public IP. 
-  - [Subscription group move operations](../azure-resource-manager/management/move-support-resources.md) are **not** supported for Standard Load Balancer and Standard Public IP resources.
+  - [Subscription group move operations](../azure-resource-manager/management/move-support-resources.md) are **not** supported for Standard Load Balancers.
 
 ## Next steps
 

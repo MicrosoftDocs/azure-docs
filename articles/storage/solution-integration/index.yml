@@ -42,6 +42,8 @@ landingContent:
             url: .\validated-partners\backup-archive-disaster-recovery\veeam\veeam-solution-guide.md
           - text: DobiProtect getting started guide
             url: .\validated-partners\backup-archive-disaster-recovery\datadobi\datadobi-solution-guide.md
+          - text: Tiger Bridge archiving with CDP and DR
+            url: .\validated-partners\backup-archive-disaster-recovery\tiger-bridge-cdp-guide.md
    # Card
   - title: Container solution partners
     linkLists:

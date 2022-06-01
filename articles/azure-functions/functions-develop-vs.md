@@ -2,9 +2,9 @@
 title: Develop Azure Functions using Visual Studio  
 description: Learn how to develop and test Azure Functions by using Azure Functions Tools for Visual Studio 2019.
 ms.devlang: csharp
-ms.custom: "vs-azure, devx-track-csharp"
+ms.custom: devdivchpfy22
 ms.topic: conceptual
-ms.date: 12/10/2020
+ms.date: 05/19/2022
 ---
 
 # Develop Azure Functions using Visual Studio  
@@ -32,7 +32,7 @@ Unless otherwise noted, procedures and examples shown are for Visual Studio 2019
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 > [!NOTE]
-> In Visual Studio 2017, the Azure development workload installs Azure Functions Tools as a separate extension. When you update your Visual Studio 2017 installation, make sure that you're using the [most recent version](#check-your-tools-version) of the Azure Functions tools. The following sections show you how to check and (if needed) update your Azure Functions Tools extension in Visual Studio 2017. 
+> In Visual Studio 2017, the Azure development workload installs Azure Functions Tools as a separate extension. When you update your Visual Studio 2017 installation, make sure that you're using the [most recent version](#check-your-tools-version) of the Azure Functions Tools. The following sections show you how to check and (if needed) update your Azure Functions Tools extension in Visual Studio 2017.
 >
 > Skip these sections if you're using Visual Studio 2019.
 
@@ -144,9 +144,25 @@ As with triggers, input and output bindings are added to your function as bindin
 
 1. Make sure you've [configured the project for local development](#configure-the-project-for-local-development).
 
-2. Add the appropriate NuGet extension package for the specific binding. 
+1. Add the appropriate NuGet extension package for the specific binding by finding the binding-specific NuGet package requirements in the reference article for the binding. For example, find package requirements for the Event Hubs trigger in the [Event Hubs binding reference article](functions-bindings-event-hubs.md).
 
-   For more information, see [C# class library with Visual Studio](./functions-bindings-register.md#local-csharp). Find the binding-specific NuGet package requirements in the reference article for the binding. For example, find package requirements for the Event Hubs trigger in the [Event Hubs binding reference article](functions-bindings-event-hubs.md).
+1. Use the following command in the Package Manager Console to install a specific package:
+
+    # [In-process](#tab/in-process)
+
+    ```powershell
+    Install-Package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE> -Version <TARGET_VERSION>
+    ```
+    
+    # [Isolated process](#tab/isolated-process)
+
+    ```powershell
+    Install-Package Microsoft.Azure.Functions.Worker.Extensions.<BINDING_TYPE> -Version <TARGET_VERSION>
+    ```
+    
+    ---
+
+    In this example replace `<BINDING_TYPE>` with the name specific to the binding extension and `<TARGET_VERSION>` with a specific version of the package, such as `3.0.0-beta5`. Valid versions are listed on the individual package pages at [NuGet.org](https://nuget.org). The major versions that correspond to Functions runtime 1.x or 2.x are specified in the reference article for the binding.
 
 3. If there are app settings that the binding needs, add them to the `Values` collection in the [local setting file](functions-develop-local.md#local-settings-file). 
 
@@ -175,7 +191,7 @@ For a full list of the bindings supported by Functions, see [Supported bindings]
 
 ## Run functions locally
 
-Azure Functions Core Tools lets you run Azure Functions project on your local development computer. When you press F5 to debug a Functions project the local Functions host (func.exe) is started listening on a local port (usually 7071). Any callable function endpoints are written to the output, and you can use these for testing your functions. For more information, see [Work with Azure Functions Core Tools](functions-run-local.md). You're prompted to install these tools the first time you start a function from Visual Studio. 
+Azure Functions Core Tools lets you run Azure Functions project on your local development computer. When you press F5 to debug a Functions project, the local Functions host (func.exe) starts to listen on a local port (usually 7071). Any callable function endpoints are written to the output, and you can use these for testing your functions. For more information, see [Work with Azure Functions Core Tools](functions-run-local.md). You're prompted to install these tools the first time you start a function from Visual Studio.
 
 To start your function in Visual Studio in debug mode:
 
@@ -189,7 +205,7 @@ For a more detailed testing scenario using Visual Studio, see [Testing functions
 
 ## Publish to Azure
 
-When you publish from Visual Studio, it uses one of two deployment methods:
+When you publish from Visual Studio, it uses one of the two deployment methods:
 
 * [Web Deploy](functions-deployment-technologies.md#web-deploy-msdeploy): Packages and deploys Windows apps to any IIS server.
 * [Zip Deploy with run-From-package enabled](functions-deployment-technologies.md#zip-deploy): Recommended for Azure Functions deployments.
@@ -200,7 +216,7 @@ Use the following steps to publish your project to a function app in Azure.
 
 ## Function app settings
 
-Because Visual Studio doesn't upload these settings automatically when you publish the project, any settings you add in the local.settings.json you must also add to the function app in Azure.
+Visual Studio doesn't upload these settings automatically when you publish the project. Any settings you add in the local.settings.json you must also add to the function app in Azure.
 
 The easiest way to upload the required settings to your function app in Azure is to select the **Manage Azure App Service settings** link that appears after you successfully publish your project.
 
@@ -229,7 +245,7 @@ To learn more about monitoring using Application Insights, see [Monitor Azure Fu
 
 ## Testing functions
 
-This section describes how to create a C# function app project in Visual Studio and run and tests with [xUnit](https://github.com/xunit/xunit).
+This section describes how to create a C# function app project in Visual Studio and to run and test with [xUnit](https://github.com/xunit/xunit).
 
 ![Testing Azure Functions with C# in Visual Studio](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
@@ -250,7 +266,7 @@ Now that the projects are created, you can create the classes used to run the au
 
 Each function takes an instance of [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) to handle message logging. Some tests either don't log messages or have no concern for how logging is implemented. Other tests need to evaluate messages logged to determine whether a test is passing.
 
-You'll create a new class named `ListLogger` which holds an internal list of messages to evaluate during a testing. To implement the required `ILogger` interface, the class needs a scope. The following class mocks a scope for the test cases to pass to the `ListLogger` class.
+You'll create a new class named `ListLogger`, which holds an internal list of messages to evaluate during testing. To implement the required `ILogger` interface, the class needs a scope. The following class mocks a scope for the test cases to pass to the `ListLogger` class.
 
 Create a new class in *Functions.Tests* project named **NullScope.cs** and enter the following code:
 
@@ -450,23 +466,23 @@ The members implemented in this class are:
 
 - **Http_trigger_should_return_string_from_member_data**: This test uses xUnit attributes to provide sample data to the HTTP function.
 
-- **Timer_should_log_message**: This test creates an instance of `ListLogger` and passes it to a timer functions. Once the function is run, then the log is checked to ensure the expected message is present.
+- **Timer_should_log_message**: This test creates an instance of `ListLogger` and passes it to a timer function. Once the function is run, then the log is checked to ensure the expected message is present.
 
 If you want to access application settings in your tests, you can [inject](functions-dotnet-dependency-injection.md) an `IConfiguration` instance with mocked environment variable values into your function.
 
 ### Run tests
 
-To run the tests, navigate to the **Test Explorer** and click **Run all**.
+To run the tests, navigate to the **Test Explorer** and select **Run all**.
 
 ![Testing Azure Functions with C# in Visual Studio](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
 ### Debug tests
 
-To debug the tests, set a breakpoint on a test, navigate to the **Test Explorer** and click **Run > Debug Last Run**.
+To debug the tests, set a breakpoint on a test, navigate to the **Test Explorer** and select **Run > Debug Last Run**.
 
 
 ## Next steps
 
 For more information about the Azure Functions Core Tools, see [Work with Azure Functions Core Tools](functions-run-local.md).
 
-For more information about developing functions as .NET class libraries, see [Azure Functions C# developer reference](functions-dotnet-class-library.md). This article also links to examples of how to use attributes to declare the various types of bindings supported by Azure Functions.    
+For more information about developing functions as .NET class libraries, see [Azure Functions C# developer reference](functions-dotnet-class-library.md). This article also links to examples on how to use attributes to declare the various types of bindings supported by Azure Functions.    

@@ -604,6 +604,9 @@
       - name: Store scripts
         displayName: Image builder, images, building, scripts
         href: ./linux/image-builder-user-assigned-identity.md
+      - name: What's new in Azure Image Builder
+        displayName: Image builder, images, building, api, features, updates, change log
+        href: image-builder-api-update-release-notes.md
       - name: Troubleshoot
         displayName: Image builder, images, building
         href: ./linux/image-builder-troubleshoot.md
@@ -1287,6 +1290,8 @@
       href: ephemeral-os-disks.md
     - name: Create a VM using ephemeral OS disks
       href: ephemeral-os-disks-deploy.md
+    - name: FAQ on ephemeral OS disks
+      href: ephemeral-os-disks-faq.md      
   - name: Securely import/export a disk
     items:
     - name: Configure private links for disks - CLI
@@ -1723,20 +1728,20 @@
       - name: PowerShell
         displayName: Maintenance notifications
         href: maintenance-notifications-powershell.md
-    - name: Maintenance control
+    - name: Maintenance configurations
       items:
       - name: Overview
-        displayName: Maintenance control
-        href: maintenance-control.md
+        displayName: Maintenance configurations
+        href: maintenance-configurations.md
       - name: CLI
-        displayName: Maintenance control
-        href: maintenance-control-cli.md
+        displayName: Maintenance configurations
+        href: maintenance-configurations-cli.md
       - name: PowerShell
-        displayName: Maintenance control
-        href: maintenance-control-powershell.md
+        displayName: Maintenance configurations
+        href: maintenance-configurations-powershell.md
       - name: Portal
-        displayName: Maintenance control
-        href: maintenance-control-portal.md
+        displayName: Maintenance configurations
+        href: maintenance-configurations-portal.md
     - name: Scheduled events
       items:
       - name: Linux

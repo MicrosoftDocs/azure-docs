@@ -284,7 +284,7 @@ Review the [UserInfo documentation](userinfo.md#calling-the-api) to look over ho
 
 When you want to sign out the user from your app, it isn't sufficient to clear your app's cookies or otherwise end the user's session. You must also redirect the user to the Microsoft identity platform to sign out. If you don't do this, the user reauthenticates to your app without entering their credentials again, because they will have a valid single sign-in session with the Microsoft identity platform.
 
-You can redirect the user to the `end_session_endpoint` listed in the OpenID Connect metadata document:
+You can redirect the user to the `end_session_endpoint` (which supports both HTTP GET and POST requests) listed in the OpenID Connect metadata document:
 
 ```HTTP
 GET https://login.microsoftonline.com/common/oauth2/v2.0/logout?

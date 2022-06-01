@@ -4,8 +4,8 @@ description: Migrate your legacy QnAMaker knowledge bases to custom question ans
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.author: mbullwin
-author: mrbullwinkle
+ms.author: jboback
+author: jboback
 ms.date: 01/23/2022
 ms.custom: language-service-question-answering, ignite-fall-2021
 ---

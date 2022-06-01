@@ -2,16 +2,18 @@
 title: Frequently asked questions - Azure Verifiable Credentials (preview)
 description: Find answers to common questions about Verifiable Credentials
 author: barclayn
-manager: karenhoran
-ms.service: active-directory
+manager: rkarlin
+ms.service: decentralized-identity
 ms.subservice: verifiable-credentials
 ms.topic: conceptual
-ms.date: 04/26/2022
+ms.date: 04/28/2022
 ms.author: barclayn
 # Customer intent: As a developer I am looking for information on how to enable my users to control their own information 
 ---
 
 # Frequently Asked Questions (FAQ) (preview)
+
+[!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
 
 This page contains commonly asked questions about Verifiable Credentials and Decentralized Identity. Questions are organized into the following sections.
 
@@ -159,7 +161,7 @@ Adjust the API scopes used in your application
 
 For the Request API the new scope for your application or Postman is now:
 
-```3db474b9-6a0c-96ac-1fceb342124f/.default```
+```3db474b9-6a0c-4840-96ac-1fceb342124f/.default ```
 
 ### How do I reset the Azure AD Verifiable credentials service?
 

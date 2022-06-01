@@ -37,7 +37,7 @@ The architecture has the following main components:
 
 - **ExpressRoute gateway:** Enables the communication between Azure VMware Solution private cloud, shared services on Hub virtual network, and workloads running on Spoke virtual networks.
 
-- **ExpressRoute Global Reach:** Enables the connectivity between on-premises and Azure VMware Solution private cloud. The connectivity between Azure VMware Solution and the Azure fabric is through ExpressRoute Global Reach only. You can't select any option beyond ExpressRoute Fast Path.  ExpressRoute Direct isn't supported.
+- **ExpressRoute Global Reach:** Enables the connectivity between on-premises and Azure VMware Solution private cloud. The connectivity between Azure VMware Solution and the Azure fabric is through ExpressRoute Global Reach only. 
 
 
 - **S2S VPN considerations:** For Azure VMware Solution production deployments, Azure S2S VPN isn't supported due to network requirements for VMware HCX. However, you can use it for a PoC deployment.

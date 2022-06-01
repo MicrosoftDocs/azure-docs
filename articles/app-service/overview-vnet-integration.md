@@ -158,7 +158,7 @@ After your app integrates with your virtual network, it uses the same DNS server
 
 There are some limitations with using regional virtual network integration:
 
-* The feature is available from all App Service deployments in Premium v2 and Premium v3. It's also available in Basic and Standard tier but only from newer App Service deployments. If you're on an older deployment, you can only use the feature from a Premium v2 App Service plan. If you want to make sure you can use the feature in a Standard App Service plan, create your app in a Premium v3 App Service plan. Those plans are only supported on our newest deployments. You can scale down if you want after the plan is created.
+* The feature is available from all App Service deployments in Premium v2 and Premium v3. It's also available in Basic and Standard tier but only from newer App Service deployments. If you're on an older deployment, you can only use the feature from a Premium v2 App Service plan. If you want to make sure you can use the feature in a Basic or Standard App Service plan, create your app in a Premium v3 App Service plan. Those plans are only supported on our newest deployments. You can scale down if you want after the plan is created.
 * The feature can't be used by Isolated plan apps that are in an App Service Environment.
 * You can't reach resources across peering connections with classic virtual networks.
 * The feature requires an unused subnet that's an IPv4 `/28` block or larger in an Azure Resource Manager virtual network.

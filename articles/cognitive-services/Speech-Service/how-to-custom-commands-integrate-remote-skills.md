@@ -17,6 +17,9 @@ ms.custom: cogserv-non-critical-speech
 
 In this article, you will learn how to export a Custom Commands application as a remote skill.
 
+> [!NOTE]
+> Exporting a Custom Commands application as a remote skill is a limited preview feature.
+
 ## Prerequisites
 > [!div class="checklist"]
 > * [Understanding of Bot Framework Skill](/azure/bot-service/skills-conceptual)

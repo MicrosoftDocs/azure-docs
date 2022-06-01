@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 03/05/2022
+ms.date: 05/04/2022
 ms.custom: template-how-to
 ---
 
@@ -54,7 +54,7 @@ When scanning SAP BW source, Microsoft Purview supports extracting technical met
 
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md). The minimal supported Self-hosted Integration Runtime version is 5.15.8079.1.
 
-    * Ensure [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the machine where the self-hosted integration runtime is installed.
+    * Ensure [JDK 11](https://www.oracle.com/java/technologies/downloads/#java11) is installed on the machine where the self-hosted integration runtime is installed. Restart the machine after you newly install the JDK for it to take effect.
 
     * Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
 
@@ -127,7 +127,7 @@ Follow the steps below to scan SAP BW to automatically identify assets and class
 
     1. **Client ID**: Enter the SAP Client ID. It's a three-digit numeric number from 000 to 999.
 
-    1. **JCo library path**: The directory path where the JCo libraries are located.
+    1. **JCo library path**: Specify the directory path where the JCo libraries are located, e.g. `D:\Drivers\SAPJCo`. Make sure the path is accessible by the self-hosted integration runtime, learn more from [prerequisites section](#prerequisites).
 
     1. **Maximum memory available:** Maximum memory (in GB) available on the Self-hosted Integration Runtime machine to be used by scanning processes. This is dependent on the size of SAP BW source to be scanned. 
 
@@ -149,5 +149,5 @@ Follow the steps below to scan SAP BW to automatically identify assets and class
 Now that you've registered your source, follow the below guides to learn more about Microsoft Purview and your data.
 
 - [Search Data Catalog](how-to-search-catalog.md)
-- [Data insights in Microsoft Purview](concept-insights.md)
+- [Data Estate Insights in Microsoft Purview](concept-insights.md)
 - [Supported data sources and file types](azure-purview-connector-overview.md)

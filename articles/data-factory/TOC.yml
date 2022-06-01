@@ -180,6 +180,8 @@ items:
       href: tutorial-managed-virtual-network-on-premise-sql-server.md
     - name: Access SQL Managed Instance
       href: tutorial-managed-virtual-network-sql-managed-instance.md 
+    - name: Move an existing Azure integration runtime to a managed virtual network
+      href: tutorial-managed-virtual-network-migrate.md
   - name: Self-hosted integration runtime
     items:
     - name: Enable remote access from intranet with TLS/SSL certificate (Advanced)
@@ -277,6 +279,9 @@ items:
             displayName: cumeDist, denseRank, lag, lead, nTile, rank, rowNumber
           - name: Alphabetical usage details for all functions
             href: data-flow-expressions-usage.md
+      - name: User defined functions
+        href: concepts-data-flow-udf.md
+        displayName: udf, user defined function,data flow library
     - name: Prepare data with Power Query data wrangling
       items:
       - name: Data wrangling overview
@@ -342,6 +347,8 @@ items:
       href: connector-amazon-simple-storage-service.md
     - name: Amazon S3 Compatible Storage
       href: connector-amazon-s3-compatible-storage.md
+    - name: Asana
+      href: connector-asana.md     
     - name: Avro format
       href: format-avro.md
     - name: Azure Blob Storage
@@ -815,6 +822,10 @@ items:
       href: data-factory-private-link.md
     - name: Azure security baseline
       href: /security/benchmark/azure/baselines/data-factory-security-baseline?toc=/azure/data-factory/TOC.json
+  - name: Settings
+    items: 
+    - name: Manage Azure Data Factory settings and preferences
+      href: how-to-manage-settings.md
   - name: Monitor and manage
     items:
     - name: Monitor visually
@@ -1033,6 +1044,14 @@ items:
         href: scenario-ssis-migration-overview.md
       - name: SSISDB migration to Azure SQL Managed Instance
         href: scenario-ssis-migration-ssisdb-mi.md
+    - name: SAP knowledge center
+      items:
+      - name: Overview
+        href: industry-sap-overview.md
+      - name: SAP connectors
+        href: industry-sap-connectors.md
+      - name: SAP templates
+        href: industry-sap-templates.md
   - name: Templates
     items:
     - name: Overview of templates
@@ -1047,6 +1066,10 @@ items:
       href: solution-template-bulk-copy-from-files-to-database.md
     - name: Delta copy from database
       href: solution-template-delta-copy-with-control-table.md
+    - name: Detect and mask PII data
+      href: solution-template-pii-detection-and-masking.md
+    - name: Extract data from PDF source
+      href: solution-template-extract-data-from-pdf.md
     - name: Migrate data from Amazon S3 to Azure Storage
       href: solution-template-migration-s3-azure.md
     - name: Move files

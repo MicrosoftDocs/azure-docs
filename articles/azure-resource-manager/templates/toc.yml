@@ -140,7 +140,7 @@
   - name: Containers
     items:
     - name: AKS
-      href: ../../aks/kubernetes-walkthrough-rm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: ../../aks/learn/quick-kubernetes-deploy-rm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Container Instances
       href: ../../container-instances/container-instances-quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Container Registry

@@ -6,6 +6,8 @@ ms.date: 11/04/2021
 ms.custom: ignite-fall-2021
 ---
 # What is Azure Video Analyzer? (preview)
+
+[!INCLUDE [deprecation notice](./includes/deprecation-notice.md)]
  
 Azure Video Analyzer provides you a platform for building intelligent video applications that span the edge and the cloud. The platform consists of an IoT Edge module and an Azure service. It offers the capability to capture, record, and analyze live videos and publish the results, namely video and insights from video, to edge or cloud.
 

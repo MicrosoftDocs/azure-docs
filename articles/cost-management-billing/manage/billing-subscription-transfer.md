@@ -8,14 +8,16 @@ tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 04/27/2022
+ms.date: 05/04/2022
 ms.author: banders
 ms.custom: contperf-fy21q1
 ---
 
 # Transfer billing ownership of an MOSP Azure subscription to another account
 
-This article shows the steps needed to transfer billing ownership of an (MOSP) Microsoft Online Services Program, also referred to as pay-as-you-go, Azure subscription to another account. Before you transfer billing ownership for a subscription, read [Azure subscription and reservation transfer hub](subscription-transfer.md) to ensure that your transfer type is supported.
+This article shows the steps needed to transfer billing ownership of an (MOSP) Microsoft Online Services Program, also referred to as pay-as-you-go, Azure subscription to another MOSP account. 
+
+Before you transfer billing ownership for a subscription, read [Azure subscription and reservation transfer hub](subscription-transfer.md) to ensure that your transfer type is supported.
 
 If you want to keep your billing ownership but change subscription type, see [Switch your Azure subscription to another offer](switch-azure-offer.md). To control who can access resources in the subscription, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md).
 

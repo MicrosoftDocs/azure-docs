@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: how-to
-ms.date: 03/15/2022
+ms.date: 05/27/2022
 ms.author: anfdocs
 ---
 # Enable Active Directory Domain Services (ADDS) LDAP authentication for NFS volumes
@@ -24,7 +24,7 @@ Azure NetApp Files supports fetching of extended groups from the LDAP name servi
 When it’s determined that LDAP will be used for operations such as name lookup and fetching extended groups, the following process occurs:
 
 1. Azure NetApp Files uses an LDAP client configuration to make a connection attempt to the ADDS/AADDS LDAP server that is specified in the [Azure NetApp Files AD configuration](create-active-directory-connections.md).
-1. If the TCP connection over the defined ADDS/AADDS LDAP service port is successful, then the Azure NetApp Files LDAP client attempts to “bind” (log in) to the ADDS/AADDS LDAP server (domain controller) by using the defined credentials in the LDAP client configuration.
+1. If the TCP connection over the defined ADDS/AADDS LDAP service port is successful, then the Azure NetApp Files LDAP client attempts to “bind” (sign in) to the ADDS/AADDS LDAP server (domain controller) by using the defined credentials in the LDAP client configuration.
 1. If the bind is successful, then the Azure NetApp Files LDAP client uses the RFC 2307bis LDAP schema to make an LDAP search query to the ADDS/AADDS LDAP server (domain controller).
 The following information is passed to the server in the query:
    * [Base/user DN](configure-ldap-extended-groups.md#ldap-search-scope) (to narrow search scope)
@@ -98,7 +98,7 @@ The following information is passed to the server in the query:
     ![Screenshot that shows Create a Volume page with LDAP option.](../media/azure-netapp-files/create-nfs-ldap.png)  
 
 7. Optional - You can enable local NFS client users not present on the Windows LDAP server to access an NFS volume that has LDAP with extended groups enabled. To do so, enable the **Allow local NFS users with LDAP** option as follows:
-    1. Click **Active Directory connections**.  On an existing Active Directory connection, click the context menu (the three dots `…`), and select **Edit**.  
+    1. Select **Active Directory connections**.  On an existing Active Directory connection, select the context menu (the three dots `…`), and select **Edit**.  
     2. On the **Edit Active Directory settings** window that appears, select the **Allow local NFS users with LDAP** option.  
 
     ![Screenshot that shows the Allow local NFS users with LDAP option](../media/azure-netapp-files/allow-local-nfs-users-with-ldap.png)  
@@ -119,5 +119,6 @@ The following information is passed to the server in the query:
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)
 * [Create and manage Active Directory connections](create-active-directory-connections.md)
 * [Configure NFSv4.1 domain](azure-netapp-files-configure-nfsv41-domain.md#configure-nfsv41-domain)
+* [Configure an NFS client for Azure NetApp Files](configure-nfs-clients.md)
 * [Troubleshoot volume errors for Azure NetApp Files](troubleshoot-volumes.md)
 * [Modify Active Directory connections for Azure NetApp Files](modify-active-directory-connections.md)

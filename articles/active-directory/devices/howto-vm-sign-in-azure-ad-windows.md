@@ -274,19 +274,19 @@ The AADLoginForWindows extension must install successfully in order for the VM t
 
 1. Ensure the required endpoints are accessible from the VM using PowerShell:
    
-   - `curl https://login.microsoftonline.com/ -D -`
-   - `curl https://login.microsoftonline.com/<TenantID>/ -D -`
-   - `curl https://enterpriseregistration.windows.net/ -D -`
-   - `curl https://device.login.microsoftonline.com/ -D -`
-   - `curl https://pas.windows.net/ -D -`
+   - `curl.exe https://login.microsoftonline.com/ -D -`
+   - `curl.exe https://login.microsoftonline.com/<TenantID>/ -D -`
+   - `curl.exe https://enterpriseregistration.windows.net/ -D -`
+   - `curl.exe https://device.login.microsoftonline.com/ -D -`
+   - `curl.exe https://pas.windows.net/ -D -`
 
    > [!NOTE]
-   > Replace `<TenantID>` with the Azure AD Tenant ID that is associated with the Azure subscription.<br/> `enterpriseregistration.windows.net` and `pas.windows.net` should return 404 Not Found, which is expected behavior.
+   > Replace `<TenantID>` with the Azure AD Tenant ID that is associated with the Azure subscription.<br/> `login.microsoftonline.com/<TenantID>`,  `enterpriseregistration.windows.net`, and `pas.windows.net` should return 404 Not Found, which is expected behavior.
             
 1. The Device State can be viewed by running `dsregcmd /status`. The goal is for Device State to show as `AzureAdJoined : YES`.
 
    > [!NOTE]
-   > Azure AD join activity is captured in Event viewer under the `User Device Registration\Admin` log.
+   > Azure AD join activity is captured in Event viewer under the `User Device Registration\Admin` log at `Event Viewer (local)\Applications` and `Services Logs\Windows\Microsoft\User Device Registration\Admin`.
 
 If the AADLoginForWindows extension fails with certain error code, you can perform the following steps:
 

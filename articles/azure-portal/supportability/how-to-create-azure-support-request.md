@@ -14,7 +14,6 @@ Azure enables you to create and manage support requests, also known as support t
 > The Azure portal URL is specific to the Azure cloud where your organization is deployed.
 >
 >- Azure portal for commercial use is: [https://portal.azure.com](https://portal.azure.com)
->- Azure portal for Germany is: [https://portal.microsoftazure.de](https://portal.microsoftazure.de)
 >- Azure portal for the United States government is: [https://portal.azure.us](https://portal.azure.us)
 
 Azure provides unlimited support for subscription management, which includes billing, quota adjustments, and account transfers. For technical support, you need a support plan. For more information, see [Compare support plans](https://azure.microsoft.com/support/plans).

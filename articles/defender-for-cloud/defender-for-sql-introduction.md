@@ -10,8 +10,6 @@ ms.custom: references_regions
 
 # Introduction to Microsoft Defender for SQL
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Microsoft Defender for SQL includes two Microsoft Defender plans that extend Microsoft Defender for Cloud's [data security package](/azure/azure-sql/database/azure-defender-for-sql) to secure your databases and their data wherever they're located. Microsoft Defender for SQL includes functionalities for discovering and mitigating potential database vulnerabilities, and detecting anomalous activities that could indicate a threat to your databases.
 
 ## Availability
@@ -40,6 +38,9 @@ Microsoft Defender for SQL includes two Microsoft Defender plans that extend Mic
         - [SQL Server running on Windows machines without Azure Arc](../azure-monitor/agents/agent-windows.md)
 
 When you enable either of these plans, all supported resources that exist within the subscription are protected. Future resources created on the same subscription will also be protected. 
+
+> [!NOTE]
+> Microsoft Defender for SQL database currently works for read-write replicas only.
 
 ## What are the benefits of Microsoft Defender for SQL?
 

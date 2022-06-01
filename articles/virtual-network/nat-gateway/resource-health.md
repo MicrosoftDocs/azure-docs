@@ -16,10 +16,7 @@ This article provides guidance on how to use Azure Resource Health to monitor an
 
 ## Resource health status
 
-[Azure Resource Health](/azure/service-health/overview) provides information about the health of your NAT gateway resource. You can use resource health and Azure monitor notifications to keep you informed on the availability and health status of your NAT gateway resource. Resource health can help you quickly assess whether an issue is due to a problem in your Azure infrastructure or because of an Azure platform event. The resource health of your NAT gateway is evaluated by measuring the data-path availability of your NAT gateway endpoint.
-
-> [!IMPORTANT]
-> When you first create your NAT gateway resource and attach it to a subnet and public IP address/prefix, there is no available data as of yet to determine the health status of your NAT gateway resource. In the first few minutes after your NAT gateway is created, you may see the health status of your NAT gateway change from Unavailable to Degraded and then to Available as health data is generated. This is an expected behavior. If you have only a public IP address or only a subnet attached to your NAT gateway resource upon deployment, the health status will immmediately show as Unknown.  
+[Azure Resource Health](../../service-health/overview.md) provides information about the health of your NAT gateway resource. You can use resource health and Azure monitor notifications to keep you informed on the availability and health status of your NAT gateway resource. Resource health can help you quickly assess whether an issue is due to a problem in your Azure infrastructure or because of an Azure platform event. The resource health of your NAT gateway is evaluated by measuring the data-path availability of your NAT gateway endpoint.
 
 You can view the status of your NAT gateway’s health status on the **Resource Health** page, found under **Support + troubleshooting** for your NAT gateway resource.  
 
@@ -32,7 +29,7 @@ The health of your NAT gateway resource is displayed as one of the following sta
 | Unavailable | Your NAT gateway resource is not healthy. The metric for the data-path availability has reported less than 25% for the past 15 minutes. You may experience unavailability of your NAT gateway resource for outbound connectivity. |
 | Unknown | Health status for your NAT gateway resource hasn’t been updated or hasn’t received information for data-path availability for more than 5 minutes. This state should be transient and will reflect the correct status as soon as data is received. |
 
-For more information about Azure Resource Health, see [Resource Health overview](/azure/service-health/resource-health-overview).
+For more information about Azure Resource Health, see [Resource Health overview](../../service-health/resource-health-overview.md).
 
 To view the health of your NAT gateway resource:
 
@@ -44,7 +41,7 @@ To view the health of your NAT gateway resource:
 
 ## Next steps
 
-- Learn about [Virtual Network NAT](/azure/virtual-network/nat-gateway/nat-overview)
-- Learn about [metrics and alerts for NAT gateway](/azure/virtual-network/nat-gateway/nat-metrics)
-- Learn about [troubleshooting NAT gateway resources](/azure/virtual-network/nat-gateway/troubleshoot-nat)
-- Learn about [Azure resource health](/azure/service-health/resource-health-overview)
+- Learn about [Virtual Network NAT](./nat-overview.md)
+- Learn about [metrics and alerts for NAT gateway](./nat-metrics.md)
+- Learn about [troubleshooting NAT gateway resources](./troubleshoot-nat.md)
+- Learn about [Azure resource health](../../service-health/resource-health-overview.md)
