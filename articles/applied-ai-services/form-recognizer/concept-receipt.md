@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/11/2022
+ms.date: 06/06/2022
 ms.author: lajanuar
 recommendations: false
 ms.custom: ignite-fall-2021
@@ -81,7 +81,7 @@ You will need a receipt document. You can use our [sample receipt document](http
 * Supported file formats: JPEG/JPG, PNG, BMP, TIFF, and PDF (text-embedded or scanned). Text-embedded PDFs are best to eliminate the possibility of error in character extraction and location.
 * For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
 * The file size must be less than 500 MB for paid (S0) tier and 4 MB for free (F0) tier.
-* Image dimensions must be between 50 x 50 pixels and 10000 x 10000 pixels.
+* Image dimensions must be between 50 x 50 pixels and 10,000 x 10,000 pixels.
 * PDF dimensions are up to 17 x 17 inches, corresponding to Legal or A3 paper size, or smaller.
 * The total size of the training data is 500 pages or less.
 * If your PDFs are password-locked, you must remove the lock before submission.
@@ -107,10 +107,10 @@ You will need a receipt document. You can use our [sample receipt document](http
 | TransactionTime | Time | Time the receipt was issued | hh-mm-ss (24-hour)  |
 | Total | Number (USD)| Full transaction total of receipt | Two-decimal float|
 | Subtotal | Number (USD) | Subtotal of receipt, often before taxes are applied | Two-decimal float|
-| Tax | Number (USD) | Total tax on receipt (often sales tax or equivalent). Renamed to "TotalTax" in v3.0. | Two-decimal float |
+| Tax | Number (USD) | Total tax on receipt (often sales tax or equivalent). **Renamed to "TotalTax" in preview version v3.0**. | Two-decimal float |
 | Tip | Number (USD) | Tip included by buyer | Two-decimal float|
 | Items | Array of objects | Extracted line items, with name, quantity, unit price, and total price extracted | |
-| Name | String | Item description. Renamed to "Description" in v3.0. | |
+| Name | String | Item description. **Renamed to "Description" in preview version v3.0**. | |
 | Quantity | Number | Quantity of each item | Two-decimal float |
 | Price | Number | Individual price of each item unit| Two-decimal float |
 | TotalPrice | Number | Total price of line item | Two-decimal float |

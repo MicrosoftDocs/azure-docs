@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/16/2022
+ms.date: 06/06/2022
 ms.author: lajanuar
 recommendations: false
 ms.custom: ignite-fall-2021
@@ -16,7 +16,7 @@ ms.custom: ignite-fall-2021
 
 # Form Recognizer models
 
-Azure Form Recognizer models enable you to add intelligent document processing to your apps and flows. Form Recognizer analyzes form and document then returns an organized, structured JSON response. It can also be used in Python, C#, Java and JavaScript SDKs. Form Recognizer supports a wide range of models that can enable general document analysis by extracting tables, paragraphs, texts, selection marks, key-value pairs, etc., domain specific data extraction with prebuilt models like invoices, receipts, ID documents, W-2, business cards, etc., without having to train and build your own models, as well as training custom models tailored for your business use cases.
+ Azure Form Recognizer supports a wide variety of models that enable you to add intelligent document processing to your apps and flows. You can use a prebuilt document analysis or domain specific model or train a custom model tailored to your specific business needs and use cases. Form Recognizer can be used with the REST API or Python, C#, Java, and JavaScript SDKs.
 
 ## Model overview
 
@@ -96,7 +96,7 @@ The Layout API analyzes and extracts text, tables and headers, selection marks, 
 
 [:::image type="icon" source="media/studio/invoice.png":::](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)
 
-The invoice model analyzes and extracts key information from sales invoices. The API analyzes invoices in various formats and extracts key information such as customer name, billing address, due date, and amount due. Currently, the model supports both English and Spanish invoices. 
+The invoice model analyzes and extracts key information from sales invoices. The API analyzes invoices in various formats and extracts key information such as customer name, billing address, due date, and amount due. Currently, the model supports both English and Spanish invoices.
 
 ***Sample invoice processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=invoice)***:
 
@@ -109,7 +109,9 @@ The invoice model analyzes and extracts key information from sales invoices. The
 
 [:::image type="icon" source="media/studio/receipt.png":::](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)
 
-The receipt model analyzes and extracts key information from printed and handwritten receipts. In v3.0, besides sales receipts, it supports single-page hotel receipt processing.
+* The receipt model analyzes and extracts key information from printed and handwritten sales receipts.
+
+* The preview version v3.0 also supports single-page hotel receipt processing.
 
 ***Sample receipt processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)***:
 
@@ -152,7 +154,9 @@ The business card model analyzes and extracts key information from business card
 
  [:::image type="icon" source="media/studio/custom.png":::](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)
 
-The custom model analyzes and extracts data from forms and documents specific to your business. The API is a machine-learning program trained to recognize form fields within your distinct content and extract key-value pairs and table data. You only need five examples of the same form type to get started and your custom model can be trained with or without labeled datasets. In v3.0, Custom model supports signature detection in custom forms (template model) and cross-page tables in both template and neural models.
+* Custom models analyze and extract data from forms and documents specific to your business. The API is a machine-learning program trained to recognize form fields within your distinct content and extract key-value pairs and table data. You only need five examples of the same form type to get started and your custom model can be trained with or without labeled datasets.
+
+* The preview version v3.0 custom model supports signature detection in custom forms (template model) and cross-page tables in both template and neural models.
 
 ***Sample custom template processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)***:
 
@@ -179,7 +183,7 @@ A composed model is created by taking a collection of custom models and assignin
 |🆕 [prebuilt-read](concept-read.md#data-extraction) | ✓ |  |  | ✓ |   |   |  |
 |🆕 [prebuilt-tax.us.w2](concept-w2.md#field-extraction) | ✓  |  ✓  |  | ✓ |  | ✓ |  |
 |🆕 [prebuilt-document](concept-general-document.md#data-extraction)| ✓  |  ✓ | ✓ | ✓  | ✓  |  | ✓ |
-| [prebuilt-layout](concept-layout.md#data-extraction)  | ✓  | ✓ | ✓ | ✓  |   |   |  | 
+| [prebuilt-layout](concept-layout.md#data-extraction)  | ✓  | ✓ | ✓ | ✓  |   |   |  |
 | [prebuilt-invoice](concept-invoice.md#field-extraction)  | ✓ | ✓  | ✓ | ✓ | ✓ | ✓ |  |
 | [prebuilt-receipt](concept-receipt.md#field-extraction)  | ✓  |  |  | ✓ |  | ✓ | |
 | [prebuilt-idDocument](concept-id-document.md#field-extraction) | ✓ |  |  | ✓ |  | ✓ | |
@@ -199,7 +203,6 @@ A composed model is created by taking a collection of custom models and assignin
 
 > [!NOTE]
 > The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
-
 
 ### Version migration
 

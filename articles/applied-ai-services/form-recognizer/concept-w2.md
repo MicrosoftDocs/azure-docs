@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/25/2022
+ms.date: 06/06/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -116,7 +116,6 @@ See how data is extracted from W-2 forms using the Form Recognizer Studio. You'l
  | W2Copy |  | String | Copy of W-2 forms A, B, C, D, 1, or 2 | Copy A For Social Security Administration |
 | TaxYear |  | Number | Tax year | 2020 |
 | W2FormVariant |  | String | The variants of W-2 forms, including "W-2", "W-2AS", "W-2CM", "W-2GU", "W-2VI" | W-2 |
-
 
 ### Migration guide and REST API v3.0
 
