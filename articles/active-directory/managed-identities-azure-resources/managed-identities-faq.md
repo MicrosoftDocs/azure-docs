@@ -148,9 +148,6 @@ Moving a user-assigned managed identity to a different resource group isn't supp
 
 Managed identity tokens are cached by the underlying Azure infrastructure for performance and resiliency purposes: the back-end services for managed identities maintain a cache per resource URI for around 24 hours. It can take several hours for changes to a managed identity's permissions to take effect, for example. Today, it is not possible to force a managed identity's token to be refreshed before its expiry. For more information, see [Limitation of using managed identities for authorization](managed-identity-best-practice-recommendations.md#limitation-of-using-managed-identities-for-authorization).
 
-### What happens to a token when an identity is deleted?
-When a managed identity is deleted, an Azure resource previously associated with the identity can no longer request new tokens for that identity. Tokens that were previously issued will still be considered valid until their original expiry date. The effect of this may vary depending on the authorization system that the target endpoint is using. Some authorization systems may carry out additional lookups in the directory for the identity, in which case the request will fail as the identity has been deleted. Some, such as Azure RBAC, will continue to serve requests.
-
 ## Next steps
 
 - Learn [how managed identities work with virtual machines](how-managed-identities-work-vm.md)
