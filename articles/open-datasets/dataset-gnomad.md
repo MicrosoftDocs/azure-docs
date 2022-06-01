@@ -13,6 +13,11 @@ ms.date: 04/16/2021
 
 The [Genome Aggregation Database (gnomAD)](https://gnomad.broadinstitute.org/) is a resource developed by an international coalition of investigators, with the goal of aggregating and harmonizing both exome and genome sequencing data from a wide variety of large-scale sequencing projects, and making summary data available for the wider scientific community.
 
+Available versions:
+
+1. The **gnomAD v3.1.2** data set contains 76,156 whole genomes (and no exomes), all mapped to the GRCh38 reference sequence. Available in Hail and VCF formats. [Explore the data](https://msit.powerbi.com/reportEmbed?reportId=876ec2da-e6e4-42c9-9a28-c3d313c6e3eb&autoAuth=true&ctid=72f988bf-86f1-41af-91ab-2d7cd011db47&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly9kZi1tc2l0LXNjdXMtcmVkaXJlY3QuYW5hbHlzaXMud2luZG93cy5uZXQvIn0%3D)
+2. The **gnomAD v2.1.1** data set contains data from 125,748 exomes and 15,708 whole genomes, all mapped to the GRCh37/hg19 reference sequence. The data is available in Hail, VCF and Parquet formats.
+
 [!INCLUDE [Open Dataset usage notice](../../includes/open-datasets-usage-note.md)]
 
 ## Data source
