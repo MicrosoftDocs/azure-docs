@@ -1361,8 +1361,8 @@ items:
       href: visualize/workbooks-overview.md 
     - name: Working with workbooks
       items:
-        - name: Common workbook tasks
-          href: visualize/workbooks-common-tasks.md
+        - name: Getting Started with workbooks
+          href: visualize/workbooks-getting-started.md
         - name: Data sources
           href: visualize/workbooks-data-sources.md
         - name: Visualizations
@@ -1391,6 +1391,8 @@ items:
             href: visualize/workbooks-resources.md
           - name: Multi-value parameters
             href: visualize/workbooks-multi-value.md
+
+            
     - name: Integrate Workbooks with Azure features
       items:
         - name: Overview

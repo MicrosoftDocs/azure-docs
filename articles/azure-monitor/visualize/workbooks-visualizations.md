@@ -19,29 +19,38 @@ Use the links to learn more about each type of visualization.
 Note: Each visualization and data source may have its own [limits](../DataSources/Limits.md).
 
 ## Examples
-### Text Step
-[![Image showing a text visualization in workbooks](../Images/TextExample.png)](Text.md)
+### Text Parameter
+[Text](Text.md)
+:::image type="content" source="media/workbooks-visualizations/TextExample.png" alt-text="Example image of an Azure workbooks text parameter visualization.":::
 
 ### Chart
-[![Image showing a chart visualization in workbooks](../Images/ChartExample.png)](Chart.md)
+[Chart](Chart.md)
+:::image type="content" source="media/workbooks-visualizations/ChartExample.png" alt-text="Example image of an Azure workbooks chart visualization.":::
 
 ### Grid
-[![Image showing a grid visualization in workbooks](../Images/GridExample.png)](Grid.md)
+[Grid](Grid.md)
+:::image type="content" source="media/workbooks-visualizations/GridExample.png" alt-text="Example image of an Azure workbooks grid visualization.":::
 
 ### Tile
-[![Image showing a tile visualization in workbooks](../Images/TileExample.png)](Tiles.md)
+[Tiles](Tiles.md)
+:::image type="content" source="media/workbooks-visualizations/TileExample.png" alt-text="Example image of an Azure workbooks tile visualization.":::
 
 ### Tree
-[![Image showing a tree visualization in workbooks](../Images/TreeExample.png)](Tree.md)
+[Tree](Tree.md)
+:::image type="content" source="media/workbooks-visualizations/TreeExample.png" alt-text="Example image of an Azure workbooks tree visualization.":::
 
-### Honey Comb
-[![Image showing a honey comb visualization in workbooks](../Images/HoneyCombCpuExample.png)](HoneyComb.md)
+### Honey comb
+[Honey comb](HoneyComb.md)
+:::image type="content" source="media/workbooks-visualizations/HoneyCombCpuExample.png.png" alt-text="Example image of an Azure workbooks honey comb visualization.":::
 
 ### Graph
-[![Image showing a graph visualization in workbooks](../Images/GraphExample.png)](Graph.md)
+[Graph](Graph.md)
+:::image type="content" source="media/workbooks-visualizations/GraphExample.png" alt-text="Example image of an Azure workbooks graph visualization.":::
 
 ### Map
-[![Image showing a map visualization in workbooks](../Images/MapExample.png)](Map.md)
+[Map](Map.md)
+:::image type="content" source="media/workbooks-visualizations/MapExample.png" alt-text="Example image of an Azure workbooks map visualization.":::
 
 ### Text
-[![Image showing a text query visualization in workbooks](../Images/TextVisualizationExample.png)](TextVisualization.md)
+[Text Visualization](TextVisualization.md)
+:::image type="content" source="media/workbooks-visualizations/TextVisualizationExample.png" alt-text="Example image of an Azure workbooks chart visualization.":::
