@@ -116,15 +116,22 @@ You'll need an ID document. You can use our [sample ID document](https://raw.git
 
  The Form Recognizer preview introduces several new features and capabilities:
 
-* **ID document (v3.0)** model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
+* **ID document (v3.0)** model supports Endorsements, Restrictions, and VehicleClassifications extraction from US driver's licenses.
+* Starting from June public preview, the ID document (v3.0) model supports DateOfIssue, Height, Weight, EyeColor, HairColor and DocumentDiscriminator extraction from US driver's licenses.
 
 ### ID document preview field extraction
 
 |Name| Type | Description | Standardized output|
 |:-----|:----|:----|:----|
-| 🆕 Endorsements | String | Additional driving privileges granted to a driver such as Motorcycle or School bus.  | |
-| 🆕 Restrictions | String | Restricted driving privileges applicable to suspended or revoked licenses.| |
-| 🆕VehicleClassification | String | Types of vehicles that can be driven by a driver. ||
+| 🆕 DateOfIssue | Date | Issue date  | yyyy-mm-dd |
+| 🆕 Height | String | Height of the holder  | |
+| 🆕 Weight | String | Weight of the holder  | |
+| 🆕 EyeColor | String | Eye color of the holder  | |
+| 🆕 HairColor | String | Hair color of the holder  | |
+| 🆕 DocumentDiscriminator | String | Document discriminator which is a security code that identifies where and when the license was issued.  | |
+| Endorsements | String | Additional driving privileges granted to a driver such as Motorcycle or School bus.  | |
+| Restrictions | String | Restricted driving privileges applicable to suspended or revoked licenses.| |
+| VehicleClassification | String | Types of vehicles that can be driven by a driver. ||
 |  CountryRegion | countryRegion | Country or region code compliant with ISO 3166 standard |  |
 |  DateOfBirth | Date | DOB | yyyy-mm-dd |
 |  DateOfExpiration | Date | Expiration date DOB | yyyy-mm-dd |
