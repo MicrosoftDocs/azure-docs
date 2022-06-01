@@ -237,7 +237,7 @@ New-AzSearchService -ResourceGroupName <resource-group-name> `
 
 ### Create an S3HD service
 
-To create a [S3HD](./search-sku-tier.md#tier-descriptions) service, a combination of `-Sku` and `-HostingMode` are used. Set `-Sku` to `Standard3` and `-HostingMode` to `HighDensity`.
+To create a [S3HD](./search-sku-tier.md#tier-descriptions) service, a combination of `-Sku` and `-HostingMode` is used. Set `-Sku` to `Standard3` and `-HostingMode` to `HighDensity`.
 
 ```azurepowershell-interactive
 New-AzSearchService -ResourceGroupName <resource-group-name> `
