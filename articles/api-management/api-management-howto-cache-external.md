@@ -48,11 +48,11 @@ This section explains how to create an Azure Cache for Redis in Azure. If you al
 
 ## <a name="create-cache"> </a> Deploy Redis cache to Kubernetes
 
-For caching, self-hosted gateways rely exclusively on external caches. For caching to be effective, self-hosted gateways and the cache they rely on must be located close to each other to minimize lookup and store latencies. Deploying a Redis cache into the same Kubernetes cluster or in a separate cluster nearby are the best options. Follow this [link](https://github.com/kubernetes/examples/tree/master/guestbook) to learn how to deploy Redis cache to a Kubernetes cluster.
+For a self-hosted gateway, caching requires an external cache. For caching to be effective, a self-hosted gateway and the cache it relies on must be located close to each other to minimize lookup and store latencies. Deploying a Redis cache into the same Kubernetes cluster or in a separate cluster nearby are the best options. Learn how to [deploy Redis cache to a Kubernetes cluster](https://github.com/kubernetes/examples/tree/master/guestbook).
 
 ## <a name="add-external-cache"> </a>Add an external cache
 
-Follow the steps below to add an external Azure Cache for Redis in Azure API Management.
+Follow the steps below to add an external Redis-compatible cache in Azure API Management. You can limit the cache to a specific gateway in your API Management instance.
 
 ![Screenshot that shows how to add an external Azure Cache for Redis in Azure API Management.](media/api-management-howto-cache-external/add-external-cache.png)
 
@@ -66,11 +66,12 @@ The **Use from** setting in the configuration specifies the location of your API
 
 * **Default**, to configure the cache as the default for all gateway locations in the API Management instance
 
-    * A cache used for **Default** will be overridden by a cache used for a specific matching region or location.
+    A cache used for **Default** will be overridden by a cache used for a specific matching region or location.
 
-        For example, if your API Management instance is hosted in the East US, Southeast Asia, and West Europe regions and there are two caches configured, one for **Default** and one for **Southeast Asia**, API Management in **Southeast Asia** will use its own cache, while the other two regions will use the **Default** cache entry.
+    For example, consider an API Management instance that's hosted in the East US, Southeast Asia, and West Europe regions. There are two caches configured, one for **Default** and one for **Southeast Asia**. In this example, API Management in **Southeast Asia** will use its own cache, while the other two regions will use the **Default** cache entry.
 
-    * You can configure the same external cache for more than one API Management instance. The API Management instances can be in the same or different regions. When sharing the cache for more than one instance, you must select **Default** in the **Use from** setting. 
+> [!NOTE]
+> You can configure the same external cache for more than one API Management instance. The API Management instances can be in the same or different regions. When sharing the cache for more than one instance, you must select **Default** in the **Use from** setting. 
 
 ### Add an Azure Cache for Redis from the same subscription
 
@@ -81,14 +82,14 @@ The **Use from** setting in the configuration specifies the location of your API
 5. Select **Default** or specify the desired region in the [**Use from**](#use-from-setting) dropdown field.
 6. Select **Save**.
 
-### Add an Azure Cache for Redis hosted outside of the current Azure subscription or Azure in general
+### Add a Redis-compatible cache hosted outside of the current Azure subscription or Azure in general
 
 1. Browse to your API Management instance in the Azure portal.
 2. Select the **External cache** tab from the menu on the left.
 3. Select the **+ Add** button.
 4. Select **Custom** in the **Cache instance** dropdown field.
 5. Select **Default** or specify the desired region in the [**Use from**](#use-from-setting) dropdown field.
-6. Provide your Azure Cache for Redis connection string in the **Connection string** field.
+6. Provide your Azure Cache for Redis (or Redis-compatible cache) connection string in the **Connection string** field.
 7. Select **Save**.
 
 ### Add a Redis cache to a self-hosted gateway
@@ -110,7 +111,7 @@ For a detailed example, see [Add caching to improve performance in Azure API Man
 ## <a name="next-steps"> </a>Next steps
 
 * For more information about caching policies, see [Caching policies][Caching policies] in the [API Management policy reference][API Management policy reference].
-* For information on caching items by key using policy expressions, see [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
+* To cache items by key using policy expressions, see [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
 
 [API Management policy reference]: ./api-management-policies.md
 [Caching policies]: ./api-management-caching-policies.md
