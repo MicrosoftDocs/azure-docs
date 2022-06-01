@@ -12,7 +12,7 @@ ms.custom: kr2b-contr-experiment
 
 # Deploy applications to Azure Red Hat OpenShift using OpenShift Serverless
 
-In this article, you'll deploy an application to an Azure Red Hat OpenShift cluster with [OpenShift Serverless](https://www.openshift.com/learn/topics/serverless). OpenShift Serverless helps developers to deploy and run applications that'll scale up or scale to zero on-demand. This eliminates resource consumption when it's not in use.
+In this article, you'll deploy an application to an Azure Red Hat OpenShift cluster with [OpenShift Serverless](https://www.openshift.com/learn/topics/serverless). OpenShift Serverless helps developers to deploy and run applications that'll scale up or scale to zero on demand. This eliminates consumption of resources when they're not in use.
 
 Application code can be packaged in a container along with the appropriate runtimes. Serverless functionality will start the application containers when they are triggered by an event. You can trigger applications through various events: from your own applications, from multiple cloud service providers, software as a service (SaaS) systems and other services.
 
@@ -24,7 +24,7 @@ You can use built-in OpenShift interface features to manage all aspects of serve
 
 ### Install the Knative command-line interface (kn)
 
-Download the latest release of the *command-line interface* (CLI) appropriate for your machine, from <https://github.com/knative/client/releases/>
+Download the latest release of the *command-line interface* (CLI) that's appropriate for your machine, from <https://github.com/knative/client/releases/>
 
 If you run commands on Azure Cloud Shell, download the latest Knative CLI for Linux.
 
