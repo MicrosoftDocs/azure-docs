@@ -24,9 +24,11 @@ After you configure your user-assigned managed identity to trust an external IdP
 
 ## Prerequisites
 
-Create a user-assigned manged identity:
+Get the information for your external IdP and software workload, which you need in the following steps.
 
-# [Azure CLI](#tab/azure-cli)
+Create a user-assigned manged identity.  
+
+### Create a user-assigned manged identity using the Azure CLI
 
 Create a new user managed identity using the [az identity create](/cli/azure/identity?view=azure-cli-latest#az-identity-create) operation:
 
@@ -56,14 +58,11 @@ az identity create --name $uaId --resource-group $rg --location $location --subs
 
 Find the object ID of the user-assigned managed identity, which you need in the following steps.
 
-# [Portal](#tab/azure-portal)
+### Create a user-assigned managed identity in the Azure portal
+
 [Create a user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity).  To create a user-assigned managed identity, your account needs the [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role assignment.  Grant your user-assigned managed identity access to the Azure resources targeted by your external software workload.  
 
 Find the object ID of the user-assigned managed identity, which you need in the following steps.  You can [list the user-assigned managed identities](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azp#list-user-assigned-managed-identities) for your subscription in the Azure portal.  Select the name of the managed identity you want from the list and find the **Object ID**.
-
----
-
-Get the information for your external IdP and software workload, which you need in the following steps.
 
 ## Configure a federated identity credential on a user-assigned managed identity
 
@@ -117,7 +116,7 @@ az rest --method put `
 
 Federated identity credential and parent user assigned identity can be created or updated be means of template below.  You can [deploy ARM templates](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal) from Azure Portal.
 
-All of thetemplate parameters are mandatory.
+All of the template parameters are mandatory.
 
 There is a limit of 3-120 symbols for a federated identity credential name length. It must be alphanumeric, dash, underscore. First symbol is alphanumeric only.  
 
