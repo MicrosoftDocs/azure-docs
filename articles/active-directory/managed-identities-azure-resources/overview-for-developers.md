@@ -127,15 +127,6 @@ The recommended method is to use the Azure Identity library for your preferred p
 
 The Azure Identity library will automatically attempt to authenticate via multiple mechanisms, including environment variables or an interactive login. This means that it can be used in your development using your own credentials, and your Azure environment using a Managed identity with no changes required when you deploy your application.
 
-The library will attempt to authenticate via the following mechanisms in order:
-
-1. Environment - The DefaultAzureCredential will read account information specified via environment variables and use it to authenticate.
-2. Managed Identity - If the application is deployed to an Azure host with Managed Identity enabled, the DefaultAzureCredential will authenticate with that account.
-2. IntelliJ - If the developer has authenticated via Azure Toolkit for IntelliJ, the DefaultAzureCredential will authenticate with that account.
-3. Visual Studio Code - If the developer has authenticated via the Visual Studio Code Azure Account extension (version 0.9.11 or earlier), the DefaultAzureCredential will authenticate with that account. To track progress toward supporting newer extension versions, see this [GitHub issue](https://github.com/Azure/azure-sdk-for-net/issues/27263).
-4. Azure CLI - If the developer has authenticated an account via the Azure CLI az login command, the DefaultAzureCredential will authenticate with that account.
-5. Azure PowerShell - If the developer has authenticated an account via the Azure PowerShell Connect-AzAccount command, the DefaultAzureCredential will authenticate with that account.
-
 You can also explicitly specify that the Managed identity you wish to authenticate with by passing in the identity's client ID. You can retrieve this client ID by browsing to the identity in the Portal.
 
 :::image type="content" source="media/overview-for-developers/IdentityClientID.png" alt-text="Client ID for the identity":::
