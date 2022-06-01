@@ -105,11 +105,11 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
 4. Click on **Spark UI** button to go to Spark Job page.
 
-5. For **Job graph**, **Summary**, **Diagnostics**, **Logs**. You can see an overview of your job in the generated job graph. Refer to steps 5 - 15 of [View completed Apache Spark application](#view-completed-apache-spark-application). 
+5. For **Job graph**, **Summary**, **Diagnostics**, **Logs**. You can see an overview of your job in the generated job graph. Refer to steps 5 - 15 of [View completed Apache Spark applications](#view-completed-apache-spark-applications). 
 
     [![Screenshot of running job.](./media/how-to-monitor-spark-applications/view-running-job.png)](./media/how-to-monitor-spark-applications/view-running-job.png#lightbox)
 
-## View canceled Apache Spark application
+## View canceled Apache Spark applications
 
 Open **Monitor**, then select **Apache Spark applications**. To view the details about the canceled Apache Spark applications, select the Apache Spark application.
 
@@ -123,7 +123,7 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
 4. Open Apache history server link by clicking **Spark history server**.
 
-5. View the graph. You can see an overview of your job in the generated job graph. Refer to steps 5 - 15 of [View completed Apache Spark application](#view-completed-apache-spark-application).
+5. View the graph. You can see an overview of your job in the generated job graph. Refer to steps 5 - 15 of [View completed Apache Spark applications](#view-completed-apache-spark-applications).
 
   [![Screenshot of canceled job details.](./media/how-to-monitor-spark-applications/view-cancelled-job.png)](./media/how-to-monitor-spark-applications/view-cancelled-job.png#lightbox)
 
@@ -141,7 +141,7 @@ Open **Monitor**, then select **Apache Spark applications**. To view the details
 
 4. Open Apache history server link by clicking **Spark history server**.
 
-5. View the graph. You can see an overview of your job in the generated job graph. Refer to steps 5 - 15 of [View completed Apache Spark application](#view-completed-apache-spark-application).
+5. View the graph. You can see an overview of your job in the generated job graph. Refer to steps 5 - 15 of [View completed Apache Spark applications](#view-completed-apache-spark-applications).
 
    [![Screenshot of failed job details.](./media/how-to-monitor-spark-applications/failed-job-info.png)](./media/how-to-monitor-spark-applications/failed-job-info.png#lightbox)
 
@@ -184,7 +184,7 @@ Select an Apache Spark application, and click on **Input data/Output data tab** 
 
 There are two ways to compare applications. You can compare by choosing **Compare Application**, or click the **Compare in notebook** button to view it in the notebook.
 
-### Compare by choosing an application
+### Compare by application
 
 Click on **Compare applications** button and choose an application to compare performance. You can see the difference between the two applications.
 
@@ -206,7 +206,7 @@ Click on **Compare applications** button and choose an application to compare pe
 
    ![Screenshot of comparison result.](./media/how-to-monitor-spark-applications/comparison-result.png)
 
-### Compare by Compare in notebook
+### Compare in notebook
 
 Click the **Compare in Notebook** button on the **Compare applications** page to open the notebook. The default name of the *.ipynb* file is **Recurrent Application Analytics**.
 
