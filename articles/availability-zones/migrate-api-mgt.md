@@ -1,6 +1,6 @@
 ---
 title: Migrate Azure API Management to availability zone support
-description: Learn how to migrate your AAzure API Management instances to availability zone support.
+description: Learn how to migrate your Azure API Management instances to availability zone support.
 author: anaharris-ms
 ms.service: api-management
 ms.topic: how-to
@@ -89,7 +89,7 @@ To migrate to availability zone support by using manual configuration:
 
 This option is for deployments that aren't on a VNET.
 
-In the Azure portal, you can enable zone redundancy when you add a location to your API Management service, or when you update the configuration of an existing location. When you enable zone redundancy, you are migrating the API Management instance to one that is running on the new VMSS architecture. The legacy systems will then give up hosting the workload on its own infrastructure and move it to the new ARM based infrastructure that supports availability zones. This change is permanent.Even if the resource is changed to Standard tier, the service will remain on VMSS and ARM.
+In the Azure portal, you can enable zone redundancy when you add a location to your API Management service, or when you update the configuration of an existing location. When you enable zone redundancy, you're migrating the API Management instance to one that is running on the new VMSS architecture. The legacy systems will then give up hosting the workload on its own infrastructure and move it to the new ARM based infrastructure that supports availability zones. This change is permanent. Even if the resource is changed to Standard tier, the service will remain on VMSS and ARM.
 
 ### When to use Azure portal configuration
 
