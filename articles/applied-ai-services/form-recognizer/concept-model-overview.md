@@ -16,7 +16,7 @@ ms.custom: ignite-fall-2021
 
 # Form Recognizer models
 
-Azure Form Recognizer prebuilt models enable you to add intelligent document processing to your apps and flows without having to train and build your own models. Prebuilt models use optical character recognition (OCR) combined with deep learning models to identify and extract predefined text and data fields common to specific form and document types. Form Recognizer extracts analyzes form and document data then  returns an organized, structured JSON response. Form Recognizer v2.1 supports invoice, receipt, ID document, and business card models.
+Azure Form Recognizer models enable you to add intelligent document processing to your apps and flows. Form Recognizer analyzes form and document then returns an organized, structured JSON response. It can also be used in Python, C#, Java and JavaScript SDKs. Form Recognizer supports a wide range of models that can enable general document analysis by extracting tables, paragraphs, texts, selection marks, key-value pairs, etc., domain specific data extraction with prebuilt models like invoices, receipts, ID documents, W-2, business cards, etc., without having to train and build your own models, as well as training custom models tailored for your business use cases.
 
 ## Model overview
 
@@ -109,7 +109,7 @@ The invoice model analyzes and extracts key information from sales invoices. The
 
 [:::image type="icon" source="media/studio/receipt.png":::](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)
 
-The receipt model analyzes and extracts key information from printed and handwritten receipts.
+The receipt model analyzes and extracts key information from printed and handwritten receipts. In v3.0, besides sales receipts, it supports single-page hotel receipt processing.
 
 ***Sample receipt processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/prebuilt?formType=receipt)***:
 
@@ -152,7 +152,7 @@ The business card model analyzes and extracts key information from business card
 
  [:::image type="icon" source="media/studio/custom.png":::](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects)
 
-The custom model analyzes and extracts data from forms and documents specific to your business. The API is a machine-learning program trained to recognize form fields within your distinct content and extract key-value pairs and table data. You only need five examples of the same form type to get started and your custom model can be trained with or without labeled datasets.
+The custom model analyzes and extracts data from forms and documents specific to your business. The API is a machine-learning program trained to recognize form fields within your distinct content and extract key-value pairs and table data. You only need five examples of the same form type to get started and your custom model can be trained with or without labeled datasets. In v3.0, Custom model supports signature detection in custom forms (template model) and cross-page tables in both template and neural models.
 
 ***Sample custom template processed using [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)***:
 
@@ -165,7 +165,7 @@ The custom model analyzes and extracts data from forms and documents specific to
 
 A composed model is created by taking a collection of custom models and assigning them to a single model built from your form types. You can assign multiple custom models to a composed model called with a single model ID. you can assign up to 100 trained custom models to a single composed model.
 
-***Composed model dialog window[Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)***:
+***Composed model dialog window in [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)***:
 
 :::image type="content" source="media/studio/composed-model.png" alt-text="Screenshot of Form Recognizer Studio compose custom model dialog window.":::
 
@@ -174,17 +174,17 @@ A composed model is created by taking a collection of custom models and assignin
 
 ## Model data extraction
 
- | **Data extraction**   | **Text extraction** |**Key-Value pairs** |**Fields**|**Selection Marks**   | **Tables**   |**Entities** |
-| --- |:---: |:---:|:---: |:---: |:---: |:---: |
-|🆕 [prebuilt-read](concept-read.md#data-extraction) | ✓ |   ||   |   |   |
-|🆕 [prebuilt-tax.us.w2](concept-w2.md#field-extraction) | ✓  |  ✓  | ✓ | ✓ | ✓ ||
-|🆕 [prebuilt-document](concept-general-document.md#data-extraction)| ✓  |  ✓ || ✓  | ✓  | ✓  |
-| [prebuilt-layout](concept-layout.md#data-extraction)  | ✓  |   || ✓  | ✓  |   |
-| [prebuilt-invoice](concept-invoice.md#field-extraction)  | ✓ | ✓  |✓| ✓  | ✓ ||
-| [prebuilt-receipt](concept-receipt.md#field-extraction)  | ✓  |   ✓ |✓|   |  ||
-| [prebuilt-idDocument](concept-id-document.md#field-extraction) | ✓  |  ✓ |✓|   |   ||
-| [prebuilt-businessCard](concept-business-card.md#field-extraction)    | ✓  |   ✓ | ✓|  |   ||
-| [Custom](concept-custom.md#compare-model-features)             |✓  |  ✓ || ✓  | ✓  | ✓  |
+ | **Model ID** | **Text extraction** | **Selection Marks** | **Tables** | **Paragraphs** | **Key-Value pairs** | **Fields** |**Entities** |
+ |:-----|:----|:----|:----|:----|:----|:----|:----|
+|🆕 [prebuilt-read](concept-read.md#data-extraction) | ✓ |  |  | ✓ |   |   |  |
+|🆕 [prebuilt-tax.us.w2](concept-w2.md#field-extraction) | ✓  |  ✓  |  | ✓ |  | ✓ |  |
+|🆕 [prebuilt-document](concept-general-document.md#data-extraction)| ✓  |  ✓ | ✓ | ✓  | ✓  |  | ✓ |
+| [prebuilt-layout](concept-layout.md#data-extraction)  | ✓  | ✓ | ✓ | ✓  |   |   |  | 
+| [prebuilt-invoice](concept-invoice.md#field-extraction)  | ✓ | ✓  | ✓ | ✓ | ✓ | ✓ |  |
+| [prebuilt-receipt](concept-receipt.md#field-extraction)  | ✓  |  |  | ✓ |  | ✓ | |
+| [prebuilt-idDocument](concept-id-document.md#field-extraction) | ✓ |  |  | ✓ |  | ✓ | |
+| [prebuilt-businessCard](concept-business-card.md#field-extraction)  | ✓  |  |  | ✓ |  | ✓ | |
+| [Custom](concept-custom.md#compare-model-features)             | ✓  |  ✓ | ✓ | ✓  |  | ✓ | |
 
 ## Input requirements
 
@@ -200,16 +200,6 @@ A composed model is created by taking a collection of custom models and assignin
 > [!NOTE]
 > The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
 
-## Form Recognizer preview v3.0
-
-  Form Recognizer v3.0 (preview) introduces several new features and capabilities:
-
-* [**Read (preview)**](concept-read.md) model is a new API that extracts text lines, words, their locations, detected languages, and handwritten text, if detected.
-* [**General document (preview)**](concept-general-document.md) model is a new API that uses a pre-trained model to extract text, tables, structure, key-value pairs, and named entities from forms and documents.
-* [**Receipt (preview)**](concept-receipt.md) model supports single-page hotel receipt processing.
-* [**ID document (preview)**](concept-id-document.md) model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
-* [**W-2 (preview)**](concept-w2.md) model supports employee, employer, wage information, etc. from US W-2 forms.
-* [**Custom model API (preview)**](concept-custom.md) supports signature detection for custom forms.
 
 ### Version migration
 
