@@ -235,7 +235,6 @@ The result should look like:
 }
 ```
 
-
 If you don't have a kubelet managed identity yet, you should go ahead and create one. The following example uses the [az identity create][az-identity-create] command:
 
 ```azurecli-interactive
