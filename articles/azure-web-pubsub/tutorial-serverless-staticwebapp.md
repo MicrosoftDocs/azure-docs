@@ -4,7 +4,7 @@ description: A tutorial to walk through how to use Azure Web PubSub service and 
 author: JialinXin
 ms.author: jixin
 ms.service: azure-web-pubsub
-ms.topic: tutorial 
+ms.topic: tutorial
 ms.date: 06/01/2022
 ---
 
@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 
 ## Overview
 
-:::image type="content" source="media/tutorial-swa/tutorial-swa.png" alt-text="Azure Web PubSub working with Static Web App":::
+:::image type="content" source="media/tutorial-swa/tutorial-serverless-staticwebapp.png" alt-text="Diagram showing Azure Web PubSub work with Static Web App." border="false":::
 
 * GitHub along with DevOps provide source control and continuous delivery. So whenever there's code change to the source repo, Azure DevOps pipeline will soon apply it to Azure Static Web App and present to endpoint user.
 * When a new user is login, Functions `login` API will be triggered and generate Azure Web PubSub service client connection url.
@@ -85,7 +85,7 @@ This article uses a GitHub template repository to make it easy for you to get st
     1. [https://github.com/Azure/awps-swa-sample/generate](https://github.com/login?return_to=/Azure/awps-swa-sample/generate)
 1. Name your repository **my-awps-swa-app**
 
-Select <kbd>**Create repository from template**</kbd>.
+Select **`Create repository from template`**.
 
 ## Create a static web app
 
