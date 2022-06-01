@@ -535,7 +535,7 @@ The following table explains the binding configuration properties that you set i
 |**direction** | Required. Must be set to `out`. |
 |**name** | Required. The name of the variable that represents the entity in function code. | 
 | **commandText** | Required. The name of the table being written to by the binding.  |
-| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database to which data is being written. This isn't the actual connection string and must instead resolve to an environment variable.| 
+| **connectionStringSetting** | Required. The name of an app setting that contains the connection string for the database to which data is being written. This isn't the actual connection string and must instead resolve to an environment variable. Optional keywords in the connection string value are [available to refine SQL bindings connectivity](./functions-bindings-azure-sql.md#SQL-connection-string). |
 
 ::: zone-end  
 
