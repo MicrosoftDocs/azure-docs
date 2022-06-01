@@ -319,7 +319,7 @@ If you are remote and do not have fiber connectivity or you want to explore othe
 | **[Stream Data Centers]( https://www.streamdatacenters.com/products-services/network-cloud/ )** | Megaport |
 | **[RagingWire Data Centers](https://www.ragingwire.com/wholesale/wholesale-data-centers-worldwide-nexcenters)** | IX Reach, Megaport, PacketFabric |
 | **[T5 Datacenters](https://t5datacenters.com/)** | IX Reach |
-| **[vXchnge](https://www.vxchnge.com)** | IX Reach, Megaport |
+| **vXchnge** | IX Reach, Megaport |
 
 ## Connectivity through National Research and Education Networks (NREN)
 
