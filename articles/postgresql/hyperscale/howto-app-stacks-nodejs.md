@@ -52,52 +52,73 @@ You may launch Node.js from the Bash shell, Terminal, or Windows Command Prompt 
 
 ## Connect, create table, insert data
 
-Use the following code to connect and load the data using CREATE TABLE and INSERT INTO SQL statements. The [pg.Client](https://github.com/brianc/node-postgres/wiki/Client) object is used to interface with the PostgreSQL server. The [pg.Client.connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect) function is used to establish the connection to the server. The [pg.Client.query()](https://github.com/brianc/node-postgres/wiki/Query) function is used to execute the SQL query against PostgreSQL database.
+All examples in this article need to connect to the database. Let's put the
+connection logic into its own module for reuse. We'll use the
+[pg.Client](https://github.com/brianc/node-postgres/wiki/Client) object to
+interface with the PostgreSQL server.
 
-Replace the following values:
-* \<host> with the value you got from the **Get Database Connection Information** section
-* \<password> with your server password.
-* Default user is *citus*
-* Default database is *citus*
+Create a `citus.js` with the common connection code:
 
 ```javascript
-const pg = require('pg');
-const config = {
-    host: '<host>',
-    // Do not hard code your username and password.
-    // Consider using Node environment variables.
-    user: 'citus',
-    password: '<password>',
-    database: 'citus',
-    port: 5432,
-    ssl: true
+// citus.js
+
+module.exports = {
+	// fill in your server group's hostname and password below
+	//
+	// the user and database names must be "citus"
+
+	client: function() {
+		const pg = require('pg');
+		return new pg.Client({
+			host: 'c.<servergroup>.postgres.database.azure.com',
+			user: 'citus',
+			password: '<password>',
+			database: 'citus',
+			port: 5432,
+			ssl: true
+		});
+	}
 };
-const client = new pg.Client(config);
+```
+
+Next, use the following code to connect and load the data using CREATE TABLE
+and INSERT INTO SQL statements.  The
+[pg.Client.connect()](https://github.com/brianc/node-postgres/wiki/Client#method-connect)
+function is used to establish the connection to the server. The
+[pg.Client.query()](https://github.com/brianc/node-postgres/wiki/Query)
+function is used to execute the SQL query against PostgreSQL database.
+
+```javascript
+// create.js
+
+const client = require('./citus').client();
 client.connect(err => {
-    if (err) throw err;
-    else {
-        queryDatabase();
-    }
+	if (err)
+		throw err;
+	else
+		queryDatabase();
 });
+
 function queryDatabase() {
-    const query = `
-        DROP TABLE IF EXISTS pharmacy;
-        CREATE TABLE pharmacy (pharmacy_id integer ,pharmacy_name text,city text,state text,zip_code integer);
-        INSERT INTO pharmacy (pharmacy_id,pharmacy_name,city,state,zip_code) VALUES (0,'Target','Sunnyvale','California',94001);
-        INSERT INTO pharmacy (pharmacy_id,pharmacy_name,city,state,zip_code) VALUES (1,'CVS','San Francisco','California',94002);
-        CREATE INDEX idx_pharmacy_id ON pharmacy(pharmacy_id);
-    `;
-    client
-        .query(query)
-        .then(() => {
-            console.log('tablesand insertion');
-            client.end(console.log('Closed client connection'));
-        })
-        .catch(err => console.log(err))
-        .then(() => {
-            console.log('Finished execution, exiting now');
-            process.exit();
-        });
+	const q = `
+		DROP TABLE IF EXISTS pharmacy;
+		CREATE TABLE pharmacy (pharmacy_id integer,pharmacy_name text,city text,state text,zip_code integer);
+		INSERT INTO pharmacy (pharmacy_id,pharmacy_name,city,state,zip_code) VALUES (0,'Target','Sunnyvale','California',94001);
+		INSERT INTO pharmacy (pharmacy_id,pharmacy_name,city,state,zip_code) VALUES (1,'CVS','San Francisco','California',94002);
+		CREATE INDEX idx_pharmacy_id ON pharmacy(pharmacy_id);
+	`;
+
+	client
+		.query(q)
+		.then(() => {
+			console.log('Created tables and inserted rows');
+			client.end(console.log('Closed client connection'));
+		})
+		.catch(err => console.log(err))
+		.then(() => {
+			console.log('Finished execution, exiting now');
+			process.exit();
+		});
 }
 ```
 
@@ -113,39 +134,29 @@ Citus gives you [the super power of distributing your table](overview.md#the-sup
 Use the following code to connect to the database and distribute the table.
 
 ```javascript
-const pg = require('pg');
-const config = {
-    host: '<your-db-server-name>.postgres.database.azure.com',
-    // Do not hard code your username and password.
-    // Consider using Node environment variables.
-    user: 'citus',
-    password: 'your-password',
-    database: 'citus',
-    port: 5432,
-    ssl: true
-};
-const client = new pg.Client(config);
+const client = require('./citus').client();
 client.connect(err => {
-    if (err) throw err;
-    else {
-        queryDatabase();
-    }
+	if (err)
+		throw err;
+	else
+		queryDatabase();
 });
+
 function queryDatabase() {
-    const query = `
-        select create_distributed_table('pharmacy','pharmacy_id');
-    `;
-    client
-        .query(query)
-        .then(() => {
-            console.log('Distributed table created');
-            client.end(console.log('Closed client connection'));
-        })
-        .catch(err => console.log(err))
-        .then(() => {
-            console.log('Finished execution, exiting now');
-            process.exit();
-        });
+	const q = `
+		select create_distributed_table('pharmacy','pharmacy_id');
+	`;
+	client
+		.query(q)
+		.then(() => {
+			console.log('Distributed pharmacy table');
+			client.end(console.log('Closed client connection'));
+		})
+		.catch(err => console.log(err))
+		.then(() => {
+			console.log('Finished execution, exiting now');
+			process.exit();
+		});
 }
 ```
 
@@ -154,39 +165,30 @@ function queryDatabase() {
 Use the following code to connect and read the data using a SELECT SQL statement.
 
 ```javascript
-const pg = require('pg');
-const config = {
-    host: '<your-db-server-name>.postgres.database.azure.com',
-    // Do not hard code your username and password.
-    // Consider using Node environment variables.
-    user: 'citus',
-    password: '<your-password>',
-    database: 'citus',
-    port: 5432,
-    ssl: true
-};
-const client = new pg.Client(config);
+// read.js
+
+const client = require('./citus').client();
 client.connect(err => {
-    if (err) throw err;
-    else {
+	if (err)
+		throw err;
+	else
 		queryDatabase();
-	}
 });
+
 function queryDatabase() {
-    console.log(`Running query to PostgreSQL server: ${config.host}`);
-    const query = 'SELECT * FROM pharmacy';
-    client
-		.query(query)
-        .then(res => {
-            const rows = res.rows;
-            rows.map(row => {
-                console.log(`Read: ${JSON.stringify(row)}`);
-            });
-            process.exit();
-        })
-        .catch(err => {
-            console.log(err);
-        });
+	console.log('Querying PostgreSQL server');
+	const query = 'SELECT * FROM pharmacy';
+	client.query(query)
+		.then(res => {
+			const rows = res.rows;
+			rows.map(row => {
+				console.log(`Read: ${JSON.stringify(row)}`);
+			});
+			process.exit();
+		})
+		.catch(err => {
+			console.log(err);
+		});
 }
 ```
 
@@ -195,24 +197,17 @@ function queryDatabase() {
 Use the following code to connect and read the data using a UPDATE SQL statement.
 
 ```javascript
-const pg = require('pg');
-const config = {
-    host: '<your-db-server-name>.postgres.database.azure.com',
-    // Do not hard code your username and password.
-    // Consider using Node environment variables.
-    user: 'citus',
-    password: '<your-password>',
-    database: 'citus',
-    port: 5432,
-    ssl: true
-};
-const client = new pg.Client(config);
+// update.js
+
+const client = require('./citus').client();
+
 client.connect(err => {
-    if (err) throw err;
-    else {
-        queryDatabase();
-    }
+	if (err)
+		throw err;
+	else
+		queryDatabase();
 });
+
 function queryDatabase() {
     const query = `
         UPDATE pharmacy SET city = 'guntur'
@@ -223,6 +218,7 @@ function queryDatabase() {
         .then(result => {
             console.log('Update completed');
             console.log(`Rows affected: ${result.rowCount}`);
+			process.exit();
         })
         .catch(err => {
             console.log(err);
@@ -236,39 +232,34 @@ function queryDatabase() {
 Use the following code to connect and read the data using a DELETE SQL statement.
 
 ```javascript
-const pg = require('pg');
-const config = {
-    host: '<your-db-server-name>.postgres.database.azure.com',
-    // Do not hard code your username and password.
-    // Consider using Node environment variables.
-    user: 'citus',
-    password: '<your-password>',
-    database: 'citus',
-    port: 5432,
-    ssl: true
-};
-const client = new pg.Client(config);
+// delete.js
+
+const client = require('./citus').client();
 client.connect(err => {
-    if (err) {
-        throw err;
-    } else {
-        queryDatabase();
-    }
+	if (err)
+		throw err;
+	else
+		queryDatabase();
 });
+
 function queryDatabase() {
-    const query = `
-    DELETE FROM pharmacy WHERE pharmacy_name = 'Target';
-    `;
-    client
-        .query(query)
-        .then(result => {
-            console.log('Delete completed');
-            console.log(`Rows affected: ${result.rowCount}`);
-        })
-        .catch(err => {
-            console.log(err);
-            throw err;
-        });
+	const q = `
+		DELETE FROM pharmacy WHERE pharmacy_name = 'Target';
+	`;
+	client
+		.query(q)
+		.then(result => {
+			console.log('Delete completed');
+			console.log(`Rows affected: ${result.rowCount}`);
+		})
+		.catch(err => {
+			console.log(err);
+			throw err;
+		})
+		.then(() => {
+			console.log('Finished execution, exiting now');
+			process.exit();
+		});
 }
 ```
 
@@ -278,47 +269,56 @@ COPY command can yield [tremendous throughput](https://www.citusdata.com/blog/20
 
 ### COPY command to load data from a file
 
+Before running below code we should install
+[pg-copy-streams](https://www.npmjs.com/package/pg-copy-streams).  To do so,
+run the node package manager (npm) for JavaScript from your command line.
+
+```dotnetcli
+npm install pg-copy-streams
+```
+
 The following code is an example for copying data from csv file to table.
 
 ```javascript
-// Import required modules
-const pg = require('pg');
-const fs = require('fs')
-const path = require('path')
-const { Pool, Client} = require('pg')
-const copyFrom = require('pg-copy-streams').from
-const config = {
-    host: '<your-db-server-name>.postgres.database.azure.com',
-    // Do not hard code your username and password.
-    // Consider using Node environment variables.
-    user: 'citus',
-    password: '<your-password>',
-    database: 'citus',
-    port: 5432,
-    ssl: true
-};
-var inputFile = path.join(__dirname, '/pharmacies.csv')
-const client = new pg.Client(config);
-client.connect()
+// copy.js
 
-// Execute Copy Function
-var stream = client.query(copyFrom(`COPY pharmacy FROM  STDIN WITH (
-    FORMAT CSV,
-    HEADER true,
-    NULL '');`
-))
-var fileStream = fs.createReadStream(inputFile)
-fileStream.on('error', (error) =>{
-    console.log(`Error in reading file: ${error}`)
-})
-stream.on('error', (error) => {
-    console.log(`Error in copy command: ${error}`)
-})
-stream.on('end', () => {
-    console.log(`Completed loading data into pharmacy`)
-    client.end()
-})
-fileStream.pipe(stream);
+const inputFile = require('path').join(__dirname, '/pharmacies.csv')
+const copyFrom = require('pg-copy-streams').from;
+const client = require('./citus').client();
+
+client.connect(err => {
+	if (err)
+		throw err;
+	else
+		queryDatabase();
+});
+
+function queryDatabase() {
+	const q = `
+		COPY pharmacy FROM STDIN WITH (FORMAT CSV, HEADER true, NULL '');
+	`;
+
+	var fileStream = require('fs').createReadStream(inputFile)
+	fileStream.on('error', (error) =>{
+		console.log(`Error in reading file: ${error}`)
+		process.exit();
+	});
+
+	var stream = client
+		.query(copyFrom(q))
+		.on('error', (error) => {
+			console.log(`Error in copy command: ${error}`)
+		})
+		.on('end', () => {
+			// TODO: this is never reached
+			console.log(`Completed loading data into pharmacy`)
+			client.end()
+			process.exit();
+		});
+
+	console.log('Copying from CSV...');
+	fileStream.pipe(stream);
+}
 ```
 
 ### COPY command to load data in-memory
@@ -333,36 +333,37 @@ npm install through2
 The following code is an example for copying in-memory data to a table.
 
 ```javascript
+// copymem.js
+
 const through2 = require('through2');
-var pg = require('pg');
-var copyFrom = require('pg-copy-streams').from;
-const { Pool, Client} = require('pg')
-var Readable = require('stream').Readable;
-const config = {
-    user: 'citus',
-    password: '<your-password>',
-    database: 'citus',
-    port: 5432,
-    ssl: true
-};
-const client = new pg.Client(config);
-client.connect()
-var sqlcopysyntax = 'COPY pharmacy FROM STDIN ';
-var stream = client.query(copyFrom(sqlcopysyntax));
+const copyFrom = require('pg-copy-streams').from;
+const client = require('./citus').client();
 
-var interndataset = [['0','Target','Sunnyvale','California','94001'],
-                     ['1','CVS','San Francisco','California','94002']];
-
-var started = false;
-var internmap = through2.obj(function(arr, enc, cb) {
-	var rowText = (started ? '\n' : '') + arr.join('\t');
-	started = true;
-	console.log(rowText);
-	cb(null, rowText);
+client.connect(err => {
+	if (err)
+		throw err;
+	else
+		queryDatabase();
 });
-interndataset.forEach(function(r) { internmap.write(r); })
 
-internmap.end();
-internmap.pipe(stream);
-console.log("inserted successfully");
+function queryDatabase() {
+	var stream = client.query(copyFrom('COPY pharmacy FROM STDIN '));
+
+	var interndataset = [['0','Target','Sunnyvale','California','94001'],
+						 ['1','CVS','San Francisco','California','94002']];
+
+	var started = false;
+	var internmap = through2.obj(function(arr, enc, cb) {
+		var rowText = (started ? '\n' : '') + arr.join('\t');
+		started = true;
+		console.log(rowText);
+		cb(null, rowText);
+	});
+	interndataset.forEach(function(r) { internmap.write(r); })
+
+	internmap.end();
+	internmap.pipe(stream);
+	console.log("inserted successfully");
+	process.exit();
+}
 ```
