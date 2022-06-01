@@ -27,10 +27,11 @@ In this article, you can learn about steps to configure and attach an existing K
 
 ## Why use Azure Machine Learning Kubernetes?
 
-AzureML Kubernetes is customer fully configured and managed compute for machine learning. It can be used for both training and inference purposes. It provides the following benefits:
+AzureML Kubernetes is customer fully configured and managed compute for machine learning. It can be used as both [training compute target](./concept-compute-target.md#a-name"train"a-training-compute-targets) and [inference compute target](./concept-compute-target.md#a-name"deploy"a-compute-targets-for-inference). It provides the following benefits:
 
 - Harness existing hetreogenious or homogeneous Kubernetes cluster, with CPUs or GPUs.
 - Share the same Kubernetes cluster in multiple AzureML Workspace across region.
+- Use the compute for model training, batch inference, and real-time inference purposes.
 - Secure network coummunication between the cluster and cloud with Azure Private Link and Private Endpoint.
 - Isolate team projects and machine learning workloads with Kubernetes node selector and namespace.
 - Target certain types of compute nodes and CPU/Memory/GPU resource allocation for training and inference workloads. 
