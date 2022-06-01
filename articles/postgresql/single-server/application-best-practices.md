@@ -49,7 +49,7 @@ You can use [Data-in Replication](./concepts-read-replicas.md) for failover scen
 ## Database deployment
 
 ### Configure CI/CD deployment pipeline
-Occasionally, you need to deploy changes to your database. In such cases, you can use continuous integration (CI) through [GitHub actions](https://github.com/Azure/postgresql/blob/master/README.md) for your PostgreSQL server to update the database by running a custom script against it.
+Occasionally, you need to deploy changes to your database. In such cases, you can use continuous integration (CI) through [GitHub Actions](https://github.com/Azure/postgresql/blob/master/README.md) for your PostgreSQL server to update the database by running a custom script against it.
 
 ### Define manual database deployment process
 During manual database deployment, follow these steps to minimize downtime or reduce the risk of failed deployment:

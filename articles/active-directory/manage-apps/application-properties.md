@@ -1,6 +1,6 @@
 ---
 title: 'Properties of an enterprise application'
-titleSuffix: Azure AD
+titleSuffix: Microsoft Entra
 description: Learn about the properties of an enterprise application in Azure Active Directory.
 services: active-directory
 author: eringreenlee
