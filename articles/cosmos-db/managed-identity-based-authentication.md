@@ -12,10 +12,7 @@ ms.custom: devx-track-csharp, devx-track-azurecli, subject-rbac-steps
 ---
 
 # Use system-assigned managed identities to access Azure Cosmos DB data
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
-
-> [!TIP]
->  is now available on Azure Cosmos DB, providing a seamless way to authorize your requests with Azure Active Directory.
+[!INCLUDE [appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In this article, you'll set up a *robust, key rotation agnostic* solution to access Azure Cosmos DB keys by using [managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) and [data plane role-based access control](how-to-setup-rbac.md). The example in this article uses Azure Functions, but you can use any service that supports managed identities. 
 
@@ -28,7 +25,7 @@ You'll learn how to create a function app that can access Azure Cosmos DB data w
 - An existing Azure Functions function app. [Create your first function in the Azure portal](../azure-functions/functions-create-function-app-portal.md)
   - A system-assigned managed identity for the function app. [Add a system-assigned identity](/app-service/overview-managed-identity.md?tabs=cli#add-a-system-assigned-identity)
 - [Azure Functions Core Tools](../azure-functions/functions-run-local.md)
-[!INCLUDE ../../includes/azure-cli-prerequisites-include.md]
+[!INCLUDE [azure-cli-prerequisites-include](../../includes/azure-cli-prerequisites-include.md)]
 
 ## Prerequisite check
 
