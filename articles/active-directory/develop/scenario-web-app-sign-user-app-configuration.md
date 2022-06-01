@@ -1,6 +1,5 @@
 ---
-title: Configure a web app that signs in users | Azure
-titleSuffix: Microsoft identity platform
+title: Configure a web app that signs in users
 description: Learn how to build a web app that signs in users (code configuration)
 services: active-directory
 author: jmprieur
