@@ -199,7 +199,7 @@ We now have a function app that has a system-assigned managed identity with the 
     func new --template httptrigger --name readdatabases
     ```
 
-1. Add the [``Azure.Identity``]() and [``Microsoft.Azure.Cosmos``]() NuGet package to the .NET project. Build the project using [``dotnet build``]().
+1. Add the [``Azure.Identity``](https://www.nuget.org/packages/Azure.Identity/) and [``Microsoft.Azure.Cosmos``](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) NuGet package to the .NET project. Build the project using [``dotnet build``](/dotnet/core/tools/dotnet-build).
 
     ```azurecli-interactive
     dotnet add package Azure.Identity
