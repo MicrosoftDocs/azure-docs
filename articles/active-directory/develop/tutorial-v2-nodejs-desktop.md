@@ -43,7 +43,7 @@ Use the following settings for your app registration:
 - Name: `ElectronDesktopApp` (suggested)
 - Supported account types: **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**
 - Platform type: **Mobile and desktop applications**
-- Redirect URI: `msal://redirect`
+- Redirect URI: `msal{YourAppId}://auth`
 
 ## Create the project
 
@@ -135,7 +135,7 @@ CLIENT_ID=Enter_the_Application_Id_Here
 TENANT_ID=Enter_the_Tenant_Id_Here
 
 # Configuration
-REDIRECT_URI=msal://redirect
+REDIRECT_URI=Enter_the_Redirect_Uri_Here
 
 # Endpoints
 AAD_ENDPOINT_HOST=Enter_the_Cloud_Instance_Id_Here
