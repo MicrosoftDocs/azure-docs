@@ -13,7 +13,15 @@ ms.date: 06/29/2020
 
 # Azure Monitor workbooks data sources
 
-Workbooks are compatible with a large number of data sources. This article will walk you through data sources which are currently available for Azure Monitor workbooks.
+Workbooks are can extract data from these data sources:
+
+* [Logs](../visualize/workbooks-data-sources.md#logs)
+* [Metrics](../visualize/workbooks-data-sources.md#metrics)
+* [Azure Resource Graph](../visualize/workbooks-data-sources.md#azure-resource-graph)
+* [Alerts (Preview)](../visualize/workbooks-data-sources.md#alerts-preview)
+* [Workload Health](../visualize/workbooks-data-sources.md#workload-health)
+* [Azure Resource Health](../visualize/workbooks-data-sources.md#azure-resource-health)
+* [Azure Data Explorer](../visualize/workbooks-data-sources.md#azure-data-explorer)
 
 ## Logs
 

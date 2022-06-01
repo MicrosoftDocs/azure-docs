@@ -62,16 +62,7 @@ Workbooks can query data from multiple Azure sources. You can transform this dat
 - You can analyze performance logs from virtual machines to identify high CPU or low memory instances and display the results as a grid in an interactive report.
 - You can combine data from several different sources within a single report. This allows you to create composite resource views or joins across resources enabling richer data and insights that would otherwise be impossible.
 
-Workbooks are currently compatible with the following data sources:
-
-* [Logs](../visualize/workbooks-data-sources.md#logs)
-* [Metrics](../visualize/workbooks-data-sources.md#metrics)
-* [Azure Resource Graph](../visualize/workbooks-data-sources.md#azure-resource-graph)
-* [Alerts (Preview)](../visualize/workbooks-data-sources.md#alerts-preview)
-* [Workload Health](../visualize/workbooks-data-sources.md#workload-health)
-* [Azure Resource Health](../visualize/workbooks-data-sources.md#azure-resource-health)
-* [Azure Data Explorer](../visualize/workbooks-data-sources.md#azure-data-explorer)
-
+For more information about the supported data sources, see [this article](workbooks-data-sources.md).
 ## Visualizations
 
 Workbooks provide a rich set of capabilities for visualizing your data. For detailed examples of each visualization type, you can consult the links below:
