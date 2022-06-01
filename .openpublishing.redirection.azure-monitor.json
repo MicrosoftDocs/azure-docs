@@ -102,7 +102,7 @@
         },
         {
             "source_path_from_root": "/articles/azure-monitor/alerts/alerts-metric-overview.md" ,
-            "redirect_url": "/azure/azure-monitor/alerts/alert-types.md",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-types",
             "redirect_document_id": false
         },
         {
@@ -111,13 +111,28 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-managing-alert-states.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-page",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-monitor/alerts/alerts-unified-log.md" ,
-            "redirect_url": "/azure/azure-monitor/alerts/alert-types.md",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-types",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/azure-monitor/alerts/activity-log-alerts.md" ,
-            "redirect_url": "/azure/azure-monitor/alerts/alert-types.md",
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-types",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-smartgroups-overview.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-types",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-monitor/alerts/alerts-managing-smart-groups.md" ,
+            "redirect_url": "/azure/azure-monitor/alerts/alerts-types",
             "redirect_document_id": false
         },
         {
