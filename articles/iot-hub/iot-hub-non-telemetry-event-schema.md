@@ -4,7 +4,7 @@ description: This article provides the properties and schema for Azure IoT Hub n
 author: kgremban
 ms.author: kgremban  
 ms.topic: conceptual
-ms.date: 05/27/2022
+ms.date: 06/01/2022
 ms.service: iot-hub
 services: iot-hub
 ---
@@ -15,7 +15,7 @@ This article provides the properties and schema for non-telemetry events emitted
 
 ## Available event types
 
-Azure IoT Hub emits the following non-telemetry event categories:
+Azure IoT Hub emits the non-telemetry events in the following categories:
 
 | Event category | Description |
 | ---------- | ----------- |
@@ -24,9 +24,9 @@ Azure IoT Hub emits the following non-telemetry event categories:
 | Device Twin Change Events | Emitted when a device or module twin is changed or replaced. |
 | Digital Twin Change Events | Emitted when a device's or module's digital twin is changed or replaced. |
 
-## Common properties
+## Event common properties
 
-All non-telemetry messages share several common properties.
+Non-telemetry events share several common properties.
 
 ### System properties
 
@@ -83,7 +83,7 @@ Connection state events are emitted whenever a device or module connects or disc
 | ---- | ----------- |
 | iothub-message-source |  deviceConnectionStateEvents |
 
-**Payload**: The message payload contains a sequence number, which helps indicate the order of device/module connected or device/module disconnected events. The latest event will have a sequence number that is higher than the next most previous event. This number may change by more than 1, but is strictly increasing. See [how to use sequence number](../iot-hub/iot-hub-how-to-order-connection-state-events.md).
+**Payload**: The payload contains a sequence number. The sequence number is a string representation of a hexadecimal number. You can use string compare to identify the larger number. If you're converting the string to hex, then the number will be a 256-bit number. The sequence number is strictly increasing, and the latest event will have a higher number than other events. This is useful if you have frequent device connects and disconnects, and want to ensure only the latest event is used to trigger a downstream action.
 
 ### Example
 
@@ -143,7 +143,7 @@ Device lifecycle events are emitted whenever a device or module is created or de
 | ---- | ----------- |
 | iothub-message-source |  deviceLifecycleEvents |
 
-**Payload**: The message payload contains the device twin or module twin.
+**Payload**: The payload contains the device twin or module twin.
 
 ### Example
 
@@ -207,7 +207,7 @@ The following JSON shows a device lifecycle event emitted when a module is creat
 
 ## Device twin change events
 
-Device twin change events are emitted whenever a device twin or a module twin is updated or replaced. To learn more, see [Device twin backend operations](iot-hub-devguide-device-twins.md#back-end-operations) or [Module twin backend operations](iot-hub-devguide-module-twins.md#back-end-operations).
+Device twin change events are emitted whenever a device twin or a module twin is updated or replaced. In some cases, several changes may be packaged in a single event. To learn more, see [Device twin backend operations](iot-hub-devguide-device-twins.md#back-end-operations) or [Module twin backend operations](iot-hub-devguide-module-twins.md#back-end-operations).
 
 **Application properties**: The following table shows how application property values are set for device twin change events:  
 
