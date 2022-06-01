@@ -133,7 +133,7 @@ You can use entities as a signal for an intent. For example, the presence of a c
 
 | Example utterance | Entity | Intent |
 |--|--|--|
-| Book me a _fight to New York_. | City | Book Flight |
+| Book me a _flight to New York_. | City | Book Flight |
 | Book me the _main conference room_. | Room | Reserve Room |
 
 ## Entities as Feature for entities

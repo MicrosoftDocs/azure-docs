@@ -3,13 +3,13 @@ title: Azure Load Balancer Floating IP configuration
 description: Overview of Azure Load Balancer Floating IP
 services: load-balancer
 documentationcenter: na
-author: asudbring
+author: greg-lindsay
 ms.service: load-balancer
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/2/2021
-ms.author: allensu
+ms.author: greglin
 
 ---
 
@@ -28,9 +28,9 @@ If you want to reuse the backend port across multiple rules, you must enable Flo
 
 When Floating IP is enabled, Azure changes the IP address mapping to the Frontend IP address of the Load Balancer frontend instead of backend instance's IP. 
 
-Without Floating IP, Azure exposes the VM instances' IP. Enabling Floating IP changes the IP address mapping to the Frontend IP of the load Balancer to allow for additional flexibility. Learn more [here](load-balancer-multivip-overview.md).
+Without Floating IP, Azure exposes the VM instances' IP. Enabling Floating IP changes the IP address mapping to the Frontend IP of the load Balancer to allow for more flexibility. Learn more [here](load-balancer-multivip-overview.md).
 
-Floating IP can be configured on a Load Balancer rule via the Azure portal, REST API, CLI, PowerShell, or other client. In addition to the rule configuration, you must also configure your virtual machine's Guest OS in order to leverage Floating IP.
+Floating IP can be configured on a Load Balancer rule via the Azure portal, REST API, CLI, PowerShell, or other client. In addition to the rule configuration, you must also configure your virtual machine's Guest OS in order to use Floating IP.
 
 ## Floating IP Guest OS configuration
 For each VM in the backend pool, run the following commands at a Windows Command Prompt.
@@ -61,14 +61,14 @@ netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled
 netsh interface ipv4 set interface “interfacename” weakhostsend=enabled 
 ```
 
-(replace interfacename with the name of this loopback interface)
+(replace **interfacename** with the name of this loopback interface)
 
 > [!IMPORTANT]
 > The configuration of the loopback interfaces is performed within the guest OS. This configuration is not performed or managed by Azure. Without this configuration, the rules will not function.
 
 ## <a name = "limitations"></a>Limitations
 
-- Floating IP is not currently supported on secondary IP configurations for Load Balancing scenarios.  Note that this does not apply to Public load balancers with dual-stack configurations or to architectures that utilize a NAT Gateway for outbound connectivity.
+- Floating IP is not currently supported on secondary IP configurations for Load Balancing scenarios.  This does not apply to Public load balancers with dual-stack configurations or to architectures that utilize a NAT Gateway for outbound connectivity.
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Video Indexer (formerly Azure Video Analyzer for Media) release notes | Microsoft Docs
-description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Indexer (formerly Azure Video Analyzer for Media).
+title: Azure Video Indexer release notes | Microsoft Docs
+description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Video Indexer.
 ms.topic: article
 ms.custom: references_regions
 ms.date: 05/16/2022
@@ -11,7 +11,7 @@ ms.author: juliako
 
 >Get notified about when to revisit this page for updates by copying and pasting this URL: `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+Video+Indexer+release+notes%22&locale=en-us` into your RSS feed reader.
 
-To stay up-to-date with the most recent Azure Video Indexer (formerly Azure Video Analyzer for Media) developments, this article provides you with information about:
+To stay up-to-date with the most recent Azure Video Indexer developments, this article provides you with information about:
 
 * [Important notice](#upcoming-critical-changes) about planned changes
 * The latest releases
@@ -45,7 +45,7 @@ var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Loc
 
 ### Line breaking in transcripts
 
-Improved line break logic to better split transcript into sentences. New editing capabilities are now available through the Azure Video Indexer portal, such as adding a new line and editing the line’s timestamp.
+Improved line break logic to better split transcript into sentences. New editing capabilities are now available through the Azure Video Indexer portal, such as adding a new line and editing the line’s timestamp. For more information, see [Insert or remove transcript lines](edit-transcript-lines-portal.md).
 
 ### Azure Monitor integration
  
@@ -100,8 +100,7 @@ Azure Video Indexer website is now supporting account management based on ARM in
 
 ### Leverage open-source code to create ARM based account
 
-Added new code samples including HTTP calls to use Azure Video Indexer create, read, update and delete (CRUD) ARM API for solution developers. See [this sample](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/ARM-Samples/Create-Account
-).
+Added new code samples including HTTP calls to use Azure Video Indexer create, read, update and delete (CRUD) ARM API for solution developers. See [this sample](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/ARM-Quick-Start).
 
 ## January 2022
 
@@ -182,7 +181,7 @@ Fixed bugs related to CSS, theming and accessibility:
 
 ### Automatic Scaling of Media Reserved Units
 
-Starting August 1st 2021, Azure Video Analyzer for Media (formerly Video Indexer) enabled [Media Reserved Units (MRUs)](/azure/azure/media-services/latest/concept-media-reserved-units) auto scaling by [Azure Media Services](/azure/azure/media-services/latest/media-services-overview), as a result you do not need to manage them through Azure Video Analyzer for Media. That will allow price optimization, for example price reduction in many cases, based on your business needs as it is being auto scaled.
+Starting August 1st 2021, Azure Video Indexer enabled [Media Reserved Units (MRUs)](/azure/media-services/latest/concept-media-reserved-units) auto scaling by [Azure Media Services](/azure/media-services/latest/media-services-overview), as a result you do not need to manage them through Azure Video Indexer. That will allow price optimization, for example price reduction in many cases, based on your business needs as it is being auto scaled.
 
 ## June 2021
 
@@ -249,7 +248,7 @@ You can now see the detected acoustic events in the closed captions file. The fi
 
 ### Audio analysis
 
-Audio analysis is available now in additional new bundle of audio features at different price point. The new **Basic Audio** analysis preset provides a low-cost option to only extract speech transcription, translation and format output captions and subtitles. The **Basic Audio** preset will produce two separate meters on your bill, including a line for transcription and a separate line for caption and subtitle formatting. More information on the pricing, see the [Media Services pricing](https://azure.microsoft.com/pricing/details/azure/media-services/) page.
+Audio analysis is available now in additional new bundle of audio features at different price point. The new **Basic Audio** analysis preset provides a low-cost option to only extract speech transcription, translation and format output captions and subtitles. The **Basic Audio** preset will produce two separate meters on your bill, including a line for transcription and a separate line for caption and subtitle formatting. More information on the pricing, see the [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/) page.
 
 The newly added bundle is available when indexing or re-indexing your file by choosing the **Advanced option** -> **Basic Audio** preset (under the **Video + audio indexing** drop-down box).
 

@@ -1,6 +1,6 @@
 ---
 title: Configure permission classifications
-titleSuffix: Azure AD
+titleSuffix: Microsoft Entra
 description: Learn how to manage delegated permission classifications.
 services: active-directory
 author: jackson-woods

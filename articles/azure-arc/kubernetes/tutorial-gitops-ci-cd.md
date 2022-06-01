@@ -3,13 +3,13 @@ title: 'Tutorial: Implement CI/CD with GitOps using Azure Arc-enabled Kubernetes
 description: This tutorial walks through setting up a CI/CD solution using GitOps with Azure Arc-enabled Kubernetes clusters. For a conceptual take on this workflow, see the CI/CD Workflow using GitOps - Azure Arc-enabled Kubernetes article.
 ms.service: azure-arc
 ms.topic: tutorial
-ms.date: 03/03/2021
+ms.date: 05/24/2021
 ms.custom: template-tutorial, devx-track-azurecli
 ---
 # Tutorial: Implement CI/CD with GitOps using Azure Arc-enabled Kubernetes clusters
 
 > [!NOTE]
-> This tutorial uses GitOps with Flux v1.  GitOps with Flux v2 is now available in preview for Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS) clusters; [go to the tutorial that uses GitOps with Flux v2](./tutorial-gitops-flux2-ci-cd.md).
+> This tutorial uses GitOps with Flux v1. GitOps with Flux v2 is now available for Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS) clusters; [go to the tutorial that uses GitOps with Flux v2](./tutorial-gitops-flux2-ci-cd.md). Eventually Azure will stop supporting GitOps with Flux v1, so begin using Flux v2 as soon as possible.
 
 In this tutorial, you'll set up a CI/CD solution using GitOps with Azure Arc-enabled Kubernetes clusters. Using the sample Azure Vote app, you'll:
 

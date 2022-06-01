@@ -7,7 +7,8 @@ ms.topic: quickstart
 ms.author: sunila
 author: sunilagarwal
 ms.devlang: azurepowershell
-ms.custom: mvc, devx-track-azurepowershell, mode-api
+ms.tool: azure-powershell
+ms.custom: mvc, mode-api
 ms.date: 06/08/2020
 ---
 

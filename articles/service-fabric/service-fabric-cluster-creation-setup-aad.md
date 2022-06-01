@@ -2,7 +2,7 @@
 title: Set up Azure Active Directory for client authentication
 description: Learn how to set up Azure Active Directory (Azure AD) to authenticate clients for Service Fabric clusters.
 ms.topic: conceptual
-ms.date: 6/28/2019
+ms.date: 5/18/2022
 ms.custom: ignite-fall-2021
 ---
 
@@ -18,6 +18,9 @@ On Linux, you must complete the following steps before you create the cluster. O
 In this article, the term "application" will be used to refer to [Azure Active Directory applications](../active-directory/develop/developer-glossary.md#client-application), not Service Fabric applications; the distinction will be made where necessary. Azure AD enables organizations (known as tenants) to manage user access to applications.
 
 A Service Fabric cluster offers several entry points to its management functionality, including the web-based [Service Fabric Explorer][service-fabric-visualizing-your-cluster] and [Visual Studio][service-fabric-manage-application-in-visual-studio]. As a result, you will create two Azure AD applications to control access to the cluster: one web application and one native application. After the applications are created, you will assign users to read-only and admin roles.
+
+> [!NOTE]
+> At this time, Service Fabric doesn't support Azure AD authentication for storage.
 
 > [!NOTE]
 > It is a [known issue](https://github.com/microsoft/service-fabric/issues/399) that applications and nodes on Linux AAD-enabled clusters cannot be viewed in Azure Portal.

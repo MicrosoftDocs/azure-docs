@@ -3,7 +3,10 @@ title: Troubleshoot backup errors with Azure VMs
 description: In this article, learn how to troubleshoot errors encountered with backup and restore of Azure virtual machines.
 ms.reviewer: srinathv
 ms.topic: troubleshooting
-ms.date: 05/13/2022
+ms.date: 05/17/2022
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Troubleshooting backup failures on Azure virtual machines
@@ -377,6 +380,31 @@ To resolve this issue, try to restore the VM from a different restore point.<br>
 | The resource group quota has been reached: <br>Delete some resource groups from the Azure portal or contact Azure Support to increase the limits. |None |
 | The selected subnet doesn't exist: <br>Select a subnet that exists. |None |
 | The Backup service doesn't have authorization to access resources in your subscription. |To resolve this error, first restore disks by using the steps in [Restore backed-up disks](backup-azure-arm-restore-vms.md#restore-disks). Then use the PowerShell steps in [Create a VM from restored disks](backup-azure-vms-automation.md#restore-an-azure-vm). |
+
+### UserErrorMigrationFromTrustedLaunchVM ToNonTrustedVMNotAllowed
+
+**Error code**: UserErrorMigrationFromTrustedLaunchVMToNonTrustedVMNotAllowed
+
+**Error message**: Backup cannot be configured for the VM which has migrated from Trusted Launch mode to non Trusted Launch mode.
+
+**Scenario 1**: Migration of Trusted Launch VM to Generation 2 VM is blocked.
+
+Migration of Trusted Launch VM to Generation 2 VM is not supported. This is because the VM Guest State (VMGS) blob created for Trusted Launch VMs isn't present for Generation 2 VM. Therefore, the VM won't start. 
+
+**Scenario 2**: Unable to protect a Standard VM with the same name as of Trusted Launch VM that was previously deleted.
+
+To resolve this issue:
+
+1. [Disable soft delete](backup-azure-security-feature-cloud.md#disabling-soft-delete-using-azure-portal).
+1. [Stop VM protection with delete backup data](backup-azure-manage-vms.md#stop-protection-and-delete-backup-data).
+1. Re-enable soft delete.
+1. Configure VM protection again with the appropriate policy after the old backup data deletion is complete from the Recovery Services vault.
+
+>[!Note]
+>You can also create a VM:
+>
+>- With a different name than the original one, **or**
+>- In a different resource group with the same name.
 
 ## Backup or restore takes time
 
