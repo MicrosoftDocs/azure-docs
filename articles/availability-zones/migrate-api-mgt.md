@@ -16,8 +16,6 @@ This guide describes how to enable availability zone support for your API Manage
 
 In this article, we'll take you through the different options for availability zone migration.
 
-[!INCLUDE [premium.md](../../includes/api-management-availability-premium.md)]
-
 ## Prerequisites
 
 * To configure API Management for zone redundancy, your instance must be in one of the following regions:
