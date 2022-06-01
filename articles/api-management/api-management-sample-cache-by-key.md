@@ -103,7 +103,7 @@ To avoid API Management from making this HTTP request again, when the same user 
 
 API Management stores the value in the cache using the same key that API Management originally attempted to retrieve it with. The duration that API Management chooses to store the value should be based on how often the information changes and how tolerant users are to out-of-date information. 
 
-It is important to realize that retrieving from the cache is still an out-of-process, network request and potentially can add tens of milliseconds to the request. The benefits come when determining the user profile information takes longer than that due to needing to do database queries or aggregate information from multiple back-ends.
+It is important to realize that retrieving from the cache is still an out-of-process network request and potentially can add tens of milliseconds to the request. The benefits come when determining the user profile information takes longer than that due to needing to do database queries or aggregate information from multiple back-ends.
 
 The final step in the process is to update the returned response with the user profile information.
 
