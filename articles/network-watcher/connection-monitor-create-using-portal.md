@@ -131,7 +131,7 @@ In the Azure portal, to create a test group in a connection monitor, you specify
 
    * To choose recently used endpoints, you can use the **Recent endpoint** tab 
    
-   * You need not choose the endpoints with monitoring agents enabled only. You can select Azure or Non-Azure endpoints without the agent enabled and proceed with the creation of Connection Monitor. During the creation process, the monitoring agents for the endpoints will be automaticall enabled. 
+   * You need not choose the endpoints with monitoring agents enabled only. You can select Azure or Non-Azure endpoints without the agent enabled and proceed with the creation of Connection Monitor. During the creation process, the monitoring agents for the endpoints will be automatically enabled. 
       :::image type="content" source="./media/connection-monitor-2-preview/unified-enablement.png" alt-text="Screenshot that shows the Add Sources pane and the Non-Azure endpoints tab in Connection Monitor with unified enablement.":::
    
    * When you finish setting up sources, select **Done** at the bottom of the tab. You can still edit basic properties like the endpoint name by selecting the endpoint in the **Create Test Group** view. 

@@ -98,7 +98,7 @@ Once the scale set is created, follow the steps below to enable the Network Watc
 
 1. Under **Settings**, select **Extensions**. Select **Add extension**, and select **Network Watcher Agent for Windows**, as shown in the following picture:
 
-:::image type="content" source="./media/connection-monitor/nw-agent-extension.png" alt-text="Screenshot that Network Watcher extension addition.":::
+:::image type="content" source="./media/connection-monitor/nw-agent-extension.png" alt-text="Screenshot that shows Network Watcher extension addition.":::
 
   
 1. Under **Network Watcher Agent for Windows**, select **Create**, under **Install extension** select **OK**, and then under **Extensions**, select **OK**.
@@ -139,17 +139,17 @@ Create a connection monitor to monitor communication over TCP port 22 from *myVm
     | Virtual machine          | myVm2               |
     | Port                     | 22                  |
 
-    :::image type="content" source="./media/connection-monitor/add-connection-monitor.png" alt-text="Screenshot that addition of Connection Monitor.":::
+    :::image type="content" source="./media/connection-monitor/add-connection-monitor.png" alt-text="Screenshot that shows addition of Connection Monitor.":::
 	
 ## View a connection monitor
 
 1. Complete steps 1-3 in [Create a connection monitor](#create-a-connection-monitor) to view connection monitoring. You see a list of existing connection monitors, as shown in the following picture:
 
-    :::image type="content" source="./media/connection-monitor/connection-monitors.png" alt-text="Screenshot that Connection Monitor.":::
+    :::image type="content" source="./media/connection-monitor/connection-monitors.png" alt-text="Screenshot that shows Connection Monitor.":::
 	
 2. Select the monitor with the name **myVmss1-myVm2(22)**, as shown in the previous picture, to see details for the monitor, as shown in the following picture:
 
-    :::image type="content" source="./media/connection-monitor/vm-monitor.png" alt-text="Screenshot that virtual machine monitor.":::
+    :::image type="content" source="./media/connection-monitor/vm-monitor.png" alt-text="Screenshot that shows virtual machine monitor.":::
 	
     Note the following information:
 
