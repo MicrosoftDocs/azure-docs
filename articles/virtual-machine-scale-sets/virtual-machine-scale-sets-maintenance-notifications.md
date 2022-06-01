@@ -96,7 +96,7 @@ Azure communicates a schedule for planned maintenance by sending an email to the
 
 1. In Service Health, select **+ Create service health alert**.
 
-    :::image type="content" source="./media/virtual-machine-scale-sets-maintenance-notifications/monitor-create-service-health-alert.png" alt-text="Select Service Health in the Monitor menu.":::
+    :::image type="content" source="./media/virtual-machine-scale-sets-maintenance-notifications/monitor-create-service-health-alert.png" alt-text="Select Create service health alert button.":::
 
 1. On the **Create an alert rule** page: 
     1. Select the relevant **Subscription** and **Region** containing the resources to monitor for planned maintenance events.
