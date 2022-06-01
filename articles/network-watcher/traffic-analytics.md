@@ -19,7 +19,7 @@ ms.custom:
 
 # Traffic analytics
 
-Traffic analytics is a cloud-based solution that shows you application and user activity in your cloud networks. Specifically, traffic analytics analyzes Azure Network Watcher network security group (NSG) flow logs to provide insights into traffic flow in your Azure cloud. With traffic analytics, you can:
+Traffic analytics is a cloud-based solution that provides visibility into user and application activity in your cloud networks. Specifically, traffic analytics analyzes Azure Network Watcher network security group (NSG) flow logs to provide insights into traffic flow in your Azure cloud. With traffic analytics, you can:
 
 - Visualize network activity across your Azure subscriptions.
 - Identify hot spots.
@@ -50,7 +50,7 @@ It's vital to monitor, manage, and know your own network for uncompromised secur
 
 Cloud networks are different from on-premises enterprise networks. In on-premises networks, routers and switches support NetFlow and other, equivalent protocols. You can use these devices to collect data about IP network traffic as it enters or exits a network interface. By analyzing traffic flow data, you can build an analysis of network traffic flow and volume.
 
-With Azure virtual networks, NSG flow logs collect data about the network. These logs provide information about ingress and egress IP traffic through an NSG that's associated with individual network interfaces, VMs, or subnets. Traffic analytics analyzes raw NSG flow logs and combines their data with intelligence about security, topology, and geography. By using this information, traffic analytics can provide you with insights into traffic flow in your environment.
+With Azure virtual networks, NSG flow logs collect data about the network. These logs provide information about ingress and egress IP traffic through an NSG that's associated with individual network interfaces, VMs, or subnets. After analyzing raw NSG flow logs, traffic analytics combines the log data with intelligence about security, topology, and geography. Traffic analytics then provides you with insights into traffic flow in your environment.
 
 Traffic analytics provides the following information:
 
@@ -77,7 +77,7 @@ Traffic analytics provides the following information:
     - The source and destination port
     - The protocol
 
-  - Whether the traffic was allowed or denied.
+  - The status of the traffic, such as allowed or denied.
 
   For more information about NSG flow logs, see [NSG flow logs](network-watcher-nsg-flow-logging-overview.md).
 
