@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.collection: linux
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 01/14/2022
+ms.date: 06/01/2022
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurepowershell,
 ---
@@ -62,8 +62,6 @@ Private key is saved to /home/user/.ssh/1234567891
 Public key is saved to /home/user/.ssh/1234567891.pub
 ```
 
-Make a note of the path to your private key.
-
 It will take a few minutes for your VM to be deployed. When the deployment is finished, move on to the next section.
 
 ## Install NGINX
@@ -71,7 +69,11 @@ It will take a few minutes for your VM to be deployed. When the deployment is fi
 To see your VM in action, install the NGINX web server.
 
 ```azurepowershell-interactive
-Invoke-AzVMRunCommand -ResourceGroupName 'myResourceGroup' -Name 'vmname' -CommandId 'RunShellScript' -ScriptString 'sudo apt-get update && sudo apt-get install -y nginx'
+Invoke-AzVMRunCommand \
+   -ResourceGroupName 'myResourceGroup' \
+   -Name 'myVM' \
+   -CommandId 'RunShellScript' \
+   -ScriptString 'sudo apt-get update && sudo apt-get install -y nginx'
 ```
 
 The `-ScriptString' parameter requires version `4.27.0` or later of the 'Az.Compute` module.
