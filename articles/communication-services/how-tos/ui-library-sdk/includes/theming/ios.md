@@ -31,10 +31,10 @@ You can customize the theme by changing the primary color and its associated tin
 
 #### Implementation
 
-Contoso developers can create a custom theme configuration that implements the `ThemeConfiguration` protocol. They'll need to include an instance of that new class in your `CallCompositeOptions`.
+Contoso developers can create a custom theme options that implements the `ThemeOptions` protocol. They'll need to include an instance of that new class in your `CallCompositeOptions`.
 
 ```swift
-class CustomThemeConfiguration: ThemeConfiguration {
+class CustomThemeOptions: ThemeOptions {
 
  var primaryColor: UIColor {
   return UIColor(named: "primaryColor")
@@ -57,7 +57,7 @@ class CustomThemeConfiguration: ThemeConfiguration {
  }
 }
 
-let callCompositeOptions = CallCompositeOptions(theme: CustomThemeConfiguration())
+let callCompositeOptions = CallCompositeOptions(theme: CustomThemeOptions())
 ```
 
 #### Define Color Assets
