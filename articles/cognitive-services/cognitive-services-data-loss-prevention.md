@@ -97,7 +97,7 @@ The following services support data loss prevention configuration:
 - Computer Vision
 - Content Moderator
 - Custom Vision
-- Face
+- Identity
 - Form Recognizer
 - Speech Service
 - QnA Maker

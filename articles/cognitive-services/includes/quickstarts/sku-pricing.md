@@ -25,7 +25,7 @@ See the list of SKUs and pricing information below.
 | Computer Vision            | `ComputerVision`          |
 | Custom Vision - Prediction | `CustomVision.Prediction` |
 | Custom Vision - Training   | `CustomVision.Training`   |
-| Face                       | `Face`                    |
+| Identity                   | `Face`                    |
 | Form Recognizer            | `FormRecognizer`          |
 
 #### Speech

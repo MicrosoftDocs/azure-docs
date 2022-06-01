@@ -1,7 +1,7 @@
 ---
-title: How to mitigate latency when using the Face service
+title: How to mitigate latency when using the Identity service
 titleSuffix: Azure Cognitive Services
-description: Learn how to mitigate latency when using the Face service.
+description: Learn how to mitigate latency when using the Identity service.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -13,9 +13,9 @@ ms.devlang: csharp
 ms.custom: cogserv-non-critical-vision
 ---
 
-# How to: mitigate latency when using the Face service
+# How to: mitigate latency when using the Identity service
 
-You may encounter latency when using the Face service. Latency refers to any kind of delay that occurs when communicating over a network. In general, possible causes of latency include:
+You may encounter latency when using the Identity service. Latency refers to any kind of delay that occurs when communicating over a network. In general, possible causes of latency include:
 - The physical distance each packet must travel from source to destination.
 - Problems with the transmission medium.
 - Errors in routers or switches along the transmission path.
@@ -37,7 +37,7 @@ Some Azure services provide methods that obtain data from a remote URL that you 
 var faces = await client.Face.DetectWithUrlAsync("https://www.biography.com/.image/t_share/MTQ1MzAyNzYzOTgxNTE0NTEz/john-f-kennedy---mini-biography.jpg");
 ```
 
-The Face service must then download the image from the remote server. If the connection from the Face service to the remote server is slow, that will affect the response time of the Detect method.
+The Identity service must then download the image from the remote server. If the connection from the Identity service to the remote server is slow, that will affect the response time of the Detect method.
 
 To mitigate this situation, consider [storing the image in Azure Premium Blob Storage](../../../storage/blobs/storage-upload-process-images.md?tabs=dotnet). For example:
 
@@ -76,18 +76,18 @@ Task.WaitAll (new Task<IList<DetectedFace>>[] { faces_1, faces_2 });
 IEnumerable<DetectedFace> results = faces_1.Result.Concat (faces_2.Result);
 ```
 
-### Slow connection between your compute resource and the Face service
+### Slow connection between your compute resource and the Identity service
 
-If your computer has a slow connection to the Face service, this will affect the response time of service methods.
+If your computer has a slow connection to the Identity service, this will affect the response time of service methods.
 
 Mitigations:
-- When you create your Face subscription, make sure to choose the region closest to where your application is hosted.
+- When you create your Identity subscription, make sure to choose the region closest to where your application is hosted.
 - If you need to call multiple service methods, consider calling them in parallel if your application design allows for it. See the previous section for an example.
 - If longer latencies affect the user experience, choose a timeout threshold (for example, maximum 5 seconds) before retrying the API call.
 
 ## Next steps
 
-In this guide, you learned how to mitigate latency when using the Face service. Next, learn how to scale up from existing PersonGroup and FaceList objects to LargePersonGroup and LargeFaceList objects, respectively.
+In this guide, you learned how to mitigate latency when using the Identity service. Next, learn how to scale up from existing PersonGroup and FaceList objects to LargePersonGroup and LargeFaceList objects, respectively.
 
 > [!div class="nextstepaction"]
 > [Example: Use the large-scale feature](use-large-scale.md)
