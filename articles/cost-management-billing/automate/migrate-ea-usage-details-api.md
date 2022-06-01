@@ -13,29 +13,123 @@ ms.reviewer: adwise
 
 # Migrate from EA Usage Details APIs
 
-EA customers who were previously using the Enterprise Reporting APIs behind the consumption.azure.com endpoint to obtain usage details and marketplace charges need to migrate to a parity Azure Resource Manager API. Instructions are outlined below along with any contract differences between the old API and the new API.
+EA customers who were previously using the Enterprise Reporting APIs behind the *consumption.azure.com* endpoint to obtain usage details and marketplace charges need to migrate to new and improved solutions. Instructions are outlined below along with contract differences between the old API and the new solutions.
 
-## Migration destinations
+The dataset is referred to as *cost details* instead of *usage details*.
 
-We've merged Azure Marketplace and Azure usage records into a single usage details dataset. Read the [Usage details best practices](usage-details-best-practices.md) article before you choose the solution that's right for your workload. Generally, we recommend using [Exports](../costs/tutorial-export-acm-data.md) if you have ongoing data ingestion needs or a large monthly usage details dataset. For more information, see [Ingest usage details data](automation-ingest-usage-details-overview.md).
+## New solutions generally available
 
-If you have a smaller usage details dataset or a scenario that isn't met by Exports, consider using the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml) instead. For more information, see [Get small cost datasets on demand](get-small-usage-datasets-on-demand.md).
+The following table provides a summary of the migration destinations that are available along with a summary of what to consider when choosing which solution is best for you.
+
+| Solution | Description | Considerations | Onboarding info |
+| --- | --- | --- | --- |
+| **Exports** | Recurring data dumps to storage on a schedule | <ul><li>The most scalable solution for your workloads. <li>Can be configured to use file partitioning for bigger datasets.<li>Great for establishing and growing a cost dataset that can be integrated with your own queryable data stores.<li>Requires access to a storage account that can hold the data.</ul> | <ul><li>[Configure in Azure portal](../costs/tutorial-export-acm-data.md)<li>[Automate Export creation with the API](../costs/ingest-azure-usage-at-scale.md)<li>[Export API Reference](/rest/api/cost-management/exports/create-or-update)</ul> |
+| **Cost Details API** | On demand download | <ul><li>Useful for small cost datasets.<li>Useful for scenarios when Exports to Azure storage aren't feasible due to security or manageability concerns.</ul> | <ul><li>[Get small cost datasets on demand](get-small-usage-datasets-on-demand.md)<li>[Cost Details API Reference](../index.yml)</ul> |
+
+Generally we recommend using [Exports](../costs/tutorial-export-acm-data.md) if you have ongoing data ingestion needs and/or a large monthly cost details dataset. For more information, see [Ingest cost details data](automation-ingest-usage-details-overview.md). If you need additional information to help you make a decision for your workload, see [Cost details best practices](usage-details-best-practices.md).
+
+### Assign permissions to an SPN to call the APIs
+
+If you're looking to call either the Exports or Cost Details APIs programmatically, you'll need to configure a Service Principal with the correct permission. For more information, see [Assign permissions to ACM APIs](cost-management-api-permissions.md).
+
+### Avoid the Microsoft Consumption Usage Details API
+
+The [Consumption Usage Details API](/rest/api/consumption/usage-details/list) is another endpoint that currently supports EA customers. Don't migrate to this API. Migrate to either Exports or the Cost Details API, as outlined earlier in this document. The Consumption Usage Details API will be deprecated in the future and is located behind the endpoint below.
+
+```http
+GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?api-version=2021-10-01
+```
+
+This API is a synchronous endpoint and will be unable to scale as both your spending and the size of your month over month cost dataset increases. If you're currently using the Consumption Usage Details API, we recommend migrating off of it to either Exports of the Cost Details API as soon as possible. A formal deprecation announcement will be made at a future date and a timeline for retirement will be provided. To learn more about migrating away from Consumption Usage Details, see [Migrate from Consumption Usage Details API](migrate-consumption-usage-details-api.md).
 
 ## Migration benefits
 
-New solutions provide many benefits over the Consumption Usage Details API. Here's a summary:
+Our new solutions provide many benefits over the EA Reporting Usage Details APIs. Here's a summary:
 
-- **Single dataset for all usage details** - Azure and Azure Marketplace usage details were merged into one dataset. It reduces the number of APIs that you need to call to get see all your charges.
-- **Scalability** - The Marketplaces API is deprecated because it promotes a call pattern that isn't able to scale as your Azure usage increases. The usage details dataset can get very large as you deploy more resources into the cloud. The Marketplaces API is a paginated synchronous API so it isn't optimized to effectively transfer large volumes of data over a network with high efficiency and reliability. Exports and the [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml) are asynchronous. They provide you with a CSV file that can be directly downloaded over the network.
-- **API improvements** - Exports and the Cost Details API are the solutions that Azure supports moving forward. All new features are being integrated into them.
-- **Schema consistency** - The [Cost Details API-UNPUBLISHED-UNPUBLISHED](../index.yml) and [Exports](../costs/tutorial-export-acm-data.md) provide files with matching fields os you can move from one solution to the other, based on your scenario.
-- **Cost Allocation integration** - Enterprise Agreement and Microsoft Customer Agreement customers using Exports or the Cost Details API can view charges in relation to the cost allocation rules that they've configured. For more information about cost allocation, see [Allocate costs](../costs/allocate-costs.md).
+- **Security and stability** - New solutions require Service Principal and/or user tokens in order to access data. They're more secure than the API keys that are used for authenticating to the EA Reporting APIs. Keys in these legacy APIs are valid for six months and can expose sensitive financial data if leaked. Additionally, if keys aren't renewed and integrated into workloads prior to their six month expiry data access is revoked. This breaks customer workloads.
+- **Scalability** - The EA Reporting APIs aren't built to scale well as your Azure usage increases. The usage details dataset can get exceedingly large as you deploy more resources into the cloud. The new solutions are asynchronous and have extensive infrastructure enhancements behind them to ensure successful downloads for any size dataset.
+- **Single dataset for all usage details** - Azure and Azure Marketplace usage details have been merged into one dataset in the new solutions. The single dataset reduces the number of APIs that you need to call to see all your charges.
+- **Purchase amortization** - Customers who purchase Reservations can see an Amortized view of their costs using the new solutions.
+- **Schema consistency** - Each solution that is available provides files with matching fields. It allows you to easily move between solutions based on your scenario.
+- **Cost Allocation integration** - Enterprise Agreement and Microsoft Customer Agreement customers can use the new solution to view charges in relation to the cost allocation rules that they've configured. For more information about cost allocation, see [Allocate costs](../costs/allocate-costs.md).
+- **Go forward improvements** - The new solutions are being actively developed moving forward. They'll receive all new features as they're released.
 
-## Assign permissions to an SPN to call the API
+## Enterprise Usage APIs to migrate off
 
-Before calling the API, you need to configure a Service Principal with the correct permission. You use the service principal to call the API. For more information, see [Assign permissions to ACM APIs](cost-management-api-permissions.md).
+The table below summarizes the different APIs that you may be using today to ingest cost details data. If you're using one of the APIs below, you'll need to migrate to one of the new solutions outlined above. All APIs below are behind the *https://consumption.azure.com* endpoint.
 
-NEED INFO ON UD AND MARKETPLACE CHARGE SCHEMA MAPPINGS
+| Endpoint | API Comments | 
+| --- | ---|
+| `/v3/enrollments/{enrollmentNumber}/usagedetails/download?billingPeriod={billingPeriod}` | <ul><li>API method: GET<li>Synchronous (non polling)<li>Data format: CSV</ul> |
+| `/v3/enrollments/{enrollmentNumber}/usagedetails/download?startTime=2017-01-01&endTime=2017-01-10` | <ul><li>API method: GET<li>Synchronous (non polling)<li>Data format: CSV</ul> |
+| `/v3/enrollments/{enrollmentNumber}/usagedetails` | <ul><li>API method: GET<li>Synchronous (non polling)<li>Data format: JSON</ul> | 
+| `/v3/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/usagedetails` | <ul><li>API method: GET<li>Synchronous (non polling)<li>Data format: JSON</ul> |
+| `/v3/enrollments/{enrollmentNumber}/usagedetailsbycustomdate?startTime=2017-01-01&endTime=2017-01-10` | <ul><li>API method: GET<li>Synchronous (non polling)<li>Data format: JSON</ul> |
+| `/v3/enrollments/{enrollmentNumber}/usagedetails/submit?billingPeriod={billingPeriod}` | <ul><li>API method: POST<li>Asynchronous (polling based)<li>Data format: CSV</ul> |
+| `/v3/enrollments/{enrollmentNumber}/usagedetails/submit?startTime=2017-04-01&endTime=2017-04-10` | <ul><li>API method: POST<li>Asynchronous (polling based)<li>Data format: CSV</ul> |
+
+## Enterprise Marketplace Store Charge APIs to migrate off
+
+In addition to the usage details APIs outlined above, you'll need to migrate off the [Enterprise Marketplace Store Charge APIs](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge). All Azure and Marketplace charges have been merged into a single file that is available through the new solutions. You can identify which charges are *Azure* versus *Marketplace* charges by using the `PublisherType` field that is available in the new dataset. The table below outlines the applicable APIs. All of the following APIs are behind the *https://consumption.azure.com* endpoint.
+
+| Endpoint | API Comments | 
+| --- | --- |
+| `/v3/enrollments/{enrollmentNumber}/marketplacecharges` | <ul><li>API method: GET<li>Synchronous (non polling)<li>Data format: JSON</ul> |
+| `/v3/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/marketplacecharges` | <ul><li>API method: GET<li>Synchronous (non polling)<li>Data format: JSON</ul> |
+| `/v3/enrollments/{enrollmentNumber}/marketplacechargesbycustomdate?startTime=2017-01-01&endTime=2017-01-10` | <ul><li>API method: GET<li>Synchronous (non polling)<li>Data format: JSON</ul> | 
+
+## Data field mapping
+
+The table below provides a summary of the old fields available in the solutions you're currently using along with the field to use in the new solutions.
+
+| Old field | New field | Comments |
+| --- | ---| --- |
+| serviceName | MeterCategory |  |
+| serviceTier | MeterSubCategory |  |
+| location | ResourceLocation |  |
+| chargesBilledSeparately | isAzureCreditEligible | The properties are opposites. If isAzureCreditEnabled is true, ChargesBilledSeparately would be false. |
+| partNumber | PartNumber |  |
+| resourceGuid | MeterId |  |
+| offerId | OfferId |  |
+| cost | CostInBillingCurrency |  |
+| accountId | AccountId |  |
+| productId |  | **WHAT IS EQUIVALENT????** |
+| resourceLocationId |  | Not available. |
+| consumedServiceId | ConsumedService |  |
+| departmentId | InvoiceSectionId |  |
+| accountOwnerEmail | AccountOwnerId |  |
+| accountName | AccountName |  |
+| subscriptionId | SubscriptionId |  |
+| subscriptionGuid | SubscriptionId |  |
+| subscriptionName | SubscriptionName |  |
+| date | Date |  |
+| product | ProductName |  |
+| meterId | MeterId |  |
+| meterCategory | MeterCategory |  |
+| meterSubCategory | MeterSubCategory |  |
+| meterRegion | MeterRegion |  |
+| meterName | MeterName |  |
+| consumedQuantity | Quantity |  |
+| resourceRate | EffectivePrice |  |
+| resourceLocation | ResourceLocation |  |
+| consumedService | ConsumedService |  |
+| instanceId | ResourceId |  |
+| serviceInfo1 | ServiceInfo1 |  |
+| serviceInfo2 | ServiceInfo2 |  |
+| additionalInfo | AdditionalInfo |  |
+| tags | Tags |  |
+| storeServiceIdentifier |  | Not available. |
+| departmentName | InvoiceSectionName |  |
+| costCenter | CostCenter |  |
+| unitOfMeasure | UnitOfMeasure |  |
+| resourceGroup | ResourceGroup |  |
+| isRecurringCharge |  | Not available. |
+| extendedCost | CostInBillingCurrency |  |
+| planName | PlanName |  |
+| publisherName | PublisherName |  |
+| orderNumber |  | Not available. |
+| usageStartDate | Date |  |
+| usageEndDate | Date |  |
 
 ## Next steps
 

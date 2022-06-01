@@ -168,8 +168,6 @@
         href: automate/get-usage-details-legacy-customer.md
       - name: Get cost data with Azure CLI
         href: automate/get-usage-data-azure-cli.md
-      - name: Migrate from EA to MCA cost fields
-        href: automate/migrate-ea-mca-usage-fields.md
     - name: Budget automation
       items:
       - name: Automate budget creation
