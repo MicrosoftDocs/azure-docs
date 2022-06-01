@@ -20,7 +20,7 @@ Azure Cosmos DB may need to read secret/key data from Azure Key Vault. For examp
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An existing Azure Cosmos DB SQL API account. [Create an Azure Cosmos DB SQL API account](sql/create-cosmosdb-resources-portal.md)
 - An existing Azure Key Vault resource. [Create a key vault using the Azure CLI](../key-vault/general/quick-create-cli.md)
-[!INCLUDE [azure-cli-prerequisites-include](../../includes/azure-cli-prerequisites-include.md)]
+- To perform the steps in this article, install the [Azure CLI](/cli/azure/install-azure-cli) and [sign in to Azure](/cli/azure/authenticate-azure-cli).
 
 ## Prerequisite check
 
