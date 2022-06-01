@@ -129,7 +129,7 @@ In this article, you'll learn the various ways you can:
 
 To hit the endpoint, either:
 
-- Visit [http://localhost:8080/weatherforecast](http://localhost:8080/weatherforecast) in your browser, or
+- Visit `http://localhost:8080/weatherforecast` in your browser, or
 - Use curl:
    
   ```terraform
