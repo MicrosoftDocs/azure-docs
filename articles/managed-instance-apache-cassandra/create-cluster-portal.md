@@ -18,7 +18,7 @@ This quickstart demonstrates how to use the Azure portal to create an Azure Mana
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## <a id="create-account"></a>Create a managed instance cluster
+## Create a managed instance cluster
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -82,7 +82,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
    :::image type="content" source="./media/create-cluster-portal/datacenter-1.png" alt-text="View datacenter nodes." lightbox="./media/create-cluster-portal/datacenter-1.png" border="true":::
 
-## <a id="add-datacenter"></a>Add a datacenter
+## Add a datacenter
 
 1. To add another datacenter, click the add button in the **Data Center** pane:
 
