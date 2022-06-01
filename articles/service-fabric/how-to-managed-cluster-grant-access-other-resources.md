@@ -1,9 +1,11 @@
 ---
 title: Grant access to Azure resources on a Service Fabric cluster
 description: Learn how to grant a managed-identity-enabled Service Fabric application access to other Azure resources that support Azure Active Directory authentication.
+author: craftyhouse
+ms.author: micraft
 ms.custom: kr2b-contr-experiment
 ms.topic: how-to
-ms.date: 05/24/2022
+ms.date: 06/01/2022
 ---
 
 # Grant a Service Fabric application access to Azure resources on a Service Fabric cluster
