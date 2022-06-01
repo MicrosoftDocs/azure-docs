@@ -46,7 +46,7 @@ The following steps are required to store and read Azure Cosmos DB access keys f
    * Provide a **Name** for your secret
    * Provide the connection string of your Cosmos DB account into the **Value** field. And then select **Create**.
 
-   :::image type="content" source="./media/access-secrets-from-keyvault/create-a-secret.png" alt-text="Create a secret":::
+   :::image type="content" source="./media/access-secrets-from-keyvault/create-a-secret.png" alt-text="Screenshot of the Create a secret dialog in the Azure portal.":::
 
 4. After the secret is created, open it and copy the **Secret Identifier that is in the following format. You'll use this identifier in the next section. 
 
@@ -63,13 +63,13 @@ The following steps are required to store and read Azure Cosmos DB access keys f
 3. **Save** the file, **Build** the solution.  
 4. Next deploy the application to Azure. Open the context menu for the project and choose **publish**. Create a new app service profile (you can name the app WebAppKeyVault1) and select **Publish**.   
 
-5. Once the application is deployed, from the Azure portal, navigate to web app that you deployed, and turn on the **Managed service identity** of this application.  
+5. Once the application is deployed from the Azure portal, navigate to web app that you deployed, and turn on the **Managed service identity** of this application.  
 
-   :::image type="content" source="./media/access-secrets-from-keyvault/turn-on-managed-service-identity.png" alt-text="Managed service identity":::
+   :::image type="content" source="./media/access-secrets-from-keyvault/turn-on-managed-service-identity.png" alt-text="Screenshot of the Managed service identity page in the Azure portal.":::
 
-If you'll run the application now, you'll see the following error, as you have not given any permission to this application in Key Vault.
+If you run the application now, you'll see the following error, as you have not given any permission to this application in Key Vault.
 
-:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-without-access.png" alt-text="App deployed without access":::
+:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-without-access.png" alt-text="Screenshot of the error message displayed by an app deployed without access.":::
 
 ## Register the application & grant permissions to read the Key Vault
 

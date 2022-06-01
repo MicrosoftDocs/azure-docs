@@ -366,7 +366,7 @@ When you create a new Azure Cosmos account through an Azure Resource Manager tem
 
 ## Customer-managed keys and double encryption
 
-The data you store in your Azure Cosmos DB account, when using customer-managed keys, ends up being encrypted twice:
+The data you store in your Azure Cosmos DB account when using customer-managed keys ends up being encrypted twice:
 
 - Once through the default encryption performed with Microsoft-managed keys.
 - Once through the extra encryption performed with customer-managed keys.
@@ -382,15 +382,15 @@ Rotating the customer-managed key used by your Azure Cosmos account can be done 
 
 - Create a new version of the key currently used from Azure Key Vault:
 
-  :::image type="content" source="./media/how-to-setup-cmk/portal-akv-rot.png" alt-text="Create a new key version":::
+  :::image type="content" source="./media/how-to-setup-cmk/portal-akv-rot.png" alt-text="Screenshot of the New Version option in the Versions page of the Azure portal.":::
 
 - Swap the key currently used with a different one by updating the key URI on your account. From the Azure portal, go to your Azure Cosmos account and select **Data Encryption** from the left menu:
 
-    :::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="The Data Encryption menu entry":::
+    :::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="Screenshot of the Data Encryption menu option in the Azure portal.":::
 
     Then, replace the **Key URI** with the new key you want to use and select **Save**:
 
-    :::image type="content" source="./media/how-to-setup-cmk/portal-key-swap.png" alt-text="Update the key URI":::
+    :::image type="content" source="./media/how-to-setup-cmk/portal-key-swap.png" alt-text="Screenshot of the Save option in the Key page of the Azure portal.":::
 
     Here's how to do achieve the same result in PowerShell:
 
@@ -447,7 +447,7 @@ This feature is currently available only for new accounts.
 
 ### Is it possible to use customer-managed keys with the Azure Cosmos DB [analytical store](analytical-store-introduction.md)?
 
-Yes, Azure Synapse Link only supports configuring customer-managed keys using your Azure Cosmos DB account's managed identity. You must [use your Azure Cosmos DB account's managed identity](#using-managed-identity) in your Azure Key Vault access policy before [enabling Azure Synapse Link](configure-synapse-link.md#enable-synapse-link) on your account. For a how-to guide on how to enable managed identity and use it in an access policy, see [access Azure Key Vault from Azure Cosmos DB using a managed identity](access-keyvault-managed-identity.md).
+Yes, Azure Synapse Link only supports configuring customer-managed keys using your Azure Cosmos DB account's managed identity. You must [use your Azure Cosmos DB account's managed identity](#using-managed-identity) in your Azure Key Vault access policy before [enabling Azure Synapse Link](configure-synapse-link.md#enable-synapse-link) on your account. For a how-to guide on how to enable managed identity and use it in an access policy, see [access Azure Key Vault from Azure Cosmos DB using a managed identity](access-key-vault-managed-identity.md).
 
 ### Is there a plan to support finer granularity than account-level keys?
 

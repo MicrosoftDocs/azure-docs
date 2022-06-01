@@ -1704,7 +1704,7 @@
         - name: Use Azure Key Vault to access data
           href: access-secrets-from-keyvault.md
         - name: Access Azure Key Vault with managed identity
-          href: access-keyvault-managed-identity.md
+          href: access-key-vault-managed-identity.md
         - name: Restrict user access to data operations only
           href: how-to-restrict-user-data.md
         - name: Configure customer-managed keys
