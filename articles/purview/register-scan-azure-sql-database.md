@@ -16,7 +16,7 @@ This article outlines the process to register an Azure SQL data source in Micros
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| No | [Yes](#lineagepreview)(Preview)** |
+| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| [Yes (Preview)](#access-policy) | [Yes](#lineagepreview)(Preview)** |
 
 \** Lineage is also supported if Azure SQL tables/views used as source/sink in [Data Factory Copy and Data Flow activities](how-to-link-azure-data-factory.md) 
 
@@ -78,8 +78,6 @@ It's important to register the data source in Microsoft Purview before setting u
 
 1. Select the **Azure SQL Database** data source and select **Continue**
 
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-select-ds.png" alt-text="Screenshot that allows selection of the data source.":::
-
 1. Provide a suitable **Name** for the data source, select the relevant **Azure subscription**, **Server name** for the SQL server and the **collection** and select on **Apply**
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-ds-details.png" alt-text="Screenshot that shows the details to be entered in order to register the data source.":::
@@ -89,6 +87,13 @@ It's important to register the data source in Microsoft Purview before setting u
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-ds-collections.png" alt-text="Screenshot that shows the data source mapped to the collection to initiate scanning.":::
 
 ## Scan
+
+> [!TIP]
+> To troubleshoot any issues with scanning:
+> 1. Confirm you have followed all [**prerequisites**](#prerequisites).
+> 1. Check network by confirming [firewall](#firewall-settings), [Azure connections](#allow-azure-connections), or [integration runtime](#self-hosted-integration-runtime) settings.
+> 1. Confirm [authentication](#authentication-for-a-scan) is properly set up.
+> 1. Review our [**scan troubleshooting documentation**](troubleshoot-connections.md).
 
 ### Firewall settings
 
@@ -127,13 +132,13 @@ To scan your data source, you'll need to configure an authentication method in t
 
 The following options are supported:
 
-* **System-assigned managed identity** (Recommended) - This is an identity associated directly with your Microsoft Purview account that allows you to authenticate directly with other Azure resources without needing to manage a go-between user or credential set. The **system-assigned** managed identity is created when your Microsoft Purview resource is created, is managed by Azure, and uses your Microsoft Purview account's name. The SAMI can't currently be used with a self-hosted integration runtime for Azure SQL. For more information, see the [managed identity overview](/azure/active-directory/managed-identities-azure-resources/overview).
+* **System-assigned managed identity** (Recommended) - This is an identity associated directly with your Microsoft Purview account that allows you to authenticate directly with other Azure resources without needing to manage a go-between user or credential set. The **system-assigned** managed identity is created when your Microsoft Purview resource is created, is managed by Azure, and uses your Microsoft Purview account's name. The SAMI can't currently be used with a self-hosted integration runtime for Azure SQL. For more information, see the [managed identity overview](../active-directory/managed-identities-azure-resources/overview.md).
 
 * **User-assigned managed identity** (preview) - Similar to a SAMI, a user-assigned managed identity (UAMI) is a credential resource that allows Microsoft Purview to authenticate against Azure Active Directory. The **user-assigned** managed by users in Azure, rather than by Azure itself, which gives you more control over security. The UAMI can't currently be used with a self-hosted integration runtime for Azure SQL. For more information, see our [guide for user-assigned managed identities.](manage-credentials.md#create-a-user-assigned-managed-identity)
 
-* **Service Principal**- A service principal is an application that can be assigned permissions like any other group or user, without being associated directly with a person. Their authentication has an expiration date, and so can be useful for temporary projects. For more information, see the [service principal documenatation](/azure/active-directory/develop/app-objects-and-service-principals).
+* **Service Principal**- A service principal is an application that can be assigned permissions like any other group or user, without being associated directly with a person. Their authentication has an expiration date, and so can be useful for temporary projects. For more information, see the [service principal documentation](../active-directory/develop/app-objects-and-service-principals.md).
 
-* **SQL Authentication** - connect to the SQL database with a username and password. For more information about SQL Authentication, you can [follow the SQL authentication documentation](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication).If you need to create a login, follow this [guide to query an Azure SQL database](/azure/azure-sql/database/connect-query-portal), and use [this guide to create a login using T-SQL.](/sql/t-sql/statements/create-login-transact-sql)
+* **SQL Authentication** - connect to the SQL database with a username and password. For more information about SQL Authentication, you can [follow the SQL authentication documentation](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). If you need to create a login, follow this [guide to query an Azure SQL database](/azure/azure-sql/database/connect-query-portal), and use [this guide to create a login using T-SQL.](/sql/t-sql/statements/create-login-transact-sql)
     > [!NOTE]
     > Be sure to select the Azure SQL Database option on the page.
 
@@ -148,15 +153,11 @@ Select your chosen method of authentication from the tabs below for steps to aut
 
 1. Navigate to your key vault in the Azure portal.
 
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-key-vault.png" alt-text="Screenshot that shows the key vault.":::
-
 1. Select **Settings > Secrets** and select **+ Generate/Import**
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-secret.png" alt-text="Screenshot that shows the key vault option to generate a secret.":::
 
 1. Enter the **Name** and **Value** as the *password* from your Azure SQL Database.
-
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-secret-sql.png" alt-text="Screenshot that shows the key vault option to enter the sql secret values.":::
 
 1. Select **Create** to complete
 
@@ -239,15 +240,11 @@ The service principal needs permission to get metadata for the database, schemas
 
 1. Navigate to your key vault in the Azure portal
 
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-key-vault.png" alt-text="Screenshot that shows the key vault to add a secret for Service Principal.":::
-
 1. Select **Settings > Secrets** and select **+ Generate/Import**
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-secret.png" alt-text="Screenshot that shows the key vault option to generate a secret for Service Principal.":::
 
 1. Give the secret a **Name** of your choice.
-
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-create-secret.png" alt-text="Screenshot that shows the key vault option to enter the secret values.":::
 
 1. The secret's **Value** will be the Service Principal's **Secret Value**. If you've already created a secret for your service principal, you can find its value in **Client credentials** on your secret's overview page.
 
@@ -256,8 +253,6 @@ The service principal needs permission to get metadata for the database, schemas
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-sp-client-credentials.png" alt-text="Screenshot that shows the Client credentials for the Service Principal.":::
 
 1. Select **Create** to create the secret.
-
-    :::image type="content" source="media/register-scan-azure-sql-database/select-create.png" alt-text="Screenshot that shows the Key Vault Create a secret menu, with the Create button highlighted.":::
 
 1. If your key vault isn't connected to Microsoft Purview yet, you'll need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-microsoft-purview-account)
 
@@ -333,11 +328,7 @@ Select your method of authentication from the tabs below for scanning steps.
 
 1. Choose your scan trigger. You can set up a schedule or run the scan once.
 
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-scan-trigger.png" alt-text="scan trigger.":::
-
 1. Review your scan and select **Save and run**.
-
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-review-scan.png" alt-text="review scan.":::
 
 ### View Scan
 
@@ -367,6 +358,12 @@ Scans can be managed or run again on completion
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-full-inc.png" alt-text="full or incremental scan.":::
 
+## Access policy
+
+To create an access policy for Azure Data Lake Storage Gen 2, follow these guides:
+* [Single SQL account](./how-to-data-owner-policies-azure-sql-db.md) - This guide will allow you to enable access policies on a single Azure SQL Database account in your subscription.
+* [All sources in a subscription or resource group](./how-to-data-owner-policies-resource-group.md) - This guide will allow you to enable access policies on all enabled and available sources in a resource group, or across an Azure subscription.
+
 ## Lineage (Preview) 
 <a id="lineagepreview"></a>
 
@@ -376,7 +373,7 @@ Microsoft Purview supports lineage from Azure SQL Database. At the time of setti
 
 1. Follow steps under [authentication for a scan using Managed Identity](#authentication-for-a-scan) section to authorize Microsoft Purview scan your Azure SQL Database
 
-2. Sign in to Azure SQL Database with Azure AD account and assign proper permission (for example: db_owner) to  Purview Managed identity. Use below example SQL syntax to create user and grant permission by replacing 'purview-account' with your Account name:
+2. Sign in to Azure SQL Database with Azure AD account and assign db_owner permissions to the Microsoft Purview Managed identity. Use below example SQL syntax to create user and grant permission by replacing 'purview-account' with your Account name:
 
     ```sql
     Create user <purview-account> FROM EXTERNAL PROVIDER
@@ -424,7 +421,6 @@ You can [browse data catalog](how-to-browse-catalog.md) or [search data catalog]
 * If no lineage is captured after a successful **Lineage extraction** run, it's possible that no stored procedures have run at least once since the scan is set up.
 * Lineage is captured for stored procedure runs that happened after a successful scan is set up. Lineage from past Stored procedure runs isn't captured.
 * If your database is processing heavy workloads with lots of stored procedure runs, lineage extraction will filter only the most recent runs. Stored procedure runs early in the 6 hour window or the run instances that create heavy query load won't be extracted. Contact support if you're missing lineage from any stored procedure runs.
-
 
 ## Next steps
 

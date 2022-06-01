@@ -2,8 +2,8 @@
 title: "Tutorial: Create a single virtual machine inbound NAT rule - Azure portal"
 titleSuffix: Azure Load Balancer
 description: This tutorial shows how to configure port forwarding using Azure Load Balancer to create a connection to a single virtual machine in an Azure virtual network.
-author: asudbring
-ms.author: allensu
+author: greg-lindsay
+ms.author: greglin
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 03/08/2022

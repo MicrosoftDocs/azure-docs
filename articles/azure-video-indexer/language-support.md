@@ -1,6 +1,6 @@
 ---
 title: Language support in Azure Video Indexer
-description: This article provides a comprehensive list of language support by service features in Azure Video Indexer (formerly Azure Video Analyzer for Media).
+description: This article provides a comprehensive list of language support by service features in Azure Video Indexer.
 author: Juliako
 manager: femila
 ms.topic: conceptual
@@ -10,7 +10,7 @@ ms.date: 04/07/2022
 
 # Language support in Azure Video Indexer
 
-This article provides a comprehensive list of language support by service features in Azure Video Indexer (formerly Azure Video Analyzer for Media). For the list and definitions of all the features, see [Overview](video-indexer-overview.md).
+This article provides a comprehensive list of language support by service features in Azure Video Indexer. For the list and definitions of all the features, see [Overview](video-indexer-overview.md).
 
 ## General language support
 

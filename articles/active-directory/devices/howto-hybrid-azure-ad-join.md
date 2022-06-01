@@ -59,9 +59,6 @@ Verify devices can access the required Microsoft resources under the system acco
 
 We think most organizations will deploy hybrid Azure AD join with managed domains. Managed domains use [password hash sync (PHS)](../hybrid/whatis-phs.md) or [pass-through authentication (PTA)](../hybrid/how-to-connect-pta.md) with [seamless single sign-on](../hybrid/how-to-connect-sso.md). Managed domain scenarios don't require configuring a federation server.
 
-> [!NOTE]
-> Azure AD doesn't support smart cards or certificates in managed domains.
-
 Configure hybrid Azure AD join by using Azure AD Connect for a managed domain:
 
 1. Start Azure AD Connect, and then select **Configure**.

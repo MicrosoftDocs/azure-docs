@@ -61,7 +61,7 @@ The **tabs** below show the features of Microsoft Defender for Cloud that are av
 
 
 
-### [**Multi-cloud machines**](#tab/features-multi-cloud)
+### [**Multicloud machines**](#tab/features-multicloud)
 
 | **Feature** | **Availability in AWS** | **Availability in GCP** |
 |--|:-:|

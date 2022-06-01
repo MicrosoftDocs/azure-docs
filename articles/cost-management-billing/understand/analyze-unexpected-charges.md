@@ -1,13 +1,13 @@
 ---
 title: Identify anomalies and unexpected changes in cost
-titleSuffix: Azure Cost Management + Billing
+titleSuffix: Microsoft Cost Management
 description: Learn how to identify anomalies and unexpected changes in cost.
 author: bandersmsft
 ms.reviewer: micflan
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: conceptual
-ms.date: 04/02/2022
+ms.date: 05/31/2022
 ms.author: banders
 ms.custom: contperf-fy21q1
 ---
@@ -15,6 +15,8 @@ ms.custom: contperf-fy21q1
 # Identify anomalies and unexpected changes in cost
 
 The article helps you identify anomalies and unexpected changes in your cloud costs using Cost Management and Billing. You'll start with anomaly detection for subscriptions in cost analysis to identify any atypical usage patterns based on your cost and usage trends. You'll then learn how to drill into cost information to find and investigate cost spikes and dips.
+
+You can also create an anomaly alert to automatically get notified when an anomaly is detected.
 
 In general, there are three types of changes that you might want to investigate:
 
@@ -105,6 +107,22 @@ If you have an existing policy of [tagging resources](../costs/cost-mgt-best-pra
 ## Get help to identify charges
 
 If you've used the preceding strategies and you still don't understand why you received a charge or if you need other help with billing issues, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+
+## Create an anomaly alert
+
+You can create an anomaly alert to automatically get notified when an anomaly is detected. All email recipients get notified when a subscription cost anomaly is detected.
+
+An anomaly alert email includes a summary of changes in resource group count and cost. It also includes the top resource group changes for the day compared to the previous 60 days. And, it has a direct link to the Azure portal so that you can review the cost and investigate further.
+
+1. Start on a subscription scope.
+1. In the left menu, select **Cost alerts**.
+1. On the Cost alerts page, select **+ Add** > **Add anomaly alert**.
+1. On the Subscribe to emails page, enter required information and then select **Save**.  
+    :::image type="content" source="./media/analyze-unexpected-charges/subscribe-emails.png" alt-text="Screenshot showing the Subscribe to emails page where you enter notification information for an alert." lightbox="./media/analyze-unexpected-charges/subscribe-emails.png" :::
+
+Here's an example email generated for an anomaly alert.
+
+:::image type="content" source="./media/analyze-unexpected-charges/anomaly-alert-email.png" alt-text="Screenshot showing an example anomaly alert email." lightbox="./media/analyze-unexpected-charges/anomaly-alert-email.png" :::
 
 ## Next steps
 
