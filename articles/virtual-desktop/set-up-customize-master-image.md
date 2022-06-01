@@ -24,7 +24,7 @@ The second option is to create the image locally by downloading the image, provi
 
 ### Local image creation
 
-You can download an image following the instructions in [Export an image version to a managed disk](../virtual-machines/managed-disk-from-image-version/) and then [Download a Windows VHD from Azure](../virtual-machines/windows/download-vhd/). Once you've downloaded the image to a local location, open **Hyper-V Manager** to create a VM with the VHD you copied. The following instructions are a simple version, but you can find more detailed instructions in [Create a virtual machine in Hyper-V](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v/).
+You can download an image following the instructions in [Export an image version to a managed disk](../virtual-machines/managed-disk-from-image-version.md) and then [Download a Windows VHD from Azure](../virtual-machines/windows/download-vhd.md). Once you've downloaded the image to a local location, open **Hyper-V Manager** to create a VM with the VHD you copied. The following instructions are a simple version, but you can find more detailed instructions in [Create a virtual machine in Hyper-V](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v/).
 
 To create a VM with the copied VHD:
 
