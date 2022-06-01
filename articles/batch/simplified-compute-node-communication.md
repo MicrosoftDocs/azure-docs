@@ -21,7 +21,7 @@ Opting in is not required at this time. However, in the future, using simplified
 
 Simplified compute node communication in Azure Batch is currently available for the following regions:
 
-- Public: Central US EUAP, East US 2 EUAP, West Central US, North Central US, South Central US, East US, East US 2, West US 2, West US, Central US, West US 3, East Asia, South East Asia, Australia East, Australia Southeast, Brazil Southeast, Brazil South, Canada Central, Canada East, North Europe, West Europe, Central India, Jio India West, Japan East, Japan West, Korea Central, Korea South, Switzerland North, UK West, UK South, UAE North, France Central, Germany West Central, Norway East, South Africa North.
+- Public: Central US EUAP, East US 2 EUAP, West Central US, North Central US, South Central US, East US, East US 2, West US 2, West US, Central US, West US 3, East Asia, South East Asia, Australia East, Australia Southeast, Brazil Southeast, Brazil South, Canada Central, Canada East, North Europe, West Europe, Central India, Japan East, Japan West, Korea Central, Korea South, Switzerland North, UK West, UK South, UAE North, France Central, Germany West Central, Norway East, South Africa North.
 
 - Government: USGov Arizona, USGov Virginia, USGov Texas.
 
