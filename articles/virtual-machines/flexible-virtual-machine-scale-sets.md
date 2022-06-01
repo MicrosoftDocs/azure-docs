@@ -117,12 +117,13 @@ The following tables list the Flexible orchestration mode features and links to 
 | Write Accelerator   | No  |
 | Proximity Placement Groups   | Yes, read [Proximity Placement Groups documentation](../virtual-machine-scale-sets/proximity-placement-groups.md) |
 | Azure Dedicated Hosts   | No  |
-| Managed Identity  | User Assigned Identity Only  |
+| Managed Identity  | User Assigned Identity only<sup>1</sup>  |
 | Add/remove existing VM to the group  | No  |
 | Service Fabric  | No  |
 | Azure Kubernetes Service (AKS) / AKE  | No  |
 | UserData  | Yes |
 
+<sup>1</sup> There is a difference between Flexible and Uniform virtual machine scale sets when it comes to User Assigned Identity. For Uniform scale sets, when you `GET VMSS`, the response will have a reference to the *identity*, *clientID*, and *principalID*. For Flexible scale sets, when you `GET VMSS`, the response will only get a reference to the *identity*. You will have to make a call to `Identity` to get the *clientID* and *PrincipalID*. 
 
 ### Autoscaling and instance orchestration
 
