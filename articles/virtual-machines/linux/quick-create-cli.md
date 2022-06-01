@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.collection: linux
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 03/30/2021
+ms.date: 06/01/2022
 ms.author: cynthn
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, seo-python-october2019, devx-track-azurecli, mode-api
 ---
@@ -67,16 +67,16 @@ It takes a few minutes to create the VM and supporting resources. The following 
 }
 ```
 
-Note your own `publicIpAddress` in the output from your VM. This address is used to access the VM in the next steps.
-
-[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
-
 ## Install web server
 
 To see your VM in action, install the NGINX web server. Update your package sources and then install the latest NGINX package.
 
 ```azurecli-interactive
-az vm run-command invoke -g MyResourceGroup -n MyVm --command-id RunShellScript --scripts "sudo apt-get update && sudo apt-get install -y nginx"
+az vm run-command invoke \
+   -g myResourceGroup \
+   -n myVM \
+   --command-id RunShellScript \
+   --scripts "sudo apt-get update && sudo apt-get install -y nginx"
 ```
 
 ## Open port 80 for web traffic
