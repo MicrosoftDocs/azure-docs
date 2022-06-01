@@ -1,4 +1,15 @@
-# Text Steps
+---
+title: Azure Workbooks text parameters
+description: Learn about adding text parameters to your Azure workbook.
+services: azure-monitor
+author: AbbyMSFT
+ms.author: abbyweisberg
+ms.topic: conceptual
+ms.date: 05/30/2022
+ms.reviewer: gardnerjr
+---
+
+# Add text to your workbook 
 
 Workbooks allow authors to include text blocks in their workbooks. The text can be human analysis of the telemetry, information to help users interpret the data, section headings, etc. 
 

@@ -1,4 +1,16 @@
-# Visualizations in Workbooks
+---
+title: Workbook visualizations
+description: Learn how workbooks provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal.
+services: azure-monitor
+author: AbbyMSFT
+ms.author: abbyweisberg
+ms.topic: conceptual
+ms.date: 05/30/2022
+ms.reviewer: gardnerjr
+---
+
+
+# Workbook visualizations
 
 Workbooks provide a rich set of capabilities for visualizing Azure Monitor data. The exact set of capability depends on the data source and result set, but authors can expect them to converge over time. These controls allow authors to present their analysis in rich, interactive reports. 
 

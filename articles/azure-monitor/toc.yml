@@ -1366,7 +1366,27 @@ items:
         - name: Data sources
           href: visualize/workbooks-data-sources.md
         - name: Visualizations
-          href: visualize/workbooks-visualizations.md
+          items:
+          - name: Overview
+            href: visualize/workbooks-visualizations.md         
+          - name: Text
+            href: visualize/workbooks-text-visualizations.md
+          - name: Chart
+            href: visualize/workbooks-chart-visualizations.md
+          - name: Grid
+            href: visualize/workbooks-grid-visualizations.md
+          - name: Tile
+            href: visualize/workbooks-tile-visualizations.md
+          - name: Tree
+            href: visualize/workbooks-tree-visualizations.md
+          - name: Graph
+            href: visualize/workbooks-graph-visualizations.md
+          - name: Map
+            href: visualize/workbooks-map-visualizations.md
+          - name: Honey comb
+            href: visualize/workbooks-honey-comb.md
+          - name: Composite bar
+            href: visualize/workbooks-composite-bar.md
     - name: Creating a new workbook
       items:
         - name: Create a new workbook
@@ -1391,32 +1411,12 @@ items:
             href: visualize/workbooks-resources.md
           - name: Multi-value parameters
             href: visualize/workbooks-multi-value.md
-
-            
+        - name: Combine data from different sources
+          href: visualize/workbooks-combine-data.md       
     - name: Integrate Workbooks with Azure features
       items:
         - name: Overview
           href: visualize/workbooks-integrate-azure.md
-    - name: Visualizations
-      items:
-      - name: Text
-        href: visualize/workbooks-text-visualizations.md
-      - name: Chart
-        href: visualize/workbooks-chart-visualizations.md
-      - name: Grid
-        href: visualize/workbooks-grid-visualizations.md
-      - name: Tile
-        href: visualize/workbooks-tile-visualizations.md
-      - name: Tree
-        href: visualize/workbooks-tree-visualizations.md
-      - name: Graph
-        href: visualize/workbooks-graph-visualizations.md
-      - name: Map
-        href: visualize/workbooks-map-visualizations.md
-      - name: Honey comb
-        href: visualize/workbooks-honey-comb.md
-      - name: Composite bar
-        href: visualize/workbooks-composite-bar.md 
     - name: Configuration
       items:
       - name: Deploy with Azure Resource Manager

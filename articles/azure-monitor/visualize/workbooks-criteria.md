@@ -1,3 +1,14 @@
+---
+title: Azure Workbooks criteria parameters.
+description: Learn about adding text parameters to your Azure workbook.
+services: azure-monitor
+author: AbbyMSFT
+ms.author: abbyweisberg
+ms.topic: conceptual
+ms.date: 05/30/2022
+ms.reviewer: gardnerjr
+
+
 # Text Parameter Criteria
 
 When a query depends on many parameters, then the query will be stalled until each of it's parameters have been resolved. Sometimes a parameter could have a simple query that concatenates a string or performs a conditional evaluation. However these queries still make network calls to services that perform these basic operations and that increases the time it takes for a parameter to resolve a value. This results in long load times for complex workbooks.

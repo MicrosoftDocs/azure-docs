@@ -48,8 +48,8 @@ This is how the workbook will look like in read-mode, in the "Pills" style.
 
    ![Image showing a time range parameter in read mode](./media/workbooks-parameters/parameters-time.png)
 
-## Referencing a parameter
-### Via Bindings
+## Reference a parameter
+### Reference a parameter with Bindings
 1. Add a query control to the workbook and select an Application Insights resource.
 2. Open the _Time Range_ drop down and select the `Time Range` option from the Parameters section at the bottom.
 3. This binds the time range parameter to the time range of the chart. The time scope of the sample query is now Last 24 hours.
@@ -57,7 +57,7 @@ This is how the workbook will look like in read-mode, in the "Pills" style.
 
     ![Image showing a time range parameter referenced via bindings](./media/workbooks-parameters/time-binding.png)
 
-### In KQL
+### Reference a parameter with KQL
 1. Add a query control to the workbook and select an Application Insights resource.
 2. In the KQL, enter a time scope filter using the parameter: `| where timestamp {TimeRange}`
 3. This expands on query evaluation time to `| where timestamp > ago(1d)`, which is the time range value of the parameter.
@@ -65,32 +65,29 @@ This is how the workbook will look like in read-mode, in the "Pills" style.
 
     ![Image showing a time range referenced in KQL](./media/workbooks-parameters/time-in-code.png)
 
-### In Text 
+### Reference a parameter with Text 
 1. Add a text control to the workbook.
 2. In the markdown, enter `The chosen time range is {TimeRange:label}`
 3. Choose _Done Editing_
 4. The text control will show text: _The chosen time range is Last 24 hours_
 
 ## Parameter options
-**** I have no idea what this section means ******
+ - Use the `Previews` section of the _Edit Parameter_ pane to see the expansion options for your parameter:
 
-The _In Text_ section used the `label` of the parameter instead of its value. Parameters expose various such options depending on its type - e.g. time range pickers allow value, label, query, start, end, and grain.
-
-Use the `Previews` section of the _Edit Parameter_ pane to see the expansion options for your parameter:
-
-![Image showing a time range parameter options](./media/workbooks-parameters/time-previews.png)
+   ![Image showing a time range parameter options](./media/workbooks-parameters/time-previews.png)
 
 
-# #Parameter options
+### Format your parameters 
 
-The following parameter options are applicable to all parameter types except Time range picker.
+You can use these options to format all parameter types except for the time range picker.
 
-For Resource picker, resource Ids are formatted and for Subscription picker, subscription values are formatted.
+- For Resource picker, resource Ids are formatted.
+- For Subscription picker, subscription values are formatted.
 
-## tomltojson
-To convert toml to json, use `{param:tomltojson}`.
+**Format**: Convert toml to json
+**Syntax**: `{param:tomltojson}`
+**Original Value**: 
 
-Value: 
 ```
 name = "Sam Green"
 
@@ -99,7 +96,8 @@ state = "New York"
 country = "USA"
 ```
 
-Formatted Value:
+**Formatted Value**:
+
 ```
 {
   "name": "Sam Green",
@@ -109,11 +107,11 @@ Formatted Value:
   }
 }
 ```
+**Format**:escape JSON
+**Syntax**: `{param:escapejson}`
 
-## escapejson
-To escape, use `{param:escapejson}`.
+**Original Value**: 
 
-Value: 
 ```
 {
 	"name": "Sam Green",
@@ -124,24 +122,25 @@ Value:
 }
 ```
 
-Formatted Value:
+**Formatted Value**:
+
 ```
 {\r\n\t\"name\": \"Sam Green\",\r\n\t\"address\": {\r\n\t\t\"state\": \"New York\",\r\n\t\t\"country\": \"USA\"\r\n  }\r\n}
 ```
 
-## base64
-To encode text to base64, use `{param:base64}`.
+**Format**: Encode text to base64
+**Syntax**: `{param:base64}`
+**Original Value**: 
 
-Value: 
 ```
 Sample text to test base64 encoding
 ```
 
-Formatted Value:
+**Formatted Value**:
+
 ```
 U2FtcGxlIHRleHQgdG8gdGVzdCBiYXNlNjQgZW5jb2Rpbmc=
 ```
-
 ## Next steps
 
 * [Get started](./workbooks-overview.md#visualizations) learning more about workbooks many rich visualizations options.
