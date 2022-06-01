@@ -31,13 +31,13 @@ The following table describes the table columns in the device inventory.
 | **MAC Address** | The MAC address of the device. |
 | **Protocols** | The protocols that the device uses. |
 | **Unacknowledged Alerts** | The number of unhandled alerts associated with this device. |
-| **Is Authorized** | The authorization status of the device:<br />- **True**: The device has been authorized.<br />- **False**: The device has not been authorized. |
+| **Is Authorized** | The authorization status of the device:<br />- **True**: The device has been authorized.<br />- **False**: The device hasn't been authorized. |
 | **Is Known as Scanner** | Whether this device performs scanning-like activities in the network. |
-| **Is Programming Device** | Whether this is a programming device:<br />- **True**: The device performs programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations.<br />- **False**: The device is not a programming device. |
+| **Is Programming Device** | Whether this is a programming device:<br />- **True**: The device performs programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations.<br />- **False**: The device isn't a programming device. |
 | **Groups** | Groups in which this device participates. |
 | **Last Activity** | The last activity that the device performed. |
 | **Discovered** | When this device was first seen in the network. |
-| **PLC mode (preview)** | The PLC operating mode includes the Key state (physical) and run state (logical). Possible **Key** states include, Run, Program, Remote, Stop, Invalid, Programming Disabled.Possible Run. The possible **Run** states are Run, Program, Stop, Paused, Exception, Halted, Trapped, Idle, Offline. if both states are the same, only oe state is presented. |
+| **PLC mode (preview)** | The PLC operating mode includes the Key state (physical) and run state (logical). Possible **Key** states include, Run, Program, Remote, Stop, Invalid, Programming Disabled.Possible Run. The possible **Run** states are Run, Program, Stop, Paused, Exception, Halted, Trapped, Idle, Offline. if both states are the same, only one state is presented. |
 
 ## What is an Inventory device?
 
