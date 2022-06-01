@@ -33,7 +33,7 @@ When you [remediate](implement-security-recommendations.md) all of the recommend
 
 ## Manage the owner and ETA of recommendations that are assigned to you
 
-Security teams can assign a recommendation to a specific person and assign a due date to drive your organization towards increased security. If you have recommendations assigned to you, you are accountable to remediate the resources affected by the recommendations to help your organization be compliant with the security policy.
+[Security teams can assign a recommendation](governance-rules.md) to a specific person and assign a due date to drive your organization towards increased security. If you have recommendations assigned to you, you are accountable to remediate the resources affected by the recommendations to help your organization be compliant with the security policy.
 
 Recommendations are listed as **On time** until their due date is passed, when they are changed to **Overdue**. Before the recommendation is overdue, the recommendation does not impact the secure score. The security team can also apply a grace period during which overdue recommendations continue to not impact the secure score.
 
