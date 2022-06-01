@@ -131,7 +131,7 @@ You can also explicitly specify that the Managed identity you wish to authentica
 
 :::image type="content" source="media/overview-for-developers/IdentityClientID.png" alt-text="Client ID for the identity":::
 
-Read more about the Azure Identity client libraries below:
+Read more about the Azure Identity libraries below:
 
 * [Azure Identity client library for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)
 * [Azure Identity client library for Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme?view=azure-java-stable)
