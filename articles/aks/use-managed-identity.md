@@ -18,7 +18,7 @@ You must have the following resource installed:
 - The Azure CLI, version 2.23.0 or later
 
 > [!NOTE]
-> AKS will create a kubelet MI in the Node resource group if you do not BYO kubelet MI. 
+> AKS will create a kubelet MI in the Node resource group if you do not bring your own kubelet MI. 
 
 ## Limitations
 
@@ -138,7 +138,7 @@ az aks show -g <RGName> -n <ClusterName> --query "identity"
 > Permission grants to cluster Managed Identity used by Azure Cloud provider may take up 60 minutes to populate.
 
 
-## Bring your own (BYO) control plane MI
+## Bring your own control plane MI
 A custom control plane identity enables access to be granted to the existing identity prior to cluster creation. This feature enables scenarios such as using a custom VNET or outboundType of UDR with a pre-created managed identity.
 
 You must have the Azure CLI, version 2.15.1 or later installed.
@@ -189,7 +189,7 @@ A successful cluster creation using your own managed identities contains this us
  },
 ```
 
-## Bring your own (BYO) kubelet MI
+## Bring your own kubelet MI
 
 A Kubelet identity enables access to be granted to the existing identity prior to cluster creation. This feature enables scenarios such as connection to ACR with a pre-created managed identity.
 
@@ -198,7 +198,7 @@ A Kubelet identity enables access to be granted to the existing identity prior t
 
 
 > [!NOTE]
-> For BYO kubelet MI,Azure CLI will automatically add required role assignment for control plane MI. If you are using ARM template or other clients, you need to create the role assignment manually. It can be done using CLI command 'az role assignment create --assignee <control-plane-identity-object-id> --role "Managed Identity Operator" --scope <kubelet-identity-resource-id>'
+> For bring-your-own kubelet MI, Azure CLI will automatically add required role assignment for control plane MI. If you are using ARM template or other clients, you need to create the role assignment manually. It can be done using CLI command 'az role assignment create --assignee <control plane identity object id> --role "Managed Identity Operator" --scope <kubelet identity resource id>'
 
 ### Prerequisites
 
