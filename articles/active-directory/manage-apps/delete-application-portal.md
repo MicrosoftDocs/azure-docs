@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Delete an enterprise application'
 description: Delete an enterprise application in Azure Active Directory.
-titleSuffix: Azure AD
+titleSuffix: Microsoft Entra
 services: active-directory
 author: davidmu1
 manager: CelesteDG

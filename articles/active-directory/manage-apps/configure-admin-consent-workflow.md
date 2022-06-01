@@ -1,6 +1,6 @@
 ---
 title: Configure the admin consent workflow
-titleSuffix: Azure AD
+titleSuffix: Microsoft Entra
 description: Learn how to configure a way for end users to request access to applications that require admin consent. 
 services: active-directory
 author: eringreenlee

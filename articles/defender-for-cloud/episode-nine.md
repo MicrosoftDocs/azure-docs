@@ -2,7 +2,7 @@
 title: Microsoft Defender for Containers in a multi-cloud environment
 description: Learn about Microsoft Defender for Containers implementation in AWS and GCP.
 ms.topic: reference
-ms.date: 05/25/2022
+ms.date: 06/01/2022
 ---
 
 # Microsoft Defender for Containers in a Multi-Cloud Environment
@@ -13,7 +13,7 @@ Maya explains about the new workload protection capabilities related to Containe
 
 <br>
 <br>
-<iframe src="https://aka.ms/docs/player?id=f9470496-abe3-4344-8160-d6a6b65c077f" width="1080" height="530" max-width: 100%; min-width: 100%;"></iframe>
+<iframe src="https://aka.ms/docs/player?id=f9470496-abe3-4344-8160-d6a6b65c077f" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
 
 - [01:12](/shows/mdc-in-the-field/containers-multi-cloud#time=01m12s) - Container protection in a multi-cloud environment
 
