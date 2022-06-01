@@ -163,7 +163,7 @@ The following steps describe how to create and configure an Azure Maps account w
     
     ```
 
-1. Deploy the prerequisite resources you just created. Make sure to use the same location as the Azure Maps account.
+1. Deploy the prerequisite resources you created in the previous step. Make sure to use the same location as the Azure Maps account.
 
    ```azurecli
    az group create --name {group-name} --location "East US"
