@@ -1358,17 +1358,39 @@ items:
   - name: Workbooks
     items:
     - name: Overview
-      href: visualize/workbooks-overview.md
+      href: visualize/workbooks-overview.md 
     - name: Working with workbooks
       items:
-        - name: Common Workbook Tasks
+        - name: Common workbook tasks
           href: visualize/workbooks-common-tasks.md
+        - name: Data sources
+          href: visualize/workbooks-data-sources.md
+        - name: Visualizations
+          href: visualize/workbooks-visualizations.md
+    - name: Creating a new workbook
+      items:
+        - name: Create a new workbook
+          href: visualize/workbooks-create-a-workbook.md
         - name: Add text to your workbook
           href: visualize/workbooks-add-text.md
-        - name: Working with Parameters
-          href: visualize/workbooks-parameters.md
-        - name: Time parameters
-          href: visualize/workbooks-time.md
+        - name: Add parameters to your workbook
+          items:
+          - name: Workbook parameters
+            href: visualize/workbooks-parameters.md
+          - name: Time parameters
+            href: visualize/workbooks-time.md
+          - name: Drop down parameters
+            href: visualize/workbooks-dropdowns.md
+          - name: Options group parameters
+            href: visualize/workbooks-options-group.md
+          - name: Text parameters
+            href: visualize/workbooks-text.md
+          - name: Criteria
+            href: visualize/workbooks-criteria.md
+          - name: Resource parameters
+            href: visualize/workbooks-resources.md
+          - name: Multi-value parameters
+            href: visualize/workbooks-multi-value.md
     - name: Integrate Workbooks with Azure features
       items:
         - name: Overview
@@ -1392,23 +1414,9 @@ items:
       - name: Honey comb
         href: visualize/workbooks-honey-comb.md
       - name: Composite bar
-        href: visualize/workbooks-composite-bar.md
-    - name: Data sources
-      href: visualize/workbooks-data-sources.md
-    - name: Parameters
-      items:
-      - name: Drop down parameters
-        href: visualize/workbooks-dropdowns.md
-      - name: Interactive parameters
-        href: visualize/workbooks-interactive.md
-      - name: Text parameters
-        href: visualize/workbooks-text.md
-      - name: Resource parameters
-        href: visualize/workbooks-resources.md
+        href: visualize/workbooks-composite-bar.md 
     - name: Configuration
       items:
-      - name: Access control
-        href: visualize/workbooks-access-control.md
       - name: Deploy with Azure Resource Manager
         href: visualize/workbooks-automate.md
       - name: Groups
