@@ -173,6 +173,22 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 |BaiJobEvent|BaiJobEvent|No| 
 
 
+## Microsoft.Blockchain/blockchainMembers
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|BlockchainApplication|Blockchain Application|No|
+|FabricOrderer|Fabric Orderer|No|
+|FabricPeer|Fabric Peer|No|
+|Proxy|Proxy|No|
+
+
+## Microsoft.Blockchain/cordaMembers
+
+|Category|Category Display Name|Costs To Export|
+|---|---|---|
+|BlockchainApplication|Blockchain Application|No|
+
 ## microsoft.botservice/botservices
 
 |Category|Category Display Name|Costs To Export|
@@ -697,14 +713,14 @@ If you think something is missing, you can open a GitHub comment at the bottom o
 
 |Category|Category Display Name|Costs To Export|
 |---|---|---|
-|Command|Command|Yes|
-|FailedIngestion|Failed ingestion|Yes|
-|IngestionBatching|Ingestion batching|Yes|
+|Command|Command|No|
+|FailedIngestion|Failed ingestion|No|
+|IngestionBatching|Ingestion batching|No|
 |Journal|Journal|Yes|
-|Query|Query|Yes|
-|SucceededIngestion|Succeeded ingestion|Yes|
-|TableDetails|Table details|Yes|
-|TableUsageStatistics|Table usage statistics|Yes|
+|Query|Query|No|
+|SucceededIngestion|Succeeded ingestion|No|
+|TableDetails|Table details|No|
+|TableUsageStatistics|Table usage statistics|No|
 
 
 ## microsoft.loadtestservice/loadtests
