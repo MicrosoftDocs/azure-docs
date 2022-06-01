@@ -26,7 +26,6 @@ You can then review the progress of the tasks by subscription, recommendation, o
 |----|:----|
 |Release state:|Preview.<br>[!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]|
 |Pricing:|Free|
-|Supported environments:|Microsoft Azure, Amazon AWS, Google GCP|
 |Required roles and permissions:|Azure - **Contributor**, **Security Admin**, or **Owner** on the subscription<br>AWS, GCP – **Contributor**, **Security Admin**, or **Owner** on the connector|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected GCP accounts|
 
@@ -61,7 +60,7 @@ To define a governance rule that assigns an owner and due date:
 
 If there are existing recommendations that match the definition of the governance rule, you can either:
 
-- Assign an owner and due date to recommendation that don't already have an owner or due date.
+- Assign an owner and due date to recommendations that don't already have an owner or due date.
 - Overwrite the owner and due date of existing recommendations.
 
 ## Manually assigning owners and due dates for recommendation remediation
@@ -74,7 +73,9 @@ To manually assign owners and due dates to recommendations:
     - In the Defender for Cloud overview, select **Security posture** and then select **View recommendations** for the environment that you want to improve.
     - Go to **Recommendations** in the Defender for Cloud menu.
 1. In the list of recommendations, use the **Potential score increase** to identify the security control that contains recommendations that will increase your secure score.
-    - You can also use the search box and filters above the list of recommendations to find specific recommendations.
+
+    You can also use the search box and filters above the list of recommendations to find specific recommendations.
+
 1. Select a recommendation to see the affected resources.
 1. For any resource that doesn't have an owner or due date, select the resources and select **Assign owner**.
 1. Enter the email address of the owner that needs to make the changes that remediate the recommendation for those resources.
@@ -129,4 +130,4 @@ To see the list of recommendations for each owner:
 
 In this article, you learned how to set up a process for assigning owners and due dates to tasks so that owners are accountable for taking steps to improve your security posture.
 
-Check out how owners can [set ETAs for tasks](/review-security-recommendations.md#manage-the-owner-and-eta-of-recommendations-that-are-assigned-to-you) so that they can manage their progress.
+Check out how owners can [set ETAs for tasks](review-security-recommendations.md#manage-the-owner-and-eta-of-recommendations-that-are-assigned-to-you) so that they can manage their progress.

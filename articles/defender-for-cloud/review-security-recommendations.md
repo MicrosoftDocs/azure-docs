@@ -6,7 +6,7 @@ ms.date: 05/23/2022
 ---
 # Find recommendations that can improve your security posture
 
-To improve your security score, you have to implement the security recommendations for your environment. From the list of recommendations, you can use filters to find the recommendations that have the most impact on your score, or the ones that you were assigned to implement.
+To improve your [secure score](secure-score-security-controls.md), you have to implement the security recommendations for your environment. From the list of recommendations, you can use filters to find the recommendations that have the most impact on your score, or the ones that you were assigned to implement.
 
 To get to the list of recommendations:
 
