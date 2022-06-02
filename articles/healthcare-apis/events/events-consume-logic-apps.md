@@ -60,7 +60,7 @@ Follow these steps:
 
 You now need to fill out the details of your Logic App. Specify information for these five categories. They are in separate tabs:
 
-:::image type="content" source="media/events-logic-apps/events-logic-tabs.png" alt-text="Five tabs for specifying your Logic App" lightbox="./media/events-logic-apps/events-logic-tab.png":::
+:::image type="content" source="media/events-logic-apps/events-logic-tabs.png" alt-text="Five tabs for specifying your Logic App." lightbox="./media/events-logic-apps/events-logic-tabs.png":::
 
 - Tab 1 - Basics
 - Tab 2 - Hosting
