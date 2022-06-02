@@ -6,7 +6,7 @@ ms.service: partner-services
 ms.subservice: dynatatrace
 author: flang-msft
 ms.author: franlanglois
-ms.date: 05/12/2022
+ms.date: 06/07/2022
 
 
 ---
