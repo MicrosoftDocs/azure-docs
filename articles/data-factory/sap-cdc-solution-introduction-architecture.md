@@ -45,6 +45,6 @@ These providers run on SAP systems to produce full/incremental data in Operation
 
 Since ODP completely decouples providers from subscribers, any SAP docs that offer provider configurations are applicable for ADF as a subscriber.  For more info on ODP, see [Introduction to operational data provisioning](https://wiki.scn.sap.com/wiki/display/BI/Introduction+to+Operational+Data+Provisioning). 
 
-## Next Steps
+## Next steps
 
 [Prerequisites and configuration of the SAP CDC solution](sap-cdc-solution-prerequisites-configuration.md)

@@ -89,6 +89,6 @@ Here are SAP support notes to resolve known issues on SAP systems:
 
 To validate your SAP system configurations for ODP, you can run RODPS_REPL_TEST program to test the extraction of your SAPI extractors, CDS views, BW objects, etc., see [Replication test with RODPS_REPL_TEST](https://wiki.scn.sap.com/wiki/display/BI/Replication+test+with+RODPS_REPL_TEST).
 
-## Next Steps
+## Next steps
 
-[Prepare the SHIR with the SAP CDC connector](sap-cdc-solution-shir-preparation).
+[Prepare the SHIR with the SAP CDC connector](sap-cdc-solution-shir-preparation.md).
