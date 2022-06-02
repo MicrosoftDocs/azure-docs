@@ -14,7 +14,7 @@ ms.author: mbaldwin
 
 Attestation policy is used to process the attestation evidence and determine whether Azure Attestation will issue an attestation token. Attestation token generation can be controlled with custom policies. Below are some examples of an attestation policy. 
 
-## Sample JWT generated for an SGX enclave:
+## Sample JWT generated for SGX attestation:
 
 ```
 {
@@ -74,3 +74,61 @@ Attestation policy is used to process the attestation evidence and determine whe
 Some of the claims used above are considered deprecated but are fully supported.  It is recommended that all future code and tooling use the non-deprecated claim names. See [claims issued by Azure Attestation](claim-sets.md) for more information.
 
 The below claims will appear only in the attestation token generated for Intel® Xeon® Scalable processor-based server platforms. The claims will not appear if the SGX enclave is not configured with [Key Separation and Sharing Support](https://github.com/openenclave/openenclave/issues/3054)
+
+**x-ms-sgx-config-id**
+
+**x-ms-sgx-config-svn**
+
+**x-ms-sgx-isv-extended-product-id**
+
+**x-ms-sgx-isv-family-id**
+
+## Sample JWT generated for SEV-SNP attestation:
+
+```
+{ 
+  "exp": 1649970020, 
+  "iat": 1649941220, 
+  "iss": "https://maasandbox0001.wus.attest.azure.net", 
+  "jti": "b65da1dcfbb4698b0bb2323cac664b745a2ff1cffbba55641fd65784aa9474d5", 
+  "nbf": 1649941220, 
+  "x-ms-attestation-type": "sevsnpvm", 
+  "x-ms-compliance-status": "azure-compliant-cvm", 
+  "x-ms-policy-hash": "LTPRQQju-FejAwdYihF8YV_c2XWebG9joKvrHKc3bxs", 
+  "x-ms-runtime": { 
+    "keys": [ 
+      { 
+        "e": "AQAB", 
+        "key_ops": ["encrypt"], 
+        "kid": "HCLTransferKey", 
+        "kty": "RSA", 
+        "n": "ur08DccjGGzRo3OIq445n00Q3OthMIbR3SWIzCcicIM_7nPiVF5NBIknk2zdHZN1iiNhIzJezrXSqVT7Ty1Dl4AB5xiAAqxo7xGjFqlL47NA8WbZRMxQtwlsOjZgFxosDNXIt6dMq7ODh4nj6nV2JMScNfRKyr1XFIUK0XkOWvVlSlNZjaAxj8H4pS0yNfNwr1Q94VdSn3LPRuZBHE7VrofHRGSHJraDllfKT0-8oKW8EjpMwv1ME_OgPqPwLyiRzr99moB7uxzjEVDe55D2i2mPrcmT7kSsHwp5O2xKhM68rda6F-IT21JgdhQ6n4HWCicslBmx4oqkI-x5lVsRkQ" 
+      } 
+    ], 
+    "vm-configuration": { 
+      "secure-boot": true, 
+      "secure-boot-template-id": "1734c6e8-3154-4dda-ba5f-a874cc483422", 
+      "tpm-enabled": true, 
+      "vmUniqueId": "AE5CBB2A-DC95-4870-A74A-EE4FB33B1A9C" 
+    } 
+  }, 
+  "x-ms-sevsnpvm-authorkeydigest": "000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000", 
+  "x-ms-sevsnpvm-bootloader-svn": 0, 
+  "x-ms-sevsnpvm-familyId": "01000000000000000000000000000000", 
+  "x-ms-sevsnpvm-guestsvn": 1, 
+  "x-ms-sevsnpvm-hostdata": "0000000000000000000000000000000000000000000000000000000000000000", 
+  "x-ms-sevsnpvm-idkeydigest": "38ed94f9aab20bc5eb40e89c7cbb03aa1b9efb435892656ade789ccaa0ded82ff18bae0e849c3166351ba1fa7ff620a2", 
+  "x-ms-sevsnpvm-imageId": "02000000000000000000000000000000", 
+  "x-ms-sevsnpvm-is-debuggable": false, 
+  "x-ms-sevsnpvm-launchmeasurement": "04a170f39a3f702472ed0c7ecbda9babfc530e3caac475fdd607ff499177d14c278c5a15ad07ceacd5230ae63d507e9d", 
+  "x-ms-sevsnpvm-microcode-svn": 40, 
+  "x-ms-sevsnpvm-migration-allowed": false, 
+  "x-ms-sevsnpvm-reportdata": "99dd4593a43f4b0f5f10f1856c7326eba309b943251fededc15592e3250ca9e90000000000000000000000000000000000000000000000000000000000000000", 
+  "x-ms-sevsnpvm-reportid": "d1d5c2c71596fae601433ecdfb62799de2a785cc08be3b1c8a4e26a381494787", 
+  "x-ms-sevsnpvm-smt-allowed": true, 
+  "x-ms-sevsnpvm-snpfw-svn": 0, 
+  "x-ms-sevsnpvm-tee-svn": 0, 
+  "x-ms-sevsnpvm-vmpl": 0, 
+  "x-ms-ver": "1.0" 
+} 
+```
