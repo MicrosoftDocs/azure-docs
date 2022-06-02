@@ -16,7 +16,7 @@ Microsoft Azure Government uses same underlying technologies as global Azure, wh
 
 ## Export control implications
 
-You're responsible for designing and deploying your applications to meet [US export control requirements](./documentation-government-overview-itar.md) such as the requirements prescribed in the EAR, ITAR, and DoE 10 CFR Part 810. In doing so, you should not include sensitive or restricted information in Azure resource names, as explained in [Considerations for naming Azure resources](./documentation-government-concept-naming-resources.md).
+You're responsible for designing and deploying your applications to meet [US export control requirements](./documentation-government-overview-itar.md) such as the requirements prescribed in the EAR, ITAR, and DoE 10 CFR Part 810. In doing so, you shouldn't include sensitive or restricted information in Azure resource names, as explained in [Considerations for naming Azure resources](./documentation-government-concept-naming-resources.md).
 
 ## Guidance for developers
 
@@ -116,7 +116,7 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 
 ## Service availability
 
-Microsoft's goal for Azure Government is to match service availability in Azure. For service availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true). Services available in Azure Government are listed by category and whether they are Generally Available or available through Preview. If a service is available in Azure Government, that fact isn't reiterated in the rest of this article. Instead, you're encouraged to review [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true) for the latest, up-to-date information on service availability.
+Microsoft's goal for Azure Government is to match service availability in Azure. For service availability in Azure Government, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true). Services available in Azure Government are listed by category and whether they're Generally Available or available through Preview. If a service is available in Azure Government, that fact isn't reiterated in the rest of this article. Instead, you're encouraged to review [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true) for the latest, up-to-date information on service availability.
 
 In general, service availability in Azure Government implies that all corresponding service features are available to you. Variations to this approach and other applicable limitations are tracked and explained in this article based on the main service categories outlined in the [online directory of Azure services](https://azure.microsoft.com/services/). Other considerations for service deployment and usage in Azure Government are also provided.
 
@@ -126,7 +126,7 @@ This section outlines variations and considerations when using **Azure Bot Servi
 
 ### [Azure Bot Service](/azure/bot-service/)
 
-The following Azure Bot Service **features aren't currently available** in Azure Government (updated 8/16/2021):
+The following Azure Bot Service **features aren't currently available** in Azure Government (updated 16 August 2021):
 
 - Bot Framework Composer integration
 - Channels (due to availability of dependent services)
@@ -242,7 +242,7 @@ The following features have known limitations in Azure Government:
   - B2B collaboration via Power BI isn't supported. When you invite a guest user from within Power BI, the B2B flow isn't used and the guest user won't appear in the tenant's user list. If a guest user is invited through other means, they'll appear in the Power BI user list, but any sharing request to the user will fail and display a 403 Forbidden error.
 
 - Limitations with multi-factor authentication:
-    - Trusted IPs aren't supported in Azure Government. Instead, use Conditional Access policies with named locations to establish when multi-factor authentication should and should not be required based off the user's current IP address.
+    - Trusted IPs isn't supported in Azure Government. Instead, use Conditional Access policies with named locations to establish when multi-factor authentication should and shouldn't be required based off the user's current IP address.
 
 ## Management and governance
 
@@ -286,7 +286,7 @@ The following Azure Advisor recommendation **features aren't currently available
   - Enforce 'Add or replace a tag on resources' using Azure Policy.
   - Enforce 'Allowed locations' using Azure Policy.
   - Enforce 'Allowed virtual machine SKUs' using Azure Policy.
-  - Enforce 'Audit VMs that do not use managed disks' using Azure Policy.
+  - Enforce 'Audit VMs that don't use managed disks' using Azure Policy.
   - Enforce 'Inherit a tag from the resource group' using Azure Policy.
   - Update Azure Spring Cloud API Version.
   - Update your outdated Azure Spring Cloud SDK to the latest version.
@@ -355,7 +355,7 @@ For more information, see [Connect Operations Manager to Azure Monitor](../azure
 - Can I migrate data from Azure Monitor logs in Azure to Azure Government?
   - No. It isn't possible to move data or your workspace from Azure to Azure Government.
 - Can I switch between Azure and Azure Government workspaces from the Operations Management Suite portal?
-  - No. The portals for Azure and Azure Government are separate and do not share information.
+  - No. The portals for Azure and Azure Government are separate and don't share information.
 
 #### [Application Insights](../azure-monitor/app/app-insights-overview.md)
 
