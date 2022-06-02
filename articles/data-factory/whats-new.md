@@ -22,6 +22,15 @@ Azure Data Factory is improved on an ongoing basis. To stay up to date with the 
 
 This page is updated monthly, so revisit it regularly.
 
+## May 2022
+<br>
+<table>
+<tr><td><b>Service category</b></td><td><b>Service improvements</b></td><td><b>Details</b></td></tr>
+
+<tr><td><b>Data flow</b></td><td>User Defined Functions for mapping data flows</td><td>Azure Data Factory introduces in public preview user defined functions and data flow libraries. A user defined function is a customized expression you can define to be able to reuse logic across multiple mapping data flows. User defined functions live in a collection called a data flow library to be able to easily group up common sets of customized functions.<br><a href="concepts-data-flow-udf.md">Learn more</a></td></tr>
+
+</table>
+
 ## April 2022
 <br>
 <table>
@@ -33,7 +42,7 @@ This page is updated monthly, so revisit it regularly.
 
 <tr><td><b>Monitoring</b></td><td>Multiple updates to Data Factory monitoring experiences</td><td>New updates to the monitoring experience in Data Factory include the ability to export results to a CSV, clear all filters, and open a run in a new tab. Column and result caching is also improved.<br><a href="https://techcommunity.microsoft.com/t5/azure-data-factory-blog/adf-monitoring-improvements/ba-p/3295531">Learn more</a></td></tr>
 
-<tr><td><b>User interface</b></td><td>New regional format support</td><td>Choose your language and the regional format that will influence how data such as dates and times appear in the Data Factory Studio monitoring. These language and regional settings affect only the Data Factory Studio user interface and don't change or modify your actual data.</td></tr>
+<tr><td><b>User interface</b></td><td>New regional format support</td><td>Choosing your language and the regional format in settings will influence the format of how data such as dates and times appear in the Azure Data Factory Studio monitoring. For example, the time format in Monitoring will appear like "Apr 2, 2022, 3:40:29 pm" when choosing English as the regional format, and "2 Apr 2022, 15:40:29" when choosing French as regional format. These settings affect only the Azure Data Factory Studio user interface and do not change/ modify your actual data and time zone.</td></tr>
 
 </table>
 

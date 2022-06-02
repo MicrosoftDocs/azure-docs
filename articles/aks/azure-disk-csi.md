@@ -298,6 +298,29 @@ Filesystem      Size  Used Avail Use% Mounted on
 /dev/sdc         15G   46M   15G   1% /mnt/azuredisk
 ```
 
+## On-demand bursting
+
+On-demand disk bursting model allows disk bursts whenever its needs exceed its current capacity. This model incurs additional charges anytime the disk bursts. On-demand bursting is only available for premium SSDs larger than 512 GiB. For more information on premium SSDs provisioned IOPS and throughput per disk, see [Premium SSD size][az-premium-ssd]. Alternatively, credit-based bursting is where the disk will burst only if it has burst credits accumulated in its credit bucket. Credit-based bursting does not incur additional charges when the disk bursts. Credit-based bursting is only available for premium SSDs 512 GiB and smaller, and standard SSDs 1024 GiB and smaller. For more details on on-demand bursting, see [On-demand bursting][az-on-demand-bursting].
+
+> [!IMPORTANT]
+> The default `managed-csi-premium` storage class has on-demand bursting disabled and uses credit-based bursting. Any premium SSD dynamically created by a persistent volume claim based on the default `managed-csi-premium` storage class also has on-demand bursting disabled.
+
+To create a premium SSD persistent volume with [on-demand bursting][az-on-demand-bursting] enabled you can create a new storage class with the [enableBursting][csi-driver-parameters] parameter set to `true` as shown in the following YAML template. For more details on enabling on-demand bursting, see [On-demand bursting][az-on-demand-bursting]. For more details on building your own storage class with on-demand bursting enabled, see [Create a Burstable Managed CSI Premium Storage Class][create-burstable-storage-class].
+
+```yaml
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: burstable-managed-csi-premium
+provisioner: disk.csi.azure.com
+parameters:
+  skuname: Premium_LRS
+  enableBursting: "true"
+reclaimPolicy: Delete
+volumeBindingMode: WaitForFirstConsumer
+allowVolumeExpansion: true
+```
+
 ## Windows containers
 
 The Azure disk CSI driver supports Windows nodes and containers. If you want to use Windows containers, follow the [Windows containers quickstart][aks-quickstart-cli] to add a Windows node pool.
@@ -334,6 +357,8 @@ $ kubectl exec -it busybox-azuredisk-0 -- cat c:\mnt\azuredisk\data.txt # on Win
 [kubernetes-storage-classes]: https://kubernetes.io/docs/concepts/storage/storage-classes/
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
 [managed-disk-pricing-performance]: https://azure.microsoft.com/pricing/details/managed-disks/
+[csi-driver-parameters]: https://github.com/kubernetes-sigs/azuredisk-csi-driver/blob/master/docs/driver-parameters.md
+[create-burstable-storage-class]: https://github.com/Azure-Samples/burstable-managed-csi-premium
 
 <!-- LINKS - internal -->
 [azure-disk-volume]: azure-disk-volume.md
@@ -355,3 +380,6 @@ $ kubectl exec -it busybox-azuredisk-0 -- cat c:\mnt\azuredisk\data.txt # on Win
 [az-feature-register]: /cli/azure/feature#az_feature_register
 [az-feature-list]: /cli/azure/feature#az_feature_list
 [az-provider-register]: /cli/azure/provider#az_provider_register
+[az-on-demand-bursting]: ../virtual-machines/disk-bursting.md#on-demand-bursting
+[enable-on-demand-bursting]: ../virtual-machines/disks-enable-bursting.md?tabs=azure-cli
+[az-premium-ssd]: ../virtual-machines/disks-types.md#premium-ssds

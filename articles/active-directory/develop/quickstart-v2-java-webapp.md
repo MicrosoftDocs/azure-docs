@@ -1,6 +1,5 @@
 ---
-title: "Quickstart: Add sign-in with Microsoft to a Java web app | Azure"
-titleSuffix: Microsoft identity platform
+title: "Quickstart: Add sign-in with Microsoft to a Java web app"
 description: In this quickstart, you'll learn how to add sign-in with Microsoft to a Java web application by using OpenID Connect.
 services: active-directory
 author: mmacy
