@@ -28,7 +28,7 @@ Here's what changed in May 2022:
 
 Users can now make meetings more personalized and avoid unexpected distractions by applying background effects. Meeting participants can select an available image in Teams to change their background or choose to blur their background. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/microsoft-teams-background-effects-is-now-generally-available-on/ba-p/3401961).
 
-### Multi-window and "Call me" features now generally available
+### Multi-window and "Call me with Teams" features now generally available
 
 The multi-window feature gives users the option to pop out chats, meetings, calls, or documents into separate windows to streamline their workflow. The "Call me" feature lets users transfer a Teams call to their phone. Both features are now generally available in Teams on Azure Virtual Desktop. For more information, see [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/microsoft-teams-multi-window-support-and-call-me-are-now-in-ga/ba-p/3401830).
 
