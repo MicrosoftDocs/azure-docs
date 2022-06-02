@@ -3,7 +3,7 @@ title: Use Container Storage Interface (CSI) driver for Azure Blob storage on Az
 description: Learn how to use the Container Storage Interface (CSI) driver for Azure Blob storage (preview) in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 05/25/2021
+ms.date: 06/02/2021
 author: mgoedtel
 
 ---
@@ -31,7 +31,7 @@ A [persistent volume][persistent-volume] (PV) represents a piece of storage that
 
 For more information on Kubernetes volumes, see [Storage options for applications in AKS][concepts-storage].
 
-## Storage class driver dynamic disk parameters
+## Storage class driver dynamic parameters
 
 |Name | Description | Example | Mandatory | Default value|
 |--- | --- | --- | --- | --- |
@@ -56,7 +56,7 @@ For more information on Kubernetes volumes, see [Storage options for application
 |--- | **Following parameters are only for NFS protocol** | --- | --- |--- |
 |mountPermissions | Specify mounted folder permissions |The default is `0777`. If set to `0`, driver will not perform `chmod` after mount. | `0777` | No |
 
-## Storage class for static disk parameters
+## Storage class for static parameters
 
 |Name | Description | Example | Mandatory | Default value|
 |--- | --- | --- | --- | ---|
