@@ -13,6 +13,7 @@ ms.date: 03/30/2022
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: dastruck, udayh, vakarand
+zone_pivot_groups: identity-mi-methods
 #Customer intent: As an application developer, I want to configure a federated credential on an user-assigned managed identity so I can create a trust relationship with an external identity provider and use workload identity federation to access Azure AD protected resources without managing secrets.
 ---
 
