@@ -187,7 +187,7 @@ id=$(az network asg list \
 az network private-endpoint asg add \
     --endpoint-name myPrivateEndpoint \
     --resource-group myResourceGroup \
-    --asg-id $id
+    --asg id=$id
 ```
 ---
 
