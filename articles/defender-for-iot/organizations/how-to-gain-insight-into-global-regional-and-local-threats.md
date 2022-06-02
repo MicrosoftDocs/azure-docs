@@ -9,7 +9,7 @@ ms.topic: how-to
 
 The site map in the on-premises management console helps you achieve full security coverage by dividing your network into geographical and logical segments that reflect your business topology:
 
-- **Geographical facility level**: A site reflects a number of devices grouped according to a geographical location presented on the map. By default, Microsoft Defender for IoT provides you with a world map. You update the map to reflect your organizational or business structure. For example, use a map that reflects sites across a specific country, city, or industrial campus. When the site color changes on the map, it provides the SOC team with an indication of critical system status in the facility.
+- **Geographical facility level**: A site reflects many devices grouped according to a geographical location presented on the map. By default, Microsoft Defender for IoT provides you with a world map. You update the map to reflect your organizational or business structure. For example, use a map that reflects sites across a specific country, city, or industrial campus. When the site color changes on the map, it provides the SOC team with an indication of critical system status in the facility.
 
   The map is interactive and enables opening each site and delving into this site's information.
 
