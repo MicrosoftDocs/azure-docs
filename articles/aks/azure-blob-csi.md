@@ -194,6 +194,7 @@ This hasn't been tested yet by Vybava and team. THey will get back to me
 
 ## Next steps
 
+- To learn how to manually setup a static persistent volume, see [Create and use a volume with Azure Blob storage](azure-csi-blob-storage-manual.md).
 - To learn how to use CSI driver for Azure disks, see [Use Azure disks with CSI driver](azure-disk-csi.md).
 - To learn how to use CSI driver for Azure Files, see [Use Azure Files with CSI driver](azure-files-csi.md).
 - For more about storage best practices, see [Best practices for storage and backups in Azure Kubernetes Service][operator-best-practices-storage].
