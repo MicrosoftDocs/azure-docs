@@ -6,13 +6,13 @@ author: asudbring
 ms.author: allensu
 ms.service: private-link
 ms.topic: how-to 
-ms.date: 05/25/2022
+ms.date: 06/02/2022
 ms.custom: template-how-to
 ---
 
 # Configure an application security group (ASG) with a private endpoint
 
-Azure Private endpoints support application security Groups for network security. Private endpoints can be associated with an existing ASG in your current infrastructure along side virtual machines and other network resources.
+Azure Private endpoints support application security groups for network security. Private endpoints can be associated with an existing ASG in your current infrastructure along side virtual machines and other network resources.
 
 ## Prerequisites
 
@@ -31,20 +31,10 @@ Azure Private endpoints support application security Groups for network security
 - An existing Azure Virtual Network and subnet in your subscription. For more information about creating a virtual network, see [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md).
 
     - The example virtual network used in this article is named **myVNet**. Replace the example with your virtual network.
-    
-- The latest version of the Azure CLI, installed.
-
-   Check your version of the Azure CLI in a terminal or command window by running `az --version`. For the latest version, see the most recent [release notes](/cli/azure/release-notes-azure-cli?tabs=azure-cli).
-  
-   If you don't have the latest version of the Azure CLI, update it by following the [installation guide for your operating system or platform](/cli/azure/install-azure-cli).
-
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. To find the installed version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install the Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure. 
 
 ## Create private endpoint with an ASG
 
 An ASG can be associated with a private endpoint when it's created. The following procedures demonstrate how to associate an ASG with a private endpoint when it's created.
-
-# [**Portal**](#tab/portal)
 
 1. Sign-in to the [Azure portal](https://portal.azure.com).
 
@@ -98,66 +88,12 @@ An ASG can be associated with a private endpoint when it's created. The followin
 
 12. Select **Create**.
 
-# [**PowerShell**](#tab/powershell)
-
-```azurepowershell-interactive
-## Place the previously created webapp into a variable. ##
-$webapp = Get-AzWebApp -ResourceGroupName myResourceGroup -Name myWebApp1979
-
-## Create the private endpoint connection. ## 
-$pec = @{
-    Name = 'myConnection'
-    PrivateLinkServiceId = $webapp.ID
-    GroupID = 'sites'
-}
-$privateEndpointConnection = New-AzPrivateLinkServiceConnection @pec
-
-## Place the virtual network you created previously into a variable. ##
-$vnet = Get-AzVirtualNetwork -ResourceGroupName 'myResourceGroup' -Name 'myVNet'
-
-## Place teh application security group you created previously into a variable. ##
-$asg = Get-AzApplicationSecurityGroup -ResourceGroupName 'myResourceGroup' -Name 'myASG'
-
-## Create the private endpoint. ##
-$pe = @{
-    ResourceGroupName = 'myResourceGroup'
-    Name = 'myPrivateEndpoint'
-    Location = 'eastus'
-    Subnet = $vnet.Subnets[0]
-    PrivateLinkServiceConnection = $privateEndpointConnection
-    ApplicationSecurityGroup = $asg
-}
-New-AzPrivateEndpoint @pe
-```
-
-# [**CLI**](#tab/cli)
-
-```azurecli-interactive
-id=$(az webapp list \
-    --resource-group myResourceGroup \
-    --query '[].[id]' \
-    --output tsv)
-
-az network private-endpoint create \
-    --connection-name myConnection \
-    --name myPrivateEndpoint \
-    --private-connection-resource-id $id \
-    --resource-group myResourceGroup \
-    --subnet myBackendSubnet \
-    --asg myASG \
-    --group-id sites \
-    --vnet-name myVNet    
-```
----
-
 ## Associate an ASG with an existing private endpoint
 
 An ASG can be associated with an existing private endpoint. The following procedures demonstrate how to associate an ASG with an existing private endpoint.
 
 > [!IMPORTANT]
 > You must have a previously deployed private endpoint to proceed with the steps in this section. The example endpoint used in this section is named **myPrivateEndpoint**. Replace the example with your private endpoint.
-
-# [**Portal**](#tab/portal)
 
 1. Sign-in to the [Azure portal](https://portal.azure.com).
 
@@ -172,24 +108,6 @@ An ASG can be associated with an existing private endpoint. The following proced
     :::image type="content" source="./media/configure-asg-private-endpoint/asg-existing-endpoint.png" alt-text="Screenshot of ASG selection when associating with an existing private endpoint.":::
 
 6. Select **Save**.
-
-# [**PowerShell**](#tab/powershell)
-
-PowerShell commands to associate an ASG with an existing private endpoint are currently unavailable.
-
-# [**CLI**](#tab/cli)
-
-```azurecli-interactive
-id=$(az network asg list \
-    --query '[].[id]' \
-    --output tsv)
-
-az network private-endpoint asg add \
-    --endpoint-name myPrivateEndpoint \
-    --resource-group myResourceGroup \
-    --asg id=$id
-```
----
 
 ## Next steps
 
