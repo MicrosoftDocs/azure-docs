@@ -3,7 +3,7 @@ title: Security posture for Microsoft Defender for Cloud
 description: Description of Microsoft Defender for Cloud's secure score and its security controls 
 author: Elazark
 ms.author: elkrieger
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/03/2022
 ---
 
