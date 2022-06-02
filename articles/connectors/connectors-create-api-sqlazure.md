@@ -34,9 +34,9 @@ The SQL Server connector has different versions, based on [logic app type and ho
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
-| **Consumption** | Multi-tenant Azure Logic Apps | [Managed connector - Standard class](managed.md). For more information, review the [SQL Server managed connector reference](/connectors/sql). |
-| **Consumption** | Integration service environment (ISE) | [Managed connector - Standard class](managed.md) and ISE version. For more information, review the [SQL Server managed connector reference](/connectors/sql). <br><br>**Note**: The ISE version uses the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits), not the managed version's message limits. |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | [Managed connector - Standard class](managed.md) and [built-in connector](built-in.md), which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). <br><br>The built-in version differs in the following ways: <br><br>- The built-in version has no triggers. <br><br>- The built-in version has a single **Execute Query** action. The action can directly connect to Azure virtual networks without the on-premises data gateway. <br><br>For the managed version, review the [SQL Server managed connector reference](/connectors/sql/). |
+| **Consumption** | Multi-tenant Azure Logic Apps | [Managed connector - Standard class](managed.md). For operations, limits, and other information, review the [SQL Server managed connector reference](/connectors/sql). |
+| **Consumption** | Integration service environment (ISE) | [Managed connector - Standard class](managed.md) and ISE version. For operations, managed connector limits, and other information, review the [SQL Server managed connector reference](/connectors/sql). For ISE-versioned limits, review the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits), not the managed connector's message limits. |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | [Managed connector - Standard class](managed.md) and [built-in connector](built-in.md), which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). <br><br>The built-in version differs in the following ways: <br><br>- The built-in version has no triggers. <br><br>- The built-in version has a single **Execute Query** action. The action can directly access Azure virtual networks with a connection string and doesn't need the on-premises data gateway. <br><br>For managed connector operations, limits, and other information, review the [SQL Server managed connector reference](/connectors/sql/). |
 ||||
 
 ## Prerequisites
@@ -66,7 +66,7 @@ The SQL Server connector has different versions, based on [logic app type and ho
 
     `Server={your-server-address};Database={your-database-name};User Id={your-user-name};Password={your-password};`
 
-* The logic app workflow where you want to access your SQL database. If you want to start your workflow with a SQL Server trigger operation, you have to start with a blank workflow.
+* The logic app workflow where you want to access your SQL database. To start your workflow with a SQL Server trigger, you have to start with a blank workflow. To use a SQL Server action, start your workflow with any trigger.
 
 <a name="multi-tenant-or-ise"></a>
 
@@ -80,7 +80,13 @@ The SQL Server connector has different versions, based on [logic app type and ho
 
   * Standard logic app workflow
 
-    You can use the SQL Server built-in connector, which requires a connection string. If you want to use the SQL Server managed connector, you need follow the same requirements as a Consumption logic app workflow in multi-tenant Azure Logic Apps.
+    You can use the SQL Server built-in connector, which requires a connection string. To use the SQL Server managed connector, follow the same requirements as a Consumption logic app workflow in multi-tenant Azure Logic Apps.
+
+For other connector requirements, review [SQL Server connector reference](/connectors/sql/).
+
+## Limitations
+
+For more information, review the [SQL Server connector reference](/connectors/sql/).
 
 <a name="add-sql-trigger"></a>
 
