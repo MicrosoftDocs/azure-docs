@@ -3,7 +3,7 @@ title: Create Dynatrace application - Azure partner solutions
 description: This article describes how to use the Azure portal to create an instance of Dynatrace.
 ms.topic: quickstart
 ms.service: partner-services
-ms.subservice: dynatatrace
+ms.subservice: dynatrace
 author: flang-msft
 ms.author: franlanglois
 ms.date: 06/07/2022
