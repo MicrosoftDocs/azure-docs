@@ -122,7 +122,7 @@ Yes, CloudKnox has various types of system report available that capture specifi
 
 For information about permissions usage reports, see [Generate and download the Permissions analytics report](product-permissions-analytics-reports.md).
 
-## Does CloudKnox integrate with third-party ITSM (Information Technology Security Management) tools?
+## Does CloudKnox integrate with third-party ITSM (Information Technology Service Management) tools?
 
 CloudKnox integrates with ServiceNow.
 
