@@ -266,7 +266,7 @@ This table displays a numbered list of the 500 top orders sorted by date of acqu
 | Customer Company Name | Customer Company Name | The company name provided by the customer. Name could be different than the city in a customer's Azure subscription. | CustomerCompanyName |
 | Order Purchase Date | Order Purchase Date | The date the commercial marketplace order was created. The format is yyyy-mm-dd. | OrderPurchaseDate |
 | Offer Name | Offer Name | The name of the commercial marketplace offering. | OfferName |
-| Is Private Offer | Is Private Offer | Indicates whether a marketplace offer is private or a public offer<ul><li>0 value indicates false</li><li>1 value indicates true</li</ul>**Note:** [Private plans are different from Private offers](isv-customer-faq.yml).  | Is Private Offer |
+| Is Private Offer | Is Private Offer | Indicates whether a marketplace offer is private or a public offer<ul><li>0 value indicates false</li><li>1 value indicates true</li></ul>**Note:** [Private plans are different from Private offers](isv-customer-faq.yml).  | Is Private Offer |
 | Not available | BillingTerm | Indicates the term duration of the offer purchased by the customer | BillingTerm |
 | Not available | BillingPlan | Indicates the billing frequency of the offer purchased by the customer | BillingPlan |
 | Term Start Date | TermStartDate | Indicates the start date of a term for an order | TermStartDate |
@@ -284,7 +284,8 @@ This table displays a numbered list of the 500 top orders sorted by date of acqu
 | Billing Account ID | Billing Account ID | The identifier of the account on which billing is generated. Map **Billing Account ID** to **customerID** to connect your Payout Transaction Report with the Customer, Order, and Usage Reports. | BillingAccountId |
 | Reference Id | ReferenceId | A key to link orders having usage details in usage report. Map this field value with the value for UsageReference key in usage report. This is applicable for SaaS with custom meters and VM software reservation offer types | ReferenceId |
 | PlanId | PlanId | The display name of the plan entered when the offer was created in Partner Center. Note that PlanId was originally a numeric number. | PlanId |
-| Auto Renew | AutoRenew | Indicates whether a subscription is due for an automatic renewal. Possible values are:<br><ul><li>TRUE: Indicates that on the TermEnd the subscription will renew automatically.</li><li>FALSE: Indicates that on the TermEnd the subscription will expire.</li><li>NULL: The product does not support renewals. Indicates that on the TermEnd the subscription will expire. This is displayed "-" on the UI</li></ul> | AutoRenew |
+| Auto Renew | Auto Renew | Indicates whether a subscription is due for an automatic renewal. Possible values are:<br><ul><li>TRUE: Indicates that on the TermEnd the subscription will renew automatically.</li><li>FALSE: Indicates that on the TermEnd the subscription will expire.</li><li>NULL: The product does not support renewals. Indicates that on the TermEnd the subscription will expire. This is displayed "-" on the UI</li></ul> | AutoRenew |
+| Not available | Event Timestamp | Indicates the timestamp of an order management event, such as an order purchase, cancelation, renewal, and so on | EventTimestamp |
 
 ### Orders page filters
 
