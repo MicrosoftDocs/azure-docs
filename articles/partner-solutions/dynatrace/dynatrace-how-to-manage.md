@@ -17,7 +17,6 @@ This article describes how to manage the settings for your Azure integration wit
 
 To see the details of your Dynatrace resource, select **Overview** in the left pane.
 
-<!-- $TODO: overview screenshot -->
 :::image type="content" source="media/dynatrace-how-to-manage/dynatrace-overview.png" alt-text="Screenshot of overview in the resource menu.":::
 
 The details include:
@@ -30,14 +29,13 @@ The details include:
 - Dynatrace billing plan
 - Billing term
 
-At the bottom, you see two tabs: 
+At the bottom, you see two tabs:
 
 - **Get started tab** also provides links to Dynatrace dashboards, logs and Smartscape Topology.
 - **Monitoring tab** provides a summary of the resources sending logs to Dynatrace.
 
 If you select the **Monitoring** pane, you see a table with information about the Dynatrace resource.
 
-<!-- $TODO: Monitoring screenshot -->
 :::image type="content" source="media/dynatrace-how-to-manage/dynatrace-monitoring.png" alt-text="Screenshot of overview working pane showing monitoring.":::
 
 The columns in the table denote important information for your resource:
@@ -50,7 +48,7 @@ The columns in the table denote important information for your resource:
 
 To change the configuration rules for logs, select **Metrics and logs** in the Resource menu on the left.
 
-<!-- $TODO: Metrics and logs screenshot for resource. -->
+:::image type="content" source="media/dynatrace-how-to-manage/dynatrace-metrics-and-logs.png" alt-text="Screenshot showing options for metrics and logs":::
 
 For more information, see [Configure metrics and logs](dynatrace-create.md#configure-metrics-and-logs).
 
@@ -58,7 +56,6 @@ For more information, see [Configure metrics and logs](dynatrace-create.md#confi
 
 To see the list of resources emitting logs to Dynatrace, select Monitored Resources in the left pane.
 
-<!-- $TODO: Monitored resources screenshot. -->
 :::image type="content" source="media/dynatrace-how-to-manage/dynatrace-monitored-resources.png" alt-text="Screenshot showing monitored resources in the working pane.":::
 
 You can filter the list of resources by resource type, resource group name, region and whether the resource is sending logs.
@@ -68,7 +65,7 @@ The column **Logs to Dynatrace** indicates whether the resource is sending logs 
 - _Resource doesn't support sending logs_ - Only resource types with monitoring log categories can be configured to send logs. See [supported categories](/azure/azure-monitor/essentials/resource-logs-categories).
 - _Limit of five diagnostic settings reached_ - Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings).
 - _Error_ The resource is configured to send logs to Dynatrace, but is blocked by an error.
-- _Logs not configured_ - Only Azure resources that have the appropriate resource tags are configured to send logs to Dynatrace. 
+- _Logs not configured_ - Only Azure resources that have the appropriate resource tags are configured to send logs to Dynatrace.
 - _Agent not configured_ - Virtual machines without the Dynatrace OneAgent installed don't emit logs to Dynatrace.
 
 ## Monitor virtual machines using Dynatrace OneAgent
