@@ -20,9 +20,9 @@ Azure Firewall Manager is a platform to manage and protect your network security
 
 In Azure Firewall Manager, you can create and view all WAF policies in one central place across subscriptions and regions. 
 
-To navigate to WAF policies, select the Web Application Firewall Policies tab on the left, under **Security**.
+To navigate to WAF policies, select the **Web Application Firewall Policies** tab on the left, under **Security**.
 
-:::image type="content" source="../media/manage-policies/policies.png" alt-text="Screenshot showing Web Application Firewall policies in Firewall Manager.":::
+:::image type="content" source="../media/manage-policies/policies.png" alt-text="Screenshot showing Web Application Firewall policies in Firewall Manager." lightbox="../media/manage-policies/policies.png":::
 
 ## Associate of dissociate WAF policies
 
