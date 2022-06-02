@@ -84,14 +84,14 @@ The **Appearance + startup views** pane has two sections. The **Appearance** sec
 
 :::image type="content" source="media/set-preferences/azure-portal-settings-appearance.png" alt-text="Screenshot showing the Appearance section of Appearance + startup views.":::
 
-### Menu behavior
+### Set menu behavior
 
 The **Menu behavior** section lets you choose how the default Azure portal menu behaves.
 
 - **Flyout**: The menu will be hidden until you need it. You can select the menu icon in the upper left hand corner to open or close the menu.
 - **Docked**: The menu will always be visible. You can collapse the menu to provide more working space.
 
-### Themes and high contrast
+### Choose a theme or enable high contrast
 
 The theme that you choose affects the background and font colors that appear in the Azure portal. In the **Theme** section, you can select from one of four preset color themes. Select each thumbnail to find the theme that best suits you.
 
