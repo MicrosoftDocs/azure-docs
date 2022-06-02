@@ -41,7 +41,7 @@ To configure the Temporary Access Pass authentication method policy:
 1. Sign in to the Azure portal as a Global admin or Authentication Policy admin and click **Azure Active Directory** > **Security** > **Authentication methods** > **Temporary Access Pass**.
 ![Screenshot of how to enable the Temporary Access Pass authentication method policy](./media/how-to-authentication-temporary-access-pass/policy.png)
 1. Set Enable to **Yes** to enable the policy, select which users have the policy applied. 
-![Screenshot of how to enable the Temporary Access Pass authentication method policy](./media/how-to-authentication-temporary-access-pass/policy_scope.png)
+![Screenshot of how to enable the Temporary Access Pass authentication method policy scoping](./media/how-to-authentication-temporary-access-pass/policy_scope.png)
 1. (Optional) Click **Configure** and modify the default Temporary Access Pass settings, such as setting maximum lifetime, or length. 
 ![Screenshot of how to customize the settings for Temporary Access Pass](./media/how-to-authentication-temporary-access-pass/policy_settings.png)
 1. Click **Save** to apply the policy. 
