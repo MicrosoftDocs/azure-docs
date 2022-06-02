@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic:  conceptual
-ms.date: 12/17/2021
+ms.date: 06/02/2022
 ms.author: cshoe
 ---
 
@@ -44,16 +44,16 @@ To link an Azure API Management service as the API backend for a static web app,
 
 1. Select **Link**.
 
-When the linking process is complete, requests to routes beginning with `/api/` are proxied to your Azure API Management service. However, no APIs are exposed by default. You need to configure an API Management product to allow the APIs you want to use.
+When the linking process is complete, requests to routes beginning with `/api/` are proxied to your Azure API Management service. However, no APIs are exposed by default. See [Manage access to APIs](#manage-access-to-apis) to configure an API Management product to allow the APIs you want to use.
 
 ### Manage access to APIs
 
-Azure API Management has a feature named *products* that defines how APIs are surfaced. As part of the linking process, your API Management service is configured with a product named `Azure Static Web Apps - <STATIC_WEB_APP_AUTO_GENERATED_HOSTNAME> (Linked)`. To make APIs available to your linked static web app, add them to this product.
+Azure API Management has a *products* feature that defines how APIs are surfaced. As part of the linking process, your API Management service is configured with a product named `Azure Static Web Apps - <STATIC_WEB_APP_AUTO_GENERATED_HOSTNAME> (Linked)`. To make APIs available to your linked static web app, [add them to this product](/api-management/api-management-howto-add-products.md#add-apis-to-a-product).
 
-The linking process also automatically configures your API Management service with the following:
+The linking process also automatically applies the following configuration to your API Management service:
 
 * The product associated with the linked static web app is configured to require a subscription.
-* A subscription named `Azure Static Web Apps - <STATIC_WEB_APP_AUTO_GENERATED_HOSTNAME> (Linked)` is created. It's scoped to the product with the same name.
+* An API Management subscription named `Azure Static Web Apps - <STATIC_WEB_APP_AUTO_GENERATED_HOSTNAME> (Linked)` is created. It's scoped to the product with the same name.
 * An inbound *validate-jwt* policy is added to the product to allow only requests that contain a valid access token from the linked static web app.
 * The linked static web app is configured to include the subscription's primary key and a valid access token when proxying requests to the API Management service.
 
@@ -73,7 +73,7 @@ To unlink an Azure API Management service from a static web app, follow these st
 When the unlinking process is complete, requests to routes beginning with `/api/` are no longer proxied to your API Management service.
 
 > [!NOTE]
-> The product and subscription associated with the linked static web app are not automatically deleted. You can delete them from the API Management service.
+> The API Management product and subscription associated with the linked static web app are not automatically deleted. You can delete them from the API Management service.
 
 ## Next steps
 
