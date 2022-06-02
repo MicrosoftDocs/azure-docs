@@ -214,7 +214,7 @@ The top-level `self` property in the response body is the evaluation's URI. Use 
 
 ## Get test results
 
-You should get the test results and [inspect](#compare-transcriptions-with-audio) the audio datasets compared to transcription results for each model.
+You should get the test results and [inspect](#compare-transcription-with-audio) the audio datasets compared to transcription results for each model.
 
 ::: zone pivot="speech-studio"
 
