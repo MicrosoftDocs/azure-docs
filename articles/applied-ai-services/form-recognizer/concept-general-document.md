@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/08/2022
+ms.date: 06/06/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -27,12 +27,11 @@ The general document API supports most form types and will analyze your document
 
 * The general document model is a pre-trained model, doesn't require labels or training.
 
-* A single API extracts key-value pairs, selection marks entities, text, tables, and structure from documents.
+* A single API extracts key-value pairs, selection marks, entities, text, tables, and structure from documents.
 
 * The general document model supports structured, semi-structured, and unstructured documents.
 
 * Key names are spans of text within the document that are associated with a value.
-
 
 * Selection marks are identified as fields with a value of ```:selected:``` or ```:unselected:``` 
 
@@ -78,15 +77,15 @@ You'll need the following resources:
 
 ## Key-value pairs
 
-Key-value pairs are specific spans within the document that identify a label or key and its associated response or value. In a structured form, these pairs could be the label and the value the user entered for that field or in an unstructured  document they could be the date a contract was executed on based on the text in a paragraph.  The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats, and structures.
+Key-value pairs are specific spans within the document that identify a label or key and its associated response or value. In a structured form, these pairs could be the label and the value the user entered for that field. In an unstructured  document, they could be the date a contract was executed on based on the text in a paragraph.  The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats, and structures.
 
-Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field may be left blank on a form in some instances. key-value pairs are always spans of text contained in the document and if you have documents where same value is described in different ways, for example, a customer or a user, the associated key will be either customer or user based on what the document contained. 
+Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field may be left blank on a form in some instances. Key-value pairs are spans of text contained in the document. If you have documents where the same value is described in different ways, for example, customer and user, the associated key will be either customer or user based on context.
 
 ## Entities
 
 Natural language processing models can identify parts of speech and classify each token or word. The named entity recognition model is able to identify entities like people, locations, and dates to provide for a richer experience. Identifying entities enables you to distinguish between customer types, for example,  an individual or an organization.
 
-The key value pair extraction model and entity identification model are run in parallel on the entire document and not just on the values of the extracted key-value pairs. This process ensures that complex structures where a key can't be identified is still enriched by identifying the entities referenced. You can still match keys or values to entities based on the offsets of the identified spans.
+The key-value pair extraction model and entity identification model are run in parallel on the entire document—not just on the values of the extracted key-value pairs. This process ensures that complex structures where a key can't be identified is still enriched by identifying the entities referenced. You can still match keys or values to entities based on the offsets of the identified spans.
 
 * The general document is a pre-trained model and can be directly invoked via the REST API.
 
