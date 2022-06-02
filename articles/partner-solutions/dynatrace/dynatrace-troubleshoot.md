@@ -49,7 +49,6 @@ This document contains information about troubleshooting your solutions that use
 - **App not showing in Single sign-on settings page** - First, search for application ID. If no result is shown, check the SAML settings of the app. The grid only shows apps with correct SAML settings.
     The following image shows the correct values.
 
-
 ## Next steps
 
-- Learn about [managing your instance](dynatrace-manage.md) of Dynatrace.
+- Learn about [managing your instance](dynatrace-how-to-manage.md) of Dynatrace.

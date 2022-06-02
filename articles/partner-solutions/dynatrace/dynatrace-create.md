@@ -32,13 +32,13 @@ Use the Azure portal to find Dynatrace for Azure application.
 1. Go to the [Azure portal](https://portal.azure.com) and sign in.
 
 2. If you've visited the **Marketplace** in a recent session, select the icon from the available options. Otherwise, search for *Marketplace*.
-    
+
     :::image type="content" source="media/dynatrace-create/dynatrace-search-marketplace.png" alt-text="Screenshot showing a search for Marketplace in the Azure portal.":::
 
 3. In the Marketplace, search for **Dynatrace for Azure** from the available offerings.
 
 4. Select setup + subscribe.
-    <!-- $TODO -- Screenshot -- Marketplace offer, highlight setup + subscribe. 
+    <!-- $TODO -- Screenshot -- Marketplace offer, highlight setup + subscribe.
         I do not see setup + subscribe. -->
 
 ## Create a Dynatrace resource in Azure
@@ -51,11 +51,11 @@ Use the Azure portal to find Dynatrace for Azure application.
     :::image type="content" source="media/dynatrace-create/dynatrace-create-new-link-existing.png" alt-text="Screenshot showing two options: new Dynatrace or existing Dynatrace.":::
 
 1. You then see a the form to create a Dynatrace resource in the working pane.
-    
+
     :::image type="content" source="media/dynatrace-create/dynatrace-basic-properties.png" alt-text="Screenshot of basic properties needed for new Dynatrace instance.":::
 
 1. Provide the following values:
-    
+
     | **Property** |   **Description** |
     |--------------|-------------------|
     | Subscription | Select the Azure subscription you want to use for creating the Dynatrace resource. You must have owner or contributor access.|
@@ -64,7 +64,7 @@ Use the Azure portal to find Dynatrace for Azure application.
     | Location        | Select the region. Both the Dynatrace resource in Azure and Dynatrace environment will be created in the selected region.|
     | Pricing plan    | Select from the list of available plans. |
     | Billing Term    | <!-- $TODO? --> |
-    
+
 ### Configure metrics and logs
 
 1. Your next step is to configure metrics and logs.  When creating the Dynatrace resource, you can set up automatic log forwarding for two types of logs:
@@ -104,4 +104,4 @@ Use the Azure portal to find Dynatrace for Azure application.
 
 ## Next steps
 
-- [Manage the Dynatrace resource](dynatrace-manage.md)
+- [Manage the Dynatrace resource](dynatrace-how-to-manage.md)

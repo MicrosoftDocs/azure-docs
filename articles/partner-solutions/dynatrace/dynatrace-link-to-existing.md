@@ -40,7 +40,7 @@ Before you link the subscription to a Dynatrace environment, [complete pre-deplo
 
 1. In the plan overview screen, select **Setup + subscribe**.
 
-    <!-- $TODO: Dynatrace offer screenshot. 
+    <!-- $TODO: Dynatrace offer screenshot.
     I do not see this-->
 
 ## Link to existing Dynatrace environment
@@ -50,7 +50,6 @@ Before you link the subscription to a Dynatrace environment, [complete pre-deplo
 1. If you're linking the Azure subscription to an existing Dynatrace environment, select **Create** under the **Link Azure subscription to an existing Dynatrace environment** option.
 
      :::image type="content" source="media/dynatrace-link-to-existing/dynatrace-create-new-link-existing.png" alt-text="Show screenshot where creating a link to an existing Dynatrace environment is highlighted.":::
-
 
 1. The process creates a new Dynatrace resource in Azure and links it to an existing Dynatrace environment hosted on Azure. You see  a form to create the Dynatrace resource in the working pane.
 
@@ -122,4 +121,4 @@ Before you link the subscription to a Dynatrace environment, [complete pre-deplo
 
 ## Next steps
 
-- [Manage the Dynatrace resource](dynatrace-manage.md)
+- [Manage the Dynatrace resource](dynatrace-how-to-manage.md)
