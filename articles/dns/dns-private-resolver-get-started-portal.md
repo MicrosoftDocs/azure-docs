@@ -125,7 +125,7 @@ To apply your forwarding ruleset to the second virtual network, you must create 
 2. Select **Virtual Network Links**, select **Add**, choose **myvnet2** and use the default Link Name **myvnet2-link**.
 3. Select **Add** and verify that the link was added successfully.  You might need to refresh the page.
 
-    ![ruleset virtual network links](./media/dns-resolver-getstarted-portal/ruleset-links.png)
+    ![screenshot of ruleset virtual network links](./media/dns-resolver-getstarted-portal/ruleset-links.png)
 
 ## Configure a DNS forwarding ruleset
 
@@ -138,7 +138,7 @@ Add or remove specific rules your DNS forwarding ruleset as desired, such as:
 
 Individual rules can be deleted or disabled. In this example, a rule is deleted.
 
-1. Search for **Dns Forwarding Rulesets** in the Azure Services list and and select it.
+1. Search for **Dns Forwarding Rulesets** in the Azure Services list and select it.
 2. Select the ruleset you previously configured (ex: **myruleset**) and then select **Rules**.
 3. Select the **contosocom** sample rule that you previously configured, select **Delete**, and then select **OK**.
 
@@ -162,7 +162,7 @@ Add three new conditional forwarding rules to the ruleset.
     - Rule State: **Enabled**
 6. Under **Destination IP address** enter 10.5.5.5, and then click **Add**.
 
-    ![forwarding ruleset](./media/dns-resolver-getstarted-portal/ruleset.png)
+    ![screenshot of the forwarding ruleset](./media/dns-resolver-getstarted-portal/ruleset.png)
 
 In this example: 
 - 10.0.0.4 is the resolver's inbound endpoint. 
