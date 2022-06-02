@@ -1,17 +1,17 @@
 ---
-title: Use Azure AD to securely import/export a managed disk
+title: Restrict upload/download of managed disks with Azure AD
 description: Learn how to use Azure AD to securely import/export a disk.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/01/2022
+ms.date: 06/02/2022
 ms.author: rogarana
 ms.subservice: disks
 ---
 
 # Use Azure AD to securely import/export a managed disk (preview)
 
-You can use Azure Active Directory (Azure AD) to secure the export and import of data to Azure managed disks. This feature is currently in preview. When using Azure AD, you can ensure that the system validates the identity of the requesting user in Azure AD, and that the user has the required permissions to export and import that disk. At a higher level, a system administrator could set a policy at the Azure account or subscription level to ensure that all disks and snapshots must use Azure AD for import or export.
+If you're already using [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) to control resource access, you can now use it to restrict the export and import of Azure managed disks. This feature is currently in preview. When a user attempts to download or upload a disk, Azure validates the identity of the requesting user in Azure AD, and confirms that user has the required permissions. At a higher level, a system administrator could set a policy at the Azure account or subscription level to ensure that all disks and snapshots must use Azure AD for import or export.
 
 ## Pre-requisites
 
