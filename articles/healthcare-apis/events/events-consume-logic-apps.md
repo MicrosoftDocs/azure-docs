@@ -16,7 +16,7 @@ This tutorial shows how to use Azure Logic Apps to process Azure Health Data Ser
 
 Here is an example of a Logic App workflow:
 
-:::image type="content" source="media/events-logic-example/events-logic-example.png" alt-text="Example of a Logic App workflow." lightbox="./media/events-logic-example/events-logic-example.png":::
+:::image type="content" source="media/events-logic-apps/events-logic-example.png" alt-text="Example of a Logic App workflow." lightbox="./media/events-logic-apps/events-logic-example.png":::
 
 The workflow is on the left and the trigger condition is on the right.
 
