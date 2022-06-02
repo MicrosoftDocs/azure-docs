@@ -25,8 +25,10 @@ landingContent:
             url: dynatrace-overview.md
       - linkListType: how-to-guide
         links:
-          - text: Manage the Dynatrace integration with Azure
-            url: dynatrace-manage.md
+          - text: Complete the prerequisites for Dynatrace
+            url: dynatrace-how-to-configure-prereqs.md
+          - text: Manage the Dynatrace for Azure integration
+            url: dynatrace-how-to-manage.md
 
   # Card
   - title: Create Dynatrace resource

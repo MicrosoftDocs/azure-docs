@@ -13,8 +13,10 @@
     href: dynatrace-link-to-existing.md
 - name: How to
   items:
-  - name: Manage integration
-    href: dynatrace-manage.md
+  - name: Configure prerequisites
+    href: dynatrace-how-to-configure-prereqs.md
+  - name: Manage Dynatrace
+    href: dynatrace-how-to-manage.md
   - name: Troubleshoot
     href: dynatrace-troubleshoot.md
 #- name: Reference
