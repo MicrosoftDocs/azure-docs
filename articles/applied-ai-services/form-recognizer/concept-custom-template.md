@@ -22,9 +22,15 @@ Custom template models share the same labeling format and strategy as custom neu
 
 Custom template models support key-value pairs, selection marks, tables, signature fields, and selected regions. 
 
-| Form fields | Selection marks | Structured fields (Tables) | Signature | Selected regions |
+| Form fields | Selection marks | Tabular fields (Tables) | Signature | Selected regions |
 |--|--|--|--|--|
 | Supported| Supported | Supported | Preview | Supported |
+
+## Tabular fields 
+
+Tabular fields in custom template models starting with API verison ```2022-06-30-preview``` are **cross page**. Models trained with API version 2022-06-30-preview or later will accept tabular field labels across pages and documents analyzed with the model with API version 2022-06-30-preview or later will produce tabular field results that are aggregated across the tables. 
+
+Tabular filds support **cross page tables** by default. To label a table that spans multiple pages, label each row of the table across the different pages in the single table. As a best practice ensure that your dataset contains a few samples of the expected variations, for example include samples where the entire table is on a single page, samples of tables spanning two or more pages.
 
 ## Dealing with variations 
 

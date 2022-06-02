@@ -25,9 +25,14 @@ Form Recognizer v3.0 (preview) introduces several new features and capabilities:
 * [**Custom document model (v3.0)**](concept-custom-neural.md) is a new custom model type to extract fields from structured and unstructured documents.
 * [**Receipt (v3.0)**](concept-receipt.md) model supports single-page hotel receipt processing.
 * [**ID document (v3.0)**](concept-id-document.md) model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
-* [**Custom model API (v3.0)**](concept-custom.md) supports signature detection for custom forms.
+* [**Custom model API (v3.0)**](concept-custom.md) supports signature detection for custom template models.
+* [**Custom model API (v3.0)**](overview.md) supports analysis of all the newly added prebuilt models. For a complete list of prebuilt models, see the [oveview](overview.md) page.
 
 In this article, you'll learn the differences between Form Recognizer v2.1 and v3.0 and how to move to the newer version of the API.
+
+> [!IMPORTANT]
+>
+> REST API verison 2022-06-30-preview includes a breaking change in the REST API analyze response JSON. The `boundingBox` property is renamed to `polygon` in each instance.
 
 ## Changes to the REST API endpoints
 
@@ -89,8 +94,8 @@ Base64 encoding is also supported in Form Recognizer v3.0:
 
 Parameters that continue to be supported:
 
-* `pages`
-* `locale`
+* `pages` : Analyze only a specific subset of pages in the document. List of 1-based page numbers to analyze. Ex. "1-3,5,7-9"
+* `locale` : Locale hint for text recognition and document analysis. Value may contain only the language code (ex. "en", "fr") or BCP 47 language tag (ex. "en-US").
 
 Parameters no longer supported: 
 
@@ -131,7 +136,7 @@ Analyze response has been refactored to the following top-level results to suppo
 "angle": 0, // Orientation of content in clockwise direction (degree)
 "width": 0, // Page width
 "height": 0, // Page height
-"unit": "pixel", // Unit for width, height, and bounding box coordinates
+"unit": "pixel", // Unit for width, height, and polygon coordinates
 "spans": [ // Parts of top-level content covered by page
 {
 "offset": 0, // Offset in content
@@ -167,10 +172,10 @@ Analyze response has been refactored to the following top-level results to suppo
 {
 "rowCount": 1, // Number of rows in table
 "columnCount": 1, // Number of columns in table
-"boundingRegions": [ // Bounding boxes potentially across pages covered by table
+"boundingRegions": [ // Polygons or Bounding boxes potentially across pages covered by table
 {
 "pageNumber": 1, // 1-indexed page number
-"boundingBox": [ ... ], // Bounding box
+"polygon": [ ... ], // Previously Bounding box, renamed to polygon in the 2022-06-30-preview API
 }
 ],
 "spans": [ ... ], // Parts of top-level content covered by table // List of cells in table

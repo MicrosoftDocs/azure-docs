@@ -30,6 +30,10 @@ For the usage with [Form Recognizer SDK](quickstarts/try-v3-csharp-sdk.md), [For
 | Adjustable | No | No |
 | **Max size of OCR json response** | 500MB | 500MB |
 | Adjustable | No | No |
+| **Max number of Template models** | 500 | 5000 |
+| Adjustable | No | No |
+| **Max number of Neural models** | 100 | 500 |
+| Adjustable | No | No |
 
 
 # [Form Recognizer v2.1 (GA)](#tab/v21)
