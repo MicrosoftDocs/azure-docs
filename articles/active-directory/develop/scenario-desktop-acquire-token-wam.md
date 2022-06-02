@@ -1,6 +1,5 @@
 ---
-title: Acquire a token to call a web API using web account manager (desktop app) | Azure
-titleSuffix: Microsoft identity platform
+title: Acquire a token to call a web API using web account manager (desktop app)
 description: Learn how to build a desktop app that calls web APIs to acquire a token for the app using web account manager
 services: active-directory
 author: CelesteDG
