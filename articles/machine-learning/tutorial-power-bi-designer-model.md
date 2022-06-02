@@ -76,7 +76,7 @@ Your inference cluster **Status** is now **Creating**. Your single node cluster 
 
 In this tutorial, you use the [Diabetes dataset](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.html). This dataset is  available in [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/).
 
-To create the dataset, in the menu on the left, select **Datasets**. Then select **Create dataset**. You see the following options:
+To create the dataset, in the menu on the left, select **Data**. Then select **Create**. You see the following options:
 
 :::image type="content" source="media/tutorial-power-bi/create-dataset.png" alt-text="Screenshot showing how to create a new dataset.":::
 
@@ -98,7 +98,8 @@ The data has 10 baseline input variables, such as age, sex, body mass index, ave
 
 After you create the compute and datasets, you can use the designer to create the machine learning model. In Azure Machine Learning Studio, select **Designer** and then **New pipeline**:
 
-:::image type="content" source="media/tutorial-power-bi/create-designer.png" alt-text="Screenshot showing how to create a new pipeline.":::
+:::image type="content" source="media/tutorial-designer-automobile-price-train-score/launch-designer.png" alt-text="Screenshot showing howo to create a new pipeline.":::
+
 
 You see a blank *canvas* and a **Settings** menu:
 
