@@ -156,8 +156,8 @@ This section records information calculated from the converted asset.
 
 ## Deprecated features
 
-The conversion service writes the files `stdout.txt` and `stderr.txt` to the output container, and these had been the only source of warnings and errors.
-These files are now deprecated. Instead, please use
+The conversion service writes the files `stdout.txt` and `stderr.txt` to the output container, and these files had been the only source of warnings and errors.
+These files are now deprecated. Instead, use
 [result files](#information-about-a-conversion-the-result-file) for this purpose.
 
 ## Next steps

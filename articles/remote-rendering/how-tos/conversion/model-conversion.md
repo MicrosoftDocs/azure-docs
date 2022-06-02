@@ -27,14 +27,14 @@ There are minor differences between the formats with regard to material property
 ### Point clouds
 
 * **XYZ**
-* **PLY** : There exist both text and binary version of the file, and vertex properties can be encoded in various ways. These are the current requirements for the file format:
-  * file is encoded using the "binary_little_endian 1.0" format,
-  * file contains a point cloud (i.e. no triangles),
-  * positions contain all 3 components (x, y, z),
-  * colors contain all 3 components (red, green, blue).
+* **PLY** : There's both a text- and binary version of the file format, and vertex properties can be encoded in various ways. Here are the current requirements for the file format:
+  * file is encoded using the `binary_little_endian 1.0` format,
+  * file contains a point cloud (that is, no triangles),
+  * positions contain all three components (x, y, z),
+  * colors contain all three components (red, green, blue).
 
-  In case any other properties exist, they are just ignored during ingestion. Every PLY file have a human-readable header, which can be used to verify whether given file complies.
-* **E57** : E57 contains two types of data: "data3d" and "image2d". The conversion service only loads the "data3d" part of the file, while the "image2d" part of the file is being ignored.
+  In case any other properties exist, they're ignored during ingestion. Every PLY file has a human-readable header, which can be used to verify whether given file complies.
+* **E57** : E57 contains two types of data: `data3d` and `image2d`. The conversion service only loads the `data3d` part of the file, while the `image2d` part of the file is being ignored.
 
 ## The conversion process
 

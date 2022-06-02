@@ -122,7 +122,7 @@ void LoadModel(ApiHandle<RenderingSession> session, ApiHandle<Entity> modelParen
 }
 ```
 
-Afterwards you can traverse the entity hierarchy and modify the entities and components. Loading the same model multiple times creates multiple instances, each with their own copy of the entity/component structure. Since meshes, materials, and textures are [shared resources](../concepts/lifetime.md), their data will not be loaded again, though. Therefore instantiating a model more than once incurs relatively little memory overhead.
+Afterwards you can traverse the entity hierarchy and modify the entities and components. Loading the same model multiple times creates multiple instances, each with their own copy of the entity/component structure. Since meshes, materials, and textures are [shared resources](../concepts/lifetime.md), their data won't be loaded again, though. Therefore instantiating a model more than once incurs relatively little memory overhead.
 
 ## API documentation
 
