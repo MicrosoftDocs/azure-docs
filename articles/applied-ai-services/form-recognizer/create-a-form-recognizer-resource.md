@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 01/06/2022
+ms.date: 06/06/2022
 ms.author: bemabonsu
 recommendations: false
 #Customer intent: I want to learn how to use create a Form Recognizer service in the Azure portal.
@@ -71,4 +71,9 @@ That's it! You're now ready to start automating data extraction using Azure Form
 
 * Try the [Form Recognizer Studio](concept-form-recognizer-studio.md), an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service into your applications.
 
-* Complete a Form Recognizer [C#](quickstarts/try-v3-csharp-sdk.md),[Python](quickstarts/try-v3-python-sdk.md), [Java](quickstarts/try-v3-java-sdk.md), or [JavaScript](quickstarts/try-v3-javascript-sdk.md) quickstart and get started creating a document processing app in the development language of your choice.
+* Complete a Form Recognizer quickstart and get started creating a document processing app in the development language of your choice:
+
+  * [C#](quickstarts/try-v3-csharp-sdk.md)
+  * [Python](quickstarts/try-v3-python-sdk.md)
+  * [Java](quickstarts/try-v3-java-sdk.md)
+  * [JavaScript](quickstarts/try-v3-javascript-sdk.md)
