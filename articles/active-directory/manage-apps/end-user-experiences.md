@@ -1,6 +1,5 @@
 ---
 title: End-user experiences for applications
-titleSuffix: Microsoft Entra
 description: Azure Active Directory (Azure AD) provides several customizable ways to deploy applications to end users in your organization.
 services: active-directory
 author: lnalepa
