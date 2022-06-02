@@ -125,7 +125,7 @@ To apply your forwarding ruleset to the second virtual network, you must create 
 2. Select **Virtual Network Links**, select **Add**, choose **myvnet2** and use the default Link Name **myvnet2-link**.
 3. Select **Add** and verify that the link was added successfully.  You might need to refresh the page.
 
-    ![screenshot of ruleset virtual network links](./media/dns-resolver-getstarted-portal/ruleset-links.png)
+    ![Screenshot of ruleset virtual network links.](./media/dns-resolver-getstarted-portal/ruleset-links.png)
 
 ## Configure a DNS forwarding ruleset
 
@@ -162,7 +162,7 @@ Add three new conditional forwarding rules to the ruleset.
     - Rule State: **Enabled**
 6. Under **Destination IP address** enter 10.5.5.5, and then click **Add**.
 
-    ![screenshot of the forwarding ruleset](./media/dns-resolver-getstarted-portal/ruleset.png)
+    ![Screenshot of a forwarding ruleset example.](./media/dns-resolver-getstarted-portal/ruleset.png)
 
 In this example: 
 - 10.0.0.4 is the resolver's inbound endpoint. 
