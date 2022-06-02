@@ -28,6 +28,7 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
 - **Known issues**
   - The Reserved instances (RI) feature in Azure Database for MySQL – Flexible server is not working properly for the Business Critical service tier, after its rebranding from the Memory Optimized service tier. Specifically, instance reservation has stopped working, and we are currently working to fix the issue.
+  - Private DNS integration details are not displayed on few Azure Database for MySQL Database flexible servers which have HA option enabled. This issue does not have any impact on availability of the server or name resolution. We are working on a permanent fix to resolve the issue and it will be available in the next deployment. Meanwhile, if you want to view the Private DNS Zone details, you can either search under [Private DNS zones](../../dns/private-dns-getstarted-portal.md) in the Azure portal or you can perform a [manual failover](concepts-high-availability.md#planned-forced-failover) of the HA enabled flexible server and refresh the Azure portal.
 
 ## April 2022
 
