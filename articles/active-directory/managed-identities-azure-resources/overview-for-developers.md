@@ -12,7 +12,7 @@ ms.subservice: msi
 ms.devlang:
 ms.topic: overview
 ms.custom: mvc
-ms.date: 04/20/2022
+ms.date: 06/02/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # How can I connect to Azure resources in my application without handling credentials?
 
-This page explains how developers can use Managed identities so that Azure resources can connect to resources that support authentication with Azure Active Directory, without needing to handle or store any credentials.
+This page explains how developers can use Managed identities so that Azure resources can connect to resources that support authentication with Azure Active Directory, without needing to handle or store any credentials. This is the recommended approach where resources support the ability to authentiate using a managed identity.
 
 The example provided will show how an Azure App Service can connect to Azure Key Vault, Azure Storage, and Microsoft SQL Server. However the same principles can be used with any Azure resource that supports Managed Identities that will connect to endpoints that support Azure Active Directory authentication. 
 
@@ -246,12 +246,20 @@ _pom.xml_
 ```
 
 ```java
+DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
+        .managedIdentityClientId("<Client ID of User-assigned identity>")
+        .build();
+
 BlobServiceClient blobStorageClient = new BlobServiceClientBuilder()
-    .endpoint("<URI of Storage account>")
-    .credential(new DefaultAzureCredentialBuilder().build())
-    .buildClient();
-    
-    //??
+        .endpoint("<URI of Storage account>")
+        .credential(credential)
+        .buildClient();
+
+BlobContainerClient blobContainerClient = blobStorageClient.getBlobContainerClient("<name of blob container>");
+BlobClient blobClient = blobContainerClient.getBlobClient("<name of blob/file>");
+if (blobClient.exists()) {
+    String blobContent = blobClient.downloadContent().toString();
+}
 ```    
 ---
 
@@ -330,11 +338,8 @@ For performance and reliability, we recommend that your application caches token
 ### Token inspection
 Your application shouldn't rely on the contents of a token. The token's content is intended only for the audience (target endpoint) that is being accessed, not the client that's requesting the token. The token content may change or be encrypted in the future.
 
-### Retry stuff
-_Something about retrying_
-
 ### Don't expose tokens
-Tokens should be treated like credentials - don't expose them in your application. _Something about client side requests?_
+Tokens should be treated like credentials - don't expose them in your application.
 
 ## Next steps
 
