@@ -184,7 +184,6 @@ While 'how many workspaces and which ones to use' is the first architecture ques
 
 Watch the webinar: Manage Your Log Lifecycle with New Methods for Ingestion, Archival, Search, and Restoration, [here](https://www.youtube.com/watch?v=LgGpSJxUGoc&ab_channel=MicrosoftSecurityCommunity).
 
-
 This suite of features contains:
 
 * **Basic ingestion tier**: new pricing tier for Azure Log Analytics that allows for logs to be ingested at a lower cost. This data is only retained in the workspace for 8 days total.
@@ -203,7 +202,6 @@ Need more depth? Watch the Improving the Breadth and Coverage of Threat Hunting 
 If you prefer another long-term retention solution, [export from Microsoft Sentinel / Log Analytics to Azure Storage and Event Hub](https://docs.microsoft.com/en-us/cli/azure/monitor/log-analytics/workspace/data-export?view=azure-cli-latest&viewFallbackFrom=azure-cli-latest) or [move Logs to Long-Term Storage using Logic Apps](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/logs-export-logic-app). The latter advantage is that it can export historical data.
 Lastly, you can set fine-grained retention periods using [table-level retention Settings](https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/azure-log-analytics-data-retention-by-type-in-real-life/ba-p/1416287). More details [here](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-archive?tabs=portal-1%2Cportal-2#configure-the-default-workspace-retention-policy).
 
-
 **Log Security**
 
 * Use [resource RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) or [table Level RBAC](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-access?tabs=portal#table-level-rbac) to enable multiple teams to use a single workspace.
@@ -211,11 +209,9 @@ Lastly, you can set fine-grained retention periods using [table-level retention 
 * Learn how to [audit workspace queries and Microsoft Sentinel use, using alerts workbooks and queries](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/auditing-microsoft-sentinel-activities/ba-p/1718328).
 * Use [private links](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/private-link-security) to ensure logs never leave your private network.
 
-
 **Dedicated cluster**
 
 Use a [dedicated workspace cluster](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/logs-dedicated-clusters) if your projected data ingestion is around or more than 500 GB per day. A dedicated cluster enables you to secure resources for your Microsoft Sentinel data, which enables better query performance for large data sets.
-
 
 ### Module 6: Enrichment: TI, Watchlists, and more
 
@@ -263,8 +259,6 @@ Read ["Utilize Watchlists to Drive Efficiency During Microsoft Sentinel Investig
 Watch the **Use Watchlists to Manage Alerts, Reduce Alert Fatigue and improve
 SOC efficiency** webinar. [YouTube](https://youtu.be/148mr8anqtI), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmk1qPwVKXkyKwqsM5?e=jLlNmP).
 
-
-
 ### Module 7: Log transformation
 
 ## Part 3: Creating Content
@@ -275,15 +269,3 @@ SOC efficiency** webinar. [YouTube](https://youtu.be/148mr8anqtI), [Presentation
 
 ## Sentinel Skill-up FAQ
 
-
-
-
-### Module 6: Enrichment: TI, Watchlists, and more
-
-## Part 3: Creating Content
-
-## Part 4: Operating
-
-## Part 5: Advanced Topics
-
-## Sentinel Skill-up FAQ
