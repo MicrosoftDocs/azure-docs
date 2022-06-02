@@ -79,7 +79,8 @@ az network public-ip create \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress \
   --allocation-method Static \
-  --sku Standard
+  --sku Standard \
+  --location eastus
 ```
 
 ## Create the application gateway

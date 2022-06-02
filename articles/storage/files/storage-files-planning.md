@@ -122,7 +122,7 @@ For more information about backup, see [About Azure file share backup](../../bac
 ### Protect Azure Files with Microsoft Defender for Storage
 Microsoft Defender for Storage provides an additional layer of security intelligence that generates alerts when it detects anomalous activity on your storage account, for example unusual access attempts. It also runs malware hash reputation analysis and will alert on known malware. You can configure Microsoft Defender for Storage at the subscription or storage account level via Microsoft Defender for Cloud.
 
-For more information, see [Introduction to Microsoft Defender for Storage](../../security-center/defender-for-storage-introduction.md).
+For more information, see [Introduction to Microsoft Defender for Storage](../../defender-for-cloud/defender-for-storage-introduction.md).
 
 ## Storage tiers
 [!INCLUDE [storage-files-tiers-overview](../../../includes/storage-files-tiers-overview.md)]

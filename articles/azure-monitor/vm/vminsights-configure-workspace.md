@@ -30,7 +30,7 @@ Access Log Analytics workspaces in the Azure portal from the **Log Analytics wor
 
 [![Log Anlytics workspaces](media/vminsights-configure-workspace/log-analytics-workspaces.png)](media/vminsights-configure-workspace/log-analytics-workspaces.png#lightbox)
 
-You can create a new Log Analytics workspace using any of the following methods. See [Designing your Azure Monitor Logs deployment](../logs/design-logs-deployment.md) for guidance on determining the number of workspaces you should use in your environment and how to design their access strategy.
+You can create a new Log Analytics workspace using any of the following methods. See Design a Log Analytics workspace configuration(../logs/workspace-design.md) for guidance on determining the number of workspaces you should use in your environment and how to design their access strategy.
 
 
 * [Azure portal](../logs/quick-create-workspace.md)
@@ -46,7 +46,7 @@ VM insights supports a Log Analytics workspace in any of the [regions supported 
 >You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.
 
 ## Azure role-based access control
-To enable and access the features in VM insights, you must have the [Log Analytics contributor role](../logs/manage-access.md#manage-access-using-azure-permissions) in the workspace. To view performance, health, and map data, you must have the [monitoring reader role](../roles-permissions-security.md#built-in-monitoring-roles) for the Azure VM. For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../logs/manage-access.md).
+To enable and access the features in VM insights, you must have the [Log Analytics contributor role](../logs/manage-access.md#azure-rbac) in the workspace. To view performance, health, and map data, you must have the [monitoring reader role](../roles-permissions-security.md#built-in-monitoring-roles) for the Azure VM. For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../logs/manage-access.md).
 
 ## Add VMInsights solution to workspace
 Before a Log Analytics workspace can be used with VM insights, it must have the *VMInsights* solution installed. The methods for configuring the workspace are described in the following sections.

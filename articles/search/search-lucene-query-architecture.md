@@ -129,7 +129,7 @@ Lexical analyzers process *term queries* and *phrase queries* after the query tr
 The most common form of lexical analysis is *linguistic analysis* which transforms query terms based on rules specific to a given language: 
 
 * Reducing a query term to the root form of a word 
-* Removing non-essential words ([stopwords](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/STOPWORDS.md), such as "the" or "and" in English) 
+* Removing non-essential words ([stopwords](reference-stopwords.md), such as "the" or "and" in English) 
 * Breaking a composite word into component parts 
 * Lower casing an upper case word 
 
