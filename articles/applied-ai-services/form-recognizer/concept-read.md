@@ -1,21 +1,21 @@
 ---
-title: Read - Form Recognizer
+title: Read OCR - Form Recognizer
 titleSuffix: Azure Applied AI Services
-description: Learn concepts related to Read API analysis with Form Recognizer API—usage and limits.
+description: Learn concepts related to Read OCR API analysis with Form Recognizer API—usage and limits.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/09/2022
+ms.date: 06/02/2022
 ms.author: lajanuar
 recommendations: false
 ms.custom: ignite-fall-2021
 ---
 
-# Form Recognizer read model
+# Form Recognizer read OCR model
 
-Form Recognizer v3.0 preview includes the new Read API model. The read model extracts typeface and handwritten text including mixed languages in documents. The read model can detect lines, words, locations, and languages and is the core of all the other Form Recognizer models. Layout, general document, custom, and prebuilt models all use the read model as a foundation for extracting texts from documents.
+Form Recognizer v3.0 preview includes the new Read Optical Character Recognition (OCR) model. The read OCR model extracts typeface and handwritten text including mixed languages in documents. The read model can detect lines, words, locations, and languages and is the core of all the other Form Recognizer models. Layout, general document, custom, and prebuilt models all use the read model as a foundation for extracting texts from documents.
 
 ## Development options
 
@@ -44,7 +44,7 @@ See how text is extracted from forms and documents using the Form Recognizer Stu
 #### Form Recognizer Studio (preview)
 
 > [!NOTE]
-> Form Recognizer studio is available with the preview (v3.0) API.
+> Form Recognizer studio is available with the preview (v3.0) API. It is not yet enabled for analyzing Microsoft Word, Excel, PowerPoint and HTML file formats supported by the latest service preview.
 
 ***Sample form processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/read)***
 
@@ -63,8 +63,7 @@ See how text is extracted from forms and documents using the Form Recognizer Stu
 
 ## Input requirements
 
-* For best results, provide one clear photo or high-quality scan per document.
-* Supported file formats: JPEG/JPG, PNG, BMP, TIFF, and PDF (text-embedded or scanned). Text-embedded PDFs are best to eliminate the possibility of error in character extraction and location.
+* Supported file formats: These include JPEG/JPG, PNG, BMP, TIFF, PDF (text-embedded or scanned). Additionally, Microsoft Word, Excel, PowerPoint, and HTML files are supported  in the new preview.
 * For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
 * The file size must be less than 500 MB for paid (S0) tier and 4 MB for free (F0) tier (4 MB for the free tier)
 * Image dimensions must be between 50 x 50 pixels and 10,000 x 10,000 pixels.
@@ -75,9 +74,23 @@ Form Recognizer preview version supports several languages for the read model. *
 
 ## Features
 
+### Pages
+With the added support for Microsoft Word, Excel, PowerPoint, and HTML files, the page units in the model output are computed as shown:
+
+ **File format**   | **Computed page unit**   | **Total pages**  |
+| --- | --- | --- |
+|Images | Each image = 1 page unit | Total images  |
+|PDF | Each page in the PDF = 1 page unit | Total pages in the PDF |
+|Word | Up to 5,000 characters = 1 page unit, Each embedded image = 1 page unit | Total pages of up to 5,000 characters each + total embedded images |
+|Excel | Each worksheet = 1 page unit, Each embedded image = 1 page unit | Total worksheets + Total images
+|PowerPoint|  Each slide = 1 page unit, Each embedded image = 1 page unit | Total slides + Total images
+|HTML| Up to 5,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 5,000 characters each |
+
 ### Text lines and words
 
-Read API extracts text from documents and images. It accepts PDFs and images of documents and handles printed and/or handwritten text, and supports mixed languages. Text is extracted as text lines, words, bounding boxes, confidence scores, and style, whether handwritten or not, supported for Latin languages only.
+Read API extracts text from documents and images. For PDFs and images of documents, it handles printed and/or handwritten text, and supports mixed languages. Text is extracted as text lines, words, bounding boxes, confidence scores, and style, whether handwritten or not, supported for Latin languages only.
+
+For Microsoft Word, Excel, PowerPoint, and HTML file formats, Read will extract all embedded text as is. For any embedded images, it will run OCR on the images to extract any text and append as pages to the JSON output. The image sourced pages will include the extracted text lines and words, alongwith the bounding polygons, confidence scores, and handwritten styles if detected and indicate images as the source for the text.
 
 ### Language detection
 
@@ -85,11 +98,13 @@ Read adds [language detection](language-support.md#detected-languages-read-api) 
 
 ### Handwritten classification for text lines (Latin only)
 
-The response includes classifying whether each text line is of handwriting style or not, along with a confidence score. This feature is only supported for Latin languages. 
+For text extracted from images or document scans, the response includes classifying whether each text line is of handwriting style or not, along with a confidence score. This feature is only supported for Latin languages.
 
 ### Select page (s) for text extraction
 
-For large multi-page documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction. 
+For large multi-page PDF documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction. 
+
+For Microsoft Word, Excel, PowerPoint, and HTML file formats, Read ignores the pages parameter and extract all pages by default.
 
 ## Next steps
 
