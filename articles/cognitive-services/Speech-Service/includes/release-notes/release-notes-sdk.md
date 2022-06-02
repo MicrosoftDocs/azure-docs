@@ -6,7 +6,7 @@ ms.date: 02/22/2022
 ms.author: eur
 ---
 
-### Speech SDK 1.22.0: May 2022 release
+### Speech SDK 1.22.0: June 2022 release
 
 #### New features
 
