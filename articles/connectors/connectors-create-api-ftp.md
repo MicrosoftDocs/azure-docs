@@ -31,9 +31,9 @@ The FTP connector has different versions, based on [logic app type and host envi
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
-| **Consumption** | Multi-tenant Azure Logic Apps | [Managed connector - Standard class](managed.md). For more information, review the [FTP managed connector reference](/connectors/ftp). |
-| **Consumption** | Integration service environment (ISE) | [Managed connector - Standard class](managed.md) and ISE version. For the managed version, review the [FTP managed connector reference](/connectors/ftp). For the ISE version, review the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits). |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | [Managed connector - Standard class](managed.md) and [built-in connector](built-in.md), which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in version can directly access Azure virtual networks with a connection string, rather than use the on-premises data gateway. <br><br>For the managed version, review the [FTP managed connector reference](/connectors/ftp). For the built-in version, review the [FTP built-in connector operations](#built-in-operations) section later in this article. |
+| **Consumption** | Multi-tenant Azure Logic Apps | [Managed connector - Standard class](managed.md). For operations, limits, and other information, review the [FTP managed connector reference](/connectors/ftp). |
+| **Consumption** | Integration service environment (ISE) | [Managed connector - Standard class](managed.md) and ISE version. For operations, managed connector limits, and other information, review the [FTP managed connector reference](/connectors/ftp). For ISE-versioned limits, review the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits). |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | [Managed connector - Standard class](managed.md) and [built-in connector](built-in.md), which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in version can directly access Azure virtual networks with a connection string, rather than use the on-premises data gateway. <br><br>For managed connector operations, limits, and other information, review the [FTP managed connector reference](/connectors/ftp). For the built-in version, review the [FTP built-in connector operations](#built-in-operations) section later in this article. |
 ||||
 
 ## Prerequisites
@@ -46,9 +46,11 @@ The FTP connector has different versions, based on [logic app type and host envi
 
 * The logic app workflow where you want to access your FTP account. To start your workflow with an FTP trigger, you have to start with a blank workflow. To use an FTP action, start your workflow with another trigger, such as the **Recurrence** trigger.
 
+For other connector requirements, review [FTP managed connector reference](/connectors/ftp/).
+
 ## Limitations
 
-* The FTP connector supports only explicit FTP over TLS/SSL (FTPS) and isn't compatible with implicit FTPS.
+* For FTP security, the FTP connector supports only explicit FTP over TLS/SSL (FTPS) and isn't compatible with implicit FTPS.
 
 * Capacity and throughput
 
@@ -60,11 +62,7 @@ The FTP connector has different versions, based on [logic app type and host envi
 
     By default, FTP actions can read or write files that are *200 MB or smaller*. Currently, the FTP built-in connector doesn't support chunking.
 
-* FTP triggers no longer return file content. To get file content, use the following pattern instead:
-
-  1. Use the FTP trigger that returns only file properties.
-
-  1. Follow the trigger with the FTP action named **Get file content**, which reads the complete file. The managed connector version for this action implicitly uses chunking.
+* FTP triggers no longer return file content. To get file content, use the pattern described in the [FTP managed connector reference trigger limits](/connectors/ftp/#trigger-limits).
 
 * If you have an on-premises FTP server, consider the following options:
 
@@ -72,19 +70,13 @@ The FTP connector has different versions, based on [logic app type and host envi
 
   * Standard workflows: Use the FTP built-in connector operations, which work without an on-premises data gateway.
 
-<a name="how-ftp-triggers-work"></a>
+* FTP triggers don't fire if a file is added or updated in a subfolder. If your workflow requires the trigger to work on a subfolder, create nested workflows with triggers. For more information, review [FTP managed connector reference trigger limits](/connectors/ftp/#trigger-limits).
 
-## How FTP triggers work
+* FTP triggers work by checking the FTP file system and looking for any file that's changed since the last poll. The trigger uses the last modified time on a file. If an external client or other tool creates the file and preserves the timestamp when the files change, disable the preservation feature so that your trigger can work. For more information, review [FTP managed connector reference trigger limits](/connectors/ftp/#trigger-limits).
 
-FTP triggers work by polling the FTP file system and looking for any file that was changed since the last poll. Some tools let you preserve the timestamp when the files change. In these cases, you have to disable this feature so your trigger can work. The following table lists some common settings:
+* The FTP managed connector requires that the FTP server enables specific commands and support folder names with whitespace. For more information, review [FTP managed connector reference trigger limits](/connectors/ftp/#trigger-limits) and [requirements](/connectors/ftp/#requirements).
 
-| SFTP client | Action |
-|-------------|--------|
-| Winscp | Go to **Options** > **Preferences** > **Transfer** > **Edit** > **Preserve timestamp** > **Disable** |
-| FileZilla | Go to **Transfer** > **Preserve timestamps of transferred files** > **Disable** |
-|||
-
-When a trigger finds a new file, the trigger checks that the new file is complete, and not partially written. For example, a file might have changes in progress when the trigger checks the file server. To avoid returning a partially written file, the trigger notes the timestamp for the file that has recent changes, but doesn't immediately return that file. The trigger returns the file only when polling the server again. Sometimes, this behavior might cause a delay that is up to twice the trigger's polling interval.
+For other connector limitations, review [FTP managed connector reference](/connectors/ftp/).
 
 <a name="add-ftp-trigger"></a>
 
@@ -228,8 +220,6 @@ The FTP built-in connector is available only for Standard logic app workflows an
 Operation ID: `whenFtpFilesAreAddedOrModified`
 
 This trigger starts a logic app workflow when one or more files are added or updated in a folder on the FTP server. The trigger gets only the file metadata, not any file content. However, to get the content, your workflow can follow this trigger with the [**Get file content**](#get-file-content) action.
-
-The trigger uses the last modified time for a file. If an external client creates the file, disable that client from preserving the last modified time. The trigger doesn't fire if a file is added or updated in a subfolder. If your workflow requires the trigger to work on a subfolder, create nested workflows with triggers.
 
 #### Parameters
 
