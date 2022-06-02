@@ -57,8 +57,6 @@ To complete this quickstart you need:
 
 7.  Select the **Review + create** button at the bottom of the page.
 
-    ![Screenshot of the Create Web App screen. The Review + create button is highlighted.](../../media/quickstart-php/azure-portal-create-app-service-review-create.png)   
-
 8.  After validation runs, select the **Create** button at the bottom of the page. This will create an Azure resource group, app service plan, and app service.
 
 9.  After the Azure resources are created, select **Go to resource**.
@@ -96,6 +94,9 @@ The PHP sample code is running in an Azure App Service Linux web app.
 1. Browse to your GitHub fork of php-docs-hello-world.
 
 2. On your repo page, press `.` to start Visual Studio code within your browser.
+
+![Screenshot of the forked php-docs-hello-world repo in GitHub with instructions to press the period key on this screen.](../../media/quickstart-php/forked-github-repo-press-period.png)
+
 
     > [!NOTE]
     > The URL will change from GitHub.com to GitHub.dev. This feature only works with repos that have files. This does not work on empty repos.
