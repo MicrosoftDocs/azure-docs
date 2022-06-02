@@ -1,6 +1,6 @@
 ---
 title: Create collections for My Apps portals
-titleSuffix: Azure AD
+titleSuffix: Microsoft Entra
 description: Use My Apps collections to Customize My Apps pages for a simpler My Apps experience for your users. Organize applications into groups with separate tabs.
 services: active-directory
 author: lnalepa

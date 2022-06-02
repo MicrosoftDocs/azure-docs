@@ -1,7 +1,7 @@
 ---
 title: SAML token encryption
 description: Learn how to configure Azure Active Directory SAML token encryption.
-titleSuffix: Azure AD
+titleSuffix: Microsoft Entra
 services: active-directory
 author: AllisonAm
 manager: CelesteDG
