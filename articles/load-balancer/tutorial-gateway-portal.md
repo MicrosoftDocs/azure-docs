@@ -2,8 +2,8 @@
 title: 'Tutorial: Create a gateway load balancer - Azure portal'
 titleSuffix: Azure Load Balancer
 description: Use this tutorial to learn how to create a gateway load balancer using the Azure portal.
-author: asudbring
-ms.author: allensu
+author: greg-lindsay
+ms.author: greglin
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 12/03/2021

@@ -36,7 +36,6 @@ Internet Information Services (IIS) logs counts of all request reaching IIS and 
 ## No data from my server
 * I installed my app on my web server, and now I don't see any telemetry from it. It worked OK on my dev machine.*
 * A firewall issue is most likely the cause. [Set firewall exceptions for Application Insights to send data](../../azure-monitor/app/ip-addresses.md).
-* IIS Server might be missing some prerequisites, like .NET Extensibility 4.5 or ASP.NET 4.5.
 
 *I [installed Azure Monitor Application Insights Agent](./status-monitor-v2-overview.md) on my web server to monitor existing apps. I don't see any results.*
 
@@ -234,7 +233,7 @@ On February 5 2018, we announced that we removed logging of the Client IP addres
 The city, region, and country dimensions are derived from IP addresses and aren't always accurate. These IP addresses are processed for location first and then changed to 0.0.0.0 to be stored.
 
 ## Exception "method not found" on running in Azure Cloud Services
-Did you build for .NET 4.6? 4.6 isn't automatically supported in Azure Cloud Services roles. [Install 4.6 on each role](../../cloud-services/cloud-services-dotnet-install-dotnet.md) before running your app.
+Did you build for .NET [LTS](https://dotnet.microsoft.com/platform/support/policy/dotnet-core)? Earlier versions aren't automatically supported in Azure Cloud Services roles. [Install LTS on each role](../../cloud-services/cloud-services-dotnet-install-dotnet.md) before running your app.
 
 ## Troubleshooting Logs
 

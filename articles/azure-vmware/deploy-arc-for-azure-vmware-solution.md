@@ -64,7 +64,7 @@ az feature show --name AzureArcForAVS --namespace Microsoft.AVS
 
 Use the following steps to guide you through the process to onboard in Arc for Azure VMware Solution (Preview).
 
-1. Sign into the jumpbox VM and extract the contents from the compressed file from the following [location](https://github.com/Azure/ArcOnAVS/releases/tag/v2.0.0). The extracted file contains the scripts to install the preview software.
+1. Sign into the jumpbox VM and extract the contents from the compressed file from the following [location](https://github.com/Azure/ArcOnAVS/releases/latest). The extracted file contains the scripts to install the preview software.
 1. Open the 'config_avs.json' file and populate all the variables.
 
     **Config JSON**
@@ -153,7 +153,7 @@ After you've enabled VMs to be managed from Azure, you can install guest managem
     - To enable guest management, customers will be required to use admin credentials
     - VMtools should already be running on the VM
 > [!NOTE] 
-> Azure VMware Solution vCenter will be available in global search but will NOT be available in the list of vCenters for ARc for VMware.
+> Azure VMware Solution vCenter will be available in global search but will NOT be available in the list of vCenters for Arc for VMware.
 
 - Customers can view the list of VM extensions available in public preview.
     - Change tracking
@@ -343,7 +343,7 @@ The following command invokes the set credential for the specified appliance res
 Use the following steps to perform a manual upgrade for Arc appliance virtual machine (VM).
 
 1. Log into vCenter.
-1. Locate the arc appliance VM, which should be in the resource pool that was configured during onboarding.
+1. Locate the Arc appliance VM, which should be in the resource pool that was configured during onboarding.
     1. Power off the VM.
     1. Delete the VM.
 1. Delete the download template corresponding to the VM.

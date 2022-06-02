@@ -1,6 +1,5 @@
 ---
 title: Grant tenant-wide admin consent to an application 
-titleSuffix: Azure AD
 description: Learn how to grant tenant-wide consent to an application so that end-users are not prompted for consent when signing in to an application.
 services: active-directory
 author: eringreenlee

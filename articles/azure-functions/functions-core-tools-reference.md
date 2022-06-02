@@ -79,7 +79,7 @@ The `func new` action supports the following options:
 
 | Option     | Description                            |
 | ------------------------------------------ | -------------------------------------- |
-| **`--authLevel`** | Lets you set the authorization level for an HTTP trigger. Supported values are: `function`, `anonymous`, `admin`. Authorization isn't enforced when running locally. For more information, see the [HTTP binding article](functions-bindings-http-webhook-trigger.md#authorization-keys). |
+| **`--authlevel`** | Lets you set the authorization level for an HTTP trigger. Supported values are: `function`, `anonymous`, `admin`. Authorization isn't enforced when running locally. For more information, see the [HTTP binding article](functions-bindings-http-webhook-trigger.md#authorization-keys). |
 | **`--csx`** | (Version 2.x and later versions.) Generates the same C# script (.csx) templates used in version 1.x and in the portal. |
 | **`--language`**, **`-l`**| The template programming language, such as C#, F#, or JavaScript. This option is required in version 1.x. In version 2.x and later versions, you don't use this option because the language is defined by the worker runtime. |
 | **`--name`**, **`-n`** | The function name. |

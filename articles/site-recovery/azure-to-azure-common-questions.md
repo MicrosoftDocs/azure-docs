@@ -52,6 +52,8 @@ Yes. Site Recovery supports disaster recovery of VMs that have Azure Disk Encryp
 
 [Learn more](azure-to-azure-how-to-enable-replication-ade-vms.md) about enabling replication for encrypted VMs.
 
+See the [support matrix](azure-to-azure-support-matrix.md#replicated-machines---storage) for information about support for other encryption features.
+
 ### Can I select an automation account from a different resource group?
 
 When you allow Site Recovery to manage updates for the Mobility service extension running on replicated Azure VMs, it deploys a global runbook (used by Azure services), via an Azure automation account. You can use the automation account that Site Recovery creates, or select to use an existing automation account.
@@ -331,7 +333,7 @@ Yes, you can create a Capacity Reservation for your VM SKU in the disaster recov
 
 ### Why should I reserve capacity using Capacity Reservation at the destination location?
 
-While Site Recovery makes a best effort to ensure that capacity is available in the recovery region, it does not guarantee the same. Site Recovery's best effort is backed by a 2-hour RTO SLA. But if you require further assurance and _guaranteed compute capacity,_ then we recommend you to purchase [Capacity Reservations](https://aka.ms/on-demand-ca.pacity-reservations-docs)  
+While Site Recovery makes a best effort to ensure that capacity is available in the recovery region, it does not guarantee the same. Site Recovery's best effort is backed by a 2-hour RTO SLA. But if you require further assurance and _guaranteed compute capacity,_ then we recommend you to purchase [Capacity Reservations](https://aka.ms/on-demand-capacity-reservations-docs)  
 
 ### Does Site Recovery work with reserved instances?
 

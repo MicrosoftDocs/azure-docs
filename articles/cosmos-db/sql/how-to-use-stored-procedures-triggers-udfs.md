@@ -116,64 +116,48 @@ var result = await client.GetContainer("database", "container").Scripts.ExecuteS
 The following example shows how to register a stored procedure by using the Java SDK:
 
 ```java
-String containerLink = String.format("/dbs/%s/colls/%s", "myDatabase", "myContainer");
-StoredProcedure newStoredProcedure = new StoredProcedure(
-    "{" +
-        "  'id':'spCreateToDoItems'," +
-        "  'body':" + new String(Files.readAllBytes(Paths.get("..\\js\\spCreateToDoItems.js"))) +
-    "}");
-//toBlocking() blocks the thread until the operation is complete and is used only for demo.  
-StoredProcedure createdStoredProcedure = asyncClient.createStoredProcedure(containerLink, newStoredProcedure, null)
-    .toBlocking().single().getResource();
+CosmosStoredProcedureProperties definition = new CosmosStoredProcedureProperties(
+    "spCreateToDoItems", 
+    Files.readString(Paths.get("createToDoItems.js"))
+);
+
+CosmosStoredProcedureResponse response = container
+    .getScripts()
+    .createStoredProcedure(definition);
 ```
 
 The following code shows how to call a stored procedure by using the Java SDK:
 
 ```java
-String containerLink = String.format("/dbs/%s/colls/%s", "myDatabase", "myContainer");
-String sprocLink = String.format("%s/sprocs/%s", containerLink, "spCreateToDoItems");
-final CountDownLatch successfulCompletionLatch = new CountDownLatch(1);
+CosmosStoredProcedure sproc = container   
+    .getScripts()
+    .getStoredProcedure("spCreateToDoItems");
 
-List<ToDoItem> ToDoItems = new ArrayList<ToDoItem>();
+List<Object> items = new ArrayList<Object>();
 
-class ToDoItem {
-    public String category;
-    public String name;
-    public String description;
-    public boolean isComplete;
-}
+ToDoItem firstItem = new ToDoItem();
+firstItem.category = "Personal";
+firstItem.name = "Groceries";
+firstItem.description = "Pick up strawberries";
+firstItem.isComplete = false;
+items.add(firstItem);
 
-ToDoItem newItem = new ToDoItem();
-newItem.category = "Personal";
-newItem.name = "Groceries";
-newItem.description = "Pick up strawberries";
-newItem.isComplete = false;
+ToDoItem secondItem = new ToDoItem();
+secondItem.category = "Personal";
+secondItem.name = "Doctor";
+secondItem.description = "Make appointment for check up";
+secondItem.isComplete = true;
+items.add(secondItem);
 
-ToDoItems.add(newItem)
+CosmosStoredProcedureRequestOptions options = new CosmosStoredProcedureRequestOptions();
+options.setPartitionKey(
+    new PartitionKey("Personal")
+);
 
-newItem.category = "Personal";
-newItem.name = "Doctor";
-newItem.description = "Make appointment for check up";
-newItem.isComplete = false;
-
-ToDoItems.add(newItem)
-
-RequestOptions requestOptions = new RequestOptions();
-requestOptions.setPartitionKey(new PartitionKey("Personal"));
-
-Object[] storedProcedureArgs = new Object[] { ToDoItems };
-asyncClient.executeStoredProcedure(sprocLink, requestOptions, storedProcedureArgs)
-    .subscribe(storedProcedureResponse -> {
-        String storedProcResultAsString = storedProcedureResponse.getResponseAsString();
-        successfulCompletionLatch.countDown();
-        System.out.println(storedProcedureResponse.getActivityId());
-    }, error -> {
-        successfulCompletionLatch.countDown();
-        System.err.println("an error occurred while executing the stored procedure: actual cause: "
-                + error.getMessage());
-    });
-
-successfulCompletionLatch.await();
+CosmosStoredProcedureResponse response = sproc.execute(
+    items, 
+    options
+); 
 ```
 
 ### [JavaScript SDK](#tab/javascript-sdk)
@@ -324,32 +308,33 @@ await client.GetContainer("database", "container").CreateItemAsync(newItem, null
 The following code shows how to register a pre-trigger using the Java SDK:
 
 ```java
-String containerLink = String.format("/dbs/%s/colls/%s", "myDatabase", "myContainer");
-String triggerId = "trgPreValidateToDoItemTimestamp";
-Trigger trigger = new Trigger();
-trigger.setId(triggerId);
-trigger.setBody(new String(Files.readAllBytes(Paths.get(String.format("..\\js\\%s.js", triggerId)));
-trigger.setTriggerOperation(TriggerOperation.Create);
-trigger.setTriggerType(TriggerType.Pre);
-//toBlocking() blocks the thread until the operation is complete and is used only for demo. 
-Trigger createdTrigger = asyncClient.createTrigger(containerLink, trigger, new RequestOptions()).toBlocking().single().getResource();
+CosmosTriggerProperties definition = new CosmosTriggerProperties(
+    "preValidateToDoItemTimestamp",
+    Files.readString(Paths.get("validateToDoItemTimestamp.js"))
+);
+definition.setTriggerOperation(TriggerOperation.CREATE);
+definition.setTriggerType(TriggerType.PRE);
+
+CosmosTriggerResponse response = container
+    .getScripts()
+    .createTrigger(definition);
 ```
 
 The following code shows how to call a pre-trigger using the Java SDK:
 
 ```java
-String containerLink = String.format("/dbs/%s/colls/%s", "myDatabase", "myContainer");
-    Document item = new Document("{ "
-            + "\"category\": \"Personal\", "
-            + "\"name\": \"Groceries\", "
-            + "\"description\": \"Pick up strawberries\", "
-            + "\"isComplete\": false, "
-            + "}"
-            );
-RequestOptions requestOptions = new RequestOptions();
-requestOptions.setPreTriggerInclude(Arrays.asList("trgPreValidateToDoItemTimestamp"));
-//toBlocking() blocks the thread until the operation is complete and is used only for demo. 
-asyncClient.createDocument(containerLink, item, requestOptions, false).toBlocking();
+ToDoItem item = new ToDoItem();
+item.category = "Personal";
+item.name = "Groceries";
+item.description = "Pick up strawberries";
+item.isComplete = false;
+    
+CosmosItemRequestOptions options = new CosmosItemRequestOptions();
+options.setPreTriggerInclude(
+    Arrays.asList("preValidateToDoItemTimestamp")
+);
+
+CosmosItemResponse<ToDoItem> response = container.createItem(item, options);
 ```
 
 ### [JavaScript SDK](#tab/javascript-sdk)
@@ -484,30 +469,33 @@ await client.GetContainer("database", "container").CreateItemAsync(newItem, null
 The following code shows how to register a post-trigger using the Java SDK:
 
 ```java
-String containerLink = String.format("/dbs/%s/colls/%s", "myDatabase", "myContainer");
-String triggerId = "trgPostUpdateMetadata";
-Trigger trigger = new Trigger();
-trigger.setId(triggerId);
-trigger.setBody(new String(Files.readAllBytes(Paths.get(String.format("..\\js\\%s.js", triggerId)))));
-trigger.setTriggerOperation(TriggerOperation.Create);
-trigger.setTriggerType(TriggerType.Post);
-Trigger createdTrigger = asyncClient.createTrigger(containerLink, trigger, new RequestOptions()).toBlocking().single().getResource();
+CosmosTriggerProperties definition = new CosmosTriggerProperties(
+    "postUpdateMetadata",
+    Files.readString(Paths.get("updateMetadata.js"))
+);
+definition.setTriggerOperation(TriggerOperation.CREATE);
+definition.setTriggerType(TriggerType.POST);
+
+CosmosTriggerResponse response = container
+    .getScripts()
+    .createTrigger(definition);
 ```
 
 The following code shows how to call a post-trigger using the Java SDK:
 
 ```java
-String containerLink = String.format("/dbs/%s/colls/%s", "myDatabase", "myContainer");
-Document item = new Document(String.format("{ "
-    + "\"name\": \"artist_profile_1023\", "
-    + "\"artist\": \"The Band\", "
-    + "\"albums\": [\"Hellujah\", \"Rotators\", \"Spinning Top\"]"
-    + "}"
-));
-RequestOptions requestOptions = new RequestOptions();
-requestOptions.setPostTriggerInclude(Arrays.asList("trgPostUpdateMetadata"));
-//toBlocking() blocks the thread until the operation is complete, and is used only for demo.
-asyncClient.createDocument(containerLink, item, requestOptions, false).toBlocking();
+ToDoItem item = new ToDoItem();
+item.category = "Personal";
+item.name = "Doctor";
+item.description = "Make appointment for check up";
+item.isComplete = true;
+    
+CosmosItemRequestOptions options = new CosmosItemRequestOptions();
+options.setPostTriggerInclude(
+    Arrays.asList("postUpdateMetadata")
+);
+
+CosmosItemResponse<ToDoItem> response = container.createItem(item, options);
 ```
 
 ### [JavaScript SDK](#tab/javascript-sdk)
@@ -640,37 +628,25 @@ while (iterator.HasMoreResults)
 The following code shows how to register a user-defined function using the Java SDK:
 
 ```java
-String containerLink = String.format("/dbs/%s/colls/%s", "myDatabase", "myContainer");
-String udfId = "Tax";
-UserDefinedFunction udf = new UserDefinedFunction();
-udf.setId(udfId);
-udf.setBody(new String(Files.readAllBytes(Paths.get(String.format("..\\js\\%s.js", udfId)))));
-//toBlocking() blocks the thread until the operation is complete and is used only for demo.
-UserDefinedFunction createdUDF = client.createUserDefinedFunction(containerLink, udf, new RequestOptions()).toBlocking().single().getResource();
+CosmosUserDefinedFunctionProperties definition = new CosmosUserDefinedFunctionProperties(
+    "udfTax",
+    Files.readString(Paths.get("tax.js"))
+);
+
+CosmosUserDefinedFunctionResponse response = container
+    .getScripts()
+    .createUserDefinedFunction(definition);
 ```
 
 The following code shows how to call a user-defined function using the Java SDK:
 
 ```java
-String containerLink = String.format("/dbs/%s/colls/%s", "myDatabase", "myContainer");
-Observable<FeedResponse<Document>> queryObservable = client.queryDocuments(containerLink, "SELECT * FROM Incomes t WHERE udf.Tax(t.income) > 20000", new FeedOptions());
-final CountDownLatch completionLatch = new CountDownLatch(1);
-queryObservable.subscribe(
-        queryResultPage -> {
-            System.out.println("Got a page of query result with " +
-                    queryResultPage.getResults().size());
-        },
-        // terminal error signal
-        e -> {
-            e.printStackTrace();
-            completionLatch.countDown();
-        },
+CosmosQueryRequestOptions options = new CosmosQueryRequestOptions();
 
-        // terminal completion signal
-        () -> {
-            completionLatch.countDown();
-        });
-completionLatch.await();
+CosmosPagedIterable<ToDoItem> iterable = container.queryItems(
+    "SELECT t.cost, udf.udfTax(t.cost) AS costWithTax FROM t", 
+    options, 
+    ToDoItem.class);
 ```
 
 ### [JavaScript SDK](#tab/javascript-sdk)
