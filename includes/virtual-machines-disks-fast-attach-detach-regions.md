@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-The lower latency is currently available in the following regions:
+Lower latency is currently available in the following regions:
 
 - West US
 - Australia East
