@@ -113,40 +113,26 @@ For more information, see [Tutorial: Integrate ServiceNow with Microsoft Defende
 
 |Name  |Description  |
 |---------|---------|
-| **u_id**” | The device's internal ID. |
-| **u_vendor**”  | The device's vendor name. |
-| **u_mac_address_objects**” | An array of **u_mac_address** values, listing the device's MAC addresses |
-| **u_ip_address_objects**” - array of **u_ip_address**, values, defining the devices IP addresses |
-| **u_guessed_mac_addresses**” - array of **u_mac_address** values, defining the guessed MAC address. <!--what are guessed?-->
+| **u_id** | The device's internal ID. |
+| **u_vendor**  | The device's vendor name. |
+| **u_mac_address_objects** | An array of **u_mac_address** values, listing the device's MAC addresses |
+| **u_ip_address_objects** - array of **u_ip_address**, values, defining the devices IP addresses |
+| **u_guessed_mac_addresses** - array of **u_mac_address** values, defining the guessed MAC address. <!--what are guessed?-->
 | **u_name** | Defines the name of the device. |
-| **u_last_activity**”  | Defines the timestamp of the last time the device was active.
-    - “**u_first_discovered**” - timestamp of the discovery time of the device.
-    - “**u_last_update**” - timestamp of the last update time of the device.
-    - “**u_vlans**” - array of
-        - “**u_vlan**” - vlan in which the device is in.
-    - “**u_device_type**” -
-        - “**u_name**” - the device type
-        - “**u_purdue_layer**” - the default purdue layer for this device type.
-        - “**u_category**” - will be one of the following:
-            - “**IT**”
-            - “**ICS**”
-            - “**IoT**”
-            - “**Network**”
-    - “**u_operating_system**” - the device operating system.
-    - “**u_protocol_objects**” - array of
-        - “**u_protocol**” - protocol the device uses.
-    - “**u_purdue_layer**” - the purdue layer that was manually set by the user.
-    - “**u_sensor_ids**” - array of
-        - “**u_sensor_id**” - the ID of the sensor that saw the device.
-    - “**u_device_urls**” - array of
-        - “**u_device_url**” the URL to view the device in the sensor.
-    - “**u_firmwares**” - array of
-        - “**u_address**”
-        - “**u_module_address**”
-        - “**u_serial**”
-        - “**u_model**”
-        - “**u_version**”
-        - “**u_additional_data**"
+| **u_last_activity**  | Defines the timestamp of the last time the device was active. |
+| **u_first_discovered** | Defines the timestamp of the device's discovery time. |
+| **u_last_update**  | Defines the timestamp of the device's last update time. |
+| **u_vlans** | An array of **u_vlan** values, which defines the device's VLAN. |
+| **u_device_type** | Defines the device type. |
+| **u_name** | Defines the device name. |
+| **u_purdue_layer** |Defines the default [Purdue layer](plan-network-monitoring.md#purdue-reference-model-and-defender-for-iot) for this device type. |
+| **u_category**  | Defines the device category as one of the following: <br><br>- **IT** <br>- **ICS** <br>- **IoT** <br>- **Network** |
+| **u_operating_system** | Defines the device operating system.|
+| **u_protocol_objects** | An array of **u_protocol** values, which defines the protocols used by the device. |
+| **u_purdue_layer** | Defines the device's [Purdue layer](plan-network-monitoring.md#purdue-reference-model-and-defender-for-iot) layer, as manually defined by the user.|
+| **u_sensor_ids**| An array of **u_sensor_id** values, which defines the sensor IDs for any sensor that detected the device. |
+| **u_device_urls** | An array of **u_device_url** values, which defines the URLs used to view the device in the sensor. |
+| **u_firmwares** |An array of the following values: <!--do we define what these are?--><br><br>- **u_address** <br>- **u_module_address** <br>- **u_serial** <br>- **u_model** <br>- **u_version** <br>- **u_additional_data** |
 
 ---
 
@@ -194,43 +180,22 @@ For more information, see [Tutorial: Integrate ServiceNow with Microsoft Defende
 
 **Response fields**:
 
+An array of the following fields:
+
 |Name  |Description  |
 |---------|---------|
-
-    - Array of
-        - “**u_id**” - internal sensor ID, to be used in the devices API.
-        - “**u_name**” - the name of the appliance.
-        - “**u_connection_state**” - connectivity with the CM state. One of the following:
-            - “**SYNCED**” - Connection is successful.
-            - “**OUT_OF_SYNC**” - Management console cannot process data received from Sensor.
-            - “**TIME_DIFF_OFFSET**” - Time drift detected. management console has been disconnected from Sensor.
-            - “**DISCONNECTED**” - Sensor not communicating with management console. Check network connectivity.
-        - “**u_interface_address**” - the network address of the appliance.
-        - “**u_version**” - string representation of the sensor’s version.
-        - “**u_alert_count**” - number of alerts found by the sensor.
-        - “**u_device_count**” - number of devices discovered by the sensor.
-        - “**u_unhandled_alert_count**” - number of unhandled alerts in the sensor.
-        - “**u_is_activated**” - is the alert activated.
-        - “**u_data_intelligence_version**” - string representation of the data intelligence installed in the sensor.
-        - “**u_remote_upgrade_stage**” - the state of the remote upgrade. One of the following:
-            - "**UPLOADING**"
-            - "**PREPARE_TO_INSTALL**"
-            - "**STOPPING_PROCESSES**"
-            - "**BACKING_UP_DATA**"
-            - "**TAKING_SNAPSHOT**"
-            - "**UPDATING_CONFIGURATION**"
-            - "**UPDATING_DEPENDENCIES**"
-            - "**UPDATING_LIBRARIES**"
-            - "**PATCHING_DATABASES**"
-            - "**STARTING_PROCESSES**"
-            - "**VALIDATING_SYSTEM_SANITY**"
-            - "**VALIDATION_SUCCEEDED_REBOOTING**"
-            - "**SUCCESS**"
-            - "**FAILURE**"
-            - "**UPGRADE_STARTED**"
-            - "**STARTING_INSTALLATION**"
-            - "**INSTALLING_OPERATING_SYSTEM**"
-        - “**u_uid**” - globally unique identifier of the sensor
+|**u_id** | Defines the internal sensor ID, to be used in the [devices (Create and update devices)](#devices-create-and-update-devices) API.|
+| **u_name** |Defines the sensor appliance's name. |
+|**u_connection_state** | Defines the connection state with an on-premises management console, using one of the following values: <br><br>- **SYNCED**: Connection is successful. <br>- **OUT_OF_SYNC**: On-premises management console cannot process data received from the sensor. <br>- **TIME_DIFF_OFFSET**: Time drift detected. On-premises management console has been disconnected from the sensor. <br>**DISCONNECTED**: Sensor not communicating with management console. Check network connectivity. |
+| **u_interface_address** | Defines the sensor appliance's network address.|
+|**u_version** | A string representation of the sensor's software version. |
+| **u_alert_count** | The number of alerts triggered by the sensor. <!--since when?-->|
+| **u_device_count** |The number of devices detected by the sensor. |
+| **u_unhandled_alert_count** |The number of currently unhandled alerts on the sensor.  |
+| **u_is_activated** | Defines whether the alert is activated. <!--which alert-->|
+| **u_data_intelligence_version**  |A string representation of the threat intelligence version installed on the sensor. |
+| **u_remote_upgrade_stage** |Defines a current stage in a version update process as one of the following:  - **UPLOADING** <br>-  **PREPARE_TO_INSTALL** <br>- **STOPPING_PROCESSES** <br>- **BACKING_UP_DATA** <br>- **TAKING_SNAPSHOT** <br>- **UPDATING_CONFIGURATION** <br>- **UPDATING_DEPENDENCIES** <br>- **UPDATING_LIBRARIES** <br>- **PATCHING_DATABASES** <br>- **STARTING_PROCESSES** <br>- **VALIDATING_SYSTEM_SANITY** <br>- **VALIDATION_SUCCEEDED_REBOOTING** <br>- **SUCCESS** <br>- **FAILURE** <br>- **UPGRADE_STARTED** <br>- **STARTING_INSTALLATION** <br>- **INSTALLING_OPERATING_SYSTEM**|
+| **u_uid** | Defines the sensor's globally unique identifier. |
 
 ---
 
@@ -265,25 +230,17 @@ For more information, see [Tutorial: Integrate ServiceNow with Microsoft Defende
 
 |Name  |Description  |
 |---------|---------|
-
-    - “**u_count**” - amount of object in the full result sets, including all pages.
-    - “**u_id**” - the same as in the specific device API.
-    - “**u_name**” - the same as in the specific device API.
-    - “**u_ip_address_objects**” - the same as in the specific device API.
-    - “**u_mac_address_objects**” - the same as in the specific device API.
-    - “**u_last_activity**” - the same as in the specific device API.
-    - “**u_last_update**” - the same as in the specific device API.
-    - “**u_cves**” - an array of CVEs:
-        - “**u_ip_address**” - the IP address of the specific interface with the specific firmware on which the CVE was detected.
-        - “**u_cve_id**”- the ID of the CVE
-        - “**u_score**”- the risk score of the CVE
-        - “**u_attack_vector**” - one of the following:
-            - "**ADJACENT_NETWORK**"
-            - "**LOCAL**"
-            - "**NETWORK**"
-        - “**u_description**” - description about the CVE.
+|**u_count** | Defines the number of objects in the full result set, including all pages. |
+| **u_id** | The device's internal ID. |
+| **u_name** | Defines the name of the device. |
+| **u_ip_address_objects** - array of **u_ip_address**, values, defining the devices IP addresses |
+| **u_mac_address_objects** | An array of **u_mac_address** values, listing the device's MAC addresses |
+| **u_last_activity**  | Defines the timestamp of the last time the device was active. |
+| **u_last_update**  | Defines the timestamp of the device's last update time. |
+|**u_cves** | An array of CVEs, including: <br>- **u_ip_address**: Defines the IP address of the specific interface, with the specific firmware where the CVE was detected. <br>- **u_cve_id**: Defines the CVE ID <br>- **u_score**: Defines the CVE risk score <br>- **u_attack_vector**: Defines the attack vector as one of the following: **ADJACENT_NETWORK**, **LOCAL**, **NETWORK** <br>- **u_description**: Defines the CVE description |
 
 ---
+
 
 ## Next steps
 
