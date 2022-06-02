@@ -451,7 +451,7 @@ A server endpoint represents a specific location on a registered server, such as
 
 ### Portal
 
-If you'd like to configure your Azure File sync to work with firewall and virtual network settings, do the following:
+If you'd like to configure Azure File Sync to work with firewall and virtual network settings, do the following:
 
 1. From the Azure portal, navigate to the storage account you want to secure.
 1. Select **Networking** on the left menu.
