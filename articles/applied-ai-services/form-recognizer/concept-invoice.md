@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/15/2022
+ms.date: 06/06/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -93,11 +93,11 @@ You'll need an invoice document. You can use our [sample invoice document](https
 |--------|:----------------------|:---------|
 |Invoice| <ul><li>English (United States)—en-US</li></ul>| English (United States)—en-US|
 |Invoice| <ul><li>Spanish—es</li></ul>| Spanish (United States)—es|
-|Invoice (Preview)| <ul><li>German—de</li></ul>| German (Germany)-de|
-|Invoice (Preview)| <ul><li>French—fr</li></ul>| French (France)—fr|
-|Invoice (Preview)| <ul><li>Italian—it</li></ul>| Italian (Italy)—it|
-|Invoice (Preview)| <ul><li>Portuguese—pt</li></ul>| Portuguese (Portugal)—pt|
-|Invoice (Preview)| <ul><li>Dutch—nl</li></ul>| Dutch (Netherlands)—nl|
+|Invoice (preview)| <ul><li>German—de</li></ul>| German (Germany)-de|
+|Invoice (preview)| <ul><li>French—fr</li></ul>| French (France)—fr|
+|Invoice (preview)| <ul><li>Italian—it</li></ul>| Italian (Italy)—it|
+|Invoice (preview)| <ul><li>Portuguese—pt</li></ul>| Portuguese (Portugal)—pt|
+|Invoice (preview)| <ul><li>Dutch—nl</li></ul>| Dutch (Netherlands)—nl|
 
 ## Field extraction
 
