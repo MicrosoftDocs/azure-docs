@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create and manage your first p
 services: dns
 author: greg-lindsay
 ms.author: greglin
-ms.date: 05/10/2022
+ms.date: 06/02/2022
 ms.topic: quickstart
 ms.service: dns
 ms.custom: devx-track-azurepowershell, mode-api
@@ -212,10 +212,17 @@ Create a forwarding rule for a ruleset to one or more target DNS servers. You mu
 ```Azure PowerShell
 $targetDNS1 = New-AzDnsResolverTargetDnsServerObject -IPAddress 192.168.1.2 -Port 53 
 $targetDNS2 = New-AzDnsResolverTargetDnsServerObject -IPAddress 192.168.1.3 -Port 53
-$targetDNS3 = New-AzDnsResolverTargetDnsServerObject -IPAddress 10.5.5.5 -Port 53
-$forwardingrule = New-AzDnsForwardingRulesetForwardingRule -ResourceGroupName myresourcegroup -DnsForwardingRulesetName myruleset -Name "internal" -DomainName "internal.contoso.com." -ForwardingRuleState "Enabled" -TargetDnsServer @($targetDNS1,$targetDNS2)
-$forwardingrule = New-AzDnsForwardingRulesetForwardingRule -ResourceGroupName myresourcegroup -DnsForwardingRulesetName myruleset -Name "wildcard" -DomainName "." -ForwardingRuleState "Enabled" -TargetDnsServer $targetDNS3
+$targetDNS3 = New-AzDnsResolverTargetDnsServerObject -IPAddress 10.0.0.4 -Port 53
+$targetDNS4 = New-AzDnsResolverTargetDnsServerObject -IPAddress 10.5.5.5 -Port 53
+$forwardingrule = New-AzDnsForwardingRulesetForwardingRule -ResourceGroupName myresourcegroup -DnsForwardingRulesetName myruleset -Name "Internal" -DomainName "internal.contoso.com." -ForwardingRuleState "Enabled" -TargetDnsServer @($targetDNS1,$targetDNS2)
+$forwardingrule = New-AzDnsForwardingRulesetForwardingRule -ResourceGroupName myresourcegroup -DnsForwardingRulesetName myruleset -Name "AzurePrivate" -DomainName "." -ForwardingRuleState "Enabled" -TargetDnsServer $targetDNS3
+$forwardingrule = New-AzDnsForwardingRulesetForwardingRule -ResourceGroupName myresourcegroup -DnsForwardingRulesetName myruleset -Name "Wildcard" -DomainName "." -ForwardingRuleState "Enabled" -TargetDnsServer $targetDNS4
 ```
+
+In this example: 
+- 10.0.0.4 is the resolver's inbound endpoint. 
+- 192.168.1.2 and 192.168.1.3 are on-premises DNS servers.
+- 10.5.5.5 is a protective DNS service.
 
 ## Test the private resolver
 

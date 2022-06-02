@@ -4,7 +4,7 @@ description: In this quickstart, you create and test a private DNS resolver in A
 services: dns
 author: greg-lindsay
 ms.author: greglin
-ms.date: 05/31/2022
+ms.date: 06/02/2022
 ms.topic: quickstart
 ms.service: dns
 ms.custom: mode-ui
@@ -142,19 +142,27 @@ Add or remove specific rules your DNS forwarding ruleset as desired, such as:
 ### Add rules to the forwarding ruleset
 
 1. On the **myruleset | Rules** page, click **Add**, and enter the following rule data:
+    - Rule Name: **AzurePrivate**
+    - Domain Name: **azure.contoso.com.**
+    - Rule State: **Enabled**
+2. Under **Destination IP address** enter 10.0.0.4, and then click **Add**.
+3. On the **myruleset | Rules** page, click **Add**, and enter the following rule data:
     - Rule Name: **Internal**
     - Domain Name: **internal.contoso.com.**
     - Rule State: **Enabled**
-2. Under **Destination IP address** enter 192.168.1.2, and then click **Add**.
-3. On the **myruleset | Rules** page, click **Add**, and enter the following rule data:
+4. Under **Destination IP address** enter 192.168.1.2, and then click **Add**.
+5. On the **myruleset | Rules** page, click **Add**, and enter the following rule data:
     - Rule Name: **Wildcard**
     - Domain Name: **.** (enter only a dot)
     - Rule State: **Enabled**
-4. Under **Destination IP address** enter 10.5.5.5, and then click **Add**.
+6. Under **Destination IP address** enter 10.5.5.5, and then click **Add**.
 
     ![forwarding ruleset](./media/dns-resolver-getstarted-portal/ruleset.png)
 
-In this example, 192.168.1.2 is an on-premises DNS server, and 10.5.5.5 is a protective DNS service.
+In this example: 
+- 10.0.0.4 is the resolver's inbound endpoint. 
+- 192.168.1.2 is an on-premises DNS server.
+- 10.5.5.5 is a protective DNS service.
 
 ## Test the private resolver
 
