@@ -4,7 +4,7 @@ description: How to manage and update Azure HPC Cache using the Azure portal or 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 06/01/2022
+ms.date: 06/02/2022
 ms.author: v-erinkelly
 ---
 
@@ -172,10 +172,9 @@ When you save the custom date, the banner message will change to show the date y
 
 If you want to revise your scheduled upgrade date, click the **Upgrade** button again. Click the **Reset date** link. This immediately removes your scheduled date.
 
-> [!NOTE]
-> You must choose a new date before you exit the **Schedule software upgrade** blade. The calendar selector might reset to a date and time one hour from the current time; be careful to choose the date and time you prefer.
-
 ![Screenshot of the Schedule software upgrade blade with a custom date selected. A text link appears at the left of the date labeled "Reset date".](media/upgrade-reset-date.png)
+
+After you reset the previously scheduled value, the date selector resets to the latest available date and time. You can choose a new date and save it, or click **Discard** to keep the latest date.
 
 You can't change the schedule if there are fewer than 15 minutes remaining before the upgrade.
 
