@@ -36,7 +36,9 @@ Use the Azure portal to create a script that automates the agent download and in
 
 1. [Go to the Azure portal page for adding servers with Azure Arc](https://ms.portal.azure.com/#view/Microsoft_Azure_HybridCompute/HybridVmAddBlade). Select the **Add a single server** tile, then select **Generate script**.
 
-    :::image type="content" source="media/quick-enable-hybrid-vm/add-single-server.png" alt-text="Screenshot of Azure portal's add server page":::
+    :::image type="content" source="media/quick-enable-hybrid-vm/add-single-server.png" alt-text="Screenshot of Azure portal's add server page." lightbox="media/quick-enable-hybrid-vm/add-single-server-expanded.png":::-->
+
+<!-->    :::image type="content" source="media/quick-enable-hybrid-vm/add-single-server.png" alt-text="Screenshot of Azure portal's add server page":::-->
     > [!NOTE]
     > In the portal, you can also reach the page for adding servers by searching for and selecting "Servers - Azure Arc" and then selecting **+Add**.
 
