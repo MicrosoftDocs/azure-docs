@@ -150,7 +150,7 @@ If the `ProvisioningState` shows `Starting` that means your cluster hasn't fully
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
 [aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
-[aks-quickstart-powershell]: /learn/quick-kubernetes-deploy-powershell.md
+[aks-quickstart-powershell]: /azure/aks/learn/quick-kubernetes-deploy-powershell
 [install-azure-cli]: /cli/azure/install-azure-cli
 [az-extension-add]: /cli/azure/extension#az_extension_add
 [az-extension-update]: /cli/azure/extension#az_extension_update

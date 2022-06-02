@@ -12,9 +12,9 @@ ms.date: 05/09/2022
 # Migrate Single Server to Flexible Server PostgreSQL using Azure CLI
 
 >[!NOTE]
-> Single Server to Flexible Server migration feature is in public preview.
+> Single Server to Flexible Server migration tool is in public preview.
 
-This quick start article shows you how to use Single to Flexible Server migration feature to migrate databases from Azure database for PostgreSQL Single server to Flexible server.
+This quick start article shows you how to use Single to Flexible Server migration tool to migrate databases from Azure database for PostgreSQL Single server to Flexible server.
 
 ## Before you begin
 
@@ -38,11 +38,11 @@ This quick start article shows you how to use Single to Flexible Server migratio
       ```bash
       az login
       ```
-4. Take care of the pre-requisites listed in this [**document**](./concepts-single-to-flexible.md#pre-requisites) which are necessary to get started with the Single to Flexible migration feature.
+4. Take care of the pre-requisites listed in this [**document**](./concepts-single-to-flexible.md#pre-requisites) which are necessary to get started with the Single to Flexible migration tool.
 
 ## Migration CLI commands
 
-Single to Flexible Server migration feature comes with a list of easy-to-use CLI commands to do migration-related tasks. All the CLI commands start with  **az postgres flexible-server migration**. You can use the **help** parameter to help you with understanding the various options associated with a command and in framing the right syntax for the same.
+Single to Flexible Server migration tool comes with a list of easy-to-use CLI commands to do migration-related tasks. All the CLI commands start with  **az postgres flexible-server migration**. You can use the **help** parameter to help you with understanding the various options associated with a command and in framing the right syntax for the same.
 
 ```azurecli-interactive
 az postgres flexible-server migration --help
@@ -92,7 +92,7 @@ az postgres flexible-server migration create --subscription 5c5037e5-d3f1-4e7b-b
 
 The **migration-name** argument used in **create migration** command will be used in other CLI commands such as **update, delete, show** to uniquely identify the migration attempt and to perform the corresponding actions.
 
-The migration feature offers online and offline mode of migration. To know more about the migration modes and their differences, visit this [link](./concepts-single-to-flexible.md)
+The migration tool offers online and offline mode of migration. To know more about the migration modes and their differences, visit this [link](./concepts-single-to-flexible.md)
 
 Create a migration between a source and target server with a migration mode of your choice. The **create** command needs a JSON file to be passed as part of its **properties** argument.
 
@@ -149,10 +149,10 @@ Create migration parameters:
 | **SourceDBServerFullyQualifiedDomainName** | optional |  Used when a custom DNS server is used for name resolution for a virtual network. The FQDN of the single server as per the custom DNS server should be provided for this property. |
 | **TargetDBServerFullyQualifiedDomainName** | optional |  Used when a custom DNS server is used for name resolution inside a virtual network. The FQDN of the flexible server as per the custom DNS server should be provided for this property. <br> **_SourceDBServerFullyQualifiedDomainName_**, **_TargetDBServerFullyQualifiedDomainName_** should be included as a part of the JSON only in the rare scenario of a custom DNS server being used for name resolution instead of Azure provided DNS. Otherwise, these parameters should not be included as a part of the JSON file. |
 | **SecretParameters** | Required | Passwords for admin user for both single server and flexible server along with the Azure AD app credentials. They help to authenticate against the source and target servers and help in checking proper authorization access to the resources.
-| **MigrationResourceGroup** | optional | This section consists of two properties. <br> **ResourceID (optional)** : The migration infrastructure and other network infrastructure components are created to migrate data and schema from the source to target. By default, all the components created by this feature are provisioned under the resource group of the target server. If you wish to deploy them under a different resource group, then you can assign the resource ID of that resource group to this property. <br> **SubnetResourceID (optional)** : In case if your source has public access turned OFF or if your target server is deployed inside a VNet, then specify a subnet under which migration infrastructure needs to be created so that it can connect to both source and target servers. |
+| **MigrationResourceGroup** | optional | This section consists of two properties. <br> **ResourceID (optional)** : The migration infrastructure and other network infrastructure components are created to migrate data and schema from the source to target. By default, all the components created by this tool are provisioned under the resource group of the target server. If you wish to deploy them under a different resource group, then you can assign the resource ID of that resource group to this property. <br> **SubnetResourceID (optional)** : In case if your source has public access turned OFF or if your target server is deployed inside a VNet, then specify a subnet under which migration infrastructure needs to be created so that it can connect to both source and target servers. |
 | **DBsToMigrate** | Required | Specify the list of databases you want to migrate to the flexible server. You can include a maximum of 8 database names at a time. |
 | **SetupLogicalReplicationOnSourceDBIfNeeded** | Optional | Logical replication can be enabled on the source server automatically by setting this property to **true**. This change in the server settings requires a server restart with a downtime of few minutes (~ 2-3 mins). |
-| **OverwriteDBsinTarget** | Optional | If the target server happens to have an existing database with the same name as the one you are trying to migrate, the migration will pause until you acknowledge that overwrites in the target DBs are allowed. This pause can be avoided by giving the migration feature, permission to automatically overwrite databases by setting the value of this property to **true** |
+| **OverwriteDBsinTarget** | Optional | If the target server happens to have an existing database with the same name as the one you are trying to migrate, the migration will pause until you acknowledge that overwrites in the target DBs are allowed. This pause can be avoided by giving the migration tool, permission to automatically overwrite databases by setting the value of this property to **true** |
 
 ### Mode of migrations
 

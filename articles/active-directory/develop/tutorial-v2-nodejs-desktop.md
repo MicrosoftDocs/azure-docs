@@ -1,6 +1,5 @@
 ---
-title: "Tutorial: Sign in users and call the Microsoft Graph API in an Electron desktop app | Azure"
-titleSuffix: Microsoft identity platform
+title: "Tutorial: Sign in users and call the Microsoft Graph API in an Electron desktop app"
 description: In this tutorial, you build an Electron desktop app that can sign in users and use the auth code flow to obtain an access token from the Microsoft identity platform and call the Microsoft Graph API.
 services: active-directory
 author: mmacy
