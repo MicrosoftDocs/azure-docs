@@ -276,11 +276,6 @@ The following code is an example for copying data from csv file to table.
 using Npgsql;
 public class csvtotable
 {
-    private static string Host = "<your-db-server-name>";
-    private static string User = "citus";
-    private static string DBname = "citus";
-    private static string Password = "<your-password>";
-    private static string Port = "5432";
 
     static void Main(string[] args)
     {
