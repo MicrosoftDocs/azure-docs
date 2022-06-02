@@ -150,7 +150,7 @@ Otherwise create an x509 self-signed certificate storing it in AKV for remote si
     az keyvault certificate download --file $CERT_PATH --id $KEY_ID --encoding PEM
     ```
 
-5. Add the Key Id to the keys and certs
+5. Add the Key ID to the keys and certs
 
     ```bash
     notation key add --name $KEY_NAME --plugin azure-kv --id $KEY_ID
@@ -206,7 +206,7 @@ ACR support for ORAS artifacts enables a linked graph of supply chain artifacts 
     az acr manifest show-metadata $IMAGE -o jsonc
     ```
 
-2.  Generates a result, showing the `digest` which represents the notary v2 signature.
+2.  Generates a result, showing the `digest` representing the notary v2 signature.
 
     ```json
     {
