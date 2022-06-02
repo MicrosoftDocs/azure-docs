@@ -4,7 +4,7 @@ description: Learn how to interpret the provisioned and pay-as-you-go billing mo
 author: khdownie
 ms.service: storage
 ms.topic: conceptual
-ms.date: 4/19/2022
+ms.date: 06/02/2022
 ms.author: kendownie
 ms.subservice: files
 ---
@@ -92,10 +92,10 @@ When you provision a premium file share, you specify how many GiBs your workload
 |-|-|
 | Minimum size of a file share | 100 GiB |
 | Provisioning unit | 1 GiB |
-| Baseline IOPS formula | `MIN(3000 + 1 * ProvisionedGiB, 100000)` |
-| Burst limit | `MIN(MAX(10000, 3 * ProvisionedGiB), 100000)` |
+| Baseline IOPS formula | `MIN(3000 + 1 * ProvisionedStorageGiB, 100000)` |
+| Burst limit | `MIN(MAX(10000, 3 * ProvisionedStorageGiB), 100000)` |
 | Burst credits | `(BurstLimit - BaselineIOPS) * 3600` |
-| Throughput rate (ingress + egress) (MiB/sec) | `100 + CEILING(0.04 * ProvisionedGiB) + CEILING(0.06 * ProvisionedGiB)` |
+| Throughput rate (ingress + egress) (MiB/sec) | `100 + CEILING(0.04 * ProvisionedStorageGiB) + CEILING(0.06 * ProvisionedStorageGiB)` |
 
 The following table illustrates a few examples of these formulae for the provisioned share sizes:
 
@@ -113,9 +113,9 @@ The following table illustrates a few examples of these formulae for the provisi
 Effective file share performance is subject to machine network limits, available network bandwidth, IO sizes, and parallelism, among many other factors. For example, based on internal testing with 8 KiB read/write IO sizes, a single Windows virtual machine without SMB Multichannel enabled, *Standard F16s_v2*, connected to premium file share over SMB could achieve 20K read IOPS and 15K write IOPS. With 512 MiB read/write IO sizes, the same VM could achieve 1.1 GiB/s egress and 370 MiB/s ingress throughput. The same client can achieve up to \~3x performance if SMB Multichannel is enabled on the premium shares. To achieve maximum performance scale, [enable SMB Multichannel](files-smb-protocol.md#smb-multichannel) and spread the load across multiple VMs. Refer to [SMB Multichannel performance](storage-files-smb-multichannel-performance.md) and [troubleshooting guide](storage-troubleshooting-files-performance.md) for some common performance issues and workarounds.
 
 ### Bursting
-If your workload needs the extra performance to meet peak demand, your share can use burst credits to go above the share's baseline IOPS limit to give the share the performance it needs to meet the demand. Premium file shares can burst their IOPS up to 4,000 or up to a factor of three, whichever is a higher value. Bursting is automated and operates based on a credit system. Bursting works on a best effort basis, and the burst limit is not a guarantee.
+If your workload needs the extra performance to meet peak demand, your share can use burst credits to go above the share's baseline IOPS limit to give the share the performance it needs to meet the demand. Bursting is automated and operates based on a credit system. Bursting works on a best effort basis, and the burst limit is not a guarantee.
 
-Credits accumulate in a burst bucket whenever traffic for your file share is below baseline IOPS. For example, a 100 GiB share has 500 baseline IOPS. If actual traffic on the share was 100 IOPS for a specific 1-second interval, then the 400 unused IOPS are credited to a burst bucket. Similarly, an idle 1 TiB share accrues burst credit at 1,424 IOPS. These credits will then be used later when operations would exceed the baseline IOPS.
+Credits accumulate in a burst bucket whenever traffic for your file share is below baseline IOPS. Earned credits are used later to enable burst when operations would exceed the baseline IOPS.
 
 Whenever a share exceeds the baseline IOPS and has credits in a burst bucket, it will burst up to the maximum allowed peak burst rate. Shares can continue to burst as long as credits are remaining, but this is based on the number of burst credits accrued. Each IO beyond baseline IOPS consumes one credit, and once all credits are consumed, the share would return to the baseline IOPS.
 
