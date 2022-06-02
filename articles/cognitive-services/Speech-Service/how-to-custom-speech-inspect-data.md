@@ -392,7 +392,7 @@ If the test dataset included multiple audio files, you'll see multiple rows in t
 
 ::: zone pivot="speech-cli"
 
-The audio test dataset, transcriptions, and models tested are returned in the [test results](#get-test-results). If the `model1` and `model2` values are identical, and the `transcription1` and `transcription2` values are identical to each other, only one model was tested.
+The audio test dataset, transcriptions, and models tested are returned in the [test results](#get-test-results). If only one model was tested, the `model1` value will match `model2`, and the `transcription1` value will match `transcription2`. 
 
 To review the quality of transcriptions:
 1. Download the audio test dataset, unless you already have a copy.
@@ -406,7 +406,7 @@ If you're comparing quality between two models, pay particular attention to diff
 ::: zone pivot="rest-api"
 
 
-The audio test dataset, transcriptions, and models tested are returned in the [test results](#get-test-results). If the `model1` and `model2` values are identical, and the `transcription1` and `transcription2` values are identical to each other, only one model was tested.
+The audio test dataset, transcriptions, and models tested are returned in the [test results](#get-test-results). If only one model was tested, the `model1` value will match `model2`, and the `transcription1` value will match `transcription2`. 
 
 To review the quality of transcriptions:
 1. Download the audio test dataset, unless you already have a copy.
