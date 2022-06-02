@@ -29,7 +29,7 @@ Customer-managed keys (CMKs) feature supports, see the following shown by key ty
 
 The following diagram shows how Azure VMware Solution uses Azure Active Directory (Azure AD) and a Key Vault to deliver the customer-managed key.
 
-:::image type="content" source="media/configure-customer-managed-keys/customer-managed-keys-topology-diagram.png" alt-text="Diagram showing the customer-managed keys topology." border="false" lightbox="media/configure-customer-managed-keys/customer-managed-keys-topology-diagram.png":::
+:::image type="content" source="media/configure-customer-managed-keys/customer-managed-keys-diagram-topology.png" alt-text="Diagram showing the customer-managed keys topology." border="false" lightbox="media/configure-customer-managed-keys/customer-managed-keys-diagram-topology.png":::
 
 ## Prerequisites
 
@@ -57,6 +57,7 @@ Before you begin to enable customer-managed key (CMK) functionality, ensure the 
     To configure the system-assigned identity on Azure VMware Solution private cloud with Azure CLI, call [az-resource-update](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-update), providing the variable for the private cloud resource ID that you previously retrieved.
     
     `az resource update --ids $privateCloudId --set identity.type=SystemAssigned --api-version "2021-12-01"`
+
 ---
 
 4. Configure the key vault access policy to grant permissions to the managed identity. It'll be used to authorize access to the key vault.
