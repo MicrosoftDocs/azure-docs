@@ -39,7 +39,7 @@ To register your application and add the app's registration information to your 
 1. Select **Register** to create the application.
 1. Under **Manage**, select **Authentication**.
 1. Select **Add a platform** > **Mobile and desktop applications**.
-1. In the **Redirect URIs** section, enter `msal{Your_Application/Client_Id}://auth`.
+1. In the **Redirect URIs** section, enter the redirect URI suggested by the app registration portal, e.g. `msalfa29b4c9-7675-4b61-8a0a-bf7b2b4fda91://auth`.
 1. Select **Configure**.
 
 #### Step 2: Download the Electron sample project
