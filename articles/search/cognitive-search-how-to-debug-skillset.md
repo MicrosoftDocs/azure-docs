@@ -164,6 +164,12 @@ You can edit the skill definition in the portal.
 
 At this point, new requests from your debug session should now be sent to your local Azure Function. You can use breakpoints in your Visual Studio code to debug your code or run step by step.
 
+
+## Expected behaviors
+
+If debugging for a CosmosDB SQL data source, if the CosmosDB SQL collection was previously non-partitioned, and then it was changed to a partitioned collection on the CosmosDB end, Debug Sessions won't be able to pick up the correct document from CosmosDB.
+
+
 ## Next steps
 
 Now that you understand the layout and capabilities of the Debug Sessions visual editor, try the tutorial for a hands-on experience.
