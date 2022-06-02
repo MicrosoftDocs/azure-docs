@@ -2,7 +2,7 @@
   href: nc2-baremetal-overview.md
 - name: About the Public Preview
   href: about-the-public-preview.md
-- nane: Use cases and supported scenarios
+- name: Use cases and supported scenarios
   href: use-cases-and-supported-scenarios.md  
 - name: Solution design
   href: solution-design.md
@@ -12,6 +12,8 @@
   href: requirements.md
 - name: Supported instances
   href: supported-instances.md
+- name: SkUs
+  href: skus.md
 - name: FAQ
   href: faq.md
 
