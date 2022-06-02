@@ -4,8 +4,8 @@ description: 'Quickstart: Configure a contact profile'
 author: apoorvanori
 ms.service: orbital
 ms.topic: quickstart
-ms.custom: public-preview
-ms.date: 11/16/2021
+ms.custom: ga
+ms.date: 06/01/2022
 ms.author: wamota
 # Customer intent: As a satellite operator, I want to ingest data from my satellite into Azure.
 ---
