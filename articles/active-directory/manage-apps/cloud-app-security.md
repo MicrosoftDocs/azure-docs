@@ -1,6 +1,5 @@
 ---
 title: App visibility and control with Microsoft Defender for Cloud Apps
-titleSuffix: Microsoft Entra
 description: Learn ways to identify app risk levels, stop breaches and leaks in real time, and use app connectors to take advantage of provider APIs for visibility and governance.
 services: active-directory
 author: davidmu1
