@@ -58,7 +58,7 @@ sections:
 
           For more information, please see this [how-to guide](./upload-index-videos.md).
  
-       - question: How many files can I stitch and render in a project
+       - question: How many files can I stitch and render in a project?
         answer: |
           In Azure Video Indexer you can create a project and add multiple files to stitch and render as a new file. The number of source files is set to 10 in the portal UI and 100 in the API. This is a limit set by the Azure Media Services Media Encoder Standard API where we have a dependency on.
 
