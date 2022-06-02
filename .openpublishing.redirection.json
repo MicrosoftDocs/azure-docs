@@ -22020,6 +22020,11 @@
       "redirect_document_id": ""
     },
     {
+      "source_path_from_root": "/articles/search/cognitive-search-quickstart-ocr.md",
+      "redirect_url": "/azure/search/cognitive-search-quickstart-blob",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/search/knowledge-store-view-storage-explorer.md",
       "redirect_url": "/azure/search/knowledge-store-create-portal#view-kstore",
       "redirect_document_id": false
