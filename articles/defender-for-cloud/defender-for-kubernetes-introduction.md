@@ -53,14 +53,9 @@ For a full list of the cluster level alerts, see alerts with "K8S_" prefix in th
 
 ## FAQ - Microsoft Defender for Kubernetes
 
-- [Introduction to Microsoft Defender for Kubernetes (deprecated)](#introduction-to-microsoft-defender-for-kubernetes-deprecated)
-  - [Availability](#availability)
-  - [What are the benefits of Microsoft Defender for Kubernetes?](#what-are-the-benefits-of-microsoft-defender-for-kubernetes)
-  - [FAQ - Microsoft Defender for Kubernetes](#faq---microsoft-defender-for-kubernetes)
-    - [What happens to subscriptions with Microsoft Defender for Kubernetes or Microsoft Defender for Containers enabled?](#what-happens-to-subscriptions-with-microsoft-defender-for-kubernetes-or-microsoft-defender-for-containers-enabled)
-    - [Is Defender for Containers a mandatory upgrade?](#is-defender-for-containers-a-mandatory-upgrade)
-    - [Does the new plan reflect a price increase?](#does-the-new-plan-reflect-a-price-increase)
-  - [Next steps](#next-steps)
+- [What happens to subscriptions with Microsoft Defender for Kubernetes or Microsoft Defender for Containers enabled?](#what-happens-to-subscriptions-with-microsoft-defender-for-kubernetes-or-microsoft-defender-for-containers-enabled)
+- [Is Defender for Containers a mandatory upgrade?](#is-defender-for-containers-a-mandatory-upgrade)
+- [Does the new plan reflect a price increase?](#does-the-new-plan-reflect-a-price-increase)
 
 ### What happens to subscriptions with Microsoft Defender for Kubernetes or Microsoft Defender for Containers enabled?
 
