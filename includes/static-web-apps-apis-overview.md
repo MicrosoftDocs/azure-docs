@@ -12,7 +12,6 @@ It's common for a front-end web app to call backend APIs. By default, Azure Stat
 * [Azure API Management](../articles/static-web-apps/apis-api-management.md)
 * [Azure App Service](../articles/static-web-apps/apis-app-service.md)
 * [Azure Container Apps](../articles/static-web-apps/apis-container-apps.md)
-* [Azure Logic Apps](../articles/static-web-apps/apis-logic-apps.md)
 
 Key features of integrated APIs include:
 
