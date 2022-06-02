@@ -13,17 +13,17 @@ ms.custom: "mvc, references_regions"
 # Migrate from Azure Database for PostgreSQL Single Server to Flexible Server (Preview)
 
 >[!NOTE]
-> Single Server to Flexible Server migration feature is in public preview.
+> Single Server to Flexible Server migration tool is in public preview.
 
-Azure Database for PostgreSQL Flexible Server provides zone redundant high availability, control over price, and control over maintenance window.  Single to Flexible Server Migration feature enables customers to migrate their databases from Single server to Flexible. See this [documentation](../flexible-server/concepts-compare-single-server-flexible-server.md) to understand the differences between Single and Flexible servers. Customers can initiate migrations for multiple servers and databases in a repeatable fashion using this migration feature. This feature automates most of the steps needed to do the migration and thus making the migration journey across Azure platforms as seamless as possible. The feature is provided free of cost for customers.
+Azure Database for PostgreSQL Flexible Server provides zone redundant high availability, control over price, and control over maintenance window.  Single to Flexible Server Migration tool enables customers to migrate their databases from Single server to Flexible. See this [documentation](../flexible-server/concepts-compare-single-server-flexible-server.md) to understand the differences between Single and Flexible servers. Customers can initiate migrations for multiple servers and databases in a repeatable fashion using this migration tool. This tool automates most of the steps needed to do the migration and thus making the migration journey across Azure platforms as seamless as possible. The tool is provided free of cost for customers.
 
 Single to Flexible server migration is enabled in **Preview** in  Australia Southeast, Canada Central, Canada East, East Asia, North Central US, South Central US, Switzerland North, UAE North, UK South, UK West, West US, and Central US.
 
 ## Overview
 
-Single to Flexible server migration feature provides an inline experience to migrate databases from Single Server (source) to Flexible Server (target).
+Single to Flexible server migration tool provides an inline experience to migrate databases from Single Server (source) to Flexible Server (target).
 
-You choose the source server and can select up to **8** databases from it. This limitation is per migration task. The migration feature automates the following steps:
+You choose the source server and can select up to **8** databases from it. This limitation is per migration task. The migration tool automates the following steps:
 
 1. Creates the migration infrastructure in the region of the target flexible server
 2. Creates public IP address and attaches it to the migration infrastructure
@@ -34,7 +34,7 @@ You choose the source server and can select up to **8** databases from it. This 
 7. Creates databases with the same name on the target Flexible server
 8. Migrates data from source to target
 
-Following is the flow diagram for Single to Flexible migration feature.
+Following is the flow diagram for Single to Flexible migration tool.
 :::image type="content" source="./media/concepts-single-to-flexible/concepts-flow-diagram.png" alt-text="Diagram that shows Single to Flexible Server migration." lightbox="./media/concepts-single-to-flexible/concepts-flow-diagram.png":::
     
 **Steps:**
@@ -44,7 +44,7 @@ Following is the flow diagram for Single to Flexible migration feature.
 4. Initiates migration – (4a) Initial dump/restore (online & offline) (4b) streaming the changes (online only)
 5. Cutover to the target
    
-The migration feature is exposed through **Azure Portal** and via easy-to-use **Azure CLI** commands. It allows you to create migrations, list migrations, display migration details, modify the state of the migration, and delete   migrations
+The migration tool is exposed through **Azure Portal** and via easy-to-use **Azure CLI** commands. It allows you to create migrations, list migrations, display migration details, modify the state of the migration, and delete   migrations
 
 ## Migration modes comparison
 
@@ -93,9 +93,9 @@ Based on the above differences, pick the mode that best works for your workloads
 
 ### Pre-requisites
 
-Follow the steps provided in this section before you get started with the single to flexible server migration feature.
+Follow the steps provided in this section before you get started with the single to flexible server migration tool.
 
-- **Target Server Creation** - You need to create the target PostgreSQL flexible server before using the migration feature. Use the creation [QuickStart guide](../flexible-server/quickstart-create-server-portal.md) to create one.
+- **Target Server Creation** - You need to create the target PostgreSQL flexible server before using the migration tool. Use the creation [QuickStart guide](../flexible-server/quickstart-create-server-portal.md) to create one.
 
 - **Source Server pre-requisites** - You must [enable logical replication](./concepts-logical.md) on the source server.
 
@@ -104,7 +104,7 @@ Follow the steps provided in this section before you get started with the single
 >[!NOTE]
 > Enabling logical replication will require a server reboot for the change to take effect.
 
-- **Azure Active Directory App set up** - It is a critical component of the migration feature. Azure AD App helps with role-based access control as the migration feature needs access to both the source and target servers. See [How to setup and configure Azure AD App](./how-to-setup-azure-ad-app-portal.md) for step-by-step process.
+- **Azure Active Directory App set up** - It is a critical component of the migration tool. Azure AD App helps with role-based access control as the migration tool needs access to both the source and target servers. See [How to setup and configure Azure AD App](./how-to-setup-azure-ad-app-portal.md) for step-by-step process.
 
 ### Data and schema migration
 
@@ -131,7 +131,7 @@ Once all these pre-requisites are taken care of, you can do the migration. This 
 
 ### Size limitations
 
-- Databases of sizes up to 1TB can be migrated using this feature. To migrate larger databases or heavy write workloads, reach out to your account team or reach us @ AskAzureDBforPGS2F@microsoft.com.
+- Databases of sizes up to 1TB can be migrated using this tool. To migrate larger databases or heavy write workloads, reach out to your account team or reach us @ AskAzureDBforPGS2F@microsoft.com.
 
 - In one migration attempt, you can migrate up to eight user databases from a single server to flexible server. In case you have more databases to migrate, you can create multiple migrations between the same single and flexible servers.
 
@@ -143,7 +143,7 @@ Once all these pre-requisites are taken care of, you can do the migration. This 
 
 ### Replication limitations
 
-- Single to Flexible Server migration feature uses logical decoding feature of PostgreSQL to perform the online migration and it comes with the following limitations. See PostgreSQL documentation for [logical replication limitations](https://www.postgresql.org/docs/10/logical-replication-restrictions.html).
+- Single to Flexible Server migration tool uses logical decoding feature of PostgreSQL to perform the online migration and it comes with the following limitations. See PostgreSQL documentation for [logical replication limitations](https://www.postgresql.org/docs/10/logical-replication-restrictions.html).
   - **DDL commands** are not replicated.
   - **Sequence** data is not replicated.
   - **Truncate** commands are not replicated.(**Workaround**: use DELETE instead of TRUNCATE. To avoid accidental TRUNCATE invocations, you can revoke the TRUNCATE privilege from tables)
@@ -154,15 +154,15 @@ Once all these pre-requisites are taken care of, you can do the migration. This 
 
 ### Other limitations
 
-- The migration feature migrates only data and schema of the single server databases to flexible server. It does not migrate other features such as server parameters, connection security details, firewall rules, users, roles and permissions. In other words, everything except data and schema must be manually configured in the target flexible server.
+- The migration tool migrates only data and schema of the single server databases to flexible server. It does not migrate other features such as server parameters, connection security details, firewall rules, users, roles and permissions. In other words, everything except data and schema must be manually configured in the target flexible server.
 
 - It does not validate the data in flexible server post migration. The customers must manually do this.
 
 - The migration tool only migrates user databases including Postgres database and not system/maintenance databases.
 
-- For failed migrations, there is no option to retry the same migration task. A new migration task with a unique name can to be created.
+- For failed migrations, there is no option to retry the same migration task. A new migration task with a unique name has to be created.
 
-- The migration feature does not include assessment of your single server. 
+- The migration tool does not include assessment of your single server. 
 
 ## Best practices
 
