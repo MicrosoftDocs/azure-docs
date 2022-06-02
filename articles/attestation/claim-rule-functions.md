@@ -10,7 +10,7 @@ ms.author: prsriva
 ms.custom: claim rules
 ---
 
-# Claim rule functions (supported in policy version 1.2+)
+# Claim rule functions supported in policy version 1.2+
 
 Azure Attestation policy language is updated to enable querying of the incoming evidence in a JSON format. This article explains all the improvements made to the policy language.
 
@@ -49,15 +49,17 @@ The function requires exactly two arguments. The first argument must evaluate a 
 
 ### Evaluation
 
-Evaluates the JmesPath expression represented by the second argument, against JSON data represented by the first argument, and returns the resultant JSON as a string.
+The JmesPath expression represented by the second argument is evaluated against JSON data represented by the first argument, which returns the resultant JSON as a string.
 
 ### Effect of read-only arguments on result
 
-The resultant JSON string is read only if either of the input arguments are retrieved from read-only claims.
+The resultant JSON string is read-only if either of the input arguments are retrieved from read-only claims.
 
 ### Usage example
 
-#### Literal arguments (Boolean, Integer, String)
+The following example illustrates the concept.
+
+#### Literal arguments (Boolean, integer, string)
 
 Consider the following rule:
 
@@ -67,7 +69,7 @@ Consider the following rule:
 
 During the evaluation of this rule, the JmesPath function is evaluated. The evaluation boils down to evaluating JmesPath query *foo* against the JSON *{ "foo" :  "bar" }.* The result of this search operation is a JSON value *"bar".* So, the evaluation of the rule adds a new claim with type *"JmesPathResult"* and string value *"bar"* to the incoming claims set.
 
-The backslash character is used to escape the double-quote character within the literal string that represents the JSON data.
+The backslash character is used to escape the double quotation-mark character within the literal string that represents the JSON data.
 
 #### Arguments constructed from claims
 
@@ -111,7 +113,7 @@ The policy language only supports four types of claim values:
 - String
 - Set
 
-In the policy language, a JSON value is represented as a string claim whose value is equal to the string representation of the JSON value. The JsonToClaimValue function is used to convert JSON values to claim values that the policy language supports. The function is structured as:
+In the policy language, a JSON value is represented as a string claim whose value is equal to the string representation of the JSON value. The **JsonToClaimValue** function is used to convert JSON values to claim values that the policy language supports. The function is structured as:
 
 ```JSON
 JsonToClaimValue(Expression)
@@ -123,20 +125,22 @@ The function requires exactly one argument, which must evaluate to a valid JSON 
 
 ### Evaluation
 
-Here's how each type of the JSON values are converted to a claim value:
+Here's how each type of the six JSON values is converted to a claim value:
 
 - **Number**: If the number is an integer, the function returns a claim value with the same integer value. If the number is a fraction, an error is generated.
 - **Boolean**: The function returns a claim value with the same Boolean value.
 - **String**: The function returns a claim value with the same string value.
 - **Object**: The function doesn't support JSON objects. If the argument is a JSON object, an error is generated.
-- **Array**: The function only supports arrays of primitive (number, Boolean, string, null) types. Such an array is converted to a set that contains a claim with the same type but with values created by converting the JSON values from the array. If the argument to the function is an array of non-primitive (object, array) types, an error is generated.
+- **Array**: The function only supports arrays of primitive (number, Boolean, string, and null) types. Such an array is converted to a set that contains a claim with the same type but with values created by converting the JSON values from the array. If the argument to the function is an array of non-primitive (object and array) types, an error is generated.
 - **Null**: If the input is a JSON null, the function returns an empty claim value. If such a claim value is used to construct a claim, the claim is an empty claim. If a rule attempts to add or issue an empty claim, no claim is added to the incoming or the outgoing claims set. In other words, a rule attempting to add or issue an empty claim results in a no-op.
 
 ### Effect of read-only arguments on result
 
-The resultant claim values are read only if the input argument is read only.
+The resultant claim values are read-only if the input argument is read-only.
 
 ### Usage example
+
+The following example illustrates the concept.
 
 #### JSON number/Boolean/string
 
@@ -232,7 +236,7 @@ The function checks if the set represented by the first argument is a subset of 
 
 ### Effect of read-only arguments on result
 
-Because the function simply creates and returns a Boolean value, the returned claim value is always non-read only.
+Because the function simply creates and returns a Boolean value, the returned claim value is always non-read-only.
 
 ### Usage example
 
@@ -281,7 +285,7 @@ This function appends the string value of the second argument to the string valu
 
 ### Effect of read-only arguments on the result
 
-The resultant string value is considered to be read only if either of the arguments are retrieved from read-only claims.
+The resultant string value is considered to be read-only if either one of the arguments is retrieved from read-only claims.
 
 ### Usage example
 
@@ -324,7 +328,7 @@ This function negates the Boolean value represented by the argument and returns 
 
 ### Effect of read-only arguments on the result
 
-The resultant Boolean value is considered to be read only if the argument is retrieved from a read-only claim.
+The resultant Boolean value is considered to be read-only if the argument is retrieved from a read-only claim.
 
 ### Usage example
 
@@ -349,7 +353,7 @@ Claim2: { type="Result", value=false }
 
 ## ContainsOnlyValue function
 
-This function is used to check if a set of claims only contains a specific claim value. The function is structured as:
+This function is used to check if a set of claims contains only a specific claim value. The function is structured as:
 
 ```JSON
 ContainsOnlyValue(Expression, Expression)
@@ -357,15 +361,15 @@ ContainsOnlyValue(Expression, Expression)
 
 ### Argument constraints
 
-This function requires exactly two arguments. The first argument can evaluate a heterogeneous set of any cardinality. The second argument must evaluate a single value of any type (Boolean, string, integer) supported by the policy language.
+This function requires exactly two arguments. The first argument can evaluate a heterogeneous set of any cardinality. The second argument must evaluate a single value of any type (Boolean, string, or integer) supported by the policy language.
 
 ### Evaluation
 
 The function returns true if the set represented by the first argument isn't empty and only contains the value represented by the second argument. The function returns false if the set represented by the first argument is empty or contains any value other than the value represented by the second argument.
 
-### Effect of read-only arguments on result
+### Effect of read-only arguments on the result
 
-Because the function simply creates and returns a Boolean value, the returned claim value is always non-read only.
+Because the function simply creates and returns a Boolean value, the returned claim value is always non-read-only.
 
 ### Usage example
 
@@ -390,9 +394,9 @@ Claim2: {type="Set", value=101}
 Claim3: {type="Result", value=false}
 ```
 
-## Not Condition Operator
+## Not condition operator
 
-The rules in the policy language start with an optional list of conditions that act as filtering criteria on the incoming claims set. The conditions can be used to identify if a claim is present in the incoming claims set. But there was no way of checking if a claim was absent. So, a new operator (!) was introduced that could be applied to the individual conditions in the conditions list. This operator changes the evaluation behavior of the condition from checking the presence of a claim to checking the absence of a claim.
+The rules in the policy language start with an optional list of conditions that act as filtering criteria on the incoming claims set. The conditions can be used to identify if a claim is present in the incoming claims set. But there's no way of checking if a claim is absent. So, a new operator (!) is introduced that can be applied to the individual conditions in the conditions list. This operator changes the evaluation behavior of the condition from checking the presence of a claim to checking the absence of a claim.
 
 ### Usage example
 
@@ -421,7 +425,7 @@ Claim3: {type="Claim2", value=300}
 
 ### Sample policy using policy version 1.2
 
-Windows [implements measured boot](/windows/security/information-protection/secure-the-windows-10-boot-process) and, along with attestation, the protection that's provided is greatly enhanced. You can use it to securely and reliably detect and protect against vulnerable and malicious boot components. You can now use these measurements to build the attestation policy.
+Windows [implements Measured Boot](/windows/security/information-protection/secure-the-windows-10-boot-process) and, along with attestation, the protection that's provided is greatly enhanced. You can use it to detect and protect against vulnerable and malicious boot components securely and reliably. You can now use these measurements to build the attestation policy.
 
 ```
 version=1.2;

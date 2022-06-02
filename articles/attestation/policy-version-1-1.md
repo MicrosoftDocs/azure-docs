@@ -32,21 +32,21 @@ Policy version 1.1 has four segments:
 - **authorizationrules**: A collection of claim rules that are checked first to determine if attestation should proceed to issuancerules. Use this section to filter out calls that don't require the issuance rules to be applied. No claims can be issued from this section to the response token. These rules can be used to fail attestation.
 - **issuancerules**: A collection of claim rules that are evaluated to add information to the attestation result as defined in the policy. The claim rules apply in the defined order. They're also optional. These rules can also be used to add to the outgoing claim set and the response token. These rules can't be used to fail attestation.
 
-The following **configurationrules** are available to the policy author.
+The following configuration rules are available to the policy author.
 
 | Attestation type | ConfigurationRule property name | Type | Default value | Description |
 | ----------- | ----------- | ----------- | ----------- |----------- |
-| Trusted Platform Module (TPM), virtualization-based security (VBS) | require_valid_aik_cert | Bool | true | Indicates whether a valid Attestation Identity Key (AIK) certificate is required. It's only applied when TPM data is present.|
+| Trusted Platform Module (TPM), virtualization-based security (VBS) | require_valid_aik_cert | Bool | true | Indicates whether a valid attestation identity key (AIK) certificate is required. It's only applied when TPM data is present.|
 | TPM, VBS | required_pcr_mask | Int | 0xFFFFFF | The bitmask for PCR indices that must be included in the TPM quote. Bit 0 represents PCR 0, bit 1 represents PCR 1, and so on. |
 
-List of claims supported as part of the incoming claims.
+The following claims are supported as part of the incoming claims.
 
 ### TPM attestation
 
 Use these claims to define authorization rules in a TPM attestation policy:
 
-- **aikValidated**: The Boolean value that contains information if the Attestation Identity Key (AIK) cert has been validated or not.
-- **aikPubHash**: The string that contains the base64 (SHA256), which is an AIK public key in DER format.
+- **aikValidated**: The Boolean value that contains information if the AIK certification has been validated or not.
+- **aikPubHash**: The string that contains the base64 (SHA256) AIK public key in DER format.
 - **tpmVersion**: The integer value that contains the TPM major version.
 - **secureBootEnabled**: The Boolean value that indicates if secure boot is enabled.
 - **iommuEnabled**: The Boolean value that indicates if input-output memory management unit is enabled.
@@ -99,5 +99,5 @@ issuancerules
 };
 ```
 
-The required_pcr_mask restricts the evaluation of PCR matches to only PCR 0,1,2,3.
-The require_valid_aik_cert marked as false indicates that the aik cert isn't a requirement and is later verified in issuancerules to determine the PlatformAttested state.
+The `required_pcr_mask` restricts the evaluation of PCR matches to only PCR 0,1,2,3.
+The `require_valid_aik_cert` marked as `false` indicates that the AIK certification isn't a requirement and is later verified in `issuancerules` to determine the `PlatformAttested` state.

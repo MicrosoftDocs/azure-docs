@@ -32,14 +32,14 @@ Policy version 1.0 has three segments:
 - **authorizationrules**: A collection of claim rules that are checked first to determine if attestation should proceed to issuancerules. Use this section to filter out calls that don't require the issuance rules to be applied. No claims can be issued from this section to the response token. These rules can be used to fail attestation.
 - **issuancerules**: A collection of claim rules that are evaluated to add information to the attestation result as defined in the policy. The claim rules apply in the order in which they're defined. They're also optional. These rules can be used to add to the outgoing claim set and the response token. These rules can't be used to fail attestation.
 
-List of claims supported by policy version 1.0 as part of the incoming claims.
+The following claims are supported by policy version 1.0 as part of the incoming claims.
 
 ### TPM attestation
 
 Use these claims to define authorization rules in a Trusted Platform Module (TPM) attestation policy:
 
-- **aikValidated**: The Boolean value that contains information if the Attestation Identity Key (AIK) certificate has been validated or not.
-- **aikPubHash**: The string that contains the base64 (SHA256), which is an AIK public key in DER format.
+- **aikValidated**: The Boolean value that contains information if the attestation identity key (AIK) certificate has been validated or not.
+- **aikPubHash**: The string that contains the base64 (SHA256) AIK public key in DER format.
 - **tpmVersion**: The integer value that contains the TPM major version.
 - **secureBootEnabled**: The Boolean value that indicates if secure boot is enabled.
 - **iommuEnabled**:The Boolean value that indicates if the input-output memory management unit is enabled.
