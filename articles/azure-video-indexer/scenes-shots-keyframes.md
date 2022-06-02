@@ -41,8 +41,7 @@ To extract keyframes using the Azure Video Indexer website, upload and index you
  
 Unzip and open the folder. In the *_KeyframeThumbnail* folder, and you will find all of the keyframes that were extracted from your video. 
 
-> [!WARNING]
-> We do not recommend that you use data directly from the artifacts folder for production purposes.
+[!INCLUDE [artifacts](./includes/artifacts.md)]
 
 #### With the Azure Video Indexer API
 
