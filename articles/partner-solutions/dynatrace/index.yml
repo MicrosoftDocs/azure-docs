@@ -1,14 +1,14 @@
 ### YamlMime:Landing
 
-title: Dynatrace integration with Azure
-summary: Uses Dynatrace to Dynatrace stuff.
+title: Dynatrace for Azure
+summary: Dynatrace for Azure from the Azure Marketplace enables you to create and manage Dynatrace environments using the Azure portal with a integrated experience.
 
 metadata:
-  title: Dynatrace with Azure documentation
-  description: Dynatrace integrates with Azure to offer 
+  title: Dynatrace for Azure documentation
+  description: Dynatrace for Azure offers a monitoring solution for your Azure workloads through a streamlined workflow.
   ms.service: partner-services
+  ms.subservice: dynatatrace
   ms.topic: landing-page
-  ms.collection: na
   author: flang-msft
   ms.author: franlanglois
   ms.date: 05/12/2022
@@ -21,13 +21,13 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Dynatrace integration with Azure?
+          - text: What is Dynatrace for Azure?
             url: dynatrace-overview.md
       - linkListType: how-to-guide
         links:
           - text: Complete the prerequisites for Dynatrace
             url: dynatrace-how-to-configure-prereqs.md
-          - text: Manage the Dynatrace for Azure integration
+          - text: Manage the Dynatrace for Azure resource with the portal
             url: dynatrace-how-to-manage.md
 
   # Card
@@ -41,7 +41,7 @@ landingContent:
             url: dynatrace-link-to-existing.md
       - linkListType: how-to-guide
         links:
-          - text: Troubleshooting Dynatrace with Azure
+          - text: Troubleshooting Dynatrace for Azure
             url: dynatrace-troubleshoot.md
 
   # Card
