@@ -96,7 +96,7 @@ The recommendation details shown are:
     > [!TIP]
     > If a related recommendation is grayed out, its dependency isn't yet completed and so isn't available.
 
-1. **Remediation steps** - A description of the manual steps required to remediate the security issue on the affected resources. For recommendations with the **Fix** option**, you can select**View remediation logic** before applying the suggested fix to your resources.
+1. **Remediation steps** - A description of the manual steps required to remediate the security issue on the affected resources. For recommendations with the **Fix** option, you can select**View remediation logic** before applying the suggested fix to your resources.
 
 1. **Affected resources** - Your resources are grouped into tabs:
     - **Healthy resources** – Relevant resources, which either aren't impacted or on which you've already  remediated the issue.
