@@ -142,7 +142,7 @@ cd C:\HDI
     notepad src/main/java/com/microsoft/examples/ExampleUDF.java
     ```
 
-    Then copy and paste the java code below into the new file. Then close the file.
+    Then copy and paste the Java code below into the new file. Then close the file.
 
     ```java
     package com.microsoft.examples;
@@ -256,7 +256,7 @@ This problem may be caused by the line endings in the Python file. Many Windows 
 You can use the following PowerShell statements to remove the CR characters before uploading the file to HDInsight:
 
 ```PowerShell
-# Set $original_file to the python file path
+# Set $original_file to the Python file path
 $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
 [IO.File]::WriteAllText($original_file, $text)
 ```

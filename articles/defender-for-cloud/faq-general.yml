@@ -3,13 +3,11 @@ metadata:
   title: Microsoft Defender for Cloud FAQ - General questions
   description: Frequently asked general questions about Microsoft Defender for Cloud, a product that helps you prevent, detect, and respond to threats
   services: defender-for-cloud
-  author: memildin
-  ms.author: memildin
+  author: elkrieger
+  ms.author: elkrieger
   manager: raynew
-  ms.topic: conceptual
+  ms.topic: faq
   ms.date: 11/09/2021
-    
-    
 title: FAQ - General questions about Microsoft Defender for Cloud
 summary: |
 
@@ -37,7 +35,6 @@ sections:
           
           * Virtual machines (VMs) (including [Cloud Services](../cloud-services/cloud-services-choose-me.md))
           * Virtual machine scale sets
-          * Partner solutions integrated with your Azure subscription such as a web application firewall on VMs and on App Service Environment
           * [The many Azure PaaS services listed in the product overview](features-paas.md)
           
           

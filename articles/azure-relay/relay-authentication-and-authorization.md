@@ -6,7 +6,7 @@ ms.date: 07/19/2021
 ---
 
 # Azure Relay authentication and authorization
-There are two ways to authenticate and authorize access to Azure Relay resources: Azure Activity Directory (Azure AD) and Shared Access Signatures (SAS). This article gives you details on using these two types of security mechanisms.
+There are two ways to authenticate and authorize access to Azure Relay resources: Azure Active Directory (Azure AD) and Shared Access Signatures (SAS). This article gives you details on using these two types of security mechanisms.
 
 ## Azure Active Directory (Preview)
 Azure AD integration for Azure Relay resources provides Azure role-based access control (Azure RBAC) for fine-grained control over a client’s access to resources. You can use Azure RBAC to grant permissions to a security principal, which may be a user, a group, or an application service principal. The security principal is authenticated by Azure AD to return an OAuth 2.0 token. The token can be used to authorize a request to access an Azure Relay resource.

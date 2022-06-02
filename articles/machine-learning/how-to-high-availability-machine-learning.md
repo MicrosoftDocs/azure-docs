@@ -5,6 +5,7 @@ description: Learn how to plan for disaster recovery and maintain business conti
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
+ms.custom: event-tier1-build-2022
 ms.topic: how-to
 ms.author: jhirono
 author: jhirono
@@ -114,7 +115,7 @@ __Data services__
 
 * **Azure Blob container / Azure Files / Data Lake Storage Gen2**: See [Azure Storage redundancy](../storage/common/storage-redundancy.md).
 * **Data Lake Storage Gen1**: See [High availability and disaster recovery guidance for Data Lake Storage Gen1](../data-lake-store/data-lake-store-disaster-recovery-guidance.md).
-* **SQL Database**: See [High availability for Azure SQL Database and SQL Managed Instance](../azure-sql/database/high-availability-sla.md).
+* **SQL Database**: See [High availability for Azure SQL Database and SQL Managed Instance](/azure/azure-sql/database/high-availability-sla).
 * **Azure Database for PostgreSQL**: See [High availability concepts in Azure Database for PostgreSQL - Single Server](../postgresql/concepts-high-availability.md).
 * **Azure Database for MySQL**: See [Understand business continuity in Azure Database for MySQL](../mysql/concepts-business-continuity.md).
 * **Azure Databricks File System**: See [Regional disaster recovery for Azure Databricks clusters](/azure/databricks/scenarios/howto-regional-disaster-recovery).
@@ -148,7 +149,7 @@ Runs in Azure Machine Learning are defined by a run specification. This specific
 
 * Manage configurations as code.
 
-    * Avoid hardcoded references to the workspace. Instead, configure a reference to the workspace instance using a [config file](how-to-configure-environment.md#workspace) and use [Workspace.from_config()](/python/api/azureml-core/azureml.core.workspace.workspace#remarks) to initialize the workspace. To automate the process, use the [Azure CLI extension for machine learning](reference-azure-machine-learning-cli.md) command [az ml folder attach](/cli/azure/ml(v1)/folder#ext_azure_cli_ml_az_ml_folder_attach).
+    * Avoid hardcoded references to the workspace. Instead, configure a reference to the workspace instance using a [config file](how-to-configure-environment.md#workspace) and use [Workspace.from_config()](/python/api/azureml-core/azureml.core.workspace.workspace#remarks) to initialize the workspace. To automate the process, use the [Azure CLI extension for machine learning](v1/reference-azure-machine-learning-cli.md) command [az ml folder attach](/cli/azure/ml(v1)/folder#ext_azure_cli_ml_az_ml_folder_attach).
     * Use run submission helpers such as [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig) and [Pipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline(class)).
     * Use [Environments.save_to_directory()](/python/api/azureml-core/azureml.core.environment(class)#save-to-directory-path--overwrite-false-) to save your environment definitions.
     * Use a Dockerfile if you use custom Docker images.
@@ -172,7 +173,7 @@ Azure Machine Learning cannot sync or recover artifacts or metadata between work
 
 Depending on your recovery approach, you may need to copy artifacts such as dataset and model objects between the workspaces to continue your work. Currently, the portability of artifacts between workspaces is limited. We recommend managing artifacts as code where possible so that they can be recreated in the failover instance.
 
-The following artifacts can be exported and imported between workspaces by using the [Azure CLI extension for machine learning](reference-azure-machine-learning-cli.md):
+The following artifacts can be exported and imported between workspaces by using the [Azure CLI extension for machine learning](v1/reference-azure-machine-learning-cli.md):
 
 | Artifact | Export | Import |
 | ----- | ----- | ----- |

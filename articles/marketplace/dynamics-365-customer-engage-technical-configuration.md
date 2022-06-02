@@ -42,7 +42,7 @@ Select **+ Add region** to specify the geographic regions in which your CRM pack
 
 By default, the **Application configuration URL** you entered above will be used for each region. Leave the Application Configuration URL field blank.
 
-Select **Save draft** before continuing to the next tab in the left-nav menu, **Co-sell with Microsoft**. For information on setting up co-sell with Microsoft (optional), see [Co-sell with Microsoft sales teams and partners overview](./co-sell-overview.md). If you're not setting up co-sell or you've finished, continue with **Next steps** below.
+Select **Save draft** before continuing to the next tab in the left-nav menu, **Co-sell with Microsoft**. For information on setting up co-sell with Microsoft (optional), see [Co-sell with Microsoft sales teams and partners overview](/partner-center/co-sell-overview?context=/azure/marketplace/context/context). If you're not setting up co-sell or you've finished, continue with **Next steps** below.
 
 ## Next steps
 

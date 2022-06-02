@@ -2,7 +2,7 @@
 title: Archive for What's new with Azure Arc-enabled servers agent
 description: The What's new release notes in the Overview section for Azure Arc-enabled servers agent contains six months of activity. Thereafter, the items are removed from the main article and put into this article.
 ms.topic: overview
-ms.date: 08/27/2021
+ms.date: 05/24/2022
 ms.custom: references_regions
 ---
 
@@ -15,6 +15,46 @@ The Azure Connected Machine agent receives improvements on an ongoing basis. Thi
 - Previous releases
 - Known issues
 - Bug fixes
+
+## Version 1.13 - November 2021
+
+### Known issues
+
+- Extensions may get stuck in transient states (creating, deleting, updating) on Windows machines running the 1.13 agent in certain conditions. Microsoft recommends upgrading to agent version 1.14 as soon as possible to resolve this issue.
+
+### Fixed
+
+- Improved reliability when installing or upgrading the agent.
+
+### New features
+
+- Local configuration of agent settings now available using the [azcmagent config command](manage-agent.md#config).
+- Proxy server settings can be [configured using agent-specific settings](manage-agent.md#update-or-remove-proxy-settings) instead of environment variables.
+- Extension operations will execute faster using a new notification pipeline. You may need to adjust your firewall or proxy server rules to allow the new network addresses for this notification service (see [networking configuration](network-requirements.md)). The extension manager will fall back to the existing behavior of checking every 5 minutes when the notification service cannot be reached.
+- Detection of the AWS account ID, instance ID, and region information for servers running in Amazon Web Services.
+
+
+## Version 1.12 - October 2021
+
+### Fixed
+
+- Improved reliability when validating signatures of extension packages.
+- `azcmagent_proxy remove` command on Linux now correctly removes environment variables on Red Hat Enterprise Linux and related distributions.
+- `azcmagent logs` now includes the computer name and timestamp to help disambiguate log files.
+## Version 1.11 - September 2021
+
+### Fixed
+
+- The agent can now be installed on Windows systems with the [System objects: Require case insensitivity for non-Windows subsystems](/windows/security/threat-protection/security-policy-settings/system-objects-require-case-insensitivity-for-non-windows-subsystems) policy set to Disabled.
+- The guest configuration policy agent will now automatically retry if an error is encountered during service start or restart events.
+- Fixed an issue that prevented guest configuration audit policies from successfully executing on Linux machines.
+
+## Version 1.10 - August 2021
+
+### Fixed
+
+- The guest configuration policy agent can now configure and remediate system settings. Existing policy assignments continue to be audit-only. Learn more about the Azure Policy [guest configuration remediation options](../../governance/policy/concepts/guest-configuration-policy-effects.md).
+- The guest configuration policy agent now restarts every 48 hours instead of every 6 hours.
 
 ## Version 1.9 - July 2021
 

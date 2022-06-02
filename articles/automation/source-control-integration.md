@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell
  Source control integration lets you easily collaborate with your team, track changes, and roll back to earlier versions of your runbooks. For example, source control allows you to synchronize different branches in source control with your development, test, and production Automation accounts.
 
 > [!NOTE]
-> Source control synchronization jobs are run under the user's Automation account and are billed at the same rate as other Automation jobs.
+> Source control synchronization jobs are run under the user's Automation account and are billed at the same rate as other Automation jobs. Additionally, Azure Automation Jobs do not support MFA (Multi-Factor Authentication).
 
 ## Source control types
 
@@ -28,7 +28,7 @@ Azure Automation supports three types of source control:
 ## Prerequisites
 
 * A source control repository (GitHub or Azure DevOps)
-* The Automation account requires either a system-assigned or user assigned [managed identity](automation-security-overview.md#managed-identities). If you haven't configured a managed identity with your Automation account, see [Enable system-assigned managed identity](enable-managed-identity-for-automation.md#enable-a-system-assigned-managed-identity-for-an-azure-automation-account) or [enable user-assigned managed identity](/azure/automation/add-user-assigned-identity) to create it.
+* The Automation account requires either a system-assigned or user assigned [managed identity](automation-security-overview.md#managed-identities). If you haven't configured a managed identity with your Automation account, see [Enable system-assigned managed identity](enable-managed-identity-for-automation.md#enable-a-system-assigned-managed-identity-for-an-azure-automation-account) or [enable user-assigned managed identity](./add-user-assigned-identity.md) to create it.
 * Assign the user assigned or system-assigned managed identity to the [Contributor](automation-role-based-access-control.md#contributor) role in the Automation account.
 
 > [!NOTE]

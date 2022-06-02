@@ -4,7 +4,7 @@ description: This article is regularly updated with news about the Azure Cogniti
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 06/23/2021
+ms.date: 01/16/2022
 ---
 
 # What's new in Anomaly Detector
@@ -14,6 +14,11 @@ Learn what's new in the service. These items include release notes, videos, blog
 We've also added links to some user-generated content. Those items will be marked with **[UGC]** tag. Some of them are hosted on websites that are external to Microsoft and Microsoft is not responsible for the content there. Use discretion when you refer to these resources. Contact AnomalyDetector@microsoft.com or raise an issue on GitHub if you'd like us to remove the content.
 
 ## Release notes
+
+### January 2022
+* **Multivariate Anomaly Detector API v1.1-preview.1 public preview on 1/18.** In this version, Multivariate Anomaly Detector supports synchronous API for inference and added new fields in API output interpreting the correlation change of variables. 
+* Univariate Anomaly Detector added new fields in API output. 
+
 
 ### November 2021
 * Multivariate Anomaly Detector available in six more regions: UAE North, France Central, North Central US, Switzerland North, South Africa North, Jio India West. Now in total 26 regions are supported.
@@ -63,14 +68,14 @@ We've also added links to some user-generated content. Those items will be marke
 
 ## Videos
 
-* May 7, 2021 [New to Anomaly Detector: Multivariate Capabilities](https://channel9.msdn.com/Shows/AI-Show/New-to-Anomaly-Detector-Multivariate-Capabilities) - AI Show on the new multivariate anomaly detection APIs with Tony Xing and Seth Juarez
-* April 20, 2021 [AI Show Live | Episode 11| New to Anomaly Detector: Multivariate Capabilities](https://channel9.msdn.com/Shows/AI-Show/AI-Show-Live-Episode-11-Whats-new-with-Anomaly-Detector) - AI Show live recording with Tony Xing and Seth Juarez
-* May 18, 2020 [Inside Anomaly Detector](https://channel9.msdn.com/Shows/AI-Show/Inside-Anomaly-Detector) - AI Show with Qun Ying and Seth Juarez
+* May 7, 2021 [New to Anomaly Detector: Multivariate Capabilities](/shows/AI-Show/New-to-Anomaly-Detector-Multivariate-Capabilities) - AI Show on the new multivariate anomaly detection APIs with Tony Xing and Seth Juarez
+* April 20, 2021 AI Show Live | Episode 11| New to Anomaly Detector: Multivariate Capabilities - AI Show live recording with Tony Xing and Seth Juarez
+* May 18, 2020 [Inside Anomaly Detector](/shows/AI-Show/Inside-Anomaly-Detector) - AI Show with Qun Ying and Seth Juarez
 * September 19, 2019 **[UGC]** [Detect Anomalies in Your Data with the Anomaly Detector](https://www.youtube.com/watch?v=gfb63wvjnYQ) - Video by Jon Wood
-* September 3, 2019 [Anomaly detection on streaming data using Azure Databricks](https://channel9.msdn.com/Shows/AI-Show/Anomaly-detection-on-streaming-data-using-Azure-Databricks) - AI Show with Qun Ying
-* August 27, 2019 [Anomaly Detector v1.0 Best Practices](https://channel9.msdn.com/Shows/AI-Show/Anomaly-Detector-v10-Best-Practices) - AI Show on univariate anomaly detection best practices with Qun Ying
-* August 20, 2019 [Bring Anomaly Detector on-premises with containers support](https://channel9.msdn.com/Shows/AI-Show/Bring-Anomaly-Detector-on-premise-with-containers-support) - AI Show with Qun Ying and Seth Juarez
-* August 13, 2019 [Introducing Azure Anomaly Detector](https://channel9.msdn.com/Shows/AI-Show/Introducing-Azure-Anomaly-Detector?WT.mc_id=ai-c9-niner) - AI Show with Qun Ying and Seth Juarez
+* September 3, 2019 [Anomaly detection on streaming data using Azure Databricks](/shows/AI-Show/Anomaly-detection-on-streaming-data-using-Azure-Databricks) - AI Show with Qun Ying
+* August 27, 2019 [Anomaly Detector v1.0 Best Practices](/shows/AI-Show/Anomaly-Detector-v10-Best-Practices) - AI Show on univariate anomaly detection best practices with Qun Ying
+* August 20, 2019 [Bring Anomaly Detector on-premises with containers support](/shows/AI-Show/Bring-Anomaly-Detector-on-premise-with-containers-support) - AI Show with Qun Ying and Seth Juarez
+* August 13, 2019 [Introducing Azure Anomaly Detector](/shows/AI-Show/Introducing-Azure-Anomaly-Detector?WT.mc_id=ai-c9-niner) - AI Show with Qun Ying and Seth Juarez
 
 
 ## Service updates

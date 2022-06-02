@@ -163,4 +163,4 @@ The following punctuation is removed with `NormalizePunctuation` is set to true.
 
 ## Next steps
 
-* Learn [concepts](luis-concept-utterance.md#utterance-normalization-for-diacritics-and-punctuation) of diacritics and punctuation.
+* Learn [concepts](concepts/utterances.md#utterance-normalization) of diacritics and punctuation.

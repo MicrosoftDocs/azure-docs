@@ -112,31 +112,31 @@ Start by preparing your environment for the Azure CLI:
 
 Use these commands to create the resource:
 
-1. Use the [az account set](/cli/azure/account#az_account_set) command to set your subscription to be the current default subscription:
+1. Use the [az account set](/cli/azure/account#az-account-set) command to set your subscription to be the current default subscription:
 
    ```azurecli
    az account set --subscription 00000000-0000-0000-0000-000000000000
    ```
 
-1. Run the [az provider register](/cli/azure/provider#az_provider_register) command to register the resource provider:
+1. Run the [az provider register](/cli/azure/provider#az-provider-register) command to register the resource provider:
 
    ```azurecli
    az provider register --name "Microsoft.DataShare"
    ```
 
-1. Run the [az group create](/cli/azure/group#az_group_create) command to create a resource group or use an existing resource group:
+1. Run the [az group create](/cli/azure/group#az-group-create) command to create a resource group or use an existing resource group:
 
    ```azurecli
    az group create --name testresourcegroup --location "East US 2"
    ```
 
-1. Run the [az datashare account create](/cli/azure/datashare/account#az_datashare_account_create) command to create a Data Share account:
+1. Run the [az datashare account create](/cli/azure/datashare/account#az-datashare-account-create) command to create a Data Share account:
 
    ```azurecli
    az datashare account create --resource-group testresourcegroup --name datashareaccount --location "East US 2" 
    ```
 
-   Run the [az datashare account list](/cli/azure/datashare/account#az_datashare_account_list) command to see your Data Share accounts:
+   Run the [az datashare account list](/cli/azure/datashare/account#az-datashare-account-list) command to see your Data Share accounts:
 
    ```azurecli
    az datashare account list --resource-group testresourcegroup
@@ -234,19 +234,19 @@ Use these commands to create the resource:
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. Run the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command to create a Storage account for this Data Share:
+1. Run the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command to create a Storage account for this Data Share:
 
    ```azurecli
    az storage account create --resource-group testresourcegroup --name ContosoMarketplaceAccount
    ```
 
-1. Use the [az storage container create](/cli/azure/storage/container#az_storage_container_create) command to create a container inside the storage account created in the previous command:
+1. Use the [az storage container create](/cli/azure/storage/container#az-storage-container-create) command to create a container inside the storage account created in the previous command:
 
    ```azurecli
    az storage container create --name ContosoMarketplaceContainer --account-name ContosoMarketplaceAccount
    ```
 
-1. Run the [az datashare create](/cli/azure/datashare#az_datashare_create) command to create your Data Share:
+1. Run the [az datashare create](/cli/azure/datashare#az-datashare-create) command to create your Data Share:
 
    ```azurecli
    az datashare create --resource-group testresourcegroup \
@@ -254,7 +254,7 @@ Use these commands to create the resource:
      --description "Data Share" --share-kind "CopyBased" --terms "Confidential"
    ```
 
-1. Use the [az datashare invitation create](/cli/azure/datashare/invitation#az_datashare_invitation_create) command to create the invitation for the specified address:
+1. Use the [az datashare invitation create](/cli/azure/datashare/invitation#az-datashare-invitation-create) command to create the invitation for the specified address:
 
    ```azurecli
    az datashare invitation create --resource-group testresourcegroup \

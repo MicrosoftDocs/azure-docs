@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 02/25/2021
+ms.date: 02/17/2022
 ms.author: tisande
 ms.custom: devx-track-js
 ---
@@ -47,6 +47,9 @@ Azure Cosmos DB supports the following spatial data types:
 - LineString
 - Polygon
 - MultiPolygon
+
+> [!TIP]
+> Currently spatial data in Azure Cosmos DB is not supported by Entity Framework. Please use one of the Azure Cosmos DB SDKs instead.
 
 ### Points
 

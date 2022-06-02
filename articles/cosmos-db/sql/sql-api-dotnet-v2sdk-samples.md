@@ -6,7 +6,7 @@ ms.author: esarroyo
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
-ms.date: 08/26/2021
+ms.date: 05/02/2020
 ms.custom: devx-track-dotnet
 
 ---
@@ -33,8 +33,7 @@ For .NET SDK Version 3.0 (Preview) code samples, see the latest samples in the [
 
 ## Prerequisites
 
-Visual Studio 2019 with the Azure development workflow installed
-- You can download and use the **free** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup. 
+Latest [!INCLUDE [cosmos-db-visual-studio](../includes/cosmos-db-visual-studio.md)]
 
 The [Microsoft.Azure.DocumentDB NuGet package](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 
 

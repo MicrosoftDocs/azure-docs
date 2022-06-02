@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 02/18/2022
 ms.author: eur
 ---
 
@@ -16,9 +16,12 @@ ms.author: eur
 
 When you're ready to create a custom Text-to-Speech voice for your application, the first step is to gather audio recordings and associated scripts to start training the voice model. The Speech service uses this data to create a unique voice tuned to match the voice in the recordings. After you've trained the voice, you can start synthesizing speech in your applications.
 
+> [!NOTE]
+> See [Custom Neural Voice project types](custom-neural-voice.md#custom-neural-voice-project-types) for information about capabilities, requirements, and differences between Custom Neural Voice Pro and Custom Neural Voice Lite projects. This article focuses on the creation of a professional Custom Neural Voice using the Pro project.
+
 ## Voice talent verbal statement
 
-Before you can train your own Text-to-Speech voice model, you'll need audio recordings and the associated text transcriptions. On this page, we'll review data types, how they are used, and how to manage each.
+Before you can train your own Text-to-Speech voice model, you'll need audio recordings and the associated text transcriptions. On this page, we'll review data types, how they're used, and how to manage each.
 
 > [!IMPORTANT]
 > To train a neural voice, you must create a voice talent profile with an audio file recorded by the voice talent consenting to the usage of their speech data to train a custom voice model. When preparing your recording script, make sure you include the statement sentence. You can find the statement in multiple languages [here](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice/script/verbal-statement-all-locales.txt). The language of the verbal statement must be the same as your recording. You need to upload this audio file to the Speech Studio as shown below to create a voice talent profile, which is used to verify against your training data when you create a voice model. Read more about the [voice talent verification](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) here. 
@@ -40,13 +43,15 @@ This table lists data types and how each is used to create a custom Text-to-Spee
 | Data type | Description | When to use | Additional processing required |
 | --------- | ----------- | ----------- | --------------------------- |
 | **Individual utterances + matching transcript** | A collection (.zip) of audio files (.wav) as individual utterances. Each audio file should be 15 seconds or less in length, paired with a formatted transcript (.txt). | Professional recordings with matching transcripts | Ready for training. |
-| **Long audio + transcript (beta)** | A collection (.zip) of long, unsegmented audio files (longer than 20 seconds), paired with a collection (.zip) of transcripts that contains all spoken words. | You have audio files and matching transcripts, but they are not segmented into utterances. | Segmentation (using batch transcription).<br>Audio format transformation where required. |
-| **Audio only (beta)** | A collection (.zip) of audio files without a transcript. | You only have audio files available, without transcripts. | Segmentation + transcript generation (using batch transcription).<br>Audio format transformation where required.|
+| **Long audio + transcript (beta)** | A collection (.zip) of long, unsegmented audio files (.wav or .mp3, longer than 20 seconds), paired with a collection (.zip) of transcripts that contains all spoken words. | You have audio files and matching transcripts, but they aren't segmented into utterances. | Segmentation (using batch transcription).<br>Audio format transformation where required. |
+| **Audio only (beta)** | A collection (.zip) of audio files (.wav or .mp3) without a transcript. | You only have audio files available, without transcripts. | Segmentation + transcript generation (using batch transcription).<br>Audio format transformation where required.|
 
 Files should be grouped by type into a dataset and uploaded as a zip file. Each dataset can only contain a single data type.
 
 > [!NOTE]
-> The maximum number of datasets allowed to be imported per subscription is 10 zip files for free subscription (F0) users and 500 for standard subscription (S0) users.
+> The maximum number of datasets allowed to be imported per subscription is 500 zip files for standard subscription (S0) users.
+>
+> For the two beta options, only these languages are supported: Chinese (Mandarin, Simplified), English (India), English (United Kingdom), English (United States), French (France), German (Germany), Italian (Italy), Japanese (Japan), Portuguese (Brazil), and Spanish (Mexico). 
 
 ## Individual utterances + matching transcript
 
@@ -59,25 +64,22 @@ To produce a good voice model, create the recordings in a quiet room with a high
 
 ### Audio files
 
-Each audio file should contain a single utterance (a single sentence or a single turn of a dialog system), less than 15 seconds long. All files must be in the same spoken language. Multi-language custom Text-to-Speech voices are not supported, with the exception of the Chinese-English bi-lingual. Each audio file must have a unique numeric filename with the filename extension .wav.
+Each audio file should contain a single utterance (a single sentence or a single turn of a dialog system), less than 15 seconds long. All files must be in the same spoken language. Multi-language custom Text-to-Speech voices aren't supported, with the exception of the Chinese-English bi-lingual. Each audio file must have a unique filename with the filename extension .wav.
 
 Follow these guidelines when preparing audio.
 
 | Property | Value |
 | -------- | ----- |
 | File format | RIFF (.wav), grouped into a .zip file |
-| Sampling rate	| At least 16,000 Hz. For creating a neural voice, 24,000 Hz is required. |
-| Sample format | PCM, 16-bit |
-| File name | Numeric, with .wav extension. No duplicate file names allowed. |
+| File name | File name characters supported by Windows OS, with .wav extension.<br>The characters \ / : * ? " < > \| aren't allowed. <br>It can't start or end with a space, and can't start with a dot. <br>No duplicate file names allowed. |
+| Sampling rate	| For creating a custom neural voice, 24,000 Hz is required. |
+| Sample format | PCM, at least 16-bit |
 | Audio length | Shorter than 15 seconds |
 | Archive format | .zip |
 | Maximum archive size | 2048 MB |
 
 > [!NOTE]
-> .wav files with a sampling rate lower than 16,000 Hz will be rejected. If a .zip file contains .wav files with different sample rates, only those equal to or higher than 16,000 Hz will be imported. The portal currently imports .zip archives up to 2048 MB. However, multiple archives can be uploaded.
-
-> [!NOTE]
-> The default sampling rate for a custom neural voice is 24,000 Hz.  Your .wav files with a sampling rate lower than 16,000 Hz will be up-sampled to 24,000 Hz to train a neural voice.  It’s recommended that you should use a sample rate of 24,000 Hz for your training data.
+> The default sampling rate for a custom neural voice is 24,000 Hz. Audio files with a sampling rate lower than 16,000 Hz will be rejected. If a .zip file contains .wav files with different sample rates, only those equal to or higher than 16,000 Hz will be imported. Your audio files with a sampling rate higher than 16,000 Hz and lower than 24,000 Hz will be up-sampled to 24,000 Hz to train a neural voice. It’s recommended that you should use a sample rate of 24,000 Hz for your training data.
 
 ### Transcripts
 
@@ -86,7 +88,7 @@ The transcription file is a plain text file. Use these guidelines to prepare you
 | Property | Value |
 | -------- | ----- |
 | File format | Plain text (.txt) |
-| Encoding format | ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE, or UTF-16-BE. For zh-CN, ANSI/ASCII and UTF-8 encodings are not supported. |
+| Encoding format | ANSI, ASCII, UTF-8, UTF-8-BOM, UTF-16-LE, or UTF-16-BE. For zh-CN, ANSI and ASCII encoding aren't supported. |
 | # of utterances per line | **One** - Each line of the transcription file should contain the name of one of the audio files, followed by the corresponding transcription. The file name and transcription should be separated by a tab (\t). |
 | Maximum file size | 2048 MB |
 
@@ -112,14 +114,16 @@ Follow these guidelines when preparing audio for segmentation.
 
 | Property | Value |
 | -------- | ----- |
-| File format | RIFF (.wav) with a sampling rate of at least 16 khz-16-bit in PCM or .mp3 with a bit rate of at least 256 KBps, grouped into a .zip file |
-| File name	| ASCII and Unicode characters supported. No duplicate names allowed. |
+| File format | RIFF (.wav) or .mp3, grouped into a .zip file |
+| File name	|  File name characters supported by Windows OS, with .wav extension. <br>The characters \ / : * ? " < > \| aren't allowed. <br>It can't start or end with a space, and can't start with a dot. <br>No duplicate file names allowed. |
+| Sampling rate	| For creating a custom neural voice, 24,000 Hz is required. |
+| Sample format |RIFF(.wav): PCM, at least 16-bit<br>mp3: at least 256 KBps bit rate|
 | Audio length | Longer than 20 seconds |
 | Archive format | .zip |
 | Maximum archive size | 2048 MB |
 
 > [!NOTE]
-> The default sampling rate for a custom neural voice is 24,000 Hz.  Your .wav files with a sampling rate lower than 16,000 Hz will be up sampled to 24,000 Hz to train a neural voice.  It’s recommended that you should use a sample rate of 24,000 Hz for your training data.
+> The default sampling rate for a custom neural voice is 24,000 Hz. Audio files with a sampling rate lower than 16,000 Hz will be rejected. Your audio files with a sampling rate higher than 16,000 Hz and lower than 24,000 Hz will be up-sampled to 24,000 Hz to train a neural voice. It’s recommended that you should use a sample rate of 24,000 Hz for your training data.
 
 All audio files should be grouped into a zip file. It’s OK to put .wav files and .mp3 files into one audio zip. For example, you can upload a zip file containing an audio file named ‘kingstory.wav’, 45-second-long, and another audio named ‘queenstory.mp3’, 200-second-long. All .mp3 files will be transformed into the .wav format after processing.
 
@@ -131,13 +135,13 @@ Transcripts must be prepared to the specifications listed in this table. Each au
 | -------- | ----- |
 | File format | Plain text (.txt), grouped into a .zip |
 | File name | Use the same name as the matching audio file |
-| Encoding format | UTF-8-BOM only |
+| Encoding format |ANSI, ASCII, UTF-8, UTF-8-BOM, UTF-16-LE, or UTF-16-BE. For zh-CN, ANSI and ASCII encoding aren't supported. |
 | # of utterances per line | No limit |
 | Maximum file size | 2048 MB |
 
-All transcripts files in this data type should be grouped into a zip file. For example, you have uploaded a zip file containing an audio file named ‘kingstory.wav’, 45 seconds long, and another one named ‘queenstory.mp3’, 200 seconds long. You will need to upload another zip file containing two transcripts, one named ‘kingstory.txt’, the other one ‘queenstory.txt’. Within each plain text file, you will provide the full correct transcription for the matching audio.
+All transcripts files in this data type should be grouped into a zip file. For example, you've uploaded a zip file containing an audio file named ‘kingstory.wav’, 45 seconds long, and another one named ‘queenstory.mp3’, 200 seconds long. You'll need to upload another zip file containing two transcripts, one named ‘kingstory.txt’, the other one ‘queenstory.txt’. Within each plain text file, you'll provide the full correct transcription for the matching audio.
 
-After your dataset is successfully uploaded, we will help you segment the audio file into utterances based on the transcript provided. You can check the segmented utterances and the matching transcripts by downloading the dataset. Unique IDs will be assigned to the segmented utterances automatically. It’s important that you make sure the transcripts you provide are 100% accurate. Errors in the transcripts can reduce the accuracy during the audio segmentation and further introduce quality loss in the training phase that comes later.
+After your dataset is successfully uploaded, we'll help you segment the audio file into utterances based on the transcript provided. You can check the segmented utterances and the matching transcripts by downloading the dataset. Unique IDs will be assigned to the segmented utterances automatically. It’s important that you make sure the transcripts you provide are 100% accurate. Errors in the transcripts can reduce the accuracy during the audio segmentation and further introduce quality loss in the training phase that comes later.
 
 ## Audio only (beta)
 
@@ -150,18 +154,21 @@ Follow these guidelines when preparing audio.
 
 | Property | Value |
 | -------- | ----- |
-| File format | RIFF (.wav) with a sampling rate of at least 16 khz-16-bit in PCM or .mp3 with a bit rate of at least 256 KBps, grouped into a .zip file |
-| File name | ASCII and Unicode characters supported. No duplicate name allowed. |
-| Audio length | Longer than 20 seconds |
+| File format | RIFF (.wav) or .mp3, grouped into a .zip file |
+| File name |  File name characters supported by Windows OS, with .wav extension. <br>The characters \ / : * ? " < > \| aren't allowed. <br>It can't start or end with a space, and can't start with a dot. <br>No duplicate file names allowed. |
+| Sampling rate	| For creating a custom neural voice, 24,000 Hz is required. |
+| Sample format |RIFF(.wav): PCM, at least 16-bit<br>mp3: at least 256 KBps bit rate|
+| Audio length | No limit |
 | Archive format | .zip |
 | Maximum archive size | 2048 MB |
 
 > [!NOTE]
-> The default sampling rate for a custom neural voice is 24,000 Hz.  Your .wav files with a sampling rate lower than 16,000 Hz will be up sampled to 24,000 Hz to train a neural voice.  It’s recommended that you should use a sample rate of 24,000 Hz for your training data.
+> The default sampling rate for a custom neural voice is 24,000 Hz. Your audio files with a sampling rate higher than 16,000 Hz and lower than 24,000 Hz will be up-sampled to 24,000 Hz to train a neural voice. It’s recommended that you should use a sample rate of 24,000 Hz for your training data.
 
-All audio files should be grouped into a zip file. Once your dataset is successfully uploaded, we will help you segment the audio file into utterances based on our speech batch transcription service. Unique IDs will be assigned to the segmented utterances automatically. Matching transcripts will be generated through speech recognition. All .mp3 files will be transformed into the .wav format after processing. You can check the segmented utterances and the matching transcripts by downloading the dataset.
+All audio files should be grouped into a zip file. Once your dataset is successfully uploaded, we'll help you segment the audio file into utterances based on our speech batch transcription service. Unique IDs will be assigned to the segmented utterances automatically. Matching transcripts will be generated through speech recognition. All .mp3 files will be transformed into the .wav format after processing. You can check the segmented utterances and the matching transcripts by downloading the dataset.
 
 ## Next steps
 
-- [Create and use your voice model](how-to-custom-voice-create-voice.md)
+- [Train your voice model](how-to-custom-voice-create-voice.md)
+- [Deploy and use your voice model](how-to-deploy-and-use-endpoint.md)
 - [How to record voice samples](record-custom-voice-samples.md)

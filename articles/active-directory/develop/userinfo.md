@@ -1,9 +1,8 @@
 ---
-title: Microsoft identity platform UserInfo endpoint | Azure
-titleSuffix: Microsoft identity platform
+title: Microsoft identity platform UserInfo endpoint
 description: Learn about the UserInfo endpoint on the Microsoft identity platform.
 services: active-directory
-author: hpsin
+author: nickludwig
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,8 +10,8 @@ ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.author: hirsin
-ms.reviewer: hirsin
+ms.author: ludwignick
+ms.reviewer: ludwignick
 ms.custom: aaddev
 ---
 
@@ -73,6 +72,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6Il…
     "name": "Mikah Ollenburg", // names all require the “profile” scope.
     "family_name": " Ollenburg",
     "given_name": "Mikah",
+    "picture": "https://graph.microsoft.com/v1.0/me/photo/$value",
     "email": "mikoll@contoso.com" //requires the “email” scope.
 }
 ```

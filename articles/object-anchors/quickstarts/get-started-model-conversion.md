@@ -25,9 +25,9 @@ You'll learn how to:
 
 To complete this quickstart, make sure you have:
 
-* A Windows machine with <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a>.
+* A Windows machine with <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2022</a>.
 * <a href="https://git-scm.com" target="_blank">Git for Windows</a>.
-* The <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1">.NET Core 3.1 SDK</a>.
+* The <a href="https://dotnet.microsoft.com/download/dotnet/6.0">.NET 6.0 SDK</a>.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -57,7 +57,7 @@ Now, you can go ahead and convert your 3D model.
 
     | Field                    | Description                       |
     | ---                      | ---                               |
-    | InputAssetPath           | The absolute path to a 3D model on your local machine. Supported file formats are `fbx`, `ply`, `obj`, `glb`, and `gltf`. |
+    | InputAssetPath           | The absolute path to a 3D model on your local machine. Supported file formats are `fbx`, `ply`, `obj`, and `glb`. |
     | AssetDimensionUnit       | The unit of measurement of your 3D model. All the supported units of measurement can be accessed using the `Azure.MixedReality.ObjectAnchors.Conversion.AssetLengthUnit` enumeration. |
     | Gravity                  | The direction of the gravity vector of the 3D model. This 3D vector gives the downward direction in the coordinate system of your model. For example if negative `y` represents the downward direction in the model's 3D space, this value would be `Vector3(0.0f, -1.0f, 0.0f)`. |
 

@@ -20,7 +20,7 @@ Because monthly updates are provided for Azure Arc-enabled data services and the
 A [sample script](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/scripts/pull-and-push-arc-data-services-images-to-private-registry.py) can be found in the Azure Arc GitHub repository.
 
 > [!NOTE]
-> This script requires the installation of python and the [Docker CLI](https://docs.docker.com/install/).
+> This script requires the installation of Python and the [Docker CLI](https://docs.docker.com/install/).
 
 The script will interactively prompt for the following information.  Alternatively, if you want to have the script run without interactive prompts, you can set the corresponding environment variables before running the script.
 

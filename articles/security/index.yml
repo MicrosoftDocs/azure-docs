@@ -15,13 +15,16 @@ metadata:
   author: TerryLanfear
   ms.author: terrylan
   manager: rkarlin
-  ms.date: 02/05/2021
+  ms.date: 06/02/2022
 
 highlightedContent:
   items:
     - title: Begin your security journey
       itemType: get-started
       url: ./journey/index.yml
+    - title: Learn about the Microsoft Entra family of multicloud identity and access solutions
+      itemType: whats-new
+      url: https://docs.microsoft.com/entra/
     - title: Find security services for your business needs
       itemType: overview
       url: ./fundamentals/end-to-end.md
@@ -175,7 +178,7 @@ conceptualContent:
         - url: ../storage/common/azure-defender-storage-configure.md
           itemType: concept
           text:  Microsoft Defender for Storage
-        - url: ../azure-sql/database/threat-detection-overview.md
+        - url: /azure/azure-sql/database/threat-detection-overview
           itemType: concept
           text:  Microsoft Defender for SQL
       footerLink:

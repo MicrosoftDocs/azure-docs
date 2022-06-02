@@ -1,15 +1,14 @@
 ---
 title: Backup and restore - snapshots, geo-redundant 
 description: Learn how backup and restore works in Azure Synapse Analytics dedicated SQL pool. Use backups to restore your data warehouse to a restore point in the primary region. Use geo-redundant backups to restore to a different geographical region.
-services: synapse-analytics
-author: joannapea
-manager: craigg
+author: realAngryAnalytics
+manager: joannapea
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 11/13/2020
-ms.author: joanpo
-ms.reviewer: igorstan
+ms.date: 05/04/2022
+ms.author: stevehow
+ms.reviewer: joanpo
 ms.custom: seo-lt-2019"
 ---
 
@@ -59,9 +58,6 @@ The following lists details for restore point retention periods:
 
 When you drop a dedicated SQL pool, a final snapshot is created and saved for seven days. You can restore the dedicated SQL pool to the final restore point created at deletion. If the dedicated SQL pool is dropped in a paused state, no snapshot is taken. In that scenario, make sure to create a user-defined restore point before dropping the dedicated SQL pool.
 
-> [!IMPORTANT]
-> If you delete the server/workspace hosting a dedicated SQL pool, all databases that belong to the server/workspace are also deleted and cannot be recovered. You cannot restore a deleted server.
-
 ## Geo-backups and disaster recovery
 
 A geo-backup is created once per day to a [paired data center](../../availability-zones/cross-region-replication-azure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). The RPO for a geo-restore is 24 hours. You can restore the geo-backup to a server in any other region where dedicated SQL pool is supported. A geo-backup ensures you can restore data warehouse in case you cannot access the restore points in your primary region.
@@ -95,11 +91,11 @@ You can either keep the restored data warehouse and the current one, or delete o
 
 To restore a data warehouse, see [Restore a dedicated SQL pool](sql-data-warehouse-restore-points.md#create-user-defined-restore-points-through-the-azure-portal).
 
-To restore a deleted or paused data warehouse, you can [create a support ticket](sql-data-warehouse-get-started-create-support-ticket.md).
+To restore a deleted data warehouse, see [Restore a deleted database](sql-data-warehouse-restore-deleted-dw.md), or if the entire server was deleted, see [Restore a data warehouse from a deleted server](sql-data-warehouse-restore-from-deleted-server.md).
 
 ## Cross subscription restore
 
-If you need to directly restore across subscription, vote for this capability [here](https://feedback.azure.com/d365community/idea/dea9ea22-0a25-ec11-b6e6-000d3a4f07b8). Restore to a different server and ['Move'](../../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) the server across subscriptions to perform a cross subscription restore.
+You can perform a cross-subscription restore by follow the guidance [here](sql-data-warehouse-restore-active-paused-dw.md#restore-an-existing-dedicated-sql-pool-formerly-sql-dw-to-a-different-subscription-through-powershell).
 
 ## Geo-redundant restore
 
@@ -107,6 +103,10 @@ You can [restore your dedicated SQL pool](sql-data-warehouse-restore-from-geo-ba
 
 > [!NOTE]
 > To perform a geo-redundant restore you must not have opted out of this feature.
+
+## Support Process
+
+You can [submit a support ticket](sql-data-warehouse-get-started-create-support-ticket.md) through the Azure portal for Azure Synapse Analytics.
 
 ## Next steps
 

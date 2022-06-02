@@ -12,7 +12,7 @@ ms.reviewer: stewu
 
 # Use the Azure portal to manage ACLs in Azure Data Lake Storage Gen2
 
-This article shows you how to use [Azure portal](https://ms.portal.azure.com/) to manage the access control list (ACL) of a directory or blob in storage accounts that have the hierarchical namespace featured enabled on them.
+This article shows you how to use [Azure portal](https://portal.azure.com/) to manage the access control list (ACL) of a directory or blob in storage accounts that have the hierarchical namespace featured enabled on them.
 
 For information about the structure of the ACL, see [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 

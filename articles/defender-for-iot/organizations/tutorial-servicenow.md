@@ -1,8 +1,6 @@
 ---
 title: Integrate ServiceNow with Microsoft Defender for IoT
 description: In this tutorial, learn how to integrate ServiceNow with Microsoft Defender for IoT.
-author: ElazarK
-ms.author: v-ekrieg
 ms.topic: tutorial
 ms.date: 11/22/2021
 ms.custom: template-tutorial
@@ -59,7 +57,7 @@ Access to ServiceNow and Defender for IoT
 
 ## Download the Defender for IoT application in ServiceNow
 
-To access the Defender for IoT application within ServiceNow, you will need to download the application form the ServiceNow application store. 
+To access the Defender for IoT application within ServiceNow, you will need to download the application from the ServiceNow application store. 
 
 **To access the Defender for IoT application in ServiceNow**:
 
@@ -132,7 +130,7 @@ Defender for IoT alerts will now appear as incidents in ServiceNow.
 
 A token is needed in order to allow ServiceNow to communicate with Defender for IoT.
 
-You will need the `Client ID` and `Client Secret` that you entered when creating the Defender for IoT Forwarding rules. The Forwarding rules forward alert information to ServiceNow, and when configuring Defender for IoT to push device attributes to ServiceNow tables.
+You'll need the `Client ID` and `Client Secret` that you entered when creating the Defender for IoT Forwarding rules. The Forwarding rules forward alert information to ServiceNow, and when configuring Defender for IoT to push device attributes to ServiceNow tables.
 
 ## Send Defender for IoT device attributes to ServiceNow
 
@@ -168,7 +166,7 @@ Verify that the on-premises management console is connected to the ServiceNow in
 
 ## Set up the integrations using an HTTPS proxy
 
-When setting up the Defender for IoT and ServiceNow integration, the on-premises management console and the ServiceNow server communicate using port 443. If the ServiceNow server is behind a proxy, the default port cannot be used.
+When setting up the Defender for IoT and ServiceNow integration, the on-premises management console and the ServiceNow server communicate using port 443. If the ServiceNow server is behind a proxy, the default port can't be used.
 
 Defender for IoT supports an HTTPS proxy in the ServiceNow integration by enabling the change of the default port used for integration.
 
@@ -228,7 +226,6 @@ There are no resources to clean up.
 
 ## Next steps
 
-In this tutorial, you learned how to get started with the ServiceNow integration. Continue on to learn about our [Cisco integration](./tutorial-forescout.md).
+In this article, you learned how to get started with the ServiceNow integration. Continue on to learn about our [Cisco integration](./tutorial-forescout.md).
 
-> [!div class="nextstepaction"]
-> [Next steps button](./tutorial-forescout.md)
+

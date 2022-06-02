@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms 
 ms.author: mingshen
-ms.date: 09/27/2021
+ms.date: 02/01/2022
 ---
 
 # How to test and publish a SaaS offer to the commercial marketplace
@@ -51,7 +51,7 @@ Use the following steps to preview your offer.
 
 1. On the **Offer overview** page, select a preview link under the **Go live** button.
 
-1. To validate the end-to-end purchase and setup flow, purchase the plans in your offer while it's in preview. First, notify Microsoft with a [support ticket](https://aka.ms/marketplacesupport) to ensure we don't process a charge.
+1. To validate the end-to-end purchase flow, purchase plans using the _preview URL_ generated during the _Publisher Sign off_ phase of publishing. Note that the customer account used for the purchase will be billed and invoiced. Publisher Payout will occur when the [criteria](/partner-center/payment-thresholds-methods-timeframes) are met and will be paid out per the [payout schedule](/partner-center/payout-policy-details) with the agency fee deducted from the purchase price.
 
 1. If your SaaS offer supports [metered billing using the commercial marketplace metering service](./partner-center-portal/saas-metered-billing.md), review and follow the testing best practices detailed in [Marketplace metered billing APIs](marketplace-metering-service-apis.md#development-and-testing-best-practices).
 
@@ -66,7 +66,7 @@ Use the following steps to preview your offer.
 After completing all tests on your preview, select **Go live** to publish your offer live to the commercial marketplace. If your offer is already live in the commercial marketplace, any updates you make won't go live until you select **Go live**.
 
 > [!IMPORTANT]
-> Don’t ever select **Go live** for a [development/test offer](create-saas-dev-test-offer.md).
+> Don’t ever select **Go live** for a [development/test offer](plan-saas-dev-test-offer.md).
 
 Now that you’ve chosen to make your offer available in the commercial marketplace, we perform a series of final validation checks to ensure the live offer is configured just like the preview version of the offer. For details about these validation checks, see [Publish phase](review-publish-offer.md#publish-phase).
 

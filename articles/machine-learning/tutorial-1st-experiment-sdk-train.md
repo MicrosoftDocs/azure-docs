@@ -10,10 +10,12 @@ author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 12/21/2021
-ms.custom: devx-track-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q
+ms.custom: devx-track-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q, sdkv1, event-tier1-build-2022
 ---
 
 # Tutorial: Train your first machine learning model (part 2 of 3)
+
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 
 This tutorial shows you how to train a machine learning model in Azure Machine Learning.  This tutorial is *part 2 of a three-part tutorial series*.
 
@@ -232,10 +234,7 @@ if __name__ == "__main__":
 1. In the page that opens, you'll see the run status. The first time you run this script, Azure Machine Learning will build a new Docker image from your PyTorch environment. The whole run might around 10 minutes to complete.  This image will be reused in future runs to make them run much quicker.
 1. You can see view Docker build logs in the Azure Machine Learning studio. Select the **Outputs + logs** tab, and then select **20_image_build_log.txt**.
 1. When the status of the run is **Completed**, select **Output + logs**.
-1. Select **70_driver_log.txt** to view the output of your run.
-
-> [!NOTE]
-> Your log files may be in a different place, depending on your region.  Your log file may be located at **user_logs/std_log.txt** instead.
+1. Select **std_log.txt** to view the output of your run.
 
 ```txt
 Downloading https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz to ../data/cifar-10-python.tar.gz

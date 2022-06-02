@@ -1,7 +1,6 @@
 ---
 title: Apache Spark on GPU
 description: Introduction to core concepts for Apache Spark on GPUs inside Synapse Analytics.
-services: synapse-analytics
 author: Niharikadutta
 ms.service: synapse-analytics
 ms.topic: overview

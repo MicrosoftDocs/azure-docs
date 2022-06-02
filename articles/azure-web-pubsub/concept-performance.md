@@ -155,7 +155,7 @@ In this case, the app server writes back the original message back in the http r
 
 
 
-### Rest API
+### REST API
 
 Azure Web PubSub provides powerful [APIs](/rest/api/webpubsub/) to manage clients and deliver real-time messages.
 

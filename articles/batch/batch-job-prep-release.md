@@ -2,14 +2,14 @@
 title: Create tasks to prepare and complete jobs on compute nodes
 description: Make job-level preparation tasks to minimize data transfer to Azure Batch compute nodes, and release tasks for node cleanup at job completion.
 ms.topic: how-to
-ms.date: 12/20/2021
+ms.date: 01/12/2021
 ms.devlang: csharp
 ms.custom: "seodec18, devx-track-csharp"
 
 ---
-# reate tasks to prepare and complete jobs on Batch compute nodes
+# Create tasks to prepare and complete jobs on Batch compute nodes
 
- An Azure Batch job often requires some form of setup before its tasks are executed. It also may require post-job maintenance when its tasks are completed. For example, you might need to download common task input data to your compute nodes, or upload task output data to Azure Storage after the job completes. You can use **job preparation** and **job release** tasks to perform these operations.
+An Azure Batch job often requires some form of setup before its tasks are executed. It also may require post-job maintenance when its tasks are completed. For example, you might need to download common task input data to your compute nodes, or upload task output data to Azure Storage after the job completes. You can use **job preparation** and **job release** tasks to perform these operations.
 
 ## What are job preparation and release tasks?
 

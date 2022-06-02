@@ -1,6 +1,5 @@
 ---
 title: Configure how users consent to applications
-titleSuffix: Azure AD
 description: Learn how to manage how and when users can consent to applications that will have access to your organization's data.
 services: active-directory
 author: psignoret
@@ -51,6 +50,14 @@ To configure user consent settings through the Azure portal, do the following:
 # [PowerShell](#tab/azure-powershell)
 
 To choose which app consent policy governs user consent for applications, you can use the latest [Azure AD PowerShell](/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) module.
+
+> [!NOTE]
+> The instructions below use the generally available Azure AD PowerShell module ([AzureAD](https://www.powershellgallery.com/packages/AzureAD)). The parameter names are different in the preview version of this module ([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)). If you have both modules installed, ensure you're using the cmdlet from the correct module by first running:
+> 
+> ```powershell
+> Remove-Module AzureADPreview -ErrorAction SilentlyContinue
+> Import-Module AzureAD
+> ```
 
 #### Disable user consent
 

@@ -33,7 +33,7 @@ Other template limits are:
 
 # [Bicep](#tab/bicep)
 
-Use an [implicit dependency](../bicep/resource-declaration.md#implicit-dependency) that's created when a resource references another resource by its symbolic name. For most deployments, it's not necessary to use `dependsOn` and create an [explicit dependency](../bicep/resource-declaration.md#explicit-dependency).
+Use an [implicit dependency](../bicep/resource-dependencies.md#implicit-dependency) that's created when a resource references another resource by its symbolic name. For most deployments, it's not necessary to use `dependsOn` and create an [explicit dependency](../bicep/resource-dependencies.md#explicit-dependency).
 
 # [JSON](#tab/json)
 

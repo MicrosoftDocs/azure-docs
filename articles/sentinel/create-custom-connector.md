@@ -4,7 +4,7 @@ description: Learn about available resources for creating custom connectors for 
 author: batamig
 ms.topic: conceptual
 ms.custom: mvc, ignite-fall-2021
-ms.date: 11/09/2021
+ms.date: 11/21/2021
 ms.author: bagol
 ---
 
@@ -24,13 +24,14 @@ The following table compares essential details about each method for creating cu
 
 |Method description  |Capability | Serverless    |Complexity  |
 |---------|---------|---------|---------|
+| **[Codeless Connector Platform (CCP)](#connect-with-the-codeless-connector-platform)** <br>Best for less technical audiences to create SaaS connectors using a configuration file instead of advanced development. | Supports all capabilities available with the code. | Yes | Low; simple, codeless development
 |**[Log Analytics Agent](#connect-with-the-log-analytics-agent)** <br>Best for collecting files from on-premises and IaaS sources   | File collection only  |   No      |Low         |
 |**[Logstash](#connect-with-logstash)** <br>Best for on-premises and IaaS sources, any source for which a plugin is available, and organizations already familiar with Logstash  | Available plugins, plus custom plugin, capabilities provide significant flexibility.   |   No; requires a VM or VM cluster to run           |   Low; supports many scenarios with plugins      |
 |**[Logic Apps](#connect-with-logic-apps)** <br>High cost; avoid for high-volume data <br>Best for low-volume cloud sources  | Codeless programming allows for limited flexibility, without support for implementing algorithms.<br><br> If no available action already supports your requirements, creating a custom action may add complexity.    |    Yes         |   Low; simple, codeless development      |
 |**[PowerShell](#connect-with-powershell)** <br>Best for prototyping and periodic file uploads | Direct support for file collection. <br><br>PowerShell can be used to collect more sources, but will require coding and configuring the script as a service.      |No               |  Low       |
 |**[Log Analytics API](#connect-with-the-log-analytics-api)** <br>Best for ISVs implementing integration, and for unique collection requirements   | Supports all capabilities available with the code.  | Depends on the implementation           |     High    |
-|**[Azure Functions](#connect-with-azure-functions)** Best for high-volume cloud sources, and for unique collection requirements  | Supports all capabilities available with the code.  |  Yes             |     High; requires programming knowledge    |
-|     |         |                |
+|**[Azure Functions](#connect-with-azure-functions)** <br>Best for high-volume cloud sources, and for unique collection requirements  | Supports all capabilities available with the code.  |  Yes             |     High; requires programming knowledge    |
+
 
 > [!TIP]
 > For comparisons of using Logic Apps and Azure Functions for the same connector, see:
@@ -38,6 +39,14 @@ The following table compares essential details about each method for creating cu
 > - [Ingest Fastly Web Application Firewall logs into Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-fastly-web-application-firewall-logs-into-azure-sentinel/ba-p/1238804)
 > - Office 365 (Microsoft Sentinel GitHub community): [Logic App connector](https://github.com/Azure/Azure-Sentinel/tree/master/Playbooks/Get-O365Data) | [Azure Function connector](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/O365%20Data)
 >
+
+## Connect with the Codeless Connector Platform
+
+The Codeless Connector Platform (CCP) provides a configuration file that can be used by both customers and partners, and then deployed to your own workspace, or as a solution to Microsoft Sentinel's solution's gallery.
+
+Connectors created using the CCP are fully SaaS, without any requirements for service installations, and also include health monitoring and full support from Microsoft Sentinel.
+
+For more information, see [Create a codeless connector for Microsoft Sentinel](create-codeless-connector.md).
 
 ## Connect with the Log Analytics agent
 
@@ -86,7 +95,7 @@ Use [Azure Logic Apps](../logic-apps/index.yml) to create a serverless, custom c
     |**A recurring task**     |   For example, schedule your Logic App to retrieve data regularly from specific files, databases, or external APIs. <br>For more information, see [Create, schedule, and run recurring tasks and workflows in Azure Logic Apps](../connectors/connectors-native-recurrence.md).      |
     |**On-demand triggering**     | Run your Logic App on-demand for manual data collection and testing. <br>For more information, see  [Call, trigger, or nest logic apps using HTTPS endpoints](../logic-apps/logic-apps-http-endpoint.md).        |
     |**HTTP/S endpoint**     |  Recommended for streaming, and if the source system can start the data transfer. <br>For more information, see [Call service endpoints over HTTP or HTTPs](../connectors/connectors-native-http.md).       |
-    |     |         |
+
 
 1. **Use any of the Logic App connectors that read information to get your events**. For example:
 
@@ -143,7 +152,7 @@ The [Upload-AzMonitorLog PowerShell script](https://www.powershellgallery.com/pa
 |**TaggedAzureResourceId**     | When this parameter exists, the script associates all uploaded log records with the specified Azure resource. <br><br>This association enables the uploaded log records for resource-context queries, and adheres to resource-centric, role-based access control.       |
 |**AdditionalDataTaggingName**     |      When this parameter exists, the script adds another field to every log record, with the configured name, and the value that's configured for the **AdditionalDataTaggingValue** parameter. <br><br>In this case, **AdditionalDataTaggingValue** must not be empty. |
 |**AdditionalDataTaggingValue**     |   When this parameter exists, the script adds another field to every log record, with the configured value, and the field name configured for the **AdditionalDataTaggingName** parameter. <br><br>If the **AdditionalDataTaggingName** parameter is empty, but a value is configured, the default field name is **DataTagging**.       |
-|     |         |
+
 
 ### Find your workspace ID and key
 
@@ -182,21 +191,13 @@ For examples of this method, see:
 
 ## Parse your custom connector data
 
-You can use your custom connector's built-in parsing technique to extract the relevant information and populate the relevant fields in Microsoft Sentinel.
+To take advantage of the data collected with your custom connector, [develop Advanced Security Information Model (ASIM) parsers](normalization-develop-parsers.md) to work with your connector. Using [ASIM](normalization.md) enables Microsoft Sentinel's built-in content to use your custom data and makes it easier for analysts to query the data.
 
-For example:
-
+If your connector method allows for it, you can implement part of the parsing as part of the connector to improve query time parsing performance:
 - **If you've used Logstash**, use the [Grok](https://www.elastic.co/guide/en/logstash/current/plugins-filters-grok.html) filter plugin to parse your data.
 - **If you've used an Azure function**, parse your data with code.
 
-Microsoft Sentinel supports parsing at query time. Parsing at query time enables you to push data in at the original format, and then parse on demand, when needed.
-
-Parsing at query time also means you don't need to know your data's exact structure ahead of time, when you create your custom connector, or even the information you'll need to extract. Instead, parse your data at any time, even during an investigation.
-
-For more information on parsing at query time, see [Parsers](normalization-about-parsers.md).
-
-> [!NOTE]
-> Updating your parser also applies to data that you've already ingested into Microsoft Sentinel.
+You will still need to implement ASIM parsers, but implementing part of the parsing directly with the connector simplifies the parsing and improves performance.
 
 ## Next steps
 

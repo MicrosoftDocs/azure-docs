@@ -30,8 +30,6 @@ landingContent:
             url: ./logs/data-platform-logs.md
           - text: What is Application Insights?
             url: app/app-insights-overview.md
-          - text: Application Insights content hub page
-            url: azure-monitor-app-hub.yml
 
   # Card 
   - title: About monitoring data   

@@ -37,7 +37,6 @@ The transact publishing option is currently supported for the following offer ty
 | Azure Application <br>(Managed application) | Monthly | Yes | Usage-based |
 | Azure Virtual Machine | Monthly* | No | Usage-based, BYOL |
 | Software as a service (SaaS) | Monthly and annual | Yes | Flat rate, per user, usage-based. |
-|||||
 
 \* Azure Virtual Machine offers support usage-based billing plans. These plans are billed monthly for hourly use of the subscription based on per core, per core size, or per market and core size usage.
 
@@ -62,7 +61,7 @@ Depending on the transaction option used, subscription charges are as follows:
 > [!NOTE]
 > Offers that are billed according to consumption after a solution has been used are not eligible for refunds.
 
-Publishers who want to change the usage fees associated with an offer, should first remove the offer (or the specific plan within the offer) from the commercial marketplace. Removal should be done in accordance with the requirements of the [Microsoft Publisher Agreement](/legal/marketplace/msft-publisher-agreement). Then the publisher can publish a new offer (or plan within an offer) that includes the new usage fees. For information, about removing an offer or plan, see [Stop distribution of an offer or plan](./update-existing-offer.md#stop-distribution-of-an-offer-or-plan).
+To change the prices associated with an active transactable offer, see [Changing prices in active commercial marketplace offers](price-changes.md).
 
 ### Determine offer type and pricing plan
 
@@ -73,7 +72,7 @@ Generally, SaaS offers are a good fit if your customers just want to subscribe t
 Virtual Machine and Azure Application offers are a good fit if you want customers to deploy, manage, and run your packaged app or service (as a VM Image and/or other Azure services in the ARM template) in their own cloud infrastructure.
 
 [![Shows a flowchart for determining offer type and pricing plan.](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png)](media/commercial-marketplace-plans/offer-type-and-pricing-plan-flowchart.png#lightbox)
-&nbsp;&nbsp;&nbsp;<sup>(1)</sup> Contact [Microsoft Office Hours](https://microsoftcloudpartner.eventbuilder.com/MarketplaceDeveloperOfficeHours) or [support](./support.md).<br>
+&nbsp;&nbsp;&nbsp;<sup>(1)</sup> Attend [Microsoft Office Hours](https://go.microsoft.com/fwlink/?linkid=2185526) or [support](./support.md).<br>
 &nbsp;&nbsp;&nbsp;<sup>(2)</sup> VM offer images can be included in the Azure App offer to increase pricing flexibility.<br>
 &nbsp;&nbsp;&nbsp;<sup>(3)</sup> Customer pays the infrastructure costs since Azure services are deployed on the customer tenant for VM and Azure App offers.
 
@@ -97,7 +96,6 @@ Usage-based pricing has the following cost structure:
 |---------|---------|
 | Azure usage cost (D1/1-Core) | $0.14 per hour |
 | *Customer is billed by Microsoft* | *$1.14 per hour* |
-||
 
 In this scenario, Microsoft bills $1.14 per hour for use of your published VM image.
 
@@ -106,7 +104,6 @@ In this scenario, Microsoft bills $1.14 per hour for use of your published VM im
 | Microsoft pays you 97% of your license cost | $0.97 per hour |
 | Microsoft keeps 3% of your license cost  |  $0.03 per hour |
 | Microsoft keeps 100% of the Azure usage cost | $0.14 per hour |
-||
 
 **Bring Your Own License (BYOL)**
 
@@ -116,7 +113,6 @@ BYOL has the following cost structure:
 |---------|---------|
 |Azure usage cost (D1/1-Core)    |   $0.14 per hour     |
 | *Customer is billed by Microsoft* | *$0.14 per hour* |
-||
 
 In this scenario, Microsoft bills $0.14 per hour for use of your published VM image.
 
@@ -124,7 +120,6 @@ In this scenario, Microsoft bills $0.14 per hour for use of your published VM im
 |---------|---------|
 | Microsoft keeps the Azure usage cost | $0.14 per hour |
 | Microsoft keeps 0% of your license cost | $0.00 per hour |
-||
 
 **SaaS app subscription**
 
@@ -134,7 +129,6 @@ SaaS subscriptions can be priced at a flat rate or per user on a monthly or annu
 |--------------|---------|
 | Azure usage cost (D1/1-Core) | Billed directly to the publisher, not the customer |
 | *Customer is billed by Microsoft* | *$100.00 per month (publisher must account for any incurred or pass-through infrastructure costs in the license fee)* |
-||
 
 In this scenario, Microsoft bills $100.00 for your software license and pays out $97.00.
 

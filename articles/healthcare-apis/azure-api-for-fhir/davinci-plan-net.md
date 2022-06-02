@@ -6,9 +6,9 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
 ms.reviewer: matjazl
-ms.author: cavoeg
+ms.author: mikaelw
 author: modillon
-ms.date: 11/29/2021
+ms.date: 02/15/2022
 ---
 
 # Da Vinci Plan Net for Azure API for FHIR

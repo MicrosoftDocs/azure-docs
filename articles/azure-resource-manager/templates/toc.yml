@@ -140,7 +140,7 @@
   - name: Containers
     items:
     - name: AKS
-      href: ../../aks/kubernetes-walkthrough-rm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: ../../aks/learn/quick-kubernetes-deploy-rm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Container Instances
       href: ../../container-instances/container-instances-quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Container Registry
@@ -166,11 +166,11 @@
     - name: Database Migration Service
       href: ../../dms/create-dms-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: SQL Database
-      href: ../../azure-sql/database/single-database-create-arm-template-quickstart.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/azure-sql/database/single-database-create-arm-template-quickstart?toc=/azure/azure-resource-manager/templates/toc.json
     - name: SQL Managed Instance
-      href: ../../azure-sql/managed-instance/create-template-quickstart.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/azure-sql/managed-instance/create-template-quickstart?toc=/azure/azure-resource-manager/templates/toc.json
     - name: SQL Server on Virtual Machines
-      href: ../../azure-sql/virtual-machines/windows/create-sql-vm-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/azure-sql/virtual-machines/windows/create-sql-vm-resource-manager-template?toc=/azure/azure-resource-manager/templates/toc.json
   - name: DevOps
     items:
     - name: App Configuration
@@ -374,10 +374,10 @@
       - name: Deploy - REST API
         displayName: deployment
         href: deploy-rest.md
-      - name: Deploy - GitHub
-        href: deploy-to-azure-button.md
       - name: Deploy - Cloud Shell
         href: deploy-cloud-shell.md
+      - name: Deploy-to-Azure button
+        href: deploy-to-azure-button.md
     - name: Scopes
       items:
       - name: Resource group
@@ -437,8 +437,10 @@
   - name: CI/CD
     items:
     - name: ARM templates with pipelines
+      displayName: continuous,ci,cd, CI/CD
       href: add-template-to-azure-pipelines.md
     - name: Deploy - GitHub Actions
+      displayName: continuous,ci,cd,CI/CD
       href: deploy-github-actions.md
   - name: Use authoring tools
     items:

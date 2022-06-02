@@ -13,7 +13,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/01/2021
+ms.date: 02/13/2022
 ms.author: radeltch
 
 ---
@@ -78,10 +78,7 @@ Read the following SAP Notes and papers first:
 * [Add probe port in ASCS cluster configuration](sap-high-availability-installation-wsfc-file-share.md)
 * [Installation of an (A)SCS Instance on a Failover Cluster](https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html)
 * [Create an SMB volume for Azure NetApp Files](../../../azure-netapp-files/create-active-directory-connections.md#requirements-for-active-directory-connections)
-* [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure]
-
-> [!IMPORTANT]
-> CAUTION: Be aware that the installation of an SAP system with SWPM on SMB share, hosted on [Azure NetApp Files][anf-azure-doc] SMB volume, may fail with installation error for insufficient permissions like "warningPerm is not defined". To avoid the error, the user under which context SWPM is executed, needs elevated privilege "Domain Admin" during the installation of the SAP system.  
+* [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure] 
 
 ## Overview
 
@@ -117,9 +114,9 @@ Perform the following steps, as preparation for using Azure NetApp Files.
    > When creating the Active Directory connection, make sure to enter SMB Server (Computer Account) Prefix no longer than 8 characters to avoid the 13 characters hostname limitation for SAP Applications (a suffix is automatically added to the SMB Computer Account name).     
    > The hostname limitations for SAP applications are described in [2718300 - Physical and Virtual hostname length limitations](https://launchpad.support.sap.com/#/notes/2718300) and [611361 - Hostnames of SAP ABAP Platform servers](https://launchpad.support.sap.com/#/notes/611361).  
 
-4. Create Active Directory connection, as described in [Create an Active Directory connection](../../../azure-netapp-files/create-active-directory-connections.md#create-an-active-directory-connection)  
-5. Create SMB Azure NetApp Files SMB volume, following the instructions in [Add an SMB volume](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#add-an-smb-volume)  
-6. Mount the SMB volume on your Windows Virtual Machine.
+4. Create Active Directory connection, as described in [Create an Active Directory connection](../../../azure-netapp-files/create-active-directory-connections.md#create-an-active-directory-connection). Make sure to add the user that will run SWPM to install the SAP system, as `Administrators privilege user` in the Active Directory connection. If you don't add the SAP installation user as `Administrators privilege user` in the Active Directory connection, SWPM will fail with permission errors, unless you run SWPM as user with elevated Domain Admin rights.  
+6. Create SMB Azure NetApp Files SMB volume, following the instructions in [Add an SMB volume](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#add-an-smb-volume).   
+7. Mount the SMB volume on your Windows Virtual Machine.  
 
 > [!TIP]
 > You can find the instructions on how to mount the Azure NetApp Files volume, if you navigate in [Azure Portal](https://portal.azure.com/#home) to the Azure NetApp Files object, click on the **Volumes** blade, then **Mount Instructions**.  
@@ -137,11 +134,8 @@ Perform the following steps, as preparation for using Azure NetApp Files.
 
 You need the following software from SAP:
    * SAP Software Provisioning Manager (SWPM) installation tool version SPS25 or later.
-   * SAP Kernel 7.49 or later
+   * SAP Kernel 7.22 or later
    * Create a virtual host name (cluster network name)  for the clustered SAP ASCS/SCS instance, as described in [Create a virtual host name for the clustered SAP ASCS/SCS instance](./sap-high-availability-installation-wsfc-shared-disk.md#a97ad604-9094-44fe-a364-f89cb39bf097).
-
-> [!NOTE]
-> Clustering SAP ASCS/SCS instances by using a file share is supported for SAP NetWeaver 7.40 (and later), with SAP Kernel 7.49 (and later).  
 
 ### Install an ASCS/SCS instance on the first ASCS/SCS cluster node
 
@@ -189,7 +183,7 @@ Complete your SAP installation, by installing:
 ## Test the SAP ASCS/SCS instance failover 
 
 ### Fail over from cluster node A to cluster node B and back
-In this test scenario we will refer to cluster node sapascs1 as node A,  and to cluster node sapascs2 as node B.
+In this test scenario we'll refer to cluster node sapascs1 as node A,  and to cluster node sapascs2 as node B.
 
 1. Verify that the cluster resources are running on node A. 
 ![Figure 1: Windows Server failover cluster resources running on node A prior before the failover test](./media/virtual-machines-shared-sap-high-availability-guide/high-availability-windows-azure-netapp-files-smb-figure-1.png)  
@@ -202,7 +196,7 @@ In this test scenario we will refer to cluster node sapascs1 as node A,  and to 
 
 1.Verify that the SAP Enqueue Replication Server (ERS) is active  
 2. Log on to the SAP system, execute transaction SU01 and open a user ID in change mode. That will generate SAP lock entry.  
-3. As you are logged in the SAP system, display the lock entry, by navigating to transaction ST12.  
+3. As you're logged in the SAP system, display the lock entry, by navigating to transaction ST12.  
 4. Fail over ASCS resources from cluster node A to cluster node B.  
 5. Verify that the lock entry, generated before the SAP ASCS/SCS cluster resources failover is retained.  
 

@@ -1,8 +1,0 @@
----
-author: WilliamDAssafMSFT
-ms.service: cosmos-db
-ms.topic: include
-ms.date: 11/09/2018
-ms.author: wiassaf
----
-Download and use the free [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable the **Azure development** workload during the Visual Studio setup.

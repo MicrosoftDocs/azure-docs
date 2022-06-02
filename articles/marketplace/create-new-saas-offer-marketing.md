@@ -18,7 +18,7 @@ This article describes additional options you can choose if you’re selling you
 
 Providing information on the **Co-sell with Microsoft** page is entirely optional. But it's required to achieve _Co-sell Ready_ and _IP Co-sell Ready_ status. The Microsoft sales teams use this information to learn more about your solution when evaluating its fit for customer needs. The information you provide on this tab isn't available directly to customers.
 
-For details and instructions to configure the **Co-sell with Microsoft** tab, see [Co-sell option in the commercial marketplace](./co-sell-configure.md).
+For details and instructions to configure the **Co-sell with Microsoft** tab, see [Co-sell option in the commercial marketplace](/partner-center/co-sell-configure?context=/azure/marketplace/context/context).
 
 ## Resell through CSPs
 

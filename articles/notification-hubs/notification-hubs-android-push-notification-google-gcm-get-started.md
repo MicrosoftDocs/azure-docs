@@ -164,7 +164,7 @@ Your notification hub is now configured to work with GCM, and you have the conne
 
     Update the three placeholders in the following code for the `NotificationSettings` class:
 
-   * `SenderId`: The project number you obtained earlier in the [Google Cloud Console](https://cloud.google.com/console).
+   * `SenderId`: The project number you obtained earlier in the [Google Cloud Console](https://console.cloud.google.com/).
    * `HubListenConnectionString`: The **DefaultListenAccessSignature** connection string for your hub. You can copy that connection string by clicking **Access Policies** on the **Settings** page of your hub on the [Azure portal].
    * `HubName`: Use the name of your notification hub that appears in the hub page in the [Azure portal].
 

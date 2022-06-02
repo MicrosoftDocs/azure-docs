@@ -1,21 +1,21 @@
 ---
-title: Create alerts with SQL insights (preview)
-description: Create alerts with SQL insights in Azure Monitor
+title: Create alerts with SQL Insights (preview)
+description: Create alerts with SQL Insights (preview) in Azure Monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2021
 ---
 
-# Create alerts with SQL insights (preview)
-SQL insights includes a set of alert rule templates you can use to create [alert rules in Azure Monitor](../alert/../alerts/alerts-overview.md) for common SQL issues. The alert rules in SQL insights are log alert rules based on performance data stored in the *InsightsMetrics* table in Azure Monitor Logs.  
+# Create alerts with SQL Insights (preview)
+SQL Insights (preview) includes a set of alert rule templates you can use to create [alert rules in Azure Monitor](../alert/../alerts/alerts-overview.md) for common SQL issues. The alert rules in SQL Insights (preview) are log alert rules based on performance data stored in the *InsightsMetrics* table in Azure Monitor Logs.  
 
 > [!NOTE]
-> To create an alert for SQL insights using a resource manager template, see [Resource Manager template samples for SQL insights](resource-manager-sql-insights.md#create-an-alert-rule-for-sql-insights).
+> To create an alert for SQL Insights (preview) using a resource manager template, see [Resource Manager template samples for SQL Insights (preview)](resource-manager-sql-insights.md#create-an-alert-rule-for-sql-insights).
 
 
 > [!NOTE]
-> If you have requests for more SQL insights alert rule templates, please send feedback using the link at the bottom of this page or using the SQL insights feedback link in the Azure portal.
+> If you have requests for more SQL Insights (preview) alert rule templates, please send feedback using the link at the bottom of this page or using the SQL Insights (preview) feedback link in the Azure portal.
 
 ## Enable alert rules 
 Use the following steps to enable the alerts in Azure Monitor from the Azure portal. The alert rules that are created will be scoped to all of the SQL resources monitored under the selected monitoring profile.  When an alert rule is triggered, it will trigger on the specific SQL instance or database.

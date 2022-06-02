@@ -6,7 +6,7 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 02/28/2022
 ---
 # Configure Redis clustering for a Premium Azure Cache for Redis instance
 
@@ -29,11 +29,11 @@ Clustering is enabled  **New Azure Cache for Redis** on the left during cache cr
 
     :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Create resource.":::
 
-2. On the **New** page, select **Databases** and then select **Azure Cache for Redis**.
+1. On the **New** page, select **Databases** and then select **Azure Cache for Redis**.
 
     :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Select Azure Cache for Redis.":::
 
-3. On the **New Redis Cache** page, configure the settings for your new premium cache.
+1. On the **New Redis Cache** page, configure the settings for your new premium cache.
 
    | Setting      | Suggested value  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
@@ -43,13 +43,13 @@ Clustering is enabled  **New Azure Cache for Redis** on the left during cache cr
    | **Location** | Drop-down and select a location. | Select a [region](https://azure.microsoft.com/regions/) near other services that will use your cache. |
    | **Cache type** | Drop-down and select a premium cache to configure premium features. For details, see [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/). |  The pricing tier determines the size, performance, and features that are available for the cache. For more information, see [Azure Cache for Redis Overview](cache-overview.md). |
 
-4. Select the **Networking** tab or select the **Networking** button at the bottom of the page.
+1. Select the **Networking** tab or select the **Networking** button at the bottom of the page.
 
-5. In the **Networking** tab, select your connectivity method. For premium cache instances, you can connect either publicly, via Public IP addresses or service endpoints, or privately, using a private endpoint.
+1. In the **Networking** tab, select your connectivity method. For premium cache instances, you can connect either publicly, via Public IP addresses or service endpoints, or privately, using a private endpoint.
 
-6. Select the **Next: Advanced** tab or select the **Next: Advanced** button on the bottom of the page.
+1. Select the **Next: Advanced** tab or select the **Next: Advanced** button on the bottom of the page.
 
-7. In the **Advanced** tab for a premium cache instance, configure the settings for non-TLS port, clustering, and data persistence. To enable clustering, select **Enable**.
+1. In the **Advanced** tab for a premium cache instance, configure the settings for non-TLS port, clustering, and data persistence. To enable clustering, select **Enable**.
 
     :::image type="content" source="media/cache-how-to-premium-clustering/redis-cache-clustering.png" alt-text="Clustering toggle.":::
 
@@ -59,15 +59,15 @@ Clustering is enabled  **New Azure Cache for Redis** on the left during cache cr
 
     :::image type="content" source="media/cache-how-to-premium-clustering/redis-cache-clustering-selected.png" alt-text="Clustering toggle selected.":::
 
-    Once the cache is created, you connect to it and use it just like a non-clustered cache. Redis distributes the data throughout the Cache shards. If diagnostics is [enabled](cache-how-to-monitor.md#enable-cache-diagnostics), metrics are captured separately for each shard and can be [viewed](cache-how-to-monitor.md) in Azure Cache for Redis on the left.
+    Once the cache is created, you connect to it and use it just like a non-clustered cache. Redis distributes the data throughout the Cache shards. If diagnostics is [enabled](cache-how-to-monitor.md#export-cache-metrics), metrics are captured separately for each shard and can be [viewed](cache-how-to-monitor.md) in Azure Cache for Redis on the left.
 
-8. Select the **Next: Tags** tab or select the **Next: Tags** button at the bottom of the page.
+1. Select the **Next: Tags** tab or select the **Next: Tags** button at the bottom of the page.
 
-9. Optionally, in the **Tags** tab, enter the name and value if you wish to categorize the resource.
+1. Optionally, in the **Tags** tab, enter the name and value if you wish to categorize the resource.
 
-10. Select **Review + create**. You're taken to the Review + create tab where Azure validates your configuration.
+1. Select **Review + create**. You're taken to the Review + create tab where Azure validates your configuration.
 
-11. After the green Validation passed message appears, select **Create**.
+1. After the green Validation passed message appears, select **Create**.
 
 It takes a while for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
 
@@ -78,8 +78,6 @@ It takes a while for the cache to create. You can monitor progress on the Azure 
 >
 
 For sample code on working with clustering with the StackExchange.Redis client, see the [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) portion of the [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) sample.
-
-<a name="cluster-size"></a>
 
 ## Change the cluster size on a running premium cache
 
@@ -146,7 +144,7 @@ Many clients support Redis clustering but not all. Check the documentation for t
 The Redis clustering protocol requires each client to connect to each shard directly in clustering mode, and also defines new error responses such as 'MOVED' na 'CROSSSLOTS'. When you attempt to use a client, which doesn't support clustering, with a cluster mode cache, the result can be many [MOVED redirection exceptions](https://redis.io/topics/cluster-spec#moved-redirection), or just break your application, if you're doing cross-slot multi-key requests.
 
 > [!NOTE]
-> If you're using StackExchange.Redis as your client, ensure you're using the latest version of [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) 1.0.481 or later for clustering to work correctly. For more information on any issues with move exceptions, see [move exceptions](#move-exceptions).
+> If you're using StackExchange.Redis as your client, ensure you're using the latest version of [StackExchange.Redis](https://www.nuget.org/packages/StackExchange.Redis/) 1.0.481 or later for clustering to work correctly. For more information on any issues with move exceptions, see [move exceptions](#im-getting-move-exceptions-when-using-stackexchangeredis-and-clustering-what-should-i-do).
 >
 
 ### How do I connect to my cache when clustering is enabled?
@@ -185,11 +183,9 @@ Clustering is only available for premium caches.
 * **Redis Output Cache provider** - no changes required.
 * **Redis Session State provider** - to use clustering, you must use [RedisSessionStateProvider](https://www.nuget.org/packages/Microsoft.Web.RedisSessionStateProvider) 2.0.1 or higher or an exception is thrown, which is a breaking change. For more information, see [v2.0.0 Breaking Change Details](https://github.com/Azure/aspnet-redis-providers/wiki/v2.0.0-Breaking-Change-Details).
 
-<a name="move-exceptions"></a>
-
 ### I'm getting MOVE exceptions when using StackExchange.Redis and clustering, what should I do?
 
-If you're using StackExchange.Redis and receive `MOVE` exceptions when using clustering, ensure that you're using [StackExchange.Redis 1.1.603](https://www.nuget.org/packages/StackExchange.Redis/) or later. For instructions on configuring your .NET applications to use StackExchange.Redis, see [Configure the cache clients](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
+If you're using StackExchange.Redis and receive `MOVE` exceptions when using clustering, ensure that you're using [StackExchange.Redis 1.1.603](https://www.nuget.org/packages/StackExchange.Redis/) or later. For instructions on configuring your .NET applications to use StackExchange.Redis, see [Configure the cache clients](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-client).
 
 ## Next steps
 

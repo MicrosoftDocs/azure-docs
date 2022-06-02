@@ -5,7 +5,8 @@ ms.topic: quickstart
 ms.date: 10/21/2021
 ms.author: memladen
 author: toddysm
-ms.custom: ignite-fall-2021, mode-other
+ms.custom: ignite-fall-2021, mode-other, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Pull images from a connected registry on IoT Edge device
@@ -49,7 +50,7 @@ The command will return details about the newly generated token including passwo
 
 ## Update the connected registry with the client token
 
-Use the [az acr connected-registry update][az-acr-connected-registry-update] command to update the connected registry with the newly created client token. 
+Use the az acr connected-registry update command to update the connected registry with the newly created client token. 
 
 ```azurecli
 az acr connected-registry update \
@@ -92,6 +93,6 @@ docker pull <IP_address_or_FQDN_of_connected_registry>:<port>/hello-world
 [az-acr-scope-map-create]: /cli/azure/acr/token/#az_acr_token_create
 [az-acr-token-create]: /cli/azure/acr/token/#az_acr_token_create
 [az-acr-token-credential-generate]: /cli/azure/acr/token/credential#az_acr_token_credential_generate
-[az-acr-connected-registry-update]: /azure/container-registry/quickstart-connected-registry-cli#az_acr_connected_registry_update] 
+[az-acr-connected-registry-update]: ./quickstart-connected-registry-cli.md#az_acr_connected_registry_update] 
 [container-registry-intro]: container-registry-intro.md
 [quickstart-connected-registry-cli]: quickstart-connected-registry-cli.md

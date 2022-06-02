@@ -1,7 +1,6 @@
 ---
 title: Configure workload importance for dedicated SQL pool
 description: Learn how to set request level importance in Azure Synapse Analytics.
-services: synapse-analytics
 author: ronortloff
 manager: craigg
 ms.service: synapse-analytics

@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 12/30/2021
+ms.date: 02/03/2022
 ms.author: cshoe
 ---
 
@@ -137,9 +137,12 @@ Common uses cases for wildcard routes include:
 - Enforcing authentication and authorization rules
 - Implementing specialized caching rules
 
-### Securing routes with roles
+### <a name="securing-routes-with-roles"></a>Securing routes with roles
 
 Routes are secured by adding one or more role names into a rule's `allowedRoles` array. See the [example configuration file](#example-configuration-file) for usage examples.
+
+> [!IMPORTANT]
+> Routing rules can only secure HTTP requests to routes that are served from Static Web Apps. Many front-end frameworks use client-side routing that modifies routes in the browser without issuing requests to Static Web Apps. Routing rules don't secure client-side routes. Clients should call [HTTP APIs](apis.md) to retrieve sensitive data. Ensure APIs validate a [user's identity](user-information.md) before returning data.
 
 By default, every user belongs to the built-in `anonymous` role, and all logged-in users are members of the `authenticated` role. Optionally, users are associated to custom roles via [invitations](./authentication-authorization.md).
 
@@ -166,6 +169,32 @@ You can create new roles as needed in the `allowedRoles` array. To restrict a ro
 
 > [!IMPORTANT]
 > When securing content, specify exact files when possible. If you have many files to secure, use wildcards after a shared prefix. For example: `/profile*` secures all possible routes that start with _/profile_, including _/profile_.
+
+#### Restricting access to entire application
+
+It's common to require authentication for every route in an application. To enable this, add a rule that matches all routes and include the built-in `authenticated` role in the `allowedRoles` array.
+
+The following example configuration blocks anonymous access and redirects all unauthenticated users to the Azure Active Directory login page.
+
+```json
+{
+  "routes": [
+    {
+      "route": "/*",
+      "allowedRoles": ["authenticated"]
+    }
+  ],
+  "responseOverrides": {
+    "401": {
+      "statusCode": 302,
+      "redirect": "/.auth/login/aad"
+    }
+  }
+}
+```
+
+> [!NOTE]
+> By default, all pre-configured identity providers are enabled. To block an authentication provider, see [Authentication and authorization](authentication-authorization.md#block-an-authentication-provider).
 
 ## Fallback routes
 
@@ -245,6 +274,9 @@ The following example implements a custom CORS configuration.
 }
 ```
 
+> [!NOTE]
+> Global headers do not affect API responses. Headers in API responses are preserved and returned to the client.
+
 ## Response overrides
 
 The `responseOverrides` section provides an opportunity to define a custom response when the server would otherwise return an error code. See the [example configuration file](#example-configuration-file) for usage examples.
@@ -276,6 +308,35 @@ The following example configuration demonstrates how to override an error code.
     "404": {
       "rewrite": "/custom-404.html"
     }
+  }
+}
+```
+
+## Platform
+
+The `platform` section controls platform specific settings, such as the API language runtime version.
+
+### Selecting the API language runtime version
+
+To configure the API language runtime version, set the `apiRuntime` property in the `platform` section to one of the following supported values.
+
+| Language runtime version | Operating system | Azure Functions version | `apiRuntime` value |
+|--|--|--|--|
+| .NET Core 3.1 | Windows | 3.x | `dotnet:3.1` |
+| .NET 6.0 in-process | Windows | 4.x | `dotnet:6.0` |
+| .NET 6.0 isolated | Windows | 4.x | `dotnet-isolated:6.0` |
+| Node.js 12.x | Linux | 3.x | `node:12` |
+| Node.js 14.x | Linux | 4.x | `node:14` |
+| Node.js 16.x (preview) | Linux | 4.x | `node:16` |
+| Python 3.8 | Linux | 3.x | `python:3.8` |
+| Python 3.9 | Linux | 4.x | `python:3.9` |
+
+The following example configuration demonstrates how to use the `apiRuntime` property to select Node.js 16 as the API language runtime version.
+
+```json
+{
+  "platform": {
+    "apiRuntime": "node:16"
   }
 }
 ```
@@ -315,6 +376,26 @@ In addition to IP address blocks, you can also specify [service tags](../virtual
 
 * [Default authentication providers](authentication-authorization.md#login), don't require settings in the configuration file. 
 * [Custom authentication providers](authentication-custom.md) use the `auth` section of the settings file.
+
+For details on how to restrict routes to authenticated users, see [Securing routes with roles](#securing-routes-with-roles).
+
+### Disabling cache for authenticated paths
+
+If you set up [manual integration with Azure Front Door](front-door-manual.md), you may want to disable caching for your secured routes. If you have enabled [enterprise-grade edge](enterprise-edge.md) this is already configured for you.
+
+To disable Azure Front Door caching for secured routes, add `"Cache-Control": "no-store"` to the route header definition.
+
+For example:
+
+```json
+{
+    "route": "/members",
+    "allowedRoles": ["authenticated, members"],
+    "headers": {
+        "Cache-Control": "no-store"
+    }
+}
+```
 
 ## Forwarding gateway
 
@@ -357,7 +438,80 @@ For example, the following configuration shows how you can add a unique identifi
 
 - Key/value pairs can be any set of arbitrary strings
 - Keys are case insensitive
-- Values are case sensitive
+- Values are case-sensitive
+
+## Trailing slash
+
+A trailing slash is the `/` at the end of a URL. Conventionally, trailing slash URL refers to a directory on the web server, while a non-trailing slash indicates a file. 
+
+Search engines treat the two URLs separately, regardless of whether it's a file or a directory. When the same content is rendered at both of these URLs, your website serves duplicate content which can negatively impact search engine optimization (SEO). When explicitly configured, Static Web Apps applies a set of URL normalization and redirect rules that help improve your website’s performance and SEO. 
+
+The following normalization and redirect rules will apply for each of the available configurations:
+
+### Always 
+
+When setting `trailingSlash` to `always`, all requests that don't include a trailing slash are redirected to a trailing slash URL. For example, `/contact` is redirected to `/contact/`.
+
+```json
+"trailingSlash": "always"
+```
+
+| Requests to... | returns... | with the status... | and path... |
+|--|--|--|--|
+| _/about_ | The _/about/index.html_ file | `301` | _/about/_ |
+| _/about/_ | The _/about/index.html_ file | `200` | _/about/_ |
+| _/about/index.html_ | The _/about/index.html_ file | `301` | _/about/_ |
+| _/contact_ | The _/contact.html_ file | `301` | _/contact/_ |
+| _/contact/_ | The _/contact.html_ file | `200` | _/contact/_ |
+| _/contact.html_ | The _/contact.html_ file | `301` | _/contact/_ |
+
+### Never
+
+When setting `trailingSlash` to `never`, all requests ending in a trailing slash are redirected to a non-trailing slash URL. For example, `/contact/` is redirected to `/contact`.
+
+```json
+"trailingSlash": "never"
+```
+
+| Requests to... | returns... | with the status... | and path... |
+|--|--|--|--|
+| _/about_ | The _/about/index.html_ file | `200` | _/about_ |
+| _/about/_ | The _/about/index.html_ file | `301` | _/about_ |
+| _/about/index.html_ | The _/about/index.html_ file | `301` | _/about_ |
+| _/contact_ | The _/contact.html_ file | `200` | _/contact_ |
+| _/contact/_ | The _/contact.html_ file | `301` | _/contact_ |
+| _/contact.html_ | The _/contact.html_ file | `301` | _/contact_ |
+
+### Auto
+
+When setting `trailingSlash` to `auto`, all requests to folders are redirected to a URL with a trailing slash. All requests to files are redirected to a non-trailing slash URL.
+
+```json
+"trailingSlash": "auto"
+```
+
+| Requests to... | returns... | with the status... | and path... |
+|--|--|--|--|
+| _/about_ | The _/about/index.html_ file | `301` | _/about/_ |
+| _/about/_ | The _/about/index.html_ file | `200` | _/about/_ |
+| _/about/index.html_ | The _/about/index.html_ file | `301` | _/about/_ |
+| _/contact_ | The _/contact.html_ file | `200` | _/contact_ |
+| _/contact/_ | The _/contact.html_ file | `301` | _/contact_ |
+| _/contact.html_ | The _/contact.html_ file | `301` | _/contact_ |
+
+For optimal website performance, configure a trailing slash strategy using one of the `always`, `never` or `auto` modes.
+
+By default, when the `trailingSlash` configuration is omitted, Static Web Apps applies the following rules: 
+
+| Requests to... | returns... | with the status... | and path... |
+|--|--|--|--|
+| _/about_ | The _/about/index.html_ file | `200` | _/about_ |
+| _/about/_ | The _/about/index.html_ file | `200` | _/about/_ |
+| _/about/index.html_ | The _/about/index.html_ file | `200` | _/about/index.html_ |
+| _/contact_ | The _/contact.html_ file | `200` | _/contact_ |
+| _/contact/_ | The _/contact.html_ file | `301` | _/contact_ |
+| _/contact.html_ | The _/contact.html_ file | `200` | _/contact.html_ |
+
 
 ## Example configuration file
 

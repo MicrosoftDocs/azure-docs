@@ -6,9 +6,9 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
 ms.reviewer: matjazl
-ms.author: cavoeg
-author: modillon
-ms.date: 11/29/2021
+ms.author: dseven
+author: dougseven
+ms.date: 02/15/2022
 ---
 
 # Tutorial for Da Vinci Drug Formulary for Azure API for FHIR

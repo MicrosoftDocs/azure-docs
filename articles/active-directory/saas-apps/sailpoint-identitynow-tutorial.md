@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SailPoint IdentityNow | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with SailPoint IdentityNow'
 description: Learn how to configure single sign-on between Azure Active Directory and SailPoint IdentityNow.
 services: active-directory
 author: jeevansd
@@ -9,12 +9,12 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/31/2021
+ms.date: 01/27/2022
 ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with SailPoint IdentityNow
+# Tutorial: Azure AD SSO integration with SailPoint IdentityNow
 
 In this tutorial, you'll learn how to integrate SailPoint IdentityNow with Azure Active Directory (Azure AD). When you integrate SailPoint IdentityNow with Azure AD, you can:
 
@@ -29,13 +29,16 @@ To get started, you need the following items:
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * SailPoint IdentityNow active subscription. If you do not have IdentityNow, please contact [SailPoint IdentityNow support team](mailto:support@sailpoint.com).
 
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * SailPoint IdentityNow supports **SP and IDP** initiated SSO.
 
-## Adding SailPoint IdentityNow from the gallery
+## Add SailPoint IdentityNow from the gallery
 
 To configure the integration of SailPoint IdentityNow into Azure AD, you need to add SailPoint IdentityNow from the gallery to your list of managed SaaS apps.
 

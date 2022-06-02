@@ -23,6 +23,8 @@ items:
     displayName: az ad sp create-for-rbac, az keyvault set-policy
   - name: Python
     href: quick-create-python.md
+  - name: Go
+    href: quick-create-go.md
   - name: Java
     href: quick-create-java.md
   - name: ARM template
@@ -51,11 +53,13 @@ items:
 
 - name: How-to guides
   items:
-  - name: Configure automated key rotation (preview)
+  - name: Configure automated key rotation
     href: how-to-configure-key-rotation.md
 
 - name: Reference
   items:
+  - name: Secure key release policy grammar 
+    href: policy-grammar.md
   - name: Azure PowerShell
     href: /powershell/module/az.keyvault/#key_vault
   - name: Azure CLI

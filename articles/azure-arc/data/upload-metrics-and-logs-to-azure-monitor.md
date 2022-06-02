@@ -136,7 +136,7 @@ az role assignment create --assignee <appId> --role 'Monitoring Metrics Publishe
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/<SubscriptionID>/resourceGroups/<resourcegroup>
 ```
 
@@ -160,7 +160,7 @@ Example output:
 ## Verify service principal role
 
 ```azurecli
-az role assignment list -o table
+az role assignment list --scope subscriptions/<SubscriptionID>/resourceGroups/<resourcegroup> -o table
 ```
 
 With the service principal assigned to the appropriate role, you can proceed to upload metrics, or user data. 

@@ -46,7 +46,7 @@ If none of the built-in roles meet your specific needs, custom roles can be crea
 > [!NOTE]
 > To be able to see an API Management instance in the Azure portal, a custom role must include the ```Microsoft.ApiManagement/service/read``` action.
 
-When you create a custom role, it's easier to start with one of the built-in roles. Edit the attributes to add **Actions**, **NotActions**, or **AssignableScopes**, and then save the changes as a new role. The following example begins with the "API Management Service Reader" role and creates a custom role called "Calculator API Editor." You can assign the custom role to a specific API. Consequently, this role only has access to that API. 
+When you create a custom role, it's easier to start with one of the built-in roles. Edit the attributes to add **Actions**, **NotActions**, or **AssignableScopes**, and then save the changes as a new role. The following example begins with the "API Management Service Reader" role and creates a custom role called "Calculator API Editor." You can assign the custom role at the scope of a specific API. Consequently, this role only has access to that API. 
 
 ```powershell
 $role = Get-AzRoleDefinition "API Management Service Reader Role"
@@ -56,19 +56,12 @@ $role.Description = 'Has read access to Contoso APIM instance and write access t
 $role.Actions.Add('Microsoft.ApiManagement/service/apis/write')
 $role.Actions.Add('Microsoft.ApiManagement/service/apis/*/write')
 $role.AssignableScopes.Clear()
-$role.AssignableScopes.Add('/subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.ApiManagement/service/<service name>/apis/<api ID>')
+$role.AssignableScopes.Add('/subscriptions/<Azure subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.ApiManagement/service/<APIM service instance name>/apis/<API name>')
 New-AzRoleDefinition -Role $role
-New-AzRoleAssignment -ObjectId <object ID of the user account> -RoleDefinitionName 'Calculator API Contributor' -Scope '/subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.ApiManagement/service/<service name>/apis/<api ID>'
+New-AzRoleAssignment -ObjectId <object ID of the user account> -RoleDefinitionName 'Calculator API Contributor' -Scope '/subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.ApiManagement/service/<APIM service instance name>/apis/<API name>'
 ```
 
 The [Azure Resource Manager resource provider operations](../role-based-access-control/resource-provider-operations.md#microsoftapimanagement) article contains the list of permissions that can be granted on the API Management level.
-
-## Video
-
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Role-Based-Access-Control-in-API-Management/player]
->
->
 
 ## Next steps
 

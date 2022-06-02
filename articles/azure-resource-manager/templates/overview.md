@@ -2,7 +2,7 @@
 title: Templates overview
 description: Describes the benefits using Azure Resource Manager templates (ARM templates) for deployment of resources.
 ms.topic: conceptual
-ms.date: 12/01/2021
+ms.date: 05/26/2022
 ---
 
 # What are ARM templates?
@@ -18,7 +18,7 @@ To implement infrastructure as code for your Azure solutions, use Azure Resource
 
 To learn about how you can get started with ARM templates, see the following video.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Enablement/How-and-why-to-learn-about-ARM-templates/player]
+> [!VIDEO https://docs.microsoft.com/Shows/Azure-Enablement/How-and-why-to-learn-about-ARM-templates/player]
 
 ## Why choose ARM templates?
 

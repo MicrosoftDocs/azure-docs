@@ -42,7 +42,7 @@ The following is a list of FedRAMP resources:
 
 * [FedRAMP Security Assessment Framework](https://www.fedramp.gov/assets/resources/documents/FedRAMP_Security_Assessment_Framework.pdf)
 
-* [Agency Guide for FedRAMP Authorizations](https://www.fedramp.gov/assets/resources/documents/Agency_Guide_for_Reuse_of_FedRAMP_Authorizations.pdf)
+* [Agency Guide for FedRAMP Authorizations](https://www.fedramp.gov/assets/resources/documents/Agency_Authorization_Playbook.pdf)
 
 * [Managing compliance in the cloud at Microsoft](https://www.microsoft.com/trustcenter/common-controls-hub)
 
@@ -52,7 +52,7 @@ The following is a list of FedRAMP resources:
 
 * [FedRAMP High Azure Policy built-in initiative definition](../../governance/policy/samples/fedramp-high.md)
 
-* [Microsoft 365 compliance center](/microsoft-365/compliance/microsoft-365-compliance-center)
+* [Microsoft Purview compliance portal](/microsoft-365/compliance/microsoft-365-compliance-center)
 
 * [Microsoft Compliance Manager](/microsoft-365/compliance/compliance-manager)
 
