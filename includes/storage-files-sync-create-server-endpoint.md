@@ -5,7 +5,7 @@ services: storage
 author: khdownie
 ms.service: storage
 ms.topic: include
-ms.date: 6/01/2021
+ms.date: 6/02/2022
 ms.author: kendownie
 ms.custom: include file, devx-track-azurecli 
 ms.devlang: azurecli
@@ -28,16 +28,16 @@ The **Add server endpoint** blade opens, enter the following information to crea
         -  Option #1 (Default): Merge the content of this server path with the content in the Azure file share. Files with the same name and path will lead to conflicts if their content is different. Both versions of those files will be stored next to each other. If your server path or Azure file share are empty, always choose this option.
         -  Option #2: Authoritatively overwrite files and folders in the Azure file share with content in this server’s path. This option avoids file conflicts.
 
-        To learn more, see [Intial sync](../articles/storage/file-sync/file-sync-server-endpoint-create.md#initial-sync-section). 
+       To learn more, see [Intial sync](../articles/storage/file-sync/file-sync-server-endpoint-create.md#initial-sync-section).
 
     - **Intial Download**: You can select how the server initially downloads the Azure file share data:
         -  Option #1 (Default):  Download the namespace first and then recall the file content, as much as will fit on the local disk.
         -  Option #2: Download the namespace only. The file content will be recalled when accessed.
         -  Option #3: Avoid tiered files. Files will only appear on the server once they are fully downloaded.
 
-        To learn more, see [Intial download](../articles/storage/file-sync/file-sync-server-endpoint-create.md#initial-download-section).
+       To learn more, see [Intial download](../articles/storage/file-sync/file-sync-server-endpoint-create.md#initial-download-section).
 
-To add the server endpoint, select **Create**. Your files are now kept in sync across your Azure file share and Windows Server. 
+To add the server endpoint, select **Create**. Your files are now kept in sync across your Azure file share and Windows Server.
 
 # [PowerShell](#tab/azure-powershell)
 Execute the following PowerShell commands to create the server endpoint, and be sure to replace `<your-server-endpoint-path>`, `<your-volume-free-space>` with the desired values and check the settings for the optional [initial download](../articles/storage/file-sync/file-sync-server-endpoint-create.md#initial-download-section) and [initial upload](../articles/storage/file-sync/file-sync-server-endpoint-create.md#initial-sync-section) policies.
