@@ -13,7 +13,7 @@ ms.custom: kr2b-contr-experiment
 #Customer intent: As a user of the Personalizer service, I want to learn how encryption at rest works.
 ---
 
-# Encryption of data at rest in the Personalizer service
+# Encryption of data at rest in Personalizer
 
 Personalizer is a service in Azure Cognitive Services that uses a machine learning model to provide apps with user-tailored content. When Personalizer persists data to the cloud, it encrypts that data. This encryption protects your data and helps you meet organizational security and compliance commitments.
 
