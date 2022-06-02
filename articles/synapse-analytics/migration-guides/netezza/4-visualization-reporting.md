@@ -202,7 +202,7 @@ You can't rely on documentation associated with reports, dashboards, and other v
 > [!TIP]
 > Gauge the impact of SQL incompatibilities by harvesting your DBMS log files and running `EXPLAIN` statements.
 
-One way is to get hold of the SQL log files of your legacy data warehouse. Use a script to pull out a representative set of SQL statements into a file, prefix each SQL statement with an `EXPLAIN` statement, and then run all the `EXPLAIN` statements in Azure Synapse. Any SQL statements containing proprietary SQL extensions from your legacy data warehouse that are unsupported will be rejected by Azure Synapse when the `EXPLAIN` statements are executed. This approach would at least give you an idea of how significant or otherwise the use of incompatible SQL is.
+One way is to view the recent SQL activity of your legacy Netezza data warehouse. Query the `_v_qryhist` system table to view recent history data and determine a representative set of SQL statements into a file. For more information, see [Query History Table](https://www.ibm.com/docs/en/psfa/7.2.1?topic=tables-query-history-table). Then, prefix each SQL statement with an `EXPLAIN` statement, and then run all the `EXPLAIN` statements in Azure Synapse. Any SQL statements containing proprietary SQL extensions from your legacy data warehouse that are unsupported will be rejected by Azure Synapse when the `EXPLAIN` statements are executed. This approach would at least give you an idea of how significant or otherwise the use of incompatible SQL is.
 
 Metadata from your legacy data warehouse DBMS will also help you when it comes to views. Again, you can capture and view SQL statements, and `EXPLAIN` them as described previously to identify incompatible SQL in views.
 
