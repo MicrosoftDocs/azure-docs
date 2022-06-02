@@ -43,7 +43,7 @@ Use the following settings for your app registration:
 - Name: `ElectronDesktopApp` (suggested)
 - Supported account types: **Accounts in any organizational directory (Any Azure AD directory - Multitenant) and personal Microsoft accounts (e.g. Skype, Xbox)**
 - Platform type: **Mobile and desktop applications**
-- Redirect URI: `msal{YourAppId}://auth`
+- Redirect URI: `msal{Your_Application/Client_Id}://auth`
 
 ## Create the project
 
@@ -107,8 +107,8 @@ ElectronDesktopApp/
 |   ├── preload.js
 |   ├── renderer.js
 │   ├── UIManager.js
+│   ├── authConfig.js
 ├── package.json
-└── .env
 ```
 
 ## Add authentication logic to your app
@@ -127,27 +127,9 @@ Create another file named *fetch.js*. This file will contain an Axios HTTP clien
 
 ## Add app registration details
 
-Finally, create an environment file to store the app registration details that will be used when acquiring tokens. To do so, create a file named *.env* inside the root folder of the sample (*ElectronDesktopApp*), and add the following code:
+Finally, create an environment file to store the app registration details that will be used when acquiring tokens. To do so, create a file named *authConfig.js* inside the root folder of the sample (*ElectronDesktopApp*), and add the following code:
 
-```
-# Credentials
-CLIENT_ID=Enter_the_Application_Id_Here
-TENANT_ID=Enter_the_Tenant_Id_Here
-
-# Configuration
-REDIRECT_URI=Enter_the_Redirect_Uri_Here
-
-# Endpoints
-AAD_ENDPOINT_HOST=Enter_the_Cloud_Instance_Id_Here
-GRAPH_ENDPOINT_HOST=Enter_the_Graph_Endpoint_Here
-
-# RESOURCES
-GRAPH_ME_ENDPOINT=v1.0/me
-GRAPH_MAIL_ENDPOINT=v1.0/me/messages
-
-# SCOPES
-GRAPH_SCOPES=User.Read Mail.Read
-```
+:::code language="js" source="~/ms-identity-JavaScript-nodejs-desktop/App/authConfig.js":::
 
 Fill in these details with the values you obtain from Azure app registration portal:
 
@@ -160,7 +142,7 @@ Fill in these details with the values you obtain from Azure app registration por
 - `Enter_the_Cloud_Instance_Id_Here`: The Azure cloud instance in which your application is registered.
   - For the main (or *global*) Azure cloud, enter `https://login.microsoftonline.com/`.
   - For **national** clouds (for example, China), you can find appropriate values in [National clouds](authentication-national-cloud.md).
-- `Enter_the_Redirect_Uri_Here`: The Redirect Uri of the application you registered `msal{YourAppId}:///auth`.
+- `Enter_the_Redirect_Uri_Here`: The Redirect Uri of the application you registered `msal{Your_Application/Client_Id}:///auth`.
 - `Enter_the_Graph_Endpoint_Here` is the instance of the Microsoft Graph API the application should communicate with.
   - For the **global** Microsoft Graph API endpoint, replace both instances of this string with `https://graph.microsoft.com/`.
   - For endpoints in **national** cloud deployments, see [National cloud deployments](/graph/deployments) in the Microsoft Graph documentation.

@@ -39,7 +39,7 @@ To register your application and add the app's registration information to your 
 1. Select **Register** to create the application.
 1. Under **Manage**, select **Authentication**.
 1. Select **Add a platform** > **Mobile and desktop applications**.
-1. In the **Redirect URIs** section, enter `msal{YourAppId}://auth`.
+1. In the **Redirect URIs** section, enter `msal{Your_Application/Client_Id}://auth`.
 1. Select **Configure**.
 
 #### Step 2: Download the Electron sample project
@@ -49,32 +49,54 @@ To register your application and add the app's registration information to your 
 
 #### Step 3: Configure the Electron sample project
 
-*Extract the project, open the *ms-identity-JavaScript-nodejs-desktop-main* folder, and then open *.env* file. Replace the value as follows:
+*Extract the project, open the *ms-identity-JavaScript-nodejs-desktop-main* folder, and then open *.authConfig.js* file. Replace the value as follows:
 
 | Variable  |  Description | Example(s) |
 |-----------|--------------|------------|
-| `Enter_the_Cloud_Instance_Id_Here` | The Azure cloud instance in which your application is registered | `https://login.microsoftonline.com/` (include the trailing forward-slash) |
+| `Enter_the_Cloud_Instance_Id_Here` | The Azure cloud instance in which your application is registered | `https://login.microsoftonline.com` |
 | `Enter_the_Tenant_Id_Here` | Tenant ID or Primary domain | `contoso.microsoft.com` or `cbe899ec-5f5c-4efe-b7a0-599505d3d54f` |
 | `Enter_the_Application_Id_Here` | Client ID of the application you registered | `fa29b4c9-7675-4b61-8a0a-bf7b2b4fda91` |
 | `Enter_the_Redirect_Uri_Here` | Redirect Uri of the application you registered | `msalfa29b4c9-7675-4b61-8a0a-bf7b2b4fda91://auth` |
-| `Enter_the_Graph_Endpoint_Here` | The Microsoft Graph API cloud instance that your app will call | `https://graph.microsoft.com/` (include the trailing forward-slash) |
+| `Enter_the_Graph_Endpoint_Here` | The Microsoft Graph API cloud instance that your app will call | `https://graph.microsoft.com`  |
 
 Your file should look similar to below:
 
-   ```
-    # Credentials
-        CLIENT_ID=fa29b4c9-7675-4b61-8a0a-bf7b2b4fda91
-        TENANT_ID=cbe899ec-5f5c-4efe-b7a0-599505d3d54f
-    # Configuration
-        REDIRECT_URI=msalfa29b4c9-7675-4b61-8a0a-bf7b2b4fda91://auth
-    # Endpoints
-        AAD_ENDPOINT_HOST=https://login.microsoftonline.com/
-        GRAPH_ENDPOINT_HOST=https://graph.microsoft.com/
-    # RESOURCES
-        GRAPH_ME_ENDPOINT=v1.0/me
-        GRAPH_MAIL_ENDPOINT=v1.0/me/messages
-    # SCOPES
-        GRAPH_SCOPES=User.Read Mail.Read
+   ```javascript   
+   const AAD_ENDPOINT_HOST = "https://login.microsoftonline.com";
+   const msalConfig = {
+       auth: {
+           clientId: "fa29b4c9-7675-4b61-8a0a-bf7b2b4fda91",
+           authority: `${AAD_ENDPOINT_HOST}/cbe899ec-5f5c-4efe-b7a0-599505d3d54f`,
+           redirectUri: "msalfa29b4c9-7675-4b61-8a0a-bf7b2b4fda91://auth",
+       },
+       system: {
+           loggerOptions: {
+               loggerCallback(loglevel, message, containsPii) {
+                    console.log(message);
+                },
+                piiLoggingEnabled: false,
+                logLevel: LogLevel.Verbose,
+           }
+       }
+   }
+
+   const GRAPH_ENDPOINT_HOST = "https://graph.microsoft.com`";
+   const protectedResources = {
+        graphMe: {
+            endpoint: `${GRAPH_ENDPOINT_HOST}/v1.0/me`,
+            scopes: ["User.Read"],
+        },
+        graphMessages: {
+            endpoint: `${GRAPH_ENDPOINT_HOST}/v1.0/me/messages`,
+            scopes: ["Mail.Read"],
+        }
+   };
+
+   module.exports = {
+        msalConfig: msalConfig,
+        protectedResources: protectedResources,
+    };
+
    ```
 
 #### Step 4: Run the application
