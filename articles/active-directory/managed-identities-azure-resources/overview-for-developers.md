@@ -134,9 +134,9 @@ You can also explicitly specify that the Managed identity you wish to authentica
 Read more about the Azure Identity libraries below:
 
 * [Azure Identity library for .NET](/dotnet/api/overview/azure/identity-readme)
-* [Azure Identity library for Java](/java/api/overview/azure/identity-readme?view=azure-java-stable)
-* [Azure Identity library for JavaScript](/javascript/api/overview/azure/identity-readme?view=azure-node-latest)
-* [Azure Identity library for Python](/python/api/overview/azure/identity-readme?view=azure-python)    
+* [Azure Identity library for Java](/java/api/overview/azure/identity-readme?view=azure-java-stable&preserve-view=true)
+* [Azure Identity library for JavaScript](/javascript/api/overview/azure/identity-readme?view=azure-node-latest&preserve-view=true)
+* [Azure Identity library for Python](/python/api/overview/azure/identity-readme?view=azure-python&preserve-view=true)
 * [Azure Identity module for Go](/azure/developer/go/azure-sdk-authentication)
 * [Azure Identity library for C++](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/identity/azure-identity/README.md)
 
