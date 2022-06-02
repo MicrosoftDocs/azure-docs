@@ -112,17 +112,22 @@ Review the following information about threat intelligence packages for your clo
 - Threat intelligence update mode
 - Threat intelligence update status
 
-To review threat intelligence information:
+**To review threat intelligence information**:
 
 1. Go to the Microsoft Defender for IoT **Sites and Sensors** page.
+
 1. Review the **Threat Intelligence version** installed on each sensor. Version naming is based on the day the package was built by Defender for IoT.
-1. Review the **Threat Intelligence mode** . *Automatic* indicates that newly available  packages will be automatically installed on sensors as they're released by Defender for IoT. *Manual* indicates that you can push newly available packages directly to sensors as needed.
+
+1. Review the **Threat Intelligence mode** . *Automatic* indicates that newly available  packages will be automatically installed on sensors as they're released by Defender for IoT. 
+
+    *Manual* indicates that you can push newly available packages directly to sensors as needed.
+
 1. Review the **Threat Intelligence update status**. The following statuses may be displayed:
 
-- Failed
-- In Progress
-- Update Available
-- Ok
+    - Failed
+    - In Progress
+    - Update Available
+    - Ok
 
 If cloud connected threat intelligence updates fail, review  connection  information in the **Sensor status** and **Last connected UTC** columns in the **Sites and Sensors** page. 
 

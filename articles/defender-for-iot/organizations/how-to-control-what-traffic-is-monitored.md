@@ -162,7 +162,7 @@ The sensor console presents the most current IP address associated with the devi
 
 - The Data Mining report and Device Inventory report consolidate all activity learned from the device as one entity, regardless of the IP address changes. These reports indicate which addresses were defined as DHCP addresses.
 
-  :::image type="content" source="media/how-to-control-what-traffic-is-monitored/populated-device-inventory-screen-v2.png" alt-text="Screenshot that shows device inventory.":::
+  :::image type="content" source="media/how-to-control-what-traffic-is-monitored/populated-device-inventory-screen-v2.png" alt-text="Screenshot that shows device inventory." lightbox="media/how-to-control-what-traffic-is-monitored/populated-device-inventory-screen-v2.png":::
 
 - The **Device Properties** window indicates if the device was defined as a DHCP device.
 

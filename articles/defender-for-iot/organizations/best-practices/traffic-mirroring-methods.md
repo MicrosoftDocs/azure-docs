@@ -51,12 +51,12 @@ Cisco2960# running-copy startup-config
 
 **In the configuration user interface**
 
-1. Enter global configuration mode
-1. Configure first 23 ports as session source (mirror only RX packets)
-1. Configure port 24 to be a session destination
-1. Return to privileged EXEC mode
-1. Verify the port mirroring configuration
-1. Save the configuration
+1. Enter global configuration mode.
+1. Configure first 23 ports as session source (mirror only RX packets).
+1. Configure port 24 to be a session destination.
+1. Return to privileged EXEC mode.
+1. Verify the port mirroring configuration.
+1. Save the configuration.
 
 ### Monitoring multiple VLANs
 
