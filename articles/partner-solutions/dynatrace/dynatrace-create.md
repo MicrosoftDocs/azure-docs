@@ -15,11 +15,11 @@ In this quickstart, you create a new instance of Dynatrace. You can either creat
 
 When you use the integrated Dynatrace experience in Azure portal, the following entities are created and mapped for monitoring and billing purposes.
 
+:::image type="content" source="media/dynatrace-create/dynatrace-entities.png" alt-text="Flowchart showing three entities: Marketplace S A A S connecting to Dynatrace resource, connecting to Dyntrace environment.":::
+
 - **Dynatrace resource in Azure** - Using the Dynatrace resource, you can manage the Dynatrace environment in Azure. The resource is created in the Azure subscription and resource group that you select during the create or linking process.
 - **Dynatrace environment** - this is the Dynatrace environment on Dynatrace SaaS. When you choose to create a new environment, the environment on Dynatrace SaaS is automatically created, in addition to the Dynatrace resource in Azure. The Dynatrace environment is created in the same Azure region in which you create the Dynatrace resource.
 - **Marketplace SaaS resource** - the SaaS resource is created automatically, based on the plan you select from the Dynatrace Marketplace offer. This resource is used for billing purposes.
-
-<!-- $TODO: Screenshot showing entities -->
 
 ## Prerequisites
 
@@ -31,15 +31,15 @@ Use the Azure portal to find Dynatrace for Azure application.
 
 1. Go to the [Azure portal](https://portal.azure.com) and sign in.
 
-2. If you've visited the **Marketplace** in a recent session, select the icon from the available options. Otherwise, search for *Marketplace*.
+1. If you've visited the **Marketplace** in a recent session, select the icon from the available options. Otherwise, search for *Marketplace*.
 
     :::image type="content" source="media/dynatrace-create/dynatrace-search-marketplace.png" alt-text="Screenshot showing a search for Marketplace in the Azure portal.":::
 
-3. In the Marketplace, search for **Dynatrace for Azure** from the available offerings.
+1. In the Marketplace, search for _Dynatrace_.
 
-4. Select setup + subscribe.
-    <!-- $TODO -- Screenshot -- Marketplace offer, highlight setup + subscribe.
-        I do not see setup + subscribe. -->
+    :::image type="content" source="media/dynatrace-create/dynatrace-subscribe.png" alt-text="Screenshot showing Dynatrace in the working pane to create a subscription.":::
+
+1. Select **Subscribe**.
 
 ## Create a Dynatrace resource in Azure
 
@@ -63,7 +63,6 @@ Use the Azure portal to find Dynatrace for Azure application.
     | Resource name   | Specify a name for the Dynatrace resource. This name will be the friendly name of the new Dynatrace environment.|
     | Location        | Select the region. Both the Dynatrace resource in Azure and Dynatrace environment will be created in the selected region.|
     | Pricing plan    | Select from the list of available plans. |
-    | Billing Term    | <!-- $TODO? --> |
 
 ### Configure metrics and logs
 
@@ -96,6 +95,7 @@ Use the Azure portal to find Dynatrace for Azure application.
 ### Configure single sign-on
 
 1. You can establish single sign-on to Dynatrace from the Azure portal when your organization uses Azure Active Directory as its identity provider,. If your organization uses a different identity provider or you don't want to establish single sign-on at this time, you can skip this section.
+
     :::image type="content" source="media/dynatrace-how-to-configure-prereqs/dynatrace-single-sign-on.png" alt-text="Screenshot showing options for single sign-on.":::
 
 1. To establish single sign-on through Azure Active directory, select the checkbox for **Enable single sign-on through Azure Active Directory**.

@@ -16,11 +16,11 @@ In this quickstart, you link an Azure subscription to an existing Dynatrace envi
 
 When you use the integrated experience for Dynatrace in the Azure portal, your billing and monitoring for the following entities is tracked in the portal.
 
+:::image type="content" source="media/dynatrace-link-to-existing/dynatrace-entities-linking.png" alt-text="Flowchart showing three entities: subscription 1 connected to subscription 1 and Dynatrace S A A S":::
+
 - **Dynatrace resource in Azure** - Using the Dynatrace resource, you can manage the Dynatrace environment in Azure. The resource is created in the Azure subscription and resource group that you select during the linking process.
 - **Dynatrace environment** - the Dynatrace environment on Dynatrace SaaS. When you choose to link an existing environment, a new Dynatrace resource is created in Azure. The Dynatrace environment and the Dynatrace resource must reside in the same region.
 - **Marketplace SaaS resource** - the SaaS resource is used for billing purposes. Th SaaS resource typically resides in a different Azure subscription from where the Dynatrace environment was first created.
-
-<!-- $TODO: Screenshot showing entities in linking -->
 
 ## Prerequisites
 
@@ -36,12 +36,11 @@ Before you link the subscription to a Dynatrace environment, [complete pre-deplo
 
     :::image type="content" source="media/dynatrace-link-to-existing/dynatrace-search-marketplace.png" alt-text="Screenshot showing a search for Dynatrace in Marketplace.":::
 
-1 . In the Marketplace, search for Dynatrace.
+1. In the Marketplace, search for _Dynatrace_.
 
-1. In the plan overview screen, select **Setup + subscribe**.
+    :::image type="content" source="media/dynatrace-link-to-existing/dynatrace-subscribe.png" alt-text="Screenshot showing Dynatrace in the working pane to create a subscription.":::
 
-    <!-- $TODO: Dynatrace offer screenshot.
-    I do not see this-->
+1. In the working pane, select **Subscribe**.
 
 ## Link to existing Dynatrace environment
 
@@ -49,7 +48,7 @@ Before you link the subscription to a Dynatrace environment, [complete pre-deplo
 
 1. If you're linking the Azure subscription to an existing Dynatrace environment, select **Create** under the **Link Azure subscription to an existing Dynatrace environment** option.
 
-     :::image type="content" source="media/dynatrace-link-to-existing/dynatrace-create-new-link-existing.png" alt-text="Show screenshot where creating a link to an existing Dynatrace environment is highlighted.":::
+    :::image type="content" source="media/dynatrace-link-to-existing/dynatrace-create-new-link-existing.png" alt-text="Show screenshot where creating a link to an existing Dynatrace environment is highlighted.":::
 
 1. The process creates a new Dynatrace resource in Azure and links it to an existing Dynatrace environment hosted on Azure. You see  a form to create the Dynatrace resource in the working pane.
 
@@ -57,17 +56,17 @@ Before you link the subscription to a Dynatrace environment, [complete pre-deplo
 
 1. Provide the following values.
 
-  |**Property**   | **Description**  |
-  |---------|---------|
-  | Subscription | Select the Azure subscription you want to use for creating   the Dynatrace resource. This subscription will be linked to environment for monitoring purposes. |
-  | Resource Group | Specify whether you want to create a new resource group or   use an existing one. A [resource group](/azure/azure-resource-manager/management/overview#resource-groups) is a container that   holds related resources for an Azure solution. |
-  | Resource name | Specify a name for the Dynatrace resource. |
-  | Region | Select the Azure region where the Dynatrace resource should be created. |
-  | Dynatrace | The Azure portal displays a list of existing environments that can be linked. Select the desired environment from the available options. |
-  
-  > [!NOTE]
-  > Linking requires that the environment and the Dynatrace resource reside in the   same Azure region. The user that is performing the linking action should have   administrator permissions on the Dynatrace environment being linked. If the   environment that you want to link to does not appear in the dropdown list, check if   any of these conditions are not satisfied.
-  
+    |**Property**   | **Description**  |
+    |---------|---------|
+    | Subscription | Select the Azure subscription you want to use for creating   the Dynatrace resource. This subscription will be linked to environment for monitoring purposes. |
+    | Resource Group | Specify whether you want to create a new resource group or   use an existing one. A [resource group](/azure/azure-resource-manager/management/overview#resource-groups) is a container that   holds related resources for an Azure solution. |
+    | Resource name | Specify a name for the Dynatrace resource. |
+    | Region | Select the Azure region where the Dynatrace resource should be created. |
+    | Dynatrace | The Azure portal displays a list of existing environments that can be linked. Select the desired environment from the available options. |
+
+    > [!NOTE]
+    > Linking requires that the environment and the Dynatrace resource reside in the   same Azure region. The user that is performing the linking action should have   administrator permissions on the Dynatrace environment being linked. If the   environment that you want to link to does not appear in the dropdown list, check if   any of these conditions are not satisfied.
+
 1. Select **Next: Metrics and logs** to configure metrics and logs.
 
 ### Configure metrics and logs
@@ -101,12 +100,10 @@ Before you link the subscription to a Dynatrace environment, [complete pre-deplo
 
 1. At this point, you see the next part of the form for **Single Sign-on**. If you're linking the Dynatrace resource to an existing Dynatrace environment, you cannot set up single sign-on at this step.
 
-> [!NOTE]
-> You cannot set up single sign-on when linking the Dynatrace resource to an existing Dynatrace environment.
+    > [!NOTE]
+    > You cannot set up single sign-on when linking the Dynatrace resource to an existing Dynatrace environment.
 
-1. Instead, you can set up single sign-on after creating the Dynatrace resource. For more information, see Reconfigure single sign-on.
-
-<!-- $TODO: Need hyperlink required -->
+1. Instead, you can set up single sign-on after creating the Dynatrace resource. For more information, see [Reconfigure single sign-on](dynatrace-how-to-manage.md#reconfigure-single-sign-on).
 
 1. Select **Next: Tags**.
 
@@ -124,7 +121,7 @@ Before you link the subscription to a Dynatrace environment, [complete pre-deplo
 
     :::image type="content" source="media/dynatrace-link-to-existing/dynatrace-review-and-create.png" alt-text="Screenshot showing form to review and create a link to a Dynatrace environment.":::
 
-2. Azure deploys the Dynatrace resource. When the process completes, select "Go to resource" to see the Dynatrace resource.
+1. Azure deploys the Dynatrace resource. When the process completes, select **Go to resource** to see the Dynatrace resource.
 
 ## Next steps
 

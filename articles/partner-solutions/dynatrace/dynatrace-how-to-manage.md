@@ -121,7 +121,6 @@ To establish single sign-on or change the application, select **Enable single si
 
 Select **Overview** in Resource menu on the left. Then, select **Delete**. Confirm that you want to delete the Dynatrace resource. Select **Delete**.
 :::image type="content" source="media/dynatrace-how-to-manage/dynatrace-delete.png" alt-text="Screenshot showing overview in resource menu with a box around delete.":::
-<!-- $TODO: Screenshot of delete. -->
 
 If only one Dynatrace resource is mapped to a Dynatrace environment, logs are no longer sent to Dynatrace. All billing through Azure Marketplace stops for Dynatrace.
 

@@ -23,7 +23,7 @@ To use the Security Assertion Markup Language (SAML) based single sign-on (SSO) 
 
 1. Go to Azure portal. Select **Azure Active Directory,** then **Enterprise App** and then **New Application**.
 
-2. Under **Add from the gallery**, type in `Dynatrace`. Select the search result then select **Add**.
+2. Under **Add from the gallery**, type in `Dynatrace`. Select the search result then select **Create**.
 
     :::image type="content" source="media/dynatrace-how-to-configure-prereqs/dynatrace-gallery.png" alt-text="Screenshot of the Dynatrace service in the Marketplace gallery.":::
 
@@ -33,11 +33,11 @@ To use the Security Assertion Markup Language (SAML) based single sign-on (SSO) 
 
 4. Go to **Single sign-on** from the side panel. Then select **SAML**.
 
-   :::image type="content" source="media/dynatrace-how-to-configure-prereqs/dynatrace-saml-sign-on.png" alt-text="Screenshot of the Dynatrace S A M L settings.":::
+    :::image type="content" source="media/dynatrace-how-to-configure-prereqs/dynatrace-single-sign-on.png" alt-text="Screenshot of the Dynatrace single sign-on settings.":::
 
 5. Select **Yes** when prompted to **Save single sign-on settings**.
 
-    :::image type="content" source="media/dynatrace-how-to-configure-prereqs/dynatrace-single-sign-on.png" alt-text="Screenshot of the Dynatrace single sign-on settings.":::
+   :::image type="content" source="media/dynatrace-how-to-configure-prereqs/dynatrace-saml-sign-on.png" alt-text="Screenshot of the Dynatrace S A M L settings.":::
 
 ## Next steps
 
