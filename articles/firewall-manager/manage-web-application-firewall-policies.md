@@ -41,5 +41,4 @@ You can centrally create and associate Web Application Firewall (WAF) policies f
 
 ## Next steps
 
-- [Configure an Azure DDoS Protection Plan using Azure Firewall Manager (preview)](configure-ddos.md)
-
+- [Configure WAF policies using Azure Firewall Manager (preview)](../web-application-firewall/shared/manage-policies.md)
