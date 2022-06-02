@@ -191,7 +191,7 @@ To have full visibility to Microsoft Defender for Servers security content, ensu
 
 Connect your GCP VM instances to Azure Arc in order to have full visibility to Microsoft Defender for SQL security content.
 
-Microsoft Defender for SQL brings threat detection and vulnerability assestment to your GCP VM instances.
+Microsoft Defender for SQL brings threat detection and vulnerability assessment to your GCP VM instances.
 To have full visibility to Microsoft Defender for SQL security content, ensure you have the following requirements configured:
 
 - Microsoft SQL servers on machines plan enabled on your subscription. Learn how to enable plan in the [Enable enhanced security features](quickstart-enable-database-protections.md) article.
