@@ -1,6 +1,5 @@
 ---
 title: Microsoft identity platform overview - Azure
-titleSuffix: Microsoft identity platform
 description: Learn about the components of the Microsoft identity platform and how they can help you build identity and access management (IAM) support into your applications.
 services: active-directory
 author: rwike77

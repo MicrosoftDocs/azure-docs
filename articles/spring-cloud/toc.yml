@@ -17,7 +17,6 @@ items:
     items:
     - name: Introduction to PetClinic sample
       href: quickstart-sample-app-introduction.md
-    - name: Run apps on Basic/Standard tier
     - name: Provision a service instance
       href: quickstart-provision-service-instance.md
     - name: Set up configuration server
