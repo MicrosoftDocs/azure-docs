@@ -130,16 +130,21 @@ To apply your forwarding ruleset to the second virtual network, you must create 
 ## Configure a DNS forwarding ruleset
 
 Add or remove specific rules your DNS forwarding ruleset as desired, such as:
+- A rule to resolve an Azure Private DNS zone linked to your virtual network: azure.contoso.com.
 - A rule to resolve an on-premises zone: internal.contoso.com.
 - A wildcard rule to forward unmatched DNS queries to a protective DNS service.
 
 ### Delete a rule from the forwarding ruleset
+
+Individual rules can be deleted or disabled. In this example, a rule is deleted.
 
 1. Search for **Dns Forwarding Rulesets** in the Azure Services list and and select it.
 2. Select the ruleset you previously configured (ex: **myruleset**) and then select **Rules**.
 3. Select the **contosocom** sample rule that you previously configured, select **Delete**, and then select **OK**.
 
 ### Add rules to the forwarding ruleset
+
+Add three new conditional forwarding rules to the ruleset. 
 
 1. On the **myruleset | Rules** page, click **Add**, and enter the following rule data:
     - Rule Name: **AzurePrivate**
