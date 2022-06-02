@@ -70,6 +70,8 @@ In this article, you learn how to create, list, and delete federated identity cr
 - [Create a user-assigned manged identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-azcli#create-a-user-assigned-managed-identity-1)
 - Find the object ID of the user-assigned managed identity, which you need in the following steps.
 
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
 ## Configure a federated identity credential on a user-assigned managed identity
 
 When you configure a federated identity credential on a user-assigned managed identity, there are several important pieces of information to provide.
@@ -180,8 +182,37 @@ In this article, you learn how to create, list, and delete federated identity cr
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
 - Get the information for your external IdP and software workload, which you need in the following steps.
 - To create a user-assigned managed identity and configure a federated identity credential, your account needs the [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role assignment.
+- To run the example scripts, you have two options:
+  - Use [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open by using the **Try It** button in the upper-right corner of code blocks.
+  - Run scripts locally with Azure PowerShell, as described in the next section.
 - [Create a user-assigned manged identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-powershell#list-user-assigned-managed-identities-2) 
 - Find the object ID of the user-assigned managed identity, which you need in the following steps.
+
+### Configure Azure PowerShell locally
+
+To use Azure PowerShell locally for this article instead of using Cloud Shell:
+
+1. Install [the latest version of Azure PowerShell](/powershell/azure/install-az-ps) if you haven't already.
+
+1. Sign in to Azure.
+
+    ```azurepowershell
+    Connect-AzAccount
+    ```
+
+1. Install the [latest version of PowerShellGet](/powershell/scripting/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget).
+
+    ```azurepowershell
+    Install-Module -Name PowerShellGet -AllowPrerelease
+    ```
+
+    You might need to `Exit` out of the current PowerShell session after you run this command for the next step.
+
+1. Install the prerelease version of the `Az.ManagedServiceIdentity` module to perform the user-assigned managed identity operations in this article.
+
+    ```azurepowershell
+    Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease
+    ```
 
 ## Configure a federated identity credential on a user-assigned managed identity
 
@@ -217,6 +248,16 @@ In this article, you learn how to create a federated identity credentials on a u
 - To create a user-assigned managed identity and configure a federated identity credential, your account needs the [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role assignment.
 - [Create a user-assigned manged identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-arm#create-a-user-assigned-managed-identity-3)
 - Find the object ID of the user-assigned managed identity, which you need in the following steps.
+
+## Template creation and editing
+
+Resource Manager templates help you deploy new or modified resources defined by an Azure resource group. Several options are available for template editing and deployment, both local and portal-based. You can:
+
+- Use a [custom template from Azure Marketplace](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template) to create a template from scratch or base it on an existing common or [quickstart template](https://azure.microsoft.com/resources/templates/).
+- Derive from an existing resource group by exporting a template. You can export them from either [the original deployment](../../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates) or from the [current state of the deployment](../../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates).
+- Use a local [JSON editor (such as VS Code)](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md), and then upload and deploy by using PowerShell or the Azure CLI.
+- Use the Visual Studio [Azure Resource Group project](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md) to create and deploy a template. 
+
 
 ## Configure a federated identity credential on a user-assigned managed identity
 
@@ -335,6 +376,9 @@ In this article, you learn how to create, list, and delete federated identity cr
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
 - Get the information for your external IdP and software workload, which you need in the following steps.
 - To create a user-assigned managed identity and configure a federated identity credential, your account needs the [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role assignment.
+- You can run all the commands in this article either in the cloud or locally:
+  - To run in the cloud, use [Azure Cloud Shell](../../cloud-shell/overview.md).
+  - To run locally, install [curl](https://curl.haxx.se/download.html) and the [Azure CLI](/cli/azure/install-azure-cli).
 - [Create a user-assigned manged identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-rest#create-a-user-assigned-managed-identity-4)
 - Find the object ID of the user-assigned managed identity, which you need in the following steps.
 
