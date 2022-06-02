@@ -180,7 +180,8 @@ az webapp connection create sql \
     --name <your-app-service-name> \
     --target-resource-group msdocs-core-sql \
     --server <server-name> \
-    --database coreDB
+    --database coreDB \
+    --query configurations
 ```
 
 When prompted, provide the administrator username and password for the SQL database. 
@@ -188,10 +189,12 @@ When prompted, provide the administrator username and password for the SQL datab
 > [!NOTE]
 > The CLI command does everything the app needs to successfully connect to the database, including:
 >
-> - In your App Service app, adds a connection string with that name `AZURE_SQL_CONNECTIONSTRING`, which your code can use for its database connection.
+> - In your App Service app, adds a connection string with the name `AZURE_SQL_CONNECTIONSTRING`, which your code can use for its database connection. If the connection string is already in use, `AZURE_SQL_<connection-name>_CONNECTIONSTRING` is used for the name instead.
 > - In your SQL database server, allows Azure services to access the SQL database server.
 
 Copy this connection string value from the output for later.
+
+To see the entirety of the command output, drop the `--query` in the command.
 
 ---
 
@@ -241,7 +244,7 @@ dotnet ef database update
 
 After the migration finishes, the correct schema is created.
 
-If you receive an error stating `Client with IP address xxx.xxx.xxx.xxx is not allowed to access the server`, that means the IP address you entered into your Azure firewall rule is incorrect. To fix this issue, update the Azure firewall rule with the IP address provided in the error message.
+If you receive the error `Client with IP address xxx.xxx.xxx.xxx is not allowed to access the server`, that means the IP address you entered into your Azure firewall rule is incorrect. To fix this issue, update the Azure firewall rule with the IP address provided in the error message.
 
 ## 7 - Browse the Deployed Application and File Directory
 
