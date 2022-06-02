@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/15/2022
+ms.date: 06/06/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -93,6 +93,11 @@ You'll need an invoice document. You can use our [sample invoice document](https
 |--------|:----------------------|:---------|
 |Invoice| <ul><li>English (United States)—en-US</li></ul>| English (United States)—en-US|
 |Invoice| <ul><li>Spanish—es</li></ul>| Spanish (United States)—es|
+|Invoice (preview)| <ul><li>German—de</li></ul>| German (Germany)-de|
+|Invoice (preview)| <ul><li>French—fr</li></ul>| French (France)—fr|
+|Invoice (preview)| <ul><li>Italian—it</li></ul>| Italian (Italy)—it|
+|Invoice (preview)| <ul><li>Portuguese—pt</li></ul>| Portuguese (Portugal)—pt|
+|Invoice (preview)| <ul><li>Dutch—nl</li></ul>| Dutch (Netherlands)—nl|
 
 ## Field extraction
 
@@ -146,7 +151,14 @@ Following are the line items extracted from an invoice in the JSON output respon
 | Tax | Number | Tax associated with each line item. Possible values include tax amount, tax %, and tax Y/N | 10% | |
 | VAT | Number | Stands for Value added tax. This is a flat tax levied on an item. Common in European countries | &euro;20.00 | |
 
-The invoice key-value pairs and line items extracted are in the `documentResults` section of the JSON output. 
+The invoice key-value pairs and line items extracted are in the `documentResults` section of the JSON output.
+
+### Key-value pairs (Preview)
+
+The invoice prebuilt now also returns key-value pairs at no extra cost. Key-value pairs are specific spans within the invoice that identify a label or key and its associated response or value. In an invoice, these pairs could be the label and the value the user entered for that field or telephone number. The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats, and structures.
+
+Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field may be left blank on a form in some instances. key-value pairs are always spans of text contained in the document and if you have documents where same value is described in different ways, for example, a customer or a user, the associated key will be either customer or user based on what the document contained.
+
 
 ## Form Recognizer preview v3.0
 
@@ -166,6 +178,6 @@ The invoice key-value pairs and line items extracted are in the `documentResults
 * Explore our REST API:
     > [!div class="nextstepaction"]
     > [Form Recognizer API v3.0 (Preview)](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)
-    
+
     > [!div class="nextstepaction"]
     > [Form Recognizer API v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291)
