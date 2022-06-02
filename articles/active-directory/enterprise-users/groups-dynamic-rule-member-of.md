@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 This feature preview enables admins to create dynamic groups in Azure Active Directory (Azure AD) that populate by adding members of other groups using the memberOf attribute. Apps that couldn't read group-based membership previously in Azure AD can now read the entire membership of these new memberOf groups. Not only can these groups be used for apps, they can also be used for licensing assignment and role-based access control. The following diagram illustrates how you could create Dynamic-Group-A with members of Security-Group-X and Security-Group-Y. Members of the groups inside of Security-Group-X and Security-Group-Y don't become members of Dynamic-Group-A.
  
-:::image type="content" source="./media/groups-dynamic-rule-member-of/member-of-diagram.png" alt-text="Diagram showing how the MemberOf attribute works":::
+:::image type="content" source="./media/groups-dynamic-rule-member-of/member-of-diagram.png" alt-text="Diagram showing how the memberOf attribute works.":::
 
 With this preview, admins can configure dynamic groups with the memberOf attribute in the Azure portal, Microsoft Graph, and PowerShell. Security groups, Microsoft 365 groups, groups that are synced from on-premises Active Directory can all be added as members of these dynamic groups, and can all be added to a single group. For example, the dynamic group could be a security group, but you can use Microsoft 365 groups, security groups, and groups that are synced from on-premises to define its membership.
 
@@ -33,7 +33,7 @@ Only administrators in the Global Administrator, Intune Administrator, or User A
 - Each Azure AD tenant is limited to 500 dynamic groups using the memberOf attribute. memberOf groups do count towards the total dynamic group member quota of 5,000.
 - Each dynamic group can have up to 50 member groups. 
 - When adding members of security groups to memberOf dynamic groups, only direct members of the security group become members of the dynamic group.
-- You can't use one MemberOf dynamic group to define the membership of another memberOf dynamic groups. For example, Dynamic Group A, with members of group B and C in it, can't be a member of Dynamic Group D).
+- You can't use one memberOf dynamic group to define the membership of another memberOf dynamic groups. For example, Dynamic Group A, with members of group B and C in it, can't be a member of Dynamic Group D).
 - MemberOf can't be used with other rules. For example, a rule that states dynamic group A should contain members of group B and also should contain only users located in Redmond will fail.
 - Dynamic group rule builder and validate feature can't be used for memberOf at this time.
 - MemberOf can't be used with other operators. For example, you can't create a rule that states “Members Of group A can't be in Dynamic group B.”
