@@ -49,7 +49,7 @@ If advertising less specific prefixes isn't possible as in the option described 
 
 :::image type="content" source="./media/scenarios/vmware-solution-to-on-premises.png" alt-text="Diagram of AVS to on-premises communication with Route Server in two regions.":::
 
-Note that some sort of encapsulation protocol such as VXLAN or IPsec is required between the NVAs. The reason why encapsulation is needed is because the NVA NICs would learn the routes from Azure Route Server with the NVA as next hop, and create a routing loop.
+Note that some sort of encapsulation protocol such as VXLAN or IPsec is required between the NVAs. The reason why encapsulation is needed is because the NVA NICs would learn the routes from Azure Route Server with the NVA as next hop, and create a routing loop. An alternative to using an overlay is by leveraging secondary NICs in the NVA that don't learn the routes from Azure Route Server, and configuring UDRs so that Azure can route traffic to the remote environment over those NICs. You can find more details in [Enterprise-scale network topology and connectivity for Azure VMware Solution][caf_avs_nw].
 
 The main difference between this dual VNet design and the previously described single VNet design is that with two VNets you have full control on what is advertised to each ExpressRoute circuit, and this allows for a more dynamic and granular configuration. In comparison, in the single-VNet design described earlier in this document a common set of supernets or less specific prefixes are sent down both circuits to attract traffic to the VNet. Additional, in the single-VNet design there is a static configuration component in the UDRs that are required in the Gateway Subnet. Hence, although less cost-effective (two ExpressRoute gateways and two sets of NVAs are required), the double-VNet design might be a better alternative for very dynamic routing environments.
 
@@ -57,3 +57,5 @@ The main difference between this dual VNet design and the previously described s
 
 * [Learn how Azure Route Server works with ExpressRoute](expressroute-vpn-support.md)
 * [Learn how Azure Route Server works with a network virtual appliance](resource-manager-template-samples.md)
+
+[caf_avs_nw]: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-network-topology-connectivity

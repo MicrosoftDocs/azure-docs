@@ -1,6 +1,5 @@
 ---
-title: Create a self-signed public certificate to authenticate your application | Azure
-titleSuffix: Microsoft identity platform
+title: Create a self-signed public certificate to authenticate your application
 description: Create a self-signed public certificate to authenticate your application.
 services: active-directory
 author: FaithOmbongi
