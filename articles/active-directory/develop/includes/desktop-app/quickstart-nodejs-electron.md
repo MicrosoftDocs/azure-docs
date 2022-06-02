@@ -53,21 +53,21 @@ To register your application and add the app's registration information to your 
 
 | Variable  |  Description | Example(s) |
 |-----------|--------------|------------|
-| `Enter_the_Cloud_Instance_Id_Here` | The Azure cloud instance in which your application is registered | `https://login.microsoftonline.com` |
+| `Enter_the_Cloud_Instance_Id_Here` | The Azure cloud instance in which your application is registered | `https://login.microsoftonline.com/` (include the trailing forward-slash)|
 | `Enter_the_Tenant_Id_Here` | Tenant ID or Primary domain | `contoso.microsoft.com` or `cbe899ec-5f5c-4efe-b7a0-599505d3d54f` |
 | `Enter_the_Application_Id_Here` | Client ID of the application you registered | `fa29b4c9-7675-4b61-8a0a-bf7b2b4fda91` |
 | `Enter_the_Redirect_Uri_Here` | Redirect Uri of the application you registered | `msalfa29b4c9-7675-4b61-8a0a-bf7b2b4fda91://auth` |
-| `Enter_the_Graph_Endpoint_Here` | The Microsoft Graph API cloud instance that your app will call | `https://graph.microsoft.com`  |
+| `Enter_the_Graph_Endpoint_Here` | The Microsoft Graph API cloud instance that your app will call | `https://graph.microsoft.com/`  (include the trailing forward-slash)|
 
 Your file should look similar to below:
 
    ```javascript   
-   const AAD_ENDPOINT_HOST = "https://login.microsoftonline.com";
+   const AAD_ENDPOINT_HOST = "https://login.microsoftonline.com/"; // include the trailing slash
+   const REDIRECT_URI = "msalfa29b4c9-7675-4b61-8a0a-bf7b2b4fda91://auth";
    const msalConfig = {
        auth: {
            clientId: "fa29b4c9-7675-4b61-8a0a-bf7b2b4fda91",
            authority: `${AAD_ENDPOINT_HOST}/cbe899ec-5f5c-4efe-b7a0-599505d3d54f`,
-           redirectUri: "msalfa29b4c9-7675-4b61-8a0a-bf7b2b4fda91://auth",
        },
        system: {
            loggerOptions: {
@@ -80,14 +80,14 @@ Your file should look similar to below:
        }
    }
 
-   const GRAPH_ENDPOINT_HOST = "https://graph.microsoft.com`";
+   const GRAPH_ENDPOINT_HOST = "https://graph.microsoft.com/"; // include the trailing slash
    const protectedResources = {
         graphMe: {
-            endpoint: `${GRAPH_ENDPOINT_HOST}/v1.0/me`,
+            endpoint: `${GRAPH_ENDPOINT_HOST}v1.0/me`,
             scopes: ["User.Read"],
         },
         graphMessages: {
-            endpoint: `${GRAPH_ENDPOINT_HOST}/v1.0/me/messages`,
+            endpoint: `${GRAPH_ENDPOINT_HOST}v1.0/me/messages`,
             scopes: ["Mail.Read"],
         }
    };
