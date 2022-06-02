@@ -398,12 +398,12 @@ If you've configured a Conditional Access policy that requires multi-factor auth
 
 - Your credentials did not work.
 
+> [!WARNING]
+> Legacy per-user Enabled/Enforced Azure AD Multi-Factor Authentication is not supported for VM Sign-In. This setting causes Sign-in to fail with “Your credentials do not work.” error message.
+
 ![Your credentials did not work](./media/howto-vm-sign-in-azure-ad-windows/your-credentials-did-not-work.png)
 
-> [!WARNING]
-> Per-user Enabled/Enforced Azure AD Multi-Factor Authentication is not supported for VM Sign-In. This setting causes Sign-in to fail with “Your credentials do not work.” error message.
-
-You can resolve the above issue by removing the per user MFA setting, by following these steps:
+You can resolve the above issue by removing the per-user MFA setting, by following these steps:
 
 ```
 
