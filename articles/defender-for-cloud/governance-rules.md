@@ -27,7 +27,7 @@ You can then review the progress of the tasks by subscription, recommendation, o
 |Release state:|Preview.<br>[!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]|
 |Pricing:|Free|
 |Required roles and permissions:|Azure - **Contributor**, **Security Admin**, or **Owner** on the subscription<br>AWS, GCP – **Contributor**, **Security Admin**, or **Owner** on the connector|
-|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected GCP accounts|
+|Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected AWS accounts<br>:::image type="icon" source="./media/icons/yes-icon.png"::: Connected GCP accounts|
 
 ### Defining governance rules to automatically set the owner and due date of recommendations
 
@@ -43,7 +43,7 @@ By default, email notifications are sent to the resource owners weekly to provid
 
 To define a governance rule that assigns an owner and due date:
 
-1. In the **Environment settings**, select the subscription that you want to define the rule for.
+1. In the **Environment settings**, select the Azure subscription, AWS account, or Google project that you want to define the rule for.
 1. In **Governance rules (preview)**, select **Add rule**.
 1. Enter a name for the rule.
 1. Set a priority for the rule. You can see the priority for the existing rules in the list of governance rules.
