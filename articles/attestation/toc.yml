@@ -35,6 +35,8 @@
       href: policy-examples.md
     - name: Policy signer certificate
       href: policy-signer-examples.md
+    - name: Attestation token
+      href: attestation-token-examples.md
 - name: Concepts
   items:
   - name: Basic concepts
