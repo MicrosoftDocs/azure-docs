@@ -1,5 +1,5 @@
 ---
-title: OAuth 2.0 implicit grant flow - The Microsoft identity platform | Azure
+title: OAuth 2.0 implicit grant flow - The Microsoft identity platform
 description: Secure single-page apps using Microsoft identity platform implicit flow.
 services: active-directory
 author: nickludwig
