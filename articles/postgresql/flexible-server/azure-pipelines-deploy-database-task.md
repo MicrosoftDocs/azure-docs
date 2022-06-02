@@ -8,7 +8,7 @@ ms.author: sunila
 author: sunilagarwal
 ms.reviewer: ""
 ms.custom: seodec18, devx-track-azurecli, mode-other
-ms.date: 11/30/2021 
+ms.date: 11/30/2021
 ---
 
 # Azure Pipelines task for Azure Database for PostgreSQL Flexible Server
