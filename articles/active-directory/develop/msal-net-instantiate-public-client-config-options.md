@@ -1,6 +1,5 @@
 ---
-title: Instantiate a public client app (MSAL.NET) | Azure
-titleSuffix: Microsoft identity platform
+title: Instantiate a public client app (MSAL.NET)
 description: Learn how to instantiate a public client application with configuration options using the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 author: mmacy
