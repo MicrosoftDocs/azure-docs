@@ -46,23 +46,15 @@ Before you begin to enable customer-managed key (CMK) functionality, ensure the 
     1. From the left navigation, open **Manage** and select **Identity**. 
     1. In **System Assigned**, check **Enable** and select **Save**.
     
-        **System Assigned identity** should now be enabled.
+    **System Assigned identity** should now be enabled.
 
     # [Azure CLI](#tab/azure-cli)
 
-    <!--
-    Need intro content here from Rahi
-    -->
-    
-    `$privateCloudName=<private_cloud_name>`
-
-    `$resourceGroupName=<resource_group_name>`
-     
-    Next, get the Private Cloud resource id and save it to a variable. You will need this value in the next step to update resource with system assigned identity:
+    Get the Private Cloud resource id and save it to a variable. You will need this value in the next step to update resource with system assigned identity.
     
     `privateCloudId=$(az vmware private-cloud show --name $privateCloudName --resource-group $resourceGroupName --query id | tr -d '"')`
      
-    To configure the system-assigned identity on Azure VMware Solution private cloud with Azure CLI, call az-resource-update, providing the variable for the private cloud resource ID that you previously retrieved.
+    To configure the system-assigned identity on Azure VMware Solution private cloud with Azure CLI, call [az-resource-update](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-update), providing the variable for the private cloud resource ID that you previously retrieved.
     
     `az resource update --ids $privateCloudId --set identity.type=SystemAssigned --api-version "2021-12-01"`
 ---
@@ -72,38 +64,38 @@ Before you begin to enable customer-managed key (CMK) functionality, ensure the 
     # [Azure Portal](#tab/azure-portal)
 
     1. Log into Azure portal.
-    1. 
-    1. 
+    1. Navigate to **Key vaults** and locate the Key vault you want to use.
+    1. From the left navigation, under **Settings**, select **Access policies**.
+    1. In **Access policies**, select **Add Access Policy**.
+        1. From the **Key Permission** drop-down, select **Get**, wrap key and unwrap Key permissions.
+        1. Select **Principal**.
+        1. Below the search box, paste the **Object ID** from the previous step or search the private cloud name you want to use. Choose **Select** when you're done.
+        1. Select **ADD**.
+        1. Verify the new policy appears under the current policy's Application section.
+        1. Select **Save** to commit changes.
 
     # [Azure CLI](#tab/azure-cli)
 
-    <!--
-    Need intro content here from Rahi
-    -->
-    
-    `$privateCloudName=<private_cloud_name>`
-
-    `$resourceGroupName=<resource_group_name>`
-
-    `$keyVault=<keyvault_name>`
-    
-    Next, get the principal ID for the system-assigned managed identity, and save it to a variable. You will need this value in the next step to create the key vault access policy: 
+   Get the principal ID for the system-assigned managed identity and save it to a variable. You will need this value in the next step to create the key vault access policy.
     
     `principalId=$(az vmware private-cloud show --name $privateCloudName --resource-group $resourceGroupName --query identity.principalId | tr -d '"')`
     
-    To configure the key vault access policy with Azure CLI, call az keyvault set-policy, providing the variable for the principal ID that you previously retrieved for the managed identity.
+    To configure the key vault access policy with Azure CLI, call [az keyvault set-policy](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-set-policy), providing the variable for the principal ID that you previously retrieved for the managed identity.
 
-    `az keyvault set-policy --name $keyVault --resource-group $resourceGroupName --object-id $principalId --key-permissions get unwrapKey wrapKey` 
+    `az keyvault set-policy --name $keyVault --resource-group $resourceGroupName --object-id $principalId --key-permissions get unwrapKey wrapKey`
+
+    Learn more about how to [Assign an Azure Key Vault access policy](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy?tabs=azure-portal).
+
 ---
 
-## Enable CMK with system-assigned identity 
+## Enable CMK with system-assigned identity
 
-System-assigned identity is restricted to one per resource and is tied to the lifecycle of the resource. You can grant permissions to the managed identity by using Azure Role-Based Access Control (RBAC). The managed identity is authenticated with Azure AD, so you don't have to store any credentials in code.
+System-assigned identity is restricted to one per resource and is tied to the lifecycle of the resource. You can grant permissions to the managed identity on Azure resource. The managed identity is authenticated with Azure AD, so you don't have to store any credentials in code.
 
 >[!IMPORTANT]
 > Ensure that Key Vault is in the same region as the Azure VMware Solution private cloud.
 
-# [Portal](#tab/azure-portal)
+# [Azure Portal](#tab/azure-portal)
 
 Navigate to your **Azure Key Vault** and provide access to the SDDC on Azure Key Vault using the Principal ID captured in the **Enable MSI** tab.
 
@@ -122,113 +114,23 @@ Navigate to your **Azure Key Vault** and provide access to the SDDC on Azure Key
       1. Enter a specific Key URI in the **Key URI** box.
 
     > [!IMPORTANT]
-    > If you'd like to select a specific key version instead of the auto selected latest version, you'll need to specify key URI with key version. This will affect the CMK key version life cycle.
+    > If you'd like to select a specific key version instead of the auto selected latest version, you'll need to specify the key URI with key version. This will affect the CMK key version life cycle.
 
 1. Select **Save** to grant access to the resource.
 
-# [Template](#tab/azure-resource-manager)
+# [Azure CLI](#tab/azure-cli)
 
-Use the given JSON file to create an Azure Resource Manager template (ARM template) and enable CMK on SDDC.
+To configure customer-managed keys for a Azure VMware Solution Private Cloud with automatic updating of the key version, call [az vmware private-cloud add-cmk-encryption](https://docs.microsoft.com/cli/azure/vmware/private-cloud?view=azure-cli-latest#az-vmware-private-cloud-add-cmk-encryption). Option 1  as shown in the following example without providing specific key version. Supply key version as argument to use customer-managed keys with specific key version as mentioned in option 2.
 
-```json
-{
-	"$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-	"contentVersion": "1.0.0.0",
-	"parameters": {
-		"apiVersion": {
-			"type": "String",
-			"metadata": {
-				"description": "Must be 2021-12-01"
-			}
-		},
-		"name": {
-			"type": "String",
-			"metadata": {
-				"description": "Name of the SDDC"
-			}
-		},
-		"location": {
-			"type": "String",
-			"metadata": {
-				"description": "Location of the SDDC"
-			}
-		},
-		"sku": {
-			"type": "String",
-			"metadata": {
-				"description": "SKU value of the SDDC"
-			}
-		},
-		"clusterSize": {
-			"type": "int",
-			"metadata": {
-				"description": "Number of hosts in management cluster"
-			}
-		},
-		"internet": {
-			"type": "String",
-			"allowedValues": [
-				"enabled",
-				"disabled"
-			],
-			"metadata": {
-				"description": "Internet status"
-			}
-		},
-		"status": {
-			"type": "String",
-			"allowedValues": [
-				"enabled",
-				"disabled"
-			],
-			"metadata": {
-				"description": "Specifying whether need to perform enable cmk or disable cmk"
-			}
-		},
-		"keyVaultUrl": {
-			"type": "String",
-			"metadata": {
-				"description": "Key Vault url to be used for Customer Managed Key"
-			}
-		},
-		"keyName": {
-			"type": "String",
-			"metadata": {
-				"description": "Name of the Customer Managed Key"
-			}
-		},
-		"keyVersion": {
-			"type": "String",
-			"metadata": {
-				"description": "Version of the Customer Managed Key"
-			}
-		}
-	},
-	"resources": [{
-		"type": "Microsoft.AVS/privateClouds",
-		"apiVersion": "[parameters('apiVersion')]",
-		"name": "[parameters('name')]",
-		"location": "[parameters('location')]",
-		"sku": {
-			"name": "[parameters('sku')]"
-		},
-		"properties": {
-			"managementCluster": {
-				"clusterSize": "[parameters('clusterSize')]"
-			},
-			"internet": "[parameters('internet')]",
-			"encryption": {
-				"status": "[parameters('status')]",
-				"keyVaultProperties": {
-					"keyVaultUrl": "[parameters('keyVaultUrl')]",
-					"keyName": "[parameters('keyName')]",
-					"keyVersion": "[parameters('keyVersion')]"
-				}
-			}
-		}
-	}]
-}
-```
+`keyVaultUrl =$(az keyvault show --name <keyvault_name> --resource-group <resource_group_name> --query properties.vaultUri --output tsv)`
+
+**Option 1**
+az vmware private-cloud add-cmk-encryption --private-cloud <private_cloud_name> --resource-group <resource_group_name> --enc-kv-url $keyVaultUrl --enc-kv-key-name <keyvault_key_name>
+
+**Option 2**
+
+`az vmware private-cloud add-cmk-encryption --private-cloud <private_cloud_name> --resource-group <resource_group_name> --enc-kv-url $keyVaultUrl --enc-kv-key-name --enc-kv-key-version <keyvault_key_keyVersion>`
+
 ---
 
 ## Customer-managed key version lifecycle
