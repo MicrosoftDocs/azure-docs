@@ -15,7 +15,7 @@ You can use [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.
 
 ## Prerequisites
 To step through this how-to guide, you need:
-- An [Azure Database for PostgreSQL server](quickstart-create-server-database-portal.md) with firewall rules to allow access and database under it.
+- An [Azure Database for PostgreSQL server](../single-server/quickstart-create-server-database-portal.md) with firewall rules to allow access and database under it.
 - [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) command-line utility installed
 - [psql](https://www.postgresql.org/docs/current/static/app-psql.html) command-line utility installed
 
