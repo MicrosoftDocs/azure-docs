@@ -7,7 +7,7 @@ manager: martinco
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 07/20/2021
+ms.date: 06/02/2022
 ms.author: baselden
 ms.custom: references_regions
 ---
@@ -62,7 +62,8 @@ Application programming interfaces (APIs) provide developers a method to abstrac
 
 ![Azure AD VC ION](./media/plan-verification-solution/plan-verification-solution-ion.png)
 
-Verifiable credential solutions use a decentralized ledger system to record transactions. Microsoft uses the [Identity Overlay Network (ION)](https://identity.foundation/ion/), [a Sidetree-based network](https://identity.foundation/sidetree/spec/) that uses Bitcoin as its blockchain-styled ledger for decentralized identifier (DID) implementation. The DID document of the issuer is stored in ION and used by parties to the transaction to perform cryptographic signature checks.
+As one alternative for the tenants trust system, Microsoft uses the [Identity Overlay Network (ION)](https://identity.foundation/ion/), [a Sidetree-based network](https://identity.foundation/sidetree/spec/)that uses Bitcoin’s blockchain for decentralized identifier (DID) implementation. The DID document of the issuer is stored in ION and is used to perform cryptographic signature checks by parties to the transaction. The other alternative for trust system is Web, where the DID document is hosted on the issuers webserver.
+
 
 ### Microsoft Authenticator application
 
@@ -261,7 +262,7 @@ You can use information in presented VCs to build a user profile. If you want to
 
 ## Plan for performance
 
-As with any solution, you must plan for performance. Focus areas include latency, throughput, storage, and scalability. During initial phases of a release cycle, performance should not be a concern. However, when adoption of your issuance solution results in many verifiable credentials being issued, performance planning might become a critical part of your solution.
+As with any solution, you must plan for performance. Focus areas include latency, throughput, and scalability. During initial phases of a release cycle, performance should not be a concern. However, when adoption of your solution results in many verifiable credentials being verified, performance planning might become a critical part of your solution.
 
 The following provides areas to consider when planning for performance:
 

@@ -8,7 +8,7 @@ manager: rkarlin
 ms.service: decentralized-identity
 ms.topic: reference
 ms.subservice: verifiable-credentials
-ms.date: 05/26/2022
+ms.date: 06/02/2022
 ms.author: barclayn
 
 #Customer intent: As an administrator, I am trying to learn the process of revoking verifiable credentials that I have issued.
@@ -65,7 +65,7 @@ The following permission is required to call the Request Service REST API. For m
 
 | Permission type | Permission  |
 |---------|---------|
-| Application | bbb94529-53a3-4be5-a069-7eaf2712b826/.default|
+| Application | 3db474b9-6a0c-4840-96ac-1fceb342124f/.default |
 
 ## Presentation request payload
 
