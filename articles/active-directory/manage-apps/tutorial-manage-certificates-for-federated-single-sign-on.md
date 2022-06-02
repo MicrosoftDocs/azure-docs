@@ -3,14 +3,14 @@ title: "Tutorial: Manage federation certificates"
 description: In this tutorial, you'll learn how to customize the expiration date for your federation certificates, and how to renew certificates that will soon expire.
 titleSuffix: Azure AD
 services: active-directory
-author: omondiatieno
+author: davidmu1
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/31/2022
-ms.author: jomondi
+ms.author: davidmu
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 
