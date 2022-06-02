@@ -32,29 +32,51 @@ The FTP connector has different versions, based on [logic app type and host envi
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
 | **Consumption** | Multi-tenant Azure Logic Apps | [Managed connector - Standard class](managed.md). For more information, review the [FTP managed connector reference](/connectors/ftp). |
-| **Consumption** | Integration service environment (ISE) | [Managed connector - Standard class](managed.md) and ISE version. For the managed version, review the [SQL Server managed connector reference](/connectors/sql). For the ISE version, review the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits). |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | [Managed connector - Standard class](managed.md) and [built-in connector](built-in.md), which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in version can directly access Azure virtual networks with a connection string, rather than use the on-premises data gateway. <br><br>For the managed version, review the [SQL Server managed connector reference](/connectors/sql/). For the built-in version, review the [Built-in operations](#built-in-operations) section later in this article. |
+| **Consumption** | Integration service environment (ISE) | [Managed connector - Standard class](managed.md) and ISE version. For the managed version, review the [FTP managed connector reference](/connectors/ftp). For the ISE version, review the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits). |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | [Managed connector - Standard class](managed.md) and [built-in connector](built-in.md), which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in version can directly access Azure virtual networks with a connection string, rather than use the on-premises data gateway. <br><br>For the managed version, review the [FTP managed connector reference](/connectors/ftp). For the built-in version, review the [FTP built-in connector operations](#built-in-operations) section later in this article. |
 ||||
 
+## Prerequisites
 
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+* Your FTP host server address and account credentials
+
+  The FTP connector requires access to your FTP server from the internet and that your FTP server is set up to operate in *passive* mode. Your logic app workflow requires your FTP account credentials to create a connection and access your FTP account.
+
+* The logic app workflow where you want to access your FTP account. To start your workflow with an FTP trigger, you have to start with a blank workflow. To use an FTP action, start your workflow with another trigger, such as the **Recurrence** trigger.
 
 ## Limitations
 
 * The FTP connector supports only explicit FTP over TLS/SSL (FTPS) and isn't compatible with implicit FTPS.
 
-* By default, FTP actions can read or write files that are *50 MB or smaller*. To handle files larger than 50 MB, FTP actions support [message chunking](../logic-apps/logic-apps-handle-large-messages.md). The **Get file content** action implicitly uses chunking.
+* Capacity and throughput
 
-* FTP triggers don't support chunking. When requesting file content, triggers select only files that are 50 MB or smaller. To get files larger than 50 MB, follow this pattern:
+  * Managed connector for Consumption and Standard workflows
 
-  * Use an FTP trigger that returns file properties, such as **When a file is added or modified (properties only)**.
+    By default, FTP actions can read or write files that are *50 MB or smaller*. To handle files larger than 50 MB, FTP actions support [message chunking](../logic-apps/logic-apps-handle-large-messages.md). The **Get file content** action implicitly uses chunking.
 
-  * Follow the trigger with the FTP **Get file content** action, which reads the complete file and implicitly uses chunking.
+  * Built-in connector for Standard workflows:
 
-* If you have an on-premises FTP server, consider creating an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) or using [Azure App Service Hybrid connections](../app-service/app-service-hybrid-connections.md), which both let you access on-premises data sources without using an on-premises data gateway.
+    By default, FTP actions can read or write files that are *200 MB or smaller*. Currently, the FTP built-in connector doesn't support chunking.
+
+* FTP triggers no longer return file content. To get file content, use the following pattern instead:
+
+  1. Use the FTP trigger that returns only file properties.
+
+  1. Follow the trigger with the FTP action named **Get file content**, which reads the complete file. The managed connector version for this action implicitly uses chunking.
+
+* If you have an on-premises FTP server, consider the following options:
+
+  * Consumption workflows: Create an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) or use [Azure App Service Hybrid connections](../app-service/app-service-hybrid-connections.md), which both let you access on-premises data sources without an on-premises data gateway.
+
+  * Standard workflows: Use the FTP built-in connector operations, which work without an on-premises data gateway.
+
+<a name="how-ftp-triggers-work"></a>
 
 ## How FTP triggers work
 
-FTP triggers work by polling the FTP file system and looking for any file that was changed since the last poll. Some tools let you preserve the timestamp when the files change. In these cases, you have to disable this feature so your trigger can work. Here are some common settings:
+FTP triggers work by polling the FTP file system and looking for any file that was changed since the last poll. Some tools let you preserve the timestamp when the files change. In these cases, you have to disable this feature so your trigger can work. The following table lists some common settings:
 
 | SFTP client | Action |
 |-------------|--------|
@@ -64,49 +86,27 @@ FTP triggers work by polling the FTP file system and looking for any file that w
 
 When a trigger finds a new file, the trigger checks that the new file is complete, and not partially written. For example, a file might have changes in progress when the trigger checks the file server. To avoid returning a partially written file, the trigger notes the timestamp for the file that has recent changes, but doesn't immediately return that file. The trigger returns the file only when polling the server again. Sometimes, this behavior might cause a delay that is up to twice the trigger's polling interval.
 
-## Prerequisites
+<a name="add-ftp-trigger"></a>
 
-* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+## Add an FTP trigger
 
-* Your FTP host server address and account credentials
+The FTP managed connector and built-in connector each have only one trigger available:
 
-  The FTP connector requires that your FTP server is accessible from the internet and set up to operate in *passive* mode. Your credentials let your logic app create a connection and access your FTP account.
+* Managed connector trigger: The **When a file is added or modified (properties only)** trigger starts a Consumption or Standard logic app workflow when one or more files are added or changed in a folder on the FTP server. This trigger gets only the file metadata, not the file content. However, to get the content, your workflow can follow this trigger with the [**Get file content**](#get-file-content) action. <br><br> For more information, review [When a file is added or updated (properties only)](/connectors/ftp/#when-a-file-is-added-or-modified-(properties-only)).
 
-* Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Built-in connector trigger: The **When a file is added or modified** trigger starts a Standard logic app workflow when one or more files are added or changed in a folder on the FTP server. This trigger gets only the file metadata, not the file content. However, to get the content, your workflow can follow this trigger with the [**Get file content**](#get-file-content) action. <br><br> For more information, review [When a file is added or updated](#when-file-added-updated). |
 
-* The logic app where you want to access your FTP account. To start with an FTP trigger, [create a blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). To use an FTP action, start your logic app with another trigger, for example, the **Recurrence** trigger.
+For example, you can use this trigger to monitor an FTP folder for new files that describe customer orders. You can then use the FTP action named **Get file metadata** to get the properties for that new file, and then use **Get file content** to get the content from that file for further processing and store that order in an orders database. You might also use a condition to check that file's content against specific criteria and get that content only if that content meets the criteria.
 
-## Connect to FTP
+The following steps use the Azure portal, but with the appropriate Azure Logic Apps extension, you can also use the following tools to create logic app workflows:
 
-[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+* Consumption logic app workflows: [Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) or [Visual Studio Code](../logic-apps/quickstart-create-logic-apps-visual-studio-code.md)
 
-1. Sign in to the [Azure portal](https://portal.azure.com), and open your logic app in Logic App Designer.
+* Standard logic app workflows: [Visual Studio Code](../logic-apps/create-single-tenant-workflows-visual-studio-code.md)
 
-1. For blank logic apps, in the search box, enter `ftp` as your filter. From the **Triggers** list, select the trigger that you want.
+### [Consumption](#tab/consumption)
 
-   -or-
-
-   For existing logic apps, under the last step where you want to add an action, select **New step**, and then select **Add an action**. In the search box, enter `ftp` as your filter. From the **Actions** list, select the action that you want.
-
-   To add an action between steps, move your pointer over the arrow between steps. Select the plus sign (**+**) that appears, and then select **Add an action**.
-
-1. Provide your connection information, and select **Create**.
-
-1. Provide the information for your selected trigger or action and continue building your logic app's workflow.
-
-## Examples
-
-<a name="file-added-modified"></a>
-
-### Add FTP trigger
-
-The **When a file is added or modified (properties only)** trigger starts a logic app workflow when the trigger detects that a file is added or changed on an FTP server. For example, you can add a condition that checks the file's content and decides whether to get that content, based on whether that content meets a specified condition. Finally, you can add an action that gets the file's content, and put that content into a different folder on the SFTP server.
-
-For example, you can use this trigger to monitor an FTP folder for new files that describe customer orders. You can then use an FTP action such as **Get file metadata** to get the properties for that new file, and then use **Get file content** to get the content from that file for further processing and store that order in an orders database.
-
-Here is an example that shows how to use the **When a file is added or modified (properties only)** trigger.
-
-1. Sign in to the [Azure portal](https://portal.azure.com), and open your logic app in Logic App Designer, if not open already.
+1. In the [Azure portal](https://portal.azure.com), and open your logic app in Logic App Designer, if not open already.
 
 1. For blank logic apps, in the search box, enter `ftp` as your filter. Under the triggers list, select this trigger: **When a filed is added or modified (properties only)**
 
@@ -168,6 +168,24 @@ The **Get file metadata** action gets the properties for a file that's on your F
 
 1. Save your logic app.
 
+## Connect to FTP
+
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+
+1. Sign in to the [Azure portal](https://portal.azure.com), and open your logic app in Logic App Designer.
+
+1. For blank logic apps, in the search box, enter `ftp` as your filter. From the **Triggers** list, select the trigger that you want.
+
+   -or-
+
+   For existing logic apps, under the last step where you want to add an action, select **New step**, and then select **Add an action**. In the search box, enter `ftp` as your filter. From the **Actions** list, select the action that you want.
+
+   To add an action between steps, move your pointer over the arrow between steps. Select the plus sign (**+**) that appears, and then select **Add an action**.
+
+1. Provide your connection information, and select **Create**.
+
+1. Provide the information for your selected trigger or action and continue building your logic app's workflow.
+
 ## Test your logic app
 
 To check that your workflow returns the content that you expect, add another action that sends you the content from the uploaded or updated file.
@@ -184,7 +202,7 @@ To check that your workflow returns the content that you expect, add another act
 
 <a name="built-in-operations"></a>
 
-## Built-in connector operations
+## FTP built-in connector operations
 
 The FTP built-in connector is available only for Standard logic app workflows and provides the following operations:
 
@@ -195,12 +213,12 @@ The FTP built-in connector is available only for Standard logic app workflows an
 
 | Action | Description |
 |--------|-------------|
-| **Create file** | Create a file |
-| **Delete file** |
-| **Get File Content** |
-| **Get the file metadata** |
-| **List files and subfolders in a folder** |
-| **Update file** |
+| [**Create file**](#create-file) | Create a file |
+| [**Delete file**](#delete-file) |
+| [**Get File Content**](#get-file-content) |
+| [**Get the file metadata**](#get-file-metadata) |
+| [**List files and subfolders in a folder**](#list-files-subfolders-folder) |
+| [**Update file**](#update-file) |
 |||
 
 <a name="when-file-added-updated"></a>
@@ -217,14 +235,46 @@ The trigger uses the last modified time for a file. If an external client create
 
 | Name | Key | Required | Type | Description |
 |------|-----|----------|------|-------------|
-| **Folder path** | `folderPath` | True | String | The folder path |
+| **Folder path** | `folderPath` | True | String | The folder path. |
 | **Number of files to return** | `maxFileCount` | False | Integer | The maximum number of files to return from a single trigger run. Valid values range from 1 - 100. <br><br>**Note**: The **Split On** setting can force this trigger to process each item individually. |
-||||||
+| **Old files cutoff timestamp** | `oldFileCutOffTimestamp` | False | DateTime | The cutoff time to use when ignoring older files using the `YYYY-MM-DDTHH:MM:SS` format. To disable this capability, don't provide this input. |
 ||||||
 
-#### 
+#### Returns
+
+Blob metadata
+
+| Name | Type |
+|------|------|
+| **List of Files** | [BlobMetadata](/connectors/ftp/#blobmetadata) |
+|||
+
+<a name="create-file"></a>
 
 ### Create file
+
+Operation ID: `createFile`
+
+<a name="delete-file"></a>
+
+### Delete file
+
+<a name="get-file-content"></a>
+
+### Get file content
+
+<a name="get-file-metadata"></a>
+
+### Get the file metadata
+
+<a name="list-files-subfolders-folder"></a>
+
+### List the files and subfolders in a folder
+
+<a name="update-file"></a>
+
+### Update file
+
 
 
 ## Next steps
