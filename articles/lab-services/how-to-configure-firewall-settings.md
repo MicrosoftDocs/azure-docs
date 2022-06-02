@@ -11,7 +11,7 @@ ms.topic: how-to
 
 Each organization or school will configure their own network in a way that best fits their needs.  Sometimes that includes setting firewall rules that block Remote Desktop Protocol (RDP) or Secure Shell (SSH) connections to machines outside their own network.  Because Azure Lab Services runs in the public cloud, some extra configuration maybe needed to allow students to access their VM when connecting from the campus network.
 
-Each lab uses single public IP address and multiple ports.  All VMs, both the template VM and student VMs, will use this public IP address.  The public IP address won’t change for the life of lab.  Each VM will have a different port number.  The port numbers range is 49152 - 65535.  The combination of public IP address and port number is used to connect educators and students to the correct VM.  This article will cover how to find the specific public IP address used by a lab.  That information can be used to update inbound and outbound firewall rules so students can access their VMs.
+Each lab uses single public IP address and multiple ports.  All VMs, both the template VM and student VMs, will use this public IP address.  The public IP address won’t change for the life of lab.  Each VM will have a different port number.  The port numbers range is 49152 - 65535.  If using the April 2022 Update (preview), the port ranges for SSH connections are 4980-4989 and 5000-6999.  The port ranges for RDP connections are 4990-4999 and 7000-8999.  The combination of public IP address and port number is used to connect educators and students to the correct VM.  This article will cover how to find the specific public IP address used by a lab.  That information can be used to update inbound and outbound firewall rules so students can access their VMs.
 
 >[!IMPORTANT]
 >Each lab will have a different public IP address.
@@ -30,7 +30,7 @@ The public IP addresses for each lab are listed in the **All labs** page of the 
 
 ## Conclusion
 
-Now we know the public IP address for the lab.  Inbound and outbound rules can be created for the organization's firewall for the public ip address and the port range  49152 - 65535.  Once the rules are updated, students can access their VMs without the network firewall blocking access.
+Now we know the public IP address for the lab.  Inbound and outbound rules can be created for the organization's firewall for the public IP address and the port range  49152 - 65535.  Once the rules are updated, students can access their VMs without the network firewall blocking access.
 
 ## Next steps
 
