@@ -7,7 +7,7 @@ manager: martinco
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 07/20/2021
+ms.date: 06/02/2022
 ms.author: baselden
 ---
 
@@ -86,9 +86,7 @@ Terminology for verifiable credentials (VCs) might be confusing if you're not fa
 
  “A ***distributed ledger*** is a non-centralized system for recording events. These systems establish sufficient confidence for participants to rely upon the data recorded by others to make operational decisions. They typically use distributed databases where different nodes use a consensus protocol to confirm the ordering of cryptographically signed transactions. The linking of digitally signed transactions over time often makes the history of the ledger effectively immutable.”
 
-* The Microsoft solution uses the ***Identity Overlay Network (ION)*** to provide decentralized public key infrastructure (PKI) capability.
-
- 
+* The Microsoft solution uses the ***Identity Overlay Network (ION)*** to provide decentralized public key infrastructure (PKI) capability. As an alternative to ION, Microsoft also offers DID Web as the trust system.
 
 ### Combining centralized and decentralized identity architectures
 

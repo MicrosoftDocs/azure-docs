@@ -7,7 +7,7 @@ manager: rkarlin
 ms.service: decentralized-identity
 ms.topic: how-to
 ms.subservice: verifiable-credentials
-ms.date: 02/08/2022
+ms.date: 06/02/2022
 ms.author: barclayn
 
 #Customer intent: As an administrator, I am looking for information to help me disable 
@@ -36,8 +36,10 @@ In this article:
 ## When do you need to opt out?
 
 Opting out is a one-way operation, after you opt-out your Azure Active Directory Verifiable Credentials environment will be reset. During the Public Preview opting out may be required to:
+
 - Enable new service capabilities.
 - Reset your service configuration.
+- Switch between trust systems ION and Web
 
 ## What happens to your data when you opt-out?
 
