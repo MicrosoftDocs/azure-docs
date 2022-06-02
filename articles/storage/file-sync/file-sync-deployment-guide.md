@@ -447,11 +447,11 @@ A server endpoint represents a specific location on a registered server, such as
 
 [!INCLUDE [storage-files-sync-create-server-endpoint](../../../includes/storage-files-sync-create-server-endpoint.md)]
 
-## Configure firewall and virtual network settings
+## Optional: Configure firewall and virtual network settings
 
 ### Portal
 
-If you'd like to configure your Azure File sync to work with firewall and virtual network settings, do the following:
+If you'd like to configure Azure File Sync to work with firewall and virtual network settings, do the following:
 
 1. From the Azure portal, navigate to the storage account you want to secure.
 1. Select **Networking** on the left menu.
@@ -462,43 +462,7 @@ If you'd like to configure your Azure File sync to work with firewall and virtua
 
     ![Configuring firewall and virtual network settings to work with Azure File sync](media/storage-sync-files-deployment-guide/firewall-and-vnet.png)
 
-## SMB over QUIC on a server endpoint
-Although the Azure file share (cloud endpoint) is a full SMB endpoint capable of direct access from the cloud or on-premises, customers that desire accessing the file share data cloud-side often deploy an Azure File Sync server endpoint on a Windows Server instance hosted on an Azure VM. The most common reason to have an additional server endpoint rather than accessing the Azure file share directly is that changes made directly on the Azure file share may take up to 24 hours or longer to be discovered by Azure File Sync, while changes made on a server endpoint are discovered nearly immediately and synced to all other server and cloud-endpoints.
-
-This configuration is extremely common in environments where a substantial portion of users are not on-premises, such as when users are working from home or from the road. Traditionally, accessing any file share with SMB over the public internet, including both file shares hosted on Windows File Server or on Azure Files directly, is very difficult since most organizations and ISPs block port 445. You can work around this limitation with [private endpoints and VPNs](file-sync-networking-overview.md#private-endpoints), however Windows Server 2022 Azure Edition provides an additional access strategy: SMB over the QUIC transport protocol. 
-
-SMB over QUIC communicates over port 443, which most organizations and ISPs have open to support HTTPS traffic. Using SMB over QUIC greatly simplifies the networking required to access a file share hosted on an Azure File Sync server endpoint for clients using Windows 11 or greater. To learn more about how to setup and configure SMB over QUIC on Windows Server Azure Edition, see [SMB over QUIC for Windows File Server](/windows-server/storage/file-server/smb-over-quic). 
-
-## Onboarding with Azure File Sync
-
-The recommended steps to onboard on Azure File Sync for the first time with zero downtime while preserving full file fidelity and access control list (ACL) are as follows:
-
-1. Deploy a Storage Sync Service.
-1. Create a sync group.
-1. Install Azure File Sync agent on the server with the full data set.
-1. Register that server and create a server endpoint on the share.
-1. Let sync do the full upload to the Azure file share (cloud endpoint).
-1. After the initial upload is complete, install Azure File Sync agent on each of the remaining servers.
-1. Create new file shares on each of the remaining servers.
-1. Create server endpoints on new file shares with cloud tiering policy, if desired. (This step requires additional storage to be available for the initial setup.)
-1. Let Azure File Sync agent do a rapid restore of the full namespace without the actual data transfer. After the full namespace sync, sync engine will fill the local disk space based on the cloud tiering policy for the server endpoint.
-1. Ensure sync completes and test your topology as desired.
-1. Redirect users and applications to this new share.
-1. You can optionally delete any duplicate shares on the servers.
-
-If you don't have extra storage for initial onboarding and would like to attach to the existing shares, you can pre-seed the data in the Azure files shares. This approach is suggested, if and only if you can accept downtime and absolutely guarantee no data changes on the server shares during the initial onboarding process.
-
-1. Ensure that data on any of the servers can't change during the onboarding process.
-1. Pre-seed Azure file shares with the server data using any data transfer tool over the SMB. Robocopy, for example. You can also use AzCopy over REST. Be sure to use AzCopy with the appropriate switches to preserve ACLs timestamps and attributes.
-1. Create Azure File Sync topology with the desired server endpoints pointing to the existing shares.
-1. Let sync finish reconciliation process on all endpoints.
-1. Once reconciliation is complete, you can open shares for changes.
-
-Currently, pre-seeding approach has a few limitations -
-- Data changes on the server before the sync topology is fully up and running can cause conflicts on the server endpoints.
-- After the cloud endpoint is created, Azure File Sync runs a process to detect the files in the cloud before starting the initial sync. The time taken to complete this process varies depending on the various factors like network speed, available bandwidth, and number of files and folders. For the rough estimation in the preview release, detection process runs approximately at 10 files/sec.  Hence, even if pre-seeding runs fast, the overall time to get a fully running system may be significantly longer when data is pre-seeded in the cloud.
-
-## Self-service restore through Previous Versions and VSS (Volume Shadow Copy Service)
+## Optional: Self-service restore through Previous Versions and VSS (Volume Shadow Copy Service)
 
 Previous Versions is a Windows feature that allows you to utilize server-side VSS snapshots of a volume to present restorable versions of a file to an SMB client.
 This enables a powerful scenario, commonly referred to as self-service restore, directly for information workers instead of depending on the restore from an IT admin.
@@ -543,9 +507,9 @@ VSS snapshots by default can consume up to 10% of the volume space. To adjust th
 
 <a id="proactive-recall"></a>
 
-## Proactively recall new and changed files from an Azure file share
+## Optional: Proactively recall new and changed files from an Azure file share
 
-With agent version 11, a new mode becomes available on a server endpoint. This mode allows globally distributed companies to have the server cache in a remote region pre-populated even before local users are accessing any files. When enabled on a server endpoint, this mode will cause this server to recall files that have been created or changed in the Azure file share.
+Azure File Sync has a mode that allows globally distributed companies to have the server cache in a remote region pre-populated even before local users are accessing any files. When enabled on a server endpoint, this mode will cause this server to recall files that have been created or changed in the Azure file share.
 
 ### Scenario
 
@@ -575,6 +539,42 @@ Set-AzStorageSyncServerEndpoint -InputObject <PSServerEndpoint> -LocalCacheMode 
 ```
 
 ---
+
+## Optional: SMB over QUIC on a server endpoint
+Although the Azure file share (cloud endpoint) is a full SMB endpoint capable of direct access from the cloud or on-premises, customers that desire accessing the file share data cloud-side often deploy an Azure File Sync server endpoint on a Windows Server instance hosted on an Azure VM. The most common reason to have an additional server endpoint rather than accessing the Azure file share directly is that changes made directly on the Azure file share may take up to 24 hours or longer to be discovered by Azure File Sync, while changes made on a server endpoint are discovered nearly immediately and synced to all other server and cloud-endpoints.
+
+This configuration is extremely common in environments where a substantial portion of users are not on-premises, such as when users are working from home or from the road. Traditionally, accessing any file share with SMB over the public internet, including both file shares hosted on Windows File Server or on Azure Files directly, is very difficult since most organizations and ISPs block port 445. You can work around this limitation with [private endpoints and VPNs](file-sync-networking-overview.md#private-endpoints), however Windows Server 2022 Azure Edition provides an additional access strategy: SMB over the QUIC transport protocol. 
+
+SMB over QUIC communicates over port 443, which most organizations and ISPs have open to support HTTPS traffic. Using SMB over QUIC greatly simplifies the networking required to access a file share hosted on an Azure File Sync server endpoint for clients using Windows 11 or greater. To learn more about how to setup and configure SMB over QUIC on Windows Server Azure Edition, see [SMB over QUIC for Windows File Server](/windows-server/storage/file-server/smb-over-quic). 
+
+## Onboarding with Azure File Sync
+
+The recommended steps to onboard on Azure File Sync for the first time with zero downtime while preserving full file fidelity and access control list (ACL) are as follows:
+
+1. Deploy a Storage Sync Service.
+1. Create a sync group.
+1. Install Azure File Sync agent on the server with the full data set.
+1. Register that server and create a server endpoint on the share.
+1. Let sync do the full upload to the Azure file share (cloud endpoint).
+1. After the initial upload is complete, install Azure File Sync agent on each of the remaining servers.
+1. Create new file shares on each of the remaining servers.
+1. Create server endpoints on new file shares with cloud tiering policy, if desired. (This step requires additional storage to be available for the initial setup.)
+1. Let Azure File Sync agent do a rapid restore of the full namespace without the actual data transfer. After the full namespace sync, sync engine will fill the local disk space based on the cloud tiering policy for the server endpoint.
+1. Ensure sync completes and test your topology as desired.
+1. Redirect users and applications to this new share.
+1. You can optionally delete any duplicate shares on the servers.
+
+If you don't have extra storage for initial onboarding and would like to attach to the existing shares, you can pre-seed the data in the Azure files shares. This approach is suggested, if and only if you can accept downtime and absolutely guarantee no data changes on the server shares during the initial onboarding process.
+
+1. Ensure that data on any of the servers can't change during the onboarding process.
+1. Pre-seed Azure file shares with the server data using any data transfer tool over the SMB. Robocopy, for example. You can also use AzCopy over REST. Be sure to use AzCopy with the appropriate switches to preserve ACLs timestamps and attributes.
+1. Create Azure File Sync topology with the desired server endpoints pointing to the existing shares.
+1. Let sync finish reconciliation process on all endpoints.
+1. Once reconciliation is complete, you can open shares for changes.
+
+Currently, pre-seeding approach has a few limitations -
+- Data changes on the server before the sync topology is fully up and running can cause conflicts on the server endpoints.
+- After the cloud endpoint is created, Azure File Sync runs a process to detect the files in the cloud before starting the initial sync. The time taken to complete this process varies depending on the various factors like network speed, available bandwidth, and number of files and folders. For the rough estimation in the preview release, detection process runs approximately at 10 files/sec.  Hence, even if pre-seeding runs fast, the overall time to get a fully running system may be significantly longer when data is pre-seeded in the cloud.
 
 ## Migrate a DFS Replication (DFS-R) deployment to Azure File Sync
 
