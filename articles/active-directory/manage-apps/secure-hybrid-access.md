@@ -1,7 +1,6 @@
 ---
 title: Secure hybrid access
 description: This article describes partner solutions for integrating your legacy on-premises, public cloud, or private cloud applications with Azure AD. 
-titleSuffix: Microsoft Entra
 services: active-directory
 author: gargi-sinha
 manager: martinco
