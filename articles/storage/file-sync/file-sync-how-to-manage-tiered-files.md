@@ -130,7 +130,7 @@ Optional parameters:
 - `-Order CloudTieringPolicy` will recall the most recently modified or accessed files first and is allowed by the current tiering policy. 
 	* If volume free space policy is configured, files will be recalled until the volume free space policy setting is reached. For example if the volume free policy setting is 20%, recall will stop once the volume free space reaches 20%.  
 	* If volume free space and date policy is configured, files will be recalled until the volume free space or date policy setting is reached. For example, if the volume free policy setting is 20% and the date policy is 7 days, recall will stop once the volume free space reaches 20% or all files accessed or modified within 7 days are local.
-- `-ThreadCount` determines how many files can be recalled in parallel.
+- `-ThreadCount` determines how many files can be recalled in parallel (maximum value is 32).
 - `-PerFileRetryCount`determines how often a recall will be attempted of a file that is currently blocked.
 - `-PerFileRetryDelaySeconds`determines the time in seconds between retry to recall attempts and should always be used in combination with the previous parameter.
 
