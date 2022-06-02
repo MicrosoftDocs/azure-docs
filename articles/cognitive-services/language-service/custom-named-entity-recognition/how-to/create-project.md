@@ -42,7 +42,7 @@ You can create a resource in the following ways:
 * PowerShell
 
 > [!Note]
-> You shouldn't move the storage account to a different resource group or subscription once linked with the Language resource
+> You shouldn't move the storage account to a different resource group or subscription once it's linked with the Language resource.
 
 [!INCLUDE [create a new resource from the Azure portal](../includes/resource-creation-azure-portal.md)]
 
