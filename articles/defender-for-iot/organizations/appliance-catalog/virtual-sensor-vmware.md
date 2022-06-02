@@ -1,13 +1,13 @@
 ---
-title: OT sensor VM (VMWare ESXi) - Microsoft Defender for IoT
-description: Learn about deploying a Microsoft Defender for IoT OT sensor as a virtual appliance using VMWare ESXi.
+title: OT sensor VM (VMware ESXi) - Microsoft Defender for IoT
+description: Learn about deploying a Microsoft Defender for IoT OT sensor as a virtual appliance using VMware ESXi.
 ms.date: 04/24/2022
 ms.topic: reference
 ---
 
-# OT network sensor VM (VMWare ESXi)
+# OT network sensor VM (VMware ESXi)
 
-This article describes an OT sensor deployment on a virtual appliance using VMWare ESXi.
+This article describes an OT sensor deployment on a virtual appliance using VMware ESXi.
 
 | Appliance characteristic |Details |
 |---------|---------|
