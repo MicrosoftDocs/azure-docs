@@ -101,7 +101,7 @@ The pertinent sections of the Azure AD documentation are:
     * [Authorization code flow](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
     * [Client credentials flow](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).
 
-There are other variations (for example due to flow) for obtaining a token. Refer to the [Azure AD documentation]((../../active-directory/index.yml)) for details. When you use Azure API for FHIR, there are some shortcuts for obtaining an access token (such as for debugging purposes) [using the Azure CLI](get-healthcare-apis-access-token-cli.md).
+There are other variations (for example due to flow) for obtaining a token. Refer to the [Azure AD documentation](../../active-directory/index.yml) for details. When you use Azure API for FHIR, there are some shortcuts for obtaining an access token (such as for debugging purposes) [using the Azure CLI](get-healthcare-apis-access-token-cli.md).
 
 ## Next steps
 
