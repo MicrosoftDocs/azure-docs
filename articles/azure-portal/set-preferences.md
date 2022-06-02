@@ -61,7 +61,7 @@ To create a new filter, select **Create a filter**. You can create up to ten fil
 
 Each filter must have a unique name that is between 8 and 50 characters long and contains only letters, numbers, and hyphens.
 
-:::image type="content" source="media/set-preferences/azure-portal-settings-filtering-create.png" alt-text="Screenshot showing the Create a filter options.":::
+:::image type="content" source="media/set-preferences/azure-portal-settings-filtering-create.png" alt-text="Screenshot showing options for Create a filter.":::
 
 After you've named your filter, enter at least one condition. In the **Filter type** field, select either **Subscription name**, **Subscription ID**, or **Subscription state**. Then select an operator and enter a value to filter on.
 
@@ -115,7 +115,7 @@ Choose one of the following options for the page you'll see when you first sign 
 Choose one of the following options for the directory to work in when you first sign in to the Azure portal.
 
 - **Sign in to your last visited directory**: When you sign in to the Azure portal, you'll start in whichever directory you'd been working in last time.
-- **Select a directory**: Choose this option to select one of your directory. You'll start in that directory every time you sign in to the Azure portal, even if you had been working in a different directory last time.
+- **Select a directory**: Choose this option to select one of your directories. You'll start in that directory every time you sign in to the Azure portal, even if you had been working in a different directory last time.
 
 :::image type="content" source="media/set-preferences/azure-portal-settings-startup-views.png" alt-text="Screenshot showing the Startup section of Appearance + startup views.":::
 
@@ -216,7 +216,7 @@ To confirm that the inactivity timeout policy is set correctly, select **Notific
 
 ### Enable or disable pop-up notifications
 
-Notifications are system messages related to your current session. They provide information such as showing your current credit balance, confirming your last action, or letting you know when resources you created become . When pop-up notifications are turned on, the messages briefly display in the top corner of your screen.
+Notifications are system messages related to your current session. They provide information such as showing your current credit balance, confirming your last action, or letting you know when resources you created become available. When pop-up notifications are turned on, the messages briefly display in the top corner of your screen.
 
 To enable or disable pop-up notifications, select or clear **Enable pop-up notifications**.
 
