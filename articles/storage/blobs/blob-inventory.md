@@ -5,7 +5,7 @@ services: storage
 author: normesta
 
 ms.service: storage
-ms.date: 06/01/2022
+ms.date: 06/02/2022
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: klaasl
@@ -161,6 +161,9 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 
 ### Custom schema fields supported for blob inventory
 
+> [!NOTE]
+> The **Data Lake Storage Gen2** column shows support in accounts that have the hierarchical namespace feature enabled.
+
 | Field | Blob Storage (default support) | Data Lake Storage Gen2 |
 |---------------|-------------------|---|
 | Name (Required)  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
@@ -215,6 +218,9 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 | x-ms-blob-sequence-number | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | 
 
 ### Custom schema fields supported for container inventory
+
+> [!NOTE]
+> The **Data Lake Storage Gen2** column shows support in accounts that have the hierarchical namespace feature enabled.
 
 | Field | Blob Storage (default support) | Data Lake Storage Gen2 |
 |---------------|-------------------|---|
