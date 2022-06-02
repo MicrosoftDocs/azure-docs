@@ -241,7 +241,7 @@ System-assigned identities are created at the time your container app is created
 
 To configure a system-assigned identity, you must use one of the following methods.
 
-- **Option 1*: Use a public registry for the initial deployment:
+- **Option 1**: Use a public registry for the initial deployment:
   1. Create your container app using a public image and a system-assigned identity.
   1. Give the new system-assigned identity `AcrPull` access to your private Azure Container Registry.
   1. Update your container app replacing the public image with the image from your private Azure Container Registry.
