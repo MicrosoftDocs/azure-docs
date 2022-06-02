@@ -47,7 +47,7 @@ The Defender for IoT Device Inventory displays an extensive range of device attr
 1. Devices composed of multiple backplane components (including all racks/slots/modules)
 1. Devices acting as network infrastructure such as Switch/Router (w/ multiple NICs). 
 
-Public internet IP addresses, multicast groups, and broadcast groups are not considered inventory devices.
+Public internet IP addresses, multicast groups, and broadcast groups aren't considered inventory devices.
 Devices that have been inactive for more than 60 days are classified as inactive Inventory devices.
 
 ## Integrate data into the enterprise device inventory
