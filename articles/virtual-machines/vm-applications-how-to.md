@@ -171,7 +171,7 @@ In this example, we are creating version number *1.0.0*. Replace the values of t
 $galleryName = "myGallery"
 $rgName = "myResourceGroup"
 $applicationName = "myApp"
-$version = 1.0.0
+$version = "1.0.0"
 New-AzGalleryApplicationVersion `
    -ResourceGroupName $rgName `
    -GalleryName $galleryName `
@@ -187,6 +187,9 @@ New-AzGalleryApplicationVersion `
 To add the application to an existing VM, get the application version and use that to get the VM application version ID. Use the ID to add the application to the VM configuration.
 
 ```azurepowershell-interactive
+$galleryName = "myGallery"
+$rgName = "myResourceGroup"
+$applicationName = "myApp"
 $vmname = "myVM"
 $vm = Get-AzVM -ResourceGroupName $rgname -Name $vmname
 $appversion = Get-AzGalleryApplicationVersion `
