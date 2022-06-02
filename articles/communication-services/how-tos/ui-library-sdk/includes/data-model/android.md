@@ -1,5 +1,5 @@
 ---
-description: In this tutorial, you learn how to use the Calling composite on Android
+description: In this tutorial, you learn how to use the Calling composite on Android to customize the Participant Avatars and Display Names
 author: garchiro7
 
 ms.author: jorgegarc
@@ -12,17 +12,17 @@ ms.service: azure-communication-services
 
 Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-android) for Android and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-library-quick-start)
 
-### Local Participant View Data Injection
+### Local Participant View Customization
 
-The UI Library now gives developers the ability to provide a more customized experience. At launch, developers can now inject an optional Local Data Options. This object can contain a bitmap that represents the avatar to render, and a display name they can optionally display instead. None of this information will be sent to Azure Communication Services and will be only held locally in the UI library.
+The UI Library gives developers the ability to provide a more customized experience in regards to Participant information. At launch, developers can optionally add Partipant View Data. This local data is not shared with the server and can be used to customize the display name and avatar of the local user.
 
-#### Participant View Data
+#### Local Participant View Data
 
-`ParticipantViewData` is a class that set the `RenderedDisplayName`, `AvatarBitMap` and `ScaleType`  for avatar control. This class is injected to UI Library to set avatar information.
+`ParticipantViewData` is a class that set the `renderedDisplayName`, `avatarBitmap` and `scaleType` for avatar control. This class is passed to the configuration in order to customize the local participants view information.
 
-#### Local Settings
+This class is held in the `LocalSettings` object that represents options used locally on the device making the call.
 
-`LocalSettings` is a wrapper that set the persona data for UI Library components using a `ParticipantViewData`. By default, the UI library will display the `displayName` injected in `GroupCallOptions` and `TeamsMeetingOptions`. If `ParticipantViewData` is injected, the `RenderedDisplayName`, `AvatarBitMap` will be displayed for local participant.
+`renderedDisplayName` differs from the `displayName` passed in via the `TeamsMeetingOptions` and `GroupCallOptions` in that it is only used locally as an override, where `displayName` is passed to the server and shared with other participants. When `renderedDisplayName` is not provided, `displayName` is used.
 
 #### Usage
 
@@ -31,7 +31,7 @@ To use the `LocalSettings`, pass the instance of `ParticipantViewData` and injec
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-val viewData = ParticipantViewData("user_name") // bitmap is optional
+val viewData = ParticipantViewData("LocalUserDisplayName") // bitmap is optional
 val localSettings = LocalSettings(viewData)
 callComposite.launch(this, options, localSettings)
 ```
@@ -39,7 +39,7 @@ callComposite.launch(this, options, localSettings)
 #### [Java](#tab/java)
 
 ```java
-ParticipantViewData viewData = new ParticipantViewData("user_name", bitmap); // bitmap is optional
+ParticipantViewData viewData = new ParticipantViewData("LocalUserDisplayName", bitmap); // bitmap is optional
 LocalSettings localSettings = new LocalSettings(viewData);
 callComposite.launch(this, options, localSettings);
 ```
@@ -49,9 +49,11 @@ callComposite.launch(this, options, localSettings);
 | ---- | ---- |
 | :::image type="content" source="media/android-model-injection.png" alt-text="Screenshot of a Android data custom model injection."::: | :::image type="content" source="media/android-model-injection-name.png"  alt-text="Screenshot of a Android data custom model injection with name."::: |
 
-### Remote Participant View Data Injection
+### Remote Participant View Customization
 
-On remote participant join, developers can inject the participant view data for remote participant. This participant view data can contain a bitmap that represents the avatar to render, and a display name they can optionally display instead. None of this information will be sent to Azure Communication Services and will be only held locally in the UI library.
+In some instances, you may wish to provide local overrides for remote participants to allow custom avatars and titles.
+
+The process is similar to the local participant process, however the data is set when participants join the call. As a developer you would need to add a listener to when remote participants join the call, and then call a method to set the ParticipantViewData for that remote user.
 
 #### Usage
 
