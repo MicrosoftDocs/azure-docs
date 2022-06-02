@@ -43,7 +43,7 @@ In the event that an extension upgrade fails, the following actions will happen:
 
 1. The Azure Connected Machine agent will automatically re-install the last known good version of the extension to attempt to restore functionality.
 1. If the rollback is successful, the extension status will show as **Succeeded** and the extension will be re-added to the automatic upgrade queue. The next upgrade attempt can be as soon as the next hour and will continue until the upgrade is successful.
-1. If the rollback fails, the extension status will show as **Failed** and the extension will no longer function as intended. You will need to [remove](manage-vm-extensions-cli.md#remove-extensions) and [re-install](manage-vm-extensions-cli.md#enable-extensions) the extension to restore functionality.
+1. If the rollback fails, the extension status will show as **Failed** and the extension will no longer function as intended. You will need to [remove](manage-vm-extensions-cli.md#remove-extensions) and [re-install](manage-vm-extensions-cli.md#enable-extension) the extension to restore functionality.
 
 If you continue to have trouble upgrading an extension, you can [disable automatic extension upgrade](#disable-automatic-extension-upgrade) to prevent the system from trying again while you troubleshoot the issue. You can [enable automatic extension upgrade](#enable-automatic-extension-upgrade) again when you're ready.
 
