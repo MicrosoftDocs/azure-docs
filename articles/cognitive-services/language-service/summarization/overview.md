@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: overview
-ms.date: 05/26/2022
+ms.date: 06/02/2022
 ms.author: aahi
 ms.custom: language-service-summarization, ignite-fall-2021, event-tier1-build-2022
 ---
 
 # What is document and conversation summarization (preview)?
 
-Document summarization is one of the features offered by [Azure Cognitive Service for Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. Use this article to learn more about this feature, and how to use it in your applications. 
+Summarization is one of the features offered by [Azure Cognitive Service for Language](../overview.md), a collection of machine learning and AI algorithms in the cloud for developing intelligent applications that involve written language. Use this article to learn more about this feature, and how to use it in your applications. 
 
 # [Document summarization](#tab/document-summarization)
 
@@ -120,13 +120,13 @@ To use this feature, you submit raw text for analysis and handle the API output 
 # [Document summarization](#tab/document-summarization)
 
 * Summarization takes raw unstructured text for analysis. See [Data and service limits](../concepts/data-limits.md) in the how-to guide for more information.
-* Summarization works with a variety of written languages. See [language support](language-support.md) for more information.
+* Summarization works with a variety of written languages. See [language support](language-support.md?tabs=document-summarization) for more information.
 
 
 # [Conversation summarization](#tab/conversation-summarization)
 
 * Conversation summarization takes structured text for analysis. See the [data and service limits](../concepts/data-limits.md) for more information.
-* Conversation summarization accepts text in English. See [language support](language-support.md) for more information.
+* Conversation summarization accepts text in English. See [language support](language-support.md?tabs=conversation-summarization) for more information.
 
 ---
 

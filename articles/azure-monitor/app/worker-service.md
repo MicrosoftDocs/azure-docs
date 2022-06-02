@@ -251,7 +251,7 @@ Full example is shared [here](https://github.com/microsoft/ApplicationInsights-d
                 services.AddLogging(loggingBuilder => loggingBuilder.AddFilter<Microsoft.Extensions.Logging.ApplicationInsights.ApplicationInsightsLoggerProvider>("Category", LogLevel.Information));
                 services.AddApplicationInsightsTelemetryWorkerService("instrumentation key here");
 
-                // To pass a connection string instead of an instrumentation key:
+                // To pass a connection string
                 // - aiserviceoptions must be created
                 // - set connectionstring on it
                 // - pass it to AddApplicationInsightsTelemetryWorkerService()
