@@ -33,7 +33,7 @@
     - name: Serverless development
       expanded: true
       items:
-      - name: Build a notification app by using an Azure Functions
+      - name: Build a notification app by using Azure Functions
         href: tutorial-serverless-notification.md
       - name: Build a real-time chat app with client authentication
         href: quickstart-serverless.md
