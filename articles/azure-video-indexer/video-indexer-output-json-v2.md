@@ -35,7 +35,10 @@ To get insights produced on the website or the Azure portal:
 1. Find a video whose output you want to examine.
 1. Press **Play**.
 1. Select the **Insights** tab to get summarized insights. Or select the **Timeline** tab to filter the relevant insights.
-1. Download artifacts and what's in them.
+1. Download artifacts (a folder with artifacts is created).
+
+    > [!WARNING]
+    > We do not recommend that you use data directly from the artifacts folder for production purposes.
 
 For more information, see [View and edit video insights](video-indexer-view-edit.md).
 
