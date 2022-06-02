@@ -329,7 +329,7 @@ Here's a sample of how to create a dynamic JS using Razor:
     src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js", // The SDK URL Source
     onInit: function(appInsights) {
         var serverId = "@this.Context.GetRequestTelemetry().Context.Operation.Id";
-        appInsights.context.telemetryContext.parentID = serverId;
+        appInsights.context.telemetryTrace.parentID = serverId;
     },
     cfg: { // Application Insights Configuration
         instrumentationKey: "YOUR_INSTRUMENTATION_KEY_GOES_HERE"

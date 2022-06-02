@@ -28,14 +28,12 @@ This article explains the requirements and guidelines for listing new offers and
 | 9 | Learn more | Links at the bottom (under the description, not Azure Marketplace links on the left) lead to more information about the solution and are publicly available and displaying correctly. |    Links to specific items (for example, spec pages on the partner site) and not just the partner home page. | 
 | 10 | Solution support and help | Link to at least one of the following: <ul><li>Telephone numbers</li><li>Email support</li><li>Chat agents</li><li>Community forums |<ul><li>All support methods are listed.</li><li>Paid support is offered free during the *Trial* or *Test Drive* period. |
 | 11 | Legal | Policies or terms are available via a public URL. |  |
-|||
 
 ## Trial offer requirements
 
 | No. | Listing element | Base requirement | Optimal requirement | 
 |:--- |:--- |:--- |:--- |
 |  | List status (Listing option) | The link must lead to a customer-led *Trial* experience. | Other listing options (for example, *Buy Now*) are also available. | 
-|||
 
 ## SaaS application requirements
 
@@ -52,7 +50,6 @@ This article explains the requirements and guidelines for listing new offers and
 | 9 | Lead management | Select the system where your leads will be stored. See [get customer leads](./partner-center-portal/commercial-marketplace-get-customer-leads.md) to connect your CRM system. |  |
 | 10 | Contacts: Solution support and help | <ul><li>Engineering contact name: The name of the engineering contact for your app. This contact will receive technical communications from Microsoft.</li><li>Engineering contact email: The email address of the engineering contact for your app.</li><li>Engineering contacts phone: The phone number of the engineering contact. [ISO phone number notations](https://en.wikipedia.org/wiki/E.123) are supported.</li><li>Support contact name: The name of the support contact for your app. This contact will receive support-related communications from Microsoft.</li><li>Support contact email: The email address of the support contact for your app.</li><li>Support contact phone: The phone number of the support contact. [ISO phone number notations](https://en.wikipedia.org/wiki/E.123) are supported.</li><li>Support URL: The URL of your support page. | <ul><li>All support methods are listed.</li><li>Paid support offered free during the *Trial* or *Test Drive* period. |
 | 11 | Legal |<ul><li>Privacy policy URL: The URL for your app's privacy policy in the Privacy policy URL field in the CPP.</li><li>Terms of use: The terms of use of your app. Customers are required to accept these terms before they can try your app. |    Policies or terms are available via a public URL site. |
-|||
 
 ## Container offer requirements
 
@@ -62,7 +59,6 @@ This article explains the requirements and guidelines for listing new offers and
 | 2 | Plans | The partner selects new plans.| The title mirrors the title style already available in the description. Avoid using long titles.  |
 | 3 | Marketplace artifacts | Logos are displayed correctly. |<ul><li>Logos: Small (48 x 48 px, optional), Medium (90 x 90 px, optional), and Large (from 216 x 216 to 350 x 350 px, required).</li><li>Screenshot (max. 5): Requires a .PNG image with a resolution of 1280 x 720 pixels.|
 | 4 | Lead management |<ul><li>Lead management: Select the system where your leads will be stored.</li><li>See [get customer leads](./partner-center-portal/commercial-marketplace-get-customer-leads.md) to connect your CRM system. | |
-|||
 
 ## Consulting offer requirements
 
@@ -80,7 +76,6 @@ This article explains the requirements and guidelines for listing new offers and
 | 10 | Products | Must be Azure products. | |
 | 11 | Country/region | Ensure that the country/region matches the selected currency. | |
 | 12 | Learn more  | <ul><li>Links at the bottom (under the description, not Azure Marketplace links on the left) lead to more information about the solution and are publicly available and being displayed correctly.</li><li>Links must have a "friendly name" and are not displayed as the file name of any downloads. | |
-||||
 
 ## Next steps
 

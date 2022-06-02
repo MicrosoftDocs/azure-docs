@@ -96,4 +96,4 @@ Select the ellipsis, for more chart controls:
 
 ## Next steps
 
-Now that you've learned how to visualize your data with the built-in analytics capabilities, a suggested next step is to learn how to [Export IoT data to cloud destinations using data export](howto-export-data.md).
+Now that you've learned how to visualize your data with the built-in analytics capabilities, a suggested next step is to learn how to [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md).

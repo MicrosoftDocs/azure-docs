@@ -391,10 +391,10 @@ To configure these values at App settings level (and avoid redeployment on just 
 | Host.json path | App setting |
 |----------------|-------------|
 | logging.logLevel.default  | AzureFunctionsJobHost__logging__logLevel__default  |
-| logging.logLeve.Host.Aggregator | AzureFunctionsJobHost__logging__logLevel__Host__Aggregator |
+| logging.logLevel.Host.Aggregator | AzureFunctionsJobHost__logging__logLevel__Host__Aggregator |
 | logging.logLevel.Function | AzureFunctionsJobHost__logging__logLevel__Function |
-| logging.logLevel.Function.Function1 | AzureFunctionsJobHost__logging__logLevel__Function1 |
-| logging.logLevel.Function.Function1.User | AzureFunctionsJobHost__logging__logLevel__Function1.User |
+| logging.logLevel.Function.Function1 | AzureFunctionsJobHost__logging__logLevel__Function.Function1 |
+| logging.logLevel.Function.Function1.User | AzureFunctionsJobHost__logging__logLevel__Function.Function1.User |
 
 
 You can override the settings directly at the Azure portal Function App Configuration blade or by using an Azure CLI or PowerShell script.

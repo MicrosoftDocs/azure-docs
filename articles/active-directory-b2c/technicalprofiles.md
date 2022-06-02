@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/30/2022
+ms.date: 11/30/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -99,7 +99,7 @@ The **TechnicalProfile** element contains the following elements:
 | InputClaimsTransformations | 0:1 | A list of previously defined references to claims transformations that should be executed before any claims are sent to the claims provider or the relying party. |
 | InputClaims | 0:1 | A list of previously defined references to claim types that are taken as input in the technical profile. |
 | PersistedClaims | 0:1 | A list of previously defined references to claim types that will be persisted by the technical profile. |
-| DisplayClaims | 0:1 | A list of previously defined references to claim types that are presented by the [self-asserted technical profile](self-asserted-technical-profile.md). |
+| DisplayClaims | 0:1 | A list of previously defined references to claim types that are presented by the [self-asserted technical profile](self-asserted-technical-profile.md). The DisplayClaims feature is currently in preview. |
 | OutputClaims | 0:1 | A list of previously defined references to claim types that are taken as output in the technical profile. |
 | OutputClaimsTransformations | 0:1 | A list of previously defined references to claims transformations that should be executed after the claims are received from the claims provider. |
 | ValidationTechnicalProfiles | 0:n | A list of references to other technical profiles that the technical profile uses for validation purposes. For more information, see [Validation technical profile](validation-technical-profile.md).|

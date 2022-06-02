@@ -31,7 +31,6 @@ The following table shows the plan options for each offer type. The following se
 | Managed service |  | &#10004; (BYOL) | &#10004; |
 | Software as a service | &#10004; |  | &#10004; |
 | Azure virtual machine | &#10004; |  | &#10004; |
-|||||
 
 Plans are not supported for the following offer types:
 
@@ -113,7 +112,7 @@ This table provides pricing information that’s specific to various offer types
 | Managed service | <ul><li>[Plan a Managed Service offer](plan-managed-service-offer.md#plans-and-pricing)</li><li>[Create plans for a Managed Service offer](create-managed-service-offer-plans.md#define-pricing-and-availability) |
 | Power BI app | <ul><li>[Plan a Power BI App offer](marketplace-power-bi.md#licensing-options)</li></ul> |
 | Software as a Service (SaaS) | <ul><li>[SaaS pricing models](plan-saas-offer.md#saas-pricing-models)</li><li>[SaaS billing](plan-saas-offer.md#saas-billing)</li><li>[Create plans for a SaaS offer](create-new-saas-offer-plans.md#define-a-pricing-model)</li></ul> |
-|
+
 
 ## Custom prices
 
