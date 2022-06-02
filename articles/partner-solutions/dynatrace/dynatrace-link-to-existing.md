@@ -2,6 +2,7 @@
 title: Linking to an existing Dynatrace resource
 description: This article describes how to use the Azure portal to link to an instance of Dynatrace.
 ms.topic: quickstart
+author: flang-msft
 ms.author: franlanglois
 ms.date: 06/07/2022
 
