@@ -256,7 +256,7 @@ Use this API to request a list of all the connections per device.
 
 Define any of the following query parameters to filter the results returned. If you don't set query parameters, all device connections are returned.
 
-|Parameter name  |Description  |Example  |
+|Name  |Description  |Example  |
 |---------|---------|---------|
 |**deviceId**     |  Get connections for the given device.       | `/api/v1/devices/<deviceId>/connections`        |
 |**lastActiveInMinutes**     | Filter results by a given time frame during which connections were active. Defined backwards from the current time.        |   `/api/v1/devices/2/connections?lastActiveInMinutes=20`      |
@@ -389,7 +389,7 @@ Use this API to request a list of all known CVEs discovered on devices in the ne
 Define any of the following query parameters to filter the results returned. If you don't set query parameters, all all device IP addresses with CVEs are returned, including to 100 top-scored CVEs for each IP address.
 
 
-|Parameter name  |Description  |Example  |
+|Name  |Description  |Example  |
 |---------|---------|---------|
 |**deviceId**     |  Get CVEs for the given device.       |  `/api/v1/devices/<ipAddress>/cves`       |
 |**top**     |    Determine how many top-scored CVEs to get for each device IP address.     |     `/api/v1/devices/cves?top=50` <br><br>  `/api/v1/devices/<ipAddress>/cves?top=50`      |
@@ -492,7 +492,7 @@ Use this API to request a list of all the alerts that the Defender for IoT senso
 **Query parameters**:
 
 
-|Parameter name  |Description  |Example  |
+|Name  |Description  |Example  |
 |---------|---------|---------|
 |**state**     | Get only handled or unhandled alerts. Supported values: <br>- `handled`<br>- `unhandled`       |  `/api/v1/alerts?state=handled`       |
 |**fromTime**     |   Get alerts created starting at a given time, in milliseconds and UTC format.      |    `/api/v1/alerts?fromTime=<epoch>`     |
@@ -595,7 +595,7 @@ Use this API to request a list of events reported to the event timeline.
 **Query parameters**:
 
 
-|Parameter name  |Description  |Example  |
+|Name  |Description  |Example  |
 |---------|---------|---------|
 |**minutesTimeFrame**     |  Filter results by a given time frame during which events were reported. Defined backwards from the current time.       |   `/api/v1/events?minutesTimeFrame=20`      |
 |**type**     |   Get results of a given type only.      |      `/api/v1/events?type=DEVICE_CONNECTION_CREATED` <br><br>  `/api/v1/events?type=REMOTE_ACCESS&minutesTimeFrame`|
@@ -1187,7 +1187,7 @@ This endpoint does not use a regular access token for authorization. Instead, it
 
 **Query parameters**:
 
-|Parameter name  |Description  |Example  |
+|Name  |Description  |Example  |
 |---------|---------|---------|
 |**id**     |   The Xsense Alert ID      |   `/api/v2/alerts/pcap/<id>      |
 
@@ -1199,7 +1199,7 @@ This endpoint does not use a regular access token for authorization. Instead, it
 One of the following messages:
 
 
-|Column1  |Column2  |
+|Name  |Description  |
 |---------|---------|
 |**Success**     | Binary file containing PCAP data        |
 |**Failure**     |  JSON object that contains error message       |
