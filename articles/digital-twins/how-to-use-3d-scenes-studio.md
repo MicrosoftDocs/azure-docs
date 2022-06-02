@@ -112,11 +112,7 @@ You can switch to **View** mode to enable filtering on specific elements and vis
 
 The viewer component can also be embedded into custom applications outside of 3D Scenes Studio, and can work in conjunction with 3rd party components.
 
-Here's an example of what the embedded viewer might look like in an independent application:
-
-:::image type="content" source="media/concepts-3d-scenes-studio/embedded-view.png" alt-text="Screenshot of 3D Scenes Studio in embedded view." lightbox="media/concepts-3d-scenes-studio/embedded-view.png":::
-
-The 3D visualization components are available in GitHub, in the [iot-cardboard-js](https://github.com/microsoft/iot-cardboard-js) repository. For instructions on how to use the components to embed 3D experiences into custom applications, see the repository's wiki, [Embedding 3D Scenes](https://github.com/microsoft/iot-cardboard-js/wiki/Embedding-3D-Scenes).
+[!INCLUDE [digital-twins-3d-embed.md](../../includes/digital-twins-3d-embed.md)]
 
 ## Add elements
 
