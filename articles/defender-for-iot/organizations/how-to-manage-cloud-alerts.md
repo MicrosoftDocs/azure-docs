@@ -48,11 +48,11 @@ The following alert details are displayed by default in the grid:
 
 | Column | Description
 |--|--|
-| **Severity**|  A predefined alert severity assigned by the sensor. Update the sensorseverity as needed. For more information, see [Manage alert status and severity(#manage-alert-status-and-severity).
+| **Severity**|  A predefined alert severity assigned by the sensor. Update the sensor severity as needed. For more information, see [Manage alert status and severity(#manage-alert-status-and-severity).
 | **Name** |  The alert title. |
 | **Site** |  The site associated with the sensor that detected the alert, as listed on the **Sites and sensors** page. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).|
-| **Engine** | The sensor  engine that detected the Operational Technology (OT) traffic. Formore information, see [Detection engines](how-to-control-what-traffic-is-monitored.md#detection-engines). For device builders, the term *micro-agent* is displayed instead. |
-| **Detection time** | The time the alert was detected, for as long as the alert statusremains **New**. If an alert is closed and the same traffic is seen again, this alert timeis updated to the new time. |
+| **Engine** | The sensor  engine that detected the Operational Technology (OT) traffic. For more information, see [Detection engines](how-to-control-what-traffic-is-monitored.md#detection-engines). For device builders, the term *micro-agent* is displayed instead. |
+| **Detection time** | The time the alert was detected, for as long as the alert status remains **New**. If an alert is closed and the same traffic is seen again, this alert time is updated to the new time. |
 | **Status** | The alert status: *New*, *Active*, *Closed* |
 | **Source device** | The IP address, MAC, or device name. |
 | **Tactics** | The MITRE ATT&CK stage. |
@@ -114,7 +114,7 @@ Supported categories include:
 
 ### Group alerts displayed
 
-Use the **Group by** menu at the top right to collapse the grid into sub-sections according to specific parameters.
+Use the **Group by** menu at the top right to collapse the grid into subsections according to specific parameters.
 
 For example, while the total number of alerts appears above the grid, you may want more specific information about alert count breakdown, such as the number of alerts with a specific severity, protocol, or site.
 
@@ -159,18 +159,15 @@ You can update alert status or severity for a single alert or for a group of ale
 
 ### Managing alerts in a hybrid deployment
 
-Users working in hybrid deployments may be managing alerts in Defender for IoT on the Azure portal, the sensor, and an on-premises management console.
+Users working in hybrid deployments may be managing alerts on both the Microsoft Defender for IoT portal, Alerts page, and on on-premises sensors and the management console.
 
-Alert management across all interfaces functions as follows:
+Users working with alerts in Azure and on-premises should understand how alert management between the portal and the on-premises components operates.
 
-- **Alert statuses are fully synchronized** between the Azure portal and the sensor. This means that when you set an alert status to **Closed** on either the Azure portal or the sensor, the alert status is updated in the other location as well.
-
-    Setting an alert status to **Closed** or **Muted** on a sensor updates the alert status to **Closed** on the Azure portal. Alert statuses are also synchronized between the sensor and the on-premises management console to keep all management sources updated with the correct alert statuses.
-
-- **Alert Exclusion rules**: If you're working with an on-premises management console, you may have defined alert *Exclusion rules* to determine the rules detected by relevant sensors.
-
-    Alerts excluded because they meet criteria for a specific exclusion rule are not displayed on the sensor, or in the Azure portal. For more information, see [Create alert exclusion rules](how-to-work-with-alerts-on-premises-management-console.md#create-alert-exclusion-rules).
-
+ Parameter | Description
+|--|--|
+| **Alert Exclusion rules**|  Alert *Exclusion rules* defined in the on-premises management console affect the rules detected by managed sensors. As a result, the alerts excluded be these rules won't be displayed in the Alerts page. See [Create alert exclusion rules](how-to-work-with-alerts-on-premises-management-console.md#create-alert-exclusion-rules) for more information. |
+| **Managing alerts on-premises**  |  Alerts  **Learned**,  **Acknowledged**, or **Muted** in the on-premises management console or in sensors aren't simultaneously updated in Alerts page on the Defender for IoT Cloud Alerts page. This means that this alert will stay open on the Cloud. However another alert  won't be triggered from the on-premises components for this activity. |
+| **Managing alert in the portal Alerts page** | Changing the status of an alert to **New**, **Active**, or **Closed** on the Alerts page or changing the alert severity on the Alerts page doesn't affect the alert status or severity  in the on-premises management console or sensors. |
 
 ## Next steps
 
