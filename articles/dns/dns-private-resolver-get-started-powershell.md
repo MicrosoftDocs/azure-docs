@@ -17,7 +17,7 @@ This article walks you through the steps to create your first private DNS zone a
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Azure DNS Private Resolver is a new service currently in public preview. Azure DNS Private Resolver enables you to query Azure DNS private zones from an on-prem environment and vice versa without deploying VM based DNS servers. For more information, including benefits, capabilities, and regional availability, see [What is Azure DNS Private Resolver](dns-private-resolver-overview.md).
+Azure DNS Private Resolver is a new service currently in public preview. Azure DNS Private Resolver enables you to query Azure DNS private zones from an on-premisesenvironment and vice versa without deploying VM based DNS servers. For more information, including benefits, capabilities, and regional availability, see [What is Azure DNS Private Resolver](dns-private-resolver-overview.md).
 
 ## Prerequisites
 
@@ -107,7 +107,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 ### Create the inbound endpoint
 
-Create an inbound endpoint to enable name resolution from on-prem or another private location using an IP address that is part of your private virtual network address space.
+Create an inbound endpoint to enable name resolution from on-premisesor another private location using an IP address that is part of your private virtual network address space.
 
 ```Azure PowerShell
 $ipconfig = New-AzDnsResolverIPConfigurationObject -PrivateIPAllocationMethod Dynamic -SubnetId /subscriptions/<your sub id>/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/snet-inbound
@@ -189,7 +189,7 @@ $virtualNetworkLink.ToJsonString()
 
 ## Create a second virtual network and link it to your DNS forwarding ruleset
 
-Create a second virtual network to simulate an on-prem or other environment.
+Create a second virtual network to simulate an on-premisesor other environment.
 
 ```Azure PowerShell
 $vnet2 = New-AzVirtualNetwork -Name myvnet2 -ResourceGroupName myresourcegroup -Location westcentralus -AddressPrefix "12.0.0.0/8"
