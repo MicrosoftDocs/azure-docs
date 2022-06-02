@@ -111,6 +111,8 @@
         href: iot-hub-devguide-messages-read-custom.md
       - name: Add queries to message routes
         href: iot-hub-devguide-routing-query-syntax.md
+      - name: Non-telemetry event schemas
+        href: iot-hub-non-telemetry-event-schema.md
       - name: Compare message and event routing
         href: iot-hub-event-grid-routing-comparison.md
     - name: Device management

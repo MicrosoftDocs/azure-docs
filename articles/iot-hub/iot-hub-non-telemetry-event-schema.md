@@ -11,7 +11,7 @@ services: iot-hub
 
 # Azure IoT Hub non-telemetry event schemas
 
-This article provides the properties and schema for non-telemetry events emitted by Azure IoT Hub. Non-telemetry events are different from device-to-cloud and cloud-to-device messages in that they are emitted directly by IoT Hub in response to specific kinds of changes on your devices. For example, lifecycle changes like a device or module being created or deleted, or connection state changes like device connects and disconnects. To observe non-telemetry events, you must have an appropriate message route configured. To learn more about IoT Hub message routing, see [IoT Hub message routing](iot-hub-devguide-messages-d2c.md).
+This article provides the properties and schema for non-telemetry events emitted by Azure IoT Hub. Non-telemetry events are different from device-to-cloud and cloud-to-device messages in that they are emitted directly by IoT Hub in response to specific kinds of state changes associated with your devices. For example, lifecycle changes like a device or module being created or deleted, or connection state changes like device or module connects and disconnects. To observe non-telemetry events, you must have an appropriate message route configured. To learn more about IoT Hub message routing, see [IoT Hub message routing](iot-hub-devguide-messages-d2c.md).
 
 ## Available event types
 
@@ -24,7 +24,7 @@ Azure IoT Hub emits the non-telemetry events in the following categories:
 | Device Twin Change Events | Emitted when a device or module twin is changed or replaced. |
 | Digital Twin Change Events | Emitted when a device's or module's digital twin is changed or replaced. |
 
-## Event common properties
+## Common event properties
 
 Non-telemetry events share several common properties.
 
