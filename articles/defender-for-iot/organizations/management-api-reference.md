@@ -19,26 +19,6 @@ This article lists the APIs supported for Defender for IoT OT on-premises monito
 |**Version 3**     |   External integration preview      |
 
 
-## Alert Exclusions
-
-Define conditions under which alerts *won't* be sent.
-
-For example, define and update stop and start times, devices or subnets that should be excluded when triggering alerts, or Defender for IoT engines that should be excluded.
-
-During a maintenance window, you might want to stop delivery of all alerts, except for malware alerts on critical devices. The items you define here appear in the on-premises management console's Alert Exclusions window as read-only exclusion rules.
-
-<!--this doesn't describe this API-->
-
-**URL**: `/external/authentication/validation`
-
-**Response example**:
-
-```rest
-{
-    "msg": "Authentication succeeded."
-}
-```
-
 ## set_password (Change password)
 
 Use this API to let users change their own passwords. All Defender for IoT user roles can work with the API.
@@ -1002,7 +982,7 @@ The APIs that you define here appear in the on-premises management console's Ale
 |**500 (Internal Server Error)**     |   Any other unexpected error.      |
 
 > [!NOTE]
-> Make sure that the ticket ID is not linked to an existing open window. The following exclusion rule is generated: Maintenance-{token name}-{ticket ID}.
+> Make sure that the ticket ID is not linked to an existing open window. The following exclusion rule is generated: `Maintenance-{token name}-{ticket ID}`.
 
 **Method**: PUT
 

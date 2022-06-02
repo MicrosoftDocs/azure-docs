@@ -43,15 +43,10 @@ You don't need a Defender for IoT access token to use this API.
 
 ```rest
 request:
-
 {
-
     "username": "test",
-
     "password": "Test12345\!"
-
 }
-
 ```
 
 # [Response](#tab/validation-response)
@@ -60,19 +55,17 @@ request:
 
 Message string with the operation status details:
 
-- **Success - msg**: Authentication succeeded
-
-- **Failure - error**: Credentials Validation Failed
+|Message  |Description  |
+|---------|---------|
+|**Success - msg**     |  Authentication succeeded       |
+|**Failure - error**     |  Credentials validation failed       |
 
 **Example**:
 
 ```rest
 response:
-
 {
-
     "msg": "Authentication succeeded."
-
 }
 ```
 
@@ -111,13 +104,9 @@ Use this API to let users change their own passwords. All Defender for IoT user 
 request:
 
 {
-
     "username": "test",
-
     "password": "Test12345\!",
-
     "new_password": "Test54321\!"
-
 }
 ```
 
@@ -136,11 +125,12 @@ request:
 
 Message string with the operation status details:
 
-- **Success – msg**: Password has been replaced
+|Message  |Description  |
+|---------|---------|
+|**Success – msg**     |   Password has been replaced      |
+|**Failure – error**     |   User authentication failure      |
+|**Failure – error**     |   Password does not match security policy      |
 
-- **Failure – error**: User authentication failure
-
-- **Failure – error**: Password does not match security policy
 
 **Example**:
 
@@ -148,13 +138,9 @@ Message string with the operation status details:
 response:
 
 {
-
     "error": {
-
         "userDisplayErrorMessage": "User authentication failure"
-
     }
-
 }
 ```
 
@@ -194,13 +180,9 @@ Use this API to let system administrators change passwords for specified users. 
 request:
 
 {
-
     "username": "test",
-
     "password": "Test12345\!",
-
     "new_password": "Test54321\!"
-
 }
 ```
 
@@ -219,15 +201,14 @@ request:
 
 Message string with the operation status details:
 
-- **Success – msg**: Password has been replaced
+|Message  |Description  |
+|---------|---------|
+|**Success – msg**     |   Password has been replaced      |
+|**Failure – error**     |   User authentication failure      |
+|**Failure – error**     |  User does not exist       |
+|**Failure – error**     | Password doesn't match security policy        |
+|**Failure – error**     |  User does not have the permissions to change password       |
 
-- **Failure – error**: User authentication failure
-
-- **Failure – error**: User does not exist
-
-- **Failure – error**: Password doesn't match security policy
-
-- **Failure – error**: User does not have the permissions to change password
 
 **Example**:
 
@@ -235,15 +216,10 @@ Message string with the operation status details:
 response:
 
 {
-
     "error": {
-
         "userDisplayErrorMessage": "The user 'test_user' doesn't exist",
-
         "internalSystemErrorMessage": "The user 'yoavfe' doesn't exist"
-
     }
-
 }
 
 ```
@@ -315,99 +291,52 @@ Array of JSON objects that represent device connections.
 
 ```rest
 [
-
     {
-
         "firstDeviceId": 171,
-
         "secondDeviceId": 22,
-
         "lastSeen": 1511281457933,
-
         "discovered": 1511872830000,
-
         "ports": [
-
             502
-
         ],
-
         "protocols": [
-
         {
-
             name: "modbus",
-
             commands: [
-
                 "Read Coils"
-
             ]
-
         },
-
         {
-
             name: "ams",
-
             commands: [
-
                 "AMS Write"
-
             ]
-
         },
-
         {
-
             name: "http",
-
             commands: [
-
             ]
-
         }
-
     ]
-
     },
-
     {
-
         "firstDeviceId": 171,
-
         "secondDeviceId": 23,
-
         "lastSeen": 1511281457933,
-
         "discovered": 1511872830000,
-
         "ports": [
-
             502
-
         ],
-
         "protocols": [
-
             {
-
                 name: "s7comm",
-
                 commands: [
-
                     "Download block",
-
                     "Upload"
-
                 ]
-
             }
-
         ]
-
     }
-
 ]
 ```
 
@@ -485,59 +414,33 @@ Array of JSON objects that represent CVEs identified on IP addresses.
 
 ```rest
 [
-
     {
 
         "cveId": "CVE-2007-0099",
-
         "score": "9.3",
-
         "ipAddress": "10.35.1.51",
-
         "attackVector": "NETWORK",
-
         "description": "Race condition in the msxml3 module in Microsoft XML Core
-
         Services 3.0, as used in Internet Explorer 6 and other
-
         applications, allows remote attackers to execute arbitrary
-
         code or cause a denial of service (application crash) via many
-
         nested tags in an XML document in an IFRAME, when synchronous
-
         document rendering is frequently disrupted with asynchronous
-
         events, as demonstrated using a JavaScript timer, which can
-
         trigger NULL pointer dereferences or memory corruption, aka
-
         \"MSXML Memory Corruption Vulnerability.\""
-
     },
-
     {
-
         "cveId": "CVE-2009-1547",
-
         "score": "9.3",
-
         "ipAddress": "10.35.1.51",
-
         "attackVector": "NETWORK",
-
         "description": "Unspecified vulnerability in Microsoft Internet Explorer 5.01
-
         SP4, 6, 6 SP1, and 7 allows remote attackers to execute
-
         arbitrary code via a crafted data stream header that triggers
-
         memory corruption, aka \"Data Stream Header Corruption
-
         Vulnerability.\""
-
     }
-
 ]
 ```
 
@@ -631,63 +534,34 @@ Use this API to request a list of all the alerts that the Defender for IoT senso
 
 ```rest
 [
-
     {
-
         "engine": "Policy Violation",
-
         "severity": "Major",
-
         "title": "Internet Access Detected",
-
         "additionalinformation": {
-
             "information": [
-
                 "170.60.50.201 over port BACnet (47808)"
-
             ],
-
             "description": "External Addresses"
-
         },
-
         "sourceDevice": null,
-
         "destinationDevice": null,
-
         "time": 1509881077000,
-
         "message": "Device 192.168.0.13 tried to access an external IP address which is an address in the Internet and is not allowed by policy. It is recommended to notify the security officer of the incident.",
-
         "id": 1
-
     },
-
     {
-
         "engine": "Protocol Violation",
-
         "severity": "Major",
-
         "title": "Illegal MODBUS Operation (Exception Raised by Master)",
-
         "sourceDevice": 3,
-
         "destinationDevice": 4,
-
         "time": 1505651605000,
-
         "message": "A MODBUS master 192.168.110.131 attempted to initiate an illegal operation.\nThe operation is considered to be illegal since it incorporated function code \#129 which should not be used by a master.\nIt is recommended to notify the security officer of the incident.",
-
         "id": 2,
-
         "additionalInformation": null,
-
     }
-
 ]
-
 ```
 
 # [Curl command](#tab/alerts-curl)
@@ -746,73 +620,39 @@ Array of JSON objects that represent alerts.
 
 ```rest
 [
-
     {
-
         "severity": "INFO",
-
         "title": "Back to Normal",
-
         "timestamp": 1504097077000,
-
         "content": "Device 10.2.1.15 was found responsive, after being suspected as disconnected",
-
         "owner": null,
-
         "type": "BACK_TO_NORMAL"
-
     },
-
     {
-
         "severity": "ALERT",
-
         "title": "Alert Detected",
-
         "timestamp": 1504096909000,
-
         "content": "Device 10.2.1.15 is suspected to be disconnected (unresponsive).",
-
         "owner": null,
-
         "type": "ALERT_REPORTED"
-
     },
-
     {
-
         "severity": "ALERT",
-
         "title": "Alert Detected",
-
         "timestamp": 1504094446000,
-
         "content": "A DNP3 Master 10.2.1.14 attempted to initiate a request which is not allowed by policy.\nThe policy indicates the allowed function codes, address ranges, point indexes and time intervals.\nIt is recommended to notify the security officer of the incident.",
-
         "owner": null,
-
         "type": "ALERT_REPORTED"
-
     },
-
     {
-
         "severity": "NOTICE",
-
         "title": "PLC Program Update",
-
         "timestamp": 1504094344000,
-
         "content": "Program update detected, sent from 10.2.1.25 to 10.2.1.14",
-
         "owner": null,
-
         "type": "PROGRAM_DEVICE"
-
     }
-
 ]
-
 ```
 
 # [Curl command](#tab/events-curl)
@@ -923,149 +763,77 @@ Array of JSON objects that represent assessed devices.
 
 ```rest
 [
-
     {
-
         "name": "IED \#10",
-
         "ipAddresses": ["10.2.1.10"],
-
         "securityScore": 100,
-
         "vendor": "ABB Switzerland Ltd, Power Systems",
-
         "firmwareVersion": null,
-
         "model": null,
-
         "operatingSystem": {
-
             "name": "ABB Switzerland Ltd, Power Systems",
-
             "type": "abb",
-
             "version": null,
-
             "latestVersion": null
-
         },
-
         "vulnerabilities": {
-
         "antiViruses": [
-
         "McAfee"
-
         ],
-
         "plainTextPasswords": [
-
             {
-
                 "password": "123456",
-
                 "protocol": "HTTP",
-
                 "lastSeen": 1462726930471,
-
                 "strength": "Very Weak"
-
             }
-
         ],
-
         "remoteAccess": [
-
             {
-
                 "port": 5900,
-
                 "transport": "TCP",
-
                 "clientSoftware": "VNC",
-
                 "client": "10.2.1.20"
-
             }
-
         ],
-
         "isBackupServer": true,
-
         "openedPorts": [
-
             {
-
                 "port": 445,
-
                 "transport": "TCP",
-
                 "protocol": "SMP Over IP",
-
                 "isConflictingWithFirewall": false
-
             },
-
             {
-
                 "port": 80,
-
                 "transport": "TCP",
-
                 "protocol": "HTTP",
-
                 "isConflictingWithFirewall": false
-
             }
-
         ],
-
         "isEngineeringStation": false,
-
         "isKnownScanner": false,
-
         "cves": [
-
             {
-
                 "id": "CVE-2015-6490",
-
                 "score": 10,
-
                 "description": "Frosty URL - Stack-based buffer overflow on Allen-Bradley MicroLogix 1100 devices before B FRN 15.000 and 1400 devices through B FRN 15.003 allows remote attackers to execute arbitrary code via unspecified vectors"
-
             },
-
             {
-
                 "id": "CVE-2012-6437",
-
                 "score": 10,
-
                 "description": "MicroLogix 1100 and 1400 do not properly perform authentication for Ethernet firmware updates, which allows remote attackers to execute arbitrary code via a Trojan horse update image"
-
             },
-
             {
-
                 "id": "CVE-2012-6440",
-
                 "score": 9.3,
-
                 "description": "MicroLogix 1100 and 1400 allows man-in-the-middle attackers to conduct replay attacks via HTTP traffic."
-
             }
-
         ],
-
         "isUnauthorized": false,
-
         "malwareIndicationsDetected": true
-
         }
-
     }
-
 ]
 ```
 
@@ -1166,157 +934,81 @@ JSON object that represents assessed results. Each key can be nullable. Otherwis
 
 ```rest
 {
-
     "unauthorizedDevices": [
-
         {
-
             "address": "10.2.1.14",
-
             "name": "PLC \#14",
-
             "firstDetectionTime": 1462645483000,
-
             "lastSeen": 1462645495000,
-
         }
-
     ],
-
     "redundantFirewallRules": [
-
         {
-
             "sources": "170.39.3.0/255.255.255.0",
-
             "destinations": "Any",
-
             "ports": "102"
-
         }
-
     ],
-
     "connectionsBetweenSubnets": [
-
         {
-
             "server": "10.2.1.22",
-
             "client": "170.39.2.0"
-
         }
-
     ],
-
     "industrialMalwareIndications": [
-
         {
-
             "detectionTime": 1462645483000,
-
             "alertMessage": "Suspicion of Malicious Activity (Regin)",
-
             "description": "Suspicious network activity was detected. Such behavior might be attributed to the Regin malware.",
-
             "addresses": [
-
                 "10.2.1.4",
-
                 "10.2.1.5"
-
             ]
-
         }
-
     ],
-
     "illegalTrafficByFirewallRules": [
-
         {
-
             "server": "10.2.1.7",
-
             "port": "20000",
-
             "client": "10.2.1.4",
-
             "transport": "TCP"
-
         },
-
         {
-
             "server": "10.2.1.8",
-
             "port": "20000",
-
             "client": "10.2.1.4",
-
             "transport": "TCP"
-
         },
-
         {
-
             "server": "10.2.1.9",
-
             "port": "20000",
-
             "client": "10.2.1.4",
-
             "transport": "TCP"
-
         }
-
     ],
-
     "internetConnections": [
-
         {
-
             "internalAddress": "10.2.1.1",
-
             "authorized": "Yes",
-
             "externalAddresses": ["10.2.1.2",”10.2.1.3”]
-
         }
-
     ],
-
     "accessPoints": [
-
         {
-
             "macAddress": "ec:08:6b:0f:1e:22",
-
             "vendor": "TP-LINK TECHNOLOGIES",
-
             "ipAddress": "173.194.112.22",
-
             "name": "Enterprise AP",
-
             "wireless": "Yes"
-
         }
-
     ],
-
     "weakFirewallRules": [
-
         {
-
             "sources": "170.39.3.0/255.255.255.0",
-
             "destinations": "Any",
-
             "ports": "102"
-
         }
-
     ]
-
 }
 ```
 
@@ -1402,125 +1094,65 @@ JSON object that represents assessed results. Each key contains a JSON array of 
 
 ```rest
 {
-
     "backupServer": [
-
         {
-
             "backupMaximalInterval": "1 Hour, 29 Minutes",
-
             "source": "10.2.1.22",
-
             "destination": "170.39.2.14",
-
             "port": 10000,
-
             "transport": "TCP",
-
             "lastSeenBackup": 1462645483000
-
         }
-
     ],
-
     "ipNetworks": [
-
         {
-
             "addresses": "21",
-
             "network": "10.2.1.0",
-
             "mask": "255.255.255.0"
-
         },
-
         {
-
             "addresses": "3",
-
             "network": "170.39.2.0",
-
             "mask": "255.255.255.0"
-
         }
-
     ],
-
     "protocolProblems": [
-
         {
-
             "protocol": "DNP3",
-
             "addresses": [
-
                 "10.2.1.7",
-
                 "10.2.1.8"
-
             ],
-
             "alert": "Illegal DNP3 Operation",
-
             "reportTime": 1462645483000
-
         },
-
         {
-
             "protocol": "DNP3",
-
             "addresses": [
-
                 "10.2.1.15"
-
             ],
-
             "alert": "Master Requested an Application Layer Confirmation",
-
             "reportTime": 1462645483000
-
         }
-
     ],
-
     "protocolDataVolumes": [
-
         {
-
             "protocol": "MODBUS (502)",
-
             "volume": "21.07 MB"
-
         },
-
         {
-
             "protocol": "SSH (22)",
-
             "volume": "0.001 MB"
-
         }
-
     ],
-
     "disconnections": [
-
         {
-
             "assetAddress": "10.2.1.3",
-
             "assetName": "PLC \#3",
-
             "lastDetectionTime": 1462645483000,
-
             "backToNormalTime": 1462645484000
-
         }
-
     ]
-
 }
 ```
 
@@ -1566,8 +1198,12 @@ This endpoint does not use a regular access token for authorization. Instead, it
 
 One of the following messages:
 
-- **Success**: Binary file containing PCAP data
-- **Failure**: JSON object that contains error message
+
+|Column1  |Column2  |
+|---------|---------|
+|**Success**     | Binary file containing PCAP data        |
+|**Failure**     |  JSON object that contains error message       |
+
 
 **Response example**: Error
 
