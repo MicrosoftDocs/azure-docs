@@ -90,7 +90,7 @@ Use either of the following deployment checklists during the setup, or for troub
 
 1. Make sure that the Power BI tenant ID is entered correctly during the registration. By default, the Power BI tenant ID that exists in the same Azure Active Directory (Azure AD) as Microsoft Purview is populated.
 
-1. From the Azure portal, validate if Microsoft Purview account Network is set to **public access**.
+1. From the Azure portal, validate if the Microsoft Purview account network is set to **public access**.
 
 1. From the Power BI tenant admin portal, make sure that the Power BI tenant is configured to allow a public network.
 
