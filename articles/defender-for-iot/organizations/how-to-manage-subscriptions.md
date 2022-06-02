@@ -1,7 +1,7 @@
 ---
 title: Manage subscriptions
 description: Subscriptions consist of managed committed devices and can be onboarded or offboarded as needed. 
-ms.date: 11/09/2021
+ms.date: 06/02/2022
 ms.topic: how-to
 ---
 

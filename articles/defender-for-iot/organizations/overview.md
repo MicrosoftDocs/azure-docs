@@ -2,7 +2,7 @@
 title: Overview - Microsoft Defender for IoT for organizations
 description: Learn about Microsoft Defender for IoT's features for end-user organizations and comprehensive IoT security for OT and Enterprise IoT networks.
 ms.topic: overview
-ms.date: 03/23/2022
+ms.date: 06/02/2022
 ms.custom: ignite-fall-2021
 ---
 

@@ -2,7 +2,7 @@
 title: Use Azure Monitor workbooks in Microsoft Defender for IoT
 description: Learn how to view and create Azure Monitor workbooks for Defender for IoT data.
 ms.topic: how-to
-ms.date: 04/28/2022
+ms.date: 06/02/2022
 ---
 
 # Use Azure Monitor workbooks in Microsoft Defender for IoT

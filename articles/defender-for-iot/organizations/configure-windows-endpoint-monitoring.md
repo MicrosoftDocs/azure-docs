@@ -1,7 +1,7 @@
 ---
 title: Configure Windows Endpoint Monitoring for OT active monitoring - Microsoft Defender for IoT
 description: This article describes how to configure Windows Endpoint Monitoring with active monitoring with Microsoft Defender for IoT.
-ms.date: 05/15/2022
+ms.date: 06/02/2022
 ms.topic: how-to
 ---
 

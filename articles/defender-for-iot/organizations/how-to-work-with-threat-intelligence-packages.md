@@ -1,7 +1,7 @@
 ---
 title: Update threat intelligence data
 description: The threat intelligence data package is provided with each new Defender for IoT version, or if needed between releases.
-ms.date: 11/09/2021
+ms.date: 06/02/2022
 ms.topic: how-to
 ---
 # Threat intelligence research and packages

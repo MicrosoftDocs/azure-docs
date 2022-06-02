@@ -1,7 +1,7 @@
 ---
 title: Configure active monitoring for OT networks - Microsoft Defender for IoT
 description: Describes the available methods for configuring active monitoring on your OT network with Microsoft Defender for IoT.
-ms.date: 05/15/2022
+ms.date: 06/02/2022
 ms.topic: how-to
 ---
 

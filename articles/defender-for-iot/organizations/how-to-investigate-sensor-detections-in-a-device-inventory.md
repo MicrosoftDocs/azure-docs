@@ -1,7 +1,7 @@
 ---
 title: View your device inventory from a sensor console
 description: The device inventory displays an extensive range of device attributes that a sensor detects. 
-ms.date: 03/09/2022
+ms.date: 06/02/2022
 ms.topic: how-to
 ---
 

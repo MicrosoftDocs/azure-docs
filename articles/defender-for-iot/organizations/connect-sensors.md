@@ -2,7 +2,7 @@
 title: Connect OT sensors to Microsoft Defender for IoT in the cloud
 description: Learn how to connect your Microsoft Defender for IoT OT sensors to the cloud
 ms.topic: how-to
-ms.date: 03/13/2022
+ms.date: 06/02/2022
 ---
 
 # Connect your OT sensors to the cloud

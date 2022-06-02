@@ -1,7 +1,7 @@
 ---
 title: Passive vs active monitoring - Microsoft Defender for IoT
 description: Describes how Microsoft Defender for IoT provides both passive and active monitoring on your network devices, and provides guidance as to when to use each method.
-ms.date: 06/06/2022
+ms.date: 06/02/2022
 ms.topic: conceptual
 ---
 
