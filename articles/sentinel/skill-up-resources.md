@@ -261,6 +261,72 @@ SOC efficiency** webinar. [YouTube](https://youtu.be/148mr8anqtI), [Presentation
 
 ### Module 7: Log transformation
 
+Microsoft Sentinel supports two new features for data ingestion and transformation. These features, provided by Log Analytics, act on your data even before it's stored in your workspace.
+
+1. The first of these features is the [**custom logs API.**](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/custom-logs-overview) It allows you to send custom-format logs from any data source to your Log Analytics workspace, and store those logs either in certain specific standard tables, or in custom-formatted tables that you create. The actual ingestion of these logs can be done by direct API calls. You can use Log Analytics [data collection rules (DCRs)](https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/data-collection-rule-overview) to define and configure these workflows.
+
+2. The second feature is [**ingestion-time data transformation for standard logs**](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/ingestion-time-transformations). It uses [DCRs](https://docs.microsoft.com/en-us/azure/azure-monitor/essentials/data-collection-rule-overview) to filter out irrelevant data, to enrich or tag your data, or to hide sensitive or personal information. Data transformation can be configured at ingestion time for the following types of built-in data connectors:
+    * AMA-based data connectors (based on the new Azure Monitor Agent)
+    * MMA-based data connectors (based on the legacy Log Analytics Agent)
+    * Data connectors that use Diagnostic settings
+    * [Service-to-service data connectors](https://docs.microsoft.com/en-us/azure/sentinel/data-connectors-reference)
+
+For more information, see: 
+* [Transform or customize data at ingestion time in Microsoft Sentinel](https://docs.microsoft.com/en-us/azure/sentinel/configure-data-transformation)
+* [Custom data ingestion and transformation in Microsoft Sentinel](https://docs.microsoft.com/en-us/azure/sentinel/data-transformation)
+* [Find your Microsoft Sentinel data connector](https://docs.microsoft.com/en-us/azure/sentinel/data-connectors-reference)
+
+### Module 8: Migration 
+
+In many (if not most) cases, you already have a SIEM and need to migrate to Microsoft Sentinel. While it may be a good time to start over and rethink your SIEM implementation, it makes sense to utilize some of the assets you already built in your current implementation. To start watch our webinar describing best practices for converting detection rules from Splunk, QRadar, and ArcSight to Azure Sentinel Rules: [YouTube](https://youtu.be/njXK1h9lfR4), [MP4](https://aka.ms/AzSentinel_DetectionRules_19FEB21_MP4), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmhlsYDm99KLbNWlq5), [blog](https://techcommunity.microsoft.com/t5/azure-sentinel/best-practices-for-migrating-detection-rules-from-arcsight/ba-p/2216417).
+
+You might also be interested in some of the following additional resources:
+
+* [Splunk SPL to KQL mappings](https://github.com/Azure/Azure-Sentinel/blob/master/Tools/RuleMigration/SPL%20to%20KQL.md)
+* [ArcSight and QRadar rule mapping samples](https://github.com/Azure/Azure-Sentinel/blob/master/Tools/RuleMigration/Rule%20Logic%20Mappings.md)
+
+### Module 9: Advanced SIEM Information Model (ASIM) and Normalization 
+
+Working with various data types and tables together presents a challenge. You must become familiar with many different data types and schemas, write and use a unique set of analytics rules, workbooks, and hunting queries for each, even for those that share commonalities (for example, DNS servers). Correlation between the different data types necessary for investigation and hunting is also tricky.
+
+The **Advanced SIEM Information Model (ASIM)** provides a seamless experience for handling various sources in uniform, normalized views. ASIM aligns with the Open-Source Security Events Metadata (OSSEM) common information model, promoting vendor agnostic, industry-wide normalization. Watch the Advanced SIEM Information Model (ASIM): Now built into Microsoft Sentinel webinar:  YouTube, Deck.
+
+The current implementation is based on query time normalization using KQL functions and includes the following:
+
+* **Normalized schemas** cover standard sets of predictable event types that are easy to work with and build unified capabilities. The schema defines which fields should represent an event, a normalized column naming convention, and a standard format for the field values. 
+    * Watch the _Understanding Normalization in Microsoft Sentinel_ webinar: [YouTube](https://www.youtube.com/watch?v=WoGD-JeC7ng), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG).
+    * Watch the _Deep Dive into Microsoft Sentinel Normalizing Parsers and Normalized Content_ webinar: [YouTube](https://www.youtube.com/watch?v=zaqblyjQW6k), [MP3](https://aka.ms/AS_Normalizing_Parsers_and_Normalized_Content_11AUG2021_MP4), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM).
+* **Parsers** map existing data to the normalized schemas. Parsers are implemented using [KQL functions](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/functions/user-defined-functions).  Watch the _Extend and Manage ASIM: Developing, Testing and Deploying Parsers_ webinar: [YouTube](https://youtu.be/NHLdcuJNqKw), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmk0_k0zs21rL7euHp?e=5XkTnW).
+* **Content** for each normalized schema includes analytics rules, workbooks, hunting queries, and additional content. This content works on any normalized data without the need to create source-specific content.
+ 
+
+Using ASIM provides the following benefits:
+
+* **Cross source detection**: Normalized analytic rules work across sources, on-prem and cloud, now detecting attacks such as brute force or impossible travel across systems including Okta, AWS, and Azure.
+* **Allows source agnostic content**: the coverage of built-in as well as custom content using ASIM automatically expands to any source that supports ASIM, even if the source was added after the content was created. For example, process event analytics support any source that a customer may use to bring in the data, including Defender for Endpoint, Windows Events, and Sysmon. We are ready to add [Sysmon for Linux](https://twitter.com/markrussinovich/status/1283039153920368651?lang=en) and WEF once released!
+* **Support for your custom sources in built-in analytics**
+* **Ease of use:** once an analyst learns ASIM, writing queries is much simpler as the field names are always the same.
+
+
+**To learn more about ASIM:**
+
+* Watch the overview webinar: [YouTube](https://www.youtube.com/watch?v=WoGD-JeC7ng), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG) .
+* Watch the _Deep Dive into Microsoft Sentinel Normalizing Parsers and Normalized Content_ webinar: [YouTube](https://www.youtube.com/watch?v=zaqblyjQW6k), [MP3](https://aka.ms/AS_Normalizing_Parsers_and_Normalized_Content_11AUG2021_MP4), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmjGtoRPQ2XYe3wQDz?e=R3dWeM).
+* Watch the _Turbocharging ASIM: Making Sure Normalization Helps Performance Rather Than Impacting It_ webinar: [YouTube](https://youtu.be/-dg_0NBIoak), [MP4](https://1drv.ms/v/s!AnEPjr8tHcNmjk5AfH32XSdoVzTJ?e=a6hCHb), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmjnQITNn35QafW5V2?e=GnCDkA).
+* Read the [documentation](https://aka.ms/AzSentinelNormalization).
+
+**To Deploy ASIM:**
+
+* Deploy the parsers from the folders starting with “ASIM*” in the [parsers](https://github.com/Azure/Azure-Sentinel/tree/master/Parsers) folder on GitHub.
+* Activate analytic rules that use ASIM. Search for “normal” in the template gallery to find some of them. To get the full list use this [GitHub search](https://github.com/search?q=ASIM+repo%3AAzure%2FAzure-Sentinel+path%3A%2Fdetections&type=Code&ref=advsearch&l=&l=).
+
+**To Use ASIM:**
+
+* Use the [ASIM hunting queries from GitHub](https://github.com/search?q=ASIM+repo%3AAzure%2FAzure-Sentinel+path%3A%2Fdetections+path%3A%22%2FHunting+Queries%22&type=Code&ref=advsearch&l=&l=)
+* Use ASIM queries when using KQL in the log screen.
+* Write your own analytic rules using ASIM or [convert existing ones](https://docs.microsoft.com/en-us/azure/sentinel/normalization#modifying-your-content-to-use-normalized-data).
+* Write [parsers](https://docs.microsoft.com/en-us/azure/sentinel/normalization#asim-components) for your custom sources to make them ASIM compatible and take part in built-in analytics
+
 ## Part 3: Creating Content
 
 ## Part 4: Operating
