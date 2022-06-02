@@ -48,7 +48,7 @@ This procedure describes how to define sensor settings from the Azure portal and
 1. Select **Add** and use the wizard to define values for your setting.
 
 1. On the **Basics** tab, select your subscription and setting type. Then, define a meaningful name and an optional description for your setting.
-:::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sensor-settings-details.png" alt-text="":::
+
 1. On the **Setting** tab, define the value for your selected setting type, and then select **Next**. For more information, see [Sensor setting reference](#sensor-setting-reference) below.
 
 1. On the **Apply** tab, select the sites, zones, and sensors where you want to apply your setting.
