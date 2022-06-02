@@ -17,10 +17,10 @@ Please see [Azure Database for PostgreSQL versioning policy](concepts-version-po
 Azure Database for PostgreSQL currently supports the following major versions:
 
 ## PostgreSQL version 11
-The current minor release is 11.12. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/11/static/release-11-12.html) to learn more about improvements and fixes in this minor release.
+The current minor release is 11.15. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/11/static/release-11-15.html) to learn more about improvements and fixes in this minor release.
 
 ## PostgreSQL version 10
-The current minor release is 10.17. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/10/static/release-10-17.html) to learn more about improvements and fixes in this minor release.
+The current minor release is 10.20. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/10/static/release-10-20.html) to learn more about improvements and fixes in this minor release.
 
 ## PostgreSQL version 9.6 (retired)
 Aligning with Postgres community's [versioning policy](https://www.postgresql.org/support/versioning/), Azure Database for PostgreSQL has retired PostgreSQL version 9.6 as of November 11, 2021.  See [Azure Database for PostgreSQL versioning policy](concepts-version-policy.md) for more details and restrictions. If you're running this major version, upgrade to a higher version, preferably to PostgreSQL 11 at your earliest convenience.
