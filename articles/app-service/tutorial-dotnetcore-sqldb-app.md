@@ -191,7 +191,8 @@ When prompted, provide the administrator username and password for the SQL datab
 > - In your App Service app, adds a connection string with that name `AZURE_SQL_CONNECTIONSTRING`, which your code can use for its database connection.
 > - In your SQL database server, allows Azure services to access the SQL database server.
 
-Copy this Connection String value from the output for later use.
+Copy this connection string value from the output for later.
+
 ---
 
 ## 6 - Generate the Database Schema
