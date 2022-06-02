@@ -30,20 +30,20 @@ For a group of Arc-enabled servers undergoing an update, the Azure platform will
 
 **Across regions:**
 
-- Geo-paired regions are not applicable.
+- Geo-paired regions aren't applicable.
 
 **Within a region:**
 
-- Availability Zones are not applicable.
+- Availability Zones aren't applicable.
 - Machines are batched on a best effort basis to avoid concurrent updates for all machines registered with Arc-enabled servers in a subscription.
 
 ### Automatic rollback and retries
 
-In the event that an extension upgrade fails, the following actions will happen:
+If an extension upgrade fails, Azure will try to repair the extension by performing the following actions:
 
-1. The Azure Connected Machine agent will automatically re-install the last known good version of the extension to attempt to restore functionality.
-1. If the rollback is successful, the extension status will show as **Succeeded** and the extension will be re-added to the automatic upgrade queue. The next upgrade attempt can be as soon as the next hour and will continue until the upgrade is successful.
-1. If the rollback fails, the extension status will show as **Failed** and the extension will no longer function as intended. You will need to [remove](manage-vm-extensions-cli.md#remove-extensions) and [re-install](manage-vm-extensions-cli.md#enable-extension) the extension to restore functionality.
+1. The Azure Connected Machine agent will automatically reinstall the last known good version of the extension to attempt to restore functionality.
+1. If the rollback is successful, the extension status will show as **Succeeded** and the extension will be added to the automatic upgrade queue again. The next upgrade attempt can be as soon as the next hour and will continue until the upgrade is successful.
+1. If the rollback fails, the extension status will show as **Failed** and the extension will no longer function as intended. You'll need to [remove](manage-vm-extensions-cli.md#remove-extensions) and [reinstall](manage-vm-extensions-cli.md#enable-extension) the extension to restore functionality.
 
 If you continue to have trouble upgrading an extension, you can [disable automatic extension upgrade](#disable-automatic-extension-upgrade) to prevent the system from trying again while you troubleshoot the issue. You can [enable automatic extension upgrade](#enable-automatic-extension-upgrade) again when you're ready.
 
@@ -93,7 +93,7 @@ Get-AzConnectedMachineExtension -ResourceGroup resourceGroupName -MachineName ma
 
 A machine managed by Arc-enabled servers can have multiple extensions with automatic extension upgrade enabled. The same machine can also have other extensions without automatic extension upgrade enabled.
 
-If multiple extension upgrades are available for a machine, the upgrades may be batched together, but each extension upgrade is applied individually on a machine. A failure on one extension does not impact the other extension(s) to be upgraded. For example, if two extensions are scheduled for an upgrade, and the first extension upgrade fails, the second extension will still be upgraded.
+If multiple extension upgrades are available for a machine, the upgrades may be batched together, but each extension upgrade is applied individually on a machine. A failure on one extension doesn't impact the other extension(s) to be upgraded. For example, if two extensions are scheduled for an upgrade, and the first extension upgrade fails, the second extension will still be upgraded.
 
 ## Disable automatic extension upgrade
 
