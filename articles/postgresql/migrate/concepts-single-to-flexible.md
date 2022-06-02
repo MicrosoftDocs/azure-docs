@@ -95,9 +95,9 @@ Based on the above differences, pick the mode that best works for your workloads
 
 Follow the steps provided in this section before you get started with the single to flexible server migration tool.
 
-- **Target Server Creation** - You need to create the target PostgreSQL flexible server before using the migration tool. Use the creation [QuickStart guide](../flexible-server/quickstart-create-server-portal.md) to create one.
+- **Target Server Creation** - You need to create the target PostgreSQL Flexible Server before using the migration tool. Use the creation [QuickStart guide](../flexible-server/quickstart-create-server-portal.md) to create one.
 
-- **Source Server pre-requisites** - You must [enable logical replication](./concepts-logical.md) on the source server.
+- **Source Server pre-requisites** - You must [enable logical replication](../single-server/concepts-logical.md) on the source server.
 
     :::image type="content" source="./media/concepts-single-to-flexible/logical-replication-support.png" alt-text="Screenshot of logical replication support in Azure portal." lightbox="./media/concepts-single-to-flexible/logical-replication-support.png":::
 
@@ -110,8 +110,8 @@ Follow the steps provided in this section before you get started with the single
 
 Once all these pre-requisites are taken care of, you can do the migration. This automated step involves schema and data migration using Azure portal or Azure CLI.
 
-- [Migrate using Azure portal](./how-to-migrate-single-to-flexible-portal.md)
-- [Migrate using Azure CLI](./how-to-migrate-single-to-flexible-cli.md)
+- [Migrate using Azure portal](../migrate/how-to-migrate-single-to-flexible-portal.md)
+- [Migrate using Azure CLI](../migrate/how-to-migrate-single-to-flexible-cli.md)
 
 ### Post migration
 
@@ -180,5 +180,5 @@ Once all these pre-requisites are taken care of, you can do the migration. This 
 
 ## Next steps
 
-- [Migrate to Flexible Server using Azure portal](./how-to-migrate-single-to-flexible-portal.md).
-- [Migrate to Flexible Server using Azure CLI](./how-to-migrate-single-to-flexible-cli.md)
+- [Migrate to Flexible Server using Azure portal](../migrate/how-to-migrate-single-to-flexible-portal.md).
+- [Migrate to Flexible Server using Azure CLI](../migrate/how-to-migrate-single-to-flexible-cli.md)
