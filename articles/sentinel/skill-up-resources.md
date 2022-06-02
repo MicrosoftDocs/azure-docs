@@ -176,6 +176,106 @@ If your source is not available, you can [create a custom connector](https://doc
 
 ### Module 5: Log management
 
+While 'how many workspaces and which ones to use' is the first architecture question to ask when configuring Sentinel,  ther are additional log management architectural decisions to consider: 
+* Where and how long to retain data.
+* How to best manage access to data and secure it.
+
+**Ingest, Archive, Search, and Restore Data within Microsoft Sentinel**
+
+Watch the webinar: Manage Your Log Lifecycle with New Methods for Ingestion, Archival, Search, and Restoration, [here](https://www.youtube.com/watch?v=LgGpSJxUGoc&ab_channel=MicrosoftSecurityCommunity).
+
+
+This suite of features contains:
+
+* **Basic ingestion tier**: new pricing tier for Azure Log Analytics that allows for logs to be ingested at a lower cost. This data is only retained in the workspace for 8 days total.
+* **Archive tier**: Azure Log Analytics has expanded its retention capability from 2 years to 7 years. With that, this new tier for data will allow for the data to be retained up to 7 years in a low-cost archived state.
+* **Search jobs**: search tasks that run limited KQL in order to find and return all relevant logs to what is searched. These jobs search data across the analytics tier, basic tier. and archived data.
+* **Data restoration**: new feature that allows users to pick a data table and a time range in order to restore data to the workspace via restore table.
+
+Learn more about these new features in [this article](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/ingest-archive-search-and-restore-data-in-microsoft-sentinel/ba-p/3195126).
+
+**Alternative retention options outside of the Microsoft Sentinel platform**
+
+If you want to retain data for _more than two years_ or _reduce the retention cost_, you can consider using Azure Data Explorer for long-term retention of Microsoft Sentinel logs: [Webinar Slides](https://onedrive.live.com/?authkey=%21AGe3Zue4W0xYo4s&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21963&parId=66C31D2DBF8E0F71%21954&o=OneUp), [Webinar Recording](https://www.youtube.com/watch?v=UO8zeTxgeVw&ab_channel=MicrosoftSecurityCommunity), [Blog](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/using-azure-data-explorer-for-long-term-retention-of-microsoft/ba-p/1883947).
+
+Need more depth? Watch the Improving the Breadth and Coverage of Threat Hunting with ADX Support, More Entity Types, and Updated MITRE Integration webinar [here](https://www.youtube.com/watch?v=5coYjlw2Qqs&ab_channel=MicrosoftSecurityCommunity).
+
+If you prefer another long-term retention solution, [export from Microsoft Sentinel / Log Analytics to Azure Storage and Event Hub](https://docs.microsoft.com/en-us/cli/azure/monitor/log-analytics/workspace/data-export?view=azure-cli-latest&viewFallbackFrom=azure-cli-latest) or [move Logs to Long-Term Storage using Logic Apps](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/logs-export-logic-app). The latter advantage is that it can export historical data.
+Lastly, you can set fine-grained retention periods using [table-level retention Settings](https://techcommunity.microsoft.com/t5/core-infrastructure-and-security/azure-log-analytics-data-retention-by-type-in-real-life/ba-p/1416287). More details [here](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/data-retention-archive?tabs=portal-1%2Cportal-2#configure-the-default-workspace-retention-policy).
+
+
+**Log Security**
+
+* Use [resource RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) or [table Level RBAC](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/manage-access?tabs=portal#table-level-rbac) to enable multiple teams to use a single workspace.
+* If needed, [delete PII data from your workspaces](https://docs.microsoft.com/en-gb/azure/azure-monitor/logs/personal-data-mgmt).
+* Learn how to [audit workspace queries and Microsoft Sentinel use, using alerts workbooks and queries](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/auditing-microsoft-sentinel-activities/ba-p/1718328).
+* Use [private links](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/private-link-security) to ensure logs never leave your private network.
+
+
+**Dedicated cluster**
+
+Use a [dedicated workspace cluster](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/logs-dedicated-clusters) if your projected data ingestion is around or more than 500 GB per day. A dedicated cluster enables you to secure resources for your Microsoft Sentinel data, which enables better query performance for large data sets.
+
+
+### Module 6: Enrichment: TI, Watchlists, and more
+
+One of the important functions of a SIEM is to apply contextual information to the event steam, enabling detection, alert prioritization, and incident investigation. Contextual information includes, for example, threat intelligence, IP intelligence, host and user information, and watchlists
+
+Microsoft Sentinel provides comprehensive tools to import, manage, and use threat intelligence. For other types of contextual information, Microsoft Sentinel provides Watchlists, as well as alternative solutions.
+
+**Threat Intelligence**
+
+Threat Intelligence is an important building block of a SIEM. Watch the Explore the Power of Threat Intelligence in Microsoft Sentinel webinar [here](https://www.youtube.com/watch?v=i29Uzg6cLKc&ab_channel=MicrosoftSecurityCommunity).
+
+In Microsoft Sentinel, you can integrate threat intelligence (TI) using the built-in connectors from TAXII servers or through the Microsoft Graph Security API. Read more on how to in the [documentation](https://docs.microsoft.com/en-us/azure/sentinel/threat-intelligence-integration). Refer to the data collection modules for more information about importing Threat Intelligence. 
+
+Once imported, [Threat Intelligence](https://docs.microsoft.com/en-us/azure/sentinel/understand-threat-intelligence#manage-your-threat-indicators-in-the-new-threat-intelligence-area-of-azure-sentinel) is used extensively throughout Microsoft Sentinel and is weaved into the different modules. The following features focus on using Threat Intelligence:
+
+* View and manage the imported threat intelligence in **Logs** in the new Threat Intelligence area of Microsoft Sentinel.
+* Use the [built-in TI Analytics rule templates](https://docs.microsoft.com/en-us/azure/sentinel/understand-threat-intelligence#detect-threats-with-threat-indicator-based-analytics) to generate security alerts and incidents using your imported threat intelligence.
+* [Visualize key information about your threat intelligence](https://docs.microsoft.com/en-us/azure/sentinel/understand-threat-intelligence#view-and-manage-your-threat-indicators) in Microsoft Sentinel with the Threat Intelligence workbook.
+
+Watch the **Automate Your Microsoft Sentinel Triage Efforts with RiskIQ Threat 
+Intelligence** webinar: [YouTube](https://youtu.be/8vTVKitim5c), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmkngW7psV4janJrVE?e=UkmgWk).
+
+Short on time? watch the [Ignite session](https://www.youtube.com/watch?v=RLt05JaOnHc) (28 Minutes)
+
+Go in-depth? Watch the Webinar: [YouTube](https://youtu.be/zfoVe4iarto), [MP4](https://1drv.ms/v/s!AnEPjr8tHcNmgi8zazMLahRyycPf), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmgi0pABN930p56id_).
+
+**Watchlists and other lookup mechanisms**
+
+To import and manage any type of contextual information, Microsoft Sentinel provides Watchlists, which enable you to upload data tables in CSV format and use them in your KQL queries. Read more about Watchlists in the [documentation](https://docs.microsoft.com/en-us/azure/sentinel/watchlists) or watch the use Watchlists to Manage Alerts, Reduce Alert Fatigue and improve SOC efficiency webinar: [YouTube](https://youtu.be/148mr8anqtI), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmk1qPwVKXkyKwqsM5?e=jLlNmP).
+
+Use watchlists to help you with following scenarios:
+
+* **Investigate threats and respond to incidents quickly** with the rapid import of IP addresses, file hashes, and other data from CSV files. After you import the data, use watchlist name-value pairs for joins and filters in alert rules, threat hunting, workbooks, notebooks, and general queries.
+
+* **Import business data as a watchlist**. For example, import user lists with privileged system access, or terminated employees. Then, use the watchlist to create allowlists and blocklists to detect or prevent those users from logging in to the network.
+
+* **Reduce alert fatigue**. Create allowlists to suppress alerts from a group of users, such as users from authorized IP addresses that perform tasks that would normally trigger the alert. Prevent benign events from becoming alerts.
+
+* **Enrich event data**. Use watchlists to enrich your event data with name-value combinations derived from external data sources.
+
+In addition to Watchlists, you can also use the KQL externaldata operator, custom logs, and KQL functions to manage and query context information. Each one of the four methods has its pros and cons, and you can read more about the comparison between those options in the blog post ["Implementing Lookups in Microsoft Sentinel"](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/implementing-lookups-in-azure-sentinel/ba-p/1091306). While each method is different, using the resulting information in your queries is similar enabling easy switching between them.
+
+Read ["Utilize Watchlists to Drive Efficiency During Microsoft Sentinel Investigations"](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/utilize-watchlists-to-drive-efficiency-during-microsoft-sentinel/ba-p/2090711) for ideas on using Watchlist outside of analytic rules.
+
+Watch the **Use Watchlists to Manage Alerts, Reduce Alert Fatigue and improve
+SOC efficiency** webinar. [YouTube](https://youtu.be/148mr8anqtI), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmk1qPwVKXkyKwqsM5?e=jLlNmP).
+
+
+
+### Module 7: Log transformation
+
+## Part 3: Creating Content
+
+## Part 4: Operating
+
+## Part 5: Advanced Topics
+
+## Sentinel Skill-up FAQ
+
+
 
 
 ### Module 6: Enrichment: TI, Watchlists, and more
