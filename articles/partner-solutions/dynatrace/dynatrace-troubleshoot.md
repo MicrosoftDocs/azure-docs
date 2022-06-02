@@ -19,6 +19,7 @@ This article describes how to contact support when working with a Dynatrace reso
 To contact support about the Azure Datadog integration, select **New Support request** in the left pane. Select the link to the Dynatrace support website.
 
 <!-- $TODO: Screenshot of support. -->
+:::image type="content" source="media/dynatrace-troubleshoot/dynatrace-support.png" alt-text="Screenshot showing new support sequest selected in resource menu.":::
 
 ## Fix common errors
 
@@ -48,7 +49,6 @@ This document contains information about troubleshooting your solutions that use
 - **App not showing in Single sign-on settings page** - First, search for application ID. If no result is shown, check the SAML settings of the app. The grid only shows apps with correct SAML settings.
     The following image shows the correct values.
 
-<!-- $TODO: Screenshot -->
 
 ## Next steps
 
