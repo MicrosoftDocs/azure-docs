@@ -99,5 +99,5 @@ issuancerules
 };
 ```
 
-The `required_pcr_mask` restricts the evaluation of PCR matches to only PCR 0,1,2,3.
-The `require_valid_aik_cert` marked as `false` indicates that the AIK certification isn't a requirement and is later verified in `issuancerules` to determine the `PlatformAttested` state.
+The `required_pcr_mask` type restricts the evaluation of PCR matches to only PCR 0, 1, 2, and 3.
+The `require_valid_aik_cert` type marked as `false` indicates that the AIK certification isn't a requirement and is later verified in `issuancerules` to determine the `PlatformAttested` state.

@@ -48,7 +48,7 @@ Conceptually, TPM attestation can be visualized as shown in the preceding diagra
 
 ## Protection from malicious boot attacks
 
-Mature attack techniques aim to infect the boot chain. A boot attack can provide the attacker with access to system resources and allow the attacker to hide from antimalware software. Trusted Boot acts as the first order of defense. Trusted Boot and attestation extends the capability to relying parties. Most attackers attempt to bypass secure boot or load an unwanted binary in the boot process.
+Mature attack techniques aim to infect the boot chain. A boot attack can provide the attacker with access to system resources and allow the attacker to hide from antimalware software. Trusted Boot acts as the first order of defense. Use of Trusted Boot and attestation extends the capability to relying parties. Most attackers attempt to bypass secure boot or load an unwanted binary in the boot process.
 
 Remote attestation allows the relying parties to verify the whole boot chain for any violation of promises. For example, the secure boot evaluation by the attestation service validates the values of the secure variables measured by UEFI.
 
