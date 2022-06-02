@@ -85,14 +85,6 @@ The Get OpenID Metadata API returns an OpenID Configuration response as specifie
 
 See [examples of attestation token](attestation-token-examples.md).
 
-**x-ms-sgx-config-id**
-
-**x-ms-sgx-config-svn**
-
-**x-ms-sgx-isv-extended-product-id**
-
-**x-ms-sgx-isv-family-id**
-
 ## Encryption of data at rest
 
 To safeguard customer data, Azure Attestation persists its data in Azure Storage. Azure storage provides encryption of data at rest as it's written into data centers, and decrypts it for customers to access it. This encryption occurs using a Microsoft managed encryption key. 
