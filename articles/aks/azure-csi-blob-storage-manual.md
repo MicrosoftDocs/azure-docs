@@ -67,6 +67,10 @@ Now create a container for storing blobs following the steps in the [Manage blob
 
 ## Mount Blob storage as a volume using Blobfuse
 
+### Authenticate using a managed identity
+
+The following example demonstrates how to mount a Blob storage container using Blobfuse and authenticate against the storage account using the cluster's system-assigned managed identity. For more information about using managed identities, see [Use managed identities in Azure Kubernetes Service][use-managed-identity].
+
 1. Create a `storageclass-blobfuse-existing-container.yaml` file. Under `storageClass`, update `resourceGroup`, `storageAccount`, and `containerName`. For example:
 
     ```yml
@@ -76,20 +80,31 @@ Now create a container for storing blobs following the steps in the [Manage blob
       name: blob-fuse
     provisioner: blob.csi.azure.com
     parameters:
-      resourceGroup: existingResourceGroupName
-      storageAccount: existingStorageAccountName  # cross subscription is not supported
-      containerName: existingContainerName
-    reclaimPolicy: Retain  # If set as "Delete" container would be removed after pvc deletion
+      resourceGroup: EXISTING_RESOURCE_GROUP_NAME
+      storageAccount: EXISTING_STORAGE_ACCOUNT_NAME
+      containerName: EXISTING_CONTAINER_NAME
+      server: SERVER_ADDRESS  # optional, provide a new address to replace default "accountname.blob.core.windows.net"
+    reclaimPolicy: Retain  # if set as "Delete" container would be removed after pvc deletion
     volumeBindingMode: Immediate
+    allowVolumeExpansion: true
+    mountOptions:
+      - -o allow_other
+      - --file-cache-timeout-in-seconds=120
+      - --use-attr-cache=true
+      - --cancel-list-on-mount-seconds=60  # prevent billing charges on mounting
+      - -o attr_timeout=120
+      - -o entry_timeout=120
+      - -o negative_timeout=120
+      - --cache-size-mb=1000  # Default will be 80% of available memory, eviction will happen beyond that.
     ```
 
-2. Run the following command to create the storage class using the `kubectl create` command:
+2. Run the following command to create the storage class using the `kubectl create` command referencing the YAML file created earlier:
 
    ```bash
    kubectl create -f storageclass-blobfuse-existing-container.yaml
    ```
 
-3. Create a `pv-blobfuse-existing-container.yaml` file with a *PersistentVolume*.
+3. Create a `pv-blobfuse-existing-container.yaml` file with a *PersistentVolume*. For example:
 
    ```yml
    ---
@@ -106,9 +121,36 @@ Now create a container for storing blobs following the steps in the [Manage blob
       storageClassName: blob-fuse
    ```
 
+4. Run the following command to create the persistent volume using the `kubectl create` command referencing the YAML file created earlier:
 
-kubectl create -f https://raw.githubusercontent.com/kubernetes-sigs/blob-csi-driver/master/deploy/example/pvc-blob-csi
+   ```yml
+   kubectl create -f pvc-blob-existing-container.yaml
+   ```
 
+### Authenticate using an Azure secret or SAS tokens
+
+Kubernetes needs credentials to access the Blob storage container created earlier. These credentials are stored in a Kubernetes secret, which is referenced when you create a Kubernetes pod.
+
+Use the `kubectl create secret command` to create the secret. You can authenticate using a [Kubernetes secret][kubernetes-secret] or [shared access signature][sas-tokens] (SAS) tokens. 
+
+# [Secret](#tab/secret)
+
+The following example creates a secret named *azure-secret* and populates the *azurestorageaccountname* and *azurestorageaccountkey*. You need to provide the account name and key from an existing Azure storage account.
+
+```bash
+kubectl create secret generic azure-secret --from-literal azurestorageaccountname=NAME --from-literal azurestorageaccountkey="KEY" --type=Opaque
+```
+
+# [SAStokens](#tab/sastokens)
+
+The following example creates secret named *azure-secret* and populates the *azurestorageaccountname* and *azurestorageaccountsastoken*. You need to provide the account name and shared access signature from an existing Azure storage account.
+
+```bash
+kubectl create secret generic azure-secret --from-literal azurestorageaccountname=NAME --from-literal azurestorageaccountsastoken
+="sastoken" --type=Opaque
+```
+
+---
 ## Next steps
 
 For Azure File CSI driver parameters, see [CSI driver parameters][CSI driver parameters].
@@ -133,3 +175,6 @@ For associated best practices, see [Best practices for storage and backups in AK
 [concepts-storage]: concepts-storage.md
 [persistent-volume-example]: #mount-file-share-as-a-persistent-volume
 [use-tags]: use-tags.md
+[use-managed-identity]: use-managed-identity.md
+[kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
+[sas-tokens]: ../storage/common/storage-sas-overview.md
