@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: overview
-ms.date: 09/24/2021
+ms.date: 06/02/2022
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -18,12 +18,12 @@ ms.collection: M365-identity-device-management
 
 # Dynamic membership rules for groups in Azure Active Directory
 
-In Azure Active Directory (Azure AD), you can create complex attribute-based rules to enable dynamic memberships for groups. Dynamic group membership reduces the administrative overhead of adding and removing users. This article details the properties and syntax to create dynamic membership rules for users or devices. You can set up a rule for dynamic membership on security groups or Microsoft 365 groups.
+In Azure Active Directory (Azure AD), you can create attribute-based rules to enable dynamic membership for a group. Dynamic group membership adds and removes group members automatically using membership rules based on member attributes. This article details the properties and syntax to create dynamic membership rules for users or devices. You can set up a rule for dynamic membership on security groups or Microsoft 365 groups.
 
 When any attributes of a user or device change, the system evaluates all dynamic group rules in a directory to see if the change would trigger any group adds or removes. If a user or device satisfies a rule on a group, they are added as a member of that group. If they no longer satisfy the rule, they are removed. You can't manually add or remove a member of a dynamic group.
 
 - You can create a dynamic group for devices or for users, but you can't create a rule that contains both users and devices.
-- You can't create a device group based on the device owners' attributes. Device membership rules can only reference device attributes.
+- You can't create a device group based on the user attributes of the device owner. Device membership rules can reference only device attributes.
 
 > [!NOTE]
 > This feature requires an Azure AD Premium P1 license or Intune for Education for each unique user that is a member of one or more dynamic groups. You don't have to assign licenses to users for them to be members of dynamic groups, but you must have the minimum number of licenses in the Azure AD organization to cover all such users. For example, if you had a total of 1,000 unique users in all dynamic groups in your organization, you would need at least 1,000 licenses for Azure AD Premium P1 to meet the license requirement.
@@ -265,7 +265,7 @@ assignedPlans is a multi-value property that lists all service plans assigned to
 user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-A rule such as this one can be used to group all users for whom a Microsoft 365 (or other Microsoft Online Service) capability is enabled. You could then apply with a set of policies to the group.
+A rule such as this one can be used to group all users for whom a Microsoft 365 or other Microsoft Online Service capability is enabled. You could then apply with a set of policies to the group.
 
 #### Example 2
 
@@ -345,13 +345,13 @@ device.objectId -ne null
 
 ## Extension properties and custom extension properties
 
-Extension attributes and custom extension properties are supported as string properties in dynamic membership rules. [Extension attributes](/graph/api/resources/onpremisesextensionattributes) are synced from on-premises Window Server AD and take the format of "ExtensionAttributeX", where X equals 1 - 15. Here's an example of a rule that uses an extension attribute as a property:
+Extension attributes and custom extension properties are supported as string properties in dynamic membership rules. [Extension attributes](/graph/api/resources/onpremisesextensionattributes) are synced from on-premises Window Server Active Directory and take the format of "ExtensionAttributeX", where X equals 1 - 15. Here's an example of a rule that uses an extension attribute as a property:
 
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
 
-[Custom extension properties](../hybrid/how-to-connect-sync-feature-directory-extensions.md) are synced from on-premises Windows Server AD or from a connected SaaS application and are of the format of `user.extension_[GUID]_[Attribute]`, where:
+[Custom extension properties](../hybrid/how-to-connect-sync-feature-directory-extensions.md) are synced from on-premises Windows Server Active Directory or from a connected SaaS application and are of the format of `user.extension_[GUID]_[Attribute]`, where:
 
 - [GUID] is the unique identifier in Azure AD for the application that created the property in Azure AD
 - [Attribute] is the name of the property as it was created
