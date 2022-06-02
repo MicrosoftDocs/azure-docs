@@ -19,53 +19,57 @@ Azure Machine Learning's v2 REST APIs, Azure CLI extension, and Python SDK (prev
 
 ## Prerequisites
 
-- understand [what is v2?](concept-v2.md)
-- an understanding of the v1 Python SDK
+- General familiarity with Azure ML and the v1 Python SDK.
+- Understand [what is v2?](concept-v2.md).
 
 ## Should I use v2?
 
-You should use v2 if you're starting a new machine learning project. A new v2 project can reuse assets like models and environments created using v1.
+You should use v2 if you're starting a new machine learning project. A new v2 project can reuse resources like workspaces and compute and assets like models and environments created using v1. You can also use v1 and v2 in tandem, for example using the v1 Python SDK within jobs that are submitted from the v2 CLI extension. However, see the [section below](#can-I-use-v1-and-v2-together?) for details on why separating v1 and v2 use is recommended.
 
-We also recommend migrating to v2 for existing projects built on v1 with the following caveats:
+We recommend assessing the effort needed to migrate a project from v1 to v2. First, you should ensure all the features needed from v1 are available in v2. Some notable feature gaps include:
 
-- features used in v1 available in v2
-- general availability of features needed in v2
-- effort needed for migration
+- Spark support in jobs.
+- Publishing jobs (pipelines in v1) as endpoints.
+- AutoML jobs within pipeline jobs (AutoML step in a pipeline in v1).
+- Model deployment to Azure Container Instance (ACI), replaced with managed online endpoints.
+- An equivalent for ParallelRunStep in jobs.
+- Support for SQL/database datastores.
+- Built-in components in the designer.
 
-Note that new features in Azure ML will only be launched in v2, such as managed endpoints and Azure Arc support. You and your team will need to assess on a case-by-case basis whether migrating to v2 is right for you.
+You should then ensure the features you need in v2 meet your organization's requirements, such as being generally available. You and your team will need to assess on a case-by-case basis whether migrating to v2 is right for you.
 
-## A note on GitOps with v2
-
-A key paradigm with v2 is serializing machine learning entities as YAML files for source control with `git`, enabling better GitOps approaches than were possible with v1. For instance, you could enforce policy by which only a service principal used in CI/CD pipelines can create/update/delete some or all entities, ensuring changes go through a governed process like pull requests with required reviewers. Since the files in source control are YAML, they're easy to diff and track changes over time. You and your team may consider shifting to this paradigm as you migrate to v2.
-
-You can obtain a YAML representation of any entity with the CLI via `az ml <entity> show --output yaml`. Note that this output will have system-generated properties, which can be ignored or deleted.
+> [!IMPORTANT]
+> New features in Azure ML will only be launched in v2.
 
 ## How do I migrate to v2?
 
 To migrate to v2, start by prototyping an existing v1 workflow into v2. Migrating will typically include:
 
-- optionally, re-create resources and assets with v2 APIs
-- refactor model training code to de-couple Azure ML control-plane code from data-plane code (model training, logging, and other tracking code)
-- refactor model deployment code and test with v2 endpoints
-- refactor CI/CD code to use the v2 CLI (recommended), v2 Python SDK, or directly use REST
+- Optionally (and recommended in most cases), re-create resources and assets with v2.
+- Refactor model training code to de-couple Azure ML code from ML model code (model training, model logging, and other model tracking code).
+- Refactor Azure ML model deployment code and test with v2 endpoints.
+- Refactor CI/CD code to use the v2 CLI (recommended), v2 Python SDK, or directly use REST.
 
-Based on this prototype, you can estimate the effort involved for a full migration to v2. Consider the workflow patterns (like GitOps) your organization wants to establish for use with v2 and factor this effort in.
+Based on this prototype, you can estimate the effort involved for a full migration to v2. Consider the workflow patterns (like [GitOps](#a-note-on-gitops-with-v2)) your organization wants to establish for use with v2 and factor this effort in.
 
 ## Which v2 API should I use?
 
-In v2, REST, CLI, and Python SDK (preview) are available. The API you should use depends on your scenario and preferences.
+In v2 interfaces via REST API, CLI, and Python SDK (preview) are available. The interface you should use depends on your scenario and preferences.
 
 |API|Notes|
 |-|-|
-|REST|Fewest dependencies and overhead. Use for building applications on Azure ML as a platform, directly in programming languages without an SDK provided, or per personal preference.|
-|CLI|Recommended for automation with CI/CD or per personal preference. Allows quick iteration with YAML files and straightforward separation between control and data plane code.|
+|REST|Fewest dependencies and overhead. Use for building applications on Azure ML as a platform, directly in programming languages without a SDK provided, or per personal preference.|
+|CLI|Recommended for automation with CI/CD or per personal preference. Allows quick iteration with YAML files and straightforward separation between Azure ML and ML model code.|
 |Python SDK|Recommended for complicated scripting (for example, programmatically generating large pipeline jobs) or per personal preference. Allows quick iteration with YAML files or development solely in Python.|
 
 ## Can I use v1 and v2 together?
 
-Generally, yes. Resources like workspace, compute, and datastore work across v1 and v2, with some exceptions. A user can call the v1 Python SDK to change a workspace's description, then using the v2 CLI extension change it again. Jobs (experiments/runs/pipelines in v1) can be submitted to the same workspace from the v1 or v2 Python SDK. A workspace can have both v1 and v2 model deployment endpoints.
+Generally, yes. Resources like workspace, compute, and datastore work across v1 and v2, with exceptions. A user can call the v1 Python SDK to change a workspace's description, then using the v2 CLI extension change it again. Jobs (experiments/runs/pipelines in v1) can be submitted to the same workspace from the v1 or v2 Python SDK. A workspace can have both v1 and v2 model deployment endpoints. You can also call v1 Python SDK code within jobs created via v2, though [this pattern isn't recommended](#production-model-training).
 
-You can also call v1 Python SDK code within jobs created via v2, though this pattern isn't recommended. See the [production model training](#production-model-training) section for details.
+We recommend creating a new workspace for using v2 to keep v1/v2 entities separate and avoid backward/forward compatibility considerations.
+
+> [!IMPORTANT]
+> If you workspace uses a private endpoint, it will automatically have the `v1_legacy_mode` flag enabled, preventing usage of v2 APIs. See [how to configure network isolation with v2](how-to-configure-network-isolation-with-v2.md) for details.
 
 ## Migrating resources and assets
 
@@ -73,9 +77,12 @@ This section gives an overview of migration recommendations for specific resourc
 
 ### Workspace
 
-Workspaces don't need to be migrated with v2. You can use the same workspace, regardless of whether you're using v1 or v2.
+Workspaces don't need to be migrated with v2. You can use the same workspace, regardless of whether you're using v1 or v2. We recommend creating a new workspace for using v2 to keep v1/v2 entities separate and avoid backward/forward compatibility considerations.
 
 Do consider migrating the code for deploying a workspace to v2. Typically Azure resources are managed via Azure Resource Manager (and Bicep) or similar resource provisioning tools. Alternatively, you can use the CLI (v2) and YAML files.
+
+> [!IMPORTANT]
+> If you workspace uses a private endpoint, it will automatically have the `v1_legacy_mode` flag enabled, preventing usage of v2 APIs. See [how to configure network isolation with v2](how-to-configure-network-isolation-with-v2.md) for details.
 
 ### Connection (workspace connection in v1)
 
@@ -103,11 +110,15 @@ We recommend using managed endpoints in v2 for online (near real-time) and batch
 
 ### Jobs (experiments, runs, pipelines in v1)
 
-In v2, "experiments", "runs", and "pipelines" are consolidated into jobs. A job has a type. Most jobs are `command` jobs that run a command, like `python main.py`. What runs in a job is agnostic to any programming language, so you can run `bash` scripts, invoke `python` interpreters, run a bunch of `curl` commands, or anything else. Another type of job is `pipeline`, which defines child jobs that may have input/output relationships, forming a directed acyclic graph (DAG).
+In v2, "experiments", "runs", and "pipelines" are consolidated into jobs. A job has a type. Most jobs are `command` jobs that run a command, like `python main.py`. What runs in a job is agnostic to any programming language, so you can run `bash` scripts, invoke `python` interpreters, run a bunch of `curl` commands, or anything else. Another common type of job is `pipeline`, which defines child jobs that may have input/output relationships, forming a directed acyclic graph (DAG).
 
-You'll need to refactor the v1 analogs for v2, though the code being run in the job generally doesn't need to change. However, it's recommended with v2 to remove any code specific to Azure ML from your model training code. This separation allows for an easier transition between local and cloud and is considered best practice for MLOps.
+To migrate, you'll need to change your code for submitting jobs to v2. We recommend refactoring the control-plane code authoring a job into YAML file specification, which can then be submitted through the v2 CLI or Python SDK (preview). A simple `command` job looks like this:
 
-We recommend migrating the code for creating jobs to v2.
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-world.yml":::
+
+What you run *within* the job does not need to be migrated to v2. However, it is recommended to remove any code specific to Azure ML from your model training scripts. This separation allows for an easier transition between local and cloud and is considered best practice for mature MLOps. In practice, this means removing `azureml.*` lines of code. Model logging and tracking code should be replaced with MLflow. See [how to use MLflow in v2](how-to-use-mlflow-cli-runs.md) for details.
+
+We recommend migrating the code for creating jobs to v2. You can see [how to train models with the CLI (v2)](how-to-train-cli.md) and the [job YAML references](reference-yaml-job-command.md) for authoring jobs in v2 YAMLs.
 
 ### Data (datasets in v1)
 
@@ -137,13 +148,13 @@ There are a few scenarios that are common across the machine learning lifecycle 
 
 ### Azure setup
 
-Azure generally recommends Azure Resource Manager templates (often via Bicep for ease of use) for creating resources. The same is a good approach for using Azure ML as well.
+Azure recommends Azure Resource Manager templates (often via Bicep for ease of use) to create resources. The same is a good approach for creating Azure ML resources as well.
 
 If your team is only using Azure ML, you may consider provisioning the workspace and any other resources via YAML  files and CLI instead.
 
 ### Prototyping models
 
-We recommend v2 for prototyping models. You may consider using the CLI for control plane (like submitting jobs iteratively), while your model training code is Python, or adopt a full-stack approach with Python only with the Azure ML SDK.
+We recommend v2 for prototyping models. You may consider using the CLI for an interactive use of Azure ML, while your model training code is Python or any other programming language. Alternatively, you may adopt a full-stack approach with Python solely using the Azure ML SDK or a mixed approach with the Azure ML Python SDK and YAML files.
 
 ### Production model training
 
@@ -164,6 +175,12 @@ Kubernetes deployments are supported in v2 through Azure Arc, enabling usage thr
 A MLOps workflow typically involves CI/CD through an external tool. It's recommended refactor existing CI/CD workflows to use v2 APIs. Typically a CLI is used in CI/CD, though you can alternatively invoke Python or directly use REST.
 
 The solution accelerator for MLOps with v2 is being developed at https://github.com/Azure/mlops-v2 and can be used as reference or adopted for setup and automation of the machine learning lifecycle.
+
+#### A note on GitOps with v2
+
+A key paradigm with v2 is serializing machine learning entities as YAML files for source control with `git`, enabling better GitOps approaches than were possible with v1. For instance, you could enforce policy by which only a service principal used in CI/CD pipelines can create/update/delete some or all entities, ensuring changes go through a governed process like pull requests with required reviewers. Since the files in source control are YAML, they're easy to diff and track changes over time. You and your team may consider shifting to this paradigm as you migrate to v2.
+
+You can obtain a YAML representation of any entity with the CLI via `az ml <entity> show --output yaml`. Note that this output will have system-generated properties, which can be ignored or deleted.
 
 ## Next steps
 
