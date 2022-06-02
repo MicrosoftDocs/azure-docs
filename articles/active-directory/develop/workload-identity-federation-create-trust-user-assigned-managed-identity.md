@@ -338,6 +338,21 @@ In this article, you learn how to create, list, and delete federated identity cr
 - [Create a user-assigned manged identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-rest#create-a-user-assigned-managed-identity-4)
 - Find the object ID of the user-assigned managed identity, which you need in the following steps.
 
+## Obtain a bearer access token
+
+1. If you're running locally, sign in to Azure through the Azure CLI.
+
+    ```
+    az login
+    ```
+
+1. Obtain an access token by using [az account get-access-token](/cli/azure/account#az-account-get-access-token).
+
+    ```azurecli-interactive
+    az account get-access-token
+    ```
+
+
 ## Configure a federated identity credential on a user-assigned managed identity
 
 When you configure a federated identity credential on a user-assigned managed identity, there are several important pieces of information to provide.
@@ -353,11 +368,102 @@ When you configure a federated identity credential on a user-assigned managed id
 
 *description* is the un-validated, user-provided description of the federated identity credential.
 
+[Create or update a federated identity credential]() on the specified user-assigned managed identity.
+
+```bash
+curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/provider
+s/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>/federatedIdenti
+tyCredentials/<FEDERATED IDENTITY CREDENTIAL NAME>?api-version=2022-01-31-preview' -X PUT -d '{"properties": "{ "properties": { "issuer": "<ISSUER>", "subject": "<SUBJECT>", "audiences": [ "api://AzureADTokenExchange" ] }}"}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
+```
+
+```http
+PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>/federatedIdentityCredentials/<FEDERATED IDENTITY CREDENTIAL NAME>?api-version=2022-01-31-preview
+
+{
+ "properties": {
+ "issuer": "https://oidc.prod-aks.azure.com/IssuerGUID",
+ "subject": "system:serviceaccount:ns:svcaccount",
+ "audiences": [
+ "api://AzureADTokenExchange"
+ ]
+ }
+}
+```
+
+**Request headers**
+
+|Request header  |Description  |
+|---------|---------|
+|*Content-Type*     | Required. Set to `application/json`.        |
+|*Authorization*     | Required. Set to a valid `Bearer` access token.        |
+
+**Request body**
+
+|Name  |Description  |
+|---------|---------|
+|properties.audiences      | Required. The list of audiences that can appear in the issued token. |
+|properties.issuer       | Required. The URL of the issuer to be trusted. |
+|properties.subject      | Required. The identifier of the external identity. |
+
 ## List federated identity credentials on a user-assigned managed identity
+
+[List all the federated identity credentials]() on the specified user-assigned managed identity.
+
+```bash
+curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>/<RESOURCE NAME>/federatedIdentityCredentials?api-version=2022-01-31-preview' -H "Content-Type: application/json" -X GET -H "Authorization: Bearer <ACCESS TOKEN>"
+```
+
+```http
+GET
+https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>/<RESOURCE NAME>/federatedIdentityCredentials?api-version=2022-01-31-preview
+```
+
+**Request headers**
+
+|Request header  |Description  |
+|---------|---------|
+|*Content-Type*     | Required. Set to `application/json`.        |
+|*Authorization*     | Required. Set to a valid `Bearer` access token.        |
 
 ## Get a federated identity credential on a user-assigned managed identity
 
+[Get a federated identity credentials]() on the specified user-assigned managed identity.
+
+```bash
+curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>/<RESOURCE NAME>/federatedIdentityCredentials/<FEDERATED IDENTITY CREDENTIAL RESOURCENAME>?api-version=2022-01-31-preview' -X GET -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
+```
+
+```http
+GET
+https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>/<RESOURCE NAME>/federatedIdentityCredentials/<FEDERATED IDENTITY CREDENTIAL RESOURCENAME>?api-version=2022-01-31-preview
+```
+
+**Request headers**
+
+|Request header  |Description  |
+|---------|---------|
+|*Content-Type*     | Required. Set to `application/json`.        |
+|*Authorization*     | Required. Set to a valid `Bearer` access token.        |
+
 ## Delete a federated identity credential from a user-assigned managed identity
+
+[Delete a federated identity credentials]() on the specified user-assigned managed identity.
+
+```bash
+curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>/<RESOURCE NAME>/federatedIdentityCredentials/<FEDERATED IDENTITY CREDENTIAL RESOURCENAME>?api-version=2022-01-31-preview' -X DELETE -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
+```
+
+```http
+DELETE
+https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>/<RESOURCE NAME>/federatedIdentityCredentials/<FEDERATED IDENTITY CREDENTIAL RESOURCENAME>?api-version=2022-01-31-preview
+```
+
+**Request headers**
+
+|Request header  |Description  |
+|---------|---------|
+|*Content-Type*     | Required. Set to `application/json`.        |
+|*Authorization*     | Required. Set to a valid `Bearer` access token.        |
 ::: zone-end
 
 ## Next steps
