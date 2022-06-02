@@ -1,18 +1,21 @@
 ---
-title: Troubleshoot Azure NFS file share problems - Azure Files
-description: Troubleshoot Azure NFS file share problems.
+title: Troubleshoot NFS file share problems - Azure Files
+description: Troubleshoot NFS Azure file share problems.
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 09/15/2020
+ms.date: 05/25/2022
 ms.author: kendownie
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurepowershell
 ---
 
-# Troubleshoot Azure NFS file share problems
+# Troubleshoot NFS Azure file share problems
 
-This article lists some common problems and known issues related to Azure NFS file shares. It provides potential causes and workarounds when these problems are encountered.
+This article lists some common problems and known issues related to NFS Azure file shares. It provides potential causes and workarounds when these problems are encountered.
+
+> [!IMPORTANT]
+> NFS Azure file shares are not supported for Windows clients.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -51,7 +54,7 @@ NFS is only available on storage accounts with the following configuration:
 
 Follow the instructions in our article: [How to create an NFS share](storage-files-how-to-create-nfs-shares.md).
 
-## Cannot connect to or mount an Azure NFS file share
+## Cannot connect to or mount an NFS Azure file share
 
 ### Cause 1: Request originates from a client in an untrusted network/untrusted IP
 

@@ -11,7 +11,7 @@ ms.date: 05/09/2022
 
 # Migrate Single Server to Flexible Server PostgreSQL using the Azure portal
 
-This guide shows you how to use Single to Flexible server migration feature to migrate databases from Azure database for PostgreSQL Single server to Flexible server.
+This guide shows you how to use Single to Flexible server migration tool to migrate databases from Azure database for PostgreSQL Single server to Flexible server.
 
 ## Before you begin
 
@@ -28,11 +28,11 @@ In your subscription, navigate to **Resource Providers** from the left navigatio
 
 ## Pre-requisites
 
-Take care of the pre-requisites listed [here](./concepts-single-to-flexible.md#pre-requisites) to get started with the migration feature.
+Take care of the [pre-requisites](./concepts-single-to-flexible.md#pre-requisites) to get started with the migration tool.
 
 ## Configure migration task
 
-Single to Flexible server migration feature comes with a simple, wizard-based portal experience. Let us get started to know the steps needed to consume the tool from portal.
+Single to Flexible server migration tool comes with a simple, wizard-based portal experience. Let us get started to know the steps needed to consume the tool from portal.
 
 1. **Sign into the Azure portal -** Open your web browser and go to the [portal](https://portal.azure.com/). Enter your credentials to sign in. The default view is your service dashboard.
 
@@ -42,7 +42,7 @@ Single to Flexible server migration feature comes with a simple, wizard-based po
 
     :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-preview.png" alt-text="Screenshot of Migration Preview Tab details." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-preview.png":::
 
-4. Click the **Migrate from Single Server** button to start a migration from Single Server to Flexible Server. If this is the first time you are using the migration feature, you will see an empty grid with a prompt to begin your first migration.
+4. Click the **Migrate from Single Server** button to start a migration from Single Server to Flexible Server. If this is the first time you are using the migration tool, you will see an empty grid with a prompt to begin your first migration.
 
     :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migrate-single-server.png" alt-text="Screenshot of Migrate from Single Server tab." lightbox="./media/concepts-single-to-flexible/single-to-flex-migrate-single-server.png":::
 
@@ -57,7 +57,7 @@ The first is the setup tab which has basic information about the migration and t
 :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-setup.png" alt-text="Screenshot of Setup Tab details." lightbox="./media/concepts-single-to-flexible/single-to-flex-setup.png":::
 
 - The **Migration name** is the unique identifier for each migration to this flexible server. This field accepts only alphanumeric characters and does not accept any special characters except **&#39;-&#39;**. The name cannot start with a **&#39;-&#39;** and should be unique for a target server. No two migrations to the same flexible server can have the same name.
-- The **Migration resource group** is where all the migration-related components will be created by this migration feature.
+- The **Migration resource group** is where all the migration-related components will be created by this migration tool.
 
 By default, it is resource group of the target flexible server and all the components will be cleaned up automatically once the migration completes. If you want to create a temporary resource group for migration-related purposes, create a resource group and select the same from the dropdown.
 
@@ -75,11 +75,11 @@ The source tab prompts you to give details related to the source single server f
 
 Choose the single server from which you want to migrate databases from, in the drop down.
 
-Once the single server is chosen, the fields such as  **Location, PostgreSQL version, Server admin login name**  are automatically pre-populated. The server admin login name is the admin username that was used to create the single server. Enter the password for the **server admin login name**. This is required for the migration feature to login into the single server to initiate the dump and migration.
+Once the single server is chosen, the fields such as  **Location, PostgreSQL version, Server admin login name**  are automatically pre-populated. The server admin login name is the admin username that was used to create the single server. Enter the password for the **server admin login name**. This is required for the migration tool to login into the single server to initiate the dump and migration.
 
 You should also see the list of user databases inside the single server that you can pick for migration. You can select up to eight databases that can be migrated in a single migration attempt. If there are more than eight user databases, create multiple migrations using the same experience between the source and target servers.
 
-The final property in the source tab is migration mode. The migration feature offers online and offline mode of migration. To know more about the migration modes and their differences, please visit this [link](./concepts-single-to-flexible.md).
+The final property in the source tab is migration mode. The migration tool offers online and offline mode of migration. The concepts page talks more about the [migration modes and their differences](./concepts-single-to-flexible.md).
 
 Once you pick the migration mode, the restrictions associated with the mode are displayed.
 
@@ -89,7 +89,7 @@ After filling out all the fields, please click the **Next** button.
 
 :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-target.png" alt-text="Screenshot of target database server details." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-target.png":::
 
-This tab displays metadata of the flexible server like the **Subscription**, **Resource Group**, **Server name**, **Location**, and **PostgreSQL version**. It displays  **server admin login name**  which is the admin username that was used during the creation of the flexible server.Enter the corresponding password for the admin user. This is required for the migration feature to login into the flexible server to perform restore operations.
+This tab displays metadata of the flexible server like the **Subscription**, **Resource Group**, **Server name**, **Location**, and **PostgreSQL version**. It displays  **server admin login name**  which is the admin username that was used during the creation of the flexible server.Enter the corresponding password for the admin user. This is required for the migration tool to login into the flexible server to perform restore operations.
 
 Choose an option **yes/no** for **Authorize DB overwrite**.
 
@@ -117,7 +117,7 @@ If either source or target is configured in private access, then the networking 
 
 :::image type="content" source="./media/concepts-single-to-flexible/single-to-flex-migration-private.png" alt-text="Screenshot of Networking Private Access configuration." lightbox="./media/concepts-single-to-flexible/single-to-flex-migration-private.png":::
 
-All the fields will be automatically populated with subnet details. This is the subnet in which the migration feature will deploy Azure DMS to move data between the source and target.
+All the fields will be automatically populated with subnet details. This is the subnet in which the migration tool will deploy Azure DMS to move data between the source and target.
 
 You can go ahead with the suggested subnet or choose a different subnet. But make sure that the selected subnet can connect to both the source and target servers.
 

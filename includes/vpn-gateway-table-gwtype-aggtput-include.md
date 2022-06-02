@@ -38,9 +38,11 @@
 * IPsec limits the throughput of a single VPN tunnel (both S2S and P2S connections) to 1.25Gbps. **If you have a lot of P2S connections, it can negatively impact your S2S connections.** The Aggregate Throughput Benchmarks were tested by maximizing a combination of S2S and P2S connections. A single P2S or S2S connection can have a much lower throughput than the 1.25Gbps limit.
 * Note that all benchmarks aren't guaranteed due to Internet traffic conditions and your application behaviors
 
-To help our customers understand the relative performance of SKUs using different algorithms, we used publicly available iPerf and CTSTraffic tools to measure performances for site-to-site connections. The table below lists the results of performance tests for Generation 1, VpnGw SKUs. As you can see, the best performance is obtained when we used GCMAES256 algorithm for both IPsec Encryption and Integrity. We got average performance when using AES256 for IPsec Encryption and SHA256 for Integrity. When we used DES3 for IPsec Encryption and SHA256 for Integrity we got lowest performance.
+To help our customers understand the relative performance of SKUs using different algorithms, we used publicly available iPerf and CTSTraffic tools to measure performances for site-to-site connections. The table below lists the results of performance tests for VpnGw SKUs. As you can see, the best performance is obtained when we used GCMAES256 algorithm for both IPsec Encryption and Integrity. We got average performance when using AES256 for IPsec Encryption and SHA256 for Integrity. When we used DES3 for IPsec Encryption and SHA256 for Integrity we got lowest performance.
 
 A VPN tunnel connects to a VPN gateway instance. Each instance throughput is mentioned in the above throughput table and is available aggregated across all tunnels connecting to that instance.
+
+The table below shows the observed bandwidth and packets per second throughput per tunnel for the different gateway SKUs. All testing was performed between gateways (endpoints) within Azure across different regions with 100 connections and under standard load conditions.
 
 |**Generation**|**SKU**   | **Algorithms<br>used** | **Throughput<br>observed per tunnel** | **Packets per second per tunnel<br>observed** |
 |---           |---       | ---                 | ---            | ---                    |
