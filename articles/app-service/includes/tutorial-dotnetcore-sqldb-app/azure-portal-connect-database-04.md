@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 06/01/2022
 ---
 
-Select **Next: Authentication**. Enter the following settings
+Under the **Authentication** tab:
 
-* **Username** - Enter the admin username of your SQL Database.
-* **Password** - Enter the admin password of your SQL Database.
+1. Specify the username and password of your SQL database.
+1. Select **Next: Networking**, then select **Next: Review + Create**.

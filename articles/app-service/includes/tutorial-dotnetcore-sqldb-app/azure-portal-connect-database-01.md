@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 06/01/2022
 ---
 
-Navigate to the App Service for your application.
+In the Azure portal:
 
-1) Enter the name of your App Service in the search box at the top of the screen.
-2) In the search results, select the App Service to navigate to it.
+1. Type the name of your app in the search box at the top of the screen.
+1. In the search results, select the app to navigate to it.
