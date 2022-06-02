@@ -1006,33 +1006,6 @@ items:
         href: app/standard-metrics.md
     - name: Transaction search
       href: app/diagnostic-search.md
-    - name: Profiler
-      items:
-      - name: Overview
-        displayName: profiling, debugging, code performance, perf
-        href: app/profiler-overview.md
-      - name: Enable Profiler for an App Service
-        href: app/profiler.md
-      - name: Enable Profiler for an Azure Functions app
-        href: app/profiler-azure-functions.md
-      - name: Enable Profiler for a Cloud Service
-        href: app/profiler-cloudservice.md
-      - name: Enable Profiler for a Service Fabric Application
-        href: app/profiler-servicefabric.md
-      - name: Enable Profiler for an Azure VM
-        href: app/profiler-vm.md
-      - name: Enable Profiler for Linux App services (preview)
-        href: app/profiler-aspnetcore-linux.md
-      - name: Enable Profiler for a Container
-        href: app/profiler-containers.md
-      - name: Profiler Settings
-        href: app/profiler-settings.md
-      - name: Track Requests for Profiling
-        href: app/profiler-trackrequests.md
-      - name: Configure BYOS (Bring Your Own Storage)
-        href: app/profiler-bring-your-own-storage.md
-      - name: Profiler Troubleshooting
-        href: app/profiler-troubleshooting.md
     - name: Snapshot Debugger
       items:
       - name: Overview
@@ -1047,7 +1020,7 @@ items:
       - name: Upgrade Snapshot Debugger
         href: app/snapshot-debugger-upgrade.md
       - name: Configure BYOS (Bring Your Own Storage)
-        href: app/profiler-bring-your-own-storage.md
+        href: profiler/profiler-bring-your-own-storage.md
       - name: Snapshot Debugger troubleshooting
         displayName: troubleshoot, troubleshooting
         href: app/snapshot-debugger-troubleshoot.md
@@ -1174,6 +1147,37 @@ items:
         href: app/sharepoint.md
       - name: Windows desktop
         href: app/windows-desktop.md
+  - name: Profiler
+    items:
+    - name: Overview
+      displayName: profiling, debugging, code performance, perf
+      href: profiler/profiler-overview.md
+    - name: Enable Profiler
+      items:        
+      - name: App Service
+        href: profiler/profiler.md
+      - name: Azure Functions app
+        href: profiler/profiler-azure-functions.md
+      - name: Cloud Service
+        href: profiler/profiler-cloudservice.md
+      - name: Service Fabric Application
+        href: profiler/profiler-servicefabric.md
+      - name: Azure VM
+        href: profiler/profiler-vm.md
+      - name: Linux App services (preview)
+        href: profiler/profiler-aspnetcore-linux.md
+      - name: ASP.NET Core Container
+        href: profiler/profiler-containers.md
+    - name: Configure
+      items:        
+      - name: Configure Profiler
+        href: profiler/profiler-settings.md
+      - name: Configure BYOS (Bring Your Own Storage)
+        href: profiler/profiler-bring-your-own-storage.md
+    - name: Track Requests
+      href: profiler/profiler-trackrequests.md
+    - name: Troubleshooting
+      href: profiler/profiler-troubleshooting.md
   - name: Change Analysis
     items:
     - name: Overview
