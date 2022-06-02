@@ -6,7 +6,7 @@ ms.service: virtual-machines
 ms.subservice: disks
 ms.collection: linux
 ms.topic: how-to
-ms.date: 05/12/2021
+ms.date: 06/02/2022
 ms.author: cynthn
 
 ---
@@ -15,7 +15,6 @@ ms.author: cynthn
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
 
 This article shows you how to attach a persistent disk to your VM so that you can preserve your data - even if your VM is reprovisioned due to maintenance or resizing.
-
 
 ## Attach a new disk to a VM
 
@@ -29,6 +28,12 @@ az vm disk attach \
    --new \
    --size-gb 50
 ```
+
+### Lower latency
+
+In select regions, the attach latency has been reduced, so you'll see a 15% reduction in attach times. This is useful if you have planned/unplanned failovers between VMs, you're scaling your workload, or are running a high scale stateful workload such as Azure Kubernetes Service. However, this improvement is limited to the explicit disk attach command, `az vm disk attach`. You won't see the performance improvement if you call a command that may implicitly perform an attach, like `az vm update`. You don't need to take any action other than calling the explicit attach command to see this improvement.
+
+[!INCLUDE [virtual-machines-disks-fast-attach-detach-regions](../../../includes/virtual-machines-disks-fast-attach-detach-regions.md)]
 
 ## Attach an existing disk
 

@@ -7,7 +7,7 @@ ms.subservice: disks
 ms.collection: windows
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 06/02/2022
 ms.author: cynthn 
 ms.custom: devx-track-azurepowershell
 
@@ -22,8 +22,6 @@ When you no longer need a data disk that's attached to a virtual machine, you ca
 > If you detach a disk it is not automatically deleted. If you have subscribed to Premium storage, you will continue to incur storage charges for the disk. For more information, see [Pricing and Billing when using Premium Storage](../disks-types.md#billing).
 
 If you want to use the existing data on the disk again, you can reattach it to the same virtual machine, or another one.
-
- 
 
 ## Detach a data disk using PowerShell
 
@@ -44,6 +42,12 @@ Update-AzVM `
 ```
 
 The disk stays in storage but is no longer attached to a virtual machine.
+
+### Lower latency
+
+In select regions, the detach latency has been reduced, so you'll see a 15% reduction in detach times. This is useful if you have planned/unplanned failovers between VMs, you're scaling your workload, or are running a high scale stateful workload such as Azure Kubernetes Service. However, this improvement is limited to the explicit disk detach command, `Remove-AzVMDataDisk`. You won't see the performance improvement if you call a command that may implicitly perform an detach, like `Update-AzVM`. You don't need to take any action other than calling the explicit detach command to see this improvement.
+
+[!INCLUDE [virtual-machines-disks-fast-attach-detach-regions](../../../includes/virtual-machines-disks-fast-attach-detach-regions.md)]
 
 ## Detach a data disk using the portal
 
