@@ -12,6 +12,25 @@ The Public Preview articles  have been prepared for the public preview of NC2 on
 
 The documentation is a work-in-progress and is being constantly updated. If you want to share any feedback for this document, you can email at AzNutanixPM@microsoft.com.
 
+
+![Nutanix Preview](media/nutanix-public-preview/nutanix-preview.png)
+
+## Unlock benefits of Azure
+* Establish a consistent hybrid deployment strategy
+* Operate seamlessly with on-premise Nutanix Clusters in Azure
+* Build and scale without constraints
+* Invent for today and be prepared for tomorrow with NC2 on Azure
+
+### Scale and flexibility to align to needs
+Get scale, automation, and fast provisioning for your Nutanix workloads on global Azure infrastructure to invent with purpose.
+### Investment Optimization
+Keep using your existing Nutanix investments, skills, and tools to quickly increase business agility with Azure cloud services. 
+### Gaining cloud cost efficiencies
+Manage your cloud spending with license portability to significantly reduce the cost of running workloads in the cloud.
+### Modernization through the power of Azure
+Adapt quicker with unified data governance and gain immediate insights with transformative analytics to drive innovation.
+
+
 ## Supported Regions and Bare Metal Instances
 
 This public preview release supports the following Azure regions:
@@ -28,6 +47,13 @@ This public preview release supports the following Azure regions:
 |Australia East|No|Yes|
 |West Europe (Amsterdam)|No|Yes|
 |Southeast Asia (Singapore)​|No|Yes|
+
+## Pricing
+
+Nutanix will own pricing for the marketplace offer. Microsoft will own the pricing for underlying Azure resources 
+
+(Link to pricing page)
+
 
 
 ## Next steps
