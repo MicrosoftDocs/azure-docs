@@ -5,7 +5,7 @@ services: event-hubs
 author: spelluru
 ms.service: event-hubs
 ms.topic: include
-ms.date: 09/28/2021
+ms.date: 06/01/2022
 ms.author: spelluru
 ms.custom: "include file"
 
@@ -57,4 +57,4 @@ You can also set up [alerts](../../azure-monitor/alerts/alerts-overview.md) agai
 You can geo-pair a namespace under a Dedicated-tier cluster with another namespace under a Dedicated-tier cluster. We don't encourage pairing a dedicated-tier namespace with a namespace in our standard offering because the throughput limit will be incompatible and result in errors. 
 
 ### Can I migrate my Standard namespaces to belong to a Dedicated-tier cluster?
-We don't currently support an automated migration process for migrating your event hubs data from a Standard namespace to a Dedicated one. 
+We don't currently support an automated migration process for migrating your event hubs data from a standard or premium namespace to a dedicated one.
