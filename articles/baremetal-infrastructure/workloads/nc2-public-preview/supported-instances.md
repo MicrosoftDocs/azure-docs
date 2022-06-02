@@ -15,7 +15,7 @@ Maximum of 9 bare metal nodes for public preview.
 * Only the Nutanix AHV hypervisor on Nutanix clusters running in Azure.
 * Prism Central instance deployed on Nutanix Clusters on Azure to manage the Nutanix clusters in Azure.
 
-## Supported Regions
+## Supported regions
 
 This public preview release supports the following Azure regions:
 

@@ -37,6 +37,14 @@ Manage your cloud spending with license portability to significantly reduce the 
 
 Adapt quicker with unified data governance and gain immediate insights with transformative analytics to drive innovation.
 
+### Additional benefits
+
+* MACC credits 
+* Nutanix BYOL  
+* RI (In future; additional discount until RI is supported)
+
+
+### Service Level Objectives
 
 ## Supported Regions and Bare Metal Instances
 
@@ -54,6 +62,13 @@ This public preview release supports the following Azure regions:
 |Australia East|No|Yes|
 |West Europe (Amsterdam)|No|Yes|
 |Southeast Asia (Singapore)​|No|Yes|
+
+## Out of scope features
+
+* NSGs
+* UDRs
+* Cross-region peering
+* Private link
 
 ## Pricing
 

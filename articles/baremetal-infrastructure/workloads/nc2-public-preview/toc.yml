@@ -10,9 +10,9 @@
   href: architecture.md  
 - name: Requirements
   href: requirements.md
-- name: Supported instances
+- name: Supported instances and regions
   href: supported-instances.md
-- name: SkUs
+- name: SKUs
   href: skus.md
 - name: FAQ
   href: faq.md
