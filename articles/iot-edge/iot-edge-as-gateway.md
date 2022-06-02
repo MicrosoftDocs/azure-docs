@@ -49,7 +49,7 @@ For more information about how the IoT Edge hub manages communication between do
 
 ::: moniker-end
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 
 ::: moniker range=">=iotedge-2020-11"
 
@@ -76,7 +76,7 @@ All devices in a transparent gateway scenario need cloud identities so they can 
 
 Child devices can only have one parent. By default, a parent can have up to 100 children. You can change this limit by setting the **MaxConnectedClients** environment variable in the parent device's edgeHub module.
 
-<!-- 1.2.0 -->
+<!-- iotedge-2020-11 -->
 
 ::: moniker range=">=iotedge-2020-11"
 IoT Edge devices can be both parents and children in transparent gateway relationships. A hierarchy of multiple IoT Edge devices reporting to each other can be created. The top node of a gateway hierarchy can have up to five generations of children. For example, an IoT Edge device can have five layers of IoT Edge devices linked as children below it. But the IoT Edge device in the fifth generation cannot have any children, IoT Edge or otherwise.
@@ -88,7 +88,7 @@ A child device needs to be able to find its parent device on the local network. 
 
 On downstream IoT devices, use the **gatewayHostname** parameter in the connection string to point to the parent device.
 
-<!-- 1.2.0 -->
+<!-- iotedge-2020-11 -->
 
 ::: moniker range=">=iotedge-2020-11"
 On downstream IoT Edge devices, use the **parent_hostname** parameter in the config file to point to the parent device.
@@ -98,7 +98,7 @@ On downstream IoT Edge devices, use the **parent_hostname** parameter in the con
 
 Parent and child devices also need to authenticate their connections to each other. Each device needs a copy of a shared root CA certificate which the child devices use to verify that they are connecting to the proper gateway.
 
-<!-- 1.2.0 -->
+<!-- iotedge-2020-11 -->
 
 ::: moniker range=">=iotedge-2020-11"
 When multiple IoT Edge gateways connect to each other in a gateway hierarchy, all the devices in the hierarchy should use a single certificate chain.
@@ -124,7 +124,7 @@ Use the following table to see how different IoT Hub capabilities are supported 
 
 ::: moniker-end
 
-<!-- 1.2.0 -->
+<!-- iotedge-2020-11 -->
 
 ::: moniker range=">=iotedge-2020-11"
 

@@ -67,23 +67,23 @@ Child devices can be any non-IoT Edge device registered to the same IoT Hub.
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range="iotedge-2020-11"
 
 Child devices can be any device, IoT Edge or non-IoT Edge, registered to the same IoT Hub.
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 If you're unfamiliar with creating a parent-child relationship between an IoT Edge device and an IoT device, see [Authenticate a downstream device to Azure IoT Hub](how-to-authenticate-downstream-device.md). The symmetric key, self-signed X.509, and CA-signed X.509 sections show examples of how to use the Azure portal and Azure CLI to define the parent-child relationships when creating devices. For existing devices, you can declare the relationship from the device details page of either the parent or child device.
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range="iotedge-2020-11"
 
 If you're unfamiliar with creating a parent-child relationship between two IoT Edge devices, see [Connect a downstream IoT Edge device to an Azure IoT Edge gateway](how-to-connect-downstream-iot-edge-device.md).
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 ### Set up the parent device as a gateway
 

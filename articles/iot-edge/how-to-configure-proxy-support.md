@@ -155,7 +155,7 @@ systemctl show --property=Environment iotedge
 :::moniker-end
 <!--end 1.1-->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 Open an editor in the terminal to configure the IoT Edge daemon.
@@ -203,7 +203,7 @@ systemctl show --property=Environment aziot-edged
 systemctl show --property=Environment aziot-identityd
 ```
 :::moniker-end
-<!--end 1.2-->
+<!--end iotedge-2020-11-->
 
 #### Windows using IoT Edge for Linux on Windows
 
@@ -273,7 +273,7 @@ This step takes place once on the IoT Edge device during initial device setup.
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 1. Open the config file on your IoT Edge device: `/etc/aziot/config.toml`. The configuration file is protected, so you need administrative privileges to access it. On Linux systems, use the `sudo` command before opening the file in your preferred text editor.
@@ -309,7 +309,7 @@ This step takes place once on the IoT Edge device during initial device setup.
    ```
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 ## Configure deployment manifests  
 

@@ -136,7 +136,7 @@ If you are using IoT Edge for Linux on Windows, you need to use the SSH key loca
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 1. Open the IoT Edge security daemon config file: `/etc/aziot/config.toml`
@@ -174,7 +174,7 @@ If you are using IoT Edge for Linux on Windows, you need to use the SSH key loca
    ```
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 ## Customize certificate lifetime
 
@@ -268,7 +268,7 @@ Upon expiry after the specified number of days, IoT Edge has to be restarted to 
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 1. To configure the certificate expiration to something other than the default 90 days, add the value in days to the **Edge CA certificate (Quickstart)** section of the config file.
@@ -294,7 +294,7 @@ Upon expiry after the specified number of days, IoT Edge has to be restarted to 
 
    Check the output of the **production readiness: certificates** check, which lists the number of days until the automatically generated device CA certificates expire.
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 ## Next steps
 

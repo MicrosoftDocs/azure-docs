@@ -32,14 +32,14 @@ The IoT Edge runtime is responsible for the following functions on IoT Edge devi
 * Manage communication between modules on an IoT Edge device.
 
 * Manage communication between an IoT Edge device and the cloud.
-<!-- 1.2.0 -->
+<!-- iotedge-2020-11 -->
 ::: moniker range=">=iotedge-2020-11"
 * Manage communication between IoT Edge devices.
 ::: moniker-end
 
 ![Runtime communicates insights and module health to IoT Hub](./media/iot-edge-runtime/Pipeline.png)
 
-The responsibilities of the IoT Edge runtime fall into two categories: communication and module management. These two roles are performed by two components that are part of the IoT Edge runtime. The *IoT Edge agent* deploys and monitors the modules, while the *IoT Edge hub* is responsible for communication.
+The responsibilities of the IoT Edge runtime fall into two categories: communication and module management. These two roles are performed by two components that are part of the IoT Edge runtime. The *IoT Edge agent* deploys and monitors the modules, while the *IoT Edge hub* is responsible for communication.
 
 Both the IoT Edge agent and the IoT Edge hub are modules, just like any other module running on an IoT Edge device. They're sometimes referred to as the *runtime modules*.
 
@@ -112,7 +112,7 @@ The solution developer is responsible for specifying the rules that determine ho
 ![Routes between modules go through IoT Edge hub](./media/iot-edge-runtime/module-endpoints-routing.png)
 ::: moniker-end
 
-<!-- <1.2> -->
+<!-- <iotedge-2020-11> -->
 ::: moniker range=">=iotedge-2020-11"
 
 ### Local communication
@@ -217,8 +217,8 @@ The IoT Edge hub is entirely controlled by the cloud. It gets its configuration 
 * MQTT bridge configuration
 
 Additionally, several configuration can be done by setting up [environment variables on the IoT Edge hub](https://github.com/Azure/iotedge/blob/master/doc/EnvironmentVariables.md).
-<!-- </1.2> -->
 ::: moniker-end
+<!-- end iotedge-2020-11 -->
 
 ## Runtime quality telemetry
 

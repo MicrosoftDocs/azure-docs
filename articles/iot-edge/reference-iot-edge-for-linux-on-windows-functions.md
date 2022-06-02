@@ -130,7 +130,7 @@ The **Deploy-Eflow** command is the main deployment method. The deployment comma
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
@@ -151,7 +151,7 @@ The **Deploy-Eflow** command is the main deployment method. The deployment comma
 | gpuCount | Integer value between 1 and the number of the device's GPU cores | Number of GPU devices for the VM. <br><br>**Note**: If using ParaVirtualization, make sure to set gpuCount = 1 |
 | customSsh | None | Determines whether user wants to use their custom OpenSSH.Client installation. If present, ssh.exe must be available to the EFLOW PSM |
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 
 For more information, use the command `Get-Help Deploy-Eflow -full`.  
@@ -358,14 +358,14 @@ The **Set-EflowVmFeature** command enables or disables the status of IoT Edge fo
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 | Parameter | Accepted values | Comments |
 | --------- | --------------- | -------- |
 | feature | **DpsTpm**, **Defender** | Feature name to toggle. |
 | enable | None | If this flag is present, the command enables the feature. |
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 For more information, use the command `Get-Help Set-EflowVmFeature -full`.
 

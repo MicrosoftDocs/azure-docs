@@ -101,7 +101,7 @@ Restart the container engine for the updates to take effect.
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 Place `daemon.json` in the `/etc/docker` directory on your device.
 
@@ -114,7 +114,7 @@ sudo systemctl restart docker
 ```
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 **Option 2: Set DNS server in IoT Edge deployment per module**
 
@@ -261,7 +261,7 @@ When you see this error, you can resolve it by configuring the DNS name of your 
 :::moniker-end
 <!-- end 1.1 -->
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 :::moniker range=">=iotedge-2020-11"
 
 1. In the Azure portal, navigate to the overview page of your virtual machine.
@@ -289,7 +289,7 @@ When you see this error, you can resolve it by configuring the DNS name of your 
    ```
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 <!-- 1.1 -->
 :::moniker range="iotedge-2018-06"
@@ -474,7 +474,7 @@ On Linux:
 
 1. Restart the network service and docker service to apply the changes.
 
-<!-- 1.2 -->
+<!-- iotedge-2020-11 -->
 ::: moniker range=">=iotedge-2020-11"
 
 ## IoT Edge behind a gateway cannot perform HTTP requests and start edgeAgent module
@@ -513,7 +513,7 @@ When migrating to the new IoT hub (assuming not using DPS), follow these steps i
 1. Restart each device in hierarchy level by level from top to the bottom
 
 :::moniker-end
-<!-- end 1.2 -->
+<!-- end iotedge-2020-11 -->
 
 ## Security daemon couldn't start successfully
 

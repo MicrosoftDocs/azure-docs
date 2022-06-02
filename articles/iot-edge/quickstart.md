@@ -130,7 +130,7 @@ Run the following PowerShell commands on the target device where you want to dep
    :::moniker-end
    <!-- end 1.1 -->
 
-   <!-- 1.2 -->
+   <!-- iotedge-2020-11 -->
    :::moniker range=">=iotedge-2020-11"
       * **X64/AMD64**
          ```powershell
@@ -146,7 +146,7 @@ Run the following PowerShell commands on the target device where you want to dep
          Invoke-WebRequest "https://aka.ms/AzEFLOWMSI-CR-ARM64" -OutFile $msiPath
          ```
    :::moniker-end
-   <!-- end 1.2 -->
+   <!-- end iotedge-2020-11 -->
 
 1. Install IoT Edge for Linux on Windows on your device.
 
