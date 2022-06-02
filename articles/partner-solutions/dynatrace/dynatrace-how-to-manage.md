@@ -18,7 +18,7 @@ This article describes how to manage the settings for your Azure integration wit
 To see the details of your Dynatrace resource, select **Overview** in the left pane.
 
 <!-- $TODO: overview screenshot -->
-:::image type="content" source="media/dynatrace-manage/dynatrace-overview.png" alt-text="Screenshot of overview in the resource menu.":::
+:::image type="content" source="media/dynatrace-how-to-manage/dynatrace-overview.png" alt-text="Screenshot of overview in the resource menu.":::
 
 The details include:
 
@@ -38,7 +38,7 @@ At the bottom, you see two tabs:
 If you select the **Monitoring** pane, you see a table with information about the Dynatrace resource.
 
 <!-- $TODO: Monitoring screenshot -->
-:::image type="content" source="media/dynatrace-manage/dynatrace-monitoring.png" alt-text="Screenshot of overview working pane showing monitoring.":::
+:::image type="content" source="media/dynatrace-how-to-manage/dynatrace-monitoring.png" alt-text="Screenshot of overview working pane showing monitoring.":::
 
 The columns in the table denote important information for your resource:
 
@@ -59,7 +59,7 @@ For more information, see [Configure metrics and logs](dynatrace-create.md#confi
 To see the list of resources emitting logs to Dynatrace, select Monitored Resources in the left pane.
 
 <!-- $TODO: Monitored resources screenshot. -->
-:::image type="content" source="media/dynatrace-manage/dynatrace-monitored-resources.png" alt-text="Screenshot showing monitored resources in the working pane.":::
+:::image type="content" source="media/dynatrace-how-to-manage/dynatrace-monitored-resources.png" alt-text="Screenshot showing monitored resources in the working pane.":::
 
 You can filter the list of resources by resource type, resource group name, region and whether the resource is sending logs.
 
@@ -123,7 +123,7 @@ To establish single sign-on or change the application, select **Enable single si
 ## Delete Dynatrace resource
 
 Select **Overview** in Resource menu on the left. Then, select **Delete**. Confirm that you want to delete the Dynatrace resource. Select **Delete**.
-:::image type="content" source="media/dynatrace-manage/dynatrace-delete.png" alt-text="Screenshot showing overview in resource menu with a box around delete.":::
+:::image type="content" source="media/dynatrace-how-to-manage/dynatrace-delete.png" alt-text="Screenshot showing overview in resource menu with a box around delete.":::
 <!-- $TODO: Screenshot of delete. -->
 
 If only one Dynatrace resource is mapped to a Dynatrace environment, logs are no longer sent to Dynatrace. All billing through Azure Marketplace stops for Dynatrace.
