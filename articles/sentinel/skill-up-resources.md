@@ -329,6 +329,49 @@ Using ASIM provides the following benefits:
 
 ## Part 3: Creating Content
 
+What is Microsoft Sentinel's content?
+
+Microsoft Sentinel security value is a combination of its built-in capabilities such as UEBA, Machine Learning, or out-of-the-box analytics rules and your capability to create custom capabilities and customize built-in ones. Customized SIEM capabilities are often referred to as "content" and include analytic rules, hunting queries, workbooks, playbooks, and more.
+
+In this section, we grouped the modules that help you learn how to create such content or modify built-in-content to your needs.  We start with KQL, the Lingua Franca of Azure Sentinel. The following modules discuss one of the content building blocks such as rules, playbooks, and workbooks. We wrap up by discussing use cases, which encompass elements of different types to address specific security goals such as threat detection, hunting, or governance. 
+
+### Module 10: The Kusto Query Language (KQL)
+
+Most Microsoft Sentinel capabilities use [KQL or Kusto Query Language](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/). When you search in your logs, write rules, create hunting queries, or design workbooks, you use KQL.  
+
+Note that the next section on writing rules explains how to use KQL in the specific context of SIEM rules.
+
+**Below is the recommended journey for learning Sentinel KQL:**
+1. [Pluralsight KQL course](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch) - the basics
+2. The Microsoft Sentinel KQL Lab: An interactive lab teaching KQL focusing on what you need for Microsoft Sentinel:
+    1. [Learning module (SC-200 part 4)](https://docs.microsoft.com/en-us/learn/paths/sc-200-utilize-kql-for-azure-sentinel/)
+    2. [Presentation](https://onedrive.live.com/?authkey=%21AJRxX475AhXGQBE&cid=66C31D2DBF8E0F71&id=66C31D2DBF8E0F71%21740&parId=66C31D2DBF8E0F71%21446&o=OneUp), [Lab URL](https://aka.ms/lademo)
+    3. a [Jupyter Notebooks version](https://github.com/jjsantanna/azure_sentinel_learn_kql_lab/blob/master/azure_sentinel_learn_kql_lab.ipynb), which let you test the queries within the notebook.
+    4. Learning webinar: [YouTube](https://youtu.be/EDCBLULjtCM), [MP4](https://1drv.ms/v/s!AnEPjr8tHcNmglwAjUjmYy2Qn5J-);
+    5. Reviewing lab solutions webinar: [YouTube](https://youtu.be/YKD_OFLMpf8), [MP4](https://1drv.ms/v/s!AnEPjr8tHcNmg0EKIi5gwXyccB44?e=sF6UG5)
+3. [Pluralsight Advanced KQL course](https://www.pluralsight.com/courses/microsoft-azure-data-explorer-advanced-query-capabilities)
+4. _Optimizing Azure Sentinel KQL queries performance_: [YouTube](https://youtu.be/jN1Cz0JcLYU), [MP4](https://aka.ms/AzS_09SEP20_MP4), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmg2imjIS8NABc26b-?e=rXZrR5).
+5. Using ASIM in your KQL queries: [YouTube](https://www.youtube.com/watch?v=WoGD-JeC7ng), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmjDY1cro08Fk3KUj-?e=murYHG)
+6. _KQL Framework for Microsoft Sentinel - Empowering You to Become KQL-Savvy:_ [YouTube](https://youtu.be/j7BQvJ-Qx_k), [Presentation](https://1drv.ms/b/s!AnEPjr8tHcNmkgqKSV-m1QWgkzKT?e=QAilwu).
+
+You might also find the following reference information useful as you learn KQL:
+
+* [The KQL Cheat Sheet](https://www.mbsecure.nl/blog/2019/12/kql-cheat-sheet)
+* [Query optimization best practices](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/query-optimization)
+
+### Module 11: Analytics
+
+**Writing Scheduled Analytics Rules**
+
+
+
+**Using Built-in Analytics**
+
+### Module 12: SOAR
+### Module 13: Workbooks, reporting, and visualization
+### Module 14: Notebooks
+### Module 15: Use cases and solutions
+
 ## Part 4: Operating
 
 ## Part 5: Advanced Topics
