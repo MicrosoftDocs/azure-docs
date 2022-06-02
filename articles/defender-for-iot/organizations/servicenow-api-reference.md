@@ -246,5 +246,6 @@ An array of the following fields:
 
 For more information, see:
 
-- [Defender for IoT sensor and management console APIs](references-work-with-defender-for-iot-apis.md)
+- [Defender for IoT API reference](references-work-with-defender-for-iot-apis.md)
 - [OT monitoring sensor APIs](sensor-api-reference.md)
+- [On-premises management console API reference](management-api-reference.md)

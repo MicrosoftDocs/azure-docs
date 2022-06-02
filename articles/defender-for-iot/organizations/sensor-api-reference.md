@@ -9,15 +9,6 @@ ms.topic: reference
 
 This article lists the APIs supported for Defender for IoT OT sensors.
 
-## Version reference
-
-
-|Version  |Supported APIs  |
-|---------|---------|
-|**No version**     |  - [validation (Validate user credentials)](#validation-validate-user-credentials)  <br>- [set_password (Change your password)](#set_password-change-your-password) <br>- [set_password_by_admin (Update a user password by admin)](#set_password_by_admin-update-a-user-password-by-admin)     |
-|**Version 1**     |  [connections (Retrieve device connection information)](#connections-retrieve-device-connection-information) <br><br>[cves (Retrieve information on CVEs](#cves-retrieve-information-on-cves)<br>- [alerts (Retrieve alert information)](#alerts-retrieve-alert-information)<br>- [events (Retrieve timeline events)](#events-retrieve-timeline-events)[vulnerabilities (Retrieve vulnerability information)](#vulnerabilities-retrieve-vulnerability-information)<br>- [security (Retrieve security vulnerabilities)](#security-retrieve-security-vulnerabilities)<br>- [operational (Retrieve operational vulnerabilities)](#operational-retrieve-operational-vulnerabilities)<br>-   |
-|**Version 2**     |    [Retrieve alert PCAP](#retrieve-alert-pcap)     |
-
 ## validation (Validate user credentials)
 
 Use this API to validate a Defender for IoT username and password. All Defender for IoT user roles can work with the API.
@@ -1173,7 +1164,7 @@ curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/a
 ```
 
 ---
-## Retrieve alert PCAP
+## pcap (Retrieve alert PCAP)
 
 Use this API to retrieve a PCAP file related to an alert.
 
@@ -1234,5 +1225,6 @@ curl -k -H "Authorization: d2791f58-2a88-34fd-ae5c-2651fe30a63c" 'https://10.1.0
 
 For more information, see:
 
-- [Defender for IoT sensor and management console APIs](references-work-with-defender-for-iot-apis.md)
+- [Defender for IoT API reference](references-work-with-defender-for-iot-apis.md)
 - [On-premises management console API reference](management-api-reference.md)
+- [ServiceNow integration API reference (Public preview)](servicenow-api-reference.md)

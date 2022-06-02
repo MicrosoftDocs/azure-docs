@@ -9,15 +9,6 @@ ms.topic: reference
 
 This article lists the APIs supported for Defender for IoT OT on-premises monitoring consoles.
 
-## Version reference
-
-|Version  |APIs  |
-|---------|---------|
-|**No version**     |  - [maintenanceWindow (Create alert exclusions)](#maintenancewindow-create-alert-exclusions) <br>- [set_password (Change password)](#set_password-change-password)<br> [set_password_by_admin (User password update by system admin)](#set_password_by_admin-user-password-update-by-system-admin) <br>[QRadar alerts](#qradar-alerts) <br>- [validation (Authenticate user credentials)](#validation-authenticate-user-credentials)   |
-|**Version 1**     |  <br> [devices (Retrieve all device information)](#devices-retrieve-all-device-information) <br>  alerts <br> [maintenanceWindow (Create alert exclusions)](#maintenancewindow-create-alert-exclusions)      |
-|**Version 2**     |  PCAP       |
-|**Version 3**     |   External integration preview      |
-
 
 ## set_password (Change password)
 
@@ -1094,10 +1085,11 @@ curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/
 ---
 
 
-## Request alert PCAP - /external/v2/alerts/pcap
+## pcap (Request alert PCAP)
 
 Use this API to request a PCAP file related to an alert.
 
+**URL**: `/external/v2/alerts/`
 ### GET
 
 # [Request](#tab/pcap-request)
@@ -1172,5 +1164,6 @@ curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://10.1.0.1/e
 
 For more information, see:
 
-- [Defender for IoT sensor and management console APIs](references-work-with-defender-for-iot-apis.md)
+- [Defender for IoT API reference](references-work-with-defender-for-iot-apis.md)
 - [OT monitoring sensor APIs](sensor-api-reference.md)
+- [ServiceNow integration API reference (Public preview)](servicenow-api-reference.md)
