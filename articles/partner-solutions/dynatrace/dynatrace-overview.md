@@ -2,7 +2,8 @@
 title: Dynatrace integration overview - Azure partner solutions
 description: Learn about using the Dynatrace Cloud-Native Observability Platform in the Azure Marketplace.
 ms.topic: conceptual
-ms.service: partner-services    
+ms.service: partner-services
+ms.subservice: dynatatrace  
 ms.collection: na
 author: flang-msft
 ms.author: franlanglois

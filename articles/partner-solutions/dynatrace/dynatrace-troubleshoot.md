@@ -4,6 +4,7 @@ description: This article provides information about troubleshooting Dynatrace i
 ms.topic: conceptual
 ms.collection: na
 ms.service: partner-services
+ms.subservice: dynatatrace
 author: flang-msft
 ms.author: franlanglois
 ms.date: 05/12/2022
