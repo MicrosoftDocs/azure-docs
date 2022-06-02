@@ -137,7 +137,7 @@ Use either of the following deployment checklists during the setup, or for troub
 
 1. Give your Power BI instance a friendly name. The name must be between 3-63 characters long, and must contain only letters, numbers, underscores, and hyphens. Spaces aren't allowed.
 
-1. Edit the **Tenant ID** field, to replace with the cross Power BI tenant you want to register and scan. By default, the Power BI tenant ID that exists in the same Azure AD as Microsoft Purview is populated.
+1. Edit the **Tenant ID** field, to replace with the cross-tenant Power BI that you want to register and scan. By default, the Power BI tenant ID that exists in the same Azure AD as Microsoft Purview is populated.
 
      :::image type="content" source="media/setup-power-bi-scan-catalog-portal/register-cross-tenant.png" alt-text="Screenshot that shows the registration experience for cross-tenant Power BI.":::
 
@@ -180,7 +180,7 @@ To create and run a new scan by using the Azure runtime, perform the following s
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-delegated-permissions.png" alt-text="Screenshot of delegated permissions for Power BI and Microsoft Graph.":::
 
-1. From the Azure Active Directory dashboard, select the newly created application, and then select **Authentication**. Under **Supported account types**, select **Accounts in any organizational directory (Any Azure AD directory - Multitenant)**. 
+1. From the Azure AD dashboard, select the newly created application, and then select **Authentication**. Under **Supported account types**, select **Accounts in any organizational directory (Any Azure AD directory - Multitenant)**. 
 
       :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-multitenant.png" alt-text="Screenshot of account type support multitenant.":::
 
