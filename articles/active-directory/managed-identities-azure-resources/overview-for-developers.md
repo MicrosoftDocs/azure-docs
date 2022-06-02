@@ -21,9 +21,9 @@ ms.collection: M365-identity-device-management
 
 # How can I connect to Azure resources in my application without handling credentials?
 
-This page explains how developers can use Managed identities so that Azure resources can connect to resources that support authentication with Azure Active Directory, without needing to handle or store any credentials. This is the recommended approach where resources support the ability to authentiate using a managed identity.
+This page explains how developers can use Managed identities so that Azure resources can connect to resources that support authentication with Azure Active Directory, without needing to handle or store any credentials. This is the recommended approach for Azure resources that support the ability to authentiate using a managed identity.
 
-The example provided will show how an Azure App Service can connect to Azure Key Vault, Azure Storage, and Microsoft SQL Server. However the same principles can be used with any Azure resource that supports Managed Identities that will connect to endpoints that support Azure Active Directory authentication. 
+The examples provided will show how an Azure App Service can connect to Azure Key Vault, Azure Storage, and Microsoft SQL Server. However the same principles can be used for any Azure resource that supports Managed Identities and that will connect to endpoints that support Azure Active Directory authentication. 
 
 The Azure resource that will make the connection is referred to as a "source" endpoint, and the resource that you're connecting to is referred to as a "target" endpoint.
 
@@ -45,7 +45,7 @@ If you want to use a user-assigned identity, you'll need to create it before you
 :::image type="content" source="media/overview-for-developers/Managed-Identities-Search.png" alt-text="Search for managed identities":::
 2. Select the "Create" button.
 :::image type="content" source="media/overview-for-developers/Managed-Identity-Create-Button.png" alt-text="Managed identity - create button":::
-3. Select the Subscription and Resource group, and enter a name for the Managed identity.
+4. Select the Subscription and Resource group, and enter a name for the Managed identity.
 :::image type="content" source="media/overview-for-developers/Managed-Identity-Create-Screen.png" alt-text="Managed identity - create screen":::
 4. Select "Review + create" to run the validation test, and then select the "Create" button.
 5. When the identity has been created, a confirmation screen will appear.
@@ -96,7 +96,7 @@ Your resource now has a system-assigned identity that it can use to connect to o
 > [!NOTE]
 > You'll need a role such as "User Access Administrator" or "Owner" for the target resource to add Role assignments. Ensure you're granting the least privilege required for the application to run.
 
-Now your App Service has a managed identity, you'll need to give the identity the correct permissions. As you're using this identity to interact with Azure Key Vault, you'll use the Azure RBAC (Role Based Access Control) system.
+Now your App Service has a managed identity, you'll need to give the identity the correct permissions. As you're using this identity to interact with Azure Storage, you'll use the Azure RBAC (Role Based Access Control) system.
 
 1. Locate the resource you want to connect to using the search bar at the top of the Portal
 2. Select the "Access Control (IAM)" link in the left hand navigation.
@@ -119,7 +119,7 @@ Your managed identity now has the correct permissions to access the Azure resour
 
 ## Using the identity in your code
 
-Your App Service now has an identity with permissions. You can use the identity in your code to interact with Azure Key Vault, instead of storing credentials in your code.
+Your App Service now has an identity with permissions. You can use the identity in your code to interact with Azure Storage, instead of storing credentials in your code.
 
 The recommended method is to use the Azure Identity library for your preferred programming language. The supported languages include .NET, Java, JavaScript, Python, Go, and C++. The library acquires access tokens for you, making it simple to connect to target endpoints.
 
@@ -140,6 +140,60 @@ Read more about the Azure Identity libraries below:
 * [Azure Identity module for Go](/azure/developer/go/azure-sdk-authentication)
 * [Azure Identity library for C++](https://github.com/Azure/azure-sdk-for-cpp/blob/main/sdk/identity/azure-identity/README.md)
 
+### Accessing a Blob in Azure Storage
+
+#### [.NET](#tab/netcore)
+
+```csharp
+var credentialOptions = new DefaultAzureCredentialOptions
+{
+    ManagedIdentityClientId = "<Client ID of User-assigned identity>"
+};
+var msiCredential = new DefaultAzureCredential(credentialOptions);                        
+
+var blobServiceClient1 = new BlobServiceClient(new Uri("<URI of Storage account>"), msiCredential);
+BlobContainerClient containerClient1 = blobServiceClient1.GetBlobContainerClient("<name of blob>");
+BlobClient blobClient1 = containerClient1.GetBlobClient("<name of file>");
+
+if (blobClient1.Exists())
+{
+    var downloadedBlob = blobClient1.Download();
+    string blobContents = downloadedBlob.Value.Content.ToString();                
+}
+```
+
+#### [Java](#tab/java)
+_pom.xml_
+```xml
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-storage-blob</artifactId>
+    <version>12.13.0</version>
+</dependency>
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-identity</artifactId>
+    <version>1.2.0</version>
+</dependency>
+```
+
+```java
+DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
+        .managedIdentityClientId("<Client ID of User-assigned identity>")
+        .build();
+
+BlobServiceClient blobStorageClient = new BlobServiceClientBuilder()
+        .endpoint("<URI of Storage account>")
+        .credential(credential)
+        .buildClient();
+
+BlobContainerClient blobContainerClient = blobStorageClient.getBlobContainerClient("<name of blob container>");
+BlobClient blobClient = blobContainerClient.getBlobClient("<name of blob/file>");
+if (blobClient.exists()) {
+    String blobContent = blobClient.downloadContent().toString();
+}
+```    
+---
 ### Accessing a secret stored in Azure Key Vault
 
 #### [.NET](#tab/netcore)
@@ -208,61 +262,6 @@ KeyVaultSecret retrievedSecret = secretClient.getSecret(secretName);
 ```
 ---
 
-### Accessing a Blob in Azure Storage
-
-#### [.NET](#tab/netcore)
-
-```csharp
-var credentialOptions = new DefaultAzureCredentialOptions
-{
-    ManagedIdentityClientId = "<Client ID of User-assigned identity>"
-};
-var msiCredential = new DefaultAzureCredential(credentialOptions);                        
-
-var blobServiceClient1 = new BlobServiceClient(new Uri("<URI of Storage account>"), msiCredential);
-BlobContainerClient containerClient1 = blobServiceClient1.GetBlobContainerClient("<name of blob>");
-BlobClient blobClient1 = containerClient1.GetBlobClient("<name of file>");
-
-if (blobClient1.Exists())
-{
-    var downloadedBlob = blobClient1.Download();
-    string blobContents = downloadedBlob.Value.Content.ToString();                
-}
-```
-
-#### [Java](#tab/java)
-_pom.xml_
-```xml
-<dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-storage-blob</artifactId>
-    <version>12.13.0</version>
-</dependency>
-<dependency>
-    <groupId>com.azure</groupId>
-    <artifactId>azure-identity</artifactId>
-    <version>1.2.0</version>
-</dependency>
-```
-
-```java
-DefaultAzureCredential credential = new DefaultAzureCredentialBuilder()
-        .managedIdentityClientId("<Client ID of User-assigned identity>")
-        .build();
-
-BlobServiceClient blobStorageClient = new BlobServiceClientBuilder()
-        .endpoint("<URI of Storage account>")
-        .credential(credential)
-        .buildClient();
-
-BlobContainerClient blobContainerClient = blobStorageClient.getBlobContainerClient("<name of blob container>");
-BlobClient blobClient = blobContainerClient.getBlobClient("<name of blob/file>");
-if (blobClient.exists()) {
-    String blobContent = blobClient.downloadContent().toString();
-}
-```    
----
-
 ### Accessing Azure SQL Database
 
 #### [.NET](#tab/netcore)
@@ -326,7 +325,7 @@ public class Connect_to_Azure_SQL {
 
 Some Azure resources either don't yet support Azure Active Directory authentication, or their client libraries don't support authenticating with a token. Typically these endpoints are open-source technologies that expect a username and password or an access key in a connection string.
 
-To avoid storing credentials in your code or your application configuration, you can store the credentials as a secret in Azure Key Vault. Using the example displayed above, you can retrieve the secret and pass it into your connection string.
+To avoid storing credentials in your code or your application configuration, you can store the credentials as a secret in Azure Key Vault. Using the example displayed above, you can retrieve the secret from Azure KeyVault using a managed identity, and pass the credentials into your connection string. This approach means that no credentials need to be handled directly in your code or environment.
 
 ## Guidelines if you're handling tokens directly
 
