@@ -418,6 +418,8 @@
       href: episode-eleven.md
     - name: Enhanced workload protection features in Defender for Servers
       href: episode-twelve.md
+    - name: Defender for Storage
+      href: episode-thirteen.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/azure-defender/
   - name: Regional availability
