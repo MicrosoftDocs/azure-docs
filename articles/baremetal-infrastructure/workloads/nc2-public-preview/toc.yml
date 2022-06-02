@@ -2,6 +2,8 @@
   href: nc2-baremetal-overview.md
 - name: About the Public Preview
   href: about-the-public-preview.md
+- name: Getting started
+  href: gettiing-started.md
 - name: Use cases and supported scenarios
   href: use-cases-and-supported-scenarios.md  
 - name: Solution design
