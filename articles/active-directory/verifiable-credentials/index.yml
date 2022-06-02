@@ -1,7 +1,8 @@
 ### YamlMime:Landing
 
-title: Azure Active Directory Verifiable Credentials documentation (preview)
-summary: Verifiable credentials helps you build solutions that empower customers to manage their own data.
+title: Microsoft Entra Verified ID documentation (preview)
+summary: Azure Active Directory Verifiable Credentials is now Microsoft Entra Verified ID and part of the Microsoft Entra family of products. We'll be updating our documentation in the next few months as we move towards General Availability (GA). Learn more about the [Microsoft Entra family](https://aka.ms/EntraAnnouncement) of identity solutions and get started in the [unified Microsoft Entra admin center](https://entra.microsoft.com).
+
 
 metadata: 
   author: barclayn
