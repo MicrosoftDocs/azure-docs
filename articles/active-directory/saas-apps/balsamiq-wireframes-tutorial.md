@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/20/2022
+ms.date: 05/13/2022
 ms.author: jeedes
 
 ---
@@ -28,6 +28,9 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Balsamiq Wireframes single sign-on (SSO) enabled subscription.
+
+> [!NOTE]
+> This feature is only available for users on the 200-projects Space plan.
 
 ## Scenario description
 
