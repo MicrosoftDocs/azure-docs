@@ -143,7 +143,7 @@ Device lifecycle events are emitted whenever a device or module is created or de
 | ---- | ----------- |
 | iothub-message-source |  deviceLifecycleEvents |
 
-**Payload**: The payload contains the device twin or module twin.
+**Payload**: The payload contains the device ID and module ID, the twin etag, the version property, and the tags, properties and associated metadata of the device or module twin.
 
 ### Example
 
@@ -222,7 +222,7 @@ Device twin change events are emitted whenever a device twin or a module twin is
 | ---- | ----------- |
 | iothub-message-source |  twinChangeEvents |
 
-**Payload**: On an update, the payload contains the version property of the twin and the updated tags and properties and their associated metadata. On replace, the payload contains the device ID and module ID, the twin etag, the version property, and all the tags and properties of the twin and their associated metadata.
+**Payload**: On an update, the payload contains the version property of the twin and the updated tags and properties and their associated metadata. On replace, the payload contains the device ID and module ID, the twin etag, the version property, and all the tags, properties and associated metadata of the device or module twin.
 
 ### Example
 
