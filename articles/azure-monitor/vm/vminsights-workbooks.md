@@ -53,13 +53,13 @@ A workbook is made up of sections consisting of independently editable charts, t
 
 3. On the VM insights page, select **Performance** or **Maps** tab and then select **View Workbooks** from the link on the page. From the drop-down list, select **Go to Gallery**.
 
-    :::image type="content" source="media/vminsights-workbooks/workbook-dropdown-gallery-01.png" lightbox="media/vminsights-workbooks/workbook-dropdown-gallery-01.png" alt-text="Screenshot of workbook drop-down list":::
+    :::image type="content" source="media/vminsights-workbooks/workbook-dropdown-gallery-01.png" lightbox="media/vminsights-workbooks/workbook-dropdown-gallery-01.png" alt-text="Screenshot of workbook drop-down list in V M insights.":::
 
     This launches the workbook gallery with a number of prebuilt workbooks to help you get started.
 
 7. Create a new workbook by selecting **New**.
 
-:::image type="content" source="media/vminsights-workbooks/workbook-gallery-01.png" lightbox="media/vminsights-workbooks/workbook-gallery-01.png" alt-text="Screenshot of workbook gallery":::
+:::image type="content" source="media/vminsights-workbooks/workbook-gallery-01.png" lightbox="media/vminsights-workbooks/workbook-gallery-01.png" alt-text="Screenshot of workbook gallery in V M insights.":::
 
 ## Editing workbook sections
 
