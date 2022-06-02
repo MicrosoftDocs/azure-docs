@@ -1,6 +1,6 @@
 ---
-title: Supported instances
-description:  
+title: Supported instances and regions
+description: Identifies instances and regions supported for Public Preview
 ms.topic: how-to
 ms.subservice:  
 ms.date: 03/31/2021
@@ -18,7 +18,6 @@ Maximum of 9 bare metal nodes for public preview.
 ## Supported Regions
 
 This public preview release supports the following Azure regions:
-
 
 |Region name |Ready Node for Nutanix AN36 |Ready Node for Nutanix AN36P |
 | :------------------- | -------------------: |:---------------:|

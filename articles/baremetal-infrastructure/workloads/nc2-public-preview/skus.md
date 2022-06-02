@@ -1,34 +1,24 @@
 ---
-title: Requirements
-description: What you need to run NC2 on Azure
-ms.topic: how-to
-ms.subservice: baremetal-oracle
-ms.date: 03/31/2021
+title: SKUs
+description: SKUs available for NC2 on Azure
+ms.topic: conceptual
+ms.subservice: baremetal-nutanix
+ms.date: 07/01/2021
 ---
 
-# Requirements
+# SKUs
 
-This article assumes prior knowledge of the Nutanix stack and Azure services to operate significant deployments on Azure. 
-The following sections identify the requirements to use Nutanix Clusters on Azure:
+Gen6 Vs Gen7 (Swapna to check AVS documentation)
 
-## Azure account requirements
+| |Ready Node for Nutanix AN36|Ready Node for Nutanix AN36P|
+| :------------------- | -------------------: |:---------------:|
+|Platform|Dell R640|Dell R640|
+|Core|Intel 6140, 36 Core, 2.3GHz|Intel 6240, 36 Core, 2.6GHz|
+|vCPUs|72|72|
+|RAM|576 GB|768 GB|
+|Storage|18.56 TB (8 x 1.92TB SATA SSD, 2x1.6TB NVMe)|19.95 TB (2x375G Optane, 6x3.2TB NVMe)|
+|Network|100 Gbps (4 links * 25 Gbps)|100 Gbps (4 links * 25 Gbps)|
 
-* An Azure account with a new subscription  
-* An Azure Active Directory
-
-## My Nutanix account requirements
-
-For more information, see (insert nutanix url)
-
-## Networking requirements
-
-* Connectivity between your on-premises datacenter and Azure. Both ExpressRoute and VPN are supported. 
-* After a cluster is created, you will need Virtual IP addresses for both the onpremises cluster and the cluster running in Azure.
-* Outbound internet access on your Azure portal.
-* Azure Directory Service resolves the FQDN:  
-gateway-external-api.console.nutanix.com.
-
-For more information, see Deployment. 
 
 > [!div class="nextstepaction"]
 > [About the Public Preview](about-the-public-preview.md)

@@ -28,6 +28,13 @@ For more information, see (insert nutanix url)
 * Azure Directory Service resolves the FQDN:  
 gateway-external-api.console.nutanix.com.
 
+## Other requirements
+
+* Minimum of three (or more) Azure Nutanix Ready nodes per cluster 
+* Only the Nutanix AHV hypervisor on Nutanix clusters running in Azure
+* Prism Central instance deployed on NC2 on Azure to manage the Nutanix clusters in Azure
+
+
 For more information, see Deployment. 
 
 > [!div class="nextstepaction"]
