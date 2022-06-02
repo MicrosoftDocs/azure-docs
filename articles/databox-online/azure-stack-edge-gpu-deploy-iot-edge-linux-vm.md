@@ -18,15 +18,19 @@ ms.author: alkohli
 This article describes how to deploy IoT Edge runtime on an Ubuntu VM running on your Azure Stack Edge device. 
 
 > [!NOTE]
-> IoT Edge solution on Kubernetes running on Azure Stack Edge will be deprecated soon. If you have deployed production workloads that use the native IoT Edge solution on Azure Stack Edge, we recommend that you plan to migrate those workloads to a [recent, supported version of IoT Edge runtime](../iot-edge/version-history.md?view=iotedge-2020-11&preserve-view=true). 
-
+> IoT Edge solution on Kubernetes running on Azure Stack Edge is in sustaining mode - no new features or capabilities will be added. If you have deployed production workloads that use the native IoT Edge solution on Azure Stack Edge, we recommend that you plan to migrate those workloads to another solution.
 
 ## About IoT Edge runtime on Ubuntu VM
 
-Your Azure Stack Edge device can deploy and run IoT Edge modules. This native IoT Edge solution on Azure Stack Edge runs an IoT Edge runtime version 1.1.0 on a Kubernetes cluster. The version 1.1.0 has limited support and also has [Known issues](https://microsoft.github.io/iotedge-k8s-doc/knownissues.html). These known issues were addressed with the recent IoT Edge releases. 
+Your Azure Stack Edge device can deploy and run IoT Edge modules. This native IoT Edge solution on Azure Stack Edge runs an IoT Edge runtime version 1.1.0 on a Kubernetes cluster. Version 1.1.0 has limited support and also has [Known issues](https://microsoft.github.io/iotedge-k8s-doc/knownissues.html). These known issues were addressed with recent IoT Edge releases.
 
-Going forward, we recommend that you don't use the native version of IoT Edge solution, rather deploy a recent IoT Edge runtime version on an Ubuntu VM that is running on your Azure Stack Edge using the procedure described in this article.
+Going forward, we recommend that you don't use the native version of the IoT Edge solution. Instead, deploy a recent IoT Edge runtime version on an Ubuntu VM that is running on your Azure Stack Edge using the procedure described in this article.
 
+To help facilitate the deployment of the IoT Edge runtime onto the Ubuntu VM, you can deploy the IoT Edge runtime with the help a `cloud-init` script during the VM deployment.  
+
+## Migrating workloads from IoT Edge on Kubernetes to IoT Edge on an Ubuntu VM
+
+To migrate your existing workloads from IoT Edge on Kubernetes to a newly deployed IoT edge on Ubuntu VM on Azure Stack Edge, connect the IoT Edge device from your IoT Hub to the Ubuntu VM. Use the connection string from the IoT Edge device from IoT Hub. You will use this later to connect.  
 
 ## Prerequisites
 
