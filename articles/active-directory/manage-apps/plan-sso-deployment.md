@@ -1,7 +1,6 @@
 ---
 title: Plan a single sign-on deployment
 description: Plan the deployment of single sign-on in Azure Active Directory.
-titleSuffix: Microsoft Entra
 services: active-directory
 author: AllisonAm
 manager: CelesteDG
