@@ -19,6 +19,8 @@ When creating an Azure Video Indexer account, you can choose a free trial accoun
 
 To read more on how to create a **new ARM-Based** Azure Video Indexer account, read this [article](create-video-analyzer-for-media-account.md)
 
+For more details, see [pricing](https://azure.microsoft.com/pricing/details/video-indexer/).
+
 ## How to create classic accounts
 This article shows how to create an Azure Video Indexer classic account. The topic provides steps for connecting to Azure using the automatic (default) flow. It also shows how to connect to Azure manually (advanced).
 
