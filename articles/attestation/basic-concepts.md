@@ -65,7 +65,7 @@ Attestation policy is used to process the attestation evidence and is configurab
 
 If the default policy in the attestation provider doesn’t meet the needs, customers will be able to create custom policies in any of the regions supported by Azure Attestation. Policy management is a key feature provided to customers by Azure Attestation. Policies will be attestation type specific and can be used to identify enclaves or add claims to the output token or modify claims in an output token. 
 
-See [examples of an attestation policy](policy-examples.md) for policy samples.
+See [examples of an attestation policy](policy-examples.md) 
 
 ## Benefits of policy signing
 
