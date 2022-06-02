@@ -1358,11 +1358,11 @@ Security Center's asset inventory page has been improved in the following ways:
 - Filters have been expanded and enhanced to include:
   - **Counts** - Each filter presents the number of resources that meet the criteria of each category
 
-        :::image type="content" source="media/release-notes/counts-in-inventory-filters.png" alt-text="Counts in the filters in the asset inventory page of Azure Security Center.":::
+    :::image type="content" source="media/release-notes/counts-in-inventory-filters.png" alt-text="Counts in the filters in the asset inventory page of Azure Security Center.":::
 
   - **Contains exemptions filter** (Optional) - narrow the results to resources that have/haven't got exemptions. This filter isn't shown by default, but is accessible from the **Add filter** button.
 
-        :::image type="content" source="media/release-notes/adding-contains-exemption-filter.gif" alt-text="Adding the filter 'contains exemption' in Azure Security Center's asset inventory page":::
+    :::image type="content" source="media/release-notes/adding-contains-exemption-filter.gif" alt-text="Adding the filter 'contains exemption' in Azure Security Center's asset inventory page":::
 
 Learn more about how to [Explore and manage your resources with asset inventory](asset-inventory.md).
 
