@@ -2,8 +2,6 @@
 title: Manage your Dynatrace for Azure integration
 description: This article describes how to manage Dynatrace on the Azure portal. 
 ms.topic: conceptual
-ms.service: partner-services
-ms.subservice: dynatrace
 author: flang-msft
 ms.author: franlanglois
 ms.date: 06/07/2022

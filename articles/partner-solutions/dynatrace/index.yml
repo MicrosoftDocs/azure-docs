@@ -6,8 +6,6 @@ summary: Dynatrace for Azure from the Azure Marketplace enables you to create an
 metadata:
   title: Dynatrace for Azure documentation
   description: Dynatrace for Azure offers a monitoring solution for your Azure workloads through a streamlined workflow.
-  ms.service: partner-services
-  ms.subservice: dynatrace
   ms.topic: landing-page
   author: flang-msft
   ms.author: franlanglois

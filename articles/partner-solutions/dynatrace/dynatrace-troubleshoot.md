@@ -3,8 +3,6 @@ title: Troubleshooting Dynatrace - Azure partner solutions
 description: This article provides information about troubleshooting Dynatrace integration with Azure
 ms.topic: conceptual
 ms.collection: na
-ms.service: partner-services
-ms.subservice: dynatrace
 author: flang-msft
 ms.author: franlanglois
 ms.date: 06/07/2022
