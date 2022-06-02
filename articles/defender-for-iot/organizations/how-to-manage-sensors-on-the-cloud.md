@@ -48,7 +48,7 @@ This procedure describes how to define sensor settings from the Azure portal and
 1. Select **Add** and use the wizard to define values for your setting.
 
 1. On the **Basics** tab, select your subscription and setting type. Then, define a meaningful name and an optional description for your setting.
-
+:::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sensor-settings-details.png" alt-text="":::
 1. On the **Setting** tab, define the value for your selected setting type, and then select **Next**. For more information, see [Sensor setting reference](#sensor-setting-reference) below.
 
 1. On the **Apply** tab, select the sites, zones, and sensors where you want to apply your setting.
@@ -61,6 +61,10 @@ This procedure describes how to define sensor settings from the Azure portal and
 1. When you're finished, select **Review and create** to create your setting and apply it as configured. If your new setting replaces an existing setting, a :::image type="icon" source="media/how-to-manage-individual-sensors/warning-icon.png" border="false"::: warning is shown to indicate the existing setting.
 
 After you've created sensor settings, they're listed on the **Sites and sensors** > **Sensor settings** page, by setting type. Each setting shows a card with the setting name and value, and any sites, zones and sensors where the setting is applied.
+
+For example:
+
+:::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sensor-settings.png" alt-text="Screenshot of the sensor settings page.":::
 
 ### Sensor setting reference
 
@@ -81,7 +85,7 @@ To define your sensor's subnets do any of the following:
 
 For example:
 
-:::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sensor-settings-subnet-setting.png" alt-text="Screenshot of a sensor setting to define subnets.":::
+:::image type="content" source="media/how-to-manage-sensors-on-the-cloud/sensor-settings-subnet-setting.png" alt-text="Screenshot of a sensor setting to define subnets." lightbox="media/how-to-manage-sensors-on-the-cloud/sensor-settings-subnet-setting.png":::
 # [VLAN naming](#tab/vlan)
 To define a VLAN for your sensor, enter the VLAN ID and a meaningful name.
 
@@ -105,7 +109,7 @@ If you're in a situation where the sensor is disconnected from Azure, and you ne
 
 1. In the code box, modify the `block_local_config` value from `1` to `0`, and select **Close**.
 
-    :::image type="content" source="media/how-to-manage-individual-sensors/remote-config-sensor.png" alt-text="Screenshot of the Azure Remote Config option.":::
+    :::image type="content" source="media/how-to-manage-individual-sensors/remote-config-sensor.png" alt-text="Screenshot of the Azure Remote Config option." lightbox="media/how-to-manage-individual-sensors/remote-config-sensor.png":::
 
 Continue by updating the relevant setting on the sensor as needed.
 

@@ -74,6 +74,8 @@ For sensor versions 22.2.x and higher, you can configure sensor settings directl
 
 On the **Sites and sensors** page, select **Sensor settings (Preview)** to create and apply settings across one or more cloud-connected sensors in your network.
 
+:::image type="content" source="media/release-notes/cloud-management.png" alt-text="Screenshot of the Sensor settings button":::
+
 For more information, see [Define and view OT sensor settings (Public preview)](how-to-manage-sensors-on-the-cloud.md#define-and-view-ot-sensor-settings-public-preview).
 
 ### Support diagnostic log enhancements (Public preview)
