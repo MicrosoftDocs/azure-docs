@@ -26,7 +26,7 @@ You don't need a Defender for IoT access token to use this API.
 
 **URL**: `/api/external/authentication/validation`
 
-**Method**: POST
+### POST
 
 # [Request](#tab/validation-request)
 
@@ -92,7 +92,7 @@ Use this API to let users change their own passwords. All Defender for IoT user 
 
 **URL**: `/external/authentication/set_password`
 
-**Method**: POST
+### POST
 
 # [Request](#tab/set-password-request)
 
@@ -168,7 +168,7 @@ Use this API to let system administrators change passwords for specified users. 
 
 **URL**: /external/authentication/set_password_by_admin
 
-**Method**: POST
+### POST
 
 # [Request](#tab/set-password-by-admin-request)
 
@@ -248,7 +248,7 @@ Use this API to request a list of all the connections per device.
 
 **URL**: `/api/v1/devices/connections`
 
-**Method**: GET
+### GET
 
 # [Request](#tab/connections-request)
 
@@ -380,7 +380,7 @@ Use this API to request a list of all known CVEs discovered on devices in the ne
 
 **URL**:  /api/v1/devices/cves
 
-**Method**: GET
+### GET
 
 # [Request](#tab/cves-request)
 
@@ -485,7 +485,7 @@ Use this API to request a list of all the alerts that the Defender for IoT senso
 
 **URL**: `/api/v1/alerts`
 
-**Method**: GET
+### GET
 
 # [Request](#tab/alerts-request)
 
@@ -588,7 +588,7 @@ Use this API to request a list of events reported to the event timeline.
 
 **URL**:  `/api/v1/events`
 
-**Method**: GET
+### GET
 
 # [Request](#tab/events-request)
 
@@ -678,7 +678,7 @@ Use this API to request vulnerability assessment results for each device.
 
 **URL**: /api/v1/reports/vulnerabilities/
 
-**Method**: GET
+### GET
 
 # [Response](#tab/devices-response)
 
@@ -862,7 +862,7 @@ This assessment is based on general network and system information and not on a 
 
 **URL**: /api/v1/reports/vulnerabilities/security
 
-**Method**: GET
+### GET
 
 # [Response](#tab/security-response)
 
@@ -1181,7 +1181,7 @@ This endpoint does not use a regular access token for authorization. Instead, it
 
 **URL**: /api/v2/alerts/pcap
 
-**Method**: GET
+### GET
 
 # [Request](#tab/pcap-request)
 

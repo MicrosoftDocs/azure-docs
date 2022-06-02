@@ -13,8 +13,8 @@ This article lists the APIs supported for Defender for IoT OT on-premises monito
 
 |Version  |APIs  |
 |---------|---------|
-|**No version**     |  - Alert exclusions <br>- Set password <br> Set password by admin <br>QRadar alerts <br>- Authenticate user credentials   |
-|**Version 1**     | Devices <br> External devices <br>  alerts <br> Maintenance window <br>      |
+|**No version**     |  - [maintenanceWindow (Create alert exclusions)](#maintenancewindow-create-alert-exclusions) <br>- [set_password (Change password)](#set_password-change-password)<br> [set_password_by_admin (User password update by system admin)](#set_password_by_admin-user-password-update-by-system-admin) <br>[QRadar alerts](#qradar-alerts) <br>- [validation (Authenticate user credentials)](#validation-authenticate-user-credentials)   |
+|**Version 1**     |  <br> [devices (Retrieve all device information)](#devices-retrieve-all-device-information) <br>  alerts <br> [maintenanceWindow (Create alert exclusions)](#maintenancewindow-create-alert-exclusions)      |
 |**Version 2**     |  PCAP       |
 |**Version 3**     |   External integration preview      |
 
@@ -113,7 +113,7 @@ You don't need a Defender for IoT access token to use this API.
 
 **URL**: /external/authentication/set_password_by_admin
 
-**Method**: POST
+### POST
 
 # [Request](#tab/set-password-by-admin-request)
 
@@ -179,7 +179,7 @@ response:
 | **username** | String | No |
 | **new_password** | String | No |
 
-# Curl command (#tab/set-password-by-admin-curl)
+# [Curl command](#tab/set-password-by-admin-curl)
 
 **Type**: POST
 
@@ -216,13 +216,13 @@ For example:
 <9>May 5 12:29:23 sensor_Agent LEEF:1.0|CyberX|CyberX platform|2.5.0|CyberX platform Alert|devTime=May 05 2019 15:28:54 devTimeFormat=MMM dd yyyy HH:mm:ss sev=2 cat=XSense Alerts title=Device is Suspected to be Disconnected (Unresponsive) score=81 reporter=192.168.219.50 rta=0 alertId=6 engine=Operational senderName=sensor Agent UUID=5-1557059334000 site=Site zone=Zone actions=handle dst=192.168.2.2 dstName=192.168.2.2 msg=Device 192.168.2.2 is suspected to be disconnected (unresponsive).
 ```
 
-## devices (Retrieve device information)
+## devices (Retrieve device information per sensor)
 
 Use this API to request a list of all devices that a Defender for IoT sensor has detected.
 
 **URL**: `/api/v1/devices`
 
-**Method**: GET
+### GET
 
 # [Request](#tab/devices-request)
 
@@ -281,133 +281,69 @@ Array of JSON objects that represent devices.
 
 ```rest
 [
-
     {
-
     "vendor": null,
-
     "name": "10.4.14.102",
-
     "firmware": [
-
         {
-
             "slot": "N/A",
-
             "additionalData": "N/A",
-
             "moduleAddress": "Network: Local network (0), Node: 0, Unit: CPU (0x0)",
-
             "rack": "N/A",
-
             "address": "10.4.14.102",
-
             "model": "AAAAAAAAAA",
-
             "serial": "N/A",
-
             "firmwareVersion": "20.55"
-
         },
-
         {
-
             "slot": "N/A",
-
             "additionalData": "N/A",
-
             "moduleAddress": "Network: Local network (0), Node: 0, Unit: Unknown (0x3)",
-
             "rack": "N/A",
-
             "address": "10.4.14.102",
-
             "model": "AAAAAAAAAAAAAAAAAAAA",
-
             "serial": "N/A",
-
             "firmwareVersion": "20.55"
-
         },
-
         {
-
             "slot": "N/A",
-
             "additionalData": "N/A",
-
             "moduleAddress": "Network: Local network (0), Node: 3, Unit: CPU (0x0)",
-
             "rack": "N/A",
-
             "address": "10.4.14.102",
-
             "model": "AAAAAAAAAAAAAAAAAAAA",
-
             "serial": "N/A",
-
             "firmwareVersion": "20.55"
-
         },
-
         {
-
             "slot": "N/A",
-
             "additionalData": "N/A",
-
             "moduleAddress": "Network: 3, Node: 0, Unit: CPU (0x0)",
-
             "rack": "N/A",
-
             "address": "10.4.14.102",
-
             "model": "AAAAAAAAAAAAAAAAAAAA",
-
             "serial": "N/A",
-
             "firmwareVersion": "20.55"
-
         }
-
     ],
-
     "id": 79,
-
     "macAddresses": null,
-
     "authorized": true,
-
     "ipAddresses": [
-
         "10.4.14.102"
-
     ],
-
     "engineeringStation": false,
-
     "type": "PLC",
-
     "operatingSystem": null,
-
     "protocols": [
-
         {
-
             "addresses": [],
-
             "id": 62,
-
             "name": "Omron FINS"
-
         }
-
     ],
-
     "scanner": false
-
 }
-
 ]
 ```
 
@@ -435,7 +371,7 @@ Use this API to validate user credentials. All Defender for IoT user roles can w
 
 **URL**: `/external/authentication/validation`
 
-**Method**: POST
+### POST
 
 # [Request](#tab/validation-request)
 
@@ -500,14 +436,14 @@ curl -k -d '{"username":"<USER_NAME>","password":"PASSWORD"}' 'https://<IP_ADDRE
 curl -k -d '{"username":"myUser","password":"1234@abcd"}' 'https://127.0.0.1/external/authentication/validation
 ```
 
-## devices (Retrieve device information)
+## devices (Retrieve all device information)
 
 
 This API requests a list of all devices detected by Defender for IoT sensors that are connected to an on-premises management console.
 
 **URL**: `/external/v1/devices`
 
-**Method**: GET
+### GET
 
 # [Response](#tab/devices-response)
 
@@ -731,7 +667,8 @@ Use this API to retrieve all or filtered alerts from an on-premises management c
 
 **URL**:  `/external/v1/alerts`
 
-**Method**: GET
+### GET
+
 
 # [Request](#tab/alerts-request)
 
@@ -865,7 +802,7 @@ Use this API to take specified action on a specific alert detected by Defender f
 
 **URL**: `/external/v1/alerts/<UUID>`
 
-**Method** PUT
+### PUT
 
 # [Request](#tab-uuid-request)
 
@@ -949,7 +886,7 @@ curl -k -X PUT -d '{"action": "handle"}' -H "Authorization: 1234b734a9244d54ab8d
 
 **URL**: `/external/v1/maintenanceWindow`
 
-**Method**: POST
+### POST
 
 Define conditions under which alerts won't be sent. For example, define and update stop and start times, devices or subnets that should be excluded when triggering alerts, or Defender for IoT engines that should be excluded. For example, during a maintenance window, you might want to stop alert delivery of all alerts, except for malware alerts on critical devices.
 
@@ -984,13 +921,20 @@ The APIs that you define here appear in the on-premises management console's Ale
 > [!NOTE]
 > Make sure that the ticket ID is not linked to an existing open window. The following exclusion rule is generated: `Maintenance-{token name}-{ticket ID}`.
 
-**Method**: PUT
+### PUT
 
-Allows updating the maintenance window duration after you start the maintenance process by changing the **ttl** parameter. The new duration definition overrides the previous one.
+Allows you to update the maintenance window duration after you start the maintenance process by changing the **ttl** parameter. The new duration definition overrides the previous one.
 
 This method is useful when you want to set a longer duration than the currently configured duration.
 
 # [Request](#tab/maintenanceWindow-request-put)
+
+**Query parameters**:
+
+|Column1  |Column2  |
+|---------|---------|
+|Row1     |         |
+|Row2     |         |
 
 **Query parameters**:
 
