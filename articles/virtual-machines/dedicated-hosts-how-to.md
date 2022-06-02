@@ -576,6 +576,48 @@ Tags                   : {}
 
 ---
 
+## Restart a host
+
+You can restart the entire host, meaning that it's not completely powered off. Because the host will be restarted, the underlying VMs will also be restarted. The host will remain on the same underlying physical hardware as it restarts and the host asset ID will remain the same.
+
+### [Portal](#tab/portal)
+1. Search for and select the host.
+1. In the top menu bar, select the **Restart** button.
+1. In the **Essentials** section of the Host Resource Pane, Host Status will switch to **Host undergoing restart** during the restart.
+1. Once the restart has completed, the Host Status will return to **Host available**.
+
+### [CLI](#tab/cli)
+
+Restart the host using [az vm host restart](/cli/azure/vm#az-vm-host-restart).
+
+```azurecli-interactive
+az vm host restart --resource-group myResourceGroup --host-group myHostGroup --name myDedicatedHost
+```
+
+To view the status of the restart, you can use the [az vm host get-instance-view](/cli/azure/vm#az-vm-host-get-instance-view) command. The **displayStatus** will be set to **Host undergoing restart** during the restart. Once the restart has completed, the displayStatus will return to **Host available**.
+
+```azurecli-interactive
+az vm host get-instance-view --resource-group myResourceGroup --host-group myHostGroup --name myDedicatedHost
+```
+
+### [PowerShell](#tab/powershell)
+
+Restart the host using the [Restart-AzHost](/powershell/module/az.compute/restart-azhost) command.
+
+```azurepowershell-interactive
+Restart-AzHost -ResourceGroupName myResourceGroup -HostGroupName myHostGroup -Name myDedicatedHost
+```
+
+To view the status of the restart, you can use the [Get-AzHost](/powershell/module/az.compute/get-azhost) commandlet using the **InstanceView** parameter. The **displayStatus** will be set to **Host undergoing restart** during the restart. Once the restart has completed, the displayStatus will return to **Host available**.
+
+
+```azurepowershell-interactive
+$hostRestartStatus = Get-AzHost -ResourceGroupName myResourceGroup -HostGroupName myHostGroup -Name myDedicatedHost -InstanceView;
+$hostRestartStatus.InstanceView.Statuses[1].DisplayStatus;
+```
+
+---
+
 ## Deleting a host
 
 
