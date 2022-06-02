@@ -37,7 +37,7 @@ You also will need an Azure storage account where you will upload your `.txt` do
 
 
 > [!Note]
-> You shouldn't move the storage account to a different resource group or subscription once linked with the Language resource
+> You shouldn't move the storage account to a different resource group or subscription once it's linked with the Language resource.
 
 ### [Using the Azure portal](#tab/azure-portal)
 
