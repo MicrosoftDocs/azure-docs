@@ -1,6 +1,5 @@
 ---
 title: Secure hybrid access with Datawiza
-titleSuffix: Microsoft Entra
 description: Learn how to integrate Datawiza with Azure AD. See how to use Datawiza and Azure AD to authenticate users and give them access to on-premises and cloud apps.
 services: active-directory
 author: gargi-sinha

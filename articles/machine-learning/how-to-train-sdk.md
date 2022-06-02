@@ -122,7 +122,7 @@ To run your script on `cpu-cluster`, you need an environment, which has the requ
    * A base docker image with a conda YAML to customize further
    * A docker build context
 
-   Check this [example](https://github.com/Azure/azureml-examples/sdk/assets/environment/environment.ipynb) on how to create custom environments.
+   Check this [example](https://github.com/Azure/azureml-examples/blob/main/sdk/assets/environment/environment.ipynb) on how to create custom environments.
 
 You'll use a curated environment provided by Azure ML for `lightgm` called `AzureML-lightgbm-3.2-ubuntu18.04-py37-cpu`
 
