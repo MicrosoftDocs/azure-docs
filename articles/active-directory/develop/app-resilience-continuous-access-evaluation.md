@@ -1,6 +1,5 @@
 ---
-title: "How to use Continuous Access Evaluation enabled APIs in your applications | Azure"
-titleSuffix: Microsoft identity platform
+title: "How to use Continuous Access Evaluation enabled APIs in your applications"
 description: How to increase app security and resilience by adding support for Continuous Access Evaluation, enabling long-lived access tokens that can be revoked based on critical events and policy evaluation.
 services: active-directory
 author: knicholasa
