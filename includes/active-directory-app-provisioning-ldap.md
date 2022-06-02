@@ -37,7 +37,7 @@ For more information, see the [Generic LDAP Connector reference](/microsoft-iden
  - An Azure AD tenant with Azure AD Premium P1 or Premium P2 (or EMS E3 or E5). 
  
     [!INCLUDE [active-directory-p1-license.md](active-directory-p1-license.md)]
- - The Hybrid Identity Administrator role for configuring the provisioning agent and the Application Administrator or Cloud Administrator roles for configuring provisioning in the Azure portal.
+ - The Hybrid Identity Administrator role for configuring the provisioning agent and the Application Administrator or Cloud Application Administrator roles for configuring provisioning in the Azure portal.
 
 ### More recommendations and limitations
 The following bullet points are more recommendations and limitations.
@@ -137,7 +137,7 @@ Currently, the LDAP connector provisions users with a blank password.  This prov
      >Please use different provisioning agents for on-premises application provisioning and Azure AD Connect Cloud Sync / HR-driven provisioning. All three scenarios should not be managed on the same agent. 
  1. Open the provisioning agent installer, agree to the terms of service, and select **next**.
  1. Open the provisioning agent wizard, and select **On-premises provisioning** when prompted for the extension you want to enable.
- 1. Provide credentials for an Azure AD administrator when you're prompted to authorize. The Hybrid Identity Administrator or global administrator role is required.
+ 1. Provide credentials for an Azure AD administrator when you're prompted to authorize. The Hybrid Identity Administrator or Global Administrator role is required.
  1. Select **Confirm** to confirm the installation was successful.
  1. Sign in to the Azure portal.
  1. Go to **Enterprise applications** > **Add a new application**.
@@ -268,7 +268,8 @@ Currently, the LDAP connector provisions users with a blank password.  This prov
 Now that you have the Azure AD ECMA Connector Host talking with Azure AD, and the attribute mapping configured, you can move on to configuring who's in scope for provisioning. 
 
 >[!IMPORTANT]
->If you were signed in using a Hybrid identity administrator role, you need to sign-out and sign-in with an account that has the app administrator or global administrator role, for this section.  The Hybrid identity administrator role does not have permissions to assign users to applications.
+>If you were signed in using a Hybrid Identity Administrator role, you need to sign-out and sign-in with an account that has the Application Administrator, Cloud Application Administrator or Global Administrator role, for this section.  The Hybrid Identity Administrator role does not have permissions to assign users to applications.
+
 
  1. In the Azure portal, select **Enterprise applications**.
  2. Select the **On-premises ECMA app** application.

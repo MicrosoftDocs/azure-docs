@@ -1,7 +1,7 @@
 ---
 title: Use the Azure Video Indexer API
 description: This article describes how to get started with Azure Video Indexer API.
-ms.date: 01/07/2021
+ms.date: 06/01/2022
 ms.topic: tutorial
 ms.custom: devx-track-csharp
 ---
@@ -106,6 +106,9 @@ This section lists some recommendations when using Azure Video Indexer API.
 ## Code sample
 
 The following C# code snippet demonstrates the usage of all the Azure Video Indexer APIs together.
+
+> [!NOTE]
+> The following sample is intended for Classic accounts only and not compatible with ARM accounts. For an updated sample for ARM please see [this ARM sample repo](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/ApiUsage/ArmBased/Program.cs).
 
 ```csharp
 var apiUrl = "https://api.videoindexer.ai";

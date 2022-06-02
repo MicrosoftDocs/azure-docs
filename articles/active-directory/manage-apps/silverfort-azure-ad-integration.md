@@ -1,7 +1,6 @@
 ---
 title: Secure hybrid access with Azure AD and Silverfort
 description: In this tutorial, learn how to integrate Silverfort with Azure AD for secure hybrid access 
-titleSuffix: Azure AD
 services: active-directory
 author: gargi-sinha
 manager: martinco
