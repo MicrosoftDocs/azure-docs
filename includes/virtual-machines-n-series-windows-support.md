@@ -3,7 +3,7 @@
  description: include
  services: virtual-machines-windows
  author: cynthn
- ms.service: virtual-machines-windows
+ ms.service: virtual-machines
  ms.topic: include
  ms.date: 02/11/2019
  ms.author: cynthn

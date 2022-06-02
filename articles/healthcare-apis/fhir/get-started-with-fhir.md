@@ -58,7 +58,7 @@ You can obtain an Azure AD access token using PowerShell, Azure CLI, REST CCI, o
 #### Access using existing tools
 
 - [Postman](../fhir/use-postman.md)
-- [Rest Client](../fhir/using-rest-client.md)
+- [REST Client](../fhir/using-rest-client.md)
 - [cURL](../fhir/using-curl.md)
 
 #### Load data
