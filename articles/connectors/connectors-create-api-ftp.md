@@ -84,9 +84,9 @@ For other connector limitations, review [FTP managed connector reference](/conne
 
 The FTP managed connector and built-in connector each have only one trigger available:
 
-* Managed connector trigger: The **When a file is added or modified (properties only)** trigger starts a Consumption or Standard logic app workflow when one or more files are added or changed in a folder on the FTP server. This trigger gets only the file metadata, not the file content. However, to get the content, your workflow can follow this trigger with the [**Get file content**](#get-file-content) action. <br><br> For more information, review [When a file is added or updated (properties only)](/connectors/ftp/#when-a-file-is-added-or-modified-(properties-only)).
+* Managed connector trigger: The **When a file is added or modified (properties only)** trigger starts a Consumption or Standard logic app workflow when one or more files are added or changed in a folder on the FTP server. This trigger gets only the file metadata, not the file content. However, to get the content, your workflow can follow this trigger with the [**Get file content**](#get-file-content) action. For more information about this trigger, review [When a file is added or updated (properties only)](/connectors/ftp/#when-a-file-is-added-or-modified-(properties-only)).
 
-* Built-in connector trigger: The **When a file is added or modified** trigger starts a Standard logic app workflow when one or more files are added or changed in a folder on the FTP server. This trigger gets only the file metadata, not the file content. However, to get the content, your workflow can follow this trigger with the [**Get file content**](#get-file-content) action. <br><br> For more information, review [When a file is added or updated](#when-file-added-updated). |
+* Built-in connector trigger: The **When a file is added or modified** trigger starts a Standard logic app workflow when one or more files are added or changed in a folder on the FTP server. This trigger gets only the file metadata, not the file content. However, to get the content, your workflow can follow this trigger with the [**Get file content**](#get-file-content) action. For more information about this trigger, review [When a file is added or updated](#when-file-added-updated).
 
 For example, you can use this trigger to monitor an FTP folder for new files that describe customer orders. You can then use the FTP action named **Get file metadata** to get the properties for that new file, and then use **Get file content** to get the content from that file for further processing and store that order in an orders database. You might also use a condition to check that file's content against specific criteria and get that content only if that content meets the criteria.
 
@@ -98,13 +98,13 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), and open your logic app in Logic App Designer, if not open already.
+1. In the [Azure portal](https://portal.azure.com), and open your blank logic app workflow in the designer.
 
-1. For blank logic apps, in the search box, enter `ftp` as your filter. Under the triggers list, select this trigger: **When a filed is added or modified (properties only)**
+1. On the designer, under the search box, select **All**. In the search box, enter **ftp**. From the triggers list, select the trigger named **When a filed is added or modified (properties only)**.
 
-   ![Find and select the FTP trigger](./media/connectors-create-api-ftp/select-ftp-trigger-logic-app.png)
+   ![Screenshot shows Azure portal, Consumption workflow designer, and FTP trigger selected.](./media/connectors-create-api-ftp/select-ftp-trigger-consumption.png)
 
-1. Provide the necessary details for your connection, and then select **Create**.
+1. Provide the [information for your connection](/connectors/ftp/#creating-a-connection), and select **Create**.
 
    By default, this connector transfers files in text format. To transfer files in binary format, for example, where and when encoding is used, select **Binary Transport**.
 
@@ -159,24 +159,6 @@ The **Get file metadata** action gets the properties for a file that's on your F
    ![Selected "Id" property](./media/connectors-create-api-ftp/selected-get-file-content-id-ftp-action.png)
 
 1. Save your logic app.
-
-## Connect to FTP
-
-[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
-
-1. Sign in to the [Azure portal](https://portal.azure.com), and open your logic app in Logic App Designer.
-
-1. For blank logic apps, in the search box, enter `ftp` as your filter. From the **Triggers** list, select the trigger that you want.
-
-   -or-
-
-   For existing logic apps, under the last step where you want to add an action, select **New step**, and then select **Add an action**. In the search box, enter `ftp` as your filter. From the **Actions** list, select the action that you want.
-
-   To add an action between steps, move your pointer over the arrow between steps. Select the plus sign (**+**) that appears, and then select **Add an action**.
-
-1. Provide your connection information, and select **Create**.
-
-1. Provide the information for your selected trigger or action and continue building your logic app's workflow.
 
 ## Test your logic app
 
