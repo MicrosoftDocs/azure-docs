@@ -70,7 +70,7 @@ Before you link the subscription to a Dynatrace environment, [complete pre-deplo
   
 1. Select **Next: Metrics and logs** to configure metrics and logs.
 
-## Configure metrics and logs
+### Configure metrics and logs
 
 1. Your next step is to configure metrics and logs. When linking an existing Dynatrace environment, you can set up automatic log forwarding for two types of logs:
 
@@ -99,7 +99,14 @@ Before you link the subscription to a Dynatrace environment, [complete pre-deplo
 
 ### Configure single sign-on
 
-1. If you're linking the Dynatrace resource to an existing Dynatrace environment, you can't set up single sign-on at this step. Instead, you can set up single sign-on after creating the Dynatrace resource. For more information, see Reconfigure single sign-on [<!-- $TODO: Hyperlink required -->].
+1. At this point, you see the next part of the form for **Single Sign-on**. If you're linking the Dynatrace resource to an existing Dynatrace environment, you cannot set up single sign-on at this step. 
+
+> [!NOTE]
+> You cannot set up single sign-on when linking the Dynatrace resource to an existing Dynatrace environment.
+
+1. Instead, you can set up single sign-on after creating the Dynatrace resource. For more information, see Reconfigure single sign-on. 
+1. 
+1. <!-- $TODO: Need hyperlink required -->.
 
 1. Select **Next: Tags**.
 
