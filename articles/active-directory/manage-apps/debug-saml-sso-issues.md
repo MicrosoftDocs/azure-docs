@@ -1,6 +1,5 @@
 ---
 title: Debug SAML-based single sign-on
-titleSuffix: Microsoft Entra
 description: Debug SAML-based single sign-on to applications in Azure Active Directory.
 services: active-directory
 ms.author: alamaral
