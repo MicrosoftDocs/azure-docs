@@ -7,10 +7,6 @@ ms.date: 03/28/2022
 
 # Tutorial: Configure security agents
 
-> [!NOTE]
-> The Microsoft Defender for IoT legacy agent has been replaced by our new micro-agent experience, and will not be supported after **March 31, 2023**. For more information, see [Tutorial: Configure Microsoft Defender for IoT agent-based solution](tutorial-configure-agent-based-solution.md).
->
-
 This article explains Defender for IoT security agents, and details how to change and configure them.
 
 > [!div class="checklist"]
@@ -45,9 +41,9 @@ If the agent configuration object does not exist in the **azureiotsecurity** mod
 
 ## Configuration schema and validation
 
-Make sure to validate your agent configuration against this [schema](https://aka.ms/iot-security-github-module-schema). An agent will not launch if the configuration object does not match the schema.
+Make sure to validate your agent configuration against this [schema](https://aka.ms/iot-security-github-module-schema). An agent will not launch if the configuration object doesn't match the schema.
 
-If, while the agent is running, the configuration object is changed to a non-valid configuration (the configuration does not match the schema), the agent will ignore the invalid configuration and will continue using the current configuration.
+If, while the agent is running, the configuration object is changed to a non-valid configuration (the configuration doesn't match the schema), the agent will ignore the invalid configuration and will continue using the current configuration.
 
 ### Configuration validation
 

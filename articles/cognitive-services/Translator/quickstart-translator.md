@@ -682,7 +682,6 @@ axios({
     },
     params: {
         'api-version': '3.0',
-        'from': 'en',
         'to': ['de', 'it']
     },
     data: [{

@@ -9,6 +9,8 @@ ms.custom: ignite-fall-2021
 
 [!INCLUDE [header](includes/edge-env.md)]
 
+[!INCLUDE [deprecation notice](../includes/deprecation-notice.md)]
+
 This article provides guidance on how to configure and deploy the Azure Video Analyzer edge module and cloud service in production environments. You should also review [Prepare to deploy your IoT Edge solution in production](../../../iot-edge/production-checklist.md) article on preparing your IoT Edge solution.
 
 You should consult your organization's IT department on aspects related to security.

@@ -4,7 +4,7 @@ description: Learn how to perform administration tasks such as reboot and schedu
 author: flang-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 07/05/2017
+ms.date: 05/21/2021
 ms.author: franlanglois 
 ms.custom: devx-track-azurepowershell
 
@@ -89,7 +89,7 @@ On the left, **Schedule updates** allows you to choose a maintenance window for 
 
 :::image type="content" source="media/cache-administration/redis-schedule-updates-2.png" alt-text="Screenshot showing schedule updates":::
 
-To specify a maintenance window, check the days you want and specify the maintenance window start hour for each day. Then, select **OK**. The maintenance window time is in UTC.
+To specify a maintenance window, check the days you want and specify the maintenance window start hour for each day. Then, select **OK**. The maintenance window time is in UTC and can only be configured on an hourly basis.
 
 The default, and minimum, maintenance window for updates is five hours. This value isn't configurable from the Azure portal, but you can configure it in PowerShell using the `MaintenanceWindow` parameter of the [New-AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry) cmdlet. For more information, see [Can I manage scheduled updates using PowerShell, CLI, or other management tools?](#can-i-manage-scheduled-updates-using-powershell-cli-or-other-management-tools)
 

@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: eur
+ms.custom: cogserv-non-critical-speech
 ---
 
 # Test your Custom Commands Application

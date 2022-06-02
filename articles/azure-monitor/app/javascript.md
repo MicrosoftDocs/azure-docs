@@ -11,7 +11,7 @@ ms.custom: devx-track-js
 
 Find out about the performance and usage of your web page or app. If you add [Application Insights](app-insights-overview.md) to your page script, you get timings of page loads and AJAX calls, counts, and details of browser exceptions and AJAX failures, as well as users and session counts. All these can be segmented by page, client OS and browser version, geo location, and other dimensions. You can set alerts on failure counts or slow page loading. And by inserting trace calls in your JavaScript code, you can track how the different features of your web page application are used.
 
-Application Insights can be used with any web pages - you just add a short piece of JavaScript. If your web service is [Java](java-in-process-agent.md) or [ASP.NET](asp-net.md), you can use the server-side SDKs with the client-side JavaScript SDK to get an end-to-end understanding of your app's performance.
+Application Insights can be used with any web pages - you just add a short piece of JavaScript, Node.js has a [standalone SDK](nodejs.md). If your web service is [Java](java-in-process-agent.md) or [ASP.NET](asp-net.md), you can use the server-side SDKs with the client-side JavaScript SDK to get an end-to-end understanding of your app's performance.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
 
@@ -22,6 +22,9 @@ Application Insights can be used with any web pages - you just add a short piece
 3. Add the Application Insights JavaScript SDK to your web page or app via one of the following two options:
     * [npm Setup](#npm-based-setup)
     * [JavaScript Snippet](#snippet-based-setup)
+
+> [!WARNING]
+> `@microsoft/applicationinsights-web-basic - AISKULight` does not support the use of connection strings.
 
 > [!IMPORTANT]
 > Only use one method to add the JavaScript SDK to your application. If you use the NPM Setup, don't use the Snippet and vice versa.
@@ -175,7 +178,7 @@ Most configuration fields are named such that they can be defaulted to false. Al
 | maxBatchInterval | How long to batch telemetry for before sending (milliseconds) | numeric<br/>15000 |
 | disable&#8203;ExceptionTracking | If true, exceptions aren't autocollected. | boolean<br/> false |
 | disableTelemetry | If true, telemetry isn't collected or sent. | boolean<br/>false |
-| enableDebug | If true, **internal** debugging data is thrown as an exception **instead** of being logged, regardless of SDK logging settings. Default is false. <br>***Note:*** Enabling this setting will result in dropped telemetry whenever an internal error occurs. This can be useful for quickly identifying issues with your configuration or usage of the SDK. If you don't want to lose telemetry while debugging, consider using `consoleLoggingLevel` or `telemetryLoggingLevel` instead of `enableDebug`. | boolean<br/>false |
+| enableDebug | If true, **internal** debugging data is thrown as an exception **instead** of being logged, regardless of SDK logging settings. Default is false. <br>***Note:*** Enabling this setting will result in dropped telemetry whenever an internal error occurs. This can be useful for quickly identifying issues with your configuration or usage of the SDK. If you don't want to lose telemetry while debugging, consider using `loggingLevelConsole` or `loggingLevelTelemetry` instead of `enableDebug`. | boolean<br/>false |
 | loggingLevelConsole | Logs **internal** Application Insights errors to console. <br>0: off, <br>1: Critical errors only, <br>2: Everything (errors & warnings) | numeric<br/> 0 |
 | loggingLevelTelemetry | Sends **internal** Application Insights errors as telemetry. <br>0: off, <br>1: Critical errors only, <br>2: Everything (errors & warnings) | numeric<br/> 1 |
 | diagnosticLogInterval | (internal) Polling interval (in ms) for internal logging queue | numeric<br/> 10000 |
@@ -254,40 +257,103 @@ By setting `autoTrackPageVisitTime: true`, the time in milliseconds a user spend
 
 Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
 
-The following example shows all possible configurations required to enable correlation, with scenario-specific notes below:
+In JavaScript correlation is turned off by default in order to minimize the telemetry we send by default. The following examples show standard configuration options for enabling correlation.
+
+The following sample code shows the configurations required to enable correlation:
+
+# [Snippet](#tab/snippet)
 
 ```javascript
 // excerpt of the config section of the JavaScript SDK snippet with correlation
 // between client-side AJAX and server requests enabled.
 cfg: { // Application Insights Configuration
+    instrumentationKey: "YOUR_INSTRUMENTATION_KEY_GOES_HERE"
     connectionString: "Copy connection string from Application Insights Resource Overview"
-    disableFetchTracking: false,
     enableCorsCorrelation: true,
     enableRequestHeaderTracking: true,
     enableResponseHeaderTracking: true,
-    correlationHeaderExcludedDomains: ['myapp.azurewebsites.net', '*.queue.core.windows.net']
+    correlationHeaderExcludedDomains: ['*.queue.core.windows.net']
     /* ...Other Configuration Options... */
 }});
 </script>
-
 ``` 
 
-If any of your third-party servers that the client communicates with can’t accept the `Request-Id` and `Request-Context` headers, and you can’t update their configuration, then you'll need to put them into an exclude list via the `correlationHeaderExcludedDomains` configuration property. This property supports wildcards.
+# [NPM](#tab/npm)
 
-The server-side needs to be able to accept connections with those headers present. Depending on the `Access-Control-Allow-Headers` configuration on the server-side it's often necessary to extend the server-side list by manually adding `Request-Id` and `Request-Context`.
+```javascript
+// excerpt of the config section of the JavaScript SDK snippet with correlation
+// between client-side AJAX and server requests enabled.
+const appInsights = new ApplicationInsights({ config: { // Application Insights Configuration
+  instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE'
+  connectionString: "Copy connection string from Application Insights Resource Overview"
+  enableCorsCorrelation: true,
+  enableRequestHeaderTracking: true,
+  enableResponseHeaderTracking: true,
+  correlationHeaderExcludedDomains: ['*.queue.core.windows.net']
+  /* ...Other Configuration Options... */
+} });
+``` 
 
-Access-Control-Allow-Headers: `Request-Id`, `Request-Context`, `<your header>`
+---
 
 > [!NOTE]
-> If you are using OpenTelemtry or Application Insights SDKs released in 2020 or later, we recommend using [WC3 TraceContext](https://www.w3.org/TR/trace-context/). See configuration guidance [here](../app/correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
+> There are two distributed tracing modes/protocols - AI (Classic) and [W3C TraceContext](https://www.w3.org/TR/trace-context/) (New). In version 2.6.0 and later, they are _both_ enabled by default. For older versions, users need to [explicitly opt-in to WC3 mode](../app/correlation.md#enable-w3c-distributed-tracing-support-for-web-apps).
 
-## Single Page Applications
+### Route tracking
 
 By default, this SDK will **not** handle state-based route changing that occurs in single page applications. To enable automatic route change tracking for your single page application, you can add `enableAutoRouteTracking: true` to your setup configuration.
 
-Currently, we offer a separate [React plugin](javascript-react-plugin.md), which you can initialize with this SDK. It will also accomplish route change tracking for you, and collect other React specific telemetry.
-> [!NOTE]
-> Use `enableAutoRouteTracking: true` only if you are **not** using the React plugin. Both are capable of sending new PageViews when the route changes. If both are enabled, duplicate PageViews may be sent.
+### Single Page Applications
+
+For Single Page Applications, please reference plugin documentation for plugin specific guidance. 
+
+| Plugins |
+|---------------|
+| [React](javascript-react-plugin.md#enable-correlation)|
+| [React Native](javascript-react-native-plugin.md#enable-correlation)|
+| [Angular](javascript-angular-plugin.md#enable-correlation)|
+| [Click Analytics Auto-collection](javascript-click-analytics-plugin.md#enable-correlation)|
+
+### Advanced Correlation
+
+When a page is first loading and the SDK has not fully initialized, we are unable to generate the Operation ID for the first request. As a result, distributed tracing is incomplete until the SDK fully initializes.
+To remedy this problem, you can include dynamic JavaScript on the returned HTML page and the SDK will use a callback function during initialization to retroactively pull the Operation ID from the serverside and populate the clientside with it.
+
+# [Snippet](#tab/snippet)
+
+Here's a sample of how to create a dynamic JS using Razor:
+
+```C#
+<script>
+!function(T,l,y){<removed snippet code>,{
+    src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js", // The SDK URL Source
+    onInit: function(appInsights) {
+        var serverId = "@this.Context.GetRequestTelemetry().Context.Operation.Id";
+        appInsights.context.telemetryTrace.parentID = serverId;
+    },
+    cfg: { // Application Insights Configuration
+        instrumentationKey: "YOUR_INSTRUMENTATION_KEY_GOES_HERE"
+    }});
+</script>
+```
+# [NPM](#tab/npm)
+
+```js
+import { ApplicationInsights } from '@microsoft/applicationinsights-web'
+const appInsights = new ApplicationInsights({ config: {
+  instrumentationKey: 'YOUR_INSTRUMENTATION_KEY_GOES_HERE'
+  /* ...Other Configuration Options... */
+} });
+appInsights.context.telemetryContext.parentID = serverId;
+appInsights.loadAppInsights();
+```
+
+When using a npm based configuration, a location must be determined to store the Operation ID (generally global) to enable access for the SDK initialization bundle to `appInsights.context.telemetryContext.parentID` so it can populate it before the first page view event is sent.
+
+--- 
+
+> [!CAUTION]
+>The application UX is not yet optimized to show these "first hop" advanced distributed tracing scenarios. However, the data will be available in the requests table for query and diagnostics.
 
 ## Extensions
 
@@ -423,6 +489,24 @@ This does NOT mean that we'll only support the lowest common set of features, ju
 The Application Insights JavaScript SDK is open-source to view the source code or to contribute to the project visit the [official GitHub repository](https://github.com/Microsoft/ApplicationInsights-JS). 
 
 For the latest updates and bug fixes, [consult the release notes](./release-notes.md).
+
+## Troubleshooting
+
+### I am getting an error message of Failed to get Request-Context correlation header as it may be not included in the response or not accessible
+
+The `correlationHeaderExcludedDomains` configuration property is an exclude list that disables correlation headers for specific domains, this is useful for when including those headers would cause the request to fail or not be sent due to third-party server configuration. This property supports wildcards.
+An example would be `*.queue.core.windows.net`, as seen in the code sample above.
+Adding the application domain to this property should be avoided as it stops the SDK from including the required distributed tracing `Request-Id`, `Request-Context` and `traceparent` headers as part of the request.
+
+### I'm not sure how to update my third-party server configuration
+
+The server-side needs to be able to accept connections with those headers present. Depending on the `Access-Control-Allow-Headers` configuration on the server-side it's often necessary to extend the server-side list by manually adding `Request-Id`, `Request-Context` and `traceparent` (W3C distributed header).
+
+Access-Control-Allow-Headers: `Request-Id`, `traceparent`, `Request-Context`, `<your header>`
+
+### I am receiving duplicate telemetry data from the Application Insights JavaScript SDK
+
+If the SDK reports correlation recursively enable the configuration setting of `excludeRequestFromAutoTrackingPatterns` to exclude the duplicate data, this can occur when using connection strings. The syntax for the configuration setting is `excludeRequestFromAutoTrackingPatterns: [<endpointUrl>]`.
 
 ## <a name="next"></a> Next steps
 * [Track usage](usage-overview.md)

@@ -8,9 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: tutorial
-ms.date: 11/02/2021
+ms.date: 05/27/2022
 ms.author: aahi
-ms.custom: language-service-key-phrase, ignite-fall-2021
+ms.custom: language-service-key-phrase, ignite-fall-2021, cogserv-non-critical-language
 ---
 
 # Tutorial: Extract key phrases from text stored in Power BI

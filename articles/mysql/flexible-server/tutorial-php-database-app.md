@@ -4,6 +4,7 @@ description: This tutorial explains how to build a PHP app with flexible server.
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: tutorial
 ms.devlang: php
 ms.date: 9/21/2020
@@ -285,7 +286,7 @@ To configure the deployment user, run the [az webapp deployment user set](/cli/a
 The username must be unique within Azure, and for local Git pushes, must not contain the '@' symbol.
 The password must be at least eight characters long, with two of the following three elements: letters, numbers, and symbols.
 
-```bash
+```azurecli
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku F1 --is-linux
 ```
 
@@ -305,7 +306,7 @@ Create a [web app](../../app-service/overview.md#app-service-on-linux) in the my
 
 In the Cloud Shell, you can use the [az webapp create](/cli/azure/webapp#az-webapp-create) command. In the following example, replace _&lt;app-name>_ with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). The runtime is set to `PHP|7.0`. To see all supported runtimes, run [az webapp list-runtimes --os linux](/cli/azure/webapp#az-webapp-list-runtimes).
 
-```bash
+```azurecli
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "PHP|7.3" --deployment-local-git
 ```
 
@@ -564,7 +565,7 @@ If you added any tasks, they are retained in the database. Updates to the data s
 
 In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group by running the following command in the Cloud Shell:
 
-```bash
+```azurecli
 az group delete --name myResourceGroup
 ```
 

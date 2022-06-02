@@ -174,6 +174,12 @@ Operation scope is configured for a selected API operation.
 
 1. Select **Save** to propagate changes to the API Management gateway immediately.
 
+## Reuse policy configurations
+
+You can create reusable [policy fragments](policy-fragments.md) in your API Management instance. Policy fragments are XML elements containing your configurations of one or more policies. Policy fragments help you configure policies consistently and maintain policy definitions without needing to repeat or retype XML code. 
+
+Use the [`include-fragment`](api-management-advanced-policies.md#IncludeFragment) policy to insert a policy fragment in a policy definition.
+
 ## Use `base` element to set policy evaluation order
 
 If you configure policy definitions at more than one scope, multiple policies could apply to an API request or response. Depending on the order that the policies from the different scopes are applied, the transformation of the request or response could differ.

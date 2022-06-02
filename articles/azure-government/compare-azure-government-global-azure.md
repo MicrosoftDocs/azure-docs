@@ -7,7 +7,7 @@ author: stevevi
 ms.author: stevevi
 ms.custom: references_regions
 recommendations: false
-ms.date: 03/22/2022
+ms.date: 04/29/2022
 ---
 
 # Compare Azure Government and global Azure
@@ -35,10 +35,10 @@ You can use AzureCLI or PowerShell to obtain Azure Government endpoints for serv
 
   should get you different endpoints for Azure Government.
 
-- Use a **PowerShell** cmdlet such as [Get-AzureEnvironment](/powershell/module/servicemanagement/azure.service/get-azureenvironment) to get endpoints and metadata for an instance of Azure service. For example,
+- Use a **PowerShell** cmdlet such as [Get-AzEnvironment](/powershell/module/az.accounts/get-azenvironment) to get endpoints and metadata for an instance of Azure service. For example,
 
   ```powershell
-  Get-AzureEnvironment -Name AzureUSGovernment
+  Get-AzEnvironment -Name AzureUSGovernment
   ```
 
   should get you properties for Azure Government. This cmdlet gets environments from your subscription data file.
@@ -88,6 +88,7 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 |||portal.loganalytics.io|portal.loganalytics.us||
 |||api.loganalytics.io|api.loganalytics.us||
 |||docs.loganalytics.io|docs.loganalytics.us||
+|||adx.monitor.azure.com|adx.monitor.azure.us|[Data Explorer queries](/azure/data-explorer/query-monitor-data)|
 ||Azure Resource Manager|management.azure.com|management.usgovcloudapi.net||
 ||Gallery URL|gallery.azure.com|gallery.azure.us||
 ||Microsoft Azure portal|portal.azure.com|portal.azure.us||
@@ -212,7 +213,7 @@ The following Azure Database for PostgreSQL **features are not currently availab
   - Advanced Threat Protection
   - Backup with long-term retention
 
-### [Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md)
+### [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)
 
 The following Azure SQL Managed Instance **features are not currently available** in Azure Government:
 

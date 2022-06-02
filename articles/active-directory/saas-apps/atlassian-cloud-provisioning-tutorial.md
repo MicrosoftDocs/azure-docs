@@ -32,7 +32,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md).
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (e.g. Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
-* [An Atlassian Cloud tenant](https://www.atlassian.com/licensing/cloud)
+* [An Atlassian Cloud tenant](https://www.atlassian.com/licensing/cloud) with an Atlassian Access subscription.
 * A user account in Atlassian Cloud with Admin permissions.
 
 > [!NOTE]
@@ -158,6 +158,7 @@ Once you've configured provisioning, use the following resources to monitor your
 ## Change log
 
 * 06/15/2020 - Added support for batch PATCH for groups.
+* 04/21/2021 - Added support for **Schema Discovery**.
 
 ## Additional resources
 

@@ -4,7 +4,7 @@ description: Secure HTTPS access to your custom domain by creating a TLS/SSL bin
 tags: buy-ssl-certificates
 
 ms.topic: tutorial
-ms.date: 05/13/2021
+ms.date: 04/27/2022
 ms.reviewer: yutlin
 ms.custom: seodec18
 ---
@@ -154,7 +154,7 @@ Language specific configuration guides, such as the [Linux Node.js configuration
 
 ### Azure CLI
 
-[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
+[Bind a custom TLS/SSL certificate to a web app](scripts/cli-configure-ssl-certificate.md)
 
 ### PowerShell
 

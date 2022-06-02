@@ -29,8 +29,6 @@ You can become a Microsoft-compatible FIDO2 security key vendor through the foll
         - Receive an overview of the device from the vendor
     - Microsoft will share our test scripts with you. Our engineering team will be able to answer questions if you have any specific needs.
     - You will complete and send all passed results to Microsoft Engineering team
-    - Once Microsoft confirms, you will send multiple hardware/solution samples of each device to Microsoft Engineering team
-        - Upon receipt Microsoft Engineering team will conduct test script verification and user experience flow
 4. Upon successful passing of all tests by Microsoft Engineering team, Microsoft will confirm vendor's device is listed in [the FIDO MDS](https://fidoalliance.org/metadata/).
 5. Microsoft will add your FIDO2 Security Key on Azure AD backend and to our list of approved FIDO2 vendors.
 

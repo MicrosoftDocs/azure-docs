@@ -2,16 +2,16 @@
 title: Microsoft identity platform scopes, permissions, & consent
 description: Learn about authorization in the Microsoft identity platform endpoint, including scopes, permissions, and consent.
 services: active-directory
-author: rwike77
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/14/2022
-ms.author: ryanwi
-ms.reviewer: ludwignick, phsignor
+ms.date: 04/21/2022
+ms.author: marsma
+ms.reviewer: jawoods, ludwignick, phsignor
 ms.custom: aaddev, fasttrack-edit, contperf-fy21q1, identityplatformtop40, has-adal-ref
 ---
 
@@ -21,7 +21,7 @@ Applications that integrate with the Microsoft identity platform follow an autho
 
 ## Scopes and permissions
 
-The Microsoft identity platform implements the [OAuth 2.0](active-directory-v2-protocols.md) authorization protocol. OAuth 2.0 is a method through which a third-party app can access web-hosted resources on behalf of a user. Any web-hosted resource that integrates with the Microsoft identity platform has a resource identifier, or *application ID URI*. 
+The Microsoft identity platform implements the [OAuth 2.0](active-directory-v2-protocols.md) authorization protocol. OAuth 2.0 is a method through which a third-party app can access web-hosted resources on behalf of a user. Any web-hosted resource that integrates with the Microsoft identity platform has a resource identifier, or *application ID URI*.
 
 Here are some examples of Microsoft web-hosted resources:
 
@@ -73,7 +73,7 @@ If you request the OpenID Connect scopes and a token, you'll get a token to call
 
 ### openid
 
-If an app signs in by using [OpenID Connect](active-directory-v2-protocols.md), it must request the `openid` scope. The `openid` scope appears on the work account consent page as the **Sign you in** permission. On the personal Microsoft account consent page, it appears as the **View your profile and connect to apps and services using your Microsoft account** permission. 
+If an app signs in by using [OpenID Connect](active-directory-v2-protocols.md), it must request the `openid` scope. The `openid` scope appears on the work account consent page as the **Sign you in** permission.
 
 By using this permission, an app can receive a unique identifier for the user in the form of the `sub` claim. The permission also gives the app access to the UserInfo endpoint. The `openid` scope can be used at the Microsoft identity platform token endpoint to acquire ID tokens. The app can use these tokens for authentication.
 

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/24/2022
+ms.date: 04/22/2022
 ms.author: alexeyo
 ---
 
@@ -68,9 +68,9 @@ In the following tables, the parameters without the **Adjustable** row aren't ad
 
 | Quota | Free (F0)<sup>3</sup> | Standard (S0) |
 |--|--|--|
-| **Max number of transactions per second (TPS) per Speech service resource** |  |  |
-| Real-time API. Prebuilt neural voices and custom neural voices. | 20 per 60 seconds | 200<sup>4</sup> |
-| Adjustable | No<sup>4</sup> | Yes<sup>4</sup> |
+| **Max number of transactions per certain time period per Speech service resource** |  |  |
+| Real-time API. Prebuilt neural voices and custom neural voices. | 20 transactions per 60 seconds | 200 transactions per second (TPS) |
+| Adjustable | No<sup>4</sup> | Yes<sup>5</sup> |
 | **HTTP-specific quotas** |  |  |
 | Max audio length produced per request | 10 min | 10 min |
 | Max total number of distinct `<voice>` and `<audio>` tags in SSML | 50 | 50 |
@@ -111,7 +111,7 @@ In the following tables, the parameters without the **Adjustable** row aren't ad
 
 <sup>3</sup> For the free (F0) pricing tier, see also the monthly allowances at the [pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
 <sup>4</sup> See [additional explanations](#detailed-description-quota-adjustment-and-best-practices) and [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling).<br/>
-<sup>5</sup> See [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling), and [adjustment instructions](#text-to-speech-increase-concurrent-request-limit-for-custom-neural-voices).<br/>
+<sup>5</sup> See [additional explanations](#detailed-description-quota-adjustment-and-best-practices), [best practices](#general-best-practices-to-mitigate-throttling-during-autoscaling), and [adjustment instructions](#text-to-speech-increase-concurrent-request-limit).<br/>
 
 ## Detailed description, quota adjustment, and best practices
 
@@ -166,7 +166,7 @@ How to get information for the base model:
 
 How to get information for the custom model:
 
-1. Go to the [Speech Studio](https://speech.microsoft.com/) portal.
+1. Go to the [Speech Studio](https://aka.ms/speechstudio/customspeech) portal.
 1. Sign in if necessary, and go to **Custom Speech**.
 1. Select your project, and go to **Deployment**.
 1. Select the required endpoint.
@@ -204,9 +204,9 @@ Suppose that a Speech service resource has the concurrent request limit set to 3
 
 Generally, it's a very good idea to test the workload and the workload patterns before going to production.
 
-### Text-to-speech: increase concurrent request limit for custom neural voices
+### Text-to-speech: increase concurrent request limit
 
-By default, the number of concurrent requests for Custom Neural Voice endpoints is limited to 10. For the standard pricing tier, you can increase this amount. Before submitting the request, ensure that you're familiar with the material discussed earlier in this article, such as the best practices to mitigate throttling.
+For the standard pricing tier, you can increase this amount. Before submitting the request, ensure that you're familiar with the material discussed earlier in this article, such as the best practices to mitigate throttling.
 
 Increasing the limit of concurrent requests doesn't directly affect your costs. Speech service uses a payment model that requires that you pay only for what you use. The limit defines how high the service can scale before it starts throttle your requests.
 
@@ -219,7 +219,7 @@ You aren't able to see the existing value of the concurrent request limit parame
 
 To create an increase request, you provide your deployment region and the custom endpoint ID. To get it, perform the following actions:
 
-1. Go to the [Speech Studio](https://speech.microsoft.com/) portal.
+1. Go to the [Speech Studio](https://aka.ms/speechstudio/customvoice) portal.
 1. Sign in if necessary, and go to **Custom Voice**.
 1. Select your project, and go to **Deployment**.
 1. Select the required endpoint.

@@ -5,7 +5,7 @@ author: ashinMSFT
 ms.service: synapse-analytics 
 ms.topic: overview
 ms.subservice: security 
-ms.date: 02/25/2022
+ms.date: 04/12/2022
 ms.author: seshin 
 ms.reviewer: wiassaf
 ---
@@ -38,13 +38,14 @@ You can also add IP firewall rules to a Synapse workspace after the workspace is
 
 You can connect to your Synapse workspace using Synapse Studio. You can also use SQL Server Management Studio (SSMS) to connect to the SQL resources (dedicated SQL pools and serverless SQL pool) in your workspace.
 
-Make sure that the firewall on your network and local computer allows outgoing communication on TCP ports 80, 443 and 1433 for Synapse Studio.
+Make sure that the firewall on your network and local computer allows outgoing communication on TCP ports 80, 443 and 1433 for Synapse Studio. 
+For private endpoints of your workspace target resources (Sql, SqlOnDemand, Dev), allow outgoing communication on TCP port 443 and 1433, unless you have configured other custom ports.
 
 Also, you need to allow outgoing communication on UDP port 53 for Synapse Studio. To connect using tools such as SSMS and Power BI, you must allow outgoing communication on TCP port 1433.
 
 ## Manage the Azure Synapse workspace firewall 
 
-For more information on managing the firewall, see [the Azure SQL documentation to manage server-level firewalls](../../azure-sql/database/firewall-configure.md#create-and-manage-ip-firewall-rules). Azure Synapse only supports server-level IP firewall rules. It doesn't support database-level IP firewall rules.
+For more information on managing the firewall, see [the Azure SQL documentation to manage server-level firewalls](/azure/azure-sql/database/firewall-configure#create-and-manage-ip-firewall-rules). Azure Synapse only supports server-level IP firewall rules. It doesn't support database-level IP firewall rules.
 
 For more information on the methods to manage the firewall programmatically, see: 
 - [API](/rest/api/synapse/ip-firewall-rules)
@@ -53,6 +54,7 @@ For more information on the methods to manage the firewall programmatically, see
 
 ## Next steps
 
-Create an [Azure Synapse Workspace](../quickstart-create-workspace.md)
-
-Create an Azure Synapse workspace with a [Managed workspace Virtual Network](./synapse-workspace-managed-vnet.md)
+- Create an [Azure Synapse Workspace](../quickstart-create-workspace.md)
+- Create an Azure Synapse workspace with a [Managed workspace Virtual Network](./synapse-workspace-managed-vnet.md)
+- [Troubleshoot Azure Private Link connectivity problems](../../private-link/troubleshoot-private-link-connectivity.md)
+- [Troubleshoot Azure Private Endpoint connectivity problems](../../private-link/troubleshoot-private-endpoint-connectivity.md)

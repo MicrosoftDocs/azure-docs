@@ -5,8 +5,8 @@ ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: quickstart
 ms.date: 11/29/2021
-author: mrbullwinkle
-ms.author: mbullwin
+author: jboback
+ms.author: jboback
 recommendations: false
 ms.devlang: csharp, python
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, language-service-question-answering, ignite-fall-2021, mode-api

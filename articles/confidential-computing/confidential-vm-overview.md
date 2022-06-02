@@ -1,15 +1,15 @@
 ---
-title: About Azure DCasv5/ECasv5-series confidential virtual machines (preview)
-description: Azure confidential computing offers confidential virtual machines (confidential VMs) for tenants with high security and confidentiality requirements.
-author: edendcohen
-ms.service: container-service
+title: DCasv5 and ECasv5 series confidential VMs (preview)
+description: Learn about Azure DCasv5, DCadsv5, ECasv5, and ECadsv5 series confidential virtual machines (confidential VMs). These series are for tenants with high security and confidentiality requirements.
+author: mamccrea
+ms.author: mamccrea
+ms.service: virtual-machines
 ms.subservice: confidential-computing
 ms.topic: overview
-ms.date: 11/15/2021
-ms.author: edcohen
+ms.date: 3/27/2022
 ---
 
-# About Azure DCasv5/ECasv5-series confidential virtual machines (preview)
+# DCasv5 and ECasv5 series confidential VMs (preview)
 
 > [!IMPORTANT]
 > Azure DCasv5/ECasv5-series confidential virtual machines are currently in Preview. Use is subject to your [Azure subscription](https://azure.microsoft.com/support/legal/) and terms applicable to "Previews" as detailed in the Universal License Terms for Online Services section of the [Microsoft Product Terms](https://www.microsoft.com/licensing/terms/welcome/welcomepage) and the [Microsoft Products and Services Data Protection Addendum](https://www.microsoft.com/licensing/docs/view/Microsoft-Products-and-Services-Data-Protection-Addendum-DPA) ("DPA").
@@ -40,7 +40,7 @@ If the compute platform is missing critical settings for your VM's isolation the
 
 Full-disk encryption is optional, because this process can lengthen the initial VM creation time. You can choose between:
 
- - A confidential VM with full OS disk encryption before VM deployment that uses platform-managed keys (PMK).
+ - A confidential VM with full OS disk encryption before VM deployment that uses platform-managed keys (PMK) or a customer-managed key (CMK).
  - A confidential VM without OS disk encryption before VM deployment.
 
 For further integrity and protection, confidential VMs offer [Secure Boot](/windows-hardware/design/device-experiences/oem-secure-boot) by default. 
@@ -50,7 +50,7 @@ With Secure Boot, trusted publishers must sign OS boot components (including the
 
 Confidential VMs use both the OS disk and a small encrypted virtual machine guest state (VMGS) disk of several megabytes. The VMGS disk contains the security state of the VM's components. Some components include the vTPM and UEFI bootloader. The small VMGS disk might incur a monthly storage cost.
 
-Starting in 2022, encrypted OS disks will begin to incur higher costs. This change is because encrypted OS disks use more space, and compression isn't possible. For more information, see [the pricing guide for managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
+From July 2022, encrypted OS disks will incur higher costs. This change is because encrypted OS disks use more space, and compression isn't possible. For more information, see [the pricing guide for managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## Attestation and TPM
 
@@ -101,7 +101,7 @@ Confidential VMs *don't support*:
 - Azure Backup
 - Azure Site Recovery
 - Azure Dedicated Host 
-- Virtual machine scale set
+- Microsoft Azure Virtual Machine Scale Sets for encrypted OS disks
 - Capturing an image of a VM
 - Azure Compute Gallery
 - Ephemeral OS disks
@@ -110,7 +110,7 @@ Confidential VMs *don't support*:
 - Accelerated Networking
 - User-attestable platform reports
 - Live migration
-- Customer-managed keys for OS disk pre-encryption
+
 
 ## Next steps
 
