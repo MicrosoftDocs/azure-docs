@@ -74,7 +74,8 @@ To manually assign owners and due dates to recommendations:
     - Go to **Recommendations** in the Defender for Cloud menu.
 1. In the list of recommendations, use the **Potential score increase** to identify the security control that contains recommendations that will increase your secure score.
 
-    You can also use the search box and filters above the list of recommendations to find specific recommendations.
+    > [!TIP]
+    > You can also use the search box and filters above the list of recommendations to find specific recommendations.
 
 1. Select a recommendation to see the affected resources.
 1. For any resource that doesn't have an owner or due date, select the resources and select **Assign owner**.
