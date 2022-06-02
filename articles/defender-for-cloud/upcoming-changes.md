@@ -18,11 +18,18 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change | Estimated date for change |
 |--|--|
+| [GA support for Arc-enabled Kubernetes clusters](#ga-support-for-arc-enabled-kubernetes-clusters) | July 2022 |
 | [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions) | June 2022 |
 | [Key Vault recommendations changed to "audit"](#key-vault-recommendations-changed-to-audit) | June 2022 |
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations) | June 2022 |
 | [Deprecating three VM alerts](#deprecating-three-vm-alerts) | June 2022|
 | [Deprecating the "API App should only be accessible over HTTPS" policy](#deprecating-the-api-app-should-only-be-accessible-over-https-policy)|June 2022|
+
+### GA support for Arc-enabled Kubernetes clusters
+
+**Estimated date for change:** July 2022
+
+Defender for Containers is currently a preview feature for Arc-enabled Kubernetes clusters. In July, Arc-enabled Kubernetes clusters will be charged according to the listing on the [pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/). Customers that already have clusters onboarded to Arc (on the subscription level) will incur charges.
 
 ### Changes to recommendations for managing endpoint protection solutions
 
