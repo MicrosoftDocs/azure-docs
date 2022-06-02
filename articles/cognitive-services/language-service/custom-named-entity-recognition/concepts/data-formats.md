@@ -34,7 +34,6 @@ Your Labels file should be in the `json` format below to be used in [importing](
     "language": "en-us"
   },
   "assets": {
-    "projectKind": "CustomEntityRecognition",
     "entities": [
       {
         "category": "Entity1"

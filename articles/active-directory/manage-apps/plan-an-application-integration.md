@@ -2,7 +2,6 @@
 
 title: Get started integrating Azure Active Directory with apps
 description: This article is a getting started guide for integrating Azure Active Directory (AD) with on-premises applications, and cloud applications.
-titleSuffix: Microsoft Entra
 services: active-directory
 author: eringreenlee
 manager: CelesteDG
