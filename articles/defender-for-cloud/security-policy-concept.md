@@ -67,7 +67,9 @@ So, (1) an initiative includes (2) policies that generate (3) environment-specif
 
 Security recommendations contain details that help you understand its significance and how to handle it.
 
-:::image type="content" source="./media/review-security-recommendations/recommendation-details-page.png" alt-text="Screenshot of the recommendation details page." lightbox="./media/review-security-recommendations/recommendation-details-page-expanded.png":::
+:::image type="content" source="./media/security-policy-concept/recommendation-details-page.png" alt-text="Screenshot of the recommendation details page with labels for each element." lightbox="./media/security-policy-concept/recommendation-details-page.png":::
+
+The recommendation details shown are:
 
 1. For supported recommendations, the top toolbar shows any or all of the following buttons:
     - **Enforce** and **Deny** (see [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md)).
