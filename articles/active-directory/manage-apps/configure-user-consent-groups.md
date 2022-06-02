@@ -1,6 +1,5 @@
 ---
 title: Configure group owner consent to apps accessing group data
-titleSuffix: Microsoft Entra
 description: Learn manage whether group and team owners can consent to applications that will have access to the group or team's data.
 services: active-directory
 author: eringreenlee

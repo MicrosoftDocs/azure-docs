@@ -741,7 +741,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
 
     The `if` statement sets the MySQL username based on which identity the token applies to. The token is then passed in to the [standard MySQL connection](../mysql/connect-python.md) as the password of the Azure identity.
 
-    The `LIBMYSQL_ENABLE_CLEARTEXT_PLUGIN` environment variable enables the [Cleartext plugin](https://dev.mysql.com/doc/refman/8.0/cleartext-pluggable-authentication.html) in the MySQL Connector (see [Use Azure Active Directory for authentication with MySQL](../mysql/howto-configure-sign-in-azure-ad-authentication.md#compatibility-with-application-drivers)).
+    The `LIBMYSQL_ENABLE_CLEARTEXT_PLUGIN` environment variable enables the [Cleartext plugin](https://dev.mysql.com/doc/refman/8.0/en/cleartext-pluggable-authentication.html) in the MySQL Connector (see [Use Azure Active Directory for authentication with MySQL](../mysql/howto-configure-sign-in-azure-ad-authentication.md#compatibility-with-application-drivers)).
 
     # [Azure Database for PostgreSQL](#tab/postgresql)
 

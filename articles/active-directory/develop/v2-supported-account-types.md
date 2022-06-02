@@ -1,6 +1,5 @@
 ---
 title: Supported account types
-titleSuffix: Microsoft identity platform 
 description: Conceptual documentation about audiences and supported account types in applications
 services: active-directory
 author: jmprieur

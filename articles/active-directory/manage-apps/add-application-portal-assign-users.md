@@ -1,6 +1,5 @@
 ---
 title: 'Quickstart: Create and assign a user account'
-titleSuffix: Microsoft Entra
 description: Create a user account in your Azure Active Directory tenant and assign it to an application.
 services: active-directory
 author: omondiatieno

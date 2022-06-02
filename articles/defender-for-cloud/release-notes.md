@@ -16,6 +16,24 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 > [!TIP]
 > If you're looking for items older than six months, you'll find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
+## June 2022
+
+Updates in June include:
+
+- [General availability (GA) of Defender for SQL on machines for AWS and GCP environments](#general-availability-ga-of-defender-for-sql-on-machines-for-aws-and-gcp-environments)
+
+### General availability (GA) of Defender for SQL on machines for AWS and GCP environments
+
+The database protection capabilities provided by Microsoft Defender for Cloud, has added support for your SQL servers that are hosted in either AWS or GCP environments.
+
+Using Defender for SQL, enterprises can now protect their entire database estate, hosted in Azure, AWS, GCP and on-premises machines.
+
+Microsoft Defender for SQL provides a unified multicloud experience to view security recommendations, security alerts and vulnerability assessment findings for both the SQL server and the underlining Windows OS.
+
+Using the multicloud onboarding experience, you can enable and enforce databases protection for SQL servers running on AWS EC2, RDS Custom for SQL Server and GCP compute engine. After enabling either of these plans, all supported resources that exist within the subscription are protected. Future resources created on the same subscription will also be protected.
+
+Learn how to protect and connect your [AWS environment](quickstart-onboard-aws.md) and your [GCP organization](quickstart-onboard-gcp.md) with Microsoft Defender for Cloud.
+
 ## May 2022
 
 Updates in May include:
