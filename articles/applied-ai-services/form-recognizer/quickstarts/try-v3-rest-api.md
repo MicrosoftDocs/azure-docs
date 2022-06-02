@@ -45,7 +45,7 @@ To learn more about Form Recognizer features and development options, visit our 
 **Custom Models**
 
 * Custom—Analyze and extract form fields and other content from your custom forms, using models you trained with your own form types.
-* Composed custom—Compose a collection of custom models and assign them to a single model built from your form types.
+* Composed custom—Compose a collection of custom models and assign them to a single model ID.
 
 ## Prerequisites
 
