@@ -14,7 +14,7 @@ The following are frequently asked questions about Azure Fluid Relay
 
 ### <a name="data"></a>Which Azure regions currently provide Fluid Relay?
 
-For a complete list of available regions, see [Azure Fluid Relay regions and availability](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=fluid-relay).
+For a complete list of available regions, see [Azure Fluid Relay regions and availability](https://azure.microsoft.com/global-infrastructure/services/?products=fluid-relay).
 
 ### <a name="data"></a>Can I move my Fluid Relay resource from one Azure resource group to another?
 
@@ -30,7 +30,7 @@ No. Moving the Fluid Relay resource from one region to another isn’t supported
 
 ### <a name="data"></a>Is Azure Fluid Relay certified by industry certifications?
 
-We adhere to the security and privacy policies and practices that other Azure services follow to help achieve those industry and regional certifications. Once Azure Fluid Relay is in General Availability, we'll be pursuing those certifications. We'll be updating our certification posture as we achieve the different certifications. For more information, see the [Microsoft Trust Center](https://www.microsoft.com/en-us/trust-center).
+We adhere to the security and privacy policies and practices that other Azure services follow to help achieve those industry and regional certifications. Once Azure Fluid Relay is in General Availability, we'll be pursuing those certifications. We'll be updating our certification posture as we achieve the different certifications. For more information, see the [Microsoft Trust Center](https://www.microsoft.com/trust-center).
 
 ### <a name="data"></a>What network protocols does Fluid Relay use?
 
