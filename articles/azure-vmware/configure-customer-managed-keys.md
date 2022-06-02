@@ -35,9 +35,9 @@ The following diagram shows how Azure VMware Solution uses Azure Active Director
 
 Before you begin to enable customer-managed key (CMK) functionality, ensure the following listed requirements are met:
 
-1. You'll need an Azure Key Vault to use CMK functionality. If you don't have an Azure Key Vault, you can create one using [Quickstart: Create a Key Vault using the Azure portal](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal).
-1. If you enabled restricted access to Key Vault, you'll need to allow Microsoft Trusted Services to bypass the Azure Key Vault firewall. Go to [Configure Azure Key Vault networking settings](https://docs.microsoft.com/azure/key-vault/general/how-to-azure-key-vault-network-security?tabs=azure-portal) to learn more.
-1. Enable system assigned Identity on your Azure VMware Solution private cloud if you didn't enable it during software-defined data center (SDDC) provisioning.
+- You'll need an Azure Key Vault to use CMK functionality. If you don't have an Azure Key Vault, you can create one using [Quickstart: Create a Key Vault using the Azure portal](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal).
+- If you enabled restricted access to Key Vault, you'll need to allow Microsoft Trusted Services to bypass the Azure Key Vault firewall. Go to [Configure Azure Key Vault networking settings](https://docs.microsoft.com/azure/key-vault/general/how-to-azure-key-vault-network-security?tabs=azure-portal) to learn more.
+- Enable system assigned Identity on your Azure VMware Solution private cloud if you didn't enable it during software-defined data center (SDDC) provisioning.
 
     # [Azure Portal](#tab/azure-portal)
     
@@ -60,7 +60,7 @@ Before you begin to enable customer-managed key (CMK) functionality, ensure the 
 
 ---
 
-4. Configure the key vault access policy to grant permissions to the managed identity. It'll be used to authorize access to the key vault.
+- Configure the key vault access policy to grant permissions to the managed identity. It'll be used to authorize access to the key vault.
     
     # [Azure Portal](#tab/azure-portal)
 
@@ -68,9 +68,9 @@ Before you begin to enable customer-managed key (CMK) functionality, ensure the 
     1. Navigate to **Key vaults** and locate the Key vault you want to use.
     1. From the left navigation, under **Settings**, select **Access policies**.
     1. In **Access policies**, select **Add Access Policy**.
-        1. From the **Key Permission** drop-down, select **Get**, wrap key and unwrap Key permissions.
-        1. Select **Principal**.
-        1. Below the search box, paste the **Object ID** from the previous step or search the private cloud name you want to use. Choose **Select** when you're done.
+        1. From the Key Permissions drop-down, check **Select all**, **Unwrap Key**, and **Wrap key**.
+        1. Under Select principal, click on **None selected**. This will pull up a **Principal** window with a search box.
+        1. In the search box, paste the **Object ID** from the previous step or search the private cloud name you want to use. Choose **Select** when you're done.
         1. Select **ADD**.
         1. Verify the new policy appears under the current policy's Application section.
         1. Select **Save** to commit changes.
