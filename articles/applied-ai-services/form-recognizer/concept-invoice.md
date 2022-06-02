@@ -151,7 +151,7 @@ Following are the line items extracted from an invoice in the JSON output respon
 | Tax | Number | Tax associated with each line item. Possible values include tax amount, tax %, and tax Y/N | 10% | |
 | VAT | Number | Stands for Value added tax. This is a flat tax levied on an item. Common in European countries | &euro;20.00 | |
 
-The invoice key-value pairs and line items extracted are in the `documentResults` section of the JSON output. 
+The invoice key-value pairs and line items extracted are in the `documentResults` section of the JSON output.
 
 ### Key-value pairs (Preview)
 
@@ -178,6 +178,6 @@ Keys can also exist in isolation when the model detects that a key exists, with 
 * Explore our REST API:
     > [!div class="nextstepaction"]
     > [Form Recognizer API v3.0 (Preview)](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument)
-    
+
     > [!div class="nextstepaction"]
     > [Form Recognizer API v2.1](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291)
