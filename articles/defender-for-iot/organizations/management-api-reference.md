@@ -435,7 +435,7 @@ curl -k -d '{"username":"<USER_NAME>","password":"PASSWORD"}' 'https://<IP_ADDRE
 ```rest
 curl -k -d '{"username":"myUser","password":"1234@abcd"}' 'https://127.0.0.1/external/authentication/validation
 ```
-
+---
 ## devices (Retrieve all device information)
 
 
@@ -881,7 +881,7 @@ curl -k -X PUT -d '{"action": "<ACTION>"}' -H "Authorization: <AUTH_TOKEN>" http
 ```rest
 curl -k -X PUT -d '{"action": "handle"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/external/v1/alerts/1-1594550943000
 ```
-
+---
 ## maintenanceWindow (Create alert exclusions)
 
 **URL**: `/external/v1/maintenanceWindow`
@@ -921,98 +921,148 @@ The APIs that you define here appear in the on-premises management console's Ale
 > [!NOTE]
 > Make sure that the ticket ID is not linked to an existing open window. The following exclusion rule is generated: `Maintenance-{token name}-{ticket ID}`.
 
+# [Curl command](#tab/maintenanceWindow-post-curl)
+
+**Type**: POST
+
+**API**:
+
+```rest
+curl -k -X POST -d '{"ticketId": "<TICKET_ID>",ttl": <TIME_TO_LIVE>,"engines": [<ENGINE1, ENGINE2...ENGINEn>],"sensorIds": [<SENSOR_ID1, SENSOR_ID2...SENSOR_IDn>],"subnets": [<SUBNET1, SUBNET2....SUBNETn>]}' -H "Authorization: <AUTH_TOKEN>" https://127.0.0.1/external/v1/maintenanceWindow
+```
+
+**Example**:
+
+```rest
+curl -k -X POST -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20","engines": ["ANOMALY"],"sensorIds": ["5","3"],"subnets": ["10.0.0.3"]}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/external/v1/maintenanceWindow
+```
+
+
+---
 ### PUT
 
 Allows you to update the maintenance window duration after you start the maintenance process by changing the **ttl** parameter. The new duration definition overrides the previous one.
 
 This method is useful when you want to set a longer duration than the currently configured duration.
 
+# [Request command](#tab/maintenanceWindow-put-request)
+
+**Query parameters**:
+
+|Parameter name  |Description  |
+|---------|---------|
+|**ticketId**     |   Defines the maintenance ticket ID in the user's systems.      |
+|**ttl**     |  Defines the duration of the window in minutes.       |
+
+# [Response command](#tab/maintenanceWindow-put-response)
+
+**Error codes**:
+
+|Code  |Description  |
+|---------|---------|
+|**200 (OK)**     |  The action was successfully completed.       |
+|**400 (Bad Request)**     | Appears in the following cases:<br><br>   - The **ttl** parameter is not numeric or not positive.<br>   - The **ticketId** parameter is missing.<br>   - The **ttl** parameter is missing.        |
+|**404 (Not Found)**:     |  The ticket ID is not linked to an open maintenance window.       |
+|**500 (Internal Server Error)**     |  Any other unexpected error.       |
+
+> [!NOTE]
+> Make sure that the ticket ID is linked to an existing open window.
+
+
+# [Curl command](#tab/maintenanceWindow-put-curl)
+
+**Type**: PUT
+
+**API**:
+
+```rest
+curl -k -X PUT -d '{"ticketId": "<TICKET_ID>",ttl": "<TIME_TO_LIVE>"}' -H "Authorization: <AUTH_TOKEN>" https://127.0.0.1/external/v1/maintenanceWindow
+```
+
+**Example**:
+
+```rest
+curl -k -X PUT -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/external/v1/maintenanceWindow
+```
+---
+
+
+### DELETE
+
+Closes an existing maintenance window.
+
+# [Request](#tab/maintenanceWindow-delete-request)
+
+**Query parameters**:
+
+|Parameter name  |Description  |
+|---------|---------|
+|**ticketId**     |   Defines the maintenance ticket ID in the user's systems.      |
+
+# [Response](#tab/maintenanceWindow-delete-response)
+
+**Error codes**:
+
+|Code  |Description  |
+|---------|---------|
+|**200 (OK)**     |  The action was successfully completed.       |
+|**400 (Bad Request)**     | The **ticketId** parameter is missing.       |
+|**404 (Not Found)**:     |  The ticket ID is not linked to an open maintenance window.       |
+|**500 (Internal Server Error)**     |  Any other unexpected error.       |
+
+
+> [!NOTE]
+> Make sure that the ticket ID is linked to an existing open window.
+
+# [Curl command](#tab/maintenanceWindow-delete-curl)
+
+**Type**: DELETE
+
+**API**:
+
+```rest
+curl -k -X DELETE -d '{"ticketId": "<TICKET_ID>"}' -H "Authorization: <AUTH_TOKEN>" https://127.0.0.1/external/v1/maintenanceWindow
+```
+
+**Example**:
+
+```rest
+curl -k -X DELETE -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/external/v1/maintenanceWindow
+```
+
+---
+### GET
+
+Retrieve a log of all the open, close, and update actions that were performed in the system during the maintenance. You can retrieve a log only for maintenance windows that were active in the past and have been closed.
+
 # [Request](#tab/maintenanceWindow-request-put)
 
 **Query parameters**:
 
-|Column1  |Column2  |
+|Parameter name  |Description  |
 |---------|---------|
-|Row1     |         |
-|Row2     |         |
+| **fromDate** | Filters the logs from the predefined date and later. The format is `YYYY-MM-DD`.|
+| **toDate** | Filters the logs up to the predefined date. The format is `YYYY-MM-DD`. |
+| **ticketId** | Filters the logs related to a specific ticket ID. |
+| **tokenName** | Filters the logs related to a specific token name. |
 
-**Query parameters**:
+**Error codes**:
 
-- **ticketId**: Defines the maintenance ticket ID in the user's systems.
+|Code  |Description  |
+|---------|---------|
+|**200 (OK)**     |  The action was successfully completed.       |
+|**400 (Bad Request)**     | The date format is wrong.     |
+|**204 (No Content)**:     |  There is no data to show.      |
+|**500 (Internal Server Error)**     |  Any other unexpected error.       |
 
-- **ttl**: Defines the duration of the window in minutes.
 
-#### Error code
+# [Response](#tab/maintenanceWindow-response-put)
 
-- **200 (OK)**: The action was successfully completed.
-
-- **400 (Bad Request)**: Appears in the following cases:
-
-   - The **ttl** parameter is not numeric or not positive.
-   - The **ticketId** parameter is missing.
-   - The **ttl** parameter is missing.
-
-- **404 (Not Found)**: The ticket ID is not linked to an open maintenance window.
-
-- **500 (Internal Server Error)**: Any other unexpected error.
-
-> [!NOTE]
-> Make sure that the ticket ID is linked to an existing open window.
-
-#### Method - DELETE
-
-Closes an existing maintenance window.
-
-#### Query parameters
-
-- **ticketId**: Logs the maintenance ticket ID in the user's systems.
-
-#### Error code
-
-- **200 (OK)**: The action was successfully completed.
-
-- **400 (Bad Request)**: The **ticketId** parameter is missing.
-
-- **404 (Not Found)**: The ticket ID is not linked to an open maintenance window.
-
-- **500 (Internal Server Error)**: Any other unexpected error.
-
-> [!NOTE]
-> Make sure that the ticket ID is linked to an existing open window.
-
-#### Method - GET
-
-Retrieve a log of all the open, close, and update actions that were performed in the system during the maintenance. You can retrieve a log only for maintenance windows that were active in the past and have been closed.
-
-#### Query parameters
-
-- **fromDate**: Filters the logs from the predefined date and later. The format is 2019-12-30.
-
-- **toDate**: Filters the logs up to the predefined date. The format is 2019-12-30.
-
-- **ticketId**: Filters the logs related to a specific ticket ID.
-
-- **tokenName**: Filters the logs related to a specific token name.
-
-#### Error code 
-
-- **200 (OK)**: The action was successfully completed.
-
-- **400 (Bad Request)**: The date format is wrong.
-
-- **204 (No Content)**: There is no data to show.
-
-- **500 (Internal Server Error)**: Any other unexpected error.
-
-#### Response type
-
-- **JSON**
-
-#### Response content
+**Type**: JSON
 
 Array of JSON objects that represent maintenance window operations.
 
-#### Response structure
+**Response structure**:
 
 | Name | Type | Comment | Nullable |
 |--|--|--|--|
@@ -1025,14 +1075,24 @@ Array of JSON objects that represent maintenance window operations.
 | **ttl** | Numeric | - | yes |
 | **operationType** | String | Values are "OPEN", "UPDATE", and "CLOSE" | no |
 
-#### Curl command
+# [Curl command](#tab/maintenanceWindow-get-curl)
 
-| Type | APIs | Example |
-|--|--|--|
-| POST | `curl -k -X POST -d '{"ticketId": "<TICKET_ID>",ttl": <TIME_TO_LIVE>,"engines": [<ENGINE1, ENGINE2...ENGINEn>],"sensorIds": [<SENSOR_ID1, SENSOR_ID2...SENSOR_IDn>],"subnets": [<SUBNET1, SUBNET2....SUBNETn>]}' -H "Authorization: <AUTH_TOKEN>" https://127.0.0.1/external/v1/maintenanceWindow` | `curl -k -X POST -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20","engines": ["ANOMALY"],"sensorIds": ["5","3"],"subnets": ["10.0.0.3"]}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/external/v1/maintenanceWindow` |
-| PUT | `curl -k -X PUT -d '{"ticketId": "<TICKET_ID>",ttl": "<TIME_TO_LIVE>"}' -H "Authorization: <AUTH_TOKEN>" https://127.0.0.1/external/v1/maintenanceWindow` | `curl -k -X PUT -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf","ttl": "20"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/external/v1/maintenanceWindow` |
-| DELETE | `curl -k -X DELETE -d '{"ticketId": "<TICKET_ID>"}' -H "Authorization: <AUTH_TOKEN>" https://127.0.0.1/external/v1/maintenanceWindow` | `curl -k -X DELETE -d '{"ticketId": "a5fe99c-d914-4bda-9332-307384fe40bf"}' -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/external/v1/maintenanceWindow` |
-| GET | `curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/external/v1/maintenanceWindow?fromDate=&toDate=&ticketId=&tokenName='` | `curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/external/v1/maintenanceWindow?fromDate=2020-01-01&toDate=2020-07-14&ticketId=a5fe99c-d914-4bda-9332-307384fe40bf&tokenName=a'` |
+**Type**: GET
+
+**API**:
+
+```rest
+curl -k -H "Authorization: <AUTH_TOKEN>" 'https://<IP_ADDRESS>/external/v1/maintenanceWindow?fromDate=&toDate=&ticketId=&tokenName='
+```
+
+**Example**:
+
+```rest
+curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/external/v1/maintenanceWindow?fromDate=2020-01-01&toDate=2020-07-14&ticketId=a5fe99c-d914-4bda-9332-307384fe40bf&tokenName=a'
+```
+
+---
+
 
 ## Request alert PCAP - /external/v2/alerts/pcap
 
