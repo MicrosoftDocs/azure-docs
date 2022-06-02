@@ -1,6 +1,5 @@
 ---
-title: "Quickstart: Register and expose a web API | Azure"
-titleSuffix: Microsoft identity platform
+title: "Quickstart: Register and expose a web API"
 description: In this quickstart, your register a web API with the Microsoft identity platform and configure its scopes, exposing it to clients for permissions-based access to the API's resources.
 services: active-directory
 author: mmacy

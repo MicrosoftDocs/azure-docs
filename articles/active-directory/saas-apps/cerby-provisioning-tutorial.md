@@ -138,6 +138,16 @@ Once you've configured provisioning, use the following resources to monitor your
 * Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it's to completion
 * If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
 
+## Troubleshooting Tips
+If you need to regenerate the SCIM API authentication token, complete the following steps:
+
+1. Send an email with your request to [Cerby Support Team](mailto:support@cerby.com). The Cerby team regenerates the SCIM API authentication token.
+1. Receive the response email from Cerby to confirm that the token was successfully regenerated.
+1. Complete the instructions from the [How to Retrieve the SCIM API Authentication Token from Cerby](https://help.cerby.com/en/articles/5638472-how-to-configure-automatic-user-provisioning-for-azure-ad) article to retrieve the new token.
+
+	>[!NOTE]
+	>The Cerby team is currently developing a self-service solution for regenerating the SCIM API authentication token. To regenerate the token, the Cerby team members must validate their identity.
+
 ## More resources
 
 * [Managing user account provisioning for Enterprise Apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)

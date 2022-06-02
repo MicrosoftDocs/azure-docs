@@ -125,9 +125,9 @@ After the deployment is complete:
 
 - The content stored in your repository is displayed in your Microsoft Sentinel workspace, in the relevant Microsoft Sentinel page.
 
-- The connection details on the **Repositories** page are updated with the link to the connection's deployment logs. For example:
+- The connection details on the **Repositories** page are updated with the link to the connection's deployment logs and the status and time of the last deployment. For example:
 
-    :::image type="content" source="media/ci-cd/deployment-logs-link.png" alt-text="Screenshot of a GitHub repository connection's deployment logs.":::
+    :::image type="content" source="media/ci-cd/deployment-logs-status.png" alt-text="Screenshot of a GitHub repository connection's deployment logs.":::
     
 ### Improve deployment performance with smart deployments
 

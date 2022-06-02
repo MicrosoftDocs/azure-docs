@@ -91,7 +91,7 @@ Use the following steps to label your utterances:
 
 
   > [!NOTE]
-  > list and prebuilt components are not shown in the tag utterances page, and all labels here only apply to the **learned component**.
+  > list and prebuilt components are not shown in the data labeling page, and all labels here only apply to the **learned component**.
 
 To remove a label:
   1. From within your utterance, select the entity you want to remove a label from.

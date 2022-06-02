@@ -39,7 +39,7 @@ While most features will continue to work without performing any migration, you 
 Refer to [Common questions for transition from OMS portal to Azure portal for Log Analytics users](../overview.md) for information about how to transition to the Azure portal. 
 
 ## User access and role migration
-Azure portal access management is richer and more powerful than the access management in the OMS Portal. See [Designing your Azure Monitor Logs workspace](../logs/design-logs-deployment.md) for details of access management in Log Analytics.
+Azure portal access management is richer and more powerful than the access management in the OMS Portal. See [Designing your Azure Monitor Logs workspace](../logs/workspace-design.md) for details of access management in Log Analytics.
 
 > [!NOTE]
 > Previous versions of this article stated that the permissions would automatically be converted from the OMS portal to the Azure portal. This automatic conversion is no longer planned, and you must perform the conversion yourself.

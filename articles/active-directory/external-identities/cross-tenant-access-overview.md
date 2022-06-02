@@ -71,6 +71,13 @@ To set up B2B collaboration, both organizations configure their Microsoft cloud 
 
 For configuration steps, see [Configure Microsoft cloud settings for B2B collaboration (Preview)](cross-cloud-settings.md).
 
+> [!NOTE]
+> The admin experience is currently still deploying to national clouds. To access the admin experience in Microsoft Azure Government or Microsoft Azure China, you can use these links: 
+>
+>Microsoft Azure Government - https://aka.ms/cloudsettingsusgov
+>
+>Microsoft Azure China - https://aka.ms/cloudsettingschina
+
 ### Default settings in cross-cloud scenarios
 
 To collaborate with a partner tenant in a different Microsoft Azure cloud, both organizations need to mutually enable B2B collaboration with each other. The first step is to enable the partner's cloud in your cross-tenant settings. When you first enable another cloud, B2B collaboration is blocked for all tenants in that cloud. You need to add the tenant you want to collaborate with to your Organizational settings, and at that point your default settings go into effect for that tenant only. You can allow the default settings to remain in effect, or you can modify the organizational settings for the tenant.

@@ -195,8 +195,14 @@
         href: manage/azurestudents-subscription-disabled.md
       - name: Set up and configure AWS integration
         href: costs/aws-integration-set-up-configure.md
-      - name: Create additional subscriptions
+      - name: Create an MCA subscription
         href: manage/create-subscription.md
+      - name: Create an MCA subscription request
+        href: manage/create-subscription-request.md
+      - name: Create an EA subscription
+        href: manage/create-enterprise-subscription.md
+      - name: Create a subscription for a partner's customer
+        href: manage/create-customer-subscription.md
       - name: Grant access to create EA subscriptions
         href: manage/grant-access-to-create-subscription.md
       - name: Change administrator
