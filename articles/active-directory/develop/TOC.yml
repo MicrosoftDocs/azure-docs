@@ -143,8 +143,10 @@
       items:
         - name: Workload identity federation
           href: workload-identity-federation.md
-        - name: Trust an external identity provider (federation)
+        - name: Configure an app to trust an external identity provider
           href: workload-identity-federation-create-trust.md
+        - name: Configure a managed identity to trust an external identity provider
+          href: workload-identity-federation-create-trust-user-assigned-managed-identity.md
         - name: Configure an app to trust a GitHub repo
           href: workload-identity-federation-create-trust-github.md
         - name: Access identity platform-protected resources from GCP
