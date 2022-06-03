@@ -183,7 +183,7 @@ az spring-cloud app create \
 
 The `--assign-endpoint` argument grants a public IP for validation and enables access from the external network.
 
-### Connect to the Service Registry from the app (About Binding)
+### Connect to the Service Registry from the app
 
 You've now created a service with Spring Boot and created an application in Azure Spring Apps. The next task is to deploy the application and confirm the operation. Before that, however, you must bind your application to the Service Registry so that it can get connection information from the registry.
 
