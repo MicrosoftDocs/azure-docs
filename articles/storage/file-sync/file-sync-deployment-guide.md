@@ -4,7 +4,7 @@ description: Learn how to deploy Azure File Sync, from start to finish, using th
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/27/2022
+ms.date: 06/03/2022
 ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
