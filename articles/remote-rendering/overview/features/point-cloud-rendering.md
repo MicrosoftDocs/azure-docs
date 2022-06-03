@@ -1,6 +1,6 @@
 ---
 title: Point cloud rendering
-description: Highlevel overview of point cloud rendering and the API to change global point cloud settings
+description: High-level overview of point cloud rendering and the API to change global point cloud settings
 author: florianborn71
 ms.author: flborn
 ms.date: 06/02/2022
@@ -13,13 +13,13 @@ ms.custom: devx-track-csharp
 > [!NOTE]
 > The ARR point cloud rendering feature is currently in public preview.
 
-ARR supports rendering of point clouds as an alternative to triangular meshes. This enables use cases where converting point clouds to triangular meshes as a preprocessing step is either impractical (turnaround times, complexity) or if the conversion process drops important detail.
+ARR supports rendering of point clouds as an alternative to triangular meshes. Point cloud rendering enables additional use cases where converting point clouds to triangular meshes as a preprocessing step is either impractical (turnaround times, complexity) or if the conversion process drops important detail.
 
-Point cloud conversion does not decimate the input data.
+Point cloud conversion doesn't decimate the input data.
 
 ## Point cloud conversion
 
-Conversion of point cloud assets works fully analogue to converting triangular meshes: A single point cloud input file is converted to an `.arrAsset` file which in turn can be consumed by the runtime API for loading.
+Conversion of point cloud assets works fully analog to converting triangular meshes: A single point cloud input file is converted to an `.arrAsset` file, which in turn can be consumed by the runtime API for loading.
 
 The list of supported point cloud file formats can be found in the [model conversion](../../how-tos/conversion/model-conversion.md#point-clouds) section.
 
@@ -27,11 +27,11 @@ The dedicated conversion settings for point cloud files are explained in the [co
 
 ## Size limitations
 
-For maximum number of allowable points, there is the same kind of distinction between a `standard` and `premium` rendering session, as described in paragraph about [server size limits](../../reference/limits.md#overall-number-of-primitives).
+For maximum number of allowable points, there's the same kind of distinction between a `standard` and `premium` rendering session, as described in paragraph about [server size limits](../../reference/limits.md#overall-number-of-primitives).
 
 ## Global rendering properties
 
-There is a single API to access global rendering settings for point clouds. The `_Experimental` suffix is to indicate that the API is currently in public preview and might be subject to change.
+There's a single API to access global rendering settings for point clouds. The `_Experimental` suffix is to indicate that the API is currently in public preview and might be subject to change.
 
 ```cs
 void ChangeGlobalPointCloudSettings(RenderingSession session)
