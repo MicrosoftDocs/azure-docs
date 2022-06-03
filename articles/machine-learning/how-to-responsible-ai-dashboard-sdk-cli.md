@@ -87,6 +87,16 @@ The ` RAI Insights Dashboard Constructor` and `Gather RAI Insights Dashboard ` c
 
 Below are specifications of the Responsible AI components and examples of code snippets in YAML and Python. To view the full code, see [sample YAML and Python notebook](https://aka.ms/RAIsamplesProgrammer)
 
+### Limitations
+The current set of components have a number of limitations on their use:
+
+- All models must be in registered in AzureML in MLFlow format with a sklearn flavor.
+- The models must be loadable in the component environment.
+- The models must be pickleable.
+- The models must be supplied to the RAI components using the 'Fetch Registered Model' component which we provide.
+- The dataset inputs must be `pandas` DataFrames in Parquet format. 
+- A model must still be supplied even if only a causal analysis of the data is performed. The `DummyClassifier` and `DummyRegressor` estimators from SciKit-Learn can be used for this purpose.
+
 ### RAI Insights Dashboard Constructor
 
 This component has three input ports:

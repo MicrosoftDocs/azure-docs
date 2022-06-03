@@ -13,6 +13,8 @@ ms.author: barclayn
 
 # Frequently Asked Questions (FAQ) (preview)
 
+[!INCLUDE [Verifiable Credentials announcement](../../../includes/verifiable-credentials-brand.md)]
+
 This page contains commonly asked questions about Verifiable Credentials and Decentralized Identity. Questions are organized into the following sections.
 
 - [Vocabulary and basics](#the-basics)

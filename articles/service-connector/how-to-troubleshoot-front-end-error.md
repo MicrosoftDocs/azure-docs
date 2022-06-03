@@ -20,8 +20,11 @@ This article lists error messages and suggestions to troubleshoot Service Connec
 
 | Error message | Suggested Action |
 | --- | --- |
-| Unknown resource type | <ul><li>Check source and target resource to verify whether the service types are supported by Service Connector.</li><li>Check whether the specified source-target connection combination is supported by Service Connector.</li><li>Check whether the target resource exists.</li><li>Check the correctness of the target resource ID.</li></ul> |
-| Unsupported resource | <ul><li>Check whether the authentication type is supported by the specified source-target connection combination.</li></ul> |
+| Unknown resource type | Check source and target resource to verify whether the service types are supported by Service Connector. |
+|                       | Check whether the specified source-target connection combination is supported by Service Connector. |
+|                       | Check whether the target resource exists. |
+|                       | Check the correctness of the target resource ID. |
+| Unsupported resource | Check whether the authentication type is supported by the specified source-target connection combination. |
 
 ## Error type，error message, and suggested actions using Azure CLI
 
@@ -29,9 +32,11 @@ This article lists error messages and suggestions to troubleshoot Service Connec
 
 | Error message | Suggested Action |
 | --- | --- |
-| The source resource ID is invalid: `{SourceId}` | <ul><li>Check whether the source resource ID supported by Service Connector.</li><li>Check the correctness of source resource ID.</li></ul> |
-| Target resource ID is invalid: `{TargetId}` | <ul><li>Check whether the target service type is supported by Service Connector.</li><li>Check the correctness of target resource ID.</li></ul> |
-| Connection ID is invalid: `{ConnectionId}` | <ul><li>Check the correctness of the connection ID.</li></ul> |
+| The source resource ID is invalid: `{SourceId}` | Check whether the source resource ID supported by Service Connector. |
+|                                                 | Check the correctness of source resource ID. |
+| Target resource ID is invalid: `{TargetId}` | Check whether the target service type is supported by Service Connector. |
+|                                             | Check the correctness of target resource ID. |
+| Connection ID is invalid: `{ConnectionId}` | Check the correctness of the connection ID. |
 
 
 #### RequiredArgumentMissingError
@@ -51,7 +56,7 @@ This article lists error messages and suggestions to troubleshoot Service Connec
 | Either client type or auth info should be specified to update | Either client type or authentication information should be provided when updating a connection. |
 | Usage error: `{} [KEY=VALUE ...]` | Check the available keys and provide values for the auth info parameter, usually in the form of `--param key1=val1 key2=val2`. |
 | Unsupported Key `{Key}` is provided for parameter `{Parameter}`. All possible keys are: `{Keys}` | Check the available keys and provide values for the authentication information parameter, usually in the form of `--param key1=val1 key2=val2`. |
-| Provision failed, please create the target resource manually and then create the connection. Error details: `{ErrorTrace}` | <ul><li>Retry.</li><li>Create the target resource manually and then create the connection.</li></ul> |
+| Provision failed, please create the target resource manually and then create the connection. Error details: `{ErrorTrace}` | Retry. Create the target resource manually and then create the connection. |
 
 ## Next steps
 
