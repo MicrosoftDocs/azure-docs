@@ -6,7 +6,7 @@ ms.service: marketplace
 ms.topic: article
 author: rigonzales
 ms.author: rigonzales
-ms.date: 05/06/2021
+ms.date: 06/03/2022
 ---
 
 # Creating and managing private offers via API (preview)
@@ -69,7 +69,7 @@ grant_type=client_credentials
 &resource=https://graph.microsoft.com/
 ```
 
-For the tenant_id value in the POST URI and the client_id and client_secret parameters, specify the tenant ID, client ID, and key for your application that you retrieved from Partner Center in the previous section. For the resource parameter, you must specify `https://product-ingestion.mp.microsoft.com/`.
+For the tenant_id value in the POST URI and the client_id and client_secret parameters, specify the tenant ID, client ID, and key for your application that you retrieved from Partner Center in the previous section. For the resource parameter, you must specify `https://graph.microsoft.com/`.
 
 ### Find product, plan, and private offer IDs
 
@@ -415,7 +415,7 @@ Use this method to delete an existing private offer while it's still in draft st
 
 ### Request
 
-POST https://graph.microsoft.com/rp/product-ingestion/configure
+`POST https://graph.microsoft.com/rp/product-ingestion/configure`
 
 #### Request header
 
