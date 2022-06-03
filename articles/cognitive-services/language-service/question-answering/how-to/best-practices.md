@@ -68,7 +68,7 @@ However, please note that the confidence score with which the system returns the
 
    ID – Identification
 
-ETA – Estimated time of Arrival
+   ETA – Estimated time of Arrival
 
 3. Apart from acronyms, if you think your words are similar in context of a particular domain and generic language models won’t consider them similar, it’s better to add them as synonyms. For instance, if an auto company producing a car model X receives queries such as "my car’s audio isn’t working" and the knowledge base has questions on "fixing audio for car X", then we need to add "X" and "car" as synonyms.
 
