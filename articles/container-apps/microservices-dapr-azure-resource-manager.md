@@ -533,12 +533,12 @@ resource nodeapp 'Microsoft.App/containerApps@2022-03-01' = {
         {
           image: 'dapriosamples/hello-k8s-node:latest'
           name: 'hello-k8s-node'
-     		  env: [
-		        {
-				       name: 'APP_PORT'
-				       value: '3000'
-			      }
-		      ]
+          env: [
+            {
+              name: 'APP_PORT'
+              value: '3000'
+            }
+          ]
           resources: {
             cpu: json('0.5')
             memory: '1.0Gi'
