@@ -51,7 +51,7 @@ The supported GPUs and required Windows versions are listed below:
 
 ## System setup and installation
 
-The following sections contains setup and installation information, according to your GPU.
+The following sections contain setup and installation information, according to your GPU.
 
 ### NVIDIA T4/A2 GPUs
 
