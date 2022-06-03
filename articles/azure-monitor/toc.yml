@@ -131,6 +131,8 @@ items:
   items:
   - name: Continuous monitoring
     href: continuous-monitoring.md
+  - name: Data platform
+    href: data-platform.md
   - name: Usage and cost
     items:
     - name: View and estimate charges
@@ -431,11 +433,8 @@ items:
         href: essentials/diagnostic-settings-policy.md
   - name: Data collection
     items:
-    - name: Overview
-      displayName: Data collection, Data platform
-      href: data-platform.md
     - name: Data sources
-      href: agents/data-sources.md
+      href: data-sources.md
     - name: Data collection rules
       items:
       - name: Overview
