@@ -439,7 +439,7 @@ The service principal's password will expire every six months. To update the pas
     '@
 
     $now = [DateTime]::UtcNow
-    $json = $json -replace "<STORAGEACCOUNTSTARTDATE>", $now.AddDays(-1).ToString("s")
+    $json = $json -replace "<STORAGEACCOUNTSTARTDATE>", $now.AddHours(-12).ToString("s")
 	$json = $json -replace "<STORAGEACCOUNTENDDATE>", $now.AddMonths(6).ToString("s")
     $json = $json -replace "<STORAGEACCOUNTPASSWORD>", $password
 
