@@ -129,7 +129,7 @@ It contains the following information:
 This section provides information about the source scene. There will often be discrepancies between the values in this section and the equivalent values in the tool that created the source model. Such differences are expected, because the model gets modified during the export and conversion steps.
 
 * `numMeshes`: The number of mesh parts, where each part can reference a single material.
-* `numFaces`: The total number of triangles or points in the whole model. This number contributes to the primitive limit in the [standard rendering server size](../../reference/vm-sizes.md#how-the-renderer-evaluates-the-number-of-primitives).
+* `numFaces`: The total number of triangles/points in the whole model. This number contributes to the primitive limit in the [standard rendering server size](../../reference/vm-sizes.md#how-the-renderer-evaluates-the-number-of-primitives).
 * `numVertices`: The total number of vertices in the whole model.
 * `numMaterial`: The total number of materials in the whole model.
 * `numFacesSmallestMesh`: The number of triangles/points in the smallest mesh of the model.
