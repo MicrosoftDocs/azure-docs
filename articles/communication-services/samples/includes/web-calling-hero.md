@@ -45,7 +45,7 @@ Components of the main calling screen:
 - **Side Bar**: This is where participants and settings information are shown when toggled using the controls on the header. The component can be dismissed using the 'X' on the top right corner. Participants side bar will show a list of participants and a link to invite more users to chat. Settings side bar allows you to configure microphone and camera settings.
 
 > [!NOTE]
-> Based on limitations on the Web Calling SDK, only one remote video stream is rendered. For more information see, [Calling SDK Stream Support](../../concepts/voice-video-calling/calling-sdk-features.md#calling-sdk-streaming-support).
+> Based on limitations on the Web Calling SDK, only 4 video streams and 1 screen sharing stream is rendered. For more information see, [Calling SDK Stream Support](../../concepts/voice-video-calling/calling-sdk-features.md#calling-sdk-streaming-support).
 
 Below you'll find more information on prerequisites and steps to set up the sample.
 
@@ -118,3 +118,4 @@ For more information, see the following articles:
 - [Redux](https://redux.js.org/) - Client-side state management
 - [FluentUI](https://aka.ms/fluent-ui) - Microsoft powered UI library
 - [React](https://reactjs.org/) - Library for building user interfaces
+- [ASP.NET Core](/aspnet/core/introduction-to-aspnet-core?preserve-view=true&view=aspnetcore-3.1) - Framework for building web applications

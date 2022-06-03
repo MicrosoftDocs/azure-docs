@@ -137,6 +137,7 @@ The following clients have compatible algorithm support with SFTP for Azure Blob
 - sshj 0.27.0+
 - SSH.NET 2020.0.0+
 - WinSCP 5.10+
+- Workday
 
 > [!NOTE]
 > The supported client list above is not exhaustive and may change over time.

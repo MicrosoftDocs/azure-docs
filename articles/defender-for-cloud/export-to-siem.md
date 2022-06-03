@@ -9,8 +9,6 @@ ms.date: 04/04/2022
 
 # Stream alerts to a SIEM, SOAR, or IT Service Management solution
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Microsoft Defender for Cloud can stream your security alerts into the most popular Security Information and Event Management (SIEM),
 Security Orchestration Automated Response (SOAR), and IT Service Management (ITSM) solutions.
 Security alerts are notifications that Defender for Cloud generates when it detects threats on your resources.
@@ -43,7 +41,7 @@ Microsoft Sentinel includes built-in connectors for Microsoft Defender for Cloud
 
 When you connect Defender for Cloud to Microsoft Sentinel, the status of Defender for Cloud alerts that get ingested into Microsoft Sentinel is synchronized between the two services. So, for example, when an alert is closed in Defender for Cloud, that alert is also shown as closed in Microsoft Sentinel. If you change the status of an alert in Defender for Cloud, the status of the alert in Microsoft Sentinel is also updated, but the statuses of any Microsoft Sentinel **incidents** that contain the synchronized Microsoft Sentinel alert aren't updated.
 
-You can enable the preview feature **bi-directional alert synchronization** to automatically sync the status of the original Defender for Cloud alerts with Microsoft Sentinel incidents that contain the copies of those Defender for Cloud alerts. So, for example, when a Microsoft Sentinel incident that contains a Defender for Cloud alert is closed, Defender for Cloud automatically closes the corresponding original alert.
+You can enable the **bi-directional alert synchronization** feature to automatically sync the status of the original Defender for Cloud alerts with Microsoft Sentinel incidents that contain the copies of those Defender for Cloud alerts. So, for example, when a Microsoft Sentinel incident that contains a Defender for Cloud alert is closed, Defender for Cloud automatically closes the corresponding original alert.
 
 Learn more in [Connect alerts from Microsoft Defender for Cloud](../sentinel/connect-azure-security-center.md).
 
@@ -91,18 +89,18 @@ You can set up your Azure environment to support continuous export using either:
     Enter the required parameters and the script performs all of the steps for you.
     When the script finishes, it outputs the information you’ll use to install the solution in the SIEM platform.
 
-- In the Azure portal
+- The Azure portal
 
     Here's an overview of the steps you'll do in the Azure portal:
 
     1. Create an Event Hubs namespace and event hub.
     2. Define a policy for the event hub with “Send” permissions.
-    3. **If you are streaming your alerts to QRadar SIEM** - Create an event hub "Listen" policy, then copy and save the connection string of the policy that you’ll use in QRadar.
+    3. **If you're streaming alerts to QRadar** - Create an event hub "Listen" policy, then copy and save the connection string of the policy that you’ll use in QRadar.
     4. Create a consumer group, then copy and save the name that you’ll use in the SIEM platform.
-    5. Enable continuous export of your security alerts to the defined event hub.
-    6. **If you are streaming your alerts to QRadar SIEM** - Create a storage account, then copy and save the connection string to the account that you’ll use in QRadar.
-    7. **If you are streaming your alerts to Splunk SIEM**:
-        1. Create a Microsoft Azure Active Directory application.
+    5. Enable continuous export of security alerts to the defined event hub.
+    6. **If you're streaming alerts to QRadar** - Create a storage account, then copy and save the connection string to the account that you’ll use in QRadar.
+    7. **If you're streaming alerts to Splunk**:
+        1. Create an Azure Active Directory (AD) application.
         2. Save the Tenant, App ID, and App password.
         3. Give permissions to the Azure AD Application to read from the event hub you created before.
 
@@ -142,7 +140,7 @@ To view the event schemas of the exported data types, visit the [Event Hubs even
 
 ## Use the Microsoft Graph Security API to stream alerts to third-party applications
 
-As an alternative to Sentinel and Azure Monitor, you can use Defender for Cloud's built-in integration with [Microsoft Graph Security API](https://www.microsoft.com/security/business/graph-security-api). No configuration is required and there are no additional costs.
+As an alternative to Microsoft Sentinel and Azure Monitor, you can use Defender for Cloud's built-in integration with [Microsoft Graph Security API](https://www.microsoft.com/security/business/graph-security-api). No configuration is required and there are no additional costs.
 
 You can use this API to stream alerts from your **entire tenant** (and data from many Microsoft Security products) into third-party SIEMs and other popular platforms:
 

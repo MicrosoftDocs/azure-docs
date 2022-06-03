@@ -319,6 +319,9 @@ For example, you can set the value of **DefaultHttpRequestTimeout** to set the t
    }
    ``` 
 
+> [!NOTE]
+> Reverse Proxy has a limit of 16KB for headers and it does not support changing the threshold to a larger size.
+
 For more information about updating fabric settings for Azure clusters, see [Customize cluster settings using Resource Manager templates](service-fabric-cluster-config-upgrade-azure.md). For standalone clusters, see [Customize cluster settings for standalone clusters](service-fabric-cluster-config-upgrade-windows-server.md). 
 
 Several fabric settings are used to help establish secure communication between reverse proxy and services. For detailed information about these settings, see [Connect to a secure service with the reverse proxy](service-fabric-reverseproxy-configure-secure-communication.md).

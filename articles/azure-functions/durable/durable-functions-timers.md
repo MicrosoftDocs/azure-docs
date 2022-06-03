@@ -18,7 +18,7 @@ You create a durable timer by calling the [`CreateTimer` (.NET)](/dotnet/api/mic
 When you create a timer that expires at 4:30 pm, the underlying Durable Task Framework enqueues a message that becomes visible only at 4:30 pm. When running in the Azure Functions Consumption plan, the newly visible timer message will ensure that the function app gets activated on an appropriate VM.
 
 > [!NOTE]
-> * Starting with [version 2.3.0](https://github.com/Azure/azure-functions-durable-extension/releases/tag/v2.3.0) of the Durable Extension, Durable timers are unlimited for .NET apps. For JavaScript, Python, and PowerShell apps, as well as .NET apps using earlier versions of the extension, Durable timers are limited to seven days. When you are using an older extension version or a non-.NET language runtime and need a delay longer than seven days, use the timer APIs in a `while` loop to simulate a longer delay.
+> * Starting with [version 2.3.0](https://github.com/Azure/azure-functions-durable-extension/releases/tag/v2.3.0) of the Durable Extension, Durable timers are unlimited for .NET apps. For JavaScript, Python, and PowerShell apps, as well as .NET apps using earlier versions of the extension, Durable timers are limited to six days. When you are using an older extension version or a non-.NET language runtime and need a delay longer than six days, use the timer APIs in a `while` loop to simulate a longer delay.
 > * Always use `CurrentUtcDateTime` instead of `DateTime.UtcNow` in .NET or `currentUtcDateTime` instead of `Date.now` or `Date.UTC` in JavaScript when computing the fire time for durable timers. For more information, see the [orchestrator function code constraints](durable-functions-code-constraints.md) article.
 
 ## Usage for delay

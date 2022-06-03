@@ -12,7 +12,7 @@ ms.custom: github-actions-azure
 
 [GitHub Actions](https://docs.github.com/en/actions) is a suite of features in GitHub to automate your software development workflows.
 
-In this quickstart, you use the [GitHub Action for Azure Resource Manager deployment](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) to automate deploying a Bicep file to Azure.
+In this quickstart, you use the [GitHub Actions for Azure Resource Manager deployment](https://github.com/marketplace/actions/deploy-azure-resource-manager-arm-template) to automate deploying a Bicep file to Azure.
 
 It provides a short introduction to GitHub actions and Bicep files. If you want more detailed steps on setting up the GitHub actions and project, see [Learning path: Deploy Azure resources by using Bicep and GitHub Actions](/learn/paths/bicep-github-actions).
 
@@ -32,7 +32,7 @@ az group create -n exampleRG -l westus
 
 ## Generate deployment credentials
 
-Your GitHub action runs under an identity. Use the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command to create a [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) for the identity.
+Your GitHub Actions runs under an identity. Use the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command to create a [service principal](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) for the identity.
 
 Replace the placeholder `myApp` with the name of your application. Replace `{subscription-id}` with your subscription ID.
 

@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/31/2022
+ms.date: 04/12/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -177,7 +177,11 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 ```
 
 ## 4. Refresh the token
-Access tokens and ID tokens are short-lived. After they expire, you must refresh them to continue to access resources. To do this, submit another POST request to the `/token` endpoint. This time, provide the `refresh_token` instead of the `code`:
+
+Access tokens and ID tokens are short-lived. After they expire, you must refresh them to continue to access resources. When you refresh the access token, Azure AD B2C returns a new token. The refreshed access token will have updated `nbf` (not before), `iat` (issued at), and `exp` (expiration) claim values. All other claim values will be the same as the originally issued access token. 
+
+
+To refresh the toke, submit another POST request to the `/token` endpoint. This time, provide the `refresh_token` instead of the `code`:
 
 ```http
 POST https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1

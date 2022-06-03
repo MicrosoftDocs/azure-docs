@@ -1,12 +1,10 @@
 ---
 title:  Azure Service Fabric Java Client APIs 
 description: Generate and use Service Fabric Java client APIs using Service Fabric client REST API specification
-author: rapatchi
 
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.custom: devx-track-java
-ms.author: rapatchi
 ---
 # Azure Service Fabric Java Client APIs
 

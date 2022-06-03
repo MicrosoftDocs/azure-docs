@@ -9,7 +9,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Replicate an Azure VM to another region
+  - name: Set up disaster recovery to a secondary Azure region
     href: azure-to-azure-quickstart.md
   - name: Create a vault - ARM template
     displayName: Resource Manager
@@ -18,7 +18,7 @@
   items:
   - name: Azure VM disaster recovery to Azure
     items:
-    - name: Enable replication
+    - name: Set up disaster recovery for Azure VMs
       href: azure-to-azure-tutorial-enable-replication.md
     - name: Run a disaster recovery drill
       href: azure-to-azure-tutorial-dr-drill.md
@@ -28,8 +28,8 @@
       href: azure-to-azure-tutorial-failback.md
   - name: Move
     items:
-    - name: Move Azure VMs to another region
-      href: azure-to-azure-tutorial-migrate.md
+    - name: Move Azure VMs to another region (Resource Mover)
+      href: ../resource-mover/tutorial-move-region-virtual-machines.md
     - name: Move Azure VMs to Availability Zones
       href: move-Azure-VMs-AVset-Azone.md
     - name: Move Azure VMs between Government & Public regions
@@ -104,9 +104,9 @@
     href: site-recovery-faq.yml
   - name: About Azure VM disaster recovery
     items:
-    - name: Azure to Azure architecture
+    - name: Azure to Azure disaster recovery architecture
       href: azure-to-azure-architecture.md
-    - name: Common questions
+    - name: Common questions about Azure to Azure disaster recovery
       href: azure-to-azure-common-questions.md
     - name: Azure to Azure support matrix
       href: azure-to-azure-support-matrix.md
@@ -302,7 +302,7 @@
         href: ./hybrid-how-to-enable-replication-private-endpoints.md
       - name: Deploy the Mobility service
         items:
-        - name: Mobility service overview and installation
+        - name: About Mobility service for VMware VMs and physical servers
           href: vmware-physical-mobility-service-overview.md
         - name: Prepare for push installation
           href: vmware-azure-install-mobility-service.md

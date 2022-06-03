@@ -13,7 +13,7 @@ ms.custom: devx-track-java
 ms.author: eur
 ---
 
-This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for Java. If you just want the package name to get started on your own, the Java SDK is not available in the Maven central repository. Whether you're using Gradle or a *pom.xml* dependency file, you need to add a custom repository that points to `https://csspeechstorage.blob.core.windows.net/maven/`. (See below for the package name.)
+This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for Java. If you just want the package name to get started on your own, the Java SDK is not available in the Maven central repository. Whether you're using Gradle or a *pom.xml* dependency file, you need to add a custom repository that points to `https://azureai.azureedge.net/maven/`. (See below for the package name.)
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
@@ -44,12 +44,12 @@ Gradle configurations require both a custom repository and an explicit reference
 
 repositories {
     maven {
-        url "https://csspeechstorage.blob.core.windows.net/maven/"
+        url "https://azureai.azureedge.net/maven/"
     }
 }
 
 dependencies {
-    implementation group: 'com.microsoft.cognitiveservices.speech', name: 'client-sdk', version: "1.19.0", ext: "jar"
+    implementation group: 'com.microsoft.cognitiveservices.speech', name: 'client-sdk', version: "1.21.0", ext: "jar"
 }
 ```
 

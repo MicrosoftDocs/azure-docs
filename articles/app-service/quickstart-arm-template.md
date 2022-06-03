@@ -144,7 +144,7 @@ When no longer needed, [delete the resource group](../azure-resource-manager/man
 > [PHP with MySQL](tutorial-php-mysql-app.md)
 
 > [!div class="nextstepaction"]
-> [Connect to Azure SQL database with Java](../azure-sql/database/connect-query-java.md?toc=%2fazure%2fjava%2ftoc.json)
+> [Connect to Azure SQL database with Java](/azure/azure-sql/database/connect-query-java?toc=%2fazure%2fjava%2ftoc.json)
 
 > [!div class="nextstepaction"]
 > [Map custom domain](app-service-web-tutorial-custom-domain.md)

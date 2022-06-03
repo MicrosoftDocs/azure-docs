@@ -147,7 +147,7 @@ For more information, see the Cognito Detect Syslog Guide, which can be download
 | **Log Analytics table(s)** | [CommonSecurityLog](/azure/azure-monitor/reference/tables/commonsecuritylog) |
 | **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
 | **Kusto function alias:** | AkamaiSIEMEvent |
-| **Kusto function URL:** | https://aka.ms/Sentinel-akamaisecurityevents-parser |
+| **Kusto function URL:** | https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/Akamai%20Security%20Events/Parsers/AkamaiSIEMEvent.txt |
 | **Vendor documentation/<br>installation instructions** | [Configure Security Information and Event Management (SIEM) integration](https://developer.akamai.com/tools/integrations/siem)<br>[Set up a CEF connector](https://developer.akamai.com/tools/integrations/siem/siem-cef-connector). |
 | **Supported by** | [Akamai](https://www.akamai.com/us/en/support/) |
 
@@ -404,11 +404,11 @@ See [Microsoft Defender for Cloud](#microsoft-defender-for-cloud).
 | **Supported by** | Microsoft |
 
 
-## Azure Purview
+## Microsoft Purview
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md?tabs=AP#diagnostic-settings-based-connections)**<br><br>For more information, see [Tutorial: Integrate Microsoft Sentinel and Azure Purview](purview-solution.md). |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Diagnostic settings-based connections](connect-azure-windows-microsoft-services.md?tabs=AP#diagnostic-settings-based-connections)**<br><br>For more information, see [Tutorial: Integrate Microsoft Sentinel and Microsoft Purview](purview-solution.md). |
 | **Log Analytics table(s)** | PurviewDataSensitivityLogs |
 | **DCR support** | Not currently supported |
 | **Supported by** | Microsoft |
@@ -669,8 +669,8 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | Only available after installing the [Continuous Threat Monitoring for SAP solution](sentinel-solutions-catalog.md#sap)|
-| **Log Analytics table(s)** | See [Microsoft Sentinel SAP solution logs reference](sap-solution-log-reference.md) |
-| **Vendor documentation/<br>installation instructions** | [Deploy SAP continuous threat monitoring](sap-deploy-solution.md) |
+| **Log Analytics table(s)** | See [Microsoft Sentinel SAP solution data reference](sap/sap-solution-log-reference.md) |
+| **Vendor documentation/<br>installation instructions** | [Deploy SAP continuous threat monitoring](sap/deployment-overview.md) |
 | **Supported by** | Microsoft |
 
 
@@ -709,7 +709,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 | Connector attribute | Description |
 | --- | --- |
 | **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** <br><br> Also available as part of the [Microsoft Sentinel 4 Dynamics 365 solution](sentinel-solutions-catalog.md#azure)|
-| **License prerequisites/<br>Cost information** | <li>[Microsoft Dynamics 365 production license](/office365/servicedescriptions/microsoft-dynamics-365-online-service-description). Not available for sandbox environments.<li>Microsoft 365 Enterprise [E3 or E5](/power-platform/admin/enable-use-comprehensive-auditing#requirements) subscription is required to do Activity Logging.<br>Other charges may apply |
+| **License prerequisites/<br>Cost information** | <li>[Microsoft Dynamics 365 production license](/office365/servicedescriptions/microsoft-dynamics-365-online-service-description). Not available for sandbox environments.<li>At least one user assigned a Microsoft/Office 365 [E1 or greater](/power-platform/admin/enable-use-comprehensive-auditing#requirements) license.<br>Other charges may apply |
 | **Log Analytics table(s)** | Dynamics365Activity |
 | **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
 | **Supported by** | Microsoft |
@@ -1229,7 +1229,7 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Syslog**](connect-syslog.md), with, [ASIM parsers](normalization-about-parsers.md) based on Kusto functons |
+| **Data ingestion method** | [**Syslog**](connect-syslog.md), with, [ASIM parsers](normalization-about-parsers.md) based on Kusto functions |
 | **Log Analytics table(s)** | [Syslog](/azure/azure-monitor/reference/tables/syslog) |
 | **DCR support** | [Workspace transformation DCR](../azure-monitor/logs/tutorial-ingestion-time-transformations.md) |
 | **Supported by** | Microsoft |

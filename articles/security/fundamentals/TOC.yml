@@ -130,6 +130,8 @@
 
 - name: Data security, encryption, and storage
   items: 
+  - name: Azure Certificate Authority details
+    href: azure-CA-details.md
   - name: Data security and encryption
     href: encryption-overview.md
   - name: Key management in Azure
@@ -153,9 +155,9 @@
   - name: Database security
     items:
     - name: Overview
-      href: ../../azure-sql/database/security-overview.md
+      href: /azure/azure-sql/database/security-overview
     - name: Best practices
-      href: ../../azure-sql/database/security-best-practice.md
+      href: /azure/azure-sql/database/security-best-practice
     - name: Security checklist
       href: database-security-checklist.md
   - name: Storage security guide

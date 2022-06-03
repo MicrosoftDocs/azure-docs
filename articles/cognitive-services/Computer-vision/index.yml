@@ -111,7 +111,7 @@ tools:
     url: /javascript/api/@azure/cognitiveservices-computervision/
   - title: Python
     imageSrc: media/index/logo_python.svg
-    url: /python/api/overview/azure/cognitiveservices/computervision
+    url: /python/api/overview/azure/cognitiveservices-vision-computervision-readme
   - title: Go
     imageSrc: media/index/logo_go.svg
     url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision

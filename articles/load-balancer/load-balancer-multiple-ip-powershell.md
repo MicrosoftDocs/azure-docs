@@ -4,14 +4,14 @@ titleSuffix: Azure Load Balancer
 description: In this article, learn about load balancing across primary and secondary IP configurations using Azure CLI.
 services: load-balancer
 documentationcenter: na
-author: asudbring
+author: greg-lindsay
 ms.service: load-balancer
 ms.topic: how-to
 ms.custom: seodec18, devx-track-azurecli
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: allensu
+ms.author: greglin
 ---
 
 # Load balancing on multiple IP configurations using PowerShell

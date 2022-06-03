@@ -2,7 +2,7 @@
 title: Manage resources through private link
 description: Restrict management access for resource to private link
 ms.topic: conceptual
-ms.date: 03/24/2022
+ms.date: 04/26/2022
 ---
 
 # Use REST API to create private link for managing Azure resources (preview)

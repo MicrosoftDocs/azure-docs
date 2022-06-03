@@ -2,26 +2,22 @@
 title: Connection strings in Azure Application Insights | Microsoft Docs
 description: How to use connection strings.
 ms.topic: conceptual
-ms.date: 01/17/2020
+ms.date: 04/13/2022
 ms.custom: "devx-track-js, devx-track-csharp"
-ms.reviewer: mbullwin
 ---
 
 # Connection strings
 
 ## Overview
 
-Connection strings provide Application Insight users with a single configuration setting, eliminating the need for multiple proxy settings. Highly useful for intranet web servers, sovereign or hybrid cloud environments looking to send in data to the monitoring service.
+Connection strings define where to send telemetry data.
 
 The key value pairs provide an easy way for users to define a prefix suffix combination for each Application Insights (AI) service/ product.
 
-> [!IMPORTANT]
-> We don't recommend setting both Connection String and Instrumentation key. In the event that a user does set both, whichever was set last will take precedence. 
-
-> [!TIP]
-> We recommend the use of connection strings over instrumentation keys.
-
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
+> [!IMPORTANT]
+> Do not use a connection string and instrumentation key simultaneously. Whichever was set last will take precedence.
 
 ## Scenario overview 
 
@@ -43,7 +39,7 @@ Scenarios most affected by this change:
 
 Your connection string is displayed on the Overview section of your Application Insights resource.
 
-![connection string on overview blade](media/overview-dashboard/overview-connection-string.png)
+:::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot displaying Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
 
 ### Schema
 
@@ -139,7 +135,7 @@ In this example, the connection string specifies the South Central US region.
 - The regional service URIs are based on the explicit override values: 
    - Ingestion: `https://southcentralus.in.applicationinsights.azure.com/`
 
-Run the following command in the [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list-locations) to list available regions.
+Run the following command in the [Azure Command-Line Interface (CLI)](/cli/azure/account?view=azure-cli-latest#az-account-list-locations) to list available regions.
 
 `az account list-locations -o table`
 
