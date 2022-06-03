@@ -1,6 +1,5 @@
 ---
 title: Microsoft Identity Web authentication library overview
-titleSuffix: Microsoft identity platform
 description: Learn about Microsoft Identity Web, an authentication and authorization library for ASP.NET Core applications that integrate with Azure Active Directory, Azure AD B2C, and Microsoft Graph and other web APIs.
 services: active-directory
 author: jmprieur

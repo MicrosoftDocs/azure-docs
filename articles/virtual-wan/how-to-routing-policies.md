@@ -34,7 +34,9 @@ While Private Traffic  includes both branch and Virtual Network address prefixes
 > Inter-region traffic can be inspected by Azure Firewall or NVA for Virtual Hubs deployed in select Azure regions. For available regions, please contact previewinterhub@microsoft.com.
 
 
-* **Internet Traffic Routing Policy**:  When an Internet Traffic Routing Policy is configured on a Virtual WAN hub, all branch (User VPN (Point-to-site VPN), Site-to-site VPN, and ExpressRoute) and Virtual Network connections to that Virtual WAN Hub will forward Internet-bound traffic to the Azure Firewall resource, Third-Party Security provider or Network Virtual Appliance specified as part of the Routing Policy.
+* **Internet Traffic Routing Policy**:  When an Internet Traffic Routing Policy is configured on a Virtual WAN hub, all branch (User VPN (Point-to-site VPN), Site-to-site VPN, and ExpressRoute) and Virtual Network connections to that Virtual WAN Hub will forward Internet-bound traffic to the Azure Firewall resource, Third-Party Security provider or **Network Virtual Appliance** specified as part of the Routing Policy.
+
+    In other words, when Traffic Routing Policy is configured on a Virtual WAN hub, the Virtual WAN will propagate a **default** route to all spokes and Gateways. In the case of a **Network Virtual Appliance** this routes will be learned and propagated through BGP via the vWAN Route Service and learned by the BGP speakers inside the **Network Virtual Appliance**
  
 * **Private Traffic Routing Policy**: When a Private Traffic Routing Policy is configured on a Virtual WAN hub, **all** branch and Virtual Network traffic in and out of the Virtual WAN Hub including inter-hub traffic will be forwarded to the Next Hop Azure Firewall resource or Network Virtual Appliance resource that was specified in the Private Traffic Routing Policy. 
 
@@ -81,7 +83,7 @@ While Private Traffic  includes both branch and Virtual Network address prefixes
 10. Repeat steps 2-8 for other Secured Virtual WAN hubs that you want to configure Routing policies for.
 11. At this point, you are ready to send test traffic. Please make sure your Firewall Policies are configured appropriately to allow/deny traffic based on your desired security configurations. 
 
-## <a name="nva"></a> Configure routing policies (through Virtual WAN portal)
+## <a name="nva"></a> Configure routing policies for network virtual appliances (through Virtual WAN portal)
 
 >[!NOTE]
 > The only Network Virtual Appliance deployed in the Virtual WAN hub compatible with routing intent and routing policies are listed in the [Partners section](about-nva-hub.md) as dual-role connectivity and Next-Generation Firewall solution providers.
@@ -96,6 +98,9 @@ While Private Traffic  includes both branch and Virtual Network address prefixes
     :::image type="content" source="./media/routing-policies/routing-policies-private-nva.png"alt-text="Screenshot showing how to configure NVA private routing policies."lightbox="./media/routing-policies/routing-policies-private-nva.png":::
 
 4. If you want to configure a Private Traffic Routing Policy and have branches or virtual networks using non-IANA RFC1918 Prefixes, select **Additional Prefixes** and specify the non-IANA RFC1918 prefix ranges in the text box that comes up. Select **Done**. 
+
+   > [!NOTE]
+   > At this point in time, Routing Policies for **Network Virtual Appliances** do not allow you to edit the RFC1918 prefixes. Azure vWAN will be propagating the RFC 1918 space to all spokes and Gateways across, as well as to BGP speakers inside the ****Network Virtual Appliances**. Be mindful of the implications about the propagation of these prefixes into your environment and create the appropriate policies inside your **Network Virtual Appliance** to control routing behavior.  Should it be desired to propagate more specific RFC 1918 spaces (i.e Spoke address space), those prefixes need to be added as well on the box below explicit. 
 
     :::image type="content" source="./media/routing-policies/private-prefixes-nva.png"alt-text="Screenshot showing how to configure additional private prefixes for NVA  routing policies."lightbox="./media/routing-policies/private-prefixes-nva.png":::
 

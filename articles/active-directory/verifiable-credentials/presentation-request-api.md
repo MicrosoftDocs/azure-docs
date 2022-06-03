@@ -1,6 +1,5 @@
 ---
 title: Specify the Request Service REST API verify request (preview)
-titleSuffix: Azure Active Directory Verifiable Credentials
 description: Learn how to start a presentation request in Verifiable Credentials
 documentationCenter: ''
 author: barclayn
