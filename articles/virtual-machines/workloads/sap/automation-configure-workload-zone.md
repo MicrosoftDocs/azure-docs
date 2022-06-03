@@ -245,7 +245,7 @@ ANF_service_level         = "Ultra"
 
 ## Terraform Parameters
 
-The table below contains the Terraform parameters, these parameters need to be entered manually if not using the deployment scripts.
+The table below contains the Terraform parameters. These parameters need to be entered manually if not using the deployment scripts.
 
 
 | Variable                | Type       | Description                           | 
