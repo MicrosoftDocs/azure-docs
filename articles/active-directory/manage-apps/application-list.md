@@ -1,6 +1,6 @@
 ---
 title: Viewing apps using your tenant for identity management
-titleSuffix: Azure AD
+titleSuffix: Microsoft Entra
 description: Understand how to view all applications using your Azure Active Directory tenant for identity management.
 services: active-directory
 author: AllisonAm

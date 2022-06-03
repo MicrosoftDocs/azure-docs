@@ -15,7 +15,7 @@ ms.custom: ignite-fall-2021
 
 # Form Recognizer read model
 
-The Form Recognizer v3.0 preview includes the new Read OCR model. Form Recognizer Read builds on the success of Computer Vision Read and optimizes even more for analyzing documents, including new document formats in the future. It extracts printed and handwritten text from documents and images and can handle mixed languages in the documents and text line. The read model can detect lines, words, locations, and additionally detect languages. It is the foundational technology powering the text extraction in Form Recognizer Layout, prebuilt, general document, and custom models.
+Form Recognizer v3.0 preview includes the new Read API model. The read model extracts typeface and handwritten text including mixed languages in documents. The read model can detect lines, words, locations, and languages and is the core of all the other Form Recognizer models. Layout, general document, custom, and prebuilt models all use the read model as a foundation for extracting texts from documents.
 
 ## Development options
 

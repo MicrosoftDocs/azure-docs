@@ -1,6 +1,6 @@
 ---
 title: Overview of admin consent workflow
-titleSuffix: Azure AD
+titleSuffix: Microsoft Entra
 description: Learn about the admin consent workflow in Azure Active Directory 
 services: active-directory
 author: eringreenlee
