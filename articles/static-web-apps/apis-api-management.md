@@ -48,12 +48,14 @@ When the linking process is complete, requests to routes beginning with `/api/` 
 
 ### Manage access to APIs
 
-Azure API Management has a *products* feature that defines how APIs are surfaced. As part of the linking process, your API Management service is configured with a product named `Azure Static Web Apps - <STATIC_WEB_APP_AUTO_GENERATED_HOSTNAME> (Linked)`. To make APIs available to your linked static web app, [add them to this product](../api-management/api-management-howto-add-products.md#add-apis-to-a-product).
+Azure API Management has a *products* feature that defines how APIs are surfaced. As part of the linking process, your API Management service is configured with a product named `Azure Static Web Apps - <STATIC_WEB_APP_AUTO_GENERATED_HOSTNAME> (Linked)`.
+
+Because no APIs are associated with the new API Management product, accessing a `/api/` route in your static web app returns a `{ "statusCode": 401, "message": "Access denied due to invalid subscription key. Make sure to provide a valid key for an active subscription." }` error from API Management. To make APIs available to your linked static web app, [add them to the product](../api-management/api-management-howto-add-products.md#add-apis-to-a-product).
 
 The linking process also automatically applies the following configuration to your API Management service:
 
 * The product associated with the linked static web app is configured to require a subscription.
-* An API Management subscription named `Azure Static Web Apps - <STATIC_WEB_APP_AUTO_GENERATED_HOSTNAME> (Linked)` is created. It's scoped to the product with the same name.
+* An API Management subscription named `Generated for Static Web Apps resource with default hostname: <STATIC_WEB_APP_AUTO_GENERATED_HOSTNAME>` is created. It's scoped to the product with the same name.
 * An inbound *validate-jwt* policy is added to the product to allow only requests that contain a valid access token from the linked static web app.
 * The linked static web app is configured to include the subscription's primary key and a valid access token when proxying requests to the API Management service.
 
