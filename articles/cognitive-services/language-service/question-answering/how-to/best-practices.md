@@ -12,7 +12,7 @@ ms.date: 06/03/2022
 
 # Best Practices
 
-We have used the following list of QnA pairs as representation of a knowledge base to highlight best practices when authoring knowledge bases for Question answering. 
+The following list of QnA pairs will be used to represent a project (knowledge base) to highlight best practices when authoring in custom question answering.
 
 |Question                             |Answer                                                 | 
 |-------------------------------------|-------------------------------------------------------|
