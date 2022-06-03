@@ -1,5 +1,5 @@
 ---
-title: Best Practices
+title: Project Best Practices
 description: Best practices for Question Answering
 ms.service: cognitive-services
 ms.subservice: qna-maker
