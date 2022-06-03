@@ -20,7 +20,7 @@ In this article, you'll learn how to disable public access for your Azure App Co
 
 ## Sign in to Azure
 
-First, sign in to the Azure portal.
+You will need to sign in to Azure first to access the App Configuration service.
 
 ### [Portal](#tab/azure-portal)
 
@@ -28,7 +28,7 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Sign in to the Azure portal using the `az login` command in the [Azure CLI](/cli/azure/install-azure-cli).
+Sign in to Azure using the `az login` command in the [Azure CLI](/cli/azure/install-azure-cli).
 
 ```azurecli-interactive
 az login
@@ -65,11 +65,11 @@ To disable access to the App Configuration store from public network, follow the
 In the CLI, run the following code:
 
 ```azurecli-interactive
-az appconfig update --name "<name-of-the-appconfig-store>" --enable-public-network false
+az appconfig update --name <name-of-the-appconfig-store> --enable-public-network false
 ```
 
 > [!NOTE]
-> Once you've run the `--enable-public-network` command and switched the public network to `true` or `false`, you won't be able to switch to an automatic public access anymore, as this option can only be selected when creating the store.
+> When you create an App Config store without specifying if you want public access to be enabled or disabled, public access is set to automatic by default. Once you've run the `--enable-public-network` command, you won't be able to switch to an automatic public access anymore.
 
 ---
 
