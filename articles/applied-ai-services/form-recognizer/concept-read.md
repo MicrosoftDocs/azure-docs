@@ -23,7 +23,7 @@ Form Recognizer v3.0 preview includes the new Read Optical Character Recognition
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Read  | ✓  | ✓  | ✓  | ✓  | ✓  | ✓  | ✓  |
 
-## Data extraction
+### Data extraction
 
 | **Read model**   | **Text**   | **[Language detection](language-support.md#detected-languages-read-api)** |
 | --- | --- | --- |
@@ -80,7 +80,7 @@ See how text is extracted from forms and documents using the Form Recognizer Stu
 
 Form Recognizer preview version supports several languages for the read model. *See* our [Language Support](language-support.md) for a complete list of supported handwritten and printed languages.
 
-## Features
+## Data extraction
 
 ### Pages
 With the added support for Microsoft Word, Excel, PowerPoint, and HTML files, the page units in the model output are computed as shown:
