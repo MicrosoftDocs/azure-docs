@@ -23,7 +23,7 @@ Form Recognizer v3.0 preview includes the new Read Optical Character Recognition
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Read  | ✓  | ✓  | ✓  | ✓  | ✓  | ✓  | ✓  |
 
-## Data extraction features
+## Data extraction
 
 | **Read model**   | **Text**   | **[Language detection](language-support.md#detected-languages-read-api)** |
 | --- | --- | --- |
