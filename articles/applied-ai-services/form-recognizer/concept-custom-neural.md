@@ -29,9 +29,17 @@ Custom neural models share the same labeling format and strategy as custom templ
 
 Custom neural models currently only support key-value pairs and selection marks, future releases will include support for structured fields (tables) and signature.
 
-| Form fields | Selection marks | Tables | Signature | Region |
+| Form fields | Selection marks | Tabular fields | Signature | Region |
 |--|--|--|--|--|
-| Supported| Supported | Unsupported | Unsupported | Unsupported |
+| Supported| Supported | Supported | Unsupported | Unsupported |
+
+## Tabular fields 
+
+Tabular fields (tables) are supported with custom neural models starting with API verison ```2022-06-30-preview```. Models trained with API version 2022-06-30-preview or later will accept tabular field labels and documents analyzed with the model with API version 2022-06-30-preview or later will produce tabular fields in the output within the  ```documents``` section of the result in the ```analyzeResult``` object. 
+
+Tabular filds support **cross page tables** by default. To label a table that spans multiple pages, label each row of the table across the different pages in the single table. As a best practice ensure that your dataset contains a few samples of the expected variations, for example include samples where the entire table is on a single page, samples of tables spanning two or more pages.
+
+Tabular field is also useful when extracting repeating infomrmation within a document that is not recognized as a table. For example a repeating section of work experiences in a resume can be labeled and extracted as a tabular field.
 
 ## Supported regions
 

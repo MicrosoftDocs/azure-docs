@@ -18,6 +18,21 @@ ms.custom: ignite-fall-2021
 
 Form Recognizer service is updated on an ongoing basis. Bookmark this page to stay up to date with release notes, feature enhancements, and documentation updates.
 
+## June 2022
+
+### Form Recognizer v3.0 preview release (beta.3)
+
+This is the last update to the Form Recognizer service for the v3.0 set of capapbilites. There are a number of updates across the different service APIs.
+
+* [🆕 **Layout extends structure extraction **](concept-layout.md) layout now includes additional structure elements including sections, section headers, paragraphs and more. This enables finer grain document segmentation scenarios. For a complete list of structure elements identified see [enhanced structure](concept-layout.md#enhanced-structure).
+* [🆕 **Custom neural model tabular fields support**](concept-custom-neural.md) or custom document models now support tabular fields. Tabular fields by default are also multi page. To learn more about tabular fields in custom neural models see [tabular fields](concept-custom-neural.md#tabular-fields).
+* [🆕 **Custom template model tabular fields support for cross page tables**](concept-custom-template.md) or custom form models now support tabular fields across pages. To learn more about tabular fields in custom template models see [tabular fields](concept-custom-neural.md#tabular-fields).
+* [🆕 **Invoice model output now includes general document key value pairs**](concept-custom-template.md) for when the invoice contains additional fields required, the general document model supplements the output with key value pairs from the document for no additonal cost. See [key value pairs](concept-invoice.md#key-value-pairs).
+* [🆕 **Invoice language expansion**](concept-custom-template.md) the invoice model now supports additional languages. See [languages supported](concept-invoice.md#languages-supported).
+* [🆕 **Prebuilt business card **](concept-business-card.md) business cards now support Japanes language business cards. See [languages supported](concept-business-card.md#languages-supported).
+* [🆕 **Read now supports common Office document types **](concept-read.md) document types like Word (docx), Powerpoint (ppt) are now supported with the Read API. See [document types](concept-read.md#document-types).
+
+
 ## February 2022
 
 ### Form Recognizer v3.0 preview release
@@ -36,16 +51,17 @@ Get started with the new [REST API](https://westus.dev.cognitive.microsoft.com/d
 
 #### Form Recognizer model data extraction
 
-  | **Model**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   |**Entities** |
+  | **Model**   | **Text extraction** |**Key-Value pairs** |**Selection Marks**   | **Tables**   |**Entities** |**Signatures**|
   | --- | :---: |:---:| :---: | :---: |:---: |
-  |🆕Read | ✓  |   |   |   |   |
-  |🆕General document  | ✓  |  ✓ | ✓  | ✓  | ✓  |
-  | Layout  | ✓  |   | ✓  | ✓  |   |
-  | Invoice  | ✓ | ✓  | ✓  | ✓ ||
-  |Receipt  | ✓  |   ✓ |   |  ||
-  | ID document | ✓  |   ✓  |   |   ||
-  | Business card    | ✓  |   ✓ |   |   ||
-  | Custom             |✓  |  ✓ | ✓  | ✓  | ✓  |
+  |🆕Read | ✓  |   |   |   |   | |
+  |🆕General document  | ✓  |  ✓ | ✓  | ✓  | ✓  | |
+  | Layout  | ✓  |   | ✓  | ✓  |   | |
+  | Invoice  | ✓ | ✓  | ✓  | ✓ || |
+  |Receipt  | ✓  |   ✓ |   |  || |
+  | ID document | ✓  |   ✓  |   |   || |
+  | Business card    | ✓  |   ✓ |   |   || |
+  | Custom template  |✓  |  ✓ | ✓  | ✓  |   | ✓ |
+  | Custom neural    |✓  |  ✓ | ✓  | ✓  |   | |
 
 #### Form Recognizer SDK beta preview release
 
