@@ -21,7 +21,7 @@ const callClient = new CallClient(options);
 const environmentInfo = await callClient.getEnvironmentInfo();
 ```
 
-The getEnvironmentInfo method asynchronously returns an object of type EnvironmentInfo.
+The `getEnvironmentInfo` method asynchronously returns an object of type `EnvironmentInfo`.
 
 - The EnvironmentInfo type is defined as:
 
