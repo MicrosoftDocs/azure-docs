@@ -46,7 +46,7 @@ The following list of QnA pairs will be used to represent a project (knowledge b
 
 "What is the market value of a Microsoft share?"
 
-However, please note that the confidence score with which the system returns the correct response will vary based on the input query and how different it is from the original question answer pair.
+   However, please note that the confidence score with which the system returns the correct response will vary based on the input query and how different it is from the original question answer pair.
 
 2. There are certain scenarios which require the customer to add an alternate question. When a query does not return the correct answer despite it being present in the knowledge base, we advise adding that query as an alternate question to the intended QnA pair.
 
