@@ -73,14 +73,14 @@ For **Intel iGPUs**, download and install the [Intel Graphics Driver with WSL GP
 Windows 10 users must also [install WSL](/windows/wsl/install) because some of the libraries are shared between WSL and Azure IoT Edge for Linux on Windows. 
 
 ## Enable GPU acceleration in your Azure IoT Edge Linux on Windows deployment
-Once system setup is complete, you are ready to [create your deployment of Azure IoT Edge for Linux on Windows](how-to-install-iot-edge-on-windows.md). During this process you must enable GPU as part of [EFLOW deployment](reference-iot-edge-for-linux-on-windows-functions.md#deploy-eflow) 
+Once system setup is complete, you are ready to [create your deployment of Azure IoT Edge for Linux on Windows](how-to-install-iot-edge-on-windows.md). During this process you must [enable GPU](reference-iot-edge-for-linux-on-windows-functions.md#deploy-eflow) as part of EFLOW deployment.
 
 For example, the command below creates a virtual machine with an NVIDIA A2 GPU assigned.
    >   ```powershell
    >   Deploy-Eflow -gpuPassthroughType "DirectDeviceAssignment" -gpuCount 1 -gpuName "NVIDIA A2"
    >   ```
 
-Once installation is complete, you are ready to deploy and run GPU-accelerated Linux modules in your Windows environment through Azure IoT Edge for Linux on Windows. 
+Once installation is complete, you are ready to deploy and run GPU-accelerated Linux modules through Azure IoT Edge for Linux on Windows. 
 
 
 ## Next steps
