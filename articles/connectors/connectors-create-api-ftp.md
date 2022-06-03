@@ -32,8 +32,8 @@ The FTP connector has different versions, based on [logic app type and host envi
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
 | **Consumption** | Multi-tenant Azure Logic Apps | [Managed connector - Standard class](managed.md). For operations, limits, and other information, review the [FTP managed connector reference](/connectors/ftp). |
-| **Consumption** | Integration service environment (ISE) | [Managed connector - Standard class](managed.md) and ISE version. For operations, managed connector limits, and other information, review the [FTP managed connector reference](/connectors/ftp). For ISE-versioned limits, review the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits), not the managed version's limits. |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | [Managed connector - Standard class](managed.md) and [built-in connector](built-in.md), which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly access Azure virtual networks with a connection string, rather than use the on-premises data gateway. <br><br>For managed connector operations, limits, and other information, review the [FTP managed connector reference](/connectors/ftp). For the built-in version, review the [FTP built-in connector operations](#built-in-operations) section later in this article. |
+| **Consumption** | Integration service environment (ISE) | [Managed connector - Standard class](managed.md) and ISE version. For operations, managed connector limits, and other information, review the [FTP managed connector reference](/connectors/ftp). For ISE-versioned limits, review the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits), not the managed connector limits. |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | [Managed connector - Standard class](managed.md) and [built-in connector](built-in.md), which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly access Azure virtual networks with a connection string and doesn't need the on-premises data gateway. <br><br>For managed connector operations, limits, and other information, review the [FTP managed connector reference](/connectors/ftp). For the built-in version, review the [FTP built-in connector operations](#built-in-operations) section later in this article. |
 ||||
 
 ## Prerequisites
@@ -74,7 +74,7 @@ For other connector requirements, review [FTP managed connector reference](/conn
 
 * FTP triggers work by checking the FTP file system and looking for any file that's changed since the last poll. The trigger uses the last modified time on a file. If an external client or other tool creates the file and preserves the timestamp when the files change, disable the preservation feature so that your trigger can work. For more information, review [FTP managed connector reference trigger limits](/connectors/ftp/#trigger-limits).
 
-* The FTP managed connector requires that the FTP server enables specific commands and support folder names with whitespace. For more information, review [FTP managed connector reference trigger limits](/connectors/ftp/#trigger-limits) and [requirements](/connectors/ftp/#requirements).
+* The FTP managed connector requires that the FTP server enables specific commands and support folder names with whitespace. For more information, review [FTP managed connector reference - Trigger limits](/connectors/ftp/#trigger-limits) and [requirements](/connectors/ftp/#requirements).
 
 For other connector limitations, review [FTP managed connector reference](/connectors/ftp/).
 
@@ -100,27 +100,75 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 1. In the [Azure portal](https://portal.azure.com), and open your blank logic app workflow in the designer.
 
-1. On the designer, under the search box, select **All**. In the search box, enter **ftp**. From the triggers list, select the trigger named **When a filed is added or modified (properties only)**.
+1. Find and select the [FTP trigger](/connectors/ftp/) that you want to use.
 
-   ![Screenshot shows Azure portal, Consumption workflow designer, and FTP trigger selected.](./media/connectors-create-api-ftp/select-ftp-trigger-consumption.png)
+   1. On the designer, under the search box, select **All**.
 
-1. Provide the [information for your connection](/connectors/ftp/#creating-a-connection), and select **Create**.
+   1. In the search box, enter **ftp**.
+
+   1. From the triggers list, select the trigger named **When a filed is added or modified (properties only)**.
+
+      ![Screenshot shows Azure portal, Consumption workflow designer, and FTP trigger selected.](./media/connectors-create-api-ftp/ftp-select-trigger-consumption.png)
+
+1. Provide the [information for your connection](/connectors/ftp/#creating-a-connection). When you're done, select **Create**.
 
    By default, this connector transfers files in text format. To transfer files in binary format, for example, where and when encoding is used, select **Binary Transport**.
 
-   ![Create connection to FTP server](./media/connectors-create-api-ftp/create-ftp-connection-trigger.png)
+   ![Screenshot shows Consumption workflow designer and FTP connection profile.](./media/connectors-create-api-ftp/create-ftp-trigger-connection-consumption.png)
 
-1. In the **Folder** box, select the folder icon so that a list appears. To find the folder you want to monitor for new or edited files, select the right angle arrow (**>**), browse to that folder, and then select the folder.
+1. After the trigger information box appears, in the **Folder** box, select the folder icon so that a list appears. 
 
-   ![Find and select folder to monitor](./media/connectors-create-api-ftp/select-folder-ftp-trigger.png)
+   To find the folder you want to monitor for new or edited files, select the right angle arrow (**>**), browse to that folder, and then select the folder.
+
+   ![Screenshot shows Consumption workflow designer, FTP trigger, and "Folder" property where browsing for folder to select.](./media/connectors-create-api-ftp/ftp-trigger-select-folder-consumption.png)
 
    Your selected folder appears in the **Folder** box.
 
-   ![Selected folder appears in the "Folder" property](./media/connectors-create-api-ftp/selected-folder-ftp-trigger.png)
+   ![Screenshot shows Consumption workflow designer, FTP trigger, and "Folder" property with selected folder.](./media/connectors-create-api-ftp/ftp-trigger-selected-folder-consumption.png)
 
-1. Save your logic app. On the designer toolbar, select **Save**.
+1. When you're done, save your workflow.
 
-Now that your logic app has a trigger, add the actions you want to run when your logic app finds a new or edited file. For this example, you can add an FTP action that gets the new or updated content.
+Although saving your workflow automatically enables and publishes your logic app resource live in Azure, the only action that your workflow currently takes is to check your FTP server for new or updated files, based on your specified interval and frequency. Now that your workflow has a trigger, add the actions you want to run when the FTP trigger finds a new or updated file. For this example, you can add an FTP action that gets the new or updated content.
+
+### [Standard](#tab/standard)
+
+1. In the [Azure portal](https://portal.azure.com), and open your blank logic app workflow in the designer.
+
+1. Find and select the FTP trigger that you want to use.
+
+   1. On the designer, select **Choose an operation**, and select either of the following options:
+
+      * **Built-in** when you want to use an FTP built-in connector trigger
+
+        ![Screenshot shows the Azure portal, Standard workflow designer, and search box with "Built-in" selected underneath.](./media/connectors-create-api-ftp/ftp-select-trigger-built-in-standard.png)
+
+      * **Azure** when you want to use the [FTP managed connector trigger](/connectors/ftp/)
+
+        ![Screenshot shows the Azure portal, Standard workflow designer, and search box with "Azure" selected underneath.](./media/connectors-create-api-ftp/select-ftp-trigger-azure-standard.png)
+
+   1. In the search box, enter **ftp**.
+
+   1. From the triggers list, select the trigger named **When a filed is added or modified (properties only)**.
+
+1. Provide the [information for your connection](/connectors/ftp/#creating-a-connection). When you're done, select **Create**.
+
+   By default, this connector transfers files in text format. To transfer files in binary format, for example, where and when encoding is used, select **Binary Transport**.
+
+   ![Screenshot shows Standard workflow designer and FTP connection profile.](./media/connectors-create-api-ftp/create-ftp-trigger-connection-standard.png)
+
+1. In the **Folder** box, select the folder icon so that a list appears. To find the folder you want to monitor for new or edited files, select the right angle arrow (**>**), browse to that folder, and then select the folder.
+
+   ![Screenshot shows Consumption workflow designer, FTP trigger, and "Folder" property where browsing for folder to select.](./media/connectors-create-api-ftp/ftp-trigger-select-folder-standard.png)
+
+   Your selected folder appears in the **Folder** box.
+
+   ![Screenshot shows Consumption workflow designer, FTP trigger, and "Folder" property with selected folder.](./media/connectors-create-api-ftp/ftp-trigger-selected-folder-standard.png)
+
+1. When you're done, save your logic app workflow.
+
+Although saving your workflow automatically enables and publishes your logic app resource live in Azure, the only action that your workflow currently takes is to check your FTP server for new or updated files, based on your specified interval and frequency. Now that your workflow has a trigger, add the actions you want to run when the FTP trigger finds a new or updated file. For this example, you can add an FTP action that gets the new or updated content.
+
+---
 
 <a name="get-content"></a>
 
