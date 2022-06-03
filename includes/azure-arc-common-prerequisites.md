@@ -8,14 +8,14 @@ ms.author: mikeray
 
 ## Prerequisites
 
-Before you can proceed with the tasks in this article you need to have:
+Before you can proceed with the tasks in this article, you need to have:
 
-- [The client tools installed](../articles/azure-arc/data/install-client-tools.md)
+- [The client tools installed](../articles/azure-arc/data/install-client-tools.md).
 
-   Tools include Azure Data Studio and Azure CLI.
+   Tools include Azure Data Studio and the Azure CLI.
 
-   For Azure Data Studio, install extensions for **Azure Arc**, and **PostgreSQL** (depending on data services)
+   For Azure Data Studio, install extensions for **Azure Arc**, and **PostgreSQL** (depending on data services).
    
-   For Azure CLI, install extension `arcdata`.
+   For the Azure CLI, install extension `arcdata`.
 
-- [An Azure Arc data controller installed](../articles/azure-arc/data/plan-azure-arc-data-services.md)
+- [An Azure Arc data controller installed](../articles/azure-arc/data/plan-azure-arc-data-services.md).

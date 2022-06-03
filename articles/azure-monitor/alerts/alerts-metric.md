@@ -4,7 +4,7 @@ description: Learn how to use Azure portal or CLI to create, view, and manage me
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 11/07/2021
+ms.date: 2/23/2022
 ---
 # Create, view, and manage metric alerts using Azure Monitor
 

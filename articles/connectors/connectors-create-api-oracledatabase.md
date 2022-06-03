@@ -1,15 +1,15 @@
 ---
 title: Connect to Oracle Database
-description: Insert and manage records with Oracle Database REST APIs and Azure Logic Apps
+description: Insert and manage records in Oracle Database using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, logicappspm
-ms.topic: article
+ms.reviewer: estfan, azla
+ms.topic: how-to
 ms.date: 05/20/2020
 tags: connectors
 ---
 
-# Get started with the Oracle Database connector
+# Connect to Oracle Database from Azure Logic Apps
 
 Using the Oracle Database connector, you create organizational workflows that use data in your existing database. This connector can connect to an on-premises Oracle Database, or an Azure virtual machine with Oracle Database installed. With this connector, you can:
 

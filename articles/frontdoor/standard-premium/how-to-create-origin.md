@@ -68,7 +68,7 @@ To delete an Origin group when you no longer needed it, click the **...** and th
 
 To delete an origin when you no longer need it, click the **...** and then select **Delete** from the drop-down. 
 
-:::image type="content" source="../media/how-to-create-origin/delete-origin-view.png" alt-text="Screenshot of how to delete an origin.":::
+:::image type="content" source="../media/how-to-create-origin/delete-origin.png" alt-text="Screenshot of how to delete an origin.":::
 
 ## Next steps
 

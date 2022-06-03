@@ -3,7 +3,7 @@ title: Autoscale in Microsoft Azure
 description: "Autoscale in Microsoft Azure"
 ms.subservice: autoscale
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 04/22/2022
 
 ---
 
@@ -32,7 +32,7 @@ Resources emit metrics, these metrics are later processed by rules. Metrics come
 Virtual machine scale sets use telemetry data from Azure diagnostics agents whereas telemetry for Web apps and Cloud services comes directly from the Azure Infrastructure. Some commonly used statistics include CPU Usage, memory usage, thread counts, queue length, and disk usage. For a list of what telemetry data you can use, see [Autoscale Common Metrics](autoscale-common-metrics.md).
 
 ## Custom Metrics
-You can also leverage your own custom metrics that your application(s) may be emitting. If you have configured your application(s) to send metrics to Application Insights you can leverage those metrics to make decisions on whether to scale or not.
+You can also use your own custom metrics that your application(s) may be emitting. If you've configured your application(s) to send metrics to Application Insights you can use those metrics to make decisions on whether to scale or not.
 
 ## Time
 Schedule-based rules are based on UTC. You must set your time zone properly when setting up your rules.  
@@ -105,6 +105,7 @@ You can set up autoscale via
 | Logic Apps |[Adding integration service environment (ISE) capacity](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity)|
 | Spring Cloud |[Set up autoscale for microservice applications](../../spring-cloud/how-to-setup-autoscale.md)|
 | Service Bus |[Automatically update messaging units of an Azure Service Bus namespace](../../service-bus-messaging/automate-update-messaging-units.md)|
+| Azure SignalR Service | [Automatically scale units of an Azure SignalR service](../../azure-signalr/signalr-howto-scale-autoscale.md) |
 
 ## Next steps
 To learn more about autoscale, use the Autoscale Walkthroughs listed previously or refer to the following resources:

@@ -28,7 +28,7 @@ landingContent:
           - text: What is hybrid identity?
             url: whatis-hybrid-identity.md
           - text: What is inter-directory provisioning?
-            url: whatis-hybrid-identity.md  
+            url: what-is-inter-directory-provisioning.md  
  
   # Card
   - title: Determine the best solution to manage the lifecycle of your users and groups
@@ -45,6 +45,8 @@ landingContent:
             url: tutorial-passthrough-authentication.md
           - text: Integrate a single AD forest using federation
             url: tutorial-federation.md
+          - text: Set up PHS as backup for AD FS in Azure AD Connect
+            url: tutorial-phs-backup.md
 
   
   # Card

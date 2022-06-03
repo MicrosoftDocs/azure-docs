@@ -25,6 +25,7 @@ In Azure Resource Manager, a [public IP](virtual-network-public-ip-address.md) a
 * Application Gateways
 * Azure Firewall
 * Bastion Host
+* Route Server
 
 For Virtual Machine Scale Sets, use [Public IP Prefixes](public-ip-address-prefix.md).
 
@@ -42,6 +43,7 @@ The following table shows the property a public IP can be associated to a resour
 | Application gateway |Front-end configuration |Yes (V1 only) |Yes (V2 only) | No | No |
 | Azure Firewall | Front-end configuration | No | Yes | No | No |
 | Bastion Host | Public IP configuration | No | Yes | No | No |
+| Route Server | Front-end configuration | No | Yes | No | No |
 
 ## IP address version
 
@@ -105,6 +107,15 @@ The fully qualified domain name (FQDN) **contoso.westus.cloudapp.azure.com** res
 > Each domain name label created must be unique within its Azure location.  
 
 If a custom domain is desired for services that use a Public IP, you can use [Azure DNS](../../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) or an external DNS provider for your DNS Record.
+
+## Availability Zone
+
+Public IP addresses with a Standard SKU can be created as non-zonal, zonal, or zone-redundant in [regions that support availability zones](../../availability-zones/az-region.md). A zone-redundant IP is created in all zones for a region and can survive any single zone failure.  A zonal IP is tied to a specific availability zone, and shares fate with the health of the zone. A "non-zonal" public IP addresses is placed into a zone for you by Azure and does not give a guarantee of redundancy.
+
+In regions without availability zones, all public IP addresses are created as non-zonal. Public IP addresses created in a region that is later upgraded to have availability zones remain non-zonal.
+
+> [!NOTE]
+> All Basic SKU public IP addresses are created as non-zonal.  Any IP that is upgraded from a Basic SKU to Standard SKU remains non-zonal.
 
 ## Other public IP address features
 

@@ -15,6 +15,8 @@ ms.custom: seodec18
 
 # Diagnose and troubleshoot an Azure Time Series Insights Gen2 environment
 
+[!INCLUDE [retirement](../../includes/tsi-retirement.md)]
+
 This article summarizes several common problems you might encounter when you work with your Azure Time Series Insights Gen2 environment. The article also describes potential causes and solutions for each problem.
 
 ## Problem: I can't find my environment in the Gen2 Explorer

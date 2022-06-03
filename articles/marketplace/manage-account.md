@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: varsha-sarah
 ms.author: vavargh
-ms.date: 12/03/2021
+ms.date: 1/20/2022
 ---
 
 # Manage a commercial marketplace account in Partner Center
@@ -24,11 +24,11 @@ If you have not already done so, you (or your organization's administrator) shou
 
 1. Sign in to the [commercial marketplace dashboard](https://partner.microsoft.com/dashboard/home) in Partner Center with the account you want to access. If you’re part of multiple accounts and have signed in with a different, you can [switch accounts](switch-accounts.md).
 
-1. In the top-right, select **Settings** (gear icon), then **Account settings**.
+1. In the upper-right, select **Settings** (gear icon) > **Account settings**.
 
     [ ![Screenshot of the account settings menu in Partner Center.](./media/manage-accounts/settings-account-workspaces.png) ](./media/manage-accounts/settings-account-workspaces.png#lightbox)
 
-1. In the left menu, under **Organization profile**, select **Legal**. Then select the **Developer** tab to view details related to your commercial marketplace account.
+1. In the left-menu, under **Organization profile**, select **Legal profile**. Then select the **Developer** tab to view details related to your commercial marketplace account.
 
     [ ![Screenshot of the developer tab on the legal page in Account settings.](./media/manage-accounts/developer-tab-workspaces.png) ](./media/manage-accounts/developer-tab-workspaces.png#lightbox)
 
@@ -76,7 +76,7 @@ You can also select the **Update** link to change your contact info, such as pub
 
 ### Account settings identifiers
 
-Under **Account settings** > **Organization profile**, select **Identifiers** to see the following information:
+In the left-menu, under **Organization profile**, select **Identifiers** to see the following information:
 
 - **MPN IDs**: Any MPN IDs associated with your account
 - **CSP**: MPN IDs associated with the CSP program for this account.
@@ -107,8 +107,8 @@ The **Agreements** page lets you view a list of the publishing agreements that y
 To access the Agreements page:
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-1. In the top-right, select **Settings** > **Account settings**.
-1. Under **Account settings**, select **Agreements**.
+1. In the upper-right, select **Settings** > **Account settings**.
+1. In the left-menu, select **Agreements**.
 
 **Actions needed** may appear at the top of this page if there are agreement updates that need your attention. To accept an updated agreement, first read the linked Agreement Version, then select **Accept agreement**.
 
@@ -122,7 +122,7 @@ A payout profile is the bank account to which proceeds are sent from your sales.
 
 1. Sign in to the [commercial marketplace dashboard](https://partner.microsoft.com/dashboard/home) in Partner Center with the account you want to access.
 
-1. In the top-right, select **Settings** (gear icon), and then select **Account settings**.
+1. In the upper-right, select **Settings** (gear icon) > **Account settings**.
 
     [ ![Screenshot of the account settings menu in Partner Center.](./media/manage-accounts/settings-account-workspaces.png) ](./media/manage-accounts/settings-account-workspaces.png#lightbox)
 
@@ -171,10 +171,10 @@ By default, Microsoft sends payments on a monthly basis. However, you can option
 **To place your payments on hold**:
 
 1. Go to **Account settings**.
-1. In the left menu expand **Payout and tax** and select **Payout and tax profiles**.
+1. In the left-menu under **Payout and tax**, select **Payout and tax profiles**.
 1. Select the program for which you want to hold payments, and then select the **Hold my Payment** check box.
 
-You can change your payout hold status at any time, but be aware that your decision will impact the next monthly payout. For example, if you want to hold April's payout, make sure to set your payout hold status to **On** before the end of March.
+You can change your payout hold status at any time but be aware that your decision will impact the next monthly payout. For example, if you want to hold April's payout, make sure to set your payout hold status to **On** before the end of March.
 
 After you set your payout hold status to **On**, all payouts will be on hold until you toggle the slider back to **Off**. When you do so, you'll be included during the next monthly payout cycle (provided any applicable payment thresholds have been met). For example, if you've had your payouts on hold, but would like to have a payout generated in June, then make sure to toggle the payout hold status to **Off** before the end of May.
 
@@ -191,8 +191,8 @@ If you are publishing a [Dynamics 365 apps on Dataverse and Power Apps](./partne
 
 The billing address is pre-populated from your legal entity, and you can update this address later. The TAX and VAT ID fields are required for some countries and optional for others. The country/region name and company name cannot be edited.
 
-1. In the top-right, select **Settings** (gear icon), and then select **Account settings**.
-1. Then in the left menu expand **Organization profile** and select **Billing profile**.
+1. In the upper-right, select **Settings** (gear icon) > **Account settings**.
+1. In the left-menu under **Organization profile**, select **Billing profile**.
 
 ## Multi-user account management
 

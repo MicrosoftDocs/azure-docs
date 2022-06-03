@@ -1,11 +1,10 @@
 ---
 title: Understand Apache Spark code concepts for Azure Data Lake Analytics U-SQL developers.
 description: This article describes Apache Spark concepts to help U-SQL developers understand Spark code concepts.
-ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: how-to
 ms.custom: Understand-apache-spark-code-concepts
-ms.date: 10/15/2019
+ms.date: 05/17/2022
 ---
 
 # Understand Apache Spark code for U-SQL developers
@@ -29,7 +28,7 @@ Spark is a scale-out framework offering several language bindings in Scala, Java
 
 Thus when translating a U-SQL script to a Spark program, you will have to decide which language you want to use to at least generate the data frame abstraction (which is currently the most frequently used data abstraction) and whether you want to write the declarative dataflow transformations using the DSL or SparkSQL. In some more complex cases, you may need to split your U-SQL script into a sequence of Spark and other steps implemented with Azure Batch or Azure Functions.
 
-Furthermore, Azure Data Lake Analytics offers U-SQL in a serverless job service environment, while both Azure Databricks and Azure HDInsight offer Spark in form of a cluster service. When transforming your application, you will have to take into account the implications of now creating, sizing, scaling, and decommissioning the clusters.
+Furthermore, Azure Data Lake Analytics offers U-SQL in a serverless job service environment where resources are allocated for each job, while Azure Synapse Spark, Azure Databricks and Azure HDInsight offer Spark either in form of a cluster service or with so-called Spark pool templates. When transforming your application, you will have to take into account the implications of now creating, sizing, scaling, and decommissioning the clusters or pools.
 
 ## Transform U-SQL scripts
 
@@ -45,13 +44,15 @@ Spark programs are similar in that you would use Spark connectors to read the da
 
 ## Transform .NET code
 
-U-SQL's expression language is C# and it offers a variety of ways to scale out custom .NET code.
+U-SQL's expression language is C# and it offers a variety of ways to scale out custom .NET code with user-defined functions, user-defined operators and user-defined aggregators.
 
-Since Spark currently does not natively support executing .NET code, you will have to either rewrite your expressions into an equivalent Spark, Scala, Java, or Python expression or find a way to call into your .NET code. If your script uses .NET libraries, you have the following options:
+Azure Synapse and Azure HDInsight Spark both now natively support executing .NET code with .NET for Apache Spark. This means that you can potentially reuse some or all of your [.NET user-defined functions with Spark](#transform-user-defined-scalar-net-functions-and-user-defined-aggregators). Note though that U-SQL uses the .NET Framework while .NET for Apache Spark is based on .NET Core 3.1 or later. 
 
-- Translate your .NET code into Scala or Python.
-- Split your U-SQL script into several steps, where you use Azure Batch processes to apply the .NET transformations (if you can get acceptable scale)
-- Use a .NET language binding available in Open Source called Moebius. This project is not in a supported state.
+[U-SQL user-defined operators (UDOs)](#transform-user-defined-operators-udos) are using the U-SQL UDO model to provide scaled-out execution of the operator's code. Thus, UDOs will have to be rewritten into user-defined functions to fit into the Spark execution model.
+
+.NET for Apache Spark currently does not support user-defined aggregators. Thus, [U-SQL user-defined aggregators](#transform-user-defined-scalar-net-functions-and-user-defined-aggregators) will have to be translated into Spark user-defined aggregators written in Scala.
+
+If you do not want to take advantage of the .NET for Apache Spark capabilities, you will have to rewrite your expressions into an equivalent Spark, Scala, Java, or Python expression, function, aggregator or connector. 
 
 In any case, if you have a large amount of .NET logic in your U-SQL scripts, please contact us through your Microsoft Account representative for further guidance.
 
@@ -61,17 +62,19 @@ The following details are for the different cases of .NET and C# usages in U-SQL
 
 U-SQL's expression language is C#. Many of the scalar inline U-SQL expressions are implemented natively for improved performance, while more complex expressions may be executed through calling into the .NET framework.
 
-Spark has its own scalar expression language (either as part of the DSL or in SparkSQL) and allows calling into user-defined functions written in its hosting language.
+Spark has its own scalar expression language (either as part of the DSL or in SparkSQL) and allows calling into user-defined functions written for the JVM, .NET or Python runtime.
 
-If you have scalar expressions in U-SQL, you should first find the most appropriate natively understood Spark scalar expression to get the most performance, and then map the other expressions into a user-defined function of the Spark hosting language of your choice.
+If you have scalar expressions in U-SQL, you should first find the most appropriate natively understood Spark scalar expression to get the most performance, and then map the other expressions into a user-defined function of the Spark runtime language of your choice.
 
-Be aware that .NET and C# have different type semantics than the Spark hosting languages and Spark's DSL. See [below](#transform-typed-values) for more details on the type system differences.
+Be aware that .NET and C# have different type semantics than the JVM and Python runtimes and Spark's DSL. See [below](#transform-typed-values) for more details on the type system differences.
 
 ### Transform user-defined scalar .NET functions and user-defined aggregators
 
 U-SQL provides ways to call arbitrary scalar .NET functions and to call user-defined aggregators written in .NET.
 
 Spark also offers support for user-defined functions and user-defined aggregators written in most of its hosting languages that can be called from Spark's DSL and SparkSQL.
+
+As mentioned above, .NET for Apache Spark supports user-defined functions written in .NET, but does not support user-defined aggregators. So for user-defined functions, .NET for Apache Spark can be used, while user-defined aggregators have to be authored in Scala for Spark.
 
 ### Transform user-defined operators (UDOs)
 
@@ -142,7 +145,7 @@ Thus a SparkSQL `SELECT` statement that uses `WHERE column_name = NULL` returns 
 
 One major difference is that U-SQL Scripts can make use of its catalog objects, many of which have no direct Spark equivalent.
 
-Spark does provide support for the Hive Meta store concepts, mainly databases, and tables, so you can map U-SQL databases and schemas to Hive databases, and U-SQL tables to Spark tables (see [Moving data stored in U-SQL tables](understand-spark-data-formats.md#move-data-stored-in-u-sql-tables)), but it has no support for views, table-valued functions (TVFs), stored procedures, U-SQL assemblies, external data sources etc.
+Spark does provide support for the Hive Meta store concepts, mainly databases, tables and views, so you can map U-SQL databases and schemas to Hive databases, and U-SQL tables to Spark tables (see [Moving data stored in U-SQL tables](understand-spark-data-formats.md#move-data-stored-in-u-sql-tables)), but it has no support for table-valued functions (TVFs), stored procedures, U-SQL assemblies, external data sources etc.
 
 The U-SQL code objects such as views, TVFs, stored procedures, and assemblies can be modeled through code functions and libraries in Spark and referenced using the host language's function and procedural abstraction mechanisms (for example, through importing Python modules or referencing Scala functions).
 
@@ -176,7 +179,7 @@ U-SQL also offers a variety of other features and concepts, such as federated qu
 
 ### Federated Queries against SQL Server databases/external tables
 
-U-SQL provides data source and external tables as well as direct queries against Azure SQL Database. While Spark does not offer the same object abstractions, it provides [Spark connector for Azure SQL Database](../azure-sql/database/spark-connector.md) that can be used to query SQL databases.
+U-SQL provides data source and external tables as well as direct queries against Azure SQL Database. While Spark does not offer the same object abstractions, it provides [Spark connector for Azure SQL Database](/azure/azure-sql/database/spark-connector) that can be used to query SQL databases.
 
 ### U-SQL parameters and variables
 

@@ -1,24 +1,24 @@
 ---
-title: Configure Azure AD Conditional Access for Azure Purview
-description: This article describes steps how to configure Azure AD Conditional Access for Azure Purview
+title: Configure Azure AD Conditional Access for Microsoft Purview
+description: This article describes steps how to configure Azure AD Conditional Access for Microsoft Purview
 author: zeinam
 ms.author: zeinam
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 01/14/2022
-# Customer intent: As an identity and security admin, I want to set up Azure Active Directory Conditional Access for Azure Purview, for secure access.
+# Customer intent: As an identity and security admin, I want to set up Azure Active Directory Conditional Access for Microsoft Purview, for secure access.
 ---
 
-# Conditional Access with Azure Purview
+# Conditional Access with Microsoft Purview
 
-[Azure Purview](/overview.md) supports Microsoft Conditional Access.
+[Microsoft Purview](./overview.md) supports Microsoft Conditional Access.
 
-The following steps show how to configure Azure Purview to enforce a Conditional Access policy.  
+The following steps show how to configure Microsoft Purview to enforce a Conditional Access policy.  
 
 ## Prerequisites
 
-- When multi-factor authentication is enabled, to login to Azure Purview Studio, you must perform multi-factor authentication.
+- When multi-factor authentication is enabled, to sign in to the Microsoft Purview governance portal, you must perform multi-factor authentication.
 
 ## Configure conditional access
 
@@ -26,21 +26,21 @@ The following steps show how to configure Azure Purview to enforce a Conditional
 
   :::image type="content" source="media/catalog-conditional-access/conditional-access-blade.png" alt-text="Screenshot that shows Conditional Access blade"lightbox="media/catalog-conditional-access/conditional-access-blade.png":::
   
-2. In the **Conditional Access-Policies** blade, click **New policy**, provide a name, and then click **Configure rules**.  
-3. Under **Assignments**, select **Users and groups**, check **Select users and groups**, and then select the user or group for Conditional Access. Click **Select**, and then click **Done** to accept your selection.  
+1. In the **Conditional Access-Policies** menu, select **New policy**, provide a name, and then select **Configure rules**.  
+1. Under **Assignments**, select **Users and groups**, check **Select users and groups**, and then select the user or group for Conditional Access. Select **Select**, and then select **Done** to accept your selection.  
 
   :::image type="content" source="media/catalog-conditional-access/select-users-and-groups.png" alt-text="Screenshot that shows User and Group selection"lightbox="media/catalog-conditional-access/select-users-and-groups.png":::
 
-4. Select **Cloud apps**, click **Select apps**. You see all apps available for Conditional Access. Select **Azure Purview**, at the bottom click **Select**, and then click **Done**.  
-   
+1. Select **Cloud apps**, select **Select apps**. You see all apps available for Conditional Access. Select **Microsoft Purview**, at the bottom select **Select**, and then select **Done**.  
+  
     :::image type="content" source="media/catalog-conditional-access/select-azure-purview.png" alt-text="Screenshot that shows Applications selection"lightbox="media/catalog-conditional-access/select-azure-purview.png":::
 
-5. Select **Access controls**, select **Grant**, and then check the policy you want to apply. For this example, we select **Require multi-factor authentication**.  
+1. Select **Access controls**, select **Grant**, and then check the policy you want to apply. For this example, we select **Require multi-factor authentication**.  
 
   :::image type="content" source="media/catalog-conditional-access/grant-access.png" alt-text="Screenshot that shows Grant access tab"lightbox="media/catalog-conditional-access/grant-access.png":::
 
-6. Set **Enable policy** to **On** and click **Create**.
+1. Set **Enable policy** to **On** and select **Create**.
 
 ## Next steps
 
-- [Use Azure Purview Studio](/use-purview-studio.md)
+- [Use the Microsoft Purview governance portal](./use-purview-studio.md)

@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 04/18/2022
 ms.author: jianleishen
 ---
 # Copy data from MariaDB using Azure Data Factory or Synapse Analytics
@@ -26,7 +26,7 @@ You can copy data from MariaDB to any supported sink data store. For a list of d
 
 The service provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
 
-This connector currently supports MariaDB of version 10.0 to 10.2.
+This connector currently supports MariaDB of version 10.0 to 10.5.
 
 ## Prerequisites
 

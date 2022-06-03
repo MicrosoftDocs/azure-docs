@@ -43,7 +43,7 @@ This diagram illustrates each component of this scenario:
 
 ## Create a review team
 
-Refer to the [Try Content Moderator on the web](quick-start.md) quickstart for instructions on how to sign up for the [Content Moderator Review tool](https://contentmoderator.cognitive.microsoft.com/) and create a review team. Take note of the **Team ID** value on the **Credentials** page.
+Refer to the [Try Content Moderator on the web](quick-start.md) quickstart for instructions on how to sign up for the Content Moderator Review tool and create a review team. Take note of the **Team ID** value on the **Credentials** page.
 
 ## Configure image moderation workflow
 

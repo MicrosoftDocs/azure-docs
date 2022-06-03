@@ -1,9 +1,9 @@
 ---
 title: Quickstart - Group enrollment to the Azure Device Provisioning Service using X.509 certificate attestation
 description: This quickstart shows you how to programmatically enroll a group of devices that use intermediate or root CA X.509 certificate attestation.
-author: wesmc7777
-ms.author: wesmc
-ms.date: 08/17/2021
+author: kgremban
+ms.author: kgremban
+ms.date: 04/28/2022
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
@@ -12,9 +12,9 @@ ms.custom: mvc, mode-other
 zone_pivot_groups: iot-dps-set2
 ---
  
-# Quickstart: Enroll a group of devices to the Device Provisioning Service using X.509 certificate attestation 
+# Quickstart: Enroll a group of devices to the Device Provisioning Service using X.509 certificate attestation
 
-:::zone pivot="programming-language-csharp,programming-language-nodejs, programming-language-python"
+:::zone pivot="programming-language-csharp,programming-language-nodejs"
 
 This quickstart shows you how to programmatically create an [enrollment group](concepts-service.md#enrollment-group) that uses intermediate or root CA X.509 certificates. The enrollment group is created by using the [Microsoft Azure IoT SDK](../iot-hub/iot-hub-devguide-sdks.md) and a sample application. An enrollment group controls access to the provisioning service for devices that share a common signing certificate in their certificate chain. To learn more, see [Controlling device access to the provisioning service with X.509 certificates](./concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates). For more information about using X.509 certificate-based Public Key Infrastructure (PKI) with Azure IoT Hub and Device Provisioning Service, see [X.509 CA certificate security overview](../iot-hub/iot-hub-x509ca-overview.md).
 
@@ -50,17 +50,6 @@ This quickstart shows you how to programmatically create an individual enrollmen
 
 :::zone-end
 
-:::zone pivot="programming-language-python"
-
-* Install the [Python 2.x or 3.x](https://www.python.org/downloads/) and add Python to your platform-specific environment variables.
-
-    > [!IMPORTANT]
-    > This article only applies to the deprecated V1 Python SDK. Device and service clients for the IoT Hub Device Provisioning Service are not yet available in V2. The team is currently hard at work to bring V2 to feature parity.
-
-* Install [Pip](https://pip.pypa.io/en/stable/installing/), if it is not already included with your Python distribution.
-
-:::zone-end
-
 :::zone pivot="programming-language-java"
 
 * [Java SE Development Kit 8](/azure/developer/java/fundamentals/java-support-on-azure). This quickstart installs the [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/master/service/) below. It works on both Windows and Linux. This quickstart uses Windows.
@@ -78,7 +67,7 @@ This quickstart shows you how to programmatically create an individual enrollmen
 
 For this quickstart, you must have a *.pem* or a *.cer* file that contains the public portion of an intermediate or root CA X.509 certificate. This certificate must be uploaded to your provisioning service, and verified by the service.
 
-:::zone pivot="programming-language-csharp,programming-language-nodejs, programming-language-python"
+:::zone pivot="programming-language-csharp,programming-language-nodejs"
 
 ### Clone the Azure IoT C SDK
 
@@ -126,7 +115,7 @@ The [Azure IoT Java SDK](https://github.com/Azure/azure-iot-sdk-java) contains t
 
 To create the test certificate:
 
-:::zone pivot="programming-language-csharp,programming-language-nodejs, programming-language-python"
+:::zone pivot="programming-language-csharp,programming-language-nodejs"
 
 To create the certificate, follow the steps in [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
 
@@ -314,7 +303,7 @@ This section shows you how to create a .NET Core console application that adds a
 
 :::zone pivot="programming-language-nodejs"
 
-This section shows you how to create a node.js script that adds an enrollment group to your provisioning service.
+This section shows you how to create a Node.js script that adds an enrollment group to your provisioning service.
 
 1. From a command window in your working folder, run:
 
@@ -363,60 +352,6 @@ This section shows you how to create a node.js script that adds an enrollment gr
           }
         });
     ```
-
-:::zone-end
-
-:::zone pivot="programming-language-python"
-
-This section shows you how to create a Python script that adds an enrollment group to your provisioning service.
-
-1. Using a text editor, create a new *EnrollmentGroup.py* file.
-
-2. Copy the following Python code into the file(replace `{dpsConnectionString}` with the connection string you copied earlier, the certificate placeholder with the certificate created in 
-[Prepare test certificates](#prepare-test-certificates), and `{registrationid}` with a unique `registrationid` that consists only of lower-case alphanumerics and hyphens):
-
-    ```python
-    from provisioningserviceclient import ProvisioningServiceClient
-    from provisioningserviceclient.models import EnrollmentGroup, AttestationMechanism
-    
-    CONNECTION_STRING = "{dpsConnectionString}"
-    
-    SIGNING_CERT = """-----BEGIN CERTIFICATE-----
-    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-    -----END CERTIFICATE-----"""
-    
-    GROUP_ID = "{registrationid}"
-
-    def main():
-        print ( "Initiating enrollment group creation..." )
-
-        psc = ProvisioningServiceClient.create_from_connection_string(CONNECTION_STRING)
-        att = AttestationMechanism.create_with_x509_signing_certs(SIGNING_CERT)
-        eg = EnrollmentGroup.create(GROUP_ID, att)
-
-        eg = psc.create_or_update(eg)
-    
-        print ( "Enrollment group created." )
-
-    if __name__ == '__main__':
-        main()
-    ```
-
-3. Save and close the **EnrollmentGroup.py** file.
 
 :::zone-end
 
@@ -487,24 +422,6 @@ This section shows you how to create a Python script that adds an enrollment gro
 
 :::zone-end
 
-:::zone pivot="programming-language-python"
-
-1. Open a command prompt in Administrator Mode, and run the following command to install the azure-iot-provisioning-device-client.
-
-    ```cmd/sh
-    pip install azure-iothub-provisioningserviceclient    
-    ```
-
-2. In the command prompt, run the script:
-
-    ```cmd/sh
-    python EnrollmentGroup.py
-    ```
-
-3. Upon successful creation, the command window displays the properties of the new enrollment group.
-
-:::zone-end
-
 :::zone pivot="programming-language-java"
 
 1. Open a command window in Administrator mode, and go to the folder *_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_*.
@@ -545,12 +462,6 @@ To verify that the enrollment group has been created:
 :::zone pivot="programming-language-nodejs"
 
 ![Enrollment properties in the portal](media/quick-enroll-device-x509/verify-enrollment-nodejs.png)
-
-:::zone-end
-
-:::zone pivot="programming-language-python"
-
-:::image type="content" source="./media/quick-enroll-device-x509/verify-enrollment-python.png" alt-text="Verify enrollment for Python group in the portal.":::
 
 :::zone-end
 
@@ -604,7 +515,7 @@ To enroll a single X.509 device, modify the *individual enrollment* sample code 
 
 ## Clean up resources
 
-If you plan to explore the [Azure IoT Hub Device Provisioning Service tutorials](./tutorial-set-up-cloud.md), don't clean up the resources created in this quickstart. Otherwise, use the following steps to delete all resources created by this quickstart.
+If you plan to explore the Azure IoT Hub Device Provisioning Service tutorials, don't clean up the resources created in this quickstart. Otherwise, use the following steps to delete all resources created by this quickstart.
 
 1. Close the sample output window on your computer.
 
@@ -628,10 +539,10 @@ If you plan to explore the [Azure IoT Hub Device Provisioning Service tutorials]
 
 ## Next steps
 
-In this quickstart, you created an enrollment group for an X.509 intermediate or root CA certificate using the Azure IoT Hub Device Provisioning Service. To learn about device provisioning in depth, continue to the tutorial for the Device Provisioning Service setup in the Azure portal.
+In this quickstart, you created an enrollment group for an X.509 intermediate or root CA certificate using the Azure IoT Hub Device Provisioning Service. To learn about device provisioning in depth, continue to the tutorials for the Device Provisioning Service.
 
 > [!div class="nextstepaction"]
-> [Azure IoT Hub Device Provisioning Service tutorials](./tutorial-set-up-cloud.md)
+> [Use custom allocation policies with Device Provisioning Service](tutorial-custom-allocation-policies.md)
 
 :::zone pivot="programming-language-nodejs"
 

@@ -3,13 +3,13 @@ title: 'Tutorial: Implement CI/CD with GitOps using Azure Arc-enabled Kubernetes
 description: This tutorial walks through setting up a CI/CD solution using GitOps with Azure Arc-enabled Kubernetes clusters. For a conceptual take on this workflow, see the CI/CD Workflow using GitOps - Azure Arc-enabled Kubernetes article.
 ms.service: azure-arc
 ms.topic: tutorial
-ms.date: 03/03/2021
+ms.date: 05/24/2021
 ms.custom: template-tutorial, devx-track-azurecli
 ---
 # Tutorial: Implement CI/CD with GitOps using Azure Arc-enabled Kubernetes clusters
 
 > [!NOTE]
-> This tutorial uses GitOps with Flux v1.  GitOps with Flux v2 is now available in preview for Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS) clusters; [go to the tutorial that uses GitOps with Flux v2](./tutorial-gitops-flux2-ci-cd.md).
+> This tutorial uses GitOps with Flux v1. GitOps with Flux v2 is now available for Azure Arc-enabled Kubernetes and Azure Kubernetes Service (AKS) clusters; [go to the tutorial that uses GitOps with Flux v2](./tutorial-gitops-flux2-ci-cd.md). Eventually Azure will stop supporting GitOps with Flux v1, so begin using Flux v2 as soon as possible.
 
 In this tutorial, you'll set up a CI/CD solution using GitOps with Azure Arc-enabled Kubernetes clusters. Using the sample Azure Vote app, you'll:
 
@@ -34,7 +34,7 @@ This tutorial assumes familiarity with Azure DevOps, Azure Repos and Pipelines, 
 * Complete the [previous tutorial](./tutorial-use-gitops-connected-cluster.md) to learn how to deploy GitOps for your CI/CD environment.
 * Understand the [benefits and architecture](./conceptual-configurations.md) of this feature.
 * Verify you have:
-  * A [connected Azure Arc-enabled Kubernetes cluster](./quickstart-connect-cluster.md#3-connect-an-existing-kubernetes-cluster) named **arc-cicd-cluster**.
+  * A [connected Azure Arc-enabled Kubernetes cluster](./quickstart-connect-cluster.md#connect-an-existing-kubernetes-cluster) named **arc-cicd-cluster**.
   * A connected Azure Container Registry (ACR) with either [AKS integration](../../aks/cluster-container-registry-integration.md) or [non-AKS cluster authentication](../../container-registry/container-registry-auth-kubernetes.md).
   * "Build Admin" and "Project Admin" permissions for [Azure Repos](/azure/devops/repos/get-started/what-is-repos) and [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started).
 * Install the following Azure Arc-enabled Kubernetes CLI extensions of versions >= 1.0.0:

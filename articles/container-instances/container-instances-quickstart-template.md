@@ -4,7 +4,7 @@ description: In this quickstart, you use an Azure Resource Manager template to q
 services: azure-resource-manager
 ms.date: 04/30/2020
 ms.topic: quickstart
-ms.service: azure-resource-manager
+ms.service: container-instances
 ms.custom: subject-armqs, devx-track-js, mode-arm
 ---
 

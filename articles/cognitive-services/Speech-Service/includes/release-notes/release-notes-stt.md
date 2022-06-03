@@ -6,6 +6,98 @@ ms.date: 01/08/2022
 ms.author: eur
 ---
 
+### 2022-April release
+
+#### New Speech-to-text-locales:
+
+Below is a list of the new locales. See the complete language list [here](../../language-support.md).
+
+| Locale  | Language                          |
+|---------|-----------------------------------|
+| `bn-IN` | Bengali (India)                   |
+
+### 2022-January release
+
+#### New Speech-to-text-locales:
+
+Below is a list of the new locales. See the complete language list [here](../../language-support.md).
+
+| Locale  | Language                          |
+|---------|-----------------------------------|
+| `af-ZA` | Afrikaans (South Africa)            |
+| `am-ET` | Amharic (Ethiopia)            |
+| `de-CH` | German (Switzerland)            |
+| `fr-BE` | French (Belgium)            |
+| `is-IS` | Icelandic (Iceland)            |
+| `jv-ID` | Javanese (Indonesia)            |
+| `km-KH` | Khmer (Cambodia)            |
+| `kn-IN` | Kannada (India)            |
+| `lo-LA` | Lao (Laos)            |
+| `mk-MK` | Macedonian (North Macedonia)            |
+| `my-MM` | Burmese (Myanmar)            |
+| `nl-BE` | Dutch (Belgium)            |
+| `si-LK` | Sinhala (Sri Lanka)            |
+| `sr-RS` | Serbian (Serbia)            |
+| `sw-TZ` | Swahili (Tanzania)            |
+| `uk-UA` | Ukrainian (Ukraine)            |
+| `uz-UZ` | Uzbek (Uzbekistan)            |
+| `zu-ZA` | Zulu (South Africa)            |
+
+
+### 2021-July release
+
+#### New Speech-to-text-locales:
+
+Below is a list of the new locales. See the complete language list [here](../../language-support.md).
+
+| Locale  | Language                          |
+|---------|-----------------------------------|
+| `ar-DZ` | Arabic (Algeria)            |
+| `ar-LY` | Arabic (Libya)            |
+| `ar-MA` | Arabic (Morocco)            |
+| `ar-TN` | Arabic (Tunisia)            |
+| `ar-YE` | Arabic (Yemen)            |
+| `bg-BG` | Bulgarian (Bulgaria)            |
+| `el-GR` | Greek (Greece)            |
+| `et-EE` | Estonian (Estonia)            |
+| `fa-IR` | Persian  (Iran)            |
+| `ga-IE` | Irish (Ireland)            |
+| `hr-HR` | Croatian (Croatia)            |
+| `lt-LT` | Lithuanian (Lithuania)            |
+| `lv-LV` | Latvian (Latvia)            |
+| `mt-MT` | Maltese (Malta)            |
+| `ro-RO` | Romanian (Romania)            |
+| `sk-SK` | Slovak (Slovakia)            |
+| `sl-SI` | Slovenian (Slovenia)            |
+| `sw-KE` | Swahili  (Kenya)            |
+
+
+### 2021-January release
+
+#### New Speech-to-text-locales:
+
+Below is a list of the new locales. See the complete language list [here](../../language-support.md).
+
+| Locale  | Language                          |
+|---------|-----------------------------------|
+| `ar-AE` | Arabic (United Arab Emirates)            |
+| `ar-IL` | Arabic (Israel)            |
+| `ar-IQ` | Arabic (Iraq)            |
+| `ar-OM` | Arabic (Oman)            |
+| `ar-PS` | Arabic (Palestinian Authority)            |
+| `de-AT` | German (Austria)            |
+| `en-GH` | English (Ghana)            |
+| `en-KE` | English (Kenya)               |
+| `en-NG` | English (Nigeria)            |
+| `en-TZ` | English (Tanzania)            |
+| `es-GQ` | Spanish (Equatorial Guinea)            |
+| `fil-PH` | Filipino  (Philippines)            |
+| `fr-CH` | French  (Switzerland)            |
+| `he-IL` | Hebrew  (Israel)            |
+| `id-ID` | Indonesian  (Indonesia)            |
+| `ms-MY` | Malay  (Malaysia)            |
+| `vi-VN` | Vietnamese  (Vietnam)            |
+
 ### 2020-August Release
 
 #### New speech-to-text locales:

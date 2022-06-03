@@ -1,31 +1,20 @@
 ---
-title: Private access (preview) - Hyperscale (Citus) - Azure Database for PostgreSQL
+title: Private access - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: This article describes private access for Azure Database for PostgreSQL - Hyperscale (Citus).
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 10/15/2021
 ---
 
-# Private access (preview) in Azure Database for PostgreSQL - Hyperscale (Citus)
+# Private access in Azure Database for PostgreSQL - Hyperscale (Citus)
 
 [!INCLUDE [azure-postgresql-hyperscale-access](../../../includes/azure-postgresql-hyperscale-access.md)]
 
 This page describes the private access option. For public access, see
 [here](concepts-firewall-rules.md).
-
-> [!NOTE]
->
-> Private access is available for preview in only [certain
-> regions](concepts-limits.md#regions).
->
-> If the private access option is not selectable for your server group even
-> though your server group is within an allowed region, please open an Azure
-> [support
-> request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest),
-> and include your Azure subscription ID, to get access.
 
 ## Definitions
 
@@ -135,15 +124,14 @@ consider:
 
 ## Limits and limitations
 
-See Hyperscale (Citus) [limits and limitations](concepts-limits.md)
+See Hyperscale (Citus) [limits and limitations](reference-limits.md)
 page.
 
 ## Next steps
 
-* Learn how to [enable and manage private
-  access](howto-private-access.md) (preview)
-* Follow a [tutorial](tutorial-private-access.md) to see
-  private access (preview) in action.
+* Learn how to [enable and manage private access](howto-private-access.md)
+* Follow a [tutorial](tutorial-private-access.md) to see private access in
+  action.
 * Learn about [private
   endpoints](../../private-link/private-endpoint-overview.md)
 * Learn about [virtual

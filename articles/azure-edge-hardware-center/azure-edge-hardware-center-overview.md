@@ -1,11 +1,9 @@
 ---
-title: Azure Edge Hardware Center overview  
+title: Azure Edge Hardware Center overview
 description: Describes Azure Edge Hardware Center - an Azure service that lets you order all Azure hardware and manage and track those orders
 services: Azure Edge Hardware Center
 author: alkohli
-
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-edge-hardware-center
 ms.topic: overview
 ms.date: 01/03/2022
 ms.author: alkohli

@@ -7,7 +7,7 @@ author: mrbullwinkle
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: metrics-advisor
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/22/2021
 ms.author: mbullwin
 ---
@@ -79,7 +79,7 @@ After creating a service principal in Azure portal, you can find `Tenant ID` and
 
 ![sp Client secret value](../media/credential-entity/sp-secret-value.png)
 
-**Step 3. Create a key vault.** In [Azure portal](https://ms.portal.azure.com/#home), select **Key vaults** to create one.
+**Step 3. Create a key vault.** In [Azure portal](https://portal.azure.com/#home), select **Key vaults** to create one.
 
 ![create a key vault in azure portal](../media/credential-entity/create-key-vault.png)
 

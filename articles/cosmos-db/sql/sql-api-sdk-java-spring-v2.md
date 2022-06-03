@@ -11,30 +11,16 @@ ms.author: jroth
 ms.custom: devx-track-java
 ---
 
-# Spring Data Azure Cosmos DB v2 for Core (SQL) API: Release notes and resources
+# Spring Data Azure Cosmos DB v2 for Core (SQL) API (legacy): Release notes and resources
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
-> [!div class="op_single_selector"]
-> * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
-> * [.NET SDK v2](sql-api-sdk-dotnet.md)
-> * [.NET Core SDK v2](sql-api-sdk-dotnet-core.md)
-> * [.NET Change Feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
-> * [Node.js](sql-api-sdk-node.md)
-> * [Java SDK v4](sql-api-sdk-java-v4.md)
-> * [Async Java SDK v2](sql-api-sdk-async-java.md)
-> * [Sync Java SDK v2](sql-api-sdk-java.md)
-> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
-> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Spark 3 OLTP Connector](sql-api-sdk-java-spark-v3.md)
-> * [Spark 2 OLTP Connector](sql-api-sdk-java-spark.md)
-> * [Python](sql-api-sdk-python.md)
-> * [REST](/rest/api/cosmos-db/)
-> * [REST Resource Provider](/rest/api/cosmos-db-resource-provider/)
-> * [SQL](sql-query-getting-started.md)
-> * [Bulk executor - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
+[!INCLUDE[appliesto-sql-api](../includes/cosmos-db-sdk-list.md)]
 
  Spring Data Azure Cosmos DB version 2 for Core (SQL) allows developers to use Azure Cosmos DB in Spring applications. Spring Data Azure Cosmos DB exposes the Spring Data interface for manipulating databases and collections, working with documents, and issuing queries. Both Sync and Async (Reactive) APIs are supported in the same Maven artifact. 
+
+> [!WARNING]
+> This version of Spring Data Cosmos SDK depends on a retired version of Cosmos DB Java SDK. This Spring Data Cosmos SDK will be announced as retiring in the near future! This is *not* the latest Azure Spring Data Cosmos SDK for Azure Cosmos DB and is outdated. Because of performance issues and instability in Azure Spring Data Cosmos SDK V2, we highly recommend to use [Azure Spring Data Cosmos v3](sql-api-sdk-java-spring-v3.md) for your project. To upgrade, follow the instructions in the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide to understand the difference in the underlying Java SDK V4.
+>
 
 The [Spring Framework](https://spring.io/projects/spring-framework) is a programming and configuration model that streamlines Java application development. Spring streamlines the "plumbing" of applications by using dependency injection. Many developers like Spring because it makes building and testing applications more straightforward. [Spring Boot](https://spring.io/projects/spring-boot) extends this handling of the plumbing with an eye toward web application and microservices development. [Spring Data](https://spring.io/projects/spring-data) is a programming model for accessing datastores like Azure Cosmos DB from the context of a Spring or Spring Boot application. 
 

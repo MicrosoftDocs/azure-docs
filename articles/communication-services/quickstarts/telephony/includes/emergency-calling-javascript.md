@@ -15,11 +15,11 @@ ms.author: zehangzheng
 -	The capability to dial 911 and receive a call-back may be a requirement for your application. Verify the E911 requirements with your legal counsel. 
 - Microsoft uses country codes according to ISO 3166-1 alpha-2 standard 
 -	If the country ISO code is not provided to the SDK, the IP address will be used to determine the country of the caller. 
--	In case IP address cannot provide reliable geolocation, for example the user is on a Virtual Private Network, it is required to set the ISO Code of the calling country using the API in the ACS Calling SDK. 
+-	In case IP address cannot provide reliable geolocation, for example the user is on a Virtual Private Network, it is required to set the ISO Code of the calling country using the API in the Azure Communication Services Calling SDK. 
 -	If users are dialing from a US territory (for example Guam, US Virgin Islands, Northern Marianas, or American Samoa), it is required to set the ISO code to the US   
--	Supported ISO codes are US and PR only
--	ACS direct routing is currently in public preview and not intended for production workloads. So E911 dialing is out of scope for ACS direct routing.
--	The 911 service is temporarily free to use for ACS customers within reasonable use, however billing for the service will be enabled in 2022.   
+-	Supported ISO codes are US and Puerto Rico only
+-	Azure Communication Services direct routing is currently in public preview and not intended for production workloads. So E911 dialing is out of scope for Azure Communication Services direct routing.
+-	The 911 service is temporarily free to use for Azure Communication Services customers within reasonable use, however billing for the service will be enabled in 2022.   
 -	Calls to 911 are capped at 10 concurrent calls per Azure Resource.   
 
 

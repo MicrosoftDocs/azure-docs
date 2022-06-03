@@ -126,7 +126,7 @@ Application gateway supports the following server variables:
 | ssl_enabled               | "On" if the connection operates in TLS mode. Otherwise, an   empty string. |
 | uri_path                  | Identifies the specific resource in the host that the web   client wants to access. This is the part of the request URI without the   arguments. Example: In the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`,   uri_path value will be `/article.aspx` |
 
-### Mutual authentication server variables (Preview)
+### Mutual authentication server variables
 
 Application Gateway supports the following server variables for mutual authentication scenarios. Use these server variables the same way as above with the other server variables. 
 
@@ -175,9 +175,6 @@ For example, say you have the following header rewrite rule for the header `"Acc
 
 Here, with only header rewrite configured, the WAF evaluation will be done on `"Accept" : "text/html"`. But when you configure URL rewrite or host header rewrite, then the WAF evaluation will be done on `"Accept" : "image/png"`.
 
->[!NOTE]
-> URL rewrite operations are expected to cause a minor increase in the CPU utilization of your WAF Application Gateway. It is recommended that you monitor the [CPU utilization metric](high-traffic-support.md) for a brief period of time after enabling the URL rewrite rules on your WAF Application Gateway.
-
 ### Common scenarios for header rewrite
 
 #### Remove port information from the X-Forwarded-For header
@@ -189,9 +186,12 @@ Application Gateway inserts an X-Forwarded-For header into all requests before i
 
 #### Modify a redirection URL
 
-When a back-end application sends a redirection response, you might want to redirect the client to a different URL than the one specified by the back-end application. For example, you might want to do this when an app service is hosted behind an application gateway and requires the client to do a redirection to its relative path. (For example, a redirect from contoso.azurewebsites.net/path1 to contoso.azurewebsites.net/path2.)
+Modification of a redirect URL can be useful under certain circumstances.  For example: clients were originally redirected to a path like "/blog" but now should be sent to "/updates" due to a change in content structure.  
 
-Because App Service is a multitenant service, it uses the host header in the request to route the request to the correct endpoint. App services have a default domain name of \*.azurewebsites.net (say contoso.azurewebsites.net) that's different from the application gateway's domain name (say contoso.com). Because the original request from the client has the application gateway's domain name (contoso.com) as the hostname, the application gateway changes the hostname to contoso.azurewebsites.net. It makes this change so that the app service can route the request to the correct endpoint.
+> [!WARNING]
+> The need to modify a redirection URL sometimes comes up in the context of a configuration whereby Application Gateway is configured to override the hostname towards the backend.  The hostname as seen by the backend is in that case different from the hostname as seen by the browser.  In this situation, the redirect would not use the correct hostname.  This configuration is not recommended.
+>
+> The limitations and implications of such a configuration are described in [Preserve the original HTTP host name between a reverse proxy and its back-end web application](/azure/architecture/best-practices/host-name-preservation).  The recommended setup for App Service is to follow the instructions for **"Custom Domain (recommended)"** in [Configure App Service with Application Gateway](configure-web-app.md).  Rewriting the location header on the response as described in the below example should be considered a workaround and does not address the root cause.
 
 When the app service sends a redirection response, it uses the same hostname in the location header of its response as the one in the request it receives from the application gateway. So the client will make the request directly to `contoso.azurewebsites.net/path2` instead of going through the application gateway (`contoso.com/path2`). Bypassing the application gateway isn't desirable.
 
@@ -283,8 +283,10 @@ In the case of a URL redirect, Application Gateway sends a redirect response to 
 
 - If a response has more than one header with the same name, then rewriting the value of one of those headers will result in dropping the other headers in the response. This can usually happen with Set-Cookie header since you can have more than one Set-Cookie header in a response. One such scenario is when you are using an app service with an application gateway and have configured cookie-based session affinity on the application gateway. In this case the response will contain two Set-Cookie headers: one used by the app service, for example: `Set-Cookie: ARRAffinity=ba127f1caf6ac822b2347cc18bba0364d699ca1ad44d20e0ec01ea80cda2a735;Path=/;HttpOnly;Domain=sitename.azurewebsites.net` and another for application gateway affinity, for example, `Set-Cookie: ApplicationGatewayAffinity=c1a2bd51lfd396387f96bl9cc3d2c516; Path=/`. Rewriting one of the Set-Cookie headers in this scenario can result in removing the other Set-Cookie header from the response.
 - Rewrites are not supported when the application gateway is configured to redirect the requests or to show a custom error page.
-- Header names can contain any alphanumeric characters and specific symbols as defined in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). We don't currently support the underscore (\_) special character in Header names.
+- Request header names can contain alphanumeric characters and hyphens. Headers names containing other characters will be discarded when a request is sent to the backend target.
+- Response header names can contain any alphanumeric characters and specific symbols as defined in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27), with the exception of underscores (\_).
 - Connection and upgrade headers cannot be rewritten
+- Rewrites are not supported for 4xx and 5xx responses generated directly from Application Gateway
 
 ## Next steps
 

@@ -6,8 +6,6 @@ ms.date: 12/14/2021
 ---
 # Planning and operations guide
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 This guide is for information technology (IT) professionals, IT architects, information security analysts, and cloud administrators planning to use Defender for Cloud.
 
 
@@ -164,7 +162,7 @@ After initial configuration and application of Defender for Cloud recommendation
 
 The Defender for Cloud Overview provides a unified view of security across all your Azure resources and any non-Azure resources you have connected. The example below shows an environment with many issues to be addressed:
 
-![dashboard.](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig11.png)
+![dashboard.](./media/security-center-planning-and-operations-guide/microsoft-defender-for-cloud-planning-and-operations-guide-fig-11.png)
 
 > [!NOTE]
 > Defender for Cloud will not interfere with your normal operational procedures, it will passively monitor your deployments and provide recommendations based on the security policies you enabled.
@@ -185,7 +183,7 @@ You should also regularly monitor existing resources for configuration changes t
 
 As part of your security operations, you should also adopt preventative measures to restrict access to VMs, and control the applications that are running on VMs. By locking down inbound traffic to your Azure VMs, you are reducing the exposure to attacks, and at the same time providing easy access to connect to VMs when needed. Use [just-in-time VM access](just-in-time-access-usage.md) access feature to hardening access to your VMs.
 
-You can use [adaptive application controls](adaptive-application-controls.md) to limit which applications can run on your VMs located in Azure. Among other benefits, this helps harden your VMs against malware. Using machine learning, Defender for Cloud analyzes processes running in the VM to help you create allow listing rules.
+You can use [adaptive application controls](adaptive-application-controls.md) to limit which applications can run on your VMs located in Azure. Among other benefits, this helps harden your VMs against malware. Using machine learning, Defender for Cloud analyzes processes running in the VM to help you create allowlist rules.
 
 
 ## Incident response

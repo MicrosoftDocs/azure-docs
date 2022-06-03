@@ -1,29 +1,29 @@
 ---
 title: Restart server - Hyperscale (Citus) - Azure Database for PostgreSQL
-description: How to restart the database in Azure Database for PostgreSQL - Hyperscale (Citus)
-author: jonels-msft
+description: Learn how to restart all nodes in a Hyperscale (Citus) server group from the Azure portal.
+ms.custom: kr2b-contr-experiment
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 7/9/2021
+ms.date: 05/06/2022
 ---
 
 # Restart Azure Database for PostgreSQL - Hyperscale (Citus)
 
-If you'd like to restart your Hyperscale (Citus) server group, you can do it
-from the group's **Overview** page in the Azure portal. Select the **Restart**
-button on the top bar. A confirmation dialog will appear. Select **Restart
-all** to continue.
+You can restart your Hyperscale (Citus) server group for the Azure portal. Restarting the server group applies to all nodes; you can't selectively restart
+individual nodes. The restart applies to all PostgreSQL server processes in the nodes. Any applications attempting to use the database will experience
+connectivity downtime while the restart happens.
 
-> [!NOTE]
-> If the Restart button is not yet present for your server group, please open
-> an Azure support request to restart the server group.
+1. In the Azure portal, navigate to the server group's **Overview** page.
 
-Restarting the server group applies to all nodes; you can't selectively restart
-individual nodes. The restart applies to the nodes' entire virtual machines,
-not just the PostgreSQL server instances. Any applications attempting to use
-the database will experience connectivity downtime while the restart happens.
+1. Select **Restart** on the top bar.
+   > [!NOTE]
+   > If the Restart button is not yet present for your server group, please open
+   > an Azure support request to restart the server group.
+
+1. In the confirmation dialog, select **Restart all** to continue.
 
 **Next steps**
 

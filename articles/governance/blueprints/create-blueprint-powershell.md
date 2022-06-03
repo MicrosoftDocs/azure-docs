@@ -1,25 +1,20 @@
 ---
 title: 'Quickstart: Create a blueprint with PowerShell'
-description: In this quickstart, you use Azure Blueprints to create, define, and deploy artifacts using the PowerShell.
+description: In this quickstart, you use Azure Blueprints to create, define, and deploy artifacts by using PowerShell.
 ms.date: 08/17/2021
 ms.topic: quickstart
 ms.custom: mode-api
 ---
-# Quickstart: Define and Assign an Azure blueprint with PowerShell
+# Quickstart: Define and assign an Azure blueprint with PowerShell
 
-Learning how to create and assign blueprints enables the definition of common patterns to develop
-reusable and rapidly deployable configurations based on Azure Resource Manager templates (ARM
-templates), policy, security, and more. In this tutorial, you learn to use Azure Blueprints to do
-some of the common tasks related to creating, publishing, and assigning a blueprint within your
-organization, such as:
+In this tutorial, you learn to use Azure Blueprints to do some of the common tasks related to creating, publishing, and assigning a blueprint within your organization. This skill helps you define common patterns to develop reusable and rapidly deployable configurations, based on Azure Resource Manager (ARM) templates, policy, and security. 
 
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a
   [free account](https://azure.microsoft.com/free) before you begin.
 - If it isn't already installed, follow the instructions in
-  [Add the Az.Blueprint module](./how-to/manage-assignments-ps.md#add-the-azblueprint-module) to
-  install and validate the **Az.Blueprint** module from the PowerShell Gallery.
+  [Add the Az.Blueprint module](./how-to/manage-assignments-ps.md#add-the-azblueprint-module) to install and validate the **Az.Blueprint** module from the PowerShell Gallery.
 - If you've not used Azure Blueprints before, register the resource provider through Azure
   PowerShell with `Register-AzResourceProvider -ProviderNamespace Microsoft.Blueprint`.
 
@@ -28,20 +23,17 @@ organization, such as:
 ## Create a blueprint
 
 The first step in defining a standard pattern for compliance is to compose a blueprint from the
-available resources. We'll create a blueprint named 'MyBlueprint' to configure role and policy
-assignments for the subscription. Then we'll add a resource group, an ARM template, and a role
+available resources. Let's create a blueprint named *MyBlueprint* to configure role and policy
+assignments for the subscription. Then you add a resource group, an ARM template, and a role
 assignment on the resource group.
 
 > [!NOTE]
-> When using PowerShell, the _blueprint_ object is created first. For each _artifact_ to be added
-> that has parameters, the parameters need to be defined in advance on the initial _blueprint_.
+> When you're using PowerShell, the _blueprint_ object is created first. For each _artifact_ to be added that has parameters, you define the parameters in advance on the initial _blueprint_.
 
-1. Create the initial _blueprint_ object. The **BlueprintFile** parameter takes a JSON file that
-   includes properties about the blueprint, any resource groups to create, and all of the blueprint
-   level parameters. The parameters are set during assignment and used by the artifacts added in
-   later steps.
+1. Create the initial _blueprint_ object. The `BlueprintFile` parameter takes a JSON file that
+   includes properties about the blueprint, any resource groups to create, and all of the blueprint-level parameters. You set the parameters during assignment, and they're used by the artifacts you add in later steps.
 
-   - JSON file - blueprint.json
+   - JSON file - *blueprint.json*
 
      ```json
      {
@@ -111,21 +103,15 @@ assignment on the resource group.
      ```
 
      > [!NOTE]
-     > Use the filename _blueprint.json_ when creating your blueprint definitions programmatically.
-     > This file name is used when calling
-     > [Import-AzBlueprintWithArtifact](/powershell/module/az.blueprint/import-azblueprintwithartifact).
+     > Use the filename _blueprint.json_ when you create your blueprint definitions programmatically. This file name is used when you call [`Import-AzBlueprintWithArtifact`](/powershell/module/az.blueprint/import-azblueprintwithartifact).
 
      The blueprint object is created in the default subscription by default. To specify the
-     management group, use parameter **ManagementGroupId**. To specify the subscription, use
-     parameter **SubscriptionId**.
+     management group, use the parameter `ManagementGroupId`. To specify the subscription, use
+     the parameter `SubscriptionId`.
 
-1. Add role assignment at subscription. The **ArtifactFile** defines the _kind_ of artifact, the
-   properties align to the role definition identifier, and the principal identities are passed as an
-   array of values. In the following example, the principal identities granted the specified role
-   are configured to a parameter that is set during blueprint assignment. This example uses the
-   _Contributor_ built-in role with a GUID of `b24988ac-6180-42a0-ab88-20f7382dd24c`.
+1. Add a role assignment at the subscription. The `ArtifactFile` defines the kind of artifact, the properties align to the role definition identifier, and the principal identities are passed as an array of values. In the following example, the principal identities granted the specified role are configured to a parameter that is set during blueprint assignment. This example uses the `Contributor` built-in role, with a GUID of `b24988ac-6180-42a0-ab88-20f7382dd24c`.
 
-   - JSON file - \artifacts\roleContributor.json
+   - JSON file - *\artifacts\roleContributor.json*
 
      ```json
      {
@@ -144,13 +130,9 @@ assignment on the resource group.
      New-AzBlueprintArtifact -Blueprint $blueprint -Name 'roleContributor' -ArtifactFile .\artifacts\roleContributor.json
      ```
 
-1. Add policy assignment at subscription. The **ArtifactFile** defines the _kind_ of artifact, the
-   properties that align to a policy or initiative definition, and configures the policy assignment
-   to use the defined blueprint parameters to configure during blueprint assignment. This example
-   uses the _Apply tag and its default value to resource groups_ built-in policy with a GUID of
-   `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`.
+1. Add a policy assignment at the subscription. The `ArtifactFile` defines the kind of artifact, the properties align to a policy or initiative definition, and the policy assignment is configured to use the defined blueprint parameters during blueprint assignment. This example uses the `Apply tag and its default value to resource groups` built-in policy, with a GUID of `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`.
 
-   - JSON file - \artifacts\policyTags.json
+   - JSON file - *\artifacts\policyTags.json*
 
      ```json
      {
@@ -178,14 +160,9 @@ assignment on the resource group.
      New-AzBlueprintArtifact -Blueprint $blueprint -Name 'policyTags' -ArtifactFile .\artifacts\policyTags.json
      ```
 
-1. Add another policy assignment for Storage tag (reusing _storageAccountType_ parameter) at
-   subscription. This additional policy assignment artifact demonstrates that a parameter defined on
-   the blueprint is usable by more than one artifact. In the example, the **storageAccountType** is
-   used to set a tag on the resource group. This value provides information about the storage
-   account that is created in the next step. This example uses the _Apply tag and its default value
-   to resource groups_ built-in policy with a GUID of `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`.
+1. Add another policy assignment for the storage tag (by reusing `storageAccountType_ parameter`) at the subscription. This additional policy assignment artifact demonstrates that a parameter defined on the blueprint is usable by more than one artifact. In the example, you use the `storageAccountType` to set a tag on the resource group. This value provides information about the storage account that you create in the next step. This example uses the `Apply tag and its default value to resource groups` built-in policy, with a GUID of `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`.
 
-   - JSON file - \artifacts\policyStorageTags.json
+   - JSON file - *\artifacts\policyStorageTags.json*
 
      ```json
      {
@@ -213,14 +190,9 @@ assignment on the resource group.
      New-AzBlueprintArtifact -Blueprint $blueprint -Name 'policyStorageTags' -ArtifactFile .\artifacts\policyStorageTags.json
      ```
 
-1. Add template under resource group. The **TemplateFile** for an ARM template includes the normal
-   JSON component of the template. The template also reuses the **storageAccountType**, **tagName**,
-   and **tagValue** blueprint parameters by passing each to the template. The blueprint parameters
-   are available to the template by using parameter **TemplateParameterFile** and inside the
-   template JSON that key-value pair is used to inject the value. The blueprint and template
-   parameter names could be the same.
+1. Add a template under the resource group. The `TemplateFile` for an ARM template includes the normal JSON component of the template. The template also reuses the `storageAccountType`, `tagName`, and `tagValue` blueprint parameters by passing each to the template. The blueprint parameters are available to the template by using the parameter `TemplateParameterFile`, and inside the template JSON that key-value pair is used to inject the value. The blueprint and template parameter names might be the same.
 
-   - JSON ARM template file - \artifacts\templateStorage.json
+   - JSON ARM template file - *\artifacts\templateStorage.json*
 
      ```json
      {
@@ -274,7 +246,7 @@ assignment on the resource group.
      }
      ```
 
-   - JSON ARM template parameter file - \artifacts\templateStorageParams.json
+   - JSON ARM template parameter file - *\artifacts\templateStorageParams.json*
 
      ```json
      {
@@ -301,12 +273,9 @@ assignment on the resource group.
      New-AzBlueprintArtifact -Blueprint $blueprint -Type TemplateArtifact -Name 'templateStorage' -TemplateFile .\artifacts\templateStorage.json -TemplateParameterFile .\artifacts\templateStorageParams.json -ResourceGroupName storageRG
      ```
 
-1. Add role assignment under resource group. Similar to the previous role assignment entry, the
-   example below uses the definition identifier for the **Owner** role and provides it a different
-   parameter from the blueprint. This example uses the _Owner_ built-in role with a GUID of
-   `8e3af657-a8ff-443c-a75c-2fe8c4bcb635`.
+1. Add a role assignment under the resource group. Similar to the previous role assignment entry, the following example uses the definition identifier for the `Owner` role, and provides it a different parameter from the blueprint. This example uses the `Owner` built-in role, with a GUID of `8e3af657-a8ff-443c-a75c-2fe8c4bcb635`.
 
-   - JSON file - \artifacts\roleOwner.json
+   - JSON file - *\artifacts\roleOwner.json*
 
      ```json
      {
@@ -328,35 +297,23 @@ assignment on the resource group.
 
 ## Publish a blueprint
 
-Now that the artifacts have been added to the blueprint, it's time to publish it. Publishing makes
-it available to assign to a subscription.
+Now that you've added the artifacts to the blueprint, it's time to publish it. Publishing makes
+the blueprint available to assign to a subscription.
 
 ```azurepowershell-interactive
 # Use the reference to the new blueprint object from the previous steps
 Publish-AzBlueprint -Blueprint $blueprint -Version '{BlueprintVersion}'
 ```
 
-The value for `{BlueprintVersion}` is a string of letters, numbers, and hyphens (no spaces or other
-special characters) with a max length of 20 characters. Use something unique and informational such
-as **v20180622-135541**.
+The value for `{BlueprintVersion}` is a string of letters, numbers, and hyphens (with no spaces or other special characters). The maximum length is 20 characters. Use something unique and informational, such as `v20180622-135541`.
 
 ## Assign a blueprint
 
-Once a blueprint is published using PowerShell, it's assignable to a subscription. Assign the
-blueprint you created to one of the subscriptions under your management group hierarchy. If the
-blueprint is saved to a subscription, it can only be assigned to that subscription. The
-**Blueprint** parameter specifies the blueprint to assign. To provide name, location, identity,
-lock, and blueprint parameters, use the matching PowerShell parameters on the
-`New-AzBlueprintAssignment` cmdlet or provide them in the **AssignmentFile** parameter JSON file.
+After you've published a blueprint by using PowerShell, it's assignable to a subscription. Assign the blueprint that you created to one of the subscriptions under your management group hierarchy. If the blueprint is saved to a subscription, it can only be assigned to that subscription. The `Blueprint` parameter specifies the blueprint to assign. To provide the `name`, `location`, `identity`, `lock`, and `blueprint` parameters, use the matching PowerShell parameters on the `New-AzBlueprintAssignment` cmdlet, or provide them in the `AssignmentFile` parameter JSON file.
 
-1. Run the blueprint deployment by assigning it to a subscription. As the **contributors** and
-   **owners** parameters require an array of objectIds of the principals to be granted the role
-   assignment, use
-   [Azure Active Directory Graph API](/graph/migrate-azure-ad-graph-planning-checklist)
-   for gathering the objectIds for use in the **AssignmentFile** for your own users, groups, or
-   service principals.
+1. Run the blueprint deployment by assigning it to a subscription. Because the `contributors` and `owners` parameters require an array of `objectIds` of the principals to be granted the role assignment, use [Azure Active Directory Graph API](/graph/migrate-azure-ad-graph-planning-checklist) for gathering the `objectIds` for use in the `AssignmentFile` for your own users, groups, or service principals.
 
-   - JSON file - blueprintAssignment.json
+   - JSON file - *blueprintAssignment.json*
 
      ```json
      {
@@ -409,11 +366,7 @@ lock, and blueprint parameters, use the matching PowerShell parameters on the
    - User-assigned managed identity
 
      A blueprint assignment can also use a
-     [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md).
-     In this case, the **identity** portion of the JSON assignment file changes as follows. Replace
-     `{tenantId}`, `{subscriptionId}`, `{yourRG}`, and `{userIdentity}` with your tenantId,
-     subscriptionId, resource group name, and the name of your user-assigned managed identity,
-     respectively.
+     [user-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md). In this case, the `identity` portion of the JSON assignment file changes as follows. Replace `{tenantId}`, `{subscriptionId}`, `{yourRG}`, and `{userIdentity}` with your tenant ID, subscription ID, resource group name, and the name of your user-assigned managed identity, respectively.
 
      ```json
      "identity": {
@@ -425,20 +378,14 @@ lock, and blueprint parameters, use the matching PowerShell parameters on the
      },
      ```
 
-     The **user-assigned managed identity** can be in any subscription and resource group the user
-     assigning the blueprint has permissions to.
+     The user-assigned managed identity can be in any subscription and resource group to which the user assigning the blueprint has permissions.
 
      > [!IMPORTANT]
-     > Azure Blueprints doesn't manage the user-assigned managed identity. Users are responsible for
-     > assigning sufficient roles and permissions or the blueprint assignment will fail.
+     > Azure Blueprints doesn't manage the user-assigned managed identity. Users are responsible for assigning sufficient roles and permissions, or the blueprint assignment will fail.
 
 ## Clean up resources
 
-### Unassign a blueprint
-
-You can remove a blueprint from a subscription. Removal is often done when the artifact resources
-are no longer needed. When a blueprint is removed, the artifacts assigned as part of that blueprint
-are left behind. To remove a blueprint assignment, use the `Remove-AzBlueprintAssignment` cmdlet:
+You can remove a blueprint from a subscription. Removal is often done when the artifact resources are no longer needed. When a blueprint is removed, the artifacts assigned as part of that blueprint are left behind. To remove a blueprint assignment, use the `Remove-AzBlueprintAssignment` cmdlet:
 
 assignMyBlueprint
 
@@ -448,8 +395,7 @@ Remove-AzBlueprintAssignment -Name 'assignMyBlueprint'
 
 ## Next steps
 
-In this quickstart, you've created, assigned, and removed a blueprint with PowerShell. To learn more
-about Azure Blueprints, continue to the blueprint lifecycle article.
+In this quickstart, you created, assigned, and removed a blueprint with PowerShell. To learn more about Azure Blueprints, continue to the blueprint lifecycle article.
 
 > [!div class="nextstepaction"]
 > [Learn about the blueprint lifecycle](./concepts/lifecycle.md)

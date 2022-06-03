@@ -3,8 +3,8 @@ title: Project lifecycle - question answering
 description: Question answering learns best in an iterative cycle of model changes, utterance examples, deployment, and gathering data from endpoint queries.
 ms.service: cognitive-services
 ms.subservice: language-service
-author: mrbullwinkle
-ms.author: mbullwin
+author: jboback
+ms.author: jboback
 ms.topic: conceptual
 ms.date: 11/02/2021
 ---

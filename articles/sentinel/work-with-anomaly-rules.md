@@ -3,7 +3,7 @@ title: Work with anomaly detection analytics rules in Microsoft Sentinel | Micro
 description: This article explains how to view, create, manage, assess, and fine-tune anomaly detection analytics rules in Microsoft Sentinel.
 author: yelevin
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 01/30/2022
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
@@ -22,15 +22,15 @@ Microsoft Sentinel’s [customizable anomalies feature](soc-ml-anomalies.md) pro
 
 1. From the Microsoft Sentinel navigation menu, select **Analytics**.
 
-1. In the **Analytics** blade, select the **Rule templates** tab.
+1. On the **Analytics** page, select the **Rule templates** tab.
 
 1. Filter the list for **Anomaly** templates:
 
-    1. Click the **Rule type** filter, then the drop-down list that appears below.
+    1. Select the **Rule type** filter, then the drop-down list that appears below.
 
     1. Unmark **Select all**, then mark **Anomaly**.
 
-    1. If necessary, click the top of the drop-down list to retract it, then click **OK**.
+    1. If necessary, select the top of the drop-down list to retract it, then select **OK**.
 
 ## Activate anomaly rules
 
@@ -40,7 +40,7 @@ When you select one of the rule templates, you will see the following informatio
 
 - **Data sources** indicates the type of logs that need to be ingested in order to be analyzed.
 
-- **Tactics** are the MITRE ATT&CK framework tactics covered by the anomaly.
+- **Tactics and techniques** are the MITRE ATT&CK framework tactics and techniques covered by the anomaly.
 
 - **Parameters** are the configurable attributes for the anomaly.
 
@@ -54,7 +54,7 @@ When you select one of the rule templates, you will see the following informatio
 
 Complete the following steps to activate a rule:
 
-1. Choose a rule template that is not already labeled **IN USE**. Click the **Create rule** button to open the rule creation wizard.
+1. Choose a rule template that is not already labeled **IN USE**. Select the **Create rule** button to open the rule creation wizard.
 
     The wizard for each rule template will be slightly different, but it has three steps or tabs: **General**, **Configuration**, **Review and create**.
 
@@ -77,7 +77,7 @@ You can see how well an anomaly rule is performing by reviewing a sample of the 
 
 1. From the Microsoft Sentinel navigation menu, select **Analytics**.
 
-1. In the **Analytics** blade, check that the **Active rules** tab is selected.
+1. On the **Analytics** page, check that the **Active rules** tab is selected.
 
 1. Filter the list for **Anomaly** rules (as above).
 
@@ -87,7 +87,7 @@ You can see how well an anomaly rule is performing by reviewing a sample of the 
 
 1. If a **Queries** gallery pops up over the top, close it.
 
-1. Select the **Tables** tab on the left pane of the **Logs** blade.
+1. Select the **Tables** tab on the left pane of the **Logs** page.
 
 1. Set the **Time range** filter to **Last 24 hours**.
 
@@ -99,7 +99,7 @@ You can see how well an anomaly rule is performing by reviewing a sample of the 
     ```
     Paste the rule name you copied above in place of the underscores between the quotation marks.
 
-1. Click **Run**. 
+1. Select **Run**. 
 
 When you have some results, you can start assessing the quality of the anomalies. If you don’t have results, try increasing the time range.
 
@@ -119,19 +119,19 @@ This is by design, to give you the opportunity to compare the results generated 
 
 1. To change the configuration of an anomaly rule, select the anomaly rule in the **Active rules** tab.
 
-1. Right-click anywhere on the row of the rule, or left-click the ellipsis (...) at the end of the row, then click **Duplicate**.
+1. Right-click anywhere on the row of the rule, or left-click the ellipsis (...) at the end of the row, then select **Duplicate**.
 
-1. The new copy of the rule will have the suffix " - Customized" in the rule name. To actually customize this rule, select this rule and click **Edit**.
+1. The new copy of the rule will have the suffix " - Customized" in the rule name. To actually customize this rule, select this rule and select **Edit**.
 
 1. The rule opens in the Analytics rule wizard. Here you can change the parameters of the rule and its threshold. The parameters that can be changed vary with each anomaly type and algorithm.
 
-    You can preview the results of your changes in the **Results preview pane**. Click an **Anomaly ID** in the results preview to see why the ML model identifies that anomaly.
+    You can preview the results of your changes in the **Results preview pane**. Select an **Anomaly ID** in the results preview to see why the ML model identifies that anomaly.
 
-1. Enable the customized rule to generate results. Some of your changes may require the rule to re-run, so you must wait for it to finish and come back to check the results on the logs page. The customized anomaly rule runs in **Flighting** (testing) mode by default. The original rule continues to run in **Production** mode by default.
+1. Enable the customized rule to generate results. Some of your changes may require the rule to run again, so you must wait for it to finish and come back to check the results on the logs page. The customized anomaly rule runs in **Flighting** (testing) mode by default. The original rule continues to run in **Production** mode by default.
 
 1. To compare the results, go back to the Anomalies table in **Logs** to [assess the new rule as before](#assess-the-quality-of-anomalies), only look for rows with the original rule name as well as the duplicate rule name with " - Customized" appended to it in the **AnomalyTemplateName** column.
 
-    If you are satisfied with the results for the customized rule, you can go back to the **Active rules** tab, click on the customized rule, click the **Edit** button and on the **General** tab switch it from **Flighting** to **Production**. The original rule will automatically change to **Flighting** since you can't have two versions of the same rule in production at the same time. 
+    If you are satisfied with the results for the customized rule, you can go back to the **Active rules** tab, select on the customized rule, select the **Edit** button and on the **General** tab switch it from **Flighting** to **Production**. The original rule will automatically change to **Flighting** since you can't have two versions of the same rule in production at the same time. 
 
 ## Next steps
 

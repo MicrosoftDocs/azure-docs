@@ -39,7 +39,7 @@ While cost analysis offers a rich, interactive experience for analyzing and surf
 
 :::image type="content" source="./media/reporting-get-started/azure-hybrid-benefits-report-full.png" alt-text="Screenshot showing the Power BI template app." lightbox="./media/reporting-get-started/azure-hybrid-benefits-report-full.png" :::
 
-Need to go beyond the basics with Power BI? The Cost Management connector for Power BI lets you choose the data you need to help you seamlessly integrate costs with your own datasets or easily build out more complete dashboards and reports to meet your organization's needs. For more information about the connector, see [Connect to Azure Cost Management data in Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management).
+Need to go beyond the basics with Power BI? The Cost Management connector for Power BI lets you choose the data you need to help you seamlessly integrate costs with your own datasets or easily build out more complete dashboards and reports to meet your organization's needs. For more information about the connector, see [Connect to Cost Management data in Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management).
 
 ## Usage details and exports
 
@@ -65,5 +65,5 @@ For more information about credits, see [Track Microsoft Customer Agreement Azur
 
 - [Explore and analyze costs with cost analysis](quick-acm-cost-analysis.md).
 - [Analyze Azure costs with the Power BI App](analyze-cost-data-azure-cost-management-power-bi-template-app.md).
-- [Connect to Azure Cost Management data in Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management).
+- [Connect to Microsoft Cost Management data in Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management).
 - [Create and manage exported data](tutorial-export-acm-data.md).

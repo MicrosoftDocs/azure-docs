@@ -3,7 +3,6 @@ title: Web app performance monitoring - Azure Application Insights
 description: How Application Insights fits into the DevOps cycle
 ms.topic: conceptual
 ms.date: 12/21/2018
-
 ---
 
 # Deep diagnostics for web apps and services with Application Insights
@@ -143,7 +142,7 @@ When an alert is raised, Application Insights can automatically create a work it
 ## But what about...?
 * [Privacy and storage](./data-retention-privacy.md) - Your telemetry is kept on Azure secure servers.
 * Performance - the impact is very low. Telemetry is batched.
-* [Pricing](./pricing.md) - You can get started for free, and that continues while you're in low volume.
+* [Pricing](../logs/cost-logs.md#application-insights-billing) - You can get started for free, and that continues while you're in low volume.
 
 
 ## Next steps

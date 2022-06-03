@@ -3,21 +3,22 @@ title: Patterns add accuracy - LUIS
 titleSuffix: Azure Cognitive Services
 description: Add pattern templates to improve prediction accuracy in Language Understanding (LUIS) applications.
 services: cognitive-services
-
+author: aahill
+ms.author: aahi
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
-ms.date: 05/17/2020
-
+ms.date: 01/07/2022
 ---
 
 # How to add patterns to improve prediction accuracy
 After a LUIS app receives endpoint utterances, use a [pattern](luis-concept-patterns.md) to improve prediction accuracy for utterances that reveal a pattern in word order and word choice. Patterns use specific [syntax](luis-concept-patterns.md#pattern-syntax) to indicate the location of: [entities](luis-concept-entity-types.md), entity [roles](./luis-concept-entity-types.md), and optional text.
 
-> [!CAUTION]
-> Patterns only include machine-learning entity parents, not subentities.
+>[!Note] 
+>* After you add, edit, remove, or reassign a pattern, [train](luis-how-to-train.md) and [publish](luis-how-to-publish-app.md) your app for your changes to affect endpoint queries.
+>* Patterns only include machine-learning entity parents, not subentities.
 
 ## Add template utterance using correct syntax
 
@@ -77,36 +78,78 @@ If you want to add a pattern for an entity, the _easiest_ way is to create the p
 
 1. In the navigation bar, select **Train** to train the app with the new pattern.
 
-## Train your app after changing model with patterns
-After you add, edit, remove, or reassign a pattern, [train](luis-how-to-train.md) and [publish](luis-how-to-publish-app.md) your app for your changes to affect endpoint queries.
+## Use the OR operator and groups
 
-<a name="search-patterns"></a>
-<a name="edit-a-pattern"></a>
-<a name="reassign-individual-pattern-to-different-intent"></a>
-<a name="reassign-several-patterns-to-different-intent"></a>
-<a name="delete-a-single-pattern"></a>
-<a name="delete-several-patterns"></a>
-<a name="filter-pattern-list-by-entity"></a>
-<a name="filter-pattern-list-by-intent"></a>
-<a name="remove-entity-or-intent-filter"></a>
-<a name="add-pattern-from-existing-utterance-on-intent-or-entity-page"></a>
+The following two patterns can be combined into a single pattern using the group "_( )_" and OR "_|_" syntax.
 
-## Use contextual toolbar
+|Intent|Example utterances with optional text and prebuilt entities|
+|--|--|
+|OrgChart-Manager|"who will be {EmployeeListEntity}['s] manager [[in]{datetimeV2}?]"|
+|OrgChart-Manager|"who will be {EmployeeListEntity}['s] manager [[on]{datetimeV2}?]"|
 
-The contextual toolbar above the patterns list allows you to:
+The new template utterance will be:
 
-* Search for patterns
-* Edit a pattern
-* Reassign individual pattern to different intent
-* Reassign several patterns to different intent
-* Delete-a-single-pattern
-* Delete several patterns
-* Filter pattern list by entity
-* Filter-pattern-list-by-intent
-* Remove entity or intent filter
-* Add pattern from existing utterance on intent or entity page
+"who ( was | is | will be ) {EmployeeListEntity}['s] manager [([in]|[on]){datetimeV2}?]" .
+
+This uses a **group** around the required verb tense and the optional 'in' and 'on' with an **or** pipe between them.
+
+
+## Template utterances
+
+Due to the nature of the Human Resource subject domain, there are a few common ways of asking about employee relationships in organizations. Such as the following example utterances:
+
+* "Who does Jill Jones report to?"
+* "Who reports to Jill Jones?"
+
+These utterances are too close to determine the contextual uniqueness of each without providing _many_ utterance examples. By adding a pattern for an intent, LUIS learns common utterance patterns for an intent without needing to supply several more utterance examples.
+
+>[!Tip]
+>Each utterance can be deleted from the review list. Once deleted, it will not appear in the list again. This is true even if the user enters the same utterance from the endpoint.
+
+Template utterance examples for this intent would include:
+
+|Template utterances examples|syntax meaning|
+|--|--|
+|Who does {EmployeeListEntity} report to[?]|interchangeable: {EmployeeListEntity} <br> ignore: [?]|
+|Who reports to {EmployeeListEntity}[?]|interchangeable: {EmployeeListEntity} <br> ignore: [?]|
+
+The "_{EmployeeListEntity}_" syntax marks the entity location within the template utterance and which entity it is. The optional syntax, "_[?]_", marks words or [punctuation](luis-reference-application-settings.md) that is optional. LUIS matches the utterance, ignoring the optional text inside the brackets.
+
+> [!IMPORTANT]
+> While the syntax looks like a regular expression, it is not a regular expression. Only the curly bracket, "_{ }_", and square bracket, "_[ ]_", syntax is supported. They can be nested up to two levels.
+
+For a pattern to be matched to an utterance, _first_ the entities within the utterance must match the entities in the template utterance. This means the entities need to have enough examples in example utterances with a high degree of prediction before patterns with entities are successful. The template doesn't help predict entities, however. The template only predicts intents.
+
+> [!NOTE]
+> While patterns allow you to provide fewer example utterances, if the entities are not detected, the pattern will not match.
+
+## Add phrase list as a feature
+[Features](concepts/patterns-features.md) help LUIS by providing hints that certain words and phrases are part of an app domain vocabulary.
+
+1. Sign in to the [LUIS portal](https://www.luis.ai/), and select your  **Subscription**  and  **Authoring resource**  to see the apps assigned to that authoring resource.
+2. Open your app by selecting its name on  **My Apps**  page.
+3. Select  **Build** , then select  **Features**  in your app&#39;s left panel.
+4. On the  **Features**  page, select  **+ Create**.
+5. In the  **Create new phrase list feature**  dialog box, enter a name such as Pizza Toppings. In the  **Value**  box, enter examples of toppings, such as _Ham_. You can type one value at a time, or a set of values separated by commas, and then press  **Enter**.
+
+:::image type="content" source="media/luis-add-features/add-phrase-list-cities.png" alt-text="A screenshot showing how to add feature (phrase list) Cities" lightbox="media/luis-add-features/add-phrase-list-cities.png":::
+
+6. Keep the  **These values are interchangeable**  selector enabled if the phrases can be used interchangeably. The interchangeable phrase list feature serves as a list of synonyms for training. Non-interchangeable phrase lists serve as separate features for training, meaning that features are similar but the intent changes when you swap phrases.
+7. The phrase list can apply to the entire app with the  **Global**  setting, or to a specific model (intent or entity). If you create the phrase list as a _feature_ from an intent or entity, the toggle is not set to global. In this case, the toggle specifies that the feature is local only to that model, therefore, _not global_ to the application.
+8. Select  **Done**. The new feature is added to the  **ML Features**  page.
+
+> [!Note]
+> * You can delete, or deactivate a phrase list from the contextual toolbar on the **ML Features** page.
+> * A phrase list should be applied to the intent or entity it is intended to help but there may be times when a phrase list should be applied to the entire app as a  **Global**  feature. On the **Machine Learning** Features page, select the phrase list, then select  **Make global**  in the top contextual toolbar.
+
+
+## Add entity as a feature to an intent
+
+To add an entity as a feature to an intent, select the intent from the Intents page, then select  **+ Add feature**  above the contextual toolbar. The list will include all phrase lists and entities that can be applied as features.
+
+To add an entity as a feature to another entity, you can add the feature either on the Intent detail page using the [Entity Palette](/azure/cognitive-services/luis/label-entity-example-utterance#adding-entity-as-a-feature-from-the-entity-palette) or you can add the feature on the Entity detail page.
+
 
 ## Next steps
 
-* Learn how to [build a pattern](luis-tutorial-pattern.md) with a pattern.any and roles with a tutorial.
-* Learn how to [train](luis-how-to-train.md) your app.
+* [Train and test](luis-how-to-train.md) your app after improvement.

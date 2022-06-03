@@ -3,13 +3,12 @@ metadata:
   title: Azure DCasv5/ECasv5-series confidential virtual machines FAQ (preview)
   description: Answers to frequently asked questions (FAQs) about confidential virtual machines (confidential VMs) in Azure Confidential Computing.
   author: edendcohen
-  ms.topic: troubleshooting
+  ms.topic: faq
   ms.workload: infrastructure
   ms.service: virtual-machines
   ms.subservice: confidential-computing
   ms.date: 11/15/2021
   ms.author: edcohen
-    
 title: Azure DCasv5/ECasv5-series confidential virtual machines FAQ (preview)
 summary: |
   > [!IMPORTANT]
@@ -57,11 +56,35 @@ sections:
              - [Deploy from the Azure Command-Line Interface (Azure CLI)](quick-create-confidential-vm-arm-amd.md)
 
       - question: |
+          Can I perform attestation for my confidential VMs?
+        answer: |
+          During the preview, confidential VMs undergo attestation as part of their boot phase. This process is opaque to the user and takes place by the cloud operating system in conjunction with the Microsoft Azure Attestation and Azure Key Vault services.
+          When the product launches in General Availability, confidential VMs will extend to let users perform independent attestation for their VMs. This will be done using new tooling and supporting documentation. 
+          Until then, similar to [trusted launch VMs](../virtual-machines/trusted-launch-portal.md?tabs=portal), customers can use the vTPM in their VMs to perform attestation of the VM firmware and OS as described [here](/windows/security/information-protection/tpm/tpm-fundamentals#measured-boot-with-support-for-attestation).
+          In addition, see the next question on confirming that your VM is running on an AMD processor with confidentiality features enabled.
+
+      - question: |
+          Is there a way to confirm that my VM is running on a processor confidentiality features enabled?
+        answer: |
+          Yes, you can directly or indirectly query information about the CPU and read the enablement status of AMD's SEV-SNP confidentiality feature. 
+          If for any reason the reading is negative then your VM is not running on a confidential platform. Please note that verifying this value is not considered as attestation, so while a positive reading provides a degree of confidence that the platform is confidential, it is not a guarantee.
+          To read this value on Windows OS, run msinfo32 and verify that the "Virtual Machine Isolation Property" is set to "AMD-SEV-SNP".
+          To read this value on Linux OS, run the following commands from within your VM and check for the output:
+          * sudo apt update
+          * sudo apt install cpuid
+          * cpuid -l 0x4000000C -1 | awk '$4 ~ /^ebx=.*2$/ { print "AMD SEV-SNP is enabled"}'
+
+      - question: |
           Do all OS images work with confidential VMs?
         answer: |
           To run on a confidential VM, OS images must meet certain security and compatibility requirements. 
-          VMs must be securely mounted, attested to, and isolated from the underlying cloud infrastructure. 
-          You can use [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md) to modify a confidential VM image, such as by installing applications. 
+          This allows confidential VMs to be securely mounted, attested to, and isolated from the underlying cloud infrastructure. 
+          In the future we plan to provide guidance on how to take a custom Linux build and apply a set of open-source patches to qualify it as a confidential VM image.
+          
+      - question: |
+          Can I customize one of the available confidential VM images?
+        answer: |          
+          Yes. You can use [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md) to modify a confidential VM image, such as by installing applications. 
           Then, you can deploy confidential VMs based on your modified image.
 
       - question: |
@@ -123,7 +146,7 @@ sections:
         answer: |
           Billing for confidential VMs depends on your usage and storage, and the size and region of the VM. Confidential VMs are available in dedicated sizes, so prices might differ from general-purpose VMs. 
           Confidential VMs use a small encrypted virtual machine guest state (VMGS) disk of several megabytes. VMGS encapsulates the VM security state of components such the vTPM and UEFI bootloader. This disk might result in a monthly storage fee.
-          Starting in 2022, if you choose to enable the optional full-disk encryption, encrypted OS disks will incur higher costs. This change is because encrypted OS disks use more space, and compression isn't possible.
+          Also, if you choose to enable the optional full-disk encryption, encrypted OS disks will incur higher costs. This change is because encrypted OS disks use more space, and compression isn't possible.
           For more information on storage fees, see the [pricing guide for managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
           Lastly, for some high security and privacy settings, you might choose to create linked resources, such as a [Managed HSM Pool](../key-vault/managed-hsm/overview.md). 
           Azure bills such resources separately from the confidential VM costs.

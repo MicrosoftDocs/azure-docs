@@ -94,8 +94,8 @@ To complete these steps, you need an SSH client.  If you are using Windows, you
 >[!IMPORTANT]
 > All Azure SDKs support the Azure.Identity library that makes it easy to acquire Azure AD tokens to access target services. Learn more about [Azure SDKs](https://azure.microsoft.com/downloads/) and leverage the Azure.Identity library.
 > - [.NET](/dotnet/api/overview/azure/identity-readme)
-> - [JAVA](/java/api/overview/azure/identity-readme)
-> - [Javascript](/javascript/api/overview/azure/identity-readme)
+> - [Java](/java/api/overview/azure/identity-readme)
+> - [JavaScript](/javascript/api/overview/azure/identity-readme)
 > - [Python](/python/api/overview/azure/identity-readme)
 
 

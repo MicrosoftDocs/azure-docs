@@ -6,7 +6,7 @@ author: kromerm
 ms.service: synapse-analytics
 ms.subservice: pipeline 
 ms.topic: conceptual
-ms.date: 09/07/2021
+ms.date: 02/15/2022
 ms.author: makromer
 ms.reviewer: sngun
 ---
@@ -22,10 +22,10 @@ Check below table for features availability:
 
 | Category                 | Feature    |  Azure Data Factory  | Azure Synapse Analytics |
 | ------------------------ | ---------- | :------------------: | :---------------------: |
-| **Integration Runtime**  | Using SSIS and SSIS Integration Runtime | ✓ | ✗ |
+| **Integration Runtime**  | Using SSIS and SSIS Integration Runtime | ✓ | ✓<br><small>*Public preview* |
 |                          | Support for Cross-region Integration Runtime (Data Flows) | ✓ | ✗ |
 |                          | Integration Runtime Sharing | ✓<br><small>*Can be shared across different data factories* | ✗ |
-| **Pipelines Activities** | SSIS Package Activity | ✓ | ✗ |
+| **Pipelines Activities** | SSIS Package Activity | ✓ | ✓<br><small>*Public preview* |
 |                          | Support for Power Query Activity | ✓ | ✗ |
 | **Template Gallery and Knowledge center** | Solution Templates | ✓<br><small>*Azure Data Factory Template Gallery* | ✓<br><small>*Synapse Workspace Knowledge center* |
 | **GIT Repository Integration** | GIT Integration | ✓ | ✓ |

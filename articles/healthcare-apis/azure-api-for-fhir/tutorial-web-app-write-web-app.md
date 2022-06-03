@@ -6,22 +6,22 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
 ms.reviewer: matjazl
-ms.author: cavoeg
-author: caitlinv39
-ms.date: 01/03/2020
+ms.author: mikaelw
+author: mikaelweave
+ms.date: 02/15/2022
 ---
 
 # Write Azure web application to read FHIR data in Azure API for FHIR
-Now that you are able to connect to your FHIR server and POST data, you are ready to write a web application that will read FHIR data. In this final step of the tutorial, we will walk through writing and accessing the web application.
+Now that you're able to connect to your FHIR server and POST data, you’re ready to write a web application that will read FHIR data. In this final step of the tutorial, we’ll walk through writing and accessing the web application.
 
 ## Create web application
 In Azure, select **Create a resource** and select **Web App**. Make sure to name your web application whatever you specified in the redirect URI for your client application or go back and update the redirect URI with the new name. 
 
 ![Create Web Application](media/tutorial-web-app/create-web-app.png)
 
-Once the web application is available, **Go to resource**. Select **App Service Editor (Preview)** under Development Tools on the right and then select **Go**. Selecting Go will open up the App Service Editor. Right click in the grey space under *Explore* and create a new file called **index.html**.
+Once the web application is available, **Go to resource**. Select **App Service Editor (Preview)** under Development Tools on the right and then select **Go**. Selecting Go will open up the App Service Editor. Right select in the grey space under *Explore* and create a new file called **index.html**.
 
-Below is the code that you can input into **index.html**. You will need to update the following items:
+Included is the code that you can input into **index.html**. You’ll need to update the following items:
 * **clientId** - Update with your client application ID. This ID will be the same ID you pulled when retrieving your token
 * **authority** - Update with your Azure AD tenant ID
 * **FHIRendpoint** - Update the FHIRendpoint to have your FHIR service name
@@ -140,10 +140,10 @@ Below is the code that you can input into **index.html**. You will need to updat
 </html>
 ```
 
-From here, you can go back to your web application resource and open the URL found on the Overview page. Log in to see the patient James Tiberious Kirk that you previously created.
+From here, you can go back to your web application resource and open the URL found on the Overview page. Sign in to see the patient James Tiberious Kirk that you previously created.
 
 ## Next Steps
-You have successfully deployed the Azure API for FHIR, registered a public client application, tested access, and created a small web application. Check out the Azure API for FHIR supported features as a next step.
+You’ve successfully deployed the Azure API for FHIR, registered a public client application, tested access, and created a small web application. Check out the Azure API for FHIR supported features as a next step.
 
 >[!div class="nextstepaction"]
 >[Supported Features](fhir-features-supported.md)

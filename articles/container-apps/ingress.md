@@ -1,5 +1,5 @@
 ---
-title: Set up HTTPS ingress in Azure Container Apps Preview
+title: Set up HTTPS ingress in Azure Container Apps
 description: Enable public and private endpoints in your app with Azure Container Apps
 services: container-apps
 author: craigshoemaker
@@ -7,10 +7,10 @@ ms.service: container-apps
 ms.topic: how-to
 ms.date: 11/02/2021
 ms.author: cshoe
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, event-tier1-build-2022
 ---
 
-# Set up HTTPS ingress in Azure Container Apps Preview
+# Set up HTTPS ingress in Azure Container Apps
 
 Azure Container Apps allows you to expose your container app to the public web by enabling ingress. When you enable ingress, you do not need to create an Azure Load Balancer, public IP address, or any other Azure resources to enable incoming HTTPS requests.
 
@@ -18,9 +18,11 @@ With ingress enabled, your container app features the following characteristics:
 
 - Supports TLS termination
 - Supports HTTP/1.1 and HTTP/2
-- Endpoints always use TLS 1.2, terminated at the ingress point
+- Supports WebSocket and gRPC
+- HTTPS endpoints always use TLS 1.2, terminated at the ingress point
 - Endpoints always expose ports 80 (for HTTP) and 443 (for HTTPS).
   - By default, HTTP requests to port 80 are automatically redirected to HTTPS on 443.
+- Request timeout is 240 seconds.
 
 ## Configuration
 

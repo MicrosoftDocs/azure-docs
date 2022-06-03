@@ -5,6 +5,7 @@ description: The workspace is the top-level resource for Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
@@ -30,13 +31,13 @@ The diagram shows the following components of a workspace:
 + A workspace can contain [Azure Machine Learning compute instances](concept-compute-instance.md), cloud resources configured with the Python environment necessary to run Azure Machine Learning.
 
 + [User roles](how-to-assign-roles.md) enable you to share your workspace with other users, teams, or projects.
-+ [Compute targets](concept-azure-machine-learning-architecture.md#compute-targets) are used to run your experiments.
++ [Compute targets](v1/concept-azure-machine-learning-architecture.md#compute-targets) are used to run your experiments.
 + When you create the workspace, [associated resources](#resources) are also created for you.
-+ [Experiments](concept-azure-machine-learning-architecture.md#experiments) are training runs you use to build your models.  
-+ [Pipelines](concept-azure-machine-learning-architecture.md#ml-pipelines) are reusable workflows for training and retraining your model.
-+ [Datasets](concept-azure-machine-learning-architecture.md#datasets-and-datastores) aid in management of the data you use for model training and pipeline creation.
++ [Experiments](v1/concept-azure-machine-learning-architecture.md#experiments) are training runs you use to build your models.  
++ [Pipelines](v1/concept-azure-machine-learning-architecture.md#ml-pipelines) are reusable workflows for training and retraining your model.
++ [Datasets](v1/concept-azure-machine-learning-architecture.md#datasets-and-datastores) aid in management of the data you use for model training and pipeline creation.
 + Once you have a model you want to deploy, you create a registered model.
-+ Use the registered model and a scoring script to create a [deployment endpoint](concept-azure-machine-learning-architecture.md#endpoints).
++ Use the registered model and a scoring script to create a [deployment endpoint](v1/concept-azure-machine-learning-architecture.md#endpoints).
 
 ## Tools for workspace interaction
 
@@ -51,7 +52,7 @@ You can interact with your workspace in the following ways:
     + [Azure Machine Learning studio ](https://ml.azure.com) 
     + [Azure Machine Learning designer](concept-designer.md) 
 + In any Python environment with the [Azure Machine Learning SDK for Python](/python/api/overview/azure/ml/intro).
-+ On the command line using the Azure Machine Learning [CLI extension](./reference-azure-machine-learning-cli.md)
++ On the command line using the Azure Machine Learning [CLI extension](how-to-configure-cli.md)
 + [Azure Machine Learning VS Code Extension](how-to-manage-resources-vscode.md#workspaces)
 
 
@@ -87,7 +88,7 @@ There are multiple ways to create a workspace:
 
 * Use the [Azure portal](how-to-manage-workspace.md?tabs=azure-portal#create-a-workspace) for a point-and-click interface to walk you through each step.
 * Use the [Azure Machine Learning SDK for Python](how-to-manage-workspace.md?tabs=python#create-a-workspace) to create a workspace on the fly from Python scripts or Jupyter notebooks
-* Use an [Azure Resource Manager template](how-to-create-workspace-template.md) or the [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) when you need to automate or customize the creation with corporate security standards.
+* Use an [Azure Resource Manager template](how-to-create-workspace-template.md) or the [Azure Machine Learning CLI](how-to-configure-cli.md) when you need to automate or customize the creation with corporate security standards.
 * If you work in Visual Studio Code, use the [VS Code extension](how-to-manage-resources-vscode.md#create-a-workspace).
 
 > [!NOTE]

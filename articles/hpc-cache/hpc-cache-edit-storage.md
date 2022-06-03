@@ -4,7 +4,7 @@ description: How to edit Azure HPC Cache storage targets
 author: ronhogue
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 01/10/2022
+ms.date: 01/19/2022
 ms.author: rohogue
 ---
 
@@ -30,7 +30,7 @@ Depending on the type of storage, you can modify these storage target values:
 
 You can't edit a storage target's name, type, or back-end storage system. If you need to change these properties, delete the storage target and create a replacement with the new value.
 
-The [Managing Azure HPC Cache video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) shows how to edit a storage target in the Azure portal.
+<!-- The [Managing Azure HPC Cache video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) shows how to edit a storage target in the Azure portal. -->
 
 ## Change a blob storage target's namespace path or access policy
 
@@ -55,7 +55,7 @@ After making changes, click **OK** to update the storage target, or click **Canc
 
 [Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
-To change a blob storage target's namespace with the Azure CLI, use the command [az hpc-cache blob-storage-target update](/cli/azure/hpc-cache/blob-storage-target#az_hpc_cache_blob_storage_target_update). Only the `--virtual-namespace-path` value can be changed.
+To change a blob storage target's namespace with the Azure CLI, use the command [az hpc-cache blob-storage-target update](/cli/azure/hpc-cache/blob-storage-target#az-hpc-cache-blob-storage-target-update). Only the `--virtual-namespace-path` value can be changed.
 
   ```azurecli
   az hpc-cache blob-storage-target update --cache-name cache-name --name target-name \
@@ -138,7 +138,7 @@ Use the drop-down selector to choose a new usage model. Click **OK** to update t
 
 [Set up Azure CLI for Azure HPC Cache](./az-cli-prerequisites.md).
 
-Use the [az hpc-cache nfs-storage-target update](/cli/azure/hpc-cache/nfs-storage-target#az_hpc_cache_nfs_storage_target_update) command.
+Use the [az hpc-cache nfs-storage-target update](/cli/azure/hpc-cache/nfs-storage-target#az-hpc-cache-nfs-storage-target-update) command.
 
 The update command is nearly identical to the command that you use to add an NFS storage target. Refer to [Create an NFS storage target](hpc-cache-add-storage.md#create-an-nfs-storage-target) for details and examples.
 
@@ -146,7 +146,7 @@ To change the usage model, update the ``--nfs3-usage-model`` option. Example: ``
 
 The cache name, storage target name, and resource group values also are required.
 
-If you want to verify the names of the usage models, use the command [az hpc-cache usage-model list](/cli/azure/hpc-cache/usage-model#az_hpc_cache_usage-model-list).
+If you want to verify the names of the usage models, use the command [az hpc-cache usage-model list](/cli/azure/hpc-cache/usage-model#az-hpc-cache-usage-model-list).
 
 If the cache is stopped or not in a healthy state, the update will apply after the cache is healthy.
 

@@ -1,21 +1,18 @@
 ---
-title: Azure Active Directory identity configuration for Healthcare APIs FHIR service
+title: Azure Active Directory identity configuration for Azure Health Data Services for FHIR service
 description: Learn the principles of identity, authentication, and authorization for FHIR service
 services: healthcare-apis
-author: caitlinv39
+author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 08/06/2019
-ms.author: cavoeg
+ms.date: 03/01/2022
+ms.author: mikaelw
 ---
 
 # Azure Active Directory identity configuration for FHIR service
 
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-When you're working with healthcare data, it's important to ensure that the data is secure, and it can't be accessed by unauthorized users or applications. FHIR servers use [OAuth 2.0](https://oauth.net/2/) to ensure this data security. The FHIR service in the Azure Healthcare APIs (hereby called the FHIR service) is secured using [Azure Active Directory](../../active-directory/index.yml), which is an example of an OAuth 2.0 identity provider. This article provides an overview of FHIR server authorization and the steps needed to obtain a token to access a FHIR server. While these steps will apply to any FHIR server and any identity provider, we'll walk through the FHIR service and Azure Active Directory (Azure AD) as our identity provider in this article.
+When you're working with healthcare data, it's important to ensure that the data is secure, and it can't be accessed by unauthorized users or applications. FHIR servers use [OAuth 2.0](https://oauth.net/2/) to ensure this data security. FHIR service in the Azure Health Data Services is secured using [Azure Active Directory](../../active-directory/index.yml), which is an example of an OAuth 2.0 identity provider. This article provides an overview of FHIR server authorization and the steps needed to obtain a token to access a FHIR server. While these steps will apply to any FHIR server and any identity provider, we'll walk through the FHIR service and Azure Active Directory (Azure AD) as our identity provider in this article.
 
 ## Access control overview
 
@@ -32,7 +29,7 @@ Using [authorization code flow](../../active-directory/azuread-dev/v1-protocols-
 1. The client makes a request to the FHIR service, for example `GET /Patient` to search all patients. When making the request, it includes the access token in an HTTP request header, for example `Authorization: Bearer eyJ0e...`, where `eyJ0e...` represents the Base64 encoded access token.
 1. The FHIR service validates that the token contains appropriate claims (properties in the token). If everything checks out, it will complete the request and return a FHIR bundle with results to the client.
 
-It's important to note that the FHIR service isn't involved in validating user credentials and it doesn't issue the token. The authentication and token creation is done by Azure AD. The FHIR service simply validates that the token is signed correctly (it is authentic) and that it has appropriate claims.
+It's important to note that the FHIR service isn't involved in validating user credentials and it doesn't issue the token. The authentication and token creation is done by Azure AD. The FHIR service simply validates that the token is signed correctly (it's authentic) and that it has appropriate claims.
 
 ## Structure of an access token
 
@@ -88,11 +85,11 @@ The token can be decoded and inspected with tools such as [https://jwt.ms](https
 
 ## Obtaining an access token
 
-As mentioned above, there are several ways to obtain a token from Azure AD. They are described in detail in the [Azure AD developer documentation](../../active-directory/develop/index.yml).
+As mentioned above, there are several ways to obtain a token from Azure AD. They're described in detail in the [Azure AD developer documentation](../../active-directory/develop/index.yml).
 
 Azure AD has two different versions of the OAuth 2.0 endpoints, which are referred to as `v1.0` and `v2.0`. Both of these versions are OAuth 2.0 endpoints and the `v1.0` and `v2.0` designations refer to differences in how Azure AD implements that standard. 
 
-When using a FHIR server, you can use either the `v1.0` or the `v2.0` endpoints. The choice may depend on the authentication libraries you are using in your client application.
+When using a FHIR server, you can use either the `v1.0` or the `v2.0` endpoints. The choice may depend on the authentication libraries you're using in your client application.
 
 The pertinent sections of the Azure AD documentation are:
 
@@ -103,11 +100,11 @@ The pertinent sections of the Azure AD documentation are:
     * [Authorization code flow](../../active-directory/develop/v2-oauth2-auth-code-flow.md).
     * [Client credentials flow](../../active-directory/develop/v2-oauth2-client-creds-grant-flow.md).
 
-There are other variations (for example on behalf of flow) for obtaining a token. Check the Azure AD documentation for details. When using the FHIR service, there are also some shortcuts for obtaining an access token (for debugging purposes) [using the Azure CLI](get-healthcare-apis-access-token-cli.md).
+There are other variations (for example, on behalf of flow) for obtaining a token. Check the Azure AD documentation for details. When using the FHIR service, there are also some shortcuts for obtaining an access token (for debugging purposes) [using the Azure CLI](get-healthcare-apis-access-token-cli.md).
 
 ## Next steps
 
-In this document, you learned some of the basic concepts involved in securing access to the FHIR service using Azure AD. For information about how to deploy the FHIR service, see
+In this document, you learned some of the basic concepts involved in securing access to FHIR service using Azure AD. For information about how to deploy FHIR service, see
 
 >[!div class="nextstepaction"]
->[Deploy the FHIR service](fhir-portal-quickstart.md)
+>[Deploy FHIR service](fhir-portal-quickstart.md)

@@ -1,10 +1,10 @@
 ---
 title: Built-in policy definitions for Azure Virtual Network
 description: Lists Azure Policy built-in policy definitions for Azure Virtual Network. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 01/18/2022
+ms.date: 05/11/2022
 ms.topic: reference
-author: KumudD
-ms.author: kumud
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network
 ms.custom: subject-policy-reference
 ---

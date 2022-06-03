@@ -3,13 +3,11 @@ title: Tutorial to create an order using Azure Edge Hardware Center
 description: The tutorial about creating an Azure Edge Hardware Center via the Azure portal.
 services: Azure Edge Hardware Center
 author: alkohli
-
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-edge-hardware-center
 ms.topic: tutorial
 ms.date: 01/03/2022
 ms.author: alkohli
-# Customer intent: As an IT admin, I need to understand how to create an order via the Azure Edge Hardware Center. 
+# Customer intent: As an IT admin, I need to understand how to create an order via the Azure Edge Hardware Center.
 ---
 # Tutorial: Create an Azure Edge Hardware Center 
 

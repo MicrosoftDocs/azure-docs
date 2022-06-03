@@ -33,7 +33,7 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 
 * The latest LTS version of [Node.js](https://nodejs.org/about/releases/)
 
-* A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
     > [!TIP]
     > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'lll need a single-service resource if you intend to use [Azure Active Directory authentication](../../../../active-directory/authentication/overview-authentication.md).
@@ -73,7 +73,7 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 1. Create variables for your resource's Azure endpoint and key:
 
     ```javascript
-    const apiKey = "PASTE_YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY_HERE";
+    const key = "PASTE_YOUR_FORM_RECOGNIZER_KEY_HERE";
     const endpoint = "PASTE_YOUR_FORM_RECOGNIZER_ENDPOINT_HERE";
     ```
 
@@ -84,7 +84,7 @@ In this quickstart, you'll use the following APIs to extract structured data fro
     const { FormRecognizerClient, AzureKeyCredential } = require("@azure/ai-form-recognizer");
 
     const endpoint = "PASTE_YOUR_FORM_RECOGNIZER_ENDPOINT_HERE";
-    const apiKey = "PASTE_YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY_HERE";
+    const key = "PASTE_YOUR_FORM_RECOGNIZER_KEY_HERE";
     ```
 
 ### Select a code sample to copy and paste into your application:
@@ -105,7 +105,7 @@ In this quickstart, you'll use the following APIs to extract structured data fro
 > * We've added the file URI value to the `formUrl` variable near the top of the file.
 > * To analyze a given file at a URI, you'll use the `beginRecognizeContent` method.
 
-### Add the following code to your layout application on the line below the `apiKey` variable
+### Add the following code to your layout application on the line below the `key` variable
 
 ```javascript
 const formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf";
@@ -113,7 +113,7 @@ const formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-servi
 const formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf";
 
 async function recognizeContent() {
-    const client = new FormRecognizerClient(endpoint, new AzureKeyCredential(apiKey));
+    const client = new FormRecognizerClient(endpoint, new AzureKeyCredential(key));
     const poller = await client.beginRecognizeContentFromUrl(formUrl);
     const pages = await poller.pollUntilDone();
 
@@ -159,7 +159,7 @@ You are not limited to invoices—there are several prebuilt models to choose fr
 * [**ID document**](../../concept-id-document.md): extracts text and key information from driver licenses and international passports.
 * [**Business-card**](../../concept-business-card.md): extracts text and key information from business cards.
 
-### Add the following code to your prebuilt invoice application below the `apiKey` variable
+### Add the following code to your prebuilt invoice application below the `key` variable
 
 ```javascript
 
@@ -167,7 +167,7 @@ const invoiceUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-se
 
 async function recognizeInvoices() {
 
-    const client = new FormRecognizerClient(endpoint, new AzureKeyCredential(apiKey));
+    const client = new FormRecognizerClient(endpoint, new AzureKeyCredential(key));
 
     const poller = await client.beginRecognizeInvoicesFromUrl(invoiceUrl);
     const [invoice] = await poller.pollUntilDone();

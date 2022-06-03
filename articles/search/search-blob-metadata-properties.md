@@ -13,17 +13,17 @@ ms.date: 01/15/2022
 
 # Content metadata properties used in Azure Cognitive Search
 
-Several of the indexer-supported data sources, including Azure Blob Storage, Azure Data Lake Storage Gen2, and SharePoint Online, contain standalone files or embedded objects of various content types. Many of those content types have metadata properties that can be useful to index. Just as you can create search fields for standard blob properties like **`metadata_storage_name`**, you can create fields in a search index for metadata properties that are specific to a document format.
+Several of the indexer-supported data sources, including Azure Blob Storage, Azure Data Lake Storage Gen2, and SharePoint, contain standalone files or embedded objects of various content types. Many of those content types have metadata properties that can be useful to index. Just as you can create search fields for standard blob properties like **`metadata_storage_name`**, you can create fields in a search index for metadata properties that are specific to a document format.
 
 ## Supported document formats
 
-Cognitive Search supports blob indexing and SharePoint Online document indexing for the following document formats:
+Cognitive Search supports blob indexing and SharePoint document indexing for the following document formats:
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
 ## Properties by document format
 
-The following table summarizes processing done for each document format, and describes the metadata properties extracted by a blob indexer and the SharePoint Online indexer.
+The following table summarizes processing done for each document format, and describes the metadata properties extracted by a blob indexer and the SharePoint indexer.
 
 | Document format / content type | Extracted metadata | Processing details |
 | --- | --- | --- |
@@ -60,4 +60,4 @@ The following table summarizes processing done for each document format, and des
 * [Indexers in Azure Cognitive Search](search-indexer-overview.md)
 * [AI enrichment overview](cognitive-search-concept-intro.md)
 * [Blob indexing overview](search-blob-storage-integration.md)
-* [SharePoint Online indexing](search-howto-index-sharepoint-online.md)
+* [SharePoint indexing](search-howto-index-sharepoint-online.md)

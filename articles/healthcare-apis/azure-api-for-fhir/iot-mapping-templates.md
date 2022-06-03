@@ -6,7 +6,7 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 04/05/2021
+ms.date: 02/15/2022
 ms.author: rabhaiya
 ---
 
@@ -70,7 +70,7 @@ The JsonPathContentTemplate allows matching on and extracting values from an Eve
 |**EncounterIdExpression**|*Optional*: The JSON Path expression to extract the encounter identifier.|`$.encounterId`
 |**Values[].ValueName**|The name to associate with the value extracted by the subsequent expression. Used to bind the required value/component in the FHIR mapping template. |`hr`
 |**Values[].ValueExpression**|The JSON Path expression to extract the required value.|`$.heartRate`
-|**Values[].Required**|Will require the value to be present in the payload.  If not found, a measurement will not be generated and an InvalidOperationException will be thrown.|`true`
+|**Values[].Required**|Will require the value to be present in the payload.  If not found, a measurement won't be generated and an InvalidOperationException will be thrown.|`true`
 
 ##### Examples
 ---

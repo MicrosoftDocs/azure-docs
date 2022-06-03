@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell
  Source control integration lets you easily collaborate with your team, track changes, and roll back to earlier versions of your runbooks. For example, source control allows you to synchronize different branches in source control with your development, test, and production Automation accounts.
 
 > [!NOTE]
-> Source control synchronization jobs are run under the user's Automation account and are billed at the same rate as other Automation jobs.
+> Source control synchronization jobs are run under the user's Automation account and are billed at the same rate as other Automation jobs. Additionally, Azure Automation Jobs do not support MFA (Multi-Factor Authentication).
 
 ## Source control types
 

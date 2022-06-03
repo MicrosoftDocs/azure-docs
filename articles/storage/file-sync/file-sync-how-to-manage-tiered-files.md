@@ -1,11 +1,11 @@
 ---
 title: How to manage Azure File Sync tiered files | Microsoft Docs
 description: Tips and PowerShell commandlets to help you manage tiered files
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: how-to
 ms.date: 04/13/2021
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files
 ---
 
@@ -61,13 +61,9 @@ There are several ways to check whether a file has been tiered to your Azure fil
 
 When an application accesses a file, the last access time for the file is updated in the cloud tiering database. Applications that scan the file system like anti-virus cause all files to have the same last access time, which impacts when files are tiered.
 
-To exclude applications from last access time tracking, add the process name to the appropriate registry setting that is located under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync.
+To exclude applications from last access time tracking, add the process exclusions to the HeatTrackingProcessNamesExclusionList registry setting.  
 
-For v11 and v12 release, add the process exclusions to the HeatTrackingProcessNameExclusionList registry setting.
-Example: reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v HeatTrackingProcessNameExclusionList /t REG_MULTI_SZ /d "SampleApp.exe\0AnotherApp.exe" /f
-
-For v13 release and newer, add the process exclusions to the HeatTrackingProcessNamesExclusionList registry setting.
-Example: reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v HeatTrackingProcessNamesExclusionList /t REG_SZ /d "SampleApp.exe,AnotherApp.exe" /f
+Example: reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v HeatTrackingProcessNamesExclusionList /t REG_SZ /d "SampleApp.exe|AnotherApp.exe" /f
 
 > [!NOTE]
 > Data Deduplication and File Server Resource Manager (FSRM) processes are excluded by default. Changes to the process exclusion list are honored by the system every 5 minutes.
@@ -112,6 +108,13 @@ Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
 
 The easiest way to recall a file to disk is to open the file. The Azure File Sync file system filter (StorageSync.sys) seamlessly downloads the file from your Azure file share without any work on your part. For file types that can be partially read or streamed, such as multimedia or .zip files, simply opening a file doesn't ensure the entire file is downloaded.
 
+> [!NOTE]  
+> If a shortcut file is brought down to the server as a tiered file, there may be an issue when accessing the file over SMB. To mitigate this, there is task that runs every three days that will recall any shortcut files. However, if you would like shortcut files that are tiered to be recalled more frequently, create a scheduled task that runs this at the desired frequency:
+> ```powershell
+> Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll" 
+> Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -Pattern *.lnk
+> ```
+
 To ensure that a file is fully downloaded to local disk, you must use PowerShell to force a file to be fully recalled. This option might also be useful if you want to recall multiple files at once, such as all the files in a folder. Open a PowerShell session to the server node where Azure File Sync is installed, and then run the following PowerShell commands:
 
 ```powershell
@@ -123,7 +126,7 @@ Optional parameters:
 - `-Order CloudTieringPolicy` will recall the most recently modified or accessed files first and is allowed by the current tiering policy. 
 	* If volume free space policy is configured, files will be recalled until the volume free space policy setting is reached. For example if the volume free policy setting is 20%, recall will stop once the volume free space reaches 20%.  
 	* If volume free space and date policy is configured, files will be recalled until the volume free space or date policy setting is reached. For example, if the volume free policy setting is 20% and the date policy is 7 days, recall will stop once the volume free space reaches 20% or all files accessed or modified within 7 days are local.
-- `-ThreadCount` determines how many files can be recalled in parallel.
+- `-ThreadCount` determines how many files can be recalled in parallel (thread count limit is 32).
 - `-PerFileRetryCount`determines how often a recall will be attempted of a file that is currently blocked.
 - `-PerFileRetryDelaySeconds`determines the time in seconds between retry to recall attempts and should always be used in combination with the previous parameter.
 
