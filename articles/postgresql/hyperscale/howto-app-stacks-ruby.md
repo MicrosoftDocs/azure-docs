@@ -38,46 +38,29 @@ To get the database credentials, you can use the **Connection strings** tab in t
 
 Use the following code to connect and create a table using CREATE TABLE SQL statement, followed by INSERT INTO SQL statements to add rows into the table.
 
-The code uses a PG::Connection object with constructor new to connect to Azure Database for PostgreSQL. Then it calls method exec() to run the DROP, CREATE TABLE, and INSERT INTO commands. The code checks for errors using the PG::Error class. Then it calls method close() to close the connection before terminating. See Ruby Pg reference documentation for more information on these classes and methods.
+The code uses a PG::Connection object with constructor new to connect to Azure Database for PostgreSQL. Then it calls method exec() to run the DROP, CREATE TABLE, and INSERT INTO commands. The code checks for errors using the PG::Error class. Then it calls method close() to close the connection before terminating. See Ruby pg reference documentation for more information on these classes and methods.
 
-Replace the following values:
-* \<host> with the value you got from the **Get Database Connection Information** section
-* \<password> with your server password.
-* Default user is *citus*
-* Default database is *citus*
 
 ```ruby
 require 'pg'
 begin
-# Initialize connection variables.
-    host = String('<host>')
-    database = String('citus')
-    user = String('citus')
-    password = String('<password>')
-
-    # Initialize connection object.
-    connection = PG::Connection.new(:host => host, :user => user, :dbname => database, :port => '5432', :password => password, :sslmode => 'require')
+     # Replace below argument with connection string from portal.
+     connection = PG::Connection.new("host=<server name> port=5432 dbname=citus user=citus password={your password} sslmode=require")
     puts 'Successfully created connection to database'
-
     # Drop previous table of same name if one exists
     connection.exec('DROP TABLE IF EXISTS pharmacy;')
     puts 'Finished dropping table (if existed).'
-
     # Drop previous table of same name if one exists.
     connection.exec('CREATE TABLE pharmacy (pharmacy_id integer ,pharmacy_name text,city text,state text,zip_code integer);')
     puts 'Finished creating table.'
-
     # Insert some data into table.
     connection.exec("INSERT INTO pharmacy (pharmacy_id,pharmacy_name,city,state,zip_code) VALUES (0,'Target','Sunnyvale','California',94001);")
     connection.exec("INSERT INTO pharmacy (pharmacy_id,pharmacy_name,city,state,zip_code) VALUES (1,'CVS','San Francisco','California',94002);")
     puts 'Inserted 2 rows of data.'
     # Creating index.
     connection.exec("CREATE INDEX idx_pharmacy_id ON pharmacy(pharmacy_id);") 
-    # Super power of Distributed Tables.
-    connection.exec("select create_distributed_table('pharmacy','pharmacy_id');") 
 rescue PG::Error => e
     puts e.message
-
 ensure
     connection.close if connection
 end
@@ -92,17 +75,11 @@ Citus gives you [the super power of distributing your table](overview.md#the-sup
 > Distributing your tables is optional if you are using single node citus (basic tier).
 >
 Use the following code to connect to the database and distribute the table.
-
 ```ruby
 require 'pg'
 begin
-    # Initialize connection variables.
-    host = String('<host>')
-    database = String('citus')
-    user = String('citus')
-    password = String('<password>')
-    # Initialize connection object.
-    connection = PG::Connection.new(:host => host, :user => user, :dbname => database, :port => '5432', :password => password, :sslmode => 'require')
+    # Replace below argument with connection string from portal.
+     connection = PG::Connection.new("host=<server name> port=5432 dbname=citus user=citus password={your password} sslmode=require")
     puts 'Successfully created connection to database'
     # Super power of Distributed Tables.
     connection.exec("select create_distributed_table('pharmacy','pharmacy_id');") 
@@ -117,18 +94,13 @@ end
 
 Use the following code to connect and read the data using a SELECT SQL statement.
 
-The code uses a PG::Connection object with constructor new to connect to Azure Database for PostgreSQL. Then it calls method exec() to run the SELECT command, keeping the results in a result set. The result set collection is iterated over using the resultSet.each do loop, keeping the current row values in the row variable. The code checks for errors using the PG::Error class. Then it calls method close() to close the connection before terminating. See Ruby Pg reference documentation for more information on these classes and methods.
+The code uses a PG::Connection object with constructor new to connect to Azure Database for PostgreSQL. Then it calls method exec() to run the SELECT command, keeping the results in a result set. The result set collection is iterated over using the resultSet.each do loop, keeping the current row values in the row variable. The code checks for errors using the PG::Error class. Then it calls method close() to close the connection before terminating. See Ruby pg reference documentation for more information on these classes and methods.
 
 ```ruby
 require 'pg'
 begin
-    # Initialize connection variables.
-    host = String('<host>')
-    database = String('citus')
-    user = String('citus')
-    password = String('<password>')
-    # Initialize connection object.
-    connection = PG::Connection.new(:host => host, :user => user, :dbname => database, :port => '5432', :password => password, :sslmode => 'require')
+    # Replace below argument with connection string from portal.
+    connection = PG::Connection.new("host=<server name> port=5432 dbname=citus user=citus password={your password} sslmode=require")
     puts 'Successfully created connection to database.'
     resultSet = connection.exec('SELECT * from pharmacy')
     resultSet.each do |row|
@@ -136,7 +108,6 @@ begin
     end
 rescue PG::Error => e
     puts e.message
-
 ensure
     connection.close if connection
 end
@@ -145,17 +116,12 @@ end
 ## Update data
 Use the following code to connect and update the data using a UPDATE SQL statement.
 
-The code uses a PG::Connection object with constructor new to connect to Azure Database for PostgreSQL. Then it calls method exec() to run the UPDATE command. The code checks for errors using the PG::Error class. Then it calls method close() to close the connection before terminating. See [Ruby Pg reference documentation](https://rubygems.org/gems/pg) for more information on these classes and methods.
+The code uses a PG::Connection object with constructor new to connect to Azure Database for PostgreSQL. Then it calls method exec() to run the UPDATE command. The code checks for errors using the PG::Error class. Then it calls method close() to close the connection before terminating. See [Ruby pg reference documentation](https://rubygems.org/gems/pg) for more information on these classes and methods.
 ```ruby
 require 'pg'
 begin
-    # Initialize connection variables.
-    host = String('<host>')
-    database = String('citus')
-    user = String('citus')
-    password = String('<password>')
-    # Initialize connection object.
-    connection = PG::Connection.new(:host => host, :user => user, :dbname => database, :port => '5432', :password => password, :sslmode => 'require')
+    # Replace below argument with connection string from portal.
+     connection = PG::Connection.new("host=<server name> port=5432 dbname=citus user=citus password={your password} sslmode=require")
     puts 'Successfully created connection to database.'
     # Modify some data in table.
     connection.exec('UPDATE pharmacy SET city = %s WHERE pharmacy_id = %d;' % ['\'guntur\'',100])
@@ -163,7 +129,6 @@ begin
     
 rescue PG::Error => e
     puts e.message
-
 ensure
     connection.close if connection
 end
@@ -176,15 +141,9 @@ The code uses a PG::Connection object with constructor new to connect to Azure D
 
 ```ruby
 require 'pg'
-
 begin
-    # Initialize connection variables.
-    host = String('<host>')
-    database = String('citus')
-    user = String('citus')
-    password = String('<password>')
-    # Initialize connection object.
-    connection = PG::Connection.new(:host => host, :user => user, :dbname => database, :port => '5432', :password => password, :sslmode => 'require')
+    # Replace below argument with connection string from portal.
+     connection = PG::Connection.new("host=<server name> port=5432 dbname=citus user=citus password={your password} sslmode=require")
     puts 'Successfully created connection to database.'
     # Modify some data in table.
     connection.exec('DELETE FROM pharmacy WHERE city = %s;' % ['\'guntur\''])
@@ -192,7 +151,6 @@ begin
     
 rescue PG::Error => e
     puts e.message
-
 ensure
     connection.close if connection
 end
@@ -209,25 +167,19 @@ The following code is an example for copying data from csv file to table.
 ```ruby
 require 'pg'
 begin
-    # Initialize connection variables.
-    host = String('<host>')
-    database = String('citus')
-    user = String('citus')
-    password = String('<password>')
-    val = String('pharmacies.csv')
-   # Initialize connection object.
-    connection = PG::Connection.new(:host => host, :user => user, :dbname => database, :port => '5432', :password => password, :sslmode => 'require')
+val = String('pharmacies.csv')
+    # Replace below argument with connection string from portal.
+    connection = PG::Connection.new("host=<server name> port=5432 dbname=citus user=citus password={your password} sslmode=require")
     puts 'Successfully created connection to database.'
     # Copy the data from Csv to table.
     result = connection.copy_data "COPY pharmacy FROM STDIN with csv" do
         File.open(val , 'r').each do |line|
             connection.put_copy_data line
         end
-    
+    puts 'Copied csv data successfully .'
     end      
 rescue PG::Error => e
     puts e.message
-
 ensure
     connection.close if connection
 end
@@ -239,26 +191,19 @@ The following code is an example for copying in-memory data to a table.
 
 ```ruby
 require 'pg'
-
 begin
-    # Initialize connection variables.
-    host = String('<host>')
-    database = String('citus')
-    user = String('citus')
-    password = String('<password>')
-
-    # Initialize connection object.
-    connection = PG::Connection.new(:host => host, :user => user, :dbname => database, :port => '5432', :password => password, :sslmode => 'require')
+    # Replace below argument with connection string from portal.
+    connection = PG::Connection.new("Server = <host> Database = citus; Port = 5432; User Id = citus; Password = {your password}; Ssl Mode = Require;")
     puts 'Successfully created connection to database.'
     enco = PG::TextEncoder::CopyRow.new
     connection.copy_data "COPY pharmacy FROM STDIN", enco do
      connection.put_copy_data [5000,'Target','Sunnyvale','California','94001']
      connection.put_copy_data [5001, 'CVS','San Francisco','California','94002']
+     puts 'Copied inmemory data successfully .'
 end
     
 rescue PG::Error => e
     puts e.message
-
 ensure
     connection.close if connection
 end
