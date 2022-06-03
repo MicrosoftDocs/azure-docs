@@ -48,7 +48,7 @@ When the linking process is complete, requests to routes beginning with `/api/` 
 
 ### Manage access to APIs
 
-Azure API Management has a *products* feature that defines how APIs are surfaced. As part of the linking process, your API Management service is configured with a product named `Azure Static Web Apps - <STATIC_WEB_APP_AUTO_GENERATED_HOSTNAME> (Linked)`. To make APIs available to your linked static web app, [add them to this product](/api-management/api-management-howto-add-products.md#add-apis-to-a-product).
+Azure API Management has a *products* feature that defines how APIs are surfaced. As part of the linking process, your API Management service is configured with a product named `Azure Static Web Apps - <STATIC_WEB_APP_AUTO_GENERATED_HOSTNAME> (Linked)`. To make APIs available to your linked static web app, [add them to this product](../api-management/api-management-howto-add-products.md#add-apis-to-a-product).
 
 The linking process also automatically applies the following configuration to your API Management service:
 
