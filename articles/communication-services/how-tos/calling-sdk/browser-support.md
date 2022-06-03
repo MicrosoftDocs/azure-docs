@@ -10,7 +10,7 @@ ms.service: azure-communication-services
 
 # How to verify if your applicaiton is running on a Web browser environment supported by Azure Communication Services
 
-There are many different browsers available in the market today, but not all of them can properly support ACS audio and video calling. To determine if the browser your application is running on is a supported browser you can use the ACS method of getEnvironmentInfo to check for browser support
+There are many different browsers available in the market today, but not all of them can properly support audio and video calling. To determine if the browser your application is running on is a supported browser you can use the `getEnvironmentInfo` to check for browser support.
 
 A CallClient instance is required for this operation. When you have a CallClient instance, you can use the getEnvironmentInfo method on the CallClient instance to obtain details about the current environment of your app.
 
