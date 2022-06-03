@@ -20,11 +20,10 @@ Support engineers are expected to provide SDK update guidance according to the f
 
 |SDK version |Alternative |Update policy |
 |---------|---------|---------|
-|Preview                                                                        | Stable version                                 | **UPDATE REQUIRED**    |
-|Unsupported ([support policy](https://docs.microsoft.com/lifecycle/faq/azure)) | Any supported version                          | **UPDATE REQUIRED**    |
 |Stable                                                                         | Newer supported version                        | **UPDATE RECOMMENDED** |
+|Unsupported ([support policy](https://docs.microsoft.com/lifecycle/faq/azure)) | Any supported version                          | **UPDATE REQUIRED**    |
+|Preview                                                                        | Stable version                                 | **UPDATE REQUIRED**    |
 |Preview                                                                        | Older stable version                           | **UPDATE RECOMMENDED** |
-|Preview                                                                        | Newer preview version, no older stable version | **UPDATE RECOMMENDED** |
 |Preview                                                                        | Newer preview version, no older stable version | **UPDATE RECOMMENDED** |
 
 > [!WARNING]
