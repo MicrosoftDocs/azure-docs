@@ -79,7 +79,7 @@ You can follow the steps below to migrate knowledge bases:
 10. It will take a few minutes for the migration to occur. Do not cancel the migration while it is in progress. You can navigate to the migrated projects within the [Language Studio](https://language.azure.com/) post migration.
 
     > [!div class="mx-imgBorder"]
-    > ![Screenshot of successfully migrated knowledge bases with information that you can publish by using the Language Studio](../media/migrate-qnamaker/migration-success.png)
+    > ![Screenshot of successfully migrated knowledge bases with information that you can publish by using Language Studio](../media/migrate-qnamaker/migration-success.png)
 
     If any knowledge bases fail to migrate to custom question answering projects, an error will be displayed. The most common migration errors occur when:
     
