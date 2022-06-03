@@ -23,7 +23,3 @@ zone_pivot_groups: acs-web-ios-android
 ::: zone pivot="platform-ios"
 [!INCLUDE [iOS Calling Hero Sample](./includes/ios-calling-hero.md)]
 ::: zone-end
-
-::: zone pivot="platform-android"
-[!INCLUDE [Android Calling Hero Sample](./includes/android-calling-hero.md)]
-::: zone-end
