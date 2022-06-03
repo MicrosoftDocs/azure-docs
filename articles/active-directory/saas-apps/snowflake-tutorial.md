@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/22/2021
+ms.date: 06/03/2022
 ms.author: jeedes
 ---
 # Tutorial: Azure AD SSO integration with Snowflake
@@ -167,6 +167,14 @@ CREATE [ OR REPLACE ] SECURITY INTEGRATION [ IF NOT EXISTS ]
 
 > [!NOTE]
 > Please follow [this](https://docs.snowflake.com/en/sql-reference/sql/create-security-integration.html) guide to know more about how to create a SAML2 security integration.
+
+> [!NOTE]
+> If you are using a new Snowflake URL with an organization name as the login URL, it is necessary to update the following parameters:
+[ SAML2_SNOWFLAKE_ISSUER_URL = '<string_literal>' ] as 
+*alter security integration `<your security integration name goes here>` set SAML2_SNOWFLAKE_ISSUER_URL = `https://<organization_name>-<account name>.snowflakecomputing.com`;*
+[ SAML2_SNOWFLAKE_ACS_URL = '<string_literal>' ] as *alter security integration <your security integration name goes here> set SAML2_SNOWFLAKE_ACS_URL = `https://<organization_name>-<account name>.snowflakecomputing.com/fed/login`;*
+> please follow  the step-6 in [this](https://community.snowflake.com/s/article/HOW-TO-SETUP-SSO-WITH-ADFS-AND-THE-SNOWFLAKE-NEW-URL-FORMAT-OR-PRIVATELINK) article for more information.
+
 
 > [!NOTE]
 > If you have an existing SSO setup using `saml_identity_provider` account parameter, then follow [this](https://docs.snowflake.com/en/user-guide/admin-security-fed-auth-advanced.html) guide to migrate it to the SAML2 security integration.
