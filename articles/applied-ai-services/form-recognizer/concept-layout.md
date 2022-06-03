@@ -19,7 +19,7 @@ The Form Recognizer Layout API extracts text, tables, selection marks, and struc
 
 ***Sample form processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
 
-:::image type="content" source="media/studio/analyze-layout.png" alt-text="Screenshot: Screenshot of sample document processed using Form Recognizer studio":::
+:::image type="content" source="media/studio/form-recognizer-studio-layout-pod.png" alt-text="Screenshot: Screenshot of sample document processed using Form Recognizer studio":::
 
 ## Supported document types
 
@@ -66,7 +66,7 @@ See how data is extracted from forms and documents using the Form Recognizer Stu
 
 ***Sample form processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
 
-:::image type="content" source="media/studio/form-recognizer-studio-layout-v3p2.png" alt-text="Screenshot: Layout processing in Form Recognizer Studio.":::
+:::image type="content" source="media/studio/form-recognizer-studio-layout-pod.png" alt-text="Screenshot: Layout processing in Form Recognizer Studio.":::
 
 1. On the Form Recognizer Studio home page, select **Layout**
 
