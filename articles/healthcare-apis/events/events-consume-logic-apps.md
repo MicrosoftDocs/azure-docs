@@ -22,20 +22,11 @@ The workflow is on the left and the trigger condition is on the right.
 
 ## Overview
 
-These are the steps needed to create a Logic App workflow to consume FHIR events:
+These are the steps for creating a Logic App workflow to consume FHIR events:
 
-- Set up prerequisites
-- Create a Logic App
-- Create a Logic App workflow
-
-The workflow needs to be configured to receive and respond to events. A criteria must be set up to determine whether an operation will take place.
-
-In this tutorial, the criteria will be:
-
-- Resource Type = "Patient"
-- Event Type = FHIR Resource Created
-
-In addition, you must also give the FHIR Reader access to your Logic App.
+1. Set up prerequisites
+2. Create a Logic App
+3. Create a Logic App workflow
 
 ## Prerequisites
 
@@ -49,14 +40,14 @@ To set up an automated workflow, you must first create a Logic App. For more inf
 
 Follow these steps:
 
-- Go to the Azure Portal.
-- Search for "Logic App".
-- Click "Add".
-- Specify Basic details
-- Specify Hosting
-- Specify Monitoring
-- Specify Tags
-- Review and Create your Logic App
+1. Go to the Azure Portal.
+2. Search for "Logic App".
+3. Click "Add".
+4. Specify Basic details
+5. Specify Hosting
+6. Specify Monitoring
+7. Specify Tags
+8. Review and Create your Logic App
 
 You now need to fill out the details of your Logic App. Specify information for these five categories. They are in separate tabs:
 
@@ -93,8 +84,7 @@ Create a name for your Logic App. You must choose Workflow or Docker Container a
 - App Service Plan
 - Sku and size
 
-Choose a plan type (Standard or Consumption). Create a new Windows Plan
-name and specify the Sku and size.
+Choose a plan type (Standard or Consumption). Create a new Windows Plan name and specify the Sku and size.
 
 #### Zone redundancy
 
@@ -179,30 +169,30 @@ You can do the following activities from your dashboard.
 - Reset Publish Profile
 - Delete
 
-## Creating a workflow
+## Creating a Logic App workflow
 
-When your Logic App is running, follow these steps to create a workflow:
+When your Logic App is running, follow these steps to create a Logic App workflow:
 
-- Initialize a workflow
-- Configuring a workflow
-- Designing a workflow
-- Adding an action
-- Giving FHIR Reader access
-- Adding a condition
-- Choosing a condition criteria
-- Testing your condition
+1. Initialize a workflow
+2. Configuring a workflow
+3. Designing a workflow
+4. Adding an action
+5. Giving FHIR Reader access
+6. Adding a condition
+7. Choosing a condition criteria
+8. Testing your condition
 
 ### Initializing your workflow
 
-You need to have a Logic App configured and running correctly.
+Before you begin, You need to have a Logic App configured and running correctly.
 
 Once your Logic App is running, you can create and configure a workflow. To initialize a workflow, follow these steps:
 
-- Start at the Azure Portal.
-- Click "Logic Apps" in Azure services.
-- Select the Logic App you created.
-- Click "Workflows" in the Workflow menu on the left.
-- Click "Add" to add a workflow.
+1. Start at the Azure Portal.
+2. Click "Logic Apps" in Azure services.
+3. Select the Logic App you created.
+4. Click "Workflows" in the Workflow menu on the left.
+5. Click "Add" to add a workflow.
 
 ### Configuring a new workflow
 
@@ -212,9 +202,9 @@ You will see a new panel on the right for creating a workflow.
 
 You can specify the details of the new workflow in the panel on the right.
 
-#### Creating a new workflow for the logic app
+#### Creating a new workflow for the Logic App
 
-To set up a new workflow, follow these steps:
+To set up a new workflow, fill in these details:
 
 - Workflow Name
 - State type
@@ -254,11 +244,11 @@ Fill in the details for subscription, resource type, and resource name. Then you
 - Resource deleted
 - Resource updated
 
-<!--- add link to Events FAQ relating to event types. --->
+For more information about event types, see [What FHIR resource events does Events support?](./events-faqs.md#What FHIR resource events does Events support?)
 
-### Adding a HTTP action
+### Adding an HTTP action
 
-Once you have specified the trigger events, you must add another step. Click the "+" below the "When a resource event occurs" button.
+Once you have specified the trigger events, you must add more details. Click the "+" below the "When a resource event occurs" button.
 
 You need to add a specific action. Click "Choose an operation" to continue. Then, for the operation, search for "HTTP" and click on "Built-in" to select an HTTP operation. The HTTP action will allow you to query the FHIR service.
 
@@ -336,12 +326,12 @@ You can do the following operations from your workflow dashboard:
 
 Save your workflow by clicking the "Save" button.
 
-To test your new workflow, do the following:
+To test your new workflow, do the following steps:
 
-- Add a new Patient FHIR Resource to your FHIR Service.
-- Wait a moment or two and then check the Overview webpage of your Logic App workflow.
-- The event should be shaded in green if the action was successful.
-- If it failed, the event will be shaded in red.
+1. Add a new Patient FHIR Resource to your FHIR Service.
+2. Wait a moment or two and then check the Overview webpage of your Logic App workflow.
+3. The event should be shaded in green if the action was successful.
+4. If it failed, the event will be shaded in red.
 
 Here is an example of a workflow trigger success operation:
 
