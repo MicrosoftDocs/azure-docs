@@ -563,8 +563,6 @@ items:
         href: orchestration-workflow/how-to/call-api.md
       - name: Back up and recover your models
         href: conversational-language-understanding/how-to/fail-over.md
-      - name: Best practices
-        href: orchestration-workflow/how-to/best-practices.md
   - name: Concepts
     items: 
       - name: Evaluation metrics
@@ -714,6 +712,8 @@ items:
       href: question-answering/how-to/authoring.md
     - name: Prebuilt API
       href: question-answering/how-to/prebuilt.md
+    - name: Best practices
+      href: question-answering/how-to/best-practices.md
     - name: Troubleshooting
       href: question-answering/how-to/troubleshooting.md
   - name: Concepts
