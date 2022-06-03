@@ -61,40 +61,7 @@ When the spacecraft is unauthorized then TLE updates are the only modifications 
 
 ### Create spacecraft resource
 
-1. In the Azure portal search box, enter **Spacecraft**. Select **Spacecraft** in the search results.
-2. In the **Spacecraft** page, select Create.
-3. In **Create spacecraft resource**, enter or select this information in the Basics tab:
-
-   | **Field** | **Value** |
-   | --- | --- |
-   | Subscription | Select your subscription |
-   | Resource Group | Select your resource group |
-   | Name | Enter spacecraft name |
-   | Region | Select **West US 2** |
-   | NORAD ID | Enter NORAD ID |
-   | TLE title line | Enter TLE title line |
-   | TLE line 1 | Enter TLE line 1 |
-   | TLE line 2 | Enter TLE line 2 |
-
-   > [!NOTE]
-   > TLE stands for Two-Line Element.
-
-   :::image type="content" source="media/orbital-eos-register-bird.png" alt-text="Register Spacecraft Resource Page" lightbox="media/orbital-eos-register-bird.png":::
-
-4. Select the **Links** tab, or select the **Next: Links** button at the bottom of the page.
-5. In the **Links** page, enter or select this information:
-
-   | **Field** | **Value** |
-   | --- | --- |
-   | Direction | Select Uplink or Downlink |
-   | Center Frequency | Enter the center frequency in Mhz |
-   | Bandwidth | Enter the bandwidth in Mhz |
-   | Polarization | Select RHCP, LHCP, or Linear Vertical |
-
-   :::image type="content" source="media/orbital-eos-register-links.png" alt-text="Spacecraft Links Resource Page" lightbox="media/orbital-eos-register-links.png":::
-
-6. Select the **Review + create** tab, or select the **Review + create** button.
-7. Select **Create**
+For details on how to create a spacecraft resource, please refer to the steps details in the [register a spacecraft](register-spacecraft.md) article.
 
 ### Modify spacecraft resource
 
@@ -106,7 +73,6 @@ Please use the SDK to make changes to the links.
 
 1. In the Azure portal search box, enter the name of the Spacecraft object you wish to delete and pull up the object.
 1. Click delete and confirm the action. (to add screen shots)
-
 
 ## Next steps
 
