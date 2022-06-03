@@ -110,3 +110,5 @@ In this quickstart, you deployed a simple virtual machine, opened a network port
 
 > [!div class="nextstepaction"]
 > [Azure Linux virtual machine tutorials](./tutorial-manage-vm.md)
+
+

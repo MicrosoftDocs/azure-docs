@@ -91,7 +91,6 @@ Use a web browser of your choice to view the default NGINX welcome page. Enter t
 
 :::image type="content" source="media/quick-create-cli/nginx-welcome-page-debian.png" alt-text="Screenshot showing the N G I N X default web page.":::
 
-
 ## Clean up resources
 
 When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet to remove the resource group, VM, and all related resources:
