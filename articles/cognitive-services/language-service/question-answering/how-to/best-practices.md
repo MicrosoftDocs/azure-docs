@@ -38,7 +38,7 @@ The following list of QnA pairs will be used to represent a project (knowledge b
 
    "How much is Microsoft stock worth?"
 
-      "How much is Microsoft's share value?"
+   "How much is Microsoft's share value?"
 
    "How much does a Microsoft share cost?"
 
