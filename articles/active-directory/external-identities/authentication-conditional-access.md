@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 03/21/2022
+ms.date: 06/06/2022
 
 ms.author: mimart
 author: msmimart
@@ -25,7 +25,7 @@ This article describes the authentication flow for external users who are access
 
 The following diagram illustrates the authentication flow when an Azure AD organization shares resources with users from other Azure AD organizations. This diagram shows how cross-tenant access settings work with Conditional Access policies, such as multi-factor authentication (MFA), to determine if the user can access resources. This flow applies to both B2B collaboration and B2B direct connect, except as noted in step 6.
 
-![Diagram illustrating the cross-tenant authentication process](media/authentication-conditional-access/cross-tenant-auth.png)
+[ ![Diagram showing the cross-tenant authentication process.](media/authentication-conditional-access/cross-tenant-auth.png) ](media/authentication-conditional-access/cross-tenant-auth.png#lightbox)
 
 |Step  |Description  |
 |---------|---------|
@@ -46,7 +46,7 @@ When an Azure AD organization shares resources with external users with an ident
 
 The following diagram illustrates the authentication flow when an external user signs in with an account from a non-Azure AD identity provider, such as Google, Facebook, or a federated SAML/WS-Fed identity provider.
 
-![image shows Authentication flow for B2B guest users from an external directory](media/authentication-conditional-access/authentication-flow-b2b-guests.png)
+[ ![Diagram showing the Authentication flow for B2B guest users from an external directory.](media/authentication-conditional-access/authentication-flow-b2b-guests.png) ](media/authentication-conditional-access/authentication-flow-b2b-guests.png#lightbox))
 
 | Step | Description |
 |--------------|-----------------------|
@@ -57,9 +57,9 @@ The following diagram illustrates the authentication flow when an external user 
 
 ### Example 2: Authentication flow and token for one-time passcode user
 
-The following diagram illustrates the flow when email one-time passcode authentication is enabled and the  external user isn't authenticated through other means, such as Azure AD, Microsoft account (MSA), or social identity provider.
+The following diagram illustrates the flow when email one-time passcode authentication is enabled and the external user isn't authenticated through other means, such as Azure AD, Microsoft account (MSA), or social identity provider.
 
-![image shows Authentication flow for B2B guest users with one time passcode](media/authentication-conditional-access/authentication-flow-b2b-guests-otp.png)
+[ ![Diagram showing the Authentication flow for B2B guest users with one-time passcode.](media/authentication-conditional-access/authentication-flow-b2b-guests-otp.png) ](media/authentication-conditional-access/authentication-flow-b2b-guests-otp.png#lightbox)
 
 | Step | Description |
 |--------------|-----------------------|
@@ -70,13 +70,15 @@ The following diagram illustrates the flow when email one-time passcode authenti
 
 ## Conditional Access for external users
 
-Organizations can enforce Conditional Access policies for external B2B collaboration and B2B direct connect users in the same way that they're enabled for full-time employees and members of the organization. This section describes important considerations for applying Conditional Access to users outside of your organization.
+Organizations can enforce Conditional Access policies for external B2B collaboration and B2B direct connect users in the same way that they’re enabled for full-time employees and members of the organization. In addition, cross-tenant access settings include the capability to trust MFA, compliant device claims, and hybrid Azure AD joined device claims from external Azure AD organizations, making for a more streamlined sign-in experience for the external user.
 
-### Azure AD cross-tenant trust settings for MFA and device claims
+This section describes important considerations and caveats for applying Conditional Access to users outside of your organization.
 
-In an Azure AD cross-tenant scenario, the resource organization can create Conditional Access policies that require MFA or device compliance for all guest and external users. Generally, an external user accessing a resource is required to set up their Azure AD MFA with the resource tenant. However, Azure AD now offers the capability to trust MFA, compliant device claims, and [hybrid Azure AD joined device](../conditional-access/howto-conditional-access-policy-compliant-device.md) claims from external Azure AD organizations, making for a more streamlined sign-in experience for the external user. As the resource tenant, you can use cross-tenant access settings to trust the MFA and device claims from external Azure AD tenants. Trust settings can apply to all Azure AD organizations, or just selected Azure AD organizations.
+### MFA for Azure AD external users
 
-When trust settings are enabled, Azure AD will check a user's credentials during authentication for an MFA claim or a device ID to determine if the policies have already been met in their home tenant. If so, the external user will be granted seamless sign-on to your shared resource. Otherwise, an MFA or device challenge will be initiated in the user's home tenant. If trust settings aren't enabled, or if the user's credentials don't contain the required claims, the external user will be presented with an MFA or device challenge.
+In an Azure AD cross-tenant scenario, the resource organization can create Conditional Access policies that require MFA for all guest and external users. Generally, an external user accessing a resource is required to set up their Azure AD MFA with the resource tenant. However, as the resource tenant, you can use cross-tenant access settings to trust the MFA and device claims from external Azure AD tenants. Trust settings can apply to all Azure AD organizations, or to individual Azure AD organizations.
+
+When trust settings are enabled, Azure AD checks a user's credentials during authentication for an MFA claim to determine if the policies have already been met in their home tenant. If so, the external user is granted seamless sign-on to your shared resource. Otherwise, an MFA challenge is initiated in the user's home tenant. If trust settings aren't enabled, or if the user's credentials don't contain the required claims, the external user will be presented with an MFA challenge.
 
 For details, see [Configuring cross-tenant access settings for B2B collaboration](cross-tenant-access-settings-b2b-collaboration.md). If no trust settings are configured, the flow is the same as the [MFA flow for non-Azure AD external users](#mfa-for-non-azure-ad-external-users).
 
@@ -97,7 +99,7 @@ Fabrikam must have sufficient premium Azure AD licenses that support Azure AD MF
 >[!NOTE]
 >MFA is completed at resource tenancy to ensure predictability. When the guest user signs in, they'll see the resource tenant sign-in page displayed in the background, and their own home tenant sign-in page and company logo in the foreground.
 
-### Azure AD MFA reset (proof up) for B2B collaboration users
+#### Azure AD MFA reset (proof up) for B2B collaboration users
 
 The following PowerShell cmdlets are available to *proof up* or request MFA registration from B2B collaboration users.
 
@@ -128,7 +130,9 @@ The following PowerShell cmdlets are available to *proof up* or request MFA regi
 
 ### Device compliance and hybrid Azure AD joined device policies
 
-If your organization uses Microsoft Intune, you can create Conditional Access policies to require a user's device to be [compliant or hybrid Azure AD joined](../conditional-access/howto-conditional-access-policy-compliant-device.md) to access a resource. If an internal user in your organization needs to access a resource that has this type of policy applied, they can register and enroll in device management in your organization. However, this option isn't available to external users, because devices can only be managed by a user's home tenant. The solution is to use cross-tenant access settings to trust claims from the external user's home tenant about whether the device meets their device compliance policies or is hybrid Azure AD joined.
+If your organization uses Microsoft Intune, you can set a Conditional Access policy to require a user's device to be compliant or hybrid Azure AD joined. However, devices can only be managed by a user's home tenant, which means an external user won't be able to register and enroll their device in the resource organization. To prevent the external user from being blocked, you can configure your cross-tenant access settings to trust claims from the external user's home tenant indicating whether the device meets their device compliance policies or is [hybrid Azure AD joined](../conditional-access/howto-conditional-access-policy-compliant-device.md). Trust settings can apply to all Azure AD organizations, or to individual Azure AD organizations.
+
+When these trust settings are enabled, Azure AD will check a user's credentials during authentication for a device ID to determine if the policies have already been met in their home tenant. If so, the external user will be granted seamless sign-on to your shared resource.
 
 >[!Important]
 >
@@ -136,14 +140,11 @@ If your organization uses Microsoft Intune, you can create Conditional Access po
 
 ### Device filters
 
-Device filters can be used in Conditional Access policies for external users. You can filter by [supported operators and properties](../conditional-access/concept-condition-filters-for-devices#supported-operators-and-device-properties-for-filters), such as personal-owned or company-owned, device model, operating system, and so on. When creating Conditional Access policies, you can target or exclude specific devices. By using the **filter for devices** condition, you can target specific devices using [supported operators and properties](../conditional-access/concept-condition-filters-for-devices#supported-operators-and-device-properties-for-filters) for device filters and the other available assignment conditions in your Conditional Access policies.
+When creating Conditional Access policies for external users, you can evaluate a policy based on the device attributes of a registered device in Azure AD. By using the *filter for devices* condition, you can target specific devices using the [supported operators and properties](../conditional-access/concept-condition-filters-for-devices#supported-operators-and-device-properties-for-filters) and the other available assignment conditions in your Conditional Access policies. For more information, see [Conditional Access: Filter for devices](../conditional-access/concept-condition-filters-for-devices.md).
 
 ### Mobile application management policies
 
-The Conditional Access grant controls, such as **Require approved client apps** and **Require app protection policies**, need the device to be registered in the resource tenant. These controls can only be applied to [iOS and Android devices](../conditional-access/concept-conditional-access-conditions.md#device-platforms). However, neither of these controls can be applied to B2B guest users, since the  user’s device can only be managed by their home tenant.
-
->[!NOTE]
->We don't recommend requiring an app protection policy for external users.
+We don't recommend requiring an app protection policy for external users. Conditional Access grant controls such as **Require approved client apps** and **Require app protection policies** require the device to be registered in the resource tenant. These controls can only be applied to [iOS and Android devices](../conditional-access/concept-conditional-access-conditions.md#device-platforms). However, because a user’s device can only be managed by their home tenant, these controls can't be applied to external guest users.
 
 ### Location-based Conditional Access
 
@@ -153,9 +154,9 @@ Policies can also be enforced based on **geographical locations**.
 
 ### Risk-based Conditional Access
 
-The [Sign-in risk policy](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk) is enforced if the B2B guest user satisfies the grant control. For example, an organization could require Azure AD Multi-Factor Authentication for medium or high sign-in risk. However, if a user hasn't previously registered for Azure AD Multi-Factor Authentication in the resource tenant, the user will be blocked. This is done to prevent malicious users from registering their own Azure AD Multi-Factor Authentication credentials in the event they compromise a legitimate user’s password.
+The [Sign-in risk policy](../conditional-access/concept-conditional-access-conditions.md#sign-in-risk) is enforced if the external guest user satisfies the grant control. For example, an organization could require Azure AD Multi-Factor Authentication for medium or high sign-in risk. However, if a user hasn't previously registered for Azure AD Multi-Factor Authentication in the resource tenant, the user will be blocked. This is done to prevent malicious users from registering their own Azure AD Multi-Factor Authentication credentials in the event they compromise a legitimate user’s password.
 
-The [User-risk policy](../conditional-access/concept-conditional-access-conditions.md#user-risk), however, can't be resolved in the resource tenant. For example, if you require a password change for high-risk guest users, they'll be blocked because of the inability to reset passwords in the resource directory.
+The [User-risk policy](../conditional-access/concept-conditional-access-conditions.md#user-risk), however, can't be resolved in the resource tenant. For example, if you require a password change for high-risk external guest users, they'll be blocked because of the inability to reset passwords in the resource directory.
 
 ### Conditional Access client apps condition
 
@@ -167,38 +168,21 @@ The [User-risk policy](../conditional-access/concept-conditional-access-conditio
 
 ## Identity protection and user risk policies
 
-[Identity Protection](../identity-protection/concept-identity-protection-b2b.md) detects compromised credentials for Azure AD users.  and marks user accounts that may be compromised as "at risk". As a resource tenant, you can apply user risk policies to guest users to block risky 
+Identity Protection detects compromised credentials for Azure AD users and marks user accounts that may be compromised as "at risk". As a resource tenant, you can apply user risk policies to external users to block risky sign-ins. For an external user, the user risk is evaluated at their home directory. The real-time sign-in risk for these users is evaluated at the resource directory when they try to access the resource. However, because an external user's identity exists in their home directory, the following are limitations:
 
-Identity Protection automatically detects risky users for Azure AD tenants. If you have not previously checked the Identity Protection reports, there may be a large number of users with risk. Since resource tenants can apply user risk policies to guest users, your users can be blocked due to risk even if they were previously unaware of their risky state. If your user reports they have been blocked as a guest user in another tenant due to risk, it is important to remediate the user to protect their account and enable collaboration.
+- If an external user triggers the Identity Protection user risk policy to force password reset, they're blocked because they can't reset their password in the resource organization.
+- The resource organization's risky users report won't reflect external users because the risk evaluation occurs in the external user's home directory.
+- Admins in the resource organization can't dismiss or remediate a risky external user because they don't have access to the B2B user's home directory.
 
-For a B2B collaboration user, the user risk is evaluated at their home directory. The real-time sign-in risk for these users is evaluated at the resource directory when they try to access the resource. With Azure AD B2B collaboration, organizations can enforce risk-based policies for B2B users using Identity Protection. These policies be configured in two ways:
+You can prevent external users from being impacted by risk-based policies by creating a group in Azure AD that contains all of your organization's external users. Then, add this group as an exclusion for your built-in Identity Protection user risk and sign-in risk policies, and any Conditional Access policies that use sign-in risk as a condition.
 
-- Administrators can configure the built-in Identity Protection risk-based policies, that apply to all apps, that include guest users.
-- Administrators can configure their Conditional Access policies, using sign-in risk as a condition, that includes guest users.
+For more information, see [Identity Protection and B2B users](../identity-protection/concept-identity-protection-b2b.md).
 
-### Limitations of Identity Protection for B2B collaboration users
-
-There are limitations in the implementation of Identity Protection for B2B collaboration users in a resource directory due to their identity existing in their home directory. The main limitations are as follows:
-
-- If a guest user triggers the Identity Protection user risk policy to force password reset, **they will be blocked**. This block is due to the inability to reset passwords in the resource directory.
-- **Guest users do not appear in the risky users report**. This limitation is due to the risk evaluation occurring in the B2B user's home directory.
-- Administrators **cannot dismiss or remediate a risky B2B collaboration user** in their resource directory. This limitation is due to administrators in the resource directory not having access to the B2B user's home directory.
-
-#### Why can't I remediate risky B2B collaboration users in my directory?
-
-The risk evaluation and remediation for B2B users occurs in their home directory. Due to this fact, the guest users do not appear in the risky users report in the resource directory and admins in the resource directory cannot force a secure password reset for these users.
-
-#### What do I do if a B2B collaboration user was blocked due to a risk-based policy in my organization?
-
-If a risky B2B user in your directory is blocked by your risk-based policy, the user will need to remediate that risk in their home directory. Users can remediate their risk by performing a secure password reset in their home directory [as outlined above](#how-to-unblock-your-account). If they do not have self-service password reset enabled in their home directory, they will need to contact their own organization's IT Staff to have an administrator manually dismiss their risk or reset their password.
-
-#### How do I prevent B2B collaboration users from being impacted by risk-based policies?
-
-Excluding B2B users from your organization's risk-based Conditional Access policies will prevent B2B users from being impacted or blocked by their risk evaluation. To exclude these B2B users, create a group in Azure AD that contains all of your organization's guest users. Then, add this group as an exclusion for your built-in Identity Protection user risk and sign-in risk policies, and any Conditional Access policies that use sign-in risk as a condition.
 ## Next steps
 
-For more information, see the following articles on Azure AD B2B collaboration:
+For more information, see the following articles:
 
+- [Zero Trust policies for allowing guest access and B2B external user access](https://docs.microsoft.com/microsoft-365/security/office-365-security/identity-access-policies-guest-access?view=o365-worldwide)
 - [What is Azure AD B2B collaboration?](./what-is-b2b.md)
 - [Identity Protection and B2B users](../identity-protection/concept-identity-protection-b2b.md)
 - [External Identities pricing](https://azure.microsoft.com/pricing/details/active-directory/external-identities/)
