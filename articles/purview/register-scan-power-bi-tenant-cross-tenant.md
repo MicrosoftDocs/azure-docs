@@ -52,7 +52,7 @@ Use either of the following deployment checklists during the setup, or for troub
 
 1. Make sure the Power BI and Microsoft Purview accounts are in the cross-tenant mode.
 
-1. Make sure the Power BI tenant ID is entered correctly during the registration. By default, the Power BI tenant ID that exists in the same Azure Active Directory (Azure AD) as Microsoft Purview will be populated.
+1. Make sure the Power BI tenant ID is entered correctly during the registration. By default, the Power BI tenant ID that exists in the same Azure Active Directory (Azure AD) instance as Microsoft Purview will be populated.
 
 1. Make sure your [Power BI metadata model is up to date by enabling metadata scanning](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning).
 
@@ -87,11 +87,11 @@ Use either of the following deployment checklists during the setup, or for troub
    
 # [Public access with self-hosted integration runtime](#tab/Scenario2)
 
-### Scan cross-tenant Power BI by using delegated authentication in public network
+### Scan cross-tenant Power BI by using delegated authentication in a public network
 
 1. Make sure the Power BI and Microsoft Purview accounts are in the cross-tenant mode.
 
-1. Make sure the Power BI tenant ID is entered correctly during the registration. By default, the Power BI tenant ID that exists in the same Azure Active Directory (Azure AD) as Microsoft Purview will be populated.
+1. Make sure the Power BI tenant ID is entered correctly during the registration. By default, the Power BI tenant ID that exists in the same Azure Active Directory (Azure AD) instance as Microsoft Purview will be populated.
 
 1. Make sure your [Power BI metadata model is up to date by enabling metadata scanning](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning).
 
@@ -140,9 +140,9 @@ Use either of the following deployment checklists during the setup, or for troub
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/select-power-bi-data-source.png" alt-text="Screenshot that shows the list of data sources available to choose.":::
 
-1. Give your Power BI instance a friendly name. The name must be between 3-63 characters long, and must contain only letters, numbers, underscores, and hyphens. Spaces aren't allowed.
+1. Give your Power BI instance a friendly name. The name must be 3 to 63 characters long, and must contain only letters, numbers, underscores, and hyphens. Spaces aren't allowed.
 
-1. Edit the **Tenant ID** field, to replace with the cross-tenant Power BI that you want to register and scan. By default, the Power BI tenant ID that exists in the same Azure AD as Microsoft Purview is populated.
+1. Edit the **Tenant ID** field, to replace with the cross-tenant Power BI that you want to register and scan. By default, the Power BI tenant ID that exists in the same Azure AD instance as Microsoft Purview is populated.
 
      :::image type="content" source="media/setup-power-bi-scan-catalog-portal/register-cross-tenant.png" alt-text="Screenshot that shows the registration experience for cross-tenant Power BI.":::
 
