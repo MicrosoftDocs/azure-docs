@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/01/2022
+ms.date: 06/02/2022
 ms.author: alkohli
 ---
 
@@ -37,10 +37,181 @@ To migrate your existing workloads from IoT Edge on Kubernetes to a newly deploy
 Before you begin, make sure you have:
 
 - An Azure Stack Edge device that you've activated. For detailed steps, see [Activate Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-activate.md).
-- You have access to a VM image. This could be an image from Azure Marketplace or a custom image that you're bringing. 
+- You have access to the latest Ubuntu 20.04 VM image. This could be an image from Azure Marketplace or a custom image that you're bringing.
 
-    - For a non-GPU Ubuntu VM, see the [Supported versions of Ubuntu Operating System for Azure IoT Edge](../iot-edge/support.md#operating-systems).
-    - For a GPU VM, see the [Supported versions of OS for your GPU VM on Azure Stack Edge device](azure-stack-edge-gpu-overview-gpu-virtual-machines.md#supported-os-for-gpu-extension-for-linux).
+## Prepare the custom script
+
+### Provision using symmetric keys
+
+To connect your device to IoT Hub without DPS, the process in this section will walk you through to prepare a cloud-init script that would be used during the VM creation advance page to deploy the IoT Edge runtime and Nvidia’s container runtime (if applicable).  
+
+1. Use existing IoT Hub or create a new Hub. Use these steps to [create the IoT Hub](Need target URL here...).
+
+1. Use these steps to [register your Azure Stack Edge device in IoT Hub](https://docs.microsoft.com/azure/iot-edge/how-to-provision-single-device-linux-symmetric?view=iotedge-2020-11&tabs=azure-portal%2Cubuntu%22%20%5Cl%20%22register-your-device#register-your-device). 
+
+1. Retrieve the primary connection string from IoT Hub for your device, and then paste it into the appropriate location below.
+
+**Cloud-init script**
+
+```python
+#cloud-config 
+runcmd:
+dcs="<connection string>" 
+| 
+    set -x 
+    ( 
+    # Wait for docker daemon to start 
+    while [ $(ps -ef | grep -v grep | grep docker | wc -l) -le 0 ]; do  
+    sleep 3 
+    done 
+    if [ $(lspci | grep NVIDIA | wc -l) -gt 0 ]; then 
+        #install Nvidia drivers 
+        apt install -y ubuntu-drivers-common 
+        ubuntu-drivers devices 
+        ubuntu-drivers autoinstall 
+        # Install NVIDIA Container Runtime 
+        curl -s -L https://nvidia.github.io/nvidia-container-runtime/gpgkey | apt-key add - 
+        distribution=$(. /etc/os-release;echo $ID$VERSION_ID) 
+        curl -s -L https://nvidia.github.io/nvidia-container-runtime/$distribution/nvidia-container-runtime.list | tee /etc/apt/sources.list.d/nvidia-container-runtime.list 
+        apt update 
+        apt install -y nvidia-container-runtime 
+        fi        
+        
+        # Restart Docker 
+        systemctl daemon-reload 
+        systemctl restart docker 
+
+        # Install IoT Edge 
+        apt install -y aziot-edge 
+
+        if [ ! -z $dcs ]; then
+        iotedge config mp --connection-string $dcs 
+        iotedge config apply 
+        fi 
+
+        if [ $(lspci | grep NVIDIA | wc -l) -gt 0 ]; then       
+        reboot 
+        fi       ) & 
+
+    apt:
+    preserve_sources_list: true 
+    sources: 
+    msft.list: 
+
+      source: "deb https://packages.microsoft.com/ubuntu/20.04/prod focal main" 
+
+      key: |
+        -----BEGIN PGP PUBLIC KEY BLOCK-----
+        Version: GnuPG v1.4.7 (GNU/Linux) 
+
+        mQENBFYxWIwBCADAKoZhZlJxGNGWzqV+1OG1xiQeoowKhssGAKvd+buXCGISZJwT
+        LXZqIcIiLP7pqdcZWtE9bSc7yBY2MalDp9Liu0KekywQ6VVX1T72NPf5Ev6x6DLV
+        7aVWsCzUAFeb7DC9fPuFLEdxmOEYoPjzrQ7cCnSV4JQxAqhU4T6OjbvRazGl3ag 
+        OeizPXmRljMtUUttHQZnRhtlzkmwIrUivbfFPD+fEoHJ1+uIdfOzZX8/oKHKLe2j
+        H632kvsNzJFlROVvGLYAk2WRcLu+RjjggixhwiB+Mu/A8Tf4V6bYppS44q8EvVr 
+        M+QvY7LNSOffSO6Slsy9oisGTdfE39nC7pVRABEBAAG0N01pY3Jvc29mdCAoUmVs
+        ZWFzZSBzaWduaW5nKSA8Z3Bnc2VjdXJpdHlAbWljcm9zb2Z0LmNvbT6JATUEEwEC
+        AB8FAlYxWIwCGwMGCwkIBwMCBBUCCAMDFgIBAh4BAheAAAoJEOs+lK2+EinPGpsH
+        /32vKy29Hg51H9dfFJMx0/a/F+5vKeCeVqimvyTM04CXENNuSbYZ3eRPHGHFLqe 
+        MNGxsfb7C7ZxEeW7J/vSzRgHxm7ZvESisUYRFq2sgkJHFERNrqfci45bdhmrUsy 
+        7SWw9ybxdFOkuQoyKD3tBmiGfONQMlBaOMWdAsic965rvJsd5zYaZZFI1UwTkFX
+        KJt3bp3Ngn1vEYXwijGTaFXz6GLHueJwF0I7ug34DgUkAFvAs8Hacr2DRYxL5RJ 
+        XdNgj4Jd2/g6T9InmWT0hASljur+dJnzNiNCkbn9KbX7J/qK1IbR8y560yRmFsU
+        NdCFTW7wY0Fb1fWJ+/KTsC4=
+        =J6gs 
+        -----END PGP PUBLIC KEY BLOCK-----  
+
+packages: 
+  - moby-cli 
+  - moby-engine 
+
+write_files: 
+  - path: /etc/systemd/system/docker.service.d/override.conf 
+    permissions: "0644" 
+    content: | 
+      [Service] 
+      ExecStart= 
+      ExecStart=/usr/bin/dockerd --host=fd:// --add-runtime=nvidia=/usr/bin/nvidia-container-runtime --log-driver local 
+```
+### Device Provisioning Service
+
+Use steps in this section to connect your device to DPS/IoT Central. You will prepare a script.sh file to deploy the IoT Edge runtime as you create the VM.
+
+1. Use the existing IoT Hub and DPS, or create a new IoT Hub. 
+
+   - [Create the IoT Hub]() and [create DPS]().
+   - [Link the IoT Hub to the DPS scope](https://docs.microsoft.com/azure/iot-dps/quick-setup-auto-provision).
+
+1. Go to the DPS resource and create an individual enrollment.  
+
+   1. Go to **DPS** > **Manage enrollments** > **Add individual enrollment**.
+   1. Make sure that the selection for **Symmetric Key for attestation type and IoT Edge device** is **True**. The default selection is **False**.
+   1. Retrieve the following information from the DPS resource page
+      - **Registration ID**. We recommend that you use the same ID as the **Device ID** for your IoT Hub.
+      - **ID Scope** which is available in the [Overview menu](https://docs.microsoft.com/azure/iot-dps/quick-create-simulated-device-symm-key?pivots=programming-language-ansi-c#run-the-provisioning-code-for-the-device).
+      - **Primary SAS Key** from the Individual Enrollment menu.
+1. Copy and paste values from IoTHub (IDScope) and DPS (RegistrationID, Symetric Key) into the script arguments.
+
+**Cloud-init script**
+
+```python
+#cloud-config
+runcmd:
+    - dps_idscope="<DPS IDScope>" 
+    - registration_device_id="<RegistrationID>" 
+    - key="<Sysmetric Key>" 
+    - | 
+      set -x 
+      ( 
+
+      wget https://github.com/Azure/iot-edge-config/releases/latest/download/azure-iot-edge-installer.sh -O azure-iot-edge-installer.sh \ 
+      && chmod +x azure-iot-edge-installer.sh \ 
+      && sudo -H ./azure-iot-edge-installer.sh -s $dps_idscope -r $registration_device_id -k $key \ 
+      && rm -rf azure-iot-edge-installer.sh 
+
+      # Wait for docker daemon to start 
+
+      while [ $(ps -ef | grep -v grep | grep docker | wc -l) -le 0 ]; do  
+        sleep 3 
+      done 
+
+      systemctl stop aziot-edge 
+
+      if [ $(lspci | grep NVIDIA | wc -l) -gt 0 ]; then 
+
+        #install Nvidia drivers 
+
+        apt install -y ubuntu-drivers-common 
+        ubuntu-drivers devices 
+        ubuntu-drivers autoinstall 
+
+        # Install NVIDIA Container Runtime 
+
+        curl -s -L https://nvidia.github.io/nvidia-container-runtime/gpgkey | apt-key add - 
+        distribution=$(. /etc/os-release;echo $ID$VERSION_ID) 
+        curl -s -L https://nvidia.github.io/nvidia-container-runtime/$distribution/nvidia-container-runtime.list | tee /etc/apt/sources.list.d/nvidia-container-runtime.list 
+        apt update 
+        apt install -y nvidia-container-runtime 
+      fi 
+
+      # Restart Docker 
+
+      systemctl daemon-reload 
+      systemctl restart docker 
+
+      systemctl start aziot-edge     
+      if [ $(lspci | grep NVIDIA | wc -l) -gt 0 ]; then       
+         reboot 
+      fi 
+      ) & 
+write_files: 
+  - path: /etc/systemd/system/docker.service.d/override.conf 
+    permissions: "0644" 
+    content: | 
+      [Service] 
+      ExecStart= 
+      ExecStart=/usr/bin/dockerd --host=fd:// --add-runtime=nvidia=/usr/bin/nvidia-container-runtime --log-driver local 
+```
 
 ## Deploy IoT Edge runtime
 
@@ -48,13 +219,18 @@ Begin by deploying IoT Edge runtime. Follow these high-level steps to deploy IoT
 
 1. In the [Azure portal](https://portal.azure.com), go to Azure Marketplace. 
     1. Connect to the Azure Cloud Shell or a client with Azure CLI installed. 
-    1. Search the Azure Marketplace and identify your preferred image. Make sure that the VM image is included in the list of [Azure IoT Edge supported systems](../iot-edge/support.md#linux-containers).
+    1. Search the Azure Marketplace and identify your preferred image. Make sure that the VM image is included in the list of [Azure IoT Edge supported systems](../iot-edge/support.md#linux-containers). For example, you could use the Ubuntu 20.04 LTS: $urn = Canonical:0001-com-ubuntu-server-focal:20_04-lts:20.04.202007160. 
     1. Create a new managed disk from the Marketplace image.
-    1. Export a VHD from the managed disk to Azure Storage account.
+    1. Export a VHD from the managed disk to an Azure Storage account.
 
     For detailed steps, follow the instructions in [Use Azure marketplace image to create VM image for your Azure Stack Edge](azure-stack-edge-gpu-create-virtual-machine-marketplace-image.md).
 
 1. Create an Ubuntu VM using the VM image created in the previous step. Depending on whether you're creating a GPU-enabled VM or a non-GPU VM, you would need to follow a different set of steps.
+ 
+DO NOT create the VM just yet until you read through the next steps which can help auto deploy the IoT Edge runtime. If the advance page step is missed (which allow you to apply a cloud-init script), you will have to manually deploy the IoT Edge runtime by SSH into the VM post VM creation. Refer to Create and provision an IoT Edge device on Linux using symmetric keys - Azure IoT Edge | Microsoft Docs  or Quickstart - Set up IoT Hub Device Provisioning Service in the Microsoft Azure portal | Microsoft Docs for manually install the container engine in the Ubuntu VM.
+
+> [!IMPORTANT]
+> DO NOT create the VM until you read through the steps to auto-deploy the IoT Edge runtime. If the advance page step is missed, which allows you to apply a *cloud-init* script, you will have to manually deploy the IoT Edge runtime by SSH into the VM post VM creation. To manually install the container engine in the Ubuntu VM, use the steps in [Create and provision an IoT Edge device on Linux using symmetric keys](https://docs.microsoft.com/azure/iot-edge/how-to-provision-single-device-linux-symmetric?view=iotedge-2020-11&tabs=azure-portal%2Cubuntu%22%20%5Cl%20%22install-a-container-engine) or [Quickstart - Set up IoT Hub Device Provisioning Service with the Microsoft Azure portal](https://docs.microsoft.com/azure/iot-dps/quick-setup-auto-provision).
 
        
     |VM type  |Deployment procedure  |
