@@ -1,6 +1,5 @@
 ---
 title: Disable how a how a user signs in
-titleSuffix: Azure AD
 description: How to disable an enterprise application so that no users may sign in to it in Azure Active Directory
 services: active-directory
 author: eringreenlee

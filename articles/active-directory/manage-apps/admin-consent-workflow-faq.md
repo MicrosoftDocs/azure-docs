@@ -1,6 +1,5 @@
 ---
 title: Frequently asked questions about the admin consent workflow
-titleSuffix: Azure AD
 description: Find answers to frequently asked questions (FAQs) about the admin consent workflow.
 services: active-directory
 author: eringreenlee

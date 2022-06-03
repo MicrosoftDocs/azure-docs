@@ -13,14 +13,15 @@ items:
       href: privacy-data-collection-and-reporting.md
 - name: Quickstarts
   items:
-    - name: Plan an Azure Arc-enabled data services deployment 
-      href: plan-azure-arc-data-services.md
     - name: Directly connected | Azure portal example
       href: create-complete-managed-instance-directly-connected.md
     - name: Indirectly connected | Azure CLI example
       href: create-complete-managed-instance-indirectly-connected.md
 - name: Concepts
+  expanded: true
   items:
+    - name: Plan an Azure Arc-enabled data services deployment 
+      href: plan-azure-arc-data-services.md
     - name: Connectivity modes and requirements
       href: connectivity.md
     - name: Storage configuration
