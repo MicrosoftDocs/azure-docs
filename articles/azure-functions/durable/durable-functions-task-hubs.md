@@ -35,7 +35,7 @@ An empty task hub with all the required resources is automatically created in st
 If using the default Azure Storage provider, no extra configuration is required. Otherwise, follow the [instructions for configuring storage providers](durable-functions-storage-providers.md#configuring-alternate-storage-providers) to ensure that the storage provider can properly provision and access the storage resources required for the task hub.
 
 > [!NOTE]
-> The task hub is *not* automatically deleted when you stop or delete the function app. You must delete the taskhub, its contents, or the containing storage account manually if you no longer want to keep that data.
+> The task hub is *not* automatically deleted when you stop or delete the function app. You must delete the task hub, its contents, or the containing storage account manually if you no longer want to keep that data.
 
 > [!TIP]
 > In a development scenario, you may need to restart from a clean state often. To do so quickly, you can just [change the configured task hub name](durable-functions-task-hubs.md#task-hub-names). This will force the creation of a new, empty task hub when you restart the application.
@@ -59,7 +59,7 @@ There are several common ways to inspect the contents of a task hub:
 2. Similarly, The [HTTP API](durable-functions-http-features.md) offers REST requests to query the state of orchestrations and entities. See the [HTTP API Reference](durable-functions-http-api.md) for more details.
 3. The [Durable Functions Monitor](https://github.com/microsoft/DurableFunctionsMonitor) tool can inspect task hubs and offers various options for visual display.
 
-For some of the storage providers, it is also possible to inspect the taskhub by going directly to the underlying storage:
+For some of the storage providers, it is also possible to inspect the task hub by going directly to the underlying storage:
 
 1. If using the Azure Storage provider, the instance store is represented by an [Instance Table](durable-functions-azure-storage-provider.md#instances-table) and a [History Table](durable-functions-azure-storage-provider.md#history-table) that can be inspected using tools such as Azure Storage Explorer.
 2. If using the MSSQL storage provider, SQL queries and tools can be used to inspect the task hub contents inside the database.
@@ -85,19 +85,19 @@ For more information how task hubs are represented by the Azure Storage provider
 
 ### Netherite storage provider
 
-Netherite partitions all of the taskhub state into a specified number of partitions.
+Netherite partitions all of the task hub state into a specified number of partitions.
 In storage, the following resources are used:
 
-* One blob container that contains all the blobs, grouped by partition.
+* One Azure Storage blob container that contains all the blobs, grouped by partition.
 * One Azure Table that contains published metrics about the partitions.
-* An EventHubs namespace for delivering messages between partitions.
+* An Azure Event Hubs namespace for delivering messages between partitions.
 
-For example, a taskhub named `x` with `PartitionCount = 32` is represented in storage as follows:
+For example, a task hub named `x` with `PartitionCount = 32` is represented in storage as follows:
 
 ![Diagram showing Netherite storage organization for 32 partitions.](./media/durable-functions-task-hubs/netherite-storage.png)
 
 > [!NOTE]
-> All of the task hub state is stored inside the `x-storage` blob container. The `DurableTaskPartitions` table and the EventHubs namespace contain redundant data: if their contents are lost, they can be automatically recovered. Therefore it is not necessary to configure the EventHubs namespace to retain messages past the default expiration time.
+> All of the task hub state is stored inside the `x-storage` blob container. The `DurableTaskPartitions` table and the EventHubs namespace contain redundant data: if their contents are lost, they can be automatically recovered. Therefore it is not necessary to configure the Azure Event Hubs namespace to retain messages past the default expiration time.
 
 Netherite uses an event-sourcing mechanism, based on a log and checkpoints, to represent the current state of a partition. Both block blobs and page blobs are used. It is not possible to read this format from storage directly, so the function app has to be running when querying the instance store.
 
@@ -107,13 +107,13 @@ For more details on task hubs for the Netherite storage provider, see [Task Hub 
 
 All taskhub data is stored in a single relational database, using several tables:
 
-* The `t.Instances` and `dt.History` tables represent the instance store.
+* The `dt.Instances` and `dt.History` tables represent the instance store.
 * The `dt.NewEvents` table represents the message queue.
 * The `dt.NewTasks` table represents the task queue.
 
 ![Diagram showing MSSQL storage organization.](./media/durable-functions-task-hubs/mssql-storage.png)
 
-To enable multiple task hubs to coexist independently in the same database, each table includes a TaskHub column as part of its primary key.
+To enable multiple task hubs to coexist independently in the same database, each table includes a `TaskHub` column as part of its primary key.
 
 For more details on task hubs for the MSSQL storage provider, see [Task Hub information for the Microsoft SQL (MSSQL) storage provider](https://microsoft.github.io/durabletask-mssql/#/taskhubs).
 
