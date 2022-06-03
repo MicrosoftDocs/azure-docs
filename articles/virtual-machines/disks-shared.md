@@ -23,6 +23,16 @@ Shared managed disks offer shared block storage that can be accessed from multip
 
 Shared managed disks do not natively offer a fully managed file system that can be accessed using SMB/NFS. You need to use a cluster manager, like Windows Server Failover Cluster (WSFC) or Pacemaker, that handles cluster node communication and write locking.
 
+## Billing implications
+
+When using shared disks, your billing can be impacted in two different ways, depending on the type of disk you're sharing.
+
+For shared premium SSDs, there is an additional charge that increases with each VM the SSD is mounted to.
+
+Ultra disks don't have an additional charge for each VM that they're mounted to. They're billed on the total IOPS and MBps that the disk has. Originally, an ultra disk only has two performance throttles that are exposed, which determine its total IOPS/MBps. However, when configured as an ultra shared disk, two additional performance throttles are exposed. These two additional meters allow for increased performance but do come at an additional expense. These two meters also have a default value, which raise the performance of the disk.
+
+The four performance throttles a shared ultra disk has are: diskIOPSReadWrite, diskIOPSReadOnly, diskMBpsReadWrite, and DiskMBpsReadOnly. The total IOPS for a shared disk would be: total provisioned IOPS (diskIOPSReadWrite + diskIOPSReadOnly) and for total provisioned Throughput MBps (diskMBpsReadWrite + diskMBpsReadOnly).
+
 ## Limitations
 
 [!INCLUDE [virtual-machines-disks-shared-limitations](../../includes/virtual-machines-disks-shared-limitations.md)]
@@ -144,6 +154,10 @@ The following is an example of a 2-node WSFC that isn't using clustered shared v
 The following is an example of a 4-node Linux cluster with a single writer and three scale-out readers. With this configuration, only one VM has write-access to the disk. This results in the `ReadWrite` throttle being used exclusively for the primary VM and the `ReadOnly` throttle being split by the secondary VMs.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Four node ultra throttling example":::
+
+##### Ultra pricing
+
+Ultra shared disks are priced based on provisioned capacity, total provisioned IOPS (diskIOPSReadWrite + diskIOPSReadOnly) and total provisioned Throughput MBps (diskMBpsReadWrite + diskMBpsReadOnly). There is no extra charge for each additional VM mount. For example, an ultra shared disk with the following configuration (diskSizeGB: 1024, DiskIOPSReadWrite: 10000, DiskMBpsReadWrite: 600, DiskIOPSReadOnly: 100, DiskMBpsReadOnly: 1) is charged with 1024 GiB, 10100 IOPS, and 601 MBps regardless of whether it is mounted to two VMs or five VMs.
 
 ## Next steps
 
