@@ -27,7 +27,7 @@ You might receive errors during these operations even before you reach the Azure
 
 ## Symptom
 
-In Azure portal, navigate to your Cloud service (classic) and in the sidebar select **Operation log (classic)** to view the logs.
+In the [Azure portal](https://portal.azure.com/), navigate to your Cloud service (classic) and in the sidebar select **Operation log (classic)** to view the logs.
 
 :::image type="content" source="./media/cloud-services-troubleshoot-location-not-found-for-role-size/cloud-services-troubleshoot-allocation-logs.png" alt-text="Screenshot shows the Operation log (classic) pane.":::
 
@@ -41,9 +41,9 @@ When you inspect the logs of your Cloud service (classic), you'll see the follow
 
 There's a capacity issue with the region or cluster that you're deploying to. The `LocationNotFoundForRoleSize` exception occurs when the resource SKU you've selected, the virtual machine size, isn't available for the region specified.
 
-## Solution
+## Find SKUs in a region
 
-In this scenario, you should select a different region or SKU to deploy your Cloud service (classic) to. Before you deploy or upgrade your Cloud service (classic), determine which SKUs are available in a region or availability zone. Follow the [Azure CLI](#list-skus-in-region-using-azure-cli), [PowerShell](#list-skus-in-region-using-powershell), or [REST API](#list-skus-in-region-using-rest-api) processes below.
+In this scenario, you should select a different region or SKU for your Cloud service (classic) deployment. Before you deploy or upgrade your Cloud service (classic), determine which SKUs are available in a region or availability zone. Follow the [Azure CLI](#list-skus-in-region-using-azure-cli), [PowerShell](#list-skus-in-region-using-powershell), or [REST API](#list-skus-in-region-using-rest-api) processes below.
 
 ### List SKUs in region using Azure CLI
 
@@ -75,13 +75,13 @@ This command filters by location:
 Get-AzComputeResourceSku | where {$_.Locations -icontains "centralus"}
 ```
 
-Filter out the locations that contain size, `Standard_DS14_v2`:
+Find the locations that contain the size `Standard_DS14_v2`:
 
 ```azurepowershell
 Get-AzComputeResourceSku | where {$_.Locations.Contains("centralus") -and $_.ResourceType.Contains("virtualMachines") -and $_.Name.Contains("Standard_DS14_v2")}
 ```
 
-Filter out all the locations that contain size, `V3`:
+Find the locations that contain the size `V3`:
 
 ```azurepowershell
 Get-AzComputeResourceSku | where {$_.Locations.Contains("centralus") -and $_.ResourceType.Contains("virtualMachines") -and $_.Name.Contains("v3")} | fc
