@@ -7,14 +7,14 @@ ms.date: 02/04/2022
 
 # Azure VMware Solution identity concepts
 
-Azure VMware Solution private clouds are provisioned with a vCenter Server and NSX-T Manager. You'll use vCenter to manage virtual machine (VM) workloads and NSX-T Manager to manage and extend the private cloud. The CloudAdmin role is used for vCenter Server and restricted administrator rights for NSX-T Manager. 
+Azure VMware Solution private clouds are provisioned with a vCenter Server and NSX-T Manager. You'll use vCenter to manage virtual machine (VM) workloads and NSX-T Manager to manage and extend the private cloud. The CloudAdmin role is used for vCenter Server and restricted administrator rights for NSX-T Manager.
 
 ## vCenter Server access and identity
 
 [!INCLUDE [vcenter-access-identity-description](includes/vcenter-access-identity-description.md)]
 
 > [!IMPORTANT]
-> Azure VMware Solution offers custom roles on vCenter Server but currently doesn't offer them on the Azure VMware Solution portal. For more information, see the [Create custom roles on vCenter Server](#create-custom-roles-on-vcenter-server) section later in this article. 
+> Azure VMware Solution offers custom roles on vCenter Server but currently doesn't offer them on the Azure VMware Solution portal. For more information, see the [Create custom roles on vCenter Server](#create-custom-roles-on-vcenter-server) section later in this article.
 
 ### View the vCenter privileges
 
@@ -22,7 +22,7 @@ You can view the privileges granted to the Azure VMware Solution CloudAdmin role
 
 1. Sign into the vSphere Client and go to **Menu** > **Administration**.
 1. Under **Access Control**, select **Roles**.
-1. From the list of roles, select **CloudAdmin** and then select **Privileges**. 
+1. From the list of roles, select **CloudAdmin** and then select **Privileges**.
 
    :::image type="content" source="media/concepts/role-based-access-control-cloudadmin-privileges.png" alt-text="Screenshot showing the roles and privileges for CloudAdmin in the vSphere Client.":::
 
@@ -51,7 +51,7 @@ The CloudAdmin role in Azure VMware Solution has the following privileges on vCe
 
 ### Create custom roles on vCenter Server
 
-Azure VMware Solution supports the use of custom roles with equal or lesser privileges than the CloudAdmin role. 
+Azure VMware Solution supports the use of custom roles with equal or lesser privileges than the CloudAdmin role.
 
 You'll use the CloudAdmin role to create, modify, or delete custom roles with privileges lesser than or equal to their current role. You can create roles with privileges greater than CloudAdmin. You can't assign the role to any users or groups or delete the role.
 
@@ -64,13 +64,12 @@ To prevent creating roles that can't be assigned or deleted, clone the CloudAdmi
 
 1. Select the **CloudAdmin** role and select the **Clone role action** icon.
 
-   >[!NOTE] 
+   >[!NOTE]
    >Don't clone the **Administrator** role because you can't use it. Also, the custom role created can't be deleted by cloudadmin\@vsphere.local.
 
 1. Provide the name you want for the cloned role.
 
 1. Add or remove privileges for the role and select **OK**. The cloned role is visible in the **Roles** list.
-
 
 #### Apply a custom role
 
@@ -102,10 +101,10 @@ You're responsible for NSX-T SDN configuration, for example:
 
 You can access NSX-T Manager using the built-in local user "admin" assigned to **Enterprise admin** role that gives full privileges to a user to manage NSX-T. While Microsoft manages the lifecycle of NSX-T, certain operations aren't allowed by a user. Operations not allowed include editing the configuration of host and edge transport nodes or start an upgrade. For new users, Azure VMware Solution deploys them with a specific set of permissions needed by that user. The purpose is to provide a clear separation of control between the Azure VMware Solution control plane configuration and Azure VMware Solution private cloud user.  
 
-For new private cloud deployments(in US West) starting **April 2022**, NSX-T access will be provided with a built-in local user cloud admin assigned to the **CloudAdmin** role with a specific set of permissions to use NSX-T functionality for workloads. The new **CloudAdmin** role will be rolled out in phases in all regions.
+For new private cloud deployments (in US West and Australia East) starting **June 2022**, NSX-T access will be provided with a built-in local user `CloudAdmin` with a specific set of permissions to use only NSX-T functionality for workloads. The new **CloudAdmin** user role will be rolled out in other regions in phases.
 
 > [!NOTE]
-> Admin access to NSX-T will not be provided to users for private cloud deployments created after **April 2022**.
+> Admin access to NSX-T will not be provided to users for private cloud deployments created after **June 2022**.
 
 ### NSX-T cloud admin permissions
 
@@ -129,15 +128,16 @@ The following permissions are assigned to the **cloudadmin** role in Azure VMwar
 | System          | Settings              | Users and Roles<br>License Configuration<br>Certificate Management   | Full Access<br>Read-only<br>Full Access                          |
 
 
-You can view the permissions granted to the Azure VMware Solution CloudAdmin role on your Azure VMware Solution private cloud NSX-T.
+You can view the permissions granted to the Azure VMware Solution CloudAdmin role using the following steps:
 
-1. Log into the NSX-T Manager.
-1. Navigate to **Systems** and locate **Users and Roles**.
-1. Select and expand the **CloudAdmin** role, found under **Roles**.
-1. Select a category like, Networking or Security, to view the specific permissions.
+1. Log in to the NSX-T Manager.
+1. Navigate to **Systems**, **Users and Roles**, and locate **User Role Assignment**.
+1. The **Roles** column for the CloudAdmin user provides information on the NSX RBAC roles assigned.
+1. Select the the **Roles** tab to view specific permissions associated with each of the NSX RBAC roles.
+1. To view **Permissions**, expand the **CloudAdmin** role and select a category like, Networking or Security.
 
 > [!NOTE]
-> **Private clouds created before April 2022** will switch from **admin** role to **cloudadmin** role. You'll receive a notification through Azure Service Health that includes the timeline of this change so you can change the NSX-T credentials you've used for other integration.
+> The current Azure VMware Solution with **NSX-T admin user** will eventually switch from **admin** user to **cloudadmin** user. You'll receive a notification through Azure Service Health that includes the timeline of this change so you can change the NSX-T credentials you've used for the other integration.
 
 ## Next steps
 
