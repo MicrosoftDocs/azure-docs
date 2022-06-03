@@ -407,7 +407,7 @@ When you use the Synapse as a source/sink in the data flow to preview data, debu
 Confirm the SQL pool was created from the Azure Synapse workspace.
 
 - If the SQL pool was created from the Azure Synapse workspace, no additional steps are necessary. You no longer need to re-register the Managed Identity (MI) of the workspace. The system assigned managed identity (SA-MI) of the workspace is a member of the Synapse Administrator role and thus has elevated privileges on the dedicated SQL pools of the workspace.
-- If the SQL pool is a dedicated SQL pool (formerly SQL DW) pre-dating Azure Synapse, only enable MI for your SQL server and assign the permission of the staging store to the MI of your SQL Server. You can refer to the steps in this article as an example: [Use virtual network service endpoints and rules for servers in Azure SQL Database](../azure-sql/database/vnet-service-endpoint-rule-overview.md#steps).
+- If the SQL pool is a dedicated SQL pool (formerly SQL DW) pre-dating Azure Synapse, only enable MI for your SQL server and assign the permission of the staging store to the MI of your SQL Server. You can refer to the steps in this article as an example: [Use virtual network service endpoints and rules for servers in Azure SQL Database](/azure/azure-sql/database/vnet-service-endpoint-rule-overview#steps).
 
 ### Failed with an error: "SQLServerException: Not able to validate external location because the remote server returned an error: (403)"
 
@@ -424,7 +424,7 @@ Currently folder names that contain certain special characters are not supported
 
 #### Recommendation
 
-For Cause 1, you can refer to the following document: [Use virtual network service endpoints and rules for servers in Azure SQL Database-Steps](../azure-sql/database/vnet-service-endpoint-rule-overview.md#steps) to solve this issue.
+For Cause 1, you can refer to the following document: [Use virtual network service endpoints and rules for servers in Azure SQL Database-Steps](/azure/azure-sql/database/vnet-service-endpoint-rule-overview#steps) to solve this issue.
 
 For Cause 2, work around it with one of the following options:
 

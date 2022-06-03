@@ -43,7 +43,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 #### [Linux](#tab/linux/)
 
 ```bash
-curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2021-02-01" | jq
+curl -s -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2021-02-01" | jq
 ```
 
 The `jq` utility is available in many cases, but not all. If the `jq` utility is missing, use `| python -m json.tool` instead.
@@ -203,7 +203,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http:
 #### [Linux](#tab/linux/)
 
 ```bash
-curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
+curl -s -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
 ---
@@ -373,7 +373,7 @@ Schema breakdown:
 | `tagsList` | Tags formatted as a JSON array for easier programmatic parsing  | 2019-06-04
 | `userData` | The set of data specified when the VM was created for use during or after provisioning (Base64 encoded)  | 2021-01-01
 | `version` | Version of the VM image | 2017-04-02
-| `virtualMachineScaleSet.id` | the id of the [Virtual Machine Scale Set](../articles/virtual-machine-scale-sets/overview.md) the Virtual Machine is part of (if applicable) | 2021-03-01
+| `virtualMachineScaleSet.id` | ID of the [Virtual Machine Scale Set created with flexible orchestration](../articles/virtual-machines/flexible-virtual-machine-scale-sets.md) the Virtual Machine is part of. This field is not available for Virtual Machine Scale Sets created with uniform orchestration. | 2021-03-01
 | `vmId` | [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM | 2017-04-02
 | `vmScaleSetName` | [Virtual machine scale set Name](../articles/virtual-machine-scale-sets/overview.md) of your virtual machine scale set | 2017-12-01
 | `vmSize` | [VM size](../articles/virtual-machines/sizes.md) | 2017-04-02
@@ -448,6 +448,9 @@ If there is [no local temp disk for the VM](../articles/virtual-machines/azure-v
 | `subnet.prefix` | Subnet prefix, example 24 | 2017-04-02
 | `ipv6.ipAddress` | Local IPv6 address of the VM | 2017-04-02
 | `macAddress` | VM mac address | 2017-04-02
+
+> [!NOTE]
+> The nics returned by the network call are not guaranteed to be in order. 
 
 ### Get user data
 
@@ -1021,7 +1024,7 @@ The signature blob is a [pkcs7](https://aka.ms/pkcs7)-signed version of document
 
 For VMs created by using Azure Resource Manager, the document includes `vmId`, `sku`, `nonce`, `subscriptionId`, `timeStamp` for creation and expiry of the document, and the plan information about the image. The plan information is only populated for Azure Marketplace images.
 
-For VMs created by using the classic deployment model, only the `vmId` is guaranteed to be populated. You can extract the certificate from the response, and use it to confirm that the response is valid and is coming from Azure.
+For VMs created by using the classic deployment model, only the `vmId` and `subscriptionId` are guaranteed to be populated. You can extract the certificate from the response, and use it to confirm that the response is valid and is coming from Azure.
 
 The decoded document contains the following fields:
 
@@ -1153,7 +1156,7 @@ openssl x509 -noout -subject -in intermediate.pem
 # Verify the issuer for the intermediate certificate
 openssl x509 -noout -issuer -in intermediate.pem
 # Verify the certificate chain, for Azure China 21Vianet the intermediate certificate will be from DigiCert Global Root CA
-openssl verify -verbose -CAfile /etc/ssl/certs/Baltimore_CyberTrust_Root.pem -untrusted intermediate.pem signer.pem
+openssl verify -verbose -CAfile /etc/ssl/certs/DigiCert_Global_Root.pem -untrusted intermediate.pem signer.pem
 ```
 
 ---
@@ -1185,7 +1188,7 @@ You can find the intermediate certificates in the [PKI repository](https://www.m
 If you pinned the intermediate certificates for Azure China as part of a root chain authority change, the intermediate certificates must be updated.
 
 > [!NOTE]
-> Starting February 2022, our Attested Data certificates will be migrated from SSLAdminV2 to Microsoft PKI. Due to this, the root CA will change from Baltimore CyberTrust to DigiCert Global G2. If you have the Baltimore CyberTrust cert or other intermediate certificates listed in **[this post](https://techcommunity.microsoft.com/t5/azure-governance-and-management/azure-instance-metadata-service-attested-data-tls-critical/ba-p/2888953)** pinned, please follow the instructions listed there **immediately** to prevent any disruptions from using the Attested Data endpoint.
+> Starting February 2022, our Attested Data certificates will be impacted by a TLS change. Due to this, the root CA will change from Baltimore CyberTrust to DigiCert Global G2 only for Public and US Government clouds. If you have the Baltimore CyberTrust cert or other intermediate certificates listed in **[this post](https://techcommunity.microsoft.com/t5/azure-governance-and-management/azure-instance-metadata-service-attested-data-tls-critical/ba-p/2888953)** pinned, please follow the instructions listed there **immediately** to prevent any disruptions from using the Attested Data endpoint.
 
 ## Managed identity
 

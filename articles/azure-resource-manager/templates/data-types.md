@@ -4,7 +4,7 @@ description: Describes the data types that are available in Azure Resource Manag
 ms.topic: conceptual
 ms.author: tomfitz
 author: tfitzmac
-ms.date: 06/24/2021
+ms.date: 04/27/2022
 ---
 
 # Data types in ARM templates
@@ -20,7 +20,7 @@ Within an ARM template, you can use these data types:
 * int
 * object
 * secureObject
-* secureString
+* securestring
 * string
 
 ## Arrays
@@ -143,13 +143,15 @@ The following example shows two secure parameters.
 ```json
 "parameters": {
   "password": {
-    "type": "secureString"
+    "type": "securestring"
   },
   "configValues": {
     "type": "secureObject"
   }
 }
 ```
+> [!NOTE]
+> Don't use secure strings or objects as output values. If you include a secure value as an output value, the value isn't displayed in the deployment history and can't be retrieved from another template. Instead, save the secure value in a key vault, and [pass as a parameter from the key vault](key-vault-parameter.md).
 
 ## Next steps
 

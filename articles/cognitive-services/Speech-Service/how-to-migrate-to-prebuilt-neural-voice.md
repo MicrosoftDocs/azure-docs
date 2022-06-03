@@ -35,7 +35,7 @@ The prebuilt neural voice provides more natural sounding speech output, and thus
 1. Review the [price](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) structure and listen to the neural voice [samples](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#overview) at the bottom of that page to determine the right voice for your business needs.
 2. To make the change, [follow the sample code](speech-synthesis-markup.md#choose-a-voice-for-text-to-speech) to update the voice name in your speech synthesis request to the supported neural voice names in chosen languages. Please use neural voices for your speech synthesis request, on cloud or on prem. For on-prem container, please use the [neural voice containers](../containers/container-image-tags.md) and follow the [instructions](speech-container-howto.md).
 
-## Standard voice details (retired)
+## Standard voice details (deprecated)
 
 Read the following sections for details on standard voice.
 

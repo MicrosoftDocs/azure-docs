@@ -36,7 +36,7 @@ After installing Python, you can install the client library with:
 pip install azure-ai-metricsadvisor --pre
 ```
 
-### Create a new python application
+### Create a new Python application
 
 Create a new Python file and import the following libraries.
 

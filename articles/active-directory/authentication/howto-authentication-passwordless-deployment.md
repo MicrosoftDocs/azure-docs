@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 05/28/2021
+ms.date: 05/04/2022
 
 ms.author: baselden
 author: BarbaraSelden
@@ -62,7 +62,7 @@ Here are the least privileged roles required for this deployment:
 
 | Azure AD Role| Description |
 | - | -|
-| Global Administrator| To implement combined registration experience. |
+| User Administrator or Global Administrator| To implement combined registration experience. |
 | Authentication Administrator| To implement and manage authentication methods. |
 | User| To configure Authenticator app on device, or to enroll security key device for web or Windows 10 sign-in. |
 
@@ -119,7 +119,7 @@ Microsoft provides communication templates for end users. Download the [authenti
 
 Users register their passwordless method as a part of the **combined security information workflow** at [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). Azure AD logs registration of security keys and Microsoft Authenticator app, and any other changes to the authentication methods. 
 
-For the first-time user who doesn't have a password, admins can provide a [Temporary Access Passcode](howto-authentication-temporary-access-pass.md) to register their security information in [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo.md) . This is a time-limited passcode and satisfies strong authentication requirements. **Temporary Access Pass is a per-user process**.
+For the first-time user who doesn't have a password, admins can provide a [Temporary Access Passcode](howto-authentication-temporary-access-pass.md) to register their security information in [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) . This is a time-limited passcode and satisfies strong authentication requirements. **Temporary Access Pass is a per-user process**.
 
 This method can also be used for easy recovery when the user has lost or forgotten their authentication factor such as security key or Microsoft Authenticator app but needs to sign in to **register a new strong authentication method**. 
 
@@ -216,13 +216,13 @@ There are three types of passwordless sign-in deployments available with securit
 
 Enabling Windows 10 sign-in using FIDO2 security keys requires you to enable the credential provider functionality in Windows 10. Choose one of the following:
 
-* [Enable credential provider with Intune](howto-authentication-passwordless-security-key-windows.md)
+* [Enable credential provider with Microsoft Endpoint Manager](howto-authentication-passwordless-security-key-windows.md)
 
-  * We recommend Intune deployment.
+  * We recommend Microsoft Endpoint Manager deployment.
 
 * [Enable credential provider with a provisioning package](howto-authentication-passwordless-security-key-windows.md)
 
-  * If Intune deployment isn't possible, administrators must deploy a package on each machine to enable the credential provider functionality. The package installation can be carried out by one of the following options:
+  * If Microsoft Endpoint Manager deployment isn't possible, administrators must deploy a package on each machine to enable the credential provider functionality. The package installation can be carried out by one of the following options:
     * Group Policy or Configuration Manager
     * Local installation on a Windows 10 machine
 

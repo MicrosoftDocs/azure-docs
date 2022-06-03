@@ -7,13 +7,13 @@ ms.topic: how-to
 
 # Run data mining queries
 
-Using data mining queries to get dynamic, granular information about your network devices, including for specific time periods, internet connectivity, ports and protocols, firmware vrsions, programming commands, and device state. You can use data mining queries for:
+Using data mining queries to get dynamic, granular information about your network devices, including for specific time periods, internet connectivity, ports and protocols, firmware versions, programming commands, and device state. You can use data mining queries for:
 
 - **SOC incident response**: Generate a report in real time to help deal with immediate incident response. For example, Data Mining can generate a report for a list of devices that might require patching.
 - **Forensics**: Generate a report based on historical data for investigative reports.
 - **Network security**: Generate a report that helps improve overall network security. For example, generate a report can be generated that lists devices with weak authentication credentials.
 - **Visibility**: Generate a report that covers all query items to view all baseline parameters of your network.
-- **PLC security** Improve security by detecting PLCs in unsecure states for example Program and Remote states.
+- **PLC security** Improve security by detecting PLCs in unsecure states, for example,  Program and Remote states.
 
 Data mining information is saved and stored continuously, except for when a device is deleted. Data mining results can be exported and stored externally to a secure server. In addition, the sensor performs automatic daily backups to ensure system continuity and preservation of data.
 
@@ -24,9 +24,9 @@ The following predefined reports are available. These queries are generated in r
 - **Programming commands**: Devices that send industrial programming.
 - **Remote access**: Devices that communicate through remote session protocols.
 - **Internet activity**: Devices that are connected to the internet.
-- **CVEs**: A list of devices detected with known vulnerabilities within the last 24 hours.
-- **Excluded CVEs**: A list of all the CVEs that were manually excluded. To achieve more accurate results in VA reports and attack vectors, you can customize the CVE list manually by including and excluding CVEs.
-- **Nonactive devices**: Devices that have not communicated for the past seven days.
+- **CVEs**: A list of devices detected with known vulnerabilities, along with CVSSv2 risk scores.
+- **Excluded CVEs**: A list of all the CVEs that were manually excluded. It is possible to customize the CVE list manually so that the VA reports and attack vectors more accurately reflect your network by excluding or including particular CVEs and updating the CVSSv2 score accordingly.
+- **Nonactive devices**: Devices that haven't communicated for the past seven days.
 - **Active devices**: Active network devices within the last 24 hours.
 
 Find these reports in **Analyze** > **Data Mining**. Reports are available for users with Administrator and Security Analyst permissions. Read only users can't access these reports.
@@ -77,3 +77,14 @@ To generate a report:
 3. From the right drop-down list, select the report that you want to generate.
 
 4. To create a PDF of the report results, select :::image type="icon" source="media/how-to-generate-reports/pdf-report-icon.png" border="false":::.
+
+
+## Next steps
+
+For more information, see:
+
+- [Risk assessment reporting](how-to-create-risk-assessment-reports.md)
+
+- [Attack vector reporting](how-to-create-attack-vector-reports.md)
+
+- [Create trends and statistics dashboards](how-to-create-trends-and-statistics-reports.md)

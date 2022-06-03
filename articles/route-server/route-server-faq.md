@@ -2,11 +2,11 @@
 title: Frequently asked questions about Azure Route Server
 description: Find answers to frequently asked questions about Azure Route Server.
 services: route-server
-author: duongau
+author: halkazwini
 ms.service: route-server
 ms.topic: article
-ms.date: 01/26/2022
-ms.author: duau
+ms.date: 03/25/2022
+ms.author: halkazwini
 ---
 
 # Azure Route Server FAQ
@@ -79,7 +79,7 @@ No, Azure Route Server supports only 16-bit (2 bytes) ASNs.
 
 ### Can I associate a User Defined Route (UDR) to the RouteServerSubnet?
 
-No, Azure Route Server doesn't support configuring a UDR on the RouteServerSubnet.
+No, Azure Route Server doesn't support configuring a UDR on the RouteServerSubnet. It should be noted that Azure Route Server does not route any data traffic between NVAs and VMs.
 
 ### Can I associate a Network Security group (NSG) to the RouteServerSubnet?
 
@@ -96,6 +96,10 @@ No, Azure Route Server doesn't forward data traffic. To enable transit connectiv
 No. System routes for traffic related to virtual network, virtual network peerings, or virtual network service endpoints, are preferred routes, even if BGP routes are more specific. As Route Server uses BGP to advertise routes, currently this is not supported by design. You must continue to use UDRs to force override the routes, and you can't utilize BGP to quickly failover these routes. You must continue to use a third party solution to update the UDRs via the API in a failover situation, or use an Azure Load Balancer with HA ports mode to direct traffic.
 
 You can still use Route Server to direct traffic between subnets in different virtual networks to flow using the NVA. The only possible design that may work is one subnet per "spoke" virtual network and all virtual networks are peered to a "hub" virtual network, but this is very limiting and needs to take into scaling considerations and Azure's maximum limits on virtual networks vs subnets.
+
+### Can Azure Route Server filter out routes from NVAs?
+
+Azure Route Server supports ***NO_ADVERTISE*** BGP Community. If an NVA advertises routes with this community string to the route server, the route server won't advertise it to other peers including the ExpressRoute gateway. This feature can help reduce the number of routes to be sent from Azure Route Server to ExpressRoute.
 
 ## <a name = "limitations"></a>Route Server Limits
 

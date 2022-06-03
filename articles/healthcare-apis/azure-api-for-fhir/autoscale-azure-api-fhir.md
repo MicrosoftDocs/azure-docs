@@ -1,12 +1,12 @@
 ---
 title: Autoscale for Azure API for FHIR 
 description: This article describes the autoscale feature for Azure API for FHIR.
-author: stevewohl
+author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 02/11/2022
-ms.author: zxue
+ms.date: 05/03/2022
+ms.author: mikaelw
 ---
 
 # Autoscale for Azure API for FHIR 
@@ -21,7 +21,7 @@ The autoscale feature is designed to scale computing resources including the dat
 
 ## What is the guidance on when to enable autoscale?
 
-In general, customers should consider autoscale when their workloads vary signficantly and are unpredictable. 
+In general, customers should consider autoscale when their workloads vary significantly and are unpredictable. 
 
 ## How to enable autoscale?
 
@@ -38,7 +38,7 @@ Once the change is completed, the new billing rates will be based on manual scal
 
 ## How to adjust the maximum throughput RU/s?
 
-When autoscale is enabled, the system calculates and sets the initial `Tmax` value. The scalability is governed by the maximum throughput `RU/s` value, or `Tmax`, and scales between `0.1 *Tmax` (or 10% `Tmax`) and `Tmax RU/s`. The `Tmax` increases automatically as the total data size grows. To ensure maximum scalability, the `Tmax` value should be kept as-is. However, customers can request that the value be changed to something betweeen 10% and 100% of the `Tmax` value.
+When autoscale is enabled, the system calculates and sets the initial `Tmax` value. The scalability is governed by the maximum throughput `RU/s` value, or `Tmax`, and scales between `0.1 *Tmax` (or 10% `Tmax`) and `Tmax RU/s`. The `Tmax` increases automatically as the total data size grows. To ensure maximum scalability, the `Tmax` value should be kept as-is. However, customers can request that the value be changed to something between 10% and 100% of the `Tmax` value.
 
 You can increase the max `RU/s` or `Tmax` value and go as high as the service supports. When the service is busy, the throughput `RU/s` are scaled up to the `Tmax` value. When the service is idle, the throughput `RU/s` are scaled down to 10% `Tmax` value.
  
@@ -63,7 +63,7 @@ You should be able to see the Max data collection size over the time period sele
 
 [ ![Screenshot of cosmosdb_collection_size](media/cosmosdb/cosmosdb-collection-size.png) ](media/cosmosdb/cosmosdb-collection-size.png#lightbox)
 
-Use the formular to calculate required RU/s.
+Use the formula to calculate required RU/s.
 
 - Manual scale: storage in GB * 40
 - Autoscale: storage in GB * 400

@@ -32,8 +32,6 @@ landingContent:
             url: cache-managed-identity.md
           - text: Create an Enterprise tier cache
             url: quickstart-create-redis-enterprise.md
-#          - text: Frequently asked questions
-#           url: cache-faq.yml
   - title: 'Quickstarts: Azure Cache for Redis'
     linkLists:
       - linkListType: quickstart
@@ -44,6 +42,8 @@ landingContent:
             url: cache-dotnet-core-quickstart.md
           - text: Code an ASP.NET web app
             url: cache-web-app-howto.md
+          - text: Code an ASP.NET Core web app
+            url: cache-web-app-aspnet-core-howto.md
           - text: Code a Java app
             url: cache-java-get-started.md
           - text: Code a Node.js app

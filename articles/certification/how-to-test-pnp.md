@@ -55,7 +55,7 @@ To install the Azure IoT Extension, run the following command:
 az extension add --name azure-iot
 ```
 
-To learn more, see [Azure CLI for Azure IoT](https://docs.microsoft.com/cli/azure/iot/product?view=azure-cli-latest).
+To learn more, see [Azure CLI for Azure IoT](/cli/azure/iot/product?view=azure-cli-latest).
 
 ### Create a new product test
 

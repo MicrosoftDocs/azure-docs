@@ -5,9 +5,9 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/26/2021
-ms.custom: "seo-nov-2020"
-
+ms.date: 03/24/2022
+ms.custom: seo-nov-2020, cosmos-db-video
+ms.reviewer: wiassaf
 ---
 # Request Units in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -16,7 +16,10 @@ Azure Cosmos DB supports many APIs, such as SQL, MongoDB, Cassandra, Gremlin, an
 
 The cost of all database operations is normalized by Azure Cosmos DB and is expressed by Request Units (or RUs, for short). Request unit is a performance currency abstracting the system resources such as CPU, IOPS, and memory that are required to perform the database operations supported by Azure Cosmos DB.
 
-The cost to do a point read (i.e. fetching a single item by its ID and partition key value) for a 1 KB item is 1 Request Unit (or 1 RU). All other database operations are similarly assigned a cost using RUs. No matter which API you use to interact with your Azure Cosmos container, costs are always measured by RUs. Whether the database operation is a write, point read, or query, costs are always measured in RUs.
+The cost to do a point read (fetching a single item by its ID and partition key value) for a 1-KB item is 1 Request Unit (or 1 RU). All other database operations are similarly assigned a cost using RUs. No matter which API you use to interact with your Azure Cosmos container, costs are always measured by RUs. Whether the database operation is a write, point read, or query, costs are always measured in RUs.
+
+> 
+> [!VIDEO https://aka.ms/docs.essential-request-units]
 
 The following image shows the high-level idea of RUs:
 
@@ -24,18 +27,18 @@ The following image shows the high-level idea of RUs:
 
 To manage and plan capacity, Azure Cosmos DB ensures that the number of RUs for a given database operation over a given dataset is deterministic. You can examine the response header to track the number of RUs that are consumed by any database operation. When you understand the [factors that affect RU charges](request-units.md#request-unit-considerations) and your application's throughput requirements, you can run your application cost effectively.
 
-The type of Azure Cosmos account you're using determines the way consumed RUs get charged. There are 3 modes in which you can create an account:
+The type of Azure Cosmos account you're using determines the way consumed RUs get charged. There are three modes in which you can create an account:
 
-1. **Provisioned throughput mode**: In this mode, you provision the number of RUs for your application on a per-second basis in increments of 100 RUs per second. To scale the provisioned throughput for your application, you can increase or decrease the number of RUs at any time in increments or decrements of 100 RUs. You can make your changes either programmatically or by using the Azure portal. You are billed on an hourly basis for the amount of RUs per second you have provisioned. To learn more, see the [Provisioned throughput](set-throughput.md) article.
+1. **Provisioned throughput mode**: In this mode, you provision the number of RUs for your application on a per-second basis in increments of 100 RUs per second. To scale the provisioned throughput for your application, you can increase or decrease the number of RUs at any time in increments or decrements of 100 RUs. You can make your changes either programmatically or by using the Azure portal. You are billed on an hourly basis for the number of RUs per second you have provisioned. To learn more, see the [Provisioned throughput](set-throughput.md) article.
 
    You can provision throughput at two distinct granularities:
 
    * **Containers**: For more information, see [Provision throughput on an Azure Cosmos container](how-to-provision-container-throughput.md).
    * **Databases**: For more information, see [Provision throughput on an Azure Cosmos database](how-to-provision-database-throughput.md).
 
-2. **Serverless mode**: In this mode, you don't have to provision any throughput when creating resources in your Azure Cosmos account. At the end of your billing period, you get billed for the amount of Request Units that has been consumed by your database operations. To learn more, see the [Serverless throughput](serverless.md) article. 
+2. **Serverless mode**: In this mode, you don't have to provision any throughput when creating resources in your Azure Cosmos account. At the end of your billing period, you get billed for the number of Request Units that has been consumed by your database operations. To learn more, see the [Serverless throughput](serverless.md) article. 
 
-3. **Autoscale mode**: In this mode, you can automatically and instantly scale the throughput (RU/s) of your database or container based on it's usage, without impacting the availability, latency, throughput, or performance of the workload. This mode is well suited for mission-critical workloads that have variable or unpredictable traffic patterns, and require SLAs on high performance and scale. To learn more, see the [autoscale throughput](provision-throughput-autoscale.md) article. 
+3. **Autoscale mode**: In this mode, you can automatically and instantly scale the throughput (RU/s) of your database or container based on its usage, without impacting the availability, latency, throughput, or performance of the workload. This mode is well suited for mission-critical workloads that have variable or unpredictable traffic patterns, and require SLAs on high performance and scale. To learn more, see the [autoscale throughput](provision-throughput-autoscale.md) article. 
 
 ## Request Unit considerations
 
@@ -63,7 +66,7 @@ While you estimate the number of RUs consumed by your workload, consider the fol
   * The size of the result set
   * Projections
 
-  The same query on the same data will always costs the same number of RUs on repeated executions.
+  The same query on the same data will always cost the same number of RUs on repeated executions.
 
 * **Script usage**: As with queries, stored procedures and triggers consume RUs based on the complexity of the operations that are performed. As you develop your application, inspect the [request charge header](./optimize-cost-reads-writes.md#measuring-the-ru-charge-of-a-request) to better understand how much RU capacity each operation consumes.
 
@@ -73,7 +76,7 @@ If you provision *'R'* RUs on a Cosmos container (or database), Cosmos DB ensure
 
 Assuming that a Cosmos container is configured with *'R'* RUs and there are *'N'* regions associated with the Cosmos account, the total RUs available globally on the container = *R* x *N*.
 
-Your choice of [consistency model](consistency-levels.md) also affects the throughput. You can get approximately 2x read throughput for the more relaxed consistency levels (e.g., *session*, *consistent prefix* and *eventual* consistency) compared to stronger consistency levels (e.g., *bounded staleness* or *strong* consistency).
+Your choice of [consistency model](consistency-levels.md) also affects the throughput. You can get approximately 2x read throughput for the more relaxed consistency levels (*session*, *consistent prefix* and *eventual* consistency) compared to stronger consistency levels (*bounded staleness* or *strong* consistency).
 
 ## Next steps
 
@@ -88,5 +91,5 @@ Your choice of [consistency model](consistency-levels.md) also affects the throu
 - Learn how to [optimize query cost in Azure Cosmos DB](./optimize-cost-reads-writes.md).
 - Learn how to [use metrics to monitor throughput](use-metrics.md).
 - Trying to do capacity planning for a migration to Azure Cosmos DB?
-    - If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+    - If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
     - If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

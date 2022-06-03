@@ -32,11 +32,13 @@ Enable replication. This procedure assumes that the primary Azure region is East
    - **Deployment model**: Azure deployment model of the source machines.
    - **Source subscription**: The subscription to which your source VMs belong. This can be any subscription within the same Azure Active Directory tenant where your recovery services vault exists.
    - **Resource Group**: The resource group to which your source virtual machines belong. All the VMs under the selected resource group are listed for protection in the next step.
+   - **Disaster Recovery between Availability Zones**: Select yes if you want to perform zonal disaster recovery on virtual machines.
+   - **Availability Zones**: Select the availability zone where the source virtual machines are pinned.
 
-     ![Screenshot that highlights the fields needed to configure replication.](./media/site-recovery-replicate-azure-to-azure/enabledrwizard1.png)
+     ![Screenshot that highlights the fields needed to configure replication.](./media/azure-to-azure-how-to-enable-replication/enabled-rwizard-1.png)
 
 3. In **Virtual Machines > Select virtual machines**, click and select each VM that you want to replicate. You can only select machines for which replication can be enabled. Then click **OK**.
-   	![Screenshot that highlights where you select virtual machines.](./media/site-recovery-replicate-azure-to-azure/virtualmachine_selection.png)
+   	![Screenshot that highlights where you select virtual machines.](./media/azure-to-azure-how-to-enable-replication/virtual-machine-selection.png)
 
 4. In **Settings**, you can optionally configure target site settings:
 
@@ -48,7 +50,6 @@ Enable replication. This procedure assumes that the primary Azure region is East
        - You can customize the resource group settings.
        - The location of the target resource group can be any Azure region, except the region in which the source VMs are hosted.
    - **Target virtual network**: By default, Site Recovery creates a new virtual network in the target region with an "asr" suffix in the name. This is mapped to your source network, and used for any future protection. [Learn more](./azure-to-azure-network-mapping.md) about network mapping.
-   - **Target storage accounts (source VM doesn't use managed disks)**: By default, Site Recovery creates a new target storage account mimicking your source VM storage configuration. In case storage account already exists, it's reused.
    - **Replica-managed disks (source VM uses managed disks)**: Site Recovery creates new replica-managed disks in the target region to mirror the source VM's managed disks with the same storage type (Standard or premium) as the source VM's managed disk.
    - **Cache Storage accounts**: Site Recovery needs extra storage account called cache storage in the source region. All the changes happening on the source VMs are tracked and sent to cache storage account before replicating them to the target location. This storage account should be Standard.
    - **Target availability sets**: By default, Site Recovery creates a new availability set in the target region with the "asr" suffix in the name, for VMs that are part of an availability set in the source region. If the availability set created by Site Recovery already exists, it's reused.
@@ -67,7 +68,9 @@ Enable replication. This procedure assumes that the primary Azure region is East
      - One day of retention for recovery points.
      - No app-consistent snapshots.
 
-     ![Enable replication](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
+     ![Screenshot that displays the enable replication parameters.](./media/azure-to-azure-how-to-enable-replication/enabled-rwizard-3.PNG)
+
+5.  After the VMs are enabled for replication, you can check the status of VM health under **Replicated items**. The time taken for initial replication depends on various factors such as the disk size, used storage on the disks, etc. Data transfer happens at ~23% of the disk throughput. Initial replication creates snapshot of disk and transfer that snapshot.
 
 ### Enable replication for added disks
 
@@ -77,7 +80,7 @@ If you add disks to an Azure VM for which replication is enabled, the following 
 -	If you choose not to enable replication for the disk, you can select to dismiss the warning.
 
 
-    ![New disk added](./media/azure-to-azure-how-to-enable-replication/newdisk.png)
+    ![Screenshot that displays how to enable replication for an added disk.](./media/azure-to-azure-how-to-enable-replication/newdisk.png)
 
 To enable replication for an added disk, do the following:
 
@@ -85,10 +88,9 @@ To enable replication for an added disk, do the following:
 2.	Click **Disks**, and then select the data disk for which you want to enable replication (these disks have a **Not protected** status).
 3.	In **Disk Details**, click **Enable replication**.
 
-    ![Enable replication for added disk](./media/azure-to-azure-how-to-enable-replication/enabled-added.png)
+    ![Screenshot that displays replication enabled for a newly added disk.](./media/azure-to-azure-how-to-enable-replication/enabled-added.png)
 
 After the enable replication job runs, and the initial replication finishes, the replication health warning for the disk issue is removed.
-
 
 
 ## Customize target resources
@@ -100,10 +102,11 @@ You can modify the default target settings used by Site Recovery.
 2. Click **Customize:** to modify default settings:
 	- In **Target resource group**, select the resource group from the list of all the resource groups in the target location of the subscription.
 	- In **Target virtual network**, select the network from a list of all the virtual network in the target location.
-	- In **Availability set**, you can add availability set settings to the VM, if they're part of an availability set in the source region.
-	- In **Target Storage accounts**, select the account you want to use.
+    - In **Cache storage**, select the storage you want from the list of available cache storage.
+	- In **Target availability type**, select the availability type from a list of all the availability type in the target location.
+	- In **Target proximity placement group**, select the proximity placement group from a list of all the proximity placement group in the target location.
 
-		![Screenshot that shows how to customize target subscription settings.](./media/site-recovery-replicate-azure-to-azure/customize.PNG)
+		![Screenshot that shows how to customize target subscription settings.](./media/azure-to-azure-how-to-enable-replication/customize.PNG)
 3. Click **Customize:** to modify replication settings.
 4. In **Multi-VM consistency**, select the VMs that you want to replicate together.
     - All the machines in a replication group will have shared crash consistent and app-consistent recovery points when failed over.
@@ -113,10 +116,15 @@ You can modify the default target settings used by Site Recovery.
     - If you enable multi-VM consistency, machines in the replication group communicate with each other over port 20004.
     - Ensure there's no firewall appliance blocking the internal communication between the VMs over port 20004.
     - If you want Linux VMs to be part of a replication group, ensure the outbound traffic on port 20004 is manually opened according to guidance for the specific Linux version.
-![Screenshot that shows the Multi-VM consistency settings.](./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG)
+![Screenshot that shows the Multi-VM consistency settings.](./media/azure-to-azure-how-to-enable-replication/multi-vm-settings.PNG)
 
-5. Click **Create target resource** > **Enable Replication**.
-6. After the VMs are enabled for replication, you can check the status of VM health under **Replicated items**
+5. Click **View or Edit Capacity Reservation group assignment** to modify the capacity reservation settings. On triggering Failover, the new VM will be created in the assigned Capacity Reservation Group.
+
+    Capacity Reservation lets you purchase capacity in the recovery region, and then failover to that capacity. You can either create a new Capacity Reservation Group, or use an existing one. For more information on how capacity reservation works, [read here](../virtual-machines/capacity-reservation-overview.md).
+
+   ![Screenshot that shows the Capacity Reservation settings.](./media/azure-to-azure-how-to-enable-replication/capacity-reservation-edit-button.png)
+1. Click **Create target resource** > **Enable Replication**.
+1. After the VMs are enabled for replication, you can check the status of VM health under **Replicated items**
 
 >[!NOTE]
 >

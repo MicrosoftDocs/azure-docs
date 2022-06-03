@@ -544,7 +544,7 @@ For Windows function apps, target the version in Azure by setting the `WEBSITE_N
 
 For Linux function apps, run the following Azure CLI command to update the Node version.
 
-```bash
+```azurecli
 az functionapp config set --linux-fx-version "node|14" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
 ```
 

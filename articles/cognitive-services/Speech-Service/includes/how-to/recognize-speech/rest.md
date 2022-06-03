@@ -10,10 +10,6 @@ author: eur
 
 [!INCLUDE [Introduction](intro.md)]
 
-## Prerequisites
-
-[!INCLUDE [Prerequisites](../../common/azure-prerequisites.md)]
-
 ## Convert speech to text
 
 At a command prompt, run the following command. Insert the following values into the command:

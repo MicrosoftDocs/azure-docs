@@ -33,7 +33,7 @@ After installing Python, you can install the client library with:
 pip install azure-cognitiveservices-personalizer
 ```
 
-### Create a new python application
+### Create a new Python application
 
 Create a new Python file and create variables for your resource's endpoint and subscription key.
 
@@ -202,7 +202,7 @@ client.events.reward(event_id=eventid, value=reward_val)
 
 ## Run the program
 
-Run the application with the python from your application directory.
+Run the application with the Python from your application directory.
 
 ```console
 python sample.py

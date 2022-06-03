@@ -16,7 +16,7 @@ This article provides an overview of the issues you may encounter when setting u
 
 ## Troubleshoot deployment and connection issues
 
-[Azure Monitor for Windows Virtual Desktop](azure-monitor.md) is a dashboard built on Azure Monitor workbooks that can quickly troubleshoot and identify issues in your Windows Virtual Desktop environment for you. If you prefer working with Kusto queries, we recommend using the built-in diagnostic feature, [Log Analytics](diagnostics-log-analytics.md), instead.
+[Azure Monitor for Azure Virtual Desktop](azure-monitor.md) is a dashboard built on Azure Monitor workbooks that can quickly troubleshoot and identify issues in your Azure Virtual Desktop environment for you. If you prefer working with Kusto queries, we recommend using the built-in diagnostic feature, [Log Analytics](diagnostics-log-analytics.md), instead.
 
 ## Report issues
 

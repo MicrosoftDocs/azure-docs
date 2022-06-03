@@ -1,10 +1,11 @@
 ---
 title: Backup and restore in Azure Database for PostgreSQL - Flexible Server
 description: Learn about the concepts of backup and restore with Azure Database for PostgreSQL - Flexible Server.
-author: sr-msft
-ms.author: srranga
 ms.service: postgresql
+ms.subservice: flexible-server
 ms.topic: conceptual
+ms.author: srranga
+author: sr-msft
 ms.date: 11/30/2021
 ---
 
@@ -174,7 +175,7 @@ After you restore the database, you can perform the following tasks to get your 
   
     No. Currently, Flexible Server supports a maximum of 35 days of retention. You can use manual backups for a long-term retention requirement.
 
-* **How do I manually back up my Postgres servers?**
+* **How do I manually back up my PostgreSQL servers?**
   
     You can manually take a backup by using the PostgreSQL tool [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html). For examples, see [Migrate your PostgreSQL database by using dump and restore](../howto-migrate-using-dump-and-restore.md). 
     

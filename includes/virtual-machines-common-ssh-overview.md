@@ -3,7 +3,7 @@
  description: include file
  services: virtual-machines-linux
  author: cynthn
- ms.service: virtual-machines-linux
+ ms.service: virtual-machines
  ms.topic: include
  ms.date: 07/09/2020
  ms.author: cynthn

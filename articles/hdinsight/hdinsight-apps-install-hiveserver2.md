@@ -46,5 +46,5 @@ In this article, you've learned how to install HiveServer2 onto your cluster. To
 
 * [Install edge node](hdinsight-apps-use-edge-node.md): Learn how to install an edge node onto your HDInsight cluster.
 * [Install HDInsight applications](hdinsight-apps-install-applications.md): Learn how to install an HDInsight application to your clusters.
-* [Azure SQL DTU Connection Limits](../azure-sql/database/resource-limits-dtu-single-databases.md): Learn about Azure SQL database limits using DTU.
-* [Azure SQL vCore Connection Limits](../azure-sql/database/resource-limits-vcore-elastic-pools.md): Learn about Azure SQL database limits using vCores.
+* [Azure SQL DTU Connection Limits](/azure/azure-sql/database/resource-limits-dtu-single-databases): Learn about Azure SQL database limits using DTU.
+* [Azure SQL vCore Connection Limits](/azure/azure-sql/database/resource-limits-vcore-elastic-pools): Learn about Azure SQL database limits using vCores.

@@ -13,7 +13,7 @@ For more information, see our [release notes for device builders](release-notes.
 
 ## Upgrade a standalone micro agent
 
-1. Ensure that you have upgraded the apt. Run:
+1. Ensure that you've upgraded the apt. Run:
 
     ```bash
     sudo apt-get update
@@ -27,7 +27,7 @@ For more information, see our [release notes for device builders](release-notes.
 
 ## Upgrade a micro agent for Edge
 
-1. Ensure that you have upgraded the apt. Run:
+1. Ensure that you've upgraded the apt. Run:
 
     ```bash
     sudo apt-get update
@@ -41,9 +41,9 @@ For more information, see our [release notes for device builders](release-notes.
 
 ## Upgrade a standalone micro agent from a legacy version
 
-This section is relevant specifically when upgrading a micro agent from version 3.13.1 or lower to version 4.1.1 or higher.
+This section is relevant specifically when upgrading a micro agent from version 3.13.1 or lower to version 4.1.2 or higher.
 
-In version 4.1.1, the standalone micro agent directory changed to align with standard Linux installation directory structures. This change requires customers to reauthenticate the micro agent and modify the connection string location.
+In version 4.1.2, the standalone micro agent directory changed to align with standard Linux installation directory structures. This change requires customers to reauthenticate the micro agent and modify the connection string location.
 
 1. Upgrade your micro agent as described [above](#upgrade-a-standalone-micro-agent).
 

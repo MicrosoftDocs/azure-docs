@@ -8,12 +8,12 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 12/31/2021
+ms.date: 04/10/2022
 ---
 
 # Debug an Azure Cognitive Search skillset in Azure portal
 
-Start a debug session to identify and resolve errors, validate changes, and push changes to a published skillset in your Azure Cognitive Search service.
+Start a portal-based debug session to identify and resolve errors, validate changes, and push changes to a published skillset in your Azure Cognitive Search service.
 
 A debug session is a cached indexer and skillset execution, scoped to a single document, that you can use to edit and test your changes interactively. If you're unfamiliar with how a debug session works, see [Debug sessions in Azure Cognitive Search](cognitive-search-debug-session.md). To practice a debug workflow with a sample document, see [Tutorial: Debug sessions](cognitive-search-tutorial-debug-sessions.md).
 
@@ -128,6 +128,41 @@ If skills produce output but the search index is empty, check the field mappings
    Verify that the fields in **Output Field Mappings** exist in the search index as specified, checking for spelling and [enrichment node path syntax](cognitive-search-concept-annotations-syntax.md). 
 
    :::image type="content" source="media/cognitive-search-debug/output-field-mappings.png" alt-text="Screenshot of the Output Field Mappings node and details." border="true":::
+
+## Debug a custom skill locally
+
+Custom skills can be more challenging to debug because the code runs externally. This section describes how to locally debug your Custom Web API skill, debug session, Visual Studio Code and [ngrok](https://ngrok.com/docs). This technique works with custom skills that execute in [Azure Functions](../azure-functions/functions-overview.md) or any other Web Framework that runs locally (for example, [FastAPI](https://fastapi.tiangolo.com/)).
+
+### Run ngrok
+
+[**ngrok**](https://ngrok.com/docs) is a cross-platform application that can create a tunneling or forwarding URL, so that internet requests reach your local machine. Use ngrok to forward requests from an enrichment pipeline in your search service to your machine to allow local debugging.
+
+1. Install ngrok.
+
+1. Open a terminal and go to the folder with the ngrok executable.
+
+1. Run ngrok with the following command to create a new tunnel:
+
+    ```console
+    ngrok http 7071 
+    ```
+
+    > [!NOTE]
+    > By default, Azure Functions are exposed on 7071. Other tools and configurations might require that you provide a different port.
+
+1. When ngrok starts, copy and save the public forwarding URL for the next step. The forwarding URL is randomly generated.
+
+   :::image type="content" source="media/cognitive-search-debug/ngrok.png" alt-text="Screenshot of ngrok terminal." border="false":::
+
+### Configure in Azure portal
+
+Within the debug session, modify your Custom Web API Skill URI to call the ngrok forwarding URL. Ensure that you append "/api/FunctionName" when using Azure Function for executing the skillset code.
+
+You can edit the skill definition in the portal.
+
+### Test
+
+At this point, new requests from your debug session should now be sent to your local Azure Function. You can use breakpoints in your Visual Studio code to debug your code or run step by step.
 
 ## Next steps
 

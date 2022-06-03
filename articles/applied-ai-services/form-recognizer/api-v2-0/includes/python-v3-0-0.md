@@ -39,7 +39,7 @@ pip install azure-ai-formrecognizer
 > [!NOTE]
 > The Form Recognizer 3.0.0 SDK reflects API v2.0
 
-### Create a new python application
+### Create a new Python application
 
 Create a new Python application in your preferred editor or IDE. Then import the following libraries.
 
@@ -91,7 +91,7 @@ These code snippets show you how to do the following tasks with the Form Recogni
 
 ## Authenticate the client
 
-Here, you'll authenticate two client objects using the subscription variables you defined above. You'll use an **AzureKeyCredential** object, so that if needed, you can update the API key without creating new client objects.
+Here, you'll authenticate two client objects using the subscription variables you defined above. You'll use an **AzureKeyCredential** object, so that if needed, you can update the key without creating new client objects.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/FormRecognizer/FormRecognizerQuickstart.py?name=snippet_auth)]
 

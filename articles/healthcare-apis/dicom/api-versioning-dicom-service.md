@@ -1,19 +1,16 @@
 ---
-title: API Versioning for DICOM service - Azure Healthcare APIs
+title: API Versioning for DICOM service - Azure Health Data Services
 description: This guide gives an overview of the API version policies for the DICOM service. 
 services: healthcare-apis
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 08/04/2021
+ms.date: 02/24/2022
 ms.author: aersoy
 ---
 
 # API versioning for DICOM service
-
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 This reference guide provides you with an overview of the API version policies for the DICOM service. 
 
@@ -25,13 +22,14 @@ The version of the REST API should be explicitly specified in the request URL as
 
 `<service_url>/v<version>/studies`
 
-Currently routes without a version are still supported. For example, `<service_url>/studies` has the same behavior as specifying the version as v1.0-prerelease. However, we strongly recommended that you specify the version in all requests via the URL.
+Currently routes without a version are still supported. For example, `<service_url>/studies` has the same behavior as specifying the version as v1.0-prerelease. However, we strongly recommend that you specify the version in all requests via the URL as routes without a version won't be supported after the General Availability release of the DICOM service.
 
 ## Supported versions
 
 Currently the supported versions are:
 
 * v1.0-prerelease
+* v1
 
 The OpenApi Doc for the supported versions can be found at the following url:
  
@@ -39,11 +37,11 @@ The OpenApi Doc for the supported versions can be found at the following url:
 
 ## Prerelease versions
 
-An API version with the label "prerelease" indicates that the version is not ready for production, and it should only be used in testing environments. These endpoints may experience breaking changes without notice.
+An API version with the label "prerelease" indicates that the version isn't ready for production, and it should only be used in testing environments. These endpoints may experience breaking changes without notice.
 
 ## How versions are incremented
 
-We currently only increment the major version whenever there is a breaking change, which is considered to be not backwards compatible. All minor versions are implied to be 0. All versions are in the format `Major.0`.
+We currently only increment the major version whenever there's a breaking change, which is considered to be not backwards compatible. 
 
 Below are some examples of breaking changes (Major version is incremented):
 
@@ -54,7 +52,7 @@ Below are some examples of breaking changes (Major version is incremented):
 5. Changing the type of a property.
 6. Behavior when an API changes such as changes in business logic used to do foo, but it now does bar.
 
-Non-breaking changes (Version is not incremented):
+Non-breaking changes (Version isn't incremented):
 
 1. Addition of properties that are nullable or have a default value.
 2. Addition of properties to a response model.
@@ -62,7 +60,7 @@ Non-breaking changes (Version is not incremented):
 
 ## Header in response
 
-ReportApiVersions is turned on, which means we will return the headers api-supported-versions and api-deprecated-versions when appropriate.
+ReportApiVersions is turned on, which means we'll return the headers api-supported-versions and api-deprecated-versions when appropriate.
 
 * api-supported-versions will list which versions are supported for the requested API. It's only returned when calling an endpoint annotated with `ApiVersion("<someVersion>")`.
 
@@ -70,9 +68,16 @@ ReportApiVersions is turned on, which means we will return the headers api-suppo
 
 Example:
 
-ApiVersion("1.0")
+```
+[ApiVersion("1")]
+[ApiVersion("1.0-prerelease", Deprecated = true)]
+```
 
-ApiVersion("1.0-prerelease", Deprecated = true)
+[ ![Screenshot of the API supported and deprecated versions.](media/api-supported-deprecated-versions.png) ](media/api-supported-deprecated-versions.png#lightbox)
 
-[ ![API supported and deprecated versions.](media/api-supported-deprecated-versions.png) ](media/api-supported-deprecated-versions.png#lightbox)
+## Next steps
 
+In this article, you learned about the API version policies for the DICOM service. For more information about the DICOM service, see 
+
+>[!div class="nextstepaction"]
+>[Overview of the DICOM service](dicom-services-overview.md)

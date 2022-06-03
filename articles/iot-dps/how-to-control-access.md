@@ -1,6 +1,6 @@
 ---
-title: Security endpoints in Microsoft Azure IoT Device Provisioning Service 
-description: Concepts - how to control access to IoT Device Provisioning Service (DPS) for backend apps. Includes information about security tokens.
+title: Access control and security for DPS by using shared access signatures | Microsoft Docs
+description: Concepts - how to control access to Azure IoT Hub Device Provisioning Service (DPS) for backend apps. Includes information about security tokens.
 author: kgremban
 ms.service: iot-dps
 services: iot-dps
@@ -10,9 +10,9 @@ ms.author: kgremban
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
-# Control access to Azure IoT Hub Device Provisioning Service
+# Control access to Azure IoT Hub Device Provisioning Service (DPS) with shared access signatures and security tokens
 
-This article describes the available options for securing your IoT Device Provisioning service. The provisioning service uses *authentication* and *permissions* to grant access to each endpoint. Permissions allow the authentication process to limit access to a service instance based on functionality.
+This article describes the available options for securing your Azure IoT Hub Device Provisioning Service (DPS). The provisioning service uses *authentication* and *permissions* to grant access to each endpoint. Permissions allow the authentication process to limit access to a service instance based on functionality.
 
 This article discusses:
 
@@ -272,6 +272,13 @@ var token = generateSasToken(endpoint, policyKey, policyName, 60);
 The result, which would grant access to read all enrollment records, would be:
 
 `SharedAccessSignature sr=mydps.azure-devices-provisioning.net&sig=JdyscqTpXdEJs49elIUCcohw2DlFDR3zfH5KqGJo4r4%3D&se=1456973447&skn=enrollmentread`
+
+## SDKs and samples
+
+- [Azure IoT SDK for Java Preview Release ](https://aka.ms/IoTDPSJavaSDKRBAC)
+    - [Sample](https://aka.ms/IoTDPSJavaSDKSASSample])
+- [Microsoft Azure IoT SDKs for .NET Preview Release](https://aka.ms/IoTDPScsharpSDKRBAC)
+    - [Sample](https://aka.ms/IoTDPSscharpSDKSASSample)
 
 ## Reference topics:
 

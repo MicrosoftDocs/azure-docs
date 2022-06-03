@@ -6,19 +6,18 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-
-author: wenxwei
-ms.author: wenxwei
-ms.date: 10/21/2021
-ms.reviewer: peterlu
-ms.custom: devplatv2
+author: singankit
+ms.author: anksing
+ms.date: 03/31/2022
+ms.reviewer: nibaccam
+ms.custom: devplatv2, event-tier1-build-2022
 ---
 
 # Train models with REST (preview)
 
 Learn how to use the Azure Machine Learning REST API to create and manage training jobs (preview).
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
+
 
 The REST API uses standard HTTP verbs to create, retrieve, update, and delete resources. The REST API works with any language or tool that can make HTTP requests. REST's straightforward structure makes it a good choice in scripting environments and for MLOps automation.
 
@@ -54,14 +53,14 @@ In the following REST API calls, we use `$SUBSCRIPTION_ID`, `$RESOURCE_GROUP`, `
 
 Administrative REST requests a [service principal authentication token](how-to-manage-rest.md#retrieve-a-service-principal-authentication-token). Replace `$TOKEN` with your own value. You can retrieve this token with the following command:
 
-```bash
+```azurecli
 TOKEN=$(az account get-access-token --query accessToken -o tsv)
 ```
 
-The service provider uses the `api-version` argument to ensure compatibility. The `api-version` argument varies from service to service. The current Azure Machine Learning API version is `2021-03-01-preview`. Set the API version as a variable to accommodate future versions:
+The service provider uses the `api-version` argument to ensure compatibility. The `api-version` argument varies from service to service. The current Azure Machine Learning API version is `2022-02-01-preview`. Set the API version as a variable to accommodate future versions:
 
 ```bash
-API_VERSION="2021-03-01-preview"
+API_VERSION="2022-02-01-preview"
 ```
 
 ### Compute
@@ -108,7 +107,7 @@ AZURE_STORAGE_KEY=$(az storage account keys list --account-name $AZURE_STORAGE_A
 
 ### Data
 
-Now that you have the datastore, you can create a dataset. For this example, use the common dataset `iris.csv` and point to it in the `path`. 
+Now that you have the datastore, you can create a dataset. For this example, use the common dataset `iris.csv`. 
 
 :::code language="rest-api" source="~/azureml-examples-main/cli/train-rest.sh" id="create_data":::
 
@@ -117,12 +116,12 @@ Now that you have the datastore, you can create a dataset. For this example, use
 Now that you have the dataset and datastore, you can upload the training script that will run on the job. Use the Azure Storage CLI to upload a blob into your default container. You can also use other methods to upload, such as the Azure portal or Azure Storage Explorer.
 
 
-```bash
+```azurecli
 az storage blob upload-batch -d $AZUREML_DEFAULT_CONTAINER/src \
  -s jobs/train/lightgbm/iris/src --account-name $AZURE_STORAGE_ACCOUNT --account-key $AZURE_STORAGE_KEY
 ```
 
-Once you upload your code, you can specify your code with a PUT request and refer to the datastore with `datastoreId`. 
+Once you upload your code, you can specify your code with a PUT request and reference the url through `codeUri`. 
 
 :::code language="rest-api" source="~/azureml-examples-main/cli/train-rest.sh" id="create_code":::
 
@@ -132,12 +131,12 @@ Now that your assets are in place, you can run the LightGBM job, which outputs a
 
 - **run_id**: [Optional] The name of the job, which must be unique across all jobs. Unless a name is specified either in the YAML file via the `name` field or the command line via `--name/-n`, a GUID/UUID is automatically generated and used for the name.
 - **jobType**: The job type. For a basic training job, use `Command`.
-- **codeId**: The path to your training script.
+- **codeId**: The ARMId reference of the name and version of your training script.
 - **command**: The command to execute. Input data can be written into the command and can be referred to with data binding. 
-- **environmentId**: The path to your environment.
-- **inputDataBindings**: Data binding can help you reference input data. Create an environment variable and the name of the binding will be added to AZURE_ML_INPUT_, which you can refer to in `command`. To create a data binding, you need to add the path to the data you created as `dataId`. 
+- **environmentId**: The ARMId reference of the name and version of your environment.
+- **inputDataBindings**: Data binding can help you reference input data. Create an environment variable and the name of the binding will be added to AZURE_ML_INPUT_, which you can refer to in `command`. You can directly reference a public blob url file as a `UriFile` through the `uri` parameter. 
 - **experimentName**: [Optional] Tags the job to help you organize jobs in Azure Machine Learning studio. Each job's run record is organized under the corresponding experiment in the studio "Experiment" tab. If omitted, tags default to the name of the working directory when the job is created.
-- **compute**: The `target` specifies the compute target, which can be the path to your compute. `instanceCount` specifies the number of instances you need for the job.
+- **computeId**: The `computeId` specifies the compute target name through an ARMId.
 
 Use the following commands to submit the training job:
 
@@ -148,13 +147,11 @@ Use the following commands to submit the training job:
 Azure Machine Learning also lets you efficiently tune training hyperparameters. You can create a hyperparameter tuning suite, with the REST APIs. For more information on Azure Machine Learning's hyperparameter tuning options, see [Hyperparameter tuning a model](how-to-tune-hyperparameters.md). Specify the hyperparameter tuning parameters to configure the sweep:
 
 - **jobType**: The job type. For a sweep job, it will be `Sweep`. 
-- **algorithm**: The sampling algorithm - "random" is often a good place to start. See the sweep job [schema](https://azuremlschemas.azureedge.net/latest/sweepJob.schema.json) for the enumeration of options. 
+- **algorithm**: The sampling algorithm class - class "random" is often a good place to start. See the sweep job [schema](https://azuremlschemas.azureedge.net/latest/sweepJob.schema.json) for the enumeration of options. 
 - **trial**: The command job configuration for each trial to be run. 
 - **objective**: The `primaryMetric` is the optimization metric, which must match the name of a metric logged from the training code. The `goal` specifies the direction (minimize or maximize). See the [schema](https://azuremlschemas.azureedge.net/latest/sweepJob.schema.json) for the full enumeration of options. 
-- **searchSpace**: A dictionary of the hyperparameters to sweep over. The key is a name for the hyperparameter, for example, `learning_rate`. The value is the hyperparameter distribution. See the [schema](https://azuremlschemas.azureedge.net/latest/sweepJob.schema.json) for the enumeration of options.
-- **maxTotalTrials**: The maximum number of individual trials to run.
-- **maxConcurrentTrials**: [Optional] The maximum number of trials to run concurrently on your compute cluster.
-- **timeout**: [Optional] The maximum number of minutes to run the sweep job for.
+- **searchSpace**: A generic object of hyperparameters to sweep over. The key is a name for the hyperparameter, for example, `learning_rate`. The value is the hyperparameter distribution. See the [schema](https://azuremlschemas.azureedge.net/latest/sweepJob.schema.json) for the enumeration of options.
+- **Limits**: `JobLimitsType` of type `sweep` is an object definition of the sweep job limits parameters. `maxTotalTrials` [Optional] is the maximum number of individual trials to run. `maxConcurrentTrials` is the maximum number of trials to run concurrently on your compute cluster.
 
 To create a sweep job with the same LightGBM example, use the following commands: 
 

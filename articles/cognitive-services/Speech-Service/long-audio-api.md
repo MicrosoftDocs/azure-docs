@@ -1,5 +1,5 @@
 ---
-title: Long Audio API - Speech service
+title: Synthesize long-form text to speech - Speech service
 titleSuffix: Azure Cognitive Services
 description: Learn how the Long Audio API is designed for asynchronous synthesis of long-form text to speech.
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 01/24/2022
 ms.author: eur
 ---
 
-# Long Audio API
+# Synthesize long-form text to speech
 
 The Long Audio API provides asynchronous synthesis of long-form text to speech. For example: audio books, news articles, and documents. There's no need to deploy a custom voice endpoint. Unlike the Text-to-speech API used by the Speech SDK, the Long Audio API can create synthesized audio longer than 10 minutes. This makes it ideal for publishers and audio content platforms to create long audio content like audio books in a batch.
 

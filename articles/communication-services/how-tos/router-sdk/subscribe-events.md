@@ -40,7 +40,7 @@ If the storage account, queue or system topic doesn't exist, they'll be created 
 - **Azure Communication Services Resource Name**: The name of your Azure Communication Services resource. For example, if the endpoint to your resource is `https://contoso.communication.azure.net`, then set to `contoso`.
 - **Storage Name**: The name of your Azure Storage Account. If it doesn't exist, it will be created.
 - **Event Sub Name**: The name of the event subscription to create.
-- **System Topic Name**: If you have existing event subscriptions on your ACS resource, find the `System Topic` name in the `Events` tab of your ACS resource. Otherwise, specify a unique name such as the ACS resource name itself.
+- **System Topic Name**: If you have existing event subscriptions on your Azure Communication Services resource, find the `System Topic` name in the `Events` tab of your Azure Communication Services resource. Otherwise, specify a unique name such as the Azure Communication Services resource name itself.
 - **Queue Name**: The name of your Queue within your Storage Account. If it doesn't exist, it will be created.
 
 ### Deployed resources

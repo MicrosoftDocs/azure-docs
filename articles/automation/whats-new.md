@@ -18,20 +18,29 @@ Azure Automation receives improvements on an ongoing basis. To stay up to date w
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Automation](whats-new-archive.md).
 
+
+## March 2022
+
+###  Forward diagnostic audit data to Azure Monitor logs
+
+**Type:** New feature
+
+Azure Automation can send diagnostic audit logs in addition to runbook job status and job streams to your Log Analytics workspace. Read [here](automation-manage-send-joblogs-log-analytics.md) for more information.
+
 ## February 2022
 
 ### Permissions change in the built-in Reader role for the Automation Account.
 
 **Type:** New change
 
-To strengthen the overall Azure Automation security posture, the built-in RBAC Reader role would not have access to Automation account keys through the API call - `GET /automationAccounts/agentRegistrationInformation`. Read [here](/azure/automation/automation-role-based-access-control#reader) for more information.
+To strengthen the overall Azure Automation security posture, the built-in RBAC Reader role would not have access to Automation account keys through the API call - `GET /automationAccounts/agentRegistrationInformation`. Read [here](./automation-role-based-access-control.md#reader) for more information.
 
 
 ### Restore deleted Automation Accounts 
 
 **Type:** New change 
 
-Users can now restore an Automation account deleted within 30 days. Read [here](/azure/automation/delete-account?tabs=azure-portal#restore-a-deleted-automation-account) for more information.
+Users can now restore an Automation account deleted within 30 days. Read [here](./delete-account.md?tabs=azure-portal#restore-a-deleted-automation-account) for more information.
 
 
 ## December 2021
@@ -126,7 +135,7 @@ For more information, see [Use of customer-managed keys](automation-secure-asset
 
 Microsoft intends to remove the Automation account rights from the Log Analytics Contributor role. Currently, the built-in [Log Analytics Contributor](./automation-role-based-access-control.md#log-analytics-contributor) role can escalate privileges to the subscription [Contributor](./../role-based-access-control/built-in-roles.md#contributor) role. Since Automation account Run As accounts are initially configured with Contributor rights on the subscription, it can be used by an attacker to create new runbooks and execute code as a Contributor on the subscription.
 
-As a result of this security risk, we recommend you don't use the Log Analytics Contributor role to execute Automation jobs. Instead, create the Azure Automation Contributor custom role and use it for actions related to the Automation account. For implementation steps, see [Custom Azure Automation Contributor role](./automation-role-based-access-control.md#custom-azure-automation-contributor-role).
+As a result of this security risk, we recommend you don't use the Log Analytics Contributor role to execute Automation jobs. Instead, create the Azure Automation Contributor custom role and use it for actions related to the Automation account.
 
 ### Support for Automation and State Configuration available in West US 3
 

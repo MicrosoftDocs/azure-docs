@@ -484,6 +484,11 @@ sections:
           If a VM uses a size series that supports Premium SSD disks, such as a DSv2, can I attach both premium and standard data disks? 
         answer: |
           Yes.
+      
+      - question: |
+          Can I deploy a VM with an unmanaged disk in the Azure portal?
+        answer: |
+          Not all OS images support deploying with an unmanaged disk in the Azure portal. If your chosen image doesn't support this method of deployment, we recommend that you use managed disks for new workloads and [convert](windows/convert-unmanaged-to-managed-disks.md) your existing disk to a managed disk. If you’re unable to use managed disks, you can deploy a VM using unmanaged disks with either the Azure PowerShell module or the Azure CLI.
 
       - question: |
           Can I attach both premium and standard data disks to a size series that doesn't support Premium SSD disks, such as D, Dv2, G, or F series?
@@ -515,7 +520,7 @@ sections:
         answer: |
           There is no downside to the use of TRIM on Azure disks on either premium or standard disks.
 
-  - name: "New disk sizes: Managed and unmanaged"
+  - name: "New disk sizes"
     questions:
       - question: |
           What regions support bursting capability for applicable premium SSD disk size?

@@ -59,7 +59,7 @@ You can also buy a reservation in the Azure portal. For more information, see th
 Service plans:
 - [Virtual machine](../../virtual-machines/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json)
 - [Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json)
-- [SQL Database](../../azure-sql/database/reserved-capacity-overview.md?toc=/azure/cost-management-billing/reservations/toc.json)
+- [SQL Database](/azure/azure-sql/database/reserved-capacity-overview?toc=/azure/cost-management-billing/reservations/toc.json)
 
 Software plans:
 - [SUSE Linux software](../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/cost-management-billing/reservations/toc.json)

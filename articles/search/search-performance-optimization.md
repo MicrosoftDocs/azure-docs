@@ -66,6 +66,7 @@ Azure Cognitive Search currently supports Availability Zones for Standard tier o
 | US Gov Virginia | April 30, 2021 or later |
 | West Europe | January 29, 2021 or later |
 | West US 2 | January 30, 2021 or later |
+| West US 3 | June 02, 2021 or later |
 
 Availability Zones do not impact the [Azure Cognitive Search Service Level Agreement](https://azure.microsoft.com/support/legal/sla/search/v1_0/). You still need 3 or more replicas for query high availability.
 

@@ -4,7 +4,7 @@ description: Common issues, workarounds, and diagnostic steps, when using the Az
 author: ealsur
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 12/29/2020
+ms.date: 04/14/2022
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
@@ -53,6 +53,10 @@ The previous versions of the Azure Cosmos DB Extension did not support using a l
 
 This error means that you are currently using a partitioned lease collection with an old [extension dependency](#dependencies). Upgrade to the latest available version. If you are currently running on Azure Functions V1, you will need to upgrade to Azure Functions V2.
 
+### Azure Function fails to start with "Forbidden (403); Substatus: 5300... The given request [POST ...] cannot be authorized by AAD token in data plane"
+
+This error means your Function is attempting to [perform a non-data operation using Azure AD identities](troubleshoot-forbidden.md#non-data-operations-are-not-allowed). You cannot use `CreateLeaseContainerIfNotExists = true` when using Azure AD identities.
+
 ### Azure Function fails to start with "The lease collection, if partitioned, must have partition key equal to id."
 
 This error means that your current leases container is partitioned, but the partition key path is not `/id`. To resolve this issue, you need to recreate the leases container with `/id` as the partition key.
@@ -70,6 +74,7 @@ This scenario can have multiple causes and all of them should be checked:
 If it's the latter, there could be some delay between the changes being stored and the Azure Function picking them up. This is because internally, when the trigger checks for changes in your Azure Cosmos container and finds none pending to be read, it will sleep for a configurable amount of time (5 seconds, by default) before checking for new changes (to avoid high RU consumption). You can configure this sleep time through the `FeedPollDelay/feedPollDelay` setting in the [configuration](../../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) of your trigger (the value is expected to be in milliseconds).
 3. Your Azure Cosmos container might be [rate-limited](../request-units.md).
 4. You can use the `PreferredLocations` attribute in your trigger to specify a comma-separated list of Azure regions to define a custom preferred connection order.
+5. The speed at which your Trigger receives new changes is dictated by the speed at which you are processing them. Verify the Function's [Execution Time / Duration](../../azure-functions/analyze-telemetry-data.md), if your Function is slow that will increase the time it takes for your Trigger to get new changes. If you see a recent increase in Duration, there could be a recent code change that might affect it. If the speed at which you are receiving operations on your Azure Cosmos container is faster than the speed of your Trigger, you will keep lagging behind. You might want to investigate in the Function's code, what is the most time consuming operation and how to optimize it.
 
 ### Some changes are repeated in my Trigger
 

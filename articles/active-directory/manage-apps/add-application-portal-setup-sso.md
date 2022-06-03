@@ -1,6 +1,5 @@
 ---
 title: 'Quickstart: Enable single sign-on for an enterprise application'
-titleSuffix: Azure AD
 description: Enable single sign-on for an enterprise application in Azure Active Directory.
 services: active-directory
 author: davidmu1

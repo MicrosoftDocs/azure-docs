@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/25/2022
+ms.date: 03/10/2022
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -205,6 +205,7 @@ If the sign-in process is successful, your browser is redirected to `https://jwt
 
 ## Next steps
 
-Learn how to [pass the Azure AD token to your application](idp-pass-through-user-flow.md).
+- Learn how to [pass the Azure AD token to your application](idp-pass-through-user-flow.md).
+- Check out the Azure AD multi-tenant federation [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#azure-active-directory), and how to pass Azure AD access token [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#azure-active-directory-with-access-token)
 
 ::: zone-end

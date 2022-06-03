@@ -205,7 +205,7 @@ The SAP data connector streams a multitude of 14 application logs from the entir
 
 To ingest SAP logs into Azure Sentinel, you must have the Azure Sentinel SAP data connector installed on your SAP environment. After the SAP data connector is deployed, deploy the rich SAP solution security content to smoothly gain insight into your organization's SAP environment and improve any related security operation capabilities.
 
-For more information, see [Tutorial: Deploy the Azure Sentinel solution for SAP (public preview)](sap-deploy-solution.md).
+For more information, see [Deploying SAP continuous threat monitoring](sap/deployment-overview.md).
 
 ### Threat intelligence integrations (Public preview)
 
@@ -306,7 +306,7 @@ The first tab on an incident details page is now the **Timeline**, which shows a
 
 For example:
 
-:::image type="content" source="media/tutorial-investigate-cases/incident-timeline.png" alt-text="Incident timeline tab":::
+:::image type="content" source="media/investigate-cases/incident-timeline.png" alt-text="Incident timeline tab":::
 
 For more information, see [Tutorial: Investigate incidents with Azure Sentinel](investigate-cases.md).
 
@@ -494,7 +494,7 @@ If you have [UEBA enabled](ueba-enrichments.md), and have selected a timeframe o
 |**User Peers Based on Security Group Membership**     |   Lists the user's peers based on Azure AD Security Groups membership, providing security operations teams with a list of other users who share similar permissions.  |
 |**User Access Permissions to Azure Subscription**     |     Shows the user's access permissions to the Azure subscriptions accessible directly, or via Azure AD groups / service principals.   |
 |**Threat Indicators Related to The User**     |  Lists a collection of known threats relating to IP addresses represented in the user’s activities. Threats are listed by threat type and family, and are enriched by Microsoft’s threat intelligence service.       |
-|     |         |
+
 
 ### Improved incident search (Public preview)
 

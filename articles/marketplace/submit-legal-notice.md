@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 03/08/2021
+ms.date: 03/14/2022
 ---
 
 # Notifying Microsoft regarding the Publisher Agreement

@@ -17,7 +17,7 @@ ms.date: 02/02/2022
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
-Data transformation expressions in Azure Data Factory and Azure Synapse Analytics allow you to transform expressions in many ways, and are a powerful tool enabling you customize the behavior of your pipelines in almost every setting and property - anywhere you find a text field that shows the **Add dynamic content** or **Open expression builder** links within your pipeline.
+Data transformation expressions in Azure Data Factory and Azure Synapse Analytics allow you to transform expressions in many ways, and are a powerful tool enabling you to customize the behavior of your pipelines in almost every setting and property - anywhere you find a text field that shows the **Add dynamic content** or **Open expression builder** links within your pipeline.
 
 ## Transformation expression function list
 

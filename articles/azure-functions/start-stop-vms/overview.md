@@ -13,6 +13,13 @@ The Start/Stop VMs v2 (preview) feature starts or stops Azure virtual machines (
 
 This new version of Start/Stop VMs v2 (preview) provides a decentralized low-cost automation option for customers who want to optimize their VM costs. It offers all of the same functionality as the [original version](../../automation/automation-solution-vm-management.md) available with Azure Automation, but it is designed to take advantage of newer technology in Azure.
 
+> [!NOTE]
+> We've added a plan (**AZ - Availability Zone**) to our Start/Stop V2 solution to enable a high-availability offering. You can now choose between Consumption and Availability Zone plans before you start your deployment. In most cases, the monthly cost of the Availability Zone plan is higher when compared to the Consumption plan. 
+
+> [!NOTE]
+> Automatic updating functionality was introduced on April 28th, 2022. This new auto update feature helps you stay on the latest version of the solution. This feature is enabled by default when you perform a new installation. 
+> If you deployed your solution before this date, you can reinstall to the latest version from our [GitHub repository](https://github.com/microsoft/startstopv2-deployments)
+    
 ## Overview
 
 Start/Stop VMs v2 (preview) is redesigned and it doesn't depend on Azure Automation or Azure Monitor Logs, as required by the [previous version](../../automation/automation-solution-vm-management.md). This version relies on [Azure Functions](../../azure-functions/functions-overview.md) to handle the VM start and stop execution.
@@ -33,6 +40,8 @@ An HTTP trigger endpoint function is created to support the schedule and sequenc
 |CostAnalyticsFunction |Timer |This function calculates the cost to run the Start/Stop V2 solution on a monthly basis.|
 |SavingsAnalyticsFunction |Timer |This function calculates the total savings achieved by the Start/Stop V2 solution on a monthly basis.|
 |VirtualMachineSavingsFunction |Queue |This function performs the actual savings calculation on a VM achieved by the Start/Stop V2 solution.|
+|TriggerAutoUpdate |Timer |This function starts the auto update process based on the application setting "**EnableAutoUpdate=true**".|
+|UpdateStartStopV2 |Queue |This function performs the actual auto update execution, which validates your current version with the available version and decides the final action.|
 
 For example, **Scheduled** HTTP trigger function is used to handle schedule and sequence scenarios. Similarly, **AutoStop** HTTP trigger function handles the auto stop scenario.
 

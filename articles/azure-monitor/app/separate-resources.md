@@ -11,6 +11,8 @@ When you are developing the next version of a web application, you don't want to
 
 (If your system is an Azure Cloud Service, there's [another method of setting separate ikeys](../../azure-monitor/app/cloudservices.md).)
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
 ## About resources and instrumentation keys
 
 When you set up Application Insights monitoring for your web app, you create an Application Insights *resource* in Microsoft Azure. You open this resource in the Azure portal in order to see and analyze the telemetry collected from your app. The resource is identified by an *instrumentation key* (ikey). When you install the Application Insights package to monitor your app, you configure it with the instrumentation key, so that it knows where to send the telemetry.

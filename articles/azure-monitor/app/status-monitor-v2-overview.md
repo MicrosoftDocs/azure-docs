@@ -15,7 +15,7 @@ It replaces Status Monitor.
 Telemetry is sent to the Azure portal, where you can [monitor](./app-insights-overview.md) your app.
 
 > [!NOTE]
-> The module currently supports codeless instrumentation of .NET and .NET Core web apps hosted with IIS. Use an SDK to instrument Java and Node.js applications.
+> The module currently supports codeless instrumentation of ASP.NET and ASP.NET Core web apps hosted with IIS. Use an SDK to instrument Java and Node.js applications.
 
 ## PowerShell Gallery
 
@@ -68,6 +68,11 @@ Each of these options is described in the [detailed instructions](status-monitor
 
 
 ## Release notes
+
+### 2.0.0-beta3
+
+- Update ApplicationInsights .NET/.NET Core SDK to 2.20.1-redfield.
+- Enable SQL query collection.
 
 ### 2.0.0-beta2
 

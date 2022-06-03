@@ -4,7 +4,7 @@ metadata:
   description: Find answer to common questions about Azure IoT Hub Device Provisioning Service.
   author: kgremban
   ms.author: kgremban
-  ms.date: 02/10/2022
+  ms.date: 03/01/2022
   ms.topic: faq
   ms.service: iot-dps
   services: iot-dps
@@ -40,6 +40,10 @@ sections:
          Can multiple DPS instances provision devices to the same IoT hub? 
         answer: |
          Yes; however, built-in allocation policies apply to each DPS instance individually, so load balancing across multiple IoT hubs is not possible when using the built-in DPS policies. Instead, you can use a custom allocation policy to implement load balancing when using multiple DPS instances. To learn more about custom allocation policies, see [How to use custom allocation policies](how-to-use-custom-allocation-policies.md).
+      - question: |
+         How can I get an authorization token to use for REST service operations? 
+        answer: |
+         For information about how to get an authorization token for REST service operations like [Create or Update Enrollment Group](/rest/api/iot-dps/service/enrollment-group/create-or-update) and [Get Device Registration State](/rest/api/iot-dps/service/device-registration-state/get), see [Service API authentication](how-to-control-access.md#service-api-authentication).
 
   - name: DPS Billing
     questions:
