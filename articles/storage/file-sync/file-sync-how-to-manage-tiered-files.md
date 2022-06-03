@@ -57,6 +57,39 @@ There are several ways to check whether a file has been tiered to your Azure fil
         > [!WARNING]
         > The `fsutil reparsepoint` utility command also has the ability to delete a reparse point. Do not execute this command unless the Azure File Sync engineering team asks you to. Running this command might result in data loss.
 
+## How to exclude files or folders from being tiered
+
+If you want files or folders to be excluded from tiering and remain local on the Windows Server, you can configure the GhostingExclusionList registry setting. You can exclude files by file name, file type or path. 
+
+To exclude files or folders from tiering, perform the following steps:
+1. Open an elevated command prompt.
+2. Run one of the following commands to configure exclusions:
+
+	To exclude certain file types from tiering (for example, .one, .lnk, .log), run the following command:  
+	reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList  /t REG_SZ /d .one|.lnk|.log /f
+
+	To exclude a specific file from tiering (for example, FileName.vhd), run the following command:  
+	reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList  /t REG_SZ /d FileName.vhd /f
+
+	To exclude all files under a folder from tiering (for example, D:\ShareRoot\Folder\SubFolder), run the following command:   
+	reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList  /t REG_SZ /d D:\\ShareRoot\\Folder\\SubFolder /f
+
+	To exclude a combination of files, file types and folders from tiering (for example, D:\ShareRoot\Folder1\SubFolder1,FileName.log,.txt), run the following command:  
+	reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList  /t REG_SZ /d D:\\ShareRoot\\Folder1\\SubFolder1|FileName.log|.txt /f 
+
+3. For the exclusions to take effect, you must restart the Storage Sync Agent service (FileSyncSvc) by running the following commands:   
+	net stop filesyncsvc  
+	net start filesyncsvc
+
+### More information
+- Each exclusion pattern in the registry should be separated by a pipe (|) character.
+- File name or file type exclusions apply to all server endpoints on the server.
+- Exclusions do not apply to files already tiered. Use the Invoke-StorageSyncFileRecall cmdlet to recall files already tiered.
+- You cannot exclude file types from a particular folder only.
+
+
+
+
 ## How to exclude applications from cloud tiering last access time tracking
 
 When an application accesses a file, the last access time for the file is updated in the cloud tiering database. Applications that scan the file system like anti-virus cause all files to have the same last access time, which impacts when files are tiered.
