@@ -34,7 +34,7 @@ Consider the following guidelines and recommendations for your project:
 
 To build a project schema within [Language Studio](https://aka.ms/languageStudio):
 
-1. Select **Build schema** from the left side menu.
+1. Select **Schema definition** from the left side menu.
 
 2. To create an intent, select **Add** from the top menu. You will be prompted to type in a name for the intent.
 

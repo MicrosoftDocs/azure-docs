@@ -5,7 +5,7 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
-ms.date: 04/19/2021
+ms.date: 05/25/2022
 ms.author: rohink
 #Customer intent: As an experienced network administrator, I want to configure Azure DNS, so I can host DNS zones.
 ---
@@ -38,32 +38,32 @@ In this example, we'll reference the parent domain a `contoso.net`.
 
 1. Go to the [Azure portal](https://portal.azure.com/) to create a DNS zone. Search for and select **DNS zones**.
 
-   ![DNS zone](./media/dns-delegate-domain-azure-dns/openzone650.png)
+1. Select **+ Create**.
 
-1. Select **Create DNS zone**.
-
-1. On the **Create DNS zone** page, enter the following values, and then select **Create**. For example, `contoso.net`.
-
-   > [!NOTE] 
-   > If the new zone that you are creating is a child zone (e.g. Parent zone = `contoso.net` Child zone = `child.contoso.net`), please refer to our [Creating a new Child DNS zone tutorial](./tutorial-public-dns-zones-child.md)
+1. On the **Create DNS zone** page, enter the following values, and then select **Review + create**.
 
     | **Setting** | **Value** | **Details** |
     |--|--|--|
-    | **Resource group**    | ContosoRG | Create a resource group. The resource group name must be unique within   the subscription that you selected. The location of the resource group has no impact on the DNS zone. The DNS zone location is always "global," and isn't shown. |
-    | **Zone child**        | leave unchecked | Since this zone is **not** a [child zone](./tutorial-public-dns-zones-child.md) you should leave this unchecked |
-    | **Name**              | `contoso.net` | Field for your parent zone name      |
-    | **Location**          | East US | This field is based on the location selected as part of Resource group creation  |
+    | **Resource group**    | *ContosoRG* | Create a resource group. The resource group name must be unique within the subscription that you selected. The location of the resource group doesn't affect the DNS zone. The DNS zone location is always "global," and isn't shown. |
+    | **This zone is a child of an existing zone already hosted in Azure DNS**        | leave unchecked | Leave this box unchecked since the DNS zone is **not** a [child zone](./tutorial-public-dns-zones-child.md). |
+    | **Name**              | *contoso.net* | Enter your parent DNS zone name      |
+    | **Resource group location**          | *East US* | This field is based on the location selected as part of Resource group creation  |
     
+1. Select **Create**.
+
+
+   > [!NOTE] 
+   > If the new zone that you are creating is a child zone (e.g. Parent zone = `contoso.net` Child zone = `child.contoso.net`), please refer to our [Creating a new Child DNS zone tutorial](./tutorial-public-dns-zones-child.md)
 
 ## Retrieve name servers
 
 Before you can delegate your DNS zone to Azure DNS, you need to know the name servers for your zone. Azure DNS gives name servers from a pool each time a zone is created.
 
-1. With the DNS zone created, in the Azure portal **Favorites** pane, select **All resources**. On the **All resources** page, select your DNS zone. If the subscription you've selected already has several resources in it, you can enter your domain name in the **Filter by name** box to easily access the application gateway. 
+1. Select **Resource groups** in the left-hand menu, select the **ContosoRG** resource group, and then from the **Resources** list, select **contoso.net** DNS zone. 
 
-1. Retrieve the name servers from the DNS zone page. In this example, the zone `contoso.net` has been assigned name servers `ns1-01.azure-dns.com`, `ns2-01.azure-dns.net`, *`ns3-01.azure-dns.org`, and `ns4-01.azure-dns.info`:
+1. Retrieve the name servers from the DNS zone page. In this example, the zone `contoso.net` has been assigned name servers `ns1-01.azure-dns.com`, `ns2-01.azure-dns.net`, `ns3-01.azure-dns.org`, and `ns4-01.azure-dns.info`:
 
-   ![List of name servers](./media/dns-delegate-domain-azure-dns/viewzonens500.png)
+    :::image type="content" source="./media/dns-delegate-domain-azure-dns/dns-name-servers.png" alt-text="Screenshot of D N S zone showing name servers" lightbox="./media/dns-delegate-domain-azure-dns/dns-name-servers.png":::
 
 Azure DNS automatically creates authoritative NS records in your zone for the assigned name servers.
 
@@ -110,9 +110,15 @@ You don't have to specify the Azure DNS name servers. If the delegation is set u
 
 ## Clean up resources
 
-You can keep the **contosoRG** resource group if you intend to do the next tutorial. Otherwise, delete the **contosoRG** resource group to delete the resources created in this tutorial.
+When no longer needed, you can delete all resources created in this tutorial by following these steps to delete the resource group **ContosoRG**:
 
-Select the **contosoRG** resource group, and then select **Delete resource group**. 
+1. From the left-hand menu, select **Resource groups**.
+
+2. Select the **ContosoRG** resource group.
+
+3. Select **Delete resource group**.
+
+4. Enter **ContosoRG** and select **Delete**.
 
 ## Next steps
 

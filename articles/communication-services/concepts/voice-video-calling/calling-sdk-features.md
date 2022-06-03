@@ -107,7 +107,7 @@ The maximum call duration is 30 hours, participants that reach the maximum call 
 
 ## JavaScript Calling SDK support by OS and browser
 
-The following table represents the set of supported browsers which are currently available. **We support the most recent three versions of the browser** unless otherwise indicated.
+The following table represents the set of supported browsers which are currently available. **We support the most recent three major versions of the browser (most recent three minor versions for Safari)**  unless otherwise indicated.
 
 | Platform     | Chrome | Safari | Edge (Chromium)  |
 | ------------ | ------ | ------ | --------------   |
