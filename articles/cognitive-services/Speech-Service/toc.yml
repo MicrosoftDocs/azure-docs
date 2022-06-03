@@ -429,7 +429,7 @@ items:
           displayName: reference       
         - name: Text-to-speech REST API
           href: rest-text-to-speech.md
-          displayName: reference 
+          displayName: reference, tts output, output format
         - name: Speaker Recognition REST API
           href: /rest/api/speakerrecognition/
           displayName: reference 
