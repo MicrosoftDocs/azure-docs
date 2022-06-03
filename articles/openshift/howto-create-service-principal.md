@@ -33,7 +33,7 @@ If you’re using the Azure CLI, you’ll need Azure CLI version 2.0.59 or later
 
 ## Create a resource group - Azure CLI
 
-Run the following Azure CLI command to create a resource group.
+Run the following Azure CLI command to create a resource group in which your Azure Red Hat OpenShift cluster will reside.
 
 ```azurecli-interactive
 AZ_RG=$(az group create -n test-aro-rg -l eastus2 --query name -o tsv)
@@ -68,8 +68,8 @@ The output is similar to the following example.
 }
 ``` 
  
-> [!NOTE]
-> This service principal only allows a contributor over the resource group the Azure Red Hat OpenShift cluster is located in. If your VNet is in another resource group, you need to assign the service principal contributor role to that resource group as well. 
+> [!IMPORTANT]
+> This service principal only allows a contributor over the resource group the Azure Red Hat OpenShift cluster is located in. If your VNet is in another resource group, you need to assign the service principal contributor role to that resource group as well. You also need to create your Azure Red Hat OpenShift cluster in the resource group you created above.
 
 To grant permissions to an existing service principal with the Azure portal, see [Create an Azure AD app and service principal in the portal](../active-directory/develop/howto-create-service-principal-portal.md#configure-access-policies-on-resources).
 
