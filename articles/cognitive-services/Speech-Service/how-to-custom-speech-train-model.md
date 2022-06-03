@@ -298,7 +298,7 @@ To connect a model to a project, use the `spx csr model update` command. Constru
 - Set the `project` parameter to the URI of an existing project. This is recommended so that you can also view and manage the model in Speech Studio. You can run the `spx csr project list` command to get available projects.
 - Set the required `modelId` parameter to the ID of the model that you want to connect to the project.
 
-Here's an example Speech CLI command that connect a model to a project:
+Here's an example Speech CLI command that connects a model to a project:
 
 ```azurecli-interactive
 spx csr model update --model YourModelId --project YourProjectId
