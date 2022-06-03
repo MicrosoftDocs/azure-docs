@@ -26,22 +26,22 @@ This class is held in the `LocalSettings` object that represents options used lo
 
 #### Usage
 
-To use the `LocalSettings`, pass the instance of `ParticipantViewData` and inject `LocalSettings` to `callComposite.launch`.
+To use the `LocalSettings`, pass the instance of `CallCompositeParticipantViewData` and inject `LocalSettings` to `callComposite.launch`.
 
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-val viewData = ParticipantViewData("LocalUserDisplayName") // bitmap is optional
-val localSettings = LocalSettings(viewData)
-callComposite.launch(this, options, localSettings)
+val viewData = CallCompositeParticipantViewData("LocalUserDisplayName") // bitmap is optional
+val localOptions = CallCompositeLocalOptions(viewData)
+callComposite.launch(this, remoteOptions, localOptions)
 ```
 
 #### [Java](#tab/java)
 
 ```java
-ParticipantViewData viewData = new ParticipantViewData("LocalUserDisplayName", bitmap); // bitmap is optional
-LocalSettings localSettings = new LocalSettings(viewData);
-callComposite.launch(this, options, localSettings);
+ParticipantViewData viewData = new CallCompositeParticipantViewData("LocalUserDisplayName", bitmap); // bitmap is optional
+CallCompositeLocalOptions localOptions = new CallCompositeLocalOptions(viewData);
+callComposite.launch(this, remoteOptions, localOptions);
 ```
 -----
 
@@ -58,6 +58,11 @@ The process is similar to the local participant process, however the data is set
 #### Usage
 
 To set the participant view data for remote participant, set `setOnRemoteParticipantJoinedHandler`. On remote participant join, use callComposite `setRemoteParticipantViewData` to inject view data for remote participant. The participant identifier [CommunicationIdentifier](https://azure.github.io/azure-sdk-for-android/azure-communication-common/index.html) is to uniquely identify a remote participant.
+
+Calls to `setRemoteParticipantViewData` return a result of `CallCompositeSetParticipantViewDataResult` which has the following values.
+
+- CallCompositeSetParticipantViewDataResult.SUCCESS
+- CallCompositeSetParticipantViewDataResult.PARTICIPANT_NOT_IN_CALL
 
 #### [Kotlin](#tab/kotlin)
 
