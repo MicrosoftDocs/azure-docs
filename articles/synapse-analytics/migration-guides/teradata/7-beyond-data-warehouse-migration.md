@@ -35,7 +35,7 @@ One of the key reasons to migrate your existing data warehouse to Azure Synapse 
   - Microsoft ISV Partners
 
 - [Microsoft's data science technologies](/azure/architecture/data-science-process/platforms-and-tools), including:
-  - Azure Machine Learning studio
+  - Azure Machine Learning Studio
   - Azure Machine Learning
   - Azure Synapse Spark (Spark as a service)
   - Jupyter Notebooks
@@ -183,7 +183,7 @@ This differs from Excel and Power BI, as Data Factory [wrangling data flows](/az
 
 In addition to cleaning and transforming data, Data Factory can combine data integration and analytics in the same pipeline. Use Data Factory to create both data integration and analytical pipelines&mdash;the latter being an extension of the former. Drop an analytical model into a pipeline so that clean, integrated data can be stored to provide predictions or recommendations. Act on this information immediately or store it in your data warehouse to provide you with new insights and recommendations that can be viewed in BI tools.
 
-Models developed code-free with Azure Machine Learning studio, or with the Azure Machine Learning SDK using Azure Synapse Spark pool notebooks or using R in RStudio, can be invoked as a service from within a Data Factory pipeline to batch score your data. Analysis happens at scale by executing Spark machine learning pipelines on Azure Synapse Spark pool notebooks.
+Models developed code-free with Azure Machine Learning Studio, or with the Azure Machine Learning SDK using Azure Synapse Spark pool notebooks or using R in RStudio, can be invoked as a service from within a Data Factory pipeline to batch score your data. Analysis happens at scale by executing Spark machine learning pipelines on Azure Synapse Spark pool notebooks.
 
 Store integrated data and any results from analytics included in a Data Factory pipeline in one or more data stores, such as Azure Data Lake Storage, Azure Synapse, or Azure HDInsight (Hive tables). Invoke other activities to act on insights produced by a Data Factory analytical pipeline.
 
@@ -217,7 +217,7 @@ Another key requirement in modernizing your migrated data warehouse is to integr
 
 Microsoft offers a range of technologies to build predictive analytical models using machine learning, analyze unstructured data using deep learning, and perform other kinds of advanced analytics. This includes:
 
-- Azure Machine Learning studio
+- Azure Machine Learning Studio
 
 - Azure Machine Learning
 
@@ -229,11 +229,11 @@ Microsoft offers a range of technologies to build predictive analytical models u
 
 Data scientists can use RStudio (R) and Jupyter Notebooks (Python) to develop analytical models, or they can use other frameworks such as Keras or TensorFlow.
 
-#### Azure Machine Learning studio
+#### Azure Machine Learning Studio
 
-Azure Machine Learning studio is a fully managed cloud service that lets you easily build, deploy, and share predictive analytics via a drag-and-drop web-based user interface. The next screenshot shows an Azure Machine Learning studio user interface.
+Azure Machine Learning Studio is a fully managed cloud service that lets you easily build, deploy, and share predictive analytics via a drag-and-drop web-based user interface. The next screenshot shows an Azure Machine Learning Studio user interface.
 
-:::image type="content" source="../media/7-beyond-data-warehouse-migration/azure-ml-studio-ui.png" border="true" alt-text="Screenshot showing predictive analysis in the Azure Machine Learning studio user interface.":::
+:::image type="content" source="../media/7-beyond-data-warehouse-migration/azure-ml-studio-ui.png" border="true" alt-text="Screenshot showing predictive analysis in the Azure Machine Learning Studio user interface.":::
 
 #### Azure Machine Learning
 
