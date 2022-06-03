@@ -17,7 +17,7 @@ This page shows all the supported compute services, clients, and authentication 
 - Azure App Service
 - Azure Spring Cloud
 
-## Supported authentication types and client
+## Supported authentication types and clients
 
 | Client type        | System-assigned managed identity | User-assigned managed identity |       Secret/connection string       | Service principal |
 |--------------------|:--------------------------------:|:------------------------------:|:------------------------------------:|:-----------------:|
@@ -39,21 +39,21 @@ Use the environment variable names and application properties listed below to co
 
 Use the connection details below to connect Azure App Service instances with .NET, Go, Java, Java - Spring Boot, PHP, Node.js, Python, Python - Django and Ruby.
 
-### .NET (sqlClient)
+#### Azure App Service with .NET (sqlClient)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description | Sample value |
 > | --------------------------------- | ------------| ------------ |
 > | AZURE_SQL_CONNECTIONSTRING | Azure SQL Database connection string | `Data Source=sql-server.database.windows.net,1433;Initial Catalog=sql-db;User ID=sql-user;Password=sql-pass` |
 
-### Java - Java Database Connectivity (JDBC)
+#### Azure App Service with Java Database Connectivity (JDBC)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description | Sample value |
 > | --------------------------------- | ------------| ------------ |
 > | AZURE_SQL_CONNECTIONSTRING | Azure SQL Database connection string | `jdbc:sqlserver://sql-server.database.windows.net:1433;databaseName=sql-db;user=sql-user;password=sql-pass;` |
 
-### Java - Spring Boot (spring-boot-starter-jdbc)
+#### Azure App Service with Java Spring Boot (spring-boot-starter-jdbc)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                            | Sample value                                                                 |
@@ -62,14 +62,14 @@ Use the connection details below to connect Azure App Service instances with .NE
 > | spring.datasource.username        | Azure SQL Database datasource username | `sql-user`                                                                   |
 > | spring.datasource.password        | Azure SQL Database datasource password | `sql-pass`                                                                   |
 
-### Go (go-mssqldb)
+#### Azure App Service with Go (go-mssqldb)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description | Sample value |
 > | --------------------------------- | ------------| ------------ |
 > | AZURE_SQL_CONNECTIONSTRING        | Azure SQL Database connection string | `server=sql-serverdatabase.windows.net;port=1433;database=sql-db;user id=sql-user;password=sql-pass;` |
 
-### Node.js
+#### Azure App Service with Node.js
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                 | Sample value                      |
@@ -80,7 +80,7 @@ Use the connection details below to connect Azure App Service instances with .NE
 > | AZURE_SQL_USERNAME                | Azure SQL Database username | `sql-user`                        |
 > | AZURE_SQL_PASSWORD                | Azure SQL Database password | `sql-pass`                        |
 
-### PHP
+#### Azure App Service with PHP
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                                | Sample value                      |
@@ -90,7 +90,7 @@ Use the connection details below to connect Azure App Service instances with .NE
 > | AZURE_SQL_UID                     | Azure SQL Database unique identifier (UID) | `sql-user`                        |
 > | AZURE_SQL_PASSWORD                | Azure SQL Database password                | `sql-pass`                        |
 
-### Python (pyobdc)
+#### Azure App Service with Python (pyobdc)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                 | Sample value                      |
@@ -101,7 +101,7 @@ Use the connection details below to connect Azure App Service instances with .NE
 > | AZURE_SQL_USER                    | Azure SQL Database user     | `sql-user`                        |
 > | AZURE_SQL_PASSWORD                | Azure SQL Database password | `sql-pass`                        |
 
-### Python - Django (mssql-django)
+#### Azure App Service with Django (mssql-django)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                 | Sample value                      |
@@ -112,7 +112,7 @@ Use the connection details below to connect Azure App Service instances with .NE
 > | AZURE_SQL_USER                    | Azure SQL Database user     | `sql-user`                        |
 > | AZURE_SQL_PASSWORD                | Azure SQL Database password | `sql-pass`                        |
 
-### Ruby
+#### Azure App Service with Ruby
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description                 | Sample value                      |
@@ -125,7 +125,16 @@ Use the connection details below to connect Azure App Service instances with .NE
 
 ### Connect an Azure Spring Cloud instance
 
-Use the connection details below to connect Azure Spring Cloud instances with Java - Spring Boot
+Use the connection details below to connect Azure Spring Cloud instances with Java Spring Boot.
+
+#### Azure Spring Cloud with Java Spring Boot (spring-boot-starter-jdbc)
+
+> [!div class="mx-tdBreakAll"]
+> | Default environment variable name | Description                            | Sample value                                                                 |
+> |-----------------------------------|----------------------------------------|------------------------------------------------------------------------------|
+> | spring.datasource.url             | Azure SQL Database datasource URL      | `jdbc:sqlserver://sql-server.database.windows.net:1433;databaseName=sql-db;` |
+> | spring.datasource.username        | Azure SQL Database datasource username | `sql-user`                                                                   |
+> | spring.datasource.password        | Azure SQL Database datasource password | `sql-pass`                                                                   |
 
 ## Next steps
 
