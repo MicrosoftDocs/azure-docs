@@ -102,7 +102,7 @@ You can add the preview extension bundle by adding or replacing the following co
 > [!NOTE]
 > Python language support for the SQL bindings extension is only available for v4 of the [functions runtime](./set-runtime-version.md#view-and-update-the-current-runtime-version) and requires runtime v4.5.0 or greater for deployment in Azure.  Learn more about determining the runtime in the [functions runtime](./set-runtime-version.md#view-and-update-the-current-runtime-version) documentation.  Please see the tracking [GitHub issue](https://github.com/Azure/azure-functions-sql-extension/issues/250) for the latest update on availability.
 
-The functions runtime required for local development and testing of Python functions is not included in the current release of functions core tools and must be installed independently.  The latest instructions on installing a preview core tools is available in the tracking [GitHub issue](https://github.com/Azure/azure-functions-sql-extension/issues/250).
+The functions runtime required for local development and testing of Python functions isn't included in the current release of functions core tools and must be installed independently.  The latest instructions on installing a preview version of functions core tools are available in the tracking [GitHub issue](https://github.com/Azure/azure-functions-sql-extension/issues/250).
 
 Alternatively, a VS Code [development container](https://code.visualstudio.com/docs/remote/containers) definition can be used to expedite your environment setup.  The definition components are available in the SQL bindings [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-python/.devcontainer).
 
@@ -127,7 +127,7 @@ You can add the preview extension bundle by adding or replacing the following co
 
 # [Preview Bundle v3.x](#tab/extensionv3)
 
-Python support is not available with the SQL bindings extension in the v3 version of the functions runtime.
+Python support isn't available with the SQL bindings extension in the v3 version of the functions runtime.
 
 ---
 
