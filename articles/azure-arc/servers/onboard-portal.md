@@ -23,7 +23,7 @@ The script to automate the download and installation, and to establish the conne
 
 1. On the **Servers - Azure Arc** page, select **Add** at the upper left.
 
-1. On the **Select a method** page, select the **Add servers using interactive script** tile, and then select **Generate script**.
+1. On the **Select a method** page, select the **Add a single server** tile, and then select **Generate script**.
 
 1. On the **Generate script** page, select the subscription and resource group where you want the machine to be managed within Azure. Select an Azure location where the machine metadata will be stored. This location can be the same or different, as the resource group's location.
 
