@@ -1,5 +1,5 @@
 ---
-title: Preparing to use identity governance for an application whose users don't authenticate to Azure AD
+title: Governing an application's existing users in Azure AD with Microsoft PowerShell
 description: Planning for a successful access reviews campaign for a particular application includes identifying if there are any users in that application whose access does not derive from Azure AD.
 services: active-directory
 documentationCenter: ''
@@ -21,13 +21,13 @@ ms.collection: M365-identity-device-management
 
 ---
 
-# Preparing to use identity governance for an application whose users don't authenticate to Azure AD
+# Governing an application's existing users - Microsoft PowerShell
 
-There are two common scenarios in which it's necessary to populate Azure AD with existing users of an application, prior to using the application with an Azure AD identity governance feature such as access reviews or entitlement management.
+There are two common scenarios in which it's necessary to populate Azure AD with existing users of an application, prior to using the application with an Azure AD identity governance feature such as [access reviews](access-reviews-application-preparation.md) or [entitlement management](entitlement-management-overview.md).
 
 First, if the application already exists in the environment, and was previously using its own identity provider or data store to track which users had access. When you change the application to rely upon Azure AD, then only users who are in Azure AD and permitted access to that application will be able to access it.  As part of that configuration change, you can choose to bring in the existing users from that application's data store into Azure AD, so that those users continue to have access, through Azure AD. This will enable Azure AD to track users with access to the application, even though the user's relationship with the application originated elsewhere, such as in an applications' database or directory.  Once Azure AD is aware of a user's assignment, Azure AD will be able send updates to the application's data store when that user's attributes change, or when the user goes out of scope of the application.  
 
-Second, if an application doesn't solely rely upon Azure AD as its identity provider.  In some cases, an application might support multiple identity providers, or have its own built-in credential storage.  If it isn't feasible to remove other identity providers or local credential authentication from the application, then in order to be able to use Azure AD to review who has access to that application, or remove someone's access from that application, you'll need to create assignments in Azure AD that represent the access by users of the application, those users who don't rely upon Azure AD for authentication.  This is necessary if you plan to review all users with access to the application, as part of an access review.
+Second, if an application doesn't solely rely upon Azure AD as its identity provider.  In some cases, an application might support multiple identity providers, or have its own built-in credential storage. This is described as Pattern C in [preparing for an access review of user's access to an application](access-reviews-application-preparation.md). If it isn't feasible to remove other identity providers or local credential authentication from the application, then in order to be able to use Azure AD to review who has access to that application, or remove someone's access from that application, you'll need to create assignments in Azure AD that represent the access by users of the application, those users who don't rely upon Azure AD for authentication.  This is necessary if you plan to review all users with access to the application, as part of an access review.
 
 Suppose there's a user who is in the application's data store, Azure AD is configured to require role assignments to the application, but the user doesn't have an application role assignment in Azure AD.  If the user is updated in Azure AD, then no changes will be sent to the application. And if the application's role assignments are reviewed, the user won't be included in the review. To ensure users are included in the review, then it's necessary to have either application role assignments for all users of the application, or access package assignments for those users.
 
@@ -37,7 +37,7 @@ This article illustrates the process for managing application role assignments u
 
 ![Terminology](./media/identity-governance-applications-existing-users/data-model-terminology.png)
 
-In Azure AD, a `ServicePrincipal` represents an application in a particular organization's directory.  The `ServicePrincipal` has a property `AppRoles` which lists the roles an application supports, such as `Marketing specialist`.  An `AppRoleAssignment` links a `User` to a Service principal and specifies which role that user has in that application.  
+In Azure AD, a `ServicePrincipal` represents an application in a particular organization's directory.  The `ServicePrincipal` has a property `AppRoles` that lists the roles an application supports, such as `Marketing specialist`.  An `AppRoleAssignment` links a `User` to a Service principal and specifies which role that user has in that application.  
 
 You can also choose to use the Azure AD entitlement management access packages to time-limit access. An `AccessPackage` contains one or more resource roles, potentially from multiple service principals, and has `Assignment` for users to the access package.  When an assignment for a user to an access package is created, then Azure AD entitlement management automatically creates the necessary `AppRoleAssignment` for the user to each application.
 
@@ -64,6 +64,7 @@ Many LDAP directories, such as Active Directory, include a command that outputs 
    csvde -f $out_filename -l userPrincipalName,cn -r "(objectclass=person)"
    ```
 1. If needed, transfer the CSV file containing the list of users to a system with the [Microsoft Graph PowerShell cmdlets](https://www.powershellgallery.com/packages/Microsoft.Graph) installed.
+1. Continue reading at the section below, **Confirm Azure AD has users for each user from the application**.
 
 ### Collect existing users from a database table using a SQL Server wizard
 
@@ -78,7 +79,7 @@ First, get a list of the users from the tables. Most databases provide a way to 
 1. Complete the wizard, and select to run immediately.
 1. Wait for the execution to complete.
 1. If needed, transfer the CSV file containing the list of users to a system with the [Microsoft Graph PowerShell cmdlets](https://www.powershellgallery.com/packages/Microsoft.Graph) installed.
-1. Skip the next section.
+1. Continue reading at the section below, **Confirm Azure AD has users for each user from the application**.
 
 ### Collect existing users from a database table using PowerShell
 
@@ -127,7 +128,7 @@ This section applies to applications that use another SQL database as its underl
 
 ## Confirm Azure AD has users for each user from the application
 
-Now that you have a list of all the users obtained from the application, you'll next match those users with those in Azure AD.  Before proceeding, ensure that you have reviewed the section on [matching users in the source and target systems](/azure/active-directory/app-provisioning/customize-application-attributes#matching-users-in-the-source-and-target--systems) as you'll subsequently configure Azure AD provisioning with equivalent mappings.  That step will allow Azure AD provisioning to query the application's data store with the same matching rules.
+Now that you have a list of all the users obtained from the application, you'll next match those users from the application's data store with users in Azure AD.  Before proceeding, ensure that you have reviewed the section on [matching users in the source and target systems](/azure/active-directory/app-provisioning/customize-application-attributes#matching-users-in-the-source-and-target--systems) as you'll subsequently configure Azure AD provisioning with equivalent mappings.  That step will allow Azure AD provisioning to query the application's data store with the same matching rules.
 
 ### Retrieve the IDs of the users in Azure AD
 
@@ -220,7 +221,7 @@ This section illustrates how to interact with Azure AD using [Microsoft Graph Po
    Write-Output "Users corresponding to $azuread_match_count records were located in Azure AD." 
    ```
 
-1. When the script completes, it will indicate an error if there were any records from the data source that weren't located in Azure AD.  If not all the records for users from the application could be located as users in Azure AD, then you'll need to investigate which records didn't match and why.  For example, someone's email address may have been changed in Azure AD without their corresponding `mail` property being updated in the application's data source.  Or, they may have already left the organization, but still be in the application's data source.  Or there might be a vendor or super-admin account in the application's data source who does not correspond to any specific person in Azure AD.
+1. When the script completes, it will indicate an error if there were any records from the data source that weren't located in Azure AD.  If not all the records for users from the application's data store could be located as users in Azure AD, then you'll need to investigate which records didn't match and why.  For example, someone's email address may have been changed in Azure AD without their corresponding `mail` property being updated in the application's data source.  Or, they may have already left the organization, but still be in the application's data source.  Or there might be a vendor or super-admin account in the application's data source who does not correspond to any specific person in Azure AD.
 
 1. If there were users that could not be located in Azure AD, but you want to have their access be reviewed or their attributes updated in the database, you'll need to create Azure AD users for the users that could not be located.
 
@@ -237,7 +238,7 @@ The previous steps have confirmed that all the users in the application's data s
    ```powershell
    $azuread_app_name = "CORPDB1"
    $azuread_sp_filter = "displayName eq '" + ($azuread_app_name -replace "'","''") + "'"
-   $azuread_sp = Get-MgServicePrincipal -Filter $azuread_sp_filter
+   $azuread_sp = Get-MgServicePrincipal -Filter $azuread_sp_filter -All
    $azuread_existing_assignments = @(Get-MgServicePrincipalAppRoleAssignedTo -ServicePrincipalId $azuread_sp.Id -All)
    ```
 
@@ -289,12 +290,12 @@ Before creating new assignments, you'll want to configure [Azure AD provisioning
   * If the application uses a SQL database, follow the guide for [configuring Azure AD to provision users into SQL based applications](/azure/active-directory/app-provisioning/on-premises-sql-connector-configure).
 
 1. Check the [attribute mappings](/azure/active-directory/app-provisioning/customize-application-attributes) for provisioning to that application.  Make sure that *Match objects using this attribute* is set for the Azure AD attribute and column that you used in the sections above for matching.  If these rules aren't using the same attributes as you used earlier, then when application role assignments are created, Azure AD may be unable to locate existing users in the applications' data store, and inadvertently create duplicate users.
-1. Check that there is an attribute mapping for **isSoftDeleted** to an attribute of the application.  When subsequently a user is unassigned from the application, soft-deleted in Azure AD, or blocked from sign-in, then Azure AD provisioning will update the attribute mapped to **isSoftDeleted**.  If no attribute is mapped, then users who are subsequently unassigned from the application role will continue to exist in the application's data store.
+1. Check that there's an attribute mapping for **isSoftDeleted** to an attribute of the application.  When subsequently a user is unassigned from the application, soft-deleted in Azure AD, or blocked from sign-in, then Azure AD provisioning will update the attribute mapped to **isSoftDeleted**.  If no attribute is mapped, then users who are subsequently unassigned from the application role will continue to exist in the application's data store.
 1. If provisioning has already been enabled for the application, ensure that the application provisioning is not in [quarantine](/azure/active-directory/app-provisioning/application-provisioning-quarantine-status). You will need to resolve any issues that are causing the quarantine prior to proceeding.
 
-## Create assignments
+## Create app role or access package assignments in Azure AD
 
-Depending upon your organization's identity governance requirements and the Azure AD features you plan to use, choose the most appropriate model for representing existing user's access rights in Azure AD.  If you are just using provisioning to update existing users, or for reviewing their access, then you can create application role assignments.  However, if you plan to time-limit their existing access, and have Azure AD automatically remove access when a project ends, then you should create access package assignments.
+Depending upon your organization's identity governance requirements and the Azure AD features you plan to use, choose the most appropriate model for representing existing user's access rights in Azure AD.  If you're just using provisioning to update existing users, or for reviewing their access, then you can create application role assignments.  However, if you plan to time-limit their existing access, and have Azure AD automatically remove access when a project ends, then you should create access package assignments.
 
 * Create an application role assignment for each user who already has access to the application.  
 
@@ -310,7 +311,7 @@ Depending upon your organization's identity governance requirements and the Azur
 
 * Create an access package assignment for each user who already has access to the application, to an access package with one of the application's roles.
 
-  This approach is appropriate if users should have only time-limited access.  For example, if existing users' access should be removed when a project ends on a particular date, then you can create an access package with a policy that will remove assignments on that date. It is also necessary if more than one service principal in your Azure AD tenant corresponds to the application.  
+  This approach is appropriate if users should have only time-limited access.  For example, if existing users' access should be removed when a project ends on a particular date, then you can create an access package with a policy that will remove assignments on that date. You should also use an access package  if more than one service principal in your Azure AD tenant corresponds to the application.  
 
   When an access package assignment is created in Azure AD for that user, to an access package including the application's roles, then
 
@@ -334,9 +335,10 @@ This section is only applicable if you aren't using entitlement management acces
       $res = New-MgServicePrincipalAppRoleAssignedTo -ServicePrincipalId $azuread_sp.Id -AppRoleId $azuread_app_role_id -PrincipalId $u -ResourceId $azuread_sp.Id 
    }
    ```
+
 1. Wait 1 minute for changes to propagate within Azure AD.
 
-Then skip this next section.
+1. Continue reading at the section below, **Check that Azure AD provisioning has matched the existing users**.
 
 ### Create access package assignments
 
@@ -351,27 +353,33 @@ In this section, you'll create access package assignments for users that don't h
    ```powershell
    $ap_display_name = "Access to department's apps"
    $filter = "displayName eq '" + ($ap_display_name -replace "'","''") + "'"
-   $ap = Get-MgEntitlementManagementAccessPackage -Filter $filter -ExpandProperty "assignmentPolicies"
+   $ap = Get-MgEntitlementManagementAccessPackage -Filter $filter -ExpandProperty "assignmentPolicies" -All
+   $ap_id = $ap.Id
    $ap.AssignmentPolicies | ft id,DisplayName
    ```
 
 1. Select the ID of the access package assignment policy from the list displayed in the previous step.
 
    ```powershell
-   $policyid = "2264bf65-76ba-417b-a27d-54d291f0cbc8"
+   $policy_id = "2264bf65-76ba-417b-a27d-54d291f0cbc8"
    ```
 
 1. Create access package assignments for users who do not currently have access package assignments.
 
    ```powershell
-   
+   $uri = "https://graph.microsoft.com/v1.0/identityGovernance/entitlementManagement/assignmentRequests"
+   foreach ($u in $azuread_not_in_role_list) {
+      $a = @{}
+      $a["targetId"] = $u
+      $a["assignmentPolicyId"] = $policy_id
+      $a["accessPackageId"] = $ap_id
+      $req = @{}
+      $req["requestType"] = "AdminAdd"
+      $req["assignment"] = $a
+      $req_json = $req | ConvertTo-json   
+      $res = invoke-MgGraphRequest -Method "POST" -Uri $uri -Body $req_json
+   }
    ```
-
-<!-- TODO PSh
-
-$req = New-MgEntitlementManagementAssignmentRequest -RequestType "AdminAdd" -Assignment 
-
- -->
 
 1. Wait for the access package assignments to convert to state delivered.
 
@@ -384,8 +392,7 @@ $req = New-MgEntitlementManagementAssignmentRequest -RequestType "AdminAdd" -Ass
    $notdelivered | select-Object -Property State -ExpandProperty Target | ft State,ObjectId
    ```
 
-1. If any were not delivered, then check the requests for errors in delivery.
-
+1. If delivery failed for any of the users, then check the requests and the Azure AD audit log for errors in delivery.
 
 ## Check that Azure AD provisioning has matched the existing users
 
@@ -395,7 +402,7 @@ $req = New-MgEntitlementManagementAssignmentRequest -RequestType "AdminAdd" -Ass
    $azuread_existing_assignments = @(Get-MgServicePrincipalAppRoleAssignedTo -ServicePrincipalId $azuread_sp.Id -All)
    ```
 
-1. Compare the list of user IDs from the previous section to those currently assigned to the application.
+1. Compare the list of user IDs from the previous section to those users now assigned to the application.
 
    ```powershell
    $azuread_still_not_in_role_list = @()

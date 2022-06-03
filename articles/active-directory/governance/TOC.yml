@@ -38,6 +38,8 @@
         href: /graph/tutorial-accessreviews-roleassignments
       - name: Automate identity governance tasks - PowerShell
         href: identity-governance-automation.md
+      - name: Governing an application's existing users - PowerShell
+        href: identity-governance-applications-existing-users.md
 - name: Concepts
   expanded: true
   items:
