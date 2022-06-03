@@ -27,7 +27,7 @@ The Form Recognizer Layout API extracts text, tables, selection marks, and struc
 | --- | --- | --- | --- |
 | Layout  | ✓  | ✓  | ✓  |
 
-## Data extraction
+### Data extraction
 
 | **Model**   | **Text**   | **Selection Marks**   | **Tables**  | **Paragraphs** | **Paragraph roles** |
 | --- | --- | --- | --- | --- | --- |
