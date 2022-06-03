@@ -10,14 +10,11 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# GPU acceleration for Azure IoT Edge for Linux on Windows (Preview)
+# GPU acceleration for Azure IoT Edge for Linux on Windows
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 GPUs are a popular choice for artificial intelligence computations, because they offer parallel processing capabilities and can often execute vision-based inferencing faster than CPUs. To better support artificial intelligence and machine learning applications, Azure IoT Edge for Linux on Windows can expose a GPU to the virtual machine's Linux module.
-
-> [!NOTE]
-> The GPU acceleration features detailed below are in preview and are subject to change.
 
 Azure IoT Edge for Linux on Windows supports several GPU passthrough technologies, including:
 
@@ -48,7 +45,7 @@ The supported GPUs and required Windows versions are listed below:
 
 <sup>2</sup> Windows 10 users must use the [November 2021 update](https://blogs.windows.com/windowsexperience/2021/11/16/how-to-get-the-windows-10-november-2021-update/) build 19044.1620 or higher. After installation, you can verify your build version by running `winver` at the command prompt.
 
-<sup>3</sup> Support for specific GPUs or processors is determined by the GPU vendor. For more information, see the Intel documentation and [NVIDIA's CUDA for WSL Documentation](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#wsl2-system-requirements).
+<sup>3</sup> Support for specific GPUs or processors is determined by the GPU vendor. For more information, see [Intel's driver documentation] (https://www.intel.com/content/www/us/en/download-center/home.html?wapkw=quicklink:download-center) or [NVIDIA's CUDA for WSL Documentation](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#wsl2-system-requirements).
 
 ## System setup and installation
 
