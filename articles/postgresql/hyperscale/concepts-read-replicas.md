@@ -11,7 +11,7 @@ ms.date: 02/03/2022
 
 # Read replicas in Azure Database for PostgreSQL - Hyperscale (Citus)
 
-[!INCLUDE[applies-to-postgres-single-flexible-server-hyperscale](../includes/applies-to-postgresql-single-flexible-server-hyperscale.md)]
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 The read replica feature allows you to replicate data from a Hyperscale (Citus)
 server group to a read-only server group. Replicas are updated

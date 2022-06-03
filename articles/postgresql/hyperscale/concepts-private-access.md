@@ -11,7 +11,7 @@ ms.date: 10/15/2021
 
 # Private access in Azure Database for PostgreSQL - Hyperscale (Citus)
 
-[!INCLUDE[applies-to-postgres-single-flexible-server-hyperscale](../includes/applies-to-postgresql-single-flexible-server-hyperscale.md)]
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 [!INCLUDE[azure-postgresql-hyperscale-access](../../../includes/azure-postgresql-hyperscale-access.md)]
 

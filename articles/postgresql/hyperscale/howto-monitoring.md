@@ -11,7 +11,7 @@ ms.date: 10/05/2021
 
 # How to view metrics in Azure Database for PostgreSQL - Hyperscale (Citus)
 
-[!INCLUDE[applies-to-postgres-single-flexible-server-hyperscale](../includes/applies-to-postgresql-single-flexible-server-hyperscale.md)]
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 Resource metrics are available for every node of a Hyperscale (Citus) server
 group, and in aggregate across the nodes.

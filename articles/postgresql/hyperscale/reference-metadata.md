@@ -11,7 +11,7 @@ ms.date: 02/18/2022
 
 # System tables and views
 
-[!INCLUDE[applies-to-postgres-single-flexible-server-hyperscale](../includes/applies-to-postgresql-single-flexible-server-hyperscale.md)]
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 Hyperscale (Citus) creates and maintains special tables that contain
 information about distributed data in the server group. The coordinator node

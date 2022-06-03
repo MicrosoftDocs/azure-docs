@@ -10,7 +10,7 @@ ms.date: 11/16/2021
 ---
 # Manage public access for Azure Database for PostgreSQL - Hyperscale (Citus)
 
-[!INCLUDE[applies-to-postgres-single-flexible-server-hyperscale](../includes/applies-to-postgresql-single-flexible-server-hyperscale.md)]
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 Server-level firewall rules can be used to manage [public
 access](concepts-firewall-rules.md) to a Hyperscale (Citus)

@@ -11,7 +11,7 @@ ms.date: 08/03/2021
 
 # Create and manage read replicas in Azure Database for PostgreSQL - Hyperscale (Citus) from the Azure portal
 
-[!INCLUDE[applies-to-postgres-single-flexible-server-hyperscale](../includes/applies-to-postgresql-single-flexible-server-hyperscale.md)]
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 In this article, you learn how to create and manage read replicas in Hyperscale
 (Citus) from the Azure portal. To learn more about read replicas, see the

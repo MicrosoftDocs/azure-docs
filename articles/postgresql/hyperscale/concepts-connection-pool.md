@@ -11,7 +11,7 @@ ms.date: 05/31/2022
 
 # Azure Database for PostgreSQL – Hyperscale (Citus) connection pooling
 
-[!INCLUDE[applies-to-postgres-single-flexible-server-hyperscale](../includes/applies-to-postgresql-single-flexible-server-hyperscale.md)]
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 Establishing new connections takes time. That works against most applications,
 which request many short-lived connections. We recommend using a connection

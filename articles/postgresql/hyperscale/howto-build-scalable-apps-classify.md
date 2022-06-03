@@ -11,7 +11,7 @@ ms.date: 04/28/2022
 
 # Classify application workload
 
-[!INCLUDE[applies-to-postgres-single-flexible-server-hyperscale](../includes/applies-to-postgresql-single-flexible-server-hyperscale.md)]
+[!INCLUDE[applies-to-postgresql-hyperscale](../includes/applies-to-postgresql-hyperscale.md)]
 
 Here are common characteristics of the workloads that are the best fit for
 Hyperscale (Citus).
