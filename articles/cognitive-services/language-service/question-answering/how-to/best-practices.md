@@ -66,7 +66,7 @@ However, please note that the confidence score with which the system returns the
 
    MSFT – Microsoft
 
-ID – Identification
+   ID – Identification
 
 ETA – Estimated time of Arrival
 
