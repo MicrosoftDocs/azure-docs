@@ -49,7 +49,7 @@ In order to uphold regulatory requirements across the world, the spacecraft obje
 
 The platform will deny scheduling or execution of contacts if none of the spacecraft object links are authorized, or if the requested contact profile contains links that aren't included in the spacecraft object authorized links.
 
-For more information, refer to the [Licensing](concepts-licensing.md) documentation.
+For more information, refer to the Licensing (add link to: concepts-licensing.md when article is created) documentation.
 
 ## Managing Spacecraft Objects
 
