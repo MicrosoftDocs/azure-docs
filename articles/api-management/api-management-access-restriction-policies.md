@@ -104,7 +104,7 @@ If `identity-type=jwt` is configured, a JWT token is required to be validated. T
 
 ### Examples
 
-### Example 1: Get token back
+#### Example 1: Get token back
 
 ```xml
 <!-- Add to inbound policy. -->
