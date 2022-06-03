@@ -207,9 +207,9 @@ callComposite?.launch(remoteOptions: remoteOptions)
 You can implement the closures to act on the events. An event for when the composite ended with an error is an example.
 
 ```swift
-callComposite?.setTarget(didFail: { error in
-    print("didFail with error:\(error)")
-})
+callComposite?.events.onError = { error in
+    print("CallComposite failed with error:\(error)")
+}
 ```
 
 ### Apply theme options
