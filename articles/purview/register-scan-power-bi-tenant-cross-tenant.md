@@ -29,9 +29,10 @@ This article outlines how to register a Power BI tenant in a cross-tenant scenar
 
 ### Known limitations
 
-- For a cross-tenant scenario, delegated authentication is the only supported option for scanning.
+- For the cross-tenant scenario, delegated authentication is the only supported option for scanning.
 - You can create only one scan for a Power BI data source that is registered in your Microsoft Purview account.
-- If a Power BI dataset schema isn't shown after a scan, it's due to one of the current limitations with the [Power BI metadata scanner](/power-bi/admin/service-admin-metadata-scanning).
+- If the Power BI dataset schema isn't shown after the scan, it's due to one of the current limitations with the [Power BI metadata scanner](/power-bi/admin/service-admin-metadata-scanning).
+- Empty workspaces are skipped.
 
 ## Prerequisites
 
@@ -49,15 +50,17 @@ Use either of the following deployment checklists during the setup, or for troub
 
 ### Scan cross-tenant Power BI by using delegated authentication in a public network
 
-1. Make sure Power BI and Microsoft Purview accounts are in the cross-tenant mode.
+1. Make sure the Power BI and Microsoft Purview accounts are in the cross-tenant mode.
 
-1. Make sure that the Power BI tenant ID is entered correctly during the registration. By default, the Power BI tenant ID that exists in the same Azure Active Directory (Azure AD) as Microsoft Purview is populated.
+1. Make sure the Power BI tenant ID is entered correctly during the registration. By default, the Power BI tenant ID that exists in the same Azure Active Directory (Azure AD) as Microsoft Purview will be populated.
+
+1. Make sure your [Power BI metadata model is up to date by enabling metadata scanning](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning).
 
 1. From the Azure portal, validate if the Microsoft Purview account network is set to **public access**.
 
-1. From the Power BI tenant admin portal, make sure that the Power BI tenant is configured to allow a public network.
+1. From the Power BI tenant admin portal, make sure the Power BI tenant is configured to allow a public network.
 
-1. Check Azure Key Vault to make sure:
+1. Check your instance of Azure Key Vault to make sure:
    1. There are no typos in the password.
    2. Microsoft Purview managed identity has get and list access to secrets.
 
@@ -65,15 +68,15 @@ Use either of the following deployment checklists during the setup, or for troub
    1. Client ID matches the _Application (Client) ID_ of the app registration.
    2. Username includes the user principal name, such as `johndoe@contoso.com`.
 
-1. In the Power BI Azure AD tenant, validate that the Power BI admin user settings are as follows:
+1. In the Power BI Azure AD tenant, validate the following Power BI admin user settings:
    1. The user is assigned to the Power BI administrator role.
    2. At least one [Power BI license](/power-bi/admin/service-admin-licensing-organization#subscription-license-types) is assigned to the user.
-   3. If the user is recently created, sign in with the user at least once, to make sure the password is reset successfully and the user can successfully initiate the session.
+   3. If the user is recently created, sign in with the user at least once, to make sure that the password is reset successfully, and the user can successfully initiate the session.
    4. There are no multifactor authentication or conditional access policies enforced on the user.
 
-1. In the Power BI Azure AD tenant, make sure that the app registration settings are as follows:
-   1. The app registration exists in your Azure AD tenant, where the Power BI tenant is located.
-   2. Under **API permissions**, delegated permissions and **grant admin consent for the tenant** are set with **read** for the following APIs:
+1. In the Power BI Azure AD tenant, validate the following app registration settings:
+   1. The app registration exists in your Azure AD tenant where the Power BI tenant is located.
+   2. Under **API permissions**, the following APIs are set up with **read** for **delegated permissions** and **grant admin consent for the tenant**:
       1. Power BI Service Tenant.Read.All
       2. Microsoft Graph openid
       3. Microsoft Graph User.Read
@@ -86,31 +89,33 @@ Use either of the following deployment checklists during the setup, or for troub
 
 ### Scan cross-tenant Power BI by using delegated authentication in public network
 
-1. Make sure Power BI and Microsoft Purview accounts are in the cross-tenant mode.
+1. Make sure the Power BI and Microsoft Purview accounts are in the cross-tenant mode.
 
-1. Make sure that the Power BI tenant ID is entered correctly during the registration. By default, the Power BI tenant ID that exists in the same Azure Active Directory (Azure AD) as Microsoft Purview is populated.
+1. Make sure the Power BI tenant ID is entered correctly during the registration. By default, the Power BI tenant ID that exists in the same Azure Active Directory (Azure AD) as Microsoft Purview will be populated.
 
-1. From the Azure portal, validate if the Microsoft Purview account network is set to **public access**.
+1. Make sure your [Power BI metadata model is up to date by enabling metadata scanning](/power-bi/admin/service-admin-metadata-scanning-setup#enable-tenant-settings-for-metadata-scanning).
 
-1. From the Power BI tenant admin portal, make sure that the Power BI tenant is configured to allow a public network.
+1. From the Azure portal, validate if the Microsoft Purview account nNetwork is set to **public access**.
 
-1. Check Azure Key Vault to make sure:
+1. From the Power BI tenant admin portal, make sure the Power BI tenant is configured to allow a public network.
+
+1. Check your instance of Azure Key Vault to make sure:
    1. There are no typos in the password.
    2. Microsoft Purview managed identity has get and list access to secrets.
 
-1. Review your credential to validate that the:
-   1. Client ID matches _Application (Client) ID_ of the app registration.
+1. Review your credential to validate that the: 
+   1. Client ID matches the _Application (Client) ID_ of the app registration.
    2. Username includes the user principal name, such as `johndoe@contoso.com`.
 
-1. In the Power BI Azure AD tenant, validate that the Power BI admin user settings are as follows:
+1. In the Power BI Azure AD tenant, validate the following Power BI admin user settings:
    1. The user is assigned to the Power BI administrator role.
    2. At least one [Power BI license](/power-bi/admin/service-admin-licensing-organization#subscription-license-types) is assigned to the user.
-   3. If the user is recently created, sign in with the user at least once, to make sure the password is reset successfully and the user can successfully initiate the session.
+   3. If the user is recently created, sign in with the user at least once, to make sure that the password is reset successfully, and the user can successfully initiate the session.
    4. There are no multifactor authentication or conditional access policies enforced on the user.
 
-1. In the Power BI Azure AD tenant, make sure that the app registration settings are as follows:
-   1. The app registration exists in your Azure AD tenant, where the Power BI tenant is located.
-   2. Under **API permissions**, delegated permissions and **grant admin consent for the tenant** are set with **read** for the following APIs:
+1. In the Power BI Azure AD tenant, validate the following app registration settings:
+   1. The app registration exists in your Azure AD tenant where the Power BI tenant is located.
+   2. Under **API permissions**, the following APIs are set up with **read** for **delegated permissions** and **grant admin consent for the tenant**:
       1. Power BI Service Tenant.Read.All
       2. Microsoft Graph openid
       3. Microsoft Graph User.Read
@@ -120,10 +125,10 @@ Use either of the following deployment checklists during the setup, or for troub
       3. **Allow public client flows** is enabled.
 
 1. Validate the following self-hosted runtime settings:
-      1. The latest version of the [self-hosted runtime](https://www.microsoft.com/download/details.aspx?id=39717) is installed on the VM.
-      2. Network connectivity from the self-hosted runtime to the Power BI tenant is enabled.
-      3. Network connectivity from the self-hosted runtime to Microsoft services is enabled.
-      4. [JDK 8 or later](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed.
+   1. The latest version of the [self-hosted runtime](https://www.microsoft.com/download/details.aspx?id=39717) is installed on the VM.
+   1. Network connectivity from the self-hosted runtime to the Power BI tenant is enabled.
+   1. Network connectivity from the self-hosted runtime to Microsoft services is enabled.
+   1. [JDK 8 or later](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed.
 
 ---
 
