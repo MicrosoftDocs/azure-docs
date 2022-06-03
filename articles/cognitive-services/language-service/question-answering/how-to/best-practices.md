@@ -32,7 +32,7 @@ The following list of QnA pairs will be used to represent a project (knowledge b
 
       **Question: “What is the price of Microsoft Stock?”**
 
-   **Answer: “$200”.**
+      **Answer: “$200”.**
 
    The service can return expected responses for semantically similar queries such as:
 
