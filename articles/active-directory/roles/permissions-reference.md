@@ -1283,7 +1283,9 @@ Users with this role can manage Azure AD identity governance configuration, incl
 
 ## Insights Administrator
 
-Users in this role can access the full set of administrative capabilities in the [Microsoft 365 Insights application](https://go.microsoft.com/fwlink/?linkid=2129521). This role has the ability to read directory information, monitor service health, file support tickets, and access the Insights Administrator settings aspects.
+Users in this role can access the full set of administrative capabilities in the Microsoft Viva Insights app. This role has the ability to read directory information, monitor service health, file support tickets, and access the Insights Administrator settings aspects.
+
+[Learn more](https://go.microsoft.com/fwlink/?linkid=2129521)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1297,7 +1299,14 @@ Users in this role can access the full set of administrative capabilities in the
 
 ## Insights Analyst
 
-Users in this role can access various analytical capabilities including query tools within Microsoft Viva Insights. Users in this role do not have access to product configuration settings, which is the responsibility of the Insights Administrator role.
+Assign the Insights Analyst role to users who need to do the following:
+
+- Analyze data in the Microsoft Viva Insights app, but can't manage any configuration settings
+- Create, manage, and run queries 
+- View basic settings and reports in the Microsoft 365 admin center
+- Create and manage service requests in the Microsoft 365 admin center
+
+[Learn more](https://go.microsoft.com/fwlink/?linkid=2129521)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1308,7 +1317,9 @@ Users in this role can access various analytical capabilities including query to
 
 ## Insights Business Leader
 
-Users in this role can access a set of dashboards and insights via the [Microsoft 365 Insights application](https://go.microsoft.com/fwlink/?linkid=2129521). This includes full access to all dashboards and presented insights and data exploration functionality. Users in this role do not have access to product configuration settings, which is the responsibility of the Insights Administrator role.
+Users in this role can access a set of dashboards and insights via the Microsoft Viva Insights app. This includes full access to all dashboards and presented insights and data exploration functionality. Users in this role do not have access to product configuration settings, which is the responsibility of the Insights Administrator role.
+
+[Learn more](https://go.microsoft.com/fwlink/?linkid=2129521)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
