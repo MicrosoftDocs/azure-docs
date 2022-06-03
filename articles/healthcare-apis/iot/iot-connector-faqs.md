@@ -6,7 +6,7 @@ author: msjasteppe
 ms.custom: references_regions
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 02/16/2022
+ms.date: 03/22/2022
 ms.author: jasteppe
 ---
 
@@ -33,14 +33,14 @@ The MedTech service currently only supports the persistence of [HL7 FHIR&#174; R
 ### What are the subscription quota limits for MedTech service?
 
 * 25 MedTech services per Subscription (not adjustable)
-* 10 MedTech services per Workspace (not adjustable)
+* 10 MedTech services per workspace (not adjustable)
 * One FHIR destination* per MedTech service (not adjustable)
 
 (* - FHIR Destination is a child resource of the MedTech service)
 
 ### Can I use the MedTech service with device messages from Apple&#174;, Google&#174;, or Fitbit&#174; devices?
 
-Yes. IoT connector supports device messages from all these platforms. For more information, see the [Open-source projects](iot-git-projects.md) section.  
+Yes. MedTech service supports device messages from all these platforms. For more information, see the [Open-source projects](iot-git-projects.md) section.  
 
 ## More frequently asked questions
 [FAQs about the Azure Health Data Services](../healthcare-apis-faqs.md)

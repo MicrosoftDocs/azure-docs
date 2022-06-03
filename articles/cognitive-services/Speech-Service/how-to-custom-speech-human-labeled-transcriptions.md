@@ -8,25 +8,31 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 05/08/2022
 ms.author: eur
 ---
 
 # How to create human-labeled transcriptions
 
-Human-labeled transcriptions are word-by-word transcriptions of an audio file. You use human-labeled transcriptions to improve recognition accuracy, especially when words are deleted or incorrectly replaced.
+Human-labeled transcriptions are word-by-word transcriptions of an audio file. You use human-labeled transcriptions to improve recognition accuracy, especially when words are deleted or incorrectly replaced. This guide can help you create high-quality transcriptions. 
 
-A large sample of transcription data is required to improve recognition. We suggest providing between 1 and 20 hours of transcription data. The Speech service will use up to 20 hours of audio for training. On this page, we'll review guidelines designed to help you create high-quality transcriptions. This guide is broken up by locale, with sections for US English, Mandarin Chinese, and German.
+A large sample of transcription data is required to improve recognition. We suggest providing between 1 and 20 hours of audio data. The Speech service will use up to 20 hours of audio for training. This guide is broken up by locale, with sections for US English, Mandarin Chinese, and German.
 
-> [!NOTE]
-> Not all base models support customization with audio files. If a base model does not support it, training will just use the text of the transcriptions in the same way as related text is used. See [Language support](language-support.md#speech-to-text) for a list of base models that support training with audio data.
+The transcriptions for all WAV files are contained in a single plain-text file. Each line of the transcription file contains the name of one of the audio files, followed by the corresponding transcription. The file name and transcription are separated by a tab (`\t`).
 
-> [!NOTE]
-> In cases when you change the base model used for training, and you have audio in the training dataset, *always* check whether the new selected base model [supports training with audio data](language-support.md#speech-to-text). If the previously used base model did not support training with audio data, and the training dataset contains audio, training time with the new base model will **drastically** increase, and may easily go from several hours to several days and more. This is especially true if your Speech service subscription is **not** in a [region with the dedicated hardware](custom-speech-overview.md#set-up-your-azure-account) for training.
->
-> If you face the issue described in the paragraph above, you can quickly decrease the training time by reducing the amount of audio in the dataset or removing it completely and leaving only the text. The latter option is highly recommended if your Speech service subscription is **not** in a [region with the dedicated hardware](custom-speech-overview.md#set-up-your-azure-account) for training.
+For example:
 
-## US English (en-US)
+```tsv
+speech01.wav	speech recognition is awesome
+speech02.wav	the quick brown fox jumped all over the place
+speech03.wav	the lazy dog was not amused
+```
+
+The transcriptions are text-normalized so the system can process them. However, you must do some important normalizations before you upload the dataset. 
+
+Human-labeled transcriptions for languages other than English and Mandarin Chinese, must be UTF-8 encoded with a byte-order marker. For other locales transcription requirements, see the sections below.
+
+## en-US
 
 Human-labeled transcriptions for English audio must be provided as plain text, only using ASCII characters. Avoid the use of Latin-1 or Unicode punctuation characters. These characters are often inadvertently added when copying text from a word-processing application or scraping data from web pages. If these characters are present, make sure to update them with the appropriate ASCII substitution.
 
@@ -83,7 +89,51 @@ Here are a few examples of normalization automatically performed on the transcri
 | Tune to 102.7                          | tune to one oh two point seven    |
 | Pi is about 3.14                       | pi is about three point one four  |
 
-## Mandarin Chinese (zh-CN)
+## de-DE
+
+Human-labeled transcriptions for German audio must be UTF-8 encoded with a byte-order marker. 
+
+### Text normalization for German
+
+Text normalization is the transformation of words into a consistent format used when training a model. Some normalization rules are applied to text automatically, however, we recommend using these guidelines as you prepare your human-labeled transcription data:
+
+- Write decimal points as "," and not ".".
+- Write time separators as ":" and not "." (for example: 12:00 Uhr).
+- Abbreviations such as "ca." aren't replaced. We recommend that you use the full spoken form.
+- The four main mathematical operators (+, -, \*, and /) are removed. We recommend replacing them with the written form: "plus," "minus," "mal," and "geteilt."
+- Comparison operators are removed (=, <, and >). We recommend replacing them with "gleich," "kleiner als," and "grösser als."
+- Write fractions, such as 3/4, in written form (for example: "drei viertel" instead of 3/4).
+- Replace the "€" symbol with its written form "Euro."
+
+Here are a few examples of normalization that you should perform on the transcription:
+
+| Original text    | Text after user normalization | Text after system normalization       |
+| ---------------- | ----------------------------- | ------------------------------------- |
+| Es ist 12.23 Uhr | Es ist 12:23 Uhr              | es ist zwölf uhr drei und zwanzig uhr |
+| {12.45}          | {12,45}                       | zwölf komma vier fünf                 |
+| 2 + 3 - 4        | 2 plus 3 minus 4              | zwei plus drei minus vier             |
+
+The following normalization rules are automatically applied to transcriptions:
+
+- Use lowercase letters for all text.
+- Remove all punctuation, including various types of quotation marks ("test", 'test', "test„, and «test» are OK).
+- Discard rows with any special characters from this set: ¢ ¤ ¥ ¦ § © ª ¬ ® ° ± ² µ × ÿ Ø¬¬.
+- Expand numbers to spoken form, including dollar or Euro amounts.
+- Accept umlauts only for a, o, and u. Others will be replaced by "th" or be discarded.
+
+Here are a few examples of normalization automatically performed on the transcription:
+
+| Original text    | Text after normalization |
+| ---------------- | ------------------------ |
+| Frankfurter Ring | frankfurter ring         |
+| ¡Eine Frage!     | eine frage               |
+| Wir, haben       | wir haben                |
+
+## ja-JP
+
+In Japanese (ja-JP), there's a maximum length of 90 characters for each sentence. Lines with longer sentences will be discarded. To add longer text, insert a period in between.
+
+## zh-CN
 
 Human-labeled transcriptions for Mandarin Chinese audio must be UTF-8 encoded with a byte-order marker. Avoid the use of half-width punctuation characters. These characters can be included inadvertently when you prepare the data in a word-processing program or scrape data from web pages. If these characters are present, make sure to update them with the appropriate full-width substitution.
 
@@ -127,52 +177,8 @@ Here are some examples of automatic transcription normalization:
 | 下午 5:00 的航班 | 下午 五点 的 航班 |
 | 我今年 21 岁 | 我 今年 二十 一 岁 |
 
-## German (de-DE) and other languages
-
-Human-labeled transcriptions for German audio (and other non-English or Mandarin Chinese languages) must be UTF-8 encoded with a byte-order marker. One human-labeled transcript should be provided for each audio file.
-
-### Text normalization for German
-
-Text normalization is the transformation of words into a consistent format used when training a model. Some normalization rules are applied to text automatically, however, we recommend using these guidelines as you prepare your human-labeled transcription data:
-
-- Write decimal points as "," and not ".".
-- Write time separators as ":" and not "." (for example: 12:00 Uhr).
-- Abbreviations such as "ca." aren't replaced. We recommend that you use the full spoken form.
-- The four main mathematical operators (+, -, \*, and /) are removed. We recommend replacing them with the written form: "plus," "minus," "mal," and "geteilt."
-- Comparison operators are removed (=, <, and >). We recommend replacing them with "gleich," "kleiner als," and "grösser als."
-- Write fractions, such as 3/4, in written form (for example: "drei viertel" instead of 3/4).
-- Replace the "€" symbol with its written form "Euro."
-
-Here are a few examples of normalization that you should perform on the transcription:
-
-| Original text    | Text after user normalization | Text after system normalization       |
-| ---------------- | ----------------------------- | ------------------------------------- |
-| Es ist 12.23 Uhr | Es ist 12:23 Uhr              | es ist zwölf uhr drei und zwanzig uhr |
-| {12.45}          | {12,45}                       | zwölf komma vier fünf                 |
-| 2 + 3 - 4        | 2 plus 3 minus 4              | zwei plus drei minus vier             |
-
-The following normalization rules are automatically applied to transcriptions:
-
-- Use lowercase letters for all text.
-- Remove all punctuation, including various types of quotation marks ("test", 'test', "test„, and «test» are OK).
-- Discard rows with any special characters from this set: ¢ ¤ ¥ ¦ § © ª ¬ ® ° ± ² µ × ÿ Ø¬¬.
-- Expand numbers to spoken form, including dollar or Euro amounts.
-- Accept umlauts only for a, o, and u. Others will be replaced by "th" or be discarded.
-
-Here are a few examples of normalization automatically performed on the transcription:
-
-| Original text    | Text after normalization |
-| ---------------- | ------------------------ |
-| Frankfurter Ring | frankfurter ring         |
-| ¡Eine Frage!     | eine frage               |
-| Wir, haben       | wir haben                |
-
-### Text normalization for Japanese
-
-In Japanese (ja-JP), there's a maximum length of 90 characters for each sentence. Lines with longer sentences will be discarded. To add longer text, insert a period in between.
-
 ## Next Steps
 
-- [Inspect your data](how-to-custom-speech-inspect-data.md)
-- [Evaluate your data](how-to-custom-speech-evaluate-data.md)
+- [Test model quantitatively](how-to-custom-speech-evaluate-data.md)
+- [Test recognition quality](how-to-custom-speech-inspect-data.md)
 - [Train your model](how-to-custom-speech-train-model.md)

@@ -2,6 +2,8 @@
 title: Azure PowerShell Samples
 description: Learn about Azure PowerShell scripts. These samples help you manage labs in Azure Lab Services.
 ms.topic: sample
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 02/02/2022
 ---
 

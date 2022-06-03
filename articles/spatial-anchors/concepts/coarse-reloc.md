@@ -46,27 +46,28 @@ You can refer to one of these tutorials to set up coarse relocalization in your 
 
 ### Platform availability
 
-You can send these types of sensor data to the anchor service:
+The following types of sensors can be used in conjunction with coarse relocation (see details in table below):
 
-* GPS position: latitude, longitude, altitude
-* Signal strength of Wi-Fi access points in range
-* Signal strength of Bluetooth beacons in range
+* **GPS position**: latitude, longitude, altitude
+* Signal strength of **Wi-Fi** access points in range
+* Signal strength of **Bluetooth** beacons in range
 
 This table summarizes the availability of the sensor data on supported platforms and provides information that you should be aware of:
 
 |                 | HoloLens | Android | iOS |
 |-----------------|----------|---------|-----|
-| **GPS**         | No<sup>1</sup>  | Yes<sup>2</sup> | Yes<sup>3</sup> |
-| **Wi-Fi**        | Yes<sup>4</sup> | Yes<sup>5</sup> | No  |
-| **BLE beacons** | Yes<sup>6</sup> | Yes<sup>6</sup> | Yes<sup>6</sup>|
+| **GPS**         | No<sup>1</sup>  | Yes<sup>4</sup> | Yes<sup>6, 7</sup> |
+| **Wi-Fi**        | Yes<sup>2</sup> | Yes<sup>5</sup> | Yes<sup>7</sup> |
+| **BLE beacons** | Yes<sup>3</sup> | Yes<sup>3</sup> | Yes<sup>3, 7</sup>|
 
 
 <sup>1</sup> An external GPS device can be associated with HoloLens. Handle the [UpdatedSensorFingerprintRequired](/dotnet/api/microsoft.azure.spatialanchors.cloudspatialanchorsession.updatedsensorfingerprintrequired) event to submit [GeoLocation](/dotnet/api/microsoft.azure.spatialanchors.geolocation) readings if you are using HoloLens with an external GPS tracker.<br/>
-<sup>2</sup> Supported through [LocationManager][3] APIs (both GPS and NETWORK).<br/>
-<sup>3</sup> Supported through [CLLocationManager][4] APIs.<br/>
-<sup>4</sup> Supported at a rate of approximately one scan every 3 seconds. <br/>
+<sup>2</sup> Supported at a rate of approximately one scan every 3 seconds. <br/>
+<sup>3</sup> Limited to [Eddystone][1] and [iBeacon][2].<br/>
+<sup>4</sup> Supported through [LocationManager][3] APIs (both GPS and NETWORK).<br/>
 <sup>5</sup> Starting with API level 28, Wi-Fi scans are throttled to four calls every 2 minutes. Starting with Android 10, you can disable this throttling from the **Developer settings** menu. For more information, see the [Android documentation][5].<br/>
-<sup>6</sup> Limited to [Eddystone][1] and [iBeacon][2].
+<sup>6</sup> Supported directly through iOS.<br/>
+<sup>7</sup> Supported indirectly through [CLLocationManager][4] APIs.<br/>
 
 ### Which sensor to enable
 

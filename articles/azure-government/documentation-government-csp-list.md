@@ -71,7 +71,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Bitscape](https://www.bitscape.com)|
 |[Bio Automation Support](https://www.stacsdna.com/)|
 |[Blackwood Associates, Inc. (dba BAI Federal)](https://www.blackwoodassociates.com/)|
-|[Blue Source Group, Inc.](https://www.blackwoodassociates.com/)|
+|[Blue Source Group, Inc.](https://bluesourcegroup.com/)|
 |[Blueforce Development Corporation](https://www.blueforcedev.com/)|
 |[Booz Allen Hamilton](https://www.boozallen.com/)|
 |[Bridge Partners LLC](https://www.bridgepartnersllc.com)|
@@ -93,7 +93,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[CGI Federal, Inc.](https://www.cgi.com/en/us-federal)|
 |[CGI Technologies and Solutions Inc.](https://www.cgi.com)|
 |[Ciellos Inc.](https://www.ciellos.com/)|
-|[Ciracom Inc.](https://ciracom.com)|
+|[Ciracom Inc.](https://www.ciracomcloud.com)|
 |[Clients First Business Solutions LLC](https://www.clientsfirst-us.com)|
 |[ClearShark](https://clearshark.com/)|
 |[CloudFit Software, LLC](https://www.cloudfitsoftware.com/)|
@@ -133,7 +133,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Deborgem Enterprises Incorporated](https://deborgem.com)|
 |[Definitive Logic Corporation](https://www.definitivelogic.com/)|
 |[Dell Federal Services](https://www.dellemc.com/en-us/industry/federal/federal-government-it.htm#)|
-|[Dell Marketing LP](https://www.dell.com/learn/us/en/rc1009777/fed)|
+|[Dell Marketing LP](https://www.dell.com/)|
 |[Delphi Technology Solutions](https://delphi-ts.com/)|
 |[Developing Today LLC](https://www.developingtoday.net/)|
 |[DevHawk, LLC](https://www.devhawk.io)|
@@ -141,10 +141,9 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[DirectApps, Inc. D.B.A. Direct Technology](https://directtechnology.com)|
 |[DominionTech Inc.](https://www.dominiontech.com)|
 |[DOT Personable Inc](http://solutions.personable.com/)|
-|[Doublehorn, LLC](https://doublehorn.com/)|
+|Doublehorn, LLC|
 |[DXC Technology Services LLC](https://www.dxc.technology/services)|
 |[DXL Enterprises, Inc.](https://mahwahnjcoc.wliinc31.com/Supply-Chain-Management/DXL-Enterprises,-Inc-1349)|
-|[Dynamics Intelligence Inc.](https://www.dynamicsintelligence.us)|
 |[DynTek](https://www.dyntek.com)|
 |[ECS Federal, LLC](https://ecstech.com/)|
 |[Edafio Technology Partners](https://edafio.com)|
@@ -172,7 +171,6 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[FourPoints Technology](https://www.4points.com)|
 |[For The Record LTD](https://www.fortherecord.com/)|
 |[Fujitsu America Inc.](https://www.fujitsu.com/us/)|
-|[Futurez Consulting, LLC](https://futurezconsulting.com/)|
 |[General Dynamics Information Technology](https://gdit.com/)|
 |[Giga-Green Technologies](https://giga-green.com)|
 |[Gimmal](https://www.gimmal.com/)|
@@ -200,7 +198,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[HTS Voice & Data Systems, Inc.](https://www.hts-tx.com/)|
 |[HumanTouch LLC](https://www.humantouchllc.com/)|
 |[Hyertek Inc.](https://www.hyertek.com)|
-|[I10 Inc](http://i10agile.com/)|
+|I10 Inc|
 |[I2, Inc. (IBM)](https://www.ibm.com/security/intelligence-analysis/i2)|
 |[i3 Business Solutions, LLC](https://www.i3businesssolutions.com/)|
 |[i3 LLC](http://i3llc.net/)|
@@ -472,6 +470,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[DLT Solutions](https://www.dlt.com)|
 |[Ingram Micro Inc.](https://usa.ingrammicro.com/)|
 |[Insight Public Sector Inc](https://www.ips.insight.com/en_US/public-sector.html)|
+|[Pax8](https://www.pax8.com/en-us/microsoft/)|
 |[Synnex](https://www.synnexcorp.com)|
 |[Tech Data Corporation](https://www.techdata.com/)|
 |[Tech Data Government Solutions, LLC](https://gov.as.techdata.com/en-us/Pages/default.aspx)|

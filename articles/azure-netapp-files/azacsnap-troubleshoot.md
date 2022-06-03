@@ -186,7 +186,7 @@ Cannot get SAP HANA version, exiting with error: 127
 If running `azacsnap` presents an error such as `* 258: insufficient privilege`, check to ensure the appropriate privilege has been asssigned to the "AZACSNAP" database user (assuming this is the user created per the [installation guide](azacsnap-installation.md#enable-communication-with-database)).  Verify the user's current privilege with the following command:
 
 ```bash
-hdbsql -U AZACSNAP "select GRANTEE,GRANTEE_TYPE,PRIVILEGE,IS_VALID,IS_GRANTABLE from sys.granted_privileges "' | grep -i -e GRANTEE -e azacsnap
+hdbsql -U AZACSNAP "select GRANTEE,GRANTEE_TYPE,PRIVILEGE,IS_VALID,IS_GRANTABLE from sys.granted_privileges " | grep -i -e GRANTEE -e azacsnap
 ```
 
 ```output

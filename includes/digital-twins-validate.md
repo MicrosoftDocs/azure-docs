@@ -12,6 +12,8 @@ ms.author: baanders
 
 There is a language-agnostic [DTDL Validator sample](/samples/azure-samples/dtdl-validator/dtdl-validator) for validating model documents to make sure the DTDL is correct before uploading it to your instance.
 
-The DTDL validator sample is built on a .NET DTDL parser library, which is available on NuGet as a client-side library: [Microsoft.Azure.DigitalTwins.Parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). You can also use the library directly to design your own validation solution. When using the parser library, make sure to use a version that is compatible with the version that Azure Digital Twins is running. Currently, this is version 3.12.4.
+The DTDL validator sample is built on a .NET DTDL parser library, which is available on NuGet as a client-side library: [Microsoft.Azure.DigitalTwins.Parser](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/). You can also use the library directly to design your own validation solution. 
+
+Version 4.0.8 of the parser library is the version that's currently recommended for compatibility with Azure Digital Twins.
 
 You can learn more about the validator sample and parser library, including usage examples, in [Parse and validate models](../articles/digital-twins/how-to-parse-models.md).

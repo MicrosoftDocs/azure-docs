@@ -29,7 +29,7 @@ Azure Machine Learning requires both inbound and outbound access to the public i
 > [!TIP]
 > If you need the IP addresses instead of service tags, use one of the following options:
 > * Download a list from [Azure IP Ranges and Service Tags](https://www.microsoft.com/download/details.aspx?id=56519).
-> * Use the Azure CLI [az network list-service-tags](/cli/azure/network#az_network_list_service_tags) command.
+> * Use the Azure CLI [az network list-service-tags](/cli/azure/network#az-network-list-service-tags) command.
 > * Use the Azure PowerShell [Get-AzNetworkServiceTag](/powershell/module/az.network/get-aznetworkservicetag) command.
 > 
 > The IP addresses may change periodically.
@@ -51,4 +51,4 @@ When using Azure Kubernetes Service (AKS) with Azure Machine Learning, allow the
 
 * General inbound/outbound requirements for AKS as described in the [Restrict egress traffic in Azure Kubernetes Service](../articles/aks/limit-egress-traffic.md) article.
 * __Outbound__ to mcr.microsoft.com.
-* When deploying a model to an AKS cluster, use the guidance in the [Deploy ML models to Azure Kubernetes Service](../articles/machine-learning/how-to-deploy-azure-kubernetes-service.md#connectivity) article.
+* When deploying a model to an AKS cluster, use the guidance in the [Deploy ML models to Azure Kubernetes Service](../articles/machine-learning/v1/how-to-deploy-azure-kubernetes-service.md#connectivity) article.

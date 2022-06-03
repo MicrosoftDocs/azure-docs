@@ -101,7 +101,7 @@ For more information on core Kubernetes and AKS concepts, see the following arti
 [virtual-kubelet]: https://virtual-kubelet.io/
 
 <!-- LINKS - internal -->
-[aks-quickstart]: kubernetes-walkthrough.md
+[aks-quickstart]: ./learn/quick-kubernetes-deploy-cli.md
 [aks-hpa]: tutorial-kubernetes-scale.md#autoscale-pods
 [aks-scale]: tutorial-kubernetes-scale.md
 [aks-manually-scale-pods]: tutorial-kubernetes-scale.md#manually-scale-pods

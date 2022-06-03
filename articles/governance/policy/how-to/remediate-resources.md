@@ -1,8 +1,10 @@
 ---
 title: Remediate non-compliant resources
 description: This guide walks you through the remediation of resources that are non-compliant to policies in Azure Policy.
-ms.date: 12/1/2021
+ms.date: 04/27/2022
 ms.topic: how-to
+ms.author: timwarner
+author: timwarner-msft
 ---
 # Remediate non-compliant resources with Azure Policy
 
@@ -17,14 +19,14 @@ understand and accomplish remediation with Azure Policy.
 
 When Azure Policy starts a template deployment when evaluating **deployIfNotExists** policies or modifies a resource  when evaluating **modify** policies, it does so using
 a [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md) that is associated with the policy assignment.
-Policy assignments can either use a system assigned managed identity that is created by the policy service or a user assigned identity provided by the user. The managed identity needs to be assigned the minimum role(s) required to remediate resources.
+Policy assignments use [managed identities](../../../active-directory/managed-identities-azure-resources/overview.md) for Azure resource authorization. You can use either a system-assigned managed identity that is created by the policy service or a user-assigned identity provided by the user. The managed identity needs to be assigned the minimum role-based access control (RBAC) role(s) required to remediate resources.
 If the managed identity is missing roles, an error is displayed
 during the assignment of the policy or an initiative. When using the portal, Azure Policy
-automatically grants the managed identity the listed roles once assignment starts. When using SDK,
+automatically grants the managed identity the listed roles once assignment starts. When using an Azure software development kit (SDK),
 the roles must manually be granted to the managed identity. The _location_ of the managed identity
 doesn't impact its operation with Azure Policy.
 
-:::image type="content" source="../media/remediate-resources/remediation-tab.png" alt-text="Screenshot of a policy assignment creating a system assigned managed identity in East US with Log Analytics Contributor permissions.":::
+:::image type="content" source="../media/remediate-resources/remediation-tab.png" alt-text="Screenshot of a policy assignment creating a system-assigned managed identity in East US with Log Analytics Contributor permissions.":::
 
 > [!IMPORTANT]
 > In the following scenarios, the assignment's managed identity must be
@@ -35,6 +37,8 @@ doesn't impact its operation with Azure Policy.
 > - If a resource modified by **deployIfNotExists** or **modify** is outside the scope of the policy
 >   assignment
 > - If the template accesses properties on resources outside the scope of the policy assignment
+>
+> Also, changing a a policy definition does not update the assignment or the associated managed identity.
 
 ## Configure policy definition
 
@@ -57,7 +61,7 @@ example](../concepts/effects.md#deployifnotexists-example) or the
 
 The **roleDefinitionIds** property uses the full resource identifier and doesn't take the short
 **roleName** of the role. To get the ID for the 'Contributor' role in your environment, use the
-following code:
+following Azure CLI code:
 
 ```azurecli-interactive
 az role definition list --name "Contributor"
@@ -71,8 +75,13 @@ az role definition list --name "Contributor"
 
 ## Manually configure the managed identity
 
-When creating an assignment using the portal, Azure Policy can both generate a managed identity and
-grant it the roles defined in **roleDefinitionIds**. In the following conditions, steps to create
+When creating an assignment using the portal, Azure Policy can generate a system-assigned managed identity and
+grant it the roles defined in **roleDefinitionIds**. Alternatively, you can specify a user-assigned managed identity that receives the same role assignment.
+
+   > [!NOTE]
+   > Each Azure Policy assignment can be associated with only one managed identity. However, the managed identity can be assigned multiple roles.
+
+In the following conditions, steps to create
 the managed identity and assign it permissions must be done manually:
 
 - While using the SDK (such as Azure PowerShell)
@@ -81,16 +90,16 @@ the managed identity and assign it permissions must be done manually:
 
 ## Configure a managed identity through the Azure portal
 
-When creating an assignment using the portal, you can select either a system assigned managed identity or a user assigned managed identity. 
+When creating an assignment using the portal, you can select either a system-assigned managed identity or a user-assigned managed identity. 
 
-To set a system assigned managed identity in the portal: 
+To set a system-assigned managed identity in the portal: 
 
 1. On the **Remediation** tab of the create/edit assignment view, under **Types of Managed Identity**, ensure that **System assigned managed identity** 
 is selected. 
 
 1. Specify the location at which the managed identity is to be located. 
 
-To set a user assigned managed identity in the portal: 
+To set a user-assigned managed identity in the portal: 
 
 1. On the **Remediation** tab of the create/edit assignment view, under **Types of Managed Identity**, ensure that **User assigned managed identity** 
 is selected. 
@@ -142,7 +151,7 @@ $assignment = New-AzPolicyAssignment -Name 'sqlDbTDE' -DisplayName 'Deploy SQL D
 ```
 
 The `$assignment` variable now contains the principal ID of the managed identity along with the standard values returned when creating a policy assignment. It can be accessed through
-`$assignment.Identity.PrincipalId` for system assigned managed identities and `$assignment.Identity.UserAssignedIdentities[$userassignedidentityid].PrincipalId` for user assigned managed identities.  
+`$assignment.Identity.PrincipalId` for system-assigned managed identities and `$assignment.Identity.UserAssignedIdentities[$userassignedidentityid].PrincipalId` for user-assigned managed identities.  
 
 ### Grant a managed identity defined roles with PowerShell
 

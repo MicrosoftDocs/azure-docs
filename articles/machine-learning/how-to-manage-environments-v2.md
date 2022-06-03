@@ -6,22 +6,27 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-author: mx-iao
-ms.author: minxia
-ms.date: 10/21/2021
-ms.reviewer: laobri
-ms.custom: devx-track-azurecli, devplatv2
+author: blackmist
+ms.author: larryfr
+ms.date: 03/31/2022
+ms.reviewer: nibaccam
+ms.custom: devx-track-azurecli, devplatv2, event-tier1-build-2022
 ---
 
-# Manage Azure Machine Learning environments with the CLI (v2) (preview)
+# Manage Azure Machine Learning environments with the CLI (v2)
 
 [!INCLUDE [cli v2](../../includes/machine-learning-cli-v2.md)]
+
+> [!div class="op_single_selector" title1="Select the version of Azure Machine Learning CLI extension you are using:"]
+> * [v1](./v1/how-to-use-environments.md)
+> * [v2 (current version)](how-to-manage-environments-v2.md)
+
+
 
 Azure Machine Learning environments define the execution environments for your jobs or deployments and encapsulate the dependencies for your code. Azure ML uses the environment specification to create the Docker container that your training or scoring code runs in on the specified compute target. You can define an environment from a conda specification, Docker image, or Docker build context.
 
 In this article, learn how to create and manage Azure ML environments using the CLI (v2).
 
-[!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
 ## Prerequisites
 
@@ -45,7 +50,7 @@ There are two types of environments in Azure ML: curated and custom environments
 
 Curated environments are provided by Azure ML and are available in your workspace by default. Azure ML routinely updates these environments with the latest framework version releases and maintains them for bug fixes and security patches. They are backed by cached Docker images, which reduces job preparation cost and model deployment time.
 
-You can use these curated environments out of the box for training or deployment by referencing a specific environment using the `azureml:<curated-environment-name>:<version>` syntax. You can also use them as reference for your own custom environments by modifying the Dockerfiles that back these curated environments.
+You can use these curated environments out of the box for training or deployment by referencing a specific environment using the `azureml:<curated-environment-name>:<version>` or `azureml:<curated-environment-name>@latest` syntax. You can also use them as reference for your own custom environments by modifying the Dockerfiles that back these curated environments.
 
 You can see the set of available curated environments in the Azure ML studio UI, or by using the CLI (v2) via `az ml environments list`.
 
@@ -82,7 +87,7 @@ az ml environment create --file assets/environment/docker-image.yml
 
 Instead of defining an environment from a prebuilt image, you can also define one from a Docker [build context](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#understand-build-context). To do so, specify the directory that will serve as the build context. This directory should contain a Dockerfile and any other files needed to build the image.
 
-The following example is a YAML specification file for an environment defined from a build context. The local path to the build context folder is specified in the `build.local_path` field, and the relative path to the Dockerfile within that build context folder is specified in the `build.dockerfile_path` field. If `build.dockerfile_path` is omitted in the YAML file, Azure ML will look for a Dockerfile named `Dockerfile` at the root of the build context.
+The following example is a YAML specification file for an environment defined from a build context. The local path to the build context folder is specified in the `build.path` field, and the relative path to the Dockerfile within that build context folder is specified in the `build.dockerfile_path` field. If `build.dockerfile_path` is omitted in the YAML file, Azure ML will look for a Dockerfile named `Dockerfile` at the root of the build context.
 
 In this example, the build context contains a Dockerfile named `Dockerfile` and a `requirements.txt` file that is referenced within the Dockerfile for installing Python packages.
 
@@ -151,17 +156,41 @@ az ml environment update --name docker-image-example --version 1 --set descripti
 > [!IMPORTANT]
 > For environments, only `description` and `tags` can be updated. All other properties are immutable; if you need to change any of those properties you should create a new version of the environment.
 
-### Delete
+### Archive and restore
 
-Delete a specific environment:
+Archiving an environment will hide it by default from list queries (`az ml environment list`). You can still continue to reference and use an archived environment in your workflows. You can archive either an environment container or a specific environment version.
 
+Archiving an environment container will archive all versions of the environment under that given name. If you create a new environment version under an archived environment container, that new version will automatically be set as archived as well.
+
+Archive an environment container:
 ```cli
-az ml environment delete --name docker-image-example --version 1
+az ml environment archive --name docker-image-example
+```            
+            
+Archive a specific environment version:
+```cli
+az ml environment archive --name docker-image-example --version 1
 ```
+
+You can restore an archived environment to no longer hide it from list queries.
+
+If an entire environment container is archived, you can restore that archived container. You cannot restore only a specific environment version if the entire environment container is archived - you will need to restore the entire container.
+
+Restore an environment container:
+```cli
+az ml environment restore --name docker-image-example
+``` 
+
+If only individual environment version(s) within an environment container are archived, you can restore those individual version(s).
+
+Restore a specific environment version:
+```cli
+az ml environment restore --name docker-image-example --version 1
+``` 
 
 ## Use environments for training
 
-To use an environment for a training job, specify the `environment` field of the job YAML configuration. You can either reference an existing registered Azure ML environment via `environment: azureml:<environment-name>:<environment-version>`, or define an environment specification inline. If defining an environment inline, do not specify the `name` and `version` fields, as these environments are treated as "anonymous" environments and are not tracked in your environment asset registry.
+To use an environment for a training job, specify the `environment` field of the job YAML configuration. You can either reference an existing registered Azure ML environment via `environment: azureml:<environment-name>:<environment-version>` or `environment: azureml:<environment-name>@latest` (to reference the latest version of an environment), or define an environment specification inline. If defining an environment inline, do not specify the `name` and `version` fields, as these environments are treated as "unregistered" environments and are not tracked in your environment asset registry.
 
 When you submit a training job, the building of a new environment can take several minutes. The duration depends on the size of the required dependencies. The environments are cached by the service. So as long as the environment definition remains unchanged, you incur the full setup time only once.
 

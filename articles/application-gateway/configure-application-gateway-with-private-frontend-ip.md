@@ -7,7 +7,7 @@ author: abshamsft
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 01/11/2022
-ms.author: victorh
+ms.author: greglin
 ---
 
 # Configure an application gateway with an internal load balancer (ILB) endpoint

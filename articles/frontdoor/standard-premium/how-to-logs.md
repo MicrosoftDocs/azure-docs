@@ -1,18 +1,15 @@
 ---
-title: 'Azure Front Door Standard/Premium (Preview) Logging'
-description: This article explains how logging works in Azure Front Door Standard/Premium.
+title: 'Logs - Azure Front Door'
+description: This article explains how Azure Front Door tracks and monitor your environment with logs.
 services: front-door
 author: duongau
 ms.service: frontdoor
-ms.topic: article
-ms.date: 08/26/2021
+ms.topic: how-to
+ms.date: 03/20/2022
 ms.author: duau
 ---
 
-# Azure Front Door Standard/Premium (Preview) Logging
-
-> [!Note]
-> This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [here](../front-door-overview.md).
+# Azure Front Door logs
 
 Azure Front Door provides different logging to help you track, monitor, and debug your Front Door. 
 
@@ -21,10 +18,6 @@ Azure Front Door provides different logging to help you track, monitor, and debu
 * Health Probe logs provides the logs for every failed probe to your origin. 
 * Web Application Firewall (WAF) logs provide detailed information of requests that gets logged through either detection or prevention mode of an Azure Front Door endpoint. A custom domain that gets configured with WAF can also be viewed through these logs.
 
-> [!IMPORTANT]
-> Azure Front Door Standard/Premium (Preview) is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Access Logs, health probe logs and WAF logs aren't enabled by default. Use the steps below to enable logging. Activity log entries are collected by default, and you can view them in the Azure portal. Logs can have delays up to a few minutes. 
 
@@ -38,7 +31,7 @@ You have three options for storing your logs:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Search for Azure Front Door Standard/Premium and select the Azure Front Door profile.
+1. Search for Azure Front Door and select the Azure Front Door profile.
 
 1. In the profile, go to **Monitoring**, select **Diagnostic Setting**. Select **Add diagnostic setting**.
 
@@ -83,7 +76,7 @@ Azure Front Door currently provides individual API requests with each entry havi
 | SecurityProtocol | The TLS/SSL protocol version used by the request or null if no encryption. Possible values include: SSLv3, TLSv1, TLSv1.1, TLSv1.2 |
 | SecurityCipher | When the value for Request Protocol is HTTPS, this field indicates the TLS/SSL cipher negotiated by the client and AFD for encryption. |
 | Endpoint | The domain name of AFD endpoint, for example, contoso.z01.azurefd.net |
-| HttpStatusCode | The HTTP status code returned from AFD. |
+| HttpStatusCode | The HTTP status code returned from Azure Front Door. If a request to the the origin timeout, the value for HttpStatusCode is set to **0**.|
 | Pop | The edge pop, which responded to the user request.  |
 | Cache Status | Provides the status code of how the request gets handled by the CDN service when it comes to caching. Possible values are HIT: The HTTP request was served from AFD edge POP cache. <br> **MISS**: The HTTP request was served from origin. <br/> **PARTIAL_HIT**: Some of the bytes from a request got served from AFD edge POP cache while some of the bytes got served from origin for object chunking scenarios. <br> **CACHE_NOCONFIG**: Forwarding requests without caching settings, including bypass scenario. <br/> **PRIVATE_NOSTORE**: No cache configured in caching settings by customers. <br> **REMOTE_HIT**: The request was served by parent node cache. <br/> **N/A**:** Request that was denied by Signed URL and Rules Set. |
 | MatchedRulesSetName | The names of the rules that were processed. |
@@ -161,5 +154,5 @@ To view activity logs:
 
 ## Next steps
 
-- Learn about [Azure Front Door Standard/Premium (Preview) Reports](how-to-reports.md).
-- Learn about [Azure Front Door Standard/Premium (Preview) real time monitoring metrics](how-to-monitor-metrics.md).
+- Learn about [Azure Front Door reports](how-to-reports.md).
+- Learn about [Azure Front Door real time monitoring metrics](how-to-monitor-metrics.md).

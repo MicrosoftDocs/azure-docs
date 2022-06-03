@@ -13,9 +13,7 @@ We recommend using FSLogix profile containers as a user profile solution for the
 
 You can create FSLogix profile containers using [Azure NetApp Files](https://azure.microsoft.com/services/netapp/), an easy-to-use Azure native platform service that helps customers quickly and reliably provision enterprise-grade SMB volumes for their Azure Virtual Desktop environments. To learn more about Azure NetApp Files, see [What is Azure NetApp Files?](../azure-netapp-files/azure-netapp-files-introduction.md)
 
-This guide will show you how to set up an Azure NetApp Files account and create FSLogix profile containers in Azure Virtual Desktop.
-
-This article assumes you already have [host pools](create-host-pools-azure-marketplace.md) set up and grouped into one or more tenants in your Azure Virtual Desktop environment. To learn how to set up tenants, see [Create a tenant in Azure Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) and [our Tech Community blog post](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-Windows-Virtual-Desktop/ba-p/391054).
+This guide will show you how to set up an Azure NetApp Files account and create FSLogix profile containers in Azure Virtual Desktop. It assumes you have already [created a host pool](./create-host-pools-azure-marketplace.md) and an [application group](./manage-app-groups.md).
 
 The instructions in this guide are specifically for Azure Virtual Desktop users. If you're looking for more general guidance for how to set up Azure NetApp Files and create FSLogix profile containers outside of Azure Virtual Desktop, see the [Set up Azure NetApp Files and create an NFS volume quickstart](../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md).
 
@@ -184,32 +182,7 @@ This section is based on [Create a profile container for a host pool using a fil
 13. Create a value named **DeleteLocalProfileWhenVHDShouldApply** with a DWORD value of 1 to avoid problems with existing local profiles before you sign in.
 
      >[!WARNING]
-     >Be careful when creating the DeleteLocalProfileWhenVHDShouldApply value. When the FSLogix Profiles system determines a user should have an FSLogix profile, but a local profile already exists, Profile Container will permanently delete the local profile. The user will then be signed in with the new FSLogix profile.
-
-## Assign users to session host
-
-1. Open **PowerShell ISE** as administrator and sign in to Azure Virtual Desktop.
-
-2. Run the following cmdlets:
-
-   ```powershell
-   Import-Module Microsoft.RdInfra.RdPowershell
-   # (Optional) Install-Module Microsoft.RdInfra.RdPowershell
-   $brokerurl = "https://rdbroker.wvd.microsoft.com"
-   Add-RdsAccount -DeploymentUrl $brokerurl
-   ```
-
-3. When prompted for credentials, enter the credentials for the user with the Tenant Creator or RDS Owner/RDS Contributor roles on the Azure Virtual Desktop tenant.
-
-4. Run the following cmdlets to assign a user to a Remote Desktop group:
-
-   ```powershell
-   $wvdTenant = "<your-wvd-tenant>"
-   $hostPool = "<wvd-pool>"
-   $appGroup = "Desktop Application Group"
-   $user = "<user-principal>"
-   Add-RdsAppGroupUser $wvdTenant $hostPool $appGroup $user
-   ```
+     >Be careful when creating the *DeleteLocalProfileWhenVHDShouldApply* value. When the FSLogix Profiles system determines a user should have an FSLogix profile, but a local profile already exists, Profile Container will permanently delete the local profile. The user will then be signed in with the new FSLogix profile.
 
 ## Make sure users can access the Azure NetApp File share
 

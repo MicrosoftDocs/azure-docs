@@ -21,7 +21,7 @@ Follow this guide to learn how to use the [azkeys](https://pkg.go.dev/github.com
 ## Prerequisites
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- **Go installed**: Version 1.16 or [above](https://golang.org/dl/)
+- **Go installed**: Version 1.16 or [above](https://go.dev/dl/)
 - [Azure CLI](/cli/azure/install-azure-cli)
 
 

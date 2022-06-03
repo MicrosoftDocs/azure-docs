@@ -4,7 +4,7 @@ description: The usage event API allows you to emit usage events for SaaS offers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 12/06/2021
+ms.date: 03/30/2022
 author: arifgani
 ms.author: argani
 ---
@@ -28,8 +28,6 @@ TLS version 1.2 version is enforced as the minimal version for HTTPS communicati
 
 The usage event API should be called by the publisher to emit usage events against an active resource (subscribed) for the plan purchased by the specific customer. The usage event is emitted separately for each custom dimension of the plan defined by the publisher when publishing the offer.
 
-Only one usage event can be emitted for each hour of a calendar day. For example, at 8:15am today, you can emit one usage event. If this event is accepted, the next usage event will be accepted from 9:00 am today. If you send an additional event between 8:15 and 8:59:59 today, it will be rejected as a duplicate. You should accumulate all units consumed in an hour and then emit it in a single event.
-
 Only one usage event can be emitted for each hour of a calendar day per resource. If more than one unit is consumed in an hour, then accumulate all the units consumed in the hour and then emit it in a single event. Usage events can only be emitted for the past 24 hours. If you emit a usage event at any time between 8:00 and 8:59:59 (and it is accepted) and send an additional event for the same day between 8:00 and 8:59:59, it will be rejected as a duplicate.
 
 **POST**: `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
@@ -39,7 +37,6 @@ Only one usage event can be emitted for each hour of a calendar day per resource
 | Parameter | Recommendation          |
 | ---------- | ---------------------- |
 | `ApiVersion` | Use 2018-08-31. |
-| | |
 
 *Request headers:*
 
@@ -48,7 +45,6 @@ Only one usage event can be emitted for each hour of a calendar day per resource
 | `x-ms-requestid`     | Unique string value for tracking the request from the client, preferably a GUID. If this value is not provided, one will be generated and provided in the response headers. |
 | `x-ms-correlationid` | Unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers. |
 | `authorization`   | A unique access token that identifies the ISV that is making this API call. The format is `"Bearer <access_token>"` when the token value is retrieved by the publisher as explained for <br> <ul> <li> SaaS in [Get the token with an HTTP POST](partner-center-portal/pc-saas-registration.md#get-the-token-with-an-http-post). </li> <li> Managed application in [Authentication strategies](marketplace-metering-service-authentication.md). </li> </ul> |
-| | |
 
 *Request body example:*
 
@@ -160,7 +156,6 @@ The batch usage event API allows you to emit usage events for more than one purc
 | `x-ms-requestid`     | Unique string value for tracking the request from the client, preferably a GUID. If this value is not provided, one will be generated, and provided in the response headers. |
 | `x-ms-correlationid` | Unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated, and provided in the response headers. |
 | `authorization`      | A unique access token that identifies the ISV that is making this API call. The format is `Bearer <access_token>` when the token value is retrieved by the publisher as explained for <br> <ul> <li> SaaS in [Get the token with an HTTP POST](partner-center-portal/pc-saas-registration.md#get-the-token-with-an-http-post). </li> <li> Managed application in [Authentication strategies](./marketplace-metering-service-authentication.md). </li> </ul> |
-| | |
 
 >[!NOTE]
 >In the request body, the resource identifier has different meanings for SaaS app and for Azure Managed app emitting custom meter. The resource identifier for SaaS App is `resourceID`. The resource identifier for Azure Application Managed Apps plans is `resourceUri`.
@@ -286,6 +281,142 @@ Bad request. The batch contained more than 25 usage events.
 Code: 403<br>
 Forbidden. The authorization token isn't provided, is invalid or expired.  Or the request is attempting to access a subscription for an offer that was published with a different Azure AD App ID from the one used to create the authorization token.
 
+## Metered billing retrieve usage events
+
+You can call the usage events API to get the list of usage events. ISVs can use this API to see the usage events that have been posted for a certain configurable duration of time and what state these events are at the point of calling the API.
+
+GET: `https://marketplaceapi.microsoft.com/api/usageEvents`
+
+*Query parameters*:
+
+| Parameter | Recommendation |
+| ------------ | ------------- |
+| ApiVersion | Use 2018-08-31. |
+| usageStartDate | DateTime in ISO8601 format. For example, 2020-12-03T15:00 or 2020-12-03 |
+| UsageEndDate (optional) | DateTime in ISO8601 format. Default = current date |
+| offerId (optional) | Default = all available |
+| planId (optional) | Default = all available |
+| dimension (optional) | Default = all available |
+| azureSubscriptionId (optional) | Default = all available |
+| reconStatus (optional) | Default = all available |
+
+*Possible values of reconStatus*:
+
+| ReconStatus | Description |
+| ------------ | ------------- |
+| Submitted | Not yet processed by PC Analytics |
+| Accepted | Matched with PC Analytics |
+| Rejected | Rejected in the pipeline. Contact Microsoft support to investigate the cause. |
+| Mismatch | MarketplaceAPI and Partner Center Analytics quantities are both non-zero, however not matching |
+| TestHeaders | Subscription listed with test headers, and therefore not in PC Analytics |
+| DryRun | Submitted with SessionMode=DryRun, and therefore not in PC |
+
+*Request headers*:
+
+| Content type | Use application/json |
+| ------------ | ------------- |
+| x-ms-requestid | Unique string value (preferably a GUID), for tracking the request from the client. If this value is not provided, one will be generated and provided in the response headers. |
+| x-ms-correlationid | Unique string value for operation on the client. This parameter correlates all events from client operation with events on the server side. If this value isn't provided, one will be generated and provided in the response headers. |
+| authorization | A unique access token that identifies the ISV that is making this API call. The format is `Bearer <access_token>` when the token value is retrieved by the publisher. For more information, see:<br><ul><li>SaaS in [Get the token with an HTTP POST](./partner-center-portal/pc-saas-registration.md#get-the-token-with-an-http-post)</li><li>Managed application in [Authentication strategies](marketplace-metering-service-authentication.md)</li></ul> |
+
+### Responses
+
+Response payload examples:
+
+*Accepted**
+
+```json
+[
+  {
+    "usageDate": "2020-11-30T00:00:00Z",
+    "usageResourceId": "11111111-2222-3333-4444-555555555555",
+    "dimension": "tokens",
+    "planId": "silver",
+   "planName": "Silver",
+    "offerId": "mycooloffer",
+    "offerName": "My Cool Offer",
+    "offerType": "SaaS",
+    "azureSubscriptionId": "12345678-9012-3456-7890-123456789012",
+    "reconStatus": "Accepted",
+    "submittedQuantity": 17.0,
+    "processedQuantity": 17.0,
+    "submittedCount": 17
+  }
+]
+```
+
+*Submitted*
+
+```json
+[
+  {
+    "usageDate": "2020-11-30T00:00:00Z",
+    "usageResourceId": "11111111-2222-3333-4444-555555555555",
+    "dimension": "tokens",
+    "planId": "silver",
+    "planName": "",
+    "offerId": "mycooloffer",
+    "offerName": "",
+    "offerType": "SaaS",
+    "azureSubscriptionId": "12345678-9012-3456-7890-123456789012",
+    "reconStatus": "Submitted",
+    "submittedQuantity": 17.0,
+    "processedQuantity": 0.0,
+    "submittedCount": 17
+  }
+]
+```
+
+*Mismatch*
+
+
+```json
+[
+  {
+    "usageDate": "2020-11-30T00:00:00Z",
+    "usageResourceId": "11111111-2222-3333-4444-555555555555",
+    "dimension": "tokens",
+    "planId": "silver",
+    "planName": "Silver",
+    "offerId": "mycooloffer",
+    "offerName": "My Cool Offer",
+    "offerType": "SaaS",
+    "azureSubscriptionId": "12345678-9012-3456-7890-123456789012",
+    "reconStatus": "Mismatch",
+    "submittedQuantity": 17.0,
+    "processedQuantity": 16.0,
+    "submittedCount": 17
+  }
+]
+```
+
+*Rejected*
+
+```json
+[
+  {
+    "usageDate": "2020-11-30T00:00:00Z",
+    "usageResourceId": "11111111-2222-3333-4444-555555555555",
+    "dimension": "tokens",
+    "planId": "silver",
+    "planName": "",
+    "offerId": "mycooloffer",
+    "offerName": "",
+    "offerType": "SaaS",
+    "azureSubscriptionId": "12345678-9012-3456-7890-123456789012",
+    "reconStatus": "Rejected",
+    "submittedQuantity": 17.0,
+    "processedQuantity": 0.0,
+    "submittedCount": 17
+  }
+]
+```
+
+**Status codes**
+
+Code: 403
+Forbidden. The authorization token isn't provided, is invalid or expired. Or the request is attempting to access a subscription for an offer that was published with a different Azure AD App ID from the one used to create the authorization token.
+
 ## Development and testing best practices
 
 To test the custom meter emission, implement the integration with metering API, create a plan for your published SaaS offer with custom dimensions defined in it with zero price per unit. And publish this offer as preview so only limited users would be able to access and test the integration.
@@ -298,4 +429,4 @@ Follow the instruction in [Support for the commercial marketplace program in Par
 
 ## Next steps
 
-For more information on metering service APIs , see [Marketplace metering service APIs FAQ](marketplace-metering-service-apis-faq.yml).
+For more information on metering service APIs, see [Marketplace metering service APIs FAQ](marketplace-metering-service-apis-faq.yml).

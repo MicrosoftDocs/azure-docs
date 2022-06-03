@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 03/16/2022
+ms.date: 05/02/2022
 ---
 
 # Configure your Azure application offer listing details
@@ -15,7 +15,7 @@ ms.date: 03/16/2022
 The information you provide on the **Offer listing** page for your Azure Application offer will be displayed in the Microsoft commercial marketplace online stores. This includes the descriptions of your offer, screenshots, and your marketing assets. To see what this looks like, see [Offer listing details](plan-azure-application-offer.md#offer-listing-details).
 
 > [!NOTE]
-> Offer listing content (such as the description, documents, screenshots, and terms of use) is not required to be in English if the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a _Useful Link_ URL to offer content in a language other than the one used in the offer listing content.
+> Offer listing content (such as the description, documents, screenshots, and terms of use) is not required to be in English if the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a _Useful Link_ URL to offer content in a language other than the one used in the offer listing content if the offer description begins with the phrase "This application is also available in [non-English language]".
 
 ## Marketplace details
 
@@ -55,6 +55,11 @@ For each contact, you'll provide a name, phone number, and email address (these 
     > The CSP program extends your offer to a broader range of qualified customers by enabling CSP partners to bundle, market, and resell your offer. These resellers will need access to materials for marketing your offer. For more information, see [Go-to-market with Microsoft](https://partner.microsoft.com/reach-customers/gtm).
 
 ## Add marketplace media
+
+You'll next add your logo. You can also add screenshots and videos to help your offer stand out.
+
+> [!IMPORTANT]
+> When creating media for your offer, make sure that the assets you create are welcoming and inclusive for all. To learn more about how to create accessible media, see [Create accessible media](https://www.microsoft.com/accessibility/supplier-toolkit-resources).
 
 ### Store logos
 

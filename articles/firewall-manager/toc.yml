@@ -66,6 +66,8 @@
     href: rule-hierarchy.md
   - name: Configure DDoS Protection Plan
     href: configure-ddos.md
+  - name: Manage WAF policies
+    href: manage-web-application-firewall-policies.md
 - name: Reference
   items:
   - name: Azure CLI

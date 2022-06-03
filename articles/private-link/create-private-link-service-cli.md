@@ -25,7 +25,7 @@ Get started creating a Private Link service that refers to your service.  Give P
 
 An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
-Create a resource group with [az group create](/cli/azure/group#az_group_create):
+Create a resource group with [az group create](/cli/azure/group#az-group-create):
 
 * Named **CreatePrivLinkService-rg**. 
 * In the **eastus** location.
@@ -45,7 +45,7 @@ In this section, you'll create a virtual network and an internal Azure Load Bala
 
 In this section, you create a virtual network and subnet to host the load balancer that accesses your Private Link service.
 
-Create a virtual network using [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create):
+Create a virtual network using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create):
 
 * Named **myVNet**.
 * Address prefix of **10.1.0.0/16**.
@@ -66,7 +66,7 @@ Create a virtual network using [az network vnet create](/cli/azure/network/vnet#
 
 ```
 
-To update the subnet to disable private link service network policies, use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update):
+To update the subnet to disable private link service network policies, use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -87,7 +87,7 @@ This section details how you can create and configure the following components o
 
 ### Create the load balancer resource
 
-Create a public load balancer with [az network lb create](/cli/azure/network/lb#az_network_lb_create):
+Create a public load balancer with [az network lb create](/cli/azure/network/lb#az-network-lb-create):
 
 * Named **myLoadBalancer**.
 * A frontend pool named **myFrontEnd**.
@@ -112,7 +112,7 @@ A health probe checks all virtual machine instances to ensure they can send netw
 
 A virtual machine with a failed probe check is removed from the load balancer. The virtual machine is added back into the load balancer when the failure is resolved.
 
-Create a health probe with [az network lb probe create](/cli/azure/network/lb/probe#az_network_lb_probe_create):
+Create a health probe with [az network lb probe create](/cli/azure/network/lb/probe#az-network-lb-probe-create):
 
 * Monitors the health of the virtual machines.
 * Named **myHealthProbe**.
@@ -136,7 +136,7 @@ A load balancer rule defines:
 * The backend IP pool to receive the traffic.
 * The required source and destination port. 
 
-Create a load balancer rule with [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create):
+Create a load balancer rule with [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create):
 
 * Named **myHTTPRule**
 * Listening on **Port 80** in the frontend pool **myFrontEnd**.
@@ -165,7 +165,7 @@ Create a load balancer rule with [az network lb rule create](/cli/azure/network/
 
 In this section, create a private link service that uses the Azure Load Balancer created in the previous step.
 
-Create a private link service using a standard load balancer frontend IP configuration with [az network private-link-service create](/cli/azure/network/private-link-service#az_network_private_link_service_create):
+Create a private link service using a standard load balancer frontend IP configuration with [az network private-link-service create](/cli/azure/network/private-link-service#az-network-private-link-service-create):
 
 * Named **myPrivateLinkService**.
 * In virtual network **myVNet**.
@@ -192,7 +192,7 @@ In this section, you'll map the private link service to a private endpoint. A vi
 
 ### Create private endpoint virtual network
 
-Create a virtual network using [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create):
+Create a virtual network using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create):
 
 * Named **myVNetPE**.
 * Address prefix of **11.1.0.0/16**.
@@ -211,7 +211,7 @@ Create a virtual network using [az network vnet create](/cli/azure/network/vnet#
     --subnet-prefixes 11.1.0.0/24
 ```
 
-To update the subnet to disable private endpoint network policies, use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update):
+To update the subnet to disable private endpoint network policies, use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -223,9 +223,9 @@ az network vnet subnet update \
 
 ### Create endpoint and connection
 
-* Use [az network private-link-service show](/cli/azure/network/private-link-service#az_network_private_link_service_show) to get the resource ID of the private link service. The command places the resource ID into a variable for later use.
+* Use [az network private-link-service show](/cli/azure/network/private-link-service#az-network-private-link-service-show) to get the resource ID of the private link service. The command places the resource ID into a variable for later use.
 
-* Use [az network private-endpoint create](/cli/azure/network/private-endpoint#az_network_private_endpoint_create) to create the private endpoint in the virtual network you created previously.
+* Use [az network private-endpoint create](/cli/azure/network/private-endpoint#az-network-private-endpoint-create) to create the private endpoint in the virtual network you created previously.
 
 * Named **MyPrivateEndpoint**.
 * In the **CreatePrivLinkService-rg** resource group.
@@ -253,7 +253,7 @@ az network vnet subnet update \
 
 ## Clean up resources
 
-When no longer needed, use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, private link service, load balancer, and all related resources.
+When no longer needed, use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, private link service, load balancer, and all related resources.
 
 ```azurecli-interactive
   az group delete \

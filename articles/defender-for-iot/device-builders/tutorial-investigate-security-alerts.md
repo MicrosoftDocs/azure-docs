@@ -9,12 +9,15 @@ ms.date: 01/13/2022
 
 This tutorial will help you learn how to investigate, and remediate the alerts issued by Defender for IoT. Remediating alerts is the best way to ensure compliance, and protection across your IoT solution.
 
-In this tutorial you will learn how to:
+In this tutorial you'll learn how to:
 
 > [!div class="checklist"]
 > - Investigate security alerts
 > - Investigate security alert details
 > - Investigate alerts in Log Analytics workspace
+
+> [!NOTE]
+> The Microsoft Defender for IoT legacy experience under IoT Hub has been replaced by our new Defender for IoT standalone experience, in the Defender for IoT area of the Azure portal. The legacy experience under IoT Hub will not be supported after **March 31, 2023**.
 
 ## Prerequisites
 

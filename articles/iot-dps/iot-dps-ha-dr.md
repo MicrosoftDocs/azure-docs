@@ -26,6 +26,7 @@ DPS also supports [Availability Zones](../availability-zones/az-overview.md). An
 * Central US
 * East US
 * East US 2
+* France Central
 * Japan East
 * North Europe
 * UK South
@@ -36,7 +37,12 @@ You don't need to take any action to use availability zones in supported regions
 
 ## Disaster recovery and Microsoft-initiated failover
 
-DPS leverages [paired regions](../availability-zones/cross-region-replication-azure.md) to enable automatic failover. Microsoft-initiated failover is exercised by Microsoft in rare situations when an entire region goes down to failover all the DPS instances from the affected region to its corresponding paired region. This process is a default option (there is no way for users to opt out) and requires no intervention from the user. Microsoft reserves the right to make a determination of when this option will be exercised. This mechanism doesn't involve user consent before the user's DPS instance is failed over.
+DPS leverages [paired regions](../availability-zones/cross-region-replication-azure.md) to enable automatic failover. Microsoft-initiated failover is exercised by Microsoft in rare situations when an entire region goes down to failover all the DPS instances from the affected region to its corresponding paired region. This process is a default option and requires no intervention from the user. Microsoft reserves the right to make a determination of when this option will be exercised. This mechanism doesn't involve user consent before the user's DPS instance is failed over.
+
+The only users who are able to opt-out of this feature are those deploying to the Brazil South and Southeast Asia (Singapore) regions.
+
+>[!NOTE]
+>Azure IoT Hub Device Provisioning Service doesn't store or process customer data outside of the geography where you deploy the service instance. For more information, see [Cross-region replication in Azure](../availability-zones/cross-region-replication-azure.md).
 
 ## Disable disaster recovery
 

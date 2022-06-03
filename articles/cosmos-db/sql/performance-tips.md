@@ -37,22 +37,6 @@ The [.NET v3 SDK](https://github.com/Azure/azure-cosmos-dotnet-v3) is released. 
 
 ## <a id="hosting"></a> Hosting recommendations
 
-**For query-intensive workloads, use Windows 64-bit instead of Linux or Windows 32-bit host processing**
-
-We recommend Windows 64-bit host processing for improved performance. The SQL SDK includes a native ServiceInterop.dll to parse and optimize queries locally. ServiceInterop.dll is supported only on the Windows x64 platform. For Linux and other unsupported platforms where ServiceInterop.dll isn't available, an additional network call is made to the gateway to get the optimized query. The following types of applications use 32-bit host processing by default. To change host processing to 64-bit processing, follow these steps, based on the type of your application:
-
-- For executable applications, you can change host processing by setting the [platform target](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) to **x64**  in the **Project Properties** window, on the **Build** tab.
-
-- For VSTest-based test projects, you can change host processing by selecting **Test** > **Test Settings** > **Default Processor Architecture as X64** on the Visual Studio **Test** menu.
-
-- For locally deployed ASP.NET web applications, you can change host processing by selecting **Use the 64-bit version of IIS Express for web sites and projects** under **Tools** > **Options** > **Projects and Solutions** > **Web Projects**.
-
-- For ASP.NET web applications deployed on Azure, you can change host processing by selecting the **64-bit** platform in **Application settings** in the Azure portal.
-
-> [!NOTE] 
-> By default, new Visual Studio projects are set to **Any CPU**. We recommend that you set your project to **x64** so it doesn't switch to **x86**. A project set to **Any CPU** can easily switch to **x86** if an x86-only dependency is added.<br/>
-> ServiceInterop.dll needs to be in the folder that the SDK DLL is being executed from. This should be a concern only if you manually copy DLLs or have custom build/deployment systems.
-    
 **Turn on server-side garbage collection (GC)**
 
 Reducing the frequency of garbage collection can help in some cases. In .NET, set [gcServer](/dotnet/framework/configure-apps/file-schema/runtime/gcserver-element) to `true`.
@@ -66,7 +50,7 @@ If you're testing at high throughput levels (more than 50,000 RU/s), the client 
 
 ## <a id="metadata-operations"></a> Metadata operations
 
-Do not verify a Database and/or Collection exists by calling `Create...IfNotExistsAsync` and/or `Read...Async` in the hot path and/or before doing an item operation. The validation should only be done on application startup when it is necessary, if you expect them to be deleted (otherwise it's not needed). These metadata operations will generate extra end-to-end latency, have no SLA, and their own separate [limitations](/azure/cosmos-db/sql/troubleshoot-request-rate-too-large#rate-limiting-on-metadata-requests) that do not scale like data operations.
+Do not verify a Database and/or Collection exists by calling `Create...IfNotExistsAsync` and/or `Read...Async` in the hot path and/or before doing an item operation. The validation should only be done on application startup when it is necessary, if you expect them to be deleted (otherwise it's not needed). These metadata operations will generate extra end-to-end latency, have no SLA, and their own separate [limitations](./troubleshoot-request-rate-too-large.md#rate-limiting-on-metadata-requests) that do not scale like data operations.
 
 ## <a id="logging-and-tracing"></a> Logging and tracing
 
@@ -193,24 +177,6 @@ A profiler, such as [PerfView](https://github.com/Microsoft/perfview), can be us
 
 Azure Cosmos DB requests are made over HTTPS/REST when you use gateway mode. They're subjected to the default connection limit per hostname or IP address. You might need to set `MaxConnections` to a higher value (100 to 1,000) so the client library can use multiple simultaneous connections to Azure Cosmos DB. In .NET SDK 1.8.0 and later, the default value for [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit) is 50. To change the value, you can set [Documents.Client.ConnectionPolicy.MaxConnectionLimit](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit) to a higher value.
 
-**Tune parallel queries for partitioned collections**
-
-SQL .NET SDK 1.9.0 and later support parallel queries, which enable you to query a partitioned collection in parallel. For more information, see [code samples](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/samples/code-samples/Queries/Program.cs) related to working with the SDKs. Parallel queries are designed to provide better query latency and throughput than their serial counterpart. Parallel queries provide two parameters that you can tune to fit your requirements: 
-- `MaxDegreeOfParallelism` controls the maximum number of partitions that can be queried in parallel. 
-- `MaxBufferedItemCount` controls the number of pre-fetched results.
-
-***Tuning degree of parallelism***
-
-Parallel query works by querying multiple partitions in parallel. But data from an individual partition is fetched serially with respect to the query. Setting `MaxDegreeOfParallelism` in [SDK V2](sql-api-sdk-dotnet.md) to the number of partitions has the best chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can set the degree of parallelism to a high number. The system will choose the minimum (number of partitions, user provided input) as the degree of parallelism.
-
-Parallel queries produce the most benefit if the data is evenly distributed across all partitions with respect to the query. If the partitioned collection is partitioned so that all or most of the data returned by a query is concentrated in a few partitions (one partition is the worst case), those partitions will bottleneck the performance of the query.
-
-***Tuning MaxBufferedItemCount***
-    
-Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. This pre-fetching helps improve the overall latency of a query. The `MaxBufferedItemCount` parameter limits the number of pre-fetched results. Set `MaxBufferedItemCount` to the expected number of results returned (or a higher number) to allow the query to receive the maximum benefit from pre-fetching.
-
-Pre-fetching works the same way regardless of the degree of parallelism, and there's a single buffer for the data from all partitions.  
-
 **Implement backoff at RetryAfter intervals**
 
 During performance testing, you should increase load until a small rate of requests are throttled. If requests are throttled, the client application should back off on throttle for the server-specified retry interval. Respecting the backoff ensures you spend a minimal amount of time waiting between retries. 
@@ -233,26 +199,13 @@ readDocument.RequestDiagnosticsString
 
 Cache document URIs whenever possible for the best read performance. You need to define logic to cache the resource ID when you create a resource. Lookups based on resource IDs are faster than name-based lookups, so caching these values improves performance.
 
-**Tune the page size for queries/read feeds for better performance**
-
-When you do a bulk read of documents by using read feed functionality (for example, `ReadDocumentFeedAsync`) or when you issue a SQL query, the results are returned in a segmented fashion if the result set is too large. By default, results are returned in chunks of 100 items or 1 MB, whichever limit is hit first.
-
-To reduce the number of network round trips required to retrieve all applicable results, you can increase the page size by using [x-ms-max-item-count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) to request as many as 1,000 headers. When you need to display only a few results, for example, if your user interface or application API returns only 10 results at a time, you can also decrease the page size to 10 to reduce the throughput consumed for reads and queries.
-
-> [!NOTE] 
-> The `maxItemCount` property shouldn't be used just for pagination. Its main use is to improve the performance of queries by reducing the maximum number of items returned in a single page.  
-
-You can also set the page size by using the available Azure Cosmos DB SDKs. The [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount) property in `FeedOptions` allows you to set the maximum number of items to be returned in the enumeration operation. When `maxItemCount` is set to -1, the SDK automatically finds the optimal value, depending on the document size. For example:
-    
-```csharp
-IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
-```
-    
-When a query is executed, the resulting data is sent within a TCP packet. If you specify too low a value for `maxItemCount`, the number of trips required to send the data within the TCP packet is high, which affects performance. So if you're not sure what value to set for the `maxItemCount` property, it's best to set it to -1 and let the SDK choose the default value.
-
 **Increase the number of threads/tasks**
 
 See [Increase the number of threads/tasks](#increase-threads) in the networking section of this article.
+
+## Query operations
+
+For query operations see the [performance tips for queries](performance-tips-query-sdk.md?tabs=v2&pivots=programming-language-csharp).
 
 ## Indexing policy
  

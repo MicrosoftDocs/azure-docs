@@ -3,7 +3,7 @@ title: Tutorial for using Azure App Configuration Key Vault references in a Java
 description: In this tutorial, you learn how to use Azure App Configuration's Key Vault references from a Java Spring Boot app
 services: azure-app-configuration
 documentationcenter: ''
-author: AlexandraKemperMS
+author: mrm9084
 editor: ''
 
 ms.assetid: 
@@ -11,8 +11,8 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 08/11/2020
-ms.author: alkemper
+ms.date: 05/02/2022
+ms.author: mametcal
 ms.custom: mvc, devx-track-java, devx-track-azurecli
 
 #Customer intent: I want to update my Spring Boot application to reference values stored in Key Vault through App Configuration.
@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-* A supported [Java Development Kit (JDK)](/java/azure/jdk) with version 8.
+* A supported [Java Development Kit (JDK)](/java/azure/jdk) with version 11.
 * [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
 
 ## Create a vault
@@ -90,10 +90,10 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
 ## Connect to Key Vault
 
-1. In this tutorial, you use a service principal for authentication to Key Vault. To create this service principal, use the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command:
+1. In this tutorial, you use a service principal for authentication to Key Vault. To create this service principal, use the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command:
 
     ```azurecli
-    az ad sp create-for-rbac -n "http://mySP" --role Contributor --sdk-auth
+    az ad sp create-for-rbac -n "http://mySP" --role Contributor --scopes /subscriptions/{subscription-id} --sdk-auth
     ```
 
     This operation returns a series of key/value pairs:
@@ -260,7 +260,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
 ## Next steps
 
-In this tutorial, you created an App Configuration key that references a value stored in Key Vault. To learn how to use feature flags in your Java Spring application, continue to the next tutorial.
+In this tutorial, you created an App Configuration key that references a value stored in Key Vault. For further questions see the [reference documentation](https://go.microsoft.com/fwlink/?linkid=2180917), it has all of the details on how the Spring Cloud Azure App Configuration library works. To learn how to use feature flags in your Java Spring application, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Managed identity integration](./quickstart-feature-flag-spring-boot.md)

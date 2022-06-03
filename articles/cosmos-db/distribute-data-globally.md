@@ -7,6 +7,7 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/06/2021
 ms.custom: "seo-nov-2020"
+adobe-target: true
 ---
 # Distribute your data globally with Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -45,7 +46,7 @@ As you add and remove regions to and from your Azure Cosmos account, your applic
 
 **Build highly available apps.** Running a database in multiple regions worldwide increases the availability of a database. If one region is unavailable, other regions automatically handle application requests. Azure Cosmos DB offers 99.999% read and write availability for multi-region databases.
 
-**Maintain business continuity during regional outages.** Azure Cosmos DB supports [automatic failover](how-to-manage-database-account.md#automatic-failover) during a regional outage. During a regional outage, Azure Cosmos DB continues to maintain its latency, availability, consistency, and throughput SLAs. To help make sure that your entire application is highly available, Cosmos DB offers a manual failover API to simulate a regional outage. By using this API, you can carry out regular business continuity drills.
+**Maintain business continuity during regional outages.** Azure Cosmos DB supports [service-managed failover](how-to-manage-database-account.md#automatic-failover) during a regional outage. During a regional outage, Azure Cosmos DB continues to maintain its latency, availability, consistency, and throughput SLAs. To help make sure that your entire application is highly available, Cosmos DB offers a manual failover API to simulate a regional outage. By using this API, you can carry out regular business continuity drills.
 
 **Scale read and write throughput globally.** You can enable every region to be writable and elastically scale reads and writes all around the world. The throughput that your application configures on an Azure Cosmos database or a container is provisioned across all regions associated with your Azure Cosmos account. The provisioned throughput is guaranteed up by [financially backed SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/).
 

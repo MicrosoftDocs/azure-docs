@@ -29,11 +29,11 @@ The functionality of the extension varies depending on the extension version:
 
 # [Extension v5.x+](#tab/extensionv5/in-process)
 
-[!INCLUDE [functions-bindings-event-hubs-extension-5](functions-bindings-event-hubs-extension-5.md)] 
+[!INCLUDE [functions-bindings-supports-identity-connections-note](functions-bindings-supports-identity-connections-note.md)]
 
-This version uses the new newer Event Hubs binding type [Azure.Messaging.EventHubs.EventData](/dotnet/api/azure.messaging.eventhubs.eventdata).
+This version uses the newer Event Hubs binding type [Azure.Messaging.EventHubs.EventData](/dotnet/api/azure.messaging.eventhubs.eventdata).
 
-This extension version is available by installing the [NuGet package], version 5.x
+This extension version is available by installing the [NuGet package], version 5.x.
 
 # [Extension v3.x+](#tab/extensionv3/in-process)
 
@@ -47,7 +47,7 @@ Version 1.x of the Functions runtime doesn't require an extension.
 
 # [Extension v5.x+](#tab/extensionv5/isolated-process)
 
-[!INCLUDE [functions-bindings-event-hubs-extension-5](functions-bindings-event-hubs-extension-5.md)] 
+[!INCLUDE [functions-bindings-supports-identity-connections-note](functions-bindings-supports-identity-connections-note.md)]
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.EventHubs), version 5.x.
 
@@ -57,13 +57,13 @@ Add the extension to your project by installing the [NuGet package](https://www.
 
 # [Functions v1.x](#tab/functionsv1/isolated-process)
 
-Version 1.x of the Functions runtime doesn't supported running in an isolated process. 
+Version 1.x of the Functions runtime doesn't support running in an isolated process. 
 
 # [Extension v5.x+](#tab/extensionv5/csharp-script)
 
-[!INCLUDE [functions-bindings-event-hubs-extension-5](functions-bindings-event-hubs-extension-5.md)]  
+[!INCLUDE [functions-bindings-supports-identity-connections-note](functions-bindings-supports-identity-connections-note.md)]
 
-This version uses the new newer Event Hubs binding type [Azure.Messaging.EventHubs.EventData](/dotnet/api/azure.messaging.eventhubs.eventdata).
+This version uses the newer Event Hubs binding type [Azure.Messaging.EventHubs.EventData](/dotnet/api/azure.messaging.eventhubs.eventdata).
 
 You can install this version of the extension in your function app by registering the [extension bundle], version 3.x.
 
@@ -89,19 +89,11 @@ The Event Hubs extension is part of an [extension bundle], which is specified in
 
 # [Bundle v3.x](#tab/extensionv5)
 
-[!INCLUDE [functions-bindings-event-hubs-extension-5](functions-bindings-event-hubs-extension-5.md)] 
+[!INCLUDE [functions-bindings-supports-identity-connections-note](functions-bindings-supports-identity-connections-note.md)]
 
 You can add this version of the extension from the extension bundle v3 by adding or replacing the following code in your `host.json` file:
 
-```json
-{
-  "version": "2.0",
-  "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle",
-    "version": "[3.3.0, 4.0.0)"
-  }
-}
-```
+[!INCLUDE [functions-extension-bundles-json-v3](./functions-extension-bundles-json-v3.md)]
 
 To learn more, see [Update your extensions].
 
