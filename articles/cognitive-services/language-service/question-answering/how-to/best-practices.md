@@ -30,7 +30,7 @@ The following list of QnA pairs will be used to represent a project (knowledge b
 
 1. Question answering employs a transformer-based ranker that takes care of user queries that are semantically similar to questions in the knowledge base. For example, consider the following question answer pair:
 
-**Question: “What is the price of Microsoft Stock?”**
+   **Question: “What is the price of Microsoft Stock?”**
 
 **Answer: “$200”.**
 
