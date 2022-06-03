@@ -31,14 +31,19 @@ We have used the following list of QnA pairs as representation of a knowledge ba
 1. Question answering employs a transformer-based ranker that takes care of user queries that are semantically similar to questions in the knowledge base. For example, consider the following question answer pair:
 
 **Question: “What is the price of Microsoft Stock?”**
+
 **Answer: “$200”.**
 
 The service can return expected responses for semantically similar queries such as:
 
 "How much is Microsoft stock worth?"
+
 "How much is Microsoft's share value?"
+
 "How much does a Microsoft share cost?"
+
 "What is the market value of Microsoft stock?"
+
 "What is the market value of a Microsoft share?"
 
 However, please note that the confidence score with which the system returns the correct response will vary based on the input query and how different it is from the original question answer pair.
@@ -60,7 +65,9 @@ However, please note that the confidence score with which the system returns the
 2. For better relevance, the customer needs to provide a list of acronyms that the end user intends to use interchangeably. For instance, the following is a list of acceptable acronyms:
 
 MSFT – Microsoft
+
 ID – Identification
+
 ETA – Estimated time of Arrival
 
 3. Apart from acronyms, if you think your words are similar in context of a particular domain and generic language models won’t consider them similar, it’s better to add them as synonyms. For instance, if an auto company producing a car model X receives queries such as "my car’s audio isn’t working" and the knowledge base has questions on "fixing audio for car X", then we need to add "X" and "car" as synonyms.
