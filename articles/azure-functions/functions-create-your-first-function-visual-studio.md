@@ -31,7 +31,7 @@ There is also a [Visual Studio Code-based version](create-first-function-vs-code
 
 ## Prerequisites
 
-+ [Visual Studio 2022](https://azure.microsoft.com/downloads/), which supports .NET 6.0. Make sure to select the **Azure development** workload during installation. 
++ [Visual Studio 2022](https://visualstudio.microsoft.com/vs/), which supports .NET 6.0. Make sure to select the **Azure development** workload during installation. 
 
 + [Azure subscription](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing). If you don't already have an account [create a free one](https://azure.microsoft.com/free/dotnet/) before you begin.
 
