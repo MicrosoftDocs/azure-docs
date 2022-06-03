@@ -1,5 +1,5 @@
 ---
-title: 'Concepts: Data flow in Azure IoT Connector for FHIR (preview) feature of Azure API for FHIR
+title: 'Concepts: Data flow in Azure IoT Connector for FHIR (preview) feature of Azure API for FHIR'
 description: Understand Azure IoT Connector for FHIR (preview)'s data flow. Azure IoT Connector for FHIR (preview) ingests, normalizes, groups, transforms, and persists IoMT data to Azure API for FHIR.
 services: healthcare-apis
 author: ms-puneet-nagpal
