@@ -140,7 +140,7 @@ When these trust settings are enabled, Azure AD will check a user's credentials 
 
 ### Device filters
 
-When creating Conditional Access policies for external users, you can evaluate a policy based on the device attributes of a registered device in Azure AD. By using the *filter for devices* condition, you can target specific devices using the [supported operators and properties](../conditional-access/concept-condition-filters-for-devices#supported-operators-and-device-properties-for-filters) and the other available assignment conditions in your Conditional Access policies. For more information, see [Conditional Access: Filter for devices](../conditional-access/concept-condition-filters-for-devices.md).
+When creating Conditional Access policies for external users, you can evaluate a policy based on the device attributes of a registered device in Azure AD. By using the *filter for devices* condition, you can target specific devices using the [supported operators and properties](../conditional-access/concept-condition-filters-for-devices.md#supported-operators-and-device-properties-for-filters) and the other available assignment conditions in your Conditional Access policies. For more information, see [Conditional Access: Filter for devices](../conditional-access/concept-condition-filters-for-devices.md).
 
 ### Mobile application management policies
 
@@ -182,7 +182,7 @@ For more information, see [Identity Protection and B2B users](../identity-protec
 
 For more information, see the following articles:
 
-- [Zero Trust policies for allowing guest access and B2B external user access](https://docs.microsoft.com/microsoft-365/security/office-365-security/identity-access-policies-guest-access?view=o365-worldwide)
+- [Zero Trust policies for allowing guest access and B2B external user access](/microsoft-365/security/office-365-security/identity-access-policies-guest-access.md?view=o365-worldwide)
 - [What is Azure AD B2B collaboration?](./what-is-b2b.md)
 - [Identity Protection and B2B users](../identity-protection/concept-identity-protection-b2b.md)
 - [External Identities pricing](https://azure.microsoft.com/pricing/details/active-directory/external-identities/)
