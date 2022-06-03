@@ -43,8 +43,7 @@ A TLE is associated with the spacecraft to determine contact opportunities at ti
 
 As TLEs are prone to expiration the user must keep the TLE up-to-date using the [TLE update](update-tle.md) procedure.
 
-<!-- Licensing or Authorization? -->
-### Authorization
+### Licensing
 
  In order to uphold regulatory requirements across the world the spacecraft object contains authorizations on a per link and per site level that permit usage of the Azure Orbital groundstation sites.
 
@@ -60,14 +59,6 @@ When the spacecraft is unauthorized then the spacecraft object can be modified. 
 
 When the spacecraft is unauthorized then TLE updates are the only modifications possible. Other fields such as links become immutable. The TLE updates are possible via the Portal and Orbital SDK.
 
-<!-- What are the portal flows?
-Insert link
--->
-
-The Portal flows are shown below. Please refer to (link here) for the SDK usage.
-
-<!-- Note: This section is duplicated from register-spacecraft.md. Should it be?
-Also, does the portal show Spacecraft or Spacecrafts? The docs currently use both singular and plural. -->
 ### Create spacecraft resource
 
 1. In the Azure portal search box, enter **Spacecraft**. Select **Spacecraft** in the search results.
