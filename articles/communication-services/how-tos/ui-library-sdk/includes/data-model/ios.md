@@ -18,7 +18,7 @@ The UI Library now gives developers the ability to provide a more customized exp
 
 #### Local Options
 
-`LocalOptions` is data model that can have `ParticipantViewData` that will represent the local participant.  By default, the UI library will display the `displayName` injected in `RemoteOptions` that is send to Azure Communication Service backend server. If `ParticipantViewData` is injected, the participant `displayName` and `avatar` will be displayed in all avatar components.
+`LocalOptions` is data model that can have `ParticipantViewData` that will represent the local participant.  By default, the UI library will display the `displayName` injected in `RemoteOptions` that is sent to Azure Communication Service backend server. If `ParticipantViewData` is injected, the participant `displayName` and `avatar` will be displayed in all avatar components.
 
 #### Participant View Data
 
@@ -34,7 +34,7 @@ callComposite.launch(remoteOptions: <some RemoteOptions>, localOptions: localOpt
 
 |Setup View|Calling Experience View|
 | ---- | ---- |
-| :::image type="content" source="media/ios-model-injection.png" alt-text="Screenshot of the I O S data custom model injection."::: | :::image type="content" source="media/ios-model-injection-name.png"  alt-text="Screenshot of the I O S data custom model injection with name."::: |
+| :::image type="content" source="media/ios-model-injection.png" alt-text="Screenshot of the iOS data custom model injection."::: | :::image type="content" source="media/ios-model-injection-name.png"  alt-text="Screenshot of the iOS data custom model injection with name."::: |
 
 ### Remote Participant View Data Injection
 
@@ -64,4 +64,4 @@ callComposite.events.onRemoteParticipantJoined = { identifiers in
 
 |Participants list|
 | ---- |
-| :::image type="content" source="media/ios-model-injection-remote.png" alt-text="Screenshot of the I O S remote participants view data injection."::: |
+| :::image type="content" source="media/ios-model-injection-remote.png" alt-text="Screenshot of the iOS remote participants view data injection."::: |
