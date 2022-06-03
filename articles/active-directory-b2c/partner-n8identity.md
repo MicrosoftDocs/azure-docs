@@ -103,7 +103,7 @@ To authorize TheAccessHub Admin Tool to access your directory:
 
 Create a CSR/Helpdesk user who accesses TheAccessHub Admin Tool by using their existing enterprise Azure Active Directory credentials.
 
-To configure CSR/Helpdesk user with single sign-on (SSO), we recommend the following steps:
+To configure a CSR/Helpdesk user with single sign-on (SSO), we recommend the following steps:
 
 1. Log in to TheAccessHub Admin Tool by using the credentials that N8 Identity has provided.
 
@@ -111,7 +111,7 @@ To configure CSR/Helpdesk user with single sign-on (SSO), we recommend the follo
 
 3. Select **Add Colleague**.
 
-4. Select **Colleague Type Azure Administrator**.
+4. For **Colleague Type**, select **Azure Administrator**.
 
 5. Enter the colleague's profile information:
 
@@ -135,7 +135,7 @@ To [set up a CSR/Helpdesk user](https://youtu.be/iOpOI2OpnLI) without SSO:
 
 3. Select **Add Colleague**.
 
-4. Select **Colleague Type Local Administrator**.
+4. For **Colleague Type**, select **Local Administrator**.
 
 5. Enter the colleague's profile information:
 
@@ -209,7 +209,7 @@ To customize the notification:
 
 2. Go to **System Admin** > **Notifications**.
 
-3. Select the **Create Colleague template**.
+3. Select the **Create Colleague** template.
 
 4. Select **Edit**.
 
@@ -293,7 +293,7 @@ If the source of data isn't Azure itself, the data will be placed into both TheA
 
 3. Select **New Load**.
 
-4. Select the **Colleague Type** Azure AD B2C user.
+4. For **Colleague Type**, select **Azure AD B2C User**.
 
 5. Select **Source**. In the pop-up dialog, select your data source. If you created a OneDrive data source, also select the file.
 
@@ -341,13 +341,13 @@ To synchronize data from Azure AD B2C into TheAccessHub Admin Tool:
 
 3. Select **New Load**.
 
-4. Select the **Colleague Type** Azure AD B2C user.
+4. For **Colleague Type**, select **Azure AD B2C User**.
 
 5. For the **Options** step, leave the defaults.
 
 6. Select **Next**.
 
-7. For the **Data Mapping & Search** step, leave the defaults. Exception: if you map to the attribute **org_name** with a value that is the name of an existing organization, newly created customers will be placed in that organization.
+7. For the **Data Mapping & Search** step, leave the defaults. Exception: if you map to the attribute `org_name` with a value that is the name of an existing organization, newly created customers will be placed in that organization.
 
 8. Select **Next**.
 
