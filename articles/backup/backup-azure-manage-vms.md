@@ -83,7 +83,7 @@ To manage a backup policy:
 
    To switch policies, select a different policy and then select **Save**. The new policy is immediately applied to the vault.
 
-    :::image type="content" source="./media/backup-azure-manage-vms/backup-policy-create-new-inline.png" alt-text="Screenshot showing to choose a backup policy." inline="./media/backup-azure-manage-vms/backup-policy-create-new-expanded.png":::
+    :::image type="content" source="./media/backup-azure-manage-vms/backup-policy-create-new-inline.png" alt-text="Screenshot showing to choose a backup policy." lightbox="./media/backup-azure-manage-vms/backup-policy-create-new-expanded.png":::
 
 ## Run an on-demand backup
 
