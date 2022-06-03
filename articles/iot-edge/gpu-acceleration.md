@@ -38,40 +38,32 @@ The GPU acceleration features of Azure IoT Edge for Linux on Windows currently s
 
 The supported GPUs and required Windows versions are listed below:
 
-* NVIDIA T4 (supports DDA)
+| Supported GPU | GPU Passthrough Type | Required Windows Version |
+| --------- | --------------- | -------- |
+| NVIDIA T4, A2 | DDA |  Windows Server 2019<sup>1</sup><br> Windows Server 2022<br> Windows 10<sup>2</sup>/11 (Pro, Enterprise, IoT Enterprise) |
+| NVIDIA GeForce, Quadro, RTX<sup>3</sup> | GPU-PV | Windows 10<sup>2</sup>/11 (Pro, Enterprise, IoT Enterprise) |
+| Intel iGPU<sup>3</sup> | GPU-PV | Windows 10<sup>2</sup>/11 (Pro, Enterprise, IoT Enterprise) |
 
-  * Windows Server 2019, build 17763 with all current cumulative updates installed
-  * Windows Server 2022
-  * Windows 11 (Pro, Enterprise, IoT Enterprise)
+<sup>1</sup> Windows Server 2019 users must use minimum build 17763 with all current cumulative updates installed.
 
-* NVIDIA GeForce/Quadro (supports GPU-PV)
+<sup>2</sup> Windows 10 users must use the [November 2021 update](https://blogs.windows.com/windowsexperience/2021/11/16/how-to-get-the-windows-10-november-2021-update/) build 19044.1620 or higher. After installation, you can verify your build version by running `winver` at the command prompt.
 
-  * Windows 10 (Pro, Enterprise, IoT Enterprise), minimum build 19044.1263 or later
-  * Windows 11 (Pro, Enterprise, IoT Enterprise)
-
-* Select Intel Integrated GPUs (supports GPU-PV)
-
-  * Windows 10 (Pro, Enterprise, IoT Enterprise), minimum build 19044.1263 or later
-  * Windows 11 (Pro, Enterprise, IoT Enterprise)
-
-Intel iGPU support is available for select processors. For more information, see the Intel driver documentation.
-
-Windows 10 users must use the [November 2021 update](https://blogs.windows.com/windowsexperience/2021/11/16/how-to-get-the-windows-10-november-2021-update/). After installation, you can verify your build version by running `winver` at the command prompt.
+<sup>3</sup> Support for specific GPUs or processors is determined by the GPU vendor. For more information, see the Intel documentation and [NVIDIA's CUDA for WSL Documentation](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#wsl2-system-requirements).
 
 ## System setup and installation
 
 The following sections contain information related to setup and installation.
 
-### NVIDIA T4 GPUs
+### NVIDIA T4/A2 GPUs
 
-For **T4 GPUs**, Microsoft recommends installing a device mitigation driver from your GPU's vendor. While optional, installing a mitigation driver may improve the security of your deployment. For more information, see [Deploy graphics devices using direct device assignment](/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda#optional---install-the-partitioning-driver).
+For **T4/A2 GPUs**, Microsoft recommends installing a device mitigation driver from your GPU's vendor. While optional, installing a mitigation driver may improve the security of your deployment. For more information, see [Deploy graphics devices using direct device assignment](/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda#optional---install-the-partitioning-driver).
 
 > [!WARNING]
 > Enabling hardware device passthrough may increase security risks. Microsoft recommends a device mitigation driver from your GPU's vendor, when applicable. For more information, see [Deploy graphics devices using discrete device assignment](/windows-server/virtualization/hyper-v/deploy/deploying-graphics-devices-using-dda).
 
-### NVIDIA GeForce/Quadro GPUs
+### NVIDIA GeForce/Quadro/RTX GPUs
 
-For **GeForce/Quadro GPUs**, download and install the [NVIDIA CUDA-enabled driver for Windows Subsystem for Linux (WSL)](https://developer.nvidia.com/cuda/wsl) to use with your existing CUDA ML workflows. Originally developed for WSL, the CUDA for WSL drivers are also used for Azure IoT Edge for Linux on Windows.
+For **NVIDIA GeForce/Quadro/RTX GPUs**, download and install the [NVIDIA CUDA-enabled driver for Windows Subsystem for Linux (WSL)](https://developer.nvidia.com/cuda/wsl) to use with your existing CUDA ML workflows. Originally developed for WSL, the CUDA for WSL drivers are also used for Azure IoT Edge for Linux on Windows.
 
 Windows 10 users must also [install WSL](/windows/wsl/install) because some of the libraries are shared between WSL and Azure IoT Edge for Linux on Windows. 
 
