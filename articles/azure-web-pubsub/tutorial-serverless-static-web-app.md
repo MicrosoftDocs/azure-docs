@@ -5,7 +5,7 @@ author: JialinXin
 ms.author: jixin
 ms.service: azure-web-pubsub
 ms.topic: tutorial
-ms.date: 06/02/2022
+ms.date: 06/03/2022
 ---
 
 # Tutorial: Create a serverless chat app with Azure Web PubSub service and Azure Static Web Apps
@@ -83,7 +83,7 @@ The sample chat room application provided with this tutorial has the following w
 
 ## Create a repository
 
-This article uses a GitHub template repository to make it easy for you to get started. The template features a starter app used to deploy using Azure Static Web Apps.
+This article uses a GitHub template repository to make it easy for you to get started. The template features a starter app that you will deploy to Azure Static Web Apps.
 
 1. Go to [https://github.com/Azure/awps-swa-sample/generate](https://github.com/login?return_to=/Azure/awps-swa-sample/generate) to create a new repo for this tutorial.
 1. Select yourself as **Owner** and name your repository **my-awps-swa-app**.
@@ -102,7 +102,7 @@ Now that the repository is created, you can create a static web app from the Azu
 
     Replace the placeholder `<YOUR_GITHUB_USER_NAME>` with your GitHub user name.
 
-1. Create a new static web app from your repository. When you execute this command, the CLI starts a GitHub interactive sign-in. Follow the message to complete authorization.
+1. Create a new static web app from your repository. When you run this command, the CLI starts a GitHub interactive sign-in. Follow the message to complete authorization.
 
     ```azurecli-interactive
     az staticwebapp create \
