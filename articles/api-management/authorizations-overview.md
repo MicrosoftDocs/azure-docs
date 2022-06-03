@@ -4,7 +4,7 @@ description: Learn about authorizations in Azure API Management, a feature that 
 author: dlepow
 ms.service: api-management
 ms.topic: conceptual
-ms.date: 05/02/2022
+ms.date: 06/03/2022
 ms.author: danlep
 ---
 
@@ -12,17 +12,17 @@ ms.author: danlep
 
 API Management authorizations (preview) simplify the process of managing authorization tokens to OAuth 2.0 backend services. 
 By configuring any of the supported identity providers and creating an authorization using the standardized OAuth 2.0 flow, API Management can retrieve and refresh access tokens to be used inside of API management or sent back to a client. 
-This feature enables APIs to be exposed with or without a subscription key, and the authorization to the backend service is using OAuth 2.0.
+This feature enables APIs to be exposed with or without a subscription key, and the authorization to the backend service uses OAuth 2.0.
 
 Some example scenarios that will be possible through this feature are: 
 
 -	Citizen/low code developers using Power Apps or Power Automate can easily connect to SaaS providers that are using OAuth 2.0. 
--	Unattended scenarios such as an Azure function using a Timer trigger can utilize this feature to connect to a backend API using OAuth 2.0. 
+-	Unattended scenarios such as an Azure function using a timer trigger can utilize this feature to connect to a backend API using OAuth 2.0. 
 -	A marketing team in an enterprise company could use the same authorization for interacting with a social media platform using OAuth 2.0.
--	Exposing APIs in API Management as a Logic Apps Custom Connector in Logic Apps where the backend service requires OAuth 2.0 flow.  
--	On behalf of a scenario where a service such as Dropbox or any other service protected by OAuth 2.0 flow are being used by multiple clients.  
--	Connect to different services that require authorization OAuth 2.0 using GraphQL federation in API Management. 
--	Enterprise Application Integration (EAI) patterns using service-to-service authorization can use the client credentials grant type against backend APIs that are using OAuth 2.0. 
+-	Exposing APIs in API Management as a custom connector in Logic Apps where the backend service requires OAuth 2.0 flow.  
+-	On behalf of a scenario where a service such as Dropbox or any other service protected by OAuth 2.0 flow is used by multiple clients.  
+-	Connect to different services that require OAuth 2.0 authorization using synthetic GraphQL in API Management. 
+-	Enterprise Application Integration (EAI) patterns using service-to-service authorization can use the client credentials grant type against backend APIs that use OAuth 2.0. 
 -	Single-page applications that only want to retrieve an access token to be used in a client's SDK against an API using OAuth 2.0. 
 
 The feature consists of two parts, management and runtime:
@@ -30,7 +30,7 @@ The feature consists of two parts, management and runtime:
 * The **management** part takes care of configuring identity providers, enabling the consent flow for the identity provider, and managing access to the authorizations.
 
 
-* The **runtime** part is using the [`get-authorization-context`](api-management-access-restriction-policies.md#GetAuthorizationContext) policy to fetch and store access and refresh tokens. When a call comes into API Management, and the `get-authorization-context` policy is executed, it will first validate if the existing authorization token is valid. If the authorization token has expired, the refresh token is used to try to fetch a new authorization and refresh token from the configured identity provider. If the call to the backend provider is successful, the new authorization token will be used, and both the authorization token and refresh token will be stored encrypted.
+* The **runtime** part uses the [`get-authorization-context`](api-management-access-restriction-policies.md#GetAuthorizationContext) policy to fetch and store access and refresh tokens. When a call comes into API Management, and the `get-authorization-context` policy is executed, it will first validate if the existing authorization token is valid. If the authorization token has expired, the refresh token is used to try to fetch a new authorization and refresh token from the configured identity provider. If the call to the backend provider is successful, the new authorization token will be used, and both the authorization token and refresh token will be stored encrypted.
 
 
     During the policy execution, access to the tokens is also validated using access policies.
@@ -39,7 +39,7 @@ The feature consists of two parts, management and runtime:
 
 ### Requirements 
 
-- Managed System assigned identity must be enabled for the API Management instance.  
+- Managed system-assigned identity must be enabled for the API Management instance.  
 - API Management instance must have outbound connectivity to internet on port `443` (HTTPS).
 
 ### Limitations
@@ -47,10 +47,10 @@ The feature consists of two parts, management and runtime:
 For public preview the following limitations exist:
 
 - Authorizations feature will be available in the Consumption tier in the coming weeks.
-- Authorizations feature is not supported in the following regions: swedencentral, australiacentral, australiacentral2, jioindiacentral
+- Authorizations feature is not supported in the following regions: swedencentral, australiacentral, australiacentral2, jioindiacentral.
 - Supported identity providers: Azure AD, DropBox, Generic OAuth 2.0, GitHub, Google, LinkedIn, Spotify
 - Maximum configured number of authorization providers per API Management instance: 50
-- Maximum configured number of authorizations per Authorization provider: 500
+- Maximum configured number of authorizations per authorization provider: 500
 - Maximum configured number of access policies per authorization: 100
 - Maximum requests per minute per authorization: 100
 - Authorization code PKCE flow with code challenge isn't supported.
@@ -78,15 +78,15 @@ To use an authorization provider, at least one *authorization* is required. The 
 
 **Authorization code grant type**
 
-Authorization code grant type is bound to a user context, meaning a user needs to consent to the authorization. As long as the refresh token is valid, API Management can retrieve new access and refresh tokens. If the refresh token becomes invalid, the user needs to reauthorize. All identity providers support authorization code. [Read more about Authorization code grant type](https://www.rfc-editor.org/rfc/rfc6749?msclkid=929b18b5d0e611ec82a764a7c26a9bea#section-1.3.1) 
+Authorization code grant type is bound to a user context, meaning a user needs to consent to the authorization. As long as the refresh token is valid, API Management can retrieve new access and refresh tokens. If the refresh token becomes invalid, the user needs to reauthorize. All identity providers support authorization code. [Read more about Authorization code grant type](https://www.rfc-editor.org/rfc/rfc6749?msclkid=929b18b5d0e611ec82a764a7c26a9bea#section-1.3.1). 
 
 **Client credentials grant type**
 
-Client credentials grant type isn't bound to a user and is often used in application-to-application scenarios. No consent is required for client credentials grant type, and the authorization doesn't become invalid.  [Read more about Client Credentials grant type](https://www.rfc-editor.org/rfc/rfc6749?msclkid=929b18b5d0e611ec82a764a7c26a9bea#section-1.3.4)
+Client credentials grant type isn't bound to a user and is often used in application-to-application scenarios. No consent is required for client credentials grant type, and the authorization doesn't become invalid.  [Read more about Client Credentials grant type](https://www.rfc-editor.org/rfc/rfc6749?msclkid=929b18b5d0e611ec82a764a7c26a9bea#section-1.3.4).
 
 
 ### Access policies
-Access policies determine which identities can use the authorization that the access policy is related to. The supported identities are managed identities, user identities and service principals. The identities must belong to the same tenant as the API Management tenant.  
+Access policies determine which identities can use the authorization that the access policy is related to. The supported identities are managed identities, user identities, and service principals. The identities must belong to the same tenant as the API Management tenant.  
 
 - **Managed identities** - System- or user-assigned identity for the API Management instance that is being used.
 - **User identities** - Users in the same tenant as the API Management instance.  
@@ -103,13 +103,13 @@ The following image shows the process flow for creating an authorization in API 
 1. Authorization provider is created, and a response is sent back.
 1. Client sends a request to create an authorization.
 1. Authorization is created, and a response is sent back with the information that the authorization is not "connected". 
-1. Client sends a request to retrieve a login url to start the OAuth 2.0 consent at the identity provider. The request includes a post redirect url to be used in the last step.  
-1. Response is returned with a login url that should be used to start the consent flow. 
-1. Client opens a browser with the login url that was provided in the previous step. The browser is redirected to the identity provider OAuth 2.0 consent flow. 
+1. Client sends a request to retrieve a login URL to start the OAuth 2.0 consent at the identity provider. The request includes a post-redirect URL to be used in the last step.  
+1. Response is returned with a login URL that should be used to start the consent flow. 
+1. Client opens a browser with the login URL that was provided in the previous step. The browser is redirected to the identity provider OAuth 2.0 consent flow. 
 1. After the consent is approved, the browser is redirected with an authorization code to the redirect url configured at the identity provider. 
 1. API Management uses the authorization code to fetch access and refresh tokens. 
 1. API Management receives the tokens and encrypts them.
-1. API Management redirects to the provided URL from step 5.
+1. API Management redirects to the provided URL from step 6.
 
 ### Process flow for runtime
 
@@ -119,7 +119,7 @@ The following image shows the process flow to fetch and store authorization and 
 
 1. Client sends request to API Management instance.
 1. The policy [`get-authorization-context`](api-management-access-restriction-policies.md#GetAuthorizationContext) checks if the access token is valid for the current authorization.
-1. If the access token has expired but the refresh token is valid, API Management tries to fetch new access and refresh token from the configured identity provider.
+1. If the access token has expired but the refresh token is valid, API Management tries to fetch new access and refresh tokens from the configured identity provider.
 1. The identity provider returns both an access token and a refresh token, which are encrypted and saved to API Management. 
 1. After the tokens have been retrieved, the access token is attached using the `set-header` policy as an authorization header to the outgoing request to the backend API.
 1. Response is returned to API Management.
