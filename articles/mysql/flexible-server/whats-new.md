@@ -22,7 +22,7 @@ This article summarizes new releases and features in Azure Database for MySQL - 
 
 **Known Issues**
 
-On few servers where audit or slow logs are enabled, you may no longer see logs being uploaded to data sinks configured under diagnostics settings. Please verify whether your logs have the latest updated timestamp for the events, based on the [data sink](./tutorial-query-performance-insights.md#set-up-diagnostics) you have configured. If your server is affected by this issue, please open a [support ticket](https://azure.microsoft.com/en-us/support/create-ticket/) so that we can apply a quick fix on the server to resolve the issue. Alternatively, you can wait for our next deployment cycle, during which we will apply a permanent fix in all regions.
+On few servers where audit or slow logs are enabled, you may no longer see logs being uploaded to data sinks configured under diagnostics settings. Please verify whether your logs have the latest updated timestamp for the events, based on the [data sink](./tutorial-query-performance-insights.md#set-up-diagnostics) you have configured. If your server is affected by this issue, please open a [support ticket](https://azure.microsoft.com/support/create-ticket/) so that we can apply a quick fix on the server to resolve the issue. Alternatively, you can wait for our next deployment cycle, during which we will apply a permanent fix in all regions.
 
 ## May 2022
 
