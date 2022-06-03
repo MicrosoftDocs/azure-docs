@@ -101,7 +101,7 @@ This section describes how to define users. Cyberx, support, and administrator u
 
 If users aren't active at the keyboard or mouse for a specific time, they're signed out of their session and must sign in again.
 
-When users haven't worked with their console mouse or keyboard for 30 minutes, a session sign out is forced.
+When users haven't worked with their console mouse or keyboard for 30 minutes, a session sign-out is forced.
 
 This feature is enabled by default and on upgrade, but can be disabled. In addition, session counting times can be updated. Session times are defined in seconds. Definitions are applied per sensor and on-premises management console.
 
@@ -203,9 +203,9 @@ You can recover the password for the on-premises management console or the senso
 
 **To recover the password for the on-premises management console, or the sensor**:
 
-1. On the sign in screen of either the on-premises management console or the sensor, select **Password recovery**. The **Password recovery** screen opens.
+1. On the sign-in screen of either the on-premises management console or the sensor, select **Password recovery**. The **Password recovery** screen opens.
 
-    :::image type="content" source="media/how-to-create-and-manage-users/password-recovery.png" alt-text="Screenshot of the Select Password recovery from the sign in screen of either the on-premises management console, or the sensor.":::
+    :::image type="content" source="media/how-to-create-and-manage-users/password-recovery.png" alt-text="Screenshot of the Select Password recovery from the sign-in screen of either the on-premises management console, or the sensor.":::
 
 1. Select either **CyberX** or **Support** from the drop-down menu, and copy the unique identifier code.
 
