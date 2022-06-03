@@ -1,23 +1,26 @@
 ---
-title: Analyze logs and metrics in Azure Spring Cloud | Microsoft Docs
-description: Learn how to analyze diagnostics data in Azure Spring Cloud
+title: Analyze logs and metrics in Azure Spring Apps | Microsoft Docs
+description: Learn how to analyze diagnostics data in Azure Spring Apps
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: karler
-ms.custom: devx-track-java
+ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
 # Analyze logs and metrics with diagnostics settings
+
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ✔️ Java ✔️ C#
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
-This article shows you how to analyze diagnostics data in Azure Spring Cloud.
+This article shows you how to analyze diagnostics data in Azure Spring Apps.
 
-Using the diagnostics functionality of Azure Spring Cloud, you can analyze logs and metrics with any of the following services:
+Using the diagnostics functionality of Azure Spring Apps, you can analyze logs and metrics with any of the following services:
 
 * Use Azure Log Analytics, where the data is written to Azure Storage. There is a delay when exporting logs to Log Analytics.
 * Save logs to a storage account for auditing or manual inspection. You can specify the retention time (in days).
@@ -26,7 +29,7 @@ Using the diagnostics functionality of Azure Spring Cloud, you can analyze logs 
 Choose the log category and metric category you want to monitor.
 
 > [!TIP]
-> Just want to stream your logs? Check out this [Azure CLI command](/cli/azure/spring-cloud/app#az-spring-cloud-app-logs)!
+> Just want to stream your logs? Check out this [Azure CLI command](/cli/azure/spring/app#az-spring-cloud-app-logs)!
 
 ## Logs
 
@@ -39,13 +42,13 @@ Choose the log category and metric category you want to monitor.
 
 ## Metrics
 
-For a complete list of metrics, see [Spring Cloud Metrics](./concept-metrics.md#user-metrics-options).
+For a complete list of metrics, see the [User metrics options](./concept-metrics.md#user-metrics-options) section of [Metrics for Azure Spring Apps](concept-metrics.md).
 
 To get started, enable one of these services to receive the data. To learn about configuring Log Analytics, see [Get started with Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md).
 
 ## Configure diagnostics settings
 
-1. In the Azure portal, go to your Azure Spring Cloud instance.
+1. In the Azure portal, go to your Azure Spring Apps instance.
 1. Select **diagnostics settings** option, and then select **Add diagnostics setting**.
 1. Enter a name for the setting, and then choose where you want to send the logs. You can select any combination of the following three options:
     * **Archive to a storage account**
@@ -57,7 +60,7 @@ To get started, enable one of these services to receive the data. To learn about
 
 > [!NOTE]
 > There might be a gap of up to 15 minutes between when logs or metrics are emitted and when they appear in your storage account, your event hub, or Log Analytics.
-> If the Azure Spring Cloud instance is deleted or moved, the operation won't cascade to the **diagnostics settings** resources. The **diagnostics settings** resources have to be deleted manually before the operation against its parent, the Azure Spring Cloud instance. Otherwise, if a new Azure Spring Cloud instance is provisioned with the same resource ID as the deleted one, or if the Azure Spring Cloud instance is moved back, the previous **diagnostics settings** resources continue extending it.
+> If the Azure Spring Apps instance is deleted or moved, the operation won't cascade to the **diagnostics settings** resources. The **diagnostics settings** resources have to be deleted manually before the operation against its parent, the Azure Spring Apps instance. Otherwise, if a new Azure Spring Apps instance is provisioned with the same resource ID as the deleted one, or if the Azure Spring Apps instance is moved back, the previous **diagnostics settings** resources continue extending it.
 
 ## View the logs and metrics
 
@@ -65,7 +68,7 @@ There are various methods to view logs and metrics as described under the follow
 
 ### Use the Logs blade
 
-1. In the Azure portal, go to your Azure Spring Cloud instance.
+1. In the Azure portal, go to your Azure Spring Apps instance.
 1. To open the **Log Search** pane, select **Logs**.
 1. In the **Tables** search box
    * To view logs, enter a simple query such as:
@@ -145,9 +148,9 @@ Azure Log Analytics is running with a Kusto engine so you can query your logs fo
 
 Application logs provide critical information and verbose logs about your application's health, performance, and more. In the next sections are some simple queries to help you understand your application's current and past states.
 
-### Show application logs from Azure Spring Cloud
+### Show application logs from Azure Spring Apps
 
-To review a list of application logs from Azure Spring Cloud, sorted by time with the most recent logs shown first, run the following query:
+To review a list of application logs from Azure Spring Apps, sorted by time with the most recent logs shown first, run the following query:
 
 ```sql
 AppPlatformLogsforSpring
@@ -260,4 +263,4 @@ You may be able to use the same strategy for other Java log libraries.
 
 ## Next steps
 
-* [Quickstart: Deploy your first Spring Boot app in Azure Spring Cloud](./quickstart.md)
+* [Quickstart: Deploy your first Spring Boot app in Azure Spring Apps](./quickstart.md)

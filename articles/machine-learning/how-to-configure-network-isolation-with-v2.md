@@ -16,6 +16,14 @@ ms.date: 05/13/2022
 
 In this article, you'll learn about network isolation changes with our new v2 API platform on Azure Resource Manager (ARM) and its effect on network isolation.
 
+
+## Prerequisites
+
+* The [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/install) or [Azure CLI extension for machine learning v1](reference-azure-machine-learning-cli.md).
+
+    > [!IMPORTANT]
+    > The v1 extension (`azure-cli-ml`) version must be 1.41.0 or greater. Use the `az version` command to view version information.
+ 
 ## What is the new API platform on Azure Resource Manager (ARM)
 
 There are two types of operations used by the v1 and v2 APIs, __Azure Resource Manager (ARM)__ and __Azure Machine Learning workspace__.
@@ -36,7 +44,7 @@ The Azure Machine Learning CLI v2 uses our new v2 API platform. New features suc
 
 As mentioned in the previous section, there are two types of operations; with ARM and with the workspace. With the __legacy v1 API__, most operations used the workspace. With the v1 API, adding a private endpoint to the workspace provided network isolation for everything except CRUD operations on the workspace or compute resources.
 
-With the __new v2 API__, most operations use ARM. So enabling a private endpoint on your workspace doesn't provide the same level of network isolation. Operations that use ARM communicate  over public networks, and include any metadata (such as your resource IDs) or parameters used by the operation. For example, the [create or update job](/rest/api/azureml/jobs/create-or-update) api sends metadata, and [parameters](/azure/machine-learning/reference-yaml-job-command).
+With the __new v2 API__, most operations use ARM. So enabling a private endpoint on your workspace doesn't provide the same level of network isolation. Operations that use ARM communicate  over public networks, and include any metadata (such as your resource IDs) or parameters used by the operation. For example, the [create or update job](/rest/api/azureml/jobs/create-or-update) api sends metadata, and [parameters](./reference-yaml-job-command.md).
 
 > [!TIP]
 > * Public ARM operations do not surface data in your storage account on public networks. 
@@ -92,11 +100,20 @@ ws.update(v1_legacy_mode=false)
 
 # [Azure CLI extension v1](#tab/azurecliextensionv1)
 
-The Azure CLI [extension v1 for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace update](/cli/azure/ml/workspace#az-ml-workspace-update) command. To enable the parameter for a workspace, add the parameter `--set v1_legacy_mode=true`.
+The Azure CLI [extension v1 for machine learning](reference-azure-machine-learning-cli.md) provides the [az ml workspace update](/cli/azure/ml/workspace#az-ml-workspace-update) command. To enable the parameter for a workspace, add the parameter `--v1-legacy-mode true`.
+
+> [!IMPORTANT]
+> The `v1-legacy-mode` parameter is only available in version 1.41.0 or newer of the Azure CLI extension for machine learning v1 (`azure-cli-ml`). Use the `az version` command to view version information.
+
+The return value of the `az ml workspace update` command may not show the updated value. To view the current state of the parameter, use the following command:
+ 
+```azurecli
+az ml workspace show -g <myresourcegroup> -w <myworkspace> --query v1LegacyMode
+```
 
 ---
 
 ## Next steps
 
 * [Use a private endpoint with Azure Machine Learning workspace](how-to-configure-private-link.md).
-* [Create private link for managing Azure resources](/azure/azure-resource-manager/management/create-private-link-access-portal).
+* [Create private link for managing Azure resources](../azure-resource-manager/management/create-private-link-access-portal.md).

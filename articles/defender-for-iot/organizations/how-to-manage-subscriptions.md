@@ -9,7 +9,7 @@ ms.topic: how-to
 
 Your Defender for IoT deployment is managed through your Microsoft Defender for IoT account subscriptions. You can onboard, edit, and offboard your subscriptions to Defender for IoT in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 
-For each subscription, you will be asked to define a number of *committed devices*. Committed devices are the approximate number of devices that will be monitored in your enterprise. 
+For each subscription, you'll be asked to define a number of *committed devices*. Committed devices are the approximate number of devices that will be monitored in your enterprise. 
 
 > [!NOTE]
 > If you've come to this page because you are a [former CyberX customer](https://blogs.microsoft.com/blog/2020/06/22/microsoft-acquires-cyberx-to-accelerate-and-secure-customers-iot-deployments) and have questions about your account, reach out to your account manager for guidance.
@@ -17,7 +17,7 @@ For each subscription, you will be asked to define a number of *committed device
 
 ## Subscription billing
 
-You are billed based on the number of committed devices associated with each subscription.
+You're billed based on the number of committed devices associated with each subscription.
 
 The billing cycle for Microsoft Defender for IoT follows a calendar month. Changes you make to committed devices during the  month are implemented one hour after confirming your update, and are reflected in your monthly bill. Subscription *offboarding* also takes effect one hour after confirming the offboard.
 
@@ -25,7 +25,7 @@ Your enterprise may have more than one paying entity. If this is the case you ca
 
 Before you subscribe, you should have a sense of how many devices you would like your subscriptions to cover.
 
-Users can also work with trial subscription, which supports monitoring a limited number of devices for 30 days. See [Microsoft Defender for IoT pricing](https://azure.microsoft.com/pricing/details/defender-for-cloud/#defenderforiot) information on committed device prices.
+Users can also work with trial subscription, which supports monitoring a limited number of devices for 30 days. See [Microsoft Defender for IoT pricing](https://azure.microsoft.com/pricing/details/iot-defender/) information on committed device prices.
 
 ## Requirements
 
@@ -76,11 +76,11 @@ This section describes how to onboard a subscription.
 
 1. Select **Subscribe**.
 1. Confirm your subscription.
-1. If you have not done so already, onboard a sensor or Set up a sensor.
+1. If you haven't done so already, onboard a sensor or Set up a sensor.
 
 ## Update committed devices in a subscription
 
-You may need to update your subscription with more committed devices, or more fewer committed devices. More devices may require monitoring if, for example, you are increasing existing site coverage, discovered more devices than expected or there are network changes such as adding switches.
+You may need to update your subscription with more committed devices, or fewer committed devices. More devices may require monitoring if, for example, you are increasing existing site coverage, discovered more devices than expected or there are network changes such as adding switches.
 
 **To update a subscription:**
 1. Go to [Defender for IoT: Getting started](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) in the Azure portal.

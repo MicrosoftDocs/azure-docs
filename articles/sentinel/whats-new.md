@@ -27,6 +27,27 @@ If you're looking for items older than six months, you'll find them in the [Arch
 >
 > You can also contribute! Join us in the [Microsoft Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 
+## May 2022
+
+- [Relate alerts to incidents](#relate-alerts-to-incidents-preview)
+- [Similar incidents](#similar-incidents-preview)
+
+### Relate alerts to incidents (Preview)
+
+You can now add alerts to, or remove alerts from, existing incidents, either manually or automatically, as part of your investigation processes. This allows you to refine the incident scope as the investigation unfolds. For example, relate Microsoft Defender for Cloud alerts, or alerts from third-party products, to incidents synchronized from Microsoft 365 Defender. Use this feature from the investigation graph, the API, or through automation playbooks.
+
+Learn more about [relating alerts to incidents](relate-alerts-to-incidents.md).
+
+### Similar incidents (Preview)
+
+When triaging or investigating an incident, the context of the entirety of incidents in your SOC can be extremely useful. For example, other incidents involving the same entities can represent useful context that will allow you to reach the right decision faster. Now there's a new tab in the incident page that lists other incidents that are similar to the incident you are investigating. Some common use cases for using similar incidents are:
+
+- Finding other incidents that might be part of a larger attack story.
+- Using a similar incident as a reference for incident handling. The way the previous incident was handled can act as a guide for handling the current one.
+- Finding relevant people in your SOC that have handled similar incidents for guidance or consult.
+
+Learn more about [similar incidents](investigate-cases.md#similar-incidents-preview).
+
 ## March 2022
 
 - [Automation rules now generally available](#automation-rules-now-generally-available)

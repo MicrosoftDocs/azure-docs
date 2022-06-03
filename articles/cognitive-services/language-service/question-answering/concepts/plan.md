@@ -6,7 +6,7 @@ ms.subservice: language-service
 author: jboback
 ms.author: jboback
 ms.topic: conceptual
-ms.date: 11/02/2021
+ms.date: 06/03/2022
 ---
 
 # Plan your question answering app
@@ -62,7 +62,7 @@ Question answering also supports unstructured content. You can upload a file tha
 
 Currently we do not support URLs for unstructured content.
 
-The ingestion process converts supported content types to markdown. All further editing of the *answer* is done with markdown. After you create a knowledge base, you can edit QnA pairs in the Language Studio portal with rich text authoring.
+The ingestion process converts supported content types to markdown. All further editing of the *answer* is done with markdown. After you create a knowledge base, you can edit QnA pairs in Language Studio with rich text authoring.
 
 ### Data format considerations
 

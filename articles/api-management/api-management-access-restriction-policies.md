@@ -175,6 +175,7 @@ For more information and examples of this policy, see [Advanced request throttli
 <rate-limit-by-key calls="number"
                    renewal-period="seconds"
                    increment-condition="condition"
+                   increment-count="number"
                    counter-key="key value" 
                    retry-after-header-name="header name" retry-after-variable-name="policy expression variable name"
                    remaining-calls-header-name="header name"  remaining-calls-variable-name="policy expression variable name"
@@ -215,6 +216,7 @@ In the following example, the rate limit of 10 calls per 60 seconds is keyed by 
 | calls               | The maximum total number of calls allowed during the time interval specified in the `renewal-period`. Policy expression is allowed. | Yes      | N/A     |
 | counter-key         | The key to use for the rate limit policy.                                                             | Yes      | N/A     |
 | increment-condition | The boolean expression specifying if the request should be counted towards the rate (`true`).        | No       | N/A     |
+| increment-count | The number by which the counter is increased per request.        | No       | 1     |
 | renewal-period      | The length in seconds of the sliding window during which the number of allowed requests should not exceed the value specified in `calls`. Policy expression is allowed. Maximum allowed value: 300 seconds.                 | Yes      | N/A     |
 | retry-after-header-name    | The name of a response header whose value is the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
 | retry-after-variable-name    | The name of a policy expression variable that stores the recommended retry interval in seconds after the specified call rate is exceeded. |  No | N/A  |
@@ -277,6 +279,9 @@ This policy can be used in the following policy [sections](./api-management-howt
 
 -   **Policy sections:** inbound
 -   **Policy scopes:** all scopes
+
+> [!NOTE]
+> If you configure this policy at more than one scope, IP filtering is applied in the order of [policy evaluation](set-edit-policies.md#use-base-element-to-set-policy-evaluation-order) in your policy definition. 
 
 ## <a name="SetUsageQuota"></a> Set usage quota by subscription
 
