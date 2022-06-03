@@ -64,7 +64,7 @@ However, please note that the confidence score with which the system returns the
 
 2. For better relevance, the customer needs to provide a list of acronyms that the end user intends to use interchangeably. For instance, the following is a list of acceptable acronyms:
 
-MSFT – Microsoft
+   MSFT – Microsoft
 
 ID – Identification
 
