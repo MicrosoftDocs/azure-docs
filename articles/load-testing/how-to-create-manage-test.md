@@ -66,7 +66,7 @@ To reuse an existing JMeter test script, or for more advanced test scenarios, cr
 
     If you select **Run test after creation**, the test will start automatically. You can start your test manually at any time, after creating it.
 
-    :::image type="content" source="media/how-to-create-manage-test/create-jmeter-test.png" alt-text="Screenshot that shows the page for creating a test with a JMeter script in the Azure portal.":::
+    :::image type="content" source="media/how-to-create-manage-test/create-jmeter-test.png" alt-text="Screenshot that shows the page for creating a test with a J Meter script in the Azure portal.":::
 
 ## Test plan
 
@@ -103,7 +103,7 @@ To configure your load test:
 1. Go to the **Test plan** page for your load test.
 1. Select **Split CSV evenly between Test engines**.
 
-    :::image type="content" source="media/how-to-create-manage-test/configure-test-split-csv.png" alt-text="Screenshot that shows the checkbox to enable splitting input CSV files when configuring a test in the Azure portal.":::
+    :::image type="content" source="media/how-to-create-manage-test/configure-test-split-csv.png" alt-text="Screenshot that shows the checkbox to enable splitting input C S V files when configuring a test in the Azure portal.":::
 
 ## Parameters
 
