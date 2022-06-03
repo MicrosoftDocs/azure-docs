@@ -15,6 +15,8 @@ ms.topic: how-to
 
 This article explains how to deploy Azure Arc-enabled SQL Managed Instance with Active Directory (AD) authentication using Azure CLI.
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 See these articles for specific instructions:
 
 - [Tutorial – Deploy AD connector in customer-managed keytab mode](deploy-customer-managed-keytab-active-directory-connector.md)

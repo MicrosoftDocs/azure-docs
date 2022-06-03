@@ -102,7 +102,7 @@ Add-AzureADGroupMember -ObjectId $roleAssignablegroup.Id -RefObjectId $member.Ob
 ### Create a role-assignable group in Azure AD
 
 ```http
-POST https://graph.microsoft.com/beta/groups
+POST https://graph.microsoft.com/v1.0/groups
 {
   "description": "This group is assigned to Helpdesk Administrator built-in role of Azure AD.",
   "displayName": "Contoso_Helpdesk_Administrators",

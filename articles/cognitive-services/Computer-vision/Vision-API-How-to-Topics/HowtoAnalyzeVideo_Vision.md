@@ -10,7 +10,7 @@ ms.subservice: computer-vision
 ms.topic: how-to
 ms.date: 09/09/2019
 ms.devlang: csharp
-ms.custom: [seodec18, devx-track-csharp, non-critical]
+ms.custom: [seodec18, devx-track-csharp, cogserv-non-critical-vision]
 ---
 
 # Analyze videos in near real time

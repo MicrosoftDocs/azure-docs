@@ -10,7 +10,7 @@ ms.custom: references_regions
 
 The **tabs** below show the features of Microsoft Defender for Cloud that are available for Windows and Linux machines.
 
-## Supported features for virtual machines and servers <a name="vm-server-features"></a>
+## Supported features for virtual machines and servers<a name="vm-server-features"></a>
 
 ### [**Windows machines**](#tab/features-windows)
 
@@ -61,7 +61,7 @@ The **tabs** below show the features of Microsoft Defender for Cloud that are av
 
 
 
-### [**Multi-cloud machines**](#tab/features-multi-cloud)
+### [**Multicloud machines**](#tab/features-multicloud)
 
 | **Feature** | **Availability in AWS** | **Availability in GCP** |
 |--|:-:|

@@ -194,10 +194,6 @@ SPXSpeechRecognizer* speechRecognizer = [[SPXSpeechRecognizer alloc] initWithSpe
 
 ::: zone-end
 
-## See also
-
-For a list of supported languages and locales for speech-to-text, see [Language support](language-support.md).
-
 ## Next steps
 
-See the [Speech SDK reference documentation](speech-sdk.md).
+- [Language support](language-support.md)
