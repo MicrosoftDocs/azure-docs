@@ -143,7 +143,7 @@ Read more about the Azure Identity libraries below:
 
 ### Accessing a Blob in Azure Storage
 
-#### [.NET](#tab/netcore)
+#### [.NET](#tab/dotnet)
 
 ```csharp
 var credentialOptions = new DefaultAzureCredentialOptions
