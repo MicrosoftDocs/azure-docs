@@ -106,9 +106,9 @@ For new private cloud deployments (in US West and Australia East) starting **Jun
 > [!NOTE]
 > Admin access to NSX-T will not be provided to users for private cloud deployments created after **June 2022**.
 
-### NSX-T cloud admin permissions
+### NSX-T cloud admin user permissions
 
-The following permissions are assigned to the **cloudadmin** role in Azure VMware Solution NSX-T.
+The following permissions are assigned to the **cloudadmin** user in Azure VMware Solution NSX-T.
 
 | Category        | Type                  | Operation                                                            | Permission                                                       |
 |-----------------|-----------------------|----------------------------------------------------------------------|------------------------------------------------------------------|
@@ -124,8 +124,9 @@ The following permissions are assigned to the **cloudadmin** role in Azure VMwar
 | Inventory       |                       |                                                                      | Full Access                                                      |
 | Troubleshooting | IPFIX                 |                                                                      | Full Access                                                      |
 | Troubleshooting | Port Mirroring        |                                                                      | Full Access                                                      |
-| System          | Backup and Restore    |                                                                      | Read-only                                                        |
-| System          | Settings              | Users and Roles<br>License Configuration<br>Certificate Management   | Full Access<br>Read-only<br>Full Access                          |
+| Troubleshooting | Traceflow        |                                                                      | Full Access                                                      |
+| System          | Configuration<br>Settings<br>Settings<br>System              | Identity firewall<br>Users and Roles<br>Certificate Management<br>User Interface Settings   | Full Access<br>Full Access<br>Full Access<br>Full Access                          |
+| System          | All other    |                                                                      | Read-only                                                        |
 
 
 You can view the permissions granted to the Azure VMware Solution CloudAdmin role using the following steps:
