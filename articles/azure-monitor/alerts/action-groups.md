@@ -1,9 +1,9 @@
 ---
-title: Manage Azure portal action groups 
+title: Manage action groups in the Azure portal
 description: Learn how to create and manage action groups in the Azure portal.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 06/02/2022
+ms.date: 06/03/2022
 ms.author: dukek
 ms.custom:
    - references_regions
@@ -11,176 +11,203 @@ ms.custom:
 ---
 # Create and manage action groups in the Azure portal
 
-An action group is a collection of notification preferences defined by the owner of an Azure subscription. Azure Monitor, Service Health and Azure Advisor alerts use action groups to notify users that an alert has been triggered. Various alerts may use the same action group or different action groups depending on the user's requirements.
+When Azure Monitor data indicates that there might be a problem with your infrastructure or application, an alert is triggered. Azure Monitor, Service Health, and Azure Advisor then use *action groups* to notify users about the alert and take an action. An action group is a collection of notification preferences that are defined by the owner of an Azure subscription.
 
-This article shows you how to create and manage action groups in the Azure portal.
+This article shows you how to create and manage action groups in the Azure portal. Depending on your requirements, you can configure various alerts to use the same action group or different action groups.
 
 Each action is made up of the following properties:
 
-* **Type**: The notification or action performed. Examples include sending a voice call, SMS, email; or triggering various types of automated actions. See types later in this article.
-* **Name**: A unique identifier within the action group.
-* **Details**: The corresponding details that vary by *type*.
+- **Type**: The notification that's sent or action that's performed. Examples include sending a voice call, SMS, or email. You can also trigger various types of automated actions. For detailed information about notification and action types, see [Action-specific information](#action-specific-information), later in this article.
+- **Name**: A unique identifier within the action group.
+- **Details**: The corresponding details that vary by type.
 
-For information on how to use Azure Resource Manager templates to configure action groups, see [Action group Resource Manager templates](./action-groups-create-resource-manager-template.md).
+For information about how to use Azure Resource Manager templates to configure action groups, see [Action group Resource Manager templates](./action-groups-create-resource-manager-template.md).
 
-Action Group is **Global** service, therefore there's no dependency on a specific Azure region. Requests from client can be processed by action group service in any region, which means, if one region of service is down, the traffic will be routed and process by other regions automatically. Being a *global service* it helps client not to worry about **disaster recovery**.
+An action group is a **global** service, so there's no dependency on a specific Azure region. Requests from clients can be processed by action group services in any region. For instance, if one region of service is down, the traffic is automatically routed and processed by other regions. As global services, action groups help provide a **disaster recovery** solution.
 
 ## Create an action group by using the Azure portal
 
 1. In the [Azure portal](https://portal.azure.com), search for and select **Monitor**. The **Monitor** pane consolidates all your monitoring settings and data in one view.
 
-1. Select **Alerts**, then select **Manage actions**.
+1. Select **Alerts**, and then select **Manage actions**.
 
-    ![Manage Actions button](./media/action-groups/manage-action-groups.png)
+   [Manage Actions button](./media/action-groups/manage-action-groups.png)
 
-1. Select **Add action group**, and fill in the relevant fields in the wizard experience.
+1. Select **Add action group**.
 
-    ![The "Add action group" command](./media/action-groups/add-action-group.PNG)
+   ![The "Add action group" command](./media/action-groups/add-action-group.PNG)
+
+1. Enter information as explained in the following sections.
 
 ### Configure basic action group settings
 
-Under **Project details**:
+1. Under **Project details**, select values for **Subscription** and **Resource group**. The action group is saved in the subscription and resource group that you select.
 
-Select the **Subscription** and **Resource group** in which the action group is saved.
+1. Under **Instance details**, enter values for **Action group name** and **Display name**. The display name is used in place of a full action group name when the group is used to send notifications.
 
-Under **Instance details**:
-
-1. Enter an **Action group name**.
-
-1. Enter a **Display name**. The display name is used in place of a full action group name when notifications are sent using this group.
-
-      ![The "Add action group" dialog box](./media/action-groups/action-group-1-basics.png)
-
+   ![The "Add action group" dialog box](./media/action-groups/action-group-1-basics.png)
 
 ### Configure notifications
 
-1. Click the **Next: Notifications >** button to move to the **Notifications** tab, or select the **Notifications** tab at the top of the screen.
+1. To move to the **Notifications** tab, select **Next: Notifications**. Alternately, at the top of the page, select the **Notifications** tab.
 
-1. Define a list of notifications to send when an alert is triggered. Provide the following for each notification:
+1. Define a list of notifications to send when an alert is triggered. Provide the following information for each notification:
 
-    a. **Notification type**: Select the type of notification you want to send. The available options are:
-      * Email Azure Resource Manager Role - Send an email to users assigned to certain subscription-level ARM roles.
-      * Email/SMS/Push/Voice - Send these notification types to specific recipients.
+   - **Notification type**: Select the type of notification you want to send. The available options are:
 
-    b. **Name**: Enter a unique name for the notification.
+     - **Email Azure Resource Manager Role**: Send an email to users who are assigned to certain subscription-level ARM roles.
+     - **Email/SMS message/Push/Voice**: Send these notification types to specific recipients.
 
-    c. **Details**: Based on the selected notification type, enter an email address, phone number, etc.
+   - **Name**: Enter a unique name for the notification.
 
-    d. **Common alert schema**: You can choose to enable the [common alert schema](./alerts-common-schema.md), which provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor.
+   - **Details**: Based on the selected notification type, enter an email address, phone number, or other information.
 
-    ![The Notifications tab](./media/action-groups/action-group-2-notifications.png)
+   - **Common alert schema**: You can choose to turn on the [common alert schema](./alerts-common-schema.md), which provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor.
+
+   ![The Notifications tab](./media/action-groups/action-group-2-notifications.png)
+
+1. Select OK.
 
 ### Configure actions
 
-1. Click the **Next: Actions >** button to move to the **Actions** tab, or select the **Actions** tab at the top of the screen.
+1. To move to the **Actions** tab, select **Next: Actions**. Alternately at the top of the page, select the **Actions** tab.
 
-1. Define a list of actions to trigger when an alert is triggered. Provide the following for each action:
+1. Define a list of actions to trigger when an alert is triggered. Provide the following information for each action:
 
-    a. **Action type**: Select Automation Runbook, Azure Function, ITSM, Logic App, Secure Webhook, Webhook.
+   - **Action type**: Select from the following options:
 
-    b. **Name**: Enter a unique name for the action.
+     - Automation Runbook
+     - Azure Function
+     - Event Hub
+     - ITSM
+     - Logic App
+     - Secure Webhook
+     - Webhook
 
-    c. **Details**: Based on the action type, enter a webhook URI, Azure app, ITSM connection, or Automation Runbook. For ITSM Action, additionally specify **Work Item** and other fields your ITSM tool requires.
+   - **Name**: Enter a unique name for the action.
 
-    d. **Common alert schema**: You can choose to enable the [common alert schema](./alerts-common-schema.md), which provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor.
+   - **Details**: Based on the action type, enter a webhook URI, Azure app, ITSM connection, or Automation Runbook. For ITSM Action, also enter values for **Work Item** and other fields that your ITSM tool requires.
 
-    ![The Actions tab](./media/action-groups/action-group-3-actions.png)
+   - **Common alert schema**: You can choose to turn on the [common alert schema](./alerts-common-schema.md), which provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor.
+
+   ![The Actions tab](./media/action-groups/action-group-3-actions.png)
 
 ### Create the action group
 
-1. You can explore the **Tags** settings if you like. This lets you associate key/value pairs to the action group for your categorization and is a feature available for any Azure resource.
+1. If you'd like to assign a key-value pair to the action group, select **Next: Tags** or the **Tags** tab. Otherwise, skip this step. By using tags, you can categorize your Azure resources. Tags are available for all Azure resources, resource groups, and subscriptions.
 
-    ![The Tags tab](./media/action-groups/action-group-4-tags.png)
+   ![The Tags tab](./media/action-groups/action-group-4-tags.png)
 
-1. Click **Review + create** to review the settings. This will do a quick validation of your inputs to make sure all the required fields are selected. If there are issues, they'll be reported here. Once you've reviewed the settings, click **Create** to provision the action group.
+1. To review the settings, select **Review + create**. This step quickly checks your inputs to make sure you've entered all required information. If there are issues, they're reported here. After you've reviewed the settings, select **Create** to provision the action group.
 
-    ![The Review + create tab](./media/action-groups/action-group-5-review.png)
+   ![The Review + create tab](./media/action-groups/action-group-5-review.png)
 
 > [!NOTE]
-> When you configure an action to notify a person by email or SMS, they receive a confirmation indicating they have been added to the action group.
+> When you configure an action to notify a person by email or SMS, they receive a confirmation indicating that they have been added to the action group.
+
 ### Test an action group in the Azure portal (Preview)
 
-When creating or updating an action group in the Azure portal, you can **test** the action group.
-1. After creating an action rule, click on **Review + create**.  Select *Test action group*.
+When you create or update an action group in the Azure portal, you can **test** the action group.
 
-    ![The Test Action Group](./media/action-groups/test-action-group.png)
+1. Set up an action rule, as described in the previous few sections. Then select **Review + create**. 
 
-1. Select the *sample type* and select the notification and action types that you want to test and select **Test**.
+1. On the page that lists the information you entered, select **Test action group**.
 
-    ![Select Sample Type + notification + action type](./media/action-groups/test-sample-action-group.png)
+   ![The Test Action Group](./media/action-groups/test-action-group.png)
 
-1. If you close the window or select **Back to test setup** while the test is running, the test is stopped, and you won't get test results.
+1. Select a sample type and the notification and action types that you want to test. Then select **Test**.
 
-    ![Stop running test](./media/action-groups/stop-running-test.png)
+   ![Select Sample Type + notification + action type](./media/action-groups/test-sample-action-group.png)
 
-1. When the test is complete either a **Success** or **Failed** test status is displayed. If the test failed, you could select *View details* to get more information.
-    ![Test sample failed](./media/action-groups/test-sample-failed.png)
+1. If you close the window or select **Back to test setup** while the test is running, the test is stopped, and you don't get test results.
 
-You can use the information in the **Error details section**, to understand the issue so that you can edit and test the action group again.
-To allow you to check the action groups are working as expected before you enable them in a production environment, you'll get email and SMS alerts with the subject: Test.
+   ![Stop running test](./media/action-groups/stop-running-test.png)
 
-All the details and links in Test email notifications for the alerts fired are a sample set for reference.
+1. When the test is complete, a test status of either **Success** or **Failed** is displayed. If the test failed and you'd like to get more information, select **View details**.
+
+   ![Test sample failed](./media/action-groups/test-sample-failed.png)
+
+You can use the information in the **Error details** section to understand the issue. Then you can edit and test the action group again.
+
+When you run a test and select a notification type, you get a message with "Test" in the subject. The tests provide a way to check that your action group works as expected before you enable it in a production environment. All the details and links in test email notifications are from a sample reference set.
 
 > [!NOTE]
-> You may have a limited number of actions in a test Action Group. See the [rate limiting information](./alerts-rate-limiting.md) article.
+> You might have a limited number of actions in a test action group. To check which limits apply to your situation, see [Rate limiting for Voice, SMS, emails, Azure App push notifications and webhook posts](./alerts-rate-limiting.md).
 >
-> You can opt in or opt out to the common alert schema through Action Groups, on the portal. You can [find common schema samples for test action groups for all the sample types](./alerts-common-schema-test-action-definitions.md).
-> You can opt in or opt out to the non-common alert schema through Action Groups, on the portal. You can [find non-common schema alert definitions](./alerts-non-common-schema-definitions.md).
+> When you configure an action group in the portal:
+>
+>- You can opt in or out of the common alert schema. To find common schema samples for all sample types, see [Common alert schema definitions for Test Action Group](./alerts-common-schema-test-action-definitions.md).
+> - You can opt in or out of the non-common alert schema. To find non-common schema alert definitions, see [Non-common alert schema definitions for Test Action Group]](./alerts-non-common-schema-definitions.md).
 
 ## Manage your action groups
 
-After you create an action group, you can view **Action groups** by selecting **Manage actions** from the **Alerts** landing page in **Monitor** pane. Select the action group you want to manage to:
+After you create an action group, you can view it in the portal:
 
-* Add, edit, or remove actions.
-* Delete the action group.
+1. From the **Monitor** page, select **Alerts**.
+1. Select **Manage actions**. 
+1. Select the action group you want to manage to:
+
+   - Add, edit, or remove actions.
+   - Delete the action group.
 
 ## Action-specific information
 
+The following sections provide information on the various actions and notifications that you can configure in an action group.
+
 > [!NOTE]
-> See [Subscription Service Limits for Monitoring](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-monitor-limits) for numeric limits on each of the items below.
+> To check numeric limits on each type of action or notification, see [Subscription Service Limits for Monitoring](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-monitor-limits).
 
-### Automation Runbook
-Refer to the [Azure subscription service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md) for limits on Runbook payloads.
+### Automation runbook
 
-You may have a limited number of Runbook actions in an Action Group.
+To check limits on Automation runbook payloads, see [Automation limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).
 
-### Azure app Push Notifications
-Enable push notifications to the [Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/) by providing the email address you use as your account ID when configuring the Azure mobile app.
+You might have a limited number of runbook actions per action group.
 
-You may have a limited number of Azure app actions in an Action Group.
+### Azure app push notifications
+
+Enable push notifications to an [Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/) by providing the email address that you use as your account ID when you configure the Azure mobile app.
+
+You might have a limited number of Azure app actions per action group.
 
 ### Email
-Emails will be sent from the following email addresses. Ensure that your email filtering is configured appropriately
+
+Ensure that your email filtering is configured appropriately. Emails are sent from the following email addresses:
+ 
 - azure-noreply@microsoft.com
 - azureemail-noreply@microsoft.com
 - alerts-noreply@mail.windowsazure.com
 
-You may have a limited number of email actions in an Action Group. See the [rate limiting information](./alerts-rate-limiting.md) article.
+You might have a limited number of email actions per action group. See the [rate limiting information](./alerts-rate-limiting.md) article.
 
-### Email Azure Resource Manager Role
-Send email to the members of the subscription's role. Email will only be sent to **Azure AD user** members of the role. Email won't be sent to Azure AD groups or service principals.
+### Email Azure Resource Manager role
+
+When you use this type of notification, you can send email to the members of a subscription's role. Email will only be sent to Azure AD **user** members of the role. Email won't be sent to Azure AD groups or service principals.
 
 A notification email is sent only to the *primary email* address.
 
-If you aren't receiving Notifications on your *primary email*, then you can try following steps:
+If you don't receive notifications on your *primary email*, try the following steps:
 
-1. In Azure portal, go to *Active Directory*.
-2. Click on All users (in left pane), you will see list of users (in right pane).
-3. Select the user for which you want to review the *primary email* information.
+1. In the Azure portal, go to **Active Directory**.
+1. On the left, select **All users**. On the right, a list of users appears.
+1. Select the user whose *primary email* you'd like to review.
 
-  :::image type="content" source="media/action-groups/active-directory-user-profile.png" alt-text="Example of how to review user profile." border="true":::
+   :::image type="content" source="media/action-groups/active-directory-user-profile.png" alt-text="Example of how to review user profile." border="true":::
 
-4. In User profile under Contact Info if "Email" tab is blank then click on *edit* button on the top and add your *primary email* and hit *save* button on the top.
+1. In the user profile, look under **Contact info** for an **Email** value. If it's blank:
 
-  :::image type="content" source="media/action-groups/active-directory-add-primary-email.png" alt-text="Example of how to add primary email." border="true":::
+   1. At the top of the page, select **Edit**.
+   1. Enter an email address.
+   1. At the top of the page, select **Save**.
 
-You may have a limited number of email actions in an Action Group. See the [rate limiting information](./alerts-rate-limiting.md) article.
+   :::image type="content" source="media/action-groups/active-directory-add-primary-email.png" alt-text="Example of how to add primary email." border="true":::
 
-While setting up *Email ARM Role*, you need to make sure below three conditions are met:
+You might have a limited number of email actions per action group. To check which limits apply to your situation, see [Rate limiting for Voice, SMS, emails, Azure App push notifications and webhook posts](./alerts-rate-limiting.md).
 
-1. The type of the entity being assigned to the role needs to be **"User"**.
-2. The assignment needs to be done at the **subscription** level.
-3. The user needs to have an email configured in their **AAD profile**.
+When you set up *Email ARM Role*:
+
+1. Assign an entity of type **"User"** to the role.
+2. Make the assignment at the **subscription** level.
+3. Make sure an email address is configured for the user in their **AAD profile**.
 
 > [!NOTE]
 > It can take upto **24 hours** for customer to start receiving notifications after they add new ARM Role to their subscription.
@@ -193,15 +220,15 @@ Calls an existing HTTP trigger endpoint in [Azure Functions](../../azure-functio
 
 When defining the Function action the Function's httptrigger endpoint and access key are saved in the action definition. For example: `https://azfunctionurl.azurewebsites.net/api/httptrigger?code=this_is_access_key`. If you change the access key for the function, you will need to remove and recreate the Function action in the Action Group.
 
-You may have a limited number of Function actions in an Action Group.
+You might have a limited number of Function actions per action group.
 
 ### ITSM
 ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection](./itsmc-overview.md).
 
-You may have a limited number of ITSM actions in an Action Group.
+You might have a limited number of ITSM actions per action group.
 
 ### Logic App
-You may have a limited number of Logic App actions in an Action Group.
+You might have a limited number of Logic App actions per action group.
 
 ### Secure Webhook
 The Action Groups Secure Webhook action enables you to take advantage of Azure Active Directory to secure the connection between your action group and your protected web API (webhook endpoint). The overall workflow for taking advantage of this functionality is described below. For an overview of Azure AD Applications and service principals, see [Microsoft identity platform (v2.0) overview](../../active-directory/develop/v2-overview.md).
@@ -305,7 +332,7 @@ Write-Host $myApp.AppRoles
 ### SMS
 See the [rate limiting information](./alerts-rate-limiting.md) and [SMS alert behavior](./alerts-sms-behavior.md) for additional important information.
 
-You may have a limited number of SMS actions in an Action Group.
+You might have a limited number of SMS actions per action group.
 
 > [!NOTE]
 > If the Azure portal Action Group user interface does not let you select your country/region code, then SMS is not supported for your country/region.  If your country/region code is not available, you can vote to have your country/region added at [user voice](https://feedback.azure.com/d365community/idea/e527eaa6-2025-ec11-b6e6-000d3a4f09d0). In the meantime, a work around is to have your Action Group call a webhook to a third-party SMS provider with support in your country/region.
@@ -358,7 +385,7 @@ Pricing for supported countries/regions is listed in the [Azure Monitor pricing 
 ### Voice
 See the [rate limiting information](./alerts-rate-limiting.md) article for additional important behavior.
 
-You may have a limited number of Voice actions in an Action Group.
+You might have a limited number of Voice actions per action group.
 
 > [!NOTE]
 > If the Azure portal Action Group user interface does not let you select your country/region code, then voice calls are not supported for your country/region. If your country/region code is not available, you can vote to have your country/region added at [user voice](https://feedback.azure.com/d365community/idea/e527eaa6-2025-ec11-b6e6-000d3a4f09d0).  In the meantime, a work around is to have your Action Group call a webhook to a third-party voice call provider with support in your country/region.
