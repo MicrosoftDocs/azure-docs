@@ -34,7 +34,7 @@ The `getEnvironmentInfo` method asynchronously returns an object of type `Enviro
   isSupportedEnvironment: boolean;
 }
 ```
-- The Environment type within the EnvironmentInfo type is defined as:
+- The `Environment` type within the `EnvironmentInfo` type is defined as:
 
 ```javascript
 {
