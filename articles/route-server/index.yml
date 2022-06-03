@@ -78,9 +78,9 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Troubleshooting Azure Route Server
+          - text: Troubleshooting Route Server
             url: troubleshoot-route-server.md
-          - text: Monitor Azure Route Server
+          - text: Monitor Route Server
             url: monitor-route-server.md
 
   # Card
