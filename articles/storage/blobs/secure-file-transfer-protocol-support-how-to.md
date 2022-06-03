@@ -165,7 +165,7 @@ To learn more about the SFTP permissions model, see [SFTP Permissions model](sec
 
    If you want to use a password to authenticate the local user, you can generate one after the local user is created.  
 
-3. If want to use an SSH key, create a public key object by using the **New-AzStorageLocalUserSshPublicKey** command. Set the `-Key` parameter to a string that contains the key type and public key. In the following example, the key type is `ssh-rsa` and the key is `ssh-rsa a2V5...`.
+3. If you want to use an SSH key, create a public key object by using the **New-AzStorageLocalUserSshPublicKey** command. Set the `-Key` parameter to a string that contains the key type and public key. In the following example, the key type is `ssh-rsa` and the key is `ssh-rsa a2V5...`.
 
    ```powershell
    $sshkey = "ssh-rsa a2V5..."
