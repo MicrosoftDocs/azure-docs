@@ -36,8 +36,12 @@ The following system properties are set by IoT Hub on each event. System propert
 | -------- | ---- | ---------- |
 | content_encoding | string | utf-8 |
 | content_type | string |application/json |
-| correlation_id | string | NEED A DEFINITION. (Sometimes a GUID, sometimes not.) |
+| correlation_id | string | A unique ID that identifies the event. NEED MORE DEFINITION! Is this something that can be used to identify events routed to different services? Sometimes it's a GUID and sometime it isn't. |
 | user_id | string | The name of IoT Hub that generated the event. |
+| iothub-connection-device-id | string | The unique identifier of the device. This case-sensitive string can be up to 128 characters long, and supports ASCII 7-bit alphanumeric characters plus the following special characters: `- : . + % _ # * ? ! ( ) , = @ ; $ '`.  |
+| iothub-connection-module-id | string | The unique identifier of the module. This property is output only for module life cycle and twin events. This case-sensitive string can be up to 128 characters long, and supports ASCII 7-bit alphanumeric characters plus the following special characters: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
+| iothub-enqueuedtime | number | DESCRIPTION NEEDED. 1653677358153 |
+| iothub-message-source | string | A value corresponding to the event category that identifies the message source; for example, *deviceLifecycleEvents*. |
 
 ### Application properties
 
@@ -50,21 +54,7 @@ The following application properties are set by IoT Hub on each event.
 | iothub-message-schema | string | The message schema associated with the event category; for example, *deviceLifecycleNotification*. |
 | moduleId | string | The unique identifier of the module. This property is output only for module lifecycle and twin change events. This case-sensitive string can be up to 128 characters long, and supports ASCII 7-bit alphanumeric characters plus the following special characters: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 | operationTimestamp | string | The ISO8601 timestamp of the operation. |
-| opType | string | The identifier for the operation that generated the event. For example, *createDeviceIdentity*. |
-
-### Annotations
-
-The following annotations are stamped by IoT Hub on each event.
-
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| iothub-connection-device-id | string | The unique identifier of the device. This case-sensitive string can be up to 128 characters long, and supports ASCII 7-bit alphanumeric characters plus the following special characters: `- : . + % _ # * ? ! ( ) , = @ ; $ '`.  |
-| iothub-connection-module-id | string | The unique identifier of the module. This property is output only for module life cycle and twin events. This case-sensitive string can be up to 128 characters long, and supports ASCII 7-bit alphanumeric characters plus the following special characters: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
-| iothub-enqueuedtime | number | DESCRIPTION NEEDED. 1653677358153 |
-| iothub-message-source | string | A value corresponding the the event categories that identifies the message source; for example, *deviceLifecycleEvents*. |
-| x-opt-sequence-number  | number | DESCRIPTION NEEDED. |
-| x-opt-offset | string | DESCRIPTION NEEDED. |
-| x-opt-enqueued-time | number | DESCRIPTION NEEDED. 1653677358262 |
+| opType | string | The identifier for the operation that generated the event. For example, *createDeviceIdentity* or *deleteDeviceIdentity*. |
 
 ## Connection state events
 
