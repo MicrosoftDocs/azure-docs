@@ -203,34 +203,39 @@ If you don't receive notifications on your *primary email*, try the following st
 
 You might have a limited number of email actions per action group. To check which limits apply to your situation, see [Rate limiting for Voice, SMS, emails, Azure App push notifications and webhook posts](./alerts-rate-limiting.md).
 
-When you set up *Email ARM Role*:
+When you set up the Azure Resource Manager role:
 
 1. Assign an entity of type **"User"** to the role.
 2. Make the assignment at the **subscription** level.
 3. Make sure an email address is configured for the user in their **AAD profile**.
 
 > [!NOTE]
-> It can take upto **24 hours** for customer to start receiving notifications after they add new ARM Role to their subscription.
+> It can take up to **24 hours** for a customer to start receiving notifications after they add a new ARM Role to their subscription.
 
 ### Event Hub
-An event hub action publishes notifications to [Azure Event Hubs](~/articles/event-hubs/event-hubs-about.md). You may then subscribe to the alert notification stream from your event receiver.
 
-### Function
-Calls an existing HTTP trigger endpoint in [Azure Functions](../../azure-functions/functions-get-started.md). To handle a request, your endpoint must handle the HTTP POST verb.
+An event hub action publishes notifications to [Azure Event Hubs](~/articles/event-hubs/event-hubs-about.md). You can then subscribe to the alert notification stream from your event receiver.
 
-When defining the Function action the Function's httptrigger endpoint and access key are saved in the action definition. For example: `https://azfunctionurl.azurewebsites.net/api/httptrigger?code=this_is_access_key`. If you change the access key for the function, you will need to remove and recreate the Function action in the Action Group.
+### Functions
 
-You might have a limited number of Function actions per action group.
+An action that uses Azure Functions calls an existing HTTP trigger endpoint in [Azure Functions](../../azure-functions/functions-get-started.md). To handle a request, your endpoint must handle the HTTP POST verb.
+
+When you define the function action, the function's HTTP trigger endpoint and access key are saved in the action definition, for example, `https://azfunctionurl.azurewebsites.net/api/httptrigger?code=<access_key>`. If you change the access key for the function, you need to remove and recreate the function action in the action group.
+
+You might have a limited number of function actions per action group.
 
 ### ITSM
-ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection](./itsmc-overview.md).
+
+An ITSM action requires an ITSM connection. To learn how to create an ITSM connection, see [ITSM integration](./itsmc-overview.md).
 
 You might have a limited number of ITSM actions per action group.
 
-### Logic App
-You might have a limited number of Logic App actions per action group.
+### Logic Apps
+
+You might have a limited number of Logic Apps actions per action group.
 
 ### Secure Webhook
+
 The Action Groups Secure Webhook action enables you to take advantage of Azure Active Directory to secure the connection between your action group and your protected web API (webhook endpoint). The overall workflow for taking advantage of this functionality is described below. For an overview of Azure AD Applications and service principals, see [Microsoft identity platform (v2.0) overview](../../active-directory/develop/v2-overview.md).
 
 > [!NOTE]
