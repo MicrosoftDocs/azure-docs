@@ -197,7 +197,7 @@ if (blobClient.exists()) {
 ---
 ### Accessing a secret stored in Azure Key Vault
 
-#### [.NET](#tab/netcore)
+#### [.NET](#tab/dotnet)
 
 ```csharp
 using Azure.Identity;
