@@ -22,7 +22,7 @@ const environmentInfo = await callClient.getEnvironmentInfo();
 
 The `getEnvironmentInfo` method asynchronously returns an object of type `EnvironmentInfo`.
 
-- The EnvironmentInfo type is defined as:
+- The `EnvironmentInfo` type is defined as:
 
 ```javascript
 {
