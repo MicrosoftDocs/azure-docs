@@ -5,7 +5,7 @@ services: api-management
 author: dlepow
 ms.service: api-management
 ms.topic: how-to
-ms.date: 05/02/2022
+ms.date: 06/03/2022
 ms.author: danlep
 ---
 
@@ -76,9 +76,9 @@ Four steps are needed to set up an authorization with the authorization code gra
      :::image type="content" source="media/authorizations-how-to/consent-to-authorization.png" alt-text="Screenshot of consenting to authorize with Github."::: 
 
     After authorization, the browser is redirected to API Management and the window is closed. If prompted during redirection, select **Allow access**. In API Management, select **Next**.
-1. On the **Access policy** page, create an access policy so that API Management has access to use the authorization. Ensure that a managed identity is configured for API Management. [Learn more about Managed identities in API Management](api-management-howto-use-managed-service-identity.md#create-a-system-assigned-managed-identity)
+1. On the **Access policy** page, create an access policy so that API Management has access to use the authorization. Ensure that a managed identity is configured for API Management. [Learn more about managed identities in API Management](api-management-howto-use-managed-service-identity.md#create-a-system-assigned-managed-identity).
 
-    
+m
      1. Select **Managed identity** **+ Add members** and then select your subscription. 
      1. In **Managed identity**, select **API Management service**, and then select the API Management instance that is used. Click **Select** and then **Complete**.
  

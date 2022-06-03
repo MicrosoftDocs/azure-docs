@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: reference
-ms.date: 05/05/2022
+ms.date: 06/03/2022
 ms.author: danlep
 ---
 
@@ -85,7 +85,7 @@ Use the `get-authorization-context` policy to get the authorization context of a
 
 The policy fetches and stores authorization and refresh tokens from the configured authorization provider.
 
-If identity-type=”jwt” is configured in the get-authorization-context policy a jwt token is required to be validated. The audience of this token must be https://azure-api.net/authorization-manager.  
+If `identity-type=jwt` is configured, a JWT token is required to be validated. The audience of this token must be https://azure-api.net/authorization-manager.  
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -97,8 +97,8 @@ If identity-type=”jwt” is configured in the get-authorization-context policy
     provider-id="authorization provider id" 
     authorization-id="authorization id" 
     context-variable-name="variable name" 
-    identity-type ="managed | JWT"
-    identity = "JWT bearer token"
+    identity-type="managed | jwt"
+    identity="JWT bearer token"
     ignore-error="true | false" />
 ```
 
@@ -204,7 +204,7 @@ class Authorization
 | Property Name | Description |
 | -- | -- |
 | AccessToken | Bearer access token to authorize a backend HTTP request. |
-| Claims | Claims returned from the authorization server’s token response API (see [RFC6749#section-5.1](https://datatracker.ietf.org/doc/html/rfc6749#section-5.1)) |
+| Claims | Claims returned from the authorization server’s token response API (see [RFC6749#section-5.1](https://datatracker.ietf.org/doc/html/rfc6749#section-5.1)). |
 
 ### Usage
 
