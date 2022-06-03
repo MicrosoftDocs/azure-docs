@@ -16,7 +16,7 @@ This article provides information about the **most recent** Azure HDInsight rele
 Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
 If you would like to subscribe on release notes, watch releases on [this GitHub repository](https://github.com/hdinsight/release-notes/releases).
 
-## Release date: 06/06/2022
+## Release date: 06/03/2022
 
 This release applies for HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region over several days.
 
@@ -93,7 +93,7 @@ HDI Hive 3.1 version is fully compatible with OSS Hive 3.1.2. All the fixes and 
 | Schema tool enhancements to support mergeCatalog|[HIVE-22498](https://issues.apache.org/jira/browse/HIVE-22498)|
 | Hive with TEZ UNION ALL and UDTF results in data loss|[HIVE-21915](https://issues.apache.org/jira/browse/HIVE-21915)|
 | Split text files even if header/footer exists|[HIVE-21924](https://issues.apache.org/jira/browse/HIVE-21924)|
-| MultiDelimitSerDe returns wrong results in last column when the loaded file has more columns than those are present in table schema|[HIVE-22360](https://issues.apache.org/jira/browse/HIVE-22360)|
+| MultiDelimitSerDe returns wrong results in last column when the loaded file has more columns than the once are present in table schema|[HIVE-22360](https://issues.apache.org/jira/browse/HIVE-22360)|
 | LLAP external client - Need to reduce LlapBaseInputFormat#getSplits() footprint|[HIVE-22221](https://issues.apache.org/jira/browse/HIVE-22221)|
 | Column name with reserved keyword is unescaped when query including join on table with mask column is rewritten (Zoltan Matyus via Zoltan Haindrich)|[HIVE-22208](https://issues.apache.org/jira/browse/HIVE-22208)|
 |Prevent LLAP shutdown on AMReporter related RuntimeException|[HIVE-22113](https://issues.apache.org/jira/browse/HIVE-22113)|
@@ -104,7 +104,7 @@ HDI Hive 3.1 version is fully compatible with OSS Hive 3.1.2. All the fixes and 
 | Access check is failed when a temporary directory is removed|[HIVE-22273](https://issues.apache.org/jira/browse/HIVE-22273)|
 | Fix wrong results/ArrayOutOfBound exception in left outer map joins on specific boundary conditions|[HIVE-22120](https://issues.apache.org/jira/browse/HIVE-22120)|
 | Remove distribution management tag from pom.xml|[HIVE-19667](https://issues.apache.org/jira/browse/HIVE-19667)|
-| Parsing time can be high if there is deeply nested subqueries|[HIVE-21980](https://issues.apache.org/jira/browse/HIVE-21980)|
+| Parsing time can be high if there's deeply nested subqueries|[HIVE-21980](https://issues.apache.org/jira/browse/HIVE-21980)|
 | For ALTER TABLE t SET TBLPROPERTIES ('EXTERNAL'='TRUE'); `TBL_TYPE` attribute changes not reflecting for non-CAPS|[HIVE-20057 ](https://issues.apache.org/jira/browse/HIVE-20057)|
 | JDBC: HiveConnection shades log4j interfaces|[HIVE-18874](https://issues.apache.org/jira/browse/HIVE-18874)|
 | Update repo URLs in poms - branh 3.1 version|[HIVE-21786](https://issues.apache.org/jira/browse/HIVE-21786)|
