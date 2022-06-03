@@ -19,10 +19,8 @@
       href: search-create-app-portal.md
     - name: Create a knowledge store
       href: knowledge-store-create-portal.md
-    - name: Translate text and recognize entities
+    - name: Create a skillset
       href: cognitive-search-quickstart-blob.md
-    - name: Apply OCR and image analysis
-      href: cognitive-search-quickstart-ocr.md
     - name: Query with Search Explorer
       href: search-explorer.md
   - name: Visual Studio Code 
