@@ -172,7 +172,7 @@ CREATE [ OR REPLACE ] SECURITY INTEGRATION [ IF NOT EXISTS ]
 > If you are using a new Snowflake URL with an organization name as the login URL, it is necessary to update the following parameters:
 [ SAML2_SNOWFLAKE_ISSUER_URL = '<string_literal>' ] as 
 *alter security integration `<your security integration name goes here>` set SAML2_SNOWFLAKE_ISSUER_URL = `https://<organization_name>-<account name>.snowflakecomputing.com`;*
-[ SAML2_SNOWFLAKE_ACS_URL = '<string_literal>' ] as *alter security integration <your security integration name goes here> set SAML2_SNOWFLAKE_ACS_URL = `https://<organization_name>-<account name>.snowflakecomputing.com/fed/login`;*
+[ SAML2_SNOWFLAKE_ACS_URL = '<string_literal>' ] as *alter security integration `<your security integration name goes here>` set SAML2_SNOWFLAKE_ACS_URL = `https://<organization_name>-<account name>.snowflakecomputing.com/fed/login`;*
 > please follow  the step-6 in [this](https://community.snowflake.com/s/article/HOW-TO-SETUP-SSO-WITH-ADFS-AND-THE-SNOWFLAKE-NEW-URL-FORMAT-OR-PRIVATELINK) article for more information.
 
 
