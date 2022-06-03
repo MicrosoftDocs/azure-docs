@@ -45,29 +45,29 @@ A Persistent Volume Claim (PVC) is a request for storage by a user from a Kubern
 
    1. **Indirectly connected mode**:
 
-     ```azurecli
-     az sql mi-arc delete -n <instance_name> --k8s-namespace <namespace> --use-k8s
-     ```
+      ```azurecli
+      az sql mi-arc delete -n <instance_name> --k8s-namespace <namespace> --use-k8s
+      ```
 
-     Example output:
+      Example output:
 
-     ```azurecli
-     # az sql mi-arc delete -n demo-mi --k8s-namespace <namespace> --use-k8s
-     Deleted demo-mi from namespace arc
-     ```
+      ```azurecli
+      # az sql mi-arc delete -n demo-mi --k8s-namespace <namespace> --use-k8s
+      Deleted demo-mi from namespace arc
+      ```
 
    1. **Directly connected mode**:
 
-     ```azurecli
-     az sql mi-arc delete -n <instance_name> -g <resource_group>
-     ```
+      ```azurecli
+      az sql mi-arc delete -n <instance_name> -g <resource_group>
+      ```
 
-     Example output:
+      Example output:
 
-     ```azurecli
-     # az sql mi-arc delete -n demo-mi -g my-rg
-     Deleted demo-mi from namespace arc
-     ```
+      ```azurecli
+      # az sql mi-arc delete -n demo-mi -g my-rg
+      Deleted demo-mi from namespace arc
+      ```
 
 1. Optionally, reclaim the Kubernetes PVCs.  By design, deleting a SQL Managed Instance doesn't remove its associated [PVCs](https://kubernetes.io/docs/concepts/storage/persistent-volumes/).  The intention is to ensure that you can access the database files in case the deletion was accidental. To reclaim the PVCs, take the following steps:
    1. Find the PVCs for the server group you deleted.
