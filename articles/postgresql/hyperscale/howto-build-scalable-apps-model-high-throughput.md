@@ -11,6 +11,8 @@ ms.date: 04/28/2022
 
 # Model high-throughput transactional apps
 
+[!INCLUDE[applies-to-postgres-single-flexible-server-hyperscale](../includes/applies-to-postgresql-single-flexible-server-hyperscale.md)]
+
 ## Common filter as shard key
 
 To pick the shard key for a high-throughput transactional application, follow

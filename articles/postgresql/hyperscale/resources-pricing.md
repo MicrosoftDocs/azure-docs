@@ -11,6 +11,8 @@ ms.date: 02/23/2022
 
 # Pricing for Azure Database for PostgreSQL – Hyperscale (Citus)
 
+[!INCLUDE[applies-to-postgres-single-flexible-server-hyperscale](../includes/applies-to-postgresql-single-flexible-server-hyperscale.md)]
+
 ## General pricing
 
 For the most up-to-date pricing information, see the service

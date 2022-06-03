@@ -13,6 +13,8 @@ ms.date: 05/05/2022
 
 # Connect to a Hyperscale (Citus) server group with psql
 
+[!INCLUDE[applies-to-postgres-single-flexible-server-hyperscale](../includes/applies-to-postgresql-single-flexible-server-hyperscale.md)]
+
 ## Prerequisites
 
 To follow this quickstart, you'll first need to:

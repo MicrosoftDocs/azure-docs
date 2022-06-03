@@ -13,6 +13,8 @@ ms.date: 05/05/2022
 
 # Model and load data
 
+[!INCLUDE[applies-to-postgres-single-flexible-server-hyperscale](../includes/applies-to-postgresql-single-flexible-server-hyperscale.md)]
+
 In this example, we'll use Hyperscale (Citus) to store and query events
 recorded from GitHub open source contributors.
 

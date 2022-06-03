@@ -11,6 +11,8 @@ ms.date: 04/28/2022
 
 # Model multi-tenant SaaS apps
 
+[!INCLUDE[applies-to-postgres-single-flexible-server-hyperscale](../includes/applies-to-postgresql-single-flexible-server-hyperscale.md)]
+
 ## Tenant ID as the shard key
 
 The tenant ID is the column at the root of the workload, or the top of the

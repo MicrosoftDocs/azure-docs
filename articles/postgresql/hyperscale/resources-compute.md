@@ -10,6 +10,8 @@ ms.date: 05/10/2022
 ---
 
 # Azure Database for PostgreSQL – Hyperscale (Citus) compute and storage
+
+[!INCLUDE[applies-to-postgres-single-flexible-server-hyperscale](../includes/applies-to-postgresql-single-flexible-server-hyperscale.md)]
  
 You can select the compute and storage settings independently for
 worker nodes and the coordinator node in a Hyperscale (Citus) server

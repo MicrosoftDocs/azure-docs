@@ -11,6 +11,8 @@ ms.date: 04/28/2022
 
 # Model real-time analytics apps
 
+[!INCLUDE[applies-to-postgres-single-flexible-server-hyperscale](../includes/applies-to-postgresql-single-flexible-server-hyperscale.md)]
+
 ## Colocate large tables with shard key
 
 To pick the shard key for a real-time operational analytics application, follow

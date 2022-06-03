@@ -11,6 +11,8 @@ ms.date: 08/03/2021
 
 # Columnar table storage
 
+[!INCLUDE[applies-to-postgres-single-flexible-server-hyperscale](../includes/applies-to-postgresql-single-flexible-server-hyperscale.md)]
+
 Azure Database for PostgreSQL - Hyperscale (Citus) supports append-only
 columnar table storage for analytic and data warehousing workloads. When
 columns (rather than rows) are stored contiguously on disk, data becomes more

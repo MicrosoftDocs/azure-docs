@@ -11,6 +11,8 @@ ms.date: 8/23/2021
 
 # Useful Diagnostic Queries
 
+[!INCLUDE[applies-to-postgres-single-flexible-server-hyperscale](../includes/applies-to-postgresql-single-flexible-server-hyperscale.md)]
+
 ## Finding which node contains data for a specific tenant
 
 In the multi-tenant use case, we can determine which worker node contains the
