@@ -10,7 +10,7 @@ ms.date: 06/03/2022
 ms.author: chrupa
 ---
 
-# What is Azure API for FHIR&reg;?
+# What is Azure API for FHIR?
 
 Azure API for FHIR enables rapid exchange of data through Fast Healthcare Interoperability Resources (FHIR®) APIs, backed by a managed Platform-as-a Service (PaaS) offering in the cloud. It makes it easier for anyone working with health data to ingest, manage, and persist Protected Health Information [PHI](https://www.hhs.gov/answers/hipaa/what-is-phi/index.html) in the cloud: 
 

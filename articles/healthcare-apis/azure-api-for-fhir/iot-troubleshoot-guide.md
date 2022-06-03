@@ -9,6 +9,7 @@ ms.topic: troubleshooting
 ms.date: 06/03/2022
 ms.author: jasteppe
 ---
+
 # IoT Connector for FHIR (preview) troubleshooting guide
 
 > [!IMPORTANT]
