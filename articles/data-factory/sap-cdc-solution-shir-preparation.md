@@ -59,4 +59,4 @@ On your SHIR machine, edit _C:\Windows\System32\drivers\etc\hosts_ to add mappin
 
 ## Next steps
 
-[Prepare the SAP CDC linked service](sap-cdc-solution-prepare-linked-service.md).
+[Prepare the SAP CDC linked service and source dataset](sap-cdc-solution-prepare-linked-service-source-dataset.md).
