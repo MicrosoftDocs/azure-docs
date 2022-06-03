@@ -92,5 +92,5 @@ landingContent:
             url: /powershell/module/az.network/#route
           - text: Azure CLI
             url: /cli/azure/network/routeserver
-          - text: Azure Route Server FAQ
+          - text: Route Server FAQ
             url: route-server-faq.md
