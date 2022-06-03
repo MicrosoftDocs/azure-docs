@@ -27,7 +27,7 @@ The Azure Dedicated HSM service has two distinct facets. Firstly, the registrati
 
 ## HSM Registration
 
-Dedicated HSM is not freely available for use as it is delivering hardware resources in the cloud and hence is a precious resource that needs protecting. We therefore use a allowlisiting process via email using HSMrequest@microsoft.com. 
+Dedicated HSM is not freely available for use as it is delivering hardware resources in the cloud and hence is a precious resource that needs protecting. We therefore use a allowlisting process via email using HSMrequest@microsoft.com. 
 
 ### Getting access to Dedicated HSM
 
@@ -157,11 +157,11 @@ Only when fully finished with an HSM can it be deprovisioned and then Microsoft 
 
 **Step 2** Once HSM is zeroized, you can use either of the following commands to initiate the Delete Dedicated HSM resource
 > **Azure CLI**: az dedicated-hsm delete --resource-group <RG name>–-name <HSM name> <br />
-> **Azure Powershell**: Remove-AzDedicatedHsm -Name <HSM name> -ResourceGroupName <RG name>
+> **Azure PowerShell**: Remove-AzDedicatedHsm -Name <HSM name> -ResourceGroupName <RG name>
 
 **Step 3**	Once step 2 is successful, you can delete the resource group to delete the other resources associated with the dedicated HSM by using either Azure CLI or Azure PowerShell.
 > **Azure CLI**: az group delete --name <RG name> <br />
-> **Azure Powershell**: Remove-AzResourceGroup -Name <RG name>
+> **Azure PowerShell**: Remove-AzResourceGroup -Name <RG name>
 
 ## Next steps
 
