@@ -182,7 +182,7 @@ For more information, see [Identity Protection and B2B users](../identity-protec
 
 For more information, see the following articles:
 
-- [Zero Trust policies for allowing guest access and B2B external user access](/microsoft-365/security/office-365-security/identity-access-policies-guest-access.md?view=o365-worldwide)
+- [Zero Trust policies for allowing guest access and B2B external user access](/microsoft-365/security/office-365-security/identity-access-policies-guest-access.md?view=o365-worldwide&preserve-view=true)
 - [What is Azure AD B2B collaboration?](./what-is-b2b.md)
 - [Identity Protection and B2B users](../identity-protection/concept-identity-protection-b2b.md)
 - [External Identities pricing](https://azure.microsoft.com/pricing/details/active-directory/external-identities/)
