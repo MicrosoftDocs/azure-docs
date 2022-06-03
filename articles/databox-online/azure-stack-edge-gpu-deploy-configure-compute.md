@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/15/2022
+ms.date: 04/05/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ---
@@ -30,12 +30,15 @@ In this tutorial, you learn how to:
  
 ## Prerequisites
 
-Before you set up a compute role on your Azure Stack Edge Pro device, make sure that:
+Before you set up a compute role on your Azure Stack Edge Pro device:
 
-- You've activated your Azure Stack Edge Pro device as described in [Activate Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
+- Make sure that you've activated your Azure Stack Edge Pro device as described in [Activate Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
 - Make sure that you've followed the instructions in [Enable compute network](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#configure-virtual-switches-and-compute-ips) and:
     - Enabled a network interface for compute.
     - Assigned Kubernetes node IPs and Kubernetes external service IPs.
+
+  > [!NOTE]
+  > If your datacenter firewall is restricting or filtering traffic based on source IPs or MAC addresses, make sure that the compute IPs (Kubernetes node IPs) and MAC addresses are on the allowed list. The MAC addresses can be specified by running the `Set-HcsMacAddressPool` cmdlet on the PowerShell interface of the device.
 
 ## Configure compute
 

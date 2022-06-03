@@ -2,7 +2,7 @@
 title: Migration Guide for GPU Compute Workloads in Azure
 description: NC, ND, NCv2-series migration guide.
 ms.service: virtual-machines
-ms.subservice: vm-sizes-gpu
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 08/15/2020
 ---
@@ -11,7 +11,7 @@ ms.date: 08/15/2020
 
 As more powerful GPUs become available in the marketplace and in Microsoft Azure datacenters, we recommend re-assessing the performance of your workloads and considering migrating to newer GPUs.
 
-For the same reason, as well as to maintain a high-quality and reliable service offering, Azure periodically retires the hardware that powers older VM sizes. The first group of GPU products to be retired in Azure are the original NC, NC v2 and ND-series VMs, powered by NVIDIA Tesla K80, P100, and P40 datacenter GPU accelerators respectively. These products will be retired on August 31st 2022, and the oldest VMs in this series launched in 2016.
+For the same reason, as well as to maintain a high-quality and reliable service offering, Azure periodically retires the hardware that powers older VM sizes. The first group of GPU products to be retired in Azure are the original NC, NC v2 and ND-series VMs, powered by NVIDIA Tesla K80, P100, and P40 datacenter GPU accelerators respectively. These products will be retired on August 31st 2023, and the oldest VMs in this series launched in 2016.
 
 Since then, GPUs have made incredible strides alongside the entire deep learning and HPC industry, typically exceeding a doubling in performance between generations. Since the launch of NVIDIA K80, P40, and P100 GPUs, Azure has shipped multiple newer generations and categories of VM products geared at GPU-accelerated compute and AI, based around NVIDIA’s T4, V100, and A100 GPUs, and differentiated by optional features such as InfiniBand-based interconnect fabrics. These are all options we encourage customers to explore as migration paths.
 
@@ -45,7 +45,7 @@ In general, NC-Series customers should consider moving directly across from NC s
 
 | Current VM Size | Target VM Size | Difference in Specification | 
 |---|---|---|
-Standard_NC6 <br> Standard_NC6_Promo | Standard_NC4as_T4_v3 <br>or<br>Standard_NC8as_T4 | CPU: Intel Haswell vs AMD Rome<br>GPU count: 1 (same)< br>GPU generation: NVIDIA Keppler vs. Turing (+2 generations, ~2x FP32 FLOPs)<br>GPU memory (GiB per GPU): 16 (+4)<br>vCPU: 4 (-2) or 8 (+2)<br>Memory GiB: 16 (-40) or 56 (same)<br>Temp Storage (SSD) GiB: 180 (-160) or 360 (+20)<br>Max data disks: 8 (-4) or 16 (+4)<br>Accelerated Networking: Yes (+)<br>Premium Storage: Yes (+)| 
+Standard_NC6 <br> Standard_NC6_Promo | Standard_NC4as_T4_v3 <br>or<br>Standard_NC8as_T4 | CPU: Intel Haswell vs AMD Rome<br>GPU count: 1 (same)<br>GPU generation: NVIDIA Keppler vs. Turing (+2 generations, ~2x FP32 FLOPs)<br>GPU memory (GiB per GPU): 16 (+4)<br>vCPU: 4 (-2) or 8 (+2)<br>Memory GiB: 16 (-40) or 56 (same)<br>Temp Storage (SSD) GiB: 180 (-160) or 360 (+20)<br>Max data disks: 8 (-4) or 16 (+4)<br>Accelerated Networking: Yes (+)<br>Premium Storage: Yes (+)| 
 | Standard_NC12<br>Standard_NC12_Promo | Standard_NC16as_T4_v3 | CPU: Intel Haswell vs AMD Rome<br>GPU count: 1 (-1)<br>GPU generation: NVIDIA Keppler vs. Turing (+2 generations, ~2x FP32 FLOPs)<br>GPU memory (GiB per GPU): 16 (+4)<br>vCPU: 16 (+4)<br>Memory GiB: 110 (-2)<br>Temp Storage (SSD) GiB: 360 (-320)<br>Max data disks: 48 (+16)<br>Accelerated Networking: Yes (+)<br>Premium Storage: Yes (+) | 
 | Standard_NC24<br>Standard_NC24_Promo | Standard_NC64as_T4_v3* | CPU: Intel Haswell vs AMD Rome<br>GPU count: 4 (same)<br>GPU generation: NVIDIA Keppler vs. Turing (+2 generations, ~2x FP32 FLOPs)<br>GPU memory (GiB per GPU): 16 (+4)<br>vCPU: 64 (+40)<br>Memory GiB: 440 (+216)<br>Temp Storage (SSD) GiB: 2880 (+1440)<br>Max data disks: 32 (-32)<br>Accelerated Networking: Yes (+)<br>Premium Storage: Yes (+) | 
 |Standard_NC24r<br>Standard_NC24r_Promo<br><br>(InfiniBand clustering-enabled sizes) | Standard_NC24rs_v3* | CPU: Intel Haswell vs Intel Broadwell<br>GPU count: 4 (same)<br>GPU generation: NVIDIA Keppler vs. Volta (+2 generations)<br>GPU memory (GiB per GPU): 16 (+4)<br>vCPU: 24 (+0)<br>Memory GiB: 448 (+224)<br>Temp Storage (SSD) GiB: 2948 (+1440)<br>Max data disks: 32 (same)<br>Accelerated Networking: No (Same)<br>Premium Storage: Yes (+)<br>InfiniBand interconnect: Yes | 

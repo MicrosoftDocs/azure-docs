@@ -54,7 +54,7 @@ Azure Cognitive Search requires an encrypted channel for all indexer requests ov
 
 After you set up the encrypted connection required by Azure Cognitive Search, there are additional configuration steps intrinsic to SQL Server on Azure VMs. If you haven't done so already, the next step is to finish configuration using either one of these articles:
 
-+ For a **Resource Manager** VM, see [Connect to a SQL Server Virtual Machine on Azure using Resource Manager](../azure-sql/virtual-machines/windows/ways-to-connect-to-sql.md). 
++ For a **Resource Manager** VM, see [Connect to a SQL Server Virtual Machine on Azure using Resource Manager](/azure/azure-sql/virtual-machines/windows/ways-to-connect-to-sql). 
 
 + For a **Classic** VM, see [Connect to a SQL Server Virtual Machine on Azure Classic](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-connect).
 

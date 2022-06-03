@@ -12,6 +12,8 @@ ms.subservice: azure-arc-data
 ---
 
 # az arcdata dc status
+
+Status commands.
 ## Commands
 | Command | Description|
 | --- | --- |

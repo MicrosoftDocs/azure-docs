@@ -71,13 +71,13 @@ To configure a Windows 10 device for SSPR at the sign-in screen, review the foll
     - Azure AD joined
     - Hybrid Azure AD joined
 
-### Enable for Windows 10 using Intune
+### Enable for Windows 10 using Microsoft Endpoint Manager
 
-Deploying the configuration change to enable SSPR from the login screen using Intune is the most flexible method. Intune allows you to deploy the configuration change to a specific group of machines you define. This method requires Intune enrollment of the device.
+Deploying the configuration change to enable SSPR from the login screen using Microsoft Endpoint Manager is the most flexible method. Microsoft Endpoint Manager allows you to deploy the configuration change to a specific group of machines you define. This method requires Microsoft Endpoint Manager enrollment of the device.
 
-#### Create a device configuration policy in Intune
+#### Create a device configuration policy in Microsoft Endpoint Manager
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and select **Intune**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and select **Endpoint Manager**.
 1. Create a new device configuration profile by going to **Device configuration** > **Profiles**, then select **+ Create Profile**
    - For **Platform** choose *Windows 10 and later*
    - For **Profile type**, choose *Custom*
@@ -87,14 +87,14 @@ Deploying the configuration change to enable SSPR from the login screen using In
 1. Under *Configuration settings*, select **Add** and provide the following OMA-URI setting to enable the reset password link:
       - Provide a meaningful name to explain what the setting is doing, such as *Add SSPR link*.
       - Optionally provide a meaningful description of the setting.
-      - **OMA-URI** set to `./Vendor/MSFT/Policy/Config/Authentication/AllowAadPasswordReset`
+      - **OMA-URI** set to `./Device/Vendor/MSFT/Policy/Config/Authentication/AllowAadPasswordReset`
       - **Data type** set to **Integer**
       - **Value** set to **1**
 
     Select **Add**, then **Next**.
 1. The policy can be assigned to specific users, devices, or groups. Assign the profile as desired for your environment, ideally to a test group of devices first, then select **Next**.
 
-    For more information, see [Assign user and device profiles in Microsoft Intune](/mem/intune/configuration/device-profile-assign).
+    For more information, see [Assign user and device profiles in Microsoft Microsoft Endpoint Manager](/mem/intune/configuration/device-profile-assign).
 
 1. Configure applicability rules as desired for your environment, such as to *Assign profile if OS edition is Windows 10 Enterprise*, then select **Next**.
 1. Review your profile, then select **Create**.

@@ -77,6 +77,14 @@
         href: sync-ldap.md                
       - name: SCIM synchronization
         href: sync-scim.md
+    - name: Recoverability
+      items:
+      - name: Recoverability best practices overview
+        href: recoverability-overview.md
+      - name: Recover from deletions
+        href: recover-from-deletions.md
+      - name: Recover from misconfigurations
+        href: recover-from-misconfigurations.md
     - name: Build for resilience
       items:
       - name: Overview
@@ -299,3 +307,5 @@
       href: active-directory-data-storage-eu.md
     - name: Identity data storage for Australia and New Zealand
       href: active-directory-data-storage-australia-newzealand.md
+    - name: Identity data storage for Japan
+      href: active-directory-data-storage-japan.md

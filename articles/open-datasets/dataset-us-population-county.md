@@ -1,11 +1,8 @@
 ---
 title: US Population by County
-titleSuffix: Azure Open Datasets
 description: Learn how to use the US Population by County dataset in Azure Open Datasets.
 ms.service: open-datasets
 ms.topic: sample
-author: peterclu
-ms.author: peterlu
 ms.date: 04/16/2021
 ---
 

@@ -104,7 +104,7 @@ You can save incoming emails and attachments as blobs in an [Azure storage conta
 
       ![Finished storage container](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
 
-   To create a storage container, you can also use [Azure PowerShell](/powershell/module/az.storage/new-azstoragecontainer) or [Azure CLI](/cli/azure/storage/container#az_storage_container_create).
+   To create a storage container, you can also use [Azure PowerShell](/powershell/module/az.storage/new-azstoragecontainer) or [Azure CLI](/cli/azure/storage/container#az-storage-container-create).
 
 Next, connect Storage Explorer to your storage account.
 

@@ -15,9 +15,13 @@ ms.author: pafarley
 
 # Face detection and attributes
 
-This article explains the concepts of face detection and face attribute data. Face detection is the action of locating human faces in an image and optionally returning different kinds of face-related data.
+This article explains the concepts of face detection and face attribute data. Face detection is the process of locating human faces in an image and optionally returning different kinds of face-related data.
 
-You use the [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) operation to detect faces in an image. At a minimum, each detected face corresponds to a faceRectangle field in the response. This set of pixel coordinates for the left, top, width, and height mark the located face. Using these coordinates, you can get the location of the face and its size. In the API response, faces are listed in size order from largest to smallest.
+You use the [Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API to detect faces in an image. To get started using the REST API or a client SDK, follow a [quickstart](../Quickstarts/client-libraries.md). Or, for a more in-depth guide, see [Call the detect API](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md).
+
+## Face rectangle
+
+Each detected face corresponds to a `faceRectangle` field in the response. This is a set of pixel coordinates for the left, top, width, and height of the detected face. Using these coordinates, you can get the location and size of the face. In the API response, faces are listed in size order from largest to smallest.
 
 ## Face ID
 
@@ -49,6 +53,8 @@ Attributes are a set of features that can optionally be detected by the [Face - 
 * **Head pose**. The face's orientation in 3D space. This attribute is described by the roll, yaw, and pitch angles in degrees, which are defined according to the [right-hand rule](https://en.wikipedia.org/wiki/Right-hand_rule). The order of three angles is roll-yaw-pitch, and each angle's value range is from -180 degrees to 180 degrees. 3D orientation of the face is estimated by the roll, yaw, and pitch angles in order. See the following diagram for angle mappings:
 
     ![A head with the pitch, roll, and yaw axes labeled](../Images/headpose.1.jpg)
+
+    For more details on how to use these values, see the [Head pose how-to guide](../Face-API-How-to-Topics/how-to-use-headpose.md).
 * **Makeup**. Whether the face has makeup. This attribute returns a Boolean value for eyeMakeup and lipMakeup.
 * **Mask**.  Whether the face is wearing a mask. This attribute returns a possible mask type, and a Boolean value to indicate whether nose and mouth are covered.
 * **Noise**. The visual noise detected in the face image. This attribute returns a value between zero and one and an informal rating of low, medium, or high.

@@ -17,9 +17,6 @@ Azure Arc resource bridge (preview) is part of the core Azure Arc platform, and 
 
 All management operations are performed from Azure, no local configuration is required on the appliance.
 
-> [!IMPORTANT]
-> In the interest of ensuring new features are documented no later than their release, this page may include documentation for features that may not yet be publicly available.
-
 ## Overview
 
 Azure resource bridge (preview) hosts other components such as Custom Locations, cluster extensions, and other Azure Arc agents in order to deliver the level of functionality with the private cloud infrastructures it supports. This complex system is composed of three layers:
@@ -85,14 +82,14 @@ While Azure has a number of redundancy features at every level of failure, if a 
 
 The following private cloud environments and their versions are officially supported for the Azure Arc resource bridge:
 
-* VMware vSphere version 6.5
+* VMware vSphere version 6.7
 * Azure Stack HCI
 
 ### Required Azure permissions
 
 * To onboard the Arc resource bridge, you are a member of the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role in the resource group.
 
-* To read, modify, and delete the resource bridge, you are a member of the **Name of role** role in the resource group.
+* To read, modify, and delete the resource bridge, you are a member of the [Contributor](../../role-based-access-control/built-in-roles.md#contributor) role in the resource group.
 
 ### Networking
 

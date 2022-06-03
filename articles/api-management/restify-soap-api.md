@@ -3,10 +3,10 @@ title: Import SOAP API to Azure API Management and convert to REST using the por
 description: Learn how to import a SOAP API to Azure API Management as a WSDL specification and convert it to a REST API. Then, test the API in the Azure portal.
 services: api-management
 author: dlepow
-
+ms.custom: devdivchpfy22
 ms.service: api-management
 ms.topic: how-to
-ms.date: 03/01/2022
+ms.date: 03/29/2022
 ms.author: danlep
 
 ---
@@ -34,7 +34,7 @@ Complete the following quickstart: [Create an Azure API Management instance](get
 1. Under **Create from definition**, select **WSDL**.
 
     ![SOAP API](./media/restify-soap-api/wsdl-api.png)
-1. In **WSDL specification**, enter the URL to your SOAP API, or click **Select a file** to select a local WSDL file.
+1. In **WSDL specification**, enter the URL to your SOAP API, or select **Select a file** to select a local WSDL file.
 1. In **Import method**, select **SOAP to REST**. 
     When this option is selected, API Management attempts to make an automatic transformation between XML and JSON. In this case, consumers should call the API as a RESTful API, which returns JSON. API Management converts each request to a SOAP call.
 
@@ -54,7 +54,7 @@ Operations can be called directly from the Azure portal, which provides a conven
 2. Select the **Test** tab.
 3. Select an operation.
 
-    The page displays fields for query parameters and fields for the headers. One of the headers is **Ocp-Apim-Subscription-Key**, for the subscription key of the product that is associated with this API. If you created the API Management instance, you're an administrator already, so the key is filled in automatically. 
+    The page shows fields for query parameters and fields for the headers. One of the headers is **Ocp-Apim-Subscription-Key**, for the subscription key of the product that is associated with this API. If you created the API Management instance, you're an admin already, so the key is filled in automatically. 
 1. Press **Send**.
 
     When the test is successful, the backend responds with **200 OK** and some data.

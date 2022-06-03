@@ -44,7 +44,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    az account set --subscription 00000000-0000-0000-0000-000000000000
    ```
 
-1. Register the Microsoft.Attestation resource provider in the subscription with the [az provider register](/cli/azure/provider#az_provider_register) command:
+1. Register the Microsoft.Attestation resource provider in the subscription with the [az provider register](/cli/azure/provider#az-provider-register) command:
 
    ```azurecli
    az provider register --name Microsoft.Attestation
@@ -55,7 +55,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    > [!NOTE]
    > You only need to register a resource provider once for a subscription.
 
-1. Create a resource group for the attestation provider. You can put other Azure resources in the same resource group, including a virtual machine with a client application instance. Run the [az group create](/cli/azure/group#az_group_create) command to create a resource group, or use an existing resource group:
+1. Create a resource group for the attestation provider. You can put other Azure resources in the same resource group, including a virtual machine with a client application instance. Run the [az group create](/cli/azure/group#az-group-create) command to create a resource group, or use an existing resource group:
 
    ```azurecli
    az group create --name attestationrg --location uksouth
@@ -65,13 +65,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Here are commands you can use to create and manage the attestation provider:
 
-1. Run the [az attestation create](/cli/azure/attestation#az_attestation_create) command to create an attestation provider without policy signing requirement:
+1. Run the [az attestation create](/cli/azure/attestation#az-attestation-create) command to create an attestation provider without policy signing requirement:
 
    ```azurecli
    az attestation create --name "myattestationprovider" --resource-group "MyResourceGroup" --location westus
    ```
    
-1. Run the [az attestation show](/cli/azure/attestation#az_attestation_show) command to retrieve attestation provider properties such as status and AttestURI:
+1. Run the [az attestation show](/cli/azure/attestation#az-attestation-show) command to retrieve attestation provider properties such as status and AttestURI:
 
    ```azurecli
    az attestation show --name "myattestationprovider" --resource-group "MyResourceGroup"
@@ -91,7 +91,7 @@ Here are commands you can use to create and manage the attestation provider:
    TagsTable:
    ```
 
-You can delete an attestation provider by using the [az attestation delete](/cli/azure/attestation#az_attestation_delete) command:
+You can delete an attestation provider by using the [az attestation delete](/cli/azure/attestation#az-attestation-delete) command:
 
 ```azurecli
 az attestation delete --name "myattestationprovider" --resource-group "sample-resource-group"
@@ -101,7 +101,7 @@ az attestation delete --name "myattestationprovider" --resource-group "sample-re
 
 Use the commands described here to provide policy management for an attestation provider, one attestation type at a time.
 
-The [az attestation policy show](/cli/azure/attestation/policy#az_attestation_policy_show) command returns the current policy for the specified TEE:
+The [az attestation policy show](/cli/azure/attestation/policy#az-attestation-policy-show) command returns the current policy for the specified TEE:
 
 ```azurecli
 az attestation policy show --name "myattestationprovider" --resource-group "MyResourceGroup" --attestation-type SGX-IntelSDK
@@ -116,7 +116,7 @@ The following are supported TEE types:
 - `SGX-OpenEnclaveSDK`
 - `TPM`
 
-Use the [az attestation policy set](/cli/azure/attestation/policy#az_attestation_policy_set) command to set a new policy for the specified attestation type.
+Use the [az attestation policy set](/cli/azure/attestation/policy#az-attestation-policy-set) command to set a new policy for the specified attestation type.
 
 To set policy in text format for a given kind of attestation type using file path:
 

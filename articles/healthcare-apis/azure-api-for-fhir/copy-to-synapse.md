@@ -22,7 +22,7 @@ In this article, you'll learn three ways to copy data from Azure API for FHIR to
 > [!Note]
 > [FHIR to Synapse Sync Agent](https://github.com/microsoft/FHIR-Analytics-Pipelines/blob/main/FhirToDataLake/docs/Deployment.md) is an open source tool released under MIT license, and is not covered by the Microsoft SLA for Azure services.
 
-The **FHIR to Synapse Sync Agent** is a Microsoft OSS project released under MIT License. It's an Azure function that extracts data from a FHIR server using FHIR Resource APIs, converts it to hierarchical Parquet files, and writes it to Azure Data Lake in near real time. This also contains a script to create external tables and views in [Synapse Serverless SQL pool](https://docs.microsoft.com/azure/synapse-analytics/sql/on-demand-workspace-overview) pointing to the Parquet files.
+The **FHIR to Synapse Sync Agent** is a Microsoft OSS project released under MIT License. It's an Azure function that extracts data from a FHIR server using FHIR Resource APIs, converts it to hierarchical Parquet files, and writes it to Azure Data Lake in near real time. This also contains a script to create external tables and views in [Synapse Serverless SQL pool](../../synapse-analytics/sql/on-demand-workspace-overview.md) pointing to the Parquet files.
 
 This solution enables you to query against the entire FHIR data with tools such as Synapse Studio, SSMS, and Power BI. You can also access the Parquet files directly from a Synapse Spark pool. You should consider this solution if you want to access all of your FHIR data in near real time, and want to defer custom transformation to downstream systems.
 

@@ -82,7 +82,7 @@ To upload another set of images, return to the top of this section and repeat th
 
 ## Train the detector
 
-To train the detector model, select the **Train** button. The detector uses all of the current images and their tags to create a model that identifies each tagged object.
+To train the detector model, select the **Train** button. The detector uses all of the current images and their tags to create a model that identifies each tagged object. This process can take several minutes.
 
 ![The train button in the top right of the web page's header toolbar](./media/getting-started-build-a-classifier/train01.png)
 
@@ -92,7 +92,7 @@ The training process should only take a few minutes. During this time, informati
 
 ## Evaluate the detector
 
-After training has completed, the model's performance is calculated and displayed. The Custom Vision service uses the images that you submitted for training to calculate precision, recall, and mean average precision. Precision and recall are two different measurements of the effectiveness of a detector:
+After training has completed, the model's performance is calculated and displayed. The Custom Vision service uses the images that you submitted for training to calculate precision, recall, and mean average precision, using a process called [k-fold cross validation](https://wikipedia.org/wiki/Cross-validation_(statistics)). Precision and recall are two different measurements of the effectiveness of a detector:
 
 - **Precision** indicates the fraction of identified classifications that were correct. For example, if the model identified 100 images as dogs, and 99 of them were actually of dogs, then the precision would be 99%.
 - **Recall** indicates the fraction of actual classifications that were correctly identified. For example, if there were actually 100 images of apples, and the model identified 80 as apples, the recall would be 80%.

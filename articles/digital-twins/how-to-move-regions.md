@@ -38,6 +38,7 @@ Here are some questions to consider:
     - Azure Event Grid, Azure Event Hubs, or Azure Service Bus
     - Azure Functions
     - Azure Logic Apps
+    - Azure Data Explorer
     - Azure Time Series Insights
     - Azure Maps
     - Azure IoT Hub Device Provisioning Service
@@ -120,11 +121,12 @@ The exact resources you need to edit depends on your scenario, but here are some
 * Azure Functions. If you have an Azure function whose code includes the host name of the original instance, you should update this value to the new instance's host name and republish the function.
 * Event Grid, Event Hubs, or Service Bus.
 * Logic Apps.
+* Azure Data Explorer.
 * Time Series Insights.
 * Azure Maps.
 * IoT Hub Device Provisioning Service.
 * Personal or company apps outside of Azure, such as the client app created in [Code a client app](tutorial-code.md), that connect to the instance and call Azure Digital Twins APIs.
-* Azure AD app registrations don't need to be recreated. If you're using an [app registration](./how-to-create-app-registration-portal.md) to connect to the Azure Digital Twins APIs, you can reuse the same app registration with your new instance.
+* Azure AD app registrations don't need to be recreated. If you're using an [app registration](./how-to-create-app-registration.md) to connect to the Azure Digital Twins APIs, you can reuse the same app registration with your new instance.
 
 After you finish this step, your new instance in the target region should be a copy of the original instance.
 

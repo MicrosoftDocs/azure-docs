@@ -38,6 +38,8 @@
     href: chaos-studio-targets-capabilities.md
   - name: Permissions and security
     href: chaos-studio-permissions-security.md
+  - name: Regional availability
+    href: chaos-studio-region-availability.md
 - name: How-to guides
   items:
   - name: Create and run experiment - Service-direct faults
@@ -73,7 +75,7 @@
   - name: REST API documentation
     href: /rest/api/chaosstudio/
   - name: Python SDK
-    href: /python/api/azure-mgmt-chaos/?view=azure-python-preview
+    href: /python/api/azure-mgmt-chaos/
   - name: .NET SDK
     href: https://www.nuget.org/packages/Microsoft.Azure.Management.Chaos/0.9.15-preview
 - name: Resources

@@ -2,17 +2,17 @@
  title: include file
  description: include file
  services: storage
- author: roygara
+ author: khdownie
  ms.service: storage
  ms.topic: include
- ms.date: 08/26/2020
- ms.author: rogara
+ ms.date: 05/06/2022
+ ms.author: kendownie
  ms.custom: include file, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 ## Assign access permissions to an identity
 
-To access Azure Files resources with identity based authentication, an identity (a user, group, or service principal) must have the necessary permissions at the share level. This process is similar to specifying Windows share permissions, where you specify the type of access that a particular user has to a file share. The guidance in this section demonstrates how to assign read, write, or delete permissions for a file share to an identity. 
+To access Azure Files resources with identity based authentication, an identity (a user, group, or service principal) must have the necessary permissions at the share level. This process is similar to specifying Windows share permissions, where you specify the type of access that a particular user has to a file share. The guidance in this section demonstrates how to assign read, write, or delete permissions for a file share to an identity. **We highly recommend assigning permissions by declaring actions and data actions explicitly as opposed to using the wildcard (\*) character.**
 
 We have introduced three Azure built-in roles for granting share-level permissions to users:
 
@@ -31,6 +31,9 @@ You can use the Azure portal, PowerShell, or Azure CLI to assign the built-in ro
 The general recommendation is to use share level permission for high level access management to an AD group representing a group of users and identities, then leverage NTFS permissions for granular access control on directory/file level. 
 
 ### Assign an Azure role to an AD identity
+
+> [!IMPORTANT]
+> **Assign permissions by explicitly declaring actions and data actions as opposed to using a wildcard (\*) character.** If a custom role definition for a data action contains a wildcard character, all identities assigned to that role are granted access for all possible data actions. This means that all such identities will also be granted any new data action added to the platform. The additional access and permissions granted through new actions or data actions may be unwanted behavior for customers using wildcard.
 
 # [Portal](#tab/azure-portal)
 To assign an Azure role to an Azure AD identity, using the [Azure portal](https://portal.azure.com), follow these steps:
@@ -88,7 +91,7 @@ The following sets of permissions are supported on the root directory of a file 
 
 ### Mount a file share from the command prompt
 
-Use the Windows **net use** command to mount the Azure file share. Remember to replaceÂ the placeholder values in the following exampleÂ with your own values. For more information about mounting file shares, see [Use an Azure file share with Windows](../articles/storage/files/storage-how-to-use-files-windows.md). 
+Use the Windows **net use** command to mount the Azure file share. Remember to replace the placeholder values in the following example with your own values. For more information about mounting file shares, see [Use an Azure file share with Windows](../articles/storage/files/storage-how-to-use-files-windows.md). 
 
 ```
 $connectTestResult = Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 445
@@ -121,7 +124,7 @@ Use Windows File Explorer to grant full permission to all directories and files 
 
 ### Configure NTFS permissions with icacls
 
-Use the following Windows command to grant full permissions to all directories and files under the file share, including the root directory. Remember to replaceÂ the placeholder values in the example with your own values.
+Use the following Windows command to grant full permissions to all directories and files under the file share, including the root directory. Remember to replace the placeholder values in the example with your own values.
 
 ```
 icacls <mounted-drive-letter>: /grant <user-email>:(f)
@@ -137,7 +140,7 @@ Sign in to the VM by using the Azure AD identity to which you have granted permi
 
 ![Screenshot showing Azure AD sign-in screen for user authentication](media/storage-files-aad-permissions-and-mounting/azure-active-directory-authentication-dialog.png)
 
-Use the following command to mount the Azure file share. Remember to replaceÂ the placeholder values with your own values. Because you've been authenticated, you don't need to provide the storage account key, the on-premises AD DS credentials, or the Azure AD DS credentials. Single sign-on experience is supported for authentication with either on-premises AD DS or Azure AD DS. If you run into issues mounting with AD DS credentials, refer to [Troubleshoot Azure Files problems in Windows](../articles/storage/files/storage-troubleshoot-windows-file-connection-problems.md) for guidance.
+Use the following command to mount the Azure file share. Remember to replace the placeholder values with your own values. Because you've been authenticated, you don't need to provide the storage account key, the on-premises AD DS credentials, or the Azure AD DS credentials. Single sign-on experience is supported for authentication with either on-premises AD DS or Azure AD DS. If you run into issues mounting with AD DS credentials, refer to [Troubleshoot Azure Files problems in Windows](../articles/storage/files/storage-troubleshoot-windows-file-connection-problems.md) for guidance.
 
 ```
 $connectTestResult = Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 445

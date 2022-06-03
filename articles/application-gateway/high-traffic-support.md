@@ -146,4 +146,4 @@ Enable bot protection to block known bad bots. This should reduce the amount of 
 Diagnostic logs allow you to view firewall logs, performance logs, and access logs. You can use these logs in Azure to manage and troubleshoot Application Gateways. For more information, see our [diagnostics documentation](./application-gateway-diagnostics.md#diagnostic-logging). 
 
 ## Set up an TLS policy for extra security
-Ensure you're using the latest TLS policy version ([AppGwSslPolicy20170401S](./application-gateway-ssl-policy-overview.md#appgwsslpolicy20170401s)). This enforces TLS 1.2 and stronger ciphers. For more information, see [configuring TLS policy versions and cipher suites via PowerShell](./application-gateway-configure-ssl-policy-powershell.md).
+Ensure you're using the latest TLS policy version ([AppGwSslPolicy20220101](./application-gateway-ssl-policy-overview.md#predefined-tls-policy)) or higher. These support minimum TLS version 1.2 with stronger ciphers. For more information, see [configuring TLS policy versions and cipher suites via PowerShell](./application-gateway-configure-ssl-policy-powershell.md).

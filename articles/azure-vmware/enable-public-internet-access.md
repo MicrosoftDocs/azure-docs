@@ -54,8 +54,6 @@ In this scenario, you'll publish the IIS webserver to the internet. Use the publ
 
 1. Select the Azure VMware Solution private cloud.
 
-   :::image type="content" source="media/public-ip-usage/avs-private-cloud-resource.png" alt-text="Screenshot of the Azure VMware Solution private cloud." lightbox="media/public-ip-usage/avs-private-cloud-resource.png":::
-
 1. Under **Manage**, select **Connectivity**.
 
    :::image type="content" source="media/public-ip-usage/avs-private-cloud-manage-menu.png" alt-text="Screenshot of the Connectivity section." lightbox="media/public-ip-usage/avs-private-cloud-manage-menu.png":::
@@ -142,7 +140,7 @@ Once all components are deployed, you can see them in the added Resource group. 
 
 1. Select a hub from the list and select **Add**.
 
-   :::image type="content" source="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png" alt-text="Screenshot that shows the selected hubs that will be converted to Secured Virtual Hubs." lightbox="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png":::
+   :::image type="content" source="media/public-ip-usage/secure-hubs-with-azure-firewall-policy.png" alt-text="Screenshot that shows the selected hubs that will be converted to Secured Virtual Hubs." lightbox="media/public-ip-usage/secure-hubs-with-azure-firewall-policy.png":::
 
 1. Select **Next: Tags**. 
 

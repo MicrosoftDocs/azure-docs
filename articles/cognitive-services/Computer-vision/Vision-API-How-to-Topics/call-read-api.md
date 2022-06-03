@@ -17,23 +17,24 @@ ms.author: pafarley
 
 In this guide, you'll learn how to call the Read API to extract text from images. You'll learn the different ways you can configure the behavior of this API to meet your needs.
 
-This guide assumes you have already <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> and obtained a subscription key and endpoint URL. If you haven't, follow a [quickstart](../quickstarts-sdk/client-library.md) to get started.
+This guide assumes you have already <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision"  title="created a Computer Vision resource"  target="_blank">create a Computer Vision resource </a> and obtained a key and endpoint URL. If you haven't, follow a [quickstart](../quickstarts-sdk/client-library.md) to get started.
 
 ## Determine how to process the data (optional)
 
 ### Specify the OCR model
 
-By default, the service will use the latest GA model to extract text. Starting with Read 3.2, a `model-version` parameter allows choosing between the GA and preview models for a given API version. The model you specify will be used to extract text with the Read operation.
+By default, the service will use the latest generally available (GA) model to extract text. Starting with Read 3.2, a `model-version` parameter allows choosing between the GA and preview models for a given API version. The model you specify will be used to extract text with the Read operation.
 
 When using the Read operation, use the following values for the optional `model-version` parameter.
 
 |Value| Model used |
 |:-----|:----|
-| 2022-01-30-preview | Latest preview model with additonal Hindi, Arabic and other Devanagari and Arabic script languages and enhancements to the previous preview.
-| 2021-09-30-preview | Previous preview model with addiitonal Russian and Cyrillic languages and enhancements to the GA previous model.
-| 2021-04-12 | most recent GA model |
-| Not provided | most recent GA model |
-| latest | most recent GA model|
+| Not provided | Latest GA model |
+| latest | Latest GA model|
+| [2022-04-30](../whats-new.md#may-2022) | Latest GA model. 164 languages for print text and 9 languages for handwritten text along with several enhancements on quality and performance |
+| [2022-01-30-preview](../whats-new.md#february-2022) | Preview model adds print text support for Hindi, Arabic and related languages. For handwriitten text, adds support for Japanese and Korean. |
+| [2021-09-30-preview](../whats-new.md#september-2021) | Preview model adds print text support for Russian and other Cyrillic languages, For handwriitten text,  adds support for Chinese Simplified, French, German, Italian, Portuguese, and Spanish. |
+| 2021-04-12 | 2021 GA model |
 
 ### Input language
 

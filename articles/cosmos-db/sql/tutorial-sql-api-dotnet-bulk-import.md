@@ -6,16 +6,20 @@ ms.author: maquaran
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: tutorial
-ms.date: 08/26/2021
-ms.reviewer: sngun
+ms.date: 03/25/2022
+ms.reviewer: wiassaf
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, cosmos-db-video
 ---
 # Bulk import data to Azure Cosmos DB SQL API account by using the .NET SDK
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 This tutorial shows how to build a .NET console application that optimizes provisioned throughput (RU/s) required to import data to Azure Cosmos DB. 
-In this article, you will read data from a sample data source and import it into an Azure Cosmos container.
+
+>
+> [!VIDEO https://aka.ms/docs.learn-live-dotnet-bulk]
+
+In this article, you'll read data from a sample data source and import it into an Azure Cosmos container.
 This tutorial uses [Version 3.0+](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) of the Azure Cosmos DB .NET SDK, which can be targeted to .NET Framework or .NET Core.
 
 This tutorial covers:
@@ -42,7 +46,7 @@ Before following the instructions in this article, make sure that you have the f
 
 ## Step 2: Set up your .NET project
 
-Open the Windows command prompt or a Terminal window from your local computer. You will run all the commands in the next sections from the command prompt or terminal. Run the following dotnet new command to create a new app with the name *bulk-import-demo*. 
+Open the Windows command prompt or a Terminal window from your local computer. You'll run all the commands in the next sections from the command prompt or terminal. Run the following dotnet new command to create a new app with the name *bulk-import-demo*. 
 
    ```bash
    dotnet new console -n bulk-import-demo
@@ -80,17 +84,17 @@ While still in the application directory, install the Azure Cosmos DB client lib
 
 The sample application needs to authenticate to your Azure Cosmos account. To authenticate, you should pass the Azure Cosmos account credentials to the application. Get your Azure Cosmos account credentials by following these steps:
 
-1.	Sign in to the [Azure portal](https://portal.azure.com/).
-1.	Navigate to your Azure Cosmos account.
-1.	Open the **Keys** pane and copy the **URI** and **PRIMARY KEY** of your account.
+1.    Sign in to the [Azure portal](https://portal.azure.com/).
+1.    Navigate to your Azure Cosmos account.
+1.    Open the **Keys** pane and copy the **URI** and **PRIMARY KEY** of your account.
 
-If you are using the Azure Cosmos DB Emulator, obtain the [emulator credentials from this article](../local-emulator.md#authenticate-requests).
+If you're using the Azure Cosmos DB Emulator, obtain the [emulator credentials from this article](../local-emulator.md#authenticate-requests).
 
 ## Step 5: Initialize the CosmosClient object with bulk execution support
 
-Open the generated `Program.cs` file in a code editor. You will create a new instance of CosmosClient with bulk execution enabled and use it to do operations against Azure Cosmos DB. 
+Open the generated `Program.cs` file in a code editor. You'll create a new instance of CosmosClient with bulk execution enabled and use it to do operations against Azure Cosmos DB. 
 
-Let's start by overwriting the default `Main` method and defining the global variables. These global variables will include the endpoint and authorization keys, the name of the database, container that you will create, and the number of items that you will be inserting in bulk. Make sure to replace the endpointURL and authorization key values according to your environment. 
+Let's start by overwriting the default `Main` method and defining the global variables. These global variables will include the endpoint and authorization keys, the name of the database, container that you'll create, and the number of items that you'll be inserting in bulk. Make sure to replace the endpointURL and authorization key values according to your environment. 
 
 
    ```csharp
@@ -121,6 +125,9 @@ Inside the `Main` method, add the following code to initialize the CosmosClient 
 
 [!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=CreateClient)]
 
+> [!Note]
+> Once bulk execution is specified in the [CosmosClientOptions](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions), they are effectively immutable for the lifetime of the CosmosClient. Changing the values will have no effect.
+
 After the bulk execution is enabled, the CosmosClient internally groups concurrent operations into single service calls. This way it optimizes the throughput utilization by distributing service calls across partitions, and finally assigning individual results to the original callers.
 
 You can then create a container to store all our items.  Define `/pk` as the partition key, 50000 RU/s as provisioned throughput, and a custom indexing policy that will exclude all fields to optimize the write throughput. Add the following code after the CosmosClient initialization statement:
@@ -130,7 +137,7 @@ You can then create a container to store all our items.  Define `/pk` as the par
 ## Step 6: Populate a list of concurrent tasks
 
 To take advantage of the bulk execution support, create a list of asynchronous tasks based on the source of data and the operations you want to perform, and use `Task.WhenAll` to execute them concurrently.
-Let’s start by using "Bogus" data to generate a list of items from our data model. In a real-world application, the items would come from your desired data source.
+Let's start by using "Bogus" data to generate a list of items from our data model. In a real-world application, the items would come from your desired data source.
 
 First, add the Bogus package to the solution by using the dotnet add package command.
 
@@ -193,5 +200,5 @@ You can now proceed to the next tutorial:
 >[Query Azure Cosmos DB by using the SQL API](tutorial-query-sql-api.md)
 
 Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
-* If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
+* If all you know is the number of vCores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
 * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)

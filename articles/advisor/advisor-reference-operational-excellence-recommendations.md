@@ -55,7 +55,7 @@ Learn more about [Batch account - OldPool (Recreate your pool to get the latest 
 
 Your pool is using a deprecated internal component. Please delete and recreate your pool for improved stability and performance.
 
-Learn more about [Batch account - RecreatePool (Delete and recreate your pool to remove a deprecated internal component)](/azure/batch/best-practices#pool-lifetime-and-billing).
+Learn more about [Batch account - RecreatePool (Delete and recreate your pool to remove a deprecated internal component)](/azure/batch/best-practices#pool-lifetime-and-billing)
 
 ### Upgrade to the latest API version to ensure your Batch account remains operational.
 
@@ -157,7 +157,7 @@ Learn more about [Kubernetes service - EnableClusterAutoscaler (Enable the Clust
 
 Some of the subnets for this cluster's node pools are full and cannot take any more worker nodes. Using the Azure CNI plugin requires to reserve IP addresses for each node and all the pods for the node at node provisioning time. If there is not enough IP address space in the subnet, no worker nodes can be deployed. Additionally, the AKS cluster cannot be upgraded if the node subnet is full.
 
-Learn more about [Kubernetes service - NodeSubnetIsFull (The AKS node pool subnet is full)](../aks/use-multiple-node-pools.md#add-a-node-pool-with-a-unique-subnet-preview).
+Learn more about [Kubernetes service - NodeSubnetIsFull (The AKS node pool subnet is full)](../aks/use-multiple-node-pools.md#add-a-node-pool-with-a-unique-subnet).
 
 ### Disable the Application Routing Addon
 
@@ -193,13 +193,13 @@ Learn more about [Host Pool - AVDStartVMonConnect (Permissions missing for start
 
 ### No validation environment enabled
 
-We have determined that you do not have a validation environment enabled in current subscription. When creating your host pools, you have selected "No" for "Validation environment" in the properties tab. Having at least one host pool with a validation environment enabled ensures the business continuity through Windows Virtual Desktop service deployments with early detection of potential issues.
+We have determined that you do not have a validation environment enabled in current subscription. When creating your host pools, you have selected "No" for "Validation environment" in the properties tab. Having at least one host pool with a validation environment enabled ensures the business continuity through Azure Virtual Desktop service deployments with early detection of potential issues.
 
 Learn more about [Host Pool - ValidationEnvHostPools (No validation environment enabled)](../virtual-desktop/create-validation-host-pool.md).
 
 ### Not enough production environments enabled
 
-We have determined that too many of your host pools have Validation Environment enabled. In order for Validation Environments to best serve their purpose, you should have at least one, but never more than half of your host pools in Validation Environment. By having a healthy balance between your host pools with Validation Environment enabled and those with it disabled, you will best be able to utilize the benefits of the multistage deployments that Windows Virtual Desktop offers with certain updates. To fix this issue, open your host pool's properties and select "No" next to the "Validation Environment" setting.
+We have determined that too many of your host pools have Validation Environment enabled. In order for Validation Environments to best serve their purpose, you should have at least one, but never more than half of your host pools in Validation Environment. By having a healthy balance between your host pools with Validation Environment enabled and those with it disabled, you will best be able to utilize the benefits of the multistage deployments that Azure Virtual Desktop offers with certain updates. To fix this issue, open your host pool's properties and select "No" next to the "Validation Environment" setting.
 
 Learn more about [Host Pool - ProductionEnvHostPools (Not enough production environments enabled)](../virtual-desktop/create-host-pools-powershell.md).
 
@@ -273,7 +273,7 @@ Learn more about [Network Security Group - NSGFlowLogsenableTA (Enable Traffic A
 
 Full mode installs the SQL IaaS Agent to the VM to deliver full functionality. Use it for managing a SQL Server VM with a single instance. There is no cost associated with using the full manageability mode. System administrator permissions are required. Note that installing or upgrading to full mode is an online operation, there is no restart required.
 
-Learn more about [SQL virtual machine - UpgradeToFullMode (SQL IaaS Agent should be installed in full mode)](../azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md?tabs=azure-powershell).
+Learn more about [SQL virtual machine - UpgradeToFullMode (SQL IaaS Agent should be installed in full mode)](/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management?tabs=azure-powershell).
 
 ## Storage
 

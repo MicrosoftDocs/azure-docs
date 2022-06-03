@@ -85,4 +85,4 @@ Sign in to the [Azure portal - Orbital Preview](https://aka.ms/orbital/portal).
 ## Next steps
 
 - [Quickstart: Configure a contact profile](contact-profile.md)
-- [How-to: Schedule a contact](schedule-contact.md)
+- [Quickstart: Schedule a contact](schedule-contact.md)

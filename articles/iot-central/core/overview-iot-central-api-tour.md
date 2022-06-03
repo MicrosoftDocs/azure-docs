@@ -15,7 +15,7 @@ This article introduces you to Azure IoT Central REST API. Use the API to create
 
 The REST API operations are grouped into the:
 
-- *Data plane* operations that let you work with resources inside IoT Central applications. Data plane operations let you automate tasks that can also be completed using the IoT Central UI. Currently, there are [generally available](/rest/api/iotcentral/1.0dataplane/api-tokens) and [preview](/rest/api/iotcentral/1.1-previewdataplane/api-tokens) versions of the data plane API.
+- *Data plane* operations that let you work with resources inside IoT Central applications. Data plane operations let you automate tasks that can also be completed using the IoT Central UI. Currently, there are [generally available](/rest/api/iotcentral/1.0dataplane/api-tokens) and [preview](/rest/api/iotcentral/1.2-previewdataplane/api-tokens) versions of the data plane API.
 - *Control plane* operations that let you work with the Azure resources associated with IoT Central applications. Control plane operations let you automate tasks that can also be completed in the Azure portal.
 
 ## Data plane operations

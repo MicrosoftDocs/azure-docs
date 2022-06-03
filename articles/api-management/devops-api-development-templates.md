@@ -53,9 +53,9 @@ API developers face challenges when working with Resource Manager templates:
 
 * API developers often work with the [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification) and might not be familiar with Resource Manager schemas. Authoring templates manually might be error-prone. 
 
-   A tool called [Creator](https://github.com/Azure/azure-api-management-devops-resource-kit/blob/main/src/APIM_ARMTemplate/README.md#creator) in the resource kit can help automate the creation of API templates based on an Open API Specification file. Additionally, developers can supply API Management policies for an API in XML format. 
+   A tool called [Creator](https://github.com/Azure/azure-api-management-devops-resource-kit/blob/main/src/README.md#creator) in the resource kit can help automate the creation of API templates based on an Open API Specification file. Additionally, developers can supply API Management policies for an API in XML format. 
 
-* For customers who are already using API Management, another challenge is to extract existing configurations into Resource Manager templates. For those customers, a tool called [Extractor](https://github.com/Azure/azure-api-management-devops-resource-kit/blob/main/src/APIM_ARMTemplate/README.md#creator) in the resource kit can help generate templates by extracting configurations from their API Management instances.  
+* For customers who are already using API Management, another challenge is to extract existing configurations into Resource Manager templates. For those customers, a tool called [Extractor](https://github.com/Azure/azure-api-management-devops-resource-kit/blob/main/src/README.md#Extractor) in the resource kit can help generate templates by extracting configurations from their API Management instances.  
 
 ## Workflow
 

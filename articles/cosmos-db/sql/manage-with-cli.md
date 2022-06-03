@@ -31,7 +31,7 @@ The following sections demonstrate how to manage the Azure Cosmos account, inclu
 * [Add or remove regions](#add-or-remove-regions)
 * [Enable multi-region writes](#enable-multiple-write-regions)
 * [Set regional failover priority](#set-failover-priority)
-* [Enable automatic failover](#enable-automatic-failover)
+* [Enable service-managed failover](#enable-service-managed-failover)
 * [Trigger manual failover](#trigger-manual-failover)
 * [List account keys](#list-account-keys)
 * [List read-only account keys](#list-read-only-account-keys)
@@ -106,7 +106,7 @@ az cosmosdb update --ids $accountId --enable-multiple-write-locations true
 
 ### Set failover priority
 
-Set the failover priority for an Azure Cosmos account configured for automatic failover
+Set the failover priority for an Azure Cosmos account configured for service-managed failover
 
 ```azurecli-interactive
 # Assume region order is initially 'West US'=0 'East US'=1 'South Central US'=2 for account
@@ -121,10 +121,10 @@ az cosmosdb failover-priority-change --ids $accountId \
     --failover-policies 'West US=0' 'South Central US=1' 'East US=2'
 ```
 
-### Enable automatic failover
+### Enable service-managed failover
 
 ```azurecli-interactive
-# Enable automatic failover on an existing account
+# Enable service-managed failover on an existing account
 resourceGroupName='myResourceGroup'
 accountName='mycosmosaccount'
 

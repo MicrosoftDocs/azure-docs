@@ -2,6 +2,8 @@
 title: Redeploy a VM in a lab
 description: Learn how to redeploy a virtual machine (move from one Azure node to another) in Azure DevTest Labs. 
 ms.topic: how-to
+ms.author: rosemalcolm
+author: RoseHJM
 ms.date: 06/26/2020
 ---
 

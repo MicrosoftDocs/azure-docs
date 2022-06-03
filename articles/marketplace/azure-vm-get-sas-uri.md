@@ -80,7 +80,6 @@ This script uses following commands to generate the SAS URI for a snapshot and c
 |---------|---------|
 | az disk grant-access    |     Generates read-only SAS that is used to copy the underlying VHD file to a storage account or download it to on-premises    |
 |  az storage blob copy start   |    Copies a blob asynchronously from one storage account to another. Use az storage blob show to check the status of the new blob.     |
-|
 
 ## Generate the SAS address
 
@@ -167,7 +166,6 @@ Following are common issues encountered when working with shared access signatur
 | SAS URI has white spaces in VHD name | `Failure: Copying Images. Not able to download blob using provided SAS Uri.` | Update the SAS URI to remove white spaces. |
 | SAS URI Authorization error | `Failure: Copying Images. Not able to download blob due to authorization error.` | Review and correct the SAS URI format. Regenerate if necessary. |
 | SAS URI "st" and "se" parameters do not have full date-time specification | `Failure: Copying Images. Not able to download blob due to incorrect SAS Uri.` | SAS URI **Start Date** and **End Date** parameters (`st` and `se` substrings) must have full date-time format, such as `11-02-2017T00:00:00Z`. Shortened versions are invalid (some commands in Azure CLI may generate shortened values by default). |
-|
 
 For details, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../storage/common/storage-sas-overview.md).
 

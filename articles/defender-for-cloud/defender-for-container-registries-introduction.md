@@ -1,14 +1,12 @@
 ---
 title: Microsoft Defender for container registries - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for container registries.
-ms.date: 12/08/2021
+ms.date: 04/07/2022
 ms.topic: overview
-ms.author: benmansheim
-author: bmansheim
+ms.author: elkrieger
+author: ElazarK
 ---
 # Introduction to Microsoft Defender for container registries (deprecated)
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Azure Container Registry (ACR) is a managed, private Docker registry service that stores and manages your container images for Azure deployments in a central registry. It's based on the open-source Docker Registry 2.0.
 
@@ -92,13 +90,12 @@ If you connect unsupported registries to your Azure subscription, Defender for C
 ### Can I customize the findings from the vulnerability scanner?
 Yes. If you have an organizational need to ignore a finding, rather than remediate it, you can optionally disable it. Disabled findings don't impact your secure score or generate unwanted noise.
 
-[Learn about creating rules to disable findings from the integrated vulnerability assessment tool](defender-for-container-registries-usage.md#disable-specific-findings).
+[Learn about creating rules to disable findings from the integrated vulnerability assessment tool](defender-for-containers-usage.md#disable-specific-findings).
 
 ### Why is Defender for Cloud alerting me to vulnerabilities about an image that isn’t in my registry?
 Defender for Cloud provides vulnerability assessments for every image pushed or pulled in a registry. Some images may reuse tags from an image that was already scanned. For example, you may reassign the tag “Latest” every time you add an image to a digest. In such cases, the ‘old’ image does still exist in the registry and may still be pulled by its digest. If the image has security findings and is pulled, it'll expose security vulnerabilities.
 
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Scan your images for vulnerabilities](defender-for-container-registries-usage.md)
+> [Scan your images for vulnerabilities](defender-for-containers-usage.md)

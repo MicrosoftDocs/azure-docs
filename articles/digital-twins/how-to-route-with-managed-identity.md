@@ -55,7 +55,7 @@ You can then use the bottom navigation buttons to continue with the rest of inst
    
 # [CLI](#tab/cli)
 
-In the CLI, you can add an `--assign-identity` parameter to the `az dt create` command that's used to create the instance. (For more information about this command, see its [reference documentation](/cli/azure/dt#az_dt_create) or the [general instructions for setting up an Azure Digital Twins instance](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)).
+In the CLI, you can add an `--assign-identity` parameter to the `az dt create` command that's used to create the instance. (For more information about this command, see its [reference documentation](/cli/azure/dt#az-dt-create) or the [general instructions for setting up an Azure Digital Twins instance](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)).
 
 To create an instance with a system managed identity, add the  `--assign-identity` parameter like this:
 
@@ -157,10 +157,10 @@ You can add the `--scopes` parameter onto the `az dt create` command to assign t
 Here's an example that creates an instance with a system managed identity, and assigns that identity a custom role called `MyCustomRole` in an event hub.
 
 ```azurecli-interactive
-az dt create --dt-name <instance-name> --resource-group <resource-group> --assign-identity --scopes "/subscriptions/<subscription ID>/resourceGroups/<resource-group>/providers/Microsoft.EventHub/namespaces/<Event-Hubs-namespace>/eventhubs/<event-hub-name>" --role MyCustomRole
+az dt create --dt-name <new-instance-name> --resource-group <resource-group> --assign-identity --scopes "/subscriptions/<subscription ID>/resourceGroups/<resource-group>/providers/Microsoft.EventHub/namespaces/<Event-Hubs-namespace>/eventhubs/<event-hub-name>" --role MyCustomRole
 ```
 
-For more examples of role assignments with this command, see the [az dt create reference documentation](/cli/azure/dt#az_dt_create).
+For more examples of role assignments with this command, see the [az dt create reference documentation](/cli/azure/dt#az-dt-create).
 
 You can also use the [az role assignment](/cli/azure/role/assignment) command group to create and manage roles. This command can be used to support other scenarios where you don't want to group role assignment with the create command.
 

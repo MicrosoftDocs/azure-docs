@@ -4,10 +4,10 @@ description: Article describes how to upgrade a directly connected Azure Arc dat
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: grrlgeek
-ms.author: jeschult
+author: dnethi
+ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 12/10/2021
+ms.date: 05/24/2022
 ms.topic: how-to
 ---
 
@@ -85,13 +85,42 @@ Preparing to upgrade dc arcdc in namespace arc to version <version-tag>.
 Arcdata Control Plane would be upgraded to: <version-tag>
 ```
 
-To upgrade the data controller, run the `az arcdata dc upgrade` command. If you don't specify a target image, the data controller will be upgraded to the latest version.
+Upgrade the data controller by running an upgrade on the Arc data controller extension first. This can be done as follows:
+
+```azurecli
+az k8s-extension update --resource-group <resource-group> --cluster-name <connected cluster name> --cluster-type connectedClusters --name <name of extension> --version <extension version> --release-train stable --config systemDefaultValues.image="<registry>/<repository>/arc-bootstrapper:<imageTag>"
+```
+You can retrieve the name of your extension and its version, by browsing to the Overview blade of your Arc enabled kubernetes cluster and select Extensions tab on the left. You can also retrieve the name of your extension and its version running `az` CLI As follows:
+
+```azurecli
+az k8s-extension list --resource-group <resource-group> --cluster-name <connected cluster name> --cluster-type connectedClusters
+```
+
+For example:
+
+```azurecli
+az k8s-extension list --resource-group myresource-group --cluster-name myconnected-cluster --cluster-type connectedClusters
+```
+
+After retrieving the Arc data controller extension name and its version, the extension can be upgraded as follows:
+
+For example:
+
+```azurecli
+az k8s-extension update --resource-group myresource-group --cluster-name myconnected-cluster --cluster-type connectedClusters --name arcdc-ext --version 1.2.19481002 --release-train stable --config systemDefaultValues.image="mcr.microsoft.com/arcdata/arc-bootstrapper:v1.6.0_2022-05-02"
+```
+
+Once the extension is upgraded, run the `az arcdata dc upgrade` command to upgrade the data controller. If you don't specify a target image, the data controller will be upgraded to the latest version.
 
 ```azurecli
 az arcdata dc upgrade --resource-group <resource group> --name <data controller name> [--no-wait]
 ```
 
 In example above, you can include `--desired-version <version>` to specify a version if you do not want the latest version. 
+
+> [!NOTE]
+> Currently upgrade is only supported to the next immediate version. Hence, if you are more than one version behind, specify the `--desired-version` to avoid compatibility issues.
+
 
 ## Monitor the upgrade status
 

@@ -61,7 +61,7 @@ You can initialize `SpeechTranslationConfig` in a few ways:
 * With a host: pass in a host address. A key or authorization token is optional.
 * With an authorization token: pass in an authorization token and the associated region.
 
-Let's look at how you create a `SpeechTranslationConfig` instance by using a key and region. Get these credentials by following steps in [Try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
+Let's look at how you create a `SpeechTranslationConfig` instance by using a key and region. Get the Speech resource key and region in the [Azure portal](https://portal.azure.com).
 
 ```cpp
 auto SPEECH__SUBSCRIPTION__KEY = getenv("SPEECH__SUBSCRIPTION__KEY");
@@ -400,7 +400,7 @@ void MultiLingualTranslation()
             {
                 cout << "CANCELED: ErrorCode=" << (int)e.ErrorCode << std::endl;
                 cout << "CANCELED: ErrorDetails=" << e.ErrorDetails << std::endl;
-                cout << "CANCELED: Did you update the subscription info?" << std::endl;
+                cout << "CANCELED: Did you set the speech resource key and region values?" << std::endl;
 
                 recognitionEnd.set_value();
             }

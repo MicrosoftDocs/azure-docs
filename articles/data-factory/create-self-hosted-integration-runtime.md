@@ -76,7 +76,7 @@ Installation of the self-hosted integration runtime on a domain controller isn't
   - [Visual C++ 2010 Redistributable](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe) Package (x64)
   - Java Runtime (JRE) version 8 from a JRE provider such as [Adopt OpenJDK](https://adoptopenjdk.net/). Ensure that the JAVA_HOME environment variable is set to the JDK folder (and not just the JRE folder).
   >[!NOTE]
-  >It might be necessary to adjust the Java settings if memory errors occur, as described in the [Parquet format] documentation(format-parquet#using-self-hosted-integration-runtime).
+  >It might be necessary to adjust the Java settings if memory errors occur, as described in the [Parquet format](./format-parquet.md#using-self-hosted-integration-runtime) documentation.
   
 
 >[!NOTE]
@@ -211,7 +211,7 @@ Here are details of the application's actions and arguments:
 9. Get the authentication key by using PowerShell. Here's a PowerShell example for retrieving the authentication key:
 
     ```powershell
-    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime
+    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName
     ```
 
 10. On the **Register Integration Runtime (Self-hosted)** window of Microsoft Integration Runtime Configuration Manager running on your machine, take the following steps:

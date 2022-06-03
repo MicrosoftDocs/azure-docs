@@ -25,6 +25,8 @@ In this tutorial, you learn how to:
 > * Publish Power Virtual Agents
 > * Test Power Virtual Agents, and recieve an answer from your QnA Maker knowledge base
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
+
 ## Integrate an agent with a knowledge base
 
 [Power Virtual Agents](https://powervirtualagents.microsoft.com/) allows teams to create powerful bots by using a guided, no-code graphical interface. You don't need data scientists or developers.

@@ -60,7 +60,7 @@ armclient PUT /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>
 You can also use [Azure CLI](/cli/azure/reference-index#az-rest) tool:
 
 ```bash
-az rest --method post --url /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview --body '{"scheduledQueryRulesEnabled": true}'
+az rest --method put --url /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview --body '{"scheduledQueryRulesEnabled": true}'
 ```
 
 If the switch is successful, the response is:
