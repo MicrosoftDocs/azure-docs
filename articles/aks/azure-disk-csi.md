@@ -39,7 +39,6 @@ In addition to in-tree driver features, Azure disk CSI driver supports the follo
 |Name | Meaning | Available Value | Mandatory | Default value
 |--- | --- | --- | --- | ---
 |skuName | Azure disk storage account type (alias: `storageAccountType`)| `Standard_LRS`, `Premium_LRS`, `StandardSSD_LRS`, `UltraSSD_LRS`, `Premium_ZRS`, `StandardSSD_ZRS` | No | `StandardSSD_LRS`|
-|kind | Managed or unmanaged (blob based) disk | `managed` (`dedicated` and `shared` are deprecated) | No | `managed`|
 |fsType | File System Type | `ext4`, `ext3`, `ext2`, `xfs`, `btrfs` for Linux, `ntfs` for Windows | No | `ext4` for Linux, `ntfs` for Windows|
 |cachingMode | [Azure Data Disk Host Cache Setting](../virtual-machines/windows/premium-storage-performance.md#disk-caching) | `None`, `ReadOnly`, `ReadWrite` | No | `ReadOnly`|
 |location | Specify Azure region where Azure disks will be created | `eastus`, `westus`, etc. | No | If empty, driver will use the same location name as current AKS cluster|
@@ -248,6 +247,9 @@ test.txt
 ```
 
 ## Resize a persistent volume without downtime (Preview)
+> [!IMPORTANT]
+> Azure disk CSI driver supports resizing PVCs without downtime.
+> Follow this [link][expand-an-azure-managed-disk] to register the disk online resize feature.
 
 You can request a larger volume for a PVC. Edit the PVC object, and specify a larger size. This change triggers the expansion of the underlying volume that backs the PV.
 
@@ -262,10 +264,6 @@ $ kubectl exec -it nginx-azuredisk -- df -h /mnt/azuredisk
 Filesystem      Size  Used Avail Use% Mounted on
 /dev/sdc        9.8G   42M  9.8G   1% /mnt/azuredisk
 ```
-
-> [!IMPORTANT]
-> Azure disk CSI driver supports resizing PVCs without downtime.
-> Follow this [link][expand-an-azure-managed-disk] to register the disk online resize feature.
 
 Expand the PVC by increasing the `spec.resources.requests.storage` field running the following command:
 
