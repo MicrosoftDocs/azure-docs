@@ -40,7 +40,7 @@ To use a shared resource, the lab plan must be set up to use advanced networking
 > [!WARNING]
 > Advanced networking must be enabled during lab plan creation. It can't be added later.
 
-When your lab plan is set to use advanced networking, the template VM and student VMs should now have access to the shared resource.  You might have to update the virtual network's [network security group](/azure/virtual-network/network-security-groups-overview), virtual network's [user-defined routes](/azure/virtual-network/virtual-networks-udr-overview#user-defined) or server's firewall rules.
+When your lab plan is set to use advanced networking, the template VM and student VMs should now have access to the shared resource.  You might have to update the virtual network's [network security group](../virtual-network/network-security-groups-overview.md), virtual network's [user-defined routes](../virtual-network/virtual-networks-udr-overview.md#user-defined) or server's firewall rules.
 
 ## Tips
 

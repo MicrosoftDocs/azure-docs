@@ -116,11 +116,13 @@ az storage account create \
 
 # [PowerShell](#tab/powershell)
 
-```powershell
-New-AzStorageAccount -ResourceGroupName $RESOURCE_GROUP `
-  -Name $STORAGE_ACCOUNT `
-  -Location $LOCATION `
-  -SkuName Standard_RAGRS
+```azurecli
+az storage account create `
+  --name $STORAGE_ACCOUNT `
+  --resource-group $RESOURCE_GROUP `
+  --location "$LOCATION" `
+  --sku Standard_RAGRS `
+  --kind StorageV2
 ```
 
 ---
@@ -135,10 +137,9 @@ STORAGE_ACCOUNT_KEY=`az storage account keys list --resource-group $RESOURCE_GRO
 
 # [PowerShell](#tab/powershell)
 
-```powershell
-$STORAGE_ACCOUNT_KEY=(Get-AzStorageAccountKey -ResourceGroupName $RESOURCE_GROUP -AccountName $STORAGE_ACCOUNT)| Where-Object -Property KeyName -Contains 'key1' | Select-Object -ExpandProperty Value
+```azurecli
+$STORAGE_ACCOUNT_KEY=(az storage account keys list --resource-group $RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query '[0].value' --out tsv)
 ```
-
 
 ---
 
@@ -196,7 +197,7 @@ az containerapp env dapr-component set \
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az containerapp env dapr-component set `
     --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP `
     --dapr-component-name statestore `
@@ -325,11 +326,14 @@ az monitor log-analytics query \
 
 # [PowerShell](#tab/powershell)
 
-```powershell
-$LOG_ANALYTICS_WORKSPACE_CLIENT_ID=(az containerapp env show --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP --query properties.appLogsConfiguration.logAnalyticsConfiguration.customerId --out tsv)
+```azurecli
+$LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`
+(az containerapp env show --name $CONTAINERAPPS_ENVIRONMENT --resource-group $RESOURCE_GROUP --query properties.appLogsConfiguration.logAnalyticsConfiguration.customerId --out tsv)
 
-$queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $LOG_ANALYTICS_WORKSPACE_CLIENT_ID -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'nodeapp' and (Log_s contains 'persisted' or Log_s contains 'order') | project ContainerAppName_s, Log_s, TimeGenerated | take 5"
-$queryResults.Results
+az monitor log-analytics query `
+  --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
+  --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'nodeapp' and (Log_s contains 'persisted' or Log_s contains 'order') | project ContainerAppName_s, Log_s, TimeGenerated | take 5" `
+  --out table
 ```
 
 ---
@@ -359,8 +363,9 @@ az group delete \
 
 # [PowerShell](#tab/powershell)
 
-```powershell
-Remove-AzResourceGroup -Name $RESOURCE_GROUP -Force
+```azurecli
+az group delete `
+    --resource-group $RESOURCE_GROUP
 ```
 
 ---
