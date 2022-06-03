@@ -95,7 +95,7 @@ To verify if this is the case:
 
 1. Navigate to the Kudu Services for the function app.
 
-1.  Download the Docker logs ZIP file and review them locally, or review the docker logs from within Kudu.
+1. Download the Docker logs ZIP file and review them locally, or review the docker logs from within Kudu.
 
 1. Check for any errors in the logs that would indicate that the container is unable to start successfully.
 
@@ -108,3 +108,4 @@ In the case where the container image could not be found you are likely to see a
 Learn about monitoring your function apps:
 > [!div class="nextstepaction"]
 > [Monitor Azure Functions](functions-monitoring.md)
+
