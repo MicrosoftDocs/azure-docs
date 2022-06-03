@@ -33,7 +33,7 @@ Forced tunneling lets you redirect or "force" all internet-bound traffic from yo
       - Developer portal CAPTCHA
       - Azure KMS server
 
-For more information, see [Virtual network configuration reference](virtual-network-reference.md).
+For more information, see [Virtual network configuration reference](../articles/api-management/virtual-network-reference.md).
 
 [UDRs]: ../articles/virtual-network/virtual-networks-udr-overview.md
 [NetworkSecurityGroups]: ../articles/virtual-network/network-security-groups-overview.md
