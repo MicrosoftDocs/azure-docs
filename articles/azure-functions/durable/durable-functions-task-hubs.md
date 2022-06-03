@@ -66,7 +66,7 @@ For some of the storage providers, it is also possible to inspect the task hub b
 
 ## Representation in storage
 
-Each storage provider uses a different internal organization to represent task hubs in storage. Understanding this organization, while not required, can be helpful when  troubleshooting a function app or when trying to ensure performance, scalability, or cost targets. We thus briefly explain, for each storage provider, how the data is organized in storage. For more information on the various storage provider options and how they compare, see the [Durable Functions storage providers](durable-functions-storage-providers.md).
+Each storage provider uses a different internal organization to represent task hubs in storage. Understanding this organization, while not required, can be helpful when troubleshooting a function app or when trying to ensure performance, scalability, or cost targets. We thus briefly explain, for each storage provider, how the data is organized in storage. For more information on the various storage provider options and how they compare, see the [Durable Functions storage providers](durable-functions-storage-providers.md).
 
 ### Azure Storage provider
 
