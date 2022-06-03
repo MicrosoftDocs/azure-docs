@@ -25,14 +25,14 @@ To publish your application in the Azure AD gallery, you need to complete the fo
 - Join the Microsoft partner network.
 
 ## Prerequisites
-To publish your application in the AD gallery, you must first read and agree to specific [terms and conditions](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/).
+To publish your application in the gallery, you must first read and agree to specific [terms and conditions](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/).
 - Implement support for *single sign-on* (SSO). To learn more about supported options, see [Plan a single sign-on deployment](plan-sso-deployment.md).
     - For password SSO, make sure that your application supports form authentication so that password vaulting can be used.
 	- For federated applications (OpenID and SAML/WS-Fed), the application must support the [software-as-a-service (SaaS) model](https://azure.microsoft.com/overview/what-is-saas/). Enterprise gallery applications must support multiple user configurations and not any specific user.
 	- For Open ID Connect, the application must be multitenanted and the [Azure AD consent framework](../develop/consent-framework.md) must be correctly implemented.
 - Provisioning is optional yet highly recommended. To learn more about Azure AD SCIM, see [build a SCIM endpoint and configure user provisioning with Azure AD](../app-provisioning/use-scim-to-provision-users-and-groups.md).
 
-You can sign up for a free test, Development account. It's free for 90 days amd you get all of the premium Azure AD features with it. You can also extend the account if you use it for development work: [Join the Microsoft 365 Developer Program](/office/developer-program/microsoft-365-developer-program).
+You can sign up for a free, test Development account. It's free for 90 days amd you get all of the premium Azure AD features with it. You can also extend the account if you use it for development work: [Join the Microsoft 365 Developer Program](/office/developer-program/microsoft-365-developer-program).
 
 ## Create and publish documentation
 
