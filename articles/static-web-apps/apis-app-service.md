@@ -42,8 +42,6 @@ To link a web app as the API backend for a static web app, follow these steps:
 
 1. In *Resource name*, select the Azure App Service app.
 
-1. Leave *Slot* empty to link the web app's production slot. Select a slot to link the web app to a specific slot.
-
 1. Select **Link**.
 
 When the linking process is complete, requests to routes beginning with `/api/` are proxied to the linked App Service app.
