@@ -32,7 +32,7 @@ In addition to in-tree driver features, Azure disk CSI driver supports the follo
   - `Premium_ZRS`, `StandardSSD_ZRS` disk types are supported, check more details about [Zone-redundant storage for managed disks](../virtual-machines/disks-redundancy.md)
 - [Snapshot](#volume-snapshots)
 - [Volume clone](#clone-volumes)
-- [Resize disk PV without downtime](#resize-a-persistent-volume-without-downtime)
+- [Resize disk PV without downtime(Preview)](#resize-a-persistent-volume-without-downtime-preview)
 
 ## Storage class driver dynamic disk parameters
 
