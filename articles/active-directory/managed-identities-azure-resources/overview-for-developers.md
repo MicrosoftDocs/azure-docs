@@ -46,6 +46,7 @@ If you want to use a user-assigned identity, you'll need to create it before you
 2. Select the "Create" button.
 
 :::image type="content" source="media/overview-for-developers/Managed-Identity-Create-Button.png" alt-text="Managed identity - create button":::
+
 4. Select the Subscription and Resource group, and enter a name for the Managed identity.
 :::image type="content" source="media/overview-for-developers/Managed-Identity-Create-Screen.png" alt-text="Managed identity - create screen":::
 4. Select "Review + create" to run the validation test, and then select the "Create" button.
