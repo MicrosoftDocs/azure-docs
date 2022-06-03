@@ -21,8 +21,8 @@ Update the TLE of an existing spacecraft resource.
 
 ## Update the spacecraft TLE
 
-1.	In the Azure portal search box, enter **Spacecrafts**. Select **Spacecrafts** in the search results.
-2.	In the **Spacecrafts** page, select the name of the spacecraft for which to update the ephemeris.
+1.	In the Azure portal search box, enter **Spacecraft**. Select **Spacecraft** in the search results.
+2.	In the **Spacecraft** page, select the name of the spacecraft for which to update the ephemeris.
 3.	Select **Ephemeris** on the left menu bar of the spacecraft’s overview.
 4.	In Ephemeris, enter this information in each of the required fields:
 
