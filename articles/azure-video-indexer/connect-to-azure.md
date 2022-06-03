@@ -16,9 +16,10 @@ When creating an Azure Video Indexer account, you can choose a free trial accoun
 
   1. [Azure Video Indexer portal](https://aka.ms/vi-portal-link)
   2. [Azure portal](https://portal.azure.com/#home)
-  3. [QuickStart ARM template](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/ARM-Samples/Create-Account)
 
 To read more on how to create a **new ARM-Based** Azure Video Indexer account, read this [article](create-video-analyzer-for-media-account.md)
+
+For more details, see [pricing](https://azure.microsoft.com/pricing/details/video-indexer/).
 
 ## How to create classic accounts
 This article shows how to create an Azure Video Indexer classic account. The topic provides steps for connecting to Azure using the automatic (default) flow. It also shows how to connect to Azure manually (advanced).
@@ -70,7 +71,7 @@ If the connection to Azure failed, you can attempt to troubleshoot the problem b
 
 ### Create and configure a Media Services account
 
-1. Use the [Azure](https://portal.azure.com/) portal to create an Azure Media Services account, as described in [Create an account](/azure/azure/media-services/previous/media-services-portal-create-account).
+1. Use the [Azure](https://portal.azure.com/) portal to create an Azure Media Services account, as described in [Create an account](/azure/media-services/previous/media-services-portal-create-account).
 
      Make sure the Media Services account was created with the classic APIs.
 
@@ -88,10 +89,10 @@ If the connection to Azure failed, you can attempt to troubleshoot the problem b
     In the new Media Services account, select **Streaming endpoints**. Then select the streaming endpoint and press start.
 
     :::image type="content" alt-text="Screenshot that shows how to specify streaming endpoints." source="./media/create-account/create-ams-account-se.png":::
-4. For Azure Video Indexer to authenticate with Media Services API, an AD app needs to be created. The following steps guide you through the Azure AD authentication process described in [Get started with Azure AD authentication by using the Azure portal](/azure/azure/media-services/previous/media-services-portal-get-started-with-aad):
+4. For Azure Video Indexer to authenticate with Media Services API, an AD app needs to be created. The following steps guide you through the Azure AD authentication process described in [Get started with Azure AD authentication by using the Azure portal](/azure/media-services/previous/media-services-portal-get-started-with-aad):
 
     1. In the new Media Services account, select **API access**.
-    2. Select [Service principal authentication method](/azure/azure/media-services/previous/media-services-portal-get-started-with-aad).
+    2. Select [Service principal authentication method](/azure/media-services/previous/media-services-portal-get-started-with-aad).
     3. Get the client ID and client secret
 
         After you select **Settings**->**Keys**, add **Description**, press **Save**, and the key value gets populated.

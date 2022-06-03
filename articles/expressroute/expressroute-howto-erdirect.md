@@ -102,6 +102,9 @@ Once enrolled, verify that the **Microsoft.Network** resource provider is regist
                           }
                         ]
    ```
+   > [!NOTE]
+   > If bandwidth is unavailable in the target location, open a [support request in the Azure Portal](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview) and select the ExpressRoute Direct Support Topic. 
+   >
 5. Create an ExpressRoute Direct resource based on the location chosen above
 
    ExpressRoute Direct supports both QinQ and Dot1Q encapsulation. If QinQ is selected, each ExpressRoute circuit will be dynamically assigned an S-Tag and will be unique throughout the ExpressRoute Direct resource. Each C-Tag on the circuit must be unique on the circuit, but not across the ExpressRoute Direct.  
