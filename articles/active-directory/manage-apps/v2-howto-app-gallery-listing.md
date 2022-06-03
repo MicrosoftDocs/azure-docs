@@ -26,24 +26,24 @@ To publish your application in the Azure AD gallery, you need to complete the fo
 
 ## Prerequisites
 To publish your application in the AD gallery, you must first read and agree to specific [terms and conditions](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/).
-- Implement support for *single sign-on* (SSO). To learn more about the supported options, see [Plan a single sign-on deployment](plan-sso-deployment.md).
+- Implement support for *single sign-on* (SSO). To learn more about supported options, see [Plan a single sign-on deployment](plan-sso-deployment.md).
     - For password SSO, make sure that your application supports form authentication so that password vaulting can be used.
 	- For federated applications (OpenID and SAML/WS-Fed), the application must support the [software-as-a-service (SaaS) model](https://azure.microsoft.com/overview/what-is-saas/). Enterprise gallery applications must support multiple user configurations and not any specific user.
 	- For Open ID Connect, the application must be multitenanted and the [Azure AD consent framework](../develop/consent-framework.md) must be correctly implemented.
-- Provisioning is optional yet highly recommended. To learn more about implementation of Azure AD SCIM, see [build a SCIM endpoint and configure user provisioning with Azure AD](../app-provisioning/use-scim-to-provision-users-and-groups.md).
+- Provisioning is optional yet highly recommended. To learn more about Azure AD SCIM, see [build a SCIM endpoint and configure user provisioning with Azure AD](../app-provisioning/use-scim-to-provision-users-and-groups.md).
 
-You can get a free test, Development account with all of the premium Azure AD features. The account is free for 90 days and it can be extended if you use it for development work: [Join the Microsoft 365 Developer Program](/office/developer-program/microsoft-365-developer-program).
+You can sign up for a free test, Development account. It's free for 90 days amd you get all of the premium Azure AD features with it. You can also extend the account if you use it for development work: [Join the Microsoft 365 Developer Program](/office/developer-program/microsoft-365-developer-program).
 
 ## Create and publish documentation
 
-### Documentation on your site
+### Provide app documentation for your site
 
 Ease of adoption is an important factor for those that make decisions about enterprise software. Documentation that is clear and easy to follow helps your users adopt technology and it reduces support costs.
 
-Your documentation should include the following items at minimum:
+Create documentation that includes the following information at minimum:
 
 - An introduction to your SSO functionality
-    - Protocols supported
+    - Protocols
     - Version and SKU
     - List of supported identity providers with documentation links
 - Licensing information for your application
@@ -51,15 +51,15 @@ Your documentation should include the following items at minimum:
 - SSO Configuration Steps
     - UI configuration elements for SAML with expected values from the provider
     - Service provider information to be passed to identity providers
-- If OIDC/OAuth, list of permissions required for consent with business justifications
+- If you use OIDC/OAuth, a list of permissions required for consent, with business justifications
 - Testing steps for pilot users
 - Troubleshooting information, including error codes and messages
 - Support mechanisms for users
 - Details about your SCIM endpoint, including supported resources and attributes
 
-### Documentation on the Microsoft site
+### App documentation on the Microsoft site
 
-When your application is added to the gallery, documentation is created that explains the step-by-step process. For an example, see [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md). This documentation is created based on your submission to the gallery. You can easily update your documentation using your GitHub account if you make changes to your application.
+When your application is added to the gallery, documentation is created that explains the step-by-step process. For an example, see [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md). This documentation is created based on your submission to the gallery. You can easily update the documentation if you make changes to your application by using your GitHub account.
 
 ## Submit your application
 
@@ -68,7 +68,7 @@ After you've tested that your application works with Azure AD, submit your appli
 - If you receive the message "That didn't work", then you need to contact the [Azure AD SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com). Provide the email account that you want to use for submitting the request. A business email address such as `name@yourbusiness.com` is preferred. The Azure AD team will add the account in the Microsoft Application Network portal.
 - If you see a "Request Access" page, then fill in the business justification and select **Request Access**.
 
-After your account is added, you can sign in to the Microsoft Application Network portal and submit the request by selecting the **Submit Request (ISV)** tile on the home page. If you see the **Your sign-in was blocked** error while logging in, see [Troubleshoot sign-in to the Microsoft Application Network portal](troubleshoot-app-publishing.md).
+After your account is added, you can sign in to the Microsoft Application Network portal and submit the request by selecting the **Submit Request (ISV)** tile on the home page. If you see the "Your sign-in was blocked" error while logging in, see [Troubleshoot sign-in to the Microsoft Application Network portal](troubleshoot-app-publishing.md).
 
 ### Implementation-specific options
 
@@ -90,13 +90,13 @@ Listing an OpenID Connect application in the gallery takes 2 to 5 business days.
 
 Listing an SCIM provisioning application in the gallery varies, depending on numerous factors.
 
-Not all applications are onboarded. Per the terms and conditions, a decision can be made not to list an application. Onboarding applications is at the sole discretion of the onboarding team. If your application is declined, you should use the non-gallery provisioning application to satisfy your provisioning needs.
+Not all applications are onboarded. Per the terms and conditions, a decision can be made not to list an application. Onboarding applications is at the sole discretion of the onboarding team.
 
 Here's the flow of customer-requested applications.
 
 :::image type="content" source="./media/howto-app-gallery-listing/customer-request-2.png" alt-text="Screenshot that shows the customer-requested apps flow.":::
 
-To escalate any issues, send an email to the [Azure AD SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com). A response is typically sent as soon as possible.
+To escalate issues of any kind, send an email to the [Azure AD SSO Integration Team](mailto:SaaSApplicationIntegrations@service.microsoft.com). A response is typically sent as soon as possible.
 
 
 ## Join the Microsoft partner network
