@@ -118,8 +118,8 @@ Outbound endpoints have the following limitations:
 
 ### Ruleset restrictions
 
-- Rulesets can have no more than 25 rules. 
-- Rulesets can't be linked across different subscriptions.
+- Rulesets can have no more than 25 rules in Public Preview.
+- Rulesets can't be linked across different subscriptions in Public Preview.
 
 ### Other restrictions
 
