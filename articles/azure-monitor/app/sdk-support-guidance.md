@@ -9,22 +9,25 @@ ms.reviewer: vgorbenko
 
 # Application Insights SDK support guidance
 
-Microsoft announces feature deprecations or breaking changes at least three years in advance and strives to provide a seamless process for migration to the replacement experience. For compatible features that are enhanced in a new SDK or before an SDK is designated as legacy they follow the [Microsoft Azure SDK lifecycle policy](https://docs.microsoft.com/lifecycle/faq/azure). Microsoft strives to retain legacy SDKs functionality but newer features may not be available with the older versions. 
+Microsoft announces feature deprecations or breaking changes at least three years in advance and strives to provide a seamless process for migration to the replacement experience.
 
-To enable support engineers to provide all customers with an optimal experience, in some cases, support engineers will instruct customers to update their SDK when they believe the issue is fixed in the newer version of the SDK. The diagnostic tools that are used by support engineers may also provide better insights into the cause of the problem when the customer is using the latest SDK version.
+The [Microsoft Azure SDK lifecycle policy](https://docs.microsoft.com/lifecycle/faq/azure) is followed when features are enhanced in a new SDK or before an SDK is designated as legacy. Microsoft strives to retain legacy SDK functionality, but newer features may not be available with older versions.
 
-Support engineers will provide SDK update guidance according to the following scenario table.
+> [!NOTE]
+> Diagnostic tools often provide better insight into the root cause of a problem when the latest stable SDK version is used.
 
-|SDK Version in use |Alternative available |Update policy |
+Support engineers are expected to provide SDK update guidance according to the following table, referencing the current SDK version in use and any alternatives.
+
+|SDK version |Alternative |Update policy |
 |---------|---------|---------|
-|Preview                                                                        | Stable version                                 | **UPDATE REQUIRED**                 |
-|Unsupported ([support policy](https://docs.microsoft.com/lifecycle/faq/azure)) | Any supported version                          | **UPDATE REQUIRED**                 |
-|Stable                                                                         | Newer supported version                        | **UPDATE RECOMMENDED**              |
-|Preview                                                                        | Older stable version                           | **UPDATE RECOMMENDED**              |
-|Preview                                                                        | Newer preview version, no older stable version | **UPDATE RECOMMENDED**              |
-|Preview                                                                        | Newer preview version, no older stable version | **UPDATE RECOMMENDED**              |
+|Preview                                                                        | Stable version                                 | **UPDATE REQUIRED**    |
+|Unsupported ([support policy](https://docs.microsoft.com/lifecycle/faq/azure)) | Any supported version                          | **UPDATE REQUIRED**    |
+|Stable                                                                         | Newer supported version                        | **UPDATE RECOMMENDED** |
+|Preview                                                                        | Older stable version                           | **UPDATE RECOMMENDED** |
+|Preview                                                                        | Newer preview version, no older stable version | **UPDATE RECOMMENDED** |
+|Preview                                                                        | Newer preview version, no older stable version | **UPDATE RECOMMENDED** |
 
 > [!WARNING]
-> Only commercially reasonable support is provided for Preview versions of the SDK. If the support incident requires escalation to development for further guidance, requires a non-security update, or requires a security update, customers will be asked to use a fully supported SDK version to continue support. Commercially reasonable support does not include an option to engage Microsoft product development resources; technical workarounds may be limited or not possible.
+> Only commercially reasonable support is provided for Preview versions of the SDK. If a support incident requires escalation to development for further guidance, customers will be asked to use a fully supported SDK version to continue support. Commercially reasonable support does not include an option to engage Microsoft product development resources; technical workarounds may be limited or not possible.
 
 To see the current version of Application Insights SDKs and previous versions release dates, reference the [release notes](release-notes.md).
