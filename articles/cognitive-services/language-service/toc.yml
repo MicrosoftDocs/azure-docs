@@ -712,7 +712,7 @@ items:
       href: question-answering/how-to/authoring.md
     - name: Prebuilt API
       href: question-answering/how-to/prebuilt.md
-    - name: Best practices
+    - name: Project Best practices
       href: question-answering/how-to/best-practices.md
     - name: Troubleshooting
       href: question-answering/how-to/troubleshooting.md
