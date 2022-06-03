@@ -34,7 +34,7 @@ The following list of QnA pairs will be used to represent a project (knowledge b
 
    **Answer: “$200”.**
 
-The service can return expected responses for semantically similar queries such as:
+   The service can return expected responses for semantically similar queries such as:
 
 "How much is Microsoft stock worth?"
 
