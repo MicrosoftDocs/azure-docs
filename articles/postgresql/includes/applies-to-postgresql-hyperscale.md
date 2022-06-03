@@ -7,4 +7,4 @@ ms.topic: include
 ms.date: 06/03/2022
 ---
 
-**APPLIES TO:** Azure Database for PostgreSQL - Hyperscale
+**APPLIES TO:** :::image type="icon" source="../media/applies-to/yes.png" border="false"::: Azure Database for PostgreSQL - Hyperscale
