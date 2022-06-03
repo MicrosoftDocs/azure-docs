@@ -174,7 +174,7 @@
     - name: Create a pool without public IP addresses
       displayName: private
       href: batch-pool-no-public-ip-address.md
-    - name: Create simplified node communication pool without public IP addresses
+    - name: Create a simplified node communication pool without public IP addresses
       displayName: private
       href: simplified-node-communication-pool-no-public-ip.md
     - name: Create a pool with ephemeral OS disk nodes
