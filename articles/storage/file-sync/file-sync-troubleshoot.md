@@ -4,7 +4,7 @@ description: Troubleshoot common issues in a deployment on Azure File Sync, whic
 author: khdownie
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 11/2/2021
+ms.date: 6/2/2022
 ms.author: kendownie
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
@@ -1335,7 +1335,7 @@ Antivirus, backup, and other applications that read large numbers of files cause
 
 Consult with your software vendor to learn how to configure their solution to skip reading offline files.
 
-Unintended recalls also might occur in other scenarios, like when you are browsing files in File Explorer. Opening a folder that has cloud-tiered files in File Explorer on the server might result in unintended recalls. This is even more likely if an antivirus solution is enabled on the server.
+Unintended recalls also might occur in other scenarios, like when you are browsing cloud-tiered files in File Explorer. This is likely to occur on Windows Server 2016 if the folder contains executable files. File Explorer was improved for Windows Server 2019 and later to better handle offline files.
 
 > [!NOTE]
 >Use Event ID 9059 in the Telemetry event log to determine which application(s) is causing recalls. This event provides application recall distribution for a server endpoint and is logged once an hour.
