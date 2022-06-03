@@ -29,22 +29,25 @@ The feature consists of two parts, management and runtime:
 
 * The **management** part takes care of configuring identity providers, enabling the consent flow for the identity provider, and managing access to the authorizations.
 
-* The **runtime** part is using the [`get-authorization-context`](api-management-access-restriction-policies.md#GetAuthorizationContext) policy to fetch and store authorization and refresh tokens. When a call comes into API Management, and the `get-authorization-context` policy is executed, it will first validate if the existing authorization token is valid. If the authorization token has expired, the refresh token is used to try to fetch a new authorization and refresh token from the configured identity provider. If the call to the backend provider is successful, the new authorization token will be used, and both the authorization token and refresh token will be stored encrypted.
+
+* The **runtime** part is using the [`get-authorization-context`](api-management-access-restriction-policies.md#GetAuthorizationContext) policy to fetch and store access and refresh tokens. When a call comes into API Management, and the `get-authorization-context` policy is executed, it will first validate if the existing authorization token is valid. If the authorization token has expired, the refresh token is used to try to fetch a new authorization and refresh token from the configured identity provider. If the call to the backend provider is successful, the new authorization token will be used, and both the authorization token and refresh token will be stored encrypted.
+
 
     During the policy execution, access to the tokens is also validated using access policies.
 
-:::image type="content" source="media/authorizations-overview/overview.png" alt-text="Screenshot showing identity providers that can be used for O Auth 2.0 authorizations in A P I Management." border="false":::  
+:::image type="content" source="media/authorizations-overview/overview.png" alt-text="Screenshot showing identity providers that can be used for OAuth 2.0 authorizations in API Management." border="false":::    
 
-### Requirements
+### Requirements 
 
-- Managed System assigned identity must be enabled for the API Management instance.
-- To manage Authorizations the Contributor RBAC role is required.  
+- Managed System assigned identity must be enabled for the API Management instance.  
 - API Management instance must have outbound connectivity to internet on port `443` (HTTPS).
 
 ### Limitations
 
 For public preview the following limitations exist:
 
+- Authorizations feature will be available in the Consumption tier in the coming weeks.
+- Authorizations feature is not supported in the following regions: swedencentral, australiacentral, australiacentral2, jioindiacentral
 - Supported identity providers: Azure AD, DropBox, Generic OAuth 2.0, GitHub, Google, LinkedIn, Spotify
 - Maximum configured number of authorization providers per API Management instance: 50
 - Maximum configured number of authorizations per Authorization provider: 500
@@ -52,7 +55,7 @@ For public preview the following limitations exist:
 - Maximum requests per minute per authorization: 100
 - Authorization code PKCE flow with code challenge isn't supported.
 - Authorizations feature isn't supported on self-hosted gateways.
-- No API documentation is available. Please see [this](https://aka.ms/apimauthorizations/postmancollection) Postman collection.   
+- API documentation is not available yet. Please see [this](https://github.com/Azure/APIManagement-Authorizations) GitHub repository with samples.  
 
 ### Authorization providers
  
@@ -65,7 +68,9 @@ The following identity providers are supported for public preview:
 
 - Azure AD, DropBox, Generic OAuth 2.0, GitHub, Google, LinkedIn, Spotify
 
+
 With the Generic OAuth 2.0 provider, other identity providers that support the standards of OAuth 2.0 flow can be used.
+
 
 ### Authorizations
 
@@ -79,6 +84,7 @@ Authorization code grant type is bound to a user context, meaning a user needs t
 
 Client credentials grant type isn't bound to a user and is often used in application-to-application scenarios. No consent is required for client credentials grant type, and the authorization doesn't become invalid.  [Read more about Client Credentials grant type](https://www.rfc-editor.org/rfc/rfc6749?msclkid=929b18b5d0e611ec82a764a7c26a9bea#section-1.3.4)
 
+
 ### Access policies
 Access policies determine which identities can use the authorization that the access policy is related to. The supported identities are managed identities, user identities and service principals. The identities must belong to the same tenant as the API Management tenant.  
 
@@ -90,7 +96,8 @@ Access policies determine which identities can use the authorization that the ac
 
 The following image shows the process flow for creating an authorization in API Management using the grant type authorization code. For public preview no API documentation is available. Please see [this](https://aka.ms/apimauthorizations/postmancollection) Postman collection. 
 
-:::image type="content" source="media/authorizations-overview/get-token.svg" alt-text="Diagram showing the process flow for creating authorizations." border="false":::
+:::image type="content" source="media/authorizations-overview/get-token.svg" alt-text="Process flow for creating authorizations" border="false":::
+
 
 1. Client sends a request to create an authorization provider. 
 1. Authorization provider is created, and a response is sent back.
@@ -126,12 +133,9 @@ If the value is set to `false`, and the on-error section in the policy is config
 
 ### Authorizations FAQ
 
-##### Which features and identity providers are on the roadmap after public preview?
+##### How can I provide feedback and influence the roadmap for this feature?
 
-Features that are on the roadmap: 
--	Support for Authorization code with PKCE and jwt-bearer grant type
-
-Identified providers on the roadmap: Salesforce, Dynamics, Workday 
+Please use [this](https://aka.ms/apimauthorizations/feedback) form to provide feedback.  
 
 ##### How are the tokens stored in API Management?
 
@@ -158,7 +162,7 @@ All underlying authorizations and access policies are also deleted.
 
 ##### Are the access tokens cached by API Management?
 
-The access tokens are cached for 15 seconds by API Management.
+The access token is cached by the API management until 3 minutes before the token expiration time.
 
 ##### What grant types are supported?
 
@@ -168,8 +172,10 @@ The other identity providers support authorization code. After public preview, m
 
 ### Next steps
 
-- Learn how to [set up and use an authorization](authorizations-how-to.md).
+- Learn how to [configure and use an authorization](authorizations-how-to.md).
 - See [reference](authorizations-reference.md) for supported identity providers in authorizations.
+- Use [policies]() together with authorizations.  
+- Authorizations [samples](https://github.com/Azure/APIManagement-Authorizations) GitHub repository. 
 - Learn more about OAuth 2.0:
 
     * [OAuth 2.0 overview](https://aaronparecki.com/oauth-2-simplified/)
