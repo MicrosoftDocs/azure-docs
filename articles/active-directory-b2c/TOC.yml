@@ -506,6 +506,8 @@
         href: partner-n8identity.md
       - name: Saviynt 
         href: partner-saviynt.md
+      - name: WhoIAM Gatekeeper
+        href: partner-whoiamgatekeeper.md
   - name: Logs 
     items:
     - name: Audit logs
