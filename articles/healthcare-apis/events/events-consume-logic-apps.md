@@ -12,7 +12,7 @@ ms.author: v-smcevoy
 
 # Consume Events with Logic Apps
 
-This tutorial shows how to use Azure Logic Apps to process Azure Health Data Services FHIR events. Logic Apps create and run automated workflows to process event data from other applications. You will learn how to register a FHIR event with your Logic App, meet a specified event criteria, and perform an service operation.
+This tutorial shows how to use Azure Logic Apps to process Azure Health Data Services FHIR events. Logic Apps create and run automated workflows to process event data from other applications. You will learn how to register a FHIR event with your Logic App, meet a specified event criteria, and perform a service operation.
 
 Here is an example of a Logic App workflow:
 
@@ -244,7 +244,7 @@ Fill in the details for subscription, resource type, and resource name. Then you
 - Resource deleted
 - Resource updated
 
-For more information about event types, see [What FHIR resource events does Events support?](./events-faqs.md#What FHIR resource events does Events support?)
+For more information about event types, see [What FHIR resource events does Events support?](./events-faqs.md).
 
 ### Adding an HTTP action
 
