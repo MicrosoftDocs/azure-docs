@@ -5,14 +5,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 05/12/2022
+ms.date: 06/03/2022
 ms.author: aahi
 ---
 
 
 ## Test the model
 
-To test your model from the Language studio
+To test your model from Language studio
 
 1. Select **Test model** from the left side menu.
 
