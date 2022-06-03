@@ -4,7 +4,7 @@ description: Tips and PowerShell commandlets to help you manage tiered files
 author: khdownie
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/13/2021
+ms.date: 06/03/2022
 ms.author: kendownie
 ms.subservice: files
 ---
