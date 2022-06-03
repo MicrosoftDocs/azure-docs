@@ -148,9 +148,9 @@ The application repository contains a `.pipeline` folder with the pipelines you'
 
 | Pipeline file name | Description |
 | ------------- | ------------- |
-| [`.pipelines/az-vote-pr-pipeline.yaml`](https://github.com/Azure/arc-cicd-demo-src/blob/FluxV2/.pipelines/az-vote-pr-pipeline.yaml)  | The application PR pipeline, named **arc-cicd-demo-src PR** |
-| [`.pipelines/az-vote-ci-pipeline.yaml`](https://github.com/Azure/arc-cicd-demo-src/blob/FluxV2/.pipelines/az-vote-ci-pipeline.yaml) | The application CI pipeline, named **arc-cicd-demo-src CI** |
-| [`.pipelines/az-vote-cd-pipeline.yaml`](https://github.com/Azure/arc-cicd-demo-src/blob/FluxV2/.pipelines/az-vote-cd-pipeline.yaml) | The application CD pipeline, named **arc-cicd-demo-src CD** |
+| [`.pipelines/az-vote-pr-pipeline.yaml`](https://github.com/Azure/arc-cicd-demo-src/blob/master/.pipelines/az-vote-pr-pipeline.yaml)  | The application PR pipeline, named **arc-cicd-demo-src PR** |
+| [`.pipelines/az-vote-ci-pipeline.yaml`](https://github.com/Azure/arc-cicd-demo-src/blob/master/.pipelines/az-vote-ci-pipeline.yaml) | The application CI pipeline, named **arc-cicd-demo-src CI** |
+| [`.pipelines/az-vote-cd-pipeline.yaml`](https://github.com/Azure/arc-cicd-demo-src/blob/master/.pipelines/az-vote-cd-pipeline.yaml) | The application CD pipeline, named **arc-cicd-demo-src CD** |
 
 ### Connect Azure Container Registry to Azure DevOps
 During the CI process, you'll deploy your application containers to a registry. Start by creating an Azure service connection:
@@ -268,7 +268,7 @@ You're now ready to deploy to the `dev` and `stage` environments.
 
 #### Create environments
 
-In Azure DevOps project create `Dev` and `Stage` environments. See [Create and target an environment](https://docs.microsoft.com/azure/devops/pipelines/process/environments?view=azure-devops) for more details.
+In Azure DevOps project create `Dev` and `Stage` environments. See [Create and target an environment](/azure/devops/pipelines/process/environments) for more details.
 
 ### Give more permissions to the build service
 
@@ -400,7 +400,7 @@ A successful CI pipeline run triggers the CD pipeline to complete the deployment
    * View the Azure Vote app in your browser at `http://localhost:8080/` and verify the voting choices have changed to Tabs vs Spaces.
 1. Repeat steps 1-7 for the `stage` environment.
 
-Your deployment is now complete. This ends the CI/CD workflow. Refer to the [Azure DevOps GitOps Flow diagram](https://github.com/Azure/arc-cicd-demo-src/blob/FluxV2/docs/azdo-gitops.md) in the application repository that explains in details the steps and techniques implemented in the CI/CD pipelines used in this tutorial. 
+Your deployment is now complete. This ends the CI/CD workflow. Refer to the [Azure DevOps GitOps Flow diagram](https://github.com/Azure/arc-cicd-demo-src/blob/master/docs/azdo-gitops.md) in the application repository that explains in details the steps and techniques implemented in the CI/CD pipelines used in this tutorial. 
 
 ## Implement CI/CD with GitHub
 
@@ -577,7 +577,7 @@ The CD Stage workflow:
 
 Once the manifests PR to the Stage environment is merged and Flux successfully applied all the changes, it updates Git commit status in the GitOps repository.
 
-Your deployment is now complete. This ends the CI/CD workflow. Refer to the [GitHub GitOps Flow diagram](https://github.com/Azure/arc-cicd-demo-src/blob/FluxV2/docs/azdo-gitops-githubfluxv2.md) in the application repository that explains in details the steps and techniques implemented in the CI/CD workflows used in this tutorial. 
+Your deployment is now complete. This ends the CI/CD workflow. Refer to the [GitHub GitOps Flow diagram](https://github.com/Azure/arc-cicd-demo-src/blob/master/docs/azdo-gitops-githubfluxv2.md) in the application repository that explains in details the steps and techniques implemented in the CI/CD workflows used in this tutorial. 
 
 ## Clean up resources
 
