@@ -80,9 +80,9 @@ For use cases that require extending or customizing the FHIR server, or requires
 ## Azure IoT Connector for FHIR (preview)
 
 > [!IMPORTANT]
-> As of September 2022, the IoT Connector feature within Azure API for FHIR will be retired and be replaced with Azure Health Data Services for enhanced service quality and functionality.
->
-> All new users are directed to open and use the MedTech service feature within Azure Health Data Services. For more information about the MedTech service, see [What is the MedTech service?](../../healthcare-apis/iot/iot-connector-overview.md)
+> As of September 2022, the IoT Connector feature within Azure API for FHIR will be retired and replaced with the [MedTech service](../../healthcare-apis/iot/deploy-iot-connector-in-azure.md) for enhanced service quality and functionality.
+> 
+> All new users are directed to deploy and use the MedTech service feature within the Azure Health Data Services. For more information about the MedTech service, see [What is the MedTech service?](../../healthcare-apis/iot/iot-connector-overview.md).
 
 Azure IoT Connector for (FHIR&#174;)* is an optional feature of Azure API for FHIR that provides the capability to ingest data from Internet of Medical Things (IoMT) devices. Internet of Medical Things is a category of IoT devices that capture and exchange health & wellness data with other healthcare IT systems over network. Some examples of IoMT devices include fitness and clinical wearables, monitoring sensors, activity trackers, point of care kiosks, or even a smart pill. The Azure IoT Connector for FHIR feature enables you to quickly set up a service to ingest IoMT data into Azure API for FHIR in a scalable, secure, and compliant manner.
 

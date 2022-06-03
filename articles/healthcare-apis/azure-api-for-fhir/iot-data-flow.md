@@ -13,9 +13,9 @@ ms.author: rabhaiya
 # Azure IoT Connector for FHIR (preview) data flow
 
 > [!IMPORTANT]
-> As of September 2022, the IoT Connector feature within Azure API for FHIR will be retired and be replaced with Azure Health Data Services for enhanced service quality and functionality.
->
-> All new users are directed to open and use the MedTech service feature within Azure Health Data Services. For more information about the MedTech service, see [What is the MedTech service?](../../healthcare-apis/iot/iot-connector-overview.md)
+> As of September 2022, the IoT Connector feature within Azure API for FHIR will be retired and replaced with the [MedTech service](../../healthcare-apis/iot/deploy-iot-connector-in-azure.md) for enhanced service quality and functionality.
+> 
+> All new users are directed to deploy and use the MedTech service feature within the Azure Health Data Services. For more information about the MedTech service, see [What is the MedTech service?](../../healthcare-apis/iot/iot-connector-overview.md).
 
 This article provides an overview of data flow in Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;)*. You'll learn about different data processing stages within Azure IoT Connector for FHIR that transform device data into FHIR-based [Observation](https://www.hl7.org/fhir/observation.html) resources.
 

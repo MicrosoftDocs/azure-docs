@@ -14,9 +14,9 @@ ms.custom: mode-ui
 # Quickstart: Deploy Azure IoT Connector for FHIR (preview) using Azure portal
 
 > [!IMPORTANT]
-> As of September 2022, the IoT Connector feature within Azure API for FHIR will be retired and be replaced with Azure Health Data Services for enhanced service quality and functionality.
->
-> All new users are directed to open and use the MedTech service feature within Azure Health Data Services. For more information about the MedTech service, see [What is the MedTech service?](../../healthcare-apis/iot/iot-connector-overview.md)
+> As of September 2022, the IoT Connector feature within Azure API for FHIR will be retired and replaced with the [MedTech service](../../healthcare-apis/iot/deploy-iot-connector-in-azure.md) for enhanced service quality and functionality.
+> 
+> All new users are directed to deploy and use the MedTech service feature within the Azure Health Data Services. For more information about the MedTech service, see [What is the MedTech service?](../../healthcare-apis/iot/iot-connector-overview.md).
 
 Azure IoT Connector for Fast Healthcare Interoperability Resources (FHIR&#174;)* is an optional feature of Azure API for FHIR that provides the capability to ingest data from Internet of Medical Things (IoMT) devices. During the preview phase, Azure IoT Connector for FHIR feature is being available for free. In this quickstart, you'll learn how to:
 - Deploy and configure Azure IoT Connector for FHIR using the Azure portal
