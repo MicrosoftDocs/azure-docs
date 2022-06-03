@@ -61,7 +61,7 @@ In this quickstart, you learn to use the Translator service to [translate text](
 
 ### [Java](#tab/java)
 
-### Set-up your Java environment
+### Set up your Java environment
 
 * You should have the latest version of [Visual Studio Code](https://code.visualstudio.com/) or your preferred IDE. *See* [Java in Visual Studio Code](https://code.visualstudio.com/docs/languages/java).
 
@@ -168,7 +168,7 @@ When calling the Translator service via REST, you'll need to make sure the follo
   <th>Description</th>
   <tr>
     <td>Authentication header(s)</td>
-    <td><em>Required request header</em>.<br/><code>Ocp-Apim-Subscription-Key</code><br/><br/><em>Required request header if using a Cognitive Services Resource. Optional if using a Translator Resource.</em>.<br/><code>Ocp-Apim-Subscription-Region</code><br/><br/>See <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">available options for authentication</a>.</td>
+    <td><em>Required request header</em>.<br/><code>Ocp-Apim-Subscription-Key</code><br/><br/><em>Required request header if using a Cognitive Services Resource. Optional if using a Translator Resource</em>.<br/><code>Ocp-Apim-Subscription-Region</code><br/><br/>See <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">available options for authentication</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -186,7 +186,7 @@ When calling the Translator service via REST, you'll need to make sure the follo
 
 ## Keys and endpoints
 
-The samples on this page use hard-coded keys and endpoints for simplicity. Remember to **remove the key from your code when you're done**, and **never post it publicly**. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](../cognitive-services-security.md) article for more information.
+The samples on this page use hard-coded keys and endpoints for simplicity. Remember to **remove the key from your code when you're done**, and **never post it publicly**. For production, consider using a secure way of storing and accessing your credentials. For more information, *see [Cognitive Services security](../cognitive-services-security.md).
 
 ## Translate text 
 
@@ -477,7 +477,7 @@ If you know that you'll need translation, but don't know the language of the tex
 
 ### Detect source language during translation
 
-If you don't include the `from` parameter in your translation request, the Translator service will attempt to detect the source text's language. In the response, you'll get the detected language (`language`) and a confidence score (`score`). The closer the `score` is to `1.0`, means that there is increased confidence that the detection is correct.
+If you don't include the `from` parameter in your translation request, the Translator service will attempt to detect the source text's language. In the response, you'll get the detected language (`language`) and a confidence score (`score`). The closer the `score` is to `1.0`, means that there's increased confidence that the detection is correct.
 
 # [C#](#tab/csharp)
 
@@ -762,7 +762,7 @@ After a successful call, you should see the following response:
 
 ### Detect source language without translation
 
-It's possible to use the Translator service to detect the language of source text without performing a translation. To do this, you'll use the [`/detect`](./reference/v3-0-detect.md) endpoint. 
+It's possible to use the Translator service to detect the language of source text without performing a translation. To do so, you'll use the [`/detect`](./reference/v3-0-detect.md) endpoint. 
 
 # [C#](#tab/csharp)
 
@@ -1013,7 +1013,7 @@ print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separat
 
 ---
 
-When using the `/detect` endpoint, the response will include alternate detections, and will let you know if translation and transliteration are supported for all of the detected languages. After a successful call, you should see the following response: 
+When you use the `/detect` endpoint, the response will include alternate detections, and will let you know if translation and transliteration are supported for all of the detected languages. After a successful call, you should see the following response: 
 
 ```json
 [
@@ -2428,7 +2428,7 @@ print(json.dumps(response, sort_keys=True, ensure_ascii=False, indent=4, separat
 
 ---
 
-After a successful call, you should see the following response. Let's break this down since the JSON is more complex than some of the other examples in this article. The `translations` array includes a list of translations. Each object in this array includes a confidence score (`confidence`), the text optimized for end-user display (`displayTarget`), the normalized text (`normalizedText`), the part of speech (`posTag`), and information about previous translation (`backTranslations`). For more information about the response, see [Dictionary Lookup](reference/v3-0-dictionary-lookup.md)
+After a successful call, you should see the following response. Let's dive deeper since the JSON is more complex than some of the other examples in this article. The `translations` array includes a list of translations. Each object in this array includes a confidence score (`confidence`), the text optimized for end-user display (`displayTarget`), the normalized text (`normalizedText`), the part of speech (`posTag`), and information about previous translation (`backTranslations`). For more information about the response, see [Dictionary Lookup](reference/v3-0-dictionary-lookup.md)
 
 ```json
 [
@@ -2782,8 +2782,8 @@ After a successful call, you should see the following response. For more informa
 |------------------|-------------|-----------------|
 | 200 | OK | The request was successful. |
 | 400 | Bad Request | A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common issue is a header that is too long. |
-| 401 | Unauthorized | The request is not authorized. Check to make sure your key or token is valid and in the correct region. *See also* [Authentication](reference/v3-0-reference.md#authentication).|
-| 429 | Too Many Requests | You have exceeded the quota or rate of requests allowed for your subscription. |
+| 401 | Unauthorized | The request isn't authorized. Check to make sure your key or token is valid and in the correct region. *See also* [Authentication](reference/v3-0-reference.md#authentication).|
+| 429 | Too Many Requests | You've exceeded the quota or rate of requests allowed for your subscription. |
 | 502 | Bad Gateway    | Network or server-side issue. May also indicate invalid headers. |
 
 ### Java users
