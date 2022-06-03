@@ -14,7 +14,6 @@ There are many different browsers available in the market today, but not all of 
 
 A `CallClient` instance is required for this operation. When you have a `CallClient` instance, you can use the `getEnvironmentInfo` method on the `CallClient` instance to obtain details about the current environment of your app:
 
-Here's a JavaScript sample code:
 
 ```javascript
 const callClient = new CallClient(options);
