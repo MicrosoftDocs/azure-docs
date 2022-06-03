@@ -299,5 +299,5 @@ BlobServiceClient blobServiceClient = new BlobServiceClient(new Uri(storageUrl),
 ---
 
 ## Next steps
-
+#
 Learn more about [workload identity federation](workload-identity-federation.md).
