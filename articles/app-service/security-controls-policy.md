@@ -15,9 +15,9 @@ page lists the **compliance domains** and **security controls** for Azure App Se
 assign the built-ins for a **security control** individually to help make your Azure resources
 compliant with the specific standard.
 
-[!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
+[!INCLUDE [Azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
 
-[!INCLUDE [azure-policy-compliancecontrols-appservice](../../includes/policy/standards/byrp/microsoft.web.md)]
+[!INCLUDE [Azure-policy-compliancecontrols-appservice](../../includes/policy/standards/byrp/microsoft.web.md)]
 
 ## Release notes
 
@@ -28,7 +28,7 @@ compliant with the specific standard.
 - Update scope of policy "App Service apps should only be accessible over HTTPS" to include all app types except Function apps
 - Update scope of policy "App Service apps should only be accessible over HTTPS" to include slots
 - Update scope of policy "Function apps should only be accessible over HTTPS" to include slots
-- Update logic of policy "App Service apps should use a SKU that supports private link" to include checks on serverfarm tier or name so that the policy supports Terraform deployments
+- Update logic of policy "App Service apps should use a SKU that supports private link" to include checks on App Service plan tier or name so that the policy supports Terraform deployments
 - Update list of supported SKUs of policy "App Service apps should use a SKU that supports private link" to include the Basic and Standard tiers
 
 ## Next steps
