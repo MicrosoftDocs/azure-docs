@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 12/31/2021
+ms.date: 06/02/2022
 ---
 
 # Debug an Azure Cognitive Search skillset in Azure portal
@@ -22,11 +22,11 @@ A debug session is a cached indexer and skillset execution, scoped to a single d
 
 ## Prerequisites
 
-+ An existing enrichment pipeline, including a data source, a skillset, an indexer, and an index.
++ An existing enrichment pipeline, including a data source, a skillset, an indexer, and an index. You must have at least **Contributor** role assigned to be able to run the Debug Sessions.
 
-  A debug session works with all generally available [indexer data sources](search-data-sources-gallery.md) and most preview data sources. The MongoDB API (preview) of Cosmos DB is currently not supported.
++ A Debug Session works with all generally available [indexer data sources](search-data-sources-gallery.md) and most preview data sources. The MongoDB API (preview) of Cosmos DB is currently not supported.
 
-+ Azure Storage, used to save session state.
++ An Azure Storage account, used to save session state. You must have at least **Storage Blob Data Contributor** role assigned over the Storage account. Also, if the Storage account has firewall enabled, it must be configured to [allow access to the Cognitive Search Service](search-indexer-howto-access-ip-restricted.md).
 
 ## Create a debug session
 
