@@ -17,6 +17,18 @@ ms.custom: ignite-fall-2021
 
 Form Recognizer v3.0 preview includes the new Read Optical Character Recognition (OCR) model. The read OCR model extracts typeface and handwritten text including mixed languages in documents. The read model can detect lines, words, locations, and languages and is the core of all the other Form Recognizer models. Layout, general document, custom, and prebuilt models all use the read model as a foundation for extracting texts from documents.
 
+## Supported document types
+
+| **Model**   | **Images**   | **PDF**  | **TIFF** | **Word**   | **Excel**  | **PowerPoint** | **HTML** |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Read  | ✓  | ✓  | ✓  | ✓  | ✓  | ✓  | ✓  |
+
+## Data extraction features
+
+| **Read model**   | **Text**   | **[Language detection](language-support.md#detected-languages-read-api)** |
+| --- | --- | --- |
+prebuilt-read  | ✓  |✓  |
+
 ## Development options
 
 The following resources are supported by Form Recognizer v3.0:
@@ -25,13 +37,8 @@ The following resources are supported by Form Recognizer v3.0:
 |----------|------------|------------|
 |**Read model**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-rest-api)</li><li>[**C# SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-csharp)</li><li>[**Python SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-python)</li><li>[**Java SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-java)</li><li>[**JavaScript**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-javascript)</li></ul>|**prebuilt-read**|
 
-## Data extraction
 
-| **Read model**   | **Text Extraction**   | **[Language detection](language-support.md#detected-languages-read-api)** |
-| --- | --- | --- | 
-prebuilt-read  | ✓  |✓  |
-
-### Try Form Recognizer
+## Try Form Recognizer
 
 See how text is extracted from forms and documents using the Form Recognizer Studio. You'll need the following assets:
 
@@ -41,7 +48,7 @@ See how text is extracted from forms and documents using the Form Recognizer Stu
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-#### Form Recognizer Studio (preview)
+### Form Recognizer Studio (preview)
 
 > [!NOTE]
 > Form Recognizer studio is available with the preview (v3.0) API. It is not yet enabled for analyzing Microsoft Word, Excel, PowerPoint and HTML file formats supported by the latest service preview.
@@ -67,6 +74,7 @@ See how text is extracted from forms and documents using the Form Recognizer Stu
 * For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
 * The file size must be less than 500 MB for paid (S0) tier and 4 MB for free (F0) tier (4 MB for the free tier)
 * Image dimensions must be between 50 x 50 pixels and 10,000 x 10,000 pixels.
+* The minimum height of the text to be extracted is 12 pixels for a 1024X768 image. This corresponds to about 8 font point text at 150 DPI.
 
 ## Supported languages and locales
 
@@ -88,17 +96,13 @@ With the added support for Microsoft Word, Excel, PowerPoint, and HTML files, th
 
 ### Text lines and words
 
-Read API extracts text from documents and images. For PDFs and images of documents, it handles printed and/or handwritten text, and supports mixed languages. Text is extracted as text lines, words, bounding boxes, confidence scores, and style, whether handwritten or not, supported for Latin languages only.
+Read extracts print and handwritten style text as `lines` and `words`. The model outputs bounding `polygon` coordinates for both and `confidence` for the extracted words. The `styles` collection includes any handwritten style for lines if detected along with the spans pointing to the associated text. This feature applies to the [supported handwritten languages](language-support.md).
 
-For Microsoft Word, Excel, PowerPoint, and HTML file formats, Read will extract all embedded text as is. For any embedded images, it will run OCR on the images to extract any text and append as pages to the JSON output. The image sourced pages will include the extracted text lines and words, alongwith the bounding polygons, confidence scores, and handwritten styles if detected and indicate images as the source for the text.
+For Microsoft Word, Excel, PowerPoint, and HTML file formats, Read will extract all embedded text as is. For any embedded images, it will run OCR on the images to extract text and append the text from each image as an additional entry to the `pages` collection. These additional entries will include the extracted text lines and words, their bounding polygons, confidences, and the spans pointing to the associated text.
 
 ### Language detection
 
-Read adds [language detection](language-support.md#detected-languages-read-api) as a new feature for text lines. Read will predict the language at the text line level along with the confidence score.
-
-### Handwritten classification for text lines (Latin only)
-
-For text extracted from images or document scans, the response includes classifying whether each text line is of handwriting style or not, along with a confidence score. This feature is only supported for Latin languages.
+Read adds [language detection](language-support.md#detected-languages-read-api) as a new feature for text lines. Read will predict all detected languages for text lines along with the `confidence` in the `languages` collection under `analyzeResult`.
 
 ### Select page (s) for text extraction
 
