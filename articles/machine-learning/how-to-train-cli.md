@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: how-to
 author: amibp
 ms.author: amipatel
-ms.date: 03/31/2022
+ms.date: 05/26/2022
 ms.reviewer: nibaccam
 ms.custom: devx-track-azurecli, devplatv2, event-tier1-build-2022
 ---
@@ -327,11 +327,11 @@ The following example shows an AutoML configuration file for training a classifi
 * The training has a time out of 180 minutes 
 * The data for training is in the folder "./training-mltable-folder". Automated ML jobs only accept data in the form of an `MLTable`. 
 
-:::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/basics/hello-automl/hello-automl-job-basic.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-automl/hello-automl-job-basic.yml":::
 
 That mentioned MLTable definition is what points to the training data file, in this case a local .csv file that will be uploaded automatically:
 
-:::code language="yaml" source="~/azureml-examples-sdk-preview/cli/jobs/basics/hello-automl/training-mltable-folder/MLTable":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-automl/training-mltable-folder/MLTable":::
 
 Finally, you can run it (create the AutoML job) with this CLI command:
 

@@ -1,7 +1,6 @@
 ---
 title: What is application management?
 description: An overview of managing the lifecycle of an application in Azure Active Directory.
-titleSuffix: Azure AD
 services: active-directory
 author: omondiatieno
 manager: CelesteDG
@@ -44,7 +43,6 @@ If you develop your own business application, you can register it with Azure AD 
 
 If you want to make your application available through the gallery, you can [submit a request to have it added](../manage-apps/v2-howto-app-gallery-listing.md).
 
-
 ### On-premises applications
 
 If you want to continue using an on-premises application, but take advantage of what Azure AD offers, connect it with Azure AD using [Azure AD Application Proxy](../app-proxy/application-proxy.md). Application Proxy can be implemented when you want to publish on-premises applications externally. Remote users who need access to internal applications can then access them in a secure manner.
@@ -69,13 +67,13 @@ As an administrator, you can [grant tenant-wide admin consent](grant-admin-conse
 
 ### Single sign-on
 
-Consider implementing SSO in your application. You can manually configure most applications for SSO. The most popular options in Azure AD are [SAML-based SSO and OpenID Connect-based SSO](../develop/active-directory-v2-protocols.md). Before you start, make sure that you understand the requirements for SSO and how to [plan for deployment](plan-sso-deployment.md). For a simple example of how to configure SAML-based SSO for an enterprise application in your Azure AD tenant, see [Quickstart: Enable single sign-on for an enterprise application](add-application-portal-setup-sso.md).
+Consider implementing SSO in your application. You can manually configure most applications for SSO. The most popular options in Azure AD are [SAML-based SSO and OpenID Connect-based SSO](../develop/active-directory-v2-protocols.md). Before you start, make sure that you understand the requirements for SSO and how to [plan for deployment](plan-sso-deployment.md). For training related to configuring SAML-based SSO for an enterprise application in your Azure AD tenant, see [Enable single sign-on for an application by using Azure Active Directory](/learn/modules/enable-single-sign-on).
 
 ### User, group, and owner assignment
 
 By default, all users can access your enterprise applications without being assigned to them. However, if you want to assign the application to a set of users, your application requires user assignment. For a simple example of how to create and assign a user account to an application, see [Quickstart: Create and assign a user account](add-application-portal-assign-users.md). 
 
-If included in your subscription, [assign groups to an application](assign-user-or-group-access-portal.md) so that you can delegate ongoing access management to the group owner. 
+If included in your subscription, [assign groups to an application](assign-user-or-group-access-portal.md) so that you can delegate ongoing access management to the group owner.
 
 [Assigning owners](assign-app-owners.md) is a simple way to grant the ability to manage all aspects of Azure AD configuration for an application. As an owner, a user can manage the organization-specific configuration of the application.
 

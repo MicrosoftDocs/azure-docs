@@ -13,11 +13,11 @@ ms.custom: "mvc, devx-track-azurecli"
 [App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](overview-managed-identity.md) for your app, which is a turn-key solution for securing access to Azure databases, including: 
 
 - [Azure SQL Database](/azure/azure-sql/database/)
-- [Azure Database for MySQL](/azure/mysql/)
-- [Azure Database for PostgreSQL](/azure/postgresql/)
+- [Azure Database for MySQL](../mysql/index.yml)
+- [Azure Database for PostgreSQL](../postgresql/index.yml)
 
 > [!NOTE]
-> This tutorial doesn't include guidance for [Azure Cosmos DB](/azure/cosmos-db/), which supports Azure Active Directory authentication differently. For information, see Cosmos DB documentation. For example: [Use system-assigned managed identities to access Azure Cosmos DB data](../cosmos-db/managed-identity-based-authentication.md).
+> This tutorial doesn't include guidance for [Azure Cosmos DB](../cosmos-db/index.yml), which supports Azure Active Directory authentication differently. For information, see Cosmos DB documentation. For example: [Use system-assigned managed identities to access Azure Cosmos DB data](../cosmos-db/managed-identity-based-authentication.md).
 
 Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the connection strings. This tutorial shows you how to connect to the above-mentioned databases from App Service using managed identities. 
 
@@ -741,7 +741,7 @@ For Azure Database for MySQL and Azure Database for PostgreSQL, the database use
 
     The `if` statement sets the MySQL username based on which identity the token applies to. The token is then passed in to the [standard MySQL connection](../mysql/connect-python.md) as the password of the Azure identity.
 
-    The `LIBMYSQL_ENABLE_CLEARTEXT_PLUGIN` environment variable enables the [Cleartext plugin](https://dev.mysql.com/doc/refman/8.0/cleartext-pluggable-authentication.html) in the MySQL Connector (see [Use Azure Active Directory for authentication with MySQL](../mysql/howto-configure-sign-in-azure-ad-authentication.md#compatibility-with-application-drivers)).
+    The `LIBMYSQL_ENABLE_CLEARTEXT_PLUGIN` environment variable enables the [Cleartext plugin](https://dev.mysql.com/doc/refman/8.0/en/cleartext-pluggable-authentication.html) in the MySQL Connector (see [Use Azure Active Directory for authentication with MySQL](../mysql/howto-configure-sign-in-azure-ad-authentication.md#compatibility-with-application-drivers)).
 
     # [Azure Database for PostgreSQL](#tab/postgresql)
 
