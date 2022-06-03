@@ -22,10 +22,10 @@ The Azure Storage provider represents a [logical task hub](durable-functions-tas
 
 * Two Azure Tables that represent the instance store.
 * One Azure Queue that stores the tasks.
-* One or more Azure Queues that store the messages. Each of these so-called *control queues* represents a [partition](durable-functions-perf-and-scale.md#partition-count) that is assigned a subset of all instance messages, based on the hash of the instance id.
-* A few extra blob containers for lease blobs and/or large messages.
+* One or more Azure Queues that store the messages for triggering orchestrator and entity functions. These queues are known as **control queues** and each represent a [partition](durable-functions-perf-and-scale.md#partition-count) that is assigned a subset of all orchestrations and entities, based on the hash of the orchestration instance ID or the entity ID.
+* Blob containers for lease blobs and/or large message payloads (i.e., payloads that are too large for Azure Queue messages or Table Storage entities).
 
-For example, a taskhub named `x` with `partitionCount = 4` contains the following queues and tables:
+For example, a task hub named `x` with `partitionCount = 4` contains the following queues and tables:
 
 ![Diagram showing Azure Storage provider storage storage organization for 4 control queues.](./media/durable-functions-task-hubs/azure-storage.png)
 
@@ -91,7 +91,7 @@ In most cases, Durable Functions doesn't use Azure Storage Blobs to persist data
 
 #### Performance considerations
 
-The extra compression and blob operation steps for large messages can be expensive in terms of CPU and I/O latency costs. Additionally, Durable Functions needs to load persisted data in memory, and may do so for many different function executions at the same time. As a result, persisting large data payloads can cause high memory usage as well. To minimize memory overhead, consider persisting large data payloads manually (for example, in blob storage) and instead pass around references to this data. This way your code can load the data only when needed to avoid redundant loads during [orchestrator function replays](durable-functions-orchestrations.md#reliability). However, storing payloads to disk is *not* recommended since on-disk state is not guaranteed to be available since functions may execute on different VMs throughout their lifetimes.
+The extra compression and blob operation steps for large messages can be expensive in terms of CPU and I/O latency costs. Additionally, Durable Functions needs to load persisted data in memory, and may do so for many different function executions at the same time. As a result, persisting large data payloads can cause high memory usage as well. To minimize memory overhead, consider persisting large data payloads manually (for example, in blob storage) and instead pass around references to this data. This way your code can load the data only when needed to avoid redundant loads during [orchestrator function replays](durable-functions-orchestrations.md#reliability). However, storing payloads to local disks is *not* recommended since on-disk state is not guaranteed to be available since functions may execute on different VMs throughout their lifetimes.
 
 ### Storage account selection
 
