@@ -37,17 +37,9 @@ Click `Finish`.
 
 ## Install the packages
 
-In your app level (**app folder**) `UILibraryQuickStart/app/build.gradle`, add the following lines to the android and dependencies sections.
+### Add Dependency
 
-```groovy
-android {
-    ...
-    packagingOptions {
-        pickFirst  'META-INF/*'
-    }
-    ...
-}
-```
+In your app level (**app folder**) `UILibraryQuickStart/app/build.gradle`, add the following dependency.
 
 ```groovy
 dependencies {
@@ -57,7 +49,12 @@ dependencies {
 }
 ```
 
-In your project gradle scripts add following lines to `repositories`.  
+### Maven Repositories
+
+Two maven repositories are required to integrate the library. MavenCentral is the first, the second is Azure's package repository.
+
+In your project gradle scripts ensure the following `repositories` are added.
+
 For `Android Studio (2020.*)` the `repositories` are in `settings.gradle` `dependencyResolutionManagement(Gradle version 6.8 or greater)`.  
 If you are using old versions of `Android Studio (4.*)` then the `repositories` will be in project level `build.gradle` `allprojects{}`.  
 
@@ -72,6 +69,7 @@ repositories {
     ...
 }
 ```
+
 Sync project with gradle files. (Android Studio -> File -> Sync Project With Gradle Files)
 
 ## Add a button to the activity_main
@@ -131,10 +129,11 @@ class MainActivity : AppCompatActivity() {
     private fun startCallComposite() {
         val communicationTokenRefreshOptions = CommunicationTokenRefreshOptions({ fetchToken() }, true)
         val communicationTokenCredential = CommunicationTokenCredential(communicationTokenRefreshOptions)
+        val locator = CallCompositeGroupCallLocator("GROUP_CALL_ID)
 
-        val options = GroupCallOptions(
-            communicationTokenCredential,
-            UUID.fromString("GROUP_CALL_ID"),
+        val options = CallCompositeRemoteOptions(
+            locator,
+            communicationTokenCredential,            
             "DISPLAY_NAME",
         )
 
@@ -183,10 +182,12 @@ public class MainActivity extends AppCompatActivity {
 
         CommunicationTokenCredential communicationTokenCredential = 
                 new CommunicationTokenCredential(communicationTokenRefreshOptions);
+        
+        CallCompositeGroupCallLocator locator = new CallCompositeGroupCallLocator("GROUP_CALL_ID");
 
-        GroupCallOptions options = new GroupCallOptions(
-                communicationTokenCredential,
-                UUID.fromString("GROUP_CALL_ID"),
+        CallCompositeRemoteOptions options = new CallCompositeRemoteOptions(
+                locator,
+                communicationTokenCredential,                
                 "DISPLAY_NAME");
 
         CallComposite callComposite = new CallCompositeBuilder().build();
@@ -205,7 +206,7 @@ public class MainActivity extends AppCompatActivity {
 Build and start application from Android Studio.
 
 - Click `Launch`.
-- Accept audio permissions and select device, mic, and video settings.
+- Accept permissions and select device, mic, and video settings.
 - Click `Join Call`.
 
 ![Launch](../../media/composite-android.gif)
@@ -277,55 +278,60 @@ Depending on what type of Call/Meeting you would like to set up, use the appropr
 
 ### Group Call
 
-Initialize a `GroupCallOptions` instance inside the `startCallComposite` function.
-Replace `"GROUP_CALL_ID"` with your group ID for your call.
-Replace `"DISPLAY_NAME"` with your name.
+Initialize a `CallCompositeGroupCallLocator` and supply it to the `CallCompositeRemoteOptions` object.
 
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-val options = GroupCallOptions(
-            communicationTokenCredential,
-            UUID.fromString("GROUP_CALL_ID"),
-            "DISPLAY_NAME",
-        )
+val locator = CallCompositeGroupCallLocator("GROUP_CALL_ID)
+
+val options = CallCompositeRemoteOptions(
+    locator,
+    communicationTokenCredential,            
+    "DISPLAY_NAME",
+)
 ```
 
 #### [Java](#tab/java)
 
 ```java
-GroupCallOptions options = new GroupCallOptions(
-    communicationTokenCredential,
-    UUID.fromString("GROUP_CALL_ID"),
-    "DISPLAY_NAME"
-);
+CallCompositeGroupCallLocator locator = new CallCompositeGroupCallLocator("GROUP_CALL_ID");
+
+CallCompositeRemoteOptions options = new CallCompositeRemoteOptions(
+        locator,
+        communicationTokenCredential,                
+        "DISPLAY_NAME");
 ```
 -----
+
 ### Teams Meeting
 
-Initialize a `TeamsMeetingOptions` instance inside the `startCallComposite` function.
-Replace `"TEAMS_MEETING_LINK"` with teams meeting url for your call.
-Replace `"DISPLAY_NAME"` with your name.
+Initialize a `CallCompositeTeamsMeetingLinkLocator` and supply it to the `CallCompositeRemoteOptions` object.
 
 #### [Kotlin](#tab/kotlin)
 
+
 ```kotlin
-val options = TeamsMeetingOptions(
-            communicationTokenCredential,
-            "TEAMS_MEETING_LINK",
-            "DISPLAY_NAME",
-        )
+val locator = CallCompositeTeamsMeetingLinkLocator("TEAMS_MEETING_LINK)
+
+val options = CallCompositeRemoteOptions(
+    locator,
+    communicationTokenCredential,            
+    "DISPLAY_NAME",
+)
 ```
 
 #### [Java](#tab/java)
 
 ```java
-TeamsMeetingOptions options = new TeamsMeetingOptions(
-    communicationTokenCredential,
-    "TEAMS_MEETING_LINK",
-    "DISPLAY_NAME"
-);
+CallCompositeTeamsMeetingLinkLocator locator = new CallCompositeTeamsMeetingLinkLocator("TEAMS_MEETING_LINK");
+
+CallCompositeRemoteOptions options = new CallCompositeRemoteOptions(
+        locator,
+        communicationTokenCredential,                
+        "DISPLAY_NAME");
 ```
+-----
 
 -----
 ### Get a Microsoft Teams meeting link
@@ -354,23 +360,29 @@ callComposite.launch(context, options);
 -----
 ### Subscribe to error events from `CallComposite`
 
-To receive error events, inject a handler to the `CallCompositeBuilder`.
+To receive error events register an `onErrorHandler` with the `CallComposite`
+
+This will receiver `CallCompositeErrorEvents` and deliver them to the callback.
+
+The following `errorCode` values may be sent to the Error Handler
+
+- `CallCompositeErrorCode.CALL_JOIN_FAILED`
+- `CallCompositeErrorCode.CALL_END_FAILED`
+- `CallCompositeErrorCode.TOKEN_EXPIRED`
 
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-val callComposite: CallComposite = CallCompositeBuilder().build()
-callComposite.setOnErrorHandler { communicationUIErrorEvent ->
-    println(communicationUIErrorEvent.errorCode)
+callComposite.setOnErrorHandler { callCompositeErrorEvent ->
+    println(callCompositeErrorEvent.errorCode)
 }
 ```
 
 #### [Java](#tab/java)
 
 ```java
-CallComposite callComposite = new CallCompositeBuilder().build();
-callComposite.setOnErrorHandler(communicationUIErrorEvent -> {
-    System.out.println(communicationUIErrorEvent.getErrorCode());
+callComposite.setOnErrorHandler(callCompositeErrorEvent -> {
+    System.out.println(callCompositeErrorEvent.getErrorCode());
 });
 ```
 
@@ -423,7 +435,7 @@ import com.azure.android.communication.ui.calling.models.LocalizationConfigurati
 // CommunicationUISupportedLocale provides list of supported locale
 val callComposite: CallComposite =
             CallCompositeBuilder().localization(
-                LocalizationConfiguration(Locale(CommunicationUISupportedLocale.EN))
+                CallCompositeLocalizationConfiguration(Locale(CallCompositeSupportedLocale.EN))
             ).build()
 ```
 
@@ -435,7 +447,7 @@ import com.azure.android.communication.ui.calling.models.LocalizationConfigurati
 // CommunicationUISupportedLocale provides list of supported locale
 CallComposite callComposite = 
     new CallCompositeBuilder()
-        .localization(new LocalizationConfiguration(CommunicationUISupportedLocale.EN))
+        .localization(new CallCompositeLocalizationConfiguration(CallCompositeSupportedLocale.EN))
         .build();
 ```
 
