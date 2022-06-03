@@ -17,14 +17,14 @@ When you use the integrated Dynatrace experience in Azure portal, the following 
 :::image type="content" source="media/dynatrace-create/dynatrace-entities.png" alt-text="Flowchart showing three entities: Marketplace S A A S connecting to Dynatrace resource, connecting to Dyntrace environment.":::
 
 - **Dynatrace resource in Azure** - Using the Dynatrace resource, you can manage the Dynatrace environment in Azure. The resource is created in the Azure subscription and resource group that you select during the create or linking process.
-- **Dynatrace environment** - this is the Dynatrace environment on Dynatrace SaaS. When you choose to create a new environment, the environment on Dynatrace SaaS is automatically created, in addition to the Dynatrace resource in Azure. The Dynatrace environment is created in the same Azure region in which you create the Dynatrace resource.
-- **Marketplace SaaS resource** - the SaaS resource is created automatically, based on the plan you select from the Dynatrace Marketplace offer. This resource is used for billing purposes.
+- **Dynatrace environment** - This is the Dynatrace environment on Dynatrace SaaS. When you choose to create a new environment, the environment on Dynatrace SaaS is automatically created, in addition to the Dynatrace resource in Azure. The resource is created in the Azure subscription and resource group that you selected when you created the environment or linked to an existing environment.
+- **Marketplace SaaS resource** - The SaaS resource is created automatically, based on the plan you select from the Dynatrace Marketplace offer. This resource is used for billing purposes.
 
 ## Prerequisites
 
 Before creating your first instance of Dynatrace in Azure, configure your environment. These steps must be completed before continuing with the next steps in this quickstart.
 
-## Find Offer
+### Find Offer
 
 Use the Azure portal to find Dynatrace for Azure application.
 
@@ -58,7 +58,7 @@ Use the Azure portal to find Dynatrace for Azure application.
     | **Property** |   **Description** |
     |--------------|-------------------|
     | Subscription | Select the Azure subscription you want to use for creating the Dynatrace resource. You must have owner or contributor access.|
-    | Resource group | Specify whether you want to create a new resource group or use an existing one. A [resource group](/azure/azure-resource-manager/management/overview)is a container that holds related resources for an Azure solution. |
+    | Resource group | Specify whether you want to create a new resource group or use an existing one. A [resource group](/azure/azure-resource-manager/management/overview) is a container that holds related resources for an Azure solution. |
     | Resource name   | Specify a name for the Dynatrace resource. This name will be the friendly name of the new Dynatrace environment.|
     | Location        | Select the region. Both the Dynatrace resource in Azure and Dynatrace environment will be created in the selected region.|
     | Pricing plan    | Select from the list of available plans. |
@@ -93,9 +93,9 @@ Use the Azure portal to find Dynatrace for Azure application.
 
 ### Configure single sign-on
 
-1. You can establish single sign-on to Dynatrace from the Azure portal when your organization uses Azure Active Directory as its identity provider,. If your organization uses a different identity provider or you don't want to establish single sign-on at this time, you can skip this section.
+1. You can establish single sign-on to Dynatrace from the Azure portal when your organization uses Azure Active Directory as its identity provider. If your organization uses a different identity provider or you don't want to establish single sign-on at this time, you can skip this section.
 
-    :::image type="content" source="media/dynatrace-how-to-configure-prereqs/dynatrace-single-sign-on.png" alt-text="Screenshot showing options for single sign-on.":::
+     :::image type="content" source="media/dynatrace-create/dynatrace-single-sign-on.png" alt-text="Screenshot showing options for single sign-on.":::
 
 1. To establish single sign-on through Azure Active directory, select the checkbox for **Enable single sign-on through Azure Active Directory**.
 

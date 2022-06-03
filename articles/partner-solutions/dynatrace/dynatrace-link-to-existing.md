@@ -25,7 +25,7 @@ When you use the integrated experience for Dynatrace in the Azure portal, your b
 
 Before you link the subscription to a Dynatrace environment, [complete pre-deployment configuration](dynatrace-how-to-configure-prereqs.md).
 
-## Find Offer
+### Find Offer
 
 1. Use the Azure portal to find Dynatrace.
 
@@ -58,7 +58,7 @@ Before you link the subscription to a Dynatrace environment, [complete pre-deplo
     |**Property**   | **Description**  |
     |---------|---------|
     | Subscription | Select the Azure subscription you want to use for creating   the Dynatrace resource. This subscription will be linked to environment for monitoring purposes. |
-    | Resource Group | Specify whether you want to create a new resource group or   use an existing one. A [resource group](/azure/azure-resource-manager/management/overview#resource-groups) is a container that   holds related resources for an Azure solution. |
+    | Resource Group | Specify whether you want to create a new resource group or use an existing one. A [resource group](/azure/azure-resource-manager/management/overview#resource-groups) is a container that holds related resources for an Azure solution. |
     | Resource name | Specify a name for the Dynatrace resource. |
     | Region | Select the Azure region where the Dynatrace resource should be created. |
     | Dynatrace | The Azure portal displays a list of existing environments that can be linked. Select the desired environment from the available options. |

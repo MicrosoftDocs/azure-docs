@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Dynatrace for Azure
-summary: Dynatrace for Azure from the Azure Marketplace enables you to create and manage Dynatrace environments using the Azure portal with a integrated experience.
+summary: Dynatrace for Azure provides a native integrated experience that enables you to create and manage Dynatrace environments from Azure.
 
 metadata:
   title: Dynatrace for Azure documentation
@@ -15,7 +15,7 @@ metadata:
 
 landingContent:
   # Card (optional)
-  - title: About Dynatrace with Azure
+  - title: About Dynatrace for Azure
     linkLists:
       - linkListType: overview
         links:
@@ -25,7 +25,7 @@ landingContent:
         links:
           - text: Complete the prerequisites for Dynatrace
             url: dynatrace-how-to-configure-prereqs.md
-          - text: Manage the Dynatrace for Azure resource with the portal
+          - text: Manage the Dynatrace resource with the portal
             url: dynatrace-how-to-manage.md
 
   # Card

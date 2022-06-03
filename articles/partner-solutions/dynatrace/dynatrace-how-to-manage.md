@@ -39,9 +39,9 @@ If you select the **Monitoring** pane, you see a table with information about th
 
 The columns in the table denote important information for your resource:
 
-- **Resource type** - Azure resource type
-- **Total resources** - Count of all resources for the resource type
-- **Logs to Dynatrace** - Count of resources sending logs to Dynatrace through the integration
+- **Resource type** - Azure resource type.
+- **Total resources** - Count of all resources for the resource type.
+- **Logs to Dynatrace** - Count of resources sending logs to Dynatrace through the integration.
 
 ## Reconfigure rules for logs
 
@@ -63,13 +63,13 @@ The column **Logs to Dynatrace** indicates whether the resource is sending logs 
 
 - _Resource doesn't support sending logs_ - Only resource types with monitoring log categories can be configured to send logs. See [supported categories](/azure/azure-monitor/essentials/resource-logs-categories).
 - _Limit of five diagnostic settings reached_ - Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings).
-- _Error_ The resource is configured to send logs to Dynatrace, but is blocked by an error.
+- _Error_ - The resource is configured to send logs to Dynatrace, but is blocked by an error.
 - _Logs not configured_ - Only Azure resources that have the appropriate resource tags are configured to send logs to Dynatrace.
 - _Agent not configured_ - Virtual machines without the Dynatrace OneAgent installed don't emit logs to Dynatrace.
 
 ## Monitor virtual machines using Dynatrace OneAgent
 
-You can install Dynatrace OneAgent on virtual machines as an extension. Select **Virtual Machines** under **Dynatrace environment config** in the Resource menu on the left. In the working pane, you see a list of all virtual machines in the subscription.
+You can install Dynatrace OneAgent on virtual machines as an extension. Select **Virtual Machines** under **Dynatrace environment config** in the Resource menu. In the working pane, you see a list of all virtual machines in the subscription.
 
 For each virtual machine, the following info is displayed:
 
@@ -81,14 +81,14 @@ For each virtual machine, the following info is displayed:
 | **Agent version** | The Dynatrace OneAgent version number |
 | **Auto-update** | Whether auto-update has been enabled for the OneAgent |
 | **Log analytics** | Whether log monitoring option was selected when OneAgent was installed |
-| **Monitoring mode** | Whether the Dynatrace OneAgent is monitoring hosts in [full-stack monitoring mode or infrastructure monitoring mode{.underline}](https://www.dynatrace.com/support/help/how-to-use-dynatrace/hosts/basic-concepts/get-started-with-infrastructure-monitoring) |
+| **Monitoring mode** | Whether the Dynatrace OneAgent is monitoring hosts in [full-stack monitoring mode or infrastructure monitoring mode](https://www.dynatrace.com/support/help/how-to-use-dynatrace/hosts/basic-concepts/get-started-with-infrastructure-monitoring) |
 
 > [!NOTE]
 > If a virtual machine shows that an agent has been configured, but the options to manage the agent through extension are disabled, it means that the agent has been configured through a different Dynatrace resource in the same Azure subscription.
 
 ## Monitor App Services using Dynatrace OneAgent
 
-You can install Dynatrace OneAgent on App Services as an extension. Select **App Services** in the Resource menu on the left. In the working pane, you see This screen a list of all App Services in the subscription.
+You can install Dynatrace OneAgent on App Services as an extension. Select **App Services** in the Resource menu. In the working pane, you see This screen a list of all App Services in the subscription.
 
 For each app service, the following information is displayed:
 
@@ -118,7 +118,8 @@ To establish single sign-on or change the application, select **Enable single si
 
 ## Delete Dynatrace resource
 
-Select **Overview** in Resource menu on the left. Then, select **Delete**. Confirm that you want to delete the Dynatrace resource. Select **Delete**.
+Select **Overview** in Resource menu. Then, select **Delete**. Confirm that you want to delete the Dynatrace resource. Select **Delete**.
+
 :::image type="content" source="media/dynatrace-how-to-manage/dynatrace-delete.png" alt-text="Screenshot showing overview in resource menu with a box around delete.":::
 
 If only one Dynatrace resource is mapped to a Dynatrace environment, logs are no longer sent to Dynatrace. All billing through Azure Marketplace stops for Dynatrace.
