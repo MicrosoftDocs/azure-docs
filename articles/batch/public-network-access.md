@@ -9,7 +9,7 @@ ms.date: 05/26/2022
 
 By default, [Azure Batch accounts](accounts.md) have public endpoints and are publicly accessible. This article shows how to configure your Batch account to allow access from only specific public IP addresses or IP address ranges.
 
-IP network rules are configured on the public endpoints. IP network rules do not apply to private endpoints configured with [Private Link](private-connectivity.md).
+IP network rules are configured on the public endpoints. IP network rules don't apply to private endpoints configured with [Private Link](private-connectivity.md).
 
 Each endpoint supports a maximum of 200 IP network rules.
 
@@ -22,7 +22,7 @@ Batch accounts have two public endpoints:
 
 You can check both endpoints in account properties when you query the Batch account with [Batch Management REST API](/rest/api/batchmanagement/batch-account/get). You can also check them in the overview for your Batch account in the Azure portal:
 
-   :::image type="content" source="media/public-access/batch-account-endpoints.png" alt-text="Batch account endpoints":::
+   :::image type="content" source="media/public-access/batch-account-endpoints.png" alt-text="Screenshot of Batch account endpoints.":::
 
 You can configure public network access to Batch account endpoints with the following options:
 
@@ -36,7 +36,7 @@ You can configure public network access to Batch account endpoints with the foll
 1. Under **Settings**, select **Networking**.
 1. On the **Public access** tab, select to allow public access from **Selected networks**.
 1. Under access for each endpoint, enter a public IP address or address range in CIDR notation one by one.
-   :::image type="content" source="media/public-access/configure-public-access.png" alt-text="Configure public access with Batch account":::
+   :::image type="content" source="media/public-access/configure-public-access.png" alt-text="Screenshot of public access with Batch account.":::
 1. Select **Save**.
 
 > [!NOTE]
@@ -47,7 +47,7 @@ You can configure public network access to Batch account endpoints with the foll
 
 ## Disable public network access
 
-Optionally, disable public public network access to Batch account endpoints. Disabling the public network access overrides all IP network rules configurations. For example, you might want to disable public access to a Batch account secured in a virtual network using [Private Link](private-connectivity.md).
+Optionally, disable public network access to Batch account endpoints. Disabling the public network access overrides all IP network rules configurations. For example, you might want to disable public access to a Batch account secured in a virtual network using [Private Link](private-connectivity.md).
 
 1. In the portal, navigate to your Batch account and select **Settings > Networking**.
 1. On the **Public access** tab, select **Disabled**.

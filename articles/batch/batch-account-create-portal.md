@@ -54,7 +54,7 @@ Once the account has been created, select the account to access its settings and
 > [!NOTE]
 > The name of the Batch account is its ID and can't be changed. If you need to change the name of a Batch account, you'll need to delete the account and create a new one with the intended name.
 
-:::image type="content" source="media/batch-account-create-portal/batch_blade.png" alt-text="Screenshot of the Batch account page in the Azure portal.":::
+:::image type="content" source="media/batch-account-create-portal/batch-blade.png" alt-text="Screenshot of the Batch account page in the Azure portal.":::
 
 When you develop an application with the [Batch APIs](batch-apis-tools.md#azure-accounts-for-batch-development), you need an account URL and key to access your Batch resources. (Batch also supports Azure Active Directory authentication.) To view the Batch account access information, select **Keys**.
 

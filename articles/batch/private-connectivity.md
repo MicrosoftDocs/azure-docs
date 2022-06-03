@@ -34,11 +34,11 @@ Use the following steps to create a private endpoint with your Batch account usi
 
 1. Go to your Batch account in the Azure portal.
 2. In **Settings**, select **Networking** and go to the tab **Private Access**. Then, select **+ Private endpoint**.
-   :::image type="content" source="media/private-connectivity/private-endpoint-connections.png" alt-text="Private endpoint connections":::
+   :::image type="content" source="media/private-connectivity/private-endpoint-connections.png" alt-text="Screenshot of private endpoint connections.":::
 3. In the **Basics** pane, enter or select the subscription, resource group, private endpoint resource name and region details, then select **Next: Resource**.
-   :::image type="content" source="media/private-connectivity/create-private-endpoint-basics.png" alt-text="Create a private endpoint - Basics pane":::
+   :::image type="content" source="media/private-connectivity/create-private-endpoint-basics.png" alt-text="Screenshot of creating a private endpoint - Basics pane.":::
 4. In the **Resource** pane, set the **Resource type** to **Microsoft.Batch/batchAccounts**. Select the Batch account you want to access, select the target sub-resource, then select **Next: Configuration**.
-   :::image type="content" source="media/private-connectivity/create-private-endpoint.png" alt-text="Create a private endpoint - Resource pane":::
+   :::image type="content" source="media/private-connectivity/create-private-endpoint.png" alt-text="Screenshot of creating a private endpoint - Resource pane.":::
 5. In the **Configuration** pane, enter or select this information:
    - For **Virtual network**, select your virtual network.
    - For **Subnet**, select your subnet.
@@ -105,7 +105,7 @@ For details on costs related to private endpoints, see [Azure Private Link prici
 
 ## Current limitations and best practices
 
-When creating private endpoint with your Batch account, keep in mind the following:
+When creating a private endpoint with your Batch account, keep in mind the following:
 
 - Private endpoint resources with the sub-resource **batchAccount** must be created in the same subscription as the Batch account.
 - Resource movement is not supported for private endpoints with Batch accounts.

@@ -18,7 +18,7 @@ ms.custom: references_regions
 
 When you create an Azure Batch pool, you can provision the virtual machine (VM) configuration pool without a public IP address. This article explains how to set up a Batch pool without public IP addresses.
 
-## Why use a pool without public IP Addresses?
+## Why use a pool without public IP addresses?
 
 By default, all the compute nodes in an Azure Batch VM configuration pool are assigned a public IP address. This address is used by the Batch service to support outbound access to the internet, as well inbound access to compute nodes from the internet.
 
