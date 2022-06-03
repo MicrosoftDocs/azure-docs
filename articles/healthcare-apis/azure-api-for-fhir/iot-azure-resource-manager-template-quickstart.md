@@ -6,7 +6,7 @@ ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: quickstart
 ms.author: rabhaiya
-ms.date: 06/02/2022
+ms.date: 06/03/2022
 ms.custom: devx-track-azurepowershell, mode-arm
 ---
 
