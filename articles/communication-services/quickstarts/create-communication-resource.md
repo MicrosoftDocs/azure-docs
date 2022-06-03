@@ -17,11 +17,14 @@ ms.devlang: azurecli
 # Quickstart: Create and manage Communication Services resources
 
 Get started with Azure Communication Services by provisioning your first Communication Services resource. Communication Services resources can be provisioned through the [Azure portal](https://portal.azure.com) or with the .NET management SDK. The management SDK and the Azure portal allow you to create, configure, update and delete your resources and interface with [Azure Resource Manager](../../azure-resource-manager/management/overview.md), Azure's deployment and management service. All functionality available in the SDKs is available in the Azure portal. 
+<br/>
+<br/>
+>[!VIDEO https://www.youtube.com/embed/3In3o5DhOHU]
 
 
-> [!WARNING]
-> While Communication Services is available in multiple geographies, in order to get a phone number the resource must have a data location set to 'US'. 
-> Also, it is not possible to create a resource group at the same time as a resource for Azure Communication Services. When creating a resource, a resource group that has been created already must be used.
+> [!WARNING] 
+> Note that it is not possible to create a resource group at the same time as a resource for Azure Communication Services. When creating a resource, a resource group that has been created already, must be used.
+
 
 ::: zone pivot="platform-azp"
 [!INCLUDE [Azure portal](./includes/create-resource-azp.md)]

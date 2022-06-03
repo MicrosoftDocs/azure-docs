@@ -61,5 +61,5 @@ keywords: speech translation
 
 ## Next steps
 
-* Use [codec-compressed audio formats](how-to-use-codec-compressed-audio-input-streams.md).
-* See the [quickstart samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart) on GitHub.
+> [!div class="nextstepaction"]
+> [Learn about language identification](language-identification.md)

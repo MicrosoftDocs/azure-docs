@@ -16,7 +16,7 @@ Your AKS cluster has regular maintenance performed on it automatically. By defau
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
@@ -217,10 +217,10 @@ Planned Maintenance will detect if you are using Cluster Auto-Upgrade and schedu
 
 - To get started with upgrading your AKS cluster, see [Upgrade an AKS cluster][aks-upgrade]
 
-
 <!-- LINKS - Internal -->
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
 [az-extension-add]: /cli/azure/extension#az_extension_add

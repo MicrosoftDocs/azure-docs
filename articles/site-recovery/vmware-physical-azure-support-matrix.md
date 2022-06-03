@@ -2,7 +2,7 @@
 title: Support matrix for VMware/physical disaster recovery in Azure Site Recovery.
 description: Summarizes support for disaster recovery of VMware VMs and physical server to Azure using Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 08/02/2021
+ms.date: 05/02/2022
 ---
 
 # Support matrix for disaster recovery  of VMware VMs and physical servers to Azure
@@ -60,7 +60,7 @@ Ports | 443 used for control channel orchestration<br/>9443 for data transport
 
 ## Replicated machines
 
-In preview, replication is done by the Azure Site Recovery replication appliance. For detailed information about replication appliance, see [this article](deploy-vmware-azure-replication-appliance-preview.md)
+In preview, replication is done by the Azure Site Recovery replication appliance. For detailed information about replication appliance, see [this article](deploy-vmware-azure-replication-appliance-preview.md).
 
 Site Recovery supports replication of any workload running on a supported machine.
 
@@ -68,7 +68,7 @@ Site Recovery supports replication of any workload running on a supported machin
 --- | ---
 Machine settings | Machines that replicate to Azure must meet [Azure requirements](#azure-vm-requirements).
 Machine workload | Site Recovery supports replication of any workload running on a supported machine. [Learn more](./site-recovery-workload.md).
-Machine name | Ensure that the display name of machine does not fall into [Azure reserved resource names](../azure-resource-manager/templates/error-reserved-resource-name.md)<br/><br/> Logical volume names are not case-sensitive. Ensure that no two volumes on a device have same name. Ex: Volumes with names "voLUME1", "volume1" cannot be protected through Azure Site Recovery.
+Machine name | Ensure that the display name of machine does not fall into [Azure reserved resource names](../azure-resource-manager/templates/error-reserved-resource-name.md).<br/><br/> Logical volume names are not case-sensitive. Ensure that no two volumes on a device have same name. For example, Volumes with names "voLUME1", "volume1" cannot be protected through Azure Site Recovery.
 
 ### For Windows
 
@@ -113,13 +113,14 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5,
 18.04 LTS |[9.45](https://support.microsoft.com/topic/update-rollup-58-for-azure-site-recovery-kb5007075-37ba21c3-47d9-4ea9-9130-a7d64f517d5d) | 4.15.0-1123-azure </br> 5.4.0-1058-azure </br> 4.15.0-156-generic </br> 4.15.0-1125-azure </br> 4.15.0-161-generic </br> 5.4.0-1061-azure </br> 5.4.0-1062-azure </br> 5.4.0-89-generic |
 18.04 LTS | [9.44](https://support.microsoft.com/topic/update-rollup-57-for-azure-site-recovery-kb5006172-9fccc879-6e0c-4dc8-9fec-e0600cf94094) | 4.15.0-20-generic to 4.15.0-140-generic </br> 4.18.0-13-generic to 4.18.0-25-generic </br> 5.0.0-15-generic to 5.0.0-65-generic </br> 5.3.0-19-generic to 5.3.0-72-generic </br> 5.4.0-37-generic to 5.4.0-70-generic </br> 4.15.0-1009-azure to 4.15.0-1111-azure </br> 4.18.0-1006-azure to 4.18.0-1025-azure </br> 5.0.0-1012-azure to 5.0.0-1036-azure </br> 5.3.0-1007-azure to 5.3.0-1035-azure </br> 5.4.0-1020-azure to 5.4.0-1043-azure </br> 4.15.0-1114-azure </br> 4.15.0-143-generic </br> 5.4.0-1047-azure </br> 5.4.0-73-generic </br> 4.15.0-1115-azure </br> 4.15.0-144-generic </br> 5.4.0-1048-azure </br> 5.4.0-74-generic </br> 4.15.0-1121-azure </br> 4.15.0-151-generic </br> 5.3.0-76-generic </br> 5.4.0-1055-azure </br> 5.4.0-80-generic </br> 4.15.0-147-generic </br> 4.15.0-153-generic </br> 5.4.0-1056-azure </br> 5.4.0-81-generic </br> 4.15.0-1122-azure </br> 4.15.0-154-generic |
 |||
-20.04 LTS |[9.48](https://support.microsoft.com/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39) | 5.11.0-1007-azure </br> 5.11.0-1012-azure </br> 5.11.0-1013-azure </br> 5.11.0-1015-azure </br> 5.11.0-1017-azure </br> 5.11.0-1019-azure </br> 5.11.0-1020-azure </br> 5.11.0-1021-azure </br> 5.11.0-1022-azure </br> 5.11.0-1023-azure </br> 5.11.0-1025-azure </br> 5.11.0-1027-azure </br> 5.11.0-1028-azure </br> 5.11.0-22-generic </br> 5.11.0-25-generic </br> 5.11.0-27-generic </br> 5.11.0-34-generic </br> 5.11.0-36-generic </br> 5.11.0-37-generic </br> 5.11.0-38-generic </br> 5.11.0-40-generic </br> 5.11.0-41-generic </br> 5.11.0-43-generic </br> 5.11.0-44-generic </br> 5.11.0-46-generic </br> 5.4.0-100-generic </br> 5.4.0-1067-azure </br> 5.4.0-1068-azure </br> 5.4.0-1069-azure </br> 5.4.0-1070-azure </br> 5.4.0-94-generic </br> 5.4.0-96-generic </br> 5.4.0-97-generic </br> 5.4.0-99-generic |
-20.04 LTS |[9.47](https://support.microsoft.com/topic/update-rollup-60-for-azure-site-recovery-k5011122-883a93a7-57df-4b26-a1c4-847efb34a9e8) | 5.4.0-1063-azure </br> 5.4.0-1064-azure </br> 5.4.0-1065-azure </br> 5.4.0-90-generic </br> 5.4.0-91-generic </br> 5.4.0-92-generic </br> 5.8.0-1033-azure </br> 5.8.0-1036-azure </br> 5.8.0-1039-azure </br> 5.8.0-1040-azure </br> 5.8.0-1041-azure </br> 5.8.0-1042-azure </br> 5.8.0-1043-azure </br> 5.8.0-23-generic </br> 5.8.0-25-generic </br> 5.8.0-28-generic </br> 5.8.0-29-generic </br> 5.8.0-31-generic </br> 5.8.0-33-generic </br> 5.8.0-34-generic </br> 5.8.0-36-generic </br> 5.8.0-38-generic </br> 5.8.0-40-generic </br> 5.8.0-41-generic </br> 5.8.0-43-generic </br> 5.8.0-44-generic </br> 5.8.0-45-generic </br> 5.8.0-48-generic </br> 5.8.0-49-generic </br> 5.8.0-50-generic </br> 5.8.0-53-generic </br> 5.8.0-55-generic </br> 5.8.0-59-generic </br> 5.8.0-63-generic |
+20.04 LTS |[9.48](https://support.microsoft.com/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39) | 5.4.0-100-generic </br> 5.4.0-1067-azure </br> 5.4.0-1068-azure </br> 5.4.0-1069-azure </br> 5.4.0-1070-azure </br> 5.4.0-94-generic </br> 5.4.0-96-generic </br> 5.4.0-97-generic </br> 5.4.0-99-generic |
+20.04 LTS |[9.47](https://support.microsoft.com/topic/update-rollup-60-for-azure-site-recovery-k5011122-883a93a7-57df-4b26-a1c4-847efb34a9e8) | 5.4.0-1063-azure </br> 5.4.0-1064-azure </br> 5.4.0-1065-azure </br> 5.4.0-90-generic </br> 5.4.0-91-generic </br> 5.4.0-92-generic |
 20.04 LTS |[9.46](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e) | 5.4.0-1058-azure </br> 5.4.0-1059-azure </br> 5.4.0-1061-azure </br> 5.4.0-1062-azure </br> 5.4.0-84-generic </br> 5.4.0-86-generic </br> 5.4.0-88-generic </br> 5.4.0-89-generic  |
 20.04 LTS |[9.45](https://support.microsoft.com/topic/update-rollup-58-for-azure-site-recovery-kb5007075-37ba21c3-47d9-4ea9-9130-a7d64f517d5d) | 5.4.0-1058-azure </br> 5.4.0-84-generic </br> 5.4.0-1061-azure </br> 5.4.0-1062-azure |
 20.04 LTS |[9.44](https://support.microsoft.com/topic/update-rollup-57-for-azure-site-recovery-kb5006172-9fccc879-6e0c-4dc8-9fec-e0600cf94094) | 5.4.0-26-generic to 5.4.0-80 </br> 5.4.0-1010-azure to 5.4.0-1048-azure </br> 5.4.0-81-generic </br> 5.4.0-1056-azure |
 
-**Note: For Ubuntu 20.04, we had initially rolled out support for kernels 5.8.* but we have since found issues with support for this kernel and hence have redacted these kernels from our support statement for the time being.
+> [!Note]
+> - For Ubuntu 20.04, we had initially rolled out support for kernels 5.8. But we have since found issues with support for this kernel and hence have redacted these kernels from our support statement for the time being.
 
 ### Debian kernel versions
 
@@ -135,11 +136,11 @@ Debian 9.1 | [9.46](https://support.microsoft.com/topic/update-rollup-59-for-azu
 Debian 9.1 | [9.45](https://support.microsoft.com/topic/update-rollup-58-for-azure-site-recovery-kb5007075-37ba21c3-47d9-4ea9-9130-a7d64f517d5d) | 4.9.0-1-amd64 to 4.9.0-15-amd64 </br> 4.19.0-0.bpo.1-amd64 to 4.19.0-0.bpo.16-amd64 </br> 4.19.0-0.bpo.1-cloud-amd64 to 4.19.0-0.bpo.16-cloud-amd64 </br> 4.19.0-0.bpo.18-amd64 </br> 4.19.0-0.bpo.18-cloud-amd64 </br>
 Debian 9.1 | [9.44](https://support.microsoft.com/topic/update-rollup-57-for-azure-site-recovery-kb5006172-9fccc879-6e0c-4dc8-9fec-e0600cf94094) | 4.9.0-1-amd64 to 4.9.0-15-amd64 </br> 4.19.0-0.bpo.1-amd64 to 4.19.0-0.bpo.16-amd64 </br> 4.19.0-0.bpo.1-cloud-amd64 to 4.19.0-0.bpo.16-cloud-amd64 </br>
 |||
-Debian 10 | [9.48](https://support.microsoft.com/en-us/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39) | 5.10.0-0.bpo.11-amd64 </br> 5.10.0-0.bpo.11-cloud-amd64 </br> 5.10.0-0.bpo.7-amd64 </br> 5.10.0-0.bpo.7-cloud-amd64 </br> 5.10.0-0.bpo.9-amd64 </br> 5.10.0-0.bpo.9-cloud-amd64 </br> 5.8.0-0.bpo.2-amd64 </br> 5.8.0-0.bpo.2-cloud-amd64 </br> 5.9.0-0.bpo.2-amd64 </br> 5.9.0-0.bpo.2-cloud-amd64 </br> 5.9.0-0.bpo.5-amd64 </br> 5.9.0-0.bpo.5-cloud-amd64
-Debian 10 | [9.47](https://support.microsoft.com/topic/update-rollup-60-for-azure-site-recovery-k5011122-883a93a7-57df-4b26-a1c4-847efb34a9e8) | 5.10.0-0.bpo.9-cloud-amd64 </br> 5.10.0-0.bpo.9-amd64 
+Debian 10 | [9.48](https://support.microsoft.com/en-us/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39) | Not supported.
+Debian 10 | [9.47](https://support.microsoft.com/topic/update-rollup-60-for-azure-site-recovery-k5011122-883a93a7-57df-4b26-a1c4-847efb34a9e8) | Not supported.
 Debian 10 | [9.46](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e) | 4.9.0-1-amd64 to 4.9.0-15-amd64 <br/> 4.19.0-18-amd64 </br> 4.19.0-18-cloud-amd64
 Debian 10 | [9.45](https://support.microsoft.com/topic/update-rollup-58-for-azure-site-recovery-kb5007075-37ba21c3-47d9-4ea9-9130-a7d64f517d5d), [9.46](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e) | 4.9.0-1-amd64 to 4.9.0-15-amd64 <br/> 4.19.0-18-amd64 </br> 4.19.0-18-cloud-amd64
-Debian 10 | [9.44](https://support.microsoft.com/topic/update-rollup-57-for-azure-site-recovery-kb5006172-9fccc879-6e0c-4dc8-9fec-e0600cf94094) | 4.19.0-6-amd64 to 4.19.0-16-amd64 </br> 4.19.0-6-cloud-amd64 to 4.19.0-16-cloud-amd64 </br> 5.8.0-0.bpo.2-amd64 </br> 5.8.0-0.bpo.2-cloud-amd64
+Debian 10 | [9.44](https://support.microsoft.com/topic/update-rollup-57-for-azure-site-recovery-kb5006172-9fccc879-6e0c-4dc8-9fec-e0600cf94094) | 4.19.0-6-amd64 to 4.19.0-16-amd64 </br> 4.19.0-6-cloud-amd64 to 4.19.0-16-cloud-amd64 
 
 
 ### SUSE Linux Enterprise Server 12 supported kernel versions
@@ -174,7 +175,7 @@ Multi-queue block IO devices | Not supported.
 Physical servers with the HP CCISS storage controller | Not supported.
 Device/Mount point naming convention | Device name or mount point name should be unique.<br/> Ensure that no two devices/mount points have case-sensitive names. For example, naming devices for the same VM as *device1* and *Device1* isn't supported.
 Directories | If you're running a version of the Mobility service earlier than version 9.20 (released in [Update Rollup 31](https://support.microsoft.com/help/4478871/)), then these restrictions apply:<br/><br/> - These directories (if set up as separate partitions/file-systems) must be on the same OS disk on the source server: /(root), /boot, /usr, /usr/local, /var, /etc.</br> - The /boot directory should be on a disk partition and not be an LVM volume.<br/><br/> From version 9.20 onwards, these restrictions don't apply.
-Boot directory | - Boot disks with GPT partition format are supported. GPT disks are also supported as data disks.<br/><br/> Multiple boot disks on a VM aren't supported<br/><br/> - /boot on an LVM volume across more than one disk isn't supported.<br/> - A machine without a boot disk can't be replicated.
+Boot directory | - Boot disks with GPT partition format are supported. GPT disks are also supported as data disks.<br/><br/> Multiple boot disks on a VM aren't supported.<br/><br/> - /boot on an LVM volume across more than one disk isn't supported.<br/> - A machine without a boot disk can't be replicated.
 Free space requirements| 2 GB on the /root partition <br/><br/> 250 MB on the installation folder
 XFSv5 | XFSv5 features on XFS file systems, such as metadata checksum, are supported (Mobility service version 9.10 onwards).<br/> Use the xfs_info utility to check the XFS superblock for the partition. If `ftype` is set to 1, then XFSv5 features are in use.
 BTRFS | BTRFS is supported from [Update Rollup 34](https://support.microsoft.com/help/4490016) (version 9.22 of the Mobility service) onwards. BTRFS isn't supported if:<br/><br/> - The BTRFS file system subvolume is changed after enabling protection.</br> - The BTRFS file system is spread over multiple disks.</br> - The BTRFS file system supports RAID.

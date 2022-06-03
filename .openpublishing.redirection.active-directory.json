@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path_from_root": "/articles/active-directory/manage-apps/my-apps-deployment-plan.md",
+      "redirect_url": "/azure/active-directory/manage-apps/myapps-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/active-directory/authentication/cloud-native-certificate-based-authentication-faq.yml",
       "redirect_url": "/azure/active-directory/authentication/certificate-based-authentication-faq",
       "redirect_document_id": false
@@ -10698,11 +10703,6 @@
     {
       "source_path": "articles/active-directory/privileged-identity-management/pim-resource-roles-start-access-review.md",
       "redirect_url": "/azure/active-directory/privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/active-directory-b2c/partner-azure-web-application-firewall.md",
-      "redirect_url": "/azure/active-directory-b2c/partner-gallery",
       "redirect_document_id": false
     },
     {

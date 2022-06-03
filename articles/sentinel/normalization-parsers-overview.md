@@ -33,14 +33,14 @@ Each method has advantages over the other:
 | **Disadvantages** |Cannot be directly modified by users. <br><br>Fewer parsers available. | Not used by built-in content. |
 | **When to use** | Use in most cases that you need ASIM parsers. | Use when deploying new parsers, or for parsers not yet available out-of-the-box. |
 
-
-> [!TIP]
-> Using both built-in and workspace-deployed parsers is useful when you want to customize built-in parsers by adding custom, workspace-deployed parsers to the built-in parser hierarchy. For more information, see [Managing ASIM parsers](normalization-manage-parsers.md). 
->
+It is recommended to use built-in parsers for  schemas for which built-in parsers are available. 
 
 ## Parser hierarchy
 
 ASIM includes two levels of parsers: **unifying** parser and **source-specific** parsers. The user usually uses the **unifying** parser for the relevant schema, ensuring all data relevant to the schema is queried. The **unifying** parser in turn calls **source-specific** parsers to perform the actual parsing and normalization, which is specific for each source.
+
+The unifying parser name is `_Im_<schema>` for built-in parsers and `im<schema>` for workspace deployed parsers, where `<schema>` stands for the specific schema it serves. sSource-specific parsers can also be used independently. For example, in an Infoblox-specific workbook, use the `vimDnsInfobloxNIOS` source-specific parser. You can find a list of source-specific parsers in the [ASIM parsers list](normalization-parsers-list.md).
+
 
 >[!TIP]
 > The built-in parser hierarchy adds a layer to support customization. For more information, see [Managing ASIM parsers](normalization-develop-parsers.md).
@@ -52,6 +52,7 @@ Learn more about ASIM parsers:
 - [Use ASIM parsers](normalization-about-parsers.md)
 - [Develop custom ASIM parsers](normalization-develop-parsers.md)
 - [Manage ASIM parsers](normalization-manage-parsers.md)
+- [The ASIM parsers list](normalization-parsers-list.md)
 
 
 For more about ASIM, in general, see: 

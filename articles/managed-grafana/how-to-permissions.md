@@ -1,6 +1,6 @@
 ---
-title: How to configure permissions for Azure Managed Grafana
-description: Learn how to manually configure access permissions with roles for your Azure Managed Grafana Preview workspace  
+title: How to modify access permissions to Azure Monitor
+description: Learn how to manually set up permissions that allow your Azure Managed Grafana Preview workspace to access a data source
 author: maud-lv 
 ms.author: malev 
 ms.service: managed-grafana 
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 3/31/2022 
 ---
 
-# How to configure permissions for Azure Managed Grafana Preview
+# How to modify access permissions to Azure Monitor
 
 By default, when a Grafana workspace is created, Azure Managed Grafana grants it the Monitoring Reader role for all Azure Monitor data and Log Analytics resources within a subscription.
 
@@ -19,16 +19,16 @@ In this article, you'll learn how to manually edit permissions for a specific re
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
-- An Azure Managed Grafana workspace. If you don't have one yet, [create a workspace](/how-to-permissions.md).
+- An Azure Managed Grafana workspace. If you don't have one yet, [create a workspace](./quickstart-managed-grafana-portal.md).
 - An Azure resource with monitoring data and write permissions, such as [User Access Administrator](../../articles/role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../../articles/role-based-access-control/built-in-roles.md#owner)
 
 ## Sign in to Azure
 
 Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.com/) with your Azure account.
 
-## Assign permissions for an Azure Managed Grafana workspace to access data in Azure
+## Edit Azure Monitor permissions for an Azure Managed Grafana workspace
 
-To edit permissions for a specific resource, follow these steps:
+To change permissions for a specific resource, follow these steps:
 
 1. Open a resource that contains the monitoring data you want to retrieve. In this example, we're configuring an Application Insights resource.
 1. Select **Access Control (IAM)**.
@@ -57,4 +57,4 @@ To edit permissions for a specific resource, follow these steps:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure data source plugins for Azure Managed Grafana with Managed Identity](./how-to-data-source-plugins-managed-identity.md)
+> [How to configure data sources for Azure Managed Grafana](./how-to-data-source-plugins-managed-identity.md)

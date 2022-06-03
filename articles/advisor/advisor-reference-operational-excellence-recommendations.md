@@ -157,7 +157,7 @@ Learn more about [Kubernetes service - EnableClusterAutoscaler (Enable the Clust
 
 Some of the subnets for this cluster's node pools are full and cannot take any more worker nodes. Using the Azure CNI plugin requires to reserve IP addresses for each node and all the pods for the node at node provisioning time. If there is not enough IP address space in the subnet, no worker nodes can be deployed. Additionally, the AKS cluster cannot be upgraded if the node subnet is full.
 
-Learn more about [Kubernetes service - NodeSubnetIsFull (The AKS node pool subnet is full)](../aks/use-multiple-node-pools.md#add-a-node-pool-with-a-unique-subnet-preview).
+Learn more about [Kubernetes service - NodeSubnetIsFull (The AKS node pool subnet is full)](../aks/use-multiple-node-pools.md#add-a-node-pool-with-a-unique-subnet).
 
 ### Disable the Application Routing Addon
 
@@ -273,7 +273,7 @@ Learn more about [Network Security Group - NSGFlowLogsenableTA (Enable Traffic A
 
 Full mode installs the SQL IaaS Agent to the VM to deliver full functionality. Use it for managing a SQL Server VM with a single instance. There is no cost associated with using the full manageability mode. System administrator permissions are required. Note that installing or upgrading to full mode is an online operation, there is no restart required.
 
-Learn more about [SQL virtual machine - UpgradeToFullMode (SQL IaaS Agent should be installed in full mode)](../azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md?tabs=azure-powershell).
+Learn more about [SQL virtual machine - UpgradeToFullMode (SQL IaaS Agent should be installed in full mode)](/azure/azure-sql/virtual-machines/windows/sql-server-iaas-agent-extension-automate-management?tabs=azure-powershell).
 
 ## Storage
 

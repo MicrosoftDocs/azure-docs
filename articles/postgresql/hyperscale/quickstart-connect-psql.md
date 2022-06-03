@@ -8,7 +8,7 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.custom: mvc, mode-ui
 ms.topic: quickstart
-ms.date: 04/20/2022
+ms.date: 05/05/2022
 ---
 
 # Connect to a Hyperscale (Citus) server group with psql
@@ -54,7 +54,7 @@ When you create your Hyperscale (Citus) server group, a default database named *
    When psql successfully connects to the database, you'll see a new prompt:
 
    ```
-   psql (13.0 (Debian 13.0-1.pgdg100+1), server 13.5)
+   psql (14.2 (Debian 14.2-1.pgdg100+1))
    SSL connection (protocol: TLSv1.2, cipher: ECDHE-RSA-AES256-GCM-SHA384, bits: 256, compression: off)
    Type "help" for help.
    
@@ -74,7 +74,7 @@ When you create your Hyperscale (Citus) server group, a default database named *
    ```
     server_version
    ----------------
-    13.5
+    14.2
    (1 row)
    ```
 

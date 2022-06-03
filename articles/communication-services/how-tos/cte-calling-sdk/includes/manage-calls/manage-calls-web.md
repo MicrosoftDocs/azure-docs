@@ -53,15 +53,9 @@ const groupCall = callAgent.startCall([userCallee, pstnCallee], { threadId: '<TH
 > Join a group call is not supported for custom Teams application at the moment.
 ### Join a Teams meeting
 
-To join a Teams meeting, use the `join` method on `callAgent` and pass either one of the followings:
-1. `meetingId`
-2. `meetingLink`
-3. Combination of `threadId`, `organizerId`, `tenantId`, `messageId`
-
-#### Join using `meetingId`
-```js
-const meetingCall = callAgent.join({ meetingId: '<MEETING_ID>' });
-```
+To join a Teams meeting, use the `join` method on `callAgent` and pass either one of the following:
+1. `meetingLink`
+2. Combination of `threadId`, `organizerId`, `tenantId`, `messageId`
 
 #### Join using `meetingLink`
 ```js

@@ -443,8 +443,12 @@
       href: test-publish-saas-offer.md
   - name: Review and publish offers
     href: review-publish-offer.md
-  - name: Update existing offers
+  - name: Update existing offer
     href: update-existing-offer.md   
+  - name: Update offer pricing
+    href: price-changes.md
+  - name: Update offer pricing FAQ
+    href: price-changes-faq.yml
 - name: Sell and market your offer
   items: 
   - name: Marketing best practices

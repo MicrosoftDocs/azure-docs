@@ -7,7 +7,7 @@ ms.date: 01/04/2022
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
+ms.custom: [mvc, iot-central-frontdoor]
 
 # This article applies to administrators.
 ---

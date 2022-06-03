@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 03/31/2022
+ms.date: 04/26/2022
 
 ms.author: mimart
 author: msmimart
@@ -80,13 +80,16 @@ Guest user teri@gmail.com is invited to Fabrikam, which doesn't have Google fede
 
 1. Under **Email one-time passcode for guests**, select one of the following:
 
-   - **Automatically enable email one-time passcode for guests starting \<date\>** if you don't want to enable the feature immediately and want to wait for the automatic enablement date.
+   - **Automatically enable email one-time passcode for guests starting October 2021** if you don't want to enable the feature immediately and want to wait for the automatic enablement date.
    - **Enable email one-time passcode for guests effective now** to enable the feature now.
    - **Yes** to enable the feature now if you see a Yes/No toggle (this toggle appears if the feature was previously disabled).
 
    ![Email one-time passcode toggle enabled](media/one-time-passcode/enable-email-otp-options.png)
 
 1. Select **Save**.
+
+> [!NOTE]
+> Email one-time passcode settings can also be configured with the [emailAuthenticationMethodConfiguration](/graph/api/resources/emailauthenticationmethodconfiguration) resource type in the Microsoft Graph API.
 
 ## Disable email one-time passcode
 
@@ -116,7 +119,7 @@ We've begun rolling out a change to turn on the email one-time passcode feature 
 
 ## Note for public preview customers
 
-If you've previously opted in to the email one-time passcode public preview, automatic feature enablement doesn't apply to you, so your related business processes won't be affected. Additionally, in the Azure portal, under the **Email one-time passcode for guests** properties, you won't see the option to **Automatically enable email one-time passcode for guests starting \<date\>**. Instead, you'll see the following **Yes** or **No** toggle:
+If you've previously opted in to the email one-time passcode public preview, automatic feature enablement doesn't apply to you, so your related business processes won't be affected. Additionally, in the Azure portal, under the **Email one-time passcode for guests** properties, you won't see the option to **Automatically enable email one-time passcode for guests starting October 2021**. Instead, you'll see the following **Yes** or **No** toggle:
 
 ![Email one-time passcode opted in](media/one-time-passcode/enable-email-otp-opted-in.png)
 
@@ -124,7 +127,7 @@ However, if you'd prefer to opt out of the feature and allow it to be automatica
 
 ![Enable Email one-time passcode opted in](media/one-time-passcode/email-otp-options.png)
 
-- **Automatically enable email one-time passcode for guests starting \<date\>**. (Default) If the email one-time passcode feature isn't already enabled for your tenant, it will be automatically turned on. No further action is necessary if you want the feature enabled at that time. If you've already enabled or disabled the feature, this option will be unavailable.
+- **Automatically enable email one-time passcode for guests starting October 2021**. (Default) If the email one-time passcode feature isn't already enabled for your tenant, it will be automatically turned on. No further action is necessary if you want the feature enabled at that time. If you've already enabled or disabled the feature, this option will be unavailable.
 
 - **Enable email one-time passcode for guests effective now**. Turns on the email one-time passcode feature for your tenant.
 

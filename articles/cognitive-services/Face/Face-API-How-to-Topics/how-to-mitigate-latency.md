@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 1/5/2021
 ms.author: pafarley
 ms.devlang: csharp
+ms.custom: cogserv-non-critical-vision
 ---
 
 # How to: mitigate latency when using the Face service

@@ -1,12 +1,10 @@
 ---
 title: 'Tutorial: Create ExpressRoute connections using Azure Virtual WAN'
 description: In this tutorial, learn how to use Azure Virtual WAN to create ExpressRoute connections to Azure and on-premises environments.
-services: virtual-wan
 author: cherylmc
-
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 04/27/2021
+ms.date: 05/25/2022
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
 ---
@@ -41,21 +39,7 @@ Verify that you have met the following criteria before beginning your configurat
 
 ## <a name="openvwan"></a>Create a virtual WAN
 
-From a browser, navigate to the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
-
-1. Navigate to the Virtual WAN page. In the portal, click **+Create a resource**. Type **Virtual WAN** into the search box and select Enter.
-2. Select **Virtual WAN** from the results. On the Virtual WAN page, click **Create** to open the Create WAN page.
-3. On the **Create WAN** page, on the **Basics** tab, fill in the following fields:
-
-   :::image type="content" source="./media/virtual-wan-expressroute-portal/createwan.png" alt-text="Screenshot shows Create WAN page." border="false":::
-
-   * **Subscription** - Select the subscription that you want to use.
-   * **Resource Group** - Create new or use existing.
-   * **Resource group location** - Choose a resource location from the dropdown. A WAN is a global resource and does not live in a particular region. However, you must select a region in order to more easily manage and locate the WAN resource that you create.
-   * **Name** - Type the name that you want to call your WAN.
-   * **Type** - Select **Standard**. You can't create an ExpressRoute gateway using the Basic SKU.
-4. After you finish filling out the fields, select **Review +Create**.
-5. Once validation passes, select **Create** to create the virtual WAN.
+[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]
 
 ## <a name="hub"></a>Create a virtual hub and gateway
 

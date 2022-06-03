@@ -33,12 +33,6 @@ items:
   - name: Key Vault Code Samples
     href: /samples/browse/?expanded=azure&products=azure-key-vault
 
-- name: Tutorials 
-  items:
-  - name: Import a certificate
-    href: tutorial-import-certificate.md
-  - name: Configure certificate rotation
-    href: tutorial-rotate-certificates.md
 - name: Concepts 
   items:
   - name: Get started with Key Vault certificates
@@ -54,13 +48,16 @@ items:
     
 - name: How-to guides 
   items:
+  - name: Import a certificate
+    href: tutorial-import-certificate.md
+  - name: Configure certificate rotation
+    href: tutorial-rotate-certificates.md
   - name: Integrating Key Vault with DigiCert CA
     href: how-to-integrate-certificate-authority.md
   - name: Troubleshooting - Import certificates
     href: import-cert-faqs.yml
   - name: Export certificate from key vault
     href: how-to-export-certificate.md
-
 - name: Reference
   items:
   - name: Azure PowerShell

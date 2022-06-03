@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 04/13/2022
+ms.date: 05/09/2022
 ---
 
 # Create and manage a self-hosted integration runtime
@@ -125,7 +125,6 @@ Your self-hosted integration runtime machine needs to connect to several resourc
 * The Microsoft Purview services used to manage the self-hosted integration runtime.
 * The data sources you want to scan using the self-hosted integration runtime.
 * The managed Storage account and Event Hubs resource created by Microsoft Purview. Microsoft Purview uses these resources to ingest the results of the scan, among many other things, so the self-hosted integration runtime need to be able to connect with these resources.
-* The Azure Key Vault used to store credentials.
 
 There are two firewalls to consider:
 
@@ -154,7 +153,6 @@ Depending on the sources you want to scan, you also need to allow other domains 
 
 | Domain names                  | Outbound ports | Description                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
-| `<your_key_vault_name>.vault.azure.net` | 443 | Required if any credentials are stored in Azure Key Vault. |
 | `<your_storage_account>.dfs.core.windows.net` | 443 | When scan Azure Data Lake Store Gen 2. |
 | `<your_storage_account>.blob.core.windows.net` | 443            | When scan Azure Blob storage. |
 | `<your_sql_server>.database.windows.net` | 1433           | When scan Azure SQL Database. |

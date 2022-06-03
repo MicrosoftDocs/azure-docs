@@ -25,7 +25,7 @@ There's no obligation to renew and you can opt out of the renewal at any time be
 Go to Azure portal > **Reservations**.
 
 1. Select the reservation.
-2. Click **Renewal**.
+2. Select **Renewal**.
 3. Select **Automatically purchase a new reservation upon expiry**.  
   ![Example showing reservation renewal](./media/reservation-renew/reservation-renewal.png)
 
@@ -43,7 +43,7 @@ The following conditions are required to renew a reservation:
 
 ## Default renewal settings
 
-By default, the renewal inherits all properties from the expiring reservation. A reservation renewal purchase has the same SKU, region, scope, billing subscription, term, and quantity.
+By default, the renewal inherits all properties except automatic renewal setting from the expiring reservation. A reservation renewal purchase has the same SKU, region, scope, billing subscription, term, and quantity.
 
 However, you can update the renewal reservation purchase quantity to optimize your savings.
 

@@ -349,6 +349,9 @@ items:
       href: ./spark/apache-spark-jupyter-spark-sql-use-powershell.md
     - name: Create Apache Spark cluster - Azure CLI
       href: ./spark/apache-spark-create-cluster-cli.md
+    - name: Create Apache Spark cluster - Bicep
+      displayName: ARM, Resource Manager, Template
+      href: ./spark/apache-spark-jupyter-spark-use-bicep.md
     - name: Create Apache Spark cluster - ARM Template
       displayName: Resource Manager
       href: ./spark/apache-spark-jupyter-spark-sql.md
@@ -644,6 +647,9 @@ items:
       href: ./kafka/apache-kafka-get-started.md
     - name: Create Apache Kafka cluster - PowerShell
       href: ./kafka/apache-kafka-quickstart-powershell.md
+    - name: Create Apache Kafka cluster - Bicep
+      displayName: ARM, Resource Manager, Template
+      href: ./kafka/apache-kafka-quickstart-bicep.md
     - name: Create Apache Kafka cluster - ARM Template
       displayName: Resource Manager
       href: ./kafka/apache-kafka-quickstart-resource-manager-template.md
@@ -697,6 +703,8 @@ items:
         href: ./kafka/apache-kafka-log-analytics-operations-management.md
       - name: SSL Encryption and Authentication
         href: ./kafka/apache-kafka-ssl-encryption-authentication.md
+      - name: Kafka MirrorMaker 2.0 guide
+        href: ./kafka/kafka-mirrormaker-2-0-guide.md  
     - name: Troubleshoot
       items:
       - name: Insufficient fault domains
@@ -787,6 +795,8 @@ items:
         href: ./hbase/hbase-troubleshoot-timeouts-hbase-hbck.md
       - name: REST API to query Apache HBase
         href: ./hbase/troubleshoot-rest-api.md
+      - name: Troubleshoot data retention issues
+        href: ./hbase/troubleshoot-data-retention-issues-expired-data.md  
 - name: Interactive Query
   items:
   - name: Overview
@@ -803,6 +813,8 @@ items:
       href: ./interactive-query/quickstart-resource-manager-template.md
     - name: Execute Apache Hive queries - Apache Zeppelin
       href: ./interactive-query/hdinsight-connect-hive-zeppelin.md
+    - name: Autoscaling Interactive Query clusters
+      href: ./interactive-query/llap-schedule-based-autoscale-best-practices.md
   - name: Tutorials
     items:
     - name: Analyze data with Interactive Query
@@ -1072,6 +1084,8 @@ items:
         href: ./domain-joined/domain-joined-authentication-issues.md
       - name: Cluster creation fails with DomainNotFound
         href: ./domain-joined/troubleshoot-domainnotfound.md
+      - name: Sample script to use when Cluster creation fails with DomainNotFound Error
+        href: ./domain-joined/sample-script.md  
 - name: Azure Synapse integration
   items:
   - name: Share Hive metastore with Synapse Spark

@@ -19,7 +19,7 @@ To restrict access to your applications in Azure Kubernetes Service (AKS), you c
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 
 You also need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
@@ -143,7 +143,6 @@ Learn more about Kubernetes services at the [Kubernetes services documentation][
 <!-- LINKS - External -->
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubernetes-services]: https://kubernetes.io/docs/concepts/services-networking/service/
-[aks-engine]: https://github.com/Azure/aks-engine
 
 <!-- LINKS - Internal -->
 [advanced-networking]: configure-azure-cni.md
@@ -151,8 +150,9 @@ Learn more about Kubernetes services at the [Kubernetes services documentation][
 [az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
 [azure-lb-comparison]: ../load-balancer/skus.md
 [use-kubenet]: configure-kubenet.md
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [aks-sp]: kubernetes-service-principal.md#delegate-access-to-other-azure-resources
 [different-subnet]: #specify-a-different-subnet

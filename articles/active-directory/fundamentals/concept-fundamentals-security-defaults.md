@@ -151,7 +151,7 @@ Security defaults allow registration and use of Azure AD Multi-Factor Authentica
 - *** App passwords are only available in per-user MFA with legacy authentication scenarios only if enabled by administrators.
 
 > [!WARNING]
-> Do not disable methods for your organization if you are using Security Defaults. Disabling methods may lead to locking yourself out of your tenant. Leave all **Methods available to users** enabled in the [MFA service settings portal](../authentication/howto-mfa-getstarted.md#choose-authentication-methods-for-mfa).
+> Do not disable methods for your organization if you are using security defaults. Disabling methods may lead to locking yourself out of your tenant. Leave all **Methods available to users** enabled in the [MFA service settings portal](../authentication/howto-mfa-getstarted.md#choose-authentication-methods-for-mfa).
 
 ### Backup administrator accounts
 

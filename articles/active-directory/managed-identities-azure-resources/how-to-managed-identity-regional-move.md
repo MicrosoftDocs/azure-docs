@@ -2,19 +2,17 @@
 title: Move managed identities to another region - Azure AD
 description: Steps involved in getting a managed identity recreated in another region
 services: active-directory
-documentationcenter: 
 author: barclayn
 manager: karenhoran
-editor: 
-
 ms.service: active-directory
 ms.subservice: msi
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/13/2022
+ms.date: 04/26/2022
 ms.author: barclayn
 ms.custom: subject-moving-resources
+#Customer intent: As an Azure administrator, I want to move a solution using managed identities from one Azure region to another one. 
 
 ---
 

@@ -34,7 +34,7 @@ To download the price list:
 
 1. In the Azure Enterprise portal, go to **Reports** > **Price Sheet**.
 1. In the top-right corner, find the link to Azure Marketplace price list under your username.
-1. Right-click the link and select **Save Target As**.
+1. Select and hold (or right-click) the link and select **Save Target As**.
 1. On the **Save** window, change the title of the document to `AzureMarketplacePricelist.zip`, which will change the file from an .xlsx to a .zip file.
 1. After the download is complete, you'll have a zip file with country-specific price lists.
 1. LSPs should reference the individual country file for country-specific pricing. LSPs can use the **Notifications** tab to be aware of SKUs that are net new or retired.

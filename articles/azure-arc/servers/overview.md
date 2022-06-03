@@ -11,7 +11,7 @@ Azure Arc-enabled servers lets you manage Windows and Linux physical servers and
 
 When a hybrid machine is connected to Azure, it becomes a connected machine and is treated as a resource in Azure. Each connected machine has a Resource ID enabling the machine to be included in a resource group.
 
-To connect hybrid machines, you install the [Azure Connected Machine agent](agent-overview.md) on each machine. This agent does not deliver any other functionality, and it doesn't replace the Azure [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md). The Log Analytics agent for Windows and Linux is required in order to:
+To connect hybrid machines, you install the [Azure Connected Machine agent](agent-overview.md) on each machine. This agent does not deliver any other functionality, and it doesn't replace the Azure [Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md) / [Azure Monitor Agent](../../azure-monitor/agents/azure-monitor-agent-overview.md). The Log Analytics agent or Azure Monitor Agent for Windows and Linux is required in order to:
 
 * Proactively monitor the OS and workloads running on the machine
 * Manage it using Automation runbooks or solutions like Update Management
@@ -31,17 +31,17 @@ When you connect your machine to Azure Arc-enabled servers, you can perform many
   * Protect non-Azure servers with [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint), included through [Microsoft Defender for Cloud](../../security-center/defender-for-servers-introduction.md), for threat detection, for vulnerability management, and to proactively monitor for potential security threats. Microsoft Defender for Cloud presents the alerts and remediation suggestions from the threats detected.
   * Use [Microsoft Sentinel](scenario-onboard-azure-sentinel.md) to collect security-related events and correlate them with other data sources.
 * **Configure**:
-  * Use Azure Automation for frequent and time-consuming management tasks using PowerShell and Python [runbooks](../../automation/automation-runbook-execution.md). Assess configuration changes for installed software, Microsoft services, Windows registry and files, and Linux daemons using [Change Tracking and Inventory](../../automation/change-tracking/overview.md)
+  * Use [Azure Automation](../../automation/extension-based-hybrid-runbook-worker-install.md?tabs=windows) for frequent and time-consuming management tasks using PowerShell and Python [runbooks](../../automation/automation-runbook-execution.md). Assess configuration changes for installed software, Microsoft services, Windows registry and files, and Linux daemons using [Change Tracking and Inventory](../../automation/change-tracking/overview.md)
   * Use [Update Management](../../automation/update-management/overview.md) to manage operating system updates for your Windows and Linux servers. Automate onboarding and configuration of a set of Azure services when you use [Azure Automanage (preview)](../../automanage/automanage-arc.md).
   * Perform post-deployment configuration and automation tasks using supported [Arc-enabled servers VM extensions](manage-vm-extensions.md) for your non-Azure Windows or Linux machine.
 * **Monitor**:
   * Monitor operating system performance and discover application components to monitor processes and dependencies with other resources using [VM insights](../../azure-monitor/vm/vminsights-overview.md).
-  * Collect other log data, such as performance data and events, from the operating system or workloads running on the machine with the [Log Analytics agent](../../azure-monitor/agents/agents-overview.md#log-analytics-agent). This data is stored in a [Log Analytics workspace](../../azure-monitor/logs/design-logs-deployment.md).
+  * Collect other log data, such as performance data and events, from the operating system or workloads running on the machine with the [Log Analytics agent](../../azure-monitor/agents/agents-overview.md#log-analytics-agent). This data is stored in a [Log Analytics workspace](../../azure-monitor/logs/log-analytics-workspace-overview.md).
 
 > [!NOTE]
 > At this time, enabling Azure Automation Update Management directly from an Azure Arc-enabled server is not supported. See [Enable Update Management from your Automation account](../../automation/update-management/enable-from-automation-account.md) to understand requirements and [how to enable Update Management for non-Azure VMs](../../automation/update-management/enable-from-automation-account.md#enable-non-azure-vms).
 
-Log data collected and stored in a Log Analytics workspace from the hybrid machine contains properties specific to the machine, such as a Resource ID, to support [resource-context](../../azure-monitor/logs/design-logs-deployment.md#access-mode) log access.
+Log data collected and stored in a Log Analytics workspace from the hybrid machine contains properties specific to the machine, such as a Resource ID, to support [resource-context](../../azure-monitor/logs/manage-access.md#access-mode) log access.
 
 Watch this video to learn more about Azure monitoring, security, and update services across hybrid and multicloud environments.
 

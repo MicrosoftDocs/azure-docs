@@ -131,7 +131,7 @@ landingContent:
           - text: Confidential Inferencing ONNX Runtime
             url: https://aka.ms/confidentialinference
           - text: Always Encrypted with secure enclaves in Azure SQL Database
-            url: ../azure-sql/database/always-encrypted-with-secure-enclaves-landing.yml
+            url: /azure/azure-sql/database/always-encrypted-with-secure-enclaves-landing
           - text: Azure Confidential Ledger
             url: ../confidential-ledger/overview.md
           - text: Trusted launch

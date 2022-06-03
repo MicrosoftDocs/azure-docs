@@ -4,11 +4,11 @@ description: This article describes how you can query against resources from mul
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/30/2021
+ms.date: 04/28/2022
 
 ---
 
-# Perform log queries in Azure Monitor that span across workspaces and apps
+# Create a log query across multiple workspaces and apps in Azure Monitor
 
 Azure Monitor Logs support querying across multiple Log Analytics workspaces and Application Insights apps in the same resource group, another resource group, or another subscription. This provides you with a system-wide view of your data.
 
@@ -17,7 +17,7 @@ If you manage subscriptions in other Azure Active Directory (Azure AD) tenants t
 There are two methods to query data that is stored in multiple workspace and apps:
 
 1. Explicitly by specifying the workspace and app details. This technique is detailed in this article.
-2. Implicitly using [resource-context queries](./design-logs-deployment.md#access-mode). When you query in the context of a specific resource, resource group or a subscription, the relevant data will be fetched from all workspaces that contains data for these resources. Application Insights data that is stored in apps, will not be fetched.
+2. Implicitly using [resource-context queries](manage-access.md#access-mode). When you query in the context of a specific resource, resource group or a subscription, the relevant data will be fetched from all workspaces that contains data for these resources. Application Insights data that is stored in apps, will not be fetched.
 
 > [!IMPORTANT]
 > If you are using a [workspace-based Application Insights resource](../app/create-workspace-resource.md), telemetry is stored in a Log Analytics workspace with all other log data. Use the workspace() expression to write a query that includes applications in multiple workspaces. For multiple applications in the same workspace, you don't need a cross workspace query.

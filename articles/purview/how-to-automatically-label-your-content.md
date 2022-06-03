@@ -52,14 +52,14 @@ After you've extended labeling to assets in the Microsoft Purview Data Map, all 
 
 1. Under **Solutions**, select **Information protection**, then select **Create a label**.
 
-    :::image type="content" source="media/how-to-automatically-label-your-content/create-sensitivity-label-full-small.png" alt-text="Create sensitivity labels in the Microsoft 365 compliance center" lightbox="media/how-to-automatically-label-your-content/create-sensitivity-label-full.png":::
+    :::image type="content" source="media/how-to-automatically-label-your-content/create-sensitivity-label-full-small.png" alt-text="Create sensitivity labels in the Microsoft Purview compliance center" lightbox="media/how-to-automatically-label-your-content/create-sensitivity-label-full.png":::
 
 1. Name the label. Then, under **Define the scope for this label**:
 
     - In all cases, select **Schematized data assets**.
     - To label files, also select **Files & emails**. This option isn't required to label schematized data assets only
 
-    :::image type="content" source="media/how-to-automatically-label-your-content/create-label-scope-small.png" alt-text="Automatically label in the Microsoft 365 compliance center" lightbox="media/how-to-automatically-label-your-content/create-label-scope.png":::
+    :::image type="content" source="media/how-to-automatically-label-your-content/create-label-scope-small.png" alt-text="Automatically label in the Microsoft Purview compliance center" lightbox="media/how-to-automatically-label-your-content/create-label-scope.png":::
 
 1. Follow the rest of the prompts to configure the label settings.
 
@@ -94,7 +94,7 @@ On the **Auto-labeling for Office apps** page, enable **Auto-labeling for Office
 
 For example:
 
-:::image type="content" source="media/how-to-automatically-label-your-content/create-auto-labeling-rules-files-small.png" alt-text="Define auto-labeling rules for files in the Microsoft 365 compliance center" lightbox="media/how-to-automatically-label-your-content/create-auto-labeling-rules-files.png":::
+:::image type="content" source="media/how-to-automatically-label-your-content/create-auto-labeling-rules-files-small.png" alt-text="Define auto-labeling rules for files in the Microsoft Purview compliance center" lightbox="media/how-to-automatically-label-your-content/create-auto-labeling-rules-files.png":::
 
 For more information, see the documentation to [apply a sensitivity label to data automatically](/microsoft-365/compliance/apply-sensitivity-label-automatically#how-to-configure-auto-labeling-for-office-apps).
 
@@ -110,7 +110,7 @@ At the **Schematized data assets** option:
 
 For example:
 
-:::image type="content" source="media/how-to-automatically-label-your-content/create-auto-labeling-rules-db-columns-small.png" alt-text="Define auto-labeling rules for schematized data assets in the Microsoft 365 compliance center" lightbox="media/how-to-automatically-label-your-content/create-auto-labeling-rules-db-columns.png":::
+:::image type="content" source="media/how-to-automatically-label-your-content/create-auto-labeling-rules-db-columns-small.png" alt-text="Define auto-labeling rules for schematized data assets in the Microsoft Purview compliance center" lightbox="media/how-to-automatically-label-your-content/create-auto-labeling-rules-db-columns.png":::
 
 ### Step 4: Publish labels
 
@@ -125,7 +125,7 @@ For more information on how to set up scans on various assets in the Microsoft P
 |Source  |Reference  |
 |---------|---------|
 |**Files within Storage** | [Register and Scan Azure Blob Storage](register-scan-azure-blob-storage-source.md) </br> [Register and scan Azure Files](register-scan-azure-files-storage-source.md) [Register and scan Azure Data Lake Storage Gen1](register-scan-adls-gen1.md) </br>[Register and scan Azure Data Lake Storage Gen2](register-scan-adls-gen2.md)</br>[Register and scan Amazon S3](register-scan-amazon-s3.md) |
-|**database columns** | [Register and scan an Azure SQL Database](register-scan-azure-sql-database.md) </br>[Register and scan an Azure SQL Managed Instance](register-scan-azure-sql-database-managed-instance.md) </br> [Register and scan Dedicated SQL pools](register-scan-azure-synapse-analytics.md)</br> [Register and scan Azure Synapse Analytics workspaces](register-scan-azure-synapse-analytics.md) </br> [Register and scan Azure Cosmos Database (SQL API)](register-scan-azure-cosmos-database.md) </br> [Register and scan an Azure MySQL database](register-scan-azure-mysql-database.md) </br> [Register and scan an Azure database for PostgreSQL](register-scan-azure-postgresql.md) |
+|**database columns** | [Register and scan an Azure SQL Database](register-scan-azure-sql-database.md) </br>[Register and scan an Azure SQL Managed Instance](register-scan-azure-sql-managed-instance.md) </br> [Register and scan Dedicated SQL pools](register-scan-azure-synapse-analytics.md)</br> [Register and scan Azure Synapse Analytics workspaces](register-scan-azure-synapse-analytics.md) </br> [Register and scan Azure Cosmos Database (SQL API)](register-scan-azure-cosmos-database.md) </br> [Register and scan an Azure MySQL database](register-scan-azure-mysql-database.md) </br> [Register and scan an Azure database for PostgreSQL](register-scan-azure-postgresql.md) |
 | | |
 
 ## View labels on assets in the catalog

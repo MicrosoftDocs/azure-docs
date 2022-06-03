@@ -2,7 +2,7 @@
 title: What is automated app user provisioning in Azure Active Directory
 description: An introduction to how you can use Azure Active Directory to automatically provision, de-provision, and continuously update user accounts across multiple third-party applications.
 author: kenwith
-manager: karenhoran
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: overview

@@ -17,9 +17,9 @@ This procedure describes how to use the Azure portal to download software for yo
 
 1. In the Azure portal, go to **Defender for IoT** > **Getting started** > **On-premises management console**.
 
-1. Make sure that you have a supported appliance available. For more information, see [Identify required appliances](how-to-identify-required-appliances.md).
+1. Make sure that you have a supported appliance available. For more information, see [Which appliances do I need?](ot-appliance-sizing.md).
 
-1. Under *Select version**, select the software version you want to install. We recommend that you always select the most recent version.
+1. Under **Select version**, select the software version you want to install. We recommend that you always select the most recent version.
 
 1. Select **Download**. Download the sensor software and save it in a location that you can access from your selected appliance.
 
@@ -70,8 +70,7 @@ If the upload fails, contact your security or IT administrator, or review the in
 
 1. Select **Save**.
 
-For more information about first-time certificate upload see,
-[First-time sign-in and activation checklist](how-to-activate-and-set-up-your-sensor.md#first-time-sign-in-and-activation-checklist)
+For more information about first-time certificate upload, see [First-time sign-in and activation checklist](how-to-activate-and-set-up-your-sensor.md#first-time-sign-in-and-activation-checklist).
 
 ## Define backup and restore settings
 
@@ -227,7 +226,7 @@ If you are working with an on-premises management console and managed sensors, *
 
 1. Select **Download** and save the file.
 
-1. Log into on-premises management console and select **System Settings** from the side menu.
+1. Sign into the on-premises management console and select **System Settings** from the side menu.
 
 1. On the **Version Update** pane, select **Update**.
 

@@ -28,42 +28,43 @@ When considering your vCPU needs across regions, keep in mind the following:
 
 - When you request an increase in the vCPU quota for a VM series, Azure increases the regional vCPU quota limit by the same amount.
 
-- When you create a new subscription, the default value for the total number of vCPUs in a region might not be equal to the total default vCPU quota for all individual VM series. This discrepancy can result in a subscription with enough quota for each individual VM series that you want to deploy. However, there might not be enough quota to accommodate the total regional vCPUs for all deployments. In this case, you must submit a request to explicitly increase the quota limit of the regional vCPU quotas.
+- When you create a new subscription, the default value for the total number of vCPUs in a region might not be equal to the total default vCPU quota for all individual VM series. This can result in a subscription without enough quota for each individual VM series that you want to deploy. However, there might not be enough quota to accommodate the total regional vCPUs for all deployments. In this case, you must submit a request to explicitly increase the quota limit of the regional vCPU quotas.
 
-## Increase a regional vCPU quota
+## Request an increase for regional vCPU quotas
 
-To request a regional vCPU quota from **Usage + quotas**:
+1. To view the **Quotas** page, sign in to the [Azure portal](https://portal.azure.com) and enter "quotas" into the search box, then select **Quotas**.
 
-1. In the Azure portal, search for and select **Subscriptions**.
+   > [!TIP]
+   > After you've accessed **Quotas**, the service will appear at the top of [Azure Home](https://ms.portal.azure.com/#home) in the Azure portal. You can also [add **Quotas** to your **Favorites** list](../azure-portal-add-remove-sort-favorites.md) so that you can quickly go back to it.
 
-1. Select the subscription whose quota you want to increase.
+1. On the **Overview** page, select **Compute**.
+1. On the **My quotas** page, select **Region** and then unselect **All**.
+1. In the **Region** list, select the regions you want to include for the quota increase request.
+1. Filter for any other requirements, such as **Usage**, as needed.
+1. Select the quota(s) that you want to increase.
 
-1. In the left pane, select **Usage + quotas**. Use the filters to view your quota by usage.
+   :::image type="content" source="media/regional-quota-requests/select-regional-quotas.png" alt-text="Screenshot showing regional quota selection in the Azure portal":::
 
-1. In the main pane, select **Total Regional vCPUs**, then select the pencil icon. The example below shows the regional vCPU quota for the NorthEast US region.
+1. Near the top of the page, select **Request quota increase**, then select the way you'd like to increase the quota(s).
 
-   :::image type="content" source="media/resource-manager-core-quotas-request/regional-quota-total.png" alt-text="Screenshot of the Usage + quotas screen showing Total Regional vCPUs in the Azure portal." lightbox="media/resource-manager-core-quotas-request/regional-quota-total.png":::
+   :::image type="content" source="media/regional-quota-requests/request-quota-increase-options.png" alt-text="Screenshot showing the options to request a quota increase in the Azure portal.":::
 
-1. In **Quota details**, enter your new quota limit, then select **Save and continue**.
+   > [!TIP]
+   > Choosing **Adjust the usage %** allows you to select one usage percentage to apply to all the selected quotas without requiring you to calculate an absolute number (limit) for each quota. This option is recommended when the selected quotas have very high usage.
 
-   Your request will be reviewed, and you'll be notified whether the request is approved or rejected. This usually happens within a few minutes. If your request is rejected, you'll see a link where you can open a support request so that a support engineer can assist you with the increase.
+1. If you selected **Enter a new limit**, in the **Request quota increase** pane, enter a numerical value for your new quota limit(s), then select **Submit**.
 
-> [!TIP]
-> You can also request multiple increases at the same time. For more information, see [Increase multiple VM-family CPU quotas in one request](per-vm-quota-requests.md#increase-multiple-vm-family-cpu-quotas-in-one-request).
+   :::image type="content" source="media/regional-quota-requests/regional-request-quota-increase-new-limit.png" alt-text="Screenshot showing the Enter a new limit option for a regional quota increase request.":::
 
-## Increase a regional quota from Help + support
+1. If you selected **Adjust the usage %**, in the **Request quota increase** pane, adjust the slider to a new usage percent. Adjusting the percentage automatically calculates the new limit for each quota to be increased. This option is recommended when the selected quotas have very high usage. When you're finished, select **Submit**.
 
-To request a standard vCPU quota increase per VM family from **Help + support**, create a new support request in the Azure portal.
+   :::image type="content" source="media/regional-quota-requests/regional-request-quota-increase-adjust-usage.png" alt-text="Screenshot showing the Adjust the usage % option for a regional quota increase request.":::
 
-1. For **Issue type**, select **Service and subscription limits (quotas)**.
-1. For **Subscription**, select the subscription whose quota you want to increase.
-1. For **Quota type**, select **Compute-VM (cores-vCPUs) subscription limit increases**.
-
-   :::image type="content" source="media/resource-manager-core-quotas-request/new-per-vm-quota-request.png" alt-text="Screenshot showing a support request to increase a VM-family vCPU quota in the Azure portal.":::
-
-From there, follow the steps described in [Create a support request](how-to-create-azure-support-request.md#create-a-support-request).
+Your request will be reviewed, and you'll be notified if the request can be fulfilled. This usually happens within a few minutes. If your request is not fulfilled, you'll see a link where you can [open a support request](how-to-create-azure-support-request.md) so that a support engineer can assist you with the increase.
 
 ## Next steps
 
+- Learn more about [vCPU quotas](../../virtual-machines/windows/quotas.md).
+- Learn more in [Quotas overview](quotas-overview.md).
+- Learn about [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Review the [list of Azure regions and their locations](https://azure.microsoft.com/regions/).
-- Get an overview of [Azure regions for virtual machines](../../virtual-machines/regions.md) and how to to maximize a VM performance, availability, and redundancy in a given region.

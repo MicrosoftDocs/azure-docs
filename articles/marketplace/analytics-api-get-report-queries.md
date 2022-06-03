@@ -19,7 +19,6 @@ The Get report queries API gets all queries that are available for use in report
 | **Method** | **Request URI** |
 | --- | --- |
 | GET | `https://api.partnercenter.microsoft.com/insights/v1/cmp/ScheduledQueries?queryId={QueryID}&queryName={QueryName}&includeSystemQueries={include_system_queries}&includeOnlySystemQueries={include_only_system_queries}` |
-|||
 
 **Request header**
 
@@ -27,7 +26,6 @@ The Get report queries API gets all queries that are available for use in report
 | --- | --- | --- |
 | Authorization | string | Required. The Azure Active Directory (Azure AD) access token in the form `Bearer <token>` |
 | Content-Type | string | `Application/JSON` |
-||||
 
 **Path parameter**
 
@@ -41,7 +39,6 @@ None
 | `queryName` | string | No | Filter to get details of only queries with the name given in the argument |
 | `IncludeSystemQueries` | boolean | No | Include predefined system queries in the response |
 | `IncludeOnlySystemQueries` | boolean | No | Include only system queries in the response |
-|||||
 
 **Request payload**
 
@@ -94,4 +91,3 @@ This table describes the key definitions of elements in the response.
 | `CreatedTime` | Time of creation of query |
 | `TotalCount` | Number of datasets in the Value array |
 | `StatusCode` | Result Code. The possible values are 200, 400, 401, 403, 500 |
-|||

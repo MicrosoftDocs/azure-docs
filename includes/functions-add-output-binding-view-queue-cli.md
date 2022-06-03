@@ -35,17 +35,17 @@ You can view the queue in the [Azure portal](../articles/storage/queues/storage-
     az storage queue list --output tsv
     ```
 
-1. Use the [`az storage message get`](/cli/azure/storage/message#az-storage-message-get) command to read the message from this queue, which should be the first name you used when testing the function earlier. The command reads and removes the first message from the queue. 
+1. Use the [`az storage message get`](/cli/azure/storage/message#az-storage-message-get) command to read the message from this queue, which should be the value you supplied when testing the function earlier. The command reads and removes the first message from the queue. 
 
     # [bash](#tab/bash)
     
-    ```bash
+    ```azurecli
     echo `echo $(az storage message get --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`
     ```
     
     # [PowerShell](#tab/powershell)
     
-    ```powershell
+    ```azurecli
     [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($(az storage message get --queue-name outqueue -o tsv --query '[].{Message:content}')))
     ```
     

@@ -837,6 +837,29 @@ groups:
     title: Swift
   - id: programming-language-python
     title: Python
+- id: programming-languages-speech-sdk-cli
+# Owner: eur
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-objectivec
+    title: Objective-C
+  - id: programming-language-swift
+    title: Swift
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-cli
+    title: CLI
 - id: programming-languages-speech-services
 # Owner: eur
   title: Programming languages
@@ -1611,8 +1634,6 @@ groups:
     title: C#
   - id: programming-language-nodejs
     title: Node.js
-  - id: programming-language-python
-    title: Python
   - id: programming-language-java
     title: Java
 # Owner: alkohli
@@ -1624,6 +1645,21 @@ groups:
     title: Single node device
   - id: two-node
     title: Two node cluster
+# Owner: alkohli
+- id: data-box-shipping
+  title: Data Box shipping
+  prompt: Choose shipping location
+  pivots:
+  - id: north-america
+    title: North America
+  - id: europe
+    title: Europe
+  - id: asia
+    title: Asia
+  - id: africa
+    title: Africa
+  - id: australia
+    title: Australia
 # Owner: timlt
 - id: iot-develop-toolset
   title: IoT Devices
@@ -1695,6 +1731,15 @@ groups:
     title: Azure Resource Manager (ARM) template
   - id: container-apps-bicep
     title: Bicep
+# Owner: cshoe
+- id: container-apps-config-types
+  title: Configuration method
+  prompt: Select a configuration method
+  pivots:
+  - id: aca-cli
+    title: Azure CLI
+  - id: aca-arm
+    title: Azure Resource Manager (ARM) template
 # Owner: cshoe
 - id: container-apps-registry-types
   title: Registry types
@@ -1778,6 +1823,33 @@ groups:
     title: Azure Resource Manager
   - id: aro-bicep
     title: Bicep   
+# Owner: cshoe
+- id: container-apps-image-build-type
+  title: Container build method
+  prompt: Choose how you want to build your containers
+  pivots:
+  - id: acr-remote
+    title: Cloud build
+  - id: docker-local
+    title: Local build (requires Docker)
+ # Owner: rahulmehta
+- id: azure-red-hat-openshift-service-principal
+  title: Azure CLI and Azure portal
+  prompt: Choose an option
+  pivots:
+  - id: aro-azurecli
+    title: Azure CLI  
+  - id: aro-azureportal
+    title: Azure portal  
+# Owner: cshoe
+- id: devops-or-github
+  title: Code host
+  prompt: Select a code hosting platform
+  pivots:
+  - id: github
+    title: GitHub
+  - id: azure-devops
+    title: Azure DevOps
 # Owner: mametcal
 - id: appconfig-provider
   title: Client Library pivots
@@ -1786,4 +1858,15 @@ groups:
   - id: framework-dotnet
     title: .Net
   - id: framework-spring
-    title: Spring
+    title: Spring Framework
+# Owner: nicktrog
+- id: load-testing-config
+  title: Experience
+  prompt: Choose an experience
+  pivots:
+  - id: experience-azp
+    title: Azure portal
+  - id: experience-pipelines
+    title: Azure Pipelines
+  - id: experience-ghactions
+    title: GitHub Actions

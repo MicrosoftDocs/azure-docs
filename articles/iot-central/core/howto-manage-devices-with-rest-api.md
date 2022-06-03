@@ -18,6 +18,8 @@ Every IoT Central REST API call requires an authorization header. To learn more,
 
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
 
+[!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
+
 ## Devices REST API
 
 The IoT Central REST API lets you:
@@ -199,7 +201,7 @@ The response to this request looks like the following example:
 You can use ODATA filters to filter the results returned by the list devices API.
 
 > [!NOTE]
-> Currently, ODATA support is only available for `api-version=1.1-preview`
+> Currently, ODATA support is only available for `api-version=1.2-preview`
 
 ### $top
 
@@ -208,7 +210,7 @@ Use the **$top** to set the result size, the maximum returned result size is 100
 Use the following request to retrieve a top 10 device from your application:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/devices?api-version=1.1-preview&$top=10
+GET https://{subdomain}.{baseDomain}/api/devices?api-version=1.2-preview&$top=10
 ```
 
 The response to this request looks like the following example:
@@ -236,7 +238,7 @@ The response to this request looks like the following example:
         },
         ...
     ],
-    "nextLink": "https://custom-12qmyn6sm0x.azureiotcentral.com/api/devices?api-version=1.1-preview&%24top=1&%24skiptoken=%257B%2522token%2522%253A%2522%252BRID%253A%7EJWYqAOis7THQbBQAAAAAAg%253D%253D%2523RT%253A1%2523TRC%253A1%2523ISV%253A2%2523IEO%253A65551%2523QCF%253A4%2522%252C%2522range%2522%253A%257B%2522min%2522%253A%2522%2522%252C%2522max%2522%253A%252205C1D7F7591D44%2522%257D%257D"
+    "nextLink": "https://custom-12qmyn6sm0x.azureiotcentral.com/api/devices?api-version=1.2-preview&%24top=1&%24skiptoken=%257B%2522token%2522%253A%2522%252BRID%253A%7EJWYqAOis7THQbBQAAAAAAg%253D%253D%2523RT%253A1%2523TRC%253A1%2523ISV%253A2%2523IEO%253A65551%2523QCF%253A4%2522%252C%2522range%2522%253A%257B%2522min%2522%253A%2522%2522%252C%2522max%2522%253A%252205C1D7F7591D44%2522%257D%257D"
 }
 ```
 
@@ -286,7 +288,7 @@ $filter=indexof(displayName, 'device1') ge 0
 The following example shows how to retrieve all the devices where the display name has index the string `thermostat`:
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.1-preview&$filter=index(displayName, 'thermostat')
+GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.2-preview&$filter=index(displayName, 'thermostat')
 ```
 
 The response to this request looks like the following example:
@@ -328,7 +330,7 @@ $orderby=displayName desc
 The following example shows how to retrieve all the device templates where the result is sorted by `displayName` :
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/devices?api-version=1.1-preview&$orderby=displayName
+GET https://{subdomain}.{baseDomain}/api/devices?api-version=1.2-preview&$orderby=displayName
 ```
 
 The response to this request looks like the following example:
@@ -363,7 +365,7 @@ You can also combine two or more filters.
 The following example shows how to retrieve the top 2 device where the display name contains the string `thermostat`.
 
 ```http
-GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.1-preview&$filter=contains(displayName, 'thermostat')&$top=2
+GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.2-preview&$filter=contains(displayName, 'thermostat')&$top=2
 ```
 
 The response to this request looks like the following example:

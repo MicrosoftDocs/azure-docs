@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 04/07/2022
+ms.date: 05/04/2022
 ms.author: banders
 ms.custom:
 ---
@@ -90,7 +90,7 @@ Dev/Test products aren't shown in the following table. Transfers for Dev/Test pr
 | MPA | MPA | <ul><li> For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md). <li> Self-service reservation transfers are supported.  |
 | MOSP (PAYG) | MOSP (PAYG) | <ul><li> If you're changing the billing owner of the subscription, see [Transfer billing ownership of an Azure subscription to another account](billing-subscription-transfer.md). <li> Reservations don't automatically transfer so you must open a [billing support ticket](https://azure.microsoft.com/support/create-ticket/) to transfer them.  |
 | MOSP (PAYG) | MCA - individual | <ul><li> For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md). <li> Self-service reservation transfers are supported. |
-| MOSP (PAYG) | EA | For details, see [Transfer a subscription to an EA](mosp-ea-transfer.md#transfer-the-subscription-to-the-ea). |
+| MOSP (PAYG) | EA | <ul><li>If you're transferring the subscription to the EA enrollment, see [Transfer a subscription to an EA](mosp-ea-transfer.md#transfer-the-subscription-to-the-ea). <li> If you're changing billing ownership, see [Change Azure subscription or account ownership](ea-portal-administration.md#change-azure-subscription-or-account-ownership). |
 | MOSP (PAYG) | MCA - Enterprise | <ul><li> For details, see [Transfer Azure subscription billing ownership for a Microsoft Customer Agreement](mca-request-billing-ownership.md). <li> Self-service reservation transfers are supported. |
 
 ## Perform resource transfers
@@ -121,7 +121,7 @@ When you accept a transfer, must select the **Review + validate** option. By mak
 
 ### Resources transfer with subscriptions
 
-When only billing ownership is changing, then resources aren't affected. However, when you do a resource move or change the service tenant, then resources could be affected.
+When only billing ownership is changing, then resources aren't affected. All resources from the subscriptions like VMs, disks, and websites transfer. However, when you do a resource move or change the service tenant, then resources could be affected.
 
 ### Transfer a product from one account to another
 
@@ -162,6 +162,68 @@ Your account is responsible for payment for any usage that is reported from the 
 ### Transfer Enterprise Agreement product ownership
 
 The Enterprise Administrator can update account ownership for any account, even after an original account owner is no longer part of the organization. For more information about transferring Azure Enterprise Agreement accounts, see [Azure Enterprise transfers](ea-transfers.md).
+
+## Supplemental information about transfers
+
+The following sections provide additional information about transferring subscriptions.
+
+### Cancel a prior support plan
+
+If you have an Azure support plan and you transfer all of your Azure subscriptions to a new agreement, then you must cancel the support plan because it doesn't transfer with the subscriptions. For example, when you transfer a Microsoft Online Subscription Agreement (an Azure subscription purchased on the web) to the Microsoft Customer Agreement. To cancel your support plan:
+
+Use your account administrator credentials for your old account if the credentials differ from the ones used to access your new Microsoft Customer Agreement account.
+
+1.	Sign in to the Azure portal at https://portal.azure.com.
+1.	Navigate to **Cost Management + Billing**.
+1.	Select **Billing Scopes** in the left pane.
+1.	Select the billing account associated with your Microsoft support plan.
+    - For a Microsoft Customer Agreement:
+        - Select **Recurring charges** in the left pane.
+        - In the right pane, to the right of the support plan line item, select the ellipsis (**...**) and then select **Turn off auto-renewal**.
+    - For a Microsoft Online Subscription Agreement (MOSA):
+        - Select **Subscriptions** in the left pane.
+        - Select the support plan subscription in the right pane and then select **Cancel**.
+
+### Access your historical invoices
+
+You may want to access your invoices for your old Microsoft Online Subscription Agreement account (an Azure subscription purchased on the web) after you transfer billing ownership to your new Microsoft Customer Agreement account. To do so, use the following steps:
+
+Use your account administrator credentials for your old account if the credentials differ from the ones used to access your new Microsoft Customer Agreement account.
+
+1.	Sign in to the Azure portal at https://portal.azure.com/.
+1.	Navigate to **Cost Management + Billing**.
+1.	Select **Billing Scopes** in the left pane.
+1.	Select the billing account associated with your Microsoft Online Subscription Agreement account.
+1.	Select **Invoices** in the left pane to access your historical invoices.
+
+### Disabled subscriptions
+
+Disabled subscriptions can't be transferred. Subscriptions must be in active state to transfer their billing ownership.
+
+### Azure Marketplace products transfer
+
+Azure Marketplace products transfer along with their respective subscriptions.
+
+### Azure Reservations transfer
+
+If you're transferring Enterprise Agreement (EA) subscriptions or Microsoft Customer Agreements, Azure Reservations automatically move with the subscriptions.
+
+### Access to Azure services
+
+Access for existing users, groups, or service principals that was assigned using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) isn't affected during the transition.
+
+### Charges for transferred subscription
+
+The original billing owner of the subscriptions is responsible for any charges that were reported up to the point that the transfer is completed. Your invoice section is responsible for charges reported from the time of transfer onwards. There may be some charges that took place before transfer but was reported afterwards. These charges show up on your invoice section.
+
+### Cancel a transfer request
+
+You can cancel the transfer request until the request is approved or declined. To cancel the transfer request, go to the [transfer details page](mca-request-billing-ownership.md#check-the-transfer-request-status) and select cancel from the bottom of the page.
+
+### Software as a Service (SaaS) transfer
+
+SaaS products don't transfer with the subscriptions. Ask the user to [Contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to transfer billing ownership of SaaS products. Along with the billing ownership, the user can also transfer resource ownership. Resource ownership lets you conduct management operations like deleting and viewing the details of the product. The user must be a resource owner on the SaaS product to transfer resource ownership.
+
 
 ## Next steps
 
