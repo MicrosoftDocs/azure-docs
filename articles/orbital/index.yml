@@ -39,8 +39,6 @@ landingContent:
             url: register-spacecraft.md
           - text: Configure a Contact Profile
             url: contact-profile.md
-      - linkListType: how-to-guide
-        links:
           - text: Schedule a Contact
             url: schedule-contact.md
 
@@ -61,6 +59,14 @@ landingContent:
         links:
           - text: What is the Space Partner Program?
             url: space-partner-program-overview.md
+            
+  # Card
+  - title: Learn how to downlink from a public satellite
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Schedule a contact with NASA's AQUA public satellite
+            url: howto-downlink-aqua.md
 
   # Card
   - title: Concepts

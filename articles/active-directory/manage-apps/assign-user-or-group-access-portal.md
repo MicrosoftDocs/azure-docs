@@ -1,6 +1,5 @@
 ---
 title: Assign users and groups
-titleSuffix: Azure AD
 description: Learn how to assign and unassign users, and groups, for an app using Azure Active Directory for identity management.
 services: active-directory
 author: eringreenlee

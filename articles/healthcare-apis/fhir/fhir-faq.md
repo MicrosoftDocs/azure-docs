@@ -2,12 +2,12 @@
 title: FAQs about FHIR service in Azure Health Data Services
 description: Get answers to frequently asked questions about FHIR service, such as the storage location of data behind FHIR APIs and version support.
 services: healthcare-apis
-author: caitlinv39
+author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 03/01/2022
-ms.author: cavoeg
+ms.author: mikaelw
 ms.custom: references_regions
 ---
 

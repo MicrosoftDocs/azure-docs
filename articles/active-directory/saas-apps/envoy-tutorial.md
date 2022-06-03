@@ -153,9 +153,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Envoy test user
 
-In this section, a user called Britta Simon is created in Envoy. Envoy supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Envoy, a new one is created after authentication.
+In this section, a user called Britta Simon is created in Envoy. 
 
-Envoy also supports automatic user provisioning, you can find more details [here](./envoy-provisioning-tutorial.md) on how to configure automatic user provisioning.
+Envoy supports automatic user provisioning, which you can read about [here](./envoy-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ## Test SSO 
 

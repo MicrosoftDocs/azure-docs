@@ -34,6 +34,9 @@ items:
       href: create-data-warehouse-portal.md
     - name: PowerShell
       href: create-data-warehouse-powershell.md
+    - name: Bicep
+      displayName: ARM, Resource Manager, Template
+      href: quickstart-bicep.md
     - name: ARM template
       displayName: Resource Manager
       href: quickstart-arm-template.md
@@ -88,37 +91,37 @@ items:
     - name: Advanced data security
       items:
       - name: Overview
-        href: ../../azure-sql/database/azure-defender-for-sql.md?
+        href: /azure/azure-sql/database/azure-defender-for-sql?
       - name: Data discovery & classification
-        href: ../../azure-sql/database/data-discovery-and-classification-overview.md?
+        href: /azure/azure-sql/database/data-discovery-and-classification-overview?
       - name: Vulnerability assessment
-        href: ../../azure-sql/database/sql-vulnerability-assessment.md?
+        href: /azure/azure-sql/database/sql-vulnerability-assessment?
       - name: Advanced Threat Protection
-        href: ../../azure-sql/database/threat-detection-overview.md?
+        href: /azure/azure-sql/database/threat-detection-overview?
     - name: Auditing
-      href: ../../azure-sql/database/auditing-overview.md?
+      href: /azure/azure-sql/database/auditing-overview?
     - name: Network security
       items:
       - name: Firewall rules
-        href: ../../azure-sql/database/firewall-configure.md?
+        href: /azure/azure-sql/database/firewall-configure?
       - name: Private Link
-        href: ../../azure-sql/database/private-endpoint-overview.md?
+        href: /azure/azure-sql/database/private-endpoint-overview?
       - name: Virtual network service endpoints
-        href: ../../azure-sql/database/vnet-service-endpoint-rule-overview.md?
+        href: /azure/azure-sql/database/vnet-service-endpoint-rule-overview?
     - name: Authentication
       items:
       - name: Overview
         href: sql-data-warehouse-authentication.md
       - name: Azure Active Directory
-        href: ../../azure-sql/database/authentication-aad-overview.md?
+        href: /azure/azure-sql/database/authentication-aad-overview?
       - name: Logins and users
-        href: ../../azure-sql/database/logins-create-manage.md?
+        href: /azure/azure-sql/database/logins-create-manage?
       - name: Multi-Factor Auth
-        href: ../../azure-sql/database/authentication-mfa-ssms-overview.md?
+        href: /azure/azure-sql/database/authentication-mfa-ssms-overview?
     - name: Access control
       items:
       - name: Overview
-        href: ../../azure-sql/database/logins-create-manage.md?
+        href: /azure/azure-sql/database/logins-create-manage?
       - name: Column-level security
         href: column-level-security.md
       - name: Row-level security
@@ -126,11 +129,11 @@ items:
     - name: Data protection
       items:
       - name: Dynamic data masking
-        href: ../../azure-sql/database/dynamic-data-masking-overview.md?
+        href: /azure/azure-sql/database/dynamic-data-masking-overview?
       - name: Transparent Data Encryption (TDE) overview
-        href: ../../azure-sql/database/transparent-data-encryption-tde-overview.md?
+        href: /azure/azure-sql/database/transparent-data-encryption-tde-overview?
       - name: TDE with Bring Your Own Key
-        href: ../../azure-sql/database/transparent-data-encryption-byok-overview.md?
+        href: /azure/azure-sql/database/transparent-data-encryption-byok-overview?
   - name: Data ingestion and preparation
     items:
     - name: Overview
@@ -286,11 +289,11 @@ items:
   - name: Secure
     items:
     - name: Configure Azure AD auth
-      href: ../../azure-sql/database/authentication-aad-configure.md?
+      href: /azure/azure-sql/database/authentication-aad-configure?
     - name: Conditional Access
-      href: ../../azure-sql/database/conditional-access-configure.md?
+      href: /azure/azure-sql/database/conditional-access-configure?
     - name: Virtual network rules by PowerShell
-      href: ../../azure-sql/database/scripts/vnet-service-endpoint-rule-powershell-create.md?
+      href: /azure/azure-sql/database/scripts/vnet-service-endpoint-rule-powershell-create?
     - name: Enable encryption - portal
       href: sql-data-warehouse-encryption-tde.md
     - name: Enable encryption - T-SQL

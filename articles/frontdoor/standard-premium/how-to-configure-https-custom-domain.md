@@ -131,7 +131,7 @@ In order for the certificate to be automatically rotated to the latest version w
 
 If you want to change the secret version from ‘Latest’ to a specified version or vice versa, add a new certificate. 
 
-##### How to switch between certificate types
+## How to switch between certificate types
 
 1. You can change an existing Azure managed certificate to a user-managed certificate by selecting the certificate state to open the **Certificate details** page.
 
@@ -141,7 +141,9 @@ If you want to change the secret version from ‘Latest’ to a specified versio
 *Bring Your Own Certificate (BYOC)*. Then follow the same steps as earlier to choose a certificate. Select **Update** to change the associated certificate with a domain.
 
     > [!NOTE]
-    > It may take up to an hour for the new certificate to be deployed when you switch between certificate types.
+    > * It may take up to an hour for the new certificate to be deployed when you switch between certificate types.
+    > * If your domain state is Approved, switching the certificate type between BYOC and managed certificate won't have any downtime. When switching to managed certificate, unless the domain ownership is re-validated and the domain state becomes Approved, you will continue to be served by the previous certificate.
+    > * If you switch from BYOC to managed certificate, domain re-validation is required. If you switch from managed certificate to BYOC, you're not required to re-validate the domain.
     >
 
     :::image type="content" source="../media/how-to-configure-https-custom-domain/certificate-details-page.png" alt-text="Screenshot of certificate details page.":::

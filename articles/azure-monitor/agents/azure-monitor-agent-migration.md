@@ -70,8 +70,8 @@ The following tables show gap analyses for the **log types** that are currently 
 | **Performance counters** | Yes | Yes |
 | **Windows Event Logs** | Yes | Yes |
 | **Filtering by event ID** | Yes | No |
-| **Custom logs** | No | Yes |
-| **IIS logs** | No | Yes |
+| **Text logs** | Yes | Yes |
+| **IIS logs** | Yes | Yes |
 | **Application and service logs** | Yes | Yes |
 | **Multi-homing** | Yes | Yes |
 
@@ -81,7 +81,7 @@ The following tables show gap analyses for the **log types** that are currently 
 |---------|---------|---------|
 | **Syslog** | Yes | Yes |
 | **Performance counters** | Yes | Yes |
-| **Custom logs** | No | Yes |
+| **Text logs** | Yes | Yes |
 | **Multi-homing** | Yes | No |
 
 

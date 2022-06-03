@@ -27,7 +27,7 @@ Each virtual network can have only one virtual network gateway per gateway type.
 ## <a name="gwsku"></a>Gateway SKUs
 [!INCLUDE [expressroute-gwsku-include](../../includes/expressroute-gwsku-include.md)]
 
-If you want to upgrade your gateway to a more powerful gateway SKU, you can use the 'Resize-AzVirtualNetworkGateway' PowerShell cmdlet or perform the upgrade directly in the ExpressRoute virtual network gateway configuration blade in the Azure Portal. The following upgrades are supported:
+If you want to upgrade your gateway to a more powerful gateway SKU, you can use the 'Resize-AzVirtualNetworkGateway' PowerShell cmdlet or perform the upgrade directly in the ExpressRoute virtual network gateway configuration blade in the Azure portal. The following upgrades are supported:
 
 - Standard to High Performance
 - Standard to Ultra Performance
@@ -81,7 +81,7 @@ The following table shows the gateway types and the estimated performance scale 
 |**Ultra Performance/ErGw3Az**|16,000|10,000|1,000,000|11,000|
 
 > [!IMPORTANT]
-> Application performance depends on multiple factors, such as the end-to-end latency, and the number of traffic flows the application opens. The numbers in the table represent the upper limit that the application can theoretically achieve in an ideal environment.
+> Application performance depends on multiple factors, such as the end-to-end latency, and the number of traffic flows the application opens. The numbers in the table represent the upper limit that the application can theoretically achieve in an ideal environment. Additionally, Microsoft performs routine host and OS maintenance on the ExpressRoute Virtual Network Gateway, to maintain reliability of the service. During a maintenance period, control plane and data path capacity of the gateway is reduced.
 
 >[!NOTE]
 > The maximum number of ExpressRoute circuits from the same peering location that can connect to the same virtual network is 4 for all gateways.
@@ -134,6 +134,10 @@ For additional technical resources and specific syntax requirements when using R
 | --- | --- |
 | [PowerShell](/powershell/module/servicemanagement/azure.service/#azure) |[PowerShell](/powershell/module/az.network#networking) |
 | [REST API](/previous-versions/azure/reference/jj154113(v=azure.100)) |[REST API](/rest/api/virtual-network/) |
+
+## VNet-to-VNet connectivity
+
+By default, connectivity between virtual networks are enabled when you link multiple virtual networks to the same ExpressRoute circuit. However, Microsoft advises against using your ExpressRoute circuit for communication between virtual networks and instead use [VNet peering](../virtual-network/virtual-network-peering-overview.md). For more information about why VNet-to-VNet connectivity is not recommended over ExpressRoute, see [connectivity between virtual networks over ExpressRoute](virtual-network-connectivity-guidance.md).
 
 ## Next steps
 

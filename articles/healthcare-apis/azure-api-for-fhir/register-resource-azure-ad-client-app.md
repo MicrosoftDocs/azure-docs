@@ -7,7 +7,7 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/15/2022
-ms.author: cavoeg
+ms.author: mikaelw
 ms.custom: devx-tr2ck-azurepowershell
 ---
 

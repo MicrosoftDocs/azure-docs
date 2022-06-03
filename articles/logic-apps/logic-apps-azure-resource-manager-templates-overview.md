@@ -311,7 +311,7 @@ Your logic app's [workflow resource definition in a template](/azure/templates/m
          "tags": {
            "displayName": "LogicApp"
          },
-         "apiVersion": "2016-06-01",
+         "apiVersion": "2019-05-01",
          "dependsOn": [
          ]
       }
@@ -914,7 +914,7 @@ Here is an example that provides the account name and access key for an Azure Bl
             "tags": {
                "displayName": "LogicApp"
             },
-            "apiVersion": "2016-06-01",
+            "apiVersion": "2019-05-01",
             // Template parameter reference for value to use at deployment
             "dependsOn": [
                "[resourceId('Microsoft.Web/connections', parameters('azureblob_1_Connection_Name'))]"
@@ -1244,7 +1244,7 @@ Here is the parameterized sample template that's used by this topic's examples:
          "tags": {
             "displayName": "LogicApp"
          },
-         "apiVersion": "2016-06-01",
+         "apiVersion": "2019-05-01",
          "dependsOn": [
             "[resourceId('Microsoft.Web/connections', parameters('azureblob_1_Connection_Name'))]",
             "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]"

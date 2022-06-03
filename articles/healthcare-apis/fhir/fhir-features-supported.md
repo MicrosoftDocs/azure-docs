@@ -2,11 +2,11 @@
 title: Supported FHIR features in FHIR service 
 description: This article explains which features of the FHIR specification that are implemented in Azure Health Data Services
 services: healthcare-apis
-author: caitlinv39
+author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 03/01/2022
+ms.date: 05/05/2022
 ms.author: mikaelw
 ---
 
@@ -55,7 +55,7 @@ All the operations that are supported that extend the REST API.
 | [$validate](validation-against-profiles.md)              | Yes       | Yes       |         |
 | [$member-match](tutorial-member-match.md)          | Yes       | Yes       |         |
 | [$patient-everything](patient-everything.md)    | Yes       | Yes       |         |
-| $purge-history         | Yes       | Yes       |         |
+| [$purge-history](purge-history.md)         | Yes       | Yes       |         |
 
 ## Role-based access control
 

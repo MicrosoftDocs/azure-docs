@@ -28,7 +28,7 @@ az communication create --name "<communicationName>" --location "Global" --data-
 
 You can configure your Communication Services resource with the following options:
 
-* The resource group
+* The [resource group](../../../azure-resource-manager/management/manage-resource-groups-cli.md)
 * The name of the Communication Services resource
 * The geography the resource will be associated with
 

@@ -3,7 +3,7 @@ title: Autoscale in Microsoft Azure
 description: "Autoscale in Microsoft Azure"
 ms.subservice: autoscale
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 04/22/2022
 
 ---
 

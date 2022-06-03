@@ -120,5 +120,6 @@ Subscribe to the RSS feed and view the latest ExpressRoute feature updates on th
 
 ## Next steps
 * Ensure that all prerequisites are met. See [ExpressRoute prerequisites](expressroute-prerequisites.md).
+* [Learn module: Introduction to Azure ExpressRoute](/learn/modules/intro-to-azure-expressroute).
 * Learn about [ExpressRoute connectivity models](expressroute-connectivity-models.md).
 * Find a service provider. See [ExpressRoute partners and peering locations](expressroute-locations.md).

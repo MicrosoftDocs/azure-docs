@@ -1,7 +1,7 @@
 ---
 title:  Managing the Azure Arc-enabled servers agent
 description: This article describes the different management tasks that you will typically perform during the lifecycle of the Azure Connected Machine agent.
-ms.date: 03/17/2022
+ms.date: 05/11/2022
 ms.topic: conceptual
 ---
 
@@ -38,6 +38,10 @@ When running a network connectivity check, you must provide the name of the Azur
 
 `azcmagent check --location <regionName> --verbose`
 
+If you expect your server to communicate with Azure through an Azure Arc Private Link Scope, use the `--use-private-link` parameter to run additional tests that verify the hostnames and IP addresses resolved for the Azure Arc services are private endpoints.
+
+`azcmagent check --location <regionName> --use-private-link --verbose`
+
 ### connect
 
 This parameter specifies a resource in Azure Resource Manager and connects it to Azure Arc. You must specify the subscription and resource group of the resource to connect. Data about the machine is stored in the Azure region specified by the `--location` setting. The default resource name is the hostname of the machine unless otherwise specified.
@@ -65,7 +69,7 @@ This parameter specifies a resource in Azure Resource Manager to delete from Azu
 
 To disconnect using a service principal, run the following command:
 
-`azcmagent disconnect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword> --tenant-id <tenantID>`
+`azcmagent disconnect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword>`
 
 To disconnect using an access token, run the following command:
 

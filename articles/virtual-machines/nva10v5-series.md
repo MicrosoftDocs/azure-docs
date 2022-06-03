@@ -3,10 +3,11 @@ title: NV A10 v5-series
 description: Specifications for the NV A10 v5-series VMs.
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subservice: vm-sizes-gpu
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/01/2022
 ms.author: vikancha
+ms.custom: references_regions
 ---
 
 # NVadsA10 v5-series (Preview)
@@ -15,7 +16,7 @@ ms.author: vikancha
 
 The NVadsA10v5-series virtual machines are powered by [NVIDIA A10](https://www.nvidia.com/en-us/data-center/products/a10-gpu/) GPUs and AMD EPYC 74F3V(Milan) CPUs with a base frequency of 3.2 GHz, all-cores peak frequency of 4.0 GHz. With NVadsA10v5-series Azure is introducing virtual machines with partial NVIDIA GPUs. Pick the right sized virtual machine for GPU accelerated graphics applications and virtual desktops starting at 1/6th of a GPU with 4-GiB frame buffer to a full A10 GPU with 24-GiB frame buffer.
 
-The preview is currenty availabe in US South Central and West Europe regions.[Sign up for preview](https://aka.ms/AzureNVadsA10v5Preview) to get early access to the NVadsA10v5-series. 
+The preview is currently available in US South Central and West Europe regions. [Sign up for the preview](https://aka.ms/AzureNVadsA10v5Preview) to get early access to the NVadsA10v5-series. 
 
 <br>
 
@@ -41,6 +42,7 @@ The preview is currenty availabe in US South Central and West Europe regions.[Si
 | Standard_NV72ads_A10_v5 |72 |880 |1400 | 2 | 48 | 32 | 8 / 80000 |
 
 <sup>1</sup> NVadsA10v5-series VMs feature AMD Simultaneous multithreading Technology
+
 <sup>2</sup> The actual GPU VRAM reported in the operating system will be little less due to Error Correcting Code (ECC) support.
 
 

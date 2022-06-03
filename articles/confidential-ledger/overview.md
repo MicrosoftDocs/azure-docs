@@ -22,7 +22,7 @@ Azure confidential ledger appeals to use cases where critical metadata records m
 - Administrative and control changes (for example, granting access permissions).
 - Operational IT and security events (for example, Microsoft Defender for Cloud alerts).
 
-For more information, you can watch the [Microsoft Ignite 2020 Azure confidential ledger demo](https://mediusprodstatic.studios.ms/asset-b88de19d-4187-40c4-98f2-a65efc419e2a/OD221_1920x1080_AACAudio_1461.mp4?sv=2018-03-28&sr=b&sig=k5roi6WXnlqK1zP0fs5KYlJd4FD3Nuaf97z%2B2gV0aTs%3D&st=2020-09-22T08%3A05%3A01Z&se=2025-09-22T08%3A10%3A01Z&sp=r&rscd=filename%3DIG20-OD221-Inside%2BAzure%2BDatacenter%2BArchitecture%2Bwith%2BMark%2BRu.mp4).
+For more information, you can watch the [Azure confidential ledger demo](https://www.youtube.com/watch?v=Cg0-5moftP0).
 
 ## Key Features
 

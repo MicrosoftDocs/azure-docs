@@ -3,7 +3,7 @@ title: Integrate your app with an Azure virtual network
 description: Integrate your app in Azure App Service with Azure virtual networks.
 author: madsd
 ms.topic: conceptual
-ms.date: 03/04/2022
+ms.date: 04/08/2022
 ms.author: madsd
 
 ---
@@ -158,7 +158,7 @@ After your app integrates with your virtual network, it uses the same DNS server
 
 There are some limitations with using regional virtual network integration:
 
-* The feature is available from all App Service deployments in Premium v2 and Premium v3. It's also available in Standard but only from newer App Service deployments. If you're on an older deployment, you can only use the feature from a Premium v2 App Service plan. If you want to make sure you can use the feature in a Standard App Service plan, create your app in a Premium v3 App Service plan. Those plans are only supported on our newest deployments. You can scale down if you want after the plan is created.
+* The feature is available from all App Service deployments in Premium v2 and Premium v3. It's also available in Basic and Standard tier but only from newer App Service deployments. If you're on an older deployment, you can only use the feature from a Premium v2 App Service plan. If you want to make sure you can use the feature in a Basic or Standard App Service plan, create your app in a Premium v3 App Service plan. Those plans are only supported on our newest deployments. You can scale down if you want after the plan is created.
 * The feature can't be used by Isolated plan apps that are in an App Service Environment.
 * You can't reach resources across peering connections with classic virtual networks.
 * The feature requires an unused subnet that's an IPv4 `/28` block or larger in an Azure Resource Manager virtual network.
@@ -187,6 +187,7 @@ You can't use gateway-required virtual network integration:
 * From a Linux app.
 * From a [Windows container](./quickstart-custom-container.md).
 * To access service endpoint-secured resources.
+* To resolve App Settings referencing a network protected Key Vault.
 * With a coexistence gateway that supports both ExpressRoute and point-to-site or site-to-site VPNs.
 
 ### Set up a gateway in your Azure virtual network
@@ -257,7 +258,7 @@ The regional virtual network integration feature has no extra charge for use bey
 
 Three charges are related to the use of the gateway-required virtual network integration feature:
 
-* **App Service plan pricing tier charges**: Your apps need to be in a Standard, Premium, Premium v2, or Premium v3 App Service plan. For more information on those costs, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/).
+* **App Service plan pricing tier charges**: Your apps need to be in a Basic, Standard, Premium, Premium v2, or Premium v3 App Service plan. For more information on those costs, see [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/).
 * **Data transfer costs**: There's a charge for data egress, even if the virtual network is in the same datacenter. Those charges are described in [Data transfer pricing details](https://azure.microsoft.com/pricing/details/data-transfers/).
 * **VPN gateway costs**: There's a cost to the virtual network gateway that's required for the point-to-site VPN. For more information, see [VPN gateway pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/).
 

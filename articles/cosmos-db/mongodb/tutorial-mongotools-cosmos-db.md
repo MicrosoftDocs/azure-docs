@@ -102,13 +102,17 @@ The rest of this section will guide you through using the pair of tools you sele
 
 1. To export the data from the source MongoDB instance, open a terminal on the MongoDB instance machine. If it is a Linux machine, type
 
-    `mongoexport --host HOST:PORT --authenticationDatabase admin -u USERNAME -p PASSWORD --db edx --collection query --out edx.json`
+    ```bash
+    mongoexport --host HOST:PORT --authenticationDatabase admin -u USERNAME -p PASSWORD --db edx --collection query --out edx.json
+    ```
 
     On windows, the executable will be `mongoexport.exe`. *HOST*, *PORT*, *USERNAME*, and *PASSWORD* should be filled in based on the properties of your existing MongoDB database instance. 
     
     You may also choose to export only a subset of the MongoDB dataset. One way to do this is by adding an additional filter argument:
     
-    `mongoexport --host HOST:PORT --authenticationDatabase admin -u USERNAME -p PASSWORD --db edx --collection query --out edx.json --query '{"field1":"value1"}'`
+    ```bash
+    mongoexport --host HOST:PORT --authenticationDatabase admin -u USERNAME -p PASSWORD --db edx --collection query --out edx.json --query '{"field1":"value1"}'
+    ```
 
     Only documents which match the filter `{"field1":"value1"}` will be exported.
 
@@ -117,7 +121,9 @@ The rest of this section will guide you through using the pair of tools you sele
     ![Screenshot of mongoexport call.](media/tutorial-mongotools-cosmos-db/mongo-export-output.png)
 1. You can use the same terminal to import `edx.json` into Azure Cosmos DB. If you are running `mongoimport` on a Linux machine, type
 
-    `mongoimport --host HOST:PORT -u USERNAME -p PASSWORD --db edx --collection importedQuery --ssl --type json --writeConcern="{w:0}" --file edx.json`
+    ```bash
+    mongoimport --host HOST:PORT -u USERNAME -p PASSWORD --db edx --collection importedQuery --ssl --type json --writeConcern="{w:0}" --file edx.json
+    ```
 
     On Windows, the executable will be `mongoimport.exe`. *HOST*, *PORT*, *USERNAME*, and *PASSWORD* should be filled in based on the Azure Cosmos DB credentials you collected earlier. 
 1. **Monitor** the terminal output from *mongoimport*. You should see that it prints lines of text to the terminal containing updates on the migration status:
@@ -132,14 +138,18 @@ The rest of this section will guide you through using the pair of tools you sele
 
 1. To create a BSON data dump of your MongoDB instance, open a terminal on the MongoDB instance machine. If it is a Linux machine, type
 
-    `mongodump --host HOST:PORT --authenticationDatabase admin -u USERNAME -p PASSWORD --db edx --collection query --out edx-dump`
+    ```bash
+    mongodump --host HOST:PORT --authenticationDatabase admin -u USERNAME -p PASSWORD --db edx --collection query --out edx-dump
+    ```
 
     *HOST*, *PORT*, *USERNAME*, and *PASSWORD* should be filled in based on the properties of your existing MongoDB database instance. You should see that an `edx-dump` directory is produced and that the directory structure of `edx-dump` reproduces the resource hierarchy (database and collection structure) of your source MongoDB instance. Each collection is represented by a BSON file:
 
     ![Screenshot of mongodump call.](media/tutorial-mongotools-cosmos-db/mongo-dump-output.png)
 1. You can use the same terminal to restore the contents of `edx-dump` into Azure Cosmos DB. If you are running `mongorestore` on a Linux machine, type
 
-    `mongorestore --host HOST:PORT --authenticationDatabase admin -u USERNAME -p PASSWORD --db edx --collection importedQuery --ssl edx-dump/edx/query.bson`
+    ```bash
+    mongorestore --host HOST:PORT --authenticationDatabase admin -u USERNAME -p PASSWORD --db edx --collection importedQuery --writeConcern="{w:0}" --ssl edx-dump/edx/query.bson
+    ```
 
     On Windows, the executable will be `mongorestore.exe`. *HOST*, *PORT*, *USERNAME*, and *PASSWORD* should be filled in based on the Azure Cosmos DB credentials you collected earlier. 
 1. **Monitor** the terminal output from *mongorestore*. You should see that it prints lines to the terminal updating on the migration status:

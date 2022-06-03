@@ -33,52 +33,50 @@ Use the Image Analysis client library for JavaScript to analyze a remote image f
     * You will need the key and endpoint from the resource you create to connect your application to the Computer Vision service. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-## Setting up
-
-### Create a new Node.js application
-
-In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it.
-
-```console
-mkdir myapp && cd myapp
-```
-
-Run the `npm init` command to create a node application with a `package.json` file.
-
-```console
-npm init
-```
-
-### Install the client library
-
-Install the `ms-rest-azure` and `@azure/cognitiveservices-computervision` NPM package:
-
-```console
-npm install @azure/cognitiveservices-computervision
-```
-
-Also install the async module:
-
-```console
-npm install async
-```
-
-Your app's `package.json` file will be updated with the dependencies.
-
-Create a new file, *index.js*. 
-
-### Find the subscription key and endpoint
-
-[!INCLUDE [find key and endpoint](../find-key.md)]
-
 ## Analyze image
+
+1. Create a new Node.js application
+
+    In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it.
+
+    ```console
+    mkdir myapp && cd myapp
+    ```
+
+    Run the `npm init` command to create a node application with a `package.json` file.
+
+    ```console
+    npm init
+    ```
+
+    ### Install the client library
+
+    Install the `ms-rest-azure` and `@azure/cognitiveservices-computervision` NPM package:
+
+    ```console
+    npm install @azure/cognitiveservices-computervision
+    ```
+
+    Also install the async module:
+
+    ```console
+    npm install async
+    ```
+
+    Your app's `package.json` file will be updated with the dependencies.
+
+    Create a new file, *index.js*. 
+
+1. Find the key and endpoint.
+
+    [!INCLUDE [find key and endpoint](../find-key.md)]
 
 1. Open *index.js* in a text editor and paste in the following code.
 
    [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ImageAnalysisQuickstart-single.js?name=snippet_single)]
 
 
-1. Paste your subscription key and endpoint into the code where indicated. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
+1. Paste your key and endpoint into the code where indicated. Your Computer Vision endpoint has the form `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
 
    > [!IMPORTANT]
    > Remember to remove the key from your code when you're done, and never post it publicly. For production, consider using a secure way of storing and accessing your credentials. See the Cognitive Services [security](../../../cognitive-services-security.md) article for more information.
@@ -88,6 +86,19 @@ Create a new file, *index.js*.
    ```console
    node index.js
    ```
+
+## Output
+
+```console
+-------------------------------------------------
+DETECT TAGS
+
+Analyzing tags in image... sample16.png
+Tags: grass (1.00), dog (0.99), mammal (0.99), animal (0.99), dog breed (0.99), pet (0.97), outdoor (0.97), companion dog (0.91), small greek domestic dog (0.90), golden retriever (0.89), labrador retriever (0.87), puppy (0.87), ancient dog breeds (0.85), field (0.80), retriever (0.68), brown (0.66)
+
+-------------------------------------------------
+End of quickstart.
+```
 
 ## Clean up resources
 
