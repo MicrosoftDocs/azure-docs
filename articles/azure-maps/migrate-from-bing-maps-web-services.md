@@ -52,7 +52,7 @@ Azure Maps has several additional REST web services that may be of interest;
 * [Map Tiles](/rest/api/maps/render/getmaptile) – Access road and imagery tiles from Azure Maps as raster and vector tiles.
 * [Batch routing](/rest/api/maps/route/postroutedirectionsbatchpreview) – Allows up to 1,000 route requests to be made in a single batch over a period of time. Routes are calculated in parallel on the server for faster processing.
 * [Traffic](/rest/api/maps/traffic) Flow – Access real-time traffic flow data as both raster and vector tiles.
-* [Geolocation API (Preview)](/rest/api/maps/geolocation/get-ip-to-location) – Get the location of an IP address.
+* [Geolocation API](/rest/api/maps/geolocation/get-ip-to-location) – Get the location of an IP address.
 * [Weather Services](/rest/api/maps/weather) – Gain access to real-time and forecast weather data.
 
 Be sure to also review the following best practices guides:

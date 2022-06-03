@@ -6,6 +6,7 @@ ms.date: 06/11/2021
 ms.reviewer: astay; kraigb
 ms.devlang: python
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli, mode-other
+adobe-target: true
 ---
 
 # Configure a Linux Python app for Azure App Service

@@ -2,30 +2,34 @@
 title: Create a function app with Azure Cosmos DB - Azure CLI
 description: Azure CLI Script Sample - Create an Azure Function that connects to an Azure Cosmos DB
 ms.topic: sample
-ms.date: 07/03/2018
+ms.date: 03/24/2022
 ms.custom: mvc, devx-track-azurecli
 ---
 # Create an Azure Function that connects to an Azure Cosmos DB
 
-This Azure Functions sample script creates a function app and connects the function to an Azure Cosmos DB database. The created app setting that contains the connection can be used with an [Azure Cosmos DB trigger or binding](../functions-bindings-cosmosdb.md).
+This Azure Functions sample script creates a function app and connects the function to an Azure Cosmos DB database. It makes the connection using a Azure Cosmos DB endpoint and access key that it adds to app settings. The created app setting that contains the connection can be used with an [Azure Cosmos DB trigger or binding](../functions-bindings-cosmosdb.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
- - This tutorial requires version 2.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed. 
-
 ## Sample script
 
-This sample creates an Azure Function app and adds a Cosmos DB endpoint and access key to app settings.
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
 
-[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-connect-to-cosmos-db/create-function-app-connect-to-cosmos-db.sh "Create an Azure Function that connects to an Azure Cosmos DB")]
+### Run the script
 
-[!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
+:::code language="azurecli" source="~/azure_cli_scripts/azure-functions/create-function-app-connect-to-cosmos-db/create-function-app-connect-to-cosmos-db.sh" id="FullScript":::
 
-## Script explanation
+## Clean up resources
 
-This script uses the following commands: Each command in the table links to command specific documentation.
+[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
+
+```azurecli
+az group delete --name $resourceGroup
+```
+
+## Sample reference
 
 | Command | Notes |
 |---|---|
@@ -41,4 +45,4 @@ This script uses the following commands: Each command in the table links to comm
 
 For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
 
-Additional Azure Functions CLI script samples can be found in the [Azure Functions documentation](../functions-cli-samples.md).
+More Azure Functions CLI script samples can be found in the [Azure Functions documentation](../functions-cli-samples.md).

@@ -38,7 +38,7 @@ Learn more about [AVS Private cloud - vSANCapacity (vSAN capacity utilization ha
 
 Cache instances perform best when not running under high network bandwidth which may cause them to become unresponsive, experience data loss, or become unavailable. Apply best practices to reduce network bandwidth or scale to a different size or sku with more capacity.
 
-Learn more about [Redis Cache Server - RedisCacheNetworkBandwidth (Improve your Cache and application performance when running with high network bandwidth)](https://aka.ms/redis/recommendations/bandwidth).
+Learn more about [Redis Cache Server - RedisCacheNetworkBandwidth (Improve your Cache and application performance when running with high network bandwidth)](/azure/azure-cache-for-redis/cache-troubleshoot-server#server-side-bandwidth-limitation).
 
 ### Improve your Cache and application performance when running with many connected clients
 
@@ -50,13 +50,13 @@ Learn more about [Redis Cache Server - RedisCacheConnectedClients (Improve your 
 
 Cache instances perform best when not running under high server load which may cause them to become unresponsive, experience data loss, or become unavailable. Apply best practices to reduce the server load or scale to a different size or sku with more capacity.
 
-Learn more about [Redis Cache Server - RedisCacheServerLoad (Improve your Cache and application performance when running with high server load)](https://aka.ms/redis/recommendations/cpu).
+Learn more about [Redis Cache Server - RedisCacheServerLoad (Improve your Cache and application performance when running with high server load)](/azure/azure-cache-for-redis/cache-troubleshoot-client#high-client-cpu-usage).
 
 ### Improve your Cache and application performance when running with high memory pressure
 
 Cache instances perform best when not running under high memory pressure which may cause them to become unresponsive, experience data loss, or become unavailable. Apply best practices to reduce used memory or scale to a different size or sku with more capacity.
 
-Learn more about [Redis Cache Server - RedisCacheUsedMemory (Improve your Cache and application performance when running with high memory pressure)](https://aka.ms/redis/recommendations/memory).
+Learn more about [Redis Cache Server - RedisCacheUsedMemory (Improve your Cache and application performance when running with high memory pressure)](/azure/azure-cache-for-redis/cache-troubleshoot-client#memory-pressure-on-redis-client).
 
 ## Cognitive Service
 

@@ -50,7 +50,7 @@ ms.custom: "include file"
 | Category | Limit | Comments |
 |:---|:---|:---|
 | Maximum records returned in a single query | 500,000 | |
-| Maximum size of data returned | ~104 MB (~100 MiB)|The API returns up to 64 MB of binary data, which translates to up to 100 MB of text. |
+| Maximum size of data returned | ~104 MB (~100 MiB)|The API returns up to 64 MB of compressed data, which translates to up to 100 MB of raw data. |
 | Maximum query running time | 10 minutes | See [Timeouts](../articles/azure-monitor/logs/api/timeouts.md) for details.|
 | Maximum request rate | 200 requests per 30 seconds per Azure AD user or client IP address | See [Log queries and language](../articles/azure-monitor/service-limits.md#log-queries-and-language).|
 
@@ -82,4 +82,4 @@ When data sent to your workspace is at a volume rate higher than 80% of the thre
 See [Monitor health of Log Analytics workspace in Azure Monitor](../articles/azure-monitor/logs/monitor-workspace.md) to create alert rules to be proactively notified when you reach any ingestion limits.
 
 >[!NOTE]
->Depending on how long you've been using Log Analytics, you might have access to legacy pricing tiers. Learn more about [Log Analytics legacy pricing tiers](../articles/azure-monitor/logs/manage-cost-storage.md#legacy-pricing-tiers).
+>Depending on how long you've been using Log Analytics, you might have access to legacy pricing tiers. Learn more about [Log Analytics legacy pricing tiers](../articles/azure-monitor/logs/cost-logs.md#legacy-pricing-tiers).

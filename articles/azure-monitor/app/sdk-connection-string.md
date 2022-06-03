@@ -2,30 +2,26 @@
 title: Connection strings in Azure Application Insights | Microsoft Docs
 description: How to use connection strings.
 ms.topic: conceptual
-ms.date: 01/17/2020
+ms.date: 04/13/2022
 ms.custom: "devx-track-js, devx-track-csharp"
-ms.reviewer: mbullwin
 ---
 
 # Connection strings
 
 ## Overview
 
-Connection strings provide Application Insight users with a single configuration setting, eliminating the need for multiple proxy settings. Highly useful for intranet web servers, sovereign or hybrid cloud environments looking to send in data to the monitoring service.
+Connection strings define where to send telemetry data.
 
 The key value pairs provide an easy way for users to define a prefix suffix combination for each Application Insights (AI) service/ product.
 
-> [!IMPORTANT]
-> We don't recommend setting both Connection String and Instrumentation key. In the event that a user does set both, whichever was set last will take precedence. 
-
-> [!TIP]
-> We recommend the use of connection strings over instrumentation keys.
-
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-instrumentation-key-deprecation.md)]
+
+> [!IMPORTANT]
+> Do not use a connection string and instrumentation key simultaneously. Whichever was set last will take precedence.
 
 ## Scenario overview 
 
-Customer scenarios where we visualize this having the most impact:
+Scenarios most affected by this change:
 
 - Firewall exceptions or proxy redirects 
 
@@ -41,9 +37,9 @@ Customer scenarios where we visualize this having the most impact:
 
 ### Finding my connection string?
 
-Your connection string is displayed on the Overview blade of your Application Insights resource.
+Your connection string is displayed on the Overview section of your Application Insights resource.
 
-![connection string on overview blade](media/overview-dashboard/overview-connection-string.png)
+:::image type="content" source="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png" alt-text="Screenshot displaying Application Insights overview and connection string." lightbox="media/migrate-from-instrumentation-keys-to-connection-strings/migrate-from-instrumentation-keys-to-connection-strings.png":::
 
 ### Schema
 
@@ -102,7 +98,7 @@ See also: [Regions that require endpoint modification](./custom-endpoints.md#reg
 
 `InstrumentationKey=00000000-0000-0000-0000-000000000000;EndpointSuffix=ai.contoso.com;`
 
-In this example, this connection string specifies the endpoint suffix and the SDK will construct service endpoints.
+In this example, the connection string specifies the endpoint suffix and the SDK will construct service endpoints.
 
 - Authorization scheme defaults to "ikey" 
 - Instrumentation Key: 00000000-0000-0000-0000-000000000000
@@ -118,7 +114,7 @@ In this example, this connection string specifies the endpoint suffix and the SD
 
 `InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://custom.com:111/;LiveEndpoint=https://custom.com:222/;ProfilerEndpoint=https://custom.com:333/;SnapshotEndpoint=https://custom.com:444/;`
 
-In this example, this connection string specifies explicit overrides for every service. The SDK will use the exact endpoints provided without modification.
+In this example, the connection string specifies explicit overrides for every service. The SDK will use the exact endpoints provided without modification.
 
 - Authorization scheme defaults to "ikey" 
 - Instrumentation Key: 00000000-0000-0000-0000-000000000000
@@ -128,6 +124,20 @@ In this example, this connection string specifies explicit overrides for every s
    - Profiler: `https://custom.com:333/`
    - Debugger: `https://custom.com:444/`  
 
+### Connection string with explicit region
+
+`InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://southcentralus.in.applicationinsights.azure.com/`
+
+In this example, the connection string specifies the South Central US region.
+
+- Authorization scheme defaults to "ikey" 
+- Instrumentation Key: 00000000-0000-0000-0000-000000000000
+- The regional service URIs are based on the explicit override values: 
+   - Ingestion: `https://southcentralus.in.applicationinsights.azure.com/`
+
+Run the following command in the [Azure Command-Line Interface (CLI)](/cli/azure/account?view=azure-cli-latest#az-account-list-locations) to list available regions.
+
+`az account list-locations -o table`
 
 ## How to set a connection string
 

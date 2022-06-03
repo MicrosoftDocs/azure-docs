@@ -5,6 +5,7 @@ description: 'Learn how to improve data security with Azure Machine Learning by 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: enterprise-readiness
+ms.custom: event-tier1-build-2022
 ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
@@ -45,7 +46,7 @@ In the [customer-managed keys concepts article](concept-customer-managed-keys.md
 
 ## Create Azure Key Vault
 
-To create the key vault, see [Create a key vault](/azure/key-vault/general/quick-create-portal). When creating Azure Key Vault, you must enable __soft delete__ and __purge protection__.
+To create the key vault, see [Create a key vault](../key-vault/general/quick-create-portal.md). When creating Azure Key Vault, you must enable __soft delete__ and __purge protection__.
 
 ### Create a key
 
@@ -55,8 +56,8 @@ To create the key vault, see [Create a key vault](/azure/key-vault/general/quick
 > If you plan to use a user-assigned managed identity for your workspace, the managed identity must also be assigned these roles and access policies.
 >
 > For more information, see the following articles:
-> * [Provide access to key vault keys, certificates, and secrets](/azure/key-vault/general/rbac-guide)
-> * [Assign a key vault access policy](/azure/key-vault/general/assign-access-policy)
+> * [Provide access to key vault keys, certificates, and secrets](../key-vault/general/rbac-guide.md)
+> * [Assign a key vault access policy](../key-vault/general/assign-access-policy.md)
 > * [Use managed identities with Azure Machine Learning](how-to-use-managed-identities.md)
 
 1. From the [Azure portal](https://portal.azure.com), select the key vault instance. Then select __Keys__ from the left.
@@ -110,7 +111,7 @@ For examples of creating the workspace with a customer-managed key, see the foll
 Once the workspace has been created, you'll notice that Azure resource group is created in your subscription. This group is in addition to the resource group for your workspace. This resource group will contain the Microsoft-managed resources that your key is used with. The resource group will be named using the formula of `<Azure Machine Learning workspace resource group name><GUID>`. It will contain an Azure Cosmos DB instance, Azure Storage Account, and Azure Cognitive Search.
 
 > [!TIP]
-> * The [__Request Units__](/azure/cosmos-db/request-units) for the Azure Cosmos DB instance automatically scale as needed.
+> * The [__Request Units__](../cosmos-db/request-units.md) for the Azure Cosmos DB instance automatically scale as needed.
 > * If your Azure Machine Learning workspace uses a private endpoint, this resource group will also contain a Microsoft-managed Azure Virtual Network. This VNet is used to secure communications between the managed services and the workspace. You __cannot provide your own VNet for use with the Microsoft-managed resources__. You also __cannot modify the virtual network__. For example, you cannot change the IP address range that it uses.
 
 > [!IMPORTANT]
@@ -135,7 +136,7 @@ For more information on creating and using a deployment configuration, see the f
 
 * [AciWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-) reference
 * [Where and how to deploy](how-to-deploy-and-where.md)
-* [Deploy a model to Azure Container Instances](how-to-deploy-azure-container-instance.md)
+* [Deploy a model to Azure Container Instances](v1/how-to-deploy-azure-container-instance.md)
 
 For more information on using a customer-managed key with ACI, see [Encrypt data with a customer-managed key](../container-instances/container-instances-encrypt-data.md#encrypt-data-with-a-customer-managed-key).
 

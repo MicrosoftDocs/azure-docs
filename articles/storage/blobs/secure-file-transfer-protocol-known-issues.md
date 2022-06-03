@@ -16,11 +16,41 @@ ms.reviewer: ylunagaria
 This article describes limitations and known issues of SFTP support for Azure Blob Storage.
 
 > [!IMPORTANT]
-> SFTP support is currently in PREVIEW and is available on general-purpose v2 and premium block blob accounts.
+> SFTP support is currently in PREVIEW and is available on general-purpose v2 and premium block blob accounts. Complete [this form](https://forms.office.com/r/gZguN0j65Y) BEFORE using the feature in preview. Registration via 'preview features' is NOT required and confirmation email will NOT be sent after filling out the form. You can IMMEDIATELY access the feature.
+>
+> After testing your end-to-end scenarios with SFTP, please share your experience via [this form](https://forms.office.com/r/MgjezFV1NR).
 > 
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-> To enroll in the preview, complete [this form](https://forms.office.com/r/gZguN0j65Y) AND request to join via 'Preview features' in Azure portal.
+
+## Known unsupported clients
+
+The following clients are known to be incompatible with SFTP for Azure Blob Storage (preview). See [Supported algorithms](secure-file-transfer-protocol-support.md#supported-algorithms) for more information.
+
+- Axway
+- Five9
+- Kemp
+- Moveit
+- Mule
+- paramiko 1.16.0
+- Salesforce
+- SSH.NET 2016.1.0
+- XFB.Gateway
+
+> [!NOTE]
+> The unsupported client list above is not exhaustive and may change over time.
+
+## Unsupported operations
+
+| Category | Unsupported operations |
+|---|---|
+| ACLs | <li>`chgrp` - change group<li>`chmod` - change permissions/mode<li>`chown` - change owner<li>`put/get -p` - preserving permissions |
+| Resume operations |<li>`reget`, `get -a`- resume download<li>`reput`. `put -a` - resume upload |
+| Random writes and appends | <li>Operations that include both READ and WRITE flags. For example: [SSH.NET create API](https://github.com/sshnet/SSH.NET/blob/develop/src/Renci.SshNet/SftpClient.cs#:~:text=public%20SftpFileStream-,Create,-(string%20path))<li>Operations that include APPEND flag. For example: [SSH.NET append API](https://github.com/sshnet/SSH.NET/blob/develop/src/Renci.SshNet/SftpClient.cs#:~:text=public%20void-,AppendAllLines,-(string%20path%2C%20IEnumerable%3Cstring%3E%20contents)). |
+| Links |<li>`symlink` - creating symbolic links<li>`ln` - creating hard links<li>Reading links not supported |
+| Capacity Information | `df` - usage info for filesystem |
+| Extensions | Unsupported extensions include but are not limited to: fsync@openssh.com, limits@openssh.com, lsetstat@openssh.com, statvfs@openssh.com |
+| SSH Commands | SFTP is the only supported subsystem. Shell requests after the completion of the key exchange will fail. |
+| Multi-protocol writes | Random writes and appends (`PutBlock`,`PutBlockList`, `GetBlockList`, `AppendBlock`, `AppendFile`)  are not allowed from other protocols on blobs that are created by using SFTP. Full overwrites are allowed.|
 
 ## Authentication and authorization
 
@@ -41,6 +71,8 @@ This article describes limitations and known issues of SFTP support for Azure Bl
 
 - When a firewall is configured, connections from non-allowed IPs are not rejected as expected. However, if there is a successful connection for an authenticated user then all data plane operations will be rejected.
 
+- There's a 4 minute timeout for idle or inactive connections. OpenSSH will appear to stop responding and then disconnect. Some clients reconnect automatically. 
+
 ## Security
 
 - Host keys are published [here](secure-file-transfer-protocol-host-keys.md). During the public preview, host keys may rotate frequently.
@@ -53,27 +85,19 @@ This article describes limitations and known issues of SFTP support for Azure Bl
 
 ## Performance
 
-- Upload performance with default settings for some clients can be slow. Some of this is expected because SFTP is a chatty protocol and sends small message requests. Increasing the buffer size and using multiple concurrent connections can significantly improve speed. 
-
-  - For WinSCP, you can use a maximum of 9 concurrent connections to upload multiple files. 
-
-  - For OpenSSH on Windows, you can increase buffer size to 100000: sftp -B 100000 testaccount.user1@testaccount.blob.core.windows.net 
-
-  - For OpenSSH on Linux, you can increase buffer size to 262000: sftp -B 262000 -R 32 testaccount.user1@testaccount.blob.core.windows.net 
-
-- There's a 4 minute timeout for idle or inactive connections. OpenSSH will appear to stop responding and then disconnect. Some clients reconnect automatically. 
+For performance issues and considerations, see [SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage](secure-file-transfer-protocol-performance.md).
 
 ## Other
 
 - Special containers such as $logs, $blobchangefeed, $root, $web are not accessible via the SFTP endpoint. 
 
-- When using custom domains the connection string is `<accountName>.<userName>@customdomain.com`. If home directory has not been specified for the user, it is `<accountName>.<containerName>.<userName>@customdomain.com`.
-
 - Symbolic links are not supported.
 
 - `ssh-keyscan` is not supported.
 
-- SSH commands, that are not SFTP, are not supported.
+- SSH and SCP commands, that are not SFTP, are not supported.
+
+- FTPS and FTP are not supported.
 
 ## Troubleshooting
 
@@ -82,8 +106,6 @@ This article describes limitations and known issues of SFTP support for Azure Bl
   - The account needs to be a general-purpose v2 and premium block blob accounts.
   
   - The account needs to have hierarchical namespace enabled on it.
-  
-  - Customer's subscription needs to be signed up for the preview. Request to join via 'Preview features' in the Azure portal. Requests are automatically approved.
 
 - To resolve the `Home Directory not accessible error.` error, check that:
   
@@ -98,3 +120,4 @@ This article describes limitations and known issues of SFTP support for Azure Bl
 - [SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-support.md)
 - [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)](secure-file-transfer-protocol-support-how-to.md)
 - [Host keys for SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-host-keys.md)
+- [SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage](secure-file-transfer-protocol-performance.md)

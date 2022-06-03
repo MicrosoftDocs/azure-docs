@@ -5,7 +5,6 @@ ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.date: 11/26/2019
-ms.reviewer: sergkanz
 ---
 
 # Track custom operations with Application Insights .NET SDK
@@ -120,85 +119,10 @@ While there are [W3C Trace Context](https://www.w3.org/TR/trace-context/) and [H
 > * **Cross-component tracing is not supported for queues yet** With HTTP, if your producer and consumer send telemetry to different Application Insights resources, Transaction Diagnostics Experience and Application Map show transactions and map end-to-end. In case of queues this is not supported yet. 
 
 ### Service Bus Queue
-Application Insights tracks Service Bus Messaging calls with the new [Microsoft Azure ServiceBus Client for .NET](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/) version 3.0.0 and higher.
-If you use [message handler pattern](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) to process messages, you are done: all Service Bus calls done by your service are automatically tracked and correlated with other telemetry items. 
-Refer to the [Service Bus client tracing with Microsoft Application Insights](../../service-bus-messaging/service-bus-end-to-end-tracing.md) if you manually process messages.
+Refer to [Distributed tracing and correlation through Service Bus messaging](../../service-bus-messaging/service-bus-end-to-end-tracing.md#distributed-tracing-and-correlation-through-service-bus-messaging) for tracing information.
 
-If you use [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) package, read further - following examples demonstrate how to track (and correlate) calls to the Service Bus as Service Bus queue uses AMQP protocol and Application Insights doesn't automatically track queue operations.
-Correlation identifiers are passed in the message properties.
-
-#### Enqueue
-
-```csharp
-public async Task Enqueue(string payload)
-{
-    // StartOperation is a helper method that initializes the telemetry item
-    // and allows correlation of this operation with its parent and children.
-    var operation = telemetryClient.StartOperation<DependencyTelemetry>("enqueue " + queueName);
-    
-    operation.Telemetry.Type = "Azure Service Bus";
-    operation.Telemetry.Data = "Enqueue " + queueName;
-
-    var message = new BrokeredMessage(payload);
-    // Service Bus queue allows the property bag to pass along with the message.
-    // We will use them to pass our correlation identifiers (and other context)
-    // to the consumer.
-    message.Properties.Add("ParentId", operation.Telemetry.Id);
-    message.Properties.Add("RootId", operation.Telemetry.Context.Operation.Id);
-
-    try
-    {
-        await queue.SendAsync(message);
-        
-        // Set operation.Telemetry Success and ResponseCode here.
-        operation.Telemetry.Success = true;
-    }
-    catch (Exception e)
-    {
-        telemetryClient.TrackException(e);
-        // Set operation.Telemetry Success and ResponseCode here.
-        operation.Telemetry.Success = false;
-        throw;
-    }
-    finally
-    {
-        telemetryClient.StopOperation(operation);
-    }
-}
-```
-
-#### Process
-```csharp
-public async Task Process(BrokeredMessage message)
-{
-    // After the message is taken from the queue, create RequestTelemetry to track its processing.
-    // It might also make sense to get the name from the message.
-    RequestTelemetry requestTelemetry = new RequestTelemetry { Name = "process " + queueName };
-
-    var rootId = message.Properties["RootId"].ToString();
-    var parentId = message.Properties["ParentId"].ToString();
-    // Get the operation ID from the Request-Id (if you follow the HTTP Protocol for Correlation).
-    requestTelemetry.Context.Operation.Id = rootId;
-    requestTelemetry.Context.Operation.ParentId = parentId;
-
-    var operation = telemetryClient.StartOperation(requestTelemetry);
-
-    try
-    {
-        await ProcessMessage();
-    }
-    catch (Exception e)
-    {
-        telemetryClient.TrackException(e);
-        throw;
-    }
-    finally
-    {
-        // Update status code and success as appropriate.
-        telemetryClient.StopOperation(operation);
-    }
-}
-```
+> [!IMPORTANT]
+> The WindowsAzure.ServiceBus and Microsoft.Azure.ServiceBus packages are deprecated.
 
 ### Azure Storage queue
 The following example shows how to track the [Azure Storage queue](../../storage/queues/storage-dotnet-how-to-use-queues.md) operations and correlate telemetry between the producer, the consumer, and Azure Storage. 

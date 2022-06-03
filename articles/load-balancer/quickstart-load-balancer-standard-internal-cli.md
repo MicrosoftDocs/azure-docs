@@ -2,11 +2,11 @@
 title: 'Quickstart: Create an internal load balancer - Azure CLI'
 titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create an internal load balancer by using the Azure CLI.
-author: asudbring
+author: greg-lindsay
 ms.service: load-balancer
 ms.topic: quickstart
 ms.date: 03/23/2022
-ms.author: allensu
+ms.author: greglin
 ms.custom: mvc, devx-track-js, devx-track-azurecli, mode-api
 #Customer intent: I want to create a load balancer so that I can load balance internal traffic to VMs.
 ---
@@ -108,7 +108,7 @@ This section details how you can create and configure the following components o
 
 ### Create the load balancer resource
 
-Create a public load balancer with [az network lb create](/cli/azure/network/lb#az_network_lb_create).
+Create an internal load balancer with [az network lb create](/cli/azure/network/lb#az_network_lb_create).
 
 ```azurecli
   az network lb create \

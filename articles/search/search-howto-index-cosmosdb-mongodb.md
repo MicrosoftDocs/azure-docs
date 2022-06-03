@@ -282,6 +282,15 @@ api-key: [Search service admin key]
 }
 ```
 
+## Limitations
+
+These are the limitations of this feature:
+
++ Custom queries are not supported.
+
++ In this feature, the column name `_ts` is a reserved word. If there is a column called `_ts` in the Mongo database, the indexer will fail. If this is the case, it is recommended an alternate method to index is used, such as [Push API](search-what-is-data-import.md) or through [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) by selecting an Azure Cognitive Search index sink.
+
+
 ## Next steps
 
 You can now control how you [run the indexer](search-howto-run-reset-indexers.md), [monitor status](search-howto-monitor-indexers.md), or [schedule indexer execution](search-howto-schedule-indexers.md). The following articles apply to indexers that pull content from Azure Cosmos DB:

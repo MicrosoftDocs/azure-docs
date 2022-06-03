@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: csharp
 ms.topic: reference
-ms.date: 03/04/2022
+ms.date: 04/18/2022
 ms.author: jroth
 ms.custom: devx-track-dotnet
 
@@ -14,28 +14,12 @@ ms.custom: devx-track-dotnet
 ---
 # Azure Cosmos DB .NET Core SDK v2 for SQL API: Release notes and resources (Legacy)
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
-> [!div class="op_single_selector"]
-> * [.NET SDK v3](sql-api-sdk-dotnet-standard.md)
-> * [.NET SDK v2](sql-api-sdk-dotnet.md)
-> * [.NET Core SDK v2](sql-api-sdk-dotnet-core.md)
-> * [.NET Change Feed SDK v2](sql-api-sdk-dotnet-changefeed.md)
-> * [Node.js](sql-api-sdk-node.md)
-> * [Java SDK v4](sql-api-sdk-java-v4.md)
-> * [Async Java SDK v2](sql-api-sdk-async-java.md)
-> * [Sync Java SDK v2](sql-api-sdk-java.md)
-> * [Spring Data v2](sql-api-sdk-java-spring-v2.md)
-> * [Spring Data v3](sql-api-sdk-java-spring-v3.md)
-> * [Spark 3 OLTP Connector](sql-api-sdk-java-spark-v3.md)
-> * [Spark 2 OLTP Connector](sql-api-sdk-java-spark.md)
-> * [Python](sql-api-sdk-python.md)
-> * [REST](/rest/api
-> * [REST Resource Provider](/azure/azure-resource-manager/management/azure-services-resource-providers)
-> * [SQL](sql-query-getting-started.md)
-> * [Bulk executor - .NET v2](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
+
+[!INCLUDE[appliesto-sql-api](../includes/cosmos-db-sdk-list.md)]
 
 | | Links |
 |---|---|
+|**Release notes**| [Release notes](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/changelog.md)|
 |**SDK download**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)|
 |**API documentation**|[.NET API reference documentation](/dotnet/api/overview/azure/cosmosdb)|
 |**Samples**|[.NET code samples](sql-api-dotnet-samples.md)|
@@ -60,15 +44,14 @@ Because version 3 of the Azure Cosmos DB .NET SDK includes updated features and 
 
 ## <a name="recommended-version"></a> Recommended version
 
-Different sub versions of .NET SDKs are available under the 2.x.x version. **The minimum recommended version is 2.16.2**.
+Different sub versions of .NET SDKs are available under the 2.x.x version. **The minimum recommended version is 2.18.0**.
 
 ## <a name="known-issues"></a> Known issues
 
-Below is a list of any know issues affecting the [recommended minimum version](#recommended-version):
+Below is a list of any known issues affecting the [recommended minimum version](#recommended-version):
 
 | Issue | Impact | Mitigation | Tracking link |
 | --- | --- | --- | --- |
-| When using Direct mode with an account with multiple write locations, the SDK might not detect when a region is added to the account. The background process that [refreshes the account information](troubleshoot-sdk-availability.md#adding-a-region-to-an-account) fails to start. |If a new region is added to the account which is part of the PreferredLocations on a higher order than the current region, the SDK won't detect the new available region. |Upgrade to 2.17.0. |https://github.com/Azure/azure-cosmos-dotnet-v2/issues/852 |
 
 ## See Also
 

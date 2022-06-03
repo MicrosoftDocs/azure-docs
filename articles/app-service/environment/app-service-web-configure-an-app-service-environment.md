@@ -5,7 +5,7 @@ author: madsd
 
 ms.assetid: b5a1da49-4cab-460d-b5d2-edd086ec32f4
 ms.topic: article
-ms.date: 03/15/2022
+ms.date: 03/29/2022
 ms.author: madsd
 ms.custom: seodec18
 
@@ -13,7 +13,7 @@ ms.custom: seodec18
 # Configuring an App Service Environment v1
 
 > [!IMPORTANT]
-> This article is about App Service Environment v1. App Service Environment v1 will be retired on 31 August 2024. There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1, please follow the steps in [this article](migration-alternatives.md) to migrate to the new version.
+> This article is about App Service Environment v1. [App Service Environment v1 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1, please follow the steps in [this article](migration-alternatives.md) to migrate to the new version.
 >
 
 ## Overview

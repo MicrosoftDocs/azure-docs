@@ -19,7 +19,7 @@ ms.custom: template-how-to
 - Ensure you can sign in to the Azure portal using an account with access to the active subscription you identified in [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md). This account must have the built-in Contributor role at the subscription scope.
 - Identify the name of the Mobile Network resource corresponding to your private mobile network.
 - Collect all the configuration values in [Collect the required information for a SIM policy](collect-required-information-for-sim-policy.md) for your chosen SIM policy.
-- Decide whether you want to assign this SIM policy to any SIMs as part of configuring it. If you do, you must have provisioned these SIMs following the instructions in [Provision SIMs - Azure portal](provision-sims-azure-portal.md) and ensured they aren't currently active.
+- Decide whether you want to assign this SIM policy to any SIMs as part of configuring it. If you do, you must have provisioned these SIMs following the instructions in [Provision SIMs - Azure portal](provision-sims-azure-portal.md).
 
 ## Configure the SIM policy
 
@@ -81,4 +81,4 @@ ms.custom: template-how-to
 
 ## Next steps
 
-- If you assigned this SIM policy to some SIMs, [activate the SIMs so they can access your private mobile network](activate-sims.md).
+- [Learn more about policy control](policy-control.md)

@@ -75,7 +75,7 @@ const incomingCallHandler = async (args: { incomingCall: IncomingCall }) => {
 
     // Get information about this Call. This API is provided as a preview for developers
     // and may change based on feedback that we receive. Do not use this API in a production environment.
-    // To use this api please use 'beta' release of ACS Calling Web SDK
+    // To use this api please use 'beta' release of Azure Communication Services Calling Web SDK
     var callInfo = incomingCall.info;
 
     // Get information about caller
@@ -160,7 +160,7 @@ Remote participants have a set of associated properties and collections:
 
 It can be one of the following `CommunicationIdentifier` types:
 
-- `{ communicationUserId: '<ACS_USER_ID'> }`: Object representing the ACS user.
+- `{ communicationUserId: '<ACS_USER_ID'> }`: Object representing the Azure Communication Services user.
 - `{ phoneNumber: '<E.164>' }`: Object representing the phone number in E.164 format.
 - `{ microsoftTeamsUserId: '<TEAMS_USER_ID>', isAnonymous?: boolean; cloud?: "public" | "dod" | "gcch" }`: Object representing the Teams user.
 - `{ id: string }`: object representing identifier that doesn't fit any of the other identifier types
@@ -222,7 +222,7 @@ const callId: string = call.id;
 ```
 Get information about the call:
 > [!NOTE]
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Web SDK
+> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of Azure Communication Services Calling Web SDK
 ```js
 const callInfo = call.info;
 ```

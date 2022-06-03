@@ -126,7 +126,7 @@ To set the Log Analytics workspace where you want to collect session host data:
 You'll need to install the Log Analytics agent on all session hosts in the host pool and send data from those hosts to your selected Log Analytics workspace. If Log Analytics isn't configured for all the session hosts in the host pool, you'll see a **Session hosts** section at the top of **Session host data settings** with the message "Some hosts in the host pool are not sending data to the selected Log Analytics workspace."
 
 >[!NOTE]
-> If you don't see the **Session hosts** section or error message, all session hosts are set up correctly. Skip ahead to set up instructions for [Workspace performance counters](#workspace-performance-counters).
+> If you don't see the **Session hosts** section or error message, all session hosts are set up correctly. Skip ahead to set up instructions for [Workspace performance counters](#workspace-performance-counters). Currently automated deployment is limited to 1000 session hosts or fewer.
 
 To set up your remaining session hosts using the configuration workbook:
 
@@ -134,7 +134,7 @@ To set up your remaining session hosts using the configuration workbook:
 2. Refresh the configuration workbook.
 
 >[!NOTE]
->The host machine needs to be running to install the Log Analytics extension. If automatic deployment doesn't work, you can install the extension on a host manually instead. To learn how to install the extension manually, see [Log Analytics virtual machine extension for Windows](../virtual-machines/extensions/oms-windows.md).
+>For larger host pools (> 1000 session hosts), or if there are deployment issues, it is recommended to install the Log Analytics agent at [time of session host creation](../virtual-machines/extensions/oms-windows.md#extension-schema) through the use of an ARM template.
 
 #### Workspace performance counters
 

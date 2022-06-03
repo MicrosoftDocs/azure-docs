@@ -12,9 +12,12 @@ ms.custom: query-reference
 # UPPER (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
- Returns a string expression after converting lowercase character data to uppercase.  
+Returns a string expression after converting lowercase character data to uppercase.
 
-The UPPER system function does not utilize the index. If you plan to do frequent case insensitive comparisons, the UPPER system function may consume a significant amount of RU's. If this is the case, instead of using the UPPER system function to normalize data each time for comparisons, you can normalize the casing upon insertion. Then a query such as SELECT * FROM c WHERE UPPER(c.name) = 'BOB' simply becomes SELECT * FROM c WHERE c.name = 'BOB'.
+> [!NOTE]
+> This function uses culture-independent (invariant) casing rules when returning the converted string expression. 
+
+The UPPER system function doesn't utilize the index. If you plan to do frequent case insensitive comparisons, the UPPER system function may consume a significant number of RUs. If so, instead of using the UPPER system function to normalize data each time for comparisons, you can normalize the casing upon insertion. Then a query such as SELECT * FROM c WHERE UPPER(c.name) = 'USERNAME' simply becomes SELECT * FROM c WHERE c.name = 'USERNAME'.
 
 ## Syntax
   
@@ -29,25 +32,25 @@ UPPER(<str_expr>)
   
 ## Return types
   
-  Returns a string expression.  
+Returns a string expression.  
   
 ## Examples
   
-  The following example shows how to use `UPPER` in a query  
+The following example shows how to use `UPPER` in a query  
   
 ```sql
 SELECT UPPER("Abc") AS upper  
 ```  
   
- Here is the result set.  
+Here's the result set.  
   
 ```json
-[{"upper": "ABC"}]  
+[{"upper": "ABC"}]
 ```
 
 ## Remarks
 
-This system function will not [use indexes](../index-overview.md#index-usage).
+This system function won't [use indexes](../index-overview.md#index-usage).
 
 ## Next steps
 

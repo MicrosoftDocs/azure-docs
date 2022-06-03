@@ -65,7 +65,7 @@ To create a device template for an IoT Edge transparent gateway device:
 
 The following screenshot shows the **Relationships** page for an IoT Edge gateway device with downstream devices that use the **Thermostat** device template:
 
-:::image type="content" source="media/how-to-connect-iot-edge-transparent-gateway/device-template-relationship.png" alt-text="Screenshot showing IoT Edge gateway device template relationship with a thermostat downstream device template.":::
+:::image type="content" source="media/how-to-connect-iot-edge-transparent-gateway/device-template-relationship.png" alt-text="Screenshot showing IoT Edge gateway device template relationship with a thermostat downstream device template." lightbox="media/how-to-connect-iot-edge-transparent-gateway/device-template-relationship.png":::
 
 The previous screenshot shows an IoT Edge gateway device template with no modules defined. A transparent gateway doesn't require any modules because the IoT Edge runtime forwards messages from the downstream devices directly to IoT Central. If the gateway itself needs to send telemetry, synchronize properties, or handle commands, you can define these capabilities in the root component or in a module.
 
@@ -87,7 +87,7 @@ To add the devices:
 
 The following screenshot shows you can view the list of devices attached to a gateway on the **Downstream Devices** page:
 
-:::image type="content" source="media/how-to-connect-iot-edge-transparent-gateway/downstream-devices.png" alt-text="Screenshot that shows the list of downstream devices connected to a transparent gateway.":::
+:::image type="content" source="media/how-to-connect-iot-edge-transparent-gateway/downstream-devices.png" alt-text="Screenshot that shows the list of downstream devices connected to a transparent gateway." lightbox="media/how-to-connect-iot-edge-transparent-gateway/downstream-devices.png":::
 
 In a transparent gateway, the downstream devices connect to the gateway itself, not to a custom module hosted by the gateway.
 
@@ -119,7 +119,7 @@ When the two virtual machines are deployed and running, verify the IoT Edge gate
 
 1. Open the IoT Edge gateway device and verify the status of the modules on the **Modules** page. If the IoT Edge runtime started successfully, the status of the **$edgeAgent** and **$edgeHub** modules is **Running**:
 
-    :::image type="content" source="media/how-to-connect-iot-edge-transparent-gateway/iot-edge-runtime.png" alt-text="Screenshot showing the $edgeAgent and $edgeHub modules running on the IoT Edge gateway.":::
+    :::image type="content" source="media/how-to-connect-iot-edge-transparent-gateway/iot-edge-runtime.png" alt-text="Screenshot showing the $edgeAgent and $edgeHub modules running on the IoT Edge gateway." lightbox="media/how-to-connect-iot-edge-transparent-gateway/iot-edge-runtime.png":::
 
     > [!TIP]
     > You may have to wait for several minutes while the virtual machine starts up and the device is provisioned in your IoT Central application.
@@ -270,7 +270,7 @@ To run the thermostat simulator on the `leafdevice` virtual machine:
 
 1. To see the telemetry in IoT Central, navigate to the **Overview** page for the **thermostat1** device:
 
-    :::image type="content" source="media/how-to-connect-iot-edge-transparent-gateway/downstream-device-telemetry.png" alt-text="Screenshot showing telemetry from the downstream device.":::
+    :::image type="content" source="media/how-to-connect-iot-edge-transparent-gateway/downstream-device-telemetry.png" alt-text="Screenshot showing telemetry from the downstream device." lightbox="media/how-to-connect-iot-edge-transparent-gateway/downstream-device-telemetry.png":::
 
     On the **About** page you can view property values sent from the downstream device, and on the **Command** page you can call commands on the downstream device.
 

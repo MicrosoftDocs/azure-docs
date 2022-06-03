@@ -4,6 +4,7 @@ description: 'This article shows you the tools to help visualize Query Performan
 author: SudheeshGH
 ms.author: sunaray
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: tutorial
 ms.date: 10/01/2021
 ---

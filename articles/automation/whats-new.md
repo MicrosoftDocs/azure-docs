@@ -18,6 +18,15 @@ Azure Automation receives improvements on an ongoing basis. To stay up to date w
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Automation](whats-new-archive.md).
 
+
+## March 2022
+
+###  Forward diagnostic audit data to Azure Monitor logs
+
+**Type:** New feature
+
+Azure Automation can send diagnostic audit logs in addition to runbook job status and job streams to your Log Analytics workspace. Read [here](automation-manage-send-joblogs-log-analytics.md) for more information.
+
 ## February 2022
 
 ### Permissions change in the built-in Reader role for the Automation Account.

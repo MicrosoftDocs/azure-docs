@@ -3,12 +3,12 @@ title: Plan an automatic user provisioning deployment for Azure Active Directory
 description: Guidance for planning and executing automatic user provisioning in Azure Active Directory
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/13/2021
+ms.date: 04/04/2022
 ms.author: kenwith
 ms.reviewer: arvinh
 ---

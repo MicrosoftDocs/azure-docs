@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 03/22/2022
+ms.date: 03/28/2022
 ms.author: ginle
 ---
 
@@ -21,7 +21,7 @@ One or more workspaces can be created in a resource group from the Azure portal,
  
 A workspace can't be deleted unless all child service instances within the workspace have been deleted. This feature helps prevent any accidental deletion of service instances. However, when a workspace resource group is deleted, all the workspaces and child service instances within the workspace resource group get deleted. 
 
-Workspace names can be reused in the same Azure subscription, but not in a different Azure subscription, after deletion. However, when the move operation is supported and enabled, workspaces and its child resources can be moved from one subscription to another subscription if certain requirements are met. One requirement is that the two subscriptions must be part of the same Azure Active Directory (Azure AD) tenant. Another requirement is that the Private Link configuration isn't enabled. Names for FHIR services, DICOM services and MedTech services can be reused in the same or different subscription after deletion if there's no collision with the URLs of any existing services.
+Workspace names can be reused in the same Azure subscription, but not in a different Azure subscription, after deletion. However, when the move operation is supported and enabled, workspaces and its child resources can be moved from one subscription to another subscription if certain requirements are met. One requirement is that the two subscriptions must be part of the same Azure Active Directory (Azure AD) tenant. Another requirement is that the Private Link configuration isn't enabled. Names for FHIR services, DICOM services, and MedTech services can be reused in the same or different subscription after deletion if there's no collision with the URLs of any existing services.
 
 ## Workspace and Azure region selection 
  
@@ -31,7 +31,7 @@ When you create a workspace, it must be configured for an Azure region, which ca
 
 Once the Azure Health Data Services workspace is created, you’re now ready to create one or more service instances from the Azure portal. You can create multiple service instances of the same type or different types in one workspace. Within the workspace, you can apply shared configuration settings to child service instances, which are covered in the workspace and configuration settings section.
 
-[ ![Azure Resource Group](media/azure-resource-group.png) ](media/azure-resource-group.png#lightbox)
+[ ![Screenshot of Health Data Services Azure Resource Group diagram.](media/azure-resource-group.png) ](media/azure-resource-group.png#lightbox)
 
 Additionally, workspaces can be created using Azure Resource Manager deployment templates, a process commonly known as infrastructure as code (IaC). This option offers the ability to customize the ARM templates and complete the workspace creation and service instance creation in a combined step. 
 

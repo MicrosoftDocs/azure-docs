@@ -8,6 +8,8 @@
   items:
   - name: Portal
     href: quickstart-portal.md
+  - name: CLI
+    href: quickstart-cli.md
   - name: Python
     href: quickstart-python.md
   - name: ARM template
@@ -31,7 +33,7 @@
   - name: .NET client library
     href: /dotnet/api/overview/azure/storage.confidentialledger-readme-pre 
   - name: Java preview client library
-    href: /java/api/overview/azure/data-confidentialledger-readme?view=azure-java-preview
+    href: /java/api/overview/azure/data-confidentialledger-readme
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn

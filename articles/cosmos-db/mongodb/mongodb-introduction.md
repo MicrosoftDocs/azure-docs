@@ -38,6 +38,7 @@ Azure Cosmos DB API for MongoDB implements the wire protocol for MongoDB. This i
 MongoDB feature compatibility:
 
 Azure Cosmos DB API for MongoDB is compatible with the following MongoDB server versions:
+- [Version 4.2](feature-support-42.md)
 - [Version 4.0](feature-support-40.md)
 - [Version 3.6](feature-support-36.md)
 - [Version 3.2](feature-support-32.md)

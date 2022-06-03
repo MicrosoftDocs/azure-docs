@@ -22,7 +22,7 @@ ms.custom: devx-track-azurepowershell
 ---
 # Automate Azure AD Identity Governance tasks via Azure Automation and Microsoft Graph
 
-[Azure Automation](../../automation/overview.md) is an Azure cloud service that allows you to automate common or repetitive systems management and processes.  Microsoft Graph is the Microsoft unified API endpoint for Azure AD features that manage users, groups, access packages, access reviews, and other resources in the directory.  You can manage Azure AD at scale from the PowerShell command line, using the [Microsoft Graph PowerShell SDK](/graph/powershell/get-started).  You can also include the Microsoft Graph PowerShell cmdlets from a [PowerShell-based runbook in Azure Automation](/azure/automation/automation-intro), so that you can automate Azure AD tasks from a simple script.
+[Azure Automation](../../automation/overview.md) is an Azure cloud service that allows you to automate common or repetitive systems management and processes.  Microsoft Graph is the Microsoft unified API endpoint for Azure AD features that manage users, groups, access packages, access reviews, and other resources in the directory.  You can manage Azure AD at scale from the PowerShell command line, using the [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/get-started).  You can also include the Microsoft Graph PowerShell cmdlets from a [PowerShell-based runbook in Azure Automation](/azure/automation/automation-intro), so that you can automate Azure AD tasks from a simple script.
 
 Azure Automation and the PowerShell Graph SDK supports certificate-based authentication and application permissions, so you can have Azure Automation runbooks authenticate to Azure AD without needing a user context.
 
@@ -208,4 +208,3 @@ There are two places where you can see the expiration date in the Azure portal.
 ## Next steps
 
 - [Create an Automation account using the Azure portal](../../automation/quickstarts/create-account-portal.md)
-- [Manage access to resources in Active Directory entitlement management using Microsoft Graph PowerShell](/powershell/microsoftgraph/tutorial-entitlement-management?view=graph-powershell-beta)

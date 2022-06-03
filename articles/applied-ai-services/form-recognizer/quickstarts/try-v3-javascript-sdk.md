@@ -98,23 +98,11 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
     * [**Prebuilt Invoice**](#prebuilt-model)
 
-1. [Run your program](#run-your-application)
-
 > [!IMPORTANT]
 >
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, see* the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md).
 
-## Run your application
-
-Once you've added a code sample to your application, run your program:
-
-1. Navigate to the folder where you have your form recognizer application (form-recognizer-app).
-
-1. Type the following command in your terminal:
-
-    ```console
-    node index.js
-    ```
+<!-- markdownlint-disable MD036 -->
 
 ## General document model
 
@@ -142,9 +130,9 @@ Extract text, tables, structure, key-value pairs, and named entities from docume
 
   async function main() {
        // create your `DocumentAnalysisClient` instance and `AzureKeyCredential` variable
-      const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(apiKey));
+      const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
 
-      const poller = await client.beginAnalyzeDocuments("prebuilt-document", formUrl);
+      const poller = await client.beginAnalyzeDocument("prebuilt-document", formUrl);
 
       const {
           keyValuePairs,
@@ -184,6 +172,18 @@ Extract text, tables, structure, key-value pairs, and named entities from docume
       process.exit(1);
   });
 ```
+
+**Run your application**
+
+Once you've added a code sample to your application, run your program:
+
+1. Navigate to the folder where you have your form recognizer application (form-recognizer-app).
+
+1. Type the following command in your terminal:
+
+    ```console
+    node index.js
+    ```
 
 ### General document model output
 
@@ -239,9 +239,9 @@ Extract text, selection marks, text styles, table structures, and bounding regio
   const formUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
 
   async function main() {
-      const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(apiKey));
+      const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
 
-      const poller = await client.beginAnalyzeDocuments("prebuilt-layout", formUrl);
+      const poller = await client.beginAnalyzeDocument("prebuilt-layout", formUrl);
 
       const {
           pages,
@@ -278,6 +278,18 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 
 ```
 
+**Run your application**
+
+Once you've added a code sample to your application, run your program:
+
+1. Navigate to the folder where you have your form recognizer application (form-recognizer-app).
+
+1. Type the following command in your terminal:
+
+    ```console
+    node index.js
+    ```
+
 ### Layout model output
 
 Here's a snippet of the expected output:
@@ -307,11 +319,9 @@ In this example, we'll analyze an invoice using the **prebuilt-invoice** model.
 > * To analyze a given file at a URI, you'll use the `beginAnalyzeDocuments` method and pass `PrebuiltModels.Invoice` as the model Id. The returned value is a `result` object containing data about the submitted document.
 > * For simplicity, all the key-value pairs that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../concept-invoice.md#field-extraction) concept page.
 
-##### Add the following code to your prebuilt invoice application below the `apiKey` variable
-
 ```javascript
 
-  // Using the PrebuiltModels object, rather than the raw model ID, adds strong typing to the model's output.
+  // using the PrebuiltModels object, rather than the raw model ID, adds strong typing to the model's output
   const { PrebuiltModels } = require("@azure/ai-form-recognizer");
 
   // set `<your-endpoint>` and `<your-key>` variables with the values from the Azure portal
@@ -323,9 +333,9 @@ In this example, we'll analyze an invoice using the **prebuilt-invoice** model.
 
   async function main() {
 
-      const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(apiKey));
+      const client = new DocumentAnalysisClient(endpoint, new AzureKeyCredential(key));
 
-      const poller = await client.beginAnalyzeDocuments(PrebuiltModels.Invoice, invoiceUrl);
+      const poller = await client.beginAnalyzeDocument(PrebuiltModels.Invoice, invoiceUrl);
 
       const {
           documents: [result]
@@ -367,6 +377,18 @@ In this example, we'll analyze an invoice using the **prebuilt-invoice** model.
       process.exit(1);
   });
 ```
+
+**Run your application**
+
+Once you've added a code sample to your application, run your program:
+
+1. Navigate to the folder where you have your form recognizer application (form-recognizer-app).
+
+1. Type the following command in your terminal:
+
+    ```console
+    node index.js
+    ```
 
 ### Prebuilt model output
 

@@ -1,12 +1,12 @@
 ---
 title: Autoscale for Azure API for FHIR 
 description: This article describes the autoscale feature for Azure API for FHIR.
-author: stevewohl
+author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 02/15/2022
-ms.author: zxue
+ms.date: 05/03/2022
+ms.author: mikaelw
 ---
 
 # Autoscale for Azure API for FHIR 

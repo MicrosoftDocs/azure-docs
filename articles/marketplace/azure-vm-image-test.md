@@ -7,7 +7,7 @@ ms.topic: how-to
 author: mathapli
 ms.author: mathapli
 ms.reviewer: edewebolton
-ms.date: 02/01/2022
+ms.date: 04/25/2022
 ---
 
 # Test a virtual machine image
@@ -36,6 +36,9 @@ Complete these steps before submitting your VM offer:
 There are two ways to run validations on the deployed image.
 
 ### Use Certification Test Tool for Azure Certified
+
+> [!IMPORTANT]
+> To run the certification test tool, the Windows Remote Management service must be running and configured on Windows. This enables access to port 5986. For information, see [Installation and configuration for Windows Remote Management](/windows/win32/winrm/installation-and-configuration-for-windows-remote-management).
 
 #### Download and run the certification test tool
 
