@@ -10,7 +10,7 @@ recommendations: false
 ms.date: 06/03/2022
 ---
 
-# Best practices
+# Project best practices
 
 The following list of QnA pairs will be used to represent a project (knowledge base) to highlight best practices when authoring in custom question answering.
 
