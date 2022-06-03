@@ -97,7 +97,7 @@ This built-in action makes an HTTP call to the specified URL for an endpoint and
 
 ## Trigger and action outputs
 
-Here is more information about the outputs from an HTTP trigger or action, which returns this information:
+Here's more information about the outputs from an HTTP trigger or action, which returns this information:
 
 | Property | Type | Description |
 |----------|------|-------------|
@@ -123,7 +123,7 @@ Here is more information about the outputs from an HTTP trigger or action, which
 
 If you have a **Logic App (Standard)** resource in single-tenant Azure Logic Apps, and you want to use an HTTP operation with any of the following authentication types, make sure to complete the extra setup steps for the corresponding authentication type. Otherwise, the call fails.
 
-* [TLS/SSL certificate](#tls-ssl-certificate-authentication): Add the app setting, `WEBSITE_LOAD_ROOT_CERTIFICATES`, and provide the thumbprint for your thumbprint for your TLS/SSL certificate.
+* [TLS/SSL certificate](#tls-ssl-certificate-authentication): Add the app setting, `WEBSITE_LOAD_ROOT_CERTIFICATES`, and set the value to the thumbprint for your TLS/SSL certificate.
 
 * [Client certificate or Azure Active Directory Open Authentication (Azure AD OAuth) with the "Certificate" credential type](#client-certificate-authentication): Add the app setting, `WEBSITE_LOAD_USER_PROFILE`, and set the value to `1`.
 
@@ -215,7 +215,7 @@ For example, suppose you have a logic app that sends an HTTP POST request for an
 
 ![Multipart form data](./media/connectors-native-http/http-action-multipart.png)
 
-Here is the same example that shows the HTTP action's JSON definition in the underlying workflow definition:
+Here's the same example that shows the HTTP action's JSON definition in the underlying workflow definition:
 
 ```json
 "HTTP_action": {
@@ -308,7 +308,7 @@ HTTP requests have a [timeout limit](../logic-apps/logic-apps-limits-and-config.
 
 To specify the number of seconds between retry attempts, you can add the `Retry-After` header to the HTTP action response. For example, if the target endpoint returns the `429 - Too many requests` status code, you can specify a longer interval between retries. The `Retry-After` header also works with the `202 - Accepted` status code.
 
-Here is the same example that shows the HTTP action response that contains `Retry-After`:
+Here's the same example that shows the HTTP action response that contains `Retry-After`:
 
 ```json
 {

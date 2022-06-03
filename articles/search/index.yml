@@ -69,11 +69,8 @@ landingContent:
             url: search-get-started-portal.md
           - text: Create a demo app
             url: search-create-app-portal.md
-          - text: Translate text and recognize entities
+          - text: Create a skillset for AI enrichment
             url: cognitive-search-quickstart-blob.md
-          - text: Apply OCR and image analysis
-            url: cognitive-search-quickstart-ocr.md
-
 
   # Card
   - title: Index data

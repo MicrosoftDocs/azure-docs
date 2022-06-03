@@ -1,6 +1,5 @@
 ---
-title: Protected web API app registration | Azure
-titleSuffix: Microsoft identity platform
+title: Protected web API app registration
 description: Learn how to build a protected web API and the information you need to register the app.
 author: jmprieur
 manager: CelesteDG
