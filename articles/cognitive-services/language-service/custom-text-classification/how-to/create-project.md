@@ -35,6 +35,10 @@ You also will need an Azure storage account where you will upload your `.txt` do
 
 ## Create Language resource and connect storage account
 
+
+> [!Note]
+> You shouldn't move the storage account to a different resource group or subscription once it's linked with the Language resource.
+
 ### [Using the Azure portal](#tab/azure-portal)
 
 [!INCLUDE [create a new resource from the Azure portal](../includes/resource-creation-azure-portal.md)]

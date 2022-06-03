@@ -638,7 +638,7 @@ public class ExpandableWeatherObject {
 }
 ```
 
-To insert or upsert such an object using the Table API, map the properties of the expandable object into a [TableEntity](/java/api/com.azure.data.tables.tableentity) object and use the [createEntity](/java/api/com.azure.data.tables.tableclient.createentity) or [upsertEntity](/java/api/com.azure.data.tables.tableclient.upsertentity) methods on the [TableClient](/java/api/com.azure.data.tables.tableclient) object as appropriate.
+To insert or upsert such an object using the Table API, map the properties of the expandable object into a [TableEntity](/java/api/com.azure.data.tables.models.tableentity) object and use the [createEntity](/java/api/com.azure.data.tables.tableclient.createentity) or [upsertEntity](/java/api/com.azure.data.tables.tableclient.upsertentity) methods on the [TableClient](/java/api/com.azure.data.tables.tableclient) object as appropriate.
 
 ```java
 public void insertExpandableEntity(ExpandableWeatherObject model) {
