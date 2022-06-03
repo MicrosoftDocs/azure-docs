@@ -99,7 +99,7 @@ You can also deploy the VM application to currently running VMs. Select the **Ex
 
 Choose **VM applications** and then select **Add application** to add your VM application.
 
-:::image type="content" source="media/vmapps/select-ext-app.png" alt-text="Screenshot showing selecting a VM application to install on a currently running VM.":::
+:::image type="content" source="media/vmapps/select-extension-app.png" alt-text="Screenshot showing selecting a VM application to install on a currently running VM.":::
 
 Select the VM application from the list, and then select **Save** at the bottom of the page.
 
