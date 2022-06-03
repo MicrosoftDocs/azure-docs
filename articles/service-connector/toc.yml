@@ -31,6 +31,8 @@ items:
 - name: Tutorials
   expanded: true
   items:
+  - name: ASP.NET Core app with SQL DB
+    href: ../app-service/tutorial-dotnetcore-sqldb-app.md
   - name: Python (Django) app with PostgreSQL
     href: tutorial-django-webapp-postgres-cli.md
   - name: ASP.NET app with Blob Storage
