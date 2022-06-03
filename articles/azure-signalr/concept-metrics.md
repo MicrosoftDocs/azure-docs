@@ -35,7 +35,7 @@ Metrics provide insights into the operational state of the service. The availabl
 
 A *dimension* is a name-value pair with extra data to describe the metric value. Some metrics don't have dimensions; others have multiple dimensions.
 
-The following sections describes the dimensions available in SignalR Service metrics.
+The following two sections describe the dimensions available in SignalR Service metrics.
 
 #### Endpoint
 
