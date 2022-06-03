@@ -23,7 +23,7 @@ You can create an empty virtual hub (a virtual hub that doesn't contain any gate
 
 By default, the virtual hub router is automatically configured to deploy with a virtual hub capacity of 2 routing infrastructure units. This supports a minimum of 3 Gbps aggregate throughput, and 2000 connected VMs deployed in all virtual networks connected to that virtual hub.
 
-When you deploy a new virtual hub, you can specify additional routing infrastructure units to increase the default virtual hub capacity in increments of 1 Gbps and 1000 VMs. This feature gives you the ability to secure upfront capacity without having to wait for the virtual hub to scale out when more throughput is needed. The scale unit on which the virtual hub is created becomes the minimum capacity. You can view routing infrastructure units, router Gbps, and number of VMs supported, in the Azure portal **Virtual hub** pages for **Create virtual hub** and **Edit virtual hub**.
+When you deploy a new virtual hub, you can specify additional routing infrastructure units to increase the default virtual hub capacity in increments of 1 Gbps and 1000 VMs. This feature gives you the ability to secure upfront capacity without having to wait for the virtual hub to scale out when more throughput is needed. The scale unit on which the virtual hub is created becomes the minimum capacity. Creating a virtual hub without a gateway takes about 5 - 7 minutes while creating a virtual hub and a gateway can take about 30 minutes to complete. You can view routing infrastructure units, router Gbps, and number of VMs supported, in the Azure portal **Virtual hub** pages for **Create virtual hub** and **Edit virtual hub**.
 
 ### Configure virtual hub capacity
 

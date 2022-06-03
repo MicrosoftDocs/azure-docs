@@ -7,7 +7,7 @@ manager: femila
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/05/2022
+ms.date: 06/03/2022
 ms.author: helohr
 ---
 # Create a profile container with Azure Files and Azure Active Directory (preview)
@@ -160,7 +160,7 @@ To enable Azure AD authentication on a storage account, you need to create an Az
     }
     '@
     $now = [DateTime]::UtcNow
-    $json = $json -replace "<STORAGEACCOUNTSTARTDATE>", $now.AddDays(-1).ToString("s")
+    $json = $json -replace "<STORAGEACCOUNTSTARTDATE>", $now.AddHours(-12).ToString("s")
 	$json = $json -replace "<STORAGEACCOUNTENDDATE>", $now.AddMonths(6).ToString("s")
     $json = $json -replace "<STORAGEACCOUNTPASSWORD>", $password
     $Headers = @{'authorization' = "Bearer $($Token)"}
@@ -439,7 +439,7 @@ The service principal's password will expire every six months. To update the pas
     '@
 
     $now = [DateTime]::UtcNow
-    $json = $json -replace "<STORAGEACCOUNTSTARTDATE>", $now.AddDays(-1).ToString("s")
+    $json = $json -replace "<STORAGEACCOUNTSTARTDATE>", $now.AddHours(-12).ToString("s")
 	$json = $json -replace "<STORAGEACCOUNTENDDATE>", $now.AddMonths(6).ToString("s")
     $json = $json -replace "<STORAGEACCOUNTPASSWORD>", $password
 
