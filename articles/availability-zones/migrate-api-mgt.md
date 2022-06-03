@@ -57,19 +57,17 @@ In this article, we'll take you through the different options for availability z
 
 There are no downtime requirements for any of the migration options.
 
-## Migration option 1: Manual configuration
+## Migration for API Management in a VNet
 
-This option is for deployments that are in an Azure virtual network (VNet). The option requires you to create a new subnet and public IP address for your API Management service. The procedure will change the service configuration and migrate your API management instance to one that is running on the new VMSS architecture that supports availability zones.
+This option is for deployments that are in an Azure virtual network (VNet) that doesn't support availability zones. The option requires you to create a new subnet and public IP address for your API Management service. The procedure will change the service configuration and migrate your API management instance to one that is running on the new VMSS architecture that supports availability zones.
 
-### When to use manual configuration
+Once you've completed the required steps, the API Management service will migrate to VMSS. You'll then own the public IP address, which will remain the same for this service as long as required.
 
-Use the manual configuration option when your current API Management service is on a virtual network that doesn't support availability zones. Once you've completed the required tasks, the API Management service will migrate to VMSS. You'll then own the public IP address, which will remain the same for this service as long as required.
+### Considerations for migrating API Management in a VNet
 
-### Considerations for manual configuration
+The public IP address in the location will change, but it must be pre-created in the same subscription and attached to the API Management instance. Another consideration is that there's some administrative overhead of creating a new subnet and allowing the IP in the firewall.
 
-The public IP address in the location will change, but it must be pre-created in the same subscription and attached to the APIM instance. Another consideration is that there's some administrative overhead of creating a new subnet and allowing the IP in the firewall.
-
-### How to use manual configuration
+### How to migrate API Management in a VNet
 
 To migrate to availability zone support by using manual configuration:
 
@@ -83,24 +81,20 @@ To migrate to availability zone support by using manual configuration:
 
 1. After the service has been moved to new subnet, you can then enable availability zones for your API Management service.
 
-## Migration option 2: Azure portal configuration
+## Migration for API Management not in a VNet
 
 This option is for deployments that aren't on a VNET.
 
 In the Azure portal, you can enable zone redundancy when you add a location to your API Management service, or when you update the configuration of an existing location. When you enable zone redundancy, you're migrating the API Management instance to one that is running on the new VMSS architecture. The legacy systems will then give up hosting the workload on its own infrastructure and move it to the new ARM based infrastructure that supports availability zones. This change is permanent. Even if the resource is changed to Standard tier, the service will remain on VMSS and ARM.
 
-### When to use Azure portal configuration
-
-Use this option if you wish to enable availability zone support yourself without the overhead of creating a new subnet and allowing IP in the firewall.
-
-### Considerations for Azure portal configuration
+### Considerations for migrating API Management not in a VNet
 
 The public IP address in the location changes when you enable, add, or remove availability zones. When updating availability zones in a region with network settings, you must configure a different public IP address resource than the one you set up previously.  You'll also need to allow the new IP address on your firewall or other devices, as needed.
 
 > [!NOTE]
 > It can take 15 to 45 minutes to apply the change to your API Management instance.
 
-### How to use the portal to enable zone redundancy
+### How to migrate API Management not in a VNet
 
 To enable zone redundancy in the Azure portal:
 
