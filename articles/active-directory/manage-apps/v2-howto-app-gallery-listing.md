@@ -15,7 +15,7 @@ ms.custom: kr2b-contr-experiment
 
 # Publish your applications and apply to list them in the Azure Active Directory application gallery
 
-You can publish your application in the *Azure Active Directory* (Azure AD) application gallery, which is a catalog of thousands of apps. When you publish your application, it's made publicly available for users to add to their tenants. For more information, see [Overview of the Azure Active Directory application gallery](overview-application-gallery.md).
+You can publish applications you develop in the *Azure Active Directory* (Azure AD) application gallery, which is a catalog of thousands of apps. When you publish your applications, they're made publicly available for users to add to their tenants. For more information, see [Overview of the Azure Active Directory application gallery](overview-application-gallery.md).
 
 To publish your application in the Azure AD gallery, you need to complete the following tasks:
 
