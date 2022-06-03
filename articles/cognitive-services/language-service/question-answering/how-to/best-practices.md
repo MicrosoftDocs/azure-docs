@@ -44,7 +44,7 @@ The following list of QnA pairs will be used to represent a project (knowledge b
 
        "What is the market value of Microsoft stock?"
 
-"What is the market value of a Microsoft share?"
+      "What is the market value of a Microsoft share?"
 
    However, please note that the confidence score with which the system returns the correct response will vary based on the input query and how different it is from the original question answer pair.
 
