@@ -13,19 +13,18 @@ Microsoft announces feature deprecations or breaking changes at least three year
 
 To enable support engineers to provide all customers with an optimal experience, in some cases, support engineers will instruct customers to update their SDK when they believe the issue is fixed in the newer version of the SDK. The diagnostic tools that are used by support engineers may also provide better insights into the cause of the problem when the customer is using the latest SDK version.
 
-Scenarios in which support engineers will **require** updating the SDK before proceeding:
+Support engineers will provide SDK update guidance according to the following scenario table.
 
-* You're using a Preview version of the SDK, but there's a newer Stable version available
-* You're using an unsupported version of the SDK per the support [policy](https://docs.microsoft.com/lifecycle/faq/azure)
+|SDK Version in use |Alternative available |Update policy |
+|---------|---------|---------|
+|Preview                                                                        | Stable version                                 | **UPDATE REQUIRED**                 |
+|Unsupported ([support policy](https://docs.microsoft.com/lifecycle/faq/azure)) | Any supported version                          | **UPDATE REQUIRED**                 |
+|Stable                                                                         | Newer supported version                        | **UPDATE RECOMMENDED**              |
+|Preview                                                                        | Older stable version                           | **UPDATE RECOMMENDED**              |
+|Preview                                                                        | Newer preview version, no older stable version | **UPDATE RECOMMENDED**              |
+|Preview                                                                        | Newer preview version, no older stable version | **UPDATE RECOMMENDED**              |
 
-Scenarios in which support engineers will **recommend** updating the SDK before proceeding:
-
-* You're using a Stable version of the SDK, but there's a newer Stable version
-* You're using a Preview version of the SDK, but there's an older Stable and also a newer Preview version
-* You're using a Preview version of the SDK, there's no older Stable version but there's a newer Preview one
-
-Scenarios in which support engineers will **inform** you that they can't guarantee support for a Preview SDK before proceeding:
-
-* You're using a Preview version of the SDK and there's no older Stable or newer Preview version
+> [!WARNING]
+> Only commercially reasonable support is provided for Preview versions of the SDK. If the support incident requires escalation to development for further guidance, requires a non-security update, or requires a security update, customers will be asked to use a fully supported SDK version to continue support. Commercially reasonable support does not include an option to engage Microsoft product development resources; technical workarounds may be limited or not possible.
 
 To see the current version of Application Insights SDKs and previous versions release dates, reference the [release notes](release-notes.md).
