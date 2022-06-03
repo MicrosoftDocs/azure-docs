@@ -82,7 +82,7 @@ Question answering takes casing into account but it's intelligent enough to unde
 
 ## How are QnAs prioritized for multi-turn questions?
 
-When a KB has hierarchical relationships (either added manually or via extraction) and the previous response was an answer related to other QnAs, for the next query we give slight preference to all the children QnAs, sibling QnAs and grandchildren QnAs in that order. Along with any query, Question Answering API (Question Answering - Get Answers - REST API (Azure Cognitive Services) | Microsoft Docs) expects a "context" object with the property "previousQnAId" which denotes the last top answer. Based on this previous QnA Id, all the related QnAs are boosted.
+When a KB has hierarchical relationships (either added manually or via extraction) and the previous response was an answer related to other QnAs, for the next query we give slight preference to all the children QnAs, sibling QnAs and grandchildren QnAs in that order. Along with any query, the [Question Answering API] (https://docs.microsoft.com/en-us/rest/api/cognitiveservices/questionanswering/question-answering/get-answers) expects a "context" object with the property "previousQnAId" which denotes the last top answer. Based on this previous QnA ID, all the related QnAs are boosted.
 
 ## How are accents treated?
 
