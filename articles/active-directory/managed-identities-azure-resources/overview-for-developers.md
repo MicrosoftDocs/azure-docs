@@ -265,7 +265,7 @@ KeyVaultSecret retrievedSecret = secretClient.getSecret(secretName);
 
 ### Accessing Azure SQL Database
 
-#### [.NET](#tab/netcore)
+#### [.NET](#tab/dotnet)
 
 ```csharp
 using Azure.Identity;
