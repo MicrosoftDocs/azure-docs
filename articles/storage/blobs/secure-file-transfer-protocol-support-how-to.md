@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/04/2022
+ms.date: 06/03/2022
 ms.author: normesta
 ms.reviewer: ylunagaria
 
@@ -104,9 +104,9 @@ To learn more about the SFTP permissions model, see [SFTP Permissions model](sec
    > [!IMPORTANT]
    > While you can enable both forms of authentication, SFTP clients can connect by using only one of them. Multifactor authentication, whereby both a valid password and a valid public and private key pair are required for successful authentication is not supported.
 
-   If you select **Secure with a password**, then your password will appear when you've completed all of the steps in the **Add local user** configuration pane.
+   If you select **SSH Password**, then your password will appear when you've completed all of the steps in the **Add local user** configuration pane.
 
-   If you select **Secure with SSH public key**, then select **Add key source** to specify a key source. 
+   If you select **SSH Key pair**, then select **Public key source** to specify a key source. 
 
    > [!div class="mx-imgBorder"]
    > ![Local user configuration pane](./media/secure-file-transfer-protocol-support-how-to/add-local-user-config-page.png)
