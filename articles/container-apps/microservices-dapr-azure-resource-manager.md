@@ -213,21 +213,12 @@ Once your Azure Blob Storage account is created, you'll create a template where 
 
 ### Create Azure Resource Manager (ARM) template
 
-<<<<<<< HEAD
 Create an ARM template to deploy a Container Apps environment that includes:
 
 * the associated Log Analytics workspace
 * the Application Insights resource for distributed tracing
 * a dapr component for the state store
 * the two dapr-enabled container apps
-=======
-Create an ARM template to deploy a Container Apps environment including:
-
-* the associated Log Analytics workspace
-* Application Insights resource for distributed tracing
-* a dapr component for the state store
-* two dapr-enabled container apps
->>>>>>> 6f938223bb3383894279861aa2a20be53ccb0645
 
 Save the following file as _hello-world.json_:
 
