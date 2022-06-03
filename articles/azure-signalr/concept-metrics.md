@@ -4,7 +4,7 @@ description: Metrics in Azure SignalR Service.
 author: zackliu
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 05/19/2022
+ms.date: 06/03/2022
 ms.author: chenyl
 ---
 # Metrics in Azure SignalR Service
@@ -35,38 +35,46 @@ Metrics provide insights into the operational state of the service. The availabl
 
 A *dimension* is a name-value pair with extra data to describe the metric value. Some metrics don't have dimensions; others have multiple dimensions.
 
-The following list describes the dimensions available in SignalR Service metrics:
+The following sections describes the dimensions available in SignalR Service metrics.
 
-- **Endpoint**: Describe the type of connection. Including dimension values: Client, Server, LiveTrace
-- **ConnectionCloseCategory**: Gives the reason for closing the connection. Includes the following dimension values:
-  - **Normal**: Normal closure.
-  - **Throttled**: With (Message count/rate or connection) throttling, check Connection Count and Message Count current usage and your resource limits.
-  - **PingTimeout**: Connection ping timeout.
-  - **NoAvailableServerConnection**: Client connection can't be established (won't even pass handshake) because there's no available server connection.
-  - **InvokeUpstreamFailed**: Upstream invoke failed.
-  - **SlowClient**: Too many unsent messages queued up at service side.
-  - **HandshakeError**: Connection terminated in the handshake phase, could be caused by the remote party closing the WebSocket connection without completing the close handshake. HandshakeError is caused by a network issue. Check browser settings to see if the client is able to create a websocket connection.
-  - **ServerConnectionNotFound**: Target hub server not available. Nothing need to be done for improvement, it's by design and reconnection should be done after this drop.
-  - **ServerConnectionClosed**: Client connection closed because the corresponding server connection was dropped. When app server uses Azure SignalR Service SDK, in the background, it initiates server connections to the remote Azure SignalR Service. Each client connection to the service is associated with one of the server connections to route traffic between the client and app server. Once a server connection is closed, all the client connections it serves will be closed with the **ServerConnectionDropped** message.
-  - **ServiceTransientError**: Internal server error.
-  - **BadRequest**: A bad request is caused by an invalid hub name, wrong payload, or a malformed request.
-  - **ClosedByAppServer**: App server asks the service to close the client.
-  - **ServiceReload**: Service reload is triggered when a connection is dropped due to an internal service component reload. This event doesn't indicate a malfunction and is part of normal service operation.
-  - **ServiceModeSwitched**: Connection closed after service mode switched, such as from Serverless mode to Default mode.
-  - **Unauthorized**: The connection is unauthorized.
+#### Endpoint
+
+Describes the type of connection. Includes dimension values: **Client**, **Server**, and **LiveTrace**.
+
+#### ConnectionCloseCategory
+
+Gives the reason for closing the connection. Includes the following dimension values.
+
+|  Value | Description |
+|---------|--------|
+| **Normal** | Connection closed normally.|
+|**Throttled**|With (Message count/rate or connection) throttling, check Connection Count and Message Count current usage and your resource limits.|
+|**PingTimeout**|Connection ping timeout.|
+|**NoAvailableServerConnection**|Client connection can't be established (won't even pass handshake) because there's no available server connection.|
+|**InvokeUpstreamFailed**|Upstream invoke failed.|
+|**SlowClient**|Too many unsent messages queued up at service side.|
+|**HandshakeError**|Connection terminated in the handshake phase, could be caused by the remote party closing the WebSocket connection without completing the close handshake. HandshakeError is caused by a network issue. Check browser settings to see if the client is able to create a websocket connection.|
+|**ServerConnectionNotFound**|Target hub server not available. Nothing need to be done for improvement, it's by design and reconnection should be done after this drop.|
+|**ServerConnectionClosed**|Client connection closed because the corresponding server connection was dropped. When app server uses Azure SignalR Service SDK, in the background, it initiates server connections to the remote Azure SignalR Service. Each client connection to the service is associated with one of the server connections to route traffic between the client and app server. Once a server connection is closed, all the client connections it serves will be closed with the **ServerConnectionDropped** message.|
+|**ServiceTransientError**|Internal server error.|
+|**BadRequest**|A bad request is caused by an invalid hub name, wrong payload, or a malformed request.|
+|**ClosedByAppServer**|App server asked the service to close the client.|
+|**ServiceReload**|Service reload is triggered when a connection is dropped due to an internal service component reload. This event doesn't indicate a malfunction and is part of normal service operation.|
+|**ServiceModeSwitched**|Connection closed after service mode switched, such as from Serverless mode to Default mode.|
+|**Unauthorized**|The connection is unauthorized.|
 
 For more information, see [multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics) in Azure Monitor.
 
-### Understand Message Count granularity
+### Message Count granularity
 
-The minimum Message Count granularity ("grain") is two KB of outbound data traffic. Every two KB is one unit  (one grain) for Message Count. If a client is sending small or infrequent messages totaling less than one grain in a sampling time period, the message count will be zero (0). The count is zero even though messages were sent. The way to check for a small number/size of messages is by using the metric **Outbound Traffic**, which is a count of bytes sent.
+The minimum Message Count granularity is two KB of outbound data traffic. Every two KB is one unit for Message Count. If a client is sending small or infrequent messages totaling less than one unit in a sampling time period, the message count will be zero (0). The count is zero even though messages were sent. The way to check for a small number/size of messages is by using the metric **Outbound Traffic**, which is a count of bytes sent.
 
-### Understand system errors and user errors
+### System errors and user errors
 
-The **User Errors** and **System Errors** metrics are the percentage of attempted operations (connecting, sending a message, and so on) that failed. A system error is a failure in the internal system logic. A User error is generally an application error, often related to networking. Normally, the percentage of system errors should be low, near zero.
+The **User Errors** and **System Errors** metrics are the percentage of attempted operations (connecting, sending a message, and so on) that failed. A system error is a failure in the internal system logic. A user error is generally an application error, often related to networking. Normally, the percentage of system errors should be low, near zero.
 
 > [!IMPORTANT]
-> In some situations, the User Errors rate will be very high, especially in Serverless mode. In some browsers, when a user closes the web page the SignalR client doesn't shut down gracefully. A connection may remain open but unresponsive, until SignalR Service will finally close it because of timeout. The timeout closure will be counted in the User Error metric.
+> In some situations, the user errors rate will be very high, especially in Serverless mode. In some browsers, when a user closes the web page the SignalR client doesn't shut down gracefully. A connection may remain open but unresponsive, until SignalR Service will finally close it because of timeout. The timeout closure will be counted in the User Error metric.
 
 ### Metrics suitable for autoscaling
 

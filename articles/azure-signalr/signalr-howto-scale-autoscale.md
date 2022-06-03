@@ -15,19 +15,19 @@ ms.author: chenyl
 
 Azure SignalR Service Premium tier supports an *autoscale* feature, which is an implementation of [Azure Monitor autoscale](../azure-monitor/autoscale/autoscale-overview.md). Autoscale allows you to automatically scale the unit count for your SignalR Service to match the actual load on the service. Autoscale can help you optimize performance and cost for your application.
 
-Azure SignalR adds its own [service metrics](concept-metrics.md), however, most of the user interface is shared and common to other [Azure services that support autoscaling](../azure-monitor/autoscale/autoscale-overview.md#supported-services-for-autoscale). If you're new to the subject of Azure Monitor Metrics, review [Azure Monitor Metrics aggregation and display explained](../azure-monitor/essentials/metrics-aggregation-explained.md) before digging into SignalR Service Metrics.
+Azure SignalR adds its own [service metrics](concept-metrics.md). However, most of the user interface is shared and common to other [Azure services that support autoscaling](../azure-monitor/autoscale/autoscale-overview.md#supported-services-for-autoscale). If you're new to the subject of Azure Monitor Metrics, review [Azure Monitor Metrics aggregation and display explained](../azure-monitor/essentials/metrics-aggregation-explained.md) before digging into SignalR Service Metrics.
 
 ## Understanding autoscale in SignalR Service
 
 Autoscale allows you to set conditions that will dynamically change the units allocated to SignalR Service while the service is running. Autoscale conditions are based on metrics, such as **Server Load**. Autoscale can also be configured to run on a schedule, such as every day between certain hours.
 
-For example, you can implement the following scaling scenarios using autoscale:
+For example, you can implement the following scaling scenarios using autoscale.
 
 - Increase units when the **Connection Quota Utilization** above 70%.
 - Decrease units when the **Server Load** is below 20%.
 - Create a schedule to add more units during peak hours and reduce units during off hours.
 
-Multiple factors affect performance of SignalR Service. No one metric provides a complete view of system performance. For example, if you're sending a large number of messages you might need to scale out even though the connection quota is relatively low. The combination of both **Connection Quota Utilization** and **Server Load** gives an indication of overall system load. The following guidelines apply:
+Multiple factors affect the performance of SignalR Service. No one metric provides a complete view of system performance. For example, if you're sending a large number of messages you might need to scale out even though the connection quota is relatively low. The combination of both **Connection Quota Utilization** and **Server Load** gives an indication of overall system load. The following guidelines apply.
 
 - Scale out if the connection count is over 80-90%. Scaling out before your connection count is exhausted ensures that you'll have sufficient buffer to accept new connections before scale-out takes effect.
 - Scale out if the **Server Load** is over 80-90%. Scaling early ensures that the service has enough capacity to maintain performance during the scale-out operation.
@@ -38,12 +38,12 @@ The autoscale operation usually takes effect 3-5 minutes after it's triggered. I
 
 Open the autoscale settings page:
 
-1. Go to the [Azure portal](https://portal.azure.com)
-1. Open the **SignalR** service page
+1. Go to the [Azure portal](https://portal.azure.com).
+1. Open the **SignalR** service page.
 1. From the menu on the left, under **Settings** choose **Scale out**.
 1. Select the **Configure** tab. If you have a Premium tier SignalR instance, you'll see two options for **Choose how to scale your resource**:
-   - **Manual scale**, which lets you manually change the number of units
-   - **Custom autoscale**, which lets you create autoscale conditions based on metrics and/or a time schedule
+   - **Manual scale**, which lets you manually change the number of units.
+   - **Custom autoscale**, which lets you create autoscale conditions based on metrics and/or a time schedule.
 
 1. Choose **Custom autoscale**. Use this page to manage the autoscale conditions for your Azure SignalR service.
 
@@ -69,7 +69,6 @@ The following procedure shows you how to add a condition to increase units (scal
 1. On the **Scale out** page, select **Custom autoscale** for the **Choose how to scale your resource** option.
 1. Select **Scale based on a metric** for **Scale mode**.
 1. Select **+ Add a rule**.
-
     :::image type="content" source="./media/signalr-howto-scale-autoscale/default-autoscale.png" alt-text="Default - scale based on a metric":::
 
 1. On the **Scale rule** page, follow these steps:
@@ -84,11 +83,9 @@ The following procedure shows you how to add a condition to increase units (scal
     1. Select an operator and threshold values. In this example, they're **Less than** and **20** for **Metric threshold to trigger scale action**.
     1. Select an **operation** in the **Action** section. In this example, it's set to **Decrease**.
     1. Then, select **Add**
-
         :::image type="content" source="./media/signalr-howto-scale-autoscale/default-scale-in.png" alt-text="Default - scale in if Connection Quota Utilization is less than 20%":::
 
 1. Set the **minimum**, **maximum**, and **default** number of units.
-
 1. Select **Save** on the toolbar to save the autoscale setting. 
 
 ### Scale to specific units
@@ -98,7 +95,6 @@ Follow these steps to configure the rule to scale to a specific unit range.
 1. On the **Scale out** page, select **Custom autoscale** for the **Choose how to scale your resource** option.
 1. Select **Scale to a specific units** for **Scale mode**.
 1. For **Units**, select the number of default units.
-
     :::image type="content" source="./media/signalr-howto-scale-autoscale/default-specific-units.png" alt-text="Default - scale to specific units":::
 
 ## Add more conditions
@@ -107,7 +103,6 @@ The previous section showed you how to add a default condition for the autoscale
 
 1. On the **Scale out** page, select **Custom autoscale** for the **Choose how to scale your resource** option.
 1. Select **Add a scale condition** under the **Default** block.
-
     :::image type="content" source="./media/signalr-howto-scale-autoscale/additional-add-condition.png" alt-text="Custom - add a scale condition link":::
 1. Confirm that the **Scale based on a metric** option is selected.
 1. Select **+ Add a rule** to add a rule to increase units when the **Connection Quota Utilization** goes above 70%. Follow steps from the [default condition](#default-scale-condition) section.
