@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/02/2022
+ms.date: 06/03/2022
 ms.author: alkohli
 ---
 
@@ -37,7 +37,7 @@ To migrate your existing workloads from IoT Edge on Kubernetes to a newly deploy
 Before you begin, make sure you have:
 
 - An Azure Stack Edge device that you've activated. For detailed steps, see [Activate Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-activate.md).
-- You have access to the latest Ubuntu 20.04 VM image. This could be an image from Azure Marketplace or a custom image that you're bringing.
+- Access to the latest Ubuntu 20.04 VM image. This could be an image from Azure Marketplace or a custom image that you're bringing.
 
 ## Prepare the custom script
 
@@ -230,40 +230,80 @@ Begin by deploying IoT Edge runtime. Follow these high-level steps to deploy IoT
 DO NOT create the VM just yet until you read through the next steps which can help auto deploy the IoT Edge runtime. If the advance page step is missed (which allow you to apply a cloud-init script), you will have to manually deploy the IoT Edge runtime by SSH into the VM post VM creation. Refer to Create and provision an IoT Edge device on Linux using symmetric keys - Azure IoT Edge | Microsoft Docs  or Quickstart - Set up IoT Hub Device Provisioning Service in the Microsoft Azure portal | Microsoft Docs for manually install the container engine in the Ubuntu VM.
 
 > [!IMPORTANT]
-> DO NOT create the VM until you read through the steps to auto-deploy the IoT Edge runtime. If the advance page step is missed, which allows you to apply a *cloud-init* script, you will have to manually deploy the IoT Edge runtime by SSH into the VM post VM creation. To manually install the container engine in the Ubuntu VM, use the steps in [Create and provision an IoT Edge device on Linux using symmetric keys](https://docs.microsoft.com/azure/iot-edge/how-to-provision-single-device-linux-symmetric?view=iotedge-2020-11&tabs=azure-portal%2Cubuntu%22%20%5Cl%20%22install-a-container-engine) or [Quickstart - Set up IoT Hub Device Provisioning Service with the Microsoft Azure portal](https://docs.microsoft.com/azure/iot-dps/quick-setup-auto-provision).
+> **DO NOT** create the VM until you read through the steps to auto-deploy the IoT Edge runtime. If the advance page step is missed, which allows you to apply a *cloud-init* script, you will have to manually deploy the IoT Edge runtime by SSH into the VM after the VM is created. To manually install the container engine in the Ubuntu VM, use the steps in [Create and provision an IoT Edge device on Linux using symmetric keys](https://docs.microsoft.com/azure/iot-edge/how-to-provision-single-device-linux-symmetric?view=iotedge-2020-11&tabs=azure-portal%2Cubuntu%22%20%5Cl%20%22install-a-container-engine) or [Quickstart - Set up IoT Hub Device Provisioning Service with the Microsoft Azure portal](https://docs.microsoft.com/azure/iot-dps/quick-setup-auto-provision).
 
        
-    |VM type  |Deployment procedure  |
-    |---------|---------|
-    |Non-GPU VM    | [Deploy via Azure portal (preview)](azure-stack-edge-gpu-deploy-virtual-machine-portal.md)        |
-    |Non-GPU VM    | [Deploy via VM templates](azure-stack-edge-gpu-deploy-virtual-machine-templates.md)       |
+    |VM type       |Deployment procedure  |
+    |--------------|----------------------|
+    |Non-GPU VM    | [Deploy via Azure portal (preview)](azure-stack-edge-gpu-deploy-virtual-machine-portal.md)                         |
+    |Non-GPU VM    | [Deploy via VM templates](azure-stack-edge-gpu-deploy-virtual-machine-templates.md)                                |
     |GPU VM        | [Deploy via Azure portal](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md?tabs=portal&preserve-view=true)       |
-    |GPU VM        | [Deploy VM via VM templates](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md?tabs=templates&preserve-view=true)        |
+    |GPU VM        | [Deploy VM via VM templates](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md?tabs=templates&preserve-view=true) | 
 
+For ease of deployment, we recommend that you use the following step to deploy the VM via the Azure portal.
 
-1. After the VM is running, choose one of the following options: 
+On the **Advanced** page, use the cloud-init configuration script from earlier in this article.
 
-    - You can register and manually provision a single Linux IoT Edge device, including installing IoT Edge runtime. For detailed instructions, see [Deploy IoT Edge runtime for a single device](../iot-edge/how-to-provision-single-device-linux-symmetric.md?view=iotedge-2020-11&tabs=azure-portal%2Cubuntu&preserve-view=true).
-    - You can also use the Azure IoT Edge configuration command-line tool to install IoT Edge runtime version 1.2. You can then configure Azure IoT Edge on the VM using [IoT Hub with DPS or IoT Central](https://github.com/Azure/iot-edge-config).
+> [!NOTE]
+> Ensure that you specify the appropriate connection strings to connect to the respective IoT-Hub or DPS device.  
 
+![Screenshot of the Advanced page of VM configuration in the Azure portal.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/azure-portal-create-vm-advanced-page.png)
+
+## Deploying the Nvidia DeepStream module 
+
+This section walks you through deploying Nvidia’s DeepStream module. This section only applies to GPU environments. Please ensure the VM was set up for GPU during VM creation.
+
+1. From **IoT Hub** > **set modules**.
+
+    ![Screenshot of the Azure portal, IoT Hub, set modules page.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/azure-portal-create-vm-iot-hub-set-module.png)
+
+1. Add modules from Marketplace Module.
+
+    ![Screenshot of the Azure portal, Marketplace Module, Add modules selection.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/azure-portal-create-vm-add-iot-edge-module.png)
+
+1. Search for “NVIDIA DeepStream SDK 5.1 for x86/AMD64" and then select it. 
+
+    ![Screenshot of the Azure portal, Marketplace Module, modules options.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/azure-portal-create-vm-iot-edge-module-marketplace.png)
+
+1. Select **Review + Create** then **Create modules**. 
+
+1. Verify that the module is running.  
+
+     ![Screenshot of the Azure portal, modules runtime status.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/azure-portal-create-vm-verify-module-status.png)
+
+### Troubleshooting module deployment
+
+1. View the NVIDIADeepStreamSDK log file output
+
+    ![Screenshot of the Azure portal, NVIDIADeepStreamSDK log file output.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/azure-portal-create-vm-troubleshoot-iot-edge-module.png)
+
+    ![Screenshot of the Azure portal, NVIDIADeepStreamSDK log file output, continued.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/azure-portal-create-vm-troubleshoot-iot-edge-module-2.png)
+    
+
+    After a certain period of time, the module will complete and quit, causing the module to return an error. This is expected behavior.
+
+    ![Screenshot of the Azure portal, NVIDIADeepStreamSDK module runtime status with error condition.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/azure-portal-create-vm-add-iot-edge-module-error.png)
 
 ## Update IoT Edge runtime
 
 If a new version of IoT Edge is available and you need to update the VM that you created in the earlier step, follow the instructions in [Update IoT Edge](../iot-edge/how-to-update-iot-edge.md?view=iotedge-2020-11&tabs=linux&preserve-view=true). To find the latest version of Azure IoT Edge, see [Azure IoT Edge releases](../iot-edge/how-to-update-iot-edge.md?view=iotedge-2020-11&tabs=linux&preserve-view=true).
     
+## Updating the VM
+
 ## Move GPU modules 
 
 If you're migrating workloads from IoT Edge solution on Kubernetes to IoT Edge on Ubuntu VM, you'll need to move the GPU modules. Follow these steps to move the modules:
 
 1. First review the considerations for GPU deployments in [GPU VMs and Kubernetes on Azure Stack Edge](azure-stack-edge-gpu-overview-gpu-virtual-machines.md#gpu-vms-and-kubernetes).
+
 1. When you enable Kubernetes services on Azure Stack Edge, Kubernetes may take over the GPU resources and not allow the deployment of a GPU-enabled VM. To deploy the VM:
 
     1. Stop any running modules. These modules would include IoT Edge modules or any other modules.
+
     1. Remove the IoT Edge on Kubernetes deployment. For detailed instructions, see [Remove IoT Edge service](azure-stack-edge-gpu-manage-compute.md#remove-iot-edge-service).
     
-        ![Screenshot of removal of IoT Edge role configured on Kubernetes deployment.](media/azure-stack-edge-gpu-deploy-iot-edge-linux-vm/remove-iot-configuration-1.png)
-
     1. Deploy a GPU-enabled VM using the instructions in [Deploy GPU VMs on your Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-deploy-gpu-virtual-machine.md?tabs=portal&preserve-view=true).
+
     1. Modify your modules to run on the Ubuntu VM. This may involve changing the container create options.
 
 ## Next steps
