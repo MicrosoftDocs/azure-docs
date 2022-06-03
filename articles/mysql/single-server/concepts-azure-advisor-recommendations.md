@@ -4,13 +4,12 @@ description: Learn about Azure Advisor recommendations for MySQL.
 author: alau-ms
 ms.author: alau
 ms.service: mysql
-ms.subservice: single-server
 ms.topic: conceptual
-ms.date: 04/08/2021
+ms.date: 06/03/2022
 ---
 # Azure Advisor for MySQL
 
-[!INCLUDE[applies-to-mysql-single-server](../includes/applies-to-mysql-single-server.md)]
+[!INCLUDE[applies-to-mysql-single-flexible-server](../includes/applies-to-mysql-single-flexible-server.md)]
 
 Learn about how Azure Advisor is applied to Azure Database for MySQL and get answers to common questions.
 ## What is Azure Advisor for MySQL?
