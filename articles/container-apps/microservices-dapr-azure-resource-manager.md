@@ -360,6 +360,12 @@ Save the following file as _hello-world.json_:
             {
               "image": "dapriosamples/hello-k8s-node:latest",
               "name": "hello-k8s-node",
+              "env": [
+                { 
+                   "name": "APP_PORT",
+                   "value": "3000"
+                }
+              ],  
               "resources": {
                 "cpu": 0.5,
                 "memory": "1.0Gi"
@@ -529,6 +535,12 @@ resource nodeapp 'Microsoft.App/containerApps@2022-03-01' = {
         {
           image: 'dapriosamples/hello-k8s-node:latest'
           name: 'hello-k8s-node'
+     		  env: [
+		        {
+				       name: 'APP_PORT'
+				       value: '3000'
+			      }
+		      ]
           resources: {
             cpu: '0.5'
             memory: '1.0Gi'
