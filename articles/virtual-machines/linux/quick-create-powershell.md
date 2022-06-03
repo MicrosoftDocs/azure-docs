@@ -89,7 +89,7 @@ Get-AzPublicIpAddress -Name myPubIP -ResourceGroupName myResourceGroup | select 
 
 Use a web browser of your choice to view the default NGINX welcome page. Enter the public IP address of the VM as the web address.
 
-:::image type="content" source="media/quick-create-cli/nginx-welcome-page-debian.png" alt-text="Screenshot showing the N G I N X default web page.":::
+![Screenshot showing the N G I N X default web page.](./media/quick-create-cli/nginix-welcome-page-debian.png)
 
 ## Clean up resources
 

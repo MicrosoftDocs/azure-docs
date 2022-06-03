@@ -93,7 +93,7 @@ az vm open-port --port 80 --resource-group myResourceGroup --name myVM
 
 Use a web browser of your choice to view the default NGINX welcome page. Use the public IP address of your VM as the web address. The following example shows the default NGINX web site:
 
-:::image type="content" source="media/quick-create-cli/nginx-welcome-page-debian.png" alt-text="Screenshot showing the N G I N X default web page.":::
+![Screenshot showing the N G I N X default web page.](./media/quick-create-cli/nginix-welcome-page-debian.png)
 
 ## Clean up resources
 
