@@ -90,6 +90,11 @@ As of late March 2019, Dedicated HSM is available in the 14 regions listed below
 * West Europe
 * UK South
 * UK West
+<<<<<<< HEAD
+=======
+* Canada Central
+* Canada East
+>>>>>>> parent of 7098c6432265 (Update faq.md)
 * Australia East
 * Australia Southeast
 * Switzerland North
