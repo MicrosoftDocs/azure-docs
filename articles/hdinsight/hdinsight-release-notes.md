@@ -24,8 +24,8 @@ This release applies for HDInsight 4.0. HDInsight release is made available to a
 
 **The Hive Warehouse Connector (HWC) on Spark v3.1.2**
 
-The Hive Warehouse Connector (HWC) allows you to take advantage of the unique features of Hive and Spark to build powerful big-data applications. HWC is currently supported for Spark v2.4 only.  This adds business value by allowing ACID transactions on Hive Tables using Spark. This is useful for customers who leverage both Hive and Spark in their data estate.
-For more details, see [Apache Spark & Hive - Hive Warehouse Connector - Azure HDInsight | Microsoft Docs](/azure/hdinsight/interactive-query/apache-hive-warehouse-connector)
+The Hive Warehouse Connector (HWC) allows you to take advantage of the unique features of Hive and Spark to build powerful big-data applications. HWC is currently supported for Spark v2.4 only.  This feature adds business value by allowing ACID transactions on Hive Tables using Spark. This feature is useful for customers who use both Hive and Spark in their data estate.
+For more information, see [Apache Spark & Hive - Hive Warehouse Connector - Azure HDInsight | Microsoft Docs](/azure/hdinsight/interactive-query/apache-hive-warehouse-connector)
 
 ## Ambari
 
@@ -53,7 +53,7 @@ HDI Hive 3.1 version is fully compatible with OSS Hive 3.1.2. All the fixes and 
 
 | Bug Fixes|Apache JIRA|
 |---|---|
-|TezUtils.createConfFromByteString on Configuration larger than 32MB throws com.google.protobuf.CodedInputStream exception |[TEZ-4142](https://issues.apache.org/jira/browse/TEZ-4142)|
+|TezUtils.createConfFromByteString on Configuration larger than 32 MB throws com.google.protobuf.CodedInputStream exception |[TEZ-4142](https://issues.apache.org/jira/browse/TEZ-4142)|
 |TezUtils::createByteStringFromConf should use snappy instead of DeflaterOutputStream|[TEZ-4113](https://microsoft-my.sharepoint.com/:w:/p/v-sreiyer/Ed6qhemsT4BLi0y42cclUMUB0AUZ05VFE_B7b9gyjBfIrQ)|
 
 ## HBase Bug Fixes
@@ -74,13 +74,13 @@ HDI Hive 3.1 version is fully compatible with OSS Hive 3.1.2. All the fixes and 
 | Support parallel load for HastTables - Interfaces|[HIVE-25583](https://issues.apache.org/jira/browse/HIVE-25583)|
 | Include MultiDelimitSerDe in HiveServer2 By Default|[HIVE-20619](https://issues.apache.org/jira/browse/HIVE-20619)|
 | Remove glassfish.jersey and mssql-jdbc classes from jdbc-standalone jar|[HIVE-22134](https://issues.apache.org/jira/browse/HIVE-22134)|
-| Null pointer exception on running compaction against a MM table.|[HIVE-21280 ](https://issues.apache.org/jira/browse/HIVE-21280)|
-| Hive query with big size via knox fails with Broken pipe Write failed|[HIVE-22231](https://issues.apache.org/jira/browse/HIVE-22231)|
+| Null pointer exception on running compaction against an MM table.|[HIVE-21280 ](https://issues.apache.org/jira/browse/HIVE-21280)|
+| Hive query with large size via knox fails with Broken pipe Write failed|[HIVE-22231](https://issues.apache.org/jira/browse/HIVE-22231)|
 | Adding ability for user to set bind user|[HIVE-21009](https://issues.apache.org/jira/browse/HIVE-21009)|
 | Implement UDF to interpret date/timestamp using its internal representation and Gregorian-Julian hybrid calendar|[HIVE-22241](https://issues.apache.org/jira/browse/HIVE-22241)|
 | Beeline option to show/not show execution report|[HIVE-22204](https://issues.apache.org/jira/browse/HIVE-22204)|
-| Tez: SplitGenerator tries to look for plan files which won't exist for Tez|[HIVE-22169 ](https://issues.apache.org/jira/browse/HIVE-22169)|
-| Remove very expensive logging from the llap cache hotpath|[HIVE-22168](https://issues.apache.org/jira/browse/HIVE-22168)|
+| Tez: SplitGenerator tries to look for plan files, which won't exist for Tez|[HIVE-22169 ](https://issues.apache.org/jira/browse/HIVE-22169)|
+| Remove expensive logging from the LLAP cache hotpath|[HIVE-22168](https://issues.apache.org/jira/browse/HIVE-22168)|
 | UDF: FunctionRegistry synchronizes on org.apache.hadoop.hive.ql.udf.UDFType class|[HIVE-22161](https://issues.apache.org/jira/browse/HIVE-22161)|
 | Prevent the creation of query routing appender if property is set to false|[HIVE-22115](https://issues.apache.org/jira/browse/HIVE-22115)|
 | Remove cross-query synchronization for the partition-eval|[HIVE-22106](https://issues.apache.org/jira/browse/HIVE-22106)|
@@ -93,19 +93,19 @@ HDI Hive 3.1 version is fully compatible with OSS Hive 3.1.2. All the fixes and 
 | Schema tool enhancements to support mergeCatalog|[HIVE-22498](https://issues.apache.org/jira/browse/HIVE-22498)|
 | Hive with TEZ UNION ALL and UDTF results in data loss|[HIVE-21915](https://issues.apache.org/jira/browse/HIVE-21915)|
 | Split text files even if header/footer exists|[HIVE-21924](https://issues.apache.org/jira/browse/HIVE-21924)|
-| MultiDelimitSerDe returns wrong results in last column when the loaded file has more columns than those in table schema|[HIVE-22360](https://issues.apache.org/jira/browse/HIVE-22360)|
-| Llap external client - Need to reduce LlapBaseInputFormat#getSplits() footprint|[HIVE-22221](https://issues.apache.org/jira/browse/HIVE-22221)|
-| Column name with reserved keyword is unescaped when query including join on table with mask column is re-written (Zoltan Matyus via Zoltan Haindrich)|[HIVE-22208](https://issues.apache.org/jira/browse/HIVE-22208)|
+| MultiDelimitSerDe returns wrong results in last column when the loaded file has more columns than those are present in table schema|[HIVE-22360](https://issues.apache.org/jira/browse/HIVE-22360)|
+| LLAP external client - Need to reduce LlapBaseInputFormat#getSplits() footprint|[HIVE-22221](https://issues.apache.org/jira/browse/HIVE-22221)|
+| Column name with reserved keyword is unescaped when query including join on table with mask column is rewritten (Zoltan Matyus via Zoltan Haindrich)|[HIVE-22208](https://issues.apache.org/jira/browse/HIVE-22208)|
 |Prevent LLAP shutdown on AMReporter related RuntimeException|[HIVE-22113](https://issues.apache.org/jira/browse/HIVE-22113)|
 | LLAP status service driver may get stuck with wrong Yarn app ID|[HIVE-21866](https://issues.apache.org/jira/browse/HIVE-21866)|
-| OperationManager.queryIdOperation does not properly clean up multiple queryIds|[HIVE-22275](https://issues.apache.org/jira/browse/HIVE-22275)|
+| OperationManager.queryIdOperation doesn't  properly clean up multiple queryIds|[HIVE-22275](https://issues.apache.org/jira/browse/HIVE-22275)|
 | Bringing a node manager down blocks restart of LLAP service|[HIVE-22219](https://issues.apache.org/jira/browse/HIVE-22219)|
 | StackOverflowError when drop lots of partitions|[HIVE-15956](https://issues.apache.org/jira/browse/HIVE-15956)|
 | Access check is failed when a temporary directory is removed|[HIVE-22273](https://issues.apache.org/jira/browse/HIVE-22273)|
 | Fix wrong results/ArrayOutOfBound exception in left outer map joins on specific boundary conditions|[HIVE-22120](https://issues.apache.org/jira/browse/HIVE-22120)|
 | Remove distribution management tag from pom.xml|[HIVE-19667](https://issues.apache.org/jira/browse/HIVE-19667)|
-| Parsing time can be high in case of deeply nested subqueries|[HIVE-21980](https://issues.apache.org/jira/browse/HIVE-21980)|
-| For ALTER TABLE t SET TBLPROPERTIES ('EXTERNAL'='TRUE'); `TBL_TYPE` attribute change not reflecting for non-CAPS|[HIVE-20057 ](https://issues.apache.org/jira/browse/HIVE-20057)|
+| Parsing time can be high if there is deeply nested subqueries|[HIVE-21980](https://issues.apache.org/jira/browse/HIVE-21980)|
+| For ALTER TABLE t SET TBLPROPERTIES ('EXTERNAL'='TRUE'); `TBL_TYPE` attribute changes not reflecting for non-CAPS|[HIVE-20057 ](https://issues.apache.org/jira/browse/HIVE-20057)|
 | JDBC: HiveConnection shades log4j interfaces|[HIVE-18874](https://issues.apache.org/jira/browse/HIVE-18874)|
 | Update repo URLs in poms - branh 3.1 version|[HIVE-21786](https://issues.apache.org/jira/browse/HIVE-21786)|
 | DBInstall tests broken on master and branch-3.1|[HIVE-21758](https://issues.apache.org/jira/browse/HIVE-21758)|
@@ -115,7 +115,7 @@ HDI Hive 3.1 version is fully compatible with OSS Hive 3.1.2. All the fixes and 
 | Incompatible change in Hive bucket computation|[HIVE-21376](https://issues.apache.org/jira/browse/HIVE-21376)|
 | Provide a fallback authorizer when no other authorizer is in use|[HIVE-20420](https://issues.apache.org/jira/browse/HIVE-20420)|
 | Some alterPartitions invocations throw 'NumberFormatException: null'|[HIVE-18767](https://issues.apache.org/jira/browse/HIVE-18767)|
-| HiveServer2: Preauthenticated subject for http transport is not retained for entire duration of http communication in some cases|[HIVE-20555](https://issues.apache.org/jira/browse/HIVE-20555)|
+| HiveServer2: Preauthenticated subject for http transport isn't retained for entire duration of http communication in some cases|[HIVE-20555](https://issues.apache.org/jira/browse/HIVE-20555)|
 
 ## HDInsight 3.6 end of support extension
 
