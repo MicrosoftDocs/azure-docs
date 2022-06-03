@@ -17,7 +17,7 @@ ms.author: justinha
 
 # Tutorial: Create an outbound forest trust to an on-premises domain in Azure Active Directory Domain Services
 
-In environments where you can't synchronize password hashes, or where users exclusively sign in using smart cards and don't know their password, you can use a user or resource forest in Azure Active Directory Domain Services (Azure AD DS). The forest uses a one-way outbound trust from Azure AD DS to one or more on-premises AD DS environments. This trust relationship lets users, applications, and computers authenticate against an on-premises domain from the Azure AD DS managed domain. In the Azure AD DS forest, on-premises password hashes are never synchronized.
+You can use a user or resource forest in Azure Active Directory Domain Services (Azure AD DS) for environments where you can't synchronize password hashes, or where users exclusively sign in using smart cards and don't know their password. The forest uses a one-way outbound trust from Azure AD DS to one or more on-premises AD DS environments. This trust relationship lets users, applications, and computers authenticate against an on-premises domain from the Azure AD DS managed domain. In the Azure AD DS forest, on-premises password hashes are never synchronized.
 
 ![Diagram of forest trust from Azure AD DS to on-premises AD DS](./media/tutorial-create-forest-trust/forest-trust-relationship.png)
 
