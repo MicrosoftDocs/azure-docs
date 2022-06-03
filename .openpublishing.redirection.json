@@ -2719,6 +2719,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/aks/keda.md",
+      "redirect_url": "/azure/aks/keda-about",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/analysis-services/analysis-services-create-model-portal.md",
       "redirect_url": "/azure/analysis-services/analysis-services-overview",
       "redirect_document_id": false
@@ -22015,6 +22020,16 @@
       "redirect_document_id": ""
     },
     {
+      "source_path_from_root": "/articles/search/cognitive-search-quickstart-ocr.md",
+      "redirect_url": "/azure/search/cognitive-search-quickstart-blob",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/search/knowledge-store-view-storage-explorer.md",
+      "redirect_url": "/azure/search/knowledge-store-create-portal#view-kstore",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/search/cognitive-search-resources-documentation.md",
       "redirect_url": "/azure/search/cognitive-search-concept-intro",
       "redirect_document_id": false
@@ -27417,6 +27432,11 @@
     {
       "source_path_from_root": "/articles/frontdoor/waf-overview.md",
       "redirect_url": "/azure/web-application-firewall/afds/afds-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/web-application-firewall/waf-cdn-create-portal.md",
+      "redirect_url": "/azure/web-application-firewall/cdn/cdn-overview",
       "redirect_document_id": false
     },
     {
@@ -37256,7 +37276,12 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/how-to-customize-speech-models.md",
-      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-choose-model",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-create-project",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/how-to-custom-speech-choose-model.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-create-project",
       "redirect_document_id": false
     },
     {
@@ -37292,6 +37317,11 @@
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/how-to-custom-commands-use-custom-voice.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-develop-custom-commands-application",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/how-to-custom-commands-integrate-remote-skills.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/custom-commands",
       "redirect_document_id": false
     },
     {
@@ -43171,92 +43201,92 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/video-indexer/connect-to-azure.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/connect-to-azure",
+      "redirect_url": "/azure/azure-video-indexer/connect-to-azure",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/video-indexer/manage-account-connected-to-azure.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/manage-account-connected-to-azure",
+      "redirect_url": "/azure/azure-video-indexer/manage-account-connected-to-azure",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/video-indexer/migrate-from-v1-to-v2.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/",
+      "redirect_url": "/azure/azure-video-indexer/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/video-indexer/upload-index-videos.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/upload-index-videos",
+      "redirect_url": "/azure/azure-video-indexer/upload-index-videos",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/video-indexer/video-indexer-concepts.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview",
+      "redirect_url": "/azure/azure-video-indexer/video-indexer-overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/video-indexer/video-indexer-create-new.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/",
+      "redirect_url": "/azure/azure-video-indexer/",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/video-indexer/video-indexer-embed-widgets.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-embed-widgets",
+      "redirect_url": "/azure/azure-video-indexer/video-indexer-embed-widgets",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/video-indexer/video-indexer-get-started.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-get-started",
+      "redirect_url": "/azure/azure-video-indexer/video-indexer-get-started",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/video-indexer/video-indexer-output-json-v2.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-output-json-v2",
+      "redirect_url": "/azure/azure-video-indexer/video-indexer-output-json-v2",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Video/GetStarted.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview",
+      "redirect_url": "/azure/azure-video-indexer/video-indexer-overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Video/Glossary.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview",
+      "redirect_url": "/azure/azure-video-indexer/video-indexer-overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Video/Home.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview",
+      "redirect_url": "/azure/azure-video-indexer/video-indexer-overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Video/How-To/HowtoAnalyzeVideo_Video.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview",
+      "redirect_url": "/azure/azure-video-indexer/video-indexer-overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Video/How-To/HowtoCallVideoAPIs.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview",
+      "redirect_url": "/azure/azure-video-indexer/video-indexer-overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/video-indexer/video-indexer-overview.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-overview",
+      "redirect_url": "/azure/azure-video-indexer/video-indexer-overview",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/video-indexer/video-indexer-search.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-search",
+      "redirect_url": "/azure/azure-video-indexer/video-indexer-search",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/video-indexer/video-indexer-use-apis.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-use-apis",
+      "redirect_url": "/azure/azure-video-indexer/video-indexer-use-apis",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/video-indexer/video-indexer-view-edit.md",
-      "redirect_url": "/azure/azure-video-analyzer/video-analyzer-for-media-docs/video-indexer-view-edit",
+      "redirect_url": "/azure/azure-video-indexer/video-indexer-view-edit",
       "redirect_document_id": false
     },
     {
@@ -43267,6 +43297,11 @@
     {
       "source_path_from_root": "/articles/cognitive-services/translator/custom-translator/terminology.md",
       "redirect_url": "/azure/cognitive-services/translator/custom-translator/key-terms",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/applied-ai-services/form-recognizer/generate-sas-tokens.md",
+      "redirect_url": "/azure/applied-ai-services/form-recognizer/create-sas-tokens",
       "redirect_document_id": false
     },
     {
@@ -43303,11 +43338,6 @@
       "source_path_from_root": "/articles/virtual-network/nat-gateway/tutorial-create-nat-gateway-cli.md",
       "redirect_url": "/azure/virtual-network/nat-gateway/quickstart-create-nat-gateway-cli",
       "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/aks/web-app-routing.md",
-      "redirect_url": "/azure/aks/intro-kubernetes",
-      "redirect_document_id":false
     },
     {
       "source_path_from_root": "/articles/private-link/private-endpoint-static-ip-powershell.md",

@@ -21,7 +21,7 @@ Get started with Service Connector by using the Azure portal to create a new ser
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
-- An application deployed to Container Apps in a [region supported by Service Connector](./concept-region-support.md). If you don't have one yet, [create and deploy a container to Container Apps](/container-apps/quickstart-portal).
+- An application deployed to Container Apps in a [region supported by Service Connector](./concept-region-support.md). If you don't have one yet, [create and deploy a container to Container Apps](/azure/container-apps/quickstart-portal).
 
 ## Sign in to Azure
 
