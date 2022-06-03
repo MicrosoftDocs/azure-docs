@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 03/24/2022
+ms.date: 06/06/2022
 ms.author: lajanuar
 ---
 
@@ -17,9 +17,8 @@ ms.author: lajanuar
 
 >[!NOTE]
 > Form Recognizer v3.0 is currently in public preview. Some features may not be supported or have limited capabilities.
-The current API version is ```2022-01-30-preview```.
 
-| [Form Recognizer REST API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument) | [Azure SDKS](https://azure.github.io/azure-sdk/releases/latest/index.html) |
+| [Form Recognizer REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeBusinessCardAsync) | [Azure SDKS](https://azure.github.io/azure-sdk/releases/latest/index.html) |
 
 Get started with Azure Form Recognizer using the REST API. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract key-value pairs, text, and tables from your documents. You can easily call Form Recognizer models using the REST API or by integrating our client library SDks into your workflows and applications. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 
@@ -46,7 +45,7 @@ To learn more about Form Recognizer features and development options, visit our 
 **Custom Models**
 
 * Custom—Analyze and extract form fields and other content from your custom forms, using models you trained with your own form types.
-* Composed custom—Compose a collection of custom models and assign them to a single model built from your form types.
+* Composed custom—Compose a collection of custom models and assign them to a single model ID.
 
 ## Prerequisites
 
@@ -112,14 +111,14 @@ After you've called the [**Analyze document**](https://westus.dev.cognitive.micr
 
 1. Replace `{endpoint}` with the endpoint value from your Form Recognizer instance in the Azure portal.
 1. Replace `{key}` with the key value from your Form Recognizer instance in the Azure portal.
-1. Replace `{modelID}` with the same model name you used to analyze your document.
+1. Replace `{modelID}` with the same modelID you used to analyze your document.
 1. Replace `{resultID}` with the result ID from the [Operation-Location](#operation-location) header.
 <!-- markdownlint-disable MD024 -->
 
 #### GET request
 
 ```bash
-curl -v -X GET "{endpoint}/formrecognizer/documentModels/{model name}/analyzeResults/{resultId}?api-version=2022-01-30-preview" -H "Ocp-Apim-Subscription-Key: {key}"
+curl -v -X GET "{endpoint}/formrecognizer/documentModels/{modelID}/analyzeResults/{resultId}?api-version=2022-01-30-preview" -H "Ocp-Apim-Subscription-Key: {key}"
 ```
 
 #### Examine the response

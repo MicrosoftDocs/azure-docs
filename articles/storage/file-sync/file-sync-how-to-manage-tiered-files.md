@@ -61,12 +61,8 @@ There are several ways to check whether a file has been tiered to your Azure fil
 
 When an application accesses a file, the last access time for the file is updated in the cloud tiering database. Applications that scan the file system like anti-virus cause all files to have the same last access time, which impacts when files are tiered.
 
-To exclude applications from last access time tracking, add the process name to the appropriate registry setting that is located under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync.
+To exclude applications from last access time tracking, add the process exclusions to the HeatTrackingProcessNamesExclusionList registry setting.  
 
-For v11 and v12 release, add the process exclusions to the HeatTrackingProcessNameExclusionList registry setting.
-Example: reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v HeatTrackingProcessNameExclusionList /t REG_MULTI_SZ /d "SampleApp.exe\0AnotherApp.exe" /f
-
-For v13 release and newer, add the process exclusions to the HeatTrackingProcessNamesExclusionList registry setting.
 Example: reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v HeatTrackingProcessNamesExclusionList /t REG_SZ /d "SampleApp.exe|AnotherApp.exe" /f
 
 > [!NOTE]
@@ -130,7 +126,7 @@ Optional parameters:
 - `-Order CloudTieringPolicy` will recall the most recently modified or accessed files first and is allowed by the current tiering policy. 
 	* If volume free space policy is configured, files will be recalled until the volume free space policy setting is reached. For example if the volume free policy setting is 20%, recall will stop once the volume free space reaches 20%.  
 	* If volume free space and date policy is configured, files will be recalled until the volume free space or date policy setting is reached. For example, if the volume free policy setting is 20% and the date policy is 7 days, recall will stop once the volume free space reaches 20% or all files accessed or modified within 7 days are local.
-- `-ThreadCount` determines how many files can be recalled in parallel.
+- `-ThreadCount` determines how many files can be recalled in parallel (thread count limit is 32).
 - `-PerFileRetryCount`determines how often a recall will be attempted of a file that is currently blocked.
 - `-PerFileRetryDelaySeconds`determines the time in seconds between retry to recall attempts and should always be used in combination with the previous parameter.
 
