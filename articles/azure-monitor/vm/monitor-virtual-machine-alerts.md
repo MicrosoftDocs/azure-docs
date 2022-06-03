@@ -83,7 +83,7 @@ Use a rule with the following query.
 
 ```kusto
 Heartbeat
-| summarize TimeGenerated=max(TimeGenerated) by Computer
+| summarize TimeGenerated=max(TimeGenerated) by Computer, _ResourceId
 | extend Duration = datetime_diff('minute',now(),TimeGenerated)
 | summarize AggregatedValue = min(Duration) by Computer, bin(TimeGenerated,5m), _ResourceId
 ```

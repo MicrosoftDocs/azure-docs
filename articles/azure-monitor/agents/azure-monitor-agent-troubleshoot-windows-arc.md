@@ -4,7 +4,7 @@ description: Guidance for troubleshooting issues on Windows Arc-enabled server w
 ms.topic: conceptual
 author: shseth
 ms.author: shseth
-ms.date: 5/3/2022
+ms.date: 5/9/2022
 ms.custom: references_region
 
 ---
@@ -13,17 +13,18 @@ ms.custom: references_region
 
 [!INCLUDE [azure-monitor-agent-architecture](../../../includes/azure-monitor-agent/azure-monitor-agent-architecture-include.md)]
 
-## Basic troubleshooting steps
+## Basic troubleshooting steps (installation, agent not running, configuration issues)
 Follow the steps below to troubleshoot the latest version of the Azure Monitor agent running on your Windows Arc-enabled server:
 
 1. **Carefully review the [prerequisites here](./azure-monitor-agent-manage.md#prerequisites).**  
 
 2. **Verify that the extension was successfully installed and provisioned, which installs the agent binaries on your machine**:  
 	1. Open Azure portal > select your Arc-enabled server > Open **Settings** : **Extensions** blade from left menu > 'AzureMonitorWindowsAgent'should show up with Status: 'Succeeded'  
-	2. If not, check if machine can reach Azure and find the extension to install using the command below:  
+	2. If not, check if the Arc agent (Connected Machine Agent) is able to connect to Azure and the extension service is running. 
 		```azurecli
-		az vm extension image list-versions --location <machine-region> --name AzureMonitorWindowsAgent --publisher Microsoft.Azure.Monitor
-		```  
+		azcmagent show
+		```   
+		If you see `Agent Status: Disconnected`, [file a ticket](#file-a-ticket) with **Summary** as 'Arc agent or extensions service not working' and **Problem type** as 'I need help with Azure Monitor Windows Agent'.
 	3. Wait for 10-15 minutes as extension maybe in transitioning status. If it still doesn't show up, [uninstall and install the extension](./azure-monitor-agent-manage.md) again and repeat the verification to see the extension show up. 
 	4. If not, check if you see any errors in extension logs located at `C:\ProgramData\GuestConfig\extension_logs\Microsoft.Azure.Monitor.AzureMonitorWindowsAgent` on your machine  
 	5. If none of the above works, [file a ticket](#file-a-ticket) with **Summary** as 'AMA extension fails to install or provision' and **Problem type** as 'I need help with Azure Monitor Windows Agent'.  

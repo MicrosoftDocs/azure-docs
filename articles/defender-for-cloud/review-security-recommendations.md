@@ -2,11 +2,11 @@
 title: Security recommendations in Microsoft Defender for Cloud
 description: This document walks you through how recommendations in Microsoft Defender for Cloud help you protect your Azure resources and stay in compliance with security policies.
 ms.topic: conceptual
-ms.date: 04/03/2022
+ms.date: 05/11/2022
 ---
 # Review your security recommendations
 
-This article explains how to view and understand the recommendations in Microsoft Defender for Cloud to help you protect your multi-cloud resources.
+This article explains how to view and understand the recommendations in Microsoft Defender for Cloud to help you protect your multicloud resources.
 
 ## View your recommendations <a name="monitor-recommendations"></a>
 
@@ -130,7 +130,7 @@ The Insights column of the page gives you more details for each recommendation. 
 
 | Icon | Name | Description |
 |--|--|--|
-| :::image type="icon" source="media/secure-score-security-controls/preview-icon.png" border="false":::  | *Preview recommendation** | This recommendation won't affect your secure score until it's GA. |
+| :::image type="icon" source="media/secure-score-security-controls/preview-icon.png" border="false":::  | Preview recommendation | This recommendation won't affect your secure score until it's GA. |
 | :::image type="icon" source="media/secure-score-security-controls/fix-icon.png" border="false"::: | **Fix** | From within the recommendation details page, you can use 'Fix' to resolve this issue. |
 | :::image type="icon" source="media/secure-score-security-controls/enforce-icon.png" border="false"::: | **Enforce** | From within the recommendation details page, you can automatically deploy a policy to fix this issue whenever someone creates a non-compliant resource. |
 | :::image type="icon" source="media/secure-score-security-controls/deny-icon.png" border="false"::: | **Deny** | From within the recommendation details page, you can prevent new resources from being created with this issue. |
@@ -158,6 +158,16 @@ You'll know the report is being prepared by the pop-up.
 When the report is ready, you'll be notified by a second pop-up.
 
 :::image type="content" source="media/review-security-recommendations/downloaded-csv.png" alt-text="Screenshot letting you know your downloaded completed.":::
+
+## Learn more
+
+If you would like to learn more from the product manager about security posture, check out [Security posture management improvements](episode-four.md).
+
+You can also check out the following blogs:
+
+- [Security posture management and server protection for AWS and GCP are now generally available](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/security-posture-management-and-server-protection-for-aws-and/ba-p/3271388)
+- [Custom assessments and standards in Microsoft Defender for Cloud for AWS workloads (Preview)](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/custom-assessments-and-standards-in-microsoft-defender-for-cloud/ba-p/3066575)
+- [New enhancements added to network security dashboard](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/new-enhancements-added-to-network-security-dashboard/ba-p/2896021)
 
 ## Next steps
 

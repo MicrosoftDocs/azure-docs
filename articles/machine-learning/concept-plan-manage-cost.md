@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Plan and manage costs for Azure Machine Learning with cost analysis in Azure portal. Learn further cost-saving tips to lower your cost when building ML models.  
 author: sdgilley
 ms.author: sgilley
-ms.custom: subject-cost-optimization, devx-track-azurecli
+ms.custom: subject-cost-optimization, devx-track-azurecli, sdkv1, event-tier1-build-2022
 ms.reviewer: nigup
 ms.service: machine-learning
 ms.subservice: mlops
@@ -55,7 +55,7 @@ When you create resources for an Azure Machine Learning workspace, resources for
 * [Key Vault](https://azure.microsoft.com/pricing/details/key-vault?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 * [Application Insights](https://azure.microsoft.com/pricing/details/monitor?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
-When you create a [compute instance](concept-compute-instance.md), the VM stays on so it is available for your work.  [Set up a schedule](how-to-create-manage-compute-instance.md#schedule) to automatically start and stop the compute instance (preview) to save cost when you aren't planning to use it.
+When you create a [compute instance](concept-compute-instance.md), the VM stays on so it is available for your work.  [Set up a schedule](how-to-create-manage-compute-instance.md#schedule-automatic-start-and-stop-preview) to automatically start and stop the compute instance (preview) to save cost when you aren't planning to use it.
  
 ### Costs might accrue before resource deletion
 
@@ -79,6 +79,7 @@ After you delete an Azure Machine Learning workspace in the Azure portal or with
 
 To delete the workspace along with these dependent resources, use the SDK:
 
+[!INCLUDE [sdk v1](../../includes/machine-learning-sdk-v1.md)]
 ```python
 ws.delete(delete_dependent_resources=True)
 ```

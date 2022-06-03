@@ -4,7 +4,7 @@ description: How to set up NVIDIA GPU drivers for N-series VMs running Linux in 
 services: virtual-machines
 author: vikancha-MSFT
 ms.service: virtual-machines
-ms.subervice: vm-sizes-gpu
+ms.subservice: vm-sizes-gpu
 ms.collection: linux
 ms.topic: how-to
 ms.workload: infrastructure-services
@@ -115,11 +115,7 @@ sudo reboot
    sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
    sudo yum install dkms
    
-   CUDA_REPO_PKG=cuda-repo-rhel7-10.0.130-1.x86_64.rpm
-   wget https://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
-
-   sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
-   rm -f /tmp/${CUDA_REPO_PKG}
+   wget https://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/cuda-rhel7.repo /etc/yum.repos.d/cuda-rhel7.repo
 
    sudo yum install cuda-drivers
    ```
@@ -136,11 +132,7 @@ For example, CentOS 8 and RHEL 8 will need the following steps.
    sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
    sudo yum install dkms
    
-   CUDA_REPO_PKG=cuda-repo-rhel8-10.2.89-1.x86_64.rpm
-   wget https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
-
-   sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
-   rm -f /tmp/${CUDA_REPO_PKG}
+   wget https://developer.download.nvidia.com/compute/cuda/repos/rhel8/x86_64/cuda-rhel8.repo /etc/yum.repos.d/cuda-rhel8.repo
 
    sudo yum install cuda-drivers
    ```
