@@ -98,7 +98,7 @@ To create this project from scratch, and thus reinforce the concepts of Azure Co
 
 1. Install the client library. In **Tools** > **NuGet Package Manager** > **Manage NuGet Packages for Solution...**, select  **Browse** and then search for "azure.search.documents". Install **Azure.Search.Documents** (version 11 or later), accepting the license agreements and dependencies.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png" alt-text="Using NuGet to add Azure libraries" border="true":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-nuget-azurev11.3.png" alt-text="Using NuGet to add Azure libraries" border="true":::
 
 ### Initialize Azure Cognitive Search
 
