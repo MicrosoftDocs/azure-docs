@@ -193,12 +193,12 @@ As part of creating the IoT hub, the script that we ran in the previous section 
 
 1. Expand the **Storage** section:
 
-   ![Verify turbofanDeviceStorage is in the custom endpoints list](media/tutorial-machine-learning-edge-02-prepare-environment/custom-endpoints.png)
+   :::image type="content" source="./media/tutorial-machine-learning-edge-02-prepare-environment/custom-endpoints.png" alt-text="Screenshot of the storage called turbofanDeviceStorage in the custom endpoints list in the IoT Hub portal." lightbox="media/tutorial-machine-learning-edge-02-prepare-environment/custom-endpoints.png":::
 
    We see **turbofanDeviceStorage** is in the custom endpoints list. Note the following characteristics about this endpoint:
 
    * It points to the blob storage container you created named `devicedata` as indicated by **Container name**.
-   * Its **Filename format** has partition as the last element in the name. We find this format is more convenient for the file operations we will do with Azure Notebooks later in the tutorial.
+   * Its **Filename format** has the word "partition" in the name. We find this format is more convenient for the file operations we'll do with Azure Notebooks later in this tutorial.
    * Its **Status** should be healthy.
 
 1. Select the **Routes** tab.
@@ -207,7 +207,7 @@ As part of creating the IoT hub, the script that we ran in the previous section 
 
 1. On the **Routes details** page, note that the route's endpoint is the **turbofanDeviceStorage** endpoint.
 
-   ![Review details about the turbofanDeviceDataToStorage route](media/tutorial-machine-learning-edge-02-prepare-environment/route-details.png)
+   :::image type="content" source="./media/tutorial-machine-learning-edge-02-prepare-environment/route-details.png" alt-text="Screenshot that shows detail about the turbofanDeviceDataToStorage route.":::
 
 1. Look at the **Routing query**, which is set to **true**. This setting means that all device telemetry messages will match this route; and therefore all messages will be sent to the **turbofanDeviceStorage** endpoint.
 
