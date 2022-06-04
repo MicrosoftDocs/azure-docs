@@ -16,7 +16,7 @@ This tutorial shows how to use Azure Logic Apps to process Azure Health Data Ser
 
 Here is an example of a Logic App workflow:
 
-:::image type="content" source="media/events-logic-apps/events-logic-example.png" alt-text="Example of a Logic App workflow." lightbox="./media/events-logic-apps/events-logic-example.png":::
+:::image type="content" source="media/events-logic-apps/events-logic-example.png" alt-text="Screenshot of a Logic App workflow." lightbox="./media/events-logic-apps/events-logic-example.png":::
 
 The workflow is on the left and the trigger condition is on the right.
 
@@ -51,7 +51,7 @@ Follow these steps:
 
 You now need to fill out the details of your Logic App. Specify information for these five categories. They are in separate tabs:
 
-:::image type="content" source="media/events-logic-apps/events-logic-tabs.png" alt-text="Five tabs for specifying your Logic App." lightbox="./media/events-logic-apps/events-logic-tabs.png":::
+:::image type="content" source="media/events-logic-apps/events-logic-tabs.png" alt-text="Screenshot of the five tabs for specifying your Logic App." lightbox="./media/events-logic-apps/events-logic-tabs.png":::
 
 - Tab 1 - Basics
 - Tab 2 - Hosting
@@ -146,17 +146,17 @@ If you are satisfied with the proposed configuration, click "Create". If not, cl
 
 First you will see an alert telling you that deployment is initializing. Next you will see a new page telling you that the deployment is in progress.
 
-:::image type="content" source="media/events-logic-apps/events-logic-progress.png" alt-text="Notification telling you your deployment is in progress." lightbox="./media/events-logic-apps/events-logic-progress.png":::
+:::image type="content" source="media/events-logic-apps/events-logic-progress.png" alt-text="Screenshot of the notification telling you your deployment is in progress." lightbox="./media/events-logic-apps/events-logic-progress.png":::
 
 If there are no errors, you will finally see a notification telling you that your deployment is complete.
 
-:::image type="content" source="media/events-logic-apps/events-logic-complete.png" alt-text="Notification telling you your deployment is complete." lightbox="./media/events-logic-apps/events-logic-complete.png":::
+:::image type="content" source="media/events-logic-apps/events-logic-complete.png" alt-text="Screenshot of the notification telling you your deployment is complete." lightbox="./media/events-logic-apps/events-logic-complete.png":::
 
 #### Your Logic App Dashboard
 
 Azure creates a dashboard when your Logic App is complete. The dashboard will show you the status of your app. You can return to your dashboard by clicking Overview in the Logic App menu. Here is a Logic App dashboard:
 
-:::image type="content" source="media/events-logic-apps/events-logic-overview.png" alt-text="Display of your Logic Apps overview dashboard." lightbox="./media/events-logic-apps/events-logic-overview.png":::
+:::image type="content" source="media/events-logic-apps/events-logic-overview.png" alt-text="Screenshot of your Logic Apps overview dashboard." lightbox="./media/events-logic-apps/events-logic-overview.png":::
 
 You can do the following activities from your dashboard.
 
@@ -188,7 +188,7 @@ Before you begin, You need to have a Logic App configured and running correctly.
 
 Once your Logic App is running, you can create and configure a workflow. To initialize a workflow, follow these steps:
 
-1. Start at the Azure Portal.
+1. Start at the Azure portal.
 2. Click "Logic Apps" in Azure services.
 3. Select the Logic App you created.
 4. Click "Workflows" in the Workflow menu on the left.
@@ -198,7 +198,7 @@ Once your Logic App is running, you can create and configure a workflow. To init
 
 You will see a new panel on the right for creating a workflow.
 
-:::image type="content" source="media/events-logic-apps/events-logic-panel.png" alt-text="Panel for creating a workflow." lightbox="./media/events-logic-apps/events-logic-panel.png":::
+:::image type="content" source="media/events-logic-apps/events-logic-panel.png" alt-text="Screenshot of the panel for creating a workflow." lightbox="./media/events-logic-apps/events-logic-panel.png":::
 
 You can specify the details of the new workflow in the panel on the right.
 
@@ -221,7 +221,7 @@ You can write code to design a workflow for your application, but for this tutor
 
 Next, click "Choose an operation" to display the "Add a Trigger" blade on the right. Then search for "Azure Event Grid" and click the "Azure" tab below. Note that Event Grid is not a Logic App Built-in.
 
-:::image type="content" source="media/events-logic-apps/events-logic-grid.png" alt-text="Search for the Azure Event Grid icon." lightbox="./media/events-logic-apps/events-logic-grid.png":::
+:::image type="content" source="media/events-logic-apps/events-logic-grid.png" alt-text="Screenshot of the search results for Azure Event Grid." lightbox="./media/events-logic-apps/events-logic-grid.png":::
 
 When you see the "Azure Event Grid" icon,  click on it to display the Triggers and Actions available from Event Grid. For more information, see [What is Azure Event Grid?](./../../event-grid/overview.md).
 
@@ -271,9 +271,9 @@ At this point, you need to give the FHIR Reader access to your app, so it can ve
 
 4. Specify the following:
 
-- Scope = Subscription
-- Subscription = your subscription
-- Role = FHIR Data Reader.
+   - Scope = Subscription
+   - Subscription = your subscription
+   - Role = FHIR Data Reader.
 
 When you have specified the first four steps, add the role assignment by Managed identity, using Subscription, Managed identity (Logic App Standard), and select you Logic App by clicking the name and then clicking the Select button. Finally, click "Review + assign" to assign the role.
 
@@ -302,7 +302,7 @@ You can select Event Type from the Dynamic Content.
 
 Here is an example of the Condition criteria:
 
-:::image type="content" source="media/events-logic-apps/events-logic-condition.png" alt-text="Condition criteria for your workflow." lightbox="./media/events-logic-apps/events-logic-condition.png":::
+:::image type="content" source="media/events-logic-apps/events-logic-condition.png" alt-text="Screenshot of the condition criteria for your workflow." lightbox="./media/events-logic-apps/events-logic-condition.png":::
 
 #### Save your workflow
 
@@ -312,7 +312,7 @@ When you have entered the condition criteria, save your workflow.
 
 To check the status of your workflow, click Overview in the workflow menu. Here is a dashboard for a workflow:
 
-:::image type="content" source="media/events-logic-apps/events-logic-dashboard.png" alt-text="Logic App workflow dashboard." lightbox="./media/events-logic-apps/events-logic-dashboard.png":::
+:::image type="content" source="media/events-logic-apps/events-logic-dashboard.png" alt-text="Screenshot of the Logic App workflow dashboard." lightbox="./media/events-logic-apps/events-logic-dashboard.png":::
 
 You can do the following operations from your workflow dashboard:
 
@@ -335,7 +335,7 @@ To test your new workflow, do the following steps:
 
 Here is an example of a workflow trigger success operation:
 
-:::image type="content" source="media/events-logic-apps/events-logic-success.png" alt-text="Workflow success indicated by green highlighting of the workflow name." lightbox="./media/events-logic-apps/events-logic-success.png":::
+:::image type="content" source="media/events-logic-apps/events-logic-success.png" alt-text="Screenshot showing workflow success indicated by green highlighting of the workflow name." lightbox="./media/events-logic-apps/events-logic-success.png":::
 
 ## Next steps
 
