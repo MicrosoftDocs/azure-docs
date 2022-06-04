@@ -1,11 +1,12 @@
 ---
 title: Troubleshoot query issues when using Azure Cosmos DB 
 description: Learn how to identify, diagnose, and troubleshoot Azure Cosmos DB SQL query issues.
-author: timsander1
+author: seesharprun
 ms.service: cosmos-db
 ms.topic: troubleshooting
 ms.date: 04/04/2022
-ms.author: tisande
+ms.author: sidandrews
+ms.reviewer: jucocchi
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
 ---
