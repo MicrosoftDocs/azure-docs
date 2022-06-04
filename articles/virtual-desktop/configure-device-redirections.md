@@ -1,27 +1,27 @@
 ---
-title: Configure device redirections - Azure
-description: How to configure device redirections for Azure Virtual Desktop.
+title: Configure device redirection - Azure
+description: How to configure device redirection for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 07/19/2022
 ms.author: helohr
 manager: femila
 ---
-# Configure device redirections
+# Configure device redirection
 
-Configuring device redirections for your Azure Virtual Desktop environment allows you to use printers, USB devices, microphones and other peripheral devices in the remote session. Some device redirections require changes to both Remote Desktop Protocol (RDP) properties and Group Policy settings.
+Configuring device redirection for your Azure Virtual Desktop environment allows you to use printers, USB devices, microphones and other peripheral devices in the remote session. Some device redirection require changes to both Remote Desktop Protocol (RDP) properties and Group Policy settings.
 
-## Supported device redirections
+## Supported device redirection
 
-Each client supports different device redirections. Check out [Compare the clients](/windows-server/remote/remote-desktop-services/clients/remote-desktop-app-compare) for the full list of supported device redirections for each client.
+Each client supports different device redirection. Check out [Compare the clients](/windows-server/remote/remote-desktop-services/clients/remote-desktop-app-compare) for the full list of supported device redirection for each client.
 
 ## Customizing RDP properties for a host pool
 
 To learn more about customizing RDP properties for a host pool using PowerShell or the Azure portal, check out [RDP properties](customize-rdp-properties.md). For the full list of supported RDP properties, see [Supported RDP file settings](/windows-server/remote/remote-desktop-services/clients/rdp-files?context=%2fazure%2fvirtual-desktop%2fcontext%2fcontext).
 
-## Setup device redirections
+## Setup device redirection
 
-You can use the following RDP properties and Group Policy settings to configure device redirections.
+You can use the following RDP properties and Group Policy settings to configure device redirection.
 
 ### Audio input (microphone) redirection
 
@@ -56,7 +56,7 @@ Set the following RDP property to configure clipboard redirection:
 - `redirectclipboard:i:1` enables clipboard redirection.
 - `redirectclipboard:i:0` disables clipboard redirection.
 
-### COM port redirections
+### COM port redirection
 
 Set the following RDP property to configure COM port redirection:
 
@@ -110,3 +110,12 @@ Set the following RDP property to configure smart card redirection:
 
 - `redirectsmartcards:i:1` enables smart card redirection.
 - `redirectsmartcards:i:0` disables smart card redirection.
+
+### WebAuthn redirection
+
+Set the following RDP property to configure WebAuthn redirection:
+
+- `redirectwebauthn:i:1` enables WebAuthn redirection.
+- `redirectwebauthn:i:0` disables WebAuthn redirection.
+
+When enabled, WebAuthn requests from the session are sent to the local PC to be completed using the local Windows Hello for Business or security devices (e.g. FIDO keys). This provides support for passwordless authentication inside the session.
