@@ -8,7 +8,6 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
-ms.reviewer: wiassaf
 ms.date: 03/24/2022
 ms.custom: devx-track-java, cosmos-db-video
 ---

@@ -8,7 +8,6 @@ ms.date: 04/04/2022
 ms.author: sidandrews
 ms.reviewer: jucocchi
 ms.subservice: cosmosdb-sql
-ms.reviewer: sngun
 ---
 # Troubleshoot query issues when using Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]

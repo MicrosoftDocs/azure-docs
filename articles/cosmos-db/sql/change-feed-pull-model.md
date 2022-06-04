@@ -9,7 +9,6 @@ ms.subservice: cosmosdb-sql
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/07/2022
-ms.reviewer: sngun
 ---
 
 # Change feed pull model in Azure Cosmos DB

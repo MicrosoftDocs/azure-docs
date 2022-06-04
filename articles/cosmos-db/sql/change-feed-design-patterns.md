@@ -8,7 +8,6 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/24/2022
-ms.reviewer: wiassaf
 ms.custom: cosmos-db-video
 ---
 # Change feed design patterns in Azure Cosmos DB

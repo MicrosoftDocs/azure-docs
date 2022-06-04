@@ -8,7 +8,6 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/14/2021
-ms.reviewer: sngun
 ---
 
 # Serverless event-based architectures with Azure Cosmos DB and Azure Functions

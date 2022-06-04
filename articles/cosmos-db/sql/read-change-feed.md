@@ -8,7 +8,6 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 06/30/2021
-ms.reviewer: sngun
 ---
 
 # Reading Azure Cosmos DB change feed

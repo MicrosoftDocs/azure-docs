@@ -9,7 +9,6 @@ ms.subservice: cosmosdb-sql
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/05/2022
-ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ---
 

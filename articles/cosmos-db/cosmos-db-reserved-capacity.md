@@ -7,7 +7,6 @@ ms.topic: conceptual
 ms.date: 08/26/2021
 ms.author: sidandrews
 ms.reviewer: jucocchi
-ms.reviewer: sngun
 ---
 
 # Optimize cost with reserved capacity in Azure Cosmos DB

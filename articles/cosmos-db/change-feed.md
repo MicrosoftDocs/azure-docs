@@ -7,7 +7,6 @@ ms.reviewer: jucocchi
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/07/2021
-ms.reviewer: sngun
 ms.custom: seodec18, "seo-nov-2020"
 ---
 # Change feed in Azure Cosmos DB
