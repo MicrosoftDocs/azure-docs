@@ -49,7 +49,7 @@ The following tools are supported by Form Recognizer v3.0:
 
 ### Try Form Recognizer
 
-See how data is extracted from forms and documents using the Form Recognizer Studio or our Sample Labeling tool.
+Try extracting data from forms and documents using the Form Recognizer Studio.
 
 You'll need the following resources:
 

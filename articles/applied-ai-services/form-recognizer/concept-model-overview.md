@@ -90,6 +90,7 @@ The Layout API analyzes and extracts text, tables and headers, selection marks, 
 :::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot: Screenshot of sample document processed using Form Recognizer studio":::
 
 > [!div class="nextstepaction"]
+>
 > [Learn more: layout model](concept-layout.md)
 
 ### Invoice

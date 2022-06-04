@@ -19,7 +19,7 @@ The Form Recognizer Layout API extracts text, tables, selection marks, and struc
 
 ***Sample form processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
 
-:::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot: Screenshot of sample document processed using Form Recognizer studio":::
+:::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot of sample document processed using Form Recognizer studio":::
 
 ## Supported document types
 
@@ -33,7 +33,16 @@ The Form Recognizer Layout API extracts text, tables, selection marks, and struc
 | --- | --- | --- | --- | --- | --- |
 | Layout  | ✓  | ✓  | ✓  | ✓  | ✓  |
 
-The supported paragraph `roles` are `title`, `sectionHeading` , `footnote`, `pageHeader`, `pageFooter`, `pageNumber`. They are best used with unstructured documents to help understand the layout of the extracted content for a richer semantic analysis.
+Here's a list of the supported paragraph roles:
+
+* title
+* sectionHeading
+* footnote
+* pageHeader
+* pageFooter
+* pageNumber
+
+For a richer semantic analysis, paragraph roles are best used with unstructured documents to better understand the layout of the extracted content.
 
 ## Development options
 
@@ -51,7 +60,7 @@ The following tools are supported by Form Recognizer v3.0:
 
 ## Try Form Recognizer
 
-See how data is extracted from forms and documents using the Form Recognizer Studio. You'll need the following resources:
+Try extracting data from forms and documents using the Form Recognizer Studio. You'll need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
@@ -86,7 +95,7 @@ See how data is extracted from forms and documents using the Form Recognizer Stu
 * For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
 * The file size must be less than 500 MB for paid (S0) tier and 4 MB for free (F0) tier.
 * Image dimensions must be between 50 x 50 pixels and 10,000 x 10,000 pixels.
-* The minimum height of the text to be extracted is 12 pixels for a 1024X768 image. This corresponds to about 8 font point text at 150 DPI.
+* The minimum height of the text to be extracted is 12 pixels for a 1024 X 768 image. This dimension corresponds to about eight font point text at 150 DPI.
 
 ## Supported languages and locales
 
@@ -98,7 +107,7 @@ The layout model extracts text, selection marks, tables, paragraphs, and paragra
 
 ### Text lines and words
 
-Layout API extracts print and handwritten style text as `lines` and `words`. The model outputs bounding `polygon` coordinates for both and `confidence` for the extracted words. The `styles` collection includes any handwritten style for lines if detected along with the spans pointing to the associated text. This feature applies to the [supported handwritten languages](language-support.md).
+Layout API extracts print and handwritten style text as `lines` and `words`. The model outputs bounding `polygon` coordinates and `confidence` for the extracted words. The `styles` collection includes any handwritten style for lines, if detected, along with the spans pointing to the associated text. This feature applies to [supported handwritten languages](language-support.md).
 
 ### Selection marks
 
@@ -106,7 +115,7 @@ Layout API also extracts selection marks from documents. Extracted selection mar
 
 ### Tables and table headers
 
-Layout API extracts tables in the `pageResults` section of the JSON output. Documents can be scanned, photographed, or digitized. Extracted table information includes the number of columns and rows, row span, and column span. Each cell with its bounding `polygon` is output along with information whether it's recognized as a `columnHeader` or not. They also work with rotated tables. Each table cell contains the row and column index and bounding polygon coordinates. For the cell text, the model outputs the `span` information containing the starting index (`offset`) and `length` within the top level `content` that contains the full text from the document.
+Layout API extracts tables in the `pageResults` section of the JSON output. Documents can be scanned, photographed, or digitized. Extracted table information includes the number of columns and rows, row span, and column span. Each cell with its bounding `polygon` is output along with information whether it's recognized as a `columnHeader` or not. The API also works with rotated tables. Each table cell contains the row and column index and bounding polygon coordinates. For the cell text, the model outputs the `span` information containing the starting index (`offset`). The model also outputs the `length` within the top level `content` that contains the full text from the document.
 
 ### Paragraphs
 
@@ -114,7 +123,7 @@ The Layout model extracts all identified blocks of text in the `paragraphs` coll
 
 ### Paragraph roles
 
-The Layout model may flag certain paragraphs with their specialized type or `role` as predicted by the model. They are best used with unstructured documents to help understand the layout of the extracted content for a richer semantic analysis. The following paragraph roles are supported:
+The Layout model may flag certain paragraphs with their specialized type or `role` as predicted by the model. They're best used with unstructured documents to help understand the layout of the extracted content for a richer semantic analysis. The following paragraph roles are supported:
 
 | **Predicted role**   | **Description**   |
 | --- | --- |

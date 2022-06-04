@@ -32,7 +32,7 @@ The prebuilt W-2 model is supported by Form Recognizer v3.0 with the following t
 
 ### Try Form Recognizer
 
-See how data is extracted from W-2 forms using the Form Recognizer Studio. You'll need the following resources:
+Try extracting data from W-2 forms using the Form Recognizer Studio. You'll need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
