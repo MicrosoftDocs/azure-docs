@@ -63,7 +63,7 @@ Not supported query syntax:
 * [Message routing query based on device twin](../iot-hub/iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-device-twin)
 
 ### Restart policies
-With custom modules, the health check might fail. The `Healthcheck` property of the deployment.template.json file of your IoT Edge project is where information is provided to handle a failed health check and keep your device running. There is also a `restartPolicy` property. However, some values won't work as they are unsupported. Don't use `on-unhealthy` or `on-failure` as values in `restartPolicy` because they won't initiate a restart.
+ Don't use `on-unhealthy` or `on-failure` as values in modules' `restartPolicy` because they are unimplemented and won't initiate a restart. Only `never` and `always` restart policies are implemented.
 
 The recommended way to automatically restart unhealthy IoT Edge modules is noted in [this workaround](https://github.com/Azure/iotedge/issues/6358#issuecomment-1144022920). Configure the `Healthcheck` property in the module's `createOptions` to handle a failed health check. 
 
