@@ -30,7 +30,7 @@ Custom neural models share the same labeling format and strategy as custom templ
 Custom neural models currently only support key-value pairs and selection marks, future releases will include support for structured fields (tables) and signature.
 
 | Form fields | Selection marks | Tabular fields | Signature | Region |
-|--|--|--|--|--|
+|:--:|:--:|:--:|:--:|:--:|
 | Supported | Supported | Supported | Unsupported | Unsupported |
 
 ## Tabular fields
