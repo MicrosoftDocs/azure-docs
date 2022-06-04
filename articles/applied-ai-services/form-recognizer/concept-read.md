@@ -37,7 +37,6 @@ The following resources are supported by Form Recognizer v3.0:
 |----------|------------|------------|
 |**Read model**| <ul><li>[**Form Recognizer Studio**](https://formrecognizer.appliedai.azure.com)</li><li>[**REST API**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-rest-api)</li><li>[**C# SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-csharp)</li><li>[**Python SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-python)</li><li>[**Java SDK**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-java)</li><li>[**JavaScript**](how-to-guides/use-prebuilt-read.md?pivots=programming-language-javascript)</li></ul>|**prebuilt-read**|
 
-
 ## Try Form Recognizer
 
 See how text is extracted from forms and documents using the Form Recognizer Studio. You'll need the following assets:
@@ -80,9 +79,10 @@ See how text is extracted from forms and documents using the Form Recognizer Stu
 
 Form Recognizer preview version supports several languages for the read model. *See* our [Language Support](language-support.md) for a complete list of supported handwritten and printed languages.
 
-## Data extraction
+## Data detection and extraction
 
 ### Pages
+
 With the added support for Microsoft Word, Excel, PowerPoint, and HTML files, the page units in the model output are computed as shown:
 
  **File format**   | **Computed page unit**   | **Total pages**  |
