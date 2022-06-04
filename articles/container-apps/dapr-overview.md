@@ -11,7 +11,7 @@ ms.date: 05/10/2022
 
 # Dapr integration with Azure Container Apps
 
-The Distributed Application Runtime ([Dapr][dapr-concepts]) is a set of incrementally adoptable APIs that simplify the authoring of distributed, microservice-based applications. For example, Dapr provides capabilities for enabling application intercommunication, whether through messaging via pub/sub or reliable and secure service-to-service calls. Once Dapr is enabled in Container Apps, it exposes its HTTP and gRPC APIs via a sidecar: a process that runs in tandem with each of your Container Apps. 
+The Distributed Application Runtime ([Dapr][dapr-concepts]) is a set of incrementally adoptable APIs that simplify the authoring of distributed, microservice-based applications. For example, Dapr provides capabilities for enabling application intercommunication, whether through messaging via pub/sub or reliable and secure service-to-service calls. Once Dapr is enabled in Container Apps, it exposes its HTTP and gRPC APIs via a sidecar: a process that runs in tandem with each of your Container Apps.
 
 Dapr APIs, also referred to as building blocks, are built on best practice industry standards, that:
 
@@ -45,14 +45,83 @@ The following Pub/sub example demonstrates how Dapr works alongside your contain
 
 ### Enable Dapr
 
-You can define the Dapr configuration for a container app through the Azure CLI or using Infrastructure as Code templates like bicep or ARM. With the following settings, you enable Dapr on your app:
+You can define the Dapr configuration for a container app through the Azure CLI or using Infrastructure as Code templates like a bicep or an Azure Resource Manager (ARM) template.  You enable Dapr on your app with the following settings:
 
-| Field | Description |
-| ----- | ----------- |
-| `--enable-dapr` / `enabled` | Enables Dapr on the container app. |
-| `--env-vars 'APP_PORT=3000'` / `appPort` | Identifies which port your application is listening. |
-| `--dapr-app-protocol` / `appProtocol` | Tells Dapr which protocol your application is using. Valid options are `http` or `grpc`. Default is `http`. |
-| `--dapr-app-id` / `appId` | The unique ID of the application. Used for service discovery, state encapsulation, and the pub/sub consumer ID. |
+| CLI Parameter | Template field | Description |
+| ----- | ----------- | ----------- |
+| `--enable-dapr` | `enabled` | Enables Dapr on the container app. |
+| `--dapr-app-port` | `appPort` | Identifies which port your application is listening. |
+| `--dapr-app-protocol` | `appProtocol` | Tells Dapr which protocol your application is using. Valid options are `http` or `grpc`. Default is `http`. |
+| `--dapr-app-id` | `appId` | The unique ID of the application. Used for service discovery, state encapsulation, and the pub/sub consumer ID. |
+|`--env-vars 'APP_PORT=<port number>`|`env: [{name: APP_PORT value: <port number>}]`| Defines the Dapr port number environment variable in the container. (The syntax varies depending on the type of template used.)|
+
+The following example adds the Dapr configuration to your `properties.configuration` section of your container apps resource declaration.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+ dapr: {
+   enabled: true
+   appId: 'nodeapp'
+   appProtocol: 'http'
+   appPort: 3000
+ }
+```
+
+# [ARM](#tab/arm)
+
+```json
+  "dapr": {
+    "enabled": true,
+    "appId": "nodeapp",
+    "appProcotol": "http",
+    "appPort": 3000
+  }
+ 
+```
+
+---
+
+For each container accessing the Dapr components, you must configure the `APP_PORT` environment variable in a `template.container` section of your container app resource declaration.  Here's an example of the `template.containers` section with the `APP_PORT` environment variable configured:
+
+# [Bicep](#tab/bicep)
+
+```Bicep
+  containers: [
+    {
+      image: 'dapriosamples/hello-k8s-node:latest'
+      name: 'hello-k8s-node'
+      env: [
+        {
+          name: 'APP_PORT'
+          value: '3000'
+        }
+      ]
+      ...
+    }
+  ]
+```
+
+# [ARM](#tab/arm)
+
+```jason
+  "containers": [
+    {
+      "image": "dapriosamples/hello-k8s-node:latest",
+      "name": "hello-k8s-node",
+      "env": [
+        { 
+           "name": "APP_PORT",
+           "value": "3000"
+        }
+      ],  
+      ...
+    }
+  ],
+
+```
+
+---
 
 Since Dapr settings are considered application-scope changes, new revisions aren't created when you change Dapr settings. However, when changing a Dapr setting, the container app instance and revisions are automatically restarted.
 

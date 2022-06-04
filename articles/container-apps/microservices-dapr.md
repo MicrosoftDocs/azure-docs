@@ -224,6 +224,7 @@ az containerapp create \
   --max-replicas 1 \
   --enable-dapr \
   --dapr-app-id nodeapp \
+  --dapr-app-port 3000 \
   --env-vars 'APP_PORT=3000'
 ```
 
@@ -241,8 +242,8 @@ az containerapp create `
   --max-replicas 1 `
   --enable-dapr `
   --dapr-app-id nodeapp `
+  --dapr-app-port 3000 `
   --env-vars 'APP_PORT=3000'
-
 ```
 
 ---
@@ -250,7 +251,7 @@ az containerapp create `
 This command deploys:
 
 * the service (Node) app server on `--target-port 3000` (the app port) 
-* its accompanying Dapr sidecar configured with `--dapr-app-id nodeapp` and `--env-vars 'APP_PORT=3000'` for service discovery and invocation
+* its accompanying Dapr sidecar configured with `--dapr-app-id nodeapp` and `--dapr-app-port 3000'` for service discovery and invocation
 
 ## Deploy the client application (headless client)
 
