@@ -242,6 +242,12 @@ sections:
          Form Recognizer billing is  calculated monthly based on the model type and number of pages analyzed:
 
           - When you submit a document for analysis, all pages are analyzed unless you specify a page range with the `pages` parameter in your request.
+          
+          - When analyzing Microsoft Word and HTML files with the new Read model, pages are counted in blocks of 5,000 characters each. For example, if your document contains 7,000 characters, it will be counted as two pages.
+          
+          - When analyzing Microsoft Excel and PowerPoint documents with the new Read model, each worksheet and slide is counted as one page respectively.
+          
+          - In addition, if your Microsoft Word, Excel, and PowerPoint documents have embedded images, each image will be analyzed for text extraction and counted as a page. Therefore, the toial analyzed pages for Microsoft Office documents will be equal to the sum of total pages and total images analyzed.
 
           - Training a custom model is always free with Form Recognizer. You’re only charged when a model is used to analyze a document.
 
