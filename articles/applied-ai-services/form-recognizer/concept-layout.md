@@ -66,7 +66,7 @@ See how data is extracted from forms and documents using the Form Recognizer Stu
 
 ***Sample form processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
 
-:::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper" alt-text="Screenshot: Layout processing in Form Recognizer Studio.":::
+:::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot: Layout processing in Form Recognizer Studio.":::
 
 1. On the Form Recognizer Studio home page, select **Layout**
 
