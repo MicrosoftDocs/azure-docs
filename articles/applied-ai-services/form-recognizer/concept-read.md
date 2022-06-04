@@ -72,7 +72,7 @@ See how text is extracted from forms and documents using the Form Recognizer Stu
 
 * Supported file formats: These include JPEG/JPG, PNG, BMP, TIFF, PDF (text-embedded or scanned). Additionally, Microsoft Word, Excel, PowerPoint, and HTML files are supported  in the new preview.
 * For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
-* The file size must be less than 500 MB for paid (S0) tier and 4 MB for free (F0) tier (4 MB for the free tier)
+* The file size must be less than 500 MB for paid (S0) tier and 4 MB for free (F0) tier.
 * Image dimensions must be between 50 x 50 pixels and 10,000 x 10,000 pixels.
 * The minimum height of the text to be extracted is 12 pixels for a 1024X768 image. This corresponds to about 8 font point text at 150 DPI.
 
