@@ -33,7 +33,7 @@ The Form Recognizer Layout API extracts text, tables, selection marks, and struc
 | --- | --- | --- | --- | --- | --- |
 | Layout  | ✓  | ✓  | ✓  | ✓  | ✓  |
 
-The extracted paragraph `roles` are `title`, `sectionHeading` , `footnote`, `pageHeader`, `pageFooter`, `pageNumber`.
+The supported paragraph `roles` are `title`, `sectionHeading` , `footnote`, `pageHeader`, `pageFooter`, `pageNumber`. They are best used with unstructured documents to help understand the layout of the extracted content for a richer semantic analysis.
 
 ## Development options
 
@@ -114,7 +114,7 @@ The Layout model extracts all identified blocks of text in the `paragraphs` coll
 
 ### Paragraph roles
 
-The Layout model may flag certain paragraphs with their specialized type or `role` as predicted by the model. The following paragraph roles are supported:
+The Layout model may flag certain paragraphs with their specialized type or `role` as predicted by the model. They are best used with unstructured documents to help understand the layout of the extracted content for a richer semantic analysis. The following paragraph roles are supported:
 
 | **Predicted role**   | **Description**   |
 | --- | --- |
