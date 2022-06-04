@@ -187,7 +187,7 @@ As part of creating the IoT hub, the script that we ran in the previous section 
 
 1. In the list of resources, select the IoT Hub that the script created. It will have a name ending with random characters such as `IotEdgeAndMlHub-jrujej6de6i7w`.
 
-1. From the left pane menu, under **Messaging**, select **Message routing**.
+1. From the left pane menu, under **Hub settings**, select **Message routing**.
 
 1. On the **Message routing** page, select the **Custom endpoints** tab.
 

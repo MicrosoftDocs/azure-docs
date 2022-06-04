@@ -30,7 +30,7 @@ To access the example alert queries, use the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
 1. Select **Logs** from the **Monitoring** section of the menu.
-1. Select **Queries** to open the example query browser.
+1. The **Queries** example query browser will automatically open. If this is your first time to **Logs** you may have to close a video tutorial before you can see the query browser. The **Queries** tab can be used to bring up the example query browser again if you don't see it.
 
 :::image type="content" source="./media/how-to-create-alerts/example-alerts.png" alt-text="Access example alert queries." lightbox="./media/how-to-create-alerts/example-alerts.png":::
 
