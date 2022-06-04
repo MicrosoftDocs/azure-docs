@@ -274,8 +274,8 @@ If the HTTP status is `200 OK`, the body of the response contains an audio file 
 
 This is a list of supported audio formats that are sent in each request as the `X-Microsoft-OutputFormat` header. Each format incorporates a bit rate and encoding type. The Speech service supports 24-kHz, 16-kHz, and 8-kHz audio outputs.
 
-|Audio                            |OGG                      |Raw                          |Riff                     |WebM                             |
-|---------------------------------|-------------------------|-----------------------------|-------------------------|---------------------------------|
+|Audio                             |OGG                      |Raw                          |Riff                     |WebM                             |
+|----------------------------------|-------------------------|-----------------------------|-------------------------|---------------------------------|
 |audio-16khz-16bit-32kbps-mono-opus|ogg-16khz-16bit-mono-opus|raw-8khz-8bit-mono-alaw      |riff-8khz-8bit-mono-alaw |webm-16khz-16bit-mono-opus       |
 |audio-16khz-32kbitrate-mono-mp3   |ogg-24khz-16bit-mono-opus|raw-8khz-8bit-mono-mulaw     |riff-8khz-8bit-mono-mulaw|webm-24khz-16bit-24kbps-mono-opus|
 |audio-16khz-64kbitrate-mono-mp3   |ogg-48khz-16bit-mono-opus|raw-8khz-8bit-mono-mulaw     |riff-8khz-16bit-mono-pcm |webm-24khz-16bit-mono-opus       |
