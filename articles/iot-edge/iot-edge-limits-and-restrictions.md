@@ -65,7 +65,7 @@ Not supported query syntax:
 ### Restart policies
 With custom modules, the health check might fail. The `Healthcheck` property of the deployment.template.json file of your IoT Edge project is where information is provided to handle a failed health check and keep your device running. There is also a `restartPolicy` property. However, some values won't work as they are unsupported. Don't use `on-unhealthy` or `on-failure` as values in `restartPolicy` because they won't initiate a restart.
 
-The recommended way to handle a health check is to use [Docker restart policies](https://www.howtogeek.com/devops/how-to-use-docker-restart-policies-to-keep-containers-running/) or use [this workaround](https://github.com/Azure/iotedge/issues/6358#issuecomment-1136697683) by configuring your `Healthcheck` property and `createOptions` to handle a failed health check. 
+The recommended way to automatically restart unhealthy IoT Edge modules is noted in [this workaround](https://github.com/Azure/iotedge/issues/6358#issuecomment-1144022920). Configure the `Healthcheck` property in the module's `createOptions` to handle a failed health check. 
 
 ### File upload
 IoT Hub only supports file upload APIs for device identities, not module identities. Since IoT Edge exclusively uses modules, file upload isn't natively supported in IoT Edge.
