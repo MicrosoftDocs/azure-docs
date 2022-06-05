@@ -7,7 +7,6 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 04/02/2022
 ms.author: sidandrews
-ms.reviewer: mjbrown
 ms.reviewer: abhishgu
 ---
 

@@ -7,8 +7,6 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.reviewer: sngun
-
 ---
 
 # Global data distribution with Azure Cosmos DB - under the hood

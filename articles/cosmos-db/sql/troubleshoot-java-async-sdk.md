@@ -9,7 +9,6 @@ ms.reviewer: mjbrown
 ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
-ms.reviewer: sngun
 ms.custom: devx-track-java
 ---
 
