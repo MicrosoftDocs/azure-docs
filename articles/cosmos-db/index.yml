@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   author: seesharprun #Required; your GitHub user alias, with correct capitalization.
   ms.author: sidandrews
-ms.reviewer: mjbrown #Required; microsoft alias of author; optional team alias.
+  ms.reviewer: mjbrown #Required; microsoft alias of author; optional team alias.
   ms.date: 09/10/2019 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
