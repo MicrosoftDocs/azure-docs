@@ -2,8 +2,8 @@
 title: Exploration - Personalizer
 titleSuffix: Azure Cognitive Services
 description: With exploration, Personalizer is able to continue delivering good results, even as user behavior changes. Choosing an exploration setting is a business decision about the proportion of user interactions to explore with, in order to improve the model.
-author: jeffmend
-ms.author: jeffme
+author: jcodella
+ms.author: jacodel
 ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
