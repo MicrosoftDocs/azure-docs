@@ -8,7 +8,6 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/24/2022
 ms.custom: seo-nov-2020, cosmos-db-video
-ms.reviewer: wiassaf
 ---
 # Request Units in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]

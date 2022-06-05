@@ -7,8 +7,6 @@ ms.topic: conceptual
 ms.date: 02/24/2022
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.reviewer: sngun
-
 ---
 
 # Achieve high availability with Cosmos DB

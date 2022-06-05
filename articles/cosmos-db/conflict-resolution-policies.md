@@ -8,7 +8,6 @@ ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: sidandrews
 ms.reviewer: mjbrown
-ms.reviewer: sngun
 ---
 
 # Conflict types and resolution policies when using multiple write regions

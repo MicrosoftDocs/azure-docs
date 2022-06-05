@@ -7,7 +7,6 @@ ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/26/2021
-ms.reviewer: sngun
 ---
 
 # Total Cost of Ownership (TCO) with Azure Cosmos DB

@@ -4,7 +4,7 @@ metadata:
   description: "Get answers to frequently asked questions about Azure Cosmos DB, a globally distributed, multi-model database service. Learn about capacity, performance levels, and scaling."
   author: seesharprun
   ms.author: sidandrews
-ms.reviewer: mjbrown
+  ms.reviewer: mjbrown
   ms.service: cosmos-db
   ms.topic: faq
   ms.date: 09/01/2019
