@@ -9,7 +9,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 08/26/2021
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ---
 
 # Migrate your application to use the Azure Cosmos DB Java SDK v4

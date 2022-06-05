@@ -8,7 +8,7 @@ ms.author: jroth
 ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ms.custom: devx-track-java
 ---
 

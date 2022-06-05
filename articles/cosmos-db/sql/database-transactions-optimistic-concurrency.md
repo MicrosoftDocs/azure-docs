@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/04/2019
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ---
 
 # Transactions and optimistic concurrency control

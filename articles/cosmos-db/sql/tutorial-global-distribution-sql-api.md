@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: tutorial
 ms.date: 04/03/2022
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 
 ---

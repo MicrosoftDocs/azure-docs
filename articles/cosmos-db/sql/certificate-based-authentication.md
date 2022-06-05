@@ -7,7 +7,7 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/11/2019
 ms.author: jroth
-ms.reviewer: sngun 
+ms.reviewer: mjbrown 
 ms.custom: devx-track-azurepowershell, subject-rbac-steps
 
 ---

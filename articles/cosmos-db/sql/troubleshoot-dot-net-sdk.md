@@ -7,7 +7,7 @@ ms.date: 03/05/2021
 ms.author: jroth
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ms.custom: devx-track-dotnet
 ---
 # Diagnose and troubleshoot issues when using Azure Cosmos DB .NET SDK

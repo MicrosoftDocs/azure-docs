@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/16/2021
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 
 ---
 # Time to Live (TTL) in Azure Cosmos DB

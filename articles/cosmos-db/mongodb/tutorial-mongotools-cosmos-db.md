@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 08/26/2021
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ---
 
 # Tutorial: Migrate MongoDB to Azure Cosmos DB's API for MongoDB offline using MongoDB native tools
