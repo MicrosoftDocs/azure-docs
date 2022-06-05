@@ -9,7 +9,6 @@ ms.subservice: cosmosdb-sql
 ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
 ms.date: 08/26/2021
-ms.reviewer: sngun
 ---
 
 # Tutorial: Query Azure Cosmos DB by using the SQL API

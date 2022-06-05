@@ -8,9 +8,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: tutorial
 ms.date: 04/03/2022
-ms.reviewer: sngun
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-
 ---
 # Tutorial: Set up Azure Cosmos DB global distribution using the SQL API
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
