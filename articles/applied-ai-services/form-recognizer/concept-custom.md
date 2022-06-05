@@ -82,7 +82,7 @@ The following tools are supported by Form Recognizer v3.0:
 
 ### Try Form Recognizer
 
-See how data is extracted from your specific or unique documents by using custom models. You need the following resources:
+Try extracting data from your specific or unique documents using custom models. You need the following resources:
 
 * An Azure subscription. You can [create one for free](https://azure.microsoft.com/free/cognitive-services/).
 * A [Form Recognizer instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.

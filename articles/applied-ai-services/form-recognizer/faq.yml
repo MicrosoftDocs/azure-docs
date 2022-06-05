@@ -174,8 +174,8 @@ sections:
 
             | Supported Language | Azure SDK client-library|API reference |Supported API version|
             | ----------- | --------|--------|:---------------------: |
-            | C#/.NET| [4.0.0-beta.3](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0-beta.3/index.html)|[.NET SDK](/dotnet/api/azure.ai.formrecognizer.documentanalysis?view=azure-dotnet-preview&preserve-view=true) |2022-01-30-preview, 2021-09-30-preview, v2.1, v2.0 |
-            | Java | [4.0.0-beta.4](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.4/index.html)|[Java SDK](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview&preserve-view=true)|2022-01-30-preview, 2021-09-30-preview, v2.1, v2.0 |
+            | C#/.NET| [4.0.0-beta.3](https://azuresdkdocs.blob.core.windows.net/$web/dotnet/Azure.AI.FormRecognizer/4.0.0-beta.3/index.html)|[.NET SDK](/dotnet/api/azure.ai.formrecognizer.documentanalysis?view=azure-dotnet-preview&preserve-view=true) |2022-01-30-preview, 2021-09-30-preview, v2.1, v2.0|
+            | Java | [4.0.0-beta.4](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-ai-formrecognizer/4.0.0-beta.4/index.html)|[Java SDK](/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview&preserve-view=true)|2022-01-30-preview, 2021-09-30-preview, v2.1, v2.0|
             | JavaScript | [4.0.0-beta.3](https://azuresdkdocs.blob.core.windows.net/$web/javascript/azure-ai-form-recognizer/4.0.0-beta.3/index.html)|[JavaScript SDK](/javascript/api/@azure/ai-form-recognizer/?view=azure-node-preview&preserve-view=true) |2022-01-30-preview, 2021-09-30-preview, v2.1, v2.0|
             | Python | [3.2.0b3](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-ai-formrecognizer/3.2.0b3/index.html) |[Python SDK](/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer?view=azure-python-preview&preserve-view=true) |2022-01-30-preview, 2021-09-30-preview, v2.1, v2.0|
 
@@ -212,7 +212,7 @@ sections:
             How can I specify a specific range of pages to be analyzed in a document?
         answer:  |
 
-           - The parameter `pages`(supported in both v2.1 and v3.0 REST API) enables you to specify pages for multi-page PDF and TIFF documents. Accepted input includes the following:
+           - The parameter `pages`(supported in both v2.1 and v3.0 REST API) enables you to specify pages for multi-page PDF and TIFF documents. Accepted input includes the following ranges:
 
               - Single pages (for example,'1, 2' -> pages 1 and 2 will be processed).- Finite (for example '2-5' -> pages 2 to 5 will be processed)
               - Open-ended ranges (for example '5-' -> all the pages from page 5 will be processed & for example, '-10' -> pages 1 to 10 will be processed).
@@ -242,6 +242,12 @@ sections:
          Form Recognizer billing is  calculated monthly based on the model type and number of pages analyzed:
 
           - When you submit a document for analysis, all pages are analyzed unless you specify a page range with the `pages` parameter in your request.
+
+          - When analyzing Microsoft Word and HTML files with the new Read OCR model, pages are counted in blocks of 5,000 characters each. For example, if your document contains 7,000 characters, it will be counted as two pages.
+
+          - When analyzing Microsoft Excel and PowerPoint documents with the new Read OCR model, each worksheet and slide is counted as one page respectively.
+
+          - In addition, if your Microsoft Word, Excel, and PowerPoint documents have embedded images, each image will be analyzed for text extraction and counted as a page. Therefore, the total analyzed pages for Microsoft Office documents will be equal to the sum of total pages and total images analyzed.
 
           - Training a custom model is always free with Form Recognizer. You’re only charged when a model is used to analyze a document.
 
@@ -448,7 +454,7 @@ sections:
           Form Recognizer connected containers send billing information to Azure by using a Form Recognizer resource on your Azure account. Connected containers don't send customer data, such as the image or text that's being analyzed, to Microsoft. See the [Cognitive Services container FAQ](../../cognitive-services/containers/disconnected-container-faq.yml#how-does-billing-work) for an example of the information sent to Microsoft for billing.
 
       - question: |
-           I received an "OutOfQuota" error message: "Container isn't in a valid state. Subscription validation failed with status 'OutOfQuota'. Api Key is out of quota".
+           I received an "OutOfQuota" error message: "Container isn't in a valid state. Subscription validation failed with status 'OutOfQuota'. Api key is out of quota".
         answer: |
 
           Form Recognizer connected containers send billing information to Azure by using a Form Recognizer resource on your Azure account. You could get this message if the containers can't communicate with the billing endpoint.

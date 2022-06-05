@@ -83,13 +83,14 @@ The W-2 model analyzes and extracts key information reported in each box on a W-
 
 [:::image type="icon" source="media/studio/layout.png":::](https://formrecognizer.appliedai.azure.com/studio/layout)
 
-The Layout API analyzes and extracts text, tables and headers, selection marks, and structure information from forms and documents.
+The Layout API analyzes and extracts text, tables and headers, selection marks, and structure information from documents.
 
 ***Sample document processed using the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***:
 
-:::image type="content" source="media/studio/analyze-layout.png" alt-text="Screenshot: Screenshot of sample document processed using Form Recognizer studio":::
+:::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot: Screenshot of sample document processed using Form Recognizer studio":::
 
 > [!div class="nextstepaction"]
+>
 > [Learn more: layout model](concept-layout.md)
 
 ### Invoice
