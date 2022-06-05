@@ -6,7 +6,7 @@ ms.author: govindk
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/02/2022
-ms.reviewer: wiassaf
+ms.reviewer: mjbrown
 
 ---
 

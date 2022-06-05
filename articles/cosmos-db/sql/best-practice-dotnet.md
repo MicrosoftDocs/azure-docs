@@ -7,7 +7,7 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 04/01/2022
 ms.author: esarroyo
-ms.reviewer: wiassaf
+ms.reviewer: mjbrown
 ms.custom: cosmos-db-video
 ---
 

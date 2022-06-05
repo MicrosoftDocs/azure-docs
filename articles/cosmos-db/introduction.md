@@ -6,7 +6,7 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 08/26/2021
-ms.reviewer: wiassaf
+ms.reviewer: mjbrown
 ms.custom: cosmos-db-video
 adobe-target: true
 ---

@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.date: 04/08/2022
 ms.topic: how-to
-ms.reviewer: wiassaf
+ms.reviewer: mjbrown
 ---
 
 # Latest restorable timestamp for Azure Cosmos DB accounts with continuous backup mode
