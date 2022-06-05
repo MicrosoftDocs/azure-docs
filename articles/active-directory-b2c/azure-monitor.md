@@ -37,7 +37,7 @@ Watch this video to learn how to configure monitoring for Azure AD B2C using Azu
 
 ## Deployment overview
 
-Azure AD B2C leverages [Azure Active Directory monitoring](../active-directory/reports-monitoring/overview-monitoring.md). Unlike Azure AD tenants, an Azure AD B2C tenant can't have a subscription associated with it. So, we need to take extra steps to enable the integration between Azure AD B2C and Log Analytics, which is where we'll send the logs.
+Azure AD B2C uses [Azure Active Directory monitoring](../active-directory/reports-monitoring/overview-monitoring.md). Unlike Azure AD tenants, an Azure AD B2C tenant can't have a subscription associated with it. So, we need to take extra steps to enable the integration between Azure AD B2C and Log Analytics, which is where we'll send the logs.
 To enable _Diagnostic settings_ in Azure Active Directory within your Azure AD B2C tenant, you use [Azure Lighthouse](../lighthouse/overview.md) to [delegate a resource](../lighthouse/concepts/architecture.md), which allows your Azure AD B2C (the **Service Provider**) to manage an Azure AD (the **Customer**) resource.
 
 > [!TIP]
@@ -202,7 +202,7 @@ Now you can configure your Log Analytics workspace to visualize your data and co
 
 ### 6.1 Create a Query
 
-Log queries help you to fully uses the value of the data collected in Azure Monitor Logs. A powerful query language allows you to join data from multiple tables, aggregate large sets of data, and perform complex operations with minimal code. Virtually any question can be answered and analysis performed as long as the supporting data has been collected, and you understand how to construct the right query. For more information, see [Get started with log queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md).
+Log queries help you to fully use the value of the data collected in Azure Monitor Logs. A powerful query language allows you to join data from multiple tables, aggregate large sets of data, and perform complex operations with minimal code. Virtually any question can be answered and analysis performed as long as the supporting data has been collected, and you understand how to construct the right query. For more information, see [Get started with log queries in Azure Monitor](../azure-monitor/logs/get-started-queries.md).
 
 1. From **Log Analytics workspace**, select **Logs**
 1. In the query editor, paste the following [Kusto Query Language](/azure/data-explorer/kusto/query/) query. This query shows policy usage by operation over the past x days. The default duration is set to 90 days (90d). Notice that the query is focused only on the operation where a token/code is issued by policy.
