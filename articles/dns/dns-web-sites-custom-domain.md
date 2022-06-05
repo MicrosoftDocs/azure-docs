@@ -5,7 +5,7 @@ services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
-ms.date: 10/20/2020
+ms.date: 06/06/2022
 ms.author: rohink 
 ms.custom: devx-track-azurepowershell
 #Customer intent: As an experienced network administrator, I want to create DNS records in Azure DNS, so I can host a web app in a custom domain.
@@ -37,19 +37,16 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* An Azure account with an active subscription. If you don’t have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+* A domain name that you can host in Azure DNS. You must have full control of this domain. Full control includes the ability to set the name server (NS) records for the domain.
+
+* A web app. If you don't have one, you can [create a static HTML web app](../app-service/quickstart-html.md) for this tutorial.
+
+* An Azure DNS zone with delegation in your registrar to Azure DNS. If you don't have one, you can [create a DNS zone](./dns-getstarted-powershell.md), then [delegate your domain](dns-delegate-domain-azure-dns.md#delegate-the-domain) to Azure DNS.
+
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-* You must have a domain name available to test with that you can host in Azure DNS . You must have full control of this domain. Full control includes the ability to set the name server (NS) records for the domain.
-* [Create an App Service app](../app-service/quickstart-html.md), or use an app that you created for another tutorial.
-
-* Create a DNS zone in Azure DNS, and delegate the zone in your registrar to Azure DNS.
-
-   1. To create a DNS zone, follow the steps in [Create a DNS zone](./dns-getstarted-powershell.md).
-   2. To delegate your zone to Azure DNS, follow the steps in [DNS domain delegation](dns-delegate-domain-azure-dns.md).
-
-After creating a zone and delegating it to Azure DNS, you can then create records for your custom domain.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -59,13 +56,9 @@ An A record is used to map a name to its IP address. In the following example, a
 
 ### Get the IPv4 address
 
-In the left navigation of the App Services page in the Azure portal, select **Custom domains**. 
+In the left navigation of the App Services page in the Azure portal, select **Custom domains**, then copy the IP address of your web app:
 
-![Custom domain menu](../app-service/./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
-
-In the **Custom domains** page, copy the app's IPv4 address:
-
-![Portal navigation to Azure app](../app-service/./media/app-service-web-tutorial-custom-domain/mapping-information.png)
+:::image type="content" source="./media/dns-web-sites-custom-domain/app-service-custom-domains.png" alt-text="Screenshot app service custom domains showing the web app I P address" lightbox="./media/dns-web-sites-custom-domain/app-service-custom-domains.png":::
 
 ### Create the A record
 
@@ -161,7 +154,7 @@ Now you can add the custom host names to your web app:
 ```azurepowershell
 set-AzWebApp `
  -Name contoso `
- -ResourceGroupName MyAzureResourceGroup `
+ -ResourceGroupName <your web app resource group> `
  -HostNames @("contoso.com","www.contoso.com","contoso.azurewebsites.net")
 ```
 ## Test the custom host names
@@ -173,12 +166,19 @@ Open a browser and browse to `http://www.<your domainname>` and `http://<you dom
 
 You should see the same page for both URLs. For example:
 
-![Contoso app service](media/dns-web-sites-custom-domain/contoso-app-svc.png)
-
+:::image type="content" source="./media/dns-web-sites-custom-domain/contoso-web-app.png" alt-text="Screenshot of web app contoso":::
 
 ## Clean up resources
 
-When you no longer need the resources created in this tutorial, you can delete the **myresourcegroup** resource group.
+When no longer needed, you can delete all resources created in this tutorial by following these steps to delete the resource group **MyAzureResourceGroup**:
+
+1. From the left-hand menu, select **Resource groups**.
+
+2. Select the **MyAzureResourceGroup** resource group.
+
+3. Select **Delete resource group**.
+
+4. Enter **MyAzureResourceGroup** and select **Delete**.
 
 ## Next steps
 
