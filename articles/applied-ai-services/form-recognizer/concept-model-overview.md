@@ -79,7 +79,7 @@ The W-2 model analyzes and extracts key information reported in each box on a W-
 > [!div class="nextstepaction"]
 > [Learn more: general document model](concept-general-document.md)
 
-### Layout model
+### Layout
 
 [:::image type="icon" source="media/studio/layout.png":::](https://formrecognizer.appliedai.azure.com/studio/layout)
 
