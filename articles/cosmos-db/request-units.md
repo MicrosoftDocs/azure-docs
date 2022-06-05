@@ -1,8 +1,9 @@
 ---
 title: Request Units as a throughput and performance currency in Azure Cosmos DB
 description: Learn about how to specify and estimate Request Unit requirements in Azure Cosmos DB
-author: markjbrown
-ms.author: mjbrown
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/24/2022
