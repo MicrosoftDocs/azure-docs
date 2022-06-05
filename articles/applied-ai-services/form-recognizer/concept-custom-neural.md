@@ -1,7 +1,7 @@
 ---
 title: Form Recognizer custom neural model
 titleSuffix: Azure Applied AI Services
-description: Learn about custom neural (neural) model type, its features and how you train a model with high accuracy to extract data from structured and unstructured documents
+description: Learn about custom neural (neural) model type, its features and how you train a model with high accuracy to extract data from structured and unstructured documents.
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
@@ -23,7 +23,7 @@ Custom neural models or neural models are a deep learned model that combines lay
 |semi-structured | invoices, purchase orders |
 |unstructured | contracts, letters|
 
-Custom neural models share the same labeling format and strategy as custom template models. Currently custom neural models only support a subset of the field types supported by custom template models.
+Custom neural models share the same labeling format and strategy as [custom template](concept-custom-template.md) models. Currently custom neural models only support a subset of the field types supported by custom template models.
 
 ## Model capabilities
 
@@ -35,7 +35,11 @@ Custom neural models currently only support key-value pairs and selection marks,
 
 ## Tabular fields
 
-With the release of API version **2022-06-30-preview**, custom neural models will support tabular fields (tables). Models trained with API version 2022-06-30-preview or later will accept tabular field labels. Documents analyzed with custom neural models using API version 2022-06-30-preview or later will produce tabular fields aggregated across the tables. The results can be found in the ```analyzeResult``` object's ```documents``` array that is returned following an analysis operation.
+With the release of API version **2022-06-30-preview**, custom neural models will support tabular fields (tables):
+
+* Models trained with API version 2022-06-30-preview or later will accept tabular field labels. 
+* Documents analyzed with custom neural models using API version 2022-06-30-preview or later will produce tabular fields aggregated across the tables. 
+* The results can be found in the ```analyzeResult``` object's ```documents``` array that is returned following an analysis operation.
 
 Tabular fields support **cross page tables** by default:
 
@@ -46,7 +50,7 @@ Tabular fields are also useful when extracting repeating information within a do
 
 ## Supported regions
 
-For the public preview, custom neural models can only be trained in the following Azure regions:
+For the **2022-06-30-preview**, custom neural models can only be trained in the following Azure regions:
 
 * AustraliaEast
 * BrazilSouth
@@ -73,7 +77,7 @@ For the public preview, custom neural models can only be trained in the followin
 
 ## Best practices
 
-Custom neural models differ from custom template models in a few different ways.
+Custom neural models differ from custom template models in a few different ways. The custom template or model relies on a consistent visual template to extract the labeled data. Custom neural models support structured, semi-structured, and unstructured documents to extract fields. When you're choosing between the two model types, start with a neural model and test to determine if it supports your functional needs.
 
 ### Dealing with variations
 

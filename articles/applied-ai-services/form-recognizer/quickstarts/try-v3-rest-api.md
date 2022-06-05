@@ -18,7 +18,7 @@ ms.author: lajanuar
 >[!NOTE]
 > Form Recognizer v3.0 is currently in public preview. Some features may not be supported or have limited capabilities.
 
-| [Form Recognizer REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeBusinessCardAsync) | [Azure SDKS](https://azure.github.io/azure-sdk/releases/latest/index.html) |
+| [Form Recognizer REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument) | [Azure SDKS](https://azure.github.io/azure-sdk/releases/latest/index.html) |
 
 Get started with Azure Form Recognizer using the REST API. Azure Form Recognizer is a cloud-based Azure Applied AI Service that uses machine learning to extract key-value pairs, text, and tables from your documents. You can easily call Form Recognizer models using the REST API or by integrating our client library SDks into your workflows and applications. We recommend that you use the free service when you're learning the technology. Remember that the number of free pages is limited to 500 per month.
 

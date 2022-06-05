@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: how-to
-ms.date: 02/15/2022
+ms.date: 06/06/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -27,7 +27,7 @@ In this article, you'll learn how to create Form Recognizer custom and composed 
 
 ## Sample Labeling tool
 
-You can try extracting data from custom forms using our Sample Labeling tool. You'll need the following resources:
+Try extracting data from custom forms using our Sample Labeling tool. You'll need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
