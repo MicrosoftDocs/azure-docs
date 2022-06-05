@@ -1,12 +1,13 @@
 ---
 title: Certificate-based authentication with Azure Cosmos DB and Active Directory
 description: Learn how to configure an Azure AD identity for certificate-based authentication to access keys from Azure Cosmos DB.
-author: rothja
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/11/2019
-ms.author: jroth
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.reviewer: sngun 
 ms.custom: devx-track-azurepowershell, subject-rbac-steps
 
