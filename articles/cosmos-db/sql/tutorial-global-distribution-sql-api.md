@@ -1,8 +1,9 @@
 ---
 title: 'Tutorial: Azure Cosmos DB global distribution tutorial for the SQL API'
 description: 'Tutorial: Learn how to set up Azure Cosmos DB global distribution using the SQL API with .NET, Java, Python and various other SDKs'
-author: markjbrown
-ms.author: mjbrown
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: tutorial
