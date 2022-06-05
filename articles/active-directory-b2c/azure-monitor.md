@@ -51,7 +51,7 @@ The following diagram depicts the components you'll configure in your Azure AD a
 
 ![Resource group projection](./media/azure-monitor/resource-group-projection.png)
 
-During this deployment, you'll configure your Azure AD B2C tenant where logs are generated. You'll also configure Azure AD tenant where the Log Analytics workspace will be hosted. The Azure AD B2C accounts used (such as your admin account) should be assigned the [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) role on the Azure AD B2C tenant. The Azure AD account used to run the deployment must be assigned the [Owner](../role-based-access-control/built-in-roles.md#owner) role in the Azure AD subscription. It's also important to make sure you're signed in to the correct directory as you complete each step as described.
+During this deployment, you'll configure your Azure AD B2C tenant where logs are generated. You'll also configure Azure AD tenant where the Log Analytics workspace will be hosted. The Azure AD B2C accounts used (such as your admin account) should be assigned the [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) role on the Azure AD B2C tenant. The Azure AD account you'll use to run the deployment must be assigned the [Owner](../role-based-access-control/built-in-roles.md#owner) role in the Azure AD subscription. It's also important to make sure you're signed in to the correct directory as you complete each step as described.
 
 In summary, you'll use Azure Lighthouse to allow a user or group in your Azure AD B2C tenant to manage a resource group in a subscription associated with a different tenant (the Azure AD tenant). After this authorization is completed, the subscription and log analytics workspace can be selected as a target in the Diagnostic settings in Azure AD B2C.
 
@@ -107,7 +107,7 @@ To make management easier, we recommend using Azure AD user _groups_ for each ro
 
 ### 3.3 Create an Azure Resource Manager template
 
-To create the custom authorization and delegation in Azure Lighthouse, we use an Azure Resource Manager template. This template grants Azure AD B2C access to the Azure AD resource group, which you created earlier,for example, _azure-ad-b2c-monitor_. Deploy the template from the GitHub sample by using the **Deploy to Azure** button, which opens the Azure portal and lets you configure and deploy the template directly in the portal. For these steps, make sure you're signed in to your Azure AD tenant (not the Azure AD B2C tenant).
+To create the custom authorization and delegation in Azure Lighthouse, we use an Azure Resource Manager template. This template grants Azure AD B2C access to the Azure AD resource group, which you created earlier, for example, _azure-ad-b2c-monitor_. Deploy the template from the GitHub sample by using the **Deploy to Azure** button, which opens the Azure portal and lets you configure and deploy the template directly in the portal. For these steps, make sure you're signed in to your Azure AD tenant (not the Azure AD B2C tenant).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
