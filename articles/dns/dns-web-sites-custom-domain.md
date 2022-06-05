@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Create custom Azure DNS records for a web app
-description: In this tutorial you create custom domain DNS records for web app using Azure DNS.
+description: In this tutorial, you create custom domain DNS records for web app using Azure DNS.
 services: dns
 author: rohinkoul
 ms.service: dns
@@ -15,16 +15,16 @@ ms.custom: devx-track-azurepowershell
 
 You can configure Azure DNS to host a custom domain for your web apps. For example, you can create an Azure web app and have your users access it using either www\.contoso.com or contoso.com as a fully qualified domain name (FQDN).
 
-> [!NOTE]
-> Contoso.com is used as an example throughout this tutorial. Substitute your own domain name for contoso.com.
-
 To do this, you have to create three records:
 
 * A root "A" record pointing to contoso.com
 * A root "TXT" record for verification
 * A "CNAME" record for the www name that points to the A record
 
-Keep in mind that if you create an A record for a web app in Azure, the A record must be manually updated if the underlying IP address for the web app changes.
+> [!NOTE]
+> Contoso.com is used as an example throughout this tutorial. Substitute your own domain name for contoso.com.
+
+If you create an A record for a web app in Azure, the A record must be manually updated if the underlying IP address for the web app changes.
 
 In this tutorial, you learn how to:
 
