@@ -112,7 +112,8 @@ For Azure services, use the recommended zone names as described in the following
 | Storage account (Microsoft.Storage/storageAccounts) / File (file, file_secondary) | privatelink.file.core.usgovcloudapi.net | file.core.usgovcloudapi.net |
 | Storage account (Microsoft.Storage/storageAccounts) / Web (web, web_secondary) | privatelink.web.core.usgovcloudapi.net | web.core.usgovcloudapi.net |
 | Azure Cosmos DB (Microsoft.AzureCosmosDB/databaseAccounts) / Sql | privatelink.documents.azure.us | documents.azure.us |
-| Azure Batch (Microsoft.Batch/batchAccounts) / batchAccount | privatelink.{region}.batch.usgovcloudapi.net | {region}.batch.usgovcloudapi.net |
+| Azure Batch (Microsoft.Batch/batchAccounts) / batchAccount | privatelink.batch.usgovcloudapi.net | {region}.batch.usgovcloudapi.net |
+| Azure Batch (Microsoft.Batch/batchAccounts) / nodeManagement | privatelink.batch.usgovcloudapi.net | {region}.service.batch.usgovcloudapi.net |
 | Azure Database for PostgreSQL - Single server (Microsoft.DBforPostgreSQL/servers) / postgresqlServer | privatelink.postgres.database.usgovcloudapi.net | postgres.database.usgovcloudapi.net |
 | Azure Database for MySQL (Microsoft.DBforMySQL/servers) / mysqlServer | privatelink.mysql.database.usgovcloudapi.net | mysql.database.usgovcloudapi.net|
 | Azure Database for MariaDB (Microsoft.DBforMariaDB/servers) / mariadbServer | privatelink.mariadb.database.usgovcloudapi.net| mariadb.database.usgovcloudapi.net |
@@ -182,6 +183,7 @@ Based on your preferences, the following scenarios are available with DNS resolu
 
 - [Azure Private Endpoint DNS configuration](#azure-private-endpoint-dns-configuration)
   - [Azure services DNS zone configuration](#azure-services-dns-zone-configuration)
+    - [Government](#government)
     - [China](#china)
   - [DNS configuration scenarios](#dns-configuration-scenarios)
   - [Virtual network workloads without custom DNS server](#virtual-network-workloads-without-custom-dns-server)
