@@ -159,7 +159,7 @@ set-AzWebApp `
 ```
 ## Test the custom host names
 
-Open a browser and browse to `http://www.<your domainname>` and `http://<you domain name>`.
+Open a browser and browse to `http://www.<your domain name>` and `http://<you domain name>`.
 
 > [!NOTE]
 > Make sure you include the `http://` prefix, otherwise your browser may attempt to predict a URL for you!
