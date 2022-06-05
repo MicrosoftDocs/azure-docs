@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: jroth
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 
 ---
 

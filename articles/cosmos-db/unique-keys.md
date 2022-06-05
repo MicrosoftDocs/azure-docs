@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/26/2021
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ---
 
 # Unique key constraints in Azure Cosmos DB

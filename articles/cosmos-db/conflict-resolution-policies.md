@@ -7,7 +7,7 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: mjbrown
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ---
 
 # Conflict types and resolution policies when using multiple write regions

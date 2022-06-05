@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/24/2022
 ms.author: mjbrown
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 
 ---
 
