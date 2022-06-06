@@ -38,6 +38,9 @@ The Azure Functions logger includes a *category* for every log. The category ind
 > [!NOTE]
 > For .NET class library functions, these categories assume you are using `ILogger` and not `ILogger<T>`. To learn more, see the [Functions ILogger documentation](functions-dotnet-class-library.md#ilogger). 
 
+> [!CAUTION]
+> Application Insights distributed tracing and dependency tracking are not currently supported in the dotnet-isolated worker.
+
 # [v1.x](#tab/v1)
 
 | Category | Table | Description |
