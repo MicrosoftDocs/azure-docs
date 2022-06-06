@@ -67,13 +67,6 @@ Access to Key Vaults should be explicitly restricted to the minimum set of netwo
 
 Key Vault supports BYOK.  BYOK enables users to import keys from their existing key infrastructures. The BYOK toolset supports the secure transfer and import of keys from an external HSM (for example, keys generated with an offline workstation) into Key Vault.
 
-Go to the Microsoft Download Center and [download the Azure Key Vault BYOK toolset](https://www.microsoft.com/download/details.aspx?id=45345) for Australia. The package name to download and its corresponding SHA-256 package hash are:
-
-|Package Name|SHA-256 Hash|
-|---|---|
-|KeyVault-BYOK-Tools-Australia.zip|CD0FB7365053DEF8C35116D7C92D203C64A3D3EE2452A025223EEB166901C40A|
-|
-
 ### Key Vault auditing and logging
 
 The ACSC requires Commonwealth entities to use the appropriate Azure services to undertake real-time monitoring and reporting on their Azure workloads.
