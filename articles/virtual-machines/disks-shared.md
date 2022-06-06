@@ -4,7 +4,7 @@ description: Learn about sharing Azure managed disks across multiple Linux VMs.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/23/2022
+ms.date: 06/06/2022
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -21,17 +21,17 @@ VMs in the cluster can read or write to their attached disk based on the reserva
 
 Shared managed disks offer shared block storage that can be accessed from multiple VMs, these are exposed as logical unit numbers (LUNs). LUNs are then presented to an initiator (VM) from a target (disk). These LUNs look like direct-attached-storage (DAS) or a local drive to the VM.
 
-Shared managed disks do not natively offer a fully managed file system that can be accessed using SMB/NFS. You need to use a cluster manager, like Windows Server Failover Cluster (WSFC) or Pacemaker, that handles cluster node communication and write locking.
+Shared managed disks don't natively offer a fully managed file system that can be accessed using SMB/NFS. You need to use a cluster manager, like Windows Server Failover Cluster (WSFC), or Pacemaker, that handles cluster node communication and write locking.
 
 ## Billing implications
 
-When using shared disks, your billing can be impacted in two different ways, depending on the type of disk you're sharing.
+When using shared disks, your billing could be impacted in two different ways, depending on the type of disk you're sharing.
 
-For shared premium SSDs, there is an additional charge that increases with each VM the SSD is mounted to.
+For shared premium SSDs, there's an extra charge that increases with each VM the SSD is mounted to. See [managed disks pricing](https://azure.microsoft.com/en-us/pricing/details/managed-disks/) for details.
 
-Ultra disks don't have an additional charge for each VM that they're mounted to. They're billed on the total IOPS and MBps that the disk has. Originally, an ultra disk only has two performance throttles that are exposed, which determine its total IOPS/MBps. However, when configured as an ultra shared disk, two additional performance throttles are exposed. These two additional meters allow for increased performance but do come at an additional expense. These two meters also have a default value, which raise the performance of the disk.
+Ultra disks don't have an extra charge for each VM that they're mounted to. They're billed on the total IOPS and MBps that the disk is configured for. Originally, an ultra disk only has two performance throttles that determine its total IOPS/MBps. However, when configured as a shared ultra disk, two more performance throttles are exposed, for a total of four. These two extra meters allow for increased performance at an extra expense and each meter has a default value, which raises the performance and cost of the disk.
 
-The four performance throttles a shared ultra disk has are: diskIOPSReadWrite, diskIOPSReadOnly, diskMBpsReadWrite, and DiskMBpsReadOnly. The total IOPS for a shared disk would be: total provisioned IOPS (diskIOPSReadWrite + diskIOPSReadOnly) and for total provisioned Throughput MBps (diskMBpsReadWrite + diskMBpsReadOnly).
+The total IOPS for a shared ultra disk would be: total provisioned IOPS (diskIOPSReadWrite + diskIOPSReadOnly) and for total provisioned throughput MBps (diskMBpsReadWrite + diskMBpsReadOnly). The total provisioned IOPS and total provisioned throughput are what you would use in the [pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/?service=managed-disks) to determine the cost of an ultra shared disk.
 
 ## Limitations
 
@@ -75,13 +75,13 @@ Linux clusters can use cluster managers such as [Pacemaker](https://wiki.cluster
 
 The following diagram illustrates a sample 2-node clustered database application that uses SCSI PR to enable failover from one node to the other.
 
-![Two node cluster. An application running on the cluster is handling access to the disk](media/virtual-machines-disks-shared-disks/shared-disk-updated-two-node-cluster-diagram.png)
+![Two node cluster consisting of Azure VM1, VM2, and a disk shared between them. An application running on the cluster handles access to the disk.](media/virtual-machines-disks-shared-disks/shared-disk-updated-two-node-cluster-diagram.png)
 
 The flow is as follows:
 
 1. The clustered application running on both Azure VM1 and VM2 registers its intent to read or write to the disk.
 1. The application instance on VM1 then takes exclusive reservation to write to the disk.
-1. This reservation is enforced on your Azure disk and the database can now exclusively write to the disk. Any writes from the application instance on VM2 will not succeed.
+1. This reservation is enforced on your Azure disk and the database can now exclusively write to the disk. Any writes from the application instance on VM2 won't succeed.
 1. If the application instance on VM1 goes down, the instance on VM2 can now initiate a database failover and take-over of the disk.
 1. This reservation is now enforced on the Azure disk and the disk will no longer accept writes from VM1. It will only accept writes from VM2.
 1. The clustered application can complete the database failover and serve requests from VM2.
@@ -99,7 +99,7 @@ The flow is as follows:
 
 ### Ultra disks reservation flow
 
-Ultra disks offer an additional throttle, for a total of two throttles. Due to this, ultra disks reservation flow can work as described in the earlier section, or it can throttle and distribute performance more granularly.
+Ultra disks offer an extra throttle, for a total of two throttles. Due to this, ultra disks reservation flow can work as described in the earlier section, or it can throttle and distribute performance more granularly.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="An image of a table that depicts the `ReadOnly` or `Read/Write` access for Reservation Holder, Registered, and Others.":::
 
@@ -111,19 +111,19 @@ With premium SSD, the disk IOPS and throughput is fixed, for example, IOPS of a 
 
 ### Ultra disk performance throttles
 
-Ultra disks have the unique capability of allowing you to set your performance by exposing modifiable attributes and allowing you to modify them. By default, there are only two modifiable attributes but, shared ultra disks have two additional attributes.
+Ultra disks have the unique capability of allowing you to set your performance by exposing modifiable attributes and allowing you to modify them. By default, there are only two modifiable attributes but, shared ultra disks have two more attributes.
 
 
 |Attribute  |Description  |
 |---------|---------|
-|DiskIOPSReadWrite     |The total number of IOPS allowed across all VMs mounting the share disk with write access.         |
+|DiskIOPSReadWrite     |The total number of IOPS allowed across all VMs mounting the shared disk with write access.         |
 |DiskMBpsReadWrite     |The total throughput (MB/s) allowed across all VMs mounting the shared disk with write access.         |
 |DiskIOPSReadOnly*     |The total number of IOPS allowed across all VMs mounting the shared disk as `ReadOnly`.         |
 |DiskMBpsReadOnly*     |The total throughput (MB/s) allowed across all VMs mounting the shared disk as `ReadOnly`.         |
 
 \* Applies to shared ultra disks only
 
-The following formulas explain how the performance attributes can be set, since they are user modifiable:
+The following formulas explain how the performance attributes can be set, since they're user modifiable:
 
 - DiskIOPSReadWrite/DiskIOPSReadOnly: 
     - IOPS limits of 300 IOPS/GiB, up to a maximum of 160 K IOPS per disk
@@ -157,7 +157,7 @@ The following is an example of a 4-node Linux cluster with a single writer and t
 
 ##### Ultra pricing
 
-Ultra shared disks are priced based on provisioned capacity, total provisioned IOPS (diskIOPSReadWrite + diskIOPSReadOnly) and total provisioned Throughput MBps (diskMBpsReadWrite + diskMBpsReadOnly). There is no extra charge for each additional VM mount. For example, an ultra shared disk with the following configuration (diskSizeGB: 1024, DiskIOPSReadWrite: 10000, DiskMBpsReadWrite: 600, DiskIOPSReadOnly: 100, DiskMBpsReadOnly: 1) is charged with 1024 GiB, 10100 IOPS, and 601 MBps regardless of whether it is mounted to two VMs or five VMs.
+Ultra shared disks are priced based on provisioned capacity, total provisioned IOPS (diskIOPSReadWrite + diskIOPSReadOnly) and total provisioned Throughput MBps (diskMBpsReadWrite + diskMBpsReadOnly). There's no extra charge for each additional VM mount. For example, an ultra shared disk with the following configuration (diskSizeGB: 1024, DiskIOPSReadWrite: 10000, DiskMBpsReadWrite: 600, DiskIOPSReadOnly: 100, DiskMBpsReadOnly: 1) is charged with 1024 GiB, 10100 IOPS, and 601 MBps regardless of whether it is mounted to two VMs or five VMs.
 
 ## Next steps
 
