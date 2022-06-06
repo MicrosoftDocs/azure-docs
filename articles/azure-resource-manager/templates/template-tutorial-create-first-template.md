@@ -17,7 +17,7 @@ This tutorial introduces you to Azure Resource Manager templates (ARM templates)
 
 This tutorial is the first of a series. As you progress through the series, you modify the starting template, step by step, until you've explored all of the core parts of an ARM template. These elements are the building blocks for much more complex templates. We hope by the end of the series you're confident in creating your own templates and ready to automate your deployments with templates.
 
-If you want to learn about the benefits of using templates and why you should automate deployment with templates, see [ARM template overview](overview.md). To learn about ARM templates through a guided set of modules on [Microsoft Learn](https://docs.microsoft.com/en-us/learn/?ef_id=Cj0KCQjw-daUBhCIARIsALbkjSZ06B0_f3G-7S6vmiDfpunYD60pkqwogulWyxNS6dBajLW6XJ1jfj0aAjGHEALw_wcB%3AG%3As&OCID=AID2202078_SEM_Cj0KCQjw-daUBhCIARIsALbkjSZ06B0_f3G-7S6vmiDfpunYD60pkqwogulWyxNS6dBajLW6XJ1jfj0aAjGHEALw_wcB%3AG%3As&gclid=Cj0KCQjw-daUBhCIARIsALbkjSZ06B0_f3G-7S6vmiDfpunYD60pkqwogulWyxNS6dBajLW6XJ1jfj0aAjGHEALw_wcB), see [Deploy and manage resources in Azure by using ARM templates](/learn/paths/deploy-manage-resource-manager-templates/).
+If you want to learn about the benefits of using templates and why you should automate deployment with templates, see [ARM template overview](overview.md). To learn about ARM templates through a guided set of modules on [Microsoft Learn](/learn).
 
 If you don't have a Microsoft Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -34,7 +34,7 @@ Templates are JavaScript Object Notation (JSON) files. To create templates, you 
 
 ### Command-line deployment
 
-You also need either Azure PowerShell or Azure Command-Line Interface (CLI) to deploy the template. If you use Azure CLI, you need to have version 2.37.0. For the installation instructions, see:
+You also need either Azure PowerShell or Azure Command-Line Interface (CLI) to deploy the template. If you use Azure CLI, you need to have version 2.37.0 or later. For the installation instructions, see:
 
 - [Install Azure PowerShell](/powershell/azure/install-az-ps)
 - [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows)
@@ -44,7 +44,7 @@ You also need either Azure PowerShell or Azure Command-Line Interface (CLI) to d
 After installing either Azure PowerShell or Azure CLI, make sure you sign in for the first time. For help, see [Sign in - PowerShell](/powershell/azure/install-az-ps#sign-in) or [Sign in - Azure CLI](/cli/azure/get-started-with-azure-cli#sign-in).
 
 > [!IMPORTANT]
-> If you're using Azure CLI, make sure you have version 2.37.0. If you're using Azure PowerShell, make sure you have version 7.2.4. The commands shown in this tutorial don't work if you're using earlier versions. To check your installed version, use: `az --version`.
+> If you're using Azure CLI, make sure you have version 2.37.0 or later. If you're using Azure PowerShell, make sure you have version 7.2.4 or later. The commands shown in this tutorial don't work if you're using earlier versions. To check your installed version, use: `az --version`.
 
 Okay, you're ready to start learning about templates.
 
@@ -197,7 +197,7 @@ You can verify the deployment by exploring the resource group from the Azure por
 
 1. Check the box to the left of **myResourceGroup** and then select **myResourceGroup**.
 
-1. Choose the resource group deploy in the last procedure. The default name is **myResourceGroup**. That resource group doesn't deploy any resources.
+1. Choose the resource group you created in the earlier procedure. The default name is **myResourceGroup**. The resource group doesn't have any resources yet because you deployed a blank template.
 
 1. Notice in the middle of the overview, in the **Essentials** section, the page displays the deployment status next to **Deployments**. Choose **1 Succeeded**.
 
