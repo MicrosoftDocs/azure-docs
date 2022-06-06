@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to manually create a persistent volume with Azure Blob storage for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 06/02/2022
+ms.date: 06/06/2022
 
 ---
 
@@ -64,6 +64,85 @@ MC_myResourceGroup_myAKSCluster_eastus
 ```
 
 Now create a container for storing blobs following the steps in the [Manage blob storage][manage-blob-storage] to authorize access and then create the container.
+
+## Mount Blob storage as a volume using NFS
+
+Mounting blob storage using the NFS v3 protocol does not authentication using an account key. Your AKS cluster needs to reside in the same or peered virtual network as the agent node. The only way to secure the data in your storage account is by using a virtual network and other network security settings. For more information on how to setup NFS access to your storage account, see [Mount Blob Storage by using the Network File System (NFS) 3.0 protocol](../storage/blobs/network-file-system-protocol-support-how-to.md).
+
+The following example demonstrates how to mount a Blob storage container using the NFS protocol.
+
+1. Create a `storageclass-blob-nfs-container.yaml` file. Under `storageClass`, you specify `protocol: nfs`. For example:
+
+    ```yml
+    apiVersion: storage.k8s.io/v1
+    kind: StorageClass
+    metadata:
+      name: blob-nfs
+    provisioner: blob.csi.azure.com
+    parameters:
+      protocol: nfs
+    mountOptions:
+    - nconnect=8  # only supported on linux kernel version >= 5.3
+    ```
+
+2. Run the following command to create the storage class using the `kubectl create` command referencing the YAML file created earlier:
+
+    ```bash
+    kubectl create -f storageclass-blob-nfs-existing-container.yaml
+    ```
+
+3. Create a `pv-blob-nfs-container.yaml` file with a *PersistentVolume*. For example:
+
+    ```yml
+    ---
+    apiVersion: apps/v1
+    kind: StatefulSet
+    metadata:
+      name: statefulset-blob
+      labels:
+        app: nginx
+    spec:
+      serviceName: statefulset-blob
+      replicas: 1
+      template:
+        metadata:
+          labels:
+            app: nginx
+        spec:
+          nodeSelector:
+            "kubernetes.io/os": linux
+          containers:
+            - name: statefulset-blob
+              image: mcr.microsoft.com/oss/nginx/nginx:1.17.3-alpine
+              command:
+                - "/bin/sh"
+                - "-c"
+                - while true; do echo $(date) >> /mnt/blob/outfile; sleep 1; done
+              volumeMounts:
+                - name: persistent-storage
+                  mountPath: /mnt/blob
+      updateStrategy:
+        type: RollingUpdate
+      selector:
+        matchLabels:
+          app: nginx
+      volumeClaimTemplates:
+        - metadata:
+            name: persistent-storage
+            annotations:
+              volume.beta.kubernetes.io/storage-class: blob-nfs
+          spec:
+            accessModes: ["ReadWriteMany"]
+            resources:
+              requests:
+                storage: 100Gi
+    ```
+
+4. Run the following command to create the persistent volume using the `kubectl create` command referencing the YAML file created earlier:
+
+    ```yml
+    kubectl create -f pvc-blobfuse-container.yaml
+    ```
 
 ## Mount Blob storage as a volume using Blobfuse
 
