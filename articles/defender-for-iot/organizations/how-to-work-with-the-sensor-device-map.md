@@ -40,7 +40,7 @@ The following basic search tools are available:
 
     :::image type="icon" source="media/how-to-work-with-maps/search-bar-icon-v2.png" border="false":::
 
-When you search by IP or MAC address, the map displays the device that you searched for with devices connected to it.
+When you search by IP or MAC address, the map displays the device that you searched for with the devices connected to it.
 
 :::image type="content" source="media/how-to-work-with-maps/search-ip-entered.png" alt-text="Screenshot of an I P address entered in the Device map search and displayed in the map.":::
 
@@ -87,13 +87,13 @@ For information about creating custom groups, see [Define custom groups](#define
 | :::image type="icon" source="media/how-to-work-with-maps/fit-to-screen-icon.png" border="false"::: | Fit to screen. |
 | :::image type="icon" source="media/how-to-work-with-maps/fit-to-selection-icon.png" border="false"::: | Fits a group of selected devices to the center of the screen. |
 | :::image type="icon" source="media/how-to-work-with-maps/collapse-view-icon.png" border="false"::: | IT/OT presentation. Collapse view to enable a focused view on OT devices, and group IT devices.  |
-|:::image type="icon" source="media/how-to-work-with-maps/layouts-icon-v2.png" border="false"::: | Layout options, including: <br />**Pin layout**. Drag devices in the map to a new location and use the Pin option to save those locations when you leave the map to use another option.  <br />**Layout by connection**. View connections between devices. <br />**Layout by Purdue**. View the devices in the map according to Enterprise, supervisory and process control layers. <br /> |
+|:::image type="icon" source="media/how-to-work-with-maps/layouts-icon-v2.png" border="false"::: | Layout options, including: <br />**Pin layout**. Drag devices on the map to a new location. Use the Pin option to save those locations when you leave the map to use another option.  <br />**Layout by connection**. View connections between devices. <br />**Layout by Purdue**. View the devices in the map according to Enterprise, supervisory and process control layers. <br /> |
 | :::image type="icon" source="media/how-to-work-with-maps/zoom-in-icon-v2.png" border="false"::: :::image type="icon" source="media/how-to-work-with-maps/zoom-out-icon-v2.png"  border="false"::: | Zoom in or out of the map. |
 
 
 ### Map zoom views
 
-Working with map views help expedite forensics when analyzing large networks.
+Working with map views helps expedite forensics when analyzing large networks.
 
 Three device detail views can be displayed:
 
@@ -139,7 +139,7 @@ Overall connections are displayed.
 
 By default, IT devices are automatically aggregated by subnet, so that the map view is focused on OT and ICS networks. The presentation of the IT network elements is collapsed to a minimum, which reduces the total number of the devices presented on the map and provides a clear picture of the OT and ICS network elements.
 
-Each subnet is presented as a single entity on the Device map. Options are available to expand subnets to see details; and collapse subnets or hide them.
+Each subnet is presented as a single entity on the Device map. Options are available to expand subnets to see details, collapse subnets or hide them.
 
 **To expand an IT subnet:**
 1. Right-click the icon on the map that represents the IT network and select **Expand Network**.
@@ -247,7 +247,7 @@ This section describes device details.
 | Operating System | The device OS detected by the sensor. |
 | Location | The Purdue layer identified by the sensor for this device, including: <br /> - Automatic <br /> - Process Control <br /> - Supervisory <br /> - Enterprise |
 | Description | A free text field. <br /> Add more information about the device. |
-| Attributes | Additional information  was discovered on the device. For example, view the PLC Run and Key state, the secure status of the PLC, or information on when the state changed.  <br /> The information is read only and cannot be updated from the Attributes section. |
+| Attributes | Additional information  was discovered on the device. For example, view the PLC Run and Key state, the secure status of the PLC, or information on when the state changed.  <br /> The information is read only and can't be updated from the Attributes section. |
 | Scanner or Programming device | **Scanner**: Enable this option if you know that this device is known as a scanner and there's no need to alert you about it. <br /> **Programming Device**: Enable this option if you know that this device is known as a programming device and is used to make programming changes. Identifying it as a programming device will prevent alerts for programming changes originating from this asset. |
 | Network Interfaces | The device interfaces. A RO field. |
 | Protocols | The protocols used by the device. A RO field. |
