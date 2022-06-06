@@ -14,30 +14,31 @@ ms.custom: references_regions
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-Azure managed disks currently offers four disk types, each intended to address a specific customer scenario:
+Azure managed disks currently offers five disk types, each intended to address a specific customer scenario:
 
 - Ultra disks
-- Premium SSDs (solid-state drives)
+- Premium SSD v2 (solid-state drives)
+- Premium SSDs
 - Standard SSDs
 - Standard HDDs (hard disk drives)
 
 ## Disk type comparison
 
-The following table provides a comparison of the four disk types to help you decide which to use.
+The following table provides a comparison of the five disk types to help you decide which to use.
 
-|         | Ultra disk | Premium SSD | Standard SSD | <nobr>Standard HDD</nobr> |
-| ------- | ---------- | ----------- | ------------ | ------------ |
-| **Disk type** | SSD | SSD | SSD | HDD |
-| **Scenario**  | IO-intensive workloads such as [SAP HANA](workloads/sap/hana-vm-operations-storage.md), top tier databases (for example, SQL, Oracle), and other transaction-heavy workloads. | Production and performance sensitive workloads | Web servers, lightly used enterprise applications and dev/test | Backup, non-critical, infrequent access |
-| **Max disk size** | 65,536 gibibyte (GiB) | 32,767 GiB | 32,767 GiB | 32,767 GiB |
-| **Max throughput** | 4,000 MB/s | 900 MB/s | 750 MB/s | 500 MB/s |
-| **Max IOPS** | 160,000 | 20,000 | 6,000 | 2,000 |
+|         | Ultra disk | Premium SSD v2 | Premium SSD | Standard SSD | <nobr>Standard HDD</nobr> |
+| ------- | ---------- | ----------- | ------------ | ------------ | ------------ |
+| **Disk type** | SSD | SSD |SSD | SSD | HDD |
+| **Scenario**  | IO-intensive workloads such as [SAP HANA](workloads/sap/hana-vm-operations-storage.md), top tier databases (for example, SQL, Oracle), and other transaction-heavy workloads. | Prem V2 text | Production and performance sensitive workloads | Web servers, lightly used enterprise applications and dev/test | Backup, non-critical, infrequent access |
+| **Max disk size** | 65,536 gibibyte (GiB) | 65,536 GiB |32,767 GiB | 32,767 GiB | 32,767 GiB |
+| **Max throughput** | 4,000 MB/s | 1,200 MB/s | 900 MB/s | 750 MB/s | 500 MB/s |
+| **Max IOPS** | 160,000 | 80,000 | 20,000 | 6,000 | 2,000 |
 
 ## Ultra disks
 
 Azure ultra disks are the highest-performing storage option for Azure virtual machines (VMs). You can change the performance parameters of an ultra disk without having to restart your VMs. Ultra disks are suited for data-intensive workloads such as SAP HANA, top-tier databases, and transaction-heavy workloads.
 
-Ultra disks must be used as data disks and can only be created as empty disks. Microsoft recommends using premium solid-state drives (SSDs) as operating system (OS) disks.
+Ultra disks must be used as data disks and can only be created as empty disks. We recommend using premium solid-state drives (SSDs) as operating system (OS) disks.
 
 ### Ultra disk size
 
@@ -86,6 +87,10 @@ It's possible for a performance resize operation to fail because of a lack of pe
 [!INCLUDE [managed-disks-ultra-disks-GA-scope-and-limitations](../../includes/managed-disks-ultra-disks-GA-scope-and-limitations.md)]
 
 If you would like to start using ultra disks, see the article on [using Azure ultra disks](disks-enable-ultra-ssd.md).
+
+## Premium SSD v2
+
+Azure premium SSD v2 is designed for performance-sensitive workloads that consistently require less than 1 ms average read and write latency, high IOPS, and throughput. The IOPS and throughput of a premium SSD v2 A few example workloads that premium SSD v2 is suitable for are SQL server, Oracle, Cassandra, and Mongo DB.
 
 ## Premium SSDs
 
