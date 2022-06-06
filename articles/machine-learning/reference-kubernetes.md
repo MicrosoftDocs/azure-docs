@@ -285,3 +285,23 @@ spec:
 ```
 > [!IMPORTANT]
 > Only the job pods in the same Kubernetes namespace with the PVC(s) will be mounted the volume. Data scientist is able to access the `mount path` specified in the PVC annotation in the job.
+
+
+## Sample YAML definition of Kubernetes secret for SSL
+
+To enable HTTPS endpoint for real-time inference, you need to provide both PEM-encoded SSL certificate and PEM-encoded SSL key. The best practice is to save the certificate and key in a Kubernetes secret in `azureml` namespace.
+
+The sample YAML definition of the SSl secret is as follows,
+
+```
+apiVersion: v1
+data:
+  cert.pem: <PEM-encoded SSL certificate> 
+  key.pem: <PEM-encoded SSL key>
+kind: Secret
+metadata:
+  name: <secret name>
+  namespace: azureml
+type: Opaque
+```
+
