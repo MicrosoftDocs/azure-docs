@@ -7,12 +7,12 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/22/2022
+ms.date: 05/25/2022
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
 ---
 
-# Deploy VMs on your Azure Stack Edge Pro GPU device via templates
+# Deploy VMs on your Azure Stack Edge Pro GPU device via templates 
 
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
@@ -307,18 +307,26 @@ The file `CreateImage.parameters.json` takes the following parameters:
         "imageUri": {
               "value": "<Path to the VHD that you uploaded in the Storage account>"
         },
+        "hyperVGeneration": { 
+              "type": "string", 
+              "value": "<Generation of the VM, V1 or V2> 
+        }, 
     }
 ```
 
 Edit the file `CreateImage.parameters.json` to include the following values for your Azure Stack Edge Pro device:
 
-1. Provide the OS type corresponding to the VHD you'll upload. The OS type can be Windows or Linux.
+1. Provide the OS type and Hyper V Generation corresponding to the VHD you'll upload. The OS type can be Windows or Linux and the VM Generation can be V1 or V2.
 
     ```json
     "parameters": {
             "osType": {
               "value": "Windows"
-            },
+            }, 
+            "hyperVGeneration": { 
+              "value": "V2" 
+        },
+    }
     ```
 
 2. Change the image URI to the URI of the image you uploaded in the earlier step:
@@ -343,12 +351,15 @@ Edit the file `CreateImage.parameters.json` to include the following values for 
         "osType": {
           "value": "Linux"
         },
+        "hyperVGeneration": {
+         "value": "V1"
+        },
         "imageName": {
           "value": "myaselinuximg"
         },
         "imageUri": {
           "value": "https://sa2.blob.myasegpuvm.wdshcsso.com/con1/ubuntu18.04waagent.vhd"
-        }
+        }        
       }
     }
     ```
