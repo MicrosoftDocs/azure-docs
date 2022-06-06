@@ -309,9 +309,9 @@ ml_client.jobs.stream(returned_job.name)
 
 See the following sample YAML files for each NLP task.
 
-* [Multi-class text classification](https://github.com/Azure/azureml-examples/blob/april-sdk-preview/cli/jobs/automl-standalone-jobs/cli-automl-text-classification-newsgroup/cli-automl-text-classification-newsgroup.yml)
-* [Multi-label text classification](https://github.com/Azure/azureml-examples/blob/april-sdk-preview/cli/jobs/automl-standalone-jobs/cli-automl-text-classification-multilabel-paper-cat/cli-automl-text-classification-multilabel-paper-cat.yml)
-* [Named entity recognition](https://github.com/Azure/azureml-examples/blob/april-sdk-preview/cli/jobs/automl-standalone-jobs/cli-automl-text-ner-conll/cli-automl-text-ner-conll2003.yml)
+* [Multi-class text classification](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/automl-standalone-jobs/cli-automl-text-classification-newsgroup/cli-automl-text-classification-newsgroup.yml)
+* [Multi-label text classification](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/automl-standalone-jobs/cli-automl-text-classification-multilabel-paper-cat/cli-automl-text-classification-multilabel-paper-cat.yml)
+* [Named entity recognition](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/automl-standalone-jobs/cli-automl-text-ner-conll/cli-automl-text-ner-conll2003.yml)
 
 # [Python SDK v2 (preview)](#tab/SDK-v2)
 
@@ -319,10 +319,10 @@ See the following sample YAML files for each NLP task.
 
 See the sample notebooks for detailed code examples for each NLP task. 
 
-* [Multi-class text classification](https://github.com/Azure/azureml-examples/blob/april-sdk-preview/sdk/jobs/automl-standalone-jobs/automl-nlp-text-classification-multiclass-task-sentiment-analysis/automl-nlp-text-classification-multiclass-task-sentiment.ipynb)
+* [Multi-class text classification](https://github.com/Azure/azureml-examples/blob/main/sdk/jobs/automl-standalone-jobs/automl-nlp-text-classification-multiclass-task-sentiment-analysis/automl-nlp-text-classification-multiclass-task-sentiment.ipynb)
 * [Multi-label text classification](
-https://github.com/Azure/azureml-examples/blob/april-sdk-preview/sdk/jobs/automl-standalone-jobs/automl-nlp-text-classification-multilabel-task-paper-categorization/automl-nlp-text-classification-multilabel-task-paper-cat.ipynb)
-* [Named entity recognition](https://github.com/Azure/azureml-examples/blob/april-sdk-preview/sdk/jobs/automl-standalone-jobs/automl-nlp-text-named-entity-recognition-task/automl-nlp-text-ner-task.ipynb)
+https://github.com/Azure/azureml-examples/blob/main/sdk/jobs/automl-standalone-jobs/automl-nlp-text-classification-multilabel-task-paper-categorization/automl-nlp-text-classification-multilabel-task-paper-cat.ipynb)
+* [Named entity recognition](https://github.com/Azure/azureml-examples/blob/main/sdk/jobs/automl-standalone-jobs/automl-nlp-text-named-entity-recognition-task/automl-nlp-text-ner-task.ipynb)
 
 ---
 

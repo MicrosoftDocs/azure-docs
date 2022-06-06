@@ -68,8 +68,8 @@ items:
           href: custom-speech-overview.md
         - name: Create a Custom Speech model 
           items:
-          - name: Choose a model
-            href: how-to-custom-speech-choose-model.md
+          - name: Create a project
+            href: how-to-custom-speech-create-project.md
           - name: Upload training and testing datasets
             href: how-to-custom-speech-upload-data.md
           - name: Test recognition quality
