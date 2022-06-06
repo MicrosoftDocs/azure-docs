@@ -7,7 +7,10 @@ ms.service: industrial-iot
 ms.topic: overview
 ms.date: 11/10/2021
 ---
-# Azure Industrial IoT Platform Release 2.8.1
+# Azure Industrial IoT Platform Release 2.8.2
+We are pleased to announce the release of version 2.8.2 of our Industrial IoT Platform components as a second patch update of the 2.8 Long-Term Support (LTS) release. This release contains important backward compatibility fixes including Direct Methods API support with version 2.5.x, performance optimizations as well as security updates and bugfixes.
+
+## Azure Industrial IoT Platform Release 2.8.1
 We are pleased to announce the release of version 2.8.1 of our Industrial IoT Platform components. This is the first patch update of the 2.8 Long-Term Support (LTS) release. It contains important security updates, bug fixes, and performance optimizations.
 
 ## Azure Industrial IoT Platform Release 2.8
@@ -22,6 +25,7 @@ We are pleased to announce the declaration of Long-Term Support (LTS) for versio
 |[2.7.206](https://github.com/Azure/Industrial-IoT/tree/release/2.7.206)      |Stable                 |January 2021 |Configuration through REST API (orchestrated mode), supports Samples telemetry format as well as PubSub - [Release notes](https://github.com/Azure/Industrial-IoT/releases/tag/2.7.206)|
 |[2.8](https://github.com/Azure/Industrial-IoT/tree/2.8.0)        |Long-term support (LTS)|July 2021    |IoT Edge update to 1.1 LTS, OPC stack logging and tracing for better OPC Publisher diagnostics, Security fixes - [Release notes](https://github.com/Azure/Industrial-IoT/releases/tag/2.8.0)|
 |[2.8.1](https://github.com/Azure/Industrial-IoT/tree/2.8.1)        |Patch release for LTS 2.8|November 2021    |Critical bug fixes, security updates, performance optimizations for LTS v2.8|
+|[2.8.2](https://github.com/Azure/Industrial-IoT/tree/2.8.2)        |Patch release for LTS 2.8|March 2022    |Backwards compatibility with 2.5.x, bug fixes, security updates, performance optimizations for LTS v2.8|
 
 ## Next steps
 

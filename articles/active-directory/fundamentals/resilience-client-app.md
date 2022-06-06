@@ -1,6 +1,5 @@
 ---
 title: Increase the resilience of authentication and authorization in client applications you develop
-titleSuffix: Microsoft identity platform
 description: Guidance for increasing resiliency of authentication and authorization in client application using the Microsoft identity platform 
 services: active-directory 
 ms.service: active-directory
@@ -40,7 +39,7 @@ catch(MsalUiRequiredException ex)
 }
 ```
 
-## [Javascript](#tab/javascript)
+## [JavaScript](#tab/javascript)
 
 ```javascript
 return myMSALObj.acquireTokenSilent(request).catch(error => {

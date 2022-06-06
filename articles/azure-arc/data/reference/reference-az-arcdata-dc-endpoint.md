@@ -12,18 +12,21 @@ ms.subservice: azure-arc-data
 ---
 
 # az arcdata dc endpoint
+
+Endpoint commands.
+
 ## Commands
 | Command | Description|
 | --- | --- |
 [az arcdata dc endpoint list](#az-arcdata-dc-endpoint-list) | List the data controller endpoint.
 ## az arcdata dc endpoint list
 List the data controller endpoint.
-```bash
+```azurecli
 az arcdata dc endpoint list 
 ```
 ### Examples
 Lists all available data controller endpoints.
-```bash
+```azurecli
 az arcdata dc endpoint list --k8s-namespace namespace
 ```
 ### Global Arguments

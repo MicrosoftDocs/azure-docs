@@ -30,7 +30,7 @@ Before you begin, have the following prerequisites in place:
 
 + An active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 
-+ Azure Cognitive Search. [Create a service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial. 
++ Azure Cognitive Search. [Create a service](search-create-service-portal.md) or [find an existing service](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial. 
 
 + Azure Storage account with [Blob storage](../storage/blobs/index.yml), used for hosting sample data, and for persisting cached data created during a debug session.
 
@@ -47,7 +47,7 @@ This section creates the sample data set in Azure Blob Storage so that the index
 
 1. [Download sample data (clinical-trials-pdf-19)](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials/clinical-trials-pdf-19), consisting of 19 files.
 
-1. [Create an Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal) or [find an existing account](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
+1. [Create an Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal) or [find an existing account](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
 
    + Choose the same region as Azure Cognitive Search to avoid bandwidth charges.
 
@@ -103,7 +103,7 @@ You will need the [Postman collection](https://github.com/Azure-Samples/azure-se
 
 ## Check results in the portal
 
-The sample code intentionally creates a buggy index as a consequence of problems that occurred during skillset execution. The problem in the index is missing data. 
+The sample code intentionally creates a buggy index as a consequence of problems that occurred during skillset execution. The problem is that the index is missing data. 
 
 1. In Azure portal, on the search service **Overview** page, select the **Indexes** tab. 
 
@@ -113,7 +113,7 @@ The sample code intentionally creates a buggy index as a consequence of problems
 
 1. Select **Search** to run the query. You should see empty values for "organizations" and "locations".
 
-These fields should have been populated through the skillset's [Entity Recognition skill](cognitive-search-skill-entity-recognition-v3.md), used to detect organizations and locations anywhere within the blob's content. In the next exercise, you'll use debug the skillset to determine what went wrong.
+These fields should have been populated through the skillset's [Entity Recognition skill](cognitive-search-skill-entity-recognition-v3.md), used to detect organizations and locations anywhere within the blob's content. In the next exercise, you'll debug the skillset to determine what went wrong.
 
 Another way to investigate errors and warnings is through the Azure portal.
 

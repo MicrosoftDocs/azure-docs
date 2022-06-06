@@ -54,7 +54,7 @@ You can use the Azure portal to [create a Front Door](quickstart-create-front-do
 
     :::image type="content" source="./media/front-door-url-redirect/front-door-designer-routing-rule.png" alt-text="Front Door configuration designer routing rule":::
 
-1. Under the *Route Details* section, set the *Route Type* to **Redirect**. Ensure that the *Redirect type* get set to **Found (302)** and *Redirect protocol* get set to **HTTPS only**. 
+1. Under the *Route Details* section, set the *Route Type* to **Redirect**. Set the *Redirect type* to **Moved (301)** and *Redirect protocol* get set to **HTTPS only**. 
 
     :::image type="content" source="./media/front-door-url-redirect/front-door-redirect-config-example.png" alt-text="Add an HTTP to HTTPS redirect route":::
 
@@ -71,6 +71,9 @@ You can use the Azure portal to [create a Front Door](quickstart-create-front-do
 1. Select **Add** to save the routing rule for request forwarding.
 
 1. Select **Review + create** and then **Create**, to create your Front Door profile. Go to the resource once created.
+
+    > [!NOTE]
+    > The creation of this redirect rule will incur a small charge.
 
 ## Next steps
 

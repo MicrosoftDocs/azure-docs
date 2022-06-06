@@ -1,7 +1,6 @@
 ---
 title: 'Quickstart: Create a workload classifier - T-SQL'
 description: Use T-SQL to create a workload classifier with high importance.
-services: synapse-analytics
 author: ronortloff
 manager: craigg
 ms.service: synapse-analytics

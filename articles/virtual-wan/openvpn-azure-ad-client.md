@@ -1,12 +1,12 @@
 ---
 title: 'VPN Gateway: VPN client for OpenVPN protocol P2S connections: Azure AD authentication'
 description: Learn how to use P2S VPN to connect to your VNet using Azure AD authentication.
-services: vpn-gateway
+services: virtual-wan
 author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 04/26/2021
+ms.date: 03/24/2022
 ms.author: cherylmc
 
 ---
@@ -22,15 +22,9 @@ This article helps you configure a VPN client to connect to a virtual network us
 
 For every computer that wants to connect to the VNet via the VPN client, you need to download the Azure VPN Client for the computer, and also configure a VPN client profile. If you want to configure multiple computers, you can create a client profile on one computer, export it, and then import it to other computers.
 
-### To download the Azure VPN Client
+### To download the Azure VPN client
 
-1. Download the [Azure VPN Client](https://go.microsoft.com/fwlink/?linkid=2117554) to the computer.
-1. Verify that the Azure VPN Client has permission to run in the background. To check and enable permissions, navigate to **Start -> Settings -> Privacy -> Background Apps**.
-
-   * Under **Background Apps**, make sure **Let apps run in the background** is turned **On**.
-   * Under **Choose which apps can run in the background**, turn settings for **Azure VPN Client** to **On**.
-
-     ![Screenshot showing background apps.](./media/openvpn-azure-ad-client/backgroundpermission.png)
+[!INCLUDE [Download Azure VPN client](../../includes/vpn-gateway-download-vpn-client.md)]
 
 ### <a name="cert"></a>To create a certificate-based client profile
 

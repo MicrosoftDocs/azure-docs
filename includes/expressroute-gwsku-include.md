@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: expressroute
  ms.topic: include
- ms.date: 03/22/2018
+ ms.date: 01/25/2022
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -16,3 +16,6 @@ ExpressRoute virtual network gateways can use the following SKUs:
 * Standard
 * HighPerformance
 * UltraPerformance
+* ErGw1Az
+* ErGw2Az
+* ErGw3Az

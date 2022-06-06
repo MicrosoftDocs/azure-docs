@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 06/22/2021
+ms.date: 02/01/2022
 ---
 
 # Start translation
@@ -67,8 +67,8 @@ Source of the input documents.
 |--- |--- |--- |--- |
 |filter|DocumentFilter[]|False|DocumentFilter[] listed below.|
 |filter.prefix|string|False|A case-sensitive prefix string to filter documents in the source path for translation. For example, when using an Azure storage blob Uri, use the prefix to restrict sub folders for translation.|
-|filter.suffix|string|False|A case-sensitive suffix string to filter documents in the source path for translation. This is most often use for file extensions.|
-|language|string|False|Language code If none is specified, we will perform auto detect on the document.|
+|filter.suffix|string|False|A case-sensitive suffix string to filter documents in the source path for translation. It's most often use for file extensions.|
+|language|string|False|Language code If none is specified, we'll perform auto detect on the document.|
 |sourceUrl|string|True|Location of the folder / container or single file with your documents.|
 |storageSource|StorageSource|False|StorageSource listed below.|
 |storageSource.AzureBlob|string|False||
@@ -91,7 +91,7 @@ Destination for the finished translated documents.
 |category|string|False|Category / custom system for translation request.|
 |glossaries|Glossary[]|False|Glossary listed below. List of Glossary.|
 |glossaries.format|string|False|Format.|
-|glossaries.glossaryUrl|string|True (if using glossaries)|Location of the glossary. We will use the file extension to extract the formatting if the format parameter isn't supplied. If the translation language pair isn't present in the glossary, it won't be applied.|
+|glossaries.glossaryUrl|string|True (if using glossaries)|Location of the glossary. We'll use the file extension to extract the formatting if the format parameter isn't supplied. If the translation language pair isn't present in the glossary, it won't be applied.|
 |glossaries.storageSource|StorageSource|False|StorageSource listed above.|
 |glossaries.version|string|False|Optional Version. If not specified, default is used.|
 |targetUrl|string|True|Location of the folder / container with your documents.|
@@ -101,6 +101,9 @@ Destination for the finished translated documents.
 ## Example request
 
 The following are examples of batch requests.
+
+> [!NOTE]
+> In the following examples, limited access has been granted to the contents of an Azure Storage container [using a shared access signature(SAS)](../../../../storage/common/storage-sas-overview.md) token.
 
 **Translating all documents in a container**
 
@@ -123,8 +126,6 @@ The following are examples of batch requests.
 ```
 
 **Translating all documents in a container applying glossaries**
-
-Ensure you have created glossary URL & SAS token for the specific blob/document (not for the container)
 
 ```json
 {
@@ -154,7 +155,7 @@ Ensure you have created glossary URL & SAS token for the specific blob/document 
 
 **Translating specific folder in a container**
 
-Ensure you have specified the folder name (case sensitive) as prefix in filter – though the SAS token is still for the container.
+Make sure you've specified the folder name (case sensitive) as prefix in filter.
 
 ```json
 {
@@ -179,10 +180,11 @@ Ensure you have specified the folder name (case sensitive) as prefix in filter �
 
 **Translating specific document in a container**
 
-* Ensure you have specified "storageType": "File"
-* Ensure you have created source URL & SAS token for the specific blob/document (not for the container)
-* Ensure you have specified the target filename as part of the target URL – though the SAS token is still for the container.
-* Sample request below shows a single document getting translated into two target languages
+* Specify "storageType": "File"
+* Create source URL & SAS token for the specific blob/document.
+* Specify the target filename as part of the target URL – though the SAS token is still for the container.
+
+The sample request below shows a single document translated into two target languages
 
 ```json
 {
@@ -215,10 +217,10 @@ The following are the possible HTTP status codes that a request returns.
 |--- |--- |
 |202|Accepted. Successful request and the batch request are created by the service. The header Operation-Location will indicate a status url with the operation ID.HeadersOperation-Location: string|
 |400|Bad Request. Invalid request. Check input parameters.|
-|401|Unauthorized. Please check your credentials.|
+|401|Unauthorized. Check your credentials.|
 |429|Request rate is too high.|
 |500|Internal Server Error.|
-|503|Service is currently unavailable.  Please try again later.|
+|503|Service is currently unavailable.  Try again later.|
 |Other Status Codes|<ul><li>Too many requests</li><li>Server temporary unavailable</li></ul>|
 
 ## Error response
@@ -227,10 +229,10 @@ The following are the possible HTTP status codes that a request returns.
 |--- |--- |--- |
 |code|string|Enums containing high-level error codes. Possible values:<br/><ul><li>InternalServerError</li><li>InvalidArgument</li><li>InvalidRequest</li><li>RequestRateTooHigh</li><li>ResourceNotFound</li><li>ServiceUnavailable</li><li>Unauthorized</li></ul>|
 |message|string|Gets high-level error message.|
-|innerError|InnerTranslationError|New Inner Error format which conforms to Cognitive Services API Guidelines. This contains required properties ErrorCode, message and optional properties target, details(key value pair), inner error(this can be nested).|
+|innerError|InnerTranslationError|New Inner Error format that conforms to Cognitive Services API Guidelines. This contains required properties: ErrorCode, message and optional properties target, details(key value pair), and inner error(this can be nested).|
 |inner.Errorcode|string|Gets code error string.|
 |innerError.message|string|Gets high-level error message.|
-|innerError.target|string|Gets the source of the error. For example it would be "documents" or "document id" in case of invalid document.|
+|innerError.target|string|Gets the source of the error. For example it would be "documents" or "document ID" if the document is invalid.|
 
 ## Examples
 

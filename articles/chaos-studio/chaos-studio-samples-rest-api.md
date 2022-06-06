@@ -31,25 +31,25 @@ The Squall REST APIs can be used to start and stop experiments, query target sta
 
 #### Enumerate details about the Microsoft.Chaos Resource Provider
 
-```bash
+```azurecli
 az rest --method get --url "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Chaos?api-version={apiVersion}" --resource "https://management.azure.com"
 ```
 
 #### List all the operations of the Chaos Studio Resource Provider
 
-```bash
+```azurecli
 az rest --method get --url "https://management.azure.com/providers/Microsoft.Chaos/operations?api-version={apiVersion}" --resource "https://management.azure.com"
 ```
 
 #### List Chaos Provider Configurations
 
-```bash
+```azurecli
 az rest --method get --url "https://management.azure.com/subscriptions/{subscriptionId}/providers/microsoft.chaos/chaosProviderConfigurations/?api-version={apiVersion}" --resource "https://management.azure.com" --verbose 
 ```
 
 #### Create Chaos Provider Configuration
 
-```bash
+```azurecli
 az rest --method put --url "https://management.azure.com/subscriptions/{subscriptionId}/providers/microsoft.chaos/chaosProviderConfigurations/{chaosProviderType}?api-version={apiVersion}" --body @{providerSettings.json} --resource "https://management.azure.com"
 ```
 
@@ -57,7 +57,7 @@ az rest --method put --url "https://management.azure.com/subscriptions/{subscrip
 
 #### List All the Targets or Agents Under a Subscription
 
-```bash
+```azurecli
 az rest --method get --url "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Chaos/chaosTargets/?api-version={apiVersion}" --url-parameter "chaosProviderType={chaosProviderType}" --resource "https://management.azure.com"
 ```
 
@@ -65,61 +65,61 @@ az rest --method get --url "https://management.azure.com/subscriptions/{subscrip
 
 #### List all experiments in a resource group
 
-```bash
+```azurecli
 az rest --method get --url "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Chaos/chaosExperiments?api-version={apiVersion}" --resource "https://management.azure.com"
 ```
 
 #### Get an experiment configuration details by name
 
-```bash
+```azurecli
 az rest --method get --url "https://management.azure.com/{experimentId}?api-version={apiVersion}" --resource "https://management.azure.com"
 ```
 
 #### Create or update an experiment
 
-```bash
+```azurecli
 az rest --method put --url "https://management.azure.com/{experimentId}?api-version={apiVersion}" --body @{experimentName.json} --resource "https://management.azure.com"
 ```
 
 #### Delete an experiment
 
-```bash
+```azurecli
 az rest --method delete --url "https://management.azure.com/{experimentId}?api-version={apiVersion}" --resource "https://management.azure.com" --verbose
 ```
 
 #### Start an experiment
 
-```bash
+```azurecli
 az rest --method get --url "https://management.azure.com/{experimentId}/start?api-version={apiVersion}" --resource "https://management.azure.com"
 ```
 
 #### Get statuses (History) of an experiment
 
-```bash
+```azurecli
 az rest --method get --url "https://management.azure.com/{experimentId}/statuses?api-version={apiVersion}" --resource "https://management.azure.com"
 ```
 
 #### Get status of an experiment
 
-```bash
+```azurecli
 az rest --method get --url "https://management.azure.com/{experimentId}/status?api-version={apiVersion}" --resource "https://management.azure.com"
 ```
 
 #### Cancel (Stop) an experiment
 
-```bash
+```azurecli
 az rest --method get --url "https://management.azure.com/{experimentId}/cancel?api-version={apiVersion}" --resource "https://management.azure.com"
 ```
 
 #### List the details of the last two experiment executions
 
-```bash
+```azurecli
 az rest --method get --url "https://management.azure.com/{experimentId}/executiondetails?api-version={apiVersion}" --resource "https://management.azure.com"
 ```
 
 #### List the details of a specific experiment execution
 
-```bash
+```azurecli
 az rest --method get --url "https://management.azure.com/{experimentId}/executiondetails/{executionDetailsId}?api-version={apiVersion}" --resource "https://management.azure.com"
 ```
 

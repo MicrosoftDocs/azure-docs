@@ -7,7 +7,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/25/2021
+ms.date: 04/30/2022
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
@@ -19,9 +19,9 @@ This article uses a sample JavaScript single-page application (SPA) to illustrat
 
 ## Overview
 
-OpenID Connect (OIDC) is an authentication protocol that's built on OAuth 2.0. You can use it to securely sign a user in to an application. This single-page application sample uses [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) and the OIDC PKCE flow. MSAL.js is a Microsoft provided library that simplifies adding authentication and authorization support to SPAs.
+OpenID Connect (OIDC) is an authentication protocol that's built on OAuth 2.0. You can use it to securely sign a user into an application. This SPA sample uses [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) and the OIDC PKCE flow. MSAL.js is a Microsoft provided library that simplifies adding authentication and authorization support to SPAs.
 
-### Sign-in flow
+### Sign in flow
 
 The sign-in flow involves the following steps:
 
@@ -47,7 +47,7 @@ The app architecture and registrations are illustrated in the following diagram:
 
 [!INCLUDE [active-directory-b2c-app-integration-call-api](../../includes/active-directory-b2c-app-integration-call-api.md)]
 
-### Sign-out flow
+### Sign out flow
 
 [!INCLUDE [active-directory-b2c-app-integration-sign-out-flow](../../includes/active-directory-b2c-app-integration-sign-out-flow.md)]
 
@@ -76,7 +76,7 @@ In this step, you create the SPA and the web API application registrations, and 
 
 ### Step 2.3: Register the SPA
 
-To create the SPA registration, do the following:
+To create the SPA registration, use the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
@@ -89,21 +89,23 @@ To create the SPA registration, do the following:
 1. Under **Permissions**, select the **Grant admin consent to openid and offline access permissions** checkbox.
 1. Select **Register**.
 
+
+Record the **Application (client) ID** to use later, when you configure the web application.
+
+![Screenshot of the web app Overview page for recording your web application ID.](./media/configure-authentication-sample-web-app/get-azure-ad-b2c-app-id.png)
+
+
 ### Step 2.4: Enable the implicit grant flow
 
-Next, enable the implicit grant flow:
+In your own environment, if your SPA app uses MSAL.js 1.3 or earlier and the implicit grant flow or you configure [https://jwt.ms/](https://jwt.ms/) app for testing a user flow or custom policy, you need to enable the implicit grant flow in the app registration:
 
-1. Under **Manage**, select **Authentication**.
+1. In the left menu, under **Manage**, select **Authentication**.
 
-1. Select **Try out the new experience** (if shown).
-
-1. Under **Implicit grant**, select the **ID tokens** checkbox.
+1. Under **Implicit grant and hybrid flows**, select both the **Access tokens (used for implicit flows)** and **D tokens (used for implicit and hybrid flows)** check boxes.
 
 1. Select **Save**.
 
-   Record the **Application (client) ID** to use later, when you configure the web application.
-
-    ![Screenshot of the web app Overview page for recording your web application ID.](./media/configure-authentication-sample-web-app/get-azure-ad-b2c-app-id.png)  
+If your app uses MSAL.js 2.0 or later, don't enable implicit flow grant as MSAL.js 2.0+ supports the authorization code flow with PKCE. The SPA app in this article uses PKCE flow, and so you don't need to enable implicit grant flow.   
 
 ### Step 2.5: Grant permissions
 
@@ -111,7 +113,7 @@ Next, enable the implicit grant flow:
 
 ## Step 3: Get the SPA sample code
 
-This sample demonstrates how a single-page application can use Azure AD B2C for user sign-up and sign-in. Then the app acquires an access token and calls a protected web API. 
+This sample demonstrates how a single-page application can use Azure AD B2C for user sign-up and sign in. Then the app acquires an access token and calls a protected web API. 
 
 To get the SPA sample code, you can do either of the following: 
 
@@ -131,10 +133,10 @@ Now that you've obtained the SPA sample, update the code with your Azure AD B2C 
 |---------|---------|---------|
 |authConfig.js|clientId| The SPA ID from [step 2.3](#step-23-register-the-spa).|
 |policies.js| names| The user flows, or custom policy you created in [step 1](#step-1-configure-your-user-flow).|
-|policies.js|authorities|Your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name) (for example, `contoso.onmicrosoft.com`). Then, replace with the user flows, or custom policy you created in [step 1](#step-1-configure-your-user-flow) (for example, `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>`).|
-|policies.js|authorityDomain|Your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name) (for example, `contoso.onmicrosoft.com`).|
+|policies.js|authorities|Your Azure AD B2C user flows or custom policies authorities such as `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>`. Replace `your-sign-in-sign-up-policy` with user flow or custom policy you created in [step 1](#sign-in-flow)|
+|policies.js|authorityDomain|Your Azure AD B2C authority domain such as `<your-tenant-name>.b2clogin.com`.|
 |apiConfig.js|b2cScopes|The web API scopes you created in [step 2.2](#step-22-configure-scopes) (for example, `b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/tasks-api/tasks.read"]`).|
-|apiConfig.js|webApi|The URL of the web API, `http://localhost:5000/tasks`.|
+|apiConfig.js|webApi|The URL of the web API, `http://localhost:5000/hello`.|
 | | | |
 
 Your resulting code should look similar to following sample:
@@ -143,23 +145,49 @@ Your resulting code should look similar to following sample:
 
 ```javascript
 const msalConfig = {
-  auth: {
-    clientId: "<your-MyApp-application-ID>"
-    authority: b2cPolicies.authorities.signUpSignIn.authority,
-    knownAuthorities: [b2cPolicies.authorityDomain],
-  },
-  cache: {
-    cacheLocation: "localStorage",
-    storeAuthStateInCookie: true
-  }
+    auth: {
+      clientId: "<your-MyApp-application-ID>", // This is the ONLY mandatory field; everything else is optional.
+      authority: b2cPolicies.authorities.signUpSignIn.authority, // Choose sign-up/sign-in user-flow as your default.
+      knownAuthorities: [b2cPolicies.authorityDomain], // You must identify your tenant's domain as a known authority.
+      redirectUri: "http://localhost:6420", // You must register this URI on Azure Portal/App Registration. Defaults to "window.location.href".
+    },
+    cache: {
+      cacheLocation: "sessionStorage",  
+      storeAuthStateInCookie: false, 
+    },
+    system: {
+      loggerOptions: {
+        loggerCallback: (level, message, containsPii) => {
+          if (containsPii) {
+            return;
+          }
+          switch (level) {
+            case msal.LogLevel.Error:
+              console.error(message);
+              return;
+            case msal.LogLevel.Info:
+              console.info(message);
+              return;
+            case msal.LogLevel.Verbose:
+              console.debug(message);
+              return;
+            case msal.LogLevel.Warning:
+              console.warn(message);
+              return;
+          }
+        }
+      }
+    }
+  };
 };
 
 const loginRequest = {
-  scopes: ["openid", "profile"],
+  scopes: ["openid", ...apiConfig.b2cScopes],
 };
 
 const tokenRequest = {
-  scopes: apiConfig.b2cScopes
+  scopes: [...apiConfig.b2cScopes],  // e.g. ["https://fabrikamb2c.onmicrosoft.com/helloapi/demo.read"]
+  forceRefresh: false // Set this to "true" to skip a cached token and go to the server to get a new token
 };
 ```
 
@@ -192,7 +220,7 @@ const b2cPolicies = {
 ```javascript
 const apiConfig = {
   b2cScopes: ["https://your-tenant-name.onmicrosoft.com/tasks-api/tasks.read"],
-  webApi: "http://localhost:5000/tasks"
+  webApi: "http://localhost:5000/hello"
 };
 ```
 
@@ -294,7 +322,7 @@ You're now ready to test the single-page application's scoped access to the API.
 
     ![Screenshot of the SPA sample app displayed in the browser window.](./media/configure-authentication-sample-spa-app/sample-app-sign-in.png)
 
-1. Complete the sign-up or sign-in process. After you've logged in successfully, you should see the "User \<your username> logged in" message.
+1. Complete the sign-up or sign in process. After you've logged in successfully, you should see the "User \<your username> logged in" message.
 1. Select the **Call API** button. The SPA sends the access token in a request to the protected web API, which returns the display name of the logged-in user:
 
     ![Screenshot of the SPA in a browser window, showing the username JSON result that's returned by the API.](./media/configure-authentication-sample-spa-app/sample-app-result.png)

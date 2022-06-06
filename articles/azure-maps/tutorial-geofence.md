@@ -3,7 +3,7 @@ title: 'Tutorial: Create a geofence and track devices on a Microsoft Azure Map'
 description: Tutorial on how to set up a geofence. See how to track devices relative to the geofence by using the Azure Maps Spatial service
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 10/28/2021
+ms.date: 02/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -22,24 +22,43 @@ Azure Maps provides a number of services to support the tracking of equipment en
 
 > [!div class="checklist"]
 >
-> * Upload [Geofencing GeoJSON data](geofence-geojson.md) that defines the construction site areas you want to monitor. You'll use the [Data Upload API](/rest/api/maps/data-v2/upload-preview) to upload geofences as polygon coordinates to your Azure Maps account.
+> * Create an Azure Maps account with a global region.
+> * Upload [Geofencing GeoJSON data](geofence-geojson.md) that defines the construction site areas you want to monitor. You'll use the [Data Upload API](/rest/api/maps/data-v2/upload) to upload geofences as polygon coordinates to your Azure Maps account.
 > * Set up two [logic apps](../event-grid/handler-webhooks.md#logic-apps) that, when triggered, send email notifications to the construction site operations manager when equipment enters and exits the geofence area.
 > * Use [Azure Event Grid](../event-grid/overview.md) to subscribe to enter and exit events for your Azure Maps geofence. You set up two webhook event subscriptions that call the HTTP endpoints defined in your two logic apps. The logic apps then send the appropriate email notifications of equipment moving beyond or entering the geofence.
 > * Use [Search Geofence Get API](/rest/api/maps/spatial/getgeofence) to receive notifications when a piece of equipment exits and enters the geofence areas.
 
 ## Prerequisites
 
-1. [Create an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account).
-2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
+* This tutorial uses the [Postman](https://www.postman.com/) application, but you can use a different API development environment.
 
-This tutorial uses the [Postman](https://www.postman.com/) application, but you can use a different API development environment.
+## Create an Azure Maps account with a global region
+
+The Geofence API async event requires the region property of your Azure Maps account be set to ***Global***. This isn't given as an option when creating an Azure Maps account in the Azure portal, however you do have several other options for creating a new Azure Maps account with the *global* region setting. This section lists the three methods that can be used to create an Azure Maps account with the region set to *global*.
+
+> [!NOTE]
+> The `location` property in both the ARM template and PowerShell `New-AzMapsAccount` command refer to the same property as the `Region` field in the Azure portal.
+
+### Use an ARM template to create an Azure Maps account with a global region
+
+You will need to [Create your Azure Maps account using an ARM template](how-to-create-template.md), making sure to set `location` to `global` in the `resources` section of the ARM template.
+
+### Use PowerShell to create an Azure Maps account with a global region
+
+```powershell
+New-AzMapsAccount -ResourceGroupName your-Resource-Group -Name name-of-maps-account -SkuName g2 -Location global
+```
+
+### Use Azure CLI to create an Azure Maps account with a global region
+
+The Azure CLI command [az maps account create](/cli/azure/maps/account?view=azure-cli-latest#az-maps-account-create) doesn’t have a location property, but defaults to “global”, making it useful for creating an Azure Maps account with a global region setting for use with the Geofence API async event.
 
 ## Upload geofencing GeoJSON data
 
 In this tutorial, you''ll upload geofencing GeoJSON data that contains a `FeatureCollection`. The `FeatureCollection` contains two geofences that define polygonal areas within the construction site. The first geofence has no time expiration or restrictions. The second can only be queried against during business hours (9:00 AM-5:00 PM in the Pacific Time zone), and will no longer be valid after January 1, 2022. For more information on the GeoJSON format, see [Geofencing GeoJSON data](geofence-geojson.md).
 
 >[!TIP]
->You can update your geofencing data at any time. For more information, see [Data Upload API](/rest/api/maps/data-v2/upload-preview).
+>You can update your geofencing data at any time. For more information, see [Data Upload API](/rest/api/maps/data-v2/upload).
 
 To upload the geofencing GeoJSON data:
 

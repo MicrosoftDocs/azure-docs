@@ -109,6 +109,9 @@ You can create multiple versions of the device template. Over time, you'll have 
 
 1. Select the device template with the version you want to migrate the device to and select **Migrate**.
 
+> [!TIP]
+> You can use a job to migrate all the devices in a device group to a new device template at the same time.
+
 ## Next steps
 
 If you're an operator or solution builder, a suggested next step is to learn [how to manage your devices](./howto-manage-devices-individually.md).

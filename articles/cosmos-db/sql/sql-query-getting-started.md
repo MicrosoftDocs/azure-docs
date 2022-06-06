@@ -1,12 +1,13 @@
 ---
 title: Getting started with SQL queries in Azure Cosmos DB
 description: Learn how to use SQL queries to query data from Azure Cosmos DB. You can upload sample data to a container in Azure Cosmos DB and query it. 
-author: timsander1
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/26/2021
-ms.author: tisande
+ms.author: sidandrews
+ms.reviewer: jucocchi
 
 ---
 # Getting started with SQL queries
@@ -19,9 +20,9 @@ In Azure Cosmos DB SQL API accounts, there are two ways to read data:
 Here are some examples of how to do **Point reads** with each SDK:
 
 - [.NET SDK](/dotnet/api/microsoft.azure.cosmos.container.readitemasync)
-- [Java SDK](/java/api/com.azure.cosmos.cosmoscontainer.readitem#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
-- [Node.js SDK](/javascript/api/@azure/cosmos/item#read-requestoptions-)
-- [Python SDK](/python/api/azure-cosmos/azure.cosmos.containerproxy#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)
+- [Java SDK](/java/api/com.azure.cosmos.cosmoscontainer.readitem#com-azure-cosmos-cosmoscontainer-(t)readitem(java-lang-string-com-azure-cosmos-models-partitionkey-com-azure-cosmos-models-cosmositemrequestoptions-java-lang-class(t)))
+- [Node.js SDK](/javascript/api/@azure/cosmos/item#@azure-cosmos-item-read)
+- [Python SDK](/python/api/azure-cosmos/azure.cosmos.containerproxy#azure-cosmos-containerproxy-read-item)
 
 **SQL queries** - You can query data by writing queries using the Structured Query Language (SQL) as a JSON query language. Queries always cost at least 2.3 request units and, in general, will have a higher and more variable latency than point reads. Queries can return many items.
 

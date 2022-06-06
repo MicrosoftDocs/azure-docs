@@ -1,12 +1,12 @@
 ---
 title: include file
 description: include file
-author: robinsh
+author: kgremban
 ms.service: iot-hub
 services: iot-hub
 ms.topic: include
 ms.date: 11/02/2018
-ms.author: robinsh
+ms.author: kgremban
 ms.custom: include file
 ---
 <!-- this tells how to get the connection string for your hub -->

@@ -12,18 +12,22 @@ ms.subservice: azure-arc-data
 ---
 
 # az sql midb-arc
+
+Manage databases for Azure Arc-enabled SQL managed instances.
 ## Commands
 | Command | Description|
 | --- | --- |
 [az sql midb-arc restore](#az-sql-midb-arc-restore) | Restore a database to an Azure Arc enabled SQL managed instance.
 ## az sql midb-arc restore
+
 Restore a database to an Azure Arc enabled SQL managed instance.
-```bash
+
+```azurecli
 az sql midb-arc restore 
 ```
 ### Examples
 Ex 1 - Restore a database using Point in time restore.
-```bash
+```azurecli
 az sql midb-arc restore --managed-instance sqlmi1 --name mysourcedb
  --dest-name mynewdb --time "2021-10-20T05:34:22Z" --k8s-namespace
  arc --use-k8s --dry-run

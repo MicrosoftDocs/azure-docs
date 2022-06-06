@@ -45,4 +45,4 @@ To complete the move of the Object Anchors account, delete the source Object Anc
 In this tutorial, you moved an Object Anchors account from one region to another and cleaned up the source resources. To learn more about moving resources between regions and disaster recovery in Azure, refer to:
 
 > [!div class="nextstepaction"]
-> [Move resources to a new resource group or subscription](/azure/azure-resource-manager/management/move-resource-group-and-subscription)
+> [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md)

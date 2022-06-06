@@ -2,11 +2,11 @@
 title: Azure Application Gateway features
 description: Learn about Azure Application Gateway features
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 09/25/2020
-ms.author: victorh
+ms.date: 01/18/2022
+ms.author: greglin
 ---
 
 # Azure Application Gateway features
@@ -17,21 +17,6 @@ ms.author: victorh
 
 Application Gateway includes the following features:
 
-- [Secure Sockets Layer (SSL/TLS) termination](#secure-sockets-layer-ssltls-termination)
-- [Autoscaling](#autoscaling)
-- [Zone redundancy](#zone-redundancy)
-- [Static VIP](#static-vip)
-- [Web Application Firewall](#web-application-firewall)
-- [Ingress Controller for AKS](#ingress-controller-for-aks)
-- [URL-based routing](#url-based-routing)
-- [Multiple-site hosting](#multiple-site-hosting)
-- [Redirection](#redirection)
-- [Session affinity](#session-affinity)
-- [Websocket and HTTP/2 traffic](#websocket-and-http2-traffic)
-- [Connection draining](#connection-draining)
-- [Custom error pages](#custom-error-pages)
-- [Rewrite HTTP headers and URL](#rewrite-http-headers-and-url)
-- [Sizing](#sizing)
 
 ## Secure Sockets Layer (SSL/TLS) termination
 
@@ -43,7 +28,7 @@ For more information, see [Overview of SSL termination and end to end SSL with A
 
 Application Gateway Standard_v2 supports autoscaling and can scale up or down based on changing traffic load patterns. Autoscaling also removes the requirement to choose a deployment size or instance count during provisioning. 
 
-For more information about the Application Gateway Standard_v2 features, see [Autoscaling v2 SKU](application-gateway-autoscaling-zone-redundant.md).
+For more information about the Application Gateway Standard_v2 features, see [What is Azure Application Gateway v2?](overview-v2.md).
 
 ## Zone redundancy
 
@@ -161,7 +146,7 @@ The following table shows an average performance throughput for each application
 
 ## Version feature comparison
 
-For an Application Gateway v1-v2 feature comparison, see [Autoscaling and Zone-redundant Application Gateway v2](application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku)
+For an Application Gateway v1-v2 feature comparison, see [What is Azure Application Gateway v2?](overview-v2.md#feature-comparison-between-v1-sku-and-v2-sku).
 
 ## Next steps
 

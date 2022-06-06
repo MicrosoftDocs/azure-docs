@@ -13,7 +13,7 @@ The Log Analytics **Query API** is a REST API that lets you query the full set o
 ## Log Analytics API Authentication
 
 You must authenticate to access the Log Analytics API. 
-- To query your workspaces, you must use [Azure Active Directory authentication](https://azure.microsoft.com/documentation/articles/active-directory-whatis/).
+- To query your workspaces, you must use [Azure Active Directory authentication](../../../active-directory/fundamentals/active-directory-whatis.md).
 - To quickly explore the API without using Azure AD authentication, you can use an API key to query sample data in a non-production environment.
 
 ### Azure AD authentication for workspace data
@@ -30,6 +30,10 @@ After receiving a token, the process for calling the Log Analytics API is identi
 ### API key authentication for sample data
 
 To quickly explore the API without using Azure AD authentication, we provide a demonstration workspace with sample data, which allows [authenticating with an API key](authentication-authorization.md#authenticating-with-an-api-key).
+
+> [!NOTE]
+> When using Azure AD authentication, it may take up to 60 minutes for the Azure Application Insights REST API to recognize new 
+> role-based access control (RBAC) permissions. While permissions are propagating, REST API calls may fail with [error code 403](./errors.md#insufficient-permissions). 
 
 ## Log Analytics API Query Limits
 

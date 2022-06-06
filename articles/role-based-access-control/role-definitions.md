@@ -346,7 +346,7 @@ Built-in roles have `AssignableScopes` set to the root scope (`"/"`). The root s
 > | Two subscriptions | `"/subscriptions/{subscriptionId1}", "/subscriptions/{subscriptionId2}"` |
 > | Network resource group | `"/subscriptions/{subscriptionId1}/resourceGroups/Network"` |
 > | One management group | `"/providers/Microsoft.Management/managementGroups/{groupId1}"` |
-> | Management group and a subscription | `"/providers/Microsoft.Management/managementGroups/{groupId1}", /subscriptions/{subscriptionId1}",` |
+> | Management group and a subscription | `"/providers/Microsoft.Management/managementGroups/{groupId1}", "/subscriptions/{subscriptionId1}",` |
 > | All scopes (applies only to built-in roles) | `"/"` |
 
 For information about `AssignableScopes` for custom roles, see [Azure custom roles](custom-roles.md).

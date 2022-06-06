@@ -1,11 +1,11 @@
 ---
 title: Monitor Azure File Sync | Microsoft Docs
 description: Review how to monitor your Azure File Sync deployment by using Azure Monitor, Storage Sync Service, and Windows Server.
-author: roygara
+author: khdownie
 ms.service: storage
 ms.topic: how-to
 ms.date: 01/3/2022
-ms.author: rogarana
+ms.author: kendownie
 ms.subservice: files
 ---
 
@@ -66,6 +66,9 @@ Alerts proactively notify you when important conditions are found in your monito
 4. Click **Select action group** and add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
 5. Fill in the **Alert details** like **Alert rule name**, **Description** and **Severity**.
 6. Click **Create alert rule** to create the alert.  
+
+  > [!Note]  
+  > If you configure an alert using the Server Name dimension and the server is renamed, the alert will need to be updated to monitor the new server name.
 
 The following table lists some example scenarios to monitor and the proper metric to use for the alert:
 

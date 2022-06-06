@@ -1,8 +1,8 @@
 ---
 title: Columnar table storage - Hyperscale (Citus) - Azure Database for PostgreSQL
 description: Compressing data using columnar storage
-author: jonels-msft
 ms.author: jonels
+author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
@@ -192,7 +192,7 @@ storage](https://docs.citusdata.com/en/stable/use_cases/timeseries.html#archivin
 ## Limitations
 
 This feature still has significant limitations. See [Hyperscale
-(Citus) limits and limitations](concepts-limits.md#columnar-storage).
+(Citus) limits and limitations](reference-limits.md#columnar-storage).
 
 ## Next steps
 

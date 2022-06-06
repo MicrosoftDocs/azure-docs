@@ -5,7 +5,7 @@ author: runcai
 ms.author: runcai
 ms.reviewer: mimckitt
 ms.service: virtual-machines
-ms.subservice: vm-sizes-general
+ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 11/15/2021
 
@@ -46,6 +46,7 @@ This series supports Standard SSD, Standard HDD, and Premium SSD disk types. Bil
 - [Memory Preserving Updates](maintenance-and-updates.md)
 - [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md)
 - [Ephemeral OS Disks](ephemeral-os-disks.md)
+- [Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization)
 
 ### DCasv5-series products
 

@@ -4,7 +4,7 @@ description: This article describes how Azure Analysis Services uses Azure Activ
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 02/02/2022
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -21,13 +21,13 @@ Azure Analysis Services supports [Azure AD B2B collaboration](../active-director
 
 All client applications and tools use one or more of the Analysis Services [client libraries](/analysis-services/client-libraries?view=azure-analysis-services-current&preserve-view=true) (AMO, MSOLAP, ADOMD) to connect to a server. 
 
-All three client libraries support both Azure AD interactive flow, and non-interactive authentication methods. The two non-interactive methods, Active Directory Password and Active Directory Integrated Authentication methods can be used in applications utilizing AMOMD and MSOLAP. These two methods never result in pop-up dialog boxes.
+All three client libraries support both Azure AD interactive flow, and non-interactive authentication methods. The two non-interactive methods, Active Directory Password and Active Directory Integrated Authentication methods can be used in applications utilizing AMOMD and MSOLAP. These two methods never result in pop-up dialog boxes for sign in.
 
-Client applications like Excel and Power BI Desktop, and tools like SSMS and Analysis Services projects extension for Visual Studio install the latest versions of the libraries when updated to the latest release. Power BI Desktop, SSMS, and Analysis Services projects extension are updated monthly. Excel is [updated with Microsoft 365](https://support.microsoft.com/office/when-do-i-get-the-newest-features-for-microsoft-365-da36192c-58b9-4bc9-8d51-bb6eed468516). Microsoft 365 updates are less frequent, and some organizations use the deferred channel, meaning updates are deferred up to three months.
+Client applications like Excel and Power BI Desktop, and tools like SSMS and Analysis Services projects extension for Visual Studio install the latest versions of the client libraries with regular updates. Power BI Desktop, SSMS, and Analysis Services projects extension are updated monthly. Excel is [updated with Microsoft 365](https://support.microsoft.com/office/when-do-i-get-the-newest-features-for-microsoft-365-da36192c-58b9-4bc9-8d51-bb6eed468516). Microsoft 365 updates are less frequent, and some organizations use the deferred channel, meaning updates are deferred up to three months.
 
-Depending on the client application or tool you use, the type of authentication and how you sign in may be different. Each application may support different features for connecting to cloud services like Azure Analysis Services.
+Depending on the client application or tools you use, the type of authentication and how you sign in may be different. Each application may support different features for connecting to cloud services like Azure Analysis Services.
 
-Power BI Desktop, Visual Studio, and SSMS support Active Directory Universal Authentication, an interactive method that also supports Azure AD Multi-Factor Authentication (MFA). Azure AD MFA helps safeguard access to data and applications while providing a simple sign-in process. It delivers strong authentication with several verification options (phone call, text message, smart cards with pin, or mobile app notification). Interactive MFA with Azure AD can result in a pop-up dialog box for validation. **Universal Authentication is recommended**.
+Power BI Desktop, Visual Studio, and SSMS support Active Directory Universal Authentication, an interactive method that also supports Azure AD Multi-Factor Authentication (MFA). Azure AD MFA helps safeguard access to data and applications while providing a simple sign in process. It delivers strong authentication with several verification options (phone call, text message, smart cards with pin, or mobile app notification). Interactive MFA with Azure AD can result in a pop-up dialog box for validation. **Universal Authentication is recommended**.
 
 If signing in to Azure by using a Windows account, and Universal Authentication is not selected or available (Excel), [Active Directory Federation Services (AD FS)](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs) is required. With Federation, Azure AD and Microsoft 365 users are authenticated using on-premises credentials and can access Azure resources.
 
@@ -55,7 +55,7 @@ Excel users can connect to a server by using a Windows account, an organization 
 
 ## User permissions
 
-**Server administrators** are specific to an Azure Analysis Services server instance. They connect with tools like Azure portal, SSMS, and Visual Studio to perform tasks like adding databases and managing user roles. By default, the user that creates the server is automatically added as an Analysis Services server administrator. Other administrators can be added by using Azure portal or SSMS. Server administrators must have an account in the Azure AD tenant in the same subscription. To learn more, see [Manage server administrators](analysis-services-server-admins.md). 
+**Server administrators** are specific to an Azure Analysis Services server instance. They connect with tools like Azure portal, SSMS, and Visual Studio to perform tasks like configuring settings and managing user roles. By default, the user that creates the server is automatically added as an Analysis Services server administrator. Other administrators can be added by using Azure portal or SSMS. Server administrators must have an account in the Azure AD tenant in the same subscription. To learn more, see [Manage server administrators](analysis-services-server-admins.md). 
 
 **Database users** connect to model databases by using client applications like Excel or Power BI. Users must be added to database roles. Database roles define administrator, process, or read permissions for a database. It's important to understand database users in a role with administrator permissions is different than server administrators. However, by default, server administrators are also database administrators. To learn more, see [Manage database roles and users](analysis-services-database-users.md).
 

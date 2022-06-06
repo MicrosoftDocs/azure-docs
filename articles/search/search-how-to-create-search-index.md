@@ -9,64 +9,44 @@ ms.author: heidist
 
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 11/12/2021
+ms.date: 01/19/2022
 ---
 
-# Create a search index in Azure Cognitive Search
+# Create an index in Azure Cognitive Search
 
-Queries in Azure Cognitive Search target searchable text in a search index. In this article, learn the steps for defining and publishing a search index using any of the modalities supported by Azure Cognitive Search. 
+In Azure Cognitive Search, query requests target the searchable text in a [**search index**](search-what-is-an-index.md). 
 
-Unless you are using an [indexer](search-howto-create-indexers.md), creating an index and populating an index are two separate tasks. For non-indexer scenarios, your next step after index creation will be [data import](search-what-is-data-import.md). 
-
-To learn more about index-related concepts, see [Search indexes in Azure Cognitive Search](search-what-is-an-index.md).
+In this article, learn the steps for defining and publishing a search index. Once the index exists, [**data import**](search-what-is-data-import.md) follows as a separate task. 
 
 ## Prerequisites
 
-Write permissions are required for creating and loading indexes, granted through an [admin API key](search-security-api-keys.md) on the request. Alternatively, if you're participating in the Azure Active Directory [role-based access control public preview](search-security-rbac.md), you can issue your request as a member of the Search Contributor role.
++ Write permissions on the search service. Permission can be granted through an [admin API key](search-security-api-keys.md) on the request. Alternatively, if you're participating in the [role-based access control public preview](search-security-rbac.md), you can issue your request as a member of the Search Contributor role.
 
-Index creation is largely a schema definition exercise. Before creating one, you should have:
++ An external data source that provides the content to be indexed. You should refer to the data source to understand the schema requirements of your search index. Index creation is largely a schema definition exercise. Before creating one, you should have:
 
-+ A clear idea of which fields you want to make searchable, retrievable, filterable, facetable, and sortable in your index (more about this is discussed in [schema checklist](#schema-checklist)).
+  + A clear idea of which source fields you want to make searchable, retrievable, filterable, facetable, and sortable in the search index (see the [schema checklist](#schema-checklist) for guidance).
 
-+ A unique identifier in source data that can be used as the document key (or ID) in the index.
+  + A unique field in source data that can be used as the [document key (or ID)](#document-keys) in the index.
 
-+ A stable index location. Moving an existing index to a different search service is not supported out-of-the-box. Revisit application requirements and make sure the existing search service, its capacity and location, are sufficient for your needs.
++ A stable index location. Moving an existing index to a different search service is not supported out-of-the-box. Revisit application requirements and make sure that your existing search service, its capacity and location, are sufficient for your needs.
 
-Finally, all service tiers have [index limits](search-limits-quotas-capacity.md#index-limits) on the number of objects that you can create. For example, if you are experimenting on the Free tier, you can only have 3 indexes at any given time. Within the index itself, there are limits on the number of complex fields and collections.
++ Finally, all service tiers have [index limits](search-limits-quotas-capacity.md#index-limits) on the number of objects that you can create. For example, if you are experimenting on the Free tier, you can only have 3 indexes at any given time. Within the index itself, there are limits on the number of complex fields and collections.
 
-## Allowed updates
+## Document keys
 
-[**Create Index**](/rest/api/searchservice/create-index) is an operation that creates the physical data structures (files and inverted indices) on your search service. Once the index is created, your ability to effect changes using [**Update Index**](/rest/api/searchservice/update-index) is contingent upon whether your modifications invalidate those physical structures. Most field attributes can't be changed once the field is created in your index.
+A search index has one required field: a document key. A document key is the unique identifier of a search document. In Azure Cognitive Search, it must be a string, and it must originate from unique values in the data source that's providing the content to be indexed. A search service does not generate key values, but in some scenarios (such as the [Azure Table indexer](search-howto-indexing-azure-tables.md)) it will synthesize existing values to create a unique key for the documents being indexed.
 
-To minimize churn in the design process, the following table describes which elements are fixed and flexible in the schema. Changing a fixed element requires an index rebuild, whereas flexible elements can be changed at any time without impacting the physical implementation. 
-
-| Element | Can be updated? |
-|---------|-----------------|
-| Name | No |
-| Key | No |
-| Field names and types | No |
-| Field attributes (searchable, filterable, facetable, sortable) | No |
-| Field attribute (retrievable) | Yes |
-| [Analyzer](search-analyzers.md) | You can add and modify custom analyzers in the index. Regarding analyzer assignments on string fields, you can only modify "searchAnalyzer". All other assignments and modifications require a rebuild. |
-| [Scoring profiles](index-add-scoring-profiles.md) | Yes |
-| [Suggesters](index-add-suggesters.md) | No |
-| [cross-origin remote scripting (CORS)](#corsoptions) | Yes |
-| [Encryption](search-security-manage-encryption-keys.md) | Yes |
-
-> [!NOTE]
-> [Synonym maps](search-synonyms.md) are not part of an index definition. Modifications to a synonym map have no impact on the physical search index.
+During incremental indexing, where just new and updated content is indexed, incoming documents with new keys are added, while incoming documents with existing keys are either merged or overwritten, depending on whether index fields are null or populated.
 
 ## Schema checklist
 
-Use this checklist to help drive the design decisions for your search index.
+Use this checklist to assist the design decisions for your search index.
 
 1. Review [naming conventions](/rest/api/searchservice/naming-rules) so that index and field names conform to the naming rules.
 
 1. Review [supported data types](/rest/api/searchservice/supported-data-types). The data type will impact how the field is used. For example, numeric content is filterable but not full text searchable. The most common data type is `Edm.String` for searchable text, which is tokenized and queried using the full text search engine.
 
-1. Identify one field in the source data that contains unique values, allowing it to function as the key field in your index. For example, if you're indexing from Blob Storage, the storage path is often used as the document key. 
-
-   Every index requires one field that serves as the *document key* (sometimes referred to as the "document ID"). The key will be a string in the search index, but you can map it to any unique identifier in your source data. The ability to uniquely identify specific search documents is required for reconstituting a record or entity in a search result, for retrieving a specific document in the search index, and for selective data processing at the per-document level.
+1. Identify one string field in the source data that contains unique values, allowing it to function as the [document key](#document-keys) in your index. For example, if you're indexing from Blob Storage, the metadata storage path is often used as the document key. 
 
 1. Identify the fields in your data source that will contribute searchable content in the index. Searchable content includes short or long strings that are queried using the full text search engine. If the content is verbose (small phrases or bigger chunks), experiment with different analyzers to see how the text is tokenized.
 
@@ -78,22 +58,26 @@ Use this checklist to help drive the design decisions for your search index.
 
    + Filterable fields are returned in arbitrary order, so consider making them sortable as well.
 
-## Formulate a request
+## Create an index
 
-When you're ready to create the index, there are several ways to move forward. We recommend the Azure portal or REST APIs for early development and proof-of-concept testing.
+When you're ready to create the index, use a search client that can send the request. You can use the Azure portal or REST APIs for early development and proof-of-concept testing.
 
 During development, plan on frequent rebuilds. Because physical structures are created in the service, [dropping and re-creating indexes](search-howto-reindex.md) is necessary for many modifications. You might consider working with a subset of your data to make rebuilds go faster.
 
-### [**Azure portal**](#tab/index-portal)
+### [**Azure portal**](#tab/portal)
 
-Index design through the portal enforces requirements and schema rules for specific data types, such as disallowing full text search capabilities on numeric fields. In the portal, there are two options for creating a search index: 
+Index design through the portal enforces requirements and schema rules for specific data types, such as disallowing full text search capabilities on numeric fields. 
 
-+ **Add index** is an embedded editor for specifying an index schema
-+ [**Import data**](search-import-data-portal.md) is a wizard
+1. [Sign in to Azure portal](https://portal.azure.com).
 
-The wizard packs in additional operations by also creating an indexer, data source, and loading data. If this is more than what you want, you should just use **Add index** or another approach.
+1. In the search service Overview page, choose either option for creating a search index: 
 
-The following screenshot shows where you can find **Add index** and **Import data** on the command bar. After an index is created, you can find it again in the **Indexes** tab.
+   + **Add index**, an embedded editor for specifying an index schema
+   + [**Import data wizard**](search-import-data-portal.md)
+
+   The wizard is an end-to-end workflow that creates an indexer, a data source, and a finished index. It also loads the data. If this is more than what you want, use **Add index** instead.
+
+The following screenshot highlights where **Add index** and **Import data** appear on the command bar. After an index is created, you can find it again in the **Indexes** tab.
 
   :::image type="content" source="media/search-what-is-an-index/add-index.png" alt-text="Add index command" border="true":::
 
@@ -107,7 +91,7 @@ The following screenshot shows where you can find **Add index** and **Import dat
 + [Create a search index using REST and Postman](search-get-started-rest.md)
 + [Get started with Visual Studio Code and Azure Cognitive Search](search-get-started-vs-code.md)
 
-The REST API provides defaults for field attribution. For example, all Edm.String fields are searchable by default. Attributes are shown in full below for illustrative purposes, but you can omit attribution in cases where the default values apply.
+The REST API provides defaults for field attribution. For example, all `Edm.String` fields are searchable by default. Attributes are shown in full below for illustrative purposes, but you can omit attribution in cases where the default values apply.
 
 Refer to the [Index operations (REST)](/rest/api/searchservice/index-operations) for help with formulating index requests.
 
@@ -203,10 +187,31 @@ The following properties can be set for CORS:
 
 + **maxAgeInSeconds** (optional): Browsers use this value to determine the duration (in seconds) to cache CORS preflight responses. This must be a non-negative integer. The larger this value is, the better performance will be, but the longer it will take for CORS policy changes to take effect. If it is not set, a default duration of 5 minutes will be used.
 
+## Allowed updates on existing indexes
+
+[**Create Index**](/rest/api/searchservice/create-index) creates the physical data structures (files and inverted indices) on your search service. Once the index is created, your ability to effect changes using [**Update Index**](/rest/api/searchservice/update-index) is contingent upon whether your modifications invalidate those physical structures. Most field attributes can't be changed once the field is created in your index.
+
+Alternatively, you can [create an index alias](search-how-to-alias.md) that serves as a stable reference in your application code. Instead of updating your code, you can update an index alias to point to newer index versions.
+
+To minimize churn in the design process, the following table describes which elements are fixed and flexible in the schema. Changing a fixed element requires an index rebuild, whereas flexible elements can be changed at any time without impacting the physical implementation. 
+
+| Element | Can be updated? |
+|---------|-----------------|
+| Name | No |
+| Key | No |
+| Field names and types | No |
+| Field attributes (searchable, filterable, facetable, sortable) | No |
+| Field attribute (retrievable) | Yes |
+| [Analyzer](search-analyzers.md) | You can add and modify custom analyzers in the index. Regarding analyzer assignments on string fields, you can only modify "searchAnalyzer". All other assignments and modifications require a rebuild. |
+| [Scoring profiles](index-add-scoring-profiles.md) | Yes |
+| [Suggesters](index-add-suggesters.md) | No |
+| [cross-origin remote scripting (CORS)](#corsoptions) | Yes |
+| [Encryption](search-security-manage-encryption-keys.md) | Yes |
+
 ## Next steps
 
-Use the following links to become familiar with loading an index with data.
+Use the following links to become familiar with loading an index with data, or extending an index with a synonyms map.
 
 + [Data import overview](search-what-is-data-import.md)
-
 + [Add, Update or Delete Documents (REST)](/rest/api/searchservice/addupdate-or-delete-documents) 
++ [Synonym maps](search-synonyms.md)

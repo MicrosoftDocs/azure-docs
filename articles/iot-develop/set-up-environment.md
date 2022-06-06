@@ -7,7 +7,8 @@ ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: iot-develop
 services: iot-develop
-ms.custom: mode-other
+ms.custom: mode-other, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Tutorial: Set up your environment for the IoT Plug and Play quickstarts and tutorials

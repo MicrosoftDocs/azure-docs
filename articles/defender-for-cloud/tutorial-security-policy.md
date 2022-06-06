@@ -2,12 +2,10 @@
 title: Working with security policies | Microsoft Docs
 description: Learn how to work with security policies in Microsoft Defender for Cloud.
 ms.topic: conceptual
-ms.date: 11/16/2021
+ms.date: 01/25/2022
 ---
 
 # Manage security policies
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 This page explains how security policies are configured, and how to view them in Microsoft Defender for Cloud. 
 
@@ -37,7 +35,7 @@ To view your security policies in Defender for Cloud:
     :::image type="content" source="./media/tutorial-security-policy/security-policy-page.png" alt-text="Defender for Cloud's security policy page" lightbox="./media/tutorial-security-policy/security-policy-page.png":::
 
     > [!NOTE]
-    > If there is a label "MG Inherited" alongside your default policy, it means that the policy has been assigned to a management group and inherited by the subscription you're viewing.
+    > If there is a label "MG Inherited" alongside your default initiative, it means that the initiative has been assigned to a management group and inherited by the subscription you're viewing.
 
 1. Choose from the available options on this page:
 
@@ -79,7 +77,7 @@ For more information about recommendations, see [Managing security recommendatio
 
 1. Open the **Security policy** page.
 
-1. From the **Default policy**, **Industry & regulatory standards**, or **Your custom initiatives** sections, select the relevant initiative containing the policy you want to disable.
+1. From the **Default initiative** or **Your custom initiatives** sections, select the relevant initiative containing the policy you want to disable.
 
 1. Open the **Parameters** section and search for the policy that invokes the recommendation that you want to disable.
 
@@ -105,7 +103,7 @@ To enable a disabled policy and ensure it's assessed for your resources:
 
 1. Open the **Security policy** page.
 
-1. From the **Default policy**, **Industry & regulatory standards**, or **Your custom initiatives** sections, select the relevant initiative with the policy you want to enable.
+1. From the **Default initiative** or **Your custom initiatives** sections, select the relevant initiative with the policy you want to enable.
 
 1. Open the **Parameters** section and search for the policy that invokes the recommendation that you want to disable.
 

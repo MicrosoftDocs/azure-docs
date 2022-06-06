@@ -45,10 +45,10 @@ To create an environment:
 1. Select the **Create** button. 
 
 Create an environment by specifying one of the following:
-* Pip requirements [file](https://pip.pypa.io/en/stable/cli/pip_install)
-* Conda yaml [file](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html)
-* Docker [image](https://hub.docker.com/search?q=&type=image)
-* [Dockerfile](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)
+* Create a new docker [context](https://docs.docker.com/engine/reference/commandline/build/)
+* Start from an existing custom or curated environment
+* Upload existing docker context
+* Use existing docker image with conda
 
 :::image type="content" source="media/how-to-manage-environments-in-studio/create-page.jpg" alt-text="Environment creation wizard":::
 
@@ -58,9 +58,11 @@ If a new environment is given the same name as an existing environment in the wo
 
 ## View and edit environment details
 
-Once an environment has been created, view its details by clicking on the name. Use the dropdown menu to select different versions of the environment. Here you can view metadata and the contents of the environment through its Docker and Conda layers. 
+Once an environment has been created, view its details by clicking on the name. Use the dropdown menu to select different versions of the environment. Here you can view metadata and the contents of the environment through its various dependencies.
 
-Click on the pencil icons to edit tags and descriptions as well as the configuration files or image. Keep in mind that any changes to the Docker or Conda sections will create a new version of the environment. 
+Click on the pencil icons to edit tags and descriptions as well as the configuration files under the **Context** tab.
+
+Keep in mind that any changes to the Docker or Conda sections will create a new version of the environment. 
 
 :::image type="content" source="media/how-to-manage-environments-in-studio/details-page.jpg" alt-text="Environments details page":::
 

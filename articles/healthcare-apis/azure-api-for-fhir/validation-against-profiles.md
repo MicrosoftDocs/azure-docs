@@ -1,12 +1,12 @@
 ---
 title: Validate FHIR resources against profiles in Azure API for FHIR
 description: This article describes how to validate FHIR resources against profiles in Azure API for FHIR.
-author: caitlinv39
+author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 12/22/2021
-ms.author: cavoeg
+ms.date: 02/15/2022
+ms.author: mikaelw
 ---
 
 # Validate FHIR resources against profiles in Azure API for FHIR
@@ -117,7 +117,7 @@ For example:
 
 `POST https://myAzureAPIforFHIR.azurehealthcareapis.com/Patient/$validate`
 
-This request will create the new resource you are specifying in the request payload and validate the uploaded resource. Then, it will return an `OperationOutcome` as a result of the validation on the new resource.
+This request will create the new resource you're specifying in the request payload and validate the uploaded resource. Then, it will return an `OperationOutcome` as a result of the validation on the new resource.
 
 ## Validate on resource CREATE or resource UPDATE
 

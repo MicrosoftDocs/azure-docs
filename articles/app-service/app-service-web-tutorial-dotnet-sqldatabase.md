@@ -4,13 +4,13 @@ description: Learn how to deploy a C# ASP.NET app to Azure and to Azure SQL Data
 ms.assetid: 03c584f1-a93c-4e3d-ac1b-c82b50c75d3e
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 11/08/2021
+ms.date: 01/27/2022
 ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, seodec18"
 ---
 
 # Tutorial: Deploy an ASP.NET app to Azure with Azure SQL Database
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This tutorial shows you how to deploy a data-driven ASP.NET app in App Service and connect it to [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md). When you're finished, you have an ASP.NET app running in Azure and connected to SQL Database.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This tutorial shows you how to deploy a data-driven ASP.NET app in App Service and connect it to [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview). When you're finished, you have an ASP.NET app running in Azure and connected to SQL Database.
 
 ![Published ASP.NET application in Azure App Service](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
@@ -23,7 +23,6 @@ In this tutorial, you learn how to:
 > * Deploy the app to Azure
 > * Update the data model and redeploy the app
 > * Stream logs from Azure to your terminal
-> * Manage the app in the Azure portal
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,7 +30,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial:
 
-Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2022</a> with the **ASP.NET and web development** workload.
+Install <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2022</a> with the **ASP.NET and web development** and **Azure development** workloads.
 
 If you've installed Visual Studio already, add the workloads in Visual Studio by clicking **Tools** > **Get Tools and Features**.
 
@@ -121,7 +120,7 @@ You can keep the generated web app name, or change it to another unique name (va
 
 #### Create a server and database
 
-Before creating a database, you need a [logical SQL server](../azure-sql/database/logical-servers.md). A logical SQL server is a logical construct that contains a group of databases managed as a group.
+Before creating a database, you need a [logical SQL server](/azure/azure-sql/database/logical-servers). A logical SQL server is a logical construct that contains a group of databases managed as a group.
 
 1. In the **Publish** dialog, scroll down to the **Service Dependencies** section. Next to **SQL Server Database**, click **Configure**.
 
@@ -172,7 +171,7 @@ Before creating a database, you need a [logical SQL server](../azure-sql/databas
 
 #### Deploy your ASP.NET app
 
-1. In the **Publish** tab scroll back up to the top and click **Publish**. Once your ASP.NET app is deployed to Azure. Your default browser is launched with the URL to the deployed app.
+1. In the **Publish** tab, scroll back up to the top and click **Publish**. Once your ASP.NET app is deployed to Azure. Your default browser is launched with the URL to the deployed app.
 
 1. Add a few to-do items.
 
@@ -182,7 +181,7 @@ Before creating a database, you need a [logical SQL server](../azure-sql/databas
 
 ## Access the database locally
 
-Visual Studio lets you explore and manage your new database in Azure easily in the **SQL Server Object Explorer**. The new database already opened its firewall to the App Service app that you created, but to access it from your local computer (such as from Visual Studio), you must open a firewall for your local machine's public IP address. If your internet service provider changes your public IP address, you need to reconfigure the firewall to access the Azure database again.
+Visual Studio lets you explore and manage your new database in Azure easily in the **SQL Server Object Explorer**. The new database already opened its firewall to the App Service app that you created. But to access it from your local computer (such as from Visual Studio), you must open a firewall for your local machine's public IP address. If your internet service provider changes your public IP address, you need to reconfigure the firewall to access the Azure database again.
 
 #### Create a database connection
 
@@ -350,11 +349,9 @@ Each action starts with a `Trace.WriteLine()` method. This code is added to show
 
 #### Enable log streaming
 
-1. From the **View** menu, select **Cloud Explorer**.
+1. In the publish page, scroll down to the  **Hosting** section.
 
-1. In **Cloud Explorer**, expand the Azure subscription that has your app and  expand **App Service**.
-
-1. Right-click your Azure app and select **View Streaming Logs**.
+1. At the right-hand corner, click **...** > **View Streaming Logs**.
 
     ![Enable log streaming](./media/app-service-web-tutorial-dotnet-sqldatabase/stream-logs.png)
 
@@ -366,15 +363,13 @@ Each action starts with a `Trace.WriteLine()` method. This code is added to show
 
 #### Change trace levels
 
-1. To change the trace levels to output other trace messages, go back to **Cloud Explorer**.
+1. To change the trace levels to output other trace messages, go back to the publish page.
 
-1. Right-click your app again and select **Open in Portal**.
+1. In the  **Hosting** section, click **...** > **Open in Azure portal**.
 
 1. In the portal management page for your app, from the left menu, select **App Service logs**.
 
 1. Under **Application Logging (File System)**, select **Verbose** in **Level**. Click **Save**.
-
-    ![Change trace level to Verbose](./media/app-service-web-tutorial-dotnet-sqldatabase/trace-level-verbose.png)
 
     > [!TIP]
     > You can experiment with different trace levels to see what types of messages are displayed for each level. For example, the **Information** level includes all logs created by `Trace.TraceInformation()`, `Trace.TraceWarning()`, and `Trace.TraceError()`, but not logs created by `Trace.WriteLine()`.
@@ -394,22 +389,6 @@ To stop the log-streaming service, click the **Stop monitoring** button in the *
 
 ![Stop log streaming](./media/app-service-web-tutorial-dotnet-sqldatabase/stop-streaming.png)
 
-## Manage your Azure app
-
-Go to the [Azure portal](https://portal.azure.com) to manage the web app. Search for and select **App Services**.
-
-![Search for Azure App Services](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-portal-navigate-app-services.png)
-
-Select the name of your Azure app.
-
-![Portal navigation to Azure app](./media/app-service-web-tutorial-dotnet-sqldatabase/access-portal.png)
-
-You have landed in your app's page.
-
-By default, the portal shows the **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the page show the different configuration pages you can open.
-
-![App Service page in Azure portal](./media/app-service-web-tutorial-dotnet-sqldatabase/web-app-blade.png)
-
 [!INCLUDE [Clean up section](../../includes/clean-up-section-portal-web-app.md)]
 
 ## Next steps
@@ -423,12 +402,11 @@ In this tutorial, you learned how to:
 > * Deploy the app to Azure
 > * Update the data model and redeploy the app
 > * Stream logs from Azure to your terminal
-> * Manage the app in the Azure portal
 
 Advance to the next tutorial to learn how to easily improve the security of your connection Azure SQL Database.
 
 > [!div class="nextstepaction"]
-> [Access SQL Database securely using managed identities for Azure resources](tutorial-connect-msi-sql-database.md)
+> [Tutorial: Connect to SQL Database from App Service without secrets using a managed identity](tutorial-connect-msi-sql-database.md)
 
 More resources:
 

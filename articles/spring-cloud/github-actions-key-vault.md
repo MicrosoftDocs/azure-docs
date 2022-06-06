@@ -1,19 +1,26 @@
 ---
-title: Authenticate Azure Spring Cloud with Key Vault in GitHub Actions
-description: How to use key vault with CI/CD workflow for Azure Spring Cloud with GitHub Actions
+title: Authenticate Azure Spring Apps with Key Vault in GitHub Actions
+description: How to use Azure Key Vault with a CI/CD workflow for Azure Spring Apps with GitHub Actions
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 09/08/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, event-tier1-build-2022
 ---
 
-# Authenticate Azure Spring Cloud with Key Vault in GitHub Actions
+# Authenticate Azure Spring Apps with Azure Key Vault in GitHub Actions
+
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ✔️ Java ✔️ C#
 
-Key vault is a secure place to store keys. Enterprise users need to store credentials for CI/CD environments in scope that they control. The key to get credentials in the key vault should be limited to resource scope.  It has access to only the key vault scope, not the entire Azure scope. It's like a key that can only open a strong box not a master key that can open all doors in a building. It's a way to get a key with another key, which is useful in a CICD workflow.
+**This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
+
+This article shows you how to use Key Vault with a CI/CD workflow for Azure Spring Apps with GitHub Actions.
+
+Key vault is a secure place to store keys. Enterprise users need to store credentials for CI/CD environments in scope that they control. The key to get credentials in the key vault should be limited to resource scope. It has access to only the key vault scope, not the entire Azure scope. It's like a key that can only open a strong box not a master key that can open all doors in a building. It's a way to get a key with another key, which is useful in a CICD workflow.
 
 ## Generate Credential
 
@@ -112,11 +119,11 @@ jobs:
       with:
         azcliversion: 2.0.75
         inlineScript: |
-          az extension add --name spring-cloud             # Spring CLI commands from here
-          az spring-cloud list
+          az extension add --name spring             # Spring CLI commands from here
+          az spring list
 
 ```
 
 ## Next steps
 
-* [Spring Cloud GitHub Actions](./how-to-github-actions.md)
+* [Use Azure Spring Apps CI/CD with GitHub Actions](./how-to-github-actions.md)

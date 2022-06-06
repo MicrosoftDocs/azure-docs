@@ -2,12 +2,12 @@
 title: Azure Service Bus Subscription Rule SQL Filter syntax | Microsoft Docs
 description: This article provides details about SQL filter grammar. A SQL filter supports a subset of the SQL-92 standard.  
 ms.topic: article
-ms.date: 04/30/2021
+ms.date: 05/31/2022
 ---
 
 # Subscription Rule SQL Filter Syntax
 
-A *SQL filter* is one of the available filter types for Service Bus topic subscriptions. It's a text expression that leans on a subset of the SQL-92 standard. Filter expressions are used with the `sqlExpression` element of the 'sqlFilter' property of a Service Bus `Rule` in an [Azure Resource Manager template](service-bus-resource-manager-namespace-topic-with-rule.md), or the Azure CLI `az servicebus topic subscription rule create` command's [`--filter-sql-expression`](/cli/azure/servicebus/topic/subscription/rule#az_servicebus_topic_subscription_rule_create) argument, and several SDK functions that allow managing subscription rules.
+A *SQL filter* is one of the available filter types for Service Bus topic subscriptions. It's a text expression that leans on a subset of the SQL-92 standard. Filter expressions are used with the `sqlExpression` element of the 'sqlFilter' property of a Service Bus `Rule` in an [Azure Resource Manager template](service-bus-resource-manager-namespace-topic-with-rule.md), or the Azure CLI `az servicebus topic subscription rule create` command's [`--filter-sql-expression`](/cli/azure/servicebus/topic/subscription/rule#az-servicebus-topic-subscription-rule-create) argument, and several SDK functions that allow managing subscription rules.
 
 Service Bus Premium also supports the [JMS SQL message selector syntax](https://docs.oracle.com/javaee/7/api/javax/jms/Message.html) through the JMS 2.0 API.
 

@@ -19,7 +19,7 @@ The IoT Central REST API lets you develop client applications that integrate wit
 - Stop, resume, and rerun jobs in your application.
 
 > [!IMPORTANT]
-> The jobs API is currently in preview. All The REST API calls described in this article should include `?api-version=preview`.
+> The jobs API is currently in preview. All The REST API calls described in this article should include `?api-version=1.2-preview`.
 
 This article describes how to use the `/jobs/{job_id}` API to control devices in bulk. You can also control devices individually.
 
@@ -28,9 +28,11 @@ Every IoT Central REST API call requires an authorization header. To learn more,
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
 
 > [!TIP]
-> The [preview API](/rest/api/iotcentral/1.1-previewdataplane/jobs) includes support for the new [organizations feature](howto-create-organizations.md).
+> The [preview API](/rest/api/iotcentral/1.2-previewdataplane/jobs) includes support for the new [organizations feature](howto-create-organizations.md).
 
 To learn how to create and manage jobs in the UI, see [Manage devices in bulk in your Azure IoT Central application](howto-manage-devices-in-bulk.md).
+
+[!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
 
 ## Job payloads
 
@@ -90,7 +92,7 @@ The following table describes the fields in the previous JSON snippet:
 Use the following request to retrieve the list of the jobs in your application:
 
 ```http
-GET https://{your app subdomain}.azureiotcentral.com/api/jobs?api-version=preview
+GET https://{your app subdomain}.azureiotcentral.com/api/jobs?api-version=1.2-preview
 ```
 
 The response to this request looks like the following example:
@@ -159,7 +161,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve an individual job by ID:
 
 ```http
-GET https://{your app subdomain}.azureiotcentral.com/api/jobs/job-004?api-version=preview
+GET https://{your app subdomain}.azureiotcentral.com/api/jobs/job-004?api-version=1.2-preview
 ```
 
 The response to this request looks like the following example:
@@ -194,7 +196,7 @@ The response to this request looks like the following example:
 Use the following request to retrieve the details of the devices in a job:
 
 ```http
-GET https://{your app subdomain}.azureiotcentral.com/api/jobs/job-004/devices?api-version=preview
+GET https://{your app subdomain}.azureiotcentral.com/api/jobs/job-004/devices?api-version=1.2-preview
 ```
 
 The response to this request looks like the following example:
@@ -224,14 +226,50 @@ The response to this request looks like the following example:
 
 ## Create a job
 
-Use the following request to retrieve the details of the devices in a job:
+Use the following request to create a job:
 
 ```http
-PUT https://{your app subdomain}.azureiotcentral.com/api/jobs/job-006?api-version=preview
+PUT https://{your app subdomain}.azureiotcentral.com/api/jobs/job-006?api-version=1.2-preview
+```
+
+The `group` field in the request body identifies a device group in your IoT Central application. A job uses a device group to identify the set of devices the job operates on.
+
+
+If you don't already have a suitable device group, you can create one with REST API call. The following example creates a device group with `group1` as the group ID:
+
+```http
+PUT https://{subdomain}.{baseDomain}/api/deviceGroups/group1?api-version=1.2-preview
+```
+
+When you create a device group, you define a `filter` that selects the devices to include in the group. A filter identifies a device template and any properties to match. The following example creates device group that contains all devices associated with the "dtmi:modelDefinition:dtdlv2" device template where the `provisioned` property is `true`.
+
+```json
+{
+  "displayName": "Device group 1",
+  "description": "Custom device group.",
+  "filter": "SELECT * FROM devices WHERE $template = \"dtmi:modelDefinition:dtdlv2\" AND $provisioned = true"
+}
+```
+
+The response to this request looks like the following example: 
+
+```json
+{
+  "id": "group1",
+  "displayName": "Device group 1",
+  "description": "Custom device group.",
+  "filter": "SELECT * FROM devices WHERE $template = \"dtmi:modelDefinition:dtdlv2\" AND $provisioned = true"
+}
+```
+
+You can now use the `id` value from the response to create a new job.
+
+
+```json
 {
   "displayName": "Set target temperature",
   "description": "Set target temperature device property",
-  "group": "833d7a7d-8f99-4e04-9e56-745806bdba6e",
+  "group": "group1",
   "batch": {
     "type": "percentage",
     "value": 25
@@ -259,7 +297,7 @@ The response to this request looks like the following example. The initial job s
   "id": "job-006",
   "displayName": "Set target temperature",
   "description": "Set target temperature device property",
-  "group": "833d7a7d-8f99-4e04-9e56-745806bdba6e",
+  "group": "group1",
   "batch": {
     "type": "percentage",
     "value": 25
@@ -286,7 +324,7 @@ The response to this request looks like the following example. The initial job s
 Use the following request to stop a running job:
 
 ```http
-POST https://{your app subdomain}.azureiotcentral.com/api/jobs/job-006/stop?api-version=preview
+POST https://{your app subdomain}.azureiotcentral.com/api/jobs/job-006/stop?api-version=1.2-preview
 ```
 
 If the request succeeds, it returns a `204 - No Content` response.
@@ -294,7 +332,7 @@ If the request succeeds, it returns a `204 - No Content` response.
 Use the following request to resume a stopped job:
 
 ```http
-POST https://{your app subdomain}.azureiotcentral.com/api/jobs/job-006/resume?api-version=preview
+POST https://{your app subdomain}.azureiotcentral.com/api/jobs/job-006/resume?api-version=1.2-preview
 ```
 
 If the request succeeds, it returns a `204 - No Content` response.
@@ -302,7 +340,7 @@ If the request succeeds, it returns a `204 - No Content` response.
 Use the following command to rerun an existing job on any failed devices:
 
 ```http
-PUT https://{your app subdomain}.azureiotcentral.com/api/jobs/job-006/rerun/rerun-001?api-version=preview
+PUT https://{your app subdomain}.azureiotcentral.com/api/jobs/job-006/rerun/rerun-001?api-version=1.2-preview
 ```
 
 ## Next steps

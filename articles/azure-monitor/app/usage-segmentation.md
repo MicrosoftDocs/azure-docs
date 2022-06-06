@@ -2,10 +2,7 @@
 title: User, session, and event analysis in Application Insights
 description: Demographic analysis of users of your web app.
 ms.topic: conceptual
-author: mattmccleary
-ms.author: mmcc
 ms.date: 07/30/2021
-
 ---
 
 # Users, sessions, and events analysis in Application Insights
@@ -27,6 +24,9 @@ Three of the usage blades use the same tool to slice and dice telemetry from you
 * **Events tool**: How often certain pages and features of your app are used. A page view is counted when a browser loads a page from your app, provided you've [instrumented it](./javascript.md). 
 
     A custom event represents one occurrence of something happening in your app, often a user interaction like a button select or the completion of some task. You insert code in your app to [generate custom events](./api-custom-events-metrics.md#trackevent).
+    
+> [!NOTE]
+> For details on an alternative to using [anonymous IDs](./data-model-context.md#anonymous-user-id) and ensuring an accurate count, reference the documentation for [authenticated IDs](./data-model-context.md#authenticated-user-id).
 
 ## Querying for certain users
 

@@ -116,6 +116,8 @@ The following additional configuration parameters increase Hive query performanc
 
     :::image type="content" source="./media/optimize-hive-ambari/hive-stats-fetch-partition-stats.png" alt-text="Hive stats set partition stats" border="true":::
 
+Refer to [Hive Cost Based Optimization](https://techcommunity.microsoft.com/t5/analytics-on-azure-blog/hive-cost-based-optimization/ba-p/3032895) blog post in [Analytics on Azure Blog](https://techcommunity.microsoft.com/t5/analytics-on-azure-blog/bg-p/AnalyticsonAzure) for further reading
+
 ## Enable intermediate compression
 
 Map tasks create intermediate files that are used by the reducer tasks. Intermediate compression shrinks the intermediate file size.
