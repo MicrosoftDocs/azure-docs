@@ -39,7 +39,7 @@ Register-AzProviderFeature -FeatureName AllowAzureNetworkManager -ProviderNamesp
 Install the latest *Az.Network* Azure PowerShell module using this command:
 
 ```azurepowershell-interactive
-Install-Module -Name Az.Network 4.15.1-preview -AllowPrerelease
+ Install-Module -Name Az.Network -RequiredVersion 4.15.1-preview -AllowPrerelease
 ```
 
 ## Create a resource group
