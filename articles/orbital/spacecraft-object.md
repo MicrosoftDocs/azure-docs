@@ -15,7 +15,7 @@ Learn about how you can represent your spacecraft details in Azure Orbital.
 
 ## Spacecraft details
 
-The spacecraft object is used to capture the following three main types of information:
+The spacecraft object is used to capture three main types of information:
 
 - **Links** - RF details on center frequency, direction, and bandwidth for each link.
 - **Ephemeris** - The latest TLE.
@@ -23,7 +23,7 @@ The spacecraft object is used to capture the following three main types of infor
 
 ### Links
 
-Make sure to capture each link that you wish to use with Azure Orbital at the time of spacecraft object creation. The following is required:
+Make sure to capture each link that you wish to use with Azure Orbital at the time of spacecraft object creation. The following details are required:
 
    | **Field** | **Values** |
    | --- | --- |
@@ -46,21 +46,21 @@ As TLEs are prone to expiration, the user must keep the TLE up-to-date using the
 
 In order to uphold regulatory requirements across the world, the spacecraft object contains authorizations on a per link and per site level that permits usage of the Azure Orbital groundstation sites.
 
-The platform will deny scheduling or execution of contacts if none of the spacecraft object links are authorized, or if the requested contact profile contains links that aren't included in the spacecraft object authorized links.
+The platform will deny scheduling or execution of contacts if none of the spacecraft object links are authorized, or if the requested contact profile contains links aren't included in the spacecraft object authorized links.
 
-For more information, refer to the Licensing (add link to: concepts-licensing.md when article is created) documentation.
+For more information, see the Licensing (add link to: concepts-licensing.md when article is created) documentation.
 
 ## Managing spacecraft objects
 
 Spacecraft objects can be created and deleted via the Portal and Azure Orbital SDKs. Once the object is created, modification to the object is dependent on the authorization status.
 
-When the spacecraft is unauthorized then the spacecraft object can be modified. The SDK is the best way to make changes as the Portal only lets you make TLE updates.
+When the spacecraft is unauthorized, then the spacecraft object can be modified. The SDK is the best way to make changes as the Portal only lets you make TLE updates.
 
 When the spacecraft is unauthorized, then TLE updates are the only modifications possible. Other fields such as links become immutable. The TLE updates are possible via the Portal and Orbital SDK.
 
 ### Create spacecraft resource
 
-For more information on how to create a spacecraft resource, refer to the details listed in the [register a spacecraft](register-spacecraft.md) article.
+For more information on how to create a spacecraft resource, see the details listed in the [register a spacecraft](register-spacecraft.md) article.
 
 ### Modify spacecraft resource
 
@@ -71,7 +71,7 @@ Use the SDK to make changes to the links.
 ### Delete spacecraft resource
 
 1. In the Azure portal search box, enter the name of the Spacecraft object you wish to delete and pull up the object.
-1. Click delete and confirm the action. (to add screen shots)
+1. Select delete and confirm the action. (to add screen shots)
 
 ## Next steps
 
