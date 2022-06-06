@@ -87,7 +87,7 @@ ms.topic: conceptual
 * <a id="access-based-enumeration"></a>
 **Does Azure Files support using Access-Based Enumeration (ABE) to control the visibility of the files and folders in SMB Azure file shares?**
 
-  No, this scenario isn't supported. ABE is a feature of DFS Namespaces (DFS-N). You can [use DFS-N with SMB Azure file shares](files-manage-namespaces.md), configure identity-based authentication, and enable the ABE feature. However, this will not work as expected because it only applies to the DFS-N targets. It doesn't retroactively apply to the targeted file shares themselves.
+  No, this scenario isn't supported.
 
    
 ### AD DS & Azure AD DS Authentication
