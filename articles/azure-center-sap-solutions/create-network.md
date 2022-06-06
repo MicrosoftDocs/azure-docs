@@ -20,7 +20,7 @@ With Azure Center for SAP Solutions (ACSS), you can create an S4/HANA infrastruc
 ## Limitations
 
 - Requires use of Standalone, High Availability (HA), or Distributed (non-HA) architecture mode. Only these architecture modes support S/4 HANA infrastructure deployment.
-- Maximum of 10 additional SAP Application Servers, excluding the primary Application Server.
+- Maximum of 10 other SAP Application Servers, excluding the primary Application Server.
 - Requires use of Application Servers with ABAP stacks. ACSS doesn't support  Java stack-based infrastructure deployment.
 - Supported Azure regions for infrastructure deployment include: **East US**, **East US2**, **West US2**, **North Europe**, **West Europe**.
 - Only deployment with Linux is supported.
@@ -112,12 +112,12 @@ ACSS uses a managed identity for software installation. Managed identity authent
 
 If you're unable to [allow connection between all resources in the VNet](#connect-network) as previously described, you can open important SAP ports in the VNet instead. This method allows resources within the VNet to listen on these ports for communication purposes. If you're using more than one subnet, these settings also allow connectivity within the subnets.
 
-It's recommended to have multiple IP addresses in the subnet or subnets before you begin deployment. For example, it's always better to have a `/26` mask than `/29`. 
+It's recommended to have multiple IP addresses in the subnet or subnets before you begin deployment. For example, it's always better to have a `/26` mask instead of `/29`. 
 
 Before you begin, make sure  you know the SAP Application Performance Standard (SAPS) and database memory size that you need to allow ACSS to size your SAP system. If you're not sure, you can also select the VMs. There are:
 
 - A single or cluster of ASCS VMs, which make up a single ASCS instance in the VIS.
-- A single or cluster of Database VMs, whcih make up a single Database instance in the VIS.
+- A single or cluster of Database VMs, which make up a single Database instance in the VIS.
 - A single Application Server VM, which makes up a single Application instance in the VIS. Depending on the number of Application Servers being deployed or registered, there can be multiple application instances.
 
 Open the SAP ports listed in the following table. Replace the placeholder values (`xx`) in applicable ports with your SAP instance number. For example, if your SAP instance number is `01` `32xx` becomes `3201`.
@@ -129,14 +129,14 @@ Open the SAP ports listed in the following table. Replace the placeholder values
 | Gateway | 33xx | Yes | Yes | RFC communication. |
 | Gateway (secured) | 48xx | Yes | Yes | RFC communication. |
 | Internet Communication Manager (ICM) | 80xx, 443xx | Yes | Yes | HTTP/S communication for SAP Fiori, WEB GUI |
-| Message server | 36xx, 81xx, 444xx | Yes | No | Load balancing; ASCS to app servers communication; GUI login; HTTP/S traffic to and from message server. |
+| Message server | 36xx, 81xx, 444xx | Yes | No | Load balancing; ASCS to app servers communication; GUI sign-in; HTTP/S traffic to and from message server. |
 | Control agent | 5xx13, 5xx14 | Yes | No | Stop, start, and get status of SAP system. |
 | SAP installation | 4237 | Yes | No | Initial SAP installation. |
 | HTTP and HTTPS | 5xx00, 5xx01 | Yes | Yes | HTTP/S server port. |
 | IIOP | 5xx02, 5xx03, 5xx07 | Yes | Yes | Service request port. |
 | P4 | 5xx04-6 | Yes | Yes | Service request port. |
 | Telnet | 5xx08 | Yes | No | Service port for management. |
-| SQL communication | 3xx13, 3xx15, 3xx40-98 | Yes | No | Databse communication port with application, including ABAP or JAVA subnet. |
+| SQL communication | 3xx13, 3xx15, 3xx40-98 | Yes | No | Database communication port with application, including ABAP or JAVA subnet. |
 | SQL server | 1433 | Yes | No | Default port for MS-SQL in SAP; required for ABAP or JAVA database communication. |
 | HANA XS engine | 43xx, 80xx | Yes | Yes | HTTP/S request port for web content. |
 
