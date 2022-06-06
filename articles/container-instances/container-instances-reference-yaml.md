@@ -2,7 +2,7 @@
 title: YAML reference for container group   
 description: Reference for the YAML file supported by Azure Container Instances to configure a container group
 ms.topic: article
-ms.date: 11/11/2021
+ms.date: 06/06/2022
 ---
 
 # YAML reference: Azure Container Instances
@@ -12,7 +12,7 @@ This article covers the syntax and properties for the YAML file supported by Azu
 A YAML file is a convenient way to configure a container group for reproducible deployments. It is a concise alternative to using a [Resource Manager template](/azure/templates/Microsoft.ContainerInstance/2019-12-01/containerGroups) or the Azure Container Instances SDKs to create or update a container group.
 
 > [!NOTE]
-> This reference applies to YAML files for Azure Container Instances REST API version `2021-07-01`.
+> This reference applies to YAML files for Azure Container Instances REST API version `2021-10-01`.
 
 ## Schema 
 
@@ -22,7 +22,7 @@ The schema for the YAML file follows, including comments to highlight key proper
 
 ```yml
 name: string  # Name of the container group
-apiVersion: '2021-07-01'
+apiVersion: '2021-10-01'
 location: string
 tags: {}
 identity: 
