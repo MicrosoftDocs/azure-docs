@@ -56,6 +56,7 @@ sections:
           Where does Azure Spatial Anchors store data?
         answer: |
           Azure Spatial Anchors accounts allow you to specify the region where your data will be stored. Microsoft may replicate data to other regions for resiliency, but Microsoft does not replicate or move data outside the geography. This data is stored in the region where the Azure Spatial Anchors account is configured. For example, if the account is registered in the East US region, this data is stored in the East US region but may be replicated to another region in the North America geography to ensure resiliency.
+          *Note: In order to be compliant with rules and regulations that require Single Region Data Residency, some regions such as SouthEastAsia do not have data resiliency is enabled.*
 
       - question: |
           What information about an environment is transmitted and stored on the service when using Azure Spatial Anchors? Are pictures of the environment transmitted and stored?
