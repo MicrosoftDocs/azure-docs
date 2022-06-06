@@ -37,7 +37,7 @@ An action group is a **global** service, so there's no dependency on a specific 
 
 1. Select **Create**.
 
-   :::image type="content" source="./media/action-groups/add-action-group.png" alt-text="Screenshot of the Action groups page in the Azure portal. The Create button is called out.":::
+   :::image type="content" source="./media/action-groups/create-action-group.png" alt-text="Screenshot of the Action groups page in the Azure portal. The Create button is called out.":::
 
 1. Enter information as explained in the following sections.
 
