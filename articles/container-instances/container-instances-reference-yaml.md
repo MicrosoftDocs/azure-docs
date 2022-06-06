@@ -11,9 +11,9 @@ ms.date: 06/06/2022
 
 # YAML reference: Azure Container Instances
 
-This article covers the syntax and properties for the YAML file supported by Azure Container Instances to configure a [container group](container-instances-container-groups.md). Use a YAML file to input the group configuration to the [az container create][az-container-create] command in the Azure CLI. 
+This article covers the syntax and properties for the YAML file supported by Azure Container Instances to configure a [container group](container-instances-container-groups.md). Use a YAML file to input the group configuration to the [az container create][az-container-create] command in the Azure CLI.
 
-A YAML file is a convenient way to configure a container group for reproducible deployments. It is a concise alternative to using a [Resource Manager template](/azure/templates/Microsoft.ContainerInstance/2019-12-01/containerGroups) or the Azure Container Instances SDKs to create or update a container group.
+A YAML file is a convenient way to configure a container group for reproducible deployments. It's a concise alternative to using a [Resource Manager template](/azure/templates/Microsoft.ContainerInstance/2019-12-01/containerGroups) or the Azure Container Instances SDKs to create or update a container group.
 
 > [!NOTE]
 > This reference applies to YAML files for Azure Container Instances REST API version `2021-10-01`.
