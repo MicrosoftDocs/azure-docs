@@ -136,7 +136,7 @@ Azure Front Door can now access this key vault and the certificates it contains.
 "Bring Your Own Certificate (BYOC)" for *HTTPS*. For *Secret*, select the certificate you want to use from the drop-down.
 
     > [!NOTE]
-    > The selected certificate must have a common name (CN) same as the custom domain being added.
+    > The common name (CN) of the selected certificate must match the custom domain being added.
 
     :::image type="content" source="../media/how-to-configure-https-custom-domain/add-custom-domain-https.png" alt-text="Screenshot of add a custom domain page with HTTPS.":::
 
@@ -144,15 +144,16 @@ Azure Front Door can now access this key vault and the certificates it contains.
 
 ## Certificate renewal and changing certificate types
 
-### Azure managed certificate
+### Azure-managed certificate
 
-Azure managed certificate will be automatically rotated when your custom domain has the CNAME record to an Azure Front Door standard or premium endpoint. The auto rotation won't happen for the two scenarios below 
+Azure-managed certificates are automatically rotated when your custom domain uses a CNAME record that points to an Azure Front Door standard or premium endpoint.
 
-* If the custom domain CNAME record is pointing to other DNS resources 
+Front Door won't automatically rotate certificates in the following scenarios:
 
-* If your custom domain points to Azure Front Door through a long chain, for example, putting an Azure Traffic Manager before Azure Front Door and other CDN providers, the CNAME chain is contoso.com CNAME in `contoso.trafficmanager.net` CNAME in `contoso.z01.azurefd.net`.
+* The custom domain's CNAME record is pointing to other DNS resources.
+* The custom domain points to Azure Front Door through a long chain. For example, if you put Azure Traffic Manager before Azure Front Door, the CNAME chain is `contoso.com` CNAME in `contoso.trafficmanager.net` CNAME in `contoso.z01.azurefd.net`.
 
-The domain validation state will become ‘Pending Revalidation’ 45 days before managed certificate expiry or ‘Rejected’ if the managed certificate issuance is rejected by the certificate authority.  Refer to [Add a custom domain](how-to-add-custom-domain.md#domain-validation-state) for actions for different domain state. 
+The domain validation state will become *Pending Revalidation* 45 days before the managed certificate expires, or *Rejected* if the managed certificate issuance is rejected by the certificate authority.  Refer to [Add a custom domain](how-to-add-custom-domain.md#domain-validation-state) for actions for each of the domain states.
 
 ### <a name="rotate-own-certificate"></a>Use your own certificate
 
