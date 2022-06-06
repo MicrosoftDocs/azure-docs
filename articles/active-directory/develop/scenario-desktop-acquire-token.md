@@ -175,7 +175,7 @@ let accounts = await msalTokenCache.getAllAccounts();
 
             const tokenRequest = {
                 code: response["authorization_code"],
-                codeVerifier: verifier // PKCE Code Verifier 
+                codeVerifier: verifier, // PKCE Code Verifier 
                 redirectUri: "your_redirect_uri",
                 scopes: ["User.Read"],
             };
