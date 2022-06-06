@@ -181,7 +181,7 @@ You might have a limited number of runbook actions per action group.
 
 ### Azure app push notifications
 
-Enable push notifications to the Azure mobile app by providing the email address that you use as your account ID when you configure the Azure mobile app. For more information about the Azure mobile app, see [Get the Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/).
+To enable push notifications to the Azure mobile app, provide the email address that you use as your account ID when you configure the Azure mobile app. For more information about the Azure mobile app, see [Get the Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/).
 
 You might have a limited number of Azure app actions per action group.
 
