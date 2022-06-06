@@ -230,7 +230,7 @@ let callCompositeOptions = CallCompositeOptions(theme: CustomThemeOptions())
 
 ### Apply localization options
 
-You can change the language by creating a custom localization options and include it to your `CallCompositeOptions`.  By default, all text labels use our English (`CallCompositeSupportedLocale.en`) strings. If desired, `LocalizationOptions` can be used to set a different `locale`. Out of the box, the UI library includes a set of `locale` usable with the UI components. `CallCompositeSupportedLocale.getSupportedLocales()` provides a list of all supported languages. 
+You can change the language by creating a custom localization options and include it to your `CallCompositeOptions`.  By default, all text labels use our English (`SupportedLocale.en`) strings. If desired, `LocalizationOptions` can be used to set a different `locale`. Out of the box, the UI library includes a set of `locale` usable with the UI components. `SupportedLocale.values` provides a list of all supported languages. 
 
 For the example below, the composite will be localized to French (`fr`). 
 
@@ -238,8 +238,8 @@ For the example below, the composite will be localized to French (`fr`).
 // Creating swift Locale struct
 var localizationOptions = LocalizationOptions(locale: Locale(identifier: "fr-FR"))
 
-// Use intellisense CallCompositeSupportedLocale to get supported Locale struct
-localizationOptions = LocalizationOptions(locale: CallCompositeSupportedLocale.frFR)
+// Use intellisense SupportedLocale to get supported Locale struct
+localizationOptions = LocalizationOptions(locale: SupportedLocale.frFR)
 
 let callCompositeOptions = CallCompositeOptions(localization: localizationOptions) 
 ```
