@@ -3,7 +3,7 @@ title: Configure monitoring for Azure Functions
 description: Learn how to connect your function app to Application Insights for monitoring and how to configure data collection.
 ms.date: 05/16/2022
 ms.topic: how-to
-ms.custom: "contperf-fy21q2", devdivchpfy22
+ms.custom: contperf-fy21q2, devdivchpfy22
 # Customer intent: As a developer, I want to understand how to correctly configure monitoring for my functions so I can collect the data that I need.
 ---
 
@@ -13,7 +13,7 @@ Azure Functions integrates with Application Insights to better enable you to mon
 
 You can use Application Insights without any custom configuration. The default configuration can result in high volumes of data. If you're using a Visual Studio Azure subscription, you might hit your data cap for Application Insights. For information about Application Insights costs, see [Application Insights billing](../azure-monitor/logs/cost-logs.md#application-insights-billing). For more information, see [Solutions with high-volume of telemetry](#solutions-with-high-volume-of-telemetry).
 
-Later in this article, you learn how to configure and customize the data that your functions send to Application Insights. For a function app, logging is configured in the [*host.json* file](../articles/azure-functions/functions-host-json.md).
+Later in this article, you learn how to configure and customize the data that your functions send to Application Insights. For a function app, logging is configured in the *[host.json]* file.
 
 > [!NOTE]
 > You can use specially configured application settings to represent specific settings in a *host.json* file for a specific environment. This lets you effectively change *host.json* settings without having to republish the *host.json* file in your project. For more information, see [Override host.json values](functions-host-json.md#override-hostjson-values).
