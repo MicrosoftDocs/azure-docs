@@ -723,7 +723,7 @@ items:
     - name: Alert user interface
       items:
       - name: View and manage alert instances
-        href: alerts/alerts-managing-alert-instances.md
+        href: alerts/alerts-page.md
     - name: Troubleshoot alerts
       href: alerts/alerts-troubleshoot.md
     - name: Alerts and region moves

@@ -1,6 +1,5 @@
 ---
 title: Overview of admin consent workflow
-titleSuffix: Microsoft Entra
 description: Learn about the admin consent workflow in Azure Active Directory 
 services: active-directory
 author: eringreenlee
@@ -11,7 +10,6 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 03/30/2022
 ms.author: ergreenl
-ms.reviewer: davidmu
 ms.collection: M365-identity-device-management
 
 #customer intent: As an admin, I want to learn about the admin consent workflow and how it affects end-user and admin consent experience

@@ -103,7 +103,7 @@ For this quickstart, the wizard does a good job setting reasonable defaults:
 
 + Default attributes are **Retrievable** and **Searchable**. **Searchable** allows full text search a field. **Retrievable** means field values can be returned in results. The wizard assumes you want these fields to be retrievable and searchable because you created them via a skillset. Select **Filterable** if you want to use fields in a filter expression.
 
-  :::image type="content" source="media/cognitive-search-quickstart-blob/index-fields.png" alt-text="Screenshot of the index definition page" border="true":::
+  :::image type="content" source="media/cognitive-search-quickstart-blob/index-fields.png" alt-text="Screenshot of the index definition page." border="true":::
 
 Marking a field as **Retrievable** does not mean that the field *must* be present in the search results. You can control search results composition by using the **$select** query parameter to specify which fields to include.
   
