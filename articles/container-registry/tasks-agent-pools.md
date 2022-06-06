@@ -113,6 +113,7 @@ subnetId=$(az network vnet subnet show \
 
 az acr agentpool create \
     --name myagentpool \
+    --registry MyRegistry \
     --tier S2 \
     --subnet-id $subnetId
 ```
