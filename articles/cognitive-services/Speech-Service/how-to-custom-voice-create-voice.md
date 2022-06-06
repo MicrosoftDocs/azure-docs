@@ -159,7 +159,7 @@ After you validate your data files, you can use them to build your Custom Neural
    >- To create a custom neural voice, select at least 300 utterances.
    >- To train a neural voice, you must specify a voice talent profile. This profile must provide the audio consent file of the voice talent, acknowledging to use his or her speech data to train a custom neural voice model. Custom Neural Voice is available with limited access. Make sure you understand the [responsible AI requirements](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) and [apply the access](https://aka.ms/customneural).
 
-1. Choose your test script. Each training generates 100 sample audio files automatically, to help you test the model with a default script. You can also provide your own test script including at most 100 utterances. The test script must exclude the filenames (the ID of each utterance). Otherwise, these IDs are spoken. Here's an example of how the utterances are organized in one .txt file:
+1. Choose your test script. Each training generates 100 sample audio files automatically, to help you test the model with a default script. You can also provide your own test script, including up to 100 utterances. The test script must exclude the filenames (the ID of each utterance). Otherwise, these IDs are spoken. Here's an example of how the utterances are organized in one .txt file:
 
    ```
    This is the waistline, and it's falling.
