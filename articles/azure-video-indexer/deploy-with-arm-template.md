@@ -16,7 +16,7 @@ The resource will be deployed to your subscription and will create the Azure Vid
 > [!NOTE]
 > This sample is *not* for connecting an existing Azure Video Indexer classic account to an ARM-based Azure Video Indexer account.
 > For full documentation on Azure Video Indexer API, visit the [Developer portal](https://aka.ms/avam-dev-portal) page.
-> The current API Version is "2021-10-27-preview". Check this Repo from time to time to get updates on new API Versions.
+> The current API Version is "2021-11-10-preview". Check this Repo from time to time to get updates on new API Versions.
 
 ## Prerequisites
 
@@ -40,7 +40,6 @@ The resource will be deployed to your subscription and will create the Azure Vid
 
     * Create a new Resource group on the same location as your Azure Video Indexer account, using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) cmdlet.
 
-
     ```powershell
     New-AzResourceGroup -Name myResourceGroup -Location eastus
     ```
@@ -52,7 +51,7 @@ The resource will be deployed to your subscription and will create the Azure Vid
     ```
 
 > [!NOTE]
-> If you would like to work with bicep format, inspect the [bicep file](https://github.com/Azure-Samples/media-services-video-indexer/blob/master/ARM-Quick-Start/avam.template.bicep) on this repo.
+> If you would like to work with bicep format, see []().
 
 ## Parameters
 
