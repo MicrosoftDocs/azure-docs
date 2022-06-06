@@ -26,7 +26,7 @@ If you forgot your password, select the **Recover Password** option. See [Passwo
 
 ## Activate the on-premises management console
 
-After you sign in for the first time, you need to activate the on-premises management console by getting and uploading an activation file. 
+After you sign in for the first time, you need to activate the on-premises management console by getting and uploading an activation file. Activation files on the on-premises management console enforces the number of committed devices configured for your subscription and Defender for IoT plan. For more information, see [Manage Defender for IoT subscriptions](how-to-manage-subscriptions.md).
 
 **To activate the on-premises management console**:
 
@@ -63,7 +63,7 @@ If this warning appears, you need to upload a [new activation file](#activate-th
 
 ### Activation expirations
 
-After activating an on-premises management console, you'll need to apply new activation files as follows:
+After activating an on-premises management console, you'll need to apply new activation files on both the on-premises management console and connected sensors as follows:
 
 |Location  |Activation process  |
 |---------|---------|
