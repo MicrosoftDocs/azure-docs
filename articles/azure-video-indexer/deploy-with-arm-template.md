@@ -51,7 +51,7 @@ The resource will be deployed to your subscription and will create the Azure Vid
     ```
 
 > [!NOTE]
-> If you would like to work with bicep format, see []().
+> If you would like to work with bicep format, see [Deploy by using Bicep](./deploy-with-bicep.md).
 
 ## Parameters
 
