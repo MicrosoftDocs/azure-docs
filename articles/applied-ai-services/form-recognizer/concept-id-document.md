@@ -10,7 +10,6 @@ ms.topic: conceptual
 ms.date: 06/06/2022
 ms.author: lajanuar
 recommendations: false
-ms.custom: ignite-fall-2021
 ---
 <!-- markdownlint-disable MD033 -->
 

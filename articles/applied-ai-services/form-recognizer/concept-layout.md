@@ -33,7 +33,7 @@ The Form Recognizer Layout API extracts text, tables, selection marks, and struc
 | --- | --- | --- | --- | --- | --- |
 | Layout  | ✓  | ✓  | ✓  | ✓  | ✓  |
 
-This is a list of the supported paragraph roles:
+**Supported paragraph roles**:
 
 * title
 * sectionHeading

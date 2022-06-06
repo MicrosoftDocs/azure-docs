@@ -64,7 +64,7 @@ See how data, including time and date of transactions, merchant information, and
 
 #### Sample Labeling tool (API v2.1)
 
-You will need a receipt document. You can use our [sample receipt document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-receipt.png).
+You'll need a receipt document. You can use our [sample receipt document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-receipt.png).
 
 1. On the Sample Labeling tool home page, select **Use prebuilt model to get data**.
 
