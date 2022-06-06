@@ -120,7 +120,7 @@ As you interact with this example, replace the placeholders surrounded by `<>` w
 
 ## Deactivate
 
-Deactivate revisions that are no longer in use with `az container app revision deactivate`. Deactivation stops all running replicas of a revision.
+Deactivate revisions that are no longer in use with `az containerapp revision deactivate`. Deactivation stops all running replicas of a revision.
 
 # [Bash](#tab/bash)
 

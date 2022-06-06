@@ -15,6 +15,8 @@ ms.topic: how-to
 
 This article explains how to deploy Active Directory (AD) connector in customer-managed keytab mode. The connector is a key component to enable Active Directory authentication on Azure Arc-enabled SQL Managed Instance.
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 ## Active Directory connector in customer-managed keytab mode
 
 In customer-managed keytab mode, an Active Directory connector deploys a DNS proxy service that proxies the DNS requests coming from the managed instance to either of the two upstream DNS services:
