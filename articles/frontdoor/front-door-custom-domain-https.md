@@ -90,10 +90,10 @@ You can use your own certificate to enable the HTTPS feature. This process is do
 
 #### Register Azure Front Door
 
-Register the service principal for Azure Front Door as an app in your Azure Active Directory by using Azure PowerShell or the Azure CLI.
+Register the service principal for Azure Front Door as an app in your Azure Active Directory (Azure AD) by using Azure PowerShell or the Azure CLI.
 
 > [!NOTE]
-> This action requires Global Administrator permissions, and needs to be performed only **once** per Azure Active Directory tenant.
+> This action requires you to have Global Administrator permissions in Azure AD. The registration only needs to be performed **once per Azure AD tenant**.
 
 ##### Azure PowerShell
 

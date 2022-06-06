@@ -63,10 +63,10 @@ You can also choose to use your own TLS certificate.  When you create your TLS/S
 
 #### Register Azure Front Door
 
-Register the service principal for Azure Front Door as an app in your Azure Active Directory by using Azure PowerShell or the Azure CLI.
+Register the service principal for Azure Front Door as an app in your Azure Active Directory (Azure AD) by using Azure PowerShell or the Azure CLI.
 
 > [!NOTE]
-> This action requires Global Administrator permissions, and needs to be performed only **once** per Azure Active Directory tenant.
+> This action requires you to have Global Administrator permissions in Azure AD. The registration only needs to be performed **once per Azure AD tenant**.
 
 ##### Azure PowerShell
 
@@ -95,7 +95,7 @@ Grant Azure Front Door permission to access the certificates in your Azure Key V
 
 1. In your key vault account, select **Access policies**.
 
-1. Select **Create** to create a new access policy.
+1. Select **Add new** or **Create** to create a new access policy.
 
 1. In **Secret permissions**, select **Get** to allow Front Door to retrieve the certificate.
 
@@ -120,7 +120,11 @@ Azure Front Door can now access this key vault and the certificates it contains.
 
     :::image type="content" source="../media/how-to-configure-https-custom-domain/add-certificate.png" alt-text="Screenshot of Azure Front Door secret landing page.":::
 
-1. On the **Add certificate** page, select the checkbox for the certificate you want to add to Azure Front Door Standard/Premium. Leave the version selection as "Latest" and select **Add**.
+1. On the **Add certificate** page, select the checkbox for the certificate you want to add to Azure Front Door Standard/Premium.
+
+1. When you select a certificate, you must [select the certificate version](#rotate-own-certificate). If you select **Latest**, Azure Front Door will automatically update whenever the certificate is rotated (renewed). Alternatively, you can select a specific certificate version if you prefer to manage certificate rotation yourself.
+
+   Leave the version selection as "Latest" and select **Add**.
 
     :::image type="content" source="../media/how-to-configure-https-custom-domain/add-certificate-page.png" alt-text="Screenshot of add certificate page.":::
 
@@ -150,9 +154,9 @@ Azure managed certificate will be automatically rotated when your custom domain 
 
 The domain validation state will become ‘Pending Revalidation’ 45 days before managed certificate expiry or ‘Rejected’ if the managed certificate issuance is rejected by the certificate authority.  Refer to [Add a custom domain](how-to-add-custom-domain.md#domain-validation-state) for actions for different domain state. 
 
-### Use your own certificate 
+### <a name="rotate-own-certificate"></a>Use your own certificate
 
-In order for the certificate to be automatically rotated to the latest version when a newer version of the certificate is available in your Key Vault, set the secret version to 'Latest'. If a specific version is selected, you have to reselect the new version manually for certificate rotation. It takes up to 24 hours for the new version of the certificate/secret to be automatically deployed.  
+In order for the certificate to be automatically rotated to the latest version when a newer version of the certificate is available in your key vault, set the secret version to 'Latest'. If a specific version is selected, you have to reselect the new version manually for certificate rotation. It takes up to 24 hours for the new version of the certificate/secret to be automatically deployed.
 
 If you want to change the secret version from ‘Latest’ to a specified version or vice versa, add a new certificate. 
 
