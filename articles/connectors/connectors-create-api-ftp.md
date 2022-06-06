@@ -128,8 +128,6 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 1. When you're done, save your workflow.
 
-Although saving your workflow automatically enables and publishes your logic app resource live in Azure, the only action that your workflow currently takes is to check your FTP server for new or updated files, based on your specified interval and frequency. Now that your workflow has a trigger, add the actions you want to run when the FTP trigger finds a new or updated file. For this example, you can add an FTP action that gets the new or updated content.
-
 ### [Standard](#tab/standard)
 
 1. In the [Azure portal](https://portal.azure.com), and open your blank logic app workflow in the designer.
@@ -168,21 +166,40 @@ Although saving your workflow automatically enables and publishes your logic app
 
 1. When you're done, save your logic app workflow.
 
-Although saving your workflow automatically enables and publishes your logic app resource live in Azure, the only action that your workflow currently takes is to check your FTP server for new or updated files, based on your specified interval and frequency. Now that your workflow has a trigger, add the actions you want to run when the FTP trigger finds a new or updated file. For this example, you can add an FTP action that gets the new or updated content.
-
 ---
 
-<a name="get-content"></a>
+Although saving your workflow automatically enables and publishes your logic app resource live in Azure, the only task that your workflow currently performs is to check your FTP server for new or updated files, based on your specified interval and frequency. Now that your workflow has a trigger, add the actions you want to run when the FTP trigger finds a new or updated file. For this example, you can add an FTP action that gets the new or updated content.
 
-### Add FTP action
+<a name="add-ftp-action"></a>
 
-The **Get file metadata** action gets the properties for a file that's on your FTP server and the **Get file content** action gets the file content based on the information about that file on your FTP server. For example, you can add the trigger from the previous example and these actions to get the file's content after that file is added or edited.
+## Add an FTP action
 
-1. Under the trigger or any other actions, select **New step**.
+The FTP managed connector and built-in connector each have multiple actions. For example, both connector types have the [**Get file content**](#get-file-content) action. You can use this action to get the content from a file for further processing and store that order in an orders database. You might also use a condition to check that file's content against specific criteria and get that content only if that content meets the criteria.
 
-1. In the search box, enter `ftp` as your filter. Under the actions list, select this action: **Get file metadata**
 
-   ![Select the "Get file metadata" action](./media/connectors-create-api-ftp/select-get-file-metadata-ftp-action.png)
+For more information about this trigger, review [Get file content](/connectors/ftp/#get-file-content).
+
+The following steps use the Azure portal, but with the appropriate Azure Logic Apps extension, you can also use the following tools to create logic app workflows:
+
+* Consumption logic app workflows: [Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) or [Visual Studio Code](../logic-apps/quickstart-create-logic-apps-visual-studio-code.md)
+
+* Standard logic app workflows: [Visual Studio Code](../logic-apps/create-single-tenant-workflows-visual-studio-code.md)
+
+### [Consumption](#tab/consumption)
+
+1. In the [Azure portal](https://portal.azure.com), and open your logic app workflow in the designer.
+
+1. In the designer, under the trigger or any other actions, select **New step**.
+
+1. Find and select the [FTP action](/connectors/ftp/) that you want to use.
+
+   1. On the designer, under the **Chooose an operation** search box, select **All**.
+
+   1. In the search box, enter **ftp**.
+
+   1. From the actions list, select the action named **Get file content**.
+
+   ![Screenshot shows the Azure portal, Consumption workflow designer, search box with "ftp" entered, and "Get file content" action selected.](./media/connectors-create-api-ftp/get-file-content-action-consumption.png)
 
 1. If you already have a connection to your FTP server and account, go to the next step. Otherwise, provide the necessary details for that connection, and then select **Create**.
 
@@ -209,6 +226,10 @@ The **Get file metadata** action gets the properties for a file that's on your F
    ![Selected "Id" property](./media/connectors-create-api-ftp/selected-get-file-content-id-ftp-action.png)
 
 1. Save your logic app.
+
+### [Standard](#tab/standard)
+
+---
 
 ## Test your logic app
 
@@ -289,6 +310,9 @@ Operation ID: `createFile`
 
 ### Get the file metadata
 
+The **Get file metadata** action gets the properties for a file that's on your FTP server and the **Get file content** action gets the file content based on the information about that file on your FTP server. For example, you can add the trigger from the previous example and these actions to get the file's content after that file is added or edited.
+
+
 <a name="list-files-subfolders-folder"></a>
 
 ### List the files and subfolders in a folder
@@ -297,9 +321,6 @@ Operation ID: `createFile`
 
 ### Update file
 
-
-
 ## Next steps
 
 * Learn about other [Logic Apps connectors](../connectors/apis-list.md)
-
