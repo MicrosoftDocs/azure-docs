@@ -34,10 +34,10 @@ In the App Service diagnostics homepage, you can choose the category that best d
 
 The homepage for App Service diagnostics offers streamlined diagnostics access using four sections:
 
-- Ask Genie search box
-- Risk Alerts
-- Troubleshooting categories
-- Popular troubleshooting tools
+- **Ask Genie search box**
+- **Risk Alerts**
+- **Troubleshooting categories**
+- **Popular troubleshooting tools**
 
 ## Ask Genie search box
 
@@ -60,12 +60,12 @@ Recommendations and checks performed can be reviewed by clicking "View more deta
 
 Troubleshooting categories group diagnostics for ease of discovery. The following are available:
 
-- Availability and Performance
-- Configuration and Management
-- SSL and Domains
-- Risk Assessments
-- Navigator (Preview)
-- Diagnostic Tools
+- **Availability and Performance**
+- **Configuration and Management**
+- **SSL and Domains**
+- **Risk Assessments**
+- **Navigator (Preview)**
+- **Diagnostic Tools**
 
 
 ![Diagnostic troubleshooting list](./media/app-service-diagnostics/app-service-diagnostics-troubleshooting-categories-1.png)
@@ -73,20 +73,20 @@ Troubleshooting categories group diagnostics for ease of discovery. The followin
 
 The tiles or the Troubleshoot link show the available diagnostics for the category. If you were interested in investigating Availability and performance the following diagnostics are offered:
 
-- Overview
-- Web App Down
-- Web App Slow
-- High CPU Analysis
-- Memory Analysis
-- Web App Restarted
-- Application Change (Preview)
-- Application Crashes
-- HTTP 4xx Errors
-- SNAT Failed Connection Endpoints
-- SWAP Effects on Availability
-- TCP Connections
-- Testing in Production
-- WebJob Details
+- **Overview**
+- **Web App Down**
+- **Web App Slow**
+- **High CPU Analysis**
+- **Memory Analysis**
+- **Web App Restarted**
+- **Application Change (Preview)**
+- **Application Crashes**
+- **HTTP 4xx Errors**
+- **SNAT Failed Connection Endpoints**
+- **SWAP Effects on Availability**
+- **TCP Connections**
+- **Testing in Production**
+- **WebJob Details**
 
 
 ![Availability and Performance list](./media/app-service-diagnostics/app-service-diagnostics-availability-and-performance-1.png)
