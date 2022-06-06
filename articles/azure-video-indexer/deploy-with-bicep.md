@@ -13,7 +13,7 @@ In this tutorial, you create an Azure Video Indexer account by using [Bicep](../
 > [!NOTE]
 > This sample is *not* for connecting an existing Azure Video Indexer classic account to an ARM-based Azure Video Indexer account.
 > For full documentation on Azure Video Indexer API, visit the [Developer portal](https://aka.ms/avam-dev-portal) page.
-> The current API Version is "2021-11-10-preview". Check this Repo from time to time to get updates on new API Versions.
+> For the latest API version for Microsoft.VideoIndexer, see the [template reference](/azure/templates/microsoft.videoindexer/accounts?tabs=bicep).
 
 ## Prerequisites
 
@@ -36,27 +36,27 @@ Check [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-tem
 1. Save the Bicep file as main.bicep to your local computer.
 1. Deploy the Bicep file using either Azure CLI or Azure PowerShell
 
-  # [CLI](#tab/CLI)
+    # [CLI](#tab/CLI)
 
-  ```azurecli
-  az group create --name exampleRG --location eastus
-  az deployment group create --resource-group exampleRG --template-file main.bicep --parameters accountName=<account-name> managedIdentityResourceId=<managed-identity> mediaServiceAccountResourceId=<media-service-account-resource-id>
-  ```
+    ```azurecli
+    az group create --name exampleRG --location eastus
+    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters accountName=<account-name> managedIdentityResourceId=<managed-identity> mediaServiceAccountResourceId=<media-service-account-resource-id>
+    ```
 
-  # [PowerShell](#tab/PowerShell)
+    # [PowerShell](#tab/PowerShell)
 
-  ```azurepowershell
-  New-AzResourceGroup -Name exampleRG -Location eastus
-  New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -accountName "<account-name>" -managedIdentityResourceId "<managed-identity>" -mediaServiceAccountResourceId "<media-service-account-resource-id>"
-  ```
+    ```azurepowershell
+    New-AzResourceGroup -Name exampleRG -Location eastus
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -accountName "<account-name>" -managedIdentityResourceId "<managed-identity>" -mediaServiceAccountResourceId "<media-service-account-resource-id>"
+    ```
 
-  ---
+    ---
 
-  The location must be the same location as the existing Azure media service. You need to provide values for the parameters:
+    The location must be the same location as the existing Azure media service. You need to provide values for the parameters:
 
-  * Replace **\<account-name\>** with the name of the new Azure video indexer account.
-  * Replace **\<managed-identity\>** with the managed identity used to grant access between Azure Media Services(AMS).
-  * Replace **\<media-service-account-resource-id\>** with the existing Azure media service.
+    * Replace **\<account-name\>** with the name of the new Azure video indexer account.
+    * Replace **\<managed-identity\>** with the managed identity used to grant access between Azure Media Services(AMS).
+    * Replace **\<media-service-account-resource-id\>** with the existing Azure media service.
 
 ## Reference documentation
 

@@ -1,6 +1,6 @@
 ---
 title:  Deploy Azure Video Indexer with ARM template
-description: In this tutorial you will create an Azure Video Indexer account by using Azure Resource Manager (ARM) template.
+description: Learn how to create an Azure Video Indexer account by using Azure Resource Manager (ARM) template.
 ms.topic: tutorial
 ms.date: 05/23/2022
 ms.author: juliako
@@ -10,13 +10,13 @@ ms.author: juliako
 
 ## Overview
 
-In this tutorial you will create an Azure Video Indexer account by using Azure Resource Manager (ARM) template (preview).
+In this tutorial, you will create an Azure Video Indexer account by using Azure Resource Manager (ARM) template (preview).
 The resource will be deployed to your subscription and will create the Azure Video Indexer resource based on parameters defined in the avam.template file.
 
 > [!NOTE]
 > This sample is *not* for connecting an existing Azure Video Indexer classic account to an ARM-based Azure Video Indexer account.
 > For full documentation on Azure Video Indexer API, visit the [Developer portal](https://aka.ms/avam-dev-portal) page.
-> The current API Version is "2021-11-10-preview". Check this Repo from time to time to get updates on new API Versions.
+> For the latest API version for Microsoft.VideoIndexer, see the [template reference](/azure/templates/microsoft.videoindexer/accounts?tabs=bicep).
 
 ## Prerequisites
 
