@@ -7,7 +7,7 @@ ms.topic: how-to
 
 # Investigate sensor detections in an inventory
 
-The device inventory displays an extensive range of device attributes that your sensor detects. Use the inventory to gain insight and full visibility into the devices on your network. 
+The device inventory displays an extensive range of device attributes that your sensor detects. Use the inventory to gain insight and a complete view of the devices on your network. 
 
 :::image type="content" source="media/how-to-inventory-sensor/inventory-sensor.png" alt-text="Screenshot that shows the Device inventory main screen.":::
 
@@ -47,13 +47,13 @@ The following columns are available for each device.
 | Name | Description |
 |--|--|
 | **Description** | A description of the device |
-| **Discovered** | When this device was first seen in the network. |
+| **Discovered** | When this device was first seen on the network. |
 | **Firmware version** | The device's firmware, if detected. |
 | **FQDN** | The device's FQDN value |
 | **FQDN lookup time** | The device's FQDN lookup time |
 | **Groups** | The groups that this device participates in. |
 | **IP Address** | The IP address of the device. |
-| **Is Authorized** | The authorization status defined by the user:<br />- **True**: The device has been authorized.<br />- **False**: The device hasn't been |
+| **Is Authorized** | The authorization status defined by the user:<br />- **True**: The device has been authorized.<br />- **False**: The device hasn't been authorized |
 | **Is Known as Scanner** | Defined as a network scanning device by the user. |
 | **Is Programming device** | Defined as an authorized programming device by the user. <br />- **True**: The device performs programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations. <br />- **False**: The device isn't a programming device. |
 | **Last Activity** | The last activity that the device performed. |
@@ -227,7 +227,7 @@ You can deploy the script once or schedule ongoing queries by using standard aut
 
 Information learned on each endpoint should be imported to the sensor.
 
-Files generated from the queries can be placed in one folder that you can access from sensors. Use standard, automated methods and tools to move the files from each Windows endpoint to the location where you'll be importing them to the sensor.
+Files generated from the queries can be placed in one folder that you can access from the sensors. Use standard, automated methods and tools to move the files from each Windows endpoint to the location where you'll be importing them to the sensor.
 
 Don't update file names.
 
@@ -276,7 +276,7 @@ You can filter the inventory to display devices that are inactive:
 
 Devices you delete from the Inventory are removed from the map and won't be calculated when generating Defender for IoT reports, for example Data Mining, Risk Assessment, and Attack Vector reports.
 
-You'll be prompted to record a reason for deleting devices. This information, as well as the time/date and number of devices deleted, appears in the Event timeline.
+You'll be prompted to record a reason for deleting devices. This information, as well as the date/time and number of devices deleted, appear in the Event timeline.
 
 **To delete inactive devices:**
   
