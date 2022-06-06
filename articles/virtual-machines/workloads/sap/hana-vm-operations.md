@@ -12,7 +12,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/11/2022
+ms.date: 06/06/2022
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -105,10 +105,6 @@ For an overview of the different methods for assigning IP addresses, see [IP add
 For VMs running SAP HANA, you should work with static IP addresses assigned. Reason is that some configuration attributes for HANA reference IP addresses.
 
 [Azure Network Security Groups (NSGs)](../../../virtual-network/virtual-network-vnet-plan-design-arm.md) are used to direct traffic that's routed to the SAP HANA instance or the jumpbox. The NSGs and eventually [Application Security Groups](../../../virtual-network/network-security-groups-overview.md#application-security-groups) are associated to the SAP HANA subnet and the Management subnet.
-
-The following image shows an overview of a rough deployment schema for SAP HANA following a hub and spoke VNet architecture:
-
-![Rough deployment schema for SAP HANA](media/hana-vm-operations/hana-simple-networking-dmz.png)
 
 To deploy SAP HANA in Azure without a site-to-site connection, you still want to shield the SAP HANA instance from the public internet and hide it behind a forward proxy. In this basic scenario, the deployment relies on Azure built-in DNS services to resolve hostnames. In a more complex deployment where public-facing IP addresses are used, Azure built-in DNS services are especially important. Use Azure NSGs and [Azure NVAs](https://azure.microsoft.com/solutions/network-appliances/) to control, monitor the routing from the internet into your Azure VNet architecture in Azure. The following image shows a rough schema for deploying SAP HANA without a site-to-site connection in a hub and spoke VNet architecture:
   
