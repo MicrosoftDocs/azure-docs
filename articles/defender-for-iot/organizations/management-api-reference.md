@@ -16,7 +16,7 @@ Use this API to let users change their own passwords. All Defender for IoT user 
 
 You don't need a Defender for IoT access token to use this API.
 
-**URL**: `/external/authentication/set_password`
+**URI**: `/external/authentication/set_password`
 
 **Method**: POST
 
@@ -102,7 +102,7 @@ Use this API to let system administrators change passwords for specified users. 
 
 You don't need a Defender for IoT access token to use this API.
 
-**URL**: /external/authentication/set_password_by_admin
+**URI**: /external/authentication/set_password_by_admin
 
 ### POST
 
@@ -211,7 +211,7 @@ For example:
 
 Use this API to request a list of all devices that a Defender for IoT sensor has detected.
 
-**URL**: `/api/v1/devices`
+**URI**: `/api/v1/devices`
 
 ### GET
 
@@ -360,7 +360,7 @@ curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/a
 
 Use this API to validate user credentials. All Defender for IoT user roles can work with the API. You don't need a Defender for IoT access token to use this API.
 
-**URL**: `/external/authentication/validation`
+**URI**: `/external/authentication/validation`
 
 ### POST
 
@@ -432,7 +432,7 @@ curl -k -d '{"username":"myUser","password":"1234@abcd"}' 'https://127.0.0.1/ext
 
 This API requests a list of all devices detected by Defender for IoT sensors that are connected to an on-premises management console.
 
-**URL**: `/external/v1/devices`
+**URI**: `/external/v1/devices`
 
 ### GET
 
@@ -656,7 +656,7 @@ curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/
 
 Use this API to retrieve all or filtered alerts from an on-premises management console.
 
-**URL**:  `/external/v1/alerts`
+**URI**:  `/external/v1/alerts`
 
 ### GET
 
@@ -791,7 +791,7 @@ curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/
 
 Use this API to take specified action on a specific alert detected by Defender for IoT.
 
-**URL**: `/external/v1/alerts/<UUID>`
+**URI**: `/external/v1/alerts/<UUID>`
 
 ### PUT
 
@@ -875,7 +875,7 @@ curl -k -X PUT -d '{"action": "handle"}' -H "Authorization: 1234b734a9244d54ab8d
 ---
 ## maintenanceWindow (Create alert exclusions)
 
-**URL**: `/external/v1/maintenanceWindow`
+**URI**: `/external/v1/maintenanceWindow`
 
 ### POST
 
@@ -1089,7 +1089,7 @@ curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/
 
 Use this API to request a PCAP file related to an alert.
 
-**URL**: `/external/v2/alerts/`
+**URI**: `/external/v2/alerts/`
 ### GET
 
 # [Request](#tab/pcap-request)

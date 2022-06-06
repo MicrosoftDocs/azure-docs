@@ -15,7 +15,7 @@ Use this API to validate a Defender for IoT username and password. All Defender 
 
 You don't need a Defender for IoT access token to use this API.
 
-**URL**: `/api/external/authentication/validation`
+**URI**: `/api/external/authentication/validation`
 
 ### POST
 
@@ -81,7 +81,7 @@ curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/a
 
 Use this API to let users change their own passwords. All Defender for IoT user roles can work with the API. You don't need a Defender for IoT access token to use this API.
 
-**URL**: `/external/authentication/set_password`
+**URI**: `/external/authentication/set_password`
 
 ### POST
 
@@ -157,7 +157,7 @@ curl -k -d '{"username": "myUser","password": "1234@abcd","new_password": "abcd@
 
 Use this API to let system administrators change passwords for specified users. Defender for IoT administrator user roles can work with the API. You don't need a Defender for IoT access token to use this API.
 
-**URL**: /external/authentication/set_password_by_admin
+**URI**: `/external/authentication/set_password_by_admin`
 
 ### POST
 
@@ -237,7 +237,7 @@ curl -k -d '{"admin_user":"adminUser","admin_password": "1234@abcd","username": 
 
 Use this API to request a list of all the connections per device.
 
-**URL**: `/api/v1/devices/connections`
+**URI**: `/api/v1/devices/connections`
 
 ### GET
 
@@ -369,7 +369,7 @@ curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/
 
 Use this API to request a list of all known CVEs discovered on devices in the network.
 
-**URL**:  /api/v1/devices/cves
+**URI**:  `/api/v1/devices/cves`
 
 ### GET
 
@@ -474,7 +474,7 @@ curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/a
 
 Use this API to request a list of all the alerts that the Defender for IoT sensor has detected.
 
-**URL**: `/api/v1/alerts`
+**URI**: `/api/v1/alerts`
 
 ### GET
 
@@ -577,7 +577,7 @@ curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/
 
 Use this API to request a list of events reported to the event timeline.
 
-**URL**:  `/api/v1/events`
+**URI**:  `/api/v1/events`
 
 ### GET
 
@@ -667,7 +667,7 @@ curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" 'https://127.0.0.1/
 
 Use this API to request vulnerability assessment results for each device.
 
-**URL**: /api/v1/reports/vulnerabilities/
+**URI**: `/api/v1/reports/vulnerabilities/`
 
 ### GET
 
@@ -851,7 +851,7 @@ Use this API to request results of a general vulnerability assessment. This asse
 
 This assessment is based on general network and system information and not on a specific device evaluation.
 
-**URL**: /api/v1/reports/vulnerabilities/security
+**URI**: `/api/v1/reports/vulnerabilities/security`
 
 ### GET
 
@@ -1024,7 +1024,7 @@ curl -k -H "Authorization: 1234b734a9244d54ab8d40aedddcabcd" https://127.0.0.1/a
 
 Use this API to request results of a general vulnerability assessment. This assessment provides insight into the operational status of your network. It's based on general network and system information and not on a specific device evaluation.
 
-**URL**: /api/v1/reports/vulnerabilities/operational
+**URI**: `/api/v1/reports/vulnerabilities/operational`
 
 # [Request](#tab/operational-request)
 
@@ -1170,7 +1170,7 @@ Use this API to retrieve a PCAP file related to an alert.
 
 This endpoint does not use a regular access token for authorization. Instead, it requires a special token created by the `/external/v2/alerts/pcap` API endpoint on the CM.
 
-**URL**: /api/v2/alerts/pcap
+**URI**: `/api/v2/alerts/pcap`
 
 ### GET
 

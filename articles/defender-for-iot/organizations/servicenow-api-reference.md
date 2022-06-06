@@ -11,14 +11,14 @@ This article lists API supported with the Microsoft Defender for IoT integration
 
 For more information, see [Tutorial: Integrate ServiceNow with Microsoft Defender for IoT](tutorial-servicenow.md).
 
-**URL**: `/external/v3/integration/`
+**URI**: `/external/v3/integration/`
 
 
 ## devices (Create and update devices)
 
-**URL**: /devices/{timestamp}
+**URI**: /devices/{timestamp}
 
-**URL parameters**:
+**URI parameters**:
 
 
 |Name  |Description  |
@@ -54,9 +54,9 @@ For more information, see [Tutorial: Integrate ServiceNow with Microsoft Defende
 
 ## connections (Get device connections)
 
-**URL**: `/connections/{timestamp}`
+**URI**: `/connections/{timestamp}`
 
-**URL parameters**:
+**URI parameters**:
 
 |Name  |Description  |
 |---------|---------|
@@ -96,9 +96,9 @@ For more information, see [Tutorial: Integrate ServiceNow with Microsoft Defende
 # [Request](#tab/device-request)
 
 
-**URL**: `/device/{deviceId}`
+**URI**: `/device/{deviceId}`
 
-**URL parameters**:
+**URI parameters**:
 
 |Name  |Description  |
 |---------|---------|
@@ -143,9 +143,9 @@ For more information, see [Tutorial: Integrate ServiceNow with Microsoft Defende
 # [Request](#tab/deleteddevices-request)
 
 
-**URL**: `/deleteddevices/{timestamp}`
+**URI**: `/deleteddevices/{timestamp}`
 
-**URL parameters**:
+**URI parameters**:
 
 |Name  |Description  |
 |---------|---------|
@@ -171,7 +171,7 @@ For more information, see [Tutorial: Integrate ServiceNow with Microsoft Defende
 # [Request](#tab/sensors-request)
 
 
-**URL**: `/sensors`
+**URI**: `/sensors`
 
 
 # [Response](#tab/sensors-response)
@@ -202,9 +202,9 @@ An array of the following fields:
 ## devicecves (Get device CVEs)
 
 
-**URL**: `/devicecves/{timestamp}`
+**URI**: `/devicecves/{timestamp}`
 
-**URL parameters**:
+**URI parameters**:
 
 |Name  |Description  |
 |---------|---------|
