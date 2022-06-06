@@ -5,13 +5,9 @@ ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-<<<<<<< HEAD
 ms.reviewer: casocha
-=======
-ms.pmowner: casocha
-
->>>>>>> c05562d17da3750f260c84ed9d71f1680e96d8a6
 ---
+
 
 # Troubleshooting no data - Application Insights for .NET/.NET Core
 
