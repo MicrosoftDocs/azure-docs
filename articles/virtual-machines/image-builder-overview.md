@@ -147,7 +147,7 @@ You'll incur some compute, networking, and storage costs when you create, build,
 
 During the image-creation process, files are downloaded and stored in the `IT_<DestinationResourceGroup>_<TemplateName>` resource group, which incurs a small storage cost. If you don't want to keep these files, delete the image template after you've built the image.
  
-VM Image Builder creates a VM by using the default D1_v2 VM size for Gen1 images and D2ds V4 for Gen2 images, along with the storage, and networking needed for the VM. These resources last for the duration of the build process and are deleted once VM Image Builder has finished creating the image. 
+VM Image Builder creates a VM by using the default D1_v2 VM size for Gen1 images and Standard_D2ds_v4 for Gen2 images, along with the storage and networking needed for the VM. These resources last for the duration of the build process and are deleted once VM Image Builder has finished creating the image. 
  
 VM Image Builder will distribute the image to your chosen regions, which might incur network egress charges.
 
