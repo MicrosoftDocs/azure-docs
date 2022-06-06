@@ -5,7 +5,7 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 05/03/2022
+ms.date: 06/06/2022
 ms.author: mikaelw
 ms.custom: mode-api
 ---
@@ -282,3 +282,5 @@ In this article, you learned how to create Azure Health Data Services, including
 
 >[!div class="nextstepaction"]
 >[What is Azure Health Data Services](healthcare-apis-overview.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
