@@ -7,7 +7,7 @@ ms.subservice: cosmosdb-sql
 ms.date: 04/14/2022
 ms.author: maquaran
 ms.topic: troubleshooting
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ---
 
 # Diagnose and troubleshoot issues when using Azure Functions trigger for Cosmos DB
