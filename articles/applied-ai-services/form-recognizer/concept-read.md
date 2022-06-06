@@ -89,10 +89,10 @@ With the added support for Microsoft Word, Excel, PowerPoint, and HTML files, th
 | --- | --- | --- |
 |Images | Each image = 1 page unit | Total images  |
 |PDF | Each page in the PDF = 1 page unit | Total pages in the PDF |
-|Word | Up to 5,000 characters = 1 page unit, Each embedded image = 1 page unit | Total pages of up to 5,000 characters each + Total embedded images |
+|Word | Up to 3,000 characters = 1 page unit, Each embedded image = 1 page unit | Total pages of up to 3,000 characters each + Total embedded images |
 |Excel | Each worksheet = 1 page unit, Each embedded image = 1 page unit | Total worksheets + Total images
 |PowerPoint|  Each slide = 1 page unit, Each embedded image = 1 page unit | Total slides + Total images
-|HTML| Up to 5,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 5,000 characters each |
+|HTML| Up to 3,000 characters = 1 page unit, embedded or linked images not supported | Total pages of up to 3,000 characters each |
 
 ### Text lines and words
 
