@@ -9,23 +9,21 @@ ms.author: rigonzales
 ms.date: 06/03/2022
 ---
 
-# Creating and managing private offers via API (preview)
+# Create and manage private offers via API (preview)
 
 > [!NOTE]
 > This API is in preview. If you have any questions about the preview program, contact [privateofferspreview@microsoft.com](mailto:privateofferspreview@microsoft.com).
 
-## Overview
-
 Private offers allow publishers and customers to transact one or more products in Azure Marketplace by creating time-bound pricing with customized terms. The private offers API enables ISVs to programmatically create and manage private offers for customers and resellers. This API is useful if your account manages many private offers and you want to automate and optimize their management workflows. This API uses Azure Active Directory (Azure AD) to authenticate the calls from your app or service.
 
-### Terminology
+## Terminology
 
 - **Private offer** – A custom deal between an ISV and a specific customer with customized terms and pricing for a specific product in Azure Marketplace.
 - **Product** – A single unit representing an offer in Azure Marketplace. There's one product per listing page.
 - **Plan** – A single version of a particular product. There can be multiple plans for a given product that represent various levels of pricing or terms.
 - **Job** – A task created when making a request in this API. When using this API to manage private offers, a job is created to complete the request. Once the job is completed, you can get more information about the relevant private offer.
 
-### Supported scenarios
+## Supported scenarios
 
 - Create a private offer for a customer
 - Create a private offer for a reseller
@@ -35,7 +33,7 @@ Private offers allow publishers and customers to transact one or more products i
 - Query for a list of private offers
 - Query for a list of products and plans
 
-### Scenarios not supported via API
+## Scenarios not supported via API
 
 These scenarios are only available through Partner Center:
 
@@ -43,7 +41,7 @@ These scenarios are only available through Partner Center:
 - **Republishing** – Private offers withdrawn via API can't be republished via API.
 - **Publishing drafts** – Private offers in draft state can't be published via API.
 
-## Getting ready to use this API
+## Get ready to use this API
 
 Before you write code to call the private offers API, ensure you've completed the following prerequisites.
 
@@ -143,7 +141,7 @@ To see a list of all private offers associated with your seller account, use the
 
 The private offers API lets you create and manage private offers associated with products and plans within your Partner Center account. Here's a summary of the typical calling pattern when using this API.
 
-![A three-step flow diagram showing the typical calling pattern when using this API.](media/api-call-pattern.svg)
+![Illustrates a three-step flow of the typical calling pattern when using this API.](media/api-call-pattern.svg)
 
 ### Step 1. Make request
 
@@ -242,14 +240,14 @@ Sample absolute pricing resource:
  "priceInputOption": "usd",
             "prices": [
                 {
-                    "pricePerPaymentInUSD": 1,
+                    "pricePerPaymentInUsd": 1,
                     "billingTerm": {
                         "type": "month",
                         "value": 1
                     }
                 },
                 {
-                    "pricePerPaymentInUSD": 2,
+                    "pricePerPaymentInUsd": 2,
                     "paymentOption": {
                         "type": "month",
                         "value": 1
@@ -265,7 +263,7 @@ Sample absolute pricing resource:
             "priceInputOption": "usd",
             "meters": {
                 "meter1": {
-                    "pricePerPaymentInUSD": 1
+                    "pricePerPaymentInUsd": 1
                 }
             }
         }
@@ -597,7 +595,7 @@ The response will contain the jobId you can use later to poll the status.
 | 401 | Authentication Error: Ensure you're using a valid Azure AD access token. |
 | 400 | Schema Validation. Ensure your request body is following the correct schema and includes all required fields. |
 
-## Querying the status of an existing job
+## Query the status of an existing job
 
 Use this method to query the status of an existing job. You can poll the status of an existing job with a polling interval with a maximum frequency of one request per minute.
 
@@ -797,4 +795,4 @@ You'll receive the full details of the private offer.
 
 ## Next steps
 
-- To start using private offers, follow the steps in the [Private SKUs and Plans]() guide.
+- To start using private offers, follow the steps in the [ISV to customer private offers](https://docs.microsoft.com/azure/marketplace/isv-customer) guide.
