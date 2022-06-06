@@ -42,6 +42,6 @@ ms.custom: devdivchpfy22
 
     After the deployment completes, the root URL of the function app in Azure is shown in the **Publish** tab.
     
-1.  In the Publish tab, in the Hosting section, choose **Open in Azure portal**. This opens the new function app Azure resource in the Azure portal.
+1.  In the Publish tab, in the Hosting section, select **Open in Azure portal**. This opens the new function app Azure resource in the Azure portal.
     
-    :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-complete.png" alt-text="Publish success message"::: 
+    :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-complete.png" alt-text="Screenshot of Publish success message.":::
