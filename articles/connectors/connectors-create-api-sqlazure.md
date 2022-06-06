@@ -124,8 +124,6 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 1. When you're done, save your workflow.
 
-   Although this step automatically enables and publishes your logic app live in Azure, the only action that your logic app currently takes is to check your database based on your specified interval and frequency.
-
 ### [Standard](#tab/standard)
 
 In Standard logic app workflows, only the SQL Server managed connector has triggers. The SQL Server built-in connector doesn't have any triggers.
@@ -156,9 +154,9 @@ In Standard logic app workflows, only the SQL Server managed connector has trigg
 
 1. When you're done, save your workflow.
 
-   Although this step automatically enables and publishes your logic app live in Azure, the only action that your logic app currently takes is to check your database based on your specified interval and frequency.
-
 ---
+
+When you save your workflow, this step automatically publishes your updates to your deployed logic app, which is live in Azure. With only a trigger, your workflow just checks the SQL database based on your specified schedule. You have to [add an action](#add-sql-action) that responds to the trigger.
 
 <a name="trigger-recurrence-shift-drift"></a>
 
