@@ -6,7 +6,7 @@ author: mikaelweave
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 05/13/2022
+ms.date: 06/06/2022
 ms.author: mikaelw
 ---
 
@@ -16,7 +16,18 @@ This article describes the currently known issues with Azure Health Data Service
 
 Refer to the table below to find details about resolution dates or possible workarounds. For more information about the different feature enhancements and bug fixes in Azure Health Data Services, see [Release notes: Azure Health Data Services](release-notes.md).
 
-## FHIR service
+## May 2022
+
+### Azure Health Data Services
+
+|Issue | Date discovered | Status | Date resolved |
+| :------------------------------------- | :------------ | :------------- | :------------- |
+|Using [token type](https://www.hl7.org/fhir/search.html#token) fields of length more than 128 characters can result in undesired behavior on create, search, update, and delete operations  | May 2022  |Doesn't have a workaround  | Not resolved |
+
+
+## April 2022
+
+### FHIR service
  
 |Issue | Date discovered | Status | Date resolved |
 | :------------------------------------- | :------------ | :------------- | :------------- |
@@ -34,3 +45,5 @@ For information about the features and bug fixes in Azure API for FHIR, see
 
 >[!div class="nextstepaction"]
 >[Release notes: Azure API for FHIR](./azure-api-for-fhir/release-notes.md)
+
+FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7. 
