@@ -50,16 +50,16 @@ $resource | Set-AzResource -Force
 
 ## Scale In Behavior
 
-As the Azure Functions platform scales compute resources automatically based on demand, currently executing functions are expected to be allowed to shut down gracefully during scale in scenarios.
+As the Azure Functions platform scales compute resources automatically based on demand, currently executing functions should be allowed to shut down gracefully during scale in scenarios.
 
-Azure Functions Consumption and Premium plans for Linux and Windows have an internal feature called drain mode that enables graceful scale-in of workers with minimal impact on executing function invocations. This feature is not implemented on the Dedicated (App Service) plan.
+Azure Functions Consumption and Premium plans for Linux and Windows have an internal feature called drain mode that enables graceful scale-in of workers with minimal impact to executing function invocations. This feature isn't implemented on the Dedicated (App Service) plan.
 
 When the platform decides to scale in your function app, and before workers are taken away, it will stop sending events to the workers and allow ongoing function executions to finish running up to 10 minutes on the Consumption plan and up to 60 minutes on the Premium plan.
 
 Limitations:
 
 * For Windows Consumption, only function apps created after May 2021 have the feature enabled by default.
-* When using the Service Bus trigger, this feature requires you to use the Functions Service Bus Extension to version 4.2.0 or higher (included with bundles 2.x or higher).
+* Functions using the Service Bus trigger require Service Bus Extension version 4.2.0 or higher to work with Drain Mode.
 
 ## Event Hubs trigger
 
