@@ -50,6 +50,8 @@ items:
   items:
   - name: Service Connector internals
     href: concept-service-connector-internals.md
+  - name: High availability
+    href: concept-availability.md
   - name: Region Support
     href: concept-region-support.md
 - name: How-to guides

@@ -11,12 +11,13 @@ ms.date: 06/06/2022
 ms.author: lajanuar
 ---
 
-# Get started: Form Recognizer REST API 2022-01-30-preview
+# Get started: Form Recognizer REST API 2022-06-30-preview
 
 <!-- markdownlint-disable MD036 -->
 
 >[!NOTE]
 > Form Recognizer v3.0 is currently in public preview. Some features may not be supported or have limited capabilities.
+The current API version is **2022-06-30-preview**.
 
 | [Form Recognizer REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument) | [Azure SDKS](https://azure.github.io/azure-sdk/releases/latest/index.html) |
 
@@ -83,7 +84,7 @@ Before you run the cURL command, make the following changes:
 #### POST request
 
 ```bash
-curl -v -i POST "{endpoint}/formrecognizer/documentModels/{modelID}:analyze?api-version=2022-01-30-preview" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {key}" --data-ascii "{'urlSource': '{your-document-url}'}"
+curl -v -i POST "{endpoint}/formrecognizer/documentModels/{modelID}:analyze?api-version=2022-06-30" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: {key}" --data-ascii "{'urlSource': '{your-document-url}'}"
 ```
 
 #### Reference table
@@ -107,7 +108,7 @@ You'll receive a `202 (Success)` response that includes an **Operation-Location*
 
 ### Get analyze results (GET Request)
 
-After you've called the [**Analyze document**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) API, call the [**Get analyze result**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/GetAnalyzeDocumentResult) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
+After you've called the [**Analyze document**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument) API, call the [**Get analyze result**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/GetAnalyzeDocumentResult) API to get the status of the operation and the extracted data. Before you run the command, make these changes:
 
 1. Replace `{endpoint}` with the endpoint value from your Form Recognizer instance in the Azure portal.
 1. Replace `{key}` with the key value from your Form Recognizer instance in the Azure portal.
@@ -118,7 +119,11 @@ After you've called the [**Analyze document**](https://westus.dev.cognitive.micr
 #### GET request
 
 ```bash
+<<<<<<< HEAD
+curl -v -X GET "{endpoint}/formrecognizer/documentModels/{model name}/analyzeResults/{resultId}?api-version=2022-06-30" -H "Ocp-Apim-Subscription-Key: {key}"
+=======
 curl -v -X GET "{endpoint}/formrecognizer/documentModels/{modelID}/analyzeResults/{resultId}?api-version=2022-01-30-preview" -H "Ocp-Apim-Subscription-Key: {key}"
+>>>>>>> resolve-merge-conflict
 ```
 
 #### Examine the response
@@ -133,7 +138,7 @@ You'll receive a `200 (Success)` response with JSON output. The first field, `"s
     "createdDateTime": "2022-03-25T19:31:37Z",
     "lastUpdatedDateTime": "2022-03-25T19:31:43Z",
     "analyzeResult": {
-        "apiVersion": "2022-01-30-preview",
+        "apiVersion": "2022-06-30",
         "modelId": "prebuilt-invoice",
         "stringIndexType": "textElements"...
     ..."pages": [
