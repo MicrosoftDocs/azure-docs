@@ -166,7 +166,7 @@ The following tables describe the values you need to set in the schema.
 |  Name | Type | Required | Value |
 |  ---- | ---- | ---- | ---- |
 |  name | string | Yes | The name of the container group. |
-|  apiVersion | enum | Yes | 2018-10-01 |
+|  apiVersion | enum | Yes | 2021-10-01 (latest), 2021-09-01, 2021-07-01, 2021-03-01, 2020-11-01, 2019-12-01, 2018-10-01, 2018-09-01, 2018-07-01, 2018-06-01, 2018-04-01 |
 |  location | string | No | The resource location. |
 |  tags | object | No | The resource tags. |
 |  identity | object | No | The identity of the container group, if configured. - [ContainerGroupIdentity object](#containergroupidentity-object) |
