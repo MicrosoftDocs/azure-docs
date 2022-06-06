@@ -18,13 +18,17 @@ The [Microsoft Azure SDK lifecycle policy](https://docs.microsoft.com/lifecycle/
 
 Support engineers are expected to provide SDK update guidance according to the following table, referencing the current SDK version in use and any alternatives.
 
-|SDK version |Alternative |Update policy |
+|Current SDK version in use |Alternative version available |Update policy for support |
 |---------|---------|---------|
-|Stable                                                                         | Newer supported version                        | **UPDATE RECOMMENDED** |
+|Stable and less than one year old                                              | Newer supported stable version                 | **UPDATE RECOMMENDED** |
+|Stable and more than one year old                                              | Newer supported stable version                 | **UPDATE REQUIRED**    |
 |Unsupported ([support policy](https://docs.microsoft.com/lifecycle/faq/azure)) | Any supported version                          | **UPDATE REQUIRED**    |
 |Preview                                                                        | Stable version                                 | **UPDATE REQUIRED**    |
 |Preview                                                                        | Older stable version                           | **UPDATE RECOMMENDED** |
 |Preview                                                                        | Newer preview version, no older stable version | **UPDATE RECOMMENDED** |
+
+> [!TIP]
+> Switching to [auto-instrumentation](codeless-overview.md) eliminates the need for manual SDK updates.
 
 > [!WARNING]
 > Only commercially reasonable support is provided for Preview versions of the SDK. If a support incident requires escalation to development for further guidance, customers will be asked to use a fully supported SDK version to continue support. Commercially reasonable support does not include an option to engage Microsoft product development resources; technical workarounds may be limited or not possible.
