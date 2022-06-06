@@ -160,7 +160,7 @@ Perform the update in the following order. Make sure each step is complete befor
 
     1. Find the domain associated with the secondary appliance and copy it to your clipboard. For example:
 
-        :::image type="content" source="media/how-to-set-up-high-availability/update-high-availability-domain.jpg" alt-text="Find the domain associated with the secondary appliance":::
+        :::image type="content" source="media/how-to-set-up-high-availability/update-high-availability-domain.jpg" alt-text="Screenshot showing the domain associated with the secondary appliance.":::
 
     1. Remove the secondary domain from the list of trusted hosts. Run:
     
