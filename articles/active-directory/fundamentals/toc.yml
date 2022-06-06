@@ -307,3 +307,5 @@
       href: active-directory-data-storage-eu.md
     - name: Identity data storage for Australia and New Zealand
       href: active-directory-data-storage-australia-newzealand.md
+    - name: Identity data storage for Japan
+      href: active-directory-data-storage-japan.md

@@ -18,7 +18,7 @@ The **tabs** below show the features that are available, by environment, for Mic
 
 | Domain | Feature | Supported Resources | Release state <sup>[1](#footnote1)</sup> | Windows support | Agentless/Agent-based | Pricing Tier | Azure clouds availability |
 |--|--|--|--|--|--|--|--|
-| Compliance | Docker CIS | VMs | GA | X | Log Analytics agent | Defender for Servers Plan 2 |  |
+| Compliance | Docker CIS | VM, VMSS | GA | X | Log Analytics agent | Defender for Servers Plan 2 |  |
 | Vulnerability Assessment | Registry scan | ACR, Private ACR | GA | ✓ (Preview) | Agentless | Defender for Containers  | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |
 | Vulnerability Assessment | View vulnerabilities for running images | AKS | Preview | ✓ (Preview) | Defender profile | Defender for Containers | Commercial clouds |
 | Hardening | Control plane recommendations | ACR, AKS | GA | ✓ | Agentless | Free | Commercial clouds<br><br> National clouds: Azure Government, Azure China 21Vianet |

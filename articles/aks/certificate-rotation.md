@@ -3,7 +3,7 @@ title: Certificate Rotation in Azure Kubernetes Service (AKS)
 description: Learn certificate rotation in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
 ms.topic: article
-ms.date: 3/29/2022
+ms.date: 5/10/2022
 ---
 
 # Certificate rotation in Azure Kubernetes Service (AKS)
@@ -87,7 +87,7 @@ Auto certificate rotation won't be enabled on a non-RBAC cluster.
 ## Manually rotate your cluster certificates
 
 > [!WARNING]
-> Rotating your certificates using `az aks rotate-certs` will recreate all of your nodes and their OS Disks and can cause up to 30 minutes of downtime for your AKS cluster.
+> Rotating your certificates using `az aks rotate-certs` will recreate all of your nodes, VM scale set and their Disks and can cause up to 30 minutes of downtime for your AKS cluster.
 
 Use [az aks get-credentials][az-aks-get-credentials] to sign in to your AKS cluster. This command also downloads and configures the `kubectl` client certificate on your local machine.
 

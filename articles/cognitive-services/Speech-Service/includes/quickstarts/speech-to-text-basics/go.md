@@ -124,3 +124,4 @@ go run speech-recognition
 ## Clean up resources
 
 [!INCLUDE [Delete resource](../../common/delete-resource.md)]
+
