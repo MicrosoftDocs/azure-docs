@@ -36,7 +36,7 @@ Use the following CLI and PowerShell commands to create public IP prefixes with 
 
 |Tool|Command|
 |---|---|
-|CLI|[az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az_network_public_ip_prefix_create)|
+|CLI|[az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)|
 |PowerShell|[New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix)|
 
 > [!NOTE]
@@ -77,7 +77,7 @@ To view a custom IP prefix, the following commands can be used in Azure CLI and 
 
 |Tool|Command|
 |---|---|
-|CLI|[az network custom-ip prefix list](/cli/azure/network/public-ip/prefix#az_network_custom_ip_prefix_list) to list custom IP prefixes<br>[az network custom-ip prefix show](/cli/azure/network/public-ip/prefix#az_network_custom_ip_prefix_show) to show settings and any derived public IP prefixes<br>
+|CLI|[az network custom-ip prefix list](/cli/azure/network/public-ip/prefix#az-network-custom-ip-prefix-list) to list custom IP prefixes<br>[az network custom-ip prefix show](/cli/azure/network/public-ip/prefix#az-network-custom-ip-prefix-show) to show settings and any derived public IP prefixes<br>
 |PowerShell|[Get-AzCustomIpPrefix](/powershell/module/az.network/get-azcustomipprefix) to retrieve a custom IP prefix object and view its settings and any derived public IP prefixes|
 
 ## Decommission a custom IP prefix
