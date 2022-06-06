@@ -1,12 +1,13 @@
 ---
 title: Prevent Azure Cosmos DB resources from being deleted or changed
 description: Use Azure Resource Locks to prevent Azure Cosmos DB resources from being deleted or changed. 
-author: markjbrown
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/13/2021
-ms.author: mjbrown 
+ms.author: sidandrews
+ms.reviewer: mjbrown 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---

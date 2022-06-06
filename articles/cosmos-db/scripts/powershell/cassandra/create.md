@@ -1,12 +1,13 @@
 ---
 title: PowerShell script to create Azure Cosmos DB Cassandra API keyspace and table
 description:  Azure PowerShell script - Azure Cosmos DB create Cassandra API keyspace and table
-author: markjbrown
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 05/13/2020
-ms.author: mjbrown 
+ms.author: sidandrews
+ms.reviewer: mjbrown 
 ms.custom: devx-track-azurepowershell
 ---
 
