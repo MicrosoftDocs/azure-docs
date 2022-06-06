@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.date: 08/26/2020
 ms.devlang: csharp
 ms.custom: devx-track-csharp
+ms.pmowner: casocha
 ---
 
 # Dependency Tracking in Azure Application Insights 

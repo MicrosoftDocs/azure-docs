@@ -5,7 +5,8 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp
-ms.reviewer: rijolly
+ms.reviewer: ssdash
+ms.pmowner: rijolly
 ---
 
 # Application Map: Triage Distributed Applications
