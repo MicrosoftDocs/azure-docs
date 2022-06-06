@@ -56,7 +56,7 @@ sections:
           Where does Azure Spatial Anchors store data?
         answer: |
           Azure Spatial Anchors stores and process customer data. By default, customer data is replicated to other paired regions for resiliency, but Microsoft does not replicate or move data outside the geography. This data is stored in the region where the Azure Spatial Anchors account is configured. For region with data residency requirements, customer data is always kept within the same region.
-          
+
       - question: |
           What information about an environment is transmitted and stored on the service when using Azure Spatial Anchors? Are pictures of the environment transmitted and stored?
         answer: |
