@@ -24,8 +24,6 @@ To do this, you have to create three records:
 > [!NOTE]
 > Contoso.com is used as an example throughout this tutorial. Substitute your own domain name for contoso.com.
 
-If you create an A record for a web app in Azure, the A record must be manually updated if the underlying IP address for the web app changes.
-
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
@@ -50,7 +48,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## Create an A record and TXT record
+## Create the A record
 
 An A record is used to map a name to its IP address. In the following example, assign "\@" as an A record using your web app IPv4 address. \@ typically represents the root domain.
 
@@ -62,18 +60,25 @@ In the left navigation of the App Services page in the Azure portal, select **Cu
 
 ### Create the A record
 
+To create the A record, use:
+
 ```azurepowershell
 New-AzDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
  -ResourceGroupName "MyAzureResourceGroup" -Ttl 600 `
  -DnsRecords (New-AzDnsRecordConfig -IPv4Address "<your web app IP address>")
 ```
 
-### Create the TXT record
+> [!NOTE]
+> The A record must be manually updated if the underlying IP address for the web app changes.
+
+## Create the TXT record
 
 App Services uses this record only at configuration time to verify that you own the custom domain. You can delete this TXT record after your custom domain is validated and configured in App Service.
 
 > [!NOTE]
 > If you want to verify the domain name, but not route production traffic to the web app, you only need to specify the TXT record for the verification step.  Verification does not require an A or CNAME record in addition to the TXT record.
+
+To create the TXT record, use:
 
 ```azurepowershell
 New-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup `
@@ -83,11 +88,7 @@ New-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup
 
 ## Create the CNAME record
 
-If your domain is already managed by Azure DNS (see [DNS domain delegation](dns-domain-delegation.md), you can use the following example to create a CNAME record for contoso.azurewebsites.net.
-
-Open Azure PowerShell and create a new CNAME record. This example creates a record set type CNAME with a "time to live" of 600 seconds in DNS zone named "contoso.com" with the alias for the web app contoso.azurewebsites.net.
-
-### Create the record
+If your domain is already managed by Azure DNS (see [DNS domain delegation](dns-domain-delegation.md)), you can use the following example to create a CNAME record for contoso.azurewebsites.net. The CNAME created in this example has a "time to live" of 600 seconds in DNS zone named "contoso.com" with the alias for the web app contoso.azurewebsites.net.
 
 ```azurepowershell
 New-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName "MyAzureResourceGroup" `
@@ -100,7 +101,7 @@ The following example is the response:
 ```
     Name              : www
     ZoneName          : contoso.com
-    ResourceGroupName : myresourcegroup
+    ResourceGroupName : myazureresourcegroup
     Ttl               : 600
     Etag              : 8baceeb9-4c2c-4608-a22c-229923ee185
     RecordType        : CNAME
@@ -149,7 +150,7 @@ contoso.com text =
 ```
 ## Add custom host names
 
-Now you can add the custom host names to your web app:
+Now, you can add the custom host names to your web app:
 
 ```azurepowershell
 set-AzWebApp `
