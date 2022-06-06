@@ -36,14 +36,14 @@ In this article, you'll learn the differences between Form Recognizer v2.1 and v
 ### POST request
 
 ```http
-https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{modelId}?api-version=2022-01-30-preview
+https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{modelId}?api-version=2022-06-30
 
 ```
 
 ### GET request
 
 ```http
-https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{modelId}/AnalyzeResult/{resultId}?api-version=2022-01-30-preview
+https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{modelId}/AnalyzeResult/{resultId}?api-version=2022-06-30
 ```
 
 ### Analyze operation
@@ -117,7 +117,7 @@ Analyze response has been refactored to the following top-level results to suppo
 
 {
 // Basic analyze result metadata
-"apiVersion": "2022-01-30-preview", // REST API version used
+"apiVersion": "2022-06-30", // REST API version used
 "modelId": "prebuilt-invoice", // ModelId used
 "stringIndexType": "textElements", // Character unit used for string offsets and lengths:
 // textElements, unicodeCodePoint, utf16CodeUnit // Concatenated content in global reading order across pages.
@@ -257,7 +257,7 @@ The ```build``` operation is invoked to train a model. The request payload and c
 The following code is a sample build request using a SAS token. Note the trailing slash when setting the prefix or folder path.
 
 ```json
-POST https://{your-form-recognizer-endpoint}/formrecognizer/documentModels:build?api-version=2022-01-30-preview
+POST https://{your-form-recognizer-endpoint}/formrecognizer/documentModels:build?api-version=2022-06-30
 
 {
   "modelId": {modelId},
@@ -275,7 +275,7 @@ POST https://{your-form-recognizer-endpoint}/formrecognizer/documentModels:build
 Model compose is now limited to single level of nesting. Composed models are now consistent with custom models with the addition of ```modelId``` and ```description``` properties.
 
 ```json
-POST https://{your-form-recognizer-endpoint}/formrecognizer/documentModels:compose?api-version=2022-01-30-preview
+POST https://{your-form-recognizer-endpoint}/formrecognizer/documentModels:compose?api-version=2022-06-30
 {
   "modelId": "{composedModelId}",
   "description": "{composedModelDescription}",
@@ -303,7 +303,7 @@ The only changes to the copy model function are:
 ***Authorize the copy***
 
 ```json
-POST https://{targetHost}/formrecognizer/documentModels:authorizeCopy?api-version=2022-01-30-preview
+POST https://{targetHost}/formrecognizer/documentModels:authorizeCopy?api-version=2022-06-30
 {
   "modelId": "{targetModelId}",
   "description": "{targetModelDescription}",
@@ -313,7 +313,7 @@ POST https://{targetHost}/formrecognizer/documentModels:authorizeCopy?api-versio
 Use the response body from the authorize action to construct the request for the copy.
 
 ```json
-POST https://{sourceHost}/formrecognizer/documentModels/{sourceModelId}:copy-to?api-version=2022-01-30-preview
+POST https://{sourceHost}/formrecognizer/documentModels/{sourceModelId}:copy-to?api-version=2022-06-30
 {
   "targetResourceId": "{targetResourceId}",
   "targetResourceRegion": "{targetResourceRegion}",
@@ -331,7 +331,7 @@ List models have been extended to now return prebuilt and custom models. All pre
 ***Sample list models request***
 
 ```json
-GET https://{your-form-recognizer-endpoint}/formrecognizer/documentModels?api-version=2022-01-30-preview
+GET https://{your-form-recognizer-endpoint}/formrecognizer/documentModels?api-version=2022-06-30
 ```
 
 ## Change to get model
@@ -339,7 +339,7 @@ GET https://{your-form-recognizer-endpoint}/formrecognizer/documentModels?api-ve
 As get model now includes prebuilt models, the get operation returns a ```docTypes``` dictionary. Each document type is described by its name, optional description, field schema, and optional field confidence. The field schema describes the list of fields potentially returned with the document type.
 
 ```json
-GET https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{modelId}?api-version=2022-01-30-preview
+GET https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{modelId}?api-version=2022-06-30
 ```
 
 ## New get info operation
@@ -347,7 +347,7 @@ GET https://{your-form-recognizer-endpoint}/formrecognizer/documentModels/{model
 The ```info``` operation on the service returns the custom model count and custom model limit.
 
 ```json
-GET https://{your-form-recognizer-endpoint}/formrecognizer/info? api-version=2022-01-30-preview
+GET https://{your-form-recognizer-endpoint}/formrecognizer/info? api-version=2022-06-30
 ```
 
 ***Sample response***
@@ -365,6 +365,6 @@ GET https://{your-form-recognizer-endpoint}/formrecognizer/info? api-version=202
 
 In this migration guide, you've learned how to upgrade your existing Form Recognizer application to use the v3.0 APIs. Continue to use the 2.1 API for all GA features and use the 3.0 API for any of the preview features.
 
-* [Review the new REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)
+* [Review the new REST API](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-2022-06-30-preview/operations/AnalyzeDocument)
 * [What is Form Recognizer?](overview.md)
 * [Form Recognizer quickstart](./quickstarts/try-sdk-rest-api.md)
