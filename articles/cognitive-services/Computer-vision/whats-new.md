@@ -16,6 +16,14 @@ ms.author: pafarley
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with the service.
 
+## June 2022
+
+### Vision studio launch
+
+Vision studio is UI tool that lets you explore, build, and integrate features from Azure Cognitive Services for Vision into your applications.
+
+Language Studio provides you with a platform to try several service features, and see what they return in a visual manner. It also provides you with an easy-to-use experience to create custom projects and models to work on your data. Using the Studio, you can get started without needing to write code, and then use the available client libraries and REST APIs in your application.
+
 ## September 2021
 
 ### OCR (Read) API Public Preview supports 122 languages
