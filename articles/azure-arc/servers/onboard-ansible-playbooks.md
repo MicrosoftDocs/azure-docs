@@ -29,68 +29,53 @@ Before you can run the script to connect your machines, you'll need to do the fo
 
 If you are onboarding machines to Azure Arc-enabled servers, copy the following Ansible playbook template and save the playbook as `arc-server-onboard-playbook.yml`.
 
-```
+```yaml
 ---
 - name: Onboard Linux and Windows Servers to Azure Arc-enabled servers with public endpoint connectivity
   hosts: <INSERT-HOSTS>
+  vars:
+    azure:
+      service_principal_id: 'INSERT-SERVICE-PRINCIPAL-CLIENT-ID'
+      service_principal_secret: 'INSERT-SERVICE-PRINCIPAL-SECRET'
+      resource_group: 'INSERT-RESOURCE-GROUP'
+      tenant_id: 'INSERT-TENANT-ID'
+      subscription_id: 'INSERT-SUBSCRIPTION-ID'
+      location: 'INSERT-LOCATION'
   tasks:
-      - name: Download the Connected Machine Agent on Linux servers 
+      - name: Download the Connected Machine Agent on Linux servers
         become: yes
         get_url:
           url: https://aka.ms/azcmagent
           dest: ~/install_linux_azcmagent.sh
           mode: '700'
         when: ansible_system == 'Linux'
-    	- name: Download the Connected Machine Agent on Windows servers
-	  win_get_url:
-        	url: https://aka.ms/AzureConnectedMachineAgent
-        	dest: C:\AzureConnectedMachineAgent.msi
+      - name: Download the Connected Machine Agent on Windows servers
+        win_get_url:
+          url: https://aka.ms/AzureConnectedMachineAgent
+          dest: C:\AzureConnectedMachineAgent.msi
         when: ansible_os_family == 'Windows'
       - name: Install the Connected Machine Agent on Linux servers
         become: yes
         shell: bash ~/install_linux_azcmagent.sh
         when: ansible_system == 'Linux'
       - name: Install the Connected Machine Agent on Windows servers
-        path: C:\AzureConnectedMachineAgent.msi
+        win_package:
+          path: C:\AzureConnectedMachineAgent.msi
         when: ansible_os_family == 'Windows'
       - name: Connect the Connected Machine Agent on Linux servers to Azure Arc
         become: yes
-        shell: sudo azcmagent connect --service-principal-id <INSERT-SERVICE-PRINCIPAL-CLIENT-ID> --service-principal-secret <INSERT-SERVICE-PRINCIPAL-SECRET> --resource-group <INSERT-RESOURCE-GROUP> --tenant-id <INSERT-TENANT-ID> --location <INSERT-REGION> --subscription-id <INSERT-SUBSCRIPTION-ID>
+        shell: sudo azcmagent connect --service-principal-id {{ azure.service_principal_id }} --service-principal-secret {{ azure.service_principal_secret }} --resource-group {{ azure.resource_group }} --tenant-id {{ azure.tenant_id }} --location {{ azure.location }} --subscription-id {{ azure.subscription_id }}
         when: ansible_system == 'Linux'
       - name: Connect the Connected Machine Agent on Windows servers to Azure
-        win_shell: '& $env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe connect --service-principal-id <INSERT-SERVICE-PRINCIPAL-CLIENT-ID> --service-principal-secret <INSERT-SERVICE-PRINCIPAL-SECRET> --resource-group <INSERT-RESOURCE-GROUP> --tenant-id <INSERT-TENANT-ID> --location <INSERT-REGION> --subscription-id <INSERT-SUBSCRIPTION-ID>'
+        win_shell: '& $env:ProgramFiles\AzureConnectedMachineAgent\azcmagent.exe connect --service-principal-id "{{ azure.service_principal_id }}" --service-principal-secret "{{ azure.service_principal_secret }}" --resource-group "{{ azure.resource_group }}" --tenant-id "{{ azure.tenant_id }}" --location "{{ azure.location }}" --subscription-id "{{ azure.subscription_id }}"'
         when: ansible_os_family == 'Windows'
 ```
-
-<!--If you are onboarding Linux servers to Azure Arc-enabled servers, download the following Ansible playbook template and save the playbook as `arc-server-onboard-playbook.yml`.
-
-```
----
-- name: Onboard Linux Server to Azure Arc-enabled servers with public endpoint
-  hosts: <INSERT-HOSTS>
-  tasks:
-      - name: Download the Connected Machine Agent 
-        become: yes
-        get_url:
-          url: https://aka.ms/azcmagent
-          dest: ~/install_linux_azcmagent.sh
-          mode: '700'
-        when: ansible_system == 'Linux'
-      - name: Install the Connected Machine Agent
-        become: yes
-        shell: bash ~/install_linux_azcmagent.sh
-        when: ansible_system == 'Linux'
-      - name: Connect the Connected Machine Agent to Azure
-        become: yes
-        shell: sudo azcmagent connect --service-principal-id <INSERT-SERVICE-PRINCIPAL-CLIENT-ID> --service-principal-secret <INSERT-SERVICE-PRINCIPAL-SECRET> --resource-group <INSERT-RESOURCE-GROUP> --tenant-id <INSERT-TENANT-ID> --location <INSERT-REGION> --subscription-id <INSERT-SUBSCRIPTION-ID>
-        when: ansible_system == 'Linux'
-```-->
 
 ## Modify the Ansible playbook
 
 After downloading the Ansible playbook, complete the following steps:
 
-1. Within the Ansible playbook, modify the fields under the task **Connect the Connected Machine Agent to Azure** with the service principal and Azure details collected earlier:
+1. Within the Ansible playbook, modify the variables under the **vars section** with the service principal and Azure details collected earlier:
 
     * Service Principal Id
     * Service Principal Secret
@@ -99,7 +84,7 @@ After downloading the Ansible playbook, complete the following steps:
     * Subscription Id
     * Region
 
-1. Enter the correct hosts field capturing the target servers for onboarding to Azure Arc. You can employ Ansible patterns to selectively target which hybrid machines to onboard.
+1. Enter the correct hosts field capturing the target servers for onboarding to Azure Arc. You can employ [Ansible patterns](https://docs.ansible.com/ansible/latest/user_guide/intro_patterns.html#common-patterns) to selectively target which hybrid machines to onboard.
 
 ## Run the Ansible playbook
 

@@ -1,6 +1,5 @@
 ---
-title: "How to: Change the account types supported by an application | Azure"
-titleSuffix: Microsoft identity platform
+title: "How to: Change the account types supported by an application"
 description: In this how-to, you configure an application registered with the Microsoft identity platform to change who, or what accounts, can access the application.
 services: active-directory
 author: rwike77

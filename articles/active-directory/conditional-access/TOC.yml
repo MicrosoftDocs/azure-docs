@@ -115,13 +115,13 @@
   - name: Beta Graph APIs
     items: 
     - name: conditionalAccessPolicy API
-      href: /graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta
+      href: /graph/api/resources/conditionalaccesspolicy
     - name: namedLocation API
-      href: /graph/api/resources/namedlocation?view=graph-rest-beta
+      href: /graph/api/resources/namedlocation
     - name: countryNamedLocation API
-      href: /graph/api/resources/countrynamedlocation?view=graph-rest-beta
+      href: /graph/api/resources/countrynamedlocation
     - name: ipNamedLocation API
-      href: /graph/api/resources/ipnamedlocation?view=graph-rest-beta
+      href: /graph/api/resources/ipnamedlocation
 - name: Resources
   items:
   - name: Azure feedback forum
