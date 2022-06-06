@@ -6,7 +6,7 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/12/2021
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ms.custom: synapse-cosmos-db
 ---
 
