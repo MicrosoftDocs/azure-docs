@@ -5,6 +5,7 @@ ms.reviewer: brwoldey
 ms.contributor: charles.weininger
 ms.topic: conceptual
 ms.date: 05/03/2022
+ms.reviewer: jogrima
 ---
 
 # Profile live Azure Functions app with Application Insights
