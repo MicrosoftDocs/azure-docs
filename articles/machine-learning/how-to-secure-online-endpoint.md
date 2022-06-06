@@ -35,6 +35,10 @@ The following diagram shows how communications flow through private endpoints to
 
 * You must have an Azure Machine Learning workspace, and the workspace must use a private endpoint. If you don't have one, the steps in this article create an example workspace, VNet, and VM. For more information, see [Configure a private endpoint for Azure Machine Learning workspace](how-to-configure-private-link.md).
 
+    The workspace can be configured to allow or disallow public network access. If you plan on using managed online endpoint deployments that use __public outbound__, then you must also [configure the workspace to allow public access](how-to-configure-private-link.md#enable-public-access).
+
+    Outbound communication from managed online endpoint deployment is to the _workspace API_. If the endpoint deployment is configured to __use public communication__ and the workspace is configured to __disallow public communication__, the endpoint deployment will fail.
+
 * The Azure Container Registry for your workspace must be configured for __Premium__ tier. For more information, see [Azure Container Registry service tiers](/azure/container-registry/container-registry-skus).
 
 * The Azure Container Registry and Azure Storage Account must be in the same Azure Resource Group as the workspace.
@@ -50,11 +54,16 @@ The following diagram shows how communications flow through private endpoints to
 ## Limitations
 
 * The `v1_legacy_mode` flag must be disabled (false) on your Azure Machine Learning workspace. If this flag is enabled, you won't be able to create a managed online endpoint. For more information, see [Network isolation with v2 API](how-to-configure-network-isolation-with-v2.md).
+
 * If your Azure Machine Learning workspace has a private endpoint that was created before May 24, 2022, you must recreate the workspace's private endpoint before configuring your online endpoints to use a private endpoint. For more information on creating a private endpoint for your workspace, see [How to configure a private endpoint for Azure Machine Learning workspace](how-to-configure-private-link.md).
 
 * Secure outbound communication creates three private endpoints per deployment. One to Azure Blob storage, one to Azure Container Registry, and one to your workspace.
 
 * Azure Log Analytics and Application Insights aren't supported when using network isolation with a deployment. To see the logs for the deployment, use the [az ml online-deployment get_logs](/cli/azure/ml/online-deployment#az-ml-online-deployment-get-logs) command instead.
+
+* You can configure public access to a __managed online endpoint__ (_inbound_ and _outbound_). You can also configure [public access to an Azure Machine Learning workspace](how-to-configure-private-link.md#enable-public-access).
+
+    Outbound communication from managed online endpoint deployment is to the _workspace API_. If the endpoint deployment is configured to __use public communication__ and the workspace is configured to __disallow public communication__, the endpoint deployment will fail.
 
 > [!NOTE]
 > Requests to create, update, or retrieve the authentication keys are sent to the Azure Resource Manager over the public network.
@@ -92,12 +101,12 @@ The following table lists the supported configurations when configuring inbound 
 | Configuration | Inbound </br> (Endpoint property) | Outbound </br> (Deployment property) | Supported? |
 | -------- | -------------------------------- | --------------------------------- | --------- |
 | secure inbound with secure outbound | `public_network_access` is disabled | `egress_public_network_access` is disabled   | Yes |
-| secure inbound with public outbound | `public_network_access` is disabled | `egress_public_network_access` is enabled  | Yes |
+| secure inbound with public outbound | `public_network_access` is disabled</br>The workspace must also allow public access. | `egress_public_network_access` is enabled  | Yes |
 | public inbound with secure outbound | `public_network_access` is enabled | `egress_public_network_access` is disabled    | Yes |
-| public inbound with public outbound | `public_network_access` is enabled | `egress_public_network_access` is enabled  | Yes |
+| public inbound with public outbound | `public_network_access` is enabled</br>The workspace must also allow public access. | `egress_public_network_access` is enabled  | Yes |
 
 > [!IMPORTANT]
-> To allow __public__ access to a managed online endpoint, your Azure Machine Learning workspace must also [allow public access](how-to-configure-private-link.md#enable-public-access).
+> __Outbound__ communication from managed online endpoint deployment is to the _workspace API_. If the endpoint deployment is configured to __use public outbound__ and the workspace is configured to __disallow public communication__, the endpoint deployment will fail.
 
 ## End-to-end example
 
