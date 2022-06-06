@@ -22,7 +22,7 @@ Refer to the table below to find details about resolution dates or possible work
 
 |Issue | Date discovered | Status | Date resolved |
 | :------------------------------------- | :------------ | :------------- | :------------- |
-|Using [token type](https://www.hl7.org/fhir/search.html#token) fields of length more than 128 characters can result in undesired behavior on create, search, update, and delete operations  | May 2022  |Doesn't have a workaround  | Not resolved |
+|Using [token type](https://www.hl7.org/fhir/search.html#token) fields of length more than 128 characters can result in undesired behavior on create, search, update, and delete operations.  | May 2022  |Doesn't have a workaround  | Not resolved |
 
 
 ## April 2022
