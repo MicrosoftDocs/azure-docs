@@ -4,7 +4,7 @@ description: Automate custom daily/weekly/monthly reports with Azure Monitor App
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: ssdash
-ms.pmowner: vitalyg
+ms.reviewer: vitalyg
 ---
 
 # Automate custom reports with Application Insights data

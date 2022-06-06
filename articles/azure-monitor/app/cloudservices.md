@@ -4,7 +4,7 @@ description: Monitor your web and worker roles effectively with Application Insi
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
-ms.date: 09/05/2018
+ms.reviewer: abinetabate
 ---
 
 # Application Insights for Azure cloud services
