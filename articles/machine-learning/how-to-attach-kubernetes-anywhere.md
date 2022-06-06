@@ -15,10 +15,10 @@ ms.custom: build-spring-2022, cliv2, sdkv2, event-tier1-build-2022
 
 Using Kubernetes with Azure Machine Learning enables you to build, train, and deploy models in any infrastructure on-premises and across multi-cloud. With an AzureML extension deployment on Kubernetes, you can instantly onboard teams of ML professionals with AzureML service capabilities. These services include full machine learning lifecycle and automation with MLOps in hybrid cloud and multi-cloud.
 
-For any of a Kubernetes cluster in cloud or on-premises, you can easily bring your cluster to AzureML as a compute target by deploying AzureML extension to the cluster.
+You can easily bring AzureML capabilities to your Kubernetes cluster from cloud or on-premises by deploying AzureML extension.
 
-- For Azure Kubernetes Servce (AKS) in Azure, you can deploy AzureML extension to it directly. For more information, see [Deploy and manage cluster extensions for Azure Kubernetes Service (AKS)](../aks/cluster-extensions.md).
-- For Kubernetes clusters on-premises or from other cloud providers, you can connect the cluster with Azure Arc first, then deploy AzureML extension to Azure Arc-enabled Kubernetes. For more information, see [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md).
+- For Azure Kubernetes Service (AKS) in Azure, deploy AzureML extension to the AKS directly. For more information, see [Deploy and manage cluster extensions for Azure Kubernetes Service (AKS)](../aks/cluster-extensions.md).
+- For Kubernetes clusters on-premises or from other cloud providers, connect the cluster with Azure Arc first, then deploy AzureML extension to Azure Arc-enabled Kubernetes. For more information, see [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md).
 
 In this article, you can learn about steps to configure and attach an existing Kubernetes cluster anywhere for Azure Machine Learning:
 * [Deploy AzureML extension to Kubernetes cluster](#deploy-azureml-extension---example-scenarios)
@@ -28,10 +28,10 @@ In this article, you can learn about steps to configure and attach an existing K
 
 AzureML Kubernetes is customer fully configured and managed compute for machine learning. It can be used as both [training compute target](./concept-compute-target.md#train) and [inference compute target](./concept-compute-target.md#deploy). It provides the following benefits:
 
-- Harness existing hetreogenious or homogeneous Kubernetes cluster, with CPUs or GPUs.
-- Share the same Kubernetes cluster in multiple AzureML Workspace across region.
+- Harness existing heterogeneous or homogeneous Kubernetes cluster, with CPUs or GPUs.
+- Share the same Kubernetes cluster in multiple AzureML Workspaces across region.
 - Use the same Kubernetes cluster for different machine learning purposes, including model training, batch scoring, and real-time inference.
-- Secure network coummunication between the cluster and cloud via Azure Private Link and Private Endpoint.
+- Secure network communication between the cluster and cloud via Azure Private Link and Private Endpoint.
 - Isolate team projects and machine learning workloads with Kubernetes node selector and namespace.
 - [Target certain types of compute nodes and CPU/Memory/GPU resource allocation for training and inference workloads](./reference-kubernetes.md#create-and-use-instance-types-for-efficient-compute-resource-usage). 
 - [Connect with custom data sources for machine learning workloads using Kubernetes PV and PVC ](./reference-kubernetes.md#azureml-jobs-connect-with-on-premises-data-storage). 
@@ -39,7 +39,7 @@ AzureML Kubernetes is customer fully configured and managed compute for machine 
 ## Prerequisites
 
 * A running Kubernetes cluster in [supported version and region](./reference-kubernetes.md#supported-kubernetes-version-and-region). **We recommend your cluster has a minimum of 4 vCPU cores and 8GB memory, around 2 vCPU cores and 3GB memory will be used by Azure Arc and AzureML extension components**.
-* Connect your Kubernetes cluster to Azure Arc. Follow instructions in [connect existing Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md).
+* Other than Azure Kubernetes Services (AKS) cluster in Azure, connect your Kubernetes cluster to Azure Arc. Follow instructions in [connect existing Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md).
    
     * If you have an AKS cluster in Azure, **Azure Arc connection is not required and not recommended**.
     
@@ -124,10 +124,10 @@ For AzureML extension deployment configurations, use ```--config``` or ```--conf
    | ```allowInsecureConnections``` |```True``` or ```False```, default `False`. **Must** be set to ```True``` to use inference HTTP endpoints for development or test purposes. |N/A| Optional |  Optional |
    | ```inferenceRouterServiceType``` |```loadBalancer```, ```nodePort``` or ```clusterIP```.  **Required** if ```enableInference=True```. | N/A| **&check;** |   **&check;** |
    | ```internalLoadBalancerProvider``` | This config is only applicable for Azure Kubernetes Service(AKS) cluster now. Set to ```azure``` to allow the inference router using internal load balancer.  | N/A| Optional |  Optional |
-   |```sslSecret```| The name of Kubernetes secret in `azureml` namespace to store `cert.pem` (PEM-encoded SSL cert) and `key.pem` (PEM-encoded SSL key), required for inference  HTTPS endpoint support, when  ``allowInsecureConnections`` is set to False. You can find a sample YAML defination of sslSecret [here](). Use this config or combination of `sslCertPemFile` and `sslKeyPemFile` protected config settings. |N/A| Optional |  Optional |
+   |```sslSecret```| The name of Kubernetes secret in `azureml` namespace to store `cert.pem` (PEM-encoded SSL cert) and `key.pem` (PEM-encoded SSL key), required for inference  HTTPS endpoint support, when  ``allowInsecureConnections`` is set to False. You can find a sample YAML definition of sslSecret [here](). Use this config or combination of `sslCertPemFile` and `sslKeyPemFile` protected config settings. |N/A| Optional |  Optional |
    |```sslCname``` |A SSL CName used by inference HTTPS endpoint. **Required** if ```allowInsecureConnections=True```  |  N/A | Optional | Optional|
    | ```inferenceRouterHA``` |```True``` or ```False```, default ```True```. By default, AzureML extension will deploy 3 ingress controller replicas for high availability, which requires at least 3 workers in a cluster. Set to ```False``` if your cluster has fewer than 3 workers, in this case only one ingress controller is deployed. | N/A| Optional |  Optional |
-   |```nodeSelector``` | By default, the deployed kubernetes resourses are randomly deployed to 1 or more nodes of the cluster, and daemonset resources are deployed to ALL nodes. If you want to restrict the extension deployment to specific nodes with label `key1=value1` and `key2=value2`, use `nodeSelector.key1=value1`, `nodeSelector.key2=value2` correspondingly. | Optional| Optional |  Optional |
+   |```nodeSelector``` | By default, the deployed kubernetes resources are randomly deployed to 1 or more nodes of the cluster, and daemonset resources are deployed to ALL nodes. If you want to restrict the extension deployment to specific nodes with label `key1=value1` and `key2=value2`, use `nodeSelector.key1=value1`, `nodeSelector.key2=value2` correspondingly. | Optional| Optional |  Optional |
    |```installNvidiaDevicePlugin```  | ```True``` or ```False```, default ```False```. [NVIDIA Device Plugin](https://github.com/NVIDIA/k8s-device-plugin#nvidia-device-plugin-for-kubernetes) is required for ML workloads on NVIDIA GPU hardware. By default, AzureML extension deployment will not install NVIDIA Device Plugin regardless Kubernetes cluster has GPU hardware or not. User can specify this setting to ```True```, to install it, but make sure to fulfill [Prerequisites](https://github.com/NVIDIA/k8s-device-plugin#prerequisites). | Optional |Optional |Optional |
    |```installPromOp```|```True``` or ```False```, default ```True```. AzureML extension needs prometheus operator to manage prometheus. Set to ```False``` to reuse existing prometheus operator. Compatible [kube-prometheus-stack](https://github.com/prometheus-community/helm-charts/blob/main/charts/kube-prometheus-stack/README.md) helm chart versions are from 9.3.4 to 30.0.1.| Optional| Optional |  Optional |
  |```installVolcano```| ```True``` or ```False```, default ```True```. AzureML extension needs volcano scheduler to schedule the job. Set to ```False``` to reuse existing volcano scheduler. Supported volcano scheduler versions are 1.4, 1.5. | Optional| N/A |  Optional |
@@ -140,7 +140,7 @@ For AzureML extension deployment configurations, use ```--config``` or ```--conf
    
 ## Attach a Kubernetes cluster to an AzureML workspace
 
-Attach an AKS or Arc-enabled Kubernetes cluster with AzureML extension installed to AzureML workspace. The same cluster can be attached and shared by multiple AzureMl workspace across region.
+Attach an AKS or Arc-enabled Kubernetes cluster with AzureML extension installed to AzureML workspace. The same cluster can be attached and shared by multiple AzureMl Workspaces across region.
 
 ### Prerequisite
 
