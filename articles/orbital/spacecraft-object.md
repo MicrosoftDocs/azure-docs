@@ -38,15 +38,15 @@ Dual polarization schemes are represented by two links with their respective LHC
 
 The spacecraft ephemeris is captured in Azure Orbital using the Two-Line Element or TLE. 
 
-A TLE is associated with the spacecraft to determine contact opportunities at the time of scheduling. The TLE is also used to determine the path the antenna must follow during the contact as the spacecraft passes over the groundstation during contact execution.
+A TLE is associated with the spacecraft to determine contact opportunities at the time of scheduling. The TLE is also used to determine the path the antenna must follow during the contact as the spacecraft passes over the ground station during contact execution.
 
 As TLEs are prone to expiration, the user must keep the TLE up-to-date using the [TLE update](update-tle.md) procedure.
 
 ### Licensing
 
-In order to uphold regulatory requirements across the world, the spacecraft object contains authorizations on a per link and per site level that permits usage of the Azure Orbital groundstation sites.
+In order to uphold regulatory requirements across the world, the spacecraft object contains authorizations on a per link and per site level that permits usage of the Azure Orbital ground station sites.
 
-The platform will deny scheduling or execution of contacts if none of the spacecraft object links are authorized, or if the requested contact profile contains links aren't included in the spacecraft object authorized links.
+The platform will deny scheduling or execution of contacts if the spacecraft object links aren't authorized. The platform will also deny contact if a profile contains links that aren't included in the spacecraft object authorized links.
 
 For more information, see the Licensing (add link to: concepts-licensing.md when article is created) documentation.
 
