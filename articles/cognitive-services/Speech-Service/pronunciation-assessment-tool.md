@@ -14,9 +14,14 @@ ms.author: v-baolianzou
 
 # How to use the pronunciation assessment tool
 
-This article provides you instructions on using the pronunciation assessment tool through [Speech Studio](https://speech.microsoft.com) portal with no-code experience.
+Pronunciation Assessment provides subjective and objective feedback to language learners in computer-assisted language learning. For language learners, practicing pronunciation and getting timely feedback are essential for improving language skills. The assessment is conventionally driven by experienced teachers, which normally takes a lot of time and big efforts, making high-quality assessment expensive to learners. Pronunciation Assessment can help make language assessment more engaging and accessible to learners of all backgrounds. 
 
-The pronunciation assessment tool enables you to evaluate speech pronunciation and gives you feedback on the accuracy and fluency of your speech, no coding required.
+Pronunciation Assessment provides various assessment results in different granularities, from individual phonemes to the entire text input. 
+- At the full-text level, Pronunciation Assessment offers additional Fluency and Completeness scores: Fluency indicates how closely the speech matches a native speaker's use of silent breaks between words, and Completeness indicates how many words are pronounced in the speech to the reference text input. An overall score aggregated from Accuracy, Fluency and Completeness is then given to indicate the overall pronunciation quality of the given speech.  
+- At the word-level, Pronunciation Assessment can automatically detect miscues and provide accuracy score simultaneously, which provides more detailed information on omission, repetition, insertions, and mispronunciation in the given speech.
+- At the phoneme level, Pronunciation Assessment provides accuracy scores of each phoneme, helping learners to better understand the pronunciation details of their speech.
+
+This article describes how to use the pronunciation assessment tool through the [Speech Studio](https://speech.microsoft.com). You can get immediate feedback on the accuracy and fluency of your speech without writing any code. For information about how to integrate pronunciation assessment in your speech applications, see [How to use Pronunciation Assessment](how-to-pronunciation-assessment.md).
 
 ## Try out pronunciation assessment
 
@@ -64,13 +69,13 @@ Your spoken audio is converted to text in the **Display** window. If a word is o
 
 ### [Display](#tab/display)
 
- 
+While hovering over each word, you can see accuracy scores for the whole word, syllables, and specific phonemes. You can customize the level to be displayed on the portal to suit your needs.
 
-Keeping your mouse over each word, you can see accuracy scores for the whole word, syllables and specific phonemes. You can customize the level to be displayed on the portal to suit your needs.
-
-:::image type="content" source="media/pronunciation-assessment/pa-display-omission.png" alt-text="Screenshot of result in json":::
+:::image type="content" source="media/pronunciation-assessment/pa-display-omission-zoom.png" alt-text="A screenshot of the LUIS portal keys and endpoint settings." lightbox="media/pronunciation-assessment/pa-display-omission-full.png":::
 
 ### [JSON](#tab/json)
+
+While hovering over each word, you can see accuracy scores for the whole word, syllables, and specific phonemes. You can get the same results using the Speech SDK. For information, see [How to use Pronunciation Assessment](how-to-pronunciation-assessment.md).
 
 ```json
 {
@@ -222,5 +227,5 @@ Keeping your mouse over each word, you can see accuracy scores for the whole wor
 
 ## Next steps
 
-- Try out [pronunciation assessment with the Speech SDK](how-to-pronunciation-assessment.md)
-- Learn about how to use pronunciation assessment [features](use-pronunciation-assessment.md)
+- Use [pronunciation assessment with the Speech SDK](how-to-pronunciation-assessment.md)
+- Learn more about released [use cases](https://techcommunity.microsoft.com/t5/azure-ai-blog/speech-service-update-pronunciation-assessment-is-generally/ba-p/2505501)
