@@ -1,6 +1,6 @@
 ---
 title:  Deploy Azure Video Indexer by using Bicep
-description: In this tutorial you will create an Azure Video Indexer account by using a Bicep file.
+description: Learn how to create an Azure Video Indexer account by using a Bicep file.
 ms.topic: tutorial
 ms.date: 06/06/2022
 ms.author: jgao
@@ -8,7 +8,7 @@ ms.author: jgao
 
 # Tutorial: deploy Azure Video Indexer by using Bicep
 
-In this tutorial you create an Azure Video Indexer account by using [Bicep](../azure-resource-manager/bicep/overview.md).
+In this tutorial, you create an Azure Video Indexer account by using [Bicep](../azure-resource-manager/bicep/overview.md).
 
 > [!NOTE]
 > This sample is *not* for connecting an existing Azure Video Indexer classic account to an ARM-based Azure Video Indexer account.
@@ -29,7 +29,7 @@ One Azure resource is defined in the bicep file:
 
 * [Microsoft.videoIndexer/accounts](/azure/templates/microsoft.videoindexer/accounts?tabs=bicep)
 
-Check [Azure quickstart templates](https://github.com/Azure/azure-quickstart-templates) for more updated Bicep samples.
+Check [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates) for more updated Bicep samples.
 
 ## Deploy the sample
 
