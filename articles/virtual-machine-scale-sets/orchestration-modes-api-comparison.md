@@ -27,7 +27,7 @@ This article compares the API differences between Uniform and [Flexible orchestr
 | Uniform API | Flexible alternative |
 |-|-|
 | [Deallocate](/rest/api/compute/virtualmachinescalesetvms/deallocate)  | [Invoke Single VM API - Deallocate](/rest/api/compute/virtualmachines/deallocate)   |
-| [Delete](/rest/api/compute/virtualmachinescalesetvms/delete)  | [Invoke Single VM API -Delete](/rest/api/compute/virtualmachines/delete)  |
+| [Delete](/rest/api/compute/virtualmachinescalesetvms/delete)  | VMSS Batch delete API supported by VMSS in Flexible Orchestration Mode |
 | [Get Instance View](/rest/api/compute/virtualmachinescalesetvms/getinstanceview)  | [Invoke Single VM API - Instance View](/rest/api/compute/virtualmachines/instanceview)  |
 | [Perform Maintenance](/rest/api/compute/virtualmachinescalesetvms/performmaintenance)  | [Invoke Single VM API - Perform Maintenance](/rest/api/compute/virtualmachines/performmaintenance)  |
 | [Power Off](/rest/api/compute/virtualmachinescalesetvms/poweroff)  | [Invoke Single VM API - Power Off](/rest/api/compute/virtualmachines/poweroff)  |

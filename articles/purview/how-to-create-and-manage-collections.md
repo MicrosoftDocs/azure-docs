@@ -116,12 +116,15 @@ The following guide will discuss the roles, how to manage them, and permissions 
 ### Roles
 
 All assigned roles apply to sources, assets, and other objects within the collection where the role is applied.
+A few of the main roles are:
 
-* **Collection admins** can edit the collection, its details, and add subcollections. They can also add data curators, data readers, and other Microsoft Purview roles to a collection scope. Collection admins that are automatically inherited from a parent collection can't be removed.
-* **Data source admins** can manage data sources and data scans. They can also enter the policy management app to view and publish policies.
-* **Data curators** can perform create, read, modify, and delete actions on catalog data objects and establish relationships between objects. They can also enter the policy management app to view policies.
-* **Data readers** can access but not modify catalog data objects.
-* **Policy Authors** can enter the policy management app and create/edit policy statements.
+- **Collection administrator** - a role for users that will need to assign roles to other users in the Microsoft Purview governance portal or manage collections. Collection admins can add users to roles on collections where they're admins. They can also edit collections, their details, and add subcollections.
+- **Data curators** - a role that provides access to the data catalog to manage assets, configure custom classifications, set up glossary terms, and view data estate insights. Data curators can create, read, modify, move, and delete assets. They can also apply annotations to assets.
+- **Data readers** - a role that provides read-only access to data assets, classifications, classification rules, collections and glossary terms.
+- **Data source administrator** - a role that allows a user to manage data sources and scans. If a user is granted only to **Data source admin** role on a given data source, they can run new scans using an existing scan rule. To create new scan rules, the user must be also granted as either **Data reader** or **Data curator** roles.
+
+> [!IMPORTANT]
+> For a list of all available roles, and more information about roles, see the [permissions documentation](catalog-permissions.md#roles).
 
 ### Add role assignments
 

@@ -90,7 +90,7 @@ Networking outbound access behavior will vary depending on how you choose to cre
 
 In order to enhance default network security, **virtual machine instances created implicitly via the autoscaling profile do not have default outbound access**. In order to use virtual machine scale sets with implicitly created VM instances, outbound access must be explicitly defined through one of the following methods: 
 
-- For most scenarios, we recommend [NAT Gateway attached to the subnet](../virtual-network/nat-gateway/tutorial-create-nat-gateway-portal.md).
+- For most scenarios, we recommend [NAT Gateway attached to the subnet](../virtual-network/nat-gateway/quickstart-create-nat-gateway-portal.md).
 - For scenarios with high security requirements or when using Azure Firewall or Network Virtual Appliance (NVA), you can specify a custom User Defined Route as next hop through firewall. 
 - Instances are in the backend pool of a Standard SKU Azure Load Balancer. 
 - Attach a Public IP Address to the instance network interface. 

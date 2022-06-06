@@ -42,9 +42,12 @@ Search for **Microsoft.Media** and **Microsoft.EventGrid**. If not in the "Regis
     ![Image of search bar](media/create-account-portal/search-bar.png)
 
 1. Click **Create**.
-1. In the **Create an Azure Video Indexer resource** section enter required values. Here are the definitions:
+1. In the **Create an Azure Video Indexer resource** section enter required values. 
 
-    <!--![Image of create account](media/create-account-portal/create-account-blade.png)-->
+    ![Image of create account](media/create-account-portal/create-account-blade.png)
+    
+    Here are the definitions:
+    
     | Name | Description|
     |---|---|
     |**Subscription**|Choose the subscription that you are using to create the Azure Video Indexer account.|

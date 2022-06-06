@@ -1,11 +1,11 @@
 ---
 title: Deploy Azure Health Data Services FHIR service using ARM template
 description: Learn how to deploy FHIR service by using an Azure Resource Manager template (ARM template)
-author: dougseven
+author: mikaelweave
 ms.service: healthcare-apis
 ms.topic: tutorial
-ms.author: dseven
-ms.date: 03/01/2022
+ms.author: mikaelw
+ms.date: 05/03/2022
 ---
 
 # Deploy a FHIR service within Azure Health Data Services - using ARM template

@@ -1,8 +1,9 @@
 ---
 title: Cosmos DB Migration options
 description: This doc describes the various options to migrate your on-premises or cloud data to Azure Cosmos DB
-author: rothja
-ms.author: jroth
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: mjbrown
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 04/02/2022
@@ -90,7 +91,6 @@ For APIs other than the SQL API, Mongo API and the Cassandra API, there are vari
 **Table API** 
 
 * [Data Migration Tool](table/table-import.md#data-migration-tool)
-* [AzCopy](table/table-import.md#migrate-data-by-using-azcopy)
 
 **Gremlin API**
 

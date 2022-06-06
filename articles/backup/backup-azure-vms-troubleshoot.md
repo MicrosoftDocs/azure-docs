@@ -3,7 +3,10 @@ title: Troubleshoot backup errors with Azure VMs
 description: In this article, learn how to troubleshoot errors encountered with backup and restore of Azure virtual machines.
 ms.reviewer: srinathv
 ms.topic: troubleshooting
-ms.date: 06/02/2021
+ms.date: 05/17/2022
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Troubleshooting backup failures on Azure virtual machines
@@ -23,12 +26,12 @@ This section covers backup operation failure of Azure Virtual machine.
 * Verify that the VM has internet connectivity.
   * Make sure another backup service isn't running.
 * From `Services.msc`, ensure the **Windows Azure Guest Agent** service is **Running**. If the **Windows Azure Guest Agent** service is missing, install it from [Back up Azure VMs in a Recovery Services vault](./backup-azure-arm-vms-prepare.md#install-the-vm-agent).
-* The **Event log** may show backup failures that are from other backup products, for example, Windows Server backup, and aren't due to Azure Backup. Use the following steps to determine whether the issue is with Azure Backup:
+* The **Event log** may show backup failures that are from other backup products, for example, Windows Server backup aren't happening due to Azure Backup. Use the following steps to determine whether the issue is with Azure Backup:
   * If there's an error with the entry **Backup** in the event source or message, check whether Azure IaaS VM Backup backups were successful, and whether a Restore Point was created with the desired snapshot type.
   * If Azure Backup is working, then the issue is likely with another backup solution.
   * Here is an example of an Event Viewer error 517 where Azure Backup was working fine but "Windows Server Backup" was failing:
     ![Windows Server Backup failing](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
-  * If Azure Backup is failing, then look for the corresponding Error Code in the section Common VM backup errors in this article.
+  * If Azure Backup is failing, then look for the corresponding error code in the [Common issues](#common-issues) section.
   * If you see Azure Backup option greyed out on an Azure VM, hover over the disabled menu to find the reason. The reasons could be  "Not available with EphemeralDisk" or "Not available with Ultra Disk".
     ![Reasons for the disablement of Azure Backup option](media/backup-azure-vms-troubleshoot/azure-backup-disable-reasons.png)
 
@@ -377,6 +380,31 @@ To resolve this issue, try to restore the VM from a different restore point.<br>
 | The resource group quota has been reached: <br>Delete some resource groups from the Azure portal or contact Azure Support to increase the limits. |None |
 | The selected subnet doesn't exist: <br>Select a subnet that exists. |None |
 | The Backup service doesn't have authorization to access resources in your subscription. |To resolve this error, first restore disks by using the steps in [Restore backed-up disks](backup-azure-arm-restore-vms.md#restore-disks). Then use the PowerShell steps in [Create a VM from restored disks](backup-azure-vms-automation.md#restore-an-azure-vm). |
+
+### UserErrorMigrationFromTrustedLaunchVM ToNonTrustedVMNotAllowed
+
+**Error code**: UserErrorMigrationFromTrustedLaunchVMToNonTrustedVMNotAllowed
+
+**Error message**: Backup cannot be configured for the VM which has migrated from Trusted Launch mode to non Trusted Launch mode.
+
+**Scenario 1**: Migration of Trusted Launch VM to Generation 2 VM is blocked.
+
+Migration of Trusted Launch VM to Generation 2 VM is not supported. This is because the VM Guest State (VMGS) blob created for Trusted Launch VMs isn't present for Generation 2 VM. Therefore, the VM won't start. 
+
+**Scenario 2**: Unable to protect a Standard VM with the same name as of Trusted Launch VM that was previously deleted.
+
+To resolve this issue:
+
+1. [Disable soft delete](backup-azure-security-feature-cloud.md#disabling-soft-delete-using-azure-portal).
+1. [Stop VM protection with delete backup data](backup-azure-manage-vms.md#stop-protection-and-delete-backup-data).
+1. Re-enable soft delete.
+1. Configure VM protection again with the appropriate policy after the old backup data deletion is complete from the Recovery Services vault.
+
+>[!Note]
+>You can also create a VM:
+>
+>- With a different name than the original one, **or**
+>- In a different resource group with the same name.
 
 ## Backup or restore takes time
 

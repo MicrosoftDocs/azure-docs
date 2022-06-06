@@ -8,8 +8,8 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: powershell
-ms.topic: conceptual
-ms.date: 04/19/2022 
+ms.topic: how-to
+ms.date: 05/23/2022
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -18,7 +18,7 @@ ms.custom: devx-track-azurepowershell
 > * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
 > * [Azure CLI](search-manage-azure-cli.md)
-> * [REST API](/rest/api/searchmanagement/)
+> * [REST API](search-manage-rest.md)
 > * [.NET SDK](/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)
 
@@ -233,6 +233,19 @@ New-AzSearchService -ResourceGroupName <resource-group-name> `
                       -PartitionCount 3 -ReplicaCount 3 `
                       -HostingMode Default `
                       -IdentityType SystemAssigned
+```
+
+### Create an S3HD service
+
+To create a [S3HD](./search-sku-tier.md#tier-descriptions) service, a combination of `-Sku` and `-HostingMode` is used. Set `-Sku` to `Standard3` and `-HostingMode` to `HighDensity`.
+
+```azurepowershell-interactive
+New-AzSearchService -ResourceGroupName <resource-group-name> `
+                      -Name <search-service-name> `
+                      -Sku Standard3 `
+                      -Location "West US" `
+                      -PartitionCount 1 -ReplicaCount 3 `
+                      -HostingMode HighDensity
 ```
 
 ## Create a service with a private endpoint

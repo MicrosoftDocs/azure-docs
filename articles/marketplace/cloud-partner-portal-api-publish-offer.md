@@ -26,7 +26,6 @@ Starts the publishing process for the specified offer. This call is a long runni
 |  publisherId   | Publisher identifier, for example `contoso`      |   String       |
 |  offerId       | Offer identifier                                 |   String       |
 |  api-version   | Latest version of the API                        |   Date         |
-|  |  |
 
 ## Header
 ------
@@ -35,7 +34,6 @@ Starts the publishing process for the specified offer. This call is a long runni
 |  --------        |    ---------          |
 |  Content-Type    | `application/json`    |
 |  Authorization   |  `Bearer YOUR_TOKEN`  |
-|  |  |
 
 
 ## Body example
@@ -57,7 +55,6 @@ Starts the publishing process for the specified offer. This call is a long runni
 |  **Name**               |   **Description**                                                                                 |
 |  ---------------------  | ------------------------------------------------------------------------------------------------- |
 |  notification-emails    | Comma-separated list of email addresses to be notified of the progress of the publishing operation. |
-|  |  |
 
 ### Response
 
@@ -74,7 +71,6 @@ Starts the publishing process for the specified offer. This call is a long runni
 |  **Name**             |    **Value**                                                                 |
 |  -------------------- | ---------------------------------------------------------------------------- |
 | Location    | The relative path to retrieve this operation's status     |
-|  |  |
 
 ### Response status codes
 
@@ -84,4 +80,3 @@ Starts the publishing process for the specified offer. This call is a long runni
 | 400   | `Bad/Malformed request` - The error response body may provide more information.                                                               |
 | 422   | `Un-processable entity` - Indicates that the entity to be published failed validation.                                                        |
 | 404   | `Not found` - The entity specified by the client doesn't exist.                                                                              |
-|  |  |
