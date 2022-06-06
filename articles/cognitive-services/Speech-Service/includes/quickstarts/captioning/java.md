@@ -53,7 +53,7 @@ Before you can do anything, you need to install the Speech SDK. The sample in th
             <dependency>
             <groupId>com.microsoft.cognitiveservices.speech</groupId>
             <artifactId>client-sdk</artifactId>
-            <version>1.21.0</version>
+            <version>1.22.0</version>
             </dependency>
         </dependencies>
     </project>

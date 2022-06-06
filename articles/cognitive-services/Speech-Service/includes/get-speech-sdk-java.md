@@ -27,7 +27,7 @@ To consume the package from your Android Studio project, make the following chan
 
 1. In the module-level *build.gradle* file, add the following to the `dependencies` section:
       ```gradle
-      implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.21.0'
+      implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.22.0'
       ```
 
 #### Additional resources
