@@ -2,12 +2,12 @@
 title: Concepts - Identity and access
 description: Learn about the identity and access concepts of Azure VMware Solution
 ms.topic: conceptual
-ms.date: 02/04/2022
+ms.date: 06/06/2022
 ---
 
 # Azure VMware Solution identity concepts
 
-Azure VMware Solution private clouds are provisioned with a vCenter Server and NSX-T Manager. You'll use vCenter to manage virtual machine (VM) workloads and NSX-T Manager to manage and extend the private cloud. The CloudAdmin role is used for vCenter Server and restricted administrator rights for NSX-T Manager.
+Azure VMware Solution private clouds are provisioned with a vCenter Server and NSX-T Manager. You'll use vCenter to manage virtual machine (VM) workloads and NSX-T Manager to manage and extend the private cloud. The CloudAdmin role is used for vCenter Server and the administrator role (with restricted permissions) is used for NSX-T Manager.
 
 ## vCenter Server access and identity
 
@@ -91,7 +91,7 @@ When a private cloud is provisioned using Azure portal, Software Defined Data Ce
 
 Microsoft is responsible for the lifecycle management of NSX-T appliances like NSX-T Managers and NSX-T Edges. They're responsible for bootstrapping network configuration, like creating the Tier-0 gateway. 
 
-You're responsible for NSX-T SDN configuration, for example:
+You're responsible for NSX-T software-defined networking (SDN) configuration, for example:
 
 - Network segments
 - Other Tier-1 gateways
@@ -99,7 +99,7 @@ You're responsible for NSX-T SDN configuration, for example:
 - Stateful services like gateway firewall 
 - Load balancer on Tier-1 gateways 
 
-You can access NSX-T Manager using the built-in local user "admin" assigned to **Enterprise admin** role that gives full privileges to a user to manage NSX-T. While Microsoft manages the lifecycle of NSX-T, certain operations aren't allowed by a user. Operations not allowed include editing the configuration of host and edge transport nodes or start an upgrade. For new users, Azure VMware Solution deploys them with a specific set of permissions needed by that user. The purpose is to provide a clear separation of control between the Azure VMware Solution control plane configuration and Azure VMware Solution private cloud user.  
+You can access NSX-T Manager using the built-in local user "admin" assigned to **Enterprise admin** role that gives full privileges to a user to manage NSX-T. While Microsoft manages the lifecycle of NSX-T, certain operations aren't allowed by a user. Operations not allowed include editing the configuration of host and edge transport nodes or starting an upgrade. For new users, Azure VMware Solution deploys them with a specific set of permissions needed by that user. The purpose is to provide a clear separation of control between the Azure VMware Solution control plane configuration and Azure VMware Solution private cloud user.  
 
 For new private cloud deployments (in US West and Australia East) starting **June 2022**, NSX-T access will be provided with a built-in local user `cloudadmin` with a specific set of permissions to use only NSX-T functionality for workloads. The new **cloudadmin** user role will be rolled out in other regions in phases.
 
@@ -133,7 +133,7 @@ You can view the permissions granted to the Azure VMware Solution CloudAdmin rol
 
 1. Log in to the NSX-T Manager.
 1. Navigate to **Systems** > **Users and Roles** and locate **User Role Assignment**.
-1. The **Roles** column for the CloudAdmin user provides information on the NSX RBAC roles assigned.
+1. The **Roles** column for the CloudAdmin user provides information on the NSX role-based access control (RBAC) roles assigned.
 1. Select the the **Roles** tab to view specific permissions associated with each of the NSX RBAC roles.
 1. To view **Permissions**, expand the **CloudAdmin** role and select a category like, Networking or Security.
 
