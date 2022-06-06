@@ -93,11 +93,11 @@ The most frequent scenarios for application deletion are:
 
 | Object type| Important properties maintained |
 | - | - |
-| Users (which includes external users)| *All properties are maintained*, which includes ObjectID, group memberships, roles, licenses, and application assignments. |
-| Microsoft 365 Groups| *All properties are maintained*, which includes ObjectID, group memberships, licenses, and application assignments. |
-| Application registration| *All properties are maintained.* (See more information following this table.) |
+| Users (including external users)| *All properties are maintained*, including ObjectID, group memberships, roles, licenses, and application assignments. |
+| Microsoft 365 Groups| *All properties are maintained*, including ObjectID, group memberships, licenses, and application assignments. |
+| Application registration| *All properties are maintained.* (See more information after this table.) |
 
-When you delete an application, the application registration by default enters the soft-delete state. To understand the relationship between application registrations and service principals, see [Apps and service principals in Azure AD - Microsoft identity platform](../develop/app-objects-and-service-principals.md).
+When you delete an application, the application registration by default enters the soft-delete state. To understand the relationship between application registrations and service principals, see [Apps and service principals in Azure AD - Microsoft identity platform](/azure/active-directory/develop/app-objects-and-service-principals).
 
 ## Recover from soft deletion
 
@@ -127,7 +127,7 @@ For more information on how to restore soft-deleted Microsoft 365 Groups, see th
 
 ### Applications
 
-Applications have two objects, the application registration and the service principle. For more information on the differences between the registration and the service principal, see [Apps and service principals in Azure AD.](/develop/app-objects-and-service-principals.md)
+Applications have two objects: the application registration and the service principal. For more information on the differences between the registration and the service principal, see [Apps and service principals in Azure AD](/azure/active-directory/develop/app-objects-and-service-principals).
 
 To restore an application from the Azure portal, select **App registrations** > **Deleted applications**. Select the application registration to restore, and then select **Restore app registration**.
 

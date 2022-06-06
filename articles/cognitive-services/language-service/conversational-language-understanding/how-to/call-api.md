@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 05/13/2022
+ms.date: 06/03/2022
 ms.author: aahi
 ms.custom: language-service-clu, ignite-fall-2021
 ---
@@ -20,7 +20,7 @@ You can query the deployment programmatically through the [prediction API](https
 
 ## Test deployed model
 
-You can use the Language Studio to submit an utterance, get predictions and visualize the results.
+You can use Language Studio to submit an utterance, get predictions and visualize the results.
 
 [!INCLUDE [Test model](../includes/language-studio/test-model.md)]
 
@@ -68,8 +68,8 @@ You can also use the client libraries provided by the Azure SDK to send requests
     
     |Language  |Package version  |
     |---------|---------|
-    |.NET     | [5.2.0-beta.2](https://www.nuget.org/packages/Azure.AI.TextAnalytics/5.2.0-beta.2)        |
-    |Python     | [5.2.0b2](https://pypi.org/project/azure-ai-textanalytics/5.2.0b2/)         |
+    |.NET     | [1.0.0-beta.3 ](https://www.nuget.org/packages/Azure.AI.Language.Conversations/1.0.0-beta.3)        |
+    |Python     | [1.1.0b1](https://pypi.org/project/azure-ai-language-conversations/)         |
     
 4. After you've installed the client library, use the following samples on GitHub to start calling the API.
     

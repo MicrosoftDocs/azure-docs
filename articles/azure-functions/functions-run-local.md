@@ -346,7 +346,7 @@ func new --template "Http Trigger" --name MyHttpTrigger
 This example creates a Queue Storage trigger named `MyQueueTrigger`:
 
 ```
-func new --template "Queue Trigger" --name MyQueueTrigger
+func new --template "Azure Queue Storage Trigger" --name MyQueueTrigger
 ```
 
 To learn more, see the [`func new` command](functions-core-tools-reference.md#func-new).
