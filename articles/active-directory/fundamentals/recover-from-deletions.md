@@ -108,7 +108,7 @@ The most frequent scenarios for application deletion are:
 
 
 
-When you delete an application, the application registration by default enters the soft-delete state. To understand the relationship between application registrations and service principals, see [Apps & service principals in Azure AD - Microsoft identity platform](../develop/app-objects-and-service-principals.md).
+When you delete an application, the application registration by default enters the soft-delete state. To understand the relationship between application registrations and service principals, see [Apps & service principals in Azure AD - Microsoft identity platform](/azure/active-directory/develop/app-objects-and-service-principals).
 
 
 
@@ -143,7 +143,7 @@ For details on restoring soft deleted Microsoft 365 Groups, see the following do
 
 ### Applications
 
-Applications have two objects, the application registration and the service principle. For more information on the differences between the registration and the service principal, see [Apps & service principals in Azure AD.](/develop/app-objects-and-service-principals.md)
+Applications have two objects, the application registration and the service principle. For more information on the differences between the registration and the service principal, see [Apps & service principals in Azure AD.](/azure/active-directory/develop/app-objects-and-service-principals)
 
 To restore an application from the Azure portal, select App registrations, then deleted applications. Select the application registration to restore, and then select Restore app registration. 
 
