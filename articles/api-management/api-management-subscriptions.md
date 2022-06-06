@@ -84,6 +84,9 @@ API publishers can [create subscriptions](api-management-howto-create-subscripti
 
 By default, a developer can only access a product or API by using a subscription key. Under certain scenarios, API publishers might want to publish a product or a particular API to the public without the requirement of subscriptions. While a publisher could choose to enable unsecured access to certain APIs, configuring another mechanism to secure client access is recommended.
 
+> [!CAUTION]
+> Use care when configuring a product or an API that doesn't require a subscription. This configuration may be overly permissive and may make an API more vulnerable to certain [API security threats](mitigate-owasp-api-threats.md#security-misconfiguration).
+
 To disable the subscription requirement using the portal:
 
 * **Disable requirement for product** - Disable **Requires subscription** on the **Settings** page of the product.  
