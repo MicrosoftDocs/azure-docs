@@ -43,11 +43,11 @@ Follow these steps:
 1. Go to the Azure portal.
 2. Search for "Logic App".
 3. Click "Add".
-4. Specify Basic details
-5. Specify Hosting
-6. Specify Monitoring
-7. Specify Tags
-8. Review and Create your Logic App
+4. Specify Basic details.
+5. Specify Hosting.
+6. Specify Monitoring.
+7. Specify Tags.
+8. Review and create your Logic App.
 
 You now need to fill out the details of your Logic App. Specify information for these five categories. They are in separate tabs:
 
@@ -142,7 +142,7 @@ Your proposed Logic app will display the following details:
 - Plan
 - Monitoring
 
-If you're satisfied with the proposed configuration, click "Create". If not, click "Previous" to go back and respecify.
+If you're satisfied with the proposed configuration, click "Create". If not, click "Previous" to go back and specify new details.
 
 First you'll see an alert telling you that deployment is initializing. Next you'll see a new page telling you that the deployment is in progress.
 
