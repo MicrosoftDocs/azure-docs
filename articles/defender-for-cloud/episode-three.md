@@ -2,7 +2,7 @@
 title: Microsoft Defender for Containers
 description: Learn how about Microsoft Defender for Containers.
 ms.topic: reference
-ms.date: 05/25/2022
+ms.date: 05/29/2022
 ---
 
 # Microsoft Defender for Containers
@@ -11,7 +11,7 @@ ms.date: 05/25/2022
 
 <br>
 <br>
-<iframe src="https://aka.ms/docs/player?id=b8624912-ef9e-4fc6-8c0c-ea65e86d9128" width="1080" height="530" max-width: 100%; min-width: 100%;"></iframe>
+<iframe src="https://aka.ms/docs/player?id=b8624912-ef9e-4fc6-8c0c-ea65e86d9128" width="1080" height="530" allowFullScreen="true" frameBorder="0"></iframe>
 
 - [1:09](/shows/mdc-in-the-field/defender-for-containers#time=01m09s) - What's new in the Defender for Containers plan?
 
