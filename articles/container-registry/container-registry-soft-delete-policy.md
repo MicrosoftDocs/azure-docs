@@ -30,19 +30,18 @@ The default retention period is seven days. It's possible to set the retention p
 
 ## Enable soft-delete policy for registry
 
-1. Update soft-delete policy a given `MyRegistry` ACR with a retention period set between 1 to 90 days.
+1. Update soft-delete policy for a given `MyRegistry` ACR with a retention period set between 1 to 90 days.
 
 ```azurecli-interactive
-az acr config soft-delete update -r MyRegistry --status <enabled/disabled> --days 7
+az acr config soft-delete update -r MyRegistry --days 7 --status <enabled/disabled>
 ```
 
 2. Show configured soft-delete policy for a given `MyRegistry` ACR.
 
 ```azurecli-interactive
-az acr config soft-delete show -r MyRegistry
+az acr config soft-delete show -r MyRegistry 
 ```
 
-3. 
 ## List the soft-delete artifacts
 
 The `az acr repository list-deleted` commands enable fetching and listing of the soft-deleted repositories. For more information use `--help`.
