@@ -106,7 +106,7 @@ The health check that runs every 10 minutes simulates user behavior by creating,
 
 Requests to service connections are impacted during a failover. Once the failover is complete, service connection data is restored. You can check the [Azure status page](https://status.azure.com/en-us/status) to check the status of all Azure services.
 
-## Next Steps
+## Next steps
 
 Go the concept article below to learn more about Service Connector.
 
