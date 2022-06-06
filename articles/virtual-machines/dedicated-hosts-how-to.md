@@ -24,7 +24,7 @@ This article guides you through how to create an Azure [dedicated host](dedicate
 ## Limitations
 
 - The sizes and hardware types available for dedicated hosts vary by region. Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
-- Not all Azure VM SKUs, regions and availability zones support ultra disks, see [Azure ultra disks](disks-enable-ultra-ssd.md) for more information.
+- Not all Azure VM SKUs, regions and availability zones support ultra disks, see [Azure ultra disks](disks-enable-ultra-ssd.md) for more information. Ultra disk support for dedicated hosts is currently in preview.
 - The fault domain count of the virtual machine scale set can't exceed the fault domain count of the host group.
 
 ## Create a host group
@@ -37,9 +37,9 @@ In either case, you need to provide the fault domain count for your host group. 
 
 You can also decide to use both availability zones and fault domains.
 
-Enabling ultra disks is a host group level setting and cannot be changed after a host group is created.
+Enabling ultra disks (Preview) is a host group level setting and cannot be changed after a host group is created.
 
-If you intend to use Lsv2 based VM SKUs with ultra disks on ADH, set host group's **Fault domain count** to **1**.
+If you intend to use LSv2 or M series VMs, with ultra disks (Preview) on dedicated hosts, set host group's **Fault domain count** to **1**.
 
 ### [Portal](#tab/portal)
 
@@ -70,7 +70,7 @@ Not all host SKUs are available in all regions, and availability zones. You can 
 ```azurecli-interactive
 az vm list-skus -l eastus2  -r hostGroups/hosts  -o table
 ```
-You can also verify if a VM series supports ultra disks.
+You can also verify if a VM series supports ultra disks (Preview).
 
 ```azurecli-interactive
 subscription="<mySubID>"
@@ -118,7 +118,7 @@ az vm host group create \
    --platform-fault-domain-count 2
 ```
 
-The following uses [az vm host group create](/cli/azure/vm/host/group#az-vm-host-group-create) to create a host group that supports ultra SSD disks and auto placement of VMs enabled.
+The following uses [az vm host group create](/cli/azure/vm/host/group#az-vm-host-group-create) to create a host group that supports ultra disks (Preview) and auto placement of VMs enabled.
 
 ```azurecli-interactive
 az vm host group create \
