@@ -50,6 +50,8 @@ You can follow this tutorial on any computer running Windows, macOS, or Linux.
 [!INCLUDE [functions-requirements-cli](../../includes/functions-requirements-cli.md)]
 
 <!---Requirements specific to Docker --->
+You also need to get a Docker and Docker ID:
+
 + [Docker](https://docs.docker.com/install/)  
 
 + A [Docker ID](https://hub.docker.com/signup)
@@ -59,7 +61,7 @@ You can follow this tutorial on any computer running Windows, macOS, or Linux.
 ## Create and test the local functions project
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
-In a terminal or command prompt, run the following command for your chosen language to create a function app project in the current folder.  
+In a terminal or command prompt, run the following command for your chosen language to create a function app project in the current folder:  
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"  
 
@@ -137,7 +139,7 @@ func init --worker-runtime custom --docker
 ```
 ::: zone-end
 
-The `--docker` option generates a `Dockerfile` for the project, which defines a suitable custom container for use with Azure Functions and the selected runtime.
+The `--docker` option generates a *Dockerfile* for the project, which defines a suitable custom container for use with Azure Functions and the selected runtime.
 
 ::: zone pivot="programming-language-java"  
 Navigate into the project folder:
@@ -294,11 +296,11 @@ Press <kbd>Ctrl + C</kbd> to stop the host.
 ## Build the container image and test locally
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-java,programming-language-typescript"
-(Optional) Examine the *Dockerfile* in the root of the project folder. The Dockerfile describes the required environment to run the function app on Linux. The complete list of supported base images for Azure Functions can be found in the [Azure Functions base image page](https://hub.docker.com/_/microsoft-azure-functions-base).
+(Optional) Examine the *Dockerfile* in the root of the project folder. The *Dockerfile* describes the required environment to run the function app on Linux. The complete list of supported base images for Azure Functions can be found in the [Azure Functions base image page](https://hub.docker.com/_/microsoft-azure-functions-base).
 ::: zone-end
 
 ::: zone pivot="programming-language-other"
-Examine the *Dockerfile* in the root of the project folder. The Dockerfile describes the required environment to run the function app on Linux. Custom handler applications use the `mcr.microsoft.com/azure-functions/dotnet:3.0-appservice` image as its base.
+Examine the *Dockerfile* in the root of the project folder. The *Dockerfile* describes the required environment to run the function app on Linux. Custom handler applications use the `mcr.microsoft.com/azure-functions/dotnet:3.0-appservice` image as its base.
 
 Modify the *Dockerfile* to install R. Replace the contents of the *Dockerfile* with the following code:
 
@@ -359,7 +361,7 @@ Docker Hub is a container registry that hosts images and provides image and cont
     docker push <docker_id>/azurefunctionsimage:v1.0.0
     ```
 
-1. Depending on your network speed, pushing the image the first time might take a few minutes (pushing subsequent changes is much faster). While you're waiting, you can proceed to the next section and create Azure resources in another terminal.
+1. Depending on your network speed, pushing the image for the first time might take a few minutes (pushing subsequent changes is much faster). While you're waiting, you can proceed to the next section and create Azure resources in another terminal.
 
 ## Create supporting Azure resources for your function
 

@@ -55,11 +55,11 @@ Your new function app is ready to use. Next, you'll create a function in the new
 
     :::image type="content" source="./media/functions-create-scheduled-function/function-timer-logs-view.png" alt-text="Screenshot that shows the View the timer trigger page in the Azure portal." border="true":::
 
-Now, you'll change the function's schedule so that it runs once every hour instead of every minute.
+Now, you change the function's schedule so that it runs once every hour instead of every minute.
 
 ## Update the timer schedule
 
-1. In your function, select **Integration**. Here, you'll define the input and output bindings for your function and also set the schedule.
+1. In your function, select **Integration**. Here, you define the input and output bindings for your function and also set the schedule.
 
 1. Select **Timer (myTimer)**.
 

@@ -18,4 +18,4 @@ ms.author: glenga
 
 1. Select **Delete resource group** and follow the instructions.
 
-   Deletion may take a couple of minutes. When it's done, a notification appears for a few seconds. You can also select the bell icon at the top of the page to view the notification.
+   Deletion might take a couple of minutes. When it's done, a notification appears for a few seconds. You can also select the bell icon at the top of the page to view the notification.

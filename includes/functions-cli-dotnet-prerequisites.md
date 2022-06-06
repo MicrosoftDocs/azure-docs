@@ -1,6 +1,6 @@
 # [In-process](#tab/in-process)
 
-+ [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download)
++ [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download).
 
 + [Azure Functions Core Tools](../articles/azure-functions/functions-run-local.md#v2) version 4.x.
 
@@ -12,7 +12,7 @@
 
 # [Isolated process](#tab/isolated-process)
 
-+ [.NET 5.0 SDK](https://dotnet.microsoft.com/download)
++ [.NET 5.0 SDK](https://dotnet.microsoft.com/download).
 
 + [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download). Required by the build process.
 
