@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 06/06/2022
+ms.date: 06/03/2022
 ms.author: glenga
 ms.custom: devdivchpfy22
 ---
@@ -44,4 +44,4 @@ ms.custom: devdivchpfy22
     
 1.  In the Publish tab, in the Hosting section, choose **Open in Azure portal**. This opens the new function app Azure resource in the Azure portal.
     
-    :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-complete.png" alt-text="Publish success message":::
+    :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-complete.png" alt-text="Publish success message"::: 

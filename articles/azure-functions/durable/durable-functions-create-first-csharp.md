@@ -3,7 +3,7 @@ title: "Create your first durable function in Azure using C#"
 description: Create and publish an Azure Durable Function using Visual Studio or Visual Studio Code.
 author: anthonychu
 ms.topic: quickstart
-ms.date: 06/06/2022
+ms.date: 06/03/2022
 ms.author: azfuncdf
 zone_pivot_groups: code-editors-set-one
 ms.devlang: csharp
@@ -160,7 +160,7 @@ You have used Visual Studio Code to create and publish a C# durable function app
 
 ::: zone pivot="code-editor-visualstudio"
 
-In this article, you learn how to use Visual Studio 2022 to locally create and test a "hello world" durable function.  This function orchestrates and chains-together calls to other functions. You then publish the function code to Azure. These tools are available as part of the Azure development workload in Visual Studio 2022.
+In this article, you learn how to use Visual Studio 2022 to locally create and test a "hello world" durable function. This function orchestrates and chains-together calls to other functions. You then publish the function code to Azure. These tools are available as part of the Azure development workload in Visual Studio 2022.
 
 :::image type="content" source="./media/durable-functions-create-first-csharp/functions-vs-complete.png" alt-text="Screenshot of Visual Studio 2019 window with a durable function.":::
 
