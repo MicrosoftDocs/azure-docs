@@ -23,8 +23,11 @@ In this quickstart, you'll deploy three virtual networks and use Azure Virtual N
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Make sure you have the latest PowerShell modules, or you can use Azure Cloud Shell in the portal.
+* During preview, the `4.15.1-preview` version of `Az.Network` is required to access the required cmdlets.
 * If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+
+> [!IMPORTANT]
+> Perform this quickstart using Powershell localy, not through Azure Cloud Shell. The version of `Az.Network` in Azure Cloud Shell does not currently support the Azure Virtual Network Manager cmdlets.
 
 ## Register subscription for public preview
 
