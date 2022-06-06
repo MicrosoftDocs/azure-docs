@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/10/2022
+ms.date: 06/06/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -35,7 +35,7 @@ Your training set will consist of structured documents where the formatting and 
 
 ### Custom neural model
 
-The custom neural (custom document) model uses deep learning models and  base model trained on a large collection of documents. This model is then fine-tuned or adapted to your data when you train the model with a labeled dataset. Custom neural models support structured, semi-structured, and unstructured documents to extract fields. Custom neural models currently support English-language documents. When you're choosing between the two model types, start with a neural model if it meets your functional needs. See [neural models](concept-custom-neural.md) to learn more about custom document models.
+The custom neural (custom document) model uses deep learning models and  base model trained on a large collection of documents. This model is then fine-tuned or adapted to your data when you train the model with a labeled dataset. Custom neural models support structured, semi-structured, and unstructured documents to extract fields. Custom neural models currently support English-language documents. When you're choosing between the two model types, start with a neural model to determine if it meets your functional needs. See [neural models](concept-custom-neural.md) to learn more about custom document models.
 
 ## Build mode
 
@@ -82,7 +82,7 @@ The following tools are supported by Form Recognizer v3.0:
 
 ### Try Form Recognizer
 
-See how data is extracted from your specific or unique documents by using custom models. You need the following resources:
+Try extracting data from your specific or unique documents using custom models. You need the following resources:
 
 * An Azure subscription. You can [create one for free](https://azure.microsoft.com/free/cognitive-services/).
 * A [Form Recognizer instance](https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your key and endpoint.

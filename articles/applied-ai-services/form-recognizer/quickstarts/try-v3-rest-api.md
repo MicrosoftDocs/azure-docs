@@ -46,7 +46,7 @@ To learn more about Form Recognizer features and development options, visit our 
 **Custom Models**
 
 * Custom—Analyze and extract form fields and other content from your custom forms, using models you trained with your own form types.
-* Composed custom—Compose a collection of custom models and assign them to a single model built from your form types.
+* Composed custom—Compose a collection of custom models and assign them to a single model ID.
 
 ## Prerequisites
 
@@ -112,14 +112,18 @@ After you've called the [**Analyze document**](https://westus.dev.cognitive.micr
 
 1. Replace `{endpoint}` with the endpoint value from your Form Recognizer instance in the Azure portal.
 1. Replace `{key}` with the key value from your Form Recognizer instance in the Azure portal.
-1. Replace `{modelID}` with the same model name you used to analyze your document.
+1. Replace `{modelID}` with the same modelID you used to analyze your document.
 1. Replace `{resultID}` with the result ID from the [Operation-Location](#operation-location) header.
 <!-- markdownlint-disable MD024 -->
 
 #### GET request
 
 ```bash
+<<<<<<< HEAD
 curl -v -X GET "{endpoint}/formrecognizer/documentModels/{model name}/analyzeResults/{resultId}?api-version=2022-06-30" -H "Ocp-Apim-Subscription-Key: {key}"
+=======
+curl -v -X GET "{endpoint}/formrecognizer/documentModels/{modelID}/analyzeResults/{resultId}?api-version=2022-01-30-preview" -H "Ocp-Apim-Subscription-Key: {key}"
+>>>>>>> resolve-merge-conflict
 ```
 
 #### Examine the response

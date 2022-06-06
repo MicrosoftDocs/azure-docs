@@ -7,12 +7,11 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 03/08/2022
+ms.date: 06/06/2022
 ms.author: lajanuar
 recommendations: false
 keywords: automated data processing, document processing, automated data entry, forms processing
 #Customer intent: As a developer of form-processing software, I want to learn what the Form Recognizer service does so I can determine if I should use it.
-ms.custom: ignite-fall-2021
 ---
 <!-- markdownlint-disable MD033 -->
 <!-- markdownlint-disable MD024 -->
@@ -25,8 +24,8 @@ Form Recognizer uses the following models to easily identify, extract, and analy
 
 **Document analysis models**
 
-* [**Read model**](concept-read.md) | Extract typeface and handwritten text lines, words, locations, and detected languages from documents and images.
-* [**Layout model**](concept-layout.md) | Extract text, tables, selection marks, and structure information from documents (PDF and TIFF) and images (JPG, PNG, and BMP).
+* [**Read model**](concept-read.md) | Extract text lines, words, locations, and detected languages from documents and images.
+* [**Layout model**](concept-layout.md) | Extract text, tables, selection marks, and structure information from documents and images.
 * [**General document model**](concept-general-document.md) | Extract key-value pairs, selection marks, and entities from documents.
 
 **Prebuilt models**
@@ -49,7 +48,8 @@ This section helps you decide which Form Recognizer v3.0 supported feature you s
 | What type of document do you want to analyze?| How is the document formatted? | Your best solution |
 | -----------------|-------------------| ----------|
 |<ul><li>**W-2 Form**</li></yl>| Is your W-2 document composed in United States English (en-US) text?|<ul><li>If **Yes**, use the [**W-2 Form**](concept-w2.md) model.<li>If **No**, use the [**Layout**](concept-layout.md) or [**General document (preview)**](concept-general-document.md) model.</li></ul>|
-|<ul><li>**Text-only document**</li></yl>| Is your text-only document _printed_ in a [supported language](language-support.md#read-layout-and-custom-form-template-model) or, if handwritten, is it composed in English?|<ul><li>If **Yes**, use the [**Read**](concept-invoice.md) model.<li>If **No**, use the [**Layout**](concept-layout.md) or [**General document (preview)**](concept-general-document.md) model.</li></ul>
+|<ul><li>**Primarily text content**</li></yl>| Is your document _printed_ in a [supported language](language-support.md#read-layout-and-custom-form-template-model) and are you only interested in text and not tables, selection marks, and the structure?|<ul><li>If **Yes** to text-only extraction, use the [**Read**](concept-read.md) model.<li>If **No**, because you also need structure information, use the [**Layout**](concept-layout.md) model.</li></ul>
+|<ul><li>**General structured document**</li></yl>| Is your document mostly structured and does it contain a few fields and values that may not be covered by the other prebuilt models?|<ul><li>If **Yes**, use the [**General document (preview)**](concept-general-document.md) model.</li><li> If **No**, because the fields and values are complex and highly variable, train and build a [**Custom**](how-to-guides/build-custom-model-v3.md) model.</li></ul>
 |<ul><li>**Invoice**</li></yl>| Is your invoice document composed in English or Spanish text?|<ul><li>If **Yes**, use the [**Invoice**](concept-invoice.md) model.<li>If **No**, use the [**Layout**](concept-layout.md) or [**General document (preview)**](concept-general-document.md) model.</li></ul>
 |<ul><li>**Receipt**</li><li>**Business card**</li></ul>| Is your receipt or business card document composed in English text? | <ul><li>If **Yes**, use the [**Receipt**](concept-receipt.md) or [**Business Card**](concept-business-card.md) model.</li><li>If **No**, use the [**Layout**](concept-layout.md) or [**General document (preview)**](concept-general-document.md) model.</li></ul>|
 |<ul><li>**ID document**</li></ul>| Is your ID document a US driver's license or an international passport?| <ul><li>If **Yes**, use the [**ID document**](concept-id-document.md) model.</li><li>If **No**, use the[**Layout**](concept-layout.md) or [**General document (preview)**](concept-general-document.md) model</li></ul>|

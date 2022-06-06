@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 02/15/2022
+ms.date: 06/06/2022
 ms.author: lajanuar
 recommendations: false
 ---
@@ -20,15 +20,30 @@ Custom template models share the same labeling format and strategy as custom neu
 
 ## Model capabilities
 
-Custom template models support key-value pairs, selection marks, tables, signature fields, and selected regions. 
+Custom template models support key-value pairs, selection marks, tables, signature fields, and selected regions.
 
-| Form fields | Selection marks | Structured fields (Tables) | Signature | Selected regions |
-|--|--|--|--|--|
+| Form fields | Selection marks | Tabular fields (Tables) | Signature | Selected regions |
+|:--:|:--:|:--:|:--:|:--:|
 | Supported| Supported | Supported | Preview | Supported |
 
-## Dealing with variations 
+## Tabular fields
 
-Template models rely on a defined visual template, changes to the template will result in lower accuracy. In those instances, split your training dataset to include at least five samples of each template and train a model for each of the variations. You can then [compose](concept-composed-models.md) the models into a single endpoint. When dealing with subtle variations, like digital PDF documents and images, it's best to include at least five examples of each type in the same training dataset.
+With the release of API version **2022-06-30-preview**, custom template models will support tabular fields (tables):  
+
+* Models trained with API version 2022-06-30-preview or later will accept tabular field labels.
+* Documents analyzed with custom neural models using API version 2022-06-30-preview or later will produce tabular fields aggregated across the tables. 
+* The results can be found in the ```analyzeResult``` object's ```documents``` array that is returned following an analysis operation.
+
+Tabular fields support **cross page tables** by default:
+
+* To label a table that spans multiple pages, label each row of the table across the different pages in a single table.
+* As a best practice, ensure that your dataset contains a few samples of the expected variations. For example, include samples where the entire table is on a single page and where tables span two or more pages.
+
+Tabular fields are also useful when extracting repeating information within a document that isn't recognized as a table. For example, a repeating section of work experiences in a resume can be labeled and extracted as a tabular field.
+
+## Dealing with variations
+
+Template models rely on a defined visual template, changes to the template will result in lower accuracy. In those instances, split your training dataset to include at least five samples of each template and train a model for each of the variations. You can then [compose](concept-composed-models.md) the models into a single endpoint. For subtle variations, like digital PDF documents and images, it's best to include at least five examples of each type in the same training dataset.
 
 ## Training a model
 
