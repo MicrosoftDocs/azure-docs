@@ -245,7 +245,7 @@ On the **Edit VPN Gateway** page, you can see the following settings:
 * **Public IP Address**: Assigned by Azure.
 * **Private IP Address**: Assigned by Azure.
 * **Default BGP IP Address**: Assigned by Azure.
-* **Custom BGP IP Address**: This field is reserved for APIPA (Automatic Private IP Addressing). Azure supports BGP IP in the ranges 169.254.21.* and 169.254.22.*. Azure accepts BGP connections in these ranges but will dial connection with the default BGP IP.
+* **Custom BGP IP Address**: This field is reserved for APIPA (Automatic Private IP Addressing). Azure supports BGP IP in the ranges 169.254.21.* and 169.254.22.*. Azure accepts BGP connections in these ranges but will dial connection with the default BGP IP. Users can specify multiple custom BGP IP addresses for each instance. The same custom BGP IP address shouldn't be used for both instances. 
 
    :::image type="content" source="media/virtual-wan-site-to-site-portal/edit-gateway.png" alt-text="Screenshot shows the Edit VPN Gateway page with the Edit button highlighted." lightbox="media/virtual-wan-site-to-site-portal/edit-gateway.png":::
 
