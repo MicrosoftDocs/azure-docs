@@ -86,9 +86,6 @@ ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resource
 
 ## Create an AKS cluster
 
-Use the `ssh-keygen` command-line utility to generate an SSH key pair. For more details, see
-[Quick steps: Create and use an SSH public-private key pair for Linux VMs in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
-
 To run an AKS cluster that supports node pools for Windows Server containers, your cluster needs to
 use a network policy that uses [Azure CNI][azure-cni-about] (advanced) network plugin. For more
 detailed information to help plan out the required subnet ranges and network considerations, see
@@ -102,7 +99,7 @@ network resources if they don't exist.
 
 ```azurepowershell-interactive
 $AdminCreds = Get-Credential -Message 'Please create the administrator credentials for your Windows Server containers'
-New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 2 -NetworkPlugin azure -NodeVmSetType VirtualMachineScaleSets -WindowsProfileAdminUserName $AdminCreds.UserName -WindowsProfileAdminUserPassword $AdminCreds.Password
+New-AzAksCluster -ResourceGroupName myResourceGroup -Name myAKSCluster -NodeCount 2 -NetworkPlugin azure -NodeVmSetType VirtualMachineScaleSets -WindowsProfileAdminUserName $AdminCreds.UserName -WindowsProfileAdminUserPassword $AdminCreds.Password -GenerateSshKey
 ```
 
 > [!Note]
