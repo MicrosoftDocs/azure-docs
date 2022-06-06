@@ -75,10 +75,10 @@ conceptualContent:
       footerLink:
         text: More
         url: index-image-analysis.yml
-    - title: Identity
+    - title: Face
       links:
         - itemType: overview
-          text: About Identity
+          text: About Face service
           url: overview-identity.md
         - itemType: quickstart
           text: Get started with Azure Identity
@@ -96,7 +96,7 @@ conceptualContent:
           text: Add users to a Face service
           url: Tutorials/build-enrollment-app.md
         - itemType: reference
-          text: Identity API reference
+          text: Face API reference
           url: /rest/api/face/
       footerLink:
         text: More

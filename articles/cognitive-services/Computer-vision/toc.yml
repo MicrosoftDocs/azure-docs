@@ -150,11 +150,11 @@ items:
       href: /cli/azure/cognitiveservices#az_cognitiveservices_list
     - name: Azure PowerShell
       href: /powershell/module/azurerm.cognitiveservices/
-- name: Identity
+- name: Face
   items:
-  - name: Identity overview
+  - name: Face overview
     href: overview-identity.md
-  - name: Identity quickstart
+  - name: Face quickstart
     href: quickstarts-sdk/identity-client-library.md
   - name: Samples
     href: /samples/browse/?products=azure&term=face
