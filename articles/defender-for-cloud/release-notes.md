@@ -16,21 +16,18 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 > [!TIP]
 > If you're looking for items older than six months, you'll find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
 
-## July 2022
+## June 2022
+
+Updates in June include:
 
 - [Filter security alerts by IP address](#filter-security-alerts-by-ip-address)
+- [General availability (GA) of Defender for SQL on machines for AWS and GCP environments](#general-availability-ga-of-defender-for-sql-on-machines-for-aws-and-gcp-environments)
 
 ### Filter security alerts by IP address
 
 In many cases of attacks, you want to track alerts based on the IP address of the entity involved in the attack. Up until now, the IP appeared only in the "Related Entities" section in the single alert blade. Now, you can filter the alerts in the security alerts blade to see the alerts related to the IP address, and you can search for a specific IP address.
 
-:::image type="content" source="media/release-notes/ip-address-filter-for-alerts.png" alt-text="Screenshot of filter for IP address in Defender for Cloud alerts." lightbox="media/release-notes/ip-address-filter-for-alerts.png":::
-
-## June 2022
-
-Updates in June include:
-
-- [General availability (GA) of Defender for SQL on machines for AWS and GCP environments](#general-availability-ga-of-defender-for-sql-on-machines-for-aws-and-gcp-environments)
+:::image type="content" source="media/release-notes/ip-address-filter-for-alerts.png" alt-text="Screenshot of filter for I P address in Defender for Cloud alerts." lightbox="media/release-notes/ip-address-filter-for-alerts.png":::
 
 ### General availability (GA) of Defender for SQL on machines for AWS and GCP environments
 
