@@ -21,7 +21,7 @@ The Kubernetes Event-driven Autoscaling (KEDA) add-on integrates with features p
 
 KEDA automatically emits Kubernetes events allowing customers to operate their application autoscaling.
 
-To learn about the available metrics, we recommend reading the [KEDA documentation][keda-event-docs].
+To learn about the available metrics, we recommend reading the [KEDA documentation](https://keda.sh/docs/operate/events/).
 
 ## Scalers for Azure services
 
