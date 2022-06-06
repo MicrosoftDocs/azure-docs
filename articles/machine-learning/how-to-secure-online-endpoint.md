@@ -37,9 +37,9 @@ The following diagram shows how communications flow through private endpoints to
 
     The workspace can be configured to allow or disallow public network access. If you plan on using managed online endpoint deployments that use __public outbound__, then you must also [configure the workspace to allow public access](how-to-configure-private-link.md#enable-public-access).
 
-    Outbound communication from managed online endpoint deployment is to the _workspace API_. If the endpoint deployment is configured to __use public communication__ and the workspace is configured to __disallow public communication__, the endpoint deployment will fail.
+    Outbound communication from managed online endpoint deployment is to the _workspace API_. When the endpoint is configured to use __public outbound__, then the workspace must be able to accept that public communication (allow public access).
 
-* The Azure Container Registry for your workspace must be configured for __Premium__ tier. For more information, see [Azure Container Registry service tiers](/azure/container-registry/container-registry-skus).
+* When the workspace is configured with a private endpoint, the Azure Container Registry for the workspace must be configured for __Premium__ tier. For more information, see [Azure Container Registry service tiers](/azure/container-registry/container-registry-skus).
 
 * The Azure Container Registry and Azure Storage Account must be in the same Azure Resource Group as the workspace.
 
@@ -63,7 +63,7 @@ The following diagram shows how communications flow through private endpoints to
 
 * You can configure public access to a __managed online endpoint__ (_inbound_ and _outbound_). You can also configure [public access to an Azure Machine Learning workspace](how-to-configure-private-link.md#enable-public-access).
 
-    Outbound communication from managed online endpoint deployment is to the _workspace API_. If the endpoint deployment is configured to __use public communication__ and the workspace is configured to __disallow public communication__, the endpoint deployment will fail.
+    Outbound communication from managed online endpoint deployment is to the _workspace API_. When the endpoint is configured to use __public outbound__, then the workspace must be able to accept that public communication (allow public access).
 
 > [!NOTE]
 > Requests to create, update, or retrieve the authentication keys are sent to the Azure Resource Manager over the public network.
@@ -106,7 +106,7 @@ The following table lists the supported configurations when configuring inbound 
 | public inbound with public outbound | `public_network_access` is enabled</br>The workspace must also allow public access. | `egress_public_network_access` is enabled  | Yes |
 
 > [!IMPORTANT]
-> __Outbound__ communication from managed online endpoint deployment is to the _workspace API_. If the endpoint deployment is configured to __use public outbound__ and the workspace is configured to __disallow public communication__, the endpoint deployment will fail.
+> Outbound communication from managed online endpoint deployment is to the _workspace API_. When the endpoint is configured to use __public outbound__, then the workspace must be able to accept that public communication (allow public access).
 
 ## End-to-end example
 
