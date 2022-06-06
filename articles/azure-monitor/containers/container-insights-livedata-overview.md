@@ -1,8 +1,8 @@
 ---
-title: View Live Data with Container insights | Microsoft Docs
+title: View Live Data with Container insights
 description: This article describes the real-time view of Kubernetes logs, events, and pod metrics without using kubectl in Container insights.
 ms.topic: conceptual
-ms.date: 03/04/2021
+ms.date: 05/24/2022
 ms.custom: references_regions
 ---
 
@@ -12,7 +12,7 @@ Container insights includes the Live Data feature, which is an advanced diagnost
 
 This article provides a detailed overview and helps you understand how to use this feature.
 
-For help setting up or troubleshooting the Live Data feature, review our [setup guide](container-insights-livedata-setup.md). This feature directly access the Kubernetes API, and additional information about the authentication model can be found [here](https://kubernetes.io/docs/concepts/overview/kubernetes-api/).
+For help setting up or troubleshooting the Live Data feature, review our [setup guide](container-insights-livedata-setup.md). This feature directly accesses the Kubernetes API, and additional information about the authentication model can be found [here](https://kubernetes.io/docs/concepts/overview/kubernetes-api/).
 
 ## View AKS resource live logs
 Use the following procedure to view the live logs for pods, deployments, and replica sets with or without Container insights from the AKS resource view.
@@ -75,7 +75,7 @@ The pane title shows the name of the Pod the container is grouped with.
 
 ### Filter events
 
-While viewing events, you can additionally limit the results using the **Filter** pill found to the right of the search bar. Depending on what resource you have selected, the pill lists a Pod, Namespace, or cluster to chose from.
+While viewing events, you can additionally limit the results using the **Filter** pill found to the right of the search bar. Depending on what resource you have selected, the pill lists a Pod, Namespace, or cluster to choose from.
 
 ## View metrics
 
@@ -108,7 +108,7 @@ The Live Data feature includes search functionality. In the **Search** field, yo
 
 ### Scroll Lock and Pause
 
-To suspend autoscroll and control the behavior of the pane, allowing you to manually scroll through the new data read, you can use the **Scroll** option. To re-enable autoscroll, simply select the **Scroll** option again. You can also pause retrieval of log or event data by selecting the the **Pause** option, and when you are ready to resume, simply select **Play**.
+To suspend autoscroll and control the behavior of the pane, allowing you to manually scroll through the new data read, you can use the **Scroll** option. To re-enable autoscroll, simply select the **Scroll** option again. You can also pause retrieval of log or event data by selecting the **Pause** option, and when you are ready to resume, simply select **Play**.
 
 ![Live Data console pane pause live view](./media/container-insights-livedata-overview/livedata-pane-scroll-pause-example.png)
 

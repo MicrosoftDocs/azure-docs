@@ -119,7 +119,6 @@ The tools that you will use to train and configure models are different from tho
 | Pillar | Service | Customization UI | Quickstart |
 |--------|---------|------------------|------------|
 | Vision | Custom Vision | https://www.customvision.ai/ | [Quickstart](./custom-vision-service/quickstarts/image-classification.md?pivots=programming-language-csharp) | 
-| Decision | Content Moderator | https://contentmoderator.cognitive.microsoft.com/dashboard | [Quickstart](./content-moderator/review-tool-user-guide/human-in-the-loop.md) |
 | Decision | Personalizer | UI is available in the Azure portal under your Personalizer resource. | [Quickstart](./personalizer/quickstart-personalizer-sdk.md) |
 | Language | Language Understanding (LUIS) | https://www.luis.ai/ | |
 | Language | QnA Maker | https://www.qnamaker.ai/ | [Quickstart](./qnamaker/quickstarts/create-publish-knowledge-base.md) |

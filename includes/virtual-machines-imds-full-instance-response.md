@@ -37,6 +37,7 @@ ms.reviewer: azmetadatadev
             "publisher": "planPublisher"
         },
         "platformFaultDomain": "36",
+        "platformSubFaultDomain": "",        
         "platformUpdateDomain": "42",
         "priority": "Regular",
         "publicKeys": [{
@@ -177,6 +178,7 @@ ms.reviewer: azmetadatadev
             "publisher": "planPublisher"
         },
         "platformFaultDomain": "36",
+        "platformSubFaultDomain": "",        
         "platformUpdateDomain": "42",
         "priority": "Regular",
         "publicKeys": [{

@@ -5,7 +5,8 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 11/3/2021
+ms.date: 03/15/2022
+
 ---
 
 # Failover and patching for Azure Cache for Redis
@@ -83,29 +84,10 @@ Most client libraries attempt to reconnect to the cache if they're configured to
 
 ### Can I be notified in advance of planned maintenance?
 
-Azure Cache for Redis publishes notifications on a publish/subscribe (pub/sub) channel called [AzureRedisEvents](https://github.com/Azure/AzureCacheForRedis/blob/main/AzureRedisEvents.md) around 30 seconds before planned updates. The notifications are runtime notifications.
+Azure Cache for Redis publishes runtime maintenance notifications on a publish/subscribe (pub/sub) channel called `AzureRedisEvents`. Many popular Redis client libraries support subscribing to pub/sub channels. Receiving notifications from the `AzureRedisEvents` channel is usually a simple addition to your client application. For more information about maintenance events, please see [AzureRedisEvents](https://github.com/Azure/AzureCacheForRedis/blob/main/AzureRedisEvents.md).
 
-The notifications are for applications that use circuit breakers to bypass the cache or applications that buffer commands. For example, the cache could be bypassed during any planned updates.
-
-The `AzureRedisEvents` channel isn't a mechanism that can notify you days or hours in advance. The channel can notify clients of any upcoming planned server maintenance events that might affect server availability.
-
-Many popular Redis client libraries support subscribing to pub/sub channels. Receiving notifications from the `AzureRedisEvents` channel is usually a simple addition to your client application.
-
-Once your application is subscribed to `AzureRedisEvents`, it receives a notification 30 seconds before any node is affected by a maintenance event. The notification includes details about the upcoming event and indicates whether it affects a primary or replica node.
-
-Another notification is sent minutes later when the maintenance operation is complete.
-
-Your application uses the content in the notification to take action to avoid using the cache while the maintenance is done. A cache might implement a circuit breaker pattern where traffic is routed away from the cache during the maintenance operation. Instead, traffic is sent directly to a persistent store. The notification isn't intended to allow time for a person to be alerted and take manual action.
-
-In most cases, your application doesn't need to subscribe to `AzureRedisEvents` or respond to notifications. Instead, we recommend implementing [building in resilience](#build-in-resiliency).
-
-With sufficient resilience, applications gracefully handle any brief connection loss or cache unavailability like that experienced during node maintenance. It’s also possible that your application might unexpectedly lose its connection to the cache without warning from `AzureRedisEvents` because of network errors or other events.
-
-We only recommend subscribing to `AzureRedisEvents` in a few noteworthy cases:
-
-- Applications with extreme performance requirements, where even minor delays must be avoided. In such scenarios, traffic could be seamlessly rerouted to a backup cache before maintenance begins on the current cache.
-- Applications that explicitly read data from replica rather than primary nodes. During maintenance on a replica node, the application could temporarily switch to read data from primary nodes.
-- Applications that can't risk write operations failing silently or succeeding without confirmation, which can happen as connections are being closed for maintenance. If those cases would result in dangerous data loss, the application can proactively pause or redirect write commands before the maintenance is scheduled to begin.
+> [!NOTE]
+> The `AzureRedisEvents` channel isn't a mechanism that can notify you days or hours in advance. The channel can notify clients of any upcoming planned server maintenance events that might affect server availability.
 
 ### Client network-configuration changes
 

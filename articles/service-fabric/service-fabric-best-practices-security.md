@@ -254,8 +254,17 @@ By default, Windows Defender antivirus is installed on Windows Server 2016. For 
 > Refer to your Antimalware documentation for configuration rules if you are not using Windows Defender. 
 > Windows Defender isn't supported on Linux.
 
-## Platform Isolation
-By default, Service Fabric applications are granted access to the Service Fabric runtime itself, which manifests itself in different forms: [environment variables](service-fabric-environment-variables-reference.md) pointing to file paths on the host corresponding to application and Fabric files, an inter-process communication endpoint which accepts application-specific requests, and the client certificate which Fabric expects the application to use to authenticate itself. In the eventuality that the service hosts itself untrusted code, it is advisable to disable this access to the SF runtime - unless explicitly needed. Access to the runtime is removed using the following declaration in the Policies section of the application manifest: 
+## Hosting untrusted applications in a Service Fabric cluster
+A Service Fabric cluster is single tenant by design and hosted applications are considered **trusted**. Applications are, therefore, granted access to the Service Fabric runtime, which manifests in different forms, some of which are: [environment variables](service-fabric-environment-variables-reference.md) pointing to file paths on the host corresponding to application and Fabric files, host paths mounted with write access onto container workloads, an inter-process communication endpoint which accepts application-specific requests, and the client certificate which Fabric expects the application to use to authenticate itself.
+
+If you are considering hosting **untrusted applications**, you must take additional steps to define and own the hostile multi-tenant experience for your Service Fabric cluster. This will require you to consider multiple aspects, in the context of your scenario, including, but not limited to, the following:
+* A thorough security review of the untrusted applications' interactions with other applications, the cluster itself, and the underlying compute infrastructure.
+* Use of the strongest sandboxing technology applicable (e.g., appropriate [isolation modes](/virtualization/windowscontainers/manage-containers/hyperv-container) for container workloads).
+* Risk assessment of the untrusted applications escaping the sandboxing technology, as the next trust and security boundary is the cluster itself.
+* Removal of the untrusted applications' [access to Service Fabric runtime](service-fabric-service-model-schema-complex-types.md#servicefabricruntimeaccesspolicytype-complextype).
+
+### RemoveServiceFabricRuntimeAccess
+Access to Service Fabric runtime can be removed by using the following declaration in the Policies section of the application manifest: 
 
 ```xml
 <ServiceManifestImport>

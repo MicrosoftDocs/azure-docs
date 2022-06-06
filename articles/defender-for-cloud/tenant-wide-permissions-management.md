@@ -7,8 +7,6 @@ ms.date: 11/09/2021
 
 # Grant and request tenant-wide visibility
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 A user with the Azure Active Directory (AD) role of **Global Administrator** might have tenant-wide responsibilities, but lack the Azure permissions to view that organization-wide information in Microsoft Defender for Cloud. Permission elevation is required because Azure AD role assignments don't grant access to Azure resources. 
 
 ## Grant tenant-wide permissions to yourself

@@ -4,7 +4,7 @@ description: Use encryption at host to enable end-to-end encryption on your Azur
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/17/2021
+ms.date: 03/15/2022
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
@@ -27,24 +27,24 @@ Upgrading the VM size will result in validation to check if the new VM size supp
 
 ## Prerequisites
 
-You must enable the feature for your subscription before you use the EncryptionAtHost property for your VM/VMSS. Please follow the steps below to enable the feature for your subscription:
+You must enable the feature for your subscription before you use the EncryptionAtHost property for your VM/VMSS. Use the following steps to enable the feature for your subscription:
 
-1.	Execute the following command to register the feature for your subscription
+- Execute the following command to register the feature for your subscription
 
-    ```azurecli
-    az feature register --namespace Microsoft.Compute --name EncryptionAtHost
-    ```
+```azurecli
+az feature register --namespace Microsoft.Compute --name EncryptionAtHost
+```
  
-2.	Please check that the registration state is Registered (takes a few minutes) using the command below before trying out the feature.
+- Check that the registration state is **Registered** (takes a few minutes) using the command below before trying out the feature.
 
-    ```azurecli
-    az feature show --namespace Microsoft.Compute --name EncryptionAtHost
-    ```
+```azurecli
+az feature show --namespace Microsoft.Compute --name EncryptionAtHost
+```
 
 
-### Create an Azure Key Vault and DiskEncryptionSet
+### Create resources
 
-Once the feature is enabled, you'll need to set up an Azure Key Vault and a DiskEncryptionSet, if you haven't already.
+Once the feature is enabled, you'll need to set up a DiskEncryptionSet and either an [Azure Key Vault](../../key-vault/general/overview.md) or an [Azure Key Vault Managed HSM](../../key-vault/managed-hsm/overview.md).
 
 [!INCLUDE [virtual-machines-disks-encryption-create-key-vault-cli](../../../includes/virtual-machines-disks-encryption-create-key-vault-cli.md)]
 

@@ -1,15 +1,15 @@
 ---
 title: HBv2-series VM size performance 
 description: Learn about performance testing results for HBv2-series VM sizes in Azure.  
-services: virtual-machines 
-author: vermagit 
+services: virtual-machines  
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.workload: infrastructure-services 
 ms.topic: article 
 ms.date: 09/28/2020 
-ms.author: amverma 
 ms.reviewer: cynthn
+ms.author: mamccrea
+author: mamccrea
 --- 
 
 # HBv2-series virtual machine sizes

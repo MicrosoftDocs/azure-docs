@@ -4,7 +4,7 @@ titleSuffix: Azure Kubernetes Service
 description: Learn how to manually create a volume with Azure Files for use with multiple concurrent pods in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/08/2021
+ms.date: 05/09/2022
 
 
 #Customer intent: As a developer, I want to learn how to manually create and attach storage using Azure Files to a pod in AKS.
@@ -19,9 +19,9 @@ For more information on Kubernetes volumes, see [Storage options for application
 
 ## Before you begin
 
-This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+This article assumes that you have an existing AKS cluster with 1.21 or later version. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli], [using Azure PowerShell][aks-quickstart-powershell], or [using the Azure portal][aks-quickstart-portal].
 
-You also need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+If you want to interact with Azure Files on an AKS cluster with 1.20 or previous version, see the [Kubernetes plugin for Azure Files][kubernetes-files].
 
 ## Create an Azure file share
 
@@ -67,7 +67,8 @@ kubectl create secret generic azure-secret --from-literal=azurestorageaccountnam
 ```
 
 ## Mount file share as an inline volume
-> Note: inline `azureFile` volume can only access secret in the same namespace as pod, to specify a different secret namespace, please use below persistent volume example instead.
+> [!NOTE]
+> Inline volume can only access secrets in the same namespace as the pod. To specify a different secret namespace, [please use the persistent volume example][persistent-volume-example] below instead.
 
 To mount the Azure Files share into your pod, configure the volume in the container spec. Create a new file named `azure-files-pod.yaml` with the following contents. If you changed the name of the Files share or secret name, update the *shareName* and *secretName*. If desired, update the `mountPath`, which is the path where the Files share is mounted in the pod. For Windows Server containers, specify a *mountPath* using the Windows path convention, such as *'D:'*.
 
@@ -92,10 +93,12 @@ spec:
         mountPath: /mnt/azure
   volumes:
   - name: azure
-    azureFile:
-      secretName: azure-secret
-      shareName: aksshare
-      readOnly: false
+    csi:
+      driver: file.csi.azure.com
+      volumeAttributes:
+        secretName: azure-secret  # required
+        shareName: aksshare  # required
+        mountOptions: "dir_mode=0777,file_mode=0777,cache=strict,actimeo=30"  # optional
 ```
 
 Use the `kubectl` command to create the pod.
@@ -104,63 +107,11 @@ Use the `kubectl` command to create the pod.
 kubectl apply -f azure-files-pod.yaml
 ```
 
-You now have a running pod with an Azure Files share mounted at */mnt/azure*. You can use `kubectl describe pod mypod` to verify the share is mounted successfully. The following condensed example output shows the volume mounted in the container:
+You now have a running pod with an Azure Files share mounted at */mnt/azure*. You can use `kubectl describe pod mypod` to verify the share is mounted successfully. 
 
-```
-Containers:
-  mypod:
-    Container ID:   docker://86d244cfc7c4822401e88f55fd75217d213aa9c3c6a3df169e76e8e25ed28166
-    Image:          mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
-    Image ID:       docker-pullable://nginx@sha256:9ad0746d8f2ea6df3a17ba89eca40b48c47066dfab55a75e08e2b70fc80d929e
-    State:          Running
-      Started:      Sat, 02 Mar 2019 00:05:47 +0000
-    Ready:          True
-    Mounts:
-      /mnt/azure from azure (rw)
-      /var/run/secrets/kubernetes.io/serviceaccount from default-token-z5sd7 (ro)
-[...]
-Volumes:
-  azure:
-    Type:        AzureFile (an Azure File Service mount on the host and bind mount to the pod)
-    SecretName:  azure-secret
-    ShareName:   aksshare
-    ReadOnly:    false
-  default-token-z5sd7:
-    Type:        Secret (a volume populated by a Secret)
-    SecretName:  default-token-z5sd7
-[...]
-```
-
-## Mount file share as an persistent volume
+## Mount file share as a persistent volume
  - Mount options
-
-The default value for *fileMode* and *dirMode* is *0777* for Kubernetes version 1.15 and above. The following example sets *0755* on the *PersistentVolume* object:
-
-```yaml
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: azurefile
-spec:
-  capacity:
-    storage: 5Gi
-  accessModes:
-    - ReadWriteMany
-  azureFile:
-    secretName: azure-secret
-    secretNamespace: default
-    shareName: aksshare
-    readOnly: false
-  mountOptions:
-  - dir_mode=0755
-  - file_mode=0755
-  - uid=1000
-  - gid=1000
-  - mfsymlinks
-  - nobrl
-```
-
-To update your mount options, create a *azurefile-mount-options-pv.yaml* file with a *PersistentVolume*. For example:
+> The default value for *fileMode* and *dirMode* is *0777*.
 
 ```yaml
 apiVersion: v1
@@ -172,17 +123,27 @@ spec:
     storage: 5Gi
   accessModes:
     - ReadWriteMany
-  azureFile:
-    secretName: azure-secret
-    shareName: aksshare
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: azurefile-csi
+  csi:
+    driver: file.csi.azure.com
     readOnly: false
+    volumeHandle: unique-volumeid  # make sure this volumeid is unique in the cluster
+    volumeAttributes:
+      resourceGroup: EXISTING_RESOURCE_GROUP_NAME  # optional, only set this when storage account is not in the same resource group as agent node
+      shareName: aksshare
+    nodeStageSecretRef:
+      name: azure-secret
+      namespace: default
   mountOptions:
-  - dir_mode=0777
-  - file_mode=0777
-  - uid=1000
-  - gid=1000
-  - mfsymlinks
-  - nobrl
+    - dir_mode=0777
+    - file_mode=0777
+    - uid=0
+    - gid=0
+    - mfsymlinks
+    - cache=strict
+    - nosharesock
+    - nobrl
 ```
 
 Create a *azurefile-mount-options-pvc.yaml* file with a *PersistentVolumeClaim* that uses the *PersistentVolume*. For example:
@@ -195,7 +156,8 @@ metadata:
 spec:
   accessModes:
     - ReadWriteMany
-  storageClassName: ""
+  storageClassName: azurefile-csi
+  volumeName: azurefile
   resources:
     requests:
       storage: 5Gi
@@ -237,11 +199,9 @@ kubectl apply -f azure-files-pod.yaml
 
 ## Next steps
 
+For Azure File CSI driver parameters, see [CSI driver parameters][CSI driver parameters].
+
 For associated best practices, see [Best practices for storage and backups in AKS][operator-best-practices-storage].
-
-For more information about AKS clusters interact with Azure Files, see the [Kubernetes plugin for Azure Files][kubernetes-files].
-
-For storage class parameters, see [Static Provision(bring your own file share)](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/docs/driver-parameters.md#static-provisionbring-your-own-file-share).
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#create
@@ -250,14 +210,14 @@ For storage class parameters, see [Static Provision(bring your own file share)](
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/volumes/
 [smb-overview]: /windows/desktop/FileIO/microsoft-smb-protocol-and-cifs-protocol-overview
 [kubernetes-security-context]: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
+[CSI driver parameters]: https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/docs/driver-parameters.md#static-provisionbring-your-own-file-share
 
 <!-- LINKS - internal -->
-[az-group-create]: /cli/azure/group#az_group_create
-[az-storage-create]: /cli/azure/storage/account#az_storage_account_create
-[az-storage-key-list]: /cli/azure/storage/account/keys#az_storage_account_keys_list
-[az-storage-share-create]: /cli/azure/storage/share#az_storage_share_create
-[aks-quickstart-cli]: kubernetes-walkthrough.md
-[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-quickstart-cli]: ./learn/quick-kubernetes-deploy-cli.md
+[aks-quickstart-portal]: ./learn/quick-kubernetes-deploy-portal.md
+[aks-quickstart-powershell]: ./learn/quick-kubernetes-deploy-powershell.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
+[persistent-volume-example]: #mount-file-share-as-a-persistent-volume
+[use-tags]: use-tags.md

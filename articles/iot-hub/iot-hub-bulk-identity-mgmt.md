@@ -1,13 +1,13 @@
 ---
 title: Import/Export of Azure IoT Hub device identities | Microsoft Docs
 description: How to use the Azure IoT service SDK to run bulk operations against the identity registry to import and export device identities. Import operations enable you to create, update, and delete device identities in bulk.
-author: eross-msft
+author: kgremban
 
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.author: lizross
+ms.author: kgremban
 ms.custom: devx-track-csharp
 ---
 
@@ -259,16 +259,32 @@ Use the optional **importMode** property in the import serialization data for ea
 
 | importMode | Description |
 | --- | --- |
-| **createOrUpdate** |If a device does not exist with the specified **ID**, it is newly registered. <br/>If the device already exists, existing information is overwritten with the provided input data without regard to the **ETag** value. <br> The user can optionally specify twin data along with the device data. The twin's etag, if specified, is processed independently from the device's etag. If there is a mismatch with the existing twin's etag, an error is written to the log file. |
-| **create** |If a device does not exist with the specified **ID**, it is newly registered. <br/>If the device already exists, an error is written to the log file. <br> The user can optionally specify twin data along with the device data. The twin's etag, if specified, is processed independently from the device's etag. If there is a mismatch with the existing twin's etag, an error is written to the log file. |
-| **update** |If a device already exists with the specified **ID**, existing information is overwritten with the provided input data without regard to the **ETag** value. <br/>If the device does not exist, an error is written to the log file. |
-| **updateIfMatchETag** |If a device already exists with the specified **ID**, existing information is overwritten with the provided input data only if there is an **ETag** match. <br/>If the device does not exist, an error is written to the log file. <br/>If there is an **ETag** mismatch, an error is written to the log file. |
-| **createOrUpdateIfMatchETag** |If a device does not exist with the specified **ID**, it is newly registered. <br/>If the device already exists, existing information is overwritten with the provided input data only if there is an **ETag** match. <br/>If there is an **ETag** mismatch, an error is written to the log file. <br> The user can optionally specify twin data along with the device data. The twin's etag, if specified, is processed independently from the device's etag. If there is a mismatch with the existing twin's etag, an error is written to the log file. |
-| **delete** |If a device already exists with the specified **ID**, it is deleted without regard to the **ETag** value. <br/>If the device does not exist, an error is written to the log file. |
-| **deleteIfMatchETag** |If a device already exists with the specified **ID**, it is deleted only if there is an **ETag** match. If the device does not exist, an error is written to the log file. <br/>If there is an ETag mismatch, an error is written to the log file. |
+| **Create** |If a device does not exist with the specified **ID**, it is newly registered. If the device already exists, an error is written to the log file. |
+| **CreateOrUpdate** |If a device does not exist with the specified **ID**, it is newly registered. If the device already exists, existing information is overwritten with the provided input data without regard to the **ETag** value. |
+| **CreateOrUpdateIfMatchETag** |If a device does not exist with the specified **ID**, it is newly registered. If the device already exists, existing information is overwritten with the provided input data only if there is an **ETag** match. If there is an **ETag** mismatch, an error is written to the log file. |
+| **Delete** |If a device already exists with the specified **ID**, it is deleted without regard to the **ETag** value. If the device does not exist, an error is written to the log file. |
+| **DeleteIfMatchETag** |If a device already exists with the specified **ID**, it is deleted only if there is an **ETag** match. If the device does not exist, an error is written to the log file. If there is an ETag mismatch, an error is written to the log file. |
+| **Update** |If a device already exists with the specified **ID**, existing information is overwritten with the provided input data without regard to the **ETag** value. If the device does not exist, an error is written to the log file. |
+| **UpdateIfMatchETag** |If a device already exists with the specified **ID**, existing information is overwritten with the provided input data only if there is an **ETag** match. If the device does not exist or there is an **ETag** mismatch, an error is written to the log file. |
+| **UpdateTwin** |If a twin already exists with the specified **ID**, existing information is overwritten with the provided input data without regard to the twin's **ETag** value. |
+| **UpdateTwinIfMatchETag** |If a twin already exists with the specified **ID**, existing information is overwritten with the provided input data only if there is a match on the twin's **ETag** value. The twin's **ETag**, is processed independently from the device's **ETag**. If there is a mismatch with the existing twin's **ETag**, an error is written to the log file. |
 
 > [!NOTE]
 > If the serialization data does not explicitly define an **importMode** flag for a device, it defaults to **createOrUpdate** during the import operation.
+
+## Import troubleshooting
+
+Using an import job to create devices may fail with a quota issue when it is close to the device count limit of the IoT hub. This can happen even if the total device count is still lower than the quota limit. The **IotHubQuotaExceeded (403002)** error is returned with the following error message: "Total number of devices on IotHub exceeded the allocated quota.”
+
+If you get this error, you can use the following query to return the total number of devices registered on your IoT hub:
+
+```sql
+SELECT COUNT() as totalNumberOfDevices FROM devices
+```
+
+For information about the total number of devices that can be registered to an IoT hub, see [IoT Hub limits](iot-hub-devguide-quotas-throttling.md#other-limits).
+
+If there's still quota available, you can examine the job output blob for devices that failed with the **IotHubQuotaExceeded (403002)** error. You can then try adding these devices individually to the IoT hub. For example, you can use the **AddDeviceAsync** or **AddDeviceWithTwinAsync** methods. Don't try to add the devices using another job as you'll likely encounter the same error.
 
 ## Import devices example – bulk device provisioning
 

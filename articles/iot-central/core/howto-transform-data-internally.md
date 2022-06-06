@@ -23,6 +23,10 @@ Transformations in an IoT Central data export definition let you manipulate the 
 
 Use transformations to restructure JSON payloads, rename fields, filter out fields, and run simple calculations on telemetry values. For example, use a transformation to convert your messages into a tabular format that matches the schema of a destination such as an Azure Data Explorer table.
 
+The following video introduces you to IoT Central data transformations:
+
+> [!VIDEO https://aka.ms/docs/player?id=f1752a73-89e6-42c2-8298-e9d6ce212daa]
+
 ## Add a transformation
 
 To add a transformation for a destination in your data export, select **+ Transform** as shown in the following screenshot:
@@ -309,7 +313,7 @@ JSON output:
 }
 ```
 
-To learn more about how to add an Azure Data Explorer cluster and database as an export destination, see [Create an Azure Data Explorer destination](howto-export-data.md#create-an-azure-data-explorer-destination).
+To learn more about how to add an Azure Data Explorer cluster and database as an export destination, see [Create an Azure Data Explorer destination](howto-export-to-azure-data-explorer.md).
 
 ### Scenario 2: Breaking apart a telemetry array
 
@@ -542,7 +546,7 @@ JSON output:
 
 ### Scenario 4: Export data to Azure Data Explorer and visualize it in Power BI
 
-In this scenario, you export data to Azure Data Explorer and then a use a connector to visualize the data in Power BI. To learn more about how to add an Azure Data Explorer cluster and database as an export destination, see [Create an Azure Data Explorer destination](howto-export-data.md#create-an-azure-data-explorer-destination).
+In this scenario, you export data to Azure Data Explorer and then a use a connector to visualize the data in Power BI. To learn more about how to add an Azure Data Explorer cluster and database as an export destination, see [Create an Azure Data Explorer destination](howto-export-to-azure-data-explorer.md).
 
 This scenario uses an Azure Data Explorer table with the following schema:
 

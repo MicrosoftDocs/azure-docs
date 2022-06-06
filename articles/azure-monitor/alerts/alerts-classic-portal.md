@@ -4,7 +4,7 @@ description: Learn how to use Azure portal, CLI or PowerShell to create, view an
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 09/06/2021
+ms.date: 2/23/2022
 ---
 # Create, view, and manage classic metric alerts using Azure Monitor
 

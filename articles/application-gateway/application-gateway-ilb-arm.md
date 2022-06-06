@@ -1,20 +1,20 @@
 ---
 title: Use with Internal Load Balancer - Azure Application Gateway
-description: This page provides instructions to create, configure, start, and delete an Azure application gateway with internal load balancer (ILB) for Azure Resource Manager
+description: This article provides instructions to create, configure, start, and delete an Azure application gateway with internal load balancer (ILB)
 services: application-gateway
-author: vhorne
+author: greg-lindsay
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 11/13/2019
-ms.author: victorh 
+ms.date: 01/11/2022
+ms.author: greglin 
 ms.custom: devx-track-azurepowershell
 ---
 
 # Create an application gateway with an internal load balancer (ILB)
 
-Azure Application Gateway can be configured with an Internet-facing VIP or with an internal endpoint that is not exposed to the Internet, also known as an internal load balancer (ILB) endpoint. Configuring the gateway with an ILB is useful for internal line-of-business applications that are not exposed to the Internet. It's also useful for services and tiers within a multi-tier application that sit in a security boundary that is not exposed to the Internet but still require round-robin load distribution, session stickiness, or Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), termination.
+Azure Application Gateway Standard v1 can be configured with an Internet-facing VIP or with an internal endpoint that is not exposed to the Internet, also known as an internal load balancer (ILB) endpoint. Configuring the gateway with an ILB is useful for internal line-of-business applications that are not exposed to the Internet. It's also useful for services and tiers within a multi-tier application that sit in a security boundary that is not exposed to the Internet but still require round-robin load distribution, session stickiness, or Transport Layer Security (TLS), previously known as Secure Sockets Layer (SSL), termination.
 
-This article walks you through the steps to configure an application gateway with an ILB.
+This article walks you through the steps to configure a Standard v1 Application Gateway with an ILB.
 
 ## Before you begin
 

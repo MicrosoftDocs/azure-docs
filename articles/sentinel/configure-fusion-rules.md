@@ -3,7 +3,7 @@ title: Configure multistage attack detection (Fusion) rules in Microsoft Sentine
 description: Create and configure attack detection rules based on Fusion technology in Microsoft Sentinel.
 author: yelevin
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 01/30/2022
 ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
@@ -100,9 +100,11 @@ This detection is enabled by default in Microsoft Sentinel. To check or change i
 
     - Review **entity mapping** for these scheduled rules. Use the [entity mapping configuration section](map-data-fields-to-entities.md) to map parameters from your query results to Microsoft Sentinel-recognized entities. Because Fusion correlates alerts based on entities (such as *user account* or *IP address*), its ML algorithms cannot perform alert matching without the entity information.
 
-    - Review the **tactics** in your analytics rule details. The Fusion ML algorithm uses [MITRE ATT&CK](https://attack.mitre.org/) tactic information for detecting multi-stage attacks, and the tactics you label the analytics rules with will show up in the resulting incidents. Fusion calculations may be affected if incoming alerts are missing tactic information.
+    - Review the **tactics and techniques** in your analytics rule details. The Fusion ML algorithm uses [MITRE ATT&CK](https://attack.mitre.org/) information for detecting multi-stage attacks, and the tactics and techniques you label the analytics rules with will show up in the resulting incidents. Fusion calculations may be affected if incoming alerts are missing tactic information.
 
-1. Fusion can also detect scenario-based threats using rules based on the following **scheduled analytics rule templates**, which can be found in the **Rule templates** tab in the **Analytics** blade. To enable these detections, select the rule name in the templates gallery, and click **Create rule** in the details pane.
+1. Fusion can also detect scenario-based threats using rules based on the following **scheduled analytics rule templates**.
+
+    To enable the queries available as templates in the **Analytics** blade, go to the **Rule templates** tab, select the rule name in the templates gallery, and click **Create rule** in the details pane. 
 
     - [Cisco - firewall block but success logon to Azure AD](https://github.com/Azure/Azure-Sentinel/blob/60e7aa065b196a6ed113c748a6e7ae3566f8c89c/Detections/MultipleDataSources/SigninFirewallCorrelation.yaml)
     - [Fortinet - Beacon pattern detected](https://github.com/Azure/Azure-Sentinel/blob/83c6d8c7f65a5f209f39f3e06eb2f7374fd8439c/Detections/CommonSecurityLog/Fortinet-NetworkBeaconPattern.yaml)
@@ -111,7 +113,14 @@ This detection is enabled by default in Microsoft Sentinel. To check or change i
     - [Rare application consent](https://github.com/Azure/Azure-Sentinel/blob/83c6d8c7f65a5f209f39f3e06eb2f7374fd8439c/Detections/AuditLogs/RareApplicationConsent.yaml)
     - [SharePointFileOperation via previously unseen IPs](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/OfficeActivity/SharePoint_Downloads_byNewIP.yaml)
     - [Suspicious Resource deployment](https://github.com/Azure/Azure-Sentinel/blob/83c6d8c7f65a5f209f39f3e06eb2f7374fd8439c/Detections/AzureActivity/NewResourceGroupsDeployedTo.yaml)
+    - [Palo Alto Threat signatures from Unusual IP addresses](https://github.com/Azure/Azure-Sentinel/blob/master/Detections/CommonSecurityLog/PaloAlto-UnusualThreatSignatures.yaml)
+    
+    To add queries that are not currently available as a rule template, see [create a custom analytics rule with a scheduled query](detect-threats-custom.md#create-a-custom-analytics-rule-with-a-scheduled-query). 
+    
+    - [New Admin account activity seen which was not seen historically](https://github.com/Azure/Azure-Sentinel/blob/83c6d8c7f65a5f209f39f3e06eb2f7374fd8439c/Hunting%20Queries/OfficeActivity/new_adminaccountactivity.yaml)
 
+    For more information, see [Fusion Advanced Multistage Attack Detection Scenarios with Scheduled Analytics Rules](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/what-s-new-fusion-advanced-multistage-attack-detection-scenarios/ba-p/2337497).
+    
     > [!NOTE]
     > For the set of scheduled analytics rules used by Fusion, the ML algorithm does fuzzy matching for the KQL queries provided in the templates. Renaming the templates will not impact Fusion detections.
 

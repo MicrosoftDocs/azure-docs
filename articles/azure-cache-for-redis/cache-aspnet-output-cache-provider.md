@@ -7,7 +7,8 @@ ms.service: cache
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.topic: conceptual
-ms.date: 04/22/2018
+ms.date: 05/18/2021
+
 ---
 # ASP.NET Output Cache Provider for Azure Cache for Redis
 

@@ -3,13 +3,13 @@ title: Azure DDoS Protection Standard reports and flow logs
 description: Learn how to configure reports and flow logs.
 services: ddos-protection
 documentationcenter: na
-author: aletheatoh
+author: AbdullahBell
 ms.service: ddos-protection
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
-ms.author: yitoh
+ms.author: abell
 
 ---
 

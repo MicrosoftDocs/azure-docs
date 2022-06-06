@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 10/25/2021
+ms.date: 05/31/2022
 ms.author: justinha
 author: justinha
 ms.reviewer: tilarso
@@ -26,7 +26,7 @@ Azure Active Directory Connect cloud sync self-service password reset writeback 
   - [Authentication Policy Administrator](../roles/permissions-reference.md#authentication-policy-administrator) and [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator) roles
   - [Global Administrator](../roles/permissions-reference.md#global-administrator) role 
 - Azure AD configured for self-service password reset. If needed, complete this tutorial to enable Azure AD SSPR. 
-- An on-premises AD DS environment configured with Azure AD Connect cloud sync version 1.1.587 or later. If needed, configure Azure AD Connect cloud sync using [this tutorial](tutorial-enable-sspr.md). 
+- An on-premises AD DS environment configured with Azure AD Connect cloud sync version 1.1.587 or later. Learn how to [identify the agent's current version](../cloud-sync/how-to-automatic-upgrade.md). If needed, configure Azure AD Connect cloud sync using [this tutorial](tutorial-enable-sspr.md). 
 - Enabling password writeback in Azure AD Connect cloud sync requires executing signed PowerShell scripts.
   - Ensure that the PowerShell execution policy will allow running of scripts. 
   - The recommended execution policy during installation is "RemoteSigned". 
@@ -45,7 +45,7 @@ Permissions for cloud sync are configured by default. If permissions need to be 
 
 ### Enable password writeback in Azure AD Connect cloud sync
 
-For public preview, you need to enable password writeback in Azure AD Connect cloud sync by using the Set-AADCloudSyncPasswordWritebackConfiguration cmdlet and tenant’s global administrator credentials: 
+For public preview, you need to enable password writeback in Azure AD Connect cloud sync by using the Set-AADCloudSyncPasswordWritebackConfiguration cmdlet on the servers with the provisioning agents. You will need global administrator credentials: 
 
 ```powershell
 Import-Module 'C:\\Program Files\\Microsoft Azure AD Connect Provisioning Agent\\Microsoft.CloudSync.Powershell.dll' 
@@ -58,7 +58,7 @@ With password writeback enabled in Azure AD Connect cloud sync, now verify, and 
 
 To verify and enable password writeback in SSPR, complete the following steps: 
 
-1. Sign into the Azure portal using a global administrator account. 
+1. Sign into the Azure portal using a [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator) account. 
 1. Navigate to Azure Active Directory, select **Password reset**, then choose **On-premises integration**. 
 1. Verify the Azure AD Connect cloud sync agent set up is complete.
 1. Set **Write back passwords to your on-premises directory?** to **Yes**. 
@@ -72,12 +72,12 @@ To verify and enable password writeback in SSPR, complete the following steps:
 
 If you no longer want to use the SSPR password writeback functionality you have configured as part of this document, complete the following steps: 
 
-1. Sign into the Azure portal using a global administrator account. 
+1. Sign into the Azure portal using a [Hybrid Identity Administrator](../roles/permissions-reference.md#hybrid-identity-administrator) account. 
 1. Search for and select Azure Active Directory, select **Password reset**, then choose **On-premises integration**. 
 1. Set **Write back passwords to your on-premises directory?** to **No**. 
 1. Set **Allow users to unlock accounts without resetting their password?** to **No**. 
 
-From your Azure AD Connect cloud sync server, run `Set-AADCloudSyncPasswordWritebackConfiguration` using global administrator credentials to disable password writeback with Azure AD Connect cloud sync. 
+From your Azure AD Connect cloud sync server, run `Set-AADCloudSyncPasswordWritebackConfiguration` using Hybrid Identity Administrator credentials to disable password writeback with Azure AD Connect cloud sync. 
 
 ```powershell
 Import-Module ‘C:\\Program Files\\Microsoft Azure AD Connect Provisioning Agent\\Microsoft.CloudSync.Powershell.dll’ 

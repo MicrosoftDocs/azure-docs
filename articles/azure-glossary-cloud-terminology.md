@@ -62,7 +62,7 @@ See [Azure Regions](./availability-zones/cross-region-replication-azure.md)
 
 ## geo-replication
 The process of automatically replicating content such as blobs, tables, and queues within a regional pair.  
-See [Active Geo-Replication for Azure SQL Database](./azure-sql/database/auto-failover-group-overview.md)
+See [Active Geo-Replication for Azure SQL Database](/azure/azure-sql/database/auto-failover-group-overview)
 <!-- The meaning of "geo" in this term seems to be different than the meaning provided in the "geo" entry -->
 
 ## image
@@ -115,7 +115,7 @@ The agreement that describes Microsoft's commitments for uptime and connectivity
 See [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/)
 
 ## <a name="sas"></a>shared access signature (SAS)
-A signature that enables you to grant limited access to a resource, without exposing your account key. For example, [Azure Storage uses SAS](./storage/common/storage-sas-overview.md) to grant client access to objects such as blobs. [IoT Hub uses SAS](iot-hub/iot-hub-dev-guide-sas.md#security-tokens) to grant devices permission to send telemetry.
+A signature that enables you to grant limited access to a resource, without exposing your account key. For example, [Azure Storage uses SAS](./storage/common/storage-sas-overview.md) to grant client access to objects such as blobs. [IoT Hub uses SAS](iot-hub/iot-hub-dev-guide-sas.md#sas-tokens) to grant devices permission to send telemetry.
 
 ## storage account
 An account that gives you access to the Azure Blob, Queue, Table, and File services in Azure Storage. The storage account name defines the unique namespace for Azure Storage data objects.  

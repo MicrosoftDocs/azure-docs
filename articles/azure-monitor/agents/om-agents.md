@@ -2,15 +2,11 @@
 title: Connect Operations Manager to Azure Monitor | Microsoft Docs
 description: To maintain your existing investment in System Center Operations Manager and use extended capabilities with Log Analytics, you can integrate Operations Manager with your workspace.
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 07/24/2020
+ms.date: 03/31/2022
 
 ---
 
 # Connect Operations Manager to Azure Monitor
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 To maintain your existing investment in [System Center Operations Manager](/system-center/scom/key-concepts) and use extended capabilities with Azure Monitor, you can integrate Operations Manager with your Log Analytics workspace. This allows you to leverage the opportunities of logs in Azure Monitor while continuing to use Operations Manager to:
 
@@ -35,8 +31,8 @@ Before starting, review the following requirements.
 * Azure Monitor only supports System Center Operations Manager 2016 or later, Operations Manager 2012 SP1 UR6 or later, and Operations Manager 2012 R2 UR2 or later. Proxy support was added in Operations Manager 2012 SP1 UR7 and Operations Manager 2012 R2 UR3.
 * Integrating System Center Operations Manager 2016 with US Government cloud requires an updated Advisor management pack included with Update Rollup 2 or later. System Center Operations Manager 2012 R2 requires an updated Advisor management pack included with Update Rollup 3 or later.
 * All Operations Manager agents must meet minimum support requirements. Ensure that agents are at the minimum update, otherwise Windows agent communication may fail and generate errors in the Operations Manager event log.
-* A Log Analytics workspace. For further information, review [Log Analytics workspace overview](../logs/design-logs-deployment.md).
-* You authenticate to Azure with an account that is a member of the [Log Analytics Contributor role](../logs/manage-access.md#manage-access-using-azure-permissions).
+* A Log Analytics workspace. For further information, review [Log Analytics workspace overview](../logs/workspace-design.md).
+* You authenticate to Azure with an account that is a member of the [Log Analytics Contributor role](../logs/manage-access.md#azure-rbac).
 
 * Supported Regions - Only the following Azure regions are supported by System Center Operations Manager to connect to a Log Analytics workspace:
     - West Central US

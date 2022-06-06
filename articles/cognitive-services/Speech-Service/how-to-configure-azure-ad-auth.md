@@ -7,7 +7,7 @@ author: rhurey
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/18/2021
 ms.author: rhurey
 zone_pivot_groups: programming-languages-set-two
@@ -28,7 +28,7 @@ This article shows how to use Azure AD authentication with the Speech SDK. You'l
 > - Create the appropriate SDK configuration object.
 
 ## Create a Speech resource
-To create a Speech resource, see [Try Speech For Free](overview.md#try-the-speech-service-for-free).
+To create a Speech resource in the [Azure portal](https://portal.azure.com), see [Get the keys for your resource](~/articles/cognitive-services/cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)
 
 ## Configure the Speech resource for Azure AD authentication
 
@@ -40,7 +40,7 @@ To configure your Speech resource for Azure AD authentication, create a custom d
 ### Assign roles
 For Azure AD authentication with Speech resources, you need to assign either the *Cognitive Services Speech Contributor* or *Cognitive Services Speech User* role.  
 
-You can assign roles to the user or application using the [Azure portal](/azure/role-based-access-control/role-assignments-portal) or [PowerShell](/azure/role-based-access-control/role-assignments-powershell).
+You can assign roles to the user or application using the [Azure portal](../../role-based-access-control/role-assignments-portal.md) or [PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 ## Get an Azure AD access token
 ::: zone pivot="programming-language-csharp"
@@ -108,9 +108,9 @@ aadToken = ibc.get_token("https://cognitiveservices.azure.com/.default")
 ::: zone-end
 
 ::: zone pivot="programming-language-more"
-Find samples that get an Azure AD access token in [Microsoft identity platform code samples](/azure/active-directory/develop/sample-v2-code).
+Find samples that get an Azure AD access token in [Microsoft identity platform code samples](../../active-directory/develop/sample-v2-code.md).
 
-For programming languages where a Microsoft identity platform client library isn't available, you can directly [request an access token](/azure/active-directory/develop/v2-oauth-ropc).
+For programming languages where a Microsoft identity platform client library isn't available, you can directly [request an access token](../../active-directory/develop/v2-oauth-ropc.md).
 ::: zone-end
 
 ## Get the Speech resource ID

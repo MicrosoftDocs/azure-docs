@@ -21,24 +21,28 @@ landingContent:
       - linkListType: overview
         links:
           - text: Compare External Identities solutions
-            url: compare-with-b2c.md
+            url: external-identities-overview.md
           - text: What is Azure AD B2B collaboration?
             url: what-is-b2b.md
+          - text: What is Azure AD B2B direct connect? (preview)
+            url: b2b-direct-connect-overview.md
           - text: What is Azure AD B2C (business-to-consumer) identity?
             url: ../../active-directory-b2c/overview.md
   - title: Collaborate with users outside your org (B2B collaboration)
     linkLists:
       - linkListType: concept
         links:
-          - text: Understand the B2B guest user
+          - text: Cross-tenant access settings (preview)
+            url: cross-tenant-access-overview.md
+          - text: B2B collaboration user properties
             url: user-properties.md
-          - text: How a B2B guest redeems an invitation
+          - text: How a B2B collaboration user redeems an invitation
             url: redemption-experience.md
       - linkListType: how-to-guide
         links:
           - text: Configure your external collaboration settings
-            url: delegate-invitations.md
-          - text: Set up SAML/WS-Fed IdP federation (preview)
+            url: external-collaboration-settings-configure.md
+          - text: Set up SAML/WS-Fed IdP federation
             url: direct-federation.md
           - text: Set up One-time passcodes
             url: one-time-passcode.md

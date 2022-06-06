@@ -23,7 +23,7 @@ If you choose to install and use the Azure CLI locally, this quickstart requires
 
 ## Create a resource group
 
-Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location:
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurecli-interactive
 az group create --name "myResourceGroup" --location "eastus"
@@ -31,7 +31,7 @@ az group create --name "myResourceGroup" --location "eastus"
 
 ## Create a virtual machine
 
-Create a VM with [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM named *myVM*.
+Create a VM with [az vm create](/cli/azure/vm#az-vm-create). The following example creates a VM named *myVM*.
 
 ```azurecli-interactive
 az vm create \
@@ -59,7 +59,7 @@ It takes a few minutes to create the VM and supporting resources. The following 
 
 ## Create a Key Vault configured for encryption keys
 
-Azure disk encryption stores its encryption key in an Azure Key Vault. Create a Key Vault with [az keyvault create](/cli/azure/keyvault#az_keyvault_create). To enable the Key Vault to store encryption keys, use the --enabled-for-disk-encryption parameter.
+Azure disk encryption stores its encryption key in an Azure Key Vault. Create a Key Vault with [az keyvault create](/cli/azure/keyvault#az-keyvault-create). To enable the Key Vault to store encryption keys, use the --enabled-for-disk-encryption parameter.
 
 > [!Important]
 > Every key vault must have a name that is unique across Azure. In the examples below, replace \<your-unique-keyvault-name\> with the  name you choose.
@@ -76,7 +76,7 @@ Encrypt your VM with [az vm encryption](/cli/azure/vm/encryption), providing you
 az vm encryption enable -g "MyResourceGroup" --name "myVM" --disk-encryption-keyvault "<your-unique-keyvault-name>"
 ```
 
-After a moment the process will return, "The encryption request was accepted. Please use 'show' command to monitor the progress.". The "show" command is [az vm show](/cli/azure/vm/encryption#az_vm_encryption_show).
+After a moment the process will return, "The encryption request was accepted. Please use 'show' command to monitor the progress.". The "show" command is [az vm show](/cli/azure/vm/encryption#az-vm-encryption-show).
 
 ```azurecli-interactive
 az vm encryption show --name "myVM" -g "MyResourceGroup"

@@ -28,9 +28,6 @@ After you set up selected Azure resources with a managed identity, give the iden
 
 Then, use the identity to authenticate to any [service that supports Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), without any credentials in your code. Choose how to authenticate using the managed identity, depending on your scenario. To use the identity to access an Azure container registry from a virtual machine, you authenticate with Azure Resource Manager. 
 
-> [!NOTE]
-> Currently, you can't use a managed identity in Azure Container Instances to pull an image from Azure Container Registry when creating a container group. The identity is only available within a running container. To deploy a container group in Azure Container Instances using images from Azure Container Registry, a different authentication method such as [service principal](container-registry-auth-service-principal.md) is recommended.
-
 ## Create a container registry
 
 If you don't already have an Azure container registry, create a registry and push a sample container image to it. For steps, see [Quickstart: Create a private container registry using the Azure CLI](container-registry-get-started-azure-cli.md).
@@ -93,7 +90,7 @@ Exit the SSH session.
 
 ### Create an identity
 
-Create an identity in your subscription using the [az identity create](/cli/azure/identity#az_identity_create) command. You can use the same resource group you used previously to create the container registry or virtual machine, or a different one.
+Create an identity in your subscription using the [az identity create](/cli/azure/identity#az-identity-create) command. You can use the same resource group you used previously to create the container registry or virtual machine, or a different one.
 
 ```azurecli-interactive
 az identity create --resource-group myResourceGroup --name myACRId
@@ -227,8 +224,8 @@ In this article, you learned about using managed identities with Azure Container
 > * Use the managed identity to access the registry and pull a container image
 
 * Learn more about [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/index.yml).
-* Learn how to use a [sytem-assigned](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_system-assigned_managed_identities.md) or [user-assigned](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_user-assigned_managed_identities.md) managed identity with App Service and Azure Container Registry.
-
+* Learn how to use a [system-assigned](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_system-assigned_managed_identities.md) or [user-assigned](https://github.com/Azure/app-service-linux-docs/blob/master/HowTo/use_user-assigned_managed_identities.md) managed identity with App Service and Azure Container Registry.
+* Learn how to [deploy a container image from Azure Container Registry using a managed identity](../container-instances/using-azure-container-registry-mi.md).
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms

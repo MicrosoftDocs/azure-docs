@@ -1,13 +1,13 @@
 ---
 title: Troubleshoot connector and format issues in mapping data flows
 description: Learn how to troubleshoot data flow problems related to connector and format in Azure Data Factory.
-author: linda33wj
-ms.author: jingwang
+author: jianleishen
+ms.author: jianleishen
 ms.reviewer: wiassaf
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: troubleshooting 
-ms.date: 12/06/2021
+ms.date: 01/21/2022
 ---
 
 
@@ -407,7 +407,7 @@ When you use the Synapse as a source/sink in the data flow to preview data, debu
 Confirm the SQL pool was created from the Azure Synapse workspace.
 
 - If the SQL pool was created from the Azure Synapse workspace, no additional steps are necessary. You no longer need to re-register the Managed Identity (MI) of the workspace. The system assigned managed identity (SA-MI) of the workspace is a member of the Synapse Administrator role and thus has elevated privileges on the dedicated SQL pools of the workspace.
-- If the SQL pool is a dedicated SQL pool (formerly SQL DW) pre-dating Azure Synapse, only enable MI for your SQL server and assign the permission of the staging store to the MI of your SQL Server. You can refer to the steps in this article as an example: [Use virtual network service endpoints and rules for servers in Azure SQL Database](../azure-sql/database/vnet-service-endpoint-rule-overview.md#steps).
+- If the SQL pool is a dedicated SQL pool (formerly SQL DW) pre-dating Azure Synapse, only enable MI for your SQL server and assign the permission of the staging store to the MI of your SQL Server. You can refer to the steps in this article as an example: [Use virtual network service endpoints and rules for servers in Azure SQL Database](/azure/azure-sql/database/vnet-service-endpoint-rule-overview#steps).
 
 ### Failed with an error: "SQLServerException: Not able to validate external location because the remote server returned an error: (403)"
 
@@ -424,7 +424,7 @@ Currently folder names that contain certain special characters are not supported
 
 #### Recommendation
 
-For Cause 1, you can refer to the following document: [Use virtual network service endpoints and rules for servers in Azure SQL Database-Steps](../azure-sql/database/vnet-service-endpoint-rule-overview.md#steps) to solve this issue.
+For Cause 1, you can refer to the following document: [Use virtual network service endpoints and rules for servers in Azure SQL Database-Steps](/azure/azure-sql/database/vnet-service-endpoint-rule-overview#steps) to solve this issue.
 
 For Cause 2, work around it with one of the following options:
 
@@ -456,6 +456,27 @@ You use the Azure Blob Storage as the staging linked service to link to a storag
 
 #### Recommendation
 Create an Azure Data Lake Gen2 linked service for the storage, and select the Gen2 storage as the staging linked service in data flow activities.
+
+### Failed with an error: "shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: User does not have permission to perform this action."
+
+#### Symptoms
+
+When you use Azure Synapse Analytics as a source/sink and use PolyBase staging in data flows, you meet the following error: <br/>
+
+`shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: User does not have permission to perform this action.`
+
+#### Cause
+
+PolyBase requires certain permissions in your Synapse SQL server to work. 
+
+#### Recommendation
+
+Grant the permissions below in your Synapse SQL server when you use PolyBase:
+
+**ALTER ANY SCHEMA**<br/>
+**ALTER ANY EXTERNAL DATA SOURCE**<br/>
+**ALTER ANY EXTERNAL FILE FORMAT**<br/>
+**CONTROL DATABASE**<br/>
 
 ## Common Data Model format
 

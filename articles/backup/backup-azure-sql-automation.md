@@ -2,9 +2,12 @@
 title: SQL DB in Azure VM backup & restore via PowerShell
 description: Back up and restore SQL Databases in Azure VMs using Azure Backup and PowerShell.
 ms.topic: conceptual
-ms.date: 06/30/2021
+ms.date: 01/17/2022
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1 
 ms.custom: devx-track-azurepowershell
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Back up and restore SQL databases in Azure VMs with PowerShell
@@ -267,7 +270,7 @@ Azure Backup can restore SQL Server databases that are running on Azure VMs as f
 Check the prerequisites mentioned [here](restore-sql-database-azure-vm.md#restore-prerequisites) before restoring SQL DBs.
 
 > [!WARNING]
-> Due to a security issue related to RBAC, we had to introduce a breaking change in the restore commands for SQL DB via Powershell. Please upgrade to Az 6.0.0 version or above for the proper restore commands to be submitted via Powershell. The latest PS commands are provided below.
+> Due to a security issue related to RBAC, we had to introduce a breaking change in the restore commands for SQL DB via PowerShell. Please upgrade to Az 6.0.0 version or above for the proper restore commands to be submitted via PowerShell. The latest PS commands are provided below.
 
 First fetch the relevant backed up SQL DB using the [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem) PowerShell cmdlet.
 
@@ -462,7 +465,7 @@ PointInTime          : 1/1/0001 12:00:00 AM
 #### Alternate workload restore to a vault in secondary region
 
 > [!IMPORTANT]
-> Support for secondary region restores for SQL from Powershell is available from Az 6.0.0
+> Support for secondary region restores for SQL from PowerShell is available from Az 6.0.0
 
 If you have enabled cross region restore, then the recovery points will be replicated to the secondary, paired region as well. Then, you can fetch those recovery points and trigger a restore to a machine, present in that paired region. As with the normal restore, the target machine should be registered to the target vault in the secondary region. The following sequence of steps should clarify the end-to-end process.
 
@@ -562,7 +565,7 @@ Once the relevant configuration is obtained for primary region restore or second
 Once the relevant recovery Config object is obtained and verified, use the [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) PowerShell cmdlet to start the restore process.
 
 ```powershell
-Restore-AzRecoveryServicesBackupItem -WLRecoveryConfig $AnotherInstanceWithLogConfig -VaultId $testVault.ID
+Restore-AzRecoveryServicesBackupItem -WLRecoveryConfig $AnotherInstanceWithLogConfig -VaultId $testVault.ID -RestoreToSecondaryRegion
 ```
 
 The restore operation returns a job to be tracked.
@@ -577,12 +580,15 @@ MSSQLSERVER/m... Restore              InProgress           3/17/2019 10:02:45 AM
 
 ### On-demand backup
 
-Once backup has been enabled for a DB, you can also trigger an on-demand backup for the DB using [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem) PowerShell cmdlet. The following example triggers a full backup on a SQL DB with compression enabled and the full backup should be retained for 60 days.
+Once backup has been enabled for a DB, you can also trigger an on-demand backup for the DB using [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/backup-azrecoveryservicesbackupitem) PowerShell cmdlet. The following example triggers a copy-only-full backup on a SQL DB with compression enabled and the copy-only-full backup should be retained for 60 days.
+
+> [!Note]
+> Copy-only-full backups are ideal for long term retention since they don't have any dependencies on other backup types such as logs. A 'Full' backup is treated as a parent of subsequent log backups and hence it's retention is tied to log retention in policy. Therefore, the customer provided expiry time is honored for copy-only-full backups and not for 'full' backups. A full backup retention time is set automatically for 45 days from the current time. It is also documented [here](manage-monitor-sql-database-backup.md#run-an-on-demand-backup).
 
 ```powershell
 $bkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadType MSSQL -Name "<backup item name>" -VaultId $testVault.ID
-$endDate = (Get-Date).AddDays(60).ToUniversalTime()
-Backup-AzRecoveryServicesBackupItem -Item $bkpItem -BackupType Full -EnableCompression -VaultId $testVault.ID -ExpiryDateTimeUTC $endDate
+$endDate = (Get-Date).AddDays(45).ToUniversalTime()
+Backup-AzRecoveryServicesBackupItem -Item $bkpItem -BackupType CopyOnlyFull -EnableCompression -VaultId $testVault.ID -ExpiryDateTimeUTC $endDate
 ```
 
 The on-demand backup command returns a job to be tracked.

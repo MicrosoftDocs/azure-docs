@@ -15,7 +15,7 @@ The diagram shows the deployment workflow of Azure VMware Solution.
 
 :::image type="content" source="media/deploy-azure-vmware-solution-workflow.png" alt-text="Diagram showing the Azure VMware Solution deployment workflow." lightbox="media/deploy-azure-vmware-solution-workflow.png" border="false":::
 
-In this how-to, you'll':
+In this how-to, you'll:
 
 > [!div class="checklist"]
 > * Register the resource provider and create a private cloud

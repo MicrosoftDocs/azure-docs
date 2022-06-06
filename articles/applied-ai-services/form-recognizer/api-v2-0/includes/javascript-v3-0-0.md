@@ -22,7 +22,7 @@ ms.custom: devx-track-js, devx-track-csharp, ignite-fall-2021
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The current version of [Node.js](https://nodejs.org/)
 * An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-training-data-set.md). For this quickstart, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*).
-* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource </a> in the Azure portal to get your key and endpoint. After it deploys, select **Go to resource**.
   * You will need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. Paste your key and endpoint into the code below later in the quickstart.
   * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
@@ -105,7 +105,7 @@ These code snippets show you how to do the following tasks with the Form Recogni
 
 ## Authenticate the client
 
-Authenticate a client object using the subscription variables you defined. You'll use an `AzureKeyCredential` object, so that if needed, you can update the API key without creating new client objects. You'll also create a training client object.
+Authenticate a client object using the subscription variables you defined. You'll use an `AzureKeyCredential` object, so that if needed, you can update the key without creating new client objects. You'll also create a training client object.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_auth)]
 
@@ -260,7 +260,7 @@ Document errors: undefined
 
 ## Analyze forms with a custom model
 
-This section demonstrates how to extract key/value information and other content from your custom form types, using models you trained with your own forms.
+This section demonstrates how to extract key/value information and other content from your custom template types, using models you trained with your own forms.
 
 > [!IMPORTANT]
 > In order to implement this scenario, you must have already trained a model so you can pass its ID into the method below. See the [Train a model](#train-a-model-without-labels) section.

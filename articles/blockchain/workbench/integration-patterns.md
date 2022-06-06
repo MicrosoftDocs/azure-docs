@@ -1,12 +1,14 @@
 ---
 title: Smart contract integration patterns - Azure Blockchain Workbench
 description: Overview of smart contract integration patterns in Azure Blockchain Workbench Preview.
-ms.date: 11/20/2019
+ms.date: 02/18/2022
 ms.topic: conceptual
 ms.reviewer: mmercuri
 #Customer intent: As a developer, I want to understand recommended integration pattern using Azure Blockchain Workbench so that I can integrate with external systems.
 ---
 # Smart contract integration patterns
+
+[!INCLUDE [Retirement note](./includes/retire.md)]
 
 Smart contracts often represent a business workflow that needs to integrate with external systems and devices.
 

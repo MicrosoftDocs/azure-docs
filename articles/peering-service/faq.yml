@@ -5,12 +5,11 @@ metadata:
   services: peering-service
   author: derekolo
   ms.service: peering-service
-  ms.topic: article
+  ms.topic: faq
   ms.tgt_pltfrm: na
   ms.workload: Infrastructure-services
   ms.date: 05/18/2020
   ms.author: derekol
-    
 title: Peering Service FAQ
 summary: This article explains the most frequently asked questions about Azure Peering Service connections.
 

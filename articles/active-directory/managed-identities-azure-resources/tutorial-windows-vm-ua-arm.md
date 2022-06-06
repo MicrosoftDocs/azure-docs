@@ -11,7 +11,7 @@ ms.subservice: msi
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/02/2020
+ms.date: 01/11/2022
 ms.author: barclayn
 ms.collection: M365-identity-device-management 
 ms.custom: devx-track-azurepowershell
@@ -43,7 +43,7 @@ You learn how to:
 - To perform the required resource creation and role management steps in this tutorial, your account needs "Owner" permissions at the appropriate scope (your subscription or resource group). If you need assistance with role assignment, see [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
 
 - To run the example scripts, you have two options:
-    - Use the [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open using the **Try It** button on the top right corner of code blocks.
+    - Use the [Azure Cloud Shell](../../cloud-shell/overview.md), which you can open using the **Try It** button on the top-right corner of code blocks.
     - Run scripts locally with Azure PowerShell, as described in the next section.
 
 ### Configure Azure PowerShell locally
@@ -116,7 +116,7 @@ Update-AzVM -ResourceGroupName TestRG -VM $vm -IdentityType "UserAssigned" -Iden
 
 ## Grant access 
 
-This section shows how to grant your user-assigned identity access to a Resource Group in Azure Resource Manager. Managed identities for Azure resources provides identities that your code can use to request access tokens to authenticate to resource APIs that support Azure AD authentication. In this tutorial, your code will access the Azure Resource Manager API. 
+This section shows how to grant your user-assigned identity access to a Resource Group in Azure Resource Manager. Managed identities for Azure resources provide identities that your code can use to request access tokens to authenticate to resource APIs that support Azure AD authentication. In this tutorial, your code will access the Azure Resource Manager API. 
 
 Before your code can access the API, you need to grant the identity access to a resource in Azure Resource Manager. In this case, the Resource Group in which the VM is contained. Update the value for `<SUBSCRIPTION ID>` as appropriate for your environment.
 
@@ -163,7 +163,7 @@ For the remainder of the tutorial, you will work from the VM we created earlier.
 
 ### Read properties
 
-Use the access token retrieved in the previous step to access Azure Resource Manager, and read the properties of the Resource Group you granted your user-assigned identity access. Replace `<SUBSCRIPTION ID>` with the subscription id of your environment.
+Use the access token retrieved in the previous step to access Azure Resource Manager, and read the properties of the Resource Group you granted your user-assigned identity access. Replace `<SUBSCRIPTION ID>` with the subscription ID of your environment.
 
 ```azurepowershell
 (Invoke-WebRequest -Uri https://management.azure.com/subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourceGroups/myResourceGroupVM?api-version=2016-06-01 -Method GET -ContentType "application/json" -Headers @{Authorization ="Bearer $ArmToken"}).content

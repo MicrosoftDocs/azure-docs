@@ -1,14 +1,14 @@
 ---
 title: Change feed pull model
 description: Learn how to use the Azure Cosmos DB change feed pull model to read the change feed and the differences between the pull model and Change Feed Processor
-author: timsander1
-ms.author: tisande
+author: seesharprun
+ms.author: sidandrews
+ms.reviewer: jucocchi
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: csharp
 ms.topic: conceptual
-ms.date: 08/02/2021
-ms.reviewer: sngun
+ms.date: 04/07/2022
 ---
 
 # Change feed pull model in Azure Cosmos DB
@@ -64,13 +64,13 @@ FeedIterator<User> InteratorWithPOCOS = container.GetChangeFeedIterator<User>(Ch
 Here's an example for obtaining a `FeedIterator` that returns a `Stream`:
 
 ```csharp
-FeedIterator iteratorWithStreams = container.GetChangeFeedStreamIterator<User>(ChangeFeedStartFrom.Beginning(), ChangeFeedMode.Incremental);
+FeedIterator iteratorWithStreams = container.GetChangeFeedStreamIterator(ChangeFeedStartFrom.Beginning(), ChangeFeedMode.Incremental);
 ```
 
 If you don't supply a `FeedRange` to a `FeedIterator`, you can process an entire container's change feed at your own pace. Here's an example, which starts reading all changes starting at the current time:
 
 ```csharp
-FeedIterator iteratorForTheEntireContainer = container.GetChangeFeedStreamIterator<User>(ChangeFeedStartFrom.Now(), ChangeFeedMode.Incremental);
+FeedIterator<User> iteratorForTheEntireContainer = container.GetChangeFeedIterator<User>(ChangeFeedStartFrom.Now(), ChangeFeedMode.Incremental);
 
 while (iteratorForTheEntireContainer.HasMoreResults)
 {

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/16/2021
+ms.date: 01/14/2022
 ms.collection: M365-identity-device-management
 ---
 
@@ -110,6 +110,35 @@ When you try to add an eligible Azure AD role assignment using [Azure AD Privile
 
 PIM currently does not support adding an eligible Azure AD role assignment at an attribute set scope.
 
+## Symptom - Insufficient privileges when using Graph Explorer
+
+When you try to use [Graph Explorer](/graph/graph-explorer/graph-explorer-overview) to call Microsoft Graph APIs for custom security attributes, you see a message similar to the following:
+
+```
+Forbidden - 403. You need to consent to the permissions on the Modify permissions (Preview) tab
+Authorization_RequestDenied
+Insufficient privileges to complete the operation.
+```
+
+![Screenshot of Graph Explorer displaying an insufficient privileges error message.](./media/custom-security-attributes-troubleshoot/graph-explorer-insufficient-privileges.png)
+
+**Cause 1**
+
+You have not consented to the required custom security attribute permissions to make the API call.
+
+**Solution 1**
+
+Open the Permissions panel, select the appropriate custom security attribute permission, and click **Consent**. In the Permissions requested window that appears, review the requested permissions.
+
+![Screenshot of Graph Explorer Permissions panel with CustomSecAttributeDefinition selected.](./media/custom-security-attributes-troubleshoot/graph-explorer-permissions-consent.png)
+
+**Cause 2**
+
+You are not assigned the required custom security attribute role to make the API call. By default, [Global Administrator](../roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes.
+
+**Solution 2**
+
+Make sure that you are assigned the required custom security attribute role. For more information, see [Manage access to custom security attributes in Azure AD](custom-security-attributes-manage.md).
 
 ## Next steps
 

@@ -6,9 +6,8 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 08/30/2021
-ms.custom: devx-track-csharp
-
+ms.date: 05/26/2022
+ms.custom: devx-track-csharp, subject-rbac-steps
 ---
 # Secure access to data in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -20,7 +19,7 @@ Azure Cosmos DB provides three ways to control access to your data.
 | Access control type | Characteristics |
 |---|---|
 | [Primary/secondary keys](#primary-keys) | Shared secret allowing any management or data operation. It comes in both read-write and read-only variants. |
-| [Role-based access control](#rbac) | Fine-grained, role-based permission model using Azure Active Directory (AAD) identities for authentication. |
+| [Role-based access control](#rbac) | Fine-grained, role-based permission model using Azure Active Directory (Azure AD) identities for authentication. |
 | [Resource tokens](#resource-tokens)| Fine-grained permission model based on native Azure Cosmos DB users and permissions. |
 
 ## <a id="primary-keys"></a> Primary/secondary keys
@@ -89,7 +88,7 @@ CosmosClient client = new CosmosClient(endpointUrl, authorizationKey);
 
 Azure Cosmos DB exposes a built-in role-based access control (RBAC) system that lets you:
 
-- Authenticate your data requests with an Azure Active Directory (AAD) identity.
+- Authenticate your data requests with an Azure Active Directory identity.
 - Authorize your data requests with a fine-grained, role-based permission model.
 
 Azure Cosmos DB RBAC is the ideal access control method in situations where:
@@ -100,6 +99,8 @@ Azure Cosmos DB RBAC is the ideal access control method in situations where:
 - You wish to materialize your access control policies as "roles" that you can assign to multiple identities.
 
 See [Configure role-based access control for your Azure Cosmos DB account](how-to-setup-rbac.md) to learn more about Azure Cosmos DB RBAC.
+
+For information and sample code to configure RBAC for the Azure Cosmos DB API for MongoDB, see [Configure role-based access control for your Azure Cosmos DB API for MongoDB](mongodb/how-to-setup-rbac.md).
 
 ## <a id="resource-tokens"></a> Resource tokens
 
@@ -139,9 +140,8 @@ For an example of a middle tier service used to generate or broker resource toke
 Azure Cosmos DB users are associated with a Cosmos database.  Each database can contain zero or more Cosmos DB users. The following code sample shows how to create a Cosmos DB user  using the [Azure Cosmos DB .NET SDK v3](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/UserManagement).
 
 ```csharp
-//Create a user.
-Database database = benchmark.client.GetDatabase("SalesDatabase");
-
+// Create a user.
+Database database = client.GetDatabase("SalesDatabase");
 User user = await database.CreateUserAsync("User 1");
 ```
 
@@ -160,7 +160,7 @@ A permission resource is associated with a user and assigned to a specific resou
 
 If you enable the [diagnostic logs on data-plane requests](cosmosdb-monitor-resource-logs.md), the following two properties corresponding to the permission are logged:
 
-* **resourceTokenPermissionId** - This property indicates the resource token permission Id that you have specified. 
+* **resourceTokenPermissionId** - This property indicates the resource token permission ID that you have specified. 
 
 * **resourceTokenPermissionMode** - This property indicates the permission mode that you have set when creating the resource token. The permission mode can have values such as "all" or "read".
 
@@ -171,10 +171,10 @@ The following code sample shows how to create a permission resource, read the re
 ```csharp
 // Create a permission on a container and specific partition key value
 Container container = client.GetContainer("SalesDatabase", "OrdersContainer");
-user.CreatePermissionAsync(
+await user.CreatePermissionAsync(
     new PermissionProperties(
-        id: "permissionUser1Orders",
-        permissionMode: PermissionMode.All,
+        id: "permissionUser1Orders", 
+        permissionMode: PermissionMode.All, 
         container: container,
         resourcePartitionKey: new PartitionKey("012345")));
 ```
@@ -184,10 +184,10 @@ user.CreatePermissionAsync(
 The following code snippet shows how to retrieve the permission associated with the user created above and instantiate a new CosmosClient on behalf of the user, scoped to a single partition key.
 
 ```csharp
-//Read a permission, create user client session.
-PermissionProperties permissionProperties = await user.GetPermission("permissionUser1Orders")
+// Read a permission, create user client session.
+Permission permission = await user.GetPermission("permissionUser1Orders").ReadAsync();
 
-CosmosClient client = new CosmosClient(accountEndpoint: "MyEndpoint", authKeyOrResourceToken: permissionProperties.Token);
+CosmosClient client = new CosmosClient(accountEndpoint: "MyEndpoint", authKeyOrResourceToken: permission.Resource.Token);
 ```
 
 ## Differences between RBAC and resource tokens
@@ -196,20 +196,28 @@ CosmosClient client = new CosmosClient(accountEndpoint: "MyEndpoint", authKeyOrR
 |--|--|--|
 | Authentication  | With Azure Active Directory (Azure AD). | Based on the native Azure Cosmos DB users<br>Integrating resource tokens with Azure AD requires extra work to bridge Azure AD identities and Azure Cosmos DB users. |
 | Authorization | Role-based: role definitions map allowed actions and can be assigned to multiple identities. | Permission-based: for each Azure Cosmos DB user, you need to assign data access permissions. |
-| Token scope | An AAD token carries the identity of the requester. This identity is matched against all assigned role definitions to perform authorization. | A resource token carries the permission granted to a specific Azure Cosmos DB user on a specific Azure Cosmos DB resource. Authorization requests on different resources may requires different tokens. |
-| Token refresh | The AAD token is automatically refreshed by the Azure Cosmos DB SDKs when it expires. | Resource token refresh is not supported. When a resource token expires, a new one needs to be issued. |
+| Token scope | An Azure AD token carries the identity of the requester. This identity is matched against all assigned role definitions to perform authorization. | A resource token carries the permission granted to a specific Azure Cosmos DB user on a specific Azure Cosmos DB resource. Authorization requests on different resources may require different tokens. |
+| Token refresh | The Azure AD token is automatically refreshed by the Azure Cosmos DB SDKs when it expires. | Resource token refresh is not supported. When a resource token expires, a new one needs to be issued. |
 
 ## Add users and assign roles
 
 To add Azure Cosmos DB account reader access to your user account, have a subscription owner perform the following steps in the Azure portal.
 
 1. Open the Azure portal, and select your Azure Cosmos DB account.
-2. Click the **Access control (IAM)** tab, and then click  **+ Add role assignment**.
-3. In the **Add role assignment** pane, in the **Role** box, select **Cosmos DB Account Reader Role**.
-4. In the **Assign access to box**, select **Azure AD user, group, or application**.
-5. Select the user, group, or application in your directory to which you wish to grant access.  You can search the directory by display name, email address, or object identifiers.
-    The selected user, group, or application appears in the selected members list.
-6. Click **Save**.
+
+1. Select **Access control (IAM)**.
+
+1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
+
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+
+    | Setting | Value |
+    | --- | --- |
+    | Role | Cosmos DB Account Reader |
+    | Assign access to | User, group, or service principal |
+    | Members | The user, group, or application in your directory to which you wish to grant access. |
+
+    ![Screenshot that shows Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 The entity can now read Azure Cosmos DB resources.
 
@@ -223,4 +231,5 @@ As a database service, Azure Cosmos DB enables you to search, select, modify and
 
 - To learn more about Cosmos database security, see [Cosmos DB Database security](database-security.md).
 - To learn how to construct Azure Cosmos DB authorization tokens, see [Access Control on Azure Cosmos DB Resources](/rest/api/cosmos-db/access-control-on-cosmosdb-resources).
-- User management samples with users and permissions, [.NET SDK v3 user management samples](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/UserManagement/UserManagementProgram.cs)
+- For user management samples with users and permissions, see [.NET SDK v3 user management samples](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/UserManagement/UserManagementProgram.cs)
+- For information and sample code to configure RBAC for the Azure Cosmos DB API for MongoDB, see [Configure role-based access control for your Azure Cosmos DB API for MongoDB](mongodb/how-to-setup-rbac.md)

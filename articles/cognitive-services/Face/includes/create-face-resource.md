@@ -13,7 +13,7 @@ ms.author: aahi
 ## Create an Face resource
 
 1. Sign into the [Azure portal](https://portal.azure.com)
-1. Click [Create **Face**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace) resource
+1. Click [Create **Face**](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) resource
 1. Enter all required settings:
 
     |Setting|Value|

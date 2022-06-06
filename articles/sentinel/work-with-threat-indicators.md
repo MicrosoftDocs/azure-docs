@@ -94,6 +94,8 @@ Tagging threat indicators is an easy way to group them together to make them eas
 
 :::image type="content" source="media/work-with-threat-indicators/threat-intel-tagging-indicators.png" alt-text="Apply tags to threat indicators" lightbox="media/work-with-threat-indicators/threat-intel-tagging-indicators.png":::
 
+Microsoft Sentinel also allows you to edit indicators, whether they've been created directly in Microsoft Sentinel, or come from partner sources, like TIP and TAXII servers. For indicators created in Microsoft Sentinel, all fields are editable. For indicators coming from partner sources, only specific fields are editable, including tags, *Expiration date*, *Confidence*, and *Revoked*.
+
 ## Detect threats with threat indicator-based analytics
 
 The most important use case for threat indicators in SIEM solutions like Microsoft Sentinel is to power threat detection analytics rules. These indicator-based rules compare raw events from your data sources against your threat indicators to determine the presence of security threats in your organization. In Microsoft Sentinel **Analytics**, you create analytics rules that run on a scheduled basis and generate security alerts. The rules are driven by queries, along with configurations that determine how often the rule should run, what kind of query results should generate security alerts and incidents, and which automations to trigger in response.
@@ -148,6 +150,8 @@ According to the default settings, each time the rule runs on its schedule, any 
 
 In Microsoft Sentinel, the alerts generated from analytics rules also generate security incidents, which can be found in **Incidents** under **Threat Management** on the Microsoft Sentinel menu. Incidents are what your security operations teams will triage and investigate to determine the appropriate response actions. You can find detailed information in this [Tutorial: Investigate incidents with Microsoft Sentinel](./investigate-cases.md).
 
+IMPORTANT: Microsoft Sentinel refreshes indicators every 14 days to make sure they are available for matching purposes through the analytic rules. 
+
 ## Detect threats using matching analytics (Public preview)
 
 > [!IMPORTANT]
@@ -195,7 +199,7 @@ The **Microsoft Threat Intelligence Matching Analytics** rule is currently suppo
 | [CEF](connect-common-event-format.md) | Matching is done for all CEF logs that are ingested in the Log Analytics **CommonSecurityLog** table, except for any where the `DeviceVendor` is listed as `Cisco`. <br><br>To match Microsoft-generated threat intelligence with CEF logs, make sure to map the domain in the `RequestURL` field of the CEF log. |
 | [DNS](./data-connectors-reference.md#windows-dns-server-preview) | Matching is done for all DNS logs that are lookup DNS queries from clients to DNS services (`SubType == "LookupQuery"`). DNS queries are processed only for IPv4 (`QueryType=”A”`) and IPv6 queries (`QueryType=” AAAA”`).<br><br>To match Microsoft-generated threat intelligence with DNS logs, no manual mapping of columns is needed, as all columns are standard from Windows DNS Server, and the domains will be in the `Name` column by default. |
 | [Syslog](connect-syslog.md) | Matching is currently done for only for Syslog events where the `Facility` is `cron`. <br><br>To match Microsoft-generated threat intelligence with Syslog, no manual mapping of columns is needed. The details come in the `SyslogMessage` field of the Syslog by default, and the rule will parse the domain directly from the SyslogMessage. |
-|  |  |
+
 
 
 ## Workbooks provide insights about your threat intelligence

@@ -9,8 +9,8 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/21/2021
+ms.custom: ignite-fall-2021, event-tier1-build-2022
 #Customer intent: As a data scientist, I want to understand what a compute target is and why I need it.
-ms.custom: ignite-fall-2021
 ---
 
 # What are compute targets in Azure Machine Learning?
@@ -53,7 +53,6 @@ You can create Azure Machine Learning compute instances or compute clusters from
     * [Compute instance](how-to-create-manage-compute-instance.md).
     * [Compute cluster](how-to-create-attach-compute-cluster.md).
 * An Azure Resource Manager template. For an example template, see [Create an Azure Machine Learning compute cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-compute-create-amlcompute).
-* A machine learning [extension for the Azure CLI](reference-azure-machine-learning-cli.md#resource-management).
 
 When created, these compute resources are automatically part of your workspace, unlike other kinds of compute targets.
 
@@ -116,7 +115,7 @@ While Azure Machine Learning supports these VM series, they might not be availab
 > [!NOTE]
 > Azure Machine Learning doesn't support all VM sizes that Azure Compute supports. To list the available VM sizes, use one of the following methods:
 > * [REST API](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2020-08-01/examples/ListVMSizesResult.json)
-> * [Python SDK](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#supported-vmsizes-workspace--location-none-)
+> * [Python SDK](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#azureml-core-compute-amlcompute-amlcompute-supported-vmsizes)
 >
 
 If using the GPU-enabled compute targets, it is important to ensure that the correct CUDA drivers are installed in the training environment. Use the following table to determine the correct CUDA version to use:
@@ -132,8 +131,8 @@ If using the GPU-enabled compute targets, it is important to ensure that the cor
 
 In addition to ensuring the CUDA version and hardware are compatible, also ensure that the CUDA version is compatible with the version of the machine learning framework you are using: 
 
-- For PyTorch, you can check the compatibility [here](https://pytorch.org/get-started/previous-versions/). 
-- For Tensorflow, you can check the compatibility [here](https://www.tensorflow.org/install/source#gpu).
+- For PyTorch, you can check the compatibility by visiting [Pytorch's previous versions page](https://pytorch.org/get-started/previous-versions/). 
+- For Tensorflow, you can check the compatibility by visiting [Tensorflow's build from source page](https://www.tensorflow.org/install/source#gpu).
 
 ### Compute isolation
 

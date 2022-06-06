@@ -248,7 +248,11 @@ The customization.log includes the following stages:
 
 6. Clean up stage. Once the build has completed, Azure Image Builder resources are deleted.
     ```text
+    PACKER ERR ==> azure-arm: Deleting individual resources ...
+    ...
     PACKER ERR 2020/02/04 02:04:23 packer: 2020/02/04 02:04:23 Azure request method="DELETE" request="https://management.azure.com/subscriptions/<subId>/resourceGroups/IT_aibDevOpsImg_t_vvvvvvv_yyyyyy-de5f-4f7c-92f2-xxxxxxxx/providers/Microsoft.Network/networkInterfaces/pkrnijamvpo08eo?[REDACTED]" body=""
+    ...
+    PACKER ERR ==> azure-arm: The resource group was not created by Packer, not deleting ...
     ```
 ## Tips for troubleshooting script/inline customization
 - Test the code before supplying it to Image Builder
@@ -353,7 +357,7 @@ Deployment failed. Correlation ID: XXXXXX-XXXX-XXXXXX-XXXX-XXXXXX. Failed in dis
 
 Image Builder timed out waiting for the image to be added and replicated to the Azure Compute Gallery. If the image is being injected into the SIG, it can be assumed the image build was successful. However, the overall process failed, because the image builder was waiting on Azure Compute Gallery to complete the replication. Even though the build has failed, the replication continues. You can get the properties of the image version by checking the distribution *runOutput*.
 
-```bash
+```azurecli
 $runOutputName=<distributionRunOutput>
 az resource show \
     --ids "/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/$imageTemplateName/runOutputs/$runOutputName"  \
@@ -573,6 +577,24 @@ The `buildTimeoutInMinutes` value in the template is set to between 1 and 5 minu
 
 #### Solution
 As described in [Create an Azure Image Builder template](./image-builder-json.md), the timeout must be set to 0 to use the default or above 5 minutes to override the default.  Change the timeout in your template to 0 to use the default or to a minimum of 6 minutes.
+
+### Resource deletion errors
+
+#### Error
+Intermediate resources are cleaned up toward the end of the build and the customization log may show several resource deletion errors:
+
+```text
+PACKER OUT ==> azure-arm: Error deleting resource. Will retry.
+...
+PACKER OUT ==> azure-arm: Error: network.PublicIPAddressesClient#Delete: Failure sending request: StatusCode=0 -- Original Error: Code="PublicIPAddressCannotBeDeleted" Message=...
+...
+PACKER ERR 2022/03/07 18:43:06 packer-plugin-azure plugin: 2022/03/07 18:43:06 Retryable error: network.SecurityGroupsClient#Delete: Failure sending request: StatusCode=0 -- Original Error: Code="InUseNetworkSecurityGroupCannotBeDeleted"...
+```
+
+#### Cause
+These error log messages are mostly harmless because resource deletions are retried several times and they, in general, eventually succeed. This can be verified by continuing to follow the deletion logs until a success message is observed. Alternatively, the staging resource group can be inspected to confirm if the resource has been deleted or not.
+
+_[This is especially important in case of build failures where these error messages may cause the observer to conclude them to be the reason for failure while the actual error is elsewhere.]_
 
 ## DevOps task 
 

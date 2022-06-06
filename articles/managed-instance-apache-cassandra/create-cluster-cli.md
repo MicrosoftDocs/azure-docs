@@ -6,7 +6,8 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 11/02/2021
-ms.custom: ignite-fall-2021, mode-api
+ms.custom: ignite-fall-2021, mode-api, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Quickstart: Create an Azure Managed Instance for Apache Cassandra cluster using Azure CLI
@@ -61,10 +62,14 @@ This quickstart demonstrates how to use the Azure CLI commands to create a clust
    > [!NOTE]
    > The `assignee` and `role` values in the previous command are fixed values, enter these values exactly as mentioned in the command. Not doing so will lead to errors when creating the cluster. If you encounter any errors when executing this command, you may not have permissions to run it, please reach out to your admin for permissions.
 
-1. Next create the cluster in your newly created Virtual Network by using the [az managed-cassandra cluster create](/cli/azure/managed-cassandra/cluster#az_managed_cassandra_cluster_create) command. Run the following command the value of `delegatedManagementSubnetId` variable:
+1. Next create the cluster in your newly created Virtual Network by using the [az managed-cassandra cluster create](/cli/azure/managed-cassandra/cluster#az-managed-cassandra-cluster-create) command. Run the following command the value of `delegatedManagementSubnetId` variable:
 
    > [!NOTE]
    > The value of the `delegatedManagementSubnetId` variable you will supply below is exactly the same as the value of `--scope` that you supplied in the command above:
+
+   > [!NOTE]
+   > Cassandra 4.0 is in public preview and not recommended for production use cases.
+
 
    ```azurecli-interactive
    resourceGroupName='<Resource_Group_Name>'
@@ -72,6 +77,7 @@ This quickstart demonstrates how to use the Azure CLI commands to create a clust
    location='eastus2'
    delegatedManagementSubnetId='/subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<VNet name>/subnets/<subnet name>'
    initialCassandraAdminPassword='myPassword'
+   cassandraVersion='3.11' # set to 4.0 for a Cassandra 4.0 cluster
     
    az managed-cassandra cluster create \
      --cluster-name $clusterName \
@@ -79,10 +85,11 @@ This quickstart demonstrates how to use the Azure CLI commands to create a clust
      --location $location \
      --delegated-management-subnet-id $delegatedManagementSubnetId \
      --initial-cassandra-admin-password $initialCassandraAdminPassword \
+     --cassandra-version $cassandraVersion \
      --debug
    ```
 
-1. Finally, create a datacenter for the cluster, with three nodes, Standard D8s v4 VM SKU, with 4 P30 disks attached for each node, by using the [az managed-cassandra datacenter create](/cli/azure/managed-cassandra/datacenter#az_managed_cassandra_datacenter_create) command:
+1. Finally, create a datacenter for the cluster, with three nodes, Standard D8s v4 VM SKU, with 4 P30 disks attached for each node, by using the [az managed-cassandra datacenter create](/cli/azure/managed-cassandra/datacenter#az-managed-cassandra-datacenter-create) command:
 
    ```azurecli-interactive
    dataCenterName='dc1'
@@ -120,7 +127,7 @@ This quickstart demonstrates how to use the Azure CLI commands to create a clust
    > [!WARNING]
    > Availability zones are not supported in all regions. Deployments will fail if you select a region where Availability zones are not supported. See [here](../availability-zones/az-overview.md#azure-regions-with-availability-zones) for supported regions. The successful deployment of availability zones is also subject to the availability of compute resources in all of the zones in the given region. Deployments may fail if the SKU you have selected, or capacity, is not available across all zones. 
 
-1. Once the datacenter is created, if you want to scale up, or scale down the nodes in the datacenter, run the [az managed-cassandra datacenter update](/cli/azure/managed-cassandra/datacenter#az_managed_cassandra_datacenter_update) command. Change the value of `node-count` parameter to the desired value:
+1. Once the datacenter is created, if you want to scale up, or scale down the nodes in the datacenter, run the [az managed-cassandra datacenter update](/cli/azure/managed-cassandra/datacenter#az-managed-cassandra-datacenter-update) command. Change the value of `node-count` parameter to the desired value:
 
    ```azurecli-interactive
    resourceGroupName='<Resource_Group_Name>'

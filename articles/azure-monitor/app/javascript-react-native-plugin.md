@@ -2,7 +2,6 @@
 title: React Native plugin for Application Insights JavaScript SDK 
 description: How to install and use the React Native plugin for Application Insights JavaScript SDK. 
 services: azure-monitor
-
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
@@ -52,6 +51,16 @@ var appInsights = new ApplicationInsights({
 appInsights.loadAppInsights();
 
 ```
+
+## Enable Correlation
+
+Correlation generates and sends data that enables distributed tracing and powers the [application map](../app/app-map.md), [end-to-end transaction view](../app/app-map.md#go-to-details), and other diagnostic tools.
+
+In JavaScript correlation is turned off by default in order to minimize the telemetry we send by default. To enable correlation please reference [JavaScript client-side correlation documentation](./javascript.md#enable-correlation).
+
+### PageView
+
+If a custom `PageView` duration is not provided, `PageView` duration defaults to a value of 0. 
 
 ## Next steps
 

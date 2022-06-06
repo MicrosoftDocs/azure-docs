@@ -24,9 +24,12 @@ The current Isolated virtual machine offerings include:
 * Standard_E104is_v5
 * Standard_E104id_v5
 * Standard_E104ids_v5
+* Standard_M192is_v2
+* Standard_M192ims_v2
+* Standard_M192ids_v2
+* Standard_M192idms_v2
 * Standard_F72s_v2
 * Standard_M128ms
-* Standard_DC8_v2
 
 
 > [!NOTE]
@@ -44,7 +47,6 @@ Isolated VM sizes have a hardware limited lifespan. Azure will issue reminders 1
 | Standard_GS5      | February 15, 2022 |
 | Standard_E64i_v3  | February 15, 2022 |
 | Standard_E64is_v3 | February 15, 2022 |
-| Standard_DC8_v2   | February 15, 2022 |
 
 
 ## FAQ

@@ -5,7 +5,12 @@ ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.date: 05/19/2021
+<<<<<<< HEAD
 ms.reviewer: casocha
+=======
+ms.pmowner: casocha
+
+>>>>>>> c05562d17da3750f260c84ed9d71f1680e96d8a6
 ---
 
 # Diagnose exceptions in web apps with Application Insights

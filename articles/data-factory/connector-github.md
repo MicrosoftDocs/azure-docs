@@ -2,13 +2,13 @@
 title: Connect to GitHub
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Use GitHub to specify your Common Data Model entity references
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/09/2021
-ms.author: jingwang
+ms.author: jianleishen
 ---
 
 # Use GitHub to read Common Data Model entity references
@@ -51,6 +51,6 @@ The following properties are supported for the GitHub linked service.
 | userName | GitHub username | yes |
 | password | GitHub password | yes |
 
-## Next Steps
+## Next steps
 
 Create a [source dataset](data-flow-source.md) in mapping data flow.

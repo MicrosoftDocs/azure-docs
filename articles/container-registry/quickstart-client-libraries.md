@@ -6,7 +6,8 @@ ms.topic: quickstart
 ms.date: 10/05/2021
 ms.author: danlep
 zone_pivot_groups: programming-languages-set-ten
-ms.custom: mode-api
+ms.custom: mode-api, devx-track-azurecli 
+ms.devlang: azurecli
 ---
 
 # Quickstart: Use the Azure Container Registry client libraries

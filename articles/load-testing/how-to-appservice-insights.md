@@ -15,7 +15,7 @@ ms.topic: how-to
 
 In this article, you'll learn how to gain more insights from Azure App Service workloads by using Azure Load Testing Preview and Azure App Service diagnostics.
 
-[App Service diagnostics](/azure/app-service/overview-diagnostics/) is an intelligent and interactive way to help troubleshoot your app, with no configuration required. When you run into issues with your app, App Service diagnostics can help you resolve the issue easily and quickly.
+[App Service diagnostics](../app-service/overview-diagnostics.md) is an intelligent and interactive way to help troubleshoot your app, with no configuration required. When you run into issues with your app, App Service diagnostics can help you resolve the issue easily and quickly.
 
 You can take advantage of App Service diagnostics when you run load tests on applications that run on App Service.
 
@@ -30,7 +30,7 @@ You can take advantage of App Service diagnostics when you run load tests on app
 
 ## Get more insights when you test an App Service workload  
 
-In this section, you use [App Service diagnostics](/azure/app-service/overview-diagnostics/) to get more insights from load testing an Azure App Service workload.
+In this section, you use [App Service diagnostics](../app-service/overview-diagnostics.md) to get more insights from load testing an Azure App Service workload.
 
 1. In the [Azure portal](https://portal.azure.com), go to your Azure Load Testing resource.
 
@@ -65,8 +65,6 @@ In this section, you use [App Service diagnostics](/azure/app-service/overview-d
 
 ## Next steps
 
-- To learn how to parameterize a load test by using secrets, see [Parameterize a load test](./how-to-parameterize-load-tests.md).
+- Learn how to [parameterize a load test](./how-to-parameterize-load-tests.md) with secrets.
 
-- To learn about performance test automation, see [Configure automated performance testing](./tutorial-cicd-azure-pipelines.md).
-
-- To learn more about App Service diagnostics, see [Azure App Service diagnostics overview](/azure/app-service/overview-diagnostics/).
+- Learn how to [configure automated performance testing](./tutorial-cicd-azure-pipelines.md).
