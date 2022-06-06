@@ -80,6 +80,8 @@ items:
       href: how-to-integrate-redis-cache.md
     - name: Azure Service Bus
       href: how-to-integrate-service-bus.md
+    - name: Azure SQL Database
+      href: how-to-integrate-sql-database.md
     - name: Azure Event Hubs
       href: how-to-integrate-event-hubs.md
     - name: Azure App Configuration

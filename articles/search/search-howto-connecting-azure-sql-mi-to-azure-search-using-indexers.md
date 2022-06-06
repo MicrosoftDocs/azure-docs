@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/10/2022
+ms.date: 05/24/2022
 ---
 
 # Indexer connections to Azure SQL Managed Instance through a public endpoint
@@ -52,3 +52,9 @@ Copy the connection string to use in the search indexer's data source connection
 ## Next steps
 
 With configuration out of the way, you can now specify a [SQL Managed Instance as an indexer data source](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md).
+
+## FAQ
+
+**Q: Can I use Always Encrypted feature when indexing from SQL Managed Instance?
+
+[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) columns are not currently supported by Cognitive Search indexers.
