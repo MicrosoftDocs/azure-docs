@@ -145,6 +145,18 @@ The following table describes the role membership requirements that are needed f
 | Azure Monitor contributor | Supported | Supported | Not applicable |
 | Custom role | Supported | Supported | Not applicable |
 
+#### Azure Resource Manager role membership requirements
+The following table describes the role membership requirements to use the *test actions* functionality
+
+| User's role membersip | Existing Action Group | Existing Resource Group and new Action Group | New Resource Group and new Action Group |
+| ---------- | ------------- | ----------- | ------------- |
+| Subscription Contribuutor | Supported | Supported | Supported |
+| Resource Group Contributor | Supported | Supported | Not Applicable |
+| Action Group resource Contributor | Supported | Not Applicable | Not Applicable |
+| Azure Monitor Contributor | Supported | Supported | Not Applicable |
+| Custom role | Supported | Supported | Not Applicable |
+
+
 > [!NOTE]
 >
 > You can run a limited number of tests per time period. To check which limits apply to your situation, see [Rate limiting for voice, SMS, emails, Azure App push notifications, and webhook posts](./alerts-rate-limiting.md).
