@@ -20,15 +20,15 @@ Support engineers are expected to provide SDK update guidance according to the f
 
 |Current SDK version in use |Alternative version available |Update policy for support |
 |---------|---------|---------|
-|Stable and less than one year old                                              | Newer supported version                        | **UPDATE RECOMMENDED** |
-|Stable and more than one year old                                              | Newer supported version                        | **UPDATE REQUIRED**    |
+|Stable and less than one year old                                              | Newer supported stable version                 | **UPDATE RECOMMENDED** |
+|Stable and more than one year old                                              | Newer supported stable version                 | **UPDATE REQUIRED**    |
 |Unsupported ([support policy](https://docs.microsoft.com/lifecycle/faq/azure)) | Any supported version                          | **UPDATE REQUIRED**    |
 |Preview                                                                        | Stable version                                 | **UPDATE REQUIRED**    |
 |Preview                                                                        | Older stable version                           | **UPDATE RECOMMENDED** |
 |Preview                                                                        | Newer preview version, no older stable version | **UPDATE RECOMMENDED** |
 
 > [!TIP]
-> Switching to [auto-instrumentation](codeless-overview.md) eliminates the need for SDK updates.
+> Switching to [auto-instrumentation](codeless-overview.md) eliminates the need for manual SDK updates.
 
 > [!WARNING]
 > Only commercially reasonable support is provided for Preview versions of the SDK. If a support incident requires escalation to development for further guidance, customers will be asked to use a fully supported SDK version to continue support. Commercially reasonable support does not include an option to engage Microsoft product development resources; technical workarounds may be limited or not possible.
