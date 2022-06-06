@@ -158,11 +158,11 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 1. In the **Folder** box, select the folder icon so that a list appears. To find the folder you want to monitor for new or edited files, select the right angle arrow (**>**), browse to that folder, and then select the folder.
 
-   ![Screenshot shows Consumption workflow designer, FTP trigger, and "Folder" property where browsing for folder to select.](./media/connectors-create-api-ftp/ftp-trigger-select-folder-standard.png)
+   ![Screenshot shows Standard workflow designer, FTP trigger, and "Folder" property where browsing for folder to select.](./media/connectors-create-api-ftp/ftp-trigger-select-folder-standard.png)
 
    Your selected folder appears in the **Folder** box.
 
-   ![Screenshot shows Consumption workflow designer, FTP trigger, and "Folder" property with selected folder.](./media/connectors-create-api-ftp/ftp-trigger-selected-folder-standard.png)
+   ![Screenshot shows Standard workflow designer, FTP trigger, and "Folder" property with selected folder.](./media/connectors-create-api-ftp/ftp-trigger-selected-folder-standard.png)
 
 1. When you're done, save your logic app workflow.
 
