@@ -1,6 +1,6 @@
 ---
 title: Configure a Temporary Access Pass in Azure AD to register Passwordless authentication methods
-description: Learn how to configure and enable users to to register Passwordless authentication methods by using a Temporary Access Pass 
+description: Learn how to configure and enable users to register Passwordless authentication methods by using a Temporary Access Pass 
 
 services: active-directory
 ms.service: active-directory
@@ -39,11 +39,11 @@ Global administrator and Authentication Method Policy administrator role holders
 To configure the Temporary Access Pass authentication method policy:
 
 1. Sign in to the Azure portal as a Global admin or Authentication Policy admin and click **Azure Active Directory** > **Security** > **Authentication methods** > **Temporary Access Pass**.
-![Screenshot of how to enable the Temporary Access Pass authentication method policy](./media/how-to-authentication-temporary-access-pass/policy.png)
+![Screenshot of how to manage Temporary Access Pass within the authentication method policy experience.](./media/how-to-authentication-temporary-access-pass/policy.png)
 1. Set Enable to **Yes** to enable the policy, select which users have the policy applied. 
-![Screenshot of how to enable the Temporary Access Pass authentication method policy scoping](./media/how-to-authentication-temporary-access-pass/policy_scope.png)
+![Screenshot of how to enable the Temporary Access Pass authentication method policy.](./media/how-to-authentication-temporary-access-pass/policy-scope.png)
 1. (Optional) Click **Configure** and modify the default Temporary Access Pass settings, such as setting maximum lifetime, or length. 
-![Screenshot of how to customize the settings for Temporary Access Pass](./media/how-to-authentication-temporary-access-pass/policy_settings.png)
+![Screenshot of how to customize the settings for Temporary Access Pass.](./media/how-to-authentication-temporary-access-pass/policy-settings.png)
 1. Click **Save** to apply the policy. 
 
 
@@ -76,11 +76,11 @@ These roles can perform the following actions related to a Temporary Access Pass
 1. Below **Choose method**, click **Temporary Access Pass**.
 1. Define a custom activation time or duration and click **Add**.
 
-   ![Screenshot of how to create a Temporary Access Pass](./media/how-to-authentication-temporary-access-pass/create.png)
+   ![Screenshot of how to create a Temporary Access Pass.](./media/how-to-authentication-temporary-access-pass/create.png)
 
 1. Once added, the details of the Temporary Access Pass are shown. Make a note of the actual Temporary Access Pass value. You provide this value to the user. You can't view this value after you click **Ok**.
    
-   ![Screenshot of Temporary Access Pass details](./media/how-to-authentication-temporary-access-pass/details.png)
+   ![Screenshot of Temporary Access Pass details.](./media/how-to-authentication-temporary-access-pass/details.png)
 
 The following commands show how to create and get a Temporary Access Pass by using PowerShell:
 
@@ -115,7 +115,7 @@ The most common use for a Temporary Access Pass is for a user to register authen
 1. If the user is included in the Temporary Access Pass policy, they will see a screen to enter their Temporary Access Pass.
 1. Enter the Temporary Access Pass that was displayed in the Azure portal.
 
-   ![Screenshot of how to enter a Temporary Access Pass](./media/how-to-authentication-temporary-access-pass/enter.png)
+   ![Screenshot of how to enter a Temporary Access Pass.](./media/how-to-authentication-temporary-access-pass/enter.png)
 
 >[!NOTE]
 >For federated domains, a Temporary Access Pass is preferred over federation. A user with a Temporary Access Pass will complete the authentication in Azure AD and will not get redirected to the federated Identity Provider (IdP).
@@ -129,7 +129,7 @@ Users can also continue to sign-in by using their password; a TAP doesn’t repl
 
 Users managing their security information at [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) will see an entry for the Temporary Access Pass. If a user does not have any other registered methods they will be presented a banner at the top of the screen requesting them to add a new sign-in method. Users can additionally view the TAP expiration time, and delete the TAP if no longer needed. 
 
-![Screenshot of how users can manage a Temporary Access Pass](./media/how-to-authentication-temporary-access-pass/tap_msi.png)
+![Screenshot of how users can manage a Temporary Access Pass in My Security Info.](./media/how-to-authentication-temporary-access-pass/tap-my-security-info.png)
 
 ### Windows device setup
 Users with a Temporary Access Pass can navigate the setup process on Windows 10 and 11 to perform device join operations and configure Windows Hello For Business. Temporary Access Pass usage for setting up Windows Hello for Business varies based on the devices joined state: 
@@ -137,14 +137,14 @@ Users with a Temporary Access Pass can navigate the setup process on Windows 10 
 - On an already Azure AD Joined devices, users must first authenticate with another method such as a password, smartcard or FIDO2 key, before using TAP to setup Windows Hello for Business. 
 - On Hybrid Azure AD Joined devices, users must first authenticate with another method such as a password, smartcard or FIDO2 key, before using TAP to setup Windows Hello for Business. 
 
-![Screenshot of how to enter TAP on Win10](./media/how-to-authentication-temporary-access-pass/win10_tap.png)
+![Screenshot of how to enter Temporary Access Pass when setting up Windows 10.](./media/how-to-authentication-temporary-access-pass/windows-10-tap.png)
 
 ### Passwordless phone sign-in
 
 Users can also use their Temporary Access Pass to register for Passwordless phone sign-in directly from the Authenticator app. 
 For more information, see [Add your work or school account to the Microsoft Authenticator app](https://support.microsoft.com/account-billing/add-your-work-or-school-account-to-the-microsoft-authenticator-app-43a73ab5-b4e8-446d-9e54-2a4cb8e4e93c).
 
-![Screenshot of how to enter a Temporary Access Pass using work or school account](./media/how-to-authentication-temporary-access-pass/enter-work-school.png)
+![Screenshot of how to enter a Temporary Access Pass using work or school account.](./media/how-to-authentication-temporary-access-pass/enter-work-school.png)
 
 ### Guest access
 
