@@ -5,7 +5,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 06/06/2022
+ms.date: 06/07/2022
 author: manishmsfte
 ms.author: mansha
 ms.custom: mode-api, kr2b-contr-experiment
@@ -23,7 +23,7 @@ ms.custom: mode-api, kr2b-contr-experiment
 > * [PHP](create-graph-php.md)
 >  
 
-In this quickstart, you create an Azure Cosmos DB [Gremlin (Graph) API](graph-introduction.md) database by using PHP and the Azure portal.
+In this quickstart, you create and use an Azure Cosmos DB [Gremlin (Graph) API](graph-introduction.md) database by using PHP and the Azure portal.
 
 Azure Cosmos DB is Microsoft's multi-model database service that lets you quickly create and query document, table, key-value, and graph databases, with global distribution and horizontal scale capabilities. Azure Cosmos DB provides five APIs: Core (SQL), MongoDB, Gremlin, Azure Table, and Cassandra.
 
@@ -31,20 +31,14 @@ You must create a separate account to use each API. In this article, you create 
 
 This quickstart walks you through the following steps:
 
-- Use the Azure portal to create an Azure Cosmos DB Gremlin (Graph) API account.
-- In the portal, create a graph database in the Azure Cosmos DB account.
+- Use the Azure portal to create an Azure Cosmos DB Gremlin (Graph) API account and database.
 - Clone a sample Gremlin API PHP console app from GitHub, and run it to populate your database.
-- Filter and query your graph database with Data Explorer in the Azure portal.
-- Use Data Explorer to add and connect new data in your database.
+- Use Data Explorer in the Azure portal to query, add, and connect data in your database.
 
 ## Prerequisites
 
-- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
-  Alternatively, you can [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb) without an Azure subscription.
-
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)] Alternatively, you can [try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb) without an Azure subscription.
 - [PHP](https://php.net/) 5.6 or newer installed.
-
 - [Composer](https://getcomposer.org/download) open-source dependency management tool for PHP installed.
 
 ## Create a Gremlin (Graph) database account
