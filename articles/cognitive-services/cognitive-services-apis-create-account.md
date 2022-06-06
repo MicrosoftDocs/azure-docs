@@ -35,7 +35,7 @@ The multi-service resource is named **Cognitive Services** in the portal. The mu
 * **Decision** - Content Moderator
 * **Language** - Language, Translator
 * **Speech** - Speech
-* **Vision** - Computer Vision, Custom Vision, Identity
+* **Vision** - Computer Vision, Custom Vision, Face
 
 1. You can select this link to create an Azure Cognitive multi-service resource: [Create a Cognitive Services resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne).
 
@@ -91,7 +91,7 @@ The multi-service resource is named **Cognitive Services** in the portal. The mu
 1. You can select one of these links to create a Vision resource: 
     - [Computer vision](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision)
     - [Custom vision service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesCustomVision)
-    - [Identity](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace) 
+    - [Face](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFace) 
 
 1. On the **Create** page, provide the following information:
 

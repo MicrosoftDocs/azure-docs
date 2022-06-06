@@ -87,7 +87,7 @@ The following data categorizes each service by which kind of data it allows or r
 |[Computer Vision](./computer-vision/overview.md)|x|||
 |[Content Moderator](./Content-Moderator/overview.md)|x||x|
 |[Custom Vision](./custom-vision-service/overview.md)||x||
-|[Identity](./Face/Overview.md)|x|x||
+|[Face](./Face/Overview.md)|x|x||
 |[Ink Recognizer](/previous-versions/azure/cognitive-services/Ink-Recognizer/overview)|x|x||
 |[Language Understanding (LUIS)](./LUIS/what-is-luis.md)||x||
 |[Personalizer](./personalizer/what-is-personalizer.md)|x*|x*|x|

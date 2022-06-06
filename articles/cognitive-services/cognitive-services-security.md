@@ -205,7 +205,7 @@ Customer Lockbox is available for this service:
 For the following services, Microsoft engineers will not access any customer data in the E0 tier: 
 
 * Language Understanding
-* Identity
+* Face
 * Content Moderator
 * Personalizer
 

@@ -10,7 +10,7 @@ ms.date: 7/5/2019
 ms.author: aahi
 ---
 
-## Create an Identity resource
+## Create a Face resource
 
 1. Sign into the [Azure portal](https://portal.azure.com)
 1. Select [Create **Face**](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) resource

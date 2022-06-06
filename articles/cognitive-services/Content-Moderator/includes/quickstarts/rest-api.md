@@ -38,7 +38,7 @@ You'll use a command like the following to call the Content Moderator API to ana
 
 Copy the command to a text editor and make the following changes:
 
-1. Assign `Ocp-Apim-Subscription-Key` to your valid Identity subscription key.
+1. Assign `Ocp-Apim-Subscription-Key` to your valid Face subscription key.
 1. Change the first part of the query URL to match the endpoint that corresponds to your subscription key.
    [!INCLUDE [subdomains-note](../../../../../includes/cognitive-services-custom-subdomains-note.md)]
 1. Optionally change the body of the request to whatever string of text you'd like to analyze.
@@ -128,7 +128,7 @@ You'll use a command like the following to call the Content Moderator API to mod
 
 Copy the command to a text editor and make the following changes:
 
-1. Assign `Ocp-Apim-Subscription-Key` to your valid Identity subscription key.
+1. Assign `Ocp-Apim-Subscription-Key` to your valid Face subscription key.
 1. Change the first part of the query URL to match the endpoint that corresponds to your subscription key.
 1. Optionally change the `"Value"` URL in the request body to whatever remote image you'd like to moderate.
 
