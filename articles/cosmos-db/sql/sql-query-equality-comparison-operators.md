@@ -1,12 +1,13 @@
 ---
 title: Equality and comparison operators in Azure Cosmos DB
 description: Learn about SQL equality and comparison operators supported by Azure Cosmos DB.
-author: timsander1
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 01/07/2022
-ms.author: tisande
+ms.author: sidandrews
+ms.reviewer: jucocchi
 
 ---
 # Equality and comparison operators in Azure Cosmos DB
