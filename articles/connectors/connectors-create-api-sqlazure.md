@@ -34,9 +34,9 @@ The SQL Server connector has different versions, based on [logic app type and ho
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
-| **Consumption** | Multi-tenant Azure Logic Apps | [Managed connector - Standard class](managed.md). For more information, review the [SQL Server managed connector reference](/connectors/sql). |
-| **Consumption** | Integration service environment (ISE) | [Managed connector - Standard class](managed.md) and ISE version. For more information, review the [SQL Server managed connector reference](/connectors/sql). |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | [Managed connector - Standard class](managed.md) and [built-in connector](built-in.md), which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). <br><br>The built-in version differs in the following ways: <br><br>- The built-in version has no triggers. <br><br>- The built-in version has a single **Execute Query** action. The action can directly connect to Azure virtual networks without the on-premises data gateway. <br><br>For the managed version, review the [SQL Server managed connector reference](/connectors/sql/). |
+| **Consumption** | Multi-tenant Azure Logic Apps | [Managed connector - Standard class](managed.md). For operations, limits, and other information, review the [SQL Server managed connector reference](/connectors/sql). |
+| **Consumption** | Integration service environment (ISE) | [Managed connector - Standard class](managed.md) and ISE version. For operations, managed connector limits, and other information, review the [SQL Server managed connector reference](/connectors/sql). For ISE-versioned limits, review the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits), not the managed connector's message limits. |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | [Managed connector - Standard class](managed.md) and [built-in connector](built-in.md), which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). <br><br>The built-in version differs in the following ways: <br><br>- The built-in version has no triggers. <br><br>- The built-in version has a single **Execute Query** action. The action can directly access Azure virtual networks with a connection string and doesn't need the on-premises data gateway. <br><br>For managed connector operations, limits, and other information, review the [SQL Server managed connector reference](/connectors/sql/). |
 ||||
 
 ## Prerequisites
@@ -66,7 +66,7 @@ The SQL Server connector has different versions, based on [logic app type and ho
 
     `Server={your-server-address};Database={your-database-name};User Id={your-user-name};Password={your-password};`
 
-* The logic app workflow where you want to access your SQL database. If you want to start your workflow with a SQL Server trigger operation, you have to start with a blank workflow.
+* The logic app workflow where you want to access your SQL database. To start your workflow with a SQL Server trigger, you have to start with a blank workflow. To use a SQL Server action, start your workflow with any trigger.
 
 <a name="multi-tenant-or-ise"></a>
 
@@ -76,11 +76,17 @@ The SQL Server connector has different versions, based on [logic app type and ho
 
     * In multi-tenant Azure Logic Apps, you need the [on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) installed on a local computer and a [data gateway resource that's already created in Azure](../logic-apps/logic-apps-gateway-connection.md).
 
-    * In an ISE, when you have non-Windows or SQL Server Authentication connections, you don't need the on-premises data gateway and can use the ISE-versioned SQL Server connector. For Windows Authentication and SQL Server Authentication, you still have to use the [on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) and a [data gateway resource that's already created in Azure](../logic-apps/logic-apps-gateway-connection.md). Also, the ISE-versioned SQL Server connector doesn't support Windows authentication, so you have to use the non-ISE SQL Server connector.
+    * In an ISE, you don't need the on-premises data gateway for SQL Server Authentication and non-Windows Authentication connections, and you can use the ISE-versioned SQL Server connector. For Windows Authentication, you need the [on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) on a local computer and a [data gateway resource that's already created in Azure](../logic-apps/logic-apps-gateway-connection.md). The ISE-version connector doesn't support Windows Authentication, so you have to use the regular SQL Server managed connector.
 
   * Standard logic app workflow
 
-    You can use the SQL Server built-in connector, which requires a connection string. If you want to use the SQL Server managed connector, you need follow the same requirements as a Consumption logic app workflow in multi-tenant Azure Logic Apps.
+    You can use the SQL Server built-in connector, which requires a connection string. To use the SQL Server managed connector, follow the same requirements as a Consumption logic app workflow in multi-tenant Azure Logic Apps.
+
+For other connector requirements, review [SQL Server connector reference](/connectors/sql/).
+
+## Limitations
+
+For more information, review the [SQL Server connector reference](/connectors/sql/).
 
 <a name="add-sql-trigger"></a>
 
@@ -94,7 +100,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 ### [Consumption](#tab/consumption)
 
-1. In the Azure portal, open your blank logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your blank logic app workflow in the designer.
 
 1. Find and select the [SQL Server managed connector trigger](/connectors/sql) that you want to use.
 
@@ -124,7 +130,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 In Standard logic app workflows, only the SQL Server managed connector has triggers. The SQL Server built-in connector doesn't have any triggers.
 
-1. In the Azure portal, open your blank logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your blank logic app workflow in the designer.
 
 1. Find and select the [SQL Server managed connector trigger](/connectors/sql) that you want to use.
 
@@ -168,15 +174,15 @@ To make sure that the recurrence time doesn't shift when DST takes effect, manua
 
 The following steps use the Azure portal, but with the appropriate Azure Logic Apps extension, you can also use Visual Studio to edit Consumption logic app workflows or Visual Studio Code to the following tools to edit logic app workflows:
 
-* Consumption logic app workflow: Visual Studio or Visual Studio Code
+* Consumption logic app workflows: [Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) or [Visual Studio Code](../logic-apps/quickstart-create-logic-apps-visual-studio-code.md)
 
-* Standard logic app workflows: Visual Studio Code
+* Standard logic app workflows: [Visual Studio Code](../logic-apps/create-single-tenant-workflows-visual-studio-code.md)
 
 In this example, the logic app workflow starts with the [Recurrence trigger](../connectors/connectors-native-recurrence.md), and calls an action that gets a row from a SQL database.
 
 ### [Consumption](#tab/consumption)
 
-1. In the Azure portal, open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
 1. Find and select the [SQL Server managed connector action](/connectors/sql) that you want to use. This example continues with the action named **Get row**.
 
@@ -206,7 +212,7 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
 ### [Standard](#tab/standard)
 
-1. In the Azure portal, open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
 
 1. Find and select the SQL Server connector action that you want to use.
 
@@ -260,7 +266,7 @@ In this example, the logic app workflow starts with the [Recurrence trigger](../
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-After you provide this information, continue with these steps:
+After you provide this information, continue with the following steps based on your target database:
 
 * [Connect to cloud-based Azure SQL Database or SQL Managed Instance](#connect-azure-sql-db)
 * [Connect to on-premises SQL Server](#connect-sql-server)
@@ -271,7 +277,7 @@ After you provide this information, continue with these steps:
 
 To access a SQL Managed Instance without using the on-premises data gateway or integration service environment, you have to [set up the public endpoint on the SQL Managed Instance](/azure/azure-sql/managed-instance/public-endpoint-configure). The public endpoint uses port 3342, so make sure that you specify this port number when you create the connection from your logic app.
 
-When you add a [SQL Server trigger](#add-sql-trigger) or [SQL Server action](#add-sql-action) without a previously created and active database connection, complete the following steps:
+In the connection information box, complete the following steps:
 
 1. For **Connection name**, provide a name to use for your connection.
 
@@ -279,12 +285,12 @@ When you add a [SQL Server trigger](#add-sql-trigger) or [SQL Server action](#ad
 
    | Authentication | Description |
    |----------------|-------------|
-   | **Service principal (Azure AD application)** | - Available only for the SQL Server managed connector. <br><br>- Requires an Azure AD application and service principal. For more information, see [Create an Azure AD application and service principal that can access resources using the Azure portal](../active-directory/develop/howto-create-service-principal-portal.md). |
-   | **Logic Apps Managed Identity** | - Available only for the SQL Server managed connector and ISE-versioned connector. <br><br>- Requires the following items: <br><br>--- A valid managed identity that's [enabled on your logic app resource](../logic-apps/create-managed-service-identity.md) and has access to your database. <br><br>--- **SQL DB Contributor** role access to the SQL Server resource <br><br>--- **Contributor** access to the resource group that includes the SQL Server resource. <br><br>For more information, see [SQL - Server-Level Roles](/sql/relational-databases/security/authentication-access/server-level-roles). |
-   | [**Azure AD Integrated**](/azure/azure-sql/database/authentication-aad-overview) | - Available only for the SQL Server managed connector and ISE-versioned connector. <br><br>- Requires a valid managed identity in Azure Active Directory (Azure AD) that's [enabled on your logic app resource](../logic-apps/create-managed-service-identity.md) and has access to your database. For more information, see these topics: <br><br>- [Azure SQL Security Overview - Authentication](/azure/azure-sql/database/security-overview#authentication) <br>- [Authorize database access to Azure SQL - Authentication and authorization](/azure/azure-sql/database/logins-create-manage#authentication-and-authorization) <br>- [Azure SQL - Azure AD Integrated authentication](/azure/azure-sql/database/authentication-aad-overview) |
-   | [**SQL Server Authentication**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Available only for the SQL Server managed connector and ISE-versioned connector. <br><br>- Requires the following items: <br><br>--- A data gateway resource that's previously created in Azure for your connection, regardless whether your logic app is in multi-tenant Azure Logic Apps or an ISE. <br><br>--- A valid user name and strong password that are created and stored in your SQL Server database. For more information, see the following topics: <br><br>- [Azure SQL Security Overview - Authentication](/azure/azure-sql/database/security-overview#authentication) <br>- [Authorize database access to Azure SQL - Authentication and authorization](/azure/azure-sql/database/logins-create-manage#authentication-and-authorization) |
+   | **Service principal (Azure AD application)** | - Supported with the SQL Server managed connector. <br><br>- Requires an Azure AD application and service principal. For more information, see [Create an Azure AD application and service principal that can access resources using the Azure portal](../active-directory/develop/howto-create-service-principal-portal.md). |
+   | **Logic Apps Managed Identity** | - Supported with the SQL Server managed connector and ISE-versioned connector. <br><br>- Requires the following items: <br><br>--- A valid managed identity that's [enabled on your logic app resource](../logic-apps/create-managed-service-identity.md) and has access to your database. <br><br>--- **SQL DB Contributor** role access to the SQL Server resource <br><br>--- **Contributor** access to the resource group that includes the SQL Server resource. <br><br>For more information, see [SQL - Server-Level Roles](/sql/relational-databases/security/authentication-access/server-level-roles). |
+   | [**Azure AD Integrated**](/azure/azure-sql/database/authentication-aad-overview) | - Supported with the SQL Server managed connector and ISE-versioned connector. <br><br>- Requires a valid managed identity in Azure Active Directory (Azure AD) that's [enabled on your logic app resource](../logic-apps/create-managed-service-identity.md) and has access to your database. For more information, see these topics: <br><br>- [Azure SQL Security Overview - Authentication](/azure/azure-sql/database/security-overview#authentication) <br>- [Authorize database access to Azure SQL - Authentication and authorization](/azure/azure-sql/database/logins-create-manage#authentication-and-authorization) <br>- [Azure SQL - Azure AD Integrated authentication](/azure/azure-sql/database/authentication-aad-overview) |
+   | [**SQL Server Authentication**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Supported with the SQL Server managed connector and ISE-versioned connector. <br><br>- Requires the following items: <br><br>--- A data gateway resource that's previously created in Azure for your connection, regardless whether your logic app is in multi-tenant Azure Logic Apps or an ISE. <br><br>--- A valid user name and strong password that are created and stored in your SQL Server database. For more information, see the following topics: <br><br>- [Azure SQL Security Overview - Authentication](/azure/azure-sql/database/security-overview#authentication) <br>- [Authorize database access to Azure SQL - Authentication and authorization](/azure/azure-sql/database/logins-create-manage#authentication-and-authorization) |
 
-   This connection and authentication information box looks similar to the following example, which selects **Azure AD Integrated**:
+   The following examples show how the connection information box might appear if you select **Azure AD Integrated** authentication.
 
    * Consumption logic app workflows
 
@@ -331,7 +337,7 @@ When you add a [SQL Server trigger](#add-sql-trigger) or [SQL Server action](#ad
 
 ### Connect to on-premises SQL Server
 
-When you add a [SQL Server trigger](#add-sql-trigger) or [SQL Server action](#add-sql-action) without a previously created and active database connection, complete the following steps:
+In the connection information box, complete the following steps:
 
 1. For connections to your on-premises SQL server that require the on-premises data gateway, make sure that you've [completed these prerequisites](#multi-tenant-or-ise).
 
@@ -341,8 +347,8 @@ When you add a [SQL Server trigger](#add-sql-trigger) or [SQL Server action](#ad
 
    | Authentication | Description |
    |----------------|-------------|
-   | [**SQL Server Authentication**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Available only for the SQL Server managed connector and ISE-versioned connector. <br><br>- Requires the following items: <br><br>--- A data gateway resource that's previously created in Azure for your connection, regardless whether your logic app is in multi-tenant Azure Logic Apps or an ISE. <br><br>--- A valid user name and strong password that are created and stored in your SQL Server. <br><br>For more information, see [SQL Server Authentication](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
-   | [**Windows Authentication**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) | - Available only for the SQL Server managed connector. <br><br>- Requires the following items: <br><br>--- A data gateway resource that's previously created in Azure for your connection, regardless whether your logic app is in multi-tenant Azure Logic Apps or an ISE. <br><br>--- A valid Windows user name and password to confirm your identity through your Windows account. <br><br>For more information, see [Windows Authentication](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication). |
+   | [**SQL Server Authentication**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | - Supported with the SQL Server managed connector and ISE-versioned connector. <br><br>- Requires the following items: <br><br>--- A data gateway resource that's previously created in Azure for your connection, regardless whether your logic app is in multi-tenant Azure Logic Apps or an ISE. <br><br>--- A valid user name and strong password that are created and stored in your SQL Server. <br><br>For more information, see [SQL Server Authentication](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
+   | [**Windows Authentication**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) | - Supported with the SQL Server managed connector. <br><br>- Requires the following items: <br><br>--- A data gateway resource that's previously created in Azure for your connection, regardless whether your logic app is in multi-tenant Azure Logic Apps or an ISE. <br><br>--- A valid Windows user name and password to confirm your identity through your Windows account. <br><br>For more information, see [Windows Authentication](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication). |
    |||
 
 1. Select or provide the following values for your SQL database:
@@ -365,7 +371,7 @@ When you add a [SQL Server trigger](#add-sql-trigger) or [SQL Server action](#ad
    > * `User ID={your-user-name}`
    > * `Password={your-password}`
 
-   This connection and authentication information box looks similar to the following example, which selects **Windows Authentication**:
+   The following examples show how the connection information box might appear if you select **Windows** authentication.
 
    * Consumption logic app workflows
 
@@ -449,4 +455,4 @@ Connection problems can commonly happen, so to troubleshoot and resolve these ki
 
 ## Next steps
 
-* Learn about other [connectors for Azure Logic Apps](../connectors/apis-list.md)
+* Learn about other [managed connectors for Azure Logic Apps](../connectors/apis-list.md)

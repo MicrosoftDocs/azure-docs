@@ -1,6 +1,5 @@
 ---
 title: Overview of enterprise application ownership
-titleSuffix: Microsoft Entra
 description: Learn about enterprise application ownership in Azure Active Directory
 services: active-directory
 author: saipradeepb23
