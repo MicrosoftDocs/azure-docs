@@ -1,15 +1,16 @@
 ---
 title: High availability for Service Connector 
-description: This article covers zone redundancy, disaster recovery and cross-region failover for Service Connector.
+description: This article covers availability zones, zone redundancy, disaster recovery, and cross-region failover for Service Connector.
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: conceptual
 ms.date: 05/24/2022
+ms.custom: references_regions
 #Customer intent: As an Azure developer, I want to understand the availability of my connection created with Service Connector.
 ---
 
-# High Availability for Service Connector
+# High availability for Service Connector
 
 Service Connector supports Azure availability zones to help you achieve resiliency and reliability for your business-critical workloads. The goal of the high availability architecture in Service Connector is to guarantee that your service connections are up and running at least 99.9% of time, so that you don't have to worry about the effects of potential maintenance operations and outages. Service Connector is designed to provide high availability support for all types of applications you're running on Azure.
 
@@ -24,7 +25,7 @@ To enable zone redundancy for your connection, you must enable zone redundancy f
 > [!NOTE]
 > To create, update, validate and list service connections, Service Connector calls APIs from a compute service and a target service. As Service Connector relies on the responses from both the compute service and the target service, requests to Service Connector in a zone-down scenario may not succeed if the target service can't be reached. This limitation applies to App Service, Container Apps and Spring Apps.
 
-## How to Create a zone-redundant service connection with Service Connector
+## How to create a zone-redundant service connection with Service Connector
 
 Follow the instructions below to create a zone-redundant Service Connection in App Service using the Azure CLI or the Azure portal. The same process can be used to create a zone-redundant connection for Spring Apps and Container Apps compute services.
 
@@ -52,7 +53,7 @@ To enable zone redundancy for a service connection in App Service using the Azur
 1. In the Azure portal, in the **Search resources, services, and docs (G+/)**, enter **App Services** and select **App Services**.
 1. Select **Create** and fill out the form. In the first tab, under **Zone redundancy**, select **Enabled**.
 
-    :::image type="content" source="media/enable-zone-redundancy.png" alt-text="Screenshot of the Azure portal, enabling zone redundancy in App Services":::
+    :::image type="content" source="media/enable-zone-redundancy.png" alt-text="Screenshot of the Azure portal, enabling zone redundancy in App Services.":::
 
 1. Select **Review + create** and then **Create**.
 1. In the App Service instance, select **Service Connector** from the left menu and select **Create**.
@@ -65,7 +66,7 @@ As you enabled zone redundancy for your App Service, the service connection is a
 > [!TIP]
 > Enabling zone redundancy for your target service is recommended. In a zone-down scenario, traffic to your connection will automatically be spread to other zones. However, creating, validating and updating connections rely on management APIs from the target service. If  a target service doesn’t support zone redundancy or doesn’t have zone redundancy enabled, these operations will fail.
 
-## Understand Disaster recovery resiliency in Service Connector
+## Understand disaster recovery and resiliency in Service Connector
 
 Disaster recovery is the process of restoring application functionality after a catastrophic loss.
 
@@ -75,7 +76,7 @@ We'll use the terms RTO (Recovery Time Objective), to indicate the time between 
 
 Operations against Service Connector may fail during the disaster time, before the failover happens. Once the failover is completed, data will be restored and the customer isn't required to take any action.
 
-Service connector handles business continuity and disaster recovery (BCRD) for storage and compute. The platform strives to have as minimal of an impact as possible in case of issues in storage/compute, in any region. Service Connector also follows GDPR requirements. The data layer design prioritizes availability over latency in the event of a disaster – meaning that if a region goes down, Service Connector will attempt to serve the end-user request from its paired region.
+Service connector handles business continuity and disaster recovery (BCRD) for storage and compute. The platform strives to have as minimal of an impact as possible in case of issues in storage/compute, in any region. The data layer design prioritizes availability over latency in the event of a disaster – meaning that if a region goes down, Service Connector will attempt to serve the end-user request from its paired region.
 
 During the failover action, Service Connector handles the DNS remapping to the available regions. All data and action from customer view serves as usual after failover.
 Service Connector will change its DNS in about one hour. Performing a manual failover would take more time. As Service Connector is a resource provider built on top of other Azure services, the actual time depends on the failover time of the underlying services.
