@@ -54,7 +54,7 @@ This section will help you create a network group containing the virtual network
     }' 
     ```
 
-1. Create the network group using either the static membership group (GroupMember) or the dynamic membership group (ConditionalMembership) define previously using New-AzNetworkManagerGroup.
+1. Create the network group using either the static membership group (GroupMember) or the dynamic membership group (ConditionalMembership) defined previously using New-AzNetworkManagerGroup.
 
     ```azurepowershell-interactive
     $ng = @{
