@@ -163,7 +163,7 @@ Using the **jobId** from the initial API response, poll to get the status of the
 | Succeeded | The job has completed successfully. This will also return a resourceURI<br>that refers to the private offer related to the job. Use this resourceURI<br>to obtain the full details of a private offer. |
 | Failed | The job has failed. This will also return any relevant errors to help determine the cause of failure. |
 
-For more information, see [Querying the status of an existing job](#querying-the-status-of-an-existing-job) later in this article.
+For more information, see [Querying the status of an existing job](#query-the-status-of-an-existing-job) later in this article.
 
 ### Step 3. Obtain information from completed jobs
 
@@ -766,7 +766,7 @@ You'll receive the full details of the private offer.
 }
 ```
 
-### Error Codes
+### Error codes
 
 | Error code | Description |
 | --- | --- |
@@ -795,4 +795,4 @@ You'll receive the full details of the private offer.
 
 ## Next steps
 
-- To start using private offers, follow the steps in the [ISV to customer private offers](https://docs.microsoft.com/azure/marketplace/isv-customer) guide.
+- To start using private offers, follow the steps in [ISV to customer private offers](isv-customer.md).
