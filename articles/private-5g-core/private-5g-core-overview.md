@@ -137,6 +137,10 @@ Azure Private 5G Core supports the following algorithms for ciphering and integr
 
 The packet core instance can provide a RAN with an RFSP Index. The RAN can match the RFSP Index to its local configuration to apply specific radio resource management (RRM) policies, such as cell reselection or frequency layer redirection.
 
+### 4G Multi-Operator Core Network (MOCN)
+
+Azure Private 5G Core supports Multi-Operator Core Network in 4G, allowing multiple public land mobile networks (PLMNs) to be shared by an eNodeB. Traffic through an eNodeB is routed automatically to the appropriate core network based on the PLMN ID.
+
 ## Flexible integration with Azure private multi-access edge compute (MEC) partners
 
 Each packet core instance is standards-compliant and compatible with several radio access network (RAN) partners in the Azure private MEC ecosystem.
