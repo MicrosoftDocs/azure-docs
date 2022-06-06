@@ -906,6 +906,8 @@ items:
         href: app/api-custom-events-metrics.md
       - name: Remove Application Insights
         href: app/remove-application-insights.md
+      - name: SDK support policy
+        href: app/sdk-support-guidance.md
     - name: OpenTelemetry-based instrumentation
       items:
       - name: Overview
