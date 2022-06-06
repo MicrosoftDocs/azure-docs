@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: how-to
-ms.date: 03/15/2022
+ms.date: 06/03/2022
 ms.author: aahi
 ms.devlang: csharp, python
 ms.custom: language-service-clu, ignite-fall-2021, event-tier1-build-2022
@@ -21,7 +21,7 @@ You can query the deployment programmatically [Prediction API](https://aka.ms/ct
 
 ## Test deployed model
 
-You can use the Language Studio to submit the custom text classification task and visualize the results. 
+You can use Language Studio to submit the custom text classification task and visualize the results. 
 
 [!INCLUDE [Test model](../includes/language-studio/test-model.md)]
 

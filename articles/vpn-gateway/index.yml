@@ -66,10 +66,8 @@ landingContent:
             url: openvpn-azure-ad-tenant.md
           - text: Multiple authentication types
             url: howto-point-to-site-multi-auth.md
-          - text: OpenVPN tunnel type
-            url: ikev2-openvpn-from-sstp.md
 
-  # Card
+# Card
   - title: Site-to-site VPNs
     linkLists:
       - linkListType: tutorial

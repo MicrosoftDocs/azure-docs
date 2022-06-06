@@ -9,9 +9,9 @@ ms.date: 05/30/2022
 
 Defender for Cloud is in active development and receives improvements on an ongoing basis. To stay up to date with the most recent developments, this page provides you with information about new features, bug fixes, and deprecated functionality.
 
-This page is updated frequently, so revisit it often. 
+This page is updated frequently, so revisit it often.
 
-To learn about *planned* changes that are coming soon to Defender for Cloud, see [Important upcoming changes to Microsoft Defender for Cloud](upcoming-changes.md). 
+To learn about *planned* changes that are coming soon to Defender for Cloud, see [Important upcoming changes to Microsoft Defender for Cloud](upcoming-changes.md).
 
 > [!TIP]
 > If you're looking for items older than six months, you'll find them in the [Archive for What's new in Microsoft Defender for Cloud](release-notes-archive.md).
@@ -20,7 +20,23 @@ To learn about *planned* changes that are coming soon to Defender for Cloud, see
 
 Updates in June include:
 
+- [Drive implementation of security recommendations to enhance your security posture](#drive-implementation-of-security-recommendations-to-enhance-your-security-posture)
+- [Filter security alerts by IP address](#filter-security-alerts-by-ip-address)
 - [General availability (GA) of Defender for SQL on machines for AWS and GCP environments](#general-availability-ga-of-defender-for-sql-on-machines-for-aws-and-gcp-environments)
+
+### Drive implementation of security recommendations to enhance your security posture
+
+Today's increasing threats to organizations stretch the limits of security personnel to protect their expanding workloads. Security teams are challenged to implement the protections defined in their security policies.
+
+Now with the governance experience, security teams can assign remediation of security recommendations to the resource owners and require a remediation schedule. They can have full transparency into the progress of the remediation and get notified when tasks are overdue.
+
+Learn more about the governance experience in [Driving your organization to remediate security issues with recommendation governance](governance-rules.md).
+
+### Filter security alerts by IP address
+
+In many cases of attacks, you want to track alerts based on the IP address of the entity involved in the attack. Up until now, the IP appeared only in the "Related Entities" section in the single alert blade. Now, you can filter the alerts in the security alerts blade to see the alerts related to the IP address, and you can search for a specific IP address.
+
+:::image type="content" source="media/release-notes/ip-address-filter-for-alerts.png" alt-text="Screenshot of filter for I P address in Defender for Cloud alerts." lightbox="media/release-notes/ip-address-filter-for-alerts.png":::
 
 ### General availability (GA) of Defender for SQL on machines for AWS and GCP environments
 
@@ -77,7 +93,7 @@ Learn how [JIT protects your AWS EC2 instances](just-in-time-access-overview.md#
 The Defender profile (preview) is required for Defender for Containers to provide the runtime protections and collects signals from nodes. You can now use the Azure CLI to [add and remove the Defender profile](defender-for-containers-enable.md?tabs=k8s-deploy-cli%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Ck8s-remove-cli&pivots=defender-for-container-aks#use-azure-cli-to-deploy-the-defender-extension) for an AKS cluster.
 
 > [!NOTE]
-> This option is included in [Azure CLI 3.7 and above](https://docs.microsoft.com/cli/azure/update-azure-cli).
+> This option is included in [Azure CLI 3.7 and above](/cli/azure/update-azure-cli).
 
 ## April 2022
 
@@ -122,7 +138,7 @@ To learn more, see [Stream alerts to Splunk and QRadar](export-to-siem.md#stream
 
 ### Deprecated the Azure Cache for Redis recommendation
 
-The recommendation `Azure Cache for Redis should reside within a virtual network` (Preview) has been deprecated. We’ve changed our guidance for securing Azure Cache for Redis instances. We recommend the use of a private endpoint to restrict access to your Azure Cache for Redis instance, instead of a virtual network. 
+The recommendation `Azure Cache for Redis should reside within a virtual network` (Preview) has been deprecated. We’ve changed our guidance for securing Azure Cache for Redis instances. We recommend the use of a private endpoint to restrict access to your Azure Cache for Redis instance, instead of a virtual network.
 
 ### New alert variant for Microsoft Defender for Storage (preview) to detect exposure of sensitive data
 
@@ -136,25 +152,25 @@ The new alert, `Publicly accessible storage containers with potentially sensitiv
 |--|--|--|--|
 |**PREVIEW - Publicly accessible storage containers with potentially sensitive data have been exposed** <br>(Storage.Blob_OpenContainersScanning.SuccessfulDiscovery.Sensitive)| Someone has scanned your Azure Storage account and exposed container(s) that allow public access. One or more of the exposed containers have names that indicate that they may contain sensitive data. <br> <br> This usually indicates reconnaissance by a threat actor that is scanning for misconfigured publicly accessible storage containers that may contain sensitive data. <br> <br> After a threat actor successfully discovers a container, they may continue by exfiltrating the data. <br> ✔ Azure Blob Storage <br> ✖ Azure Files <br> ✖ Azure Data Lake Storage Gen2 | Collection  | High |
 
-### Container scan alert title augmented with IP address reputation 
+### Container scan alert title augmented with IP address reputation
 
-An IP address's reputation can indicate whether the scanning activity originates from a known threat actor, or from an actor that is using the Tor network to hide their identity. Both of these indicators, suggest that there's malicious intent. The IP address's reputation is provided by [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684). 
+An IP address's reputation can indicate whether the scanning activity originates from a known threat actor, or from an actor that is using the Tor network to hide their identity. Both of these indicators, suggest that there's malicious intent. The IP address's reputation is provided by [Microsoft Threat Intelligence](https://go.microsoft.com/fwlink/?linkid=2128684).
 
 The addition of the IP address's reputation to the alert title provides a way to quickly evaluate the intent of the actor, and thus the severity of the threat.  
 
-The following alerts will include this information: 
+The following alerts will include this information:
 
-- `Publicly accessible storage containers have been exposed` 
+- `Publicly accessible storage containers have been exposed`
 
 - `Publicly accessible storage containers with potentially sensitive data have been exposed`
 
 - `Publicly accessible storage containers have been scanned. No publicly accessible data was discovered`
 
-For example, the added information to the title of the `Publicly accessible storage containers have been exposed` alert will look like this: 
+For example, the added information to the title of the `Publicly accessible storage containers have been exposed` alert will look like this:
 
 - `Publicly accessible storage containers have been exposed`**`by a suspicious IP address`**
 
-- `Publicly accessible storage containers have been exposed`**`by a Tor exit node`** 
+- `Publicly accessible storage containers have been exposed`**`by a Tor exit node`**
 
 All of the alerts for Microsoft Defender for Storage will continue to include threat intelligence information in the IP entity under the alert's Related Entities section.
 
@@ -310,7 +326,7 @@ Updates in February include:
 - [Microsoft Defender for Azure Cosmos DB plan released for preview](#microsoft-defender-for-azure-cosmos-db-plan-released-for-preview)
 - [Threat protection for Google Kubernetes Engine (GKE) clusters](#threat-protection-for-google-kubernetes-engine-gke-clusters)
 
-### Kubernetes workload protection for Arc-enabled Kubernetes clusters 
+### Kubernetes workload protection for Arc-enabled Kubernetes clusters
 
 Defender for Containers previously only protected Kubernetes workloads running in Azure Kubernetes Service. We've now extended the protective coverage to include Azure Arc-enabled Kubernetes clusters.
 
@@ -330,15 +346,15 @@ Learn how to protect, and [connect your GCP projects](quickstart-onboard-gcp.md)
 
 ### Microsoft Defender for Azure Cosmos DB plan released for preview
 
-We have extended Microsoft Defender for Cloud’s database coverage. You can now enable protection for your Azure Cosmos DB databases. 
+We have extended Microsoft Defender for Cloud’s database coverage. You can now enable protection for your Azure Cosmos DB databases.
 
-Microsoft Defender for Azure Cosmos DB is an Azure-native layer of security that detects any attempt to exploit databases in your Azure Cosmos DB accounts. Microsoft Defender for Azure Cosmos DB detects potential SQL injections, known bad actors based on Microsoft Threat Intelligence, suspicious access patterns, and potential exploitation of your database through compromised identities, or malicious insiders. 
+Microsoft Defender for Azure Cosmos DB is an Azure-native layer of security that detects any attempt to exploit databases in your Azure Cosmos DB accounts. Microsoft Defender for Azure Cosmos DB detects potential SQL injections, known bad actors based on Microsoft Threat Intelligence, suspicious access patterns, and potential exploitation of your database through compromised identities, or malicious insiders.
 
 It continuously analyzes the customer data stream generated by the Azure Cosmos DB services.
 
-When potentially malicious activities are detected, security alerts are generated. These alerts are displayed in Microsoft Defender for Cloud together with the details of the suspicious activity along with the relevant investigation steps, remediation actions, and security recommendations. 
+When potentially malicious activities are detected, security alerts are generated. These alerts are displayed in Microsoft Defender for Cloud together with the details of the suspicious activity along with the relevant investigation steps, remediation actions, and security recommendations.
 
-There's no impact on database performance when enabling the service, because Defender for Azure Cosmos DB doesn't access the Azure Cosmos DB account data. 
+There's no impact on database performance when enabling the service, because Defender for Azure Cosmos DB doesn't access the Azure Cosmos DB account data.
 
 Learn more at [Introduction to Microsoft Defender for Azure Cosmos DB](concept-defender-for-cosmos.md).
 
@@ -349,7 +365,6 @@ Learn how to [enable your database security at the subscription level](quickstar
 ### Threat protection for Google Kubernetes Engine (GKE) clusters
 
 Following our recent announcement [Native CSPM for GCP and threat protection for GCP compute instances](#native-cspm-for-gcp-and-threat-protection-for-gcp-compute-instances), Microsoft Defender for Containers has extended its Kubernetes threat protection, behavioral analytics, and built-in admission control policies to Google's Kubernetes Engine (GKE) Standard clusters. You can easily onboard any existing, or new GKE Standard clusters to your environment through our Automatic onboarding capabilities. Check out [Container security with Microsoft Defender for Cloud](defender-for-containers-introduction.md#vulnerability-assessment), for a full list of available features.
-
 
 ## January 2022
 
@@ -374,7 +389,7 @@ Microsoft Defender for Resource Manager automatically monitors the resource mana
 
 The plan's protections greatly enhance an organization's resiliency against attacks from threat actors and significantly increase the number of Azure resources protected by Defender for Cloud.
 
-In December 2020, we introduced the preview of Defender for Resource Manager, and in May 2021 the plan was release for general availability. 
+In December 2020, we introduced the preview of Defender for Resource Manager, and in May 2021 the plan was release for general availability.
 
 With this update, we've comprehensively revised the focus of the Microsoft Defender for Resource Manager plan. The updated plan includes many **new alerts focused on identifying suspicious invocation of high-risk operations**. These new alerts provide extensive monitoring for attacks across the *complete* [MITRE ATT&CK® matrix for cloud-based techniques](https://attack.mitre.org/matrices/enterprise/cloud/).
 
@@ -397,7 +412,6 @@ The new alerts for this Defender plan cover these intentions as shown in the fol
 | **Suspicious invocation of a high-risk 'Data Collection' operation detected (Preview)**<br>(ARM_AnomalousOperation.Collection)               | Microsoft Defender for Resource Manager identified a suspicious invocation of a high-risk operation in your subscription, which might indicate an attempt to collect data. The identified operations are designed to allow administrators to efficiently manage their environments. While this activity may be legitimate, a threat actor might utilize such operations to collect sensitive data on resources in your environment. This can indicate that the account is compromised and is being used with malicious intent.                                         | Collection                | Medium   |
 | **Suspicious invocation of a high-risk 'Impact' operation detected (Preview)**<br>(ARM_AnomalousOperation.Impact)                            | Microsoft Defender for Resource Manager identified a suspicious invocation of a high-risk operation in your subscription, which might indicate an attempted configuration change. The identified operations are designed to allow administrators to efficiently manage their environments. While this activity may be legitimate, a threat actor might utilize such operations to access restricted credentials and compromise resources in your environment. This can indicate that the account is compromised and is being used with malicious intent.               | Impact                    | Medium   |
 
-
 In addition, these two alerts from this plan have come out of preview:
 
 | Alert (alert type)                                                                                                                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | MITRE tactics (intentions)| Severity |
@@ -405,15 +419,13 @@ In addition, these two alerts from this plan have come out of preview:
 | **Azure Resource Manager operation from suspicious IP address**<br>(ARM_OperationFromSuspiciousIP)                                                      | Microsoft Defender for Resource Manager detected an operation from an IP address that has been marked as suspicious in threat intelligence feeds.                                                                                                                                                                                                                                                                                            | Execution                             | Medium   |
 | **Azure Resource Manager operation from suspicious proxy IP address**<br>(ARM_OperationFromSuspiciousProxyIP)                                           | Microsoft Defender for Resource Manager detected a resource management operation from an IP address that is associated with proxy services, such as TOR. While this behavior can be legitimate, it's often seen in malicious activities, when threat actors try to hide their source IP.                                                                                                                                                     | Defense Evasion                       | Medium   |
 
-
-
 ### Recommendations to enable Microsoft Defender plans on workspaces (in preview)
 
-To benefit from all of the security features available from [Microsoft Defender for Servers](defender-for-servers-introduction.md) and [Microsoft Defender for SQL on machines](defender-for-sql-introduction.md), the plans must be enabled on **both** the subscription and workspace levels. 
+To benefit from all of the security features available from [Microsoft Defender for Servers](defender-for-servers-introduction.md) and [Microsoft Defender for SQL on machines](defender-for-sql-introduction.md), the plans must be enabled on **both** the subscription and workspace levels.
 
-When a machine is in a subscription with one of these plan enabled, you'll be billed for the full protections. However, if that machine is reporting to a workspace *without* the plan enabled, you won't actually receive those benefits. 
+When a machine is in a subscription with one of these plan enabled, you'll be billed for the full protections. However, if that machine is reporting to a workspace *without* the plan enabled, you won't actually receive those benefits.
 
-We've added two recommendations that highlight workspaces without these plans enabled, that nevertheless have machines reporting to them from subscriptions that *do* have the plan enabled. 
+We've added two recommendations that highlight workspaces without these plans enabled, that nevertheless have machines reporting to them from subscriptions that *do* have the plan enabled.
 
 The two recommendations, which both offer automated remediation (the 'Fix' action), are:
 
@@ -422,19 +434,17 @@ The two recommendations, which both offer automated remediation (the 'Fix' actio
 |[Microsoft Defender for Servers should be enabled on workspaces](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/1ce68079-b783-4404-b341-d2851d6f0fa2) |Microsoft Defender for Servers brings threat detection and advanced defenses for your Windows and Linux machines.<br>With this Defender plan enabled on your subscriptions but not on your workspaces, you're paying for the full capability of Microsoft Defender for Servers but missing out on some of the benefits.<br>When you enable Microsoft Defender for Servers on a workspace, all machines reporting to that workspace will be billed for Microsoft Defender for Servers - even if they're in subscriptions without Defender plans enabled. Unless you also enable Microsoft Defender for Servers on the subscription, those machines won't be able to take advantage of just-in-time VM access, adaptive application controls, and network detections for Azure resources.<br>Learn more in <a target="_blank" href="/azure/defender-for-cloud/defender-for-servers-introduction?wt.mc_id=defenderforcloud_inproduct_portal_recoremediation">Introduction to Microsoft Defender for Servers</a>.<br />(No related policy) |Medium |
 |[Microsoft Defender for SQL on machines should be enabled on workspaces](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/e9c320f1-03a0-4d2b-9a37-84b3bdc2e281) |Microsoft Defender for Servers brings threat detection and advanced defenses for your Windows and Linux machines.<br>With this Defender plan enabled on your subscriptions but not on your workspaces, you're paying for the full capability of Microsoft Defender for Servers but missing out on some of the benefits.<br>When you enable Microsoft Defender for Servers on a workspace, all machines reporting to that workspace will be billed for Microsoft Defender for Servers - even if they're in subscriptions without Defender plans enabled. Unless you also enable Microsoft Defender for Servers on the subscription, those machines won't be able to take advantage of just-in-time VM access, adaptive application controls, and network detections for Azure resources.<br>Learn more in <a target="_blank" href="/azure/defender-for-cloud/defender-for-servers-introduction?wt.mc_id=defenderforcloud_inproduct_portal_recoremediation">Introduction to Microsoft Defender for Servers</a>.<br />(No related policy) |Medium |
 
-
-
 ### Auto provision Log Analytics agent to Azure Arc-enabled machines (preview)
 
 Defender for Cloud uses the Log Analytics agent to gather security-related data from machines. The agent reads various security-related configurations and event logs and copies the data to your workspace for analysis.
 
-Defender for Cloud's auto provisioning settings has a toggle for each type of supported extension, including the Log Analytics agent. 
+Defender for Cloud's auto provisioning settings has a toggle for each type of supported extension, including the Log Analytics agent.
 
-In a further expansion of our hybrid cloud features, we've added an option to auto provision the Log Analytics agent to machines connected to Azure Arc. 
+In a further expansion of our hybrid cloud features, we've added an option to auto provision the Log Analytics agent to machines connected to Azure Arc.
 
 As with the other auto provisioning options, this is configured at the subscription level.
 
-When you enable this option, you'll be prompted for the workspace. 
+When you enable this option, you'll be prompted for the workspace.
 
 > [!NOTE]
 > For this preview, you can't select the default workspaces that was created by Defender for Cloud. To ensure you receive the full set of security features available for the Azure Arc-enabled servers, verify that you have the relevant security solution installed on the selected workspace.
@@ -447,9 +457,9 @@ We've removed the recommendation **Sensitive data in your SQL databases should b
 
 Advance notice of this change appeared for the last six months in the [Important upcoming changes to Microsoft Defender for Cloud](upcoming-changes.md) page.
 
-### Communication with suspicious domain alert expanded to included known Log4Shell-related domains 
+### Communication with suspicious domain alert expanded to included known Log4Shell-related domains
 
-The following alert was previously only available to organizations who had enabled the [Microsoft Defender for DNS](defender-for-dns-introduction.md) plan. 
+The following alert was previously only available to organizations who had enabled the [Microsoft Defender for DNS](defender-for-dns-introduction.md) plan.
 
 With this update, the alert will also show for subscriptions with the [Microsoft Defender for Servers](defender-for-servers-introduction.md) or [Defender for App Service](defender-for-app-service-introduction.md) plan enabled.
 
@@ -472,12 +482,12 @@ The new **Copy alert JSON** button puts the alert’s details, in JSON format, i
 For consistency with other recommendation names, we've renamed the following two recommendations:
 
 - Recommendation to resolve vulnerabilities discovered in running container images
-    - Previous name: Vulnerabilities in running container images should be remediated (powered by Qualys)
-    - New name: Running container images should have vulnerability findings resolved
+  - Previous name: Vulnerabilities in running container images should be remediated (powered by Qualys)
+  - New name: Running container images should have vulnerability findings resolved
 
 - Recommendation to enable diagnostic logs for Azure App Service
-    - Previous name: Diagnostic logs should be enabled in App Service
-    - New name: Diagnostic logs in App Service should be enabled
+  - Previous name: Diagnostic logs should be enabled in App Service
+  - New name: Diagnostic logs in App Service should be enabled
 
 ### Deprecate Kubernetes cluster containers should only listen on allowed ports policy
 
@@ -502,123 +512,3 @@ The active alerts workbook allows users to view a unified dashboard of their agg
 The 'System updates should be installed on your machines' recommendation is now available on all government clouds.  
 
 It's likely that this change will impact your government cloud subscription's secure score. We expect the change to lead to a decreased score, but it's possible the recommendation's inclusion might result in an increased score in some cases.
-
-## December 2021
-
-Updates in December include:
-
-- [Microsoft Defender for Containers plan released for general availability (GA)](#microsoft-defender-for-containers-plan-released-for-general-availability-ga)
-- [New alerts for Microsoft Defender for Storage released for general availability (GA)](#new-alerts-for-microsoft-defender-for-storage-released-for-general-availability-ga)
-- [Improvements to alerts for Microsoft Defender for Storage](#improvements-to-alerts-for-microsoft-defender-for-storage)
-- ['PortSweeping' alert removed from network layer alerts](#portsweeping-alert-removed-from-network-layer-alerts)
-
-### Microsoft Defender for Containers plan released for general availability (GA)
-
-Over two years ago, we introduced [Defender for Kubernetes](defender-for-kubernetes-introduction.md) and [Defender for container registries](defender-for-container-registries-introduction.md) as part of the Azure Defender offering within Microsoft Defender for Cloud.
-
-With the release of [Microsoft Defender for Containers](defender-for-containers-introduction.md), we've merged these two existing Defender plans. 
-
-The new plan:
-
-- **Combines the features of the two existing plans** - threat detection for Kubernetes clusters and vulnerability assessment for images stored in container registries
-- **Brings new and improved features** - including multicloud support, host level threat detection with over **sixty** new Kubernetes-aware analytics, and vulnerability assessment for running images
-- **Introduces Kubernetes-native at-scale onboarding** - by default, when you enable the plan all relevant components are configured to be deployed automatically
-
-With this release, the availability and presentation of Defender for Kubernetes and Defender for container registries has changed as follows:
-
-- New subscriptions - The two previous container plans are no longer available
-- Existing subscriptions - Wherever they appear in the Azure portal, the plans are shown as **Deprecated** with instructions for how to upgrade to the newer plan
-    :::image type="content" source="media/release-notes/defender-plans-deprecated-indicator.png" alt-text="Defender for container registries and Defender for Kubernetes plans showing 'Deprecated' and upgrade information.":::
-
-The new plan is free for the month of December 2021. For the potential changes to the billing from the old plans to Defender for Containers, and for more information on the benefits introduced with this plan, see [Introducing Microsoft Defender for Containers](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/introducing-microsoft-defender-for-containers/ba-p/2952317).
-
-For more information, see:
-
-- [Overview of Microsoft Defender for Containers](defender-for-containers-introduction.md)
-- [Enable Microsoft Defender for Containers](defender-for-containers-enable.md)
-- [Introducing Microsoft Defender for Containers - Microsoft Tech Community](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/introducing-microsoft-defender-for-containers/ba-p/2952317)
-- [Microsoft Defender for Containers | Defender for Cloud in the Field #3 - YouTube](https://www.youtube.com/watch?v=KeH0a3enLJ0&t=201s)
-
-
-### New alerts for Microsoft Defender for Storage released for general availability (GA)
-
-Threat actors use tools and scripts to scan for publicly open containers in the hope of finding misconfigured open storage containers with sensitive data.
-
-Microsoft Defender for Storage detects these scanners so that you can block them and remediate your posture.
-
-The preview alert that detected this was called **“Anonymous scan of public storage containers”**. To provide greater clarity about the suspicious events discovered, we've divided this into **two** new alerts. These alerts are relevant to Azure Blob Storage only.
-
-We've improved the detection logic, updated the alert metadata, and changed the alert name and alert type.
-
-These are the new alerts:
-
-| Alert   (alert type)                                                                                                                  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            | MITRE tactic | Severity |
-|---------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------|----------|
-| **Publicly accessible storage containers successfully discovered**<br>(Storage.Blob_OpenContainersScanning.SuccessfulDiscovery) | A successful discovery of   publicly open storage container(s) in your storage account was performed in the last hour by a scanning script or tool.<br><br>            This usually indicates a reconnaissance attack, where the threat actor tries to list blobs by guessing container names, in the hope of finding misconfigured open storage containers with sensitive data in them.<br><br>            The threat actor may use their own script or use known scanning tools like   Microburst to scan for publicly open containers.<br><br>            ✔ Azure Blob Storage<br>      ✖ Azure Files<br>      ✖ Azure Data Lake Storage Gen2 | Collection   | Medium   |
-| **Publicly accessible storage containers unsuccessfully scanned**<br>(Storage.Blob_OpenContainersScanning.FailedAttempt)        | A series of failed attempts to scan for publicly open storage containers were performed in the last hour. <br><br>This usually indicates a reconnaissance attack, where the threat actor tries to list blobs by guessing container names, in the hope of finding misconfigured open storage containers with sensitive data in them.<br><br> The threat actor may use their own script or use known scanning tools like Microburst to scan for publicly open containers.<br><br>            ✔ Azure Blob Storage<br>      ✖ Azure Files<br>      ✖ Azure Data Lake Storage Gen2                                         | Collection   | Low      |
-
-
-For more information, see:
-- [Threat matrix for storage services](https://www.microsoft.com/security/blog/2021/04/08/threat-matrix-for-storage/)
-- [Introduction to Microsoft Defender for Storage](defender-for-storage-introduction.md)
-- [List of alerts provided by Microsoft Defender for Storage](alerts-reference.md#alerts-azurestorage)
-
-
-### Improvements to alerts for Microsoft Defender for Storage
-
-The initial access alerts now have improved accuracy and more data to support investigation.
-
-Threat actors use various techniques in the initial access to gain a foothold within a network. Two of the [Microsoft Defender for Storage](defender-for-storage-introduction.md) alerts that detect behavioral anomalies in this stage now have improved detection logic and additional data to support investigations. 
-
-If you've [configured automations](workflow-automation.md) or defined [alert suppression rules](alerts-suppression-rules.md) for these alerts in the past, update them in accordance with these changes. 
-
-#### Detecting access from a Tor exit node
-
-Access from a Tor exit node might indicate a threat actor trying to hide their identity. 
-
-The alert is now tuned to generate only for authenticated access, which results in higher accuracy and confidence that the activity is malicious. This enhancement reduces the benign positive rate.  
-
-An outlying pattern will have high severity, while less anomalous patterns will have medium severity. 
- 
-The alert name and description have been updated. The AlertType remains unchanged. 
-
-- Alert name (old): Access from a Tor exit node to a storage account 
-- Alert name (new): Authenticated access from a Tor exit node 
-- Alert types:  Storage.Blob_TorAnomaly / Storage.Files_TorAnomaly
-- Description: One or more storage container(s) / file share(s) in your storage account were successfully accessed from an IP address known to be an active exit node of Tor (an anonymizing proxy). Threat actors use Tor to make it difficult to trace the activity back to them. Authenticated access from a Tor exit node is a likely indication that a threat actor is trying to hide their identity. Applies to: Azure Blob Storage, Azure Files, Azure Data Lake Storage Gen2
-- MITRE tactic: Initial access
-- Severity: High/Medium
-
-#### Unusual unauthenticated access 
-
-A change in access patterns may indicate that a threat actor was able to exploit public read access to storage containers, either by exploiting a mistake in access configurations, or by changing the access permissions. 
-
-This medium severity alert is now tuned with improved behavioral logic, higher accuracy, and confidence that the activity is malicious. This enhancement reduces the benign positive rate. 
-
-The alert name and description have been updated. The AlertType remains unchanged. 
- 
-- Alert name (old): Anonymous access to a storage account 
-- Alert name (new): Unusual unauthenticated access to a storage container
-- Alert types: Storage.Blob_AnonymousAccessAnomaly
-- Description: This storage account was accessed without authentication, which is a change in the common access pattern. Read access to this container is usually authenticated. This might indicate that a threat actor was able to exploit public read access to storage container(s) in this storage account(s). Applies to: Azure Blob Storage
-- MITRE tactic: Collection 
-- Severity: Medium
-
-For more information, see: 
-
-- [Threat matrix for storage services](https://www.microsoft.com/security/blog/2021/04/08/threat-matrix-for-storage/)
-- [Introduction to Microsoft Defender for Storage](defender-for-storage-introduction.md)
-- [List of alerts provided by Microsoft Defender for Storage](alerts-reference.md#alerts-azurestorage)
-
-
-### 'PortSweeping' alert removed from network layer alerts
-
-The following alert was removed from our network layer alerts due to inefficiencies:
-
-| Alert (alert type)                                                                                                                                               | Description     | MITRE tactics | Severity      |
-|------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------:|---------------|
-| **Possible outgoing port scanning activity detected**<br>(PortSweeping) | Network traffic analysis detected suspicious outgoing traffic from %{Compromised Host}. This traffic may be a result of a port scanning activity. When the compromised resource is a load balancer or an application gateway, the suspected outgoing traffic has been originated from to one or more of the resources in the backend pool (of the load balancer or application gateway). If this behavior is intentional, please note that performing port scanning is against Azure Terms of service. If this behavior is unintentional, it may mean your resource has been compromised. | Discovery | Medium   |
-
-
-
-

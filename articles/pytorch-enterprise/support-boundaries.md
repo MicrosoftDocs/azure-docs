@@ -1,8 +1,8 @@
 ---
 title: 'Support boundaries for PyTorch Enterprise on Azure'
 description: This article defines the support boundaries for PyTorch Enterprise. 
-author: alonbochman
-ms.author: alonbochman
+author: prasanthpul
+ms.author: prasantp
 ms.service: pytorch-enterprise
 ms.topic: conceptual
 ms.date: 07/06/2021
