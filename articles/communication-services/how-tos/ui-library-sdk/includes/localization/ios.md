@@ -20,7 +20,7 @@ If your application supports localization, the UI Library will be displayed base
 
 The following table of `locale` with out of the box translations. If you want to localize the composite, pass the `locale` into `LocalizationOptions` as options into `CallComposite`.
 
-|         Language         | CommunicationUISupportedLocale       |    identifier  |
+|         Language         | SupportedLocale       |    identifier  |
 |:------------------------:|:------------------:|:------------:|
 | Chinese, Simplified | zh | zh |
 | Chinese, Simplified | zhHans | zh-Hans |
@@ -51,10 +51,10 @@ The following table of `locale` with out of the box translations. If you want to
 | Turkish | tr | tr |
 | Turkish (Turkey) | trTR | tr-TR |
 
-You can also obtain list of `locale` by the static function `CallCompositeSupportedLocale.getSupportedLocales()` will return list of Locale structs.
+You can also obtain list of `locale` by the static function `SupportedLocale.values` will return list of Locale structs.
 
 ```swift
-let locales: [Locale] = CallCompositeSupportedLocale.getSupportedLocales().map{ $0.identifier }
+let locales: [Locale] = SupportedLocale.values.map{ $0.identifier }
 print(locales)
 
 // ["de", "de-DE", "en", "en-GB", "en-US", "es", "es-ES", "fr", "fr-FR", "it", "it-IT", "ja", "ja-JP", "ko", "ko-KR", "nl", "nl-NL", "pt", "pt-BR", "ru", "ru-RU", "tr", "tr-TR", "zh", "zh-Hans", "zh-Hans-CN", "zh-Hant", "zh-Hant-TW"]
@@ -70,8 +70,8 @@ To use the `LocalizationOptions`, specify a `locale` Swift Locale struct (with o
 // Creating swift Locale struct
 var localizationOptions = LocalizationOptions(locale: Locale(identifier: "fr-FR"))
 
-// Use intellisense CommunicationUISupportedLocale to get supported Locale struct
-localizationOptions = LocalizationOptions(locale: CommunicationUISupportedLocale.frFR)
+// Use intellisense SupportedLocale to get supported Locale struct
+localizationOptions = LocalizationOptions(locale: SupportedLocale.frFR)
 
 let callCompositeOptions = CallCompositeOptions(localization: localizationOptions)
 let callComposite = CallComposite(withOptions: callCompositeOptions)
