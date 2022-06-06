@@ -37,91 +37,91 @@ Use the environment variable names and application properties listed below to co
 
 ### Connect an Azure App Service instance
 
-Use the connection details below to connect Azure App Service instances with .NET, Go, Java, Java - Spring Boot, PHP, Node.js, Python, Python - Django and Ruby.
+Use the connection details below to connect Azure App Service instances with .NET, Go, Java, Java - Spring Boot, PHP, Node.js, Python, Python - Django and Ruby. For each example below, replace the placeholder texts `<sql-server>`, `<sql-db>`, `<sql-user>`, and `<sql-pass>` with your server name, database name, user ID and password.
 
 #### Azure App Service with .NET (sqlClient)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description | Sample value |
 > | --------------------------------- | ------------| ------------ |
-> | AZURE_SQL_CONNECTIONSTRING | Azure SQL Database connection string | `Data Source=sql-server.database.windows.net,1433;Initial Catalog=sql-db;User ID=sql-user;Password=sql-pass` |
+> | AZURE_SQL_CONNECTIONSTRING | Azure SQL Database connection string | `Data Source=<sql-server>.database.windows.net,1433;Initial Catalog=<sql-db>;User ID=<sql-user>;Password=<sql-pass>` |
 
 #### Azure App Service with Java Database Connectivity (JDBC)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description | Sample value |
 > | --------------------------------- | ------------| ------------ |
-> | AZURE_SQL_CONNECTIONSTRING | Azure SQL Database connection string | `jdbc:sqlserver://sql-server.database.windows.net:1433;databaseName=sql-db;user=sql-user;password=sql-pass;` |
+> | AZURE_SQL_CONNECTIONSTRING | Azure SQL Database connection string | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-db>;user=<sql-user>;password=<sql-pass>;` |
 
 #### Azure App Service with Java Spring Boot (spring-boot-starter-jdbc)
 
 > [!div class="mx-tdBreakAll"]
-> | Default environment variable name | Description                            | Sample value                                                                 |
-> |-----------------------------------|----------------------------------------|------------------------------------------------------------------------------|
-> | spring.datasource.url             | Azure SQL Database datasource URL      | `jdbc:sqlserver://sql-server.database.windows.net:1433;databaseName=sql-db;` |
-> | spring.datasource.username        | Azure SQL Database datasource username | `sql-user`                                                                   |
-> | spring.datasource.password        | Azure SQL Database datasource password | `sql-pass`                                                                   |
+> | Default environment variable name | Description                            | Sample value                                                                     |
+> |-----------------------------------|----------------------------------------|----------------------------------------------------------------------------------|
+> | spring.datasource.url             | Azure SQL Database datasource URL      | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-db>;` |
+> | spring.datasource.username        | Azure SQL Database datasource username | `<sql-user>`                                                                     |
+> | spring.datasource.password        | Azure SQL Database datasource password | `<sql-pass>`                                                                     |
 
 #### Azure App Service with Go (go-mssqldb)
 
 > [!div class="mx-tdBreakAll"]
 > | Default environment variable name | Description | Sample value |
 > | --------------------------------- | ------------| ------------ |
-> | AZURE_SQL_CONNECTIONSTRING        | Azure SQL Database connection string | `server=sql-serverdatabase.windows.net;port=1433;database=sql-db;user id=sql-user;password=sql-pass;` |
+> | AZURE_SQL_CONNECTIONSTRING        | Azure SQL Database connection string | `server=<sql-server>.database.windows.net;port=1433;database=<sql-db>;user id=<sql-user>;password=<sql-pass>;` |
 
 #### Azure App Service with Node.js
 
 > [!div class="mx-tdBreakAll"]
-> | Default environment variable name | Description                 | Sample value                      |
-> |-----------------------------------|-----------------------------|-----------------------------------|
-> | AZURE_SQL_SERVER                  | Azure SQL Database server   | `sql-server.database.windows.net` |
-> | AZURE_SQL_PORT                    | Azure SQL Database port     | `1433`                            |
-> | AZURE_SQL_DATABASE                | Azure SQL Database database | `sql-db`                          |
-> | AZURE_SQL_USERNAME                | Azure SQL Database username | `sql-user`                        |
-> | AZURE_SQL_PASSWORD                | Azure SQL Database password | `sql-pass`                        |
+> | Default environment variable name | Description                 | Sample value                        |
+> |-----------------------------------|-----------------------------|-------------------------------------|
+> | AZURE_SQL_SERVER                  | Azure SQL Database server   | `<sql-server>.database.windows.net` |
+> | AZURE_SQL_PORT                    | Azure SQL Database port     | `1433`                              |
+> | AZURE_SQL_DATABASE                | Azure SQL Database database | `<sql-db>`                          |
+> | AZURE_SQL_USERNAME                | Azure SQL Database username | `<sql-user>`                        |
+> | AZURE_SQL_PASSWORD                | Azure SQL Database password | `<sql-pass>`                        |
 
 #### Azure App Service with PHP
 
 > [!div class="mx-tdBreakAll"]
-> | Default environment variable name | Description                                | Sample value                      |
-> |-----------------------------------|--------------------------------------------|-----------------------------------|
-> | AZURE_SQL_SERVERNAME              | Azure SQL Database servername              | `sql-server.database.windows.net` |
-> | AZURE_SQL_DATABASE                | Azure SQL Database database                | `sql-db`                          |
-> | AZURE_SQL_UID                     | Azure SQL Database unique identifier (UID) | `sql-user`                        |
-> | AZURE_SQL_PASSWORD                | Azure SQL Database password                | `sql-pass`                        |
+> | Default environment variable name | Description                                | Sample value                        |
+> |-----------------------------------|--------------------------------------------|-------------------------------------|
+> | AZURE_SQL_SERVERNAME              | Azure SQL Database servername              | `<sql-server>.database.windows.net` |
+> | AZURE_SQL_DATABASE                | Azure SQL Database database                | `<sql-db>`                          |
+> | AZURE_SQL_UID                     | Azure SQL Database unique identifier (UID) | `<sql-user>`                        |
+> | AZURE_SQL_PASSWORD                | Azure SQL Database password                | `<sql-pass>`                        |
 
 #### Azure App Service with Python (pyobdc)
 
 > [!div class="mx-tdBreakAll"]
-> | Default environment variable name | Description                 | Sample value                      |
-> |-----------------------------------|-----------------------------|-----------------------------------|
-> | AZURE_SQL_SERVER                  | Azure SQL Database server   | `sql-server.database.windows.net` |
-> | AZURE_SQL_PORT                    | Azure SQL Database port     | `1433`                            |
-> | AZURE_SQL_DATABASE                | Azure SQL Database database | `sql-db`                          |
-> | AZURE_SQL_USER                    | Azure SQL Database user     | `sql-user`                        |
-> | AZURE_SQL_PASSWORD                | Azure SQL Database password | `sql-pass`                        |
+> | Default environment variable name | Description                 | Sample value                        |
+> |-----------------------------------|-----------------------------|-------------------------------------|
+> | AZURE_SQL_SERVER                  | Azure SQL Database server   | `<sql-server>.database.windows.net` |
+> | AZURE_SQL_PORT                    | Azure SQL Database port     | `1433`                              |
+> | AZURE_SQL_DATABASE                | Azure SQL Database database | `<sql-db>`                          |
+> | AZURE_SQL_USER                    | Azure SQL Database user     | `<sql-user>`                        |
+> | AZURE_SQL_PASSWORD                | Azure SQL Database password | `<sql-pass>`                        |
 
 #### Azure App Service with Django (mssql-django)
 
 > [!div class="mx-tdBreakAll"]
-> | Default environment variable name | Description                 | Sample value                      |
-> |-----------------------------------|-----------------------------|-----------------------------------|
-> | AZURE_SQL_HOST                    | Azure SQL Database host     | `sql-server.database.windows.net` |
-> | AZURE_SQL_PORT                    | Azure SQL Database port     | `1433`                            |
-> | AZURE_SQL_NAME                    | Azure SQL Database name     | `sql-db`                          |
-> | AZURE_SQL_USER                    | Azure SQL Database user     | `sql-user`                        |
-> | AZURE_SQL_PASSWORD                | Azure SQL Database password | `sql-pass`                        |
+> | Default environment variable name | Description                 | Sample value                        |
+> |-----------------------------------|-----------------------------|-------------------------------------|
+> | AZURE_SQL_HOST                    | Azure SQL Database host     | `<sql-server>.database.windows.net` |
+> | AZURE_SQL_PORT                    | Azure SQL Database port     | `1433`                              |
+> | AZURE_SQL_NAME                    | Azure SQL Database name     | `<sql-db>`                          |
+> | AZURE_SQL_USER                    | Azure SQL Database user     | `<sql-user>`                        |
+> | AZURE_SQL_PASSWORD                | Azure SQL Database password | `<sql-pass>`                        |
 
 #### Azure App Service with Ruby
 
 > [!div class="mx-tdBreakAll"]
-> | Default environment variable name | Description                 | Sample value                      |
-> |-----------------------------------|-----------------------------|-----------------------------------|
-> | AZURE_SQL_HOST                    | Azure SQL Database host     | `sql-server.database.windows.net` |
-> | AZURE_SQL_PORT                    | Azure SQL Database port     | `1433`                            |
-> | AZURE_SQL_DATABASE                | Azure SQL Database database | `sql-db`                          |
-> | AZURE_SQL_USERNAME                | Azure SQL Database username | `sql-user`                        |
-> | AZURE_SQL_PASSWORD                | Azure SQL Database password | `sql-pass`                        |
+> | Default environment variable name | Description                 | Sample value                        |
+> |-----------------------------------|-----------------------------|-------------------------------------|
+> | AZURE_SQL_HOST                    | Azure SQL Database host     | `<sql-server>.database.windows.net` |
+> | AZURE_SQL_PORT                    | Azure SQL Database port     | `1433`                              |
+> | AZURE_SQL_DATABASE                | Azure SQL Database database | `<sql-db>`                          |
+> | AZURE_SQL_USERNAME                | Azure SQL Database username | `<sql-user>`                        |
+> | AZURE_SQL_PASSWORD                | Azure SQL Database password | `<sql-pass>`                        |
 
 ### Connect an Azure Spring Cloud instance
 
@@ -130,11 +130,11 @@ Use the connection details below to connect Azure Spring Cloud instances with Ja
 #### Azure Spring Cloud with Java Spring Boot (spring-boot-starter-jdbc)
 
 > [!div class="mx-tdBreakAll"]
-> | Default environment variable name | Description                            | Sample value                                                                 |
-> |-----------------------------------|----------------------------------------|------------------------------------------------------------------------------|
-> | spring.datasource.url             | Azure SQL Database datasource URL      | `jdbc:sqlserver://sql-server.database.windows.net:1433;databaseName=sql-db;` |
-> | spring.datasource.username        | Azure SQL Database datasource username | `sql-user`                                                                   |
-> | spring.datasource.password        | Azure SQL Database datasource password | `sql-pass`                                                                   |
+> | Default environment variable name | Description                            | Sample value                                                                     |
+> |-----------------------------------|----------------------------------------|----------------------------------------------------------------------------------|
+> | spring.datasource.url             | Azure SQL Database datasource URL      | `jdbc:sqlserver://<sql-server>.database.windows.net:1433;databaseName=<sql-db>;` |
+> | spring.datasource.username        | Azure SQL Database datasource username | `<sql-user>`                                                                     |
+> | spring.datasource.password        | Azure SQL Database datasource password | `<sql-pass>`                                                                     |
 
 ## Next steps
 
