@@ -8,6 +8,8 @@ ms.date: 01/19/2022
 # Tutorial: Send custom logs to Azure Monitor Logs using the Azure portal (preview)
 [Custom logs](custom-logs-overview.md) in Azure Monitor allow you to send external data to a Log Analytics workspace with a REST API. This tutorial walks through configuration of a new table and a sample application to send custom logs to Azure Monitor.
 
+[!INCLUDE [Sign up for preview](../../../includes/azure-monitor-custom-logs-signup.md)]
+
 > [!NOTE]
 > This tutorial uses the Azure portal. See [Tutorial: Send custom logs to Azure Monitor Logs using resource manager templates (preview)](tutorial-custom-logs-api.md) for a similar tutorial using resource manager templates.
 

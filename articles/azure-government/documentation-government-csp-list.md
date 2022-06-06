@@ -71,7 +71,7 @@ Below you can find a list of all the authorized Cloud Solution Providers (CSPs),
 |[Bitscape](https://www.bitscape.com)|
 |[Bio Automation Support](https://www.stacsdna.com/)|
 |[Blackwood Associates, Inc. (dba BAI Federal)](https://www.blackwoodassociates.com/)|
-|[Blue Source Group, Inc.](https://www.blackwoodassociates.com/)|
+|[Blue Source Group, Inc.](https://bluesourcegroup.com/)|
 |[Blueforce Development Corporation](https://www.blueforcedev.com/)|
 |[Booz Allen Hamilton](https://www.boozallen.com/)|
 |[Bridge Partners LLC](https://www.bridgepartnersllc.com)|
