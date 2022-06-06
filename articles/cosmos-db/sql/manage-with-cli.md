@@ -1,12 +1,13 @@
 ---
 title: Manage Azure Cosmos DB Core (SQL) API resources using Azure CLI
 description: Manage Azure Cosmos DB Core (SQL) API resources using Azure CLI. 
-author: markjbrown
+author: seesharprun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 02/18/2022
-ms.author: mjbrown
+ms.author: sidandrews
+ms.reviewer: mjbrown
 
 ---
 # Manage Azure Cosmos Core (SQL) API resources using Azure CLI

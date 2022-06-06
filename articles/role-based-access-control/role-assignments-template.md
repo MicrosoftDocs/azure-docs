@@ -8,7 +8,7 @@ manager: karenhoran
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 01/21/2021
+ms.date: 06/03/2022
 ms.author: rolyon 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
@@ -34,7 +34,7 @@ $objectid = (Get-AzADUser -DisplayName "{name}").id
 ```
 
 ```azurecli
-objectid=$(az ad user show --id "{email}" --query objectId --output tsv)
+objectid=$(az ad user show --id "{email}" --query id --output tsv)
 ```
 
 ### Group
@@ -46,7 +46,7 @@ $objectid = (Get-AzADGroup -DisplayName "{name}").id
 ```
 
 ```azurecli
-objectid=$(az ad group show --group "{name}" --query objectId --output tsv)
+objectid=$(az ad group show --group "{name}" --query id --output tsv)
 ```
 
 ### Managed identities
@@ -58,7 +58,7 @@ $objectid = (Get-AzADServicePrincipal -DisplayName <Azure resource name>).id
 ```
 
 ```azurecli
-objectid=$(az ad sp list --display-name <Azure resource name> --query [].objectId --output tsv)
+objectid=$(az ad sp list --display-name <Azure resource name> --query [].id --output tsv)
 ```
 
 ### Application
@@ -70,7 +70,7 @@ $objectid = (Get-AzADServicePrincipal -DisplayName "{name}").id
 ```
 
 ```azurecli
-objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output tsv)
+objectid=$(az ad sp list --display-name "{name}" --query [].id --output tsv)
 ```
 
 ## Assign an Azure role
