@@ -13,14 +13,13 @@ ms.reviewer: gardnerjr
 
 It is often necessary to bring together data from different sources that enhance the insights experience. An example is augmenting active alert information with related metric data. This allows users to see not just the effect (an active alert), but also potential causes (for example, high CPU usage). The monitoring domain has numerous such correlatable data sources that are often critical to the triage and diagnostic workflow.
 
-Workbooks allows not just the querying of different data sources, but also provides simple controls that allow you to merge or join the data to provide rich insights. The `merge` control is the way to achieve it.
+Workbooks allow not just the querying of different data sources, but also provides simple controls that allow you to merge or join the data to provide rich insights. The `merge` control is the way to achieve it.
 
 The example below combines alerting data with log analytics VM performance data to get a rich insights grid.
 
-> [!div class="mx-imgBorder"]
-> ![A screenshot of a workbook with a merge control that combines alert and log analytics data](./media/workbooks-data-sources/merge-control.png)
+> ![A screenshot of a workbook with a merge control that combines alert and log analytics data.](./media/workbooks-data-sources/merge-control.png)
 
-Workbooks support a variety of merges:
+Workbooks support various merges:
 
 * Inner unique join
 * Full inner join
@@ -68,5 +67,5 @@ To avoid automatically making calls to untrusted hosts when using templates, the
 This provider supports [JSONPath](workbooks-jsonpath.md).
 
 ## Next Steps
-* [Get started](#visualizations) learning more about workbooks many rich visualizations options.
-* [Control](../visualize/workbooks-access-control.md) and share access to your workbook resources.
+ - [Getting started with Azure Workbooks](workbooks-getting-started.md) learning more about workbooks many rich visualizations options.
+ - [Azure workbooks data sources](workbooks-data-sources.md).

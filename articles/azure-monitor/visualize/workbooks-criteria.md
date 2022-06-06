@@ -7,7 +7,7 @@ ms.author: abbyweisberg
 ms.topic: conceptual
 ms.date: 05/30/2022
 ms.reviewer: gardnerjr
-
+---
 
 # Text Parameter Criteria
 

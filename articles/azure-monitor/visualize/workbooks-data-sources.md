@@ -1,19 +1,18 @@
 ---
-title: Azure Monitor workbooks data sources | Microsoft docs
-description: Simplify complex reporting with prebuilt and custom parameterized Azure Monitor Workbooks built from multiple data sources 
+title: Azure Workbooks data sources | Microsoft docs
+description: Simplify complex reporting with prebuilt and custom parameterized Azure Workbooks built from multiple data sources.
 services: azure-monitor
 documentationcenter: ''
 manager: carmonm
-
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
 ---
 
-# Azure Monitor workbooks data sources
+# Azure Workbooks data sources
 
-Workbooks are can extract data from these data sources:
+Workbooks can extract data from these data sources:
 
 * [Logs](../visualize/workbooks-data-sources.md#logs)
 * [Metrics](../visualize/workbooks-data-sources.md#metrics)
@@ -91,8 +90,7 @@ To make a query control using [Application Change Analysis](../app/change-analys
 > [!div class="mx-imgBorder"]
 > ![A screenshot of a workbook with Change Analysis](./media/workbooks-data-sources/change-analysis-data-source.png)
 
-## Next steps
+## Next Steps
 
-* [Get started](./workbooks-overview.md#visualizations) learning more about workbooks many rich visualizations options.
-* [Control](./workbooks-access-control.md) and share access to your workbook resources.
-* [Log Analytics query optimization tips](../logs/query-optimization.md)
+ - [Getting started with Azure Workbooks](workbooks-getting-started.md) learning more about workbooks many rich visualizations options.
+ - [Azure workbooks data sources](workbooks-data-sources.md).

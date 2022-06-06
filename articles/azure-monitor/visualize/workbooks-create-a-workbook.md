@@ -30,5 +30,5 @@ To create a new azure workbook:
 
 
 ## Next Steps
-* [Get started](#visualizations) learning more about workbooks many rich visualizations options.
-* [Control](../visualize/workbooks-access-control.md) and share access to your workbook resources.
+- [Getting started with Azure Workbooks](workbooks-getting-started.md) learning more about workbooks many rich visualizations options.
+- [Azure workbooks data sources](workbooks-data-sources.md).

@@ -66,6 +66,10 @@ Clicking on the Auto-Refresh button opens a list of intervals to let the user pi
 * This setting is not saved with Workbook. Every time a user opens a Workbook, the Auto-refresh is Off initially and needs to be set again.
 * Switching Workbooks, going out of gallery will clear the Auto refresh interval.
 
-![Auto refresh](./Images/AutoRefresh.PNG)
+:::image type="content" source="media/workbooks-getting-started/workbooks-auto-refresh.png" alt-text="Screenshot of workbooks with auto refresh.":::
 
-![Auto refresh with interval set](./Images/AutoRefreshWithIntervalSet.PNG)
+:::image type="content" source="media/workbooks-getting-started/workbooks-auto-refresh-interval.png" alt-text="Screenshot of workbooks with auto-refresh with interval set.":::
+
+## Next Steps
+ - [Getting started with Azure Workbooks](workbooks-getting-started.md) learning more about workbooks many rich visualizations options.
+ - [Azure workbooks data sources](workbooks-data-sources.md).
