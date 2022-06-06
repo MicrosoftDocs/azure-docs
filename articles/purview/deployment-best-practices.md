@@ -5,7 +5,7 @@ author: shsandeep123
 ms.author: sandeepshah
 ms.service: purview
 ms.topic: conceptual
-ms.date: 11/23/2020
+ms.date: 06/06/2022
 ---
 # Microsoft Purview deployment best practices
 
@@ -193,7 +193,7 @@ Once you have the agreed requirements and participated business units to onboard
 |Add contacts to assets|For top assets, you may want to establish a process to either allow other personas to assign contacts or import via REST APIs.|1 Week|
 |Add sensitive labels and scan|This might be optional for some organizations, depending on the usage of Labeling from Microsoft 365.|1-2 Weeks|
 |Get classification and sensitive insights|For reporting and insight in Microsoft Purview, you can access this functionality to get various reports and provide presentation to management.|1 Day|
-|Onboard additional users using Microsoft Purview managed users|This step will require the Microsoft Purview Admin to work with the Azure Active Directory Admin to establish new Security Groups to grant access to Microsoft Purview.|1 Week|
+|Onboard additional users |This step will require the Microsoft Purview Admin to work with the Azure Active Directory Admin to establish new Security Groups to grant access to Microsoft Purview.|1 Week|
 
 ### Acceptance criteria
 
