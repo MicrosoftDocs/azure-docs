@@ -100,10 +100,10 @@ Consider saving your template VM for future use.  To save the template VM, see [
 
 Adobe Creative Cloud may show an error saying *Your graphics processor is incompatible* when the GPU drivers or the GPU is not configured correctly.
 
-:::image type="content" source="./media/class-type-adobe-creative-cloud/gpu-driver-error.png" alt-text="Screenshot of Adobe Creative Cloud showing an error message that the graphics processor is incompatible":::
+:::image type="content" source="./media/class-type-adobe-creative-cloud/gpu-driver-error.png" alt-text="Screenshot of Adobe Creative Cloud showing an error message that the graphics processor is incompatible.":::
 
 To fix this issue:
-- Ensure that you selected the Small GPU *(Visualization)* size when you created your lab.
+- Ensure that you selected the Small GPU *(Visualization)* size when you created your lab.  You can see the VM size used by the lab on the lab's [Template page](../lab-services/how-to-create-manage-template.md).
 - Try [manually installing the Small GPU Visualization drivers](../lab-services/how-to-setup-lab-gpu.md#install-the-small-gpu-visualization-drivers). 
 
 ## Cost

@@ -7,7 +7,7 @@ ms.date: 06/26/2020
 ms.author: nicolela
 ---
 
-# Set up a lab with GPU virtual machines (deprecated)
+# Set up GPU virtual machines in labs contained within lab accounts
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-note.md)]
 

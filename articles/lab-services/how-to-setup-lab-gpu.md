@@ -38,7 +38,7 @@ The *visualization* GPU sizes are intended for graphics-intensive applications. 
 | Medium GPU (Visualization) | 12 vCPUs  | 112 GB RAM  | [Standard_NV12s_v3](../virtual-machines/nvv3-series.md).  This size supports both Windows and Linux and is best suited for remote visualization, streaming, gaming, and encoding that use frameworks such as OpenGL and DirectX. |
 
 > [!NOTE]
-> You may not see some of these VM sizes in the list when creating a lab. This list is populated based on the capacity assigned to your Microsoft-managed Azure subscription.  For more information about capacity, see [Capacity limits in Azure Lab Services](../capacity-limits.md).  For availability of VM sizes, see [Products available by region](https://azure.microsoft.com/regions/services/?products=virtual-machines).
+> You may not see some of these VM sizes in the list when creating a lab. This list is populated based on the capacity assigned to your Microsoft-managed Azure subscription.  For more information about capacity, see [Capacity limits in Azure Lab Services](../lab-services/capacity-limits.md).  For availability of VM sizes, see [Products available by region](https://azure.microsoft.com/regions/services/?products=virtual-machines).
 
 ## Ensure that the appropriate GPU drivers are installed
 
@@ -65,7 +65,7 @@ To manually install drivers for the Small GPU *(Compute)* size, do the following
 
 1. In the lab creation wizard, when you're [creating your lab](./how-to-manage-labs.md), disable the **Install GPU drivers** setting.
 
-1. After your lab is created, connect to the template VM to install the appropriate drivers.
+1. After your lab is created, connect to the template VM to install the appropriate drivers.  Read [NVIDIA Tesla (CUDA) drivers](../virtual-machines/windows/n-series-driver-setup#nvidia-tesla-cuda-drivers) for more information about specific driver versions that are recommended depending on the Windows OS version being used.  Otherwise, follow the below steps to install the latest NVIDIA drivers:
 
    ![Screenshot of the NVIDIA Driver Downloads page](./media/how-to-setup-gpu/nvidia-driver-download.png)
 
@@ -119,7 +119,7 @@ This section describes how to validate that your GPU drivers are properly instal
 #### Small GPU (Compute) and Medium GPU (Visualization) Windows images
 
 1. Follow the instructions in the "Verify driver installation" section of [Install NVIDIA GPU drivers on N-series VMs running Windows](../virtual-machines/windows/n-series-driver-setup.md#verify-driver-installation).
-1. If you're using the Medium GPU (visualization) GPU, you can also:
+1. You can also validate the NVIDIA control panel settings which only apply to the Medium GPU (visualization) VM size:
     - View and adjust your GPU settings in the NVIDIA Control Panel. To do so, in **Windows Control Panel**, select **Hardware**, and then select **NVIDIA Control Panel**.
 
       ![Screenshot of Windows Control Panel showing the NVIDIA Control Panel link](./media/how-to-setup-gpu/control-panel-nvidia-settings.png)
@@ -129,7 +129,7 @@ This section describes how to validate that your GPU drivers are properly instal
        ![Screenshot showing the Task Manager GPU Performance tab](./media/how-to-setup-gpu/task-manager-gpu.png)
 
       > [!IMPORTANT]
-      > The NVIDIA Control Panel settings can be accessed only for *visualization* GPUs.  If you attempt to open the NVIDIA Control Panel for a compute GPU, you'll get the following error: "NVIDIA Display settings are not available.  You are not currently using a display attached to an NVIDIA GPU."  Similarly, the GPU performance information in Task Manager is provided only for visualization GPUs.
+      > The NVIDIA Control Panel settings can be accessed only for the Medium GPU (visualization) VM size.  If you attempt to open the NVIDIA Control Panel for a compute GPU, you'll get the following error: "NVIDIA Display settings are not available.  You are not currently using a display attached to an NVIDIA GPU."  Similarly, the GPU performance information in Task Manager is provided only for visualization GPUs.
 
  Depending on your scenario, you may also need to do additional validation to ensure the GPU is properly configured.  Read the class type about [Python and Jupyter Notebooks](class-type-jupyter-notebook.md#template-machine-configuration) that explains an example where specific versions of drivers are needed.
 

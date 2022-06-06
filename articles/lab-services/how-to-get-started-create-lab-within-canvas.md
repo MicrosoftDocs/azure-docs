@@ -118,11 +118,11 @@ This section outlines common error messages that you may see, along with the ste
 
 - Insufficient permissions to create lab.
 
-  In Canvas, an educator will see a message indicating that they don't have sufficient permission. Educators should contact their Azure admin so they can be [added as a **Lab Creator**](tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role).
+  In Canvas, an educator will see a message indicating that they don't have sufficient permission. Educators should contact their Azure admin so they can be [added as a **Lab Creator**](tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role).  For example, educators can be added as a **Lab Creator** to the resource group that contains their lab.
 
 - Message that there isn't enough capacity to create lab VMs.
 
-  [Request a limit increase](capacity-limits.md#request-a-limit-increase).
+  [Request a limit increase](capacity-limits.md#request-a-limit-increase) which needs to be done by an Azure Labs Services administrator.
 
 - Student sees warning that the lab isn't available yet.
 
@@ -136,7 +136,7 @@ This section outlines common error messages that you may see, along with the ste
 
   :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/canvas-grant-access-prompt.png" alt-text="Grant access to Azure Lab Services to use the browser's local storage.":::
 
-  Educators and students will see the message **Access granted** when access is successfully granted to Azure Lab Services.  The educator\student should then reload the browser window to start using Azure Lab Services.
+  Educators and students will see the message **Access granted** when access is successfully granted to Azure Lab Services.  The educator or student should then reload the browser window to start using Azure Lab Services.
 
   :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/canvas-access-granted-success.png" alt-text="Access granted to Azure Lab Services.":::
 
@@ -145,7 +145,7 @@ This section outlines common error messages that you may see, along with the ste
 
   - Educator isn't prompted for their credentials after they click sign-in.
   
-  When an educator accesses Azure Lab Services within their course, they may be prompted to sign in.  Ensure that the browser's settings allow popups from the url of your canvas instance, otherwise the popup may be blocked by default.
+  When an educator accesses Azure Lab Services within their course, they may be prompted to sign in.  Ensure that the browser's settings allow popups from the url of your Canvas instance, otherwise the popup may be blocked by default.
 
     :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/canvas-sign-in.png" alt-text="Azure Lab Services sign-in screen.":::
 
