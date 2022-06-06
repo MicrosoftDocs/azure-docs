@@ -44,7 +44,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 1. If you aren't logged in to Blinq you will need to do so.
 1. Click on your workspace in the top left hand corner of the screen and select **Settings** in the dropdown menu.
 
-	![Screenshot of the Blinq settings option.](media/blinq-provisioning-tutorial/blinq-settings.png)
+   	![Screenshot of the Blinq settings option.](media/blinq-provisioning-tutorial/blinq-settings.png)
 
 1. Under the **Integrations** page you should see **Team Card Provisioning** which contains a URL and Token. You will need to generate the token by clicking **Generate**.
 Copy the **URL** and **Token**. The URL and the Token are to be inserted into the **Tenant URL*** and **Secret Token** field in the Azure portal respectively.
