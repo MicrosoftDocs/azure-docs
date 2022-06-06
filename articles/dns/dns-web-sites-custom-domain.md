@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Create custom Azure DNS records for a web app
+title: 'Tutorial: Create custom Azure DNS records for a web app'
 description: In this tutorial, you create custom domain DNS records for web app using Azure DNS.
 services: dns
 author: rohinkoul
@@ -56,9 +56,9 @@ An A record is used to map a name to its IP address. In the following example, a
 
 In the left navigation of the App Services page in the Azure portal, select **Custom domains**, then copy the IP address of your web app:
 
-:::image type="content" source="./media/dns-web-sites-custom-domain/app-service-custom-domains.png" alt-text="Screenshot app service custom domains showing the web app I P address" lightbox="./media/dns-web-sites-custom-domain/app-service-custom-domains.png":::
+:::image type="content" source="./media/dns-web-sites-custom-domain/app-service-custom-domains.png" alt-text="Screenshot app service custom domains showing the web app I P address." lightbox="./media/dns-web-sites-custom-domain/app-service-custom-domains.png":::
 
-### Create the A record
+### Create the record
 
 To create the A record, use:
 
@@ -68,7 +68,7 @@ New-AzDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
  -DnsRecords (New-AzDnsRecordConfig -IPv4Address "<your web app IP address>")
 ```
 
-> [!NOTE]
+> [!IMPORTANT]
 > The A record must be manually updated if the underlying IP address for the web app changes.
 
 ## Create the TXT record
@@ -167,11 +167,11 @@ Open a browser and browse to `http://www.<your domain name>` and `http://<you do
 
 You should see the same page for both URLs. For example:
 
-:::image type="content" source="./media/dns-web-sites-custom-domain/contoso-web-app.png" alt-text="Screenshot of web app contoso":::
+:::image type="content" source="./media/dns-web-sites-custom-domain/contoso-web-app.png" alt-text="Screenshot of a web browser showing the contoso web app accessed using w w w dot contoso dot com.":::
 
 ## Clean up resources
 
-When no longer needed, you can delete all resources created in this tutorial by following these steps to delete the resource group **MyAzureResourceGroup**:
+When no longer needed, you can delete all resources created in this tutorial by deleting the resource group **MyAzureResourceGroup**:
 
 1. From the left-hand menu, select **Resource groups**.
 
@@ -179,7 +179,7 @@ When no longer needed, you can delete all resources created in this tutorial by 
 
 3. Select **Delete resource group**.
 
-4. Enter **MyAzureResourceGroup** and select **Delete**.
+4. Enter *MyAzureResourceGroup* and select **Delete**.
 
 ## Next steps
 
