@@ -5,3 +5,5 @@ Azure Communication Services can be used within [Azure Government](https://azure
 - Your personal data is logically segregated from customer content in the commercial Azure cloud.
 - Your resource’s customer content is stored within the United States.
 - Access to your organization's customer content is restricted to screened Microsoft personnel. 
+
+You can find more information about the Office 365 Government – GCC High offering for US Government customers at [Office 365 Government plans](https://products.office.com/government/compare-office-365-government-plans). Please see [eligibility requirements](https://azure.microsoft.com/en-us/global-infrastructure/government/how-to-buy/) for Azure Government. 
