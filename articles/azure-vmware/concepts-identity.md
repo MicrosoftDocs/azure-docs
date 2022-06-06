@@ -101,7 +101,7 @@ You're responsible for NSX-T SDN configuration, for example:
 
 You can access NSX-T Manager using the built-in local user "admin" assigned to **Enterprise admin** role that gives full privileges to a user to manage NSX-T. While Microsoft manages the lifecycle of NSX-T, certain operations aren't allowed by a user. Operations not allowed include editing the configuration of host and edge transport nodes or start an upgrade. For new users, Azure VMware Solution deploys them with a specific set of permissions needed by that user. The purpose is to provide a clear separation of control between the Azure VMware Solution control plane configuration and Azure VMware Solution private cloud user.  
 
-For new private cloud deployments (in US West and Australia East) starting **June 2022**, NSX-T access will be provided with a built-in local user `CloudAdmin` with a specific set of permissions to use only NSX-T functionality for workloads. The new **CloudAdmin** user role will be rolled out in other regions in phases.
+For new private cloud deployments (in US West and Australia East) starting **June 2022**, NSX-T access will be provided with a built-in local user `cloudadmin` with a specific set of permissions to use only NSX-T functionality for workloads. The new **cloudadmin** user role will be rolled out in other regions in phases.
 
 > [!NOTE]
 > Admin access to NSX-T will not be provided to users for private cloud deployments created after **June 2022**.
@@ -125,14 +125,14 @@ The following permissions are assigned to the **cloudadmin** user in Azure VMwar
 | Troubleshooting | IPFIX                 |                                                                      | Full Access                                                      |
 | Troubleshooting | Port Mirroring        |                                                                      | Full Access                                                      |
 | Troubleshooting | Traceflow        |                                                                      | Full Access                                                      |
-| System          | Configuration<br>Settings<br>Settings<br>System              | Identity firewall<br>Users and Roles<br>Certificate Management<br>User Interface Settings   | Full Access<br>Full Access<br>Full Access<br>Full Access                          |
+| System          | Configuration<br>Settings<br>Settings<br>Settings              | Identity firewall<br>Users and Roles<br>Certificate Management<br>User Interface Settings   | Full Access<br>Full Access<br>Full Access<br>Full Access                          |
 | System          | All other    |                                                                      | Read-only                                                        |
 
 
 You can view the permissions granted to the Azure VMware Solution CloudAdmin role using the following steps:
 
 1. Log in to the NSX-T Manager.
-1. Navigate to **Systems**, **Users and Roles**, and locate **User Role Assignment**.
+1. Navigate to **Systems** > **Users and Roles** and locate **User Role Assignment**.
 1. The **Roles** column for the CloudAdmin user provides information on the NSX RBAC roles assigned.
 1. Select the the **Roles** tab to view specific permissions associated with each of the NSX RBAC roles.
 1. To view **Permissions**, expand the **CloudAdmin** role and select a category like, Networking or Security.
