@@ -3,7 +3,7 @@ title: Frequently asked questions (FAQ) for Azure Files | Microsoft Docs
 description: Get answers to Azure Files frequently asked questions. You can mount Azure file shares concurrently on cloud or on-premises Windows, Linux, or macOS deployments.
 author: khdownie
 ms.service: storage
-ms.date: 02/09/2022
+ms.date: 06/06/2022
 ms.author: kendownie
 ms.subservice: files
 ms.topic: conceptual
@@ -65,15 +65,15 @@ ms.topic: conceptual
 * <a id="afs-ntfs-acls"></a>
   **Does Azure File Sync preserve directory/file level NTFS ACLs along with data stored in Azure Files?**
 
-    As of February 24th, 2020, new and existing ACLs tiered by Azure file sync will be persisted in NTFS format, and ACL modifications made directly to the Azure file share will sync to all servers in the sync group. Any changes on ACLs made to Azure Files will sync down via Azure file sync. When copying data to Azure Files, make sure you use a copy tool that supports the necessary "fidelity" to copy attributes, timestamps and ACLs into an Azure file share - either via SMB or REST. When using Azure copy tools, such as AzCopy, it is important to use the latest version. Check the [file copy tools table](storage-files-migration-overview.md#file-copy-tools) to get an overview of Azure copy tools to ensure you can copy all of the important metadata of a file.
+    As of February 24, 2020, new and existing ACLs tiered by Azure file sync will be persisted in NTFS format, and ACL modifications made directly to the Azure file share will sync to all servers in the sync group. Any changes on ACLs made to Azure Files will sync down via Azure file sync. When copying data to Azure Files, make sure you use a copy tool that supports the necessary "fidelity" to copy attributes, timestamps and ACLs into an Azure file share - either via SMB or REST. When using Azure copy tools, such as AzCopy, it is important to use the latest version. Check the [file copy tools table](storage-files-migration-overview.md#file-copy-tools) to get an overview of Azure copy tools to ensure you can copy all of the important metadata of a file.
 
     If you have enabled Azure Backup on your file sync managed file shares, file ACLs can continue to be restored as part of the backup restore workflow. This works either for the entire share or individual files/directories.
 
-    If you are using snapshots as part of the self-managed backup solution for file shares managed by file sync, your ACLs may not be restored properly to NTFS ACLs if the snapshots were taken prior to February 24th, 2020. If this occurs, consider contacting Azure Support.
+    If you're using snapshots as part of the self-managed backup solution for file shares managed by file sync, your ACLs may not be restored properly to NTFS ACLs if the snapshots were taken prior to February 24th, 2020. If this occurs, consider contacting Azure Support.
 
 * <a id="afs-lastwritetime"></a>
   **Does Azure File Sync sync the LastWriteTime for directories?**  
-    No, Azure File Sync does not sync the LastWriteTime for directories.
+    No, Azure File Sync doesn't sync the LastWriteTime for directories.
     
 ## Security, authentication, and access control
 
@@ -82,13 +82,19 @@ ms.topic: conceptual
 
   There are two options that provide auditing functionality for Azure Files:
   - If users are accessing the Azure file share directly, [Azure Storage logs](../blobs/monitor-blob-storage.md?tabs=azure-powershell#analyzing-logs) can be used to track file changes and user access. These logs can be used for troubleshooting purposes and the requests are logged on a best-effort basis.
-  - If users are accessing the Azure file share via a Windows Server that has the Azure File Sync agent installed, use an [audit policy](/windows/security/threat-protection/auditing/apply-a-basic-audit-policy-on-a-file-or-folder) or 3rd party product to track file changes and user access on the Windows Server. 
+  - If users are accessing the Azure file share via a Windows Server that has the Azure File Sync agent installed, use an [audit policy](/windows/security/threat-protection/auditing/apply-a-basic-audit-policy-on-a-file-or-folder) or third-party product to track file changes and user access on the Windows Server. 
+
+* <a id="access-based-enumeration"></a>
+**Does Azure Files support using Access-Based Enumeration (ABE) to control the visibility of the files and folders in SMB Azure file shares?**
+
+  No, this scenario isn't supported. ABE is a feature of DFS Namespaces (DFS-N). You can [use DFS-N with SMB Azure file shares](files-manage-namespaces.md), configure identity-based authentication, and enable the ABE feature. However, this will not work as expected because it only applies to the DFS-N targets. It doesn't retroactively apply to the targeted file shares themselves.
+
    
 ### AD DS & Azure AD DS Authentication
 * <a id="ad-support-devices"></a>
 **Does Azure Active Directory Domain Services (Azure AD DS) support SMB access using Azure AD credentials from devices joined to or registered with Azure AD?**
 
-    No, this scenario is not supported.
+    No, this scenario isn't supported.
 
 * <a id="ad-vm-subscription"></a>
 **Can I access Azure file shares with Azure AD credentials from a VM under a different subscription?**
