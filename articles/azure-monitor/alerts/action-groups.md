@@ -1,6 +1,6 @@
 ---
 title: Manage action groups in the Azure portal
-description: Find out how to create and manage action groups. Learn about notifications and actions that action groups use, such as email, webhooks, and Azure Functions.
+description: Find out how to create and manage action groups. Learn about notifications and actions that action groups enable, such as email, webhooks, and Azure Functions.
 author: dkamstra
 ms.topic: conceptual
 ms.date: 06/06/2022
@@ -23,7 +23,7 @@ Each action is made up of the following properties:
 
 For information about how to use Azure Resource Manager templates to configure action groups, see [Action group Resource Manager templates](./action-groups-create-resource-manager-template.md).
 
-An action group is a **global** service, so there's no dependency on a specific Azure region. Requests from clients can be processed by action group services in any region. For instance, if one region of service is down, the traffic is automatically routed and processed by other regions. As a global service, an action group helps provide a **disaster recovery** solution.
+An action group is a **global** service, so there's no dependency on a specific Azure region. Requests from clients can be processed by action group services in any region. For instance, if one region of the action group service is down, the traffic is automatically routed and processed by other regions. As a global service, an action group helps provide a **disaster recovery** solution.
 
 ## Create an action group by using the Azure portal
 
@@ -31,13 +31,13 @@ An action group is a **global** service, so there's no dependency on a specific 
 
 1. Search for and select **Monitor**. The **Monitor** pane consolidates all your monitoring settings and data in one view.
 
-1. Select **Alerts**, and then select **Manage actions**.
+1. Select **Alerts**, and then select **Action groups**.
 
-   :::image type="content" source="./media/action-groups/manage-action-groups.png" alt-text="Screenshot of the Monitor - Alerts page in the Azure portal. The Manage actions button is called out.":::
+   :::image type="content" source="./media/action-groups/manage-action-groups.png" alt-text="Screenshot of the Alerts page in the Azure portal. The Action groups button is called out.":::
 
-1. Select **Add action group**.
+1. Select **Create**.
 
-   :::image type="content" source="./media/action-groups/add-action-group.PNG" alt-text="Screenshot of the Manage actions page in the Azure portal. The Add action group button is called out.":::
+   :::image type="content" source="./media/action-groups/add-action-group.png" alt-text="Screenshot of the Action groups page in the Azure portal. The Create button is called out.":::
 
 1. Enter information as explained in the following sections.
 
@@ -178,7 +178,7 @@ The following sections provide information about the various actions and notific
 
 To check limits on Automation runbook payloads, see [Automation limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).
 
-You might have a limited number of runbook actions per action group.
+You may have a limited number of runbook actions per action group.
 
 ### Azure app push notifications
 
@@ -194,7 +194,7 @@ Ensure that your email filtering is configured appropriately. Emails are sent fr
 - azureemail-noreply@microsoft.com
 - alerts-noreply@mail.windowsazure.com
 
-You might have a limited number of email actions per action group. For information about rate limits, see [Rate limiting for voice, SMS, emails, Azure App push notifications, and webhook posts](./alerts-rate-limiting.md).
+You may have a limited number of email actions per action group. For information about rate limits, see [Rate limiting for voice, SMS, emails, Azure App push notifications, and webhook posts](./alerts-rate-limiting.md).
 
 ### Email Azure Resource Manager role
 
@@ -218,7 +218,7 @@ If your *primary email* doesn't receive notifications, take the following steps:
 
    :::image type="content" source="media/action-groups/active-directory-add-primary-email.png" alt-text="Screenshot of a user profile page in the Azure portal. The Edit button and the Email box are called out." border="true":::
 
-You might have a limited number of email actions per action group. To check which limits apply to your situation, see [Rate limiting for voice, SMS, emails, Azure App push notifications, and webhook posts](./alerts-rate-limiting.md).
+You may have a limited number of email actions per action group. To check which limits apply to your situation, see [Rate limiting for voice, SMS, emails, Azure App push notifications, and webhook posts](./alerts-rate-limiting.md).
 
 When you set up the Azure Resource Manager role:
 
@@ -240,7 +240,7 @@ An action that uses Functions calls an existing HTTP trigger endpoint in Functio
 
 When you define the function action, the function's HTTP trigger endpoint and access key are saved in the action definition, for example, `https://azfunctionurl.azurewebsites.net/api/httptrigger?code=<access_key>`. If you change the access key for the function, you need to remove and recreate the function action in the action group.
 
-You might have a limited number of function actions per action group.
+You may have a limited number of function actions per action group.
 
 ### ITSM
 
@@ -250,7 +250,7 @@ You might have a limited number of ITSM actions per action group.
 
 ### Logic Apps
 
-You might have a limited number of Logic Apps actions per action group.
+You may have a limited number of Logic Apps actions per action group.
 
 ### Secure webhook
 
