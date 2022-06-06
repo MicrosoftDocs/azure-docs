@@ -4,7 +4,7 @@ description: Learn how to autoscale Azure SignalR Service.
 author: zackliu
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 05/23/2022
+ms.date: 06/06/2022
 ms.author: chenyl
 ---
 
@@ -76,7 +76,7 @@ The following procedure shows you how to add a condition to increase units (scal
     1. Select an operator and threshold values. In this example, they're **Greater than** and **70** for **Metric threshold to trigger scale action**.
     1. Select an **operation** in the **Action** section. In this example, it's set to **Increase**.
     1. Then, select **Add**
-        :::image type="content" source="./media/signalr-howto-scale-autoscale/default-scale-out.png" alt-text="Screenshot of default autoscale rule screen:::
+        :::image type="content" source="./media/signalr-howto-scale-autoscale/default-scale-out.png" alt-text="Screenshot of default autoscale rule screen":::
 
 1. Select **+ Add a rule** again, and follow these steps on the **Scale rule** page:
     1. Select a metric from the **Metric name** drop-down list. In this example, it's **Connection Quota Utilization**.
