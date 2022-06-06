@@ -24,12 +24,12 @@ This article guides you through how to create an Azure [dedicated host](dedicate
 ## Limitations
 
 - The sizes and hardware types available for dedicated hosts vary by region. Refer to the host [pricing page](https://aka.ms/ADHPricing) to learn more.
-- Not all Azure VM SKUs, regions and availability zones support ultra disks, see [Azure ultra disks](disks-enable-ultra-ssd.md) for more information. Ultra disk support for dedicated hosts is currently in preview.
+- Not all Azure VM SKUs, regions and availability zones support ultra disks, for more information about this topic, see [Azure ultra disks](disks-enable-ultra-ssd.md) . Ultra disk support for dedicated hosts is currently in preview.
 - The fault domain count of the virtual machine scale set can't exceed the fault domain count of the host group.
 
 ## Create a host group
 
-A **host group** is a resource that represents a collection of dedicated hosts. You create a host group in a region and an availability zone, and add hosts to it. When planning for high availability, there are more options. You can use one or both of the following options with your dedicated hosts:
+A **host group** is a resource that represents a collection of dedicated hosts. You create a host group in a region and an availability zone, and add hosts to it. You can use one or both of the following options with your dedicated hosts to ensure high availability:
 - Span across multiple availability zones. In this case, you're required to have a host group in each of the zones you wish to use.
 - Span across multiple fault domains, which are mapped to physical racks.
 
@@ -37,7 +37,7 @@ In either case, you need to provide the fault domain count for your host group. 
 
 You can also decide to use both availability zones and fault domains.
 
-Enabling ultra disks (Preview) is a host group level setting and cannot be changed after a host group is created.
+Enabling ultra disks (Preview) is a host group level setting and can't be changed after a host group is created.
 
 If you intend to use LSv2 or M series VMs, with ultra disks (Preview) on dedicated hosts, set host group's **Fault domain count** to **1**.
 
@@ -92,7 +92,7 @@ az vm host group create \
    --platform-fault-domain-count 2
 ```
 
-Add the `--automatic-placement true` parameter to have your VMs and scale set instances automatically placed on hosts, within a host group. For more information, see [Manual vs. automatic placement ](dedicated-hosts.md#manual-vs-automatic-placement).
+Add the `--automatic-placement true` parameter to have your VMs and scale set instances automatically placed on hosts, within a host group. For more information about this topic, see [Manual vs. automatic placement ](dedicated-hosts.md#manual-vs-automatic-placement).
 
 Add the `--ultra-ssd-enabled true` (Preview) parameter to enable creation of VMs that can support ultra disks.
 
@@ -118,7 +118,7 @@ az vm host group create \
    --platform-fault-domain-count 2
 ```
 
-The following uses [az vm host group create](/cli/azure/vm/host/group#az-vm-host-group-create) to create a host group that supports ultra disks (Preview) and auto placement of VMs enabled.
+The following code snippet uses [az vm host group create](/cli/azure/vm/host/group#az-vm-host-group-create) to create a host group that supports ultra disks (Preview) and auto placement of VMs enabled.
 
 ```azurecli-interactive
 az vm host group create \
@@ -149,7 +149,7 @@ $hostGroup = New-AzHostGroup `
    -SupportAutomaticPlacement true
 ```
 
-Add the `-SupportAutomaticPlacement true` parameter to have your VMs and scale set instances automatically placed on hosts, within a host group. For more information, see [Manual vs. automatic placement ](dedicated-hosts.md#manual-vs-automatic-placement).
+Add the `-SupportAutomaticPlacement true` parameter to have your VMs and scale set instances automatically placed on hosts, within a host group. For more information about this topic, see [Manual vs. automatic placement ](dedicated-hosts.md#manual-vs-automatic-placement).
 
 Add the `-EnableUltraSSD true` (Preview) parameter to enable creation of VMs that can support ultra disks.
 
@@ -336,7 +336,7 @@ You can add an existing VM to a dedicated host, but the VM must first be Stop\De
 
 - The VM size must be in the same size family as the dedicated host. For example, if your dedicated host is DSv3, then the VM size could be Standard_D4s_v3, but it couldn't be a Standard_A4_v2.
 - The VM needs to be located in same region as the dedicated host.
-- The VM can't be part of a proximity placement group. Remove the VM from the proximity placement group before moving it to a dedicated host. For more information, see [Move a VM out of a proximity placement group](./windows/proximity-placement-groups.md#move-an-existing-vm-out-of-a-proximity-placement-group)
+- The VM can't be part of a proximity placement group. Remove the VM from the proximity placement group before moving it to a dedicated host. For more information about this topic, see [Move a VM out of a proximity placement group](./windows/proximity-placement-groups.md#move-an-existing-vm-out-of-a-proximity-placement-group)
 - The VM can't be in an availability set.
 - If the VM is in an availability zone, it must be the same availability zone as the host group. The availability zone settings for the VM and the host group must match.
 
@@ -365,7 +365,7 @@ az vm update - n myVM -g myResourceGroup --host myHost
 az vm start -n myVM -g myResourceGroup
 ```
 
-For automatically placed VMs, only update the host group. For more information, see [Manual vs. automatic placement](dedicated-hosts.md#manual-vs-automatic-placement).
+For automatically placed VMs, only update the host group. For more information about this topic, see [Manual vs. automatic placement](dedicated-hosts.md#manual-vs-automatic-placement).
 
 Replace the values with your own information.
 
@@ -437,7 +437,7 @@ az vm host get-instance-view \
    --name myHost
 ```
 
-The output will look similar to this:
+The output will look similar to the below example:
 
 ```json
 {
@@ -548,7 +548,7 @@ Get-AzHost `
    -InstanceView
 ```
 
-The output will look similar to this:
+The output will look similar to the below example:
 
 ```
 ResourceGroupName      : myDHResourceGroup
@@ -646,7 +646,7 @@ Once you've deleted all of your hosts, you may delete the host group using [az v
 az vm host group delete -g myDHResourceGroup --host-group myHostGroup
 ```
 
-You can also delete the entire resource group in a single command. This will delete all resources created in the group, including all of the VMs, hosts and host groups.
+You can also delete the entire resource group in a single command. The following command will delete all resources created in the group, including all of the VMs, hosts and host groups.
 
 ```azurecli-interactive
 az group delete -n myDHResourceGroup
@@ -673,7 +673,7 @@ Once you've deleted all of your hosts, you may delete the host group using [Remo
 Remove-AzHost -ResourceGroupName $rgName -Name myHost
 ```
 
-You can also delete the entire resource group in a single command using [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). This will delete all resources created in the group, including all of the VMs, hosts and host groups.
+You can also delete the entire resource group in a single command using [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). This following command will delete all resources created in the group, including all of the VMs, hosts and host groups.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $rgName
@@ -683,7 +683,7 @@ Remove-AzResourceGroup -Name $rgName
 
 ## Next steps
 
-- For more information, see the [Dedicated hosts](dedicated-hosts.md) overview.
+- For more information about this topic, see the [Dedicated hosts](dedicated-hosts.md) overview.
 
 - There's sample template, available at [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.compute/vm-dedicated-hosts/README.md), which uses both zones and fault domains for maximum resiliency in a region.
 
