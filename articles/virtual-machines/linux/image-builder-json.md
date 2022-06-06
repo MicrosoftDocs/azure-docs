@@ -572,7 +572,12 @@ Write-Output '>>> Sysprep complete ...'
 #### Default Linux deprovision command
 
 ```bash
-/usr/sbin/waagent -force -deprovision+user && export HISTSIZE=0 && sync
+WAAGENT=/usr/sbin/waagent
+waagent -version 1> /dev/null 2>&1
+if [ $? -eq 0 ]; then
+  WAAGENT=waagent
+fi
+$WAAGENT -force -deprovision+user && export HISTSIZE=0 && sync
 ```
 
 #### Overriding the Commands

@@ -224,5 +224,5 @@ Do not use auth context where the app itself is going to be a target of Conditio
 - [Conditional Access authentication context](../conditional-access/concept-conditional-access-cloud-apps.md#authentication-context-preview)
 - [authenticationContextClassReference resource type - MS Graph](/graph/api/conditionalaccessroot-list-authenticationcontextclassreferences)
 - [Claims challenge, claims request, and client capabilities in the Microsoft identity platform](claims-challenge.md)
-- [Using authentication context with Microsoft Information Protection and SharePoint](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#more-information-about-the-dependencies-for-the-authentication-context-option)
+- [Using authentication context with Microsoft Purview Information Protection and SharePoint](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#more-information-about-the-dependencies-for-the-authentication-context-option)
 - [How to use Continuous Access Evaluation enabled APIs in your applications](app-resilience-continuous-access-evaluation.md)
