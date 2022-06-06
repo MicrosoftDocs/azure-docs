@@ -1,5 +1,5 @@
 ---
-title: Azure Event Grid - Subscribe to partner events 
+title: Azure Event Grid - Subscribe to Microsoft Graph API events 
 description: This article explains how to subscribe to events published by Microsoft Graph API.
 ms.topic: how-to
 ms.date: 06/06/2022
@@ -38,7 +38,7 @@ The common steps to subscribe to events published by any partner, including Grap
 
 1. Register the Event Grid resource provider with your Azure subscription.
 2. Authorize partner to create a partner topic in your resource group.
-3. [Enable events to flow to a partner topic](#enable-microsoft-graph-api-events-to-flow-to-a-partner-topic).
+3. **Enable events to flow to a partner topic.**
 4. Activate partner topic so that your events start flowing to your partner topic.
 5. Subscribe to events.
 
@@ -67,7 +67,7 @@ Here are some of the key payload properties:
 - `changeType`: the kind of resource changes for which you want to receive events. Valid values: "Updated", "Deleted", and "Created". You can specify one or more of these values separated by commas.
 - `notificationUrl`: a URI that conforms to the following pattern: `EventGrid:?azuresubscriptionid=<you-azure-subscription-id>&resourcegroup=<your-resource-group-name>&partnertopic=<the-name-for-your-partner-topic>&location=<the-Azure-region-where-you-want-the-topic-created>`.
 - resource: the resource for which you need events announcing state changes.
-- expirationDateTime: the expiration time at which the subscription will expire and hence the flow of events will stop. It must conform to the format specified in [RFC 3339](https://tools.ietf.org/html/rfc3339). You must specify an expiration time that is within the [maximum subscription length allowable for the resource type](/graph/api/resources/subscription?view=graph-rest-1.0#maximum-length-of-subscription-per-resource-type) used. 
+- expirationDateTime: the expiration time at which the subscription will expire and hence the flow of events will stop. It must conform to the format specified in [RFC 3339](https://tools.ietf.org/html/rfc3339). You must specify an expiration time that is within the [maximum subscription length allowable for the resource type](/graph/api/resources/subscription#maximum-length-of-subscription-per-resource-type) used. 
 
 **You can create a Microsoft Graph API subscription by following the instructions in the [Microsoft Graph API webhook samples](https://github.com/microsoftgraph?q=webhooks&type=public&language=&sort=)** that include code samples for [NodeJS](https://github.com/microsoftgraph/nodejs-webhooks-sample), [Java (Spring Boot)](https://github.com/microsoftgraph/java-spring-webhooks-sample), and [.NET Core](https://github.com/microsoftgraph/aspnetcore-webhooks-sample). 
 
@@ -75,7 +75,7 @@ Here are some of the key payload properties:
 > There are not yet samples available for Python, Go and other languages but there is [Graph SDK](/graph/sdks/sdks-overview) support to create Graph API subscriptions. 
 
 > [!NOTE]
-> Be mindful of certain [Graph API resources' service limits](/graph/webhooks?view=graph-rest-1.0#azure-ad-resource-limitations) when developing your solution.
+> Be mindful of certain [Graph API resources' service limits](/graph/webhooks#azure-ad-resource-limitations) when developing your solution.
 
 #### What happens when you create a Microsoft Graph API subscription?
 
