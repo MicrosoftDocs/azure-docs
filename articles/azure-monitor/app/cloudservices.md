@@ -178,8 +178,6 @@ If there is no data, do the following:
 1. In the app, open various pages so that it generates some telemetry.
 1. Wait a few seconds, and then click **Refresh**.  
 
-For more information, see [Troubleshooting](../app/app-insights-overview.md).
-
 ## View Azure Diagnostics events
 You can find the [Azure Diagnostics](../agents/diagnostics-extension-.md) information in Application Insights in the following locations:
 
