@@ -56,7 +56,7 @@ An A record is used to map a name to its IP address. In the following example, a
 
 In the left navigation of the App Services page in the Azure portal, select **Custom domains**, then copy the IP address of your web app:
 
-:::image type="content" source="./media/dns-web-sites-custom-domain/app-service-custom-domains.png" alt-text="Screenshot app service custom domains showing the web app I P address." lightbox="./media/dns-web-sites-custom-domain/app-service-custom-domains.png":::
+:::image type="content" source="./media/dns-web-sites-custom-domain/app-service-custom-domains.png" alt-text="Screenshot of app service custom domains showing the web app I P address.":::
 
 ### Create the record
 
