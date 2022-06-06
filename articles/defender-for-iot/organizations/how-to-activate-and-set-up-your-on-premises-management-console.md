@@ -1,7 +1,7 @@
 ---
 title: Activate and set up your on-premises management console 
 description: Activating the management console ensures that sensors are registered with Azure and send information to the on-premises management console, and that the on-premises management console carries out management tasks on connected sensors.
-ms.date: 11/09/2021
+ms.date: 06/06/2022
 ms.topic: how-to
 ---
 
@@ -63,10 +63,15 @@ If this warning appears, you need to upload a [new activation file](#activate-th
 
 ### Activation expirations
 
-After you've activated an on-premises management console, connected sensors remain activated as follows:
+After activating an on-premises management console, you'll need to apply new activation files as follows:
 
-- **Cloud-connected sensors** have no expiration date. However, some sensor version updates may require a new activation file.
-- **Locally-managed sensors** expire after one year, after which you must apply a new activation file. After a sensor's activation file has expired, the sensor will continue to monitor your network, but you'll see a warning message when signing in to the sensor.
+|Location  |Activation process  |
+|---------|---------|
+|**On-premises management console**     |  Apply a new activation file on your on-premises management console if you've [modified the number of committed devices](how-to-manage-subscriptions.md#update-committed-devices-in-a-subscription) in your subscription.      |
+|**Cloud-connected sensors**     | Cloud-connected sensors remain activated for as long as your Azure subscription with your Defender for IoT plan is active. <br><br>However, you'll also need to apply a new activation file when [updating your sensor software](how-to-manage-individual-sensors.md#download-a-new-activation-file-for-version-221x-or-higher) from a legacy version to version 22.2.x.        |
+|  **Locally-managed**   |   Apply a new activation file to locally-managed sensors every year. After a sensor's activation file has expired, the sensor will continue to monitor your network, but you'll see a warning message when signing in to the sensor.     |
+
+For more information, see [Manage Defender for IoT subscriptions](how-to-manage-subscriptions.md).
 
 ### Activate expired licenses from versions earlier than 10.0
 
