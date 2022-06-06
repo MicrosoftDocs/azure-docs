@@ -18,6 +18,9 @@ This quickstart describes how to :
 - Create key-values in an App Configuration store using ARM template.
 - Read key-values in an App Configuration store from ARM template.
 
+> [!TIP]
+> Feature flags and Key Vault references are special types of key-values. Check out the [Next steps](#next-steps) for examples of creating them using the ARM template.
+
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
@@ -112,5 +115,5 @@ Write-Host "Press [ENTER] to continue..."
 
 To learn about adding feature flag and Key Vault reference to an App Configuration store, check below ARM template examples.
 
-- [app-configuration-store-ff](https://azure.microsoft.com/resources/templates/app-configuration-store-ff/)
-- [app-configuration-store-keyvaultref](https://azure.microsoft.com/resources/templates/app-configuration-store-keyvaultref/)
+- [ARM template for feature flag](https://azure.microsoft.com/resources/templates/app-configuration-store-ff/)
+- [ARM template for Key Vault reference](https://azure.microsoft.com/resources/templates/app-configuration-store-keyvaultref/)

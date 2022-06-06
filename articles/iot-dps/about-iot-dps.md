@@ -106,7 +106,9 @@ DPS only supports HTTPS connections for service operations.
 
 ## Regions
 
-DPS is available in many regions. The updated list of existing and newly announced regions for all services is at [Azure Regions](https://azure.microsoft.com/regions/). You can check availability of the Device Provisioning Service on the [Azure Status](https://azure.microsoft.com/status/) page.
+DPS is available in many regions. The list supported regions for all services is available at [Azure Regions](https://azure.microsoft.com/regions/). You can check availability of the Device Provisioning Service on the [Azure Status](https://azure.microsoft.com/status/) page.
+
+For resiliency and reliability, we recommend deploying to one of the regions that support [Availability Zones](iot-dps-ha-dr.md).
 
 ### Data residency consideration
 
@@ -187,5 +189,3 @@ You now have an overview of provisioning IoT devices in Azure. The next step is 
 [Set up IoT Hub Device Provisioning Service with the Azure portal](quick-setup-auto-provision.md)
 
 [Create and provision a simulated device](quick-create-simulated-device-tpm.md)
-
-[Set up device for provisioning](tutorial-set-up-device.md)

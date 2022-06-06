@@ -10,8 +10,6 @@ zone_pivot_groups: manage-asc-initiatives
 
 # Create custom security initiatives and policies
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 To help secure your systems and environment, Microsoft Defender for Cloud generates security recommendations. These recommendations are based on industry best practices, which are incorporated into the generic, default security policy supplied to all customers. They can also come from Defender for Cloud's knowledge of industry and regulatory standards.
 
 With this feature, you can add your own *custom* initiatives. Although custom initiatives are not included in the secure score, you'll receive recommendations if your environment doesn't follow the policies you create. Any custom initiatives you create are shown in the list of all recommendations and you can filter by initiative to see the recommendations for your initiative. They are also shown with the built-in initiatives in the regulatory compliance dashboard, as described in the tutorial [Improve your regulatory compliance](regulatory-compliance-dashboard.md).

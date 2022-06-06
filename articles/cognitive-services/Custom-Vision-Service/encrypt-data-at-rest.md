@@ -10,6 +10,7 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
+ms.custom: cogserv-non-critical-vision
 #Customer intent: As a user of the Face service, I want to learn how encryption at rest works.
 ---
 

@@ -4,6 +4,7 @@ description: Learn about private access networking option in the Flexible Server
 author: Madhusoodanan
 ms.author: dimadhus
 ms.service: mysql
+ms.subservice: flexible-server
 ms.topic: conceptual
 ms.date: 8/6/2021
 ---

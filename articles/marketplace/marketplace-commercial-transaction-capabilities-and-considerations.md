@@ -37,7 +37,6 @@ The transact publishing option is currently supported for the following offer ty
 | Azure Application <br>(Managed application) | Monthly | Yes | Usage-based |
 | Azure Virtual Machine | Monthly* | No | Usage-based, BYOL |
 | Software as a service (SaaS) | Monthly and annual | Yes | Flat rate, per user, usage-based. |
-|||||
 
 \* Azure Virtual Machine offers support usage-based billing plans. These plans are billed monthly for hourly use of the subscription based on per core, per core size, or per market and core size usage.
 
@@ -97,7 +96,6 @@ Usage-based pricing has the following cost structure:
 |---------|---------|
 | Azure usage cost (D1/1-Core) | $0.14 per hour |
 | *Customer is billed by Microsoft* | *$1.14 per hour* |
-||
 
 In this scenario, Microsoft bills $1.14 per hour for use of your published VM image.
 
@@ -106,7 +104,6 @@ In this scenario, Microsoft bills $1.14 per hour for use of your published VM im
 | Microsoft pays you 97% of your license cost | $0.97 per hour |
 | Microsoft keeps 3% of your license cost  |  $0.03 per hour |
 | Microsoft keeps 100% of the Azure usage cost | $0.14 per hour |
-||
 
 **Bring Your Own License (BYOL)**
 
@@ -116,7 +113,6 @@ BYOL has the following cost structure:
 |---------|---------|
 |Azure usage cost (D1/1-Core)    |   $0.14 per hour     |
 | *Customer is billed by Microsoft* | *$0.14 per hour* |
-||
 
 In this scenario, Microsoft bills $0.14 per hour for use of your published VM image.
 
@@ -124,7 +120,6 @@ In this scenario, Microsoft bills $0.14 per hour for use of your published VM im
 |---------|---------|
 | Microsoft keeps the Azure usage cost | $0.14 per hour |
 | Microsoft keeps 0% of your license cost | $0.00 per hour |
-||
 
 **SaaS app subscription**
 
@@ -134,7 +129,6 @@ SaaS subscriptions can be priced at a flat rate or per user on a monthly or annu
 |--------------|---------|
 | Azure usage cost (D1/1-Core) | Billed directly to the publisher, not the customer |
 | *Customer is billed by Microsoft* | *$100.00 per month (publisher must account for any incurred or pass-through infrastructure costs in the license fee)* |
-||
 
 In this scenario, Microsoft bills $100.00 for your software license and pays out $97.00.
 

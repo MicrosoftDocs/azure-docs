@@ -10,6 +10,7 @@ ms.custom: devx-track-js
 # service-fabric-get-started-linux.md
 # service-fabric-get-started-mac.md
 # service-fabric-local-linux-cluster-windows.md
+# service-fabric-local-linux-cluster-windows-wsl2.md
 ---
 # Prepare your development environment on Linux
 > [!div class="op_single_selector"]

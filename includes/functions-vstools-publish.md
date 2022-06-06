@@ -7,7 +7,7 @@ ms.author: glenga
 ms.custom: devdivchpfy22
 ---
 
-1. In **Solution Explorer**, right-click the project and select **Publish**. In the **Target**, select **Azure**, and then select **Next**.
+1. In **Solution Explorer**, right-click the project and select **Publish**. In **Target**, select **Azure** then **Next**.
 
     :::image type="content" source="media/functions-vstools-publish/functions-vs-publish.png" alt-text="Screenshot of publish window.":::
 
@@ -46,4 +46,8 @@ ms.custom: devdivchpfy22
 
     :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-complete.png" alt-text="Screenshot of publish success message.":::
 
-    Cloud Explorer lets you use Visual Studio to view the contents of the site, start and stop the function app, and browse directly to function app resources on Azure and in the Azure portal.
+    After the deployment completes, the root URL of the function app in Azure is shown in the **Publish** tab. 
+    
+1.  In the Publish tab, in the Hosting section, choose **Open in Azure portal**. This opens the new function app Azure resource in the Azure portal. 
+    
+    :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-complete.png" alt-text="Publish success message"::: 

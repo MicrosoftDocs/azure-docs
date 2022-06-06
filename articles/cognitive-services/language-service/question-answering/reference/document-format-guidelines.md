@@ -3,8 +3,8 @@ title: Import document format guidelines - question answering
 description: Use these guidelines for importing documents to get the best results for your content with question answering.
 ms.service: cognitive-services
 ms.subservice: language-service
-ms.author: mbullwin
-author: mrbullwinkle
+ms.author: jboback
+author: jboback
 ms.topic: reference
 ms.date: 01/23/2022
 ---
@@ -155,7 +155,7 @@ Question answering can process semi-structured support web pages, such as web ar
 
 ## Import and export knowledge base
 
-**TSV and XLS files**, from exported knowledge bases, can only be used by importing the files from the **Settings** page in the language studio. They cannot be used as data sources during knowledge base creation or from the **+ Add file** or **+ Add URL** feature on the **Settings** page.
+**TSV and XLS files**, from exported knowledge bases, can only be used by importing the files from the **Settings** page in Language Studio. They cannot be used as data sources during knowledge base creation or from the **+ Add file** or **+ Add URL** feature on the **Settings** page.
 
 When you import the knowledge base through these **TSV and XLS files**, the question answer pairs get added to the editorial source and not the sources from which the question and answers were extracted in the exported knowledge base.
 

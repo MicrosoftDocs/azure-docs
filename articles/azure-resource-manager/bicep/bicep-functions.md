@@ -2,7 +2,7 @@
 title: Bicep functions
 description: Describes the functions to use in a Bicep file to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
-ms.date: 04/12/2022
+ms.date: 05/02/2022
 ---
 
 # Bicep functions
@@ -56,6 +56,8 @@ The following functions are available for working with arrays. All of these func
 The following functions are available for working with dates. All of these functions are in the `sys` namespace.
 
 * [dateTimeAdd](./bicep-functions-date.md#datetimeadd)
+* [dateTimeFromEpoch](./bicep-functions-date.md#datetimefromepoch)
+* [dateTimeToEpoch](./bicep-functions-date.md#datetimetoepoch)
 * [utcNow](./bicep-functions-date.md#utcnow)
 
 ## Deployment value functions

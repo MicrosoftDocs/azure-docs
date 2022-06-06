@@ -77,6 +77,8 @@ In this tutorial, you learn how to:
 1. Select **Go to resource**.
 
 ## Disable cache for auth workflow
+> [!NOTE]
+>The cache expiration, cache key query string and origin group override actions are deprecated. These deprecated actions can still work normally, but your rule set >cannot be changed. You need to replace them with new route configuration override action before changing your rule set.
 
 Add the following settings to disable Front Door's caching policies from trying to cache authentication and authorization-related pages.
 
@@ -108,9 +110,9 @@ Add the following settings to disable Front Door's caching policies from trying 
 
 1. Select the **Add an action** dropdown.
 
-1. Select **Cache expiration**.
+1. Select **Route configuration override**.
 
-1. Select **Bypass cache** in the *Cache Behavior* dropdown.
+1. Select **Disabled** in the *Caching* dropdown.
 
 1. Select the **Save** button.
 
