@@ -114,7 +114,7 @@ These rule collections are described in more detail in [What are some Azure Fire
 
 1. To restrict outbound traffic for models deployed to Azure Kubernetes Service (AKS), see the [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md) and [Deploy ML models to Azure Kubernetes Service](v1/how-to-deploy-azure-kubernetes-service.md#connectivity) articles.
 
-### AzureML Kubernetes Compute <a id="arc-kubernetes"></a>
+### Kubernetes Compute
 
 [Kubernetes Cluster](./how-to-attach-kubernetes-anywhere.md) running behind an outbound proxy server or firewall need additional network configurations. Fulfill [Azure Arc network requirements](../azure-arc/kubernetes/quickstart-connect-cluster.md?tabs=azure-cli#meet-network-requirements) needed by Azure Arc agents. Besides that, the following outbound URLs are required for Azure Machine Learning,
 
