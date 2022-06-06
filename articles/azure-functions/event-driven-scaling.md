@@ -48,6 +48,19 @@ $resource.Properties.functionAppScaleLimit = <SCALE_LIMIT>
 $resource | Set-AzResource -Force
 ```
 
+## Scale In Behavior
+
+As the Azure Functions platform scales compute resources automatically based on demand, currently executing functions are expected to be allowed to shut down gracefully during scale in scenarios.
+
+Azure Functions Consumption and Premium plans for Linux and Windows have an internal feature called drain mode that enables graceful scale-in of workers with minimal impact on executing function invocations. This feature is not implemented on the Dedicated (App Service) plan.
+
+When the platform decides to scale in your function app, and before workers are taken away, it will stop sending events to the workers and allow ongoing function executions to finish running up to 10 minutes on the Consumption plan and up to 60 minutes on the Premium plan.
+
+Limitations:
+
+* For Windows Consumption, only function apps created after May 2021 have the feature enabled by default.
+* When using the Service Bus trigger, this feature requires you to use the Functions Service Bus Extension to version 4.2.0 or higher (included with bundles 2.x or higher).
+
 ## Event Hubs trigger
 
 This section describes how scaling behaves when your function uses an [Event Hubs trigger](functions-bindings-event-hubs-trigger.md) or an [IoT Hub trigger](functions-bindings-event-iot-trigger.md). In these cases, each instance of an event triggered function is backed by a single [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor) instance. The trigger (powered by Event Hubs) ensures that only one [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor) instance can get a lease on a given partition.
