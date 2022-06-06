@@ -38,6 +38,9 @@ curl -X GET  https://your-Language-endpoint-here/language/analyze-text/jobs/{JOB
 -H "Ocp-Apim-Subscription-Key: your-Language-key-here"
 ```
 
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Text-analytics-for-health&Page=quickstart&Section=Text-analytics-for-health" target="_target">I ran into an issue</a>
+
 ### JSON response
 
 ```json
@@ -474,6 +477,9 @@ curl -X GET  https://your-text-analytics-endpoint-here/text/analytics/v3.1/entit
 -H "Content-Type: application/json" \
 -H "Ocp-Apim-Subscription-Key: your-text-analytics-key-here"
 ```
+
+> [!div class="nextstepaction"]
+> <a href="https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=REST API&Pillar=Language&Product=Text-analytics-for-health&Page=quickstart&Section=Text-analytics-for-health" target="_target">I ran into an issue</a>
 
 ### JSON response
 
