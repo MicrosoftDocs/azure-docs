@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Gremlin API with PHP - Azure Cosmos DB'
-description: Follow this quickstart to create a PHP console application that uses the Azure Cosmos DB Gremlin API in the Azure portal.
+description: Follow this quickstart to run a PHP console application that populates an Azure Cosmos DB Gremlin API database in the Azure portal.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: php
@@ -10,7 +10,7 @@ author: manishmsfte
 ms.author: mansha
 ms.custom: mode-api, kr2b-contr-experiment
 ---
-# Quickstart: Create a graph database in Azure Cosmos DB with PHP and the Azure portal
+# Quickstart: Create an Azure Cosmos DB graph database with PHP and the Azure portal
 
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]
 
@@ -23,15 +23,19 @@ ms.custom: mode-api, kr2b-contr-experiment
 > * [PHP](create-graph-php.md)
 >  
 
-Azure Cosmos DB is Microsoft's multi-model database service that lets you quickly create and query document, table, key-value, and graph databases, with global distribution and horizontal scale capabilities. Azure Cosmos DB provides five APIs: Core (SQL), MongoDB, Gremlin, Azure Table, and Cassandra. You must create a separate account for each API. This quickstart uses the [Gremlin (Graph) API](graph-introduction.md).
+In this quickstart, you create an Azure Cosmos DB [Gremlin (Graph) API](graph-introduction.md) database by using PHP and the Azure portal.
 
-In this quickstart, you:
+Azure Cosmos DB is Microsoft's multi-model database service that lets you quickly create and query document, table, key-value, and graph databases, with global distribution and horizontal scale capabilities. Azure Cosmos DB provides five APIs: Core (SQL), MongoDB, Gremlin, Azure Table, and Cassandra.
+
+You must create a separate account to use each API. In this article, you create an account for the Gremlin (Graph) API.
+
+This quickstart walks you through the following steps:
 
 - Use the Azure portal to create an Azure Cosmos DB Gremlin (Graph) API account.
-- Create a graph database in the Azure Cosmos DB account.
+- In the portal, create a graph database in the Azure Cosmos DB account.
 - Clone a sample Gremlin API PHP console app from GitHub, and run it to populate your database.
 - Filter and query your graph database with Data Explorer in the Azure portal.
-- Add and connect new data in your database.
+- Use Data Explorer to add and connect new data in your database.
 
 ## Prerequisites
 
@@ -41,7 +45,7 @@ In this quickstart, you:
 
 - [PHP](https://php.net/) 5.6 or newer installed.
 
-- [Composer](https://getcomposer.org/download) open-source dependency management tool for PHP.
+- [Composer](https://getcomposer.org/download) open-source dependency management tool for PHP installed.
 
 ## Create a Gremlin (Graph) database account
 
@@ -56,21 +60,21 @@ First, create a Gremlin (Graph) database account for Azure Cosmos DB.
 1. On the **Select API Option** page, under **Gremlin (Graph)**, select **Create**.
 
 1. On the **Create Azure Cosmos DB Account - Gremlin (Graph)** page, enter the following required settings for the new account:
- 
-   |Setting|Value|Description |
-   |---|---|---|
-   |**Subscription**|Subscription name|Select the Azure subscription that you want to use for this account.|
-   |**Resource Group**|Resource group name|Select **Create new**, then enter a unique name for the new resource group.|
-   |**Account Name**|Account name|Enter a unique name between 3-44 characters, using only lowercase letters, numbers, and hyphens. Your account URI is *gremlin.azure.com* appended to your unique account name.|
-   |**Location**|Azure region|Select a geographic location to host your Azure Cosmos DB account. Use the location that's closest to your users to give them the fastest access to the data.|
+
+   - **Subscription**: Select the Azure subscription that you want to use for this account.
+   - **Resource Group**: Select **Create new**, then enter a unique name for the new resource group.
+   - **Account Name**: Enter a unique name between 3-44 characters, using only lowercase letters, numbers, and hyphens. Your account URI is *gremlin.azure.com* appended to your unique account name.
+   - **Location**: Select the Azure region to host your Azure Cosmos DB account. Use the location that's closest to your users to give them the fastest access to the data.
 
    :::image type="content" source="../includes/media/cosmos-db-create-dbaccount-graph/azure-cosmos-db-create-new-account.png" alt-text="Screenshot showing the Create Account page for Azure Cosmos DB for a Gremlin (Graph) account.":::
 
-1. For the purpose of this quickstart, you can leave the other fields and tabs at their default values. Optionally, you can configure more details for the account. See [Optional account settings](#optional-account-settings).
+1. For this quickstart, you can leave the other fields and tabs at their default values. Optionally, you can configure more details for the account. See [Optional account settings](#optional-account-settings).
 
 1. Select **Review + create**, and then select **Create**. Deployment takes a few minutes.
 
 1. When the **Your deployment is complete** message appears, select **Go to resource**.
+
+   You go to the **Overview** page for the new Azure Cosmos DB account.
 
    :::image type="content" source="../includes/media/cosmos-db-create-dbaccount-graph/azure-cosmos-db-graph-created.png" alt-text="Screenshot showing the Azure Cosmos DB Quick start page":::
 
@@ -83,7 +87,7 @@ Optionally, you can also configure the following settings on the **Create Azure 
   |Setting|Value|Description |
   |---|---|---|
   |**Capacity mode**|**Provisioned throughput** or **Serverless**|Select **Provisioned throughput** to create an account in [provisioned throughput](../set-throughput.md) mode. Select **Serverless** to create an account in [serverless](../serverless.md) mode.|
-  |**Apply Azure Cosmos DB free tier discount**|**Apply** or **Do not apply**|With Azure Cosmos DB free tier, you will get the first 1000 RU/s and 25 GB of storage for free in an account. Learn more about [free tier](https://azure.microsoft.com/pricing/details/cosmos-db/).|
+  |**Apply Azure Cosmos DB free tier discount**|**Apply** or **Do not apply**|With Azure Cosmos DB free tier, you get the first 1000 RU/s and 25 GB of storage for free in an account. Learn more about [free tier](https://azure.microsoft.com/pricing/details/cosmos-db/).|
 
   > [!NOTE]
   > You can have up to one free tier Azure Cosmos DB account per Azure subscription and must opt-in when creating the account. If you don't see the option to apply the free tier discount, this means another account in the subscription has already been enabled with free tier.
@@ -103,28 +107,26 @@ Optionally, you can also configure the following settings on the **Create Azure 
 
 - Other tabs:
 
-  - **Networking**. Configure [access from a virtual network](../how-to-configure-vnet-service-endpoint.md).
-  - **Backup Policy**. Configure either [periodic](../configure-periodic-backup-restore.md) or [continuous](../provision-account-continuous-backup.md) backup policy.
-  - **Encryption**. Use either a service-managed key or a [customer-managed key](../how-to-setup-cmk.md#create-a-new-azure-cosmos-account).
-  - **Tags**. Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups.
+  - **Networking**: Configure [access from a virtual network](../how-to-configure-vnet-service-endpoint.md).
+  - **Backup Policy**: Configure either [periodic](../configure-periodic-backup-restore.md) or [continuous](../provision-account-continuous-backup.md) backup policy.
+  - **Encryption**: Use either a service-managed key or a [customer-managed key](../how-to-setup-cmk.md#create-a-new-azure-cosmos-account).
+  - **Tags**: Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups.
 
 ## Add a graph
    
-1. On the Azure Cosmos DB account page, select **Add Graph**.
+1. On the Azure Cosmos DB account **Overview** page, select **Add Graph**.
 
-   :::image type="content" source="../includes/media/cosmos-db-create-dbaccount-graph/azure-cosmos-db-add-graph.png" alt-text="Screenshot showing the Add Graph on the Azure Cosmos DB account page":::
+   :::image type="content" source="../includes/media/cosmos-db-create-dbaccount-graph/azure-cosmos-db-add-graph.png" alt-text="Screenshot showing the Add Graph on the Azure Cosmos DB account page.":::
 
 1. Fill out the **New Graph** form. For this quickstart, use the following values:
 
-   Setting|Suggested value|Description
-   ---|---|---
-   **Database id**|*sample-database*|Database names must be between 1 and 255 characters, and can't contain `/ \ # ?` or a trailing space.
-   **Database Throughput**|**Manual**|Change the throughput to **Manual**, so you can set it to a low value.
-   **Database Max RU/s**|*400*|Change the throughput to 400 request units per second (RU/s). If you want to reduce latency, you can scale up throughput later.
-   **Graph id**|*sample-graph*|Graph names have the same character requirements as database IDs.
-   **Partition key**|*/pk*|All Cosmos DB accounts need a partition key to horizontally scale. To learn how to select an appropriate partition key, see [Use a partitioned graph in Azure Cosmos DB](../graph-partitioning.md).
+   - **Database id**: Enter *sample-database*. Database names must be between 1 and 255 characters, and can't contain `/ \ # ?` or a trailing space.
+   - **Database Throughput**: Select **Manual**, so you can set the throughput to a low value.
+   - **Database Max RU/s**: Change the throughput to *400* request units per second (RU/s). If you want to reduce latency, you can scale up throughput later.
+   - **Graph id**: Enter *sample-graph*. Graph names have the same character requirements as database IDs.
+   - **Partition key**: Enter */pk*. All Cosmos DB accounts need a partition key to horizontally scale. To learn how to select an appropriate partition key, see [Use a partitioned graph in Azure Cosmos DB](../graph-partitioning.md).
 
-   ![Screenshot showing the Azure Cosmos DB Data Explorer, New Graph page.](../includes/media/cosmos-db-create-graph/azure-cosmosdb-data-explorer-graph.png)
+   :::image type="content" source="../includes/media/cosmos-db-create-graph/azure-cosmosdb-data-explorer-graph.png" alt-text="SScreenshot showing the Azure Cosmos DB Data Explorer, New Graph page.":::
 
 1. Select **OK**. The new graph database is created.
 
@@ -164,13 +166,13 @@ Now, switch to working with code. Clone a Gremlin API app from GitHub, set the c
    git clone https://github.com/Azure-Samples/azure-cosmos-db-graph-php-getting-started.git
    ```
 
-Optionally, you can review the PHP code you cloned. Otherwise, go to [Update your connection string](#update-your-connection-information).
+Optionally, you can now review the PHP code you cloned. Otherwise, go to [Update your connection information](#update-your-connection-information).
 
 ### Review the code
 
 This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. The snippets are all taken from the *connect.php* file in the *C:\git-samples\azure-cosmos-db-graph-php-getting-started* folder.
 
-- The Gremlin `connection` is initialized in the beginning of the `connect.php` file using the `$db` object.
+- The Gremlin `connection` is initialized in the beginning of the `connect.php` file, using the `$db` object.
 
   ```php
   $db = new Connection([
@@ -184,7 +186,7 @@ This step is optional. If you're interested in learning how the database resourc
   ]);
   ```
 
-- A series of Gremlin steps execute using the `$db->send($query);` method.
+- A series of Gremlin steps execute, using the `$db->send($query);` method.
 
   ```php
   $query = "g.V().drop()";
@@ -251,11 +253,11 @@ This step is optional. If you're interested in learning how the database resourc
 <a id="add-sample-data"></a>
 ## Review and add sample data
 
-You can now go back to Data Explorer in the Azure portal, see the vertices added to the graph, and add additional data points.
+You can now go back to Data Explorer in the Azure portal, see the vertices added to the graph, and add more data points.
 
-1. In your Azure Cosmos DB account in the Azure portal, select **Data Explorer**, expand **sample-database** and **sample-graph**, select **Graph**, and then select **Apply Filter**.
+1. In your Azure Cosmos DB account in the Azure portal, select **Data Explorer**, expand **sample-database** and **sample-graph**, select **Graph**, and then select **Execute Gremlin Query**.
 
-   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-expanded.png" alt-text="Screenshot that shows Graph selected with the option to Apply Filter.":::
+   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-expanded.png" alt-text="Screenshot that shows Graph selected with the option to Execute Gremlin Query.":::
 
 1. In the **Results** list, notice the new users added to the graph. Select **ben**, and notice that they're connected to **robin**. You can move the vertices around by dragging and dropping, zoom in and out by scrolling the wheel of your mouse, and expand the size of the graph with the double-arrow.
 
@@ -278,7 +280,7 @@ You can now go back to Data Explorer in the Azure portal, see the vertices added
     > [!NOTE]
     > In this quickstart you create a non-partitioned collection. However, if you create a partitioned collection by specifying a partition key during the collection creation, then you need to include the partition key as a key in each new vertex. 
 
-1. Select **OK**. You may need to expand your screen to see **OK** on the bottom of the screen.
+1. Select **OK**.
 
 1. Select **New Vertex** again and add another new user. 
 
@@ -294,11 +296,11 @@ You can now go back to Data Explorer in the Azure portal, see the vertices added
 
 1. Select **OK**. 
 
-1. Select **Apply Filter** with the default `g.V()` filter to display all the values in the graph. All the users now show in the **Results** list.
+1. Select **Execute Gremlin Query** with the default `g.V()` filter to display all the values in the graph. All the users now show in the **Results** list.
 
-   As you add more data, you can use filters to limit your results. By default, Data Explorer uses `g.V()` to retrieve all vertices in a graph. You can change to a different [graph query](tutorial-query-graph.md), such as `g.V().count()`, to return a count of all the vertices in the graph in JSON format. If you changed the filter, change the filter back to `g.V()` and select **Apply Filter** to display all the results again.
+   As you add more data, you can use filters to limit your results. By default, Data Explorer uses `g.V()` to retrieve all vertices in a graph. You can change to a different [graph query](tutorial-query-graph.md), such as `g.V().count()`, to return a count of all the vertices in the graph in JSON format. If you changed the filter, change the filter back to `g.V()` and select **Execute Gremlin Query** to display all the results again.
 
-1. Now you can connect rakesh and ashley. Ensure **ashley** is selected in the **Results** list, then select **Edit** next to **Targets** at lower right. You might need to widen your window to see the **Properties** area.
+1. Now you can connect rakesh and ashley. Ensure **ashley** is selected in the **Results** list, then select the edit icon next to **Targets** at lower right.
 
    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Screenshot that shows changing the target of a vertex in a graph.":::
 
@@ -322,13 +324,12 @@ You can review the metrics that Azure Cosmos DB provides, and then clean up the 
 
 [!INCLUDE [cosmosdb-delete-resource-group](../includes/cosmos-db-delete-resource-group.md)]
 
-This action deletes the resource group and all resources within it, including the Auzure Cosmos DB Gremlin (Graph) account and database.
+This action deletes the resource group and all resources within it, including the Azure Cosmos DB Gremlin (Graph) account and database.
 
 ## Next steps
 
-In this quickstart, you learned how to create an Azure Cosmos DB Gremlin (Graph) account, create a graph, clone and run a PHP app, and query and configure your database using the Data Explorer. You can now build more complex queries and implement powerful graph traversal logic using Gremlin.
+In this quickstart, you learned how to create an Azure Cosmos DB Gremlin (Graph) account and database, clone and run a PHP app, and work with your database using the Data Explorer. You can now build more complex queries and implement powerful graph traversal logic using Gremlin.
 
 > [!div class="nextstepaction"]
 > [Query using Gremlin](tutorial-query-graph.md)
-
 
