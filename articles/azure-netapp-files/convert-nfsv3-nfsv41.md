@@ -77,7 +77,7 @@ This section shows you how to convert the NFSv3 volume to NFSv4.1.
 2. Convert the NFS version:
 
     1. In the Azure portal, navigate to the NFS volume that you want to convert.
-    2. Click **Edit**.
+    2. Select **Edit**.
     3. In the Edit window that appears, select **NSFv4.1** in the **Protocol type** pulldown.  
     
     ![screenshot that shows the Edit menu with the Protocol Type field](../media/azure-netapp-files/edit-protocol-type.png)   
@@ -111,12 +111,12 @@ This section shows you how to convert the NFSv4.1 volume to NFSv3.
     1. Unmount it from the clients in preparation. See [Mount or unmount a volume](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).  
         Example:   
         `sudo umount /path/to/vol1`
-    2. Change the export policy to read-only. See [Configure export policy for NFS or dual-protocol volumes](azure-netapp-files-configure-export-policy).
+    2. Change the export policy to read-only. See [Configure export policy for NFS or dual-protocol volumes](azure-netapp-files-configure-export-policy.md).
 
 2. Convert the NFS version:
 
     1. In the Azure portal, navigate to the NFS volume that you want to convert.
-    2. Click **Edit**.
+    2. Select **Edit**.
     3. In the Edit window that appears, select **NSFv3** in the **Protocol type** pulldown.  
     
     ![screenshot that shows the Edit menu with the Protocol Type field](../media/azure-netapp-files/edit-protocol-type.png)   
@@ -133,7 +133,7 @@ This section shows you how to convert the NFSv4.1 volume to NFSv3.
     `mount -v | grep /path/to/vol1`  
     `vol1:/path/to/vol1 on /path type nfs (rw,intr,tcp,nfsvers=3,rsize=16384,wsize=16384,addr=192.168.1.1)`.
 
-7. Change the read-only export policy back to the original export policy. See See [Configure export policy for NFS or dual-protocol volumes](azure-netapp-files-configure-export-policy).
+7. Change the read-only export policy back to the original export policy. See See [Configure export policy for NFS or dual-protocol volumes](azure-netapp-files-configure-export-policy.md).
 
 8. Verify access using root and non-root users.
 
