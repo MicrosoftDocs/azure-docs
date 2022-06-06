@@ -138,7 +138,7 @@ The core application logs can be exported to the Defender for IoT support team t
 
 ## Update the on-premises management console with high availability
 
-To update an on-premises management console that has high availability configured, you will need to:
+To update an on-premises management console that has high availability configured, you'll need to:
 
 1. Disconnect the high availability from both the primary and secondary appliances. 
 1. Update the appliances to the new version. 
