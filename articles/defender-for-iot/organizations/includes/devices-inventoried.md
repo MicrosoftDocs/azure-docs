@@ -10,7 +10,7 @@ ms.topic: include
 Defender for IoT considers any of the following as single and unique network devices:
 
 - Managed or un-managed standalone IT/OT/IoT devices, with one or more NICs
-- Devices with multiple backlplace components, including all racks, slots, or modules
+- Devices with multiple backplane components, including all racks, slots, or modules
 - Devices that provide network infrastructure, such as switches or routers with multiple NICs
 
 The following items are not monitored as devices, and do not appear in the Defender for IoT device inventories:
