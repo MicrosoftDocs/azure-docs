@@ -9,7 +9,7 @@ ms.date: 06/07/2022
 
 ---
 
-# Troubleshooting Dynatrace integration with Azure
+# Troubleshoot Dynatrace for Azure
 
 This article describes how to contact support when working with a Dynatrace resource. Before contacting support, see [Fix common errors](#fix-common-errors).
 
@@ -17,7 +17,7 @@ This article describes how to contact support when working with a Dynatrace reso
 
 To contact support about the Azure Datadog integration, select **New Support request** in the left pane. Select the link to the Dynatrace support website.
 
-:::image type="content" source="media/dynatrace-troubleshoot/dynatrace-support.png" alt-text="Screenshot showing new support sequest selected in resource menu.":::
+:::image type="content" source="media/dynatrace-troubleshoot/dynatrace-support.png" alt-text="Screenshot showing new support request selected in resource menu.":::
 
 ## Fix common errors
 

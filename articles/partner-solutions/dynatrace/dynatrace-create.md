@@ -49,7 +49,7 @@ Use the Azure portal to find Dynatrace for Azure application.
 1. If you want to create a new Dynatrace environment, select **Create** action under the **Create a new Dynatrace environment** option
     :::image type="content" source="media/dynatrace-create/dynatrace-create-new-link-existing.png" alt-text="Screenshot showing two options: new Dynatrace or existing Dynatrace.":::
 
-1. You then see a the form to create a Dynatrace resource in the working pane.
+1. You see a form to create a Dynatrace resource in the working pane.
 
     :::image type="content" source="media/dynatrace-create/dynatrace-basic-properties.png" alt-text="Screenshot of basic properties needed for new Dynatrace instance.":::
 
@@ -84,7 +84,7 @@ Use the Azure portal to find Dynatrace for Azure application.
     - Azure resources with Exclude tags don't send logs to Dynatrace.
     - If there's a conflict between inclusion and exclusion rules, exclusion rule applies.
   
-    The logs sent to Dynatrace is charged by Azure. For more information, see the [pricing of platform logs](https://azure.microsoft.com/pricing/details/monitor/) sent to Azure Marketplace partners.
+    The logs sent to Dynatrace are charged by Azure. For more information, see the [pricing of platform logs](https://azure.microsoft.com/pricing/details/monitor/) sent to Azure Marketplace partners.
 
     > [!NOTE]
     > Metrics for virtual machines and App Services can be collected by installing the Dynatrace OneAgent after the Dynatrace resource has been created.

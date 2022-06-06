@@ -6,7 +6,6 @@ author: flang-msft
 ms.author: franlanglois
 ms.date: 06/07/2022
 
-
 ---
 
 # Quickstart: Link to an existing Dynatrace environment
@@ -15,11 +14,11 @@ In this quickstart, you link an Azure subscription to an existing Dynatrace envi
 
 When you use the integrated experience for Dynatrace in the Azure portal, your billing and monitoring for the following entities is tracked in the portal.
 
-:::image type="content" source="media/dynatrace-link-to-existing/dynatrace-entities-linking.png" alt-text="Flowchart showing three entities: subscription 1 connected to subscription 1 and Dynatrace S A A S":::
+:::image type="content" source="media/dynatrace-link-to-existing/dynatrace-entities-linking.png" alt-text="Flowchart showing three entities: subscription 1 connected to subscription 1 and Dynatrace S A A S.":::
 
 - **Dynatrace resource in Azure** - Using the Dynatrace resource, you can manage the Dynatrace environment in Azure. The resource is created in the Azure subscription and resource group that you select during the linking process.
 - **Dynatrace environment** - the Dynatrace environment on Dynatrace SaaS. When you choose to link an existing environment, a new Dynatrace resource is created in Azure. The Dynatrace environment and the Dynatrace resource must reside in the same region.
-- **Marketplace SaaS resource** - the SaaS resource is used for billing purposes. Th SaaS resource typically resides in a different Azure subscription from where the Dynatrace environment was first created.
+- **Marketplace SaaS resource** - the SaaS resource is used for billing purposes. The SaaS resource typically resides in a different Azure subscription from where the Dynatrace environment was first created.
 
 ## Prerequisites
 
@@ -47,7 +46,7 @@ Before you link the subscription to a Dynatrace environment, [complete pre-deplo
 
 1. If you're linking the Azure subscription to an existing Dynatrace environment, select **Create** under the **Link Azure subscription to an existing Dynatrace environment** option.
 
-    :::image type="content" source="media/dynatrace-link-to-existing/dynatrace-create-new-link-existing.png" alt-text="Show screenshot where creating a link to an existing Dynatrace environment is highlighted.":::
+    :::image type="content" source="media/dynatrace-link-to-existing/dynatrace-create-new-link-existing.png" alt-text="Screenshot where creating a link to an existing Dynatrace environment is highlighted.":::
 
 1. The process creates a new Dynatrace resource in Azure and links it to an existing Dynatrace environment hosted on Azure. You see  a form to create the Dynatrace resource in the working pane.
 
