@@ -58,7 +58,7 @@ To disable access to the App Configuration store from public network, follow the
 
 1. Select **Apply**.
 
-:::image type="content" source="media/disable-public-access.png" alt-text="Screenshot of the Azure portal disabling public access" lightbox="media/disable-public-access-expanded.png":::
+:::image type="content" source="media/disable-public-access.png" alt-text="Screenshot of the Azure portal disabling public access.":::
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -69,7 +69,7 @@ az appconfig update --name <name-of-the-appconfig-store> --enable-public-network
 ```
 
 > [!NOTE]
-> When you create an App Config store without specifying if you want public access to be enabled or disabled, public access is set to automatic by default. Once you've run the `--enable-public-network` command, you won't be able to switch to an automatic public access anymore.
+> When you create an App Config store without specifying if you want public access to be enabled or disabled, public access is set to automatic by default. After you've run the `--enable-public-network` command, you won't be able to switch to an automatic public access anymore.
 
 ---
 
