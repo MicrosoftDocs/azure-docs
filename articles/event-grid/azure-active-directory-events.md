@@ -237,7 +237,7 @@ The data object has the following properties:
 | `id` | string | The resource identifier for which the event was raised. |
 | `organizationId` | string | The Azure AD tenant identifier.  |
 | `eventTime` | string | The time at which the resource state occurred. |
-| `sequenceNumber` | string | **A sequence number MISSING DESCRIPTION*** |
+| `sequenceNumber` | string | A sequence number. |
 | `subscriptionExpirationDateTime` | string | The time in [RFC 3339](https://tools.ietf.org/html/rfc3339) format at which the Graph API subscription expires.  |
 | `subscriptionId` | string | The Graph API subscription identifier. |
 | `tenantId` | string | The Azure AD tenant identifier.  |
