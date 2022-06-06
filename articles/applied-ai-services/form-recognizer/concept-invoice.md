@@ -155,10 +155,9 @@ The invoice key-value pairs and line items extracted are in the `documentResults
 
 ### Key-value pairs (Preview)
 
-The invoice prebuilt now also returns key-value pairs at no extra cost. Key-value pairs are specific spans within the invoice that identify a label or key and its associated response or value. In an invoice, these pairs could be the label and the value the user entered for that field or telephone number. The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats, and structures.
+The prebuilt invoice **2022-06-30-preview** release returns key-value pairs at no extra cost. Key-value pairs are specific spans within the invoice that identify a label or key and its associated response or value. In an invoice, these pairs could be the label and the value the user entered for that field or telephone number. The AI model is trained to extract identifiable keys and values based on a wide variety of document types, formats, and structures.
 
-Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field may be left blank on a form in some instances. key-value pairs are always spans of text contained in the document and if you have documents where same value is described in different ways, for example, a customer or a user, the associated key will be either customer or user based on what the document contained.
-
+Keys can also exist in isolation when the model detects that a key exists, with no associated value or when processing optional fields. For example, a middle name field may be left blank on a form in some instances. key-value pairs are always spans of text contained in the document. If you have documents where the same value is described in different ways, for example, a customer or a user, the associated key will be either customer or user based on context.
 
 ## Form Recognizer preview v3.0
 

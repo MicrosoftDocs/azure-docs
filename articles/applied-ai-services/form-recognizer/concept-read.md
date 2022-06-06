@@ -15,7 +15,7 @@ ms.custom: ignite-fall-2021
 
 # Form Recognizer Read OCR model
 
-Form Recognizer v3.0 preview includes the new Read Optical Character Recognition (OCR) model. The read OCR model extracts typeface and handwritten text including mixed languages in documents. The Read OCR model can detect lines, words, locations, and languages and is the core of all the other Form Recognizer models. Layout, general document, custom, and prebuilt models all use the Read OCR model as a foundation for extracting texts from documents.
+Form Recognizer v3.0 preview includes the new Read Optical Character Recognition (OCR) model. The Read OCR model extracts typeface and handwritten text including mixed languages in documents. The Read OCR model can detect lines, words, locations, and languages and is the core of all other Form Recognizer models. Layout, general document, custom, and prebuilt models all use the Read OCR model as a foundation for extracting texts from documents.
 
 ## Supported document types
 
@@ -50,7 +50,7 @@ Try extracting text from forms and documents using the Form Recognizer Studio. Y
 ### Form Recognizer Studio (preview)
 
 > [!NOTE]
-> Form Recognizer studio is available with the preview (v3.0) API. The latest service preview is not yet enabled for analyzing Microsoft Word, Excel, PowerPoint and HTML file formats.
+> Form Recognizer studio is available with the preview (v3.0) API. The latest service preview is currently not enabled for analyzing Microsoft Word, Excel, PowerPoint, and HTML file formats using the Form Recognizer Studio.
 
 ***Sample form processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/read)***
 
@@ -69,7 +69,7 @@ Try extracting text from forms and documents using the Form Recognizer Studio. Y
 
 ## Input requirements
 
-* Supported file formats: These include JPEG/JPG, PNG, BMP, TIFF, PDF (text-embedded or scanned). Additionally, Microsoft Word, Excel, PowerPoint, and HTML files are supported  in the new preview.
+* Supported file formats: These include JPEG/JPG, PNG, BMP, TIFF, PDF (text-embedded or scanned). Additionally, Microsoft Word, Excel, PowerPoint, and HTML files are supported with the Read API in **2022-06-30-preview**.
 * For PDF and TIFF, up to 2000 pages can be processed (with a free tier subscription, only the first two pages are processed).
 * The file size must be less than 500 MB for paid (S0) tier and 4 MB for free (F0) tier.
 * Image dimensions must be between 50 x 50 pixels and 10,000 x 10,000 pixels.
@@ -108,7 +108,8 @@ Read adds [language detection](language-support.md#detected-languages-read-api) 
 
 For large multi-page PDF documents, use the `pages` query parameter to indicate specific page numbers or page ranges for text extraction.
 
-For Microsoft Word, Excel, PowerPoint, and HTML file formats, Read ignores the pages parameter and extracts all pages by default.
+> [!NOTE]
+> For Microsoft Word, Excel, PowerPoint, and HTML file formats, the Read API ignores the pages parameter and extracts all pages by default.
 
 ## Next steps
 

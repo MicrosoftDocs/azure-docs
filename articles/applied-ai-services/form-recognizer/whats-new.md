@@ -21,15 +21,15 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ### Form Recognizer v3.0 preview release (beta.3)
 
-This release is the latest update to the Form Recognizer service for v3.0 capabilities. There are considerable updates across the feature APIs:
+The **2022-06-30-preview** release is the latest update to the Form Recognizer service for v3.0 capabilities. There are considerable updates across the feature APIs:
 
 * [🆕 **Layout extends structure extraction**](concept-layout.md). Layout now includes added structure elements including sections, section headers, and paragraphs. This update enables finer grain document segmentation scenarios. For a complete list of structure elements identified, _see_ [enhanced structure](concept-layout.md#data-extraction).
 * [🆕 **Custom neural model tabular fields support**](concept-custom-neural.md). Custom document models now support tabular fields. Tabular fields by default are also multi page. To learn more about tabular fields in custom neural models, _see_ [tabular fields](concept-custom-neural.md#tabular-fields).
 * [🆕 **Custom template model tabular fields support for cross page tables**](concept-custom-template.md). Custom form models now support tabular fields across pages. To learn more about tabular fields in custom template models, _see_ [tabular fields](concept-custom-neural.md#tabular-fields).
 * [🆕 **Invoice model output now includes general document key-value pairs**](concept-custom-template.md). Where invoices contain required fields beyond the fields included in the prebuilt model, the general document model supplements the output with key-value pairs. _See_ [key value pairs](concept-invoice.md#key-value-pairs-preview).
-* [🆕 **Invoice language expansion**](concept-custom-template.md). The invoice model has expanded language support. _See_ [supported languages](concept-invoice.md#supported-languages-and-locales).
-* [🆕 **Prebuilt business card**](concept-business-card.md). The business card model now has Japanese language support. _See_ [supported languages](concept-business-card.md#supported-languages-and-locales).
-* [🆕 **Read now supports common Office document types**](concept-read.md). Document types like Word (docx) and PowerPoint (ppt) are now supported with the Read API. See [page extraction](concept-read.md#pages).
+* [🆕 **Invoice language expansion**](concept-custom-template.md). The invoice model includes expanded language support. _See_ [supported languages](concept-invoice.md#supported-languages-and-locales).
+* [🆕 **Prebuilt business card**](concept-business-card.md). The business card model now includes Japanese language support. _See_ [supported languages](concept-business-card.md#supported-languages-and-locales).
+* [🆕 **Read model now supports common Microsoft Office document types**](concept-read.md). Document types like Word (docx) and PowerPoint (ppt) are now supported with the Read API. See [page extraction](concept-read.md#pages).
 
 ## February 2022
 

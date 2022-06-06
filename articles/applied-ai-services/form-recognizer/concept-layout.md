@@ -19,7 +19,7 @@ The Form Recognizer Layout API extracts text, tables, selection marks, and struc
 
 ***Sample form processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
 
-:::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot of sample document processed using Form Recognizer studio":::
+:::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot of sample newspaper page processed using Form Recognizer studio":::
 
 ## Supported document types
 
@@ -33,7 +33,7 @@ The Form Recognizer Layout API extracts text, tables, selection marks, and struc
 | --- | --- | --- | --- | --- | --- |
 | Layout  | ✓  | ✓  | ✓  | ✓  | ✓  |
 
-Here's a list of the supported paragraph roles:
+This is a list of the supported paragraph roles:
 
 * title
 * sectionHeading
@@ -75,7 +75,7 @@ Try extracting data from forms and documents using the Form Recognizer Studio. Y
 
 ***Sample form processed with [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/layout)***
 
-:::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot: Layout processing in Form Recognizer Studio.":::
+:::image type="content" source="media/studio/form-recognizer-studio-layout-newspaper.png" alt-text="Screenshot: Layout processing a newspaper page in Form Recognizer Studio.":::
 
 1. On the Form Recognizer Studio home page, select **Layout**
 
@@ -101,7 +101,7 @@ Try extracting data from forms and documents using the Form Recognizer Studio. Y
 
 *See* [Language Support](language-support.md) for a complete list of supported handwritten and printed languages.
 
-## Data extraction
+## Model extraction
 
 The layout model extracts text, selection marks, tables, paragraphs, and paragraph types (`roles`) from your documents.
 

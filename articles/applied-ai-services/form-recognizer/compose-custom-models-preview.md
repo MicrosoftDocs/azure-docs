@@ -17,7 +17,7 @@ recommendations: false
 > [!NOTE]
 > This how-to guide references Form Recognizer v3.0 (preview). To use Form Recognizer v2.1 (GA), see [Compose custom models v2.1](compose-custom-models.md).
 
-A composed model is created by taking a collection of custom models and assigning them to a single model. You can assign up to 100 trained custom models to a single composed model ID. When a document is submitted to a composed model, the service performs a classification step to decide which custom model accurately represents the form presented for analysis. Composed models are useful when you've trained several models and want to group them to analyze similar form types. For example, your composed model might include custom models trained to analyze your supply, equipment, and furniture purchase orders. Instead of manually trying to select the appropriate model, you can use a composed model to determine the appropriate custom model for each analysis and extraction.
+A composed model is created by taking a collection of custom models and assigning them to a single model ID. You can assign up to 100 trained custom models to a single composed model ID. When a document is submitted to a composed model, the service performs a classification step to decide which custom model accurately represents the form presented for analysis. Composed models are useful when you've trained several models and want to group them to analyze similar form types. For example, your composed model might include custom models trained to analyze your supply, equipment, and furniture purchase orders. Instead of manually trying to select the appropriate model, you can use a composed model to determine the appropriate custom model for each analysis and extraction.
 
 To learn more, see [Composed custom models](concept-composed-models.md).
 
@@ -78,9 +78,9 @@ Form Recognizer uses the [prebuilt-layout model](https://westus.dev.cognitive.mi
 
 ### [Form Recognizer Studio](#tab/studio)
 
-To create custom models, you start with configuring your project:
+To create custom models, start with configuring your project:
 
-1. From the Studio home, select [**Create new**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects) from the Custom model card.
+1. From the Studio homepage, select [**Create new**](https://formrecognizer.appliedai.azure.com/studio/custommodel/projects) from the Custom model card.
 
 1. Use the ➕ **Create a project** command to start the new project configuration wizard.
 
@@ -192,7 +192,7 @@ The [compose model API](https://westus.dev.cognitive.microsoft.com/docs/services
 
 #### Analyze documents
 
-You can make an [**Analyze document**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument) request using a unique model name in the request parameters.
+To make an [**Analyze document**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-2/operations/AnalyzeDocument) request, use a unique model name in the request parameters.
 
 :::image type="content" source="media/custom-model-analyze-request.png" alt-text="Screenshot of a custom model request URL.":::
 
@@ -221,7 +221,7 @@ You can use the programming language of your choice to create a composed model:
 
 #### Analyze documents
 
-Once you have built your composed model, you can use it to analyze forms and documents. Use your composed `model ID` and let the service decide which of your aggregated custom models fits best according to the document provided.
+Once you've built your composed model, you can use it to analyze forms and documents. Use your composed `model ID` and let the service decide which of your aggregated custom models fits best according to the document provided.
 
 |Programming language| Code sample |
 |--|--|
@@ -232,7 +232,7 @@ Once you have built your composed model, you can use it to analyze forms and doc
 
 ## Manage your composed models
 
-Custom models can be managed throughout their lifecycles. You can view a list of all custom models under your subscription, retrieve information about a specific custom model, and delete custom models from your account.
+You can manage a custom models at each stage in its life cycles. You can view a list of all custom models under your subscription, retrieve information about a specific custom model, and delete custom models from your account.
 
 |Programming language| Code sample |
 |--|--|

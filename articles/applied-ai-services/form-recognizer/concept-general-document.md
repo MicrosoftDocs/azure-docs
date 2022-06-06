@@ -25,7 +25,7 @@ The general document API supports most form types and will analyze your document
 
 ## General document features
 
-* The general document model is a pre-trained model, doesn't require labels or training.
+* The general document model is a pre-trained model; it doesn't require labels or training.
 
 * A single API extracts key-value pairs, selection marks, entities, text, tables, and structure from documents.
 
@@ -85,7 +85,7 @@ Keys can also exist in isolation when the model detects that a key exists, with 
 
 Natural language processing models can identify parts of speech and classify each token or word. The named entity recognition model is able to identify entities like people, locations, and dates to provide for a richer experience. Identifying entities enables you to distinguish between customer types, for example,  an individual or an organization.
 
-The key-value pair extraction model and entity identification model are run in parallel on the entire document—not just on the values of the extracted key-value pairs. This process ensures that complex structures where a key can't be identified is still enriched by identifying the entities referenced. You can still match keys or values to entities based on the offsets of the identified spans.
+The key-value pair extraction model and entity identification model are run in parallel on the entire document—not just on the values of the extracted key-value pairs. This process ensures that complex structures where a key can't be identified are still enriched by identifying the entities referenced. You can still match keys or values to entities based on the offsets of the identified spans.
 
 * The general document is a pre-trained model and can be directly invoked via the REST API.
 

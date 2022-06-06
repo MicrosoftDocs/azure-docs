@@ -32,7 +32,7 @@ In this article, you'll learn the differences between Form Recognizer v2.1 and v
 
 > [!CAUTION]
 >
-> * REST API version 2022-06-30-preview includes a breaking change in the REST API analyze response JSON.
+> * REST API **2022-06-30-preview** release includes a breaking change in the REST API analyze response JSON.
 > * The `boundingBox` property is renamed to `polygon` in each instance.
 
 ## Changes to the REST API endpoints
