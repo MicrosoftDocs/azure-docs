@@ -7,7 +7,7 @@ manager: femila
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 06/03/2022
+ms.date: 06/06/2022
 ms.author: helohr
 ---
 # Create a profile container with Azure Files and Azure Active Directory (preview)
@@ -193,6 +193,13 @@ You can configure the API permissions from the [Azure portal](https://portal.azu
 10. Select **User.Read** under the **User** permission group.
 11. Select **Add permissions** at the bottom of the page.
 12. Select **Grant admin consent for "DirectoryName"**.
+
+### Disable multi-factor authentication on the storage account
+
+Multi-factor authentication (MFA) is not supported when accessing Azure Files shares configured with Azure AD Kerberos. You must exclude the Azure AD app representing your storage account from your MFA Conditional Access (CA) policies if they apply to all apps. The storage account app should have the same name as the storage account in the CA exclusion list.
+
+> [!IMPORTANT]
+> If MFA policies are not excluded from the storage account app, the FSLogix profiles will fail to attach and trying to map the file share using *net use* will result in System error 1327 stating **Account restriction are preventing this user from signing in. For example: blank password aren't allowed, sign-in times are limited or a policy restriction has been enforced**.
 
 ## Configure your Azure Files share
 
