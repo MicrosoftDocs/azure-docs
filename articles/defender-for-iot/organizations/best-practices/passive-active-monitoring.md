@@ -17,11 +17,6 @@ In contrast, you can configure **active monitoring** to run analysis directly on
 
 Passive monitoring is Defender for IoT's default method because it doesn't require access inside your network, and is therefore less risky and requires less bandwidth. However, since passive monitoring only runs on *copied* data, it may not provide the full picture of your network activity.
 
-> [!TIP]
-> To illustrate the differences between passive and active scanning, compare a security guard at the entrance to an event hall to a security guard circulating inside the actual event. While the security guard at the entrance will check every person entering or exiting the event, they will certainly miss others inside the event.
->
-> For example, a guard at the entrance may miss kitchen staff who were present before the event began or guests who entered through a back door. Security guards circulating inside the event will have a full picture of all people inside the event.
-
 ## When to configure active monitoring
 
 You may want to consider active monitoring to fill in gaps in your device visibility. Active monitoring can add detection for more devices, or to enhance detection for more data on devices you've already detected.
