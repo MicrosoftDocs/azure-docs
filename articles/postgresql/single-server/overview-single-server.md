@@ -13,9 +13,9 @@ ms.date: 11/30/2021
 
 [Azure Database for PostgreSQL](./overview.md) powered by the PostgreSQL community edition is available in three deployment modes:
 
-- Single Server
-- Flexible Server
-- Hyperscale (Citus)
+- [Single Server](./overview-single-server.md)
+- [Flexible Server](../flexible-server/overview.md)
+- [Hyperscale (Citus)](../hyperscale/overview.md)
 
 In this article, we will provide an overview and introduction to core concepts of single server deployment model. To learn about flexible server deployment mode, see [flexible server overview](../flexible-server/overview.md) and Hyperscale (Citus) Overview respectively.
 
