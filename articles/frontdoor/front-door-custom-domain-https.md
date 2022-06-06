@@ -9,7 +9,7 @@ ms.service: frontdoor
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 05/19/2022
+ms.date: 06/06/2022
 ms.author: duau
 ms.custom: devx-track-azurepowershell
 #Customer intent: As a website owner, I want to enable HTTPS on the custom domain in my Front Door so that my users can use my custom domain to access their content securely.
