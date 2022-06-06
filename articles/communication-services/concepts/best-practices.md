@@ -57,7 +57,7 @@ You can request device permissions using the SDK:
 
 #### Camera being used by another process
 - On Windows Chrome and Windows Edge, if you start/join/accept a call with video on and the camera device is being used by another process other than the browser that the web sdk is running on, then the call will be started with audio only and no video. A cameraStartFailed UFD will be raised because the camera failed to start since it was being used by another process. Same applies to turning video on mid-call. You can turn off the camera in the other process so that that process releases the camera device, and then start video again from the call and video will now turn on for the call and remote participants will start seeing your video. 
-- This is not an issue in MacOS Chrome nor MacOS Safari because the OS will let processes/threads share the camera device.
+- This is not an issue in macOS Chrome nor macOS Safari because the OS will let processes/threads share the camera device.
 - On mobile devices, if a ProcessA requests the camera device and it is being used by ProcessB, then ProcessA will overtake the camera device and ProcessB will stop using the camera device
 - On iOS safari, you cannot have the camera on for multiple call clients within the same tab nor across tabs. When any call client uses the camera, it will overtake the camera from any previous call client that was using it. Previous call client will get a cameraStoppedUnexpectedly UFD.
 
@@ -68,8 +68,8 @@ For example, lets say that from Chromium, you screen share the Microsoft Teams a
 #### Safari can only do full screen sharing
 Safari only allows to screen share the entire screen. Unlike Chromium, which lets you screen share full screen, specific desktop app, or specific browser tab.
 
-#### Screen sharing permissions on MacOS
-In order to do screen sharing in MacOS Safari or MacOs Chrome, screen recording permissions must be granted to the browsers in the OS menu: "Systems Preferences" -> "Security & Privacy" -> "Screen Recording".
+#### Screen sharing permissions on macOS
+In order to do screen sharing in macOS Safari or macOs Chrome, screen recording permissions must be granted to the browsers in the OS menu: "Systems Preferences" -> "Security & Privacy" -> "Screen Recording".
 
 ## Next steps
 For more information, see the following articles:
