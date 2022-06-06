@@ -134,7 +134,7 @@ Users managing their security information at [https://aka.ms/mysecurityinfo](htt
 ### Windows device setup
 Users with a Temporary Access Pass can navigate the setup process on Windows 10 and 11 to perform device join operations and configure Windows Hello For Business. Temporary Access Pass usage for setting up Windows Hello for Business varies based on the devices joined state: 
 - During Azure AD Join setup, users can authenticate with a TAP (no password required) and setup Windows Hello for Business.
-- On an already Azure AD Joined devices, users must first authenticate with another method such as a password, smartcard or FIDO2 key, before using TAP to setup Windows Hello for Business. 
+- On already Azure AD Joined devices, users must first authenticate with another method such as a password, smartcard or FIDO2 key, before using TAP to setup Windows Hello for Business. 
 - On Hybrid Azure AD Joined devices, users must first authenticate with another method such as a password, smartcard or FIDO2 key, before using TAP to setup Windows Hello for Business. 
 
 ![Screenshot of how to enter Temporary Access Pass when setting up Windows 10.](./media/how-to-authentication-temporary-access-pass/windows-10-tap.png)
