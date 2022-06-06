@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Create a mesh network with Azure Virtual Network Manager using Azure PowerShell'
 description: Use this quickstart to learn how to create a mesh network with Virtual Network Manager using Azure PowerShell.
-author: duongau
-ms.author: duau
+author: mbender-ms
+ms.author: mbender
 ms.service: virtual-network-manager
 ms.topic: quickstart
 ms.date: 11/02/2021
@@ -39,7 +39,7 @@ Register-AzProviderFeature -FeatureName AllowAzureNetworkManager -ProviderNamesp
 Install the latest *Az.Network* Azure PowerShell module using this command:
 
 ```azurepowershell-interactive
-Install-Module -Name Az.Network -AllowPrerelease
+Install-Module -Name Az.Network 4.15.1-preview -AllowPrerelease
 ```
 
 ## Create a resource group
@@ -59,7 +59,7 @@ New-AzResourceGroup @rg
 1. Define the scope and access type this Azure Virtual Network Manager instance will have. You can choose to create the scope with subscriptions group or management group or a combination of both. Create the scope by using New-AzNetworkManagerScope.
 
     ```azurepowershell-interactive
-    Import-Module -Name Az.Network -RequiredVersion "4.12.1"
+    Import-Module -Name Az.Network -RequiredVersion "4.15.1"
     
     [System.Collections.Generic.List[string]]$subGroup = @()  
     $subGroup.Add("/subscriptions/abcdef12-3456-7890-abcd-ef1234567890")
