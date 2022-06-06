@@ -2,7 +2,7 @@
 title: Understanding security policies, initiatives, and recommendations in Microsoft Defender for Cloud
 description: Learn about security policies, initiatives, and recommendations in Microsoft Defender for Cloud.
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 06/06/2022
 ---
 
 # What are security policies, initiatives, and recommendations?
@@ -39,7 +39,7 @@ Defender for Cloud offers the following options for working with security initia
 
 Using the policies, Defender for Cloud periodically analyzes the compliance status of your resources to identify potential security misconfigurations and weaknesses. It then provides you with recommendations on how to remediate those issues. Recommendations are the result of assessing your resources against the relevant policies and identifying resources that aren't meeting your defined requirements.
 
-Defender for Cloud makes its security recommendations based on your chosen initiatives. When a policy from your initiative is compared against your resources and finds one or more that aren't compliant it is presented as a recommendation in Defender for Cloud.
+Defender for Cloud makes its security recommendations based on your chosen initiatives. When a policy from your initiative is compared against your resources and finds one or more that aren't compliant, it is presented as a recommendation in Defender for Cloud.
 
 Recommendations are actions for you to take to secure and harden your resources. Each recommendation provides you with the following information:
 
@@ -74,7 +74,7 @@ The recommendation details shown are:
 1. For supported recommendations, the top toolbar shows any or all of the following buttons:
     - **Enforce** and **Deny** (see [Prevent misconfigurations with Enforce/Deny recommendations](prevent-misconfigurations.md)).
     - **View policy definition** to go directly to the Azure Policy entry for the underlying policy.
-    - **Open query** - All recommendations have the option to view the detailed information about the affected resources using Azure Resource Graph Explorer.
+    - **Open query** - You can view the detailed information about the affected resources using Azure Resource Graph Explorer.
 1. **Severity indicator**
 1. **Freshness interval**
 1. **Count of exempted resources** if exemptions exist for a recommendation, this shows the number of resources that have been exempted with a link to view the specific resources.
@@ -103,7 +103,7 @@ The recommendation details shown are:
     - **Unhealthy resources** – Resources that are still impacted by the identified issue.
     - **Not applicable resources** – Resources for which the recommendation can't give a definitive answer. The not applicable tab also includes reasons for each resource.
 
-    :::image type="content" source="./media/review-security-recommendations/recommendations-not-applicable-reasons.png" alt-text="Not applicable resources with reasons.":::
+    :::image type="content" source="./media/review-security-recommendations/recommendations-not-applicable-reasons.png" alt-text="Screenshot of resources for which the recommendation can't give a definitive answer.":::
 
 1. Action buttons to remediate the recommendation or trigger a logic app.
 
