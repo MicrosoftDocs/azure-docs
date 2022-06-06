@@ -436,7 +436,7 @@ This API requests a list of all devices detected by Defender for IoT sensors tha
 
 ### GET
 
-# [Response](#tab/devices-response)
+# [Response](#tab/devices-get-response)
 
 **Type**: JSON
 
@@ -633,7 +633,7 @@ Array of JSON objects that represent devices.
 ]
 ```
 
-# [Curl command](#tab/devices-curl)
+# [Curl command](#tab/devices-get-curl)
 
 **Type**: GET
 
@@ -795,7 +795,7 @@ Use this API to take specified action on a specific alert detected by Defender f
 
 ### PUT
 
-# [Request](#tab-uuid-request)
+# [Request](#tab/uuid-request)
 
 **Type**: JSON
 
