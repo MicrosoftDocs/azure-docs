@@ -1,0 +1,98 @@
+---
+title: Azure Event Grid - Subscribe to partner events 
+description: This article explains how to subscribe to events published by Microsoft Graph API.
+ms.topic: how-to
+ms.date: 06/06/2022
+---
+
+# Subscribe to events published by Microsoft Graph API
+This article describes steps to subscribe to events published by Microsoft Graph API. The following table lists the resources for which events are available through Graph API. For every resource, events for create, update and delete state changes are supported. For more information about the event types available for every resource, see [Partner Events sources](missing).
+
+|Microsoft event source |Resource(s) 
+|:--- | :--- |
+|Azure Active Directory| [User](/graph/api/resources/user), [Group](/graph/api/resources/group)|
+|Microsoft Outlook|[Event](/graph/api/resources/event) (calendar meeting), [Message](/graph/api/resources/message) (email), [Contact](/graph/api/resources/contact) |
+|Microsoft Teams|[ChatMessage](/graph/api/resources/callrecords-callrecord), [CallRecord](/graph/api/resources/callrecords-callrecord) (meeting) |
+|Microsoft SharePoint and OneDrive| [DriveItem](/graph/api/resources/driveitem)|
+|Microsoft SharePoint| [List](/graph/api/resources/list)|
+|Security alerts| [Alert](/graph/api/resources/alert)|
+|Microsoft Conversations| [Conversation](/graph/api/resources/conversation)|
+
+> [!IMPORTANT]
+>If you aren't familiar with the **Partner Events** feature, see [Partner Events overview](partner-events-overview.md) to understand the rationale of the steps in this article.
+
+
+## Why you should use Microsoft Graph API with Event Grid as a destination?
+Besides tha ability to subscribe to Microsoft Graph API events via Event Grid, you have [other options](/graph/change-notifications-delivery) through which you can receive similar notifications (not events). Consider using Microsoft Graph API to deliver events to Event Grid if you have at least one of the following requirements:
+
+1. You're developing an event-driven solution and require the  **MISSING LINK**[events](link to Azure AD article with event types as an example) to react to resource changes. You require the robust eventing model and PubSub capabilities that Event Grid provides. For an overview of Event Grid, see [Event Grid concepts](concepts.md).
+3. You want to use Event Grid to route events to multiple destinations using a single Graph API subscription, and you want to avoid managing multiple Graph API subscriptions.
+4. You require to route events to different downstream applications, webhooks or Azure services depending on some of the properties in the event. For example, you may want to route **MISSING LINK** [event types](link to..) "Microsoft.Graph.UserCreated" and "Microsoft.Graph.UserDeleted" events to a specialized application that processes users' onboarding and off-boarding. You may also want to send "Microsoft.Graph.UserUpdated" events to another application that syncs contacts information, for example. You can achieve this using a single Graph API subscription when using Event Grid as a notification destination. Learn more about Event Grid's [event filtering](event-filtering.md) and [event handlers](event-handlers.md).
+5. Interoperability is important to you. You want to forward and handle events in a standard way using CNCF's [CloudEvents](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md) specification standard, to which Event Grid fully complies.
+7. You like the extensibility support that CloudEvents provides. For example, if you want to trace events across compliant systems, you may use CloudEvents extension [Distributed Tracing](https://github.com/cloudevents/spec/blob/v1.0.1/extensions/distributed-tracing.md). Learn more about more [CloudEvents extensions](https://github.com/cloudevents/spec/blob/v1.0.1/documented-extensions.md).
+8. You want to use proven event-driven approaches adopted by the industry. 
+
+## High-level steps
+
+The common steps to subscribe to events published by any partner, including Graph API, are described in [subscribe to partner events](subscribe-to-partner-events.md). For a quick reference, the high-level steps are listed below. This article deals with step 3: how to enable events flow to a partner topic.
+
+1. Register the Event Grid resource provider with your Azure subscription.
+2. Authorize partner to create a partner topic in your resource group.
+3. [Enable events to flow to a partner topic](#enable-microsoft-graph-api-events-to-flow-to-a-partner-topic).
+4. Activate partner topic so that your events start flowing to your partner topic.
+5. Subscribe to events.
+
+### **Enable Microsoft Graph API events to flow to your partner topic**
+
+You request Microsoft Graph API to send events by creating a Graph API subscription. 
+
+When you create a Graph API subscription, the http request looks like the following sample:
+
+```
+POST to https://graph.microsoft.com/v1.0/subscriptions/
+
+Body:
+{
+    "changeType": "Updated,Deleted,Created",
+    "notificationUrl": "EventGrid:?azuresubscriptionid=8A8A8A8A-4B4B-4C4C-4D4D-12E12E12E12E&resourcegroup=yourResourceGroup&partnertopic=youPartnerTopic&location=theAzureRegionFortheTopic",
+    "resource": "users",
+    "expirationDateTime": "2022-04-30T00:00:00Z",
+    "clientState": "mysecret"
+}
+
+```
+
+Here are some of the key payload properties:
+
+- `changeType`: the kind of resource changes for which you want to receive events. Valid values: "Updated", "Deleted", and "Created". You can specify one or more of these values separated by commas.
+- `notificationUrl`: a URI that conforms to the following pattern: `EventGrid:?azuresubscriptionid=<you-azure-subscription-id>&resourcegroup=<your-resource-group-name>&partnertopic=<the-name-for-your-partner-topic>&location=<the-Azure-region-where-you-want-the-topic-created>`.
+- resource: the resource for which you need events announcing state changes.
+- expirationDateTime: the expiration time at which the subscription will expire and hence the flow of events will stop. It must conform to the format specified in [RFC 3339](https://tools.ietf.org/html/rfc3339). You must specify an expiration time that is within the [maximum subscription length allowable for the resource type](/graph/api/resources/subscription?view=graph-rest-1.0#maximum-length-of-subscription-per-resource-type) used. 
+
+**You can create a Microsoft Graph API subscription by following the instructions in the [Microsoft Graph API webhook samples](https://github.com/microsoftgraph?q=webhooks&type=public&language=&sort=)** that include code samples for [NodeJS](https://github.com/microsoftgraph/nodejs-webhooks-sample), [Java (Spring Boot)](https://github.com/microsoftgraph/java-spring-webhooks-sample), and [.NET Core](https://github.com/microsoftgraph/aspnetcore-webhooks-sample). 
+
+> [!NOTE]
+> There are not yet samples available for Python, Go and other languages but there is [Graph SDK](/graph/sdks/sdks-overview) support to create Graph API subscriptions. 
+
+> [!NOTE]
+> Be mindful of certain [Graph API resources' service limits](/graph/webhooks?view=graph-rest-1.0#azure-ad-resource-limitations) when developing your solution.
+
+#### What happens when you create a Microsoft Graph API subscription?
+
+When you create a Graph API subscription with a `notificationUrl` bound to Event Grid, a partner topic is created in your Azure subscription. For that partner topic, you [configure event subscriptions](event-filtering.md) to send your events to any of the supported [event handlers](event-handlers.md) that best meets your requirements to process the events. 
+
+#### Microsoft Graph API Explorer
+For quick tests and to get to know the API, you could use the [Microsoft Graph API explorer](/graph/graph-explorer/graph-explorer-features). For anything else beyond casuals tests or learning, you should use the Graph SDKs as described above. 
+
+## Next steps
+
+See the following articles: 
+
+1. [Azure Event Grid - Partner Events overview](partner-events-overview.md)
+2. [Microsoft Graph API webhook samples](https://github.com/microsoftgraph?q=webhooks&type=public&language=&sort=). Use these samples to send events to Event Grid. You just need to provide a suitable value ``notificationUrl`` according to the request example above.
+3. [Varied set of resources on Microsoft Graph API](https://developer.microsoft.com/en-us/graph/rest-api).
+4. [Microsoft Graph API webhooks](/graph/api/resources/webhooks)
+5. [Best practices for working with Microsoft Graph API](/graph/best-practices-concept)
+6. [Microsoft Graph API SDKs](/graph/sdks/sdks-overview)
+8. [Microsoft Graph API tutorials](/graph/tutorials), which shows how to use Graph API in different programming languages.This doesn't necessarily include examples for sending events to Event Grid.
+
