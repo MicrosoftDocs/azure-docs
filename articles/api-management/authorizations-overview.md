@@ -106,10 +106,10 @@ The following image shows the process flow for creating an authorization in API 
 1. Client sends a request to retrieve a login URL to start the OAuth 2.0 consent at the identity provider. The request includes a post-redirect URL to be used in the last step.  
 1. Response is returned with a login URL that should be used to start the consent flow. 
 1. Client opens a browser with the login URL that was provided in the previous step. The browser is redirected to the identity provider OAuth 2.0 consent flow. 
-1. After the consent is approved, the browser is redirected with an authorization code to the redirect url configured at the identity provider. 
+1. After the consent is approved, the browser is redirected with an authorization code to the redirect URL configured at the identity provider. 
 1. API Management uses the authorization code to fetch access and refresh tokens. 
 1. API Management receives the tokens and encrypts them.
-1. API Management redirects to the provided URL from step 6.
+1. API Management redirects to the provided URL from step 5.
 
 ### Process flow for runtime
 
