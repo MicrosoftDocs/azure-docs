@@ -61,6 +61,16 @@ You can request device permissions using the SDK:
 - On mobile devices, if a ProcessA requests the camera device and it is being used by ProcessB, then ProcessA will overtake the camera device and ProcessB will stop using the camera device
 - On iOS safari, you cannot have the camera on for multiple call clients within the same tab nor across tabs. When any call client uses the camera, it will overtake the camera from any previous call client that was using it. Previous call client will get a cameraStoppedUnexpectedly UFD.
 
+### Screen sharing
+#### Closing out of application does not stop it from being shared
+For example, lets say that from chromium, you screen share the Microsoft Teams appliation. You then click on the "X" button on the Teams application to close it. The Teams application will actually not be closed and will still be running in the background and you will even still see the icon in the bottom right of your desktop bar. Since the Teams application is still running, that means that it is still being screen shared and the remote participant in the call can still see your Teams application being screen shared. In order to really stop the application from being screen shared, you will have to actually right click its icon on the desktop bar and then click on quit, or you will have to click on "Stop sharing" button on the browser, or call the sdk's Call.stopScreenSharing() API.
+
+#### Safari can only do full screen sharing
+Safari only allows to screen share the entire screen. Unlike Chromium which lets you screen share full screen, specific desktop app, or specific browser tab.
+
+#### Screen sharing permissions on MacOS
+In order to do screen sharing in MacOS Safari or MacOs Chrome, screen recording permissions must be granted to the browsers in the OS menu: "Systems Preferences" -> "Security & Privacy" -> "Screen Recording".
+
 ## Next steps
 For more information, see the following articles:
 
