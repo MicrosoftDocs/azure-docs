@@ -5,8 +5,8 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 05/05/2022
-ms.reviewer: andalmia
+ms.date: 06/06/2022
+ms.reviewer: sapnakeshari
 ms.author: banders 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
@@ -26,7 +26,8 @@ When you create an Azure subscription programmatically, that subscription is gov
 A user must have an Owner role on an Enrollment Account to create a subscription. There are two ways to get the role:
 
 * The Enterprise Administrator of your enrollment can [make you an Account Owner](https://ea.azure.com/helpdocs/addNewAccount) (sign in required) which makes you an Owner of the Enrollment Account.
-* An existing Owner of the Enrollment Account can [grant you access](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). 
+* An existing Owner of the Enrollment Account can [grant you access](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put).
+* A user must have an Account Owner role in an enrollment account to create a subscription using PowerShell. The Enrollment Account information is only visible when the user's role is Account Owner. When a user has multiple roles, the API uses the user's least restrictive role.
 
 To use a service principal (SPN) to create an EA subscription, an Owner of the Enrollment Account must [grant that service principal the ability to create subscriptions](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). 
 
@@ -174,6 +175,8 @@ Using one of the following methods, you'll create a subscription alias name. We 
 - Don't use periods
 
 An alias is used for simple substitution of a user-defined string instead of the subscription GUID. In other words, you can use it as a shortcut. You can learn more about alias at [Alias - Create](/rest/api/subscription/2020-09-01/alias/create). In the following examples, `sampleAlias` is created but you can use any string you like.
+
+If you have multiple user roles in addition to the Account Owner role, then you must retrieve the account ID from the Azure portal. Then you can use the ID to programmatically create subscriptions.
 
 ### [REST](#tab/rest)
 
