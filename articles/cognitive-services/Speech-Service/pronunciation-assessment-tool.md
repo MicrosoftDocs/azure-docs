@@ -69,13 +69,13 @@ Your spoken audio is converted to text in the **Display** window. If a word is o
 
 ### [Display](#tab/display)
 
-While hovering over each word, you can see accuracy scores for the whole word, syllables, and specific phonemes. You can customize the level to be displayed on the portal to suit your needs.
+While hovering over each word, you can see accuracy scores for the whole word or specific phonemes. 
 
-:::image type="content" source="media/pronunciation-assessment/pa-display-omission-zoom.png" alt-text="A screenshot of the LUIS portal keys and endpoint settings." lightbox="media/pronunciation-assessment/pa-display-omission-full.png":::
+:::image type="content" source="media/pronunciation-assessment/pa-display-omission-zoom.png" alt-text="Screenshot of scores for a word and it's phonemes." lightbox="media/pronunciation-assessment/pa-display-omission-full.png":::
 
 ### [JSON](#tab/json)
 
-While hovering over each word, you can see accuracy scores for the whole word, syllables, and specific phonemes. You can get the same results using the Speech SDK. For information, see [How to use Pronunciation Assessment](how-to-pronunciation-assessment.md).
+You can see accuracy scores for the whole word, syllables, and specific phonemes. You can get the same results using the Speech SDK. For information, see [How to use Pronunciation Assessment](how-to-pronunciation-assessment.md).
 
 ```json
 {
