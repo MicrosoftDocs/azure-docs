@@ -30,7 +30,45 @@
       href: quick-create-template-windows.md
   expanded: true
 - name: Tutorials
-  items:
+  items: 
+  - name: Flexible orchestration
+    items:
+    - name: 1 - Create / manage scale set
+      items:
+      - name: Azure CLI
+        href: tutorial-create-and-manage-cli.md
+      - name: Azure PowerShell
+        href: tutorial-create-and-manage-powershell.md
+    - name: 2 - Use data disks
+      items:
+      - name: Azure CLI
+        href: tutorial-use-disks-cli.md
+      - name: Azure PowerShell
+        href: tutorial-use-disks-powershell.md
+    - name: 3 - Use a custom VM image
+      items:
+      - name: Azure CLI
+        href: tutorial-use-custom-image-cli.md
+      - name: Azure PowerShell
+        href: tutorial-use-custom-image-powershell.md
+    - name: 4 - Deploy apps to a scale set
+      items:
+      - name: Azure CLI
+        href: tutorial-install-apps-cli.md
+      - name: Azure PowerShell
+        href: tutorial-install-apps-powershell.md
+      - name: Template
+        href: tutorial-install-apps-template.md
+    - name: 5 - Autoscale a scale set
+      items:
+      - name: Azure CLI
+        href: tutorial-autoscale-cli.md
+      - name: Azure PowerShell
+        href: tutorial-autoscale-powershell.md
+      - name: Template
+        href: tutorial-autoscale-template.md
+  - name: Uniform orchestration
+    items:
   - name: 1 - Create / manage scale set
     items:
     - name: Azure CLI
@@ -141,42 +179,48 @@
         href: ./scripts/powershell-sample-zone-redundant-scale-set.md
 - name: Templates
   items:
-  - name: Learn about scale set templates
-    href: virtual-machine-scale-sets-mvss-start.md
-  - name: Use an existing virtual network
-    href: virtual-machine-scale-sets-mvss-existing-vnet.md
-  - name: Use a custom image
-    href: virtual-machine-scale-sets-mvss-custom-image.md
-  - name: Use guest-based autoscaling with a Linux scale set template
-    href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
-  - name: Create with Visual Studio
-    href: virtual-machine-scale-sets-vs-create.md
-  - name: Use Availability Zones
-    href: virtual-machine-scale-sets-use-availability-zones.md
-  - name: Applications on scale sets
-    href: virtual-machine-scale-sets-deploy-app.md
-  - name: Extensions on scale sets
+  - name: Uniform orchestration
+    items: 
+    - name: Learn about scale set templates
+      href: virtual-machine-scale-sets-mvss-start.md
+    - name: Use an existing virtual network
+      href: virtual-machine-scale-sets-mvss-existing-vnet.md
+    - name: Use a custom image
+      href: virtual-machine-scale-sets-mvss-custom-image.md
+    - name: Use guest-based autoscaling with a Linux scale set template
+      href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
+    - name: Create with Visual Studio
+      href: virtual-machine-scale-sets-vs-create.md
+    - name: Use Availability Zones
+      href: virtual-machine-scale-sets-use-availability-zones.md
+    - name: Applications on scale sets
+      href: virtual-machine-scale-sets-deploy-app.md
+    - name: Extensions on scale sets
+      items:
+      - name: Extension sequencing on scale sets
+        href: virtual-machine-scale-sets-extension-sequencing.md
+      - name: Application Health extension
+        href: virtual-machine-scale-sets-health-extension.md
+    - name: Use data disks with scale sets
+      href: virtual-machine-scale-sets-attached-disks.md
+    - name: Encrypt disks in scale sets
+      items:
+      - name: Use PowerShell
+        href: disk-encryption-powershell.md
+      - name: Use the Azure CLI
+        href: disk-encryption-cli.md
+      - name: Use Azure Resource Manager templates
+        href: disk-encryption-azure-resource-manager.md
+      - name: Extension sequencing
+        href: disk-encryption-extension-sequencing.md
+      - name: Key vault for Azure Disk Encryption
+        href: disk-encryption-key-vault.md
+    - name: Create a proximity placement group
+      href: proximity-placement-groups.md
+  - name: Flexible orchestration
     items:
-    - name: Extension sequencing on scale sets
-      href: virtual-machine-scale-sets-extension-sequencing.md
-    - name: Application Health extension
-      href: virtual-machine-scale-sets-health-extension.md
-  - name: Use data disks with scale sets
-    href: virtual-machine-scale-sets-attached-disks.md
-  - name: Encrypt disks in scale sets
-    items:
-    - name: Use PowerShell
-      href: disk-encryption-powershell.md
-    - name: Use the Azure CLI
-      href: disk-encryption-cli.md
-    - name: Use Azure Resource Manager templates
-      href: disk-encryption-azure-resource-manager.md
-    - name: Extension sequencing
-      href: disk-encryption-extension-sequencing.md
-    - name: Key vault for Azure Disk Encryption
-      href: disk-encryption-key-vault.md
-  - name: Create a proximity placement group
-    href: proximity-placement-groups.md
+    - name: PLACEHOLDER
+      href: PLACEHOLDER
 - name: Scale and performance
   items:
   - name: Design considerations
