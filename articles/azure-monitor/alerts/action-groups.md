@@ -135,6 +135,7 @@ You can use the information in the **Error details** section to understand the i
 When you run a test and select a notification type, you get a message with "Test" in the subject. The tests provide a way to check that your action group works as expected before you enable it in a production environment. All the details and links in test email notifications are from a sample reference set.
 
 #### Azure Resource Manager role membership requirements
+
 The following table describes the role membership requirements that are needed for the *test actions* functionality:
 
 | User's role membership | Existing action group | Existing resource group and new action group | New resource group and new action group |
@@ -145,18 +146,6 @@ The following table describes the role membership requirements that are needed f
 | Azure Monitor contributor | Supported | Supported | Not applicable |
 | Custom role | Supported | Supported | Not applicable |
 
-#### Azure Resource Manager role membership requirements
-The following table describes the role membership requirements to use the *test actions* functionality
-
-| User's role membersip | Existing Action Group | Existing Resource Group and new Action Group | New Resource Group and new Action Group |
-| ---------- | ------------- | ----------- | ------------- |
-| Subscription Contribuutor | Supported | Supported | Supported |
-| Resource Group Contributor | Supported | Supported | Not Applicable |
-| Action Group resource Contributor | Supported | Not Applicable | Not Applicable |
-| Azure Monitor Contributor | Supported | Supported | Not Applicable |
-| Custom role | Supported | Supported | Not Applicable |
-
-
 > [!NOTE]
 >
 > You can run a limited number of tests per time period. To check which limits apply to your situation, see [Rate limiting for voice, SMS, emails, Azure App push notifications, and webhook posts](./alerts-rate-limiting.md).
@@ -164,7 +153,7 @@ The following table describes the role membership requirements to use the *test 
 > When you configure an action group in the portal, you can opt in or out of the common alert schema.
 >
 > - To find common schema samples for all sample types, see [Common alert schema definitions for Test Action Group](./alerts-common-schema-test-action-definitions.md).
-> - To find non-common schema alert definitions, see [Non-common alert schema definitions for Test Action Group]](./alerts-non-common-schema-definitions.md).
+> - To find non-common schema alert definitions, see [Non-common alert schema definitions for Test Action Group](./alerts-non-common-schema-definitions.md).
 
 ## Manage your action groups
 
@@ -179,7 +168,7 @@ After you create an action group, you can view it in the portal:
 
 ## Action-specific information
 
-The following sections provide information on the various actions and notifications that you can configure in an action group.
+The following sections provide information about the various actions and notifications that you can configure in an action group.
 
 > [!NOTE]
 >
@@ -296,7 +285,7 @@ When you use a secure webhook action, you can use Azure AD to secure the connect
    1. Copy the `$myApp.ObjectId` value that's in the script.
    1. In the webhook action definition, in the **Object Id** box, enter the value that you copied.
 
-   :::image type="content" source="./media/action-groups/action-groups-secure-webhook.png" alt-text="Screenshot of the Secured Webhook dialog box in the Azure portal. The Object Id box is visible." border="true":::
+   :::image type="content" source="./media/action-groups/action-groups-secure-webhook.png" alt-text="Screenshot of the Secured Webhook dialog box in the Azure portal. The Object ID box is visible." border="true":::
 
 #### Secure webhook PowerShell script
 
