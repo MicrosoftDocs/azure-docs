@@ -1,3 +1,19 @@
+---
+title: Azure Communication Services in Azure Government 
+description: Learn about using Azure Communication Services in Us Government regions
+author: harazi
+manager: mharbut
+services: azure-communication-services
+
+ms.date: 06/02/2022
+ms.author: harazi
+ms.topic: conceptual 
+ms.service: azure-communication-services
+---
+
+
+
+
 # Azure Communication Services for US Government
 
 
