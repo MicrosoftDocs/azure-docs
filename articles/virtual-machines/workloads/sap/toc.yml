@@ -483,13 +483,13 @@
   - name: Microsoft Sentinel threat monitoring
     items:
       - name: Deploy the Microsoft Sentinel solution for SAP
-        href: ../../../sentinel/sap-deploy-solution.md#deploy-sap-security-content
+        href: ../../../sentinel/sap/deploy-sap-security-content.md#deploy-sap-security-content
       - name: Detailed requirements
-        href: ../../../sentinel/sap-solution-detailed-requirements.md
-      - name: Available SAP logs reference
-        href: ../../../sentinel/sap-solution-log-reference.md
+        href: ../../../sentinel/sap/prerequisites-for-deploying-sap-continuous-threat-monitoring.md
+      - name: Microsoft Sentinel SAP solution data reference
+        href: ../../../sentinel/sap/sap-solution-log-reference.md
       - name: SAP security content reference
-        href: ../../../sentinel/sap-solution-security-content.md
+        href: ../../../sentinel/sap/sap-solution-security-content.md
 - name: Resources
   items:
   - name: Azure Roadmap

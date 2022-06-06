@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: tutorial
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: language-service-ner, ignite-fall-2021
+ms.custom: language-service-ner, ignite-fall-2021, cogserv-non-critical-language
 ---
 
 # Extract information in Excel using Named Entity Recognition(NER) and Power Automate 

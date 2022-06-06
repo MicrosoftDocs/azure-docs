@@ -71,7 +71,7 @@ To view the data source and the data refresh details, such as the frequency of t
 
 ### Got feedback?
 
-To provide instant feedback about the report/dashboard, select the ellipsis (three dots), and then select the Got feedback? link.
+To provide instant feedback about the report/dashboard, select the ellipsis (three dots), and then select the **Got feedback?** link.
 
 :::image type="content" source="./media/summary-dashboard/feedback.png" alt-text="Screenshot of the Got feedback link.":::
 

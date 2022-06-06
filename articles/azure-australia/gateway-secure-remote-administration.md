@@ -16,7 +16,7 @@ This article provides information on implementing a secure remote administration
 
 ## Australian Cyber Security Centre (ACSC) requirements
 
-The overall security requirements for Commonwealth systems are defined in the ISM. To assist Commonwealth entities in providing secure administration, the ACSC has published [ACSC Protect: Secure Administration](https://www.acsc.gov.au/publications/protect/secure-administration.htm)
+The overall security requirements for Commonwealth systems are defined in the ISM. To assist Commonwealth entities in providing secure administration, the ACSC has published [ACSC Protect: Secure Administration](https://www.cyber.gov.au/acsc/view-all-content/publications/secure-administration)
 
 This document discusses the importance of secure administration and suggests one method of implementing a secure administration environment. The document describes the elements of a secure administration solution as follows:
 
@@ -33,7 +33,7 @@ This article provides a reference architecture for how the elements above can be
 
 ## Architecture
 
-Providing a secure administration capability requires multiple components that all work together to form a cohesive solution. In the reference architecture provided, the components are mapped to the elements described in [ACSC Protect: Secure Administration](https://www.acsc.gov.au/publications/protect/secure-administration.htm)
+Providing a secure administration capability requires multiple components that all work together to form a cohesive solution. In the reference architecture provided, the components are mapped to the elements described in [ACSC Protect: Secure Administration](https://www.cyber.gov.au/acsc/view-all-content/publications/secure-administration)
 
 ![Azure Secure Remote Administration Architecture](media/remote-admin.png)
 
@@ -106,7 +106,7 @@ When implementing the components listed in this article, the following general g
 |Australian Regulatory and Policy Compliance Documents|[Australian Regulatory and Policy Compliance Documents](https://aka.ms/au-irap)|
 |Azure products - Australian regions and non-regional|[Azure products - Australian regions and non-regional](https://azure.microsoft.com/global-infrastructure/services/?regions=non-regional,australia-central,australia-central-2,australia-east,australia-southeast)|
 |Strategies to Mitigate Cyber Security Incidents|[Strategies to Mitigate Cyber Security Incidents](https://acsc.gov.au/infosec/mitigationstrategies.htm)|
-|ACSC Protect: Secure Administration|[ACSC Protect: Secure Administration](https://acsc.gov.au/publications/protect/secure-administration.htm)|
+|ACSC Protect: Secure Administration|[ACSC Protect: Secure Administration](https://www.cyber.gov.au/acsc/view-all-content/publications//secure-administration)|
 |How To: Integrate your Remote Desktop Gateway infrastructure using the Network Policy Server (NPS) extension and Azure AD|[Integrate RD Gateway with NPS and  Azure AD](../active-directory/authentication/howto-mfa-nps-extension-rdg.md)|
 
 ## Component guidance

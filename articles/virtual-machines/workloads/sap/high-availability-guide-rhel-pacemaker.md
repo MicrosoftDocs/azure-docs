@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.custom: subject-rbac-steps
-ms.date: 12/07/2021
+ms.date: 05/26/2022
 ms.author: radeltch
 
 ---
@@ -241,15 +241,15 @@ The STONITH device uses a Service Principal to authorize against Microsoft Azure
 
 The Service Principal does not have permissions to access your Azure resources by default. You need to give the Service Principal permissions to start and stop (power-off) all virtual machines of the cluster. If you did not already create the custom role, you can create it using [PowerShell](../../../role-based-access-control/role-assignments-powershell.md) or [Azure CLI](../../../role-based-access-control/role-assignments-cli.md)
 
-Use the following content for the input file. You need to adapt the content to your subscriptions that is, replace c276fc76-9cd4-44c9-99a7-4fd71546436e and e91d47c4-76f3-4271-a796-21b4ecfe3624 with the Ids of your subscription. If you only have one subscription, remove the second entry in AssignableScopes.
+Use the following content for the input file. You need to adapt the content to your subscriptions that is, replace *xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx* and *yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy* with the Ids of your subscription. If you only have one subscription, remove the second entry in AssignableScopes.
 
 ```json
 {
       "Name": "Linux Fence Agent Role",
       "description": "Allows to power-off and start virtual machines",
       "assignableScopes": [
-              "/subscriptions/e663cc2d-722b-4be1-b636-bbd9e4c60fd9",
-              "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
+              "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+              "/subscriptions/yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy"
       ],
       "actions": [
               "Microsoft.Compute/*/read",

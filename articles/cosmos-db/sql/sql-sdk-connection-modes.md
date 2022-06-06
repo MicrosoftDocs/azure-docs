@@ -5,7 +5,7 @@ author: ealsur
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 04/26/2022
+ms.date: 04/28/2022
 ms.author: maquaran
 ms.custom: devx-track-dotnet, contperf-fy21q2
 
@@ -28,7 +28,7 @@ The two available connectivity modes are:
 
   * Direct mode
 
-    Direct mode supports connectivity through TCP protocol and offers better performance because there are fewer network hops. The application connects directly to the backend replicas. Direct mode is currently only supported on .NET and Java SDK platforms.
+    Direct mode supports connectivity through TCP protocol, using TLS for initial authentication and encrypting traffic, and offers better performance because there are fewer network hops. The application connects directly to the backend replicas. Direct mode is currently only supported on .NET and Java SDK platforms.
      
 :::image type="content" source="./media/performance-tips/connection-policy.png" alt-text="The Azure Cosmos DB connectivity modes" border="false":::
 
@@ -43,7 +43,7 @@ The following table shows a summary of the connectivity modes available for vari
 |Connection mode  |Supported protocol  |Supported SDKs  |API/Service port  |
 |---------|---------|---------|---------|
 |Gateway  |   HTTPS    |  All SDKs    |   SQL (443), MongoDB (10250, 10255, 10256), Table (443), Cassandra (10350), Graph (443) <br> The port 10250 maps to a default Azure Cosmos DB API for MongoDB instance without geo-replication. Whereas the ports 10255 and 10256 map to the instance that has geo-replication.   |
-|Direct    |     TCP    |  .NET SDK Java SDK    | When using public/service endpoints: ports in the 10000 through 20000 range<br>When using private endpoints: ports in the 0 through 65535 range |
+|Direct    |     TCP (Encrypted via TLS)    |  .NET SDK Java SDK    | When using public/service endpoints: ports in the 10000 through 20000 range<br>When using private endpoints: ports in the 0 through 65535 range |
 
 ## <a id="direct-mode"></a> Direct mode connection architecture
 
@@ -58,6 +58,8 @@ Each replica set contains one primary replica and three secondaries. Write opera
 :::image type="content" source="./media/performance-tips/sdk-direct-mode.png" alt-text="Diagram that shows how S D Ks in direct mode fetch the container and routing information from Gateway before opening the T C P connections to the backend nodes" border="false":::
 
 Because the container and routing information don't change often, it's cached locally on the SDKs so subsequent operations can benefit from this information. The TCP connections already established are also reused across operations. Unless otherwise configured through the SDKs options, connections are permanently maintained during the lifetime of the SDK instance.
+
+As with any distributed architecture, the machines holding replicas might undergo upgrades or maintenance. The service will ensure the replica set maintains consistency but any replica movement would cause existing TCP addresses to change. In these cases, the SDKs need to refresh the routing information and re-connect to the new addresses through new Gateway requests. These events should not affect the overall P99 SLA.
 
 ### Volume of connections
 

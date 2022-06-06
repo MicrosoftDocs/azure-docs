@@ -36,7 +36,7 @@ To analyze an image for various visual features, do the following steps:
 
 1. Copy the following command into a text editor.
 1. Make the following changes in the command where needed:
-    1. Replace the value of `<subscriptionKey>` with your subscription key.
+    1. Replace the value of `<subscriptionKey>` with your key.
     1. Replace the first part of the request URL (`westcentralus`) with the text in your own endpoint URL.
         [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
     1. Optionally, change the image URL in the request body (`http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\`) to the URL of a different image to be analyzed.
@@ -116,7 +116,7 @@ To create and run the sample, do the following steps:
 
 1. Copy the following command into a text editor.
 1. Make the following changes in the command where needed:
-    1. Replace the value of `<subscriptionKey>` with your subscription key.
+    1. Replace the value of `<subscriptionKey>` with your key.
     1. Replace the value of `<thumbnailFile>` with the path and name of the file in which to save the returned thumbnail image.
     1. Replace the first part of the request URL (`westcentralus`) with the text in your own endpoint URL.
         [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
@@ -131,7 +131,7 @@ To create and run the sample, do the following steps:
 
 ### Examine the response
 
-A successful response writes the thumbnail image to the file specified in `<thumbnailFile>`. If the request fails, the response contains an error code and a message to help determine what went wrong. If the request seems to succeed but the created thumbnail isn't a valid image file, it's possible that your subscription key is not valid.
+A successful response writes the thumbnail image to the file specified in `<thumbnailFile>`. If the request fails, the response contains an error code and a message to help determine what went wrong. If the request seems to succeed but the created thumbnail isn't a valid image file, it's possible that your key is not valid.
 
 
 ## Next steps

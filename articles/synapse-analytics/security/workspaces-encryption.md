@@ -24,6 +24,9 @@ A complete Encryption-at-Rest solution ensures the data is never persisted in un
 
 The first layer of encryption for Azure services is enabled with platform-managed keys. By default, Azure Disks, and data in Azure Storage accounts are automatically encrypted at rest. Learn more about how encryption is used in Microsoft Azure in the [Azure Encryption Overview](../../security/fundamentals/encryption-overview.md).
 
+> [!NOTE]
+> Some items considered customer content, such as table names, object names, and index names, may be transmitted in log files for support and troubleshooting by Microsoft.
+
 ## Azure Synapse encryption
 
 This section will help you better understand how customer-managed key encryption is enabled and enforced in Synapse workspaces. This encryption uses existing keys or new keys generated in Azure Key Vault. A single key is used to encrypt all the data in a workspace. Synapse workspaces support RSA 2048 and 3072 byte-sized keys, and RSA-HSM keys.

@@ -40,10 +40,12 @@
     href: ./resource-graph-samples.md
 - name: How-to guides
   items:
-  - name: Security
-    href: advisor-security-recommendations.md
   - name: Optimize costs
     href: advisor-cost-recommendations.md
+  - name: Improve security
+    href: advisor-security-recommendations.md
+  - name: Use tags to filter recommendations and score
+    href: advisor-tag-filtering.md
   - name: Configure recommendations
     href: view-recommendations.md
   - name: Permissions and blocked actions

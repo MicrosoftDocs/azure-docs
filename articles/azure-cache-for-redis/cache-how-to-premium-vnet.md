@@ -2,11 +2,11 @@
 title: Configure a virtual network - Premium-tier Azure Cache for Redis instance
 description: Learn how to create and manage virtual network support for your Premium-tier Azure Cache for Redis instance
 author: flang-msft
-
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 05/06/2022
+
 ---
 
 # Configure virtual network support for a Premium Azure Cache for Redis instance
@@ -246,7 +246,7 @@ When your cache is part of a virtual network, only clients in the virtual networ
 
 Customers can connect an [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) circuit to their virtual network infrastructure. In this way, they extend their on-premises network to Azure.
 
-By default, a newly created ExpressRoute circuit doesn't do forced tunneling (advertisement of a default route, 0.0.0.0/0) on a virtual network. As a result, outbound internet connectivity is allowed directly from the virtual network. Client applications can connect to other Azure endpoints, which include an Azure Cache for Redis instance.
+By default, a newly created ExpressRoute circuit doesn't use forced tunneling (advertisement of a default route, 0.0.0.0/0) on a virtual network. As a result, outbound internet connectivity is allowed directly from the virtual network. Client applications can connect to other Azure endpoints, which include an Azure Cache for Redis instance.
 
 A common customer configuration is to use forced tunneling (advertise a default route), which forces outbound internet traffic to instead flow on-premises. This traffic flow breaks connectivity with Azure Cache for Redis if the outbound traffic is then blocked on-premises such that the Azure Cache for Redis instance isn't able to communicate with its dependencies.
 

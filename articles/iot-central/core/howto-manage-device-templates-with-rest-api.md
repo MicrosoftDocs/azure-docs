@@ -18,6 +18,8 @@ Every IoT Central REST API call requires an authorization header. To learn more,
 
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
 
+[!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
+
 ## Device templates
 
 A device template contains a device model, cloud property definitions, customizations, and view definitions. The REST API lets you manage the device model, cloud property definitions, and customizations. Use the UI to create and manage views.
@@ -174,6 +176,9 @@ The request body has some required fields:
 * `@context`: specifies the DTDL version used for the interface.
 * `contents`: lists the properties, telemetry, and commands that make up your device. The capabilities may be defined in multiple interfaces.
 * `capabilityModel` : Every device template has a capability model. A relationship is established between each module capability model and a device model. A capability model implements one or more module interfaces.
+
+> [!TIP]
+> The device template JSON is not a standard DTDL document. The device template JSON includes IoT Central specific data such as cloud property definitions, customizations, and display units. You can use the device template JSON format to import and export device templates in IoT Central by using the REST API and the CLI.
 
 There are some optional fields you can use to add more details to the capability model, such as display name and description.
 

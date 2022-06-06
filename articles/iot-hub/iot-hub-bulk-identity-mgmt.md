@@ -272,6 +272,20 @@ Use the optional **importMode** property in the import serialization data for ea
 > [!NOTE]
 > If the serialization data does not explicitly define an **importMode** flag for a device, it defaults to **createOrUpdate** during the import operation.
 
+## Import troubleshooting
+
+Using an import job to create devices may fail with a quota issue when it is close to the device count limit of the IoT hub. This can happen even if the total device count is still lower than the quota limit. The **IotHubQuotaExceeded (403002)** error is returned with the following error message: "Total number of devices on IotHub exceeded the allocated quota.”
+
+If you get this error, you can use the following query to return the total number of devices registered on your IoT hub:
+
+```sql
+SELECT COUNT() as totalNumberOfDevices FROM devices
+```
+
+For information about the total number of devices that can be registered to an IoT hub, see [IoT Hub limits](iot-hub-devguide-quotas-throttling.md#other-limits).
+
+If there's still quota available, you can examine the job output blob for devices that failed with the **IotHubQuotaExceeded (403002)** error. You can then try adding these devices individually to the IoT hub. For example, you can use the **AddDeviceAsync** or **AddDeviceWithTwinAsync** methods. Don't try to add the devices using another job as you'll likely encounter the same error.
+
 ## Import devices example – bulk device provisioning
 
 The following C# code sample illustrates how to generate multiple device identities that:

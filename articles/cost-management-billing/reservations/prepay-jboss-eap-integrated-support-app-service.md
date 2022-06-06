@@ -31,7 +31,7 @@ To buy an instance:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **All services** > **Reservations**.
-3. Select **Add** to purchase a new reservation and then click **Instance**.
+3. Select **Add** to purchase a new reservation and then select **Instance**.
 4. Enter required fields. 
 
 If you have an EA agreement, you can use the **Add more option** to quickly add additional instances. The option isn't available for other subscription types.

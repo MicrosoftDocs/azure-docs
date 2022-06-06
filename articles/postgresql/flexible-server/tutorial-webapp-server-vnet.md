@@ -3,8 +3,9 @@ title: 'Tutorial: Create Azure Database for PostgreSQL - Flexible Server and Azu
 description: Quickstart guide to create Azure Database for PostgreSQL - Flexible Server with Web App in a virtual network
 ms.service: postgresql
 ms.subservice: flexible-server
-ms.author: sumuth
-author: mksuni
+ms.author: sunila
+author: sunilagarwal
+ms.reviewer: ""
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 11/30/2021
