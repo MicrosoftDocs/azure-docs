@@ -1,7 +1,7 @@
 ---
 title: Form Recognizer invoice model
 titleSuffix: Azure Applied AI Services
-description: Concepts encompassing data extraction and analysis using prebuilt invoice model
+description: Concepts related to data extraction and analysis using prebuilt invoice model
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services

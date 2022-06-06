@@ -1,13 +1,13 @@
 ---
 title: Form Recognizer ID document model
 titleSuffix: Azure Applied AI Services
-description: Concepts encompassing data extraction and analysis using the prebuilt ID document model
+description: Concepts related to data extraction and analysis using the prebuilt ID document model
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 03/11/2022
+ms.date: 06/06/2022
 ms.author: lajanuar
 recommendations: false
 ms.custom: ignite-fall-2021
@@ -38,7 +38,7 @@ The following tools are supported by Form Recognizer v3.0:
 
 ### Try Form Recognizer
 
-See how to extract data, including name, birth date, machine-readable zone, and expiration date, from ID documents using the Form Recognizer Studio or our Sample Labeling tool. You'll need the following resources:
+Extract data, including name, birth date, machine-readable zone, and expiration date, from ID documents using the Form Recognizer Studio or our Sample Labeling tool. You'll need the following resources:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
@@ -114,17 +114,31 @@ You'll need an ID document. You can use our [sample ID document](https://raw.git
 
 ## Form Recognizer preview v3.0
 
- The Form Recognizer preview introduces several new features and capabilities:
+ The Form Recognizer preview v3.0 introduces several new features and capabilities:
 
-* **ID document (v3.0)** model supports endorsements, restrictions, and vehicle classification extraction from US driver's licenses.
+* **ID document (v3.0)** prebuilt model supports extraction of endorsement, restriction, and vehicle class codes from US driver's licenses.
+
+* The ID Document June 2022 preview release supports the following data extraction from US driver's licenses:
+  * Date issued
+  * Height
+  * Weight
+  * Eye color
+  * Hair color
+  * Document discriminator security code
 
 ### ID document preview field extraction
 
 |Name| Type | Description | Standardized output|
 |:-----|:----|:----|:----|
-| 🆕 Endorsements | String | Additional driving privileges granted to a driver such as Motorcycle or School bus.  | |
-| 🆕 Restrictions | String | Restricted driving privileges applicable to suspended or revoked licenses.| |
-| 🆕VehicleClassification | String | Types of vehicles that can be driven by a driver. ||
+| 🆕 DateOfIssue | Date | Issue date  | yyyy-mm-dd |
+| 🆕 Height | String | Height of the holder.  | |
+| 🆕 Weight | String | Weight of the holder.  | |
+| 🆕 EyeColor | String | Eye color of the holder.  | |
+| 🆕 HairColor | String | Hair color of the holder.  | |
+| 🆕 DocumentDiscriminator | String | Document discriminator is a security code that identifies where and when the license was issued.  | |
+| Endorsements | String | More driving privileges granted to a driver such as Motorcycle or School bus.  | |
+| Restrictions | String | Restricted driving privileges applicable to suspended or revoked licenses.| |
+| VehicleClassification | String | Types of vehicles that can be driven by a driver. ||
 |  CountryRegion | countryRegion | Country or region code compliant with ISO 3166 standard |  |
 |  DateOfBirth | Date | DOB | yyyy-mm-dd |
 |  DateOfExpiration | Date | Expiration date DOB | yyyy-mm-dd |
