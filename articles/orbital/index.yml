@@ -75,5 +75,5 @@ landingContent:
         links:
           - text: Geospatial Reference Architecture
             url: geospatial-reference-architecture.md
-          - text: Spacecraft Object
+          - text: Spacecraft object
             url: spacecraft-object.md

@@ -62,7 +62,7 @@ Sign in to the [Azure portal](https://aka.ms/orbital/portal).
 ## Request authorization of the new spacecraft resource
 
 1. Navigate to the newly created spacecraft resource's overview page.
-1 . Select **New support request** in the Support + troubleshooting section of the left-hand blade.
+1. Select **New support request** in the Support + troubleshooting section of the left-hand blade.
 1. In the **New support request** page, enter or select this information in the Basics tab:
 
 | **Field** | **Value** |

@@ -1,5 +1,5 @@
 ---
-title: Spacecraft Object - Azure Orbital
+title: Spacecraft object - Azure Orbital
 description: Learn about how you can represent your spacecraft details in Azure Orbital.
 author: hrshelar
 ms.service: orbital
@@ -7,10 +7,9 @@ ms.topic: conceptual
 ms.custom: ga
 ms.date: 06/03/2022
 ms.author: hrshelar
-
 ---
 
-# Spacecraft Object
+# Spacecraft object
 
 Learn about how you can represent your spacecraft details in Azure Orbital. 
 
@@ -18,9 +17,9 @@ Learn about how you can represent your spacecraft details in Azure Orbital.
 
 The spacecraft object is used to capture the following three main types of information:
 
-1. **Links** - RF details on center frequency, direction, and bandwidth for each link.
-1. **Ephemeris** - The latest TLE.
-1. **Licensing** - Authorizations held on a per link per ground station basis.
+- **Links** - RF details on center frequency, direction, and bandwidth for each link.
+- **Ephemeris** - The latest TLE.
+- **Licensing** - Authorizations held on a per link per ground station basis.
 
 ### Links
 
@@ -51,7 +50,7 @@ The platform will deny scheduling or execution of contacts if none of the spacec
 
 For more information, refer to the Licensing (add link to: concepts-licensing.md when article is created) documentation.
 
-## Managing Spacecraft Objects
+## Managing spacecraft objects
 
 Spacecraft objects can be created and deleted via the Portal and Azure Orbital SDKs. Once the object is created, modification to the object is dependent on the authorization status.
 
