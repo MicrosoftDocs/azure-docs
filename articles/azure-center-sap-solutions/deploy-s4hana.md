@@ -1,0 +1,134 @@
+---
+title: Create S/4HANA infrastructure deployment (preview)
+description: Learn how to create a Highly Available (HA) S/4HANA infrastructure deployment with Azure Center for SAP Solutions (ACSS) through the Azure portal.
+ms.service: virtual-machines-sap
+ms.topic: quickstart
+ms.date: 07/01/2022
+ms.author: ladolan
+author: lauradolan
+---
+
+# Create S/4HANA infrastructure deployment (preview)
+
+[!INCLUDE [Preview content notice](./includes/preview.md)]
+
+With Azure Center for SAP Solutions (ACSS), you can create S4/HANA infrastructure deployment through the Azure portal. There are [three deployment options](#deployment-types): High Availability (HA), non-HA, and single server. 
+
+## Prerequisites
+
+- An Azure subscription.
+- An Azure account with **Contributor** and **User Access Administrator** role access to the subscriptions and resource groups in which the VIS exists.
+- A [network set up for your infrastructure deployment](create-network.md).
+
+## Deployment types
+
+There are three deployment options that you can select for your infrastructure, depending on your use case.
+
+- **Distributed with High Availability (HA)** creates distributed HA architecture. This option is recommended for production environments. If you choose this option, you need to select a **High Availability SLA**. Select the appropriate SLA for your use case:
+    - **99.99% (Optimize for availability)** shows available zone pairs for VM deployment. The first zone is primary and the next is secondary. Active ASCS and Database servers are deployed in the primary zone. Passive ASCS and Database servers are deployed in the secondary zone. Application servers are deployed evenly across both zones. In regions without availability zones, or without at least one M-series and E-series VM SKU, this option isn't shown.
+    - **99.95% (Optimize for cost)** shows three availability sets for all instances. The HA ASCS cluster is deployed in the first availability set. All Application servers are deployed across the second availability set. The HA Database server is deployed in the third availability set. No availability zone names are shown.
+- **Distributed** creates distributed non-HA architecture. This option isn't recommended for production environments.
+- **Single Server** creates architecture with a single server. This option is available for non-production environments only.
+## Create deployment
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. In the search bar, enter and select **Azure Center for SAP Solutions**.
+
+1. On the ACSS landing page, select **Create**.
+
+1. On the **Create SAP Virtual Instance** page, on the **Basics** tab, fill in the details for your project.
+
+    1. For **Subscription**, select the Azure subscription into which you're deploying the infrastructure.
+
+    1. For **Resource group**, select the resource group for all resources that the VIS creates.
+
+1. Under **Instance details**, enter the details for your SAP instance.
+
+    1. For **Name** enter the three-character SAP system identifier (SID). The VIS uses the same name as the SID.
+
+    1. For **Region**, select the Azure region into which you're deploying the resources.
+
+    1. For **Environment type**, select whether your environment is production or non-production. If you select **Production**, you can deploy a distributed HA or non-HA S/4 HANA system. It's recommended to use distributed HA deployments for production systems. If you select **Non-production**, you can use a single-server deployment.
+
+    1. For **SAP product**, keep the selection as **S/4HANA**.
+
+    1. For **Database**, keep the selection as **HANA**.
+
+    1. For **HANA scale method**, keep the selection as **Scale up**.
+
+    1. For **Deployment type**, [select and configure your deployment type](#deployment-types).
+
+    1. For **Network**, create the [network you created previously with subnets](create-network.md).
+
+    1. For **Application subnet** and **Database subnet**, map the IP address ranges as required. It's recommended to use a different subnet for each deployment.
+
+1. Under **Operating systems**, enter the OS details.
+
+    1. For **Application OS image**, select the OS image for the application server.
+
+    1. For **Database OS image**, select the OS image for the database server.
+
+1. Under **Administrator account**, enter your administrator account details.
+
+    1. For **Authentication type**, keep the setting as **SSH public**.
+
+    1. For **Username**, enter a username.
+
+    1. For **SSH public key source**, select a source for the public key. You can choose to generate a new key pair*, use an existing key stored in Azure, or use an existing public key stored on your local computer. If you don't have keys already saved, it's recommended to generate a new key pair.
+
+    1. For **Key pair name**, enter a name for the key pair.
+
+1. Select **Next: Virtual machines**.
+
+1. In the **Virtual machines** tab, generate SKU size and total VM count recommendations for each SAP instance from ACSS. 
+
+    1. For **Generate Recommendation based on**, under **Get virtual machine recommendations**, select **SAP Application Performance Standard (SAPS)**.
+
+    1. For **SAPS for application tier**, provide the total SAPS for the application tier. For example, 30,000.
+
+    1. For **Memory size for database (GiB)**, provide the total memory size required for the database tier. For example, 1024. The value must be greater than zero, and less than or equal to 11,400.
+    
+    1. Select **Generate Recommendation**.
+
+    1. Review the VM size and count recommendations for ASCS, Application Server, and Database instances. 
+
+    1. To change a SKU size recommendation, select the drop-down menu or select **See all sizes**. Filter the list or search for your preferred SKU.
+
+    1. To change the Application server count, enter a new count for **Number of VMs** under **Application virtual machines**.
+    
+        VM counts for ASCS and Database instances aren't editable and have defaults of **2**.
+
+    1. Under **Database virtual machines**, ACSS automatically configures a database disk layout for the deployment. To view the layout for a single database server, make sure a VM SKU is selected. Then, select **View disk configuration**. If there are more than one database servers, the layout applies to each server. 
+
+    1. Select **Next: Tags**.
+
+1. Optionally, enter tags to apply to all resources created by the ACSS process. These resources include the VIS, ASCS instances, Application Server instances, Database instances, VMs, disks, and NICs.
+
+1. Select **Review + Create**.
+
+1. Review your settings before deployment. 
+
+    1. Make sure the validations have passed, and there are no errors listed.
+
+    1. Review the Terms of Service, and select the acknowledgment if you agree.
+
+    1. Select **Create**.
+
+1. Wait for the infrastructure deployment to complete. Numerous resources are deployed and configured. This process takes approximately 7 minutes.
+
+## Confirm deployment
+
+To confirm a deployment is successful:
+
+1. In the [Azure portal](https://portal.azure.com), search for and select **Virtual Instances for SAP solutions**.
+
+1. On the **Virtual Instances for SAP solutions** page, select the **Subscription** filter, and choose the subscription where you created the deployment.
+
+1. In the table of records, find the name of the VIS. The **Infrastructure** column value shows **Deployed** for successful deployments.
+
+If the deployment fails, delete the VIS resource in the Azure portal, then recreate the infrastructure. 
+
+## Next steps
+
+- [Create network for infrastructure deployment](create-network.md)
