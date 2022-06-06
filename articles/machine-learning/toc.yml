@@ -312,9 +312,6 @@
               - name: Kubernetes cluster
                 displayName: Azure Arc, Kubernetes, on-premise, multi-cloud
                 href: how-to-attach-kubernetes-anywhere.md
-              - name: Azure Kubernetes Service
-                displayName: AKS, inference
-                href: how-to-create-attach-kubernetes.md
               - name: Use studio
                 displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
                 href: how-to-create-attach-compute-studio.md
@@ -376,6 +373,22 @@
         - name: Administrate data authentication
           displayName: data authentication
           href: how-to-administrate-data-authentication.md
+        - name: Label data
+          items: 
+          - name: Set up image labeling
+            displayName: data, dataset
+            href: how-to-create-image-labeling-projects.md
+          - name: Set up text labeling
+            displayName: data, dataset
+            href: how-to-create-text-labeling-projects.md
+          - name: Label images and text
+            displayName: data, dataset, labeling
+            href: how-to-label-data.md
+          - name: Add users
+            displayName: data, dataset, labeling
+            href: how-to-add-users.md
+          - name: Outsource labeling tasks
+            href: how-to-outsource-data-labeling.md
     - name: Train models
       items: 
         - name: Train with the job creation UI
@@ -489,10 +502,14 @@
       items: 
         - name: Online endpoints (real-time)
           items: 
-            - name: Deploy an ML model with an online endpoint
+            - name: Deploy an ML model with an online endpoint (CLI)
               href: how-to-deploy-managed-online-endpoints.md
-            - name: Safe rollout for online endpoints
+            - name: Deploy an ML model with an online endpoint (SDK preview)
+              href: how-to-deploy-managed-online-endpoint-sdk-v2.md
+            - name: Safe rollout for online endpoints (CLI)
               href: how-to-safely-rollout-managed-endpoints.md
+            - name: Safe rollout for online endpoints (SDK preview)
+              href: how-to-safely-rollout-managed-endpoints-sdk-v2.md
             - name: Deployment scenarios
               items: 
                 - name: Deploy a MLflow model with an online endpoint
@@ -507,7 +524,7 @@
                 - name: Use REST to deploy a model as an online endpoint
                   href: how-to-deploy-with-rest.md
                 - name: Deploy an AutoML model with an online endpoint
-                  href: how-to-deploy-automl-endpoint.md
+                  href: how-to-deploy-automl-endpoint.md            
             - name: Security
               items:
                 - name: Authenticate to endpoints
@@ -517,13 +534,13 @@
                   href: how-to-secure-online-endpoint.md
                 - name: Access Azure resources from online endpoints
                   href: how-to-access-resources-from-endpoints-managed-identities.md
-            - name: Autoscale managed online endpoints
+            - name: Autoscale online endpoints
               href: how-to-autoscale-endpoints.md
             - name: Managed online endpoints VM SKU list
               href: reference-managed-online-endpoints-vm-sku-list.md
             - name: Viewing managed online endpoint costs
               href: how-to-view-online-endpoints-costs.md
-            - name: Monitoring managed online endpoints
+            - name: Monitoring online endpoints
               href: how-to-monitor-online-endpoints.md
             - name: Debug online endpoints locally VS Code
               href: how-to-debug-managed-online-endpoints-visual-studio-code.md
@@ -531,8 +548,10 @@
               href: how-to-troubleshoot-online-endpoints.md
         - name: Batch endpoints
           items: 
-            - name: Batch scoring with batch endpoints
+            - name: Batch scoring with batch endpoints (CLI)
               href: how-to-use-batch-endpoint.md
+            - name: Batch scoring with batch endpoints (SDK preview)
+              href: how-to-use-batch-endpoint-sdk-v2.md
             - name: Batch endpoints in studio
               href: how-to-use-batch-endpoints-studio.md
             - name: Use REST to deploy a model as a batch endpoint

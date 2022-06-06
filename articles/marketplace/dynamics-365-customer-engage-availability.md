@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 12/03/2021
+ms.date: 05/25/2022
 ---
 
 # Configure Dynamics 365 apps on Dataverse and Power Apps offer availability
@@ -16,6 +16,9 @@ This page lets you define where and how to make your offer available, including 
 ## Markets
 
 To specify the markets in which your offer should be available, select **Edit markets**.
+
+> [!NOTE]
+> If you choose to sell through Microsoft and have Microsoft host transactions on your behalf, then the **Markets** section is not available on this page. In this case, you’ll configure the markets later when you create plans for the offer. If the **Markets** section isn’t shown, go to [Preview audience](#preview-audience).
 
 On the **Market selection** popup window, select at least one market. Choose **Select all** to make your offer available in every possible market or select only the specific markets you want. When you're finished, select **Save**.
 

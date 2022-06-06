@@ -72,7 +72,7 @@ Get-AzLabServicesLab -Name $lab
 Write-Host "Press [ENTER] to continue..."
 ```
 
-To verify educators can use the lab, navigate to the Azure Lab Services website: [https://labs.azure.com](https://labs.azure.com).  For more information about managing labs, see [View all labs](/azure/lab-services/how-to-manage-labs.md#)](how-to-manage-labs.md#view-all-labs).
+To verify educators can use the lab, navigate to the Azure Lab Services website: [https://labs.azure.com](https://labs.azure.com).  For more information about managing labs, see [View all labs](/azure/lab-services/how-to-manage-labs).
 
 ## Clean up resources
 
@@ -93,4 +93,4 @@ Alternately, an educator may delete a lab from the Azure Lab Services website: [
 For a step-by-step tutorial that guides you through the process of creating a template, see:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create and deploy your first ARM template](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [Tutorial: Create and deploy your first ARM template](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

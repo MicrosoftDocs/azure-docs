@@ -15,14 +15,14 @@ Create a **POST** request using the following URL, headers, and JSON body to sta
 ### Request URL
 
 ```rest
-{ENDPOINT}/language/analyze-conversations/projects/{PROJECT-NAME}/deployments:swap?api-version={API-VERSION}
+{ENDPOINT}/language/authoring/analyze-conversations/projects/{PROJECT-NAME}/deployments:swap?api-version={API-VERSION}
 ```
 
 |Placeholder  |Value  | Example |
 |---------|---------|---------|
 |`{ENDPOINT}`     | The endpoint for authenticating your API request.   | `https://<your-custom-subdomain>.cognitiveservices.azure.com` |
 |`{PROJECT-NAME}`     | The name for your project. This value is case-sensitive.   | `myProject` |
-|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest released [model version](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data). | `2022-03-01-preview` |
+|`{API-VERSION}`     | The version of the API you are calling. The value referenced here is for the latest released [model version](../../../concepts/model-lifecycle.md#choose-the-model-version-used-on-your-data). | `2022-05-01` |
 
 
 ### Headers
@@ -32,7 +32,6 @@ Use the following header to authenticate your request.
 |Key|Value|
 |--|--|
 |`Ocp-Apim-Subscription-Key`| The key to your resource. Used for authenticating your API requests.|
-|`Content-Type` | application/json |
 
 ### Request Body
 
@@ -44,10 +43,9 @@ Use the following header to authenticate your request.
 ```
 
 
-|Key| value| Example|
-|--|--|--|
-|`firstDeploymentName` | The name for your first deployment. This value is case-sensitive.   | `production` |
-|`secondDeploymentName` | The name for your second deployment. This value is case-sensitive.   | `staging` |
-
+|Key|Placeholder| Value| Example|
+|--|--|--|--|
+|firstDeploymentName |`{FIRST-DEPLOYMENT-NAME}`| The name for your first deployment. This value is case-sensitive.   | `production` |
+|secondDeploymentName | `{SECOND-DEPLOYMENT-NAME}`|The name for your second deployment. This value is case-sensitive.   | `staging` |
 
 Once you send your API request, you will receive a `202` response indicating success.

@@ -195,17 +195,12 @@ Use the following configuration:
 1. In your Kubernetes service configuration, set **externalTrafficPolicy=Local**. This ensures that the Kubernetes service directs traffic only to pods within the local node.
 1. In your Kubernetes service configuration, set **sessionAffinity: ClientIP**. This ensures that the Azure Load Balancer gets configured with session affinity.
 
-## What if I need a feature that's not supported?
-
-If you encounter feature gaps, the open-source [aks-engine][aks-engine] project provides an easy and fully customizable way of running Kubernetes in Azure, including Windows support. For more information, see [AKS roadmap][aks-roadmap].
-
 ## Next steps
 
 To get started with Windows Server containers in AKS, see [Create a node pool that runs Windows Server in AKS][windows-node-cli].
 
 <!-- LINKS - external -->
 [kubernetes]: https://kubernetes.io
-[aks-engine]: https://github.com/azure/aks-engine
 [upstream-limitations]: https://kubernetes.io/docs/setup/production-environment/windows/intro-windows-in-kubernetes/#supported-functionality-and-limitations
 [intro-windows]: https://kubernetes.io/docs/setup/production-environment/windows/intro-windows-in-kubernetes/
 [aks-roadmap]: https://github.com/Azure/AKS/projects/1

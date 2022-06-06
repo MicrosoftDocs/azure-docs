@@ -5,7 +5,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: include
-ms.date: 05/16/2022
+ms.date: 06/03/2022
 ms.author: aahi
 ms.custom: ignite-fall-2021
 ---
@@ -22,15 +22,15 @@ ms.custom: ignite-fall-2021
 
 Once you have a Language resource created, create a conversational language understanding project. A project is a work area for building your custom ML models based on your data. Your project can only be accessed by you and others who have access to the Language resource being used.
 
-For this quickstart, you can download [this sample project]() and import it. This project can predict the intended commands from user input, such as: reading emails, deleting emails, and attaching a document to an email. 
+For this quickstart, you can download [this sample project](https://go.microsoft.com/fwlink/?linkid=2196152) and import it. This project can predict the intended commands from user input, such as: reading emails, deleting emails, and attaching a document to an email. 
 
 [!INCLUDE [Import project](../language-studio/import-project.md)]
 
-Once the upload is complete, you will land on **Build schema** page. For this quickstart, the schema is already built, and utterances are already tagged with intents and entities.
+Once the upload is complete, you will land on **Build schema** page. For this quickstart, the schema is already built, and utterances are already labeled with intents and entities.
 
 ## Train your model
 
-Typically, after you create a project, you should [build schema]() and [tag utterances](). For this quickstart, we already imported a ready project with built schema and tagged utterances. 
+Typically, after you create a project, you should [build schema](../../how-to/build-schema.md) and [label utterances](../../how-to/tag-utterances.md). For this quickstart, we already imported a ready project with built schema and labeled utterances. 
  
 To train a model, you need to start a training job. The output of a successful training job is your trained model.
 
@@ -38,7 +38,7 @@ To train a model, you need to start a training job. The output of a successful t
 
 ## Deploy your model
 
-Generally after training a model you would review its evaluation details. In this quickstart, you will just deploy your model, and make it available for you to try in the Language studio, or you can call the [prediction API](https://aka.ms/clu-apis).
+Generally after training a model you would review its evaluation details. In this quickstart, you will just deploy your model, and make it available for you to try in Language studio, or you can call the [prediction API](https://aka.ms/clu-apis).
 
 [!INCLUDE [Deploy model](../language-studio/deploy-model.md)]
 
