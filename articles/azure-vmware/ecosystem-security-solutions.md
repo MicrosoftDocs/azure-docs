@@ -2,6 +2,7 @@
 title: Security solutions for Azure VMware Solution
 description: Learn about leading security solutions for your Azure VMware Solution private cloud.
 ms.topic: how-to
+ms.service: azure-vmware
 ms.date: 04/11/2022
 ---
 # Security solutions for Azure VMware Solution

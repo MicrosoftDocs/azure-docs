@@ -2,6 +2,7 @@
 title: Disaster recovery solutions for Azure VMware Solution virtual machines
 description: Learn about leading disaster recovery solutions for your Azure VMware Solution private cloud.
 ms.topic: how-to
+ms.service: azure-vmware
 ms.date: 11/29/2021
 ---
 # Disaster recovery solutions for Azure VMware Solution virtual machines (VMs)

@@ -2,6 +2,7 @@
 title: Concept - Internet connectivity design considerations (Preview)
 description: Options for Azure VMware Solution Internet Connectivity. 
 ms.topic: conceptual
+ms.service: azure-vmware
 ms.date: 5/12/2022
 ---
 # Internet connectivity design considerations (Preview) 
