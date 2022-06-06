@@ -427,11 +427,19 @@ The final step is to create a data collection association that associates the da
 ## Troubleshooting
 
 
-### Check if there are any custom logs received in the last 2 days
-Start by checking if any records have been collected for your custom log table by running the following query in Log Analytics. If no records are returned then check the other sections for possible causes.
+### Check if any custom logs have been received
+Start by checking if any records have been collected for your custom log table by running the following query in Log Analytics. If no records are returned then check the other sections for possible causes. This query looks for entires in the last two days, but you can modify for another time range.
 
 ``` kusto
 <YourCustomLog>_CL
+| where TimeGenerated > ago(48h)
+| order by TimeGenerated desc
+```
+
+For IIS
+
+``` kusto
+W3CIISLog
 | where TimeGenerated > ago(48h)
 | order by TimeGenerated desc
 ```
@@ -451,7 +459,8 @@ Heartbeat
 ```
 
 ### Verify that you specified the correct log location in the data collection rule
-The data collection rule will have a section similar to the following:
+The data collection rule will have a section similar to the following. The `filePatterns` element specifies the path to the log file to collect from the agent computer. Check the agent computer to verify that this is correct.
+
 
 ```json
 "dataSources": [{
@@ -475,9 +484,27 @@ The data collection rule will have a section similar to the following:
     ]
 ```
 
-The `filePatterns` element specifies the path to the log file to collect from the agent computer. Check the agent computer to verify that this is correct.
+For IIS
 
-## Verify that the text logs are being populated
+``` json
+    "dataSources": [
+    {
+            "configuration": {
+                "logDirectories": ["C:\\scratch\\demo\\W3SVC1"]
+            },
+            "id": "myIisLogsDataSource",
+            "kind": "iisLog",
+            "streams": [{
+                    "stream": "ONPREM_IIS_BLOB_V2"
+                }
+            ],
+            "sendToChannels": ["gigl-dce-6a8e34db54bb4b6db22d99d86314eaee"]
+        }
+    ]
+```
+
+
+### Verify that the text logs are being populated
 The agent will only collect new content written to the log file being collected. If you are experimenting with the text logs collection feature, you can use the following script to generate sample logs.
 
 ```powershell
@@ -513,14 +540,19 @@ while ($true)
 
 ```
 
-## Share logs with Microsoft
+### Share logs with Microsoft
 If everything is configured properly, but you're still not collecting log data, use the following procedure to collect diagnostics logs for Azure Monitor agent to share with the Azure Monitor group.
 
 1. Open an elevated powershell window.
-2. cd to directory: C:\Packages\Plugins\Microsoft.Azure.Monitor.AzureMonitorWindowsAgent\[version]\
-3. Execute the script: .\CollectAMALogs.ps1
-4. Share the AMAFiles.zip file generated on the desktop.
+2. Change to directory `C:\Packages\Plugins\Microsoft.Azure.Monitor.AzureMonitorWindowsAgent\[version]\`.
+3. Execute the script: `.\CollectAMALogs.ps1`.
+4. Share the `AMAFiles.zip` file generated on the desktop.
 
+
+### For IIS, verify that the IIS logs are W3C formatted
+Open IIS Manager and verify that the logs are being written in W3C format.
+
+Open IIS log on the agent machine to verify logs are in W3C format.
 
 
 ## Next steps
