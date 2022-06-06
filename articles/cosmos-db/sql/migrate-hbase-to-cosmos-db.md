@@ -7,7 +7,7 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 12/07/2021
 ms.author: hitakagi
-ms.reviewer: sngun
+ms.reviewer: mjbrown
 ---
 
 # Migrate data from Apache HBase to Azure Cosmos DB SQL API account
