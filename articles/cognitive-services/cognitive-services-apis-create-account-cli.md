@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 keywords: cognitive services, cognitive intelligence, cognitive solutions, ai services
 ms.topic: quickstart
-ms.date: 03/02/2022
+ms.date: 06/06/2022
 ms.author: aahi
 ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
@@ -16,13 +16,11 @@ ms.devlang: azurecli
 
 # Quickstart: Create a Cognitive Services resource using the Azure CLI
 
-Use this quickstart to get started with Azure Cognitive Services using [Azure Command-Line Interface (CLI)](/cli/azure/install-azure-cli) commands.
+Use this quickstart to create a Cognitive Services resource using [Azure Command-Line Interface (CLI)](/cli/azure/install-azure-cli) commands. After creating the resource, use the keys and endpoint generated for you to authenticate your applications.
 
 Azure Cognitive Services are cloud-based services with REST APIs, and client library SDKs available to help developers build cognitive intelligence into applications without having direct artificial intelligence (AI) or data science skills or knowledge. Azure Cognitive Services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, understand, and even begin to reason.
 
-Cognitive Services are represented by Azure [resources](../azure-resource-manager/management/manage-resources-portal.md) that you create in your Azure subscription. After creating the resource, Use the keys and endpoint generated for you to authenticate your applications.
-
-In this quickstart, you'll learn how to sign up for Azure Cognitive Services and create an account that has a single-service or multi-service subscription via the [Azure CLI](/cli/azure/install-azure-cli). These services are represented by Azure [resources](../azure-resource-manager/management/manage-resources-portal.md), which enable you to connect to one or more of the Azure Cognitive Services APIs.
+## Types of Cognitive Services resource
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
