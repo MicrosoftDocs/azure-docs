@@ -1,15 +1,18 @@
 ---
 title: Collect Spring Cloud Resilience4J Circuit Breaker Metrics with Micrometer
-description: How to collect Spring Cloud Resilience4J Circuit Breaker Metrics with Micrometer in Azure Spring Cloud.
+description: How to collect Spring Cloud Resilience4J Circuit Breaker Metrics with Micrometer in Azure Spring Apps.
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/15/2020
-ms.custom: devx-track-java, devx-track-azurecli
+ms.custom: devx-track-java, devx-track-azurecli, event-tier1-build-2022
 ---
 
 # Collect Spring Cloud Resilience4J Circuit Breaker Metrics with Micrometer (Preview)
+
+> [!NOTE]
+> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
 
 **This article applies to:** ✔️ Basic/Standard tier ✔️ Enterprise tier
 
@@ -37,19 +40,25 @@ cd spring-cloud-circuitbreaker-demo && mvn clean package -DskipTests
 2. Create applications with endpoints
 
 ```azurecli
-az spring-cloud app create --name resilience4j --assign-endpoint \
-    -s ${asc-service-name} -g ${asc-resource-group}
-az spring-cloud app create --name reactive-resilience4j --assign-endpoint \
-    -s ${asc-service-name} -g ${asc-resource-group}
+az spring app create
+    --resource-group ${resource-group-name} \
+    --name resilience4j \
+    --service ${Azure-Spring-Apps-instance-name} \
+    --assign-endpoint
+az spring app create \
+    --resource-group ${resource-group-name} \
+    --service ${Azure-Spring-Apps-instance-name} \
+    --name reactive-resilience4j \
+    --assign-endpoint
 ```
 
 3. Deploy applications.
 
 ```azurecli
-az spring-cloud app deploy -n resilience4j \
+az spring app deploy -n resilience4j \
     --jar-path ./spring-cloud-circuitbreaker-demo-resilience4j/target/spring-cloud-circuitbreaker-demo-resilience4j-0.0.1.BUILD-SNAPSHOT.jar \
     -s ${service_name} -g ${resource_group}
-az spring-cloud app deploy -n reactive-resilience4j \
+az spring app deploy -n reactive-resilience4j \
     --jar-path ./spring-cloud-circuitbreaker-demo-reactive-resilience4j/target/spring-cloud-circuitbreaker-demo-reactive-resilience4j-0.0.1.BUILD-SNAPSHOT.jar \
     -s ${service_name} -g ${resource_group}
 ```
@@ -95,7 +104,7 @@ az spring-cloud app deploy -n reactive-resilience4j \
 
 ## Locate Resilence4j Metrics from Portal
 
-1. Select the **Application Insights** Blade from Azure Spring Cloud portal, and select **Application Insights**.
+1. Select the **Application Insights** Blade from Azure Spring Apps portal, and select **Application Insights**.
 
    [ ![resilience4J 0](media/spring-cloud-resilience4j/resilience4J-0.png)](media/spring-cloud-resilience4j/resilience4J-0.PNG)
 

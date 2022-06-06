@@ -8,7 +8,7 @@ ms.custom: mode-other
 
 # Quickstart: Invite users to Azure Video Indexer
 
-To collaborate with your colleagues, you can invite them to your Azure Video Indexer (formerly Azure Video Analyzer for Media) account. 
+To collaborate with your colleagues, you can invite them to your Azure Video Indexer account. 
 
 > [!NOTE]
 > Only the account’s admin can add or remove users.</br>

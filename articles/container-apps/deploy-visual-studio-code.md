@@ -120,7 +120,7 @@ Now that you have a container app environment in Azure you can create a containe
 
 9) Choose **External** to configure the HTTP traffic that the endpoint will accept.
 
-10) Enter a value of 3000 for the port, and then select **Enter** to complete the workflow. This value should be set to the port number that your container uses, which in the case of the sample app is 3000.
+10) Enter a value of 3500 for the port, and then select **Enter** to complete the workflow. This value should be set to the port number that your container uses, which in the case of the sample app is 3500.
 
 During this process, Visual Studio Code and Azure create the container app for you.  The published Docker image you created earlier is also be deployed to the app.  Once this process finishes, Visual Studio Code displays a notification with a link to browse to the site.  Click this link, and to view your app in the browser. 
 

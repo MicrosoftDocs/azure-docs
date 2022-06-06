@@ -28,7 +28,7 @@ The two available connectivity modes are:
 
   * Direct mode
 
-    Direct mode supports connectivity through TCP protocol and offers better performance because there are fewer network hops. The application connects directly to the backend replicas. Direct mode is currently only supported on .NET and Java SDK platforms.
+    Direct mode supports connectivity through TCP protocol, using TLS for initial authentication and encrypting traffic, and offers better performance because there are fewer network hops. The application connects directly to the backend replicas. Direct mode is currently only supported on .NET and Java SDK platforms.
      
 :::image type="content" source="./media/performance-tips/connection-policy.png" alt-text="The Azure Cosmos DB connectivity modes" border="false":::
 
@@ -43,7 +43,7 @@ The following table shows a summary of the connectivity modes available for vari
 |Connection mode  |Supported protocol  |Supported SDKs  |API/Service port  |
 |---------|---------|---------|---------|
 |Gateway  |   HTTPS    |  All SDKs    |   SQL (443), MongoDB (10250, 10255, 10256), Table (443), Cassandra (10350), Graph (443) <br> The port 10250 maps to a default Azure Cosmos DB API for MongoDB instance without geo-replication. Whereas the ports 10255 and 10256 map to the instance that has geo-replication.   |
-|Direct    |     TCP    |  .NET SDK Java SDK    | When using public/service endpoints: ports in the 10000 through 20000 range<br>When using private endpoints: ports in the 0 through 65535 range |
+|Direct    |     TCP (Encrypted via TLS)    |  .NET SDK Java SDK    | When using public/service endpoints: ports in the 10000 through 20000 range<br>When using private endpoints: ports in the 0 through 65535 range |
 
 ## <a id="direct-mode"></a> Direct mode connection architecture
 

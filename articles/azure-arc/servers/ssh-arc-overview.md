@@ -25,8 +25,8 @@ SSH access to Arc-enabled servers provides the following key benefits:
 ## Prerequisites
 To leverage this functionality, please ensure the following: 
  - Ensure the Arc-enabled server has a hybrid agent version of "1.13.21320.014" or higher.
-  - Run: ```azcmagent show``` on your Arc-enabled Server.
- - Ensure the Arc-enabled server has the "sshd" service enabled.
+ - Run: ```azcmagent show``` on your Arc-enabled Server.
+ - [Ensure the Arc-enabled server has the "sshd" service enabled](/windows-server/administration/openssh/openssh_install_firstuse).
  - Ensure you have the Virtual Machine Local User Login role assigned (role ID: 602da2baa5c241dab01d5360126ab525)
 
 ### Availability
@@ -106,4 +106,4 @@ To add access to SSH connections, run the following:
 > If you are using a non-default port for your SSH connection, replace port 22 with your desired port in the previous command.
 
 ## Examples
-To view examples of using the ```az ssh vm``` command, view the az CLI documentation page for [az ssh](/cli/azure/ssh).
+To view examples of using the ```az ssh arc``` command, view the az CLI documentation page for [az ssh](/cli/azure/ssh).

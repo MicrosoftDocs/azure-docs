@@ -3,7 +3,7 @@ title: Understand how Application Provisioning in Azure Active Directory
 description: Understand how Application Provisioning works in Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: karenhoran
+manager: rkarlin
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual

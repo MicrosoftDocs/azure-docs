@@ -2,7 +2,7 @@
 title: Best practices for templates
 description: Describes recommended approaches for authoring Azure Resource Manager templates (ARM templates). Offers suggestions to avoid common problems when using templates.
 ms.topic: conceptual
-ms.date: 04/23/2021
+ms.date: 05/26/2022
 ---
 # ARM template best practices
 
@@ -10,13 +10,13 @@ This article shows you how to use recommended practices when constructing your A
 
 ## Template limits
 
-Limit the size of your template to 4 MB. The 4-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. The parameter file is also limited to 4 MB. You may get an error with a template or parameter file of less than 4 MB, if the total size of the request is too large. For more information about how to simplify your template to avoid a large request, see [Resolve errors for job size exceeded](error-job-size-exceeded.md).
+Limit the size of your template to 4 MB. The 4-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. The parameter file is also limited to 4 MB. You may get an error with a template or parameter file of less than 4 MB if the total size of the request is too large. For more information about how to simplify your template to avoid a large request, see [Resolve errors for job size exceeded](error-job-size-exceeded.md).
 
 You're also limited to:
 
 * 256 parameters
 * 256 variables
-* 800 resources (including copy count)
+* 800 resources (including [copy count](copy-resources.md))
 * 64 output values
 * 24,576 characters in a template expression
 
@@ -164,7 +164,7 @@ When deciding what [dependencies](./resource-dependency.md) to set, use the foll
 
 * Set a child resource as dependent on its parent resource.
 
-* Resources with the [condition element](conditional-resource-deployment.md) set to false are automatically removed from the dependency order. Set the dependencies as if the resource is always deployed.
+* Resources with the [condition element](conditional-resource-deployment.md) set to `false` are automatically removed from the dependency order. Set the dependencies as if the resource is always deployed.
 
 * Let dependencies cascade without setting them explicitly. For example, your virtual machine depends on a virtual network interface, and the virtual network interface depends on a virtual network and public IP addresses. Therefore, the virtual machine is deployed after all three resources, but don't explicitly set the virtual machine as dependent on all three resources. This approach clarifies the dependency order and makes it easier to change the template later.
 
@@ -222,15 +222,14 @@ The following information can be helpful when you work with [resources](./syntax
     }
     ```
 
-* Assign public IP addresses to a virtual machine only when an application requires it. To connect to a virtual machine (VM) for debugging, or for management or administrative purposes, use inbound NAT rules, a virtual network gateway, or a jumpbox.
+* Assign public IP addresses to a virtual machine only when an application requires it. To connect to a virtual machine for administrative purposes, use inbound NAT rules, a virtual network gateway, or a jumpbox.
 
      For more information about connecting to virtual machines, see:
 
-   * [Run VMs for an N-tier architecture in Azure](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
-   * [Set up WinRM access for VMs in Azure Resource Manager](../../virtual-machines/windows/winrm.md)
-   * [Allow external access to your VM by using the Azure portal](../../virtual-machines/windows/nsg-quickstart-portal.md)
-   * [Allow external access to your VM by using PowerShell](../../virtual-machines/windows/nsg-quickstart-powershell.md)
-   * [Allow external access to your Linux VM by using Azure CLI](../../virtual-machines/linux/nsg-quickstart.md)
+   * [What is Azure Bastion?](../../bastion/bastion-overview.md)
+   * [How to connect and sign on to an Azure virtual machine running Windows](../../virtual-machines/windows/connect-logon.md)
+   * [Setting up WinRM access for Virtual Machines in Azure Resource Manager](../../virtual-machines/windows/winrm.md)
+   * [Connect to a Linux VM](../../virtual-machines/linux-vm-connect.md)
 
 * The `domainNameLabel` property for public IP addresses must be unique. The `domainNameLabel` value must be between 3 and 63 characters long, and follow the rules specified by this regular expression: `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. Because the `uniqueString` function generates a string that is 13 characters long, the `dnsPrefixString` parameter is limited to 50 characters.
 
