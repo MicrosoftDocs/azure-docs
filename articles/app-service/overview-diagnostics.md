@@ -10,7 +10,7 @@ ms.custom: seodec18
 ---
 # Azure App Service diagnostics overview
 
-When you’re running a web application, you want to be prepared for any issues that may arise, from 500 errors to your users telling you that your site is down. App Service diagnostics is an intelligent and interactive experience to help you troubleshoot your app with no configuration required. When you do run into issues with your app, App Service diagnostics points out what’s wrong to guide you to the right information to more easily and quickly troubleshoot and resolve the issue.
+When you’re running a web application, you want to be prepared for any issues that may arise, from 500 errors to your users telling you that your site is down. App Service diagnostics is an intelligent and interactive experience to help you troubleshoot your app with no configuration required. If you do run into issues with your app, App Service diagnostics points out what’s wrong to guide you to the right information to more easily and quickly troubleshoot and resolve the issue.
 
 Although this experience is most helpful when you’re having issues with your app within the last 24 hours, all the diagnostic graphs are always available for you to analyze.
 
@@ -30,38 +30,78 @@ In the App Service diagnostics homepage, you can choose the category that best d
 > If your app is down or performing slow, you can [collect a profiling trace](https://azure.github.io/AppService/2018/06/06/App-Service-Diagnostics-Profiling-an-ASP.NET-Web-App-on-Azure-App-Service.html) to identify the root cause of the issue. Profiling is light weight and is designed for production scenarios.
 >
 
-## Interactive interface
+## Diagnostic Interface
 
-Once you select a homepage category that best aligns with your app's problem, App Service diagnostics' interactive interface, Genie, can guide you through diagnosing and solving problem with your app. You can use the tile shortcuts provided by Genie to view the full diagnostic report of the problem category that you are interested. The tile shortcuts provide you a direct way of accessing your diagnostic metrics.
+The homepage for App Service diagnostics offers streamlined diagnostics access using four sections:
 
-![Tile shortcuts](./media/app-service-diagnostics/tile-shortcuts-2.png)
+- Ask Genie search box
+- Risk Alerts
+- Troubleshooting categories
+- Popular troubleshooting tools
 
-After clicking on these tiles, you can see a list of topics related to the issue described in the tile. These topics provide snippets of notable information from the full report. You can click on any of these topics to investigate the issues further. Also, you can click on **View Full Report** to explore all the topics on a single page.
+## Ask Genie search box
 
-![Topics](./media/app-service-diagnostics/application-logs-insights-3.png)
+The Genie search box is a quick way to find a diagnostic. The same diagnostic can be found through Troubleshooting categories.
 
-![View Full Report](./media/app-service-diagnostics/view-full-report-4.png)
+![Genie Search ](./media/app-service-diagnostics/app-service-diagnostics-genie-alerts-search-1.png)
+
+
+## Risk Alerts
+
+The App Service diagnostics homepage performs a series of configuration checks and offers recommendations based on your unique application's configuration.
+
+![Risk Alerts](./media/app-service-diagnostics/app-service-diagnostics-risk-alerts-1.png)
+
+Recommendations and checks performed can be reviewed by clicking "View more details" link.
+
+![RiskAlertsDetails](./media/app-service-diagnostics/app-service-diagnostics-risk-alerts-details-1.png)
+
+## Troubleshooting categories
+
+Troubleshooting categories group diagnostics for ease of discovery. The following are available:
+
+- Availability and Performance
+- Configuration and Management
+- SSL and Domains
+- Risk Assessments
+- Navigator (Preview)
+- Diagnostic Tools
+
+
+![Diagnostic troubleshooting list](./media/app-service-diagnostics/app-service-diagnostics-troubleshooting-categories-1.png)
+
+
+The tiles or the Troubleshoot link show the available diagnostics for the category. If you were interested in investigating Availability and performance the following diagnostics are offered:
+
+- Overview
+- Web App Down
+- Web App Slow
+- High CPU Analysis
+- Memory Analysis
+- Web App Restarted
+- Application Change (Preview)
+- Application Crashes
+- HTTP 4xx Errors
+- SNAT Failed Connection Endpoints
+- SWAP Effects on Availability
+- TCP Connections
+- Testing in Production
+- WebJob Details
+
+
+![Availability and Performance list](./media/app-service-diagnostics/app-service-diagnostics-availability-and-performance-1.png)
 
 ## Diagnostic report
 
-After you choose to investigate the issue further by clicking on a topic, you can view more details about the topic often supplemented with graphs and markdowns. Diagnostic report can be a powerful tool for pinpointing the problem with your app.
+After you choose to investigate the issue further by clicking on a topic, you can view more details about the topic often supplemented with graphs and markdowns. Diagnostic report can be a powerful tool for pinpointing the problem with your app. The following is the Overview for Availability and Performance:
 
 ![Diagnostic report](./media/app-service-diagnostics/full-diagnostic-report-5.png)
 
-## Health checkup
+## Resiliency Score
 
-If you don't know what’s wrong with your app or don’t know where to start troubleshooting your issues, the health checkup is a good place to start. The health checkup analyzes your applications to give you a quick, interactive overview that points out what’s healthy and what’s wrong, telling you where to look to investigate the issue. Its intelligent and interactive interface provides you with guidance through the troubleshooting process. Health checkup is integrated with the Genie experience for Windows apps and web app down diagnostic report for Linux apps.
+If you don't know what’s wrong with your app or don’t know where to start troubleshooting your issues, the Get Resiliency Score report is a good place to start. Once a Troubleshooting category has been selected the Get Resilience Score report link is available and clicking it produces a PDF document with actionable insights.
 
-### Health checkup graphs
-
-There are four different graphs in the health checkup.
-
-- **requests and errors:** A graph that shows the number of requests made over the last 24 hours along with HTTP server errors.
-- **app performance:** A graph that shows response time over the last 24 hours for various percentile groups.
-- **CPU usage:** A graph that shows the overall percent CPU usage per instance over the last 24 hours.  
-- **memory usage:** A graph that shows the overall percent physical memory usage per instance over the last 24 hours.
-
-![Health checkup](./media/app-service-diagnostics/health-checkup-6.png)
+![Resiliency Score report](./media/app-service-diagnostics/app-service-diagnostics-resiliency-report-1.png)
 
 ### Investigate application code issues (only for Windows app)
 
@@ -71,7 +111,7 @@ Because many app issues are related to issues in your application code, App Serv
 
 To view Application Insights exceptions and dependencies, select the **web app down** or **web app slow** tile shortcuts.
 
-### Troubleshooting steps (only for Windows app)
+### Troubleshooting steps
 
 If an issue is detected with a specific problem category within the last 24 hours, you can view the full diagnostic report, and App Service diagnostics may prompt you to view more troubleshooting advice and next steps for a more guided experience.
 
