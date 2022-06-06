@@ -15,6 +15,9 @@ ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecl
 
 # Secure an Azure Machine Learning inferencing environment with virtual networks
 
+[!INCLUDE [sdk v1](../../../includes/machine-learning-sdk-v1.md)]
+[!INCLUDE [cli v1](../../../includes/machine-learning-cli-v1.md)]
+
 In this article, you learn how to secure inferencing environments with a virtual network in Azure Machine Learning.
 
 > [!TIP]
