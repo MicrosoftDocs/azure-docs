@@ -68,6 +68,13 @@ The [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explor
 
 Data is available without restrictions. For more information and citation details, see the [gnomAD about page](https://gnomad.broadinstitute.org/about).
 
+## Use cases
+
+1. Data from gnomad can be used in aiding varinat interpretation including mitochondrial and strutural variations. However, careful evaluation is needed before assigning pathogenicity to a variant [1](https://onlinelibrary.wiley.com/doi/10.1002/humu.24309)
+2. PCA loadings and RF models can be used for population inference in your own dataset with [some caveats to consider](https://gnomad.broadinstitute.org/news/2021-09-using-the-gnomad-ancestry-principal-components-analysis-loadings-and-random-forest-classifier-on-your-dataset/#how-to-use-the-loadings-and-rf-model-on-your-own-dataset)
+3. Although at the time of collection, samples were not known for any disease phenotype, the subset controls/biobank data can be used as a control reference set.
+4.Individual level data from the samples from 1000 Genomes Project (n=2,435) and the Human Genome Diversity Project (n=780) are available without restrictions. This data from >60 distinct populations can serve as a reference panel for haplotype phasing and genotype imputation, or as a training set for ancestry inference.
+
 ## Contact
 
 For any questions or feedback about this dataset, contact the [gnomAD team](https://gnomad.broadinstitute.org/contact).
