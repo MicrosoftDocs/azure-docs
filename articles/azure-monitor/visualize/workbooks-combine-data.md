@@ -43,7 +43,7 @@ This provider supports [JSONPath](workbooks-jsonpath.md).
 ## Alerts (preview)
 
 > [!NOTE]
-> The suggested way to query for Azure Alert information is by using the [Azure Resource Graph](#azure-resource-graph) data source, by querying the `AlertsManagementResources` table.
+> The suggested way to query for Azure Alert information is by using the Azure Resource Graph data source, by querying the `AlertsManagementResources` table.
 >
 > See the [Azure Resource Graph table reference](../../governance/resource-graph/reference/supported-tables-resources.md), or the [Alerts template](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Azure%20Resources/Alerts/Alerts.workbook) for examples.
 >
