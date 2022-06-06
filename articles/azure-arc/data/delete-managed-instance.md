@@ -48,13 +48,13 @@ In this how-to guide, you'll find and then delete an Azure Arc-enabled SQL Manag
    1. **Directly connected mode**:
 
       ```azurecli
-      az sql mi-arc delete -n <instance_name> --resource-group <resource_group>
+      az sql mi-arc delete --name <instance_name> --resource-group <resource_group>
       ```
 
       Example output:
 
       ```azurecli
-      # az sql mi-arc delete -n demo-mi -g my-rg
+      # az sql mi-arc delete --name demo-mi --resource-group my-rg
       Deleted demo-mi from namespace arc
       ```
 
