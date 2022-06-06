@@ -1,3 +1,14 @@
+---
+title: Azure Workbooks multi value parameters.
+description: Learn about adding multi value parameters to your Azure workbook.
+services: azure-monitor
+author: AbbyMSFT
+ms.author: abbyweisberg
+ms.topic: conceptual
+ms.date: 05/30/2022
+ms.reviewer: gardnerjr
+---
+
 # Multi-value Parameters
 
 A multi-value parameter allows the user to set one or more arbitrary text values. Multi-value parameters are commonly used for filtering, oftentimes when a drop down control may contain too many values to be useful.
@@ -15,11 +26,11 @@ A multi-value parameter allows the user to set one or more arbitrary text values
 5. Choose 'Save' from the toolbar to create the parameter.
 6. The Filter parameter will be a multivalue parameter, initially with no values:
 
-   ![Image showing the creation of mulit-value param](../Images/Parameters-MultiValue-Create.png)
+   :::image type="content" source="media/workbooks-multi-value/workbooks-multi-value-create.png" alt-text="Image showing the creation of mulit-value parameter in workbooks.":::
 
 7. the user can then add multiple values:
 
-   ![Image showing the user adding a 3rd value](../Images/Parameters-MultiValue-ThirdValue.png)
+   :::image type="content" source="media/workbooks-multi-value/workbooks-multi-value-third-value.png" alt-text="Image showing the user adding a 3rd value in workbooks.":::
 
 
 A multi-value parameter behaves similarly to a multi-select [Drop Down](./DropDown.md) parameter. As such, it is commonly used in an "in" like scenario
@@ -36,11 +47,11 @@ A multi-value parameter behaves similarly to a multi-select [Drop Down](./DropDo
 Multi-value parameter supports following field style:
 1. Standard: Allows a user to add or remove arbitrary text items
 
-![Image showing standard multi-value field](../Images/StandardMultiValue.png)
+  :::image type="content" source="media/workbooks-multi-value/workbooks-multi-value-standard.png" alt-text="Image showing standard workbooks multi-value field.":::
 
 2. Password: Allows a user to add or remove arbitrary password fields. The password values are only hidden on UI when user types. The values are still fully accessible as a param value when referred and they are stored unencrypted when workbook is saved.
 
-![Image showing password multi-value field](../Images/PasswordMultivalue.png)
+  :::image type="content" source="media/workbooks-multi-value/workbooks-multi-value-password.png" alt-text="Image showing a workbooks password multi-value field.":::
 
 ## Creating a multi-value with initial values.
 You can use a query to seed the multi-value parameter with initial values. The user can then manually remove values, or add additional values. If a query is used to populate the multi-value parameter, a restore defaults button will appear on the parameter to restore back to the originally queried values.
@@ -63,8 +74,8 @@ You can use a query to seed the multi-value parameter with initial values. The u
 7. Choose 'Save' from the toolbar to create the parameter.
 8. The Filter parameter will be a multi-value parameter with 3 initial values
 
-   ![Image showing the creation of a dynamic drop down](../Images/Parameters-MultiValue-InitialValues.png)
+   :::image type="content" source="media/workbooks-multi-value/workbooks-multi-value-initial-values.png" alt-text="Image showing the creation of a dynamic drop down in workbooks.":::
+## Next Steps:
 
-See also:
-
-[Parameter Options](formatting.md)
+- [Workbook parameters](workbooks-parameters.md).
+- [Workbook drop down parameters](workbooks-dropdowns.md)
