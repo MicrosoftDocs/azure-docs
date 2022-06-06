@@ -49,7 +49,7 @@ First, create a Gremlin (Graph) database account for Azure Cosmos DB.
 
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource** from the left menu.
 
-   :::image type="content" source="media/create-graph-php/create-resource.png" alt-text="Screenshot of Create a resource in the Azure portal.":::   
+   :::image type="content" source="../includes/media/cosmos-db-create-dbaccount-graph/create-nosql-db-databases-json-tutorial-0.png" alt-text="Screenshot of Create a resource in the Azure portal.":::   
 
 1. On the **New** page, select **Databases** > **Azure Cosmos DB**.
 
@@ -112,7 +112,7 @@ Optionally, you can also configure the following settings on the **Create Azure 
    
 1. On the Azure Cosmos DB account page, select **Add Graph**.
 
-   :::image type="content" source="./media/cosmos-db-create-dbaccount-graph/azure-cosmos-db-add-graph.png" alt-text="Screenshot showing the Add Graph on the Azure Cosmos DB account page":::
+   :::image type="content" source="../includes/media/cosmos-db-create-dbaccount-graph/azure-cosmos-db-add-graph.png" alt-text="Screenshot showing the Add Graph on the Azure Cosmos DB account page":::
 
 1. Fill out the **New Graph** form. For this quickstart, use the following values:
 
