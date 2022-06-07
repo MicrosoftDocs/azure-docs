@@ -23,7 +23,7 @@ Yes, certain SMB-based applications require SMB Transparent Failover. SMB Transp
 * [FSLogix user profile containers](../virtual-desktop/create-fslogix-profile-container.md)
 * Microsoft SQL Server (not Linux SQL Server)
 
-## I am running IBM MQ on Azure NetApp Files. What precautions can I take to avoid disruptions due to storage service maintenance events despite using the NFS protocol?
+## I'm running IBM MQ on Azure NetApp Files. What precautions can I take to avoid disruptions due to storage service maintenance events despite using the NFS protocol?
 
 If you are running the [IBM MQ application in a shared files configuration](https://www.ibm.com/docs/en/ibm-mq/9.2?topic=multiplatforms-sharing-mq-files), where the IBM MQ data and logs are stored on an Azure NetApp Files volume, the following considerations are recommended to improve resilience during storage service maintenance events:
 
@@ -37,7 +37,7 @@ If you are running the [IBM MQ application in a shared files configuration](http
 
 The scale-out architecture would be comprised of multiple IBM MQ multi-instance pairs deployed behind an Azure Load Balancer. Applications configured to communicate with IBM MQ would then be configured to communicate with the IBM MQ instances via Azure Load Balancer. For support related to IBM MQ on shared NFS volumes, you should obtain vendor support at IBM.
 
-## I am running Apache ActiveMQ with LevelDB or KahaDB on Azure NetApp Files. What precautions can I take to avoid disruptions due to storage service maintenance events despite using the *NFS* protocol?
+## I'm running Apache ActiveMQ with LevelDB or KahaDB on Azure NetApp Files. What precautions can I take to avoid disruptions due to storage service maintenance events despite using the *NFS* protocol?
 
 >[!NOTE]
 > This section contains references to the terms *slave* and *master*, terms that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
@@ -48,7 +48,7 @@ ActiveMQ high availability (HA) models ensure that a broker instance is always o
 
 Because most problems with this HA solution stem from inaccurate OS-level file locking, the ActiveMQ community [introduced the concept of a pluggable storage locker](https://www.openlogic.com/blog/pluggable-storage-lockers-activemq) in version 5.7 of the broker. This approach allows a user to take advantage of a different means of the shared lock, using a row-level JDBC database lock as opposed to an OS-level filesystem lock. For support or consultancy on ActiveMQ HA architectures and deployments, you should [contact OpenLogic by Perforce](https://www.openlogic.com/contact-us).
 
-## I am running Apache ActiveMQ with LevelDB or KahaDB on Azure NetApp Files. What precautions can I take to avoid disruptions due to storage service maintenance events despites using the *SMB* protocol?
+## I'm running Apache ActiveMQ with LevelDB or KahaDB on Azure NetApp Files. What precautions can I take to avoid disruptions due to storage service maintenance events despites using the *SMB* protocol?
 
 The general industry recommendation is to [not run your KahaDB shared storage on CIFS/SMB](https://www.openlogic.com/blog/activemq-community-deprecates-leveldb-what-you-need-know). If you are having trouble maintaining accurate lock state, check out the JDBC Pluggable Storage Locker, which can provide a more reliable locking mechanism. For support or consultancy on ActiveMQ HA architectures and deployments, you should [contact OpenLogic by Perforce](https://www.openlogic.com/contact-us).
 
