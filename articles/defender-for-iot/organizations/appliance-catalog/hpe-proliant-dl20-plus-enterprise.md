@@ -40,7 +40,6 @@ The following image shows a sample of the HPE ProLiant DL20 back panel:
 | Quantity | PN| Description: high end |
 |--|--|--|
 |1| P06963-B21 | HPE DL20 Gen10 4SFF CTO Server |
-|1| P06963-B21 | HPE DL20 Gen10 4SFF CTO Server |
 |1| P17104-L21 | HPE DL20 Gen10 E-2234 FIO Kit |
 |2| 879507-B21 | HPE 16-GB 2Rx8 PC4-2666V-E STND Kit |
 |3| 655710-B21 | HPE 1-TB SATA 7.2 K SFF SC DS HDD |
