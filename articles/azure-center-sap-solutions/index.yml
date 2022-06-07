@@ -25,3 +25,5 @@ landingContent:
         links:
           - text: Create network infrastructure
             url: create-network.md
+          - text: Configure Virtual Instance for SAP
+            url: configure-virtual-instance.md
