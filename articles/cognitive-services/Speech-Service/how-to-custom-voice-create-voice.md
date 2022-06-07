@@ -221,7 +221,7 @@ If you want to rename the model you built, you can select **Clone model** to cre
 
 Enter the new name on the **Clone voice model** window, then click **Submit**. The text 'Neural' will be automatically added as a suffix to your new model name.
 
-:::image type="content" source="media/custom-voice/cnv-clone-model-rename.png" alt-text="This is a screenshot of cloning model with a new name.":::
+:::image type="content" source="media/custom-voice/cnv-clone-model-rename.png" alt-text="Screenshot of cloning a model with a new name.":::
 
 ### Test your voice model
 
