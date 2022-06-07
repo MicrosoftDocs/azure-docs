@@ -27,7 +27,8 @@ A user must have an Owner role on an Enrollment Account to create a subscription
 
 * The Enterprise Administrator of your enrollment can [make you an Account Owner](https://ea.azure.com/helpdocs/addNewAccount) (sign in required) which makes you an Owner of the Enrollment Account.
 * An existing Owner of the Enrollment Account can [grant you access](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put).
-* A user must have an Account Owner role in an enrollment account to create a subscription using PowerShell. The Enrollment Account information is only visible when the user's role is Account Owner. When a user has multiple roles, the API uses the user's least restrictive role.
+
+The Enrollment Account information is only visible when the user's role is Account Owner. When a user has multiple roles, the API uses the user's least restrictive role.
 
 To use a service principal (SPN) to create an EA subscription, an Owner of the Enrollment Account must [grant that service principal the ability to create subscriptions](/rest/api/billing/2019-10-01-preview/enrollmentaccountroleassignments/put). 
 
