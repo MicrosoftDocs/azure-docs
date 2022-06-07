@@ -104,17 +104,22 @@ Message recipients may revoke consent and opt-out of receiving future messages t
 
 Ensure that message recipients can opt-out of future messages at any time. You must also offer multiple opt-out options. After a message recipient opts-out, you should not send additional messages unless the individual provides renewed consent.
 
-For example one of the most common opt-out mechanisms in SMS applications is to include a “STOP” keyword in the initial message of every new conversation. Be prepared to remove customers that reply with a lowercase “stop” or other common keywords, such as “unsubscribe” or “cancel.” After an individual revokes consent, you should remove them from all recurring messaging campaigns unless they expressly elect to continue receiving messages from a particular program.
+One of the most common opt-out mechanisms in SMS applications is to include a “STOP” keyword in the initial message of every new conversation. Be prepared to remove customers that reply with a lowercase “stop” or other common keywords, such as “unsubscribe” or “cancel.”  
+
+For Email, it is to embed a link to unsubscribe in every email sent to the customer. If the customer clicks the unsubscribe link, you should be prepared to remove that customer email address(es) from your communication list.
+
+After an individual revokes consent, you should remove them from all recurring messaging campaigns unless they expressly elect to continue receiving messages from a particular program.
 
 ### Opt-out best practices:
 
 In addition to keywords, other common opt-out mechanisms include providing customers with a designated opt-out e-mail address, the phone number of customer support staff, or a link to unsubscribe embedded in email message you sent or available on your webpage. 
 
-### How we handle opt-out requests in SMS:
+### How we handle opt-out requests for SMS:
 
 If an individual requests to opt-out of future messages on an Azure Communication Services toll-free number, then all further traffic from that number will be automatically stopped. However, you must still ensure that you do not send additional messages for that messaging campaign from new or different numbers. If you have separately obtained express consent for a different messaging campaign, then you may continue to send messages from a different number for that campaign. Check out our FAQ section to learn more on [Opt-out handling](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/communication-services/concepts/sms/sms-faq.md#how-can-i-receive-messages-using-azure-communication-services)
 
-### How we handle opt-out requests in SMS:
+### How we handle opt-out requests for Email:
+
 If an individual requests to opt-out of future messages on an Azure Communication Services using the unsubscribe UI page to process the unsubscribe requests, you will have to add the requested recipient's email address to the suppression list that will be used to filter recipients during the send mail process. 
 
 ## Message content
