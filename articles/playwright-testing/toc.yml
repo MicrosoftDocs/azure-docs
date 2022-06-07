@@ -5,7 +5,7 @@
   items: 
     - name: What is Microsoft Playwright Testing?
       displayName: Playwright, MPT
-      href: overview-what-is-microsoft-playwright-testing
+      href: overview-what-is-microsoft-playwright-testing.md
 - name: Quickstarts
   expanded: true
   items: 
