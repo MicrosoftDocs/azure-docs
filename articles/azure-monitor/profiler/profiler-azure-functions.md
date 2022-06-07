@@ -1,7 +1,6 @@
 ---
 title: Profile Azure Functions app with Application Insights Profiler
 description: Enable Application Insights Profiler for Azure Functions app.
-ms.reviewer: brwoldey
 ms.contributor: charles.weininger
 ms.topic: conceptual
 ms.date: 05/03/2022
