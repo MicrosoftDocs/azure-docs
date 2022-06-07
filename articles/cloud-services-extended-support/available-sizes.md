@@ -10,6 +10,28 @@ ms.date: 10/13/2020
 ms.custom: 
 ---
 
+
+>[!IMPORTANT]
+> Microsoft Azure has introduced newer generations of high-performance computing (HPC), general purpose, and memory-optimized virtual machines (VMs). For this reason, we recommend that you migrate workloads from the original H-series and H-series Promo VMs to our newer offerings by August 31, 2022. Azure [HC](../virtual-machines/hc-series.md), [HBv2](../virtual-machines/hbv2-series.md), [HBv3](../virtual-machines/hbv3-series.md), [Dv4](../virtual-machines/dv4-dsv4-series.md), [Dav4](../virtual-machines/dav4-dasv4-series.md), [Ev4](../virtual-machines/ev4-esv4-series.md), and [Eav4](../virtual-machines/eav4-easv4-series.md) VMs have greater memory bandwidth, improved networking capabilities, and better cost and performance across various HPC workloads.
+ 
+ On August 31, 2022, we're retiring the following H-series Azure VM sizes:
+
+- H8
+- H8m
+- H16
+- H16r
+- H16m
+- H16mr
+- H8 Promo
+- H8m Promo
+- H16 Promo
+- H16r Promo
+- H16m Promo
+- H16mr Promo
+
+
+
+
 # Available sizes for Azure Cloud Services (extended support)
 
 This article describes the available virtual machine sizes for Cloud Services (extended support) instances.   
@@ -26,8 +48,10 @@ This article describes the available virtual machine sizes for Cloud Services (e
 |[G](../virtual-machines/sizes-previous-gen.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#g-series) | 180-240* |
 |[H](../virtual-machines/h-series.md) | 290 - 300* | 
 
+
 >[!NOTE]
 > ACUs marked with a * use Intel® Turbo technology to increase CPU frequency and provide a performance boost. The amount of the boost can vary based on the VM size, workload, and other workloads running on the same host.
+
 
 ## Configure sizes for Cloud Services (extended support)
 
