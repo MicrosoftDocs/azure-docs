@@ -578,7 +578,7 @@ Tags                   : {}
 
 ## Restart a host
 
-You can restart the entire host, meaning that it's not completely powered off. Because the host will be restarted, the underlying VMs will also be restarted. The host will remain on the same underlying physical hardware as it restarts and the host asset ID will remain the same.
+You can restart the entire host, meaning that the host's not **completely** powered off. Because the host will be restarted, the underlying VMs will also be restarted. The host will remain on the same underlying physical hardware as it restarts and both the host ID and asset ID will remain the same after the restart. The host SKU will also remain the same after the restart.
 
 ### [Portal](#tab/portal)
 1. Search for and select the host.
