@@ -89,16 +89,6 @@ You can customize your application with the Azure CLI by using the following ste
        --name <application-name>
    ```
 
-1. Optionally, set a suitable termination grace period using the following command:
-
-   ```azurecli
-   az spring app update \
-       --termination-seconds <number-of-seconds>
-       --resource-group <resource-group-name> \
-       --service <Azure-Spring-Cloud-instance-name> \
-       --name <application-name>
-   ```
-
 1. Optionally, disable any specific health probe using the following command:
 
  ```azurecli
