@@ -57,7 +57,7 @@ You can also check the pronunciation assessment result in JSON. The word-level, 
 
 Pronunciation Assessment evaluates three aspects of pronunciation: accuracy, fluency, and completeness. At the bottom of **Assessment result**, you can see **Pronunciation score**, **Accuracy score**, **Fluency score**, and **Completeness score**. The **Pronunciation score** is overall score indicating the pronunciation quality of the given speech. This overall score is aggregated from **Accuracy score**, **Fluency score**, and **Completeness score** with weight.
 
-:::image type="content" source="media/pronunciation-assessment/pa-display-score.png" alt-text="Screenshot of scores for a word and it's phonemes." lightbox="media/pronunciation-assessment/pa-score.png":::
+:::image type="content" source="media/pronunciation-assessment/pa-display-score.png" alt-text="Screenshot of overall assessment scores." lightbox="media/pronunciation-assessment/pa-score.png":::
 
 ### Scores within words
 
