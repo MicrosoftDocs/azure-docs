@@ -1,6 +1,5 @@
 ---
 title: How to call the Request Service REST API (preview)
-titleSuffix: Azure Active Directory Verifiable Credentials
 description: Learn how to issue and verify by using the Request Service REST API
 documentationCenter: ''
 author: barclayn

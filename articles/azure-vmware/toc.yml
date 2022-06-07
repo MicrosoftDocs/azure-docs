@@ -76,6 +76,8 @@
       href: attach-disk-pools-to-azure-vmware-solution-hosts.md
     - name: Manage and protect VMs on Azure NetApp Files
       items: 
+      - name: Attach Azure NetApp Files datastores to Azure VMware Solution hosts
+        href: attach-azure-netapp-files-to-azure-vmware-solution-hosts.md
       - name: Attach Azure NetApp Files to Azure VMware Solution VMs
         href: netapp-files-with-azure-vmware-solution.md
       - name: Install Cloud Backup for Virtual Machines

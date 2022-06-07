@@ -182,7 +182,7 @@ If you are creating or running an application which runs on Azure Key Vault, [Az
 Here are some common and recommended alert rules for Azure Key Vault -
 
 - Key Vault Availability drops below 100% (Static Threshold)
-- Key Vault Latency is greater than 500ms (Static Threshold)
+- Key Vault Latency is greater than 1000ms (Static Threshold)
 - Overall Vault Saturation is greater than 75% (Static Threshold)
 - Overall Vault Saturation exceeds average (Dynamic Threshold)
 - Total Error Codes higher than average (Dynamic Threshold)
