@@ -21,7 +21,7 @@ Two logical components of an IoT Edge device need to be updated if you want to m
 
 To find the latest version of Azure IoT Edge, see [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases).
 
-## Update the runtime module
+## Update the security subsystem
 
 The IoT Edge security subsystem includes a set of native components that need to be updated using the package manager on the IoT Edge device.
 
