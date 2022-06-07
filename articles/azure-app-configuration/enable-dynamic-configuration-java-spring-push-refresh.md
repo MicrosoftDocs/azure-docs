@@ -13,7 +13,7 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 05/24/2022
+ms.date: 05/07/2022
 ms.author: mametcal
 
 #Customer intent: I want to use push refresh to dynamically update my app to use the latest configuration data in App Configuration.
@@ -77,7 +77,7 @@ In this tutorial, you learn how to:
    # Azure App Configuration Properties
    spring.cloud.azure.appconfiguration.stores[0].connection-string= ${AppConfigurationConnectionString}
    spring.cloud.azure.appconfiguration.stores[0].monitoring.enabled= true
-   spring.cloud.azure.appconfiguration.stores[0].monitoring.cacheExpiration= 30d
+   spring.cloud.azure.appconfiguration.stores[0].monitoring.refresh-interval= 30d
    spring.cloud.azure.appconfiguration.stores[0].monitoring.triggers[0].key= sentinel
    spring.cloud.azure.appconfiguration.stores[0].monitoring.push-notification.primary-token.name= myToken
    spring.cloud.azure.appconfiguration.stores[0].monitoring.push-notification.primary-token.secret= myTokenSecret
