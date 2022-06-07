@@ -202,7 +202,7 @@ items:
         href: ingestion-client.md
     - name: Pronunciation Assessment
       items:
-        - name: Pronunciation Assessment tool
+        - name: Pronunciation Assessment in Speech Studio
           href: pronunciation-assessment-tool.md
         - name: How to use Pronunciation Assessment
           href: how-to-pronunciation-assessment.md

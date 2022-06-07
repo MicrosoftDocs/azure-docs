@@ -22,7 +22,7 @@ In this article, you'll learn how to use Pronunciation Assessment through the Sp
 > Pronunciation Assessment is not available with the Speech SDK for Go.
 ::: zone-end
 
-You can get Pronunciation Assessment accuracy scores for:
+You can get Pronunciation Assessment scores for:
 
 - Full text
 - Words
@@ -34,7 +34,7 @@ You can get Pronunciation Assessment accuracy scores for:
 
 ## Configuration parameters
 
-This table lists the configuration parameters for pronunciation assessment.
+This table lists some of the key configuration parameters for pronunciation assessment.
 
 | Parameter | Description | 
 |-----------|-------------|
@@ -42,6 +42,8 @@ This table lists the configuration parameters for pronunciation assessment.
 | `GradingSystem` | The point system for score calibration. The `FivePoint` system gives a 0-5 floating point score, and `HundredMark` gives a 0-100 floating point score. Default: `FivePoint`. | 
 | `Granularity` | The evaluation granularity. Accepted values are `Phoneme`, which shows the score on the full text, word and phoneme level, `Syllable`, which shows the score on the full text, word and syllable level, `Word`, which shows the score on the full text and word level, `FullText`, which shows the score on the full text level only. Default: `Phoneme`. | 
 | `EnableMiscue` | Enables miscue calculation when the pronounced words are compared to the reference text. If this value is `True`, the `ErrorType` result value can be set to `Omission` or `Insertion` based on the comparison. Accepted values are `False` and `True`. Default: `False`. | 
+
+You must create a `PronunciationAssessmentConfig` object with the reference text, grading system, and granularity. Enabling miscue and other configuration settings are optional. 
 
 ::: zone pivot="programming-language-csharp"
 
@@ -474,7 +476,7 @@ let pronunciationAssessmentResultJson = result.properties.getPropertyBy(Property
 
 ## Result parameters
 
-This table lists the result parameters of pronunciation assessment.
+This table lists some of the key pronunciation assessment results.
 
 | Parameter | Description |
 |-----------|-------------|
@@ -485,11 +487,11 @@ This table lists the result parameters of pronunciation assessment.
 | `ErrorType` | This value indicates whether a word is omitted, inserted, or mispronounced, compared to the `ReferenceText`. Possible values are `None`, `Omission`, `Insertion`, and `Mispronunciation`. |
 
 Pronunciation assessment results for the spoken word "hello" are shown as a JSON string in the following example. Here's what you should know:
-- The phoneme alphabet is IPA.
-- Syllables are returned alongside phonemes for the same word. 
+- The phoneme [alphabet](#phoneme-alphabet-format) is IPA.
+- The [syllables](#syllable-groups) are returned alongside phonemes for the same word. 
 - You can use the `Offset` and `Duration` values to align syllables with their corresponding phonemes. For example, the starting offset (11700000) of the second syllable ("loʊ") aligns with the third phoneme ("l").
-- There are five `NBestPhonemes` corresponding to the requested `NBestPhonemeCount`
-- Within `Phonemes`, the most likely spoken phoneme was `"ə"` instead of the expected phoneme `"ɛ"`. The expected phoneme `"ɛ"` only received a confidence score of 47. Other potential matches received confidence scores of 52, 17, and 2. 
+- There are five `NBestPhonemes` corresponding to the number of [spoken phonemes](#spoken-phoneme) requested.
+- Within `Phonemes`, the most likely [spoken phonemes](#spoken-phoneme) was `"ə"` instead of the expected phoneme `"ɛ"`. The expected phoneme `"ɛ"` only received a confidence score of 47. Other potential matches received confidence scores of 52, 17, and 2. 
 
 ```json
 {
@@ -670,5 +672,5 @@ Pronunciation assessment results for the spoken word "hello" are shown as a JSON
 
 ## Next steps
 
-- Try out [pronunciation assessment tool through Speech Studio](pronunciation-assessment-tool.md)
+- Try out [pronunciation assessment in Speech Studio](pronunciation-assessment-tool.md)
 - Try out the [pronunciation assessment demo](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/PronunciationAssessment/BrowserJS) and watch the [video tutorial](https://www.youtube.com/watch?v=zFlwm7N4Awc) of pronunciation assessment.
