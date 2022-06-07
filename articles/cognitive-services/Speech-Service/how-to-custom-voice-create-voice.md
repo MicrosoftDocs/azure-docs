@@ -217,7 +217,7 @@ The quality of the voice depends on many factors, such as:
 
 If you want to rename the model you built, you can select **Clone model** to create a clone of the model with a new name in the current project.
 
-:::image type="content" source="media/custom-voice/cnv-clone-model.png" alt-text="This is a screenshot of selecting the Clone model button.":::
+:::image type="content" source="media/custom-voice/cnv-clone-model.png" alt-text="Screenshot of selecting the Clone model button.":::
 
 Enter the new name on the **Clone voice model** window, then click **Submit**. The text 'Neural' will be automatically added as a suffix to your new model name.
 
